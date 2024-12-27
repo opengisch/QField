@@ -390,7 +390,7 @@ void QFieldCloudProjectsModel::refreshProjectFileOutdatedStatus( const QString &
       return;
     }
 
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
     reply->deleteLater();
 
     if ( rawReply->error() != QNetworkReply::NoError )
@@ -519,7 +519,7 @@ void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, con
     if ( !findProject( projectId ) )
       return;
 
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
 
     reply->deleteLater();
 
@@ -620,7 +620,7 @@ void QFieldCloudProjectsModel::projectStartJob( const QString &projectId, const 
       return;
     }
 
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
@@ -699,7 +699,7 @@ void QFieldCloudProjectsModel::projectGetJobStatus( const QString &projectId, co
       return;
     }
 
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
@@ -1005,7 +1005,7 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
       return;
     }
 
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
 
     reply->deleteLater();
 
@@ -1379,7 +1379,7 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
     emit dataChanged( projectIndex, projectIndex, QVector<int>() << UploadDeltaProgressRole );
   } );
   connect( deltasCloudReply, &NetworkReply::finished, this, [=]() {
-    QNetworkReply *deltasReply = deltasCloudReply->reply();
+    QNetworkReply *deltasReply = deltasCloudReply->currentRawReply();
     deltasCloudReply->deleteLater();
 
     Q_ASSERT( deltasCloudReply->isFinished() );
@@ -1561,7 +1561,7 @@ void QFieldCloudProjectsModel::refreshProjectDeltaList( const QString &projectId
   }
 
   connect( deltaStatusReply, &NetworkReply::finished, this, [=]() {
-    QNetworkReply *rawReply = deltaStatusReply->reply();
+    QNetworkReply *rawReply = deltaStatusReply->currentRawReply();
     deltaStatusReply->deleteLater();
 
     Q_ASSERT( deltaStatusReply->isFinished() );
@@ -1591,7 +1591,7 @@ void QFieldCloudProjectsModel::projectGetDeltaStatus( const QString &projectId )
 
   project->deltaFileUploadStatusString = QString();
   connect( deltaStatusReply, &NetworkReply::finished, this, [=]() {
-    QNetworkReply *rawReply = deltaStatusReply->reply();
+    QNetworkReply *rawReply = deltaStatusReply->currentRawReply();
     deltaStatusReply->deleteLater();
 
     Q_ASSERT( deltaStatusReply->isFinished() );
@@ -1688,7 +1688,7 @@ void QFieldCloudProjectsModel::layerObserverLayerEdited( const QString &layerId 
 void QFieldCloudProjectsModel::projectListReceived()
 {
   NetworkReply *reply = qobject_cast<NetworkReply *>( sender() );
-  QNetworkReply *rawReply = reply->reply();
+  QNetworkReply *rawReply = reply->currentRawReply();
 
   Q_ASSERT( rawReply );
 
@@ -1808,7 +1808,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
   } );
 
   connect( reply, &NetworkReply::downloadProgress, reply, [=]( int bytesReceived, int bytesTotal ) {
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
     if ( !rawReply )
     {
       return;
@@ -1872,7 +1872,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     }
 
     QVector<int> rolesChanged;
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
 
     Q_ASSERT( reply->isFinished() );
     Q_ASSERT( reply );

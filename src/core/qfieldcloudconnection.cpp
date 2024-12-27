@@ -164,7 +164,7 @@ void QFieldCloudConnection::login()
 
   // Handle login redirect as an error state
   connect( reply, &NetworkReply::redirected, this, [=]() {
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
     reply->deleteLater();
     rawReply->deleteLater();
 
@@ -175,7 +175,7 @@ void QFieldCloudConnection::login()
   } );
 
   connect( reply, &NetworkReply::finished, this, [=]() {
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
 
     Q_ASSERT( reply->isFinished() );
     Q_ASSERT( rawReply );
@@ -334,7 +334,7 @@ NetworkReply *QFieldCloudConnection::post( const QString &endpoint, const QVaria
   mPendingRequests++;
   setState( ConnectionState::Busy );
   connect( reply, &NetworkReply::finished, this, [=]() {
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
     if ( --mPendingRequests == 0 )
     {
       if ( rawReply->error() != QNetworkReply::NoError )
@@ -395,7 +395,7 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &
   mPendingRequests++;
   setState( ConnectionState::Busy );
   connect( reply, &NetworkReply::finished, this, [=]() {
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
     if ( --mPendingRequests == 0 )
     {
       if ( rawReply->error() != QNetworkReply::NoError )
@@ -602,7 +602,7 @@ void QFieldCloudConnection::processPendingAttachments()
     QString projectId = it.key();
     QString fileName = it.value();
     connect( attachmentCloudReply, &NetworkReply::finished, this, [=]() {
-      QNetworkReply *attachmentReply = attachmentCloudReply->reply();
+      QNetworkReply *attachmentReply = attachmentCloudReply->currentRawReply();
       attachmentCloudReply->deleteLater();
 
       Q_ASSERT( attachmentCloudReply->isFinished() );
