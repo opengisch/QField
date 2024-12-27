@@ -197,17 +197,23 @@ class PositioningSource : public QObject
     void setLogging( bool logging );
 
     /**
-     * Returns TRUE if the background mode is active.
+     * Returns TRUE if the background mode is active. When activated, position information details
+     * will not be signaled but instead saved to disk until deactivated.
+     * \see getBackgroundPositionInformation()
      */
     bool backgroundMode() const { return mBackgroundMode; }
 
     /**
-     * Sets whether the background mode is active.
+     * Sets whether the background mode is active. When activated, position information details
+     * will not be signaled but instead saved to disk until deactivated.
+     * \see getBackgroundPositionInformation()
      */
     void setBackgroundMode( bool backgroundMode );
 
     /**
-     * Returns a list of position information collected while background mode is turned on.
+     * Returns a list of position information collected while background mode is active.
+     * \see backgroundMode()
+     * \see setBackgroundMode()
      */
     Q_INVOKABLE QList<GnssPositionInformation> getBackgroundPositionInformation() const;
 
