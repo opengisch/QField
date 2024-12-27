@@ -12,47 +12,75 @@ Item {
   id: trackingSession
 
   property var tracker: model
+  property var currentPositionInformation: manualPositionInformation !== undefined ? manualPositionInformation : positionSource.positionInformation
+  property var currentProjectedPosition: manualProjectedPosition !== undefined ? manualProjectedPosition : positionSource.projectedPosition
+  property var manualPositionInformation: undefined
+  property var manualProjectedPosition: undefined
 
   Component.onCompleted: {
     tracker.rubberModel = rubberbandModel;
+  }
+
+  Connections {
+    target: positionSource
+
+    function onBackgroundModeChanged() {
+      if (!positionSource.backgroundMode) {
+        // Replay position information collected while in background mode
+        const positionInformationList = positionSource.getBackgroundPositionInformation();
+        for (const positionInformation of positionInformationList) {
+          manualPositionInformation = positionInformation;
+          manualProjectedPosition = positionSource.coordinateTransformer.transformPosition(GeometryUtils.point(positionInformation.longitude, positionInformation.latitude, positionInformation.elevation));
+        }
+      }
+    }
+
+    function onPositionInformationChanged() {
+      // We need to skip one position information change when returning from background mode
+      // to avoid queued signal interference
+      if (manualPositionInformation != undefined) {
+        manualPositionInformation = undefined;
+        manualProjectedPosition = undefined;
+      }
+    }
   }
 
   RubberbandModel {
     id: rubberbandModel
     frozen: false
     vectorLayer: tracker.vectorLayer
-    currentCoordinate: positionSource.projectedPosition
 
     property int measureType: tracker.measureType
     measureValue: {
       switch (measureType) {
       case Tracker.SecondsSinceStart:
-        return (positionSource.positionInformation.utcDateTime - tracker.startPositionTimestamp) / 1000;
+        return (trackingSession.currentPositionInformation.utcDateTime - tracker.startPositionTimestamp) / 1000;
       case Tracker.Timestamp:
-        return positionSource.positionInformation.utcDateTime.getTime();
+        return trackingSession.currentPositionInformation.utcDateTime.getTime();
       case Tracker.GroundSpeed:
-        return positionSource.positionInformation.speed;
+        return trackingSession.currentPositionInformation.speed;
       case Tracker.Bearing:
-        return positionSource.positionInformation.direction;
+        return trackingSession.currentPositionInformation.direction;
       case Tracker.HorizontalAccuracy:
-        return positionSource.positionInformation.hacc;
+        return trackingSession.currentPositionInformation.hacc;
       case Tracker.VerticalAccuracy:
-        return positionSource.positionInformation.vacc;
+        return trackingSession.currentPositionInformation.vacc;
       case Tracker.PDOP:
-        return positionSource.positionInformation.pdop;
+        return trackingSession.currentPositionInformation.pdop;
       case Tracker.HDOP:
-        return positionSource.positionInformation.hdop;
+        return trackingSession.currentPositionInformation.hdop;
       case Tracker.VDOP:
-        return positionSource.positionInformation.vdop;
+        return trackingSession.currentPositionInformation.vdop;
       }
       return 0;
     }
 
-    currentPositionTimestamp: positionSource.positionInformation.utcDateTime
+    currentCoordinate: trackingSession.currentProjectedPosition
+    currentPositionTimestamp: trackingSession.currentPositionInformation.utcDateTime
     crs: mapCanvas.mapSettings.destinationCrs
 
     onVertexCountChanged: {
-      if (!tracker.isActive || vertexCount == 0) {
+      if (!tracker.isActive || vertexCount === 0) {
         return;
       }
       if (geometryType === Qgis.GeometryType.Point) {
