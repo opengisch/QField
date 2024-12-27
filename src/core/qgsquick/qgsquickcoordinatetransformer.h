@@ -125,7 +125,7 @@ class QgsQuickCoordinateTransformer : public QObject
     //!\copydoc QgsQuickCoordinateTransformer::verticalGrid
     void setVerticalGrid( const QString &grid );
 
-    Q_INVOKABLE QgsPoint transformPosition( const QgsPoint &position );
+    Q_INVOKABLE QgsPoint transformPosition( const QgsPoint &position ) const;
 
   signals:
     //!\copydoc QgsQuickCoordinateTransformer::projectedPosition
@@ -156,7 +156,7 @@ class QgsQuickCoordinateTransformer : public QObject
 
   private:
     void updatePosition();
-    QgsPoint processPosition( const QgsPoint &position );
+    QgsPoint processPosition( const QgsPoint &position ) const;
 
     QgsPoint mProjectedPosition;
     QgsPoint mSourcePosition;
