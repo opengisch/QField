@@ -138,7 +138,7 @@ class Tracker : public QObject
     bool isReplaying() const { return mIsReplaying; }
 
     //! Starts tracking
-    void start();
+    void start( const GnssPositionInformation &positionInformation = GnssPositionInformation(), const QgsPoint &projectedPosition = QgsPoint() );
     //! Stops tracking
     void stop();
 
@@ -170,7 +170,6 @@ class Tracker : public QObject
 
   private slots:
     void positionReceived();
-    void timeReceived();
     void sensorDataReceived();
     void rubberbandModelVertexCountChanged();
 
@@ -183,7 +182,6 @@ class Tracker : public QObject
     RubberbandModel *mRubberbandModel = nullptr;
     FeatureModel *mFeatureModel = nullptr;
 
-    QTimer mTimer;
     double mTimeInterval = 0.0;
     double mMinimumDistance = 0.0;
     double mMaximumDistance = 0.0;
@@ -202,6 +200,8 @@ class Tracker : public QObject
     bool mVisible = true;
 
     QDateTime mStartPositionTimestamp;
+    QDateTime mLastDevicePositionTimestamp;
+    QDateTime mLastVertexPositionTimestamp;
 
     MeasureType mMeasureType = Tracker::SecondsSinceStart;
 };
