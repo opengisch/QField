@@ -341,6 +341,12 @@ ApplicationWindow {
     onDeviceLastErrorChanged: {
       displayToast(qsTr('Positioning device error: %1').arg(positionSource.deviceLastError), 'error');
     }
+
+    onBackgroundModeChanged: {
+      if (!backgroundMode) {
+        trackingModel.replayPositionInformationList(positionSource.getBackgroundPositionInformation(), coordinateTransformer);
+      }
+    }
   }
 
   PositioningSettings {

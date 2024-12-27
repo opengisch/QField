@@ -13,6 +13,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "featuremodel.h"
+#include "qgsquickcoordinatetransformer.h"
 #include "rubberbandmodel.h"
 #include "tracker.h"
 
@@ -28,17 +30,43 @@ Tracker::Tracker( QgsVectorLayer *layer )
 {
 }
 
-RubberbandModel *Tracker::model() const
+RubberbandModel *Tracker::rubberbandModel() const
 {
   return mRubberbandModel;
 }
 
-void Tracker::setModel( RubberbandModel *model )
+void Tracker::setRubberbandModel( RubberbandModel *rubberbandModel )
 {
-  if ( mRubberbandModel == model )
+  if ( mRubberbandModel == rubberbandModel )
     return;
 
-  mRubberbandModel = model;
+  if ( mRubberbandModel )
+  {
+    disconnect( mRubberbandModel, &RubberbandModel::vertexCountChanged, this, &Tracker::rubberbandModelVertexCountChanged );
+  }
+
+  mRubberbandModel = rubberbandModel;
+
+  if ( mRubberbandModel )
+  {
+    connect( mRubberbandModel, &RubberbandModel::vertexCountChanged, this, &Tracker::rubberbandModelVertexCountChanged );
+  }
+
+  emit rubberbandModelChanged();
+}
+
+FeatureModel *Tracker::featureModel() const
+{
+  return mFeatureModel;
+}
+
+void Tracker::setFeatureModel( FeatureModel *featureModel )
+{
+  if ( mFeatureModel == featureModel )
+    return;
+
+  mFeatureModel = featureModel;
+  emit featureModelChanged();
 }
 
 QgsFeature Tracker::feature() const
@@ -56,7 +84,7 @@ void Tracker::setFeature( const QgsFeature &feature )
 
 void Tracker::trackPosition()
 {
-  if ( !model() || std::isnan( model()->currentCoordinate().x() ) || std::isnan( model()->currentCoordinate().y() ) )
+  if ( !mRubberbandModel || std::isnan( mRubberbandModel->currentCoordinate().x() ) || std::isnan( mRubberbandModel->currentCoordinate().y() ) )
   {
     return;
   }
@@ -71,7 +99,7 @@ void Tracker::trackPosition()
   }
 
   mSkipPositionReceived = true;
-  model()->addVertex();
+  mRubberbandModel->addVertex();
 
   mMaximumDistanceFailuresCount = 0;
   mCurrentDistance = 0.0;
@@ -84,7 +112,7 @@ void Tracker::positionReceived()
 {
   if ( mSkipPositionReceived )
   {
-    // When calling model()->addVertex(), the signal we listen to for new position received is triggered, skip that one
+    // When calling mRubberbandModel->addVertex(), the signal we listen to for new position received is triggered, skip that one
     mSkipPositionReceived = false;
     return;
   }
@@ -181,7 +209,7 @@ void Tracker::start()
 
   if ( mMeasureType == Tracker::SecondsSinceStart )
   {
-    model()->setMeasureValue( 0 );
+    mRubberbandModel->setMeasureValue( 0 );
   }
 
   mSkipPositionReceived = false;
@@ -192,7 +220,7 @@ void Tracker::start()
   trackPosition();
 }
 
-void Tracker::stop()
+void Tracker::stop( bool resetRubberbandModel )
 {
   //track last position
   trackPosition();
@@ -212,5 +240,106 @@ void Tracker::stop()
   if ( mSensorCapture )
   {
     disconnect( QgsProject::instance()->sensorManager(), &QgsSensorManager::sensorDataCaptured, this, &Tracker::sensorDataReceived );
+  }
+
+  if ( resetRubberbandModel )
+  {
+    mRubberbandModel->reset();
+  }
+}
+
+void Tracker::processPositionInformation( const GnssPositionInformation &positionInformation, const QgsPoint &projectedPosition )
+{
+  if ( !mIsActive && !mReplaying )
+    return;
+
+  switch ( mMeasureType )
+  {
+    case Tracker::SecondsSinceStart:
+      mRubberbandModel->setMeasureValue( positionInformation.utcDateTime().toSecsSinceEpoch() - mStartPositionTimestamp.toSecsSinceEpoch() );
+      break;
+    case Tracker::Timestamp:
+      mRubberbandModel->setMeasureValue( positionInformation.utcDateTime().toSecsSinceEpoch() );
+      break;
+    case Tracker::GroundSpeed:
+      mRubberbandModel->setMeasureValue( positionInformation.speed() );
+      break;
+    case Tracker::Bearing:
+      mRubberbandModel->setMeasureValue( positionInformation.direction() );
+      break;
+    case Tracker::HorizontalAccuracy:
+      mRubberbandModel->setMeasureValue( positionInformation.hacc() );
+      break;
+    case Tracker::VerticalAccuracy:
+      mRubberbandModel->setMeasureValue( positionInformation.vacc() );
+      break;
+    case Tracker::PDOP:
+      mRubberbandModel->setMeasureValue( positionInformation.pdop() );
+      break;
+    case Tracker::HDOP:
+      mRubberbandModel->setMeasureValue( positionInformation.hdop() );
+      break;
+    case Tracker::VDOP:
+      mRubberbandModel->setMeasureValue( positionInformation.vdop() );
+      break;
+  }
+
+  mRubberbandModel->setCurrentCoordinate( projectedPosition );
+}
+
+void Tracker::replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer )
+{
+  bool wasActive = false;
+  if ( mIsActive )
+  {
+    wasActive = true;
+    stop( false );
+  }
+
+  mReplaying = true;
+  for ( const GnssPositionInformation &positionInformation : positionInformationList )
+  {
+    processPositionInformation( positionInformation,
+                                coordinateTransformer ? coordinateTransformer->transformPosition( QgsPoint( positionInformation.longitude(), positionInformation.latitude(), positionInformation.elevation() ) ) : QgsPoint() );
+    trackPosition();
+  }
+  mReplaying = false;
+
+  if ( wasActive )
+  {
+    start();
+  }
+}
+
+void Tracker::rubberbandModelVertexCountChanged()
+{
+  if ( ( !mIsActive && !mReplaying ) || mRubberbandModel->vertexCount() == 0 )
+    return;
+
+  const Qgis::GeometryType geometryType = mRubberbandModel->geometryType();
+  const int vertexCount = mRubberbandModel->vertexCount();
+  if ( geometryType == Qgis::GeometryType::Point )
+  {
+    mFeatureModel->applyGeometry();
+    mFeatureModel->resetFeatureId();
+    mFeatureModel->resetAttributes( true );
+    mFeatureModel->create();
+  }
+  else
+  {
+    if ( ( geometryType == Qgis::GeometryType::Line && vertexCount > 2 ) || ( geometryType == Qgis::GeometryType::Polygon && vertexCount > 3 ) )
+    {
+      mFeatureModel->applyGeometry();
+      if ( ( geometryType == Qgis::GeometryType::Line && vertexCount == 3 ) || ( geometryType == Qgis::GeometryType::Polygon && vertexCount == 4 ) )
+      {
+        mFeatureModel->create();
+        mFeature = mFeatureModel->feature();
+        emit featureCreated();
+      }
+      else
+      {
+        mFeatureModel->save();
+      }
+    }
   }
 }
