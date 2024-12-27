@@ -16,11 +16,15 @@
 #ifndef TRACKER_H
 #define TRACKER_H
 
-#include "qgsvectorlayer.h"
+#include "gnsspositioninformation.h"
 
 #include <QPointer>
 #include <QTimer>
+#include <qgspoint.h>
+#include <qgsvectorlayer.h>
 
+class FeatureModel;
+class QgsQuickCoordinateTransformer;
 class RubberbandModel;
 
 /**
@@ -29,6 +33,10 @@ class RubberbandModel;
 class Tracker : public QObject
 {
     Q_OBJECT
+
+    Q_PROPERTY( bool isActive READ isActive NOTIFY isActiveChanged )
+    Q_PROPERTY( RubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
+    Q_PROPERTY( FeatureModel *featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
 
     Q_PROPERTY( QDateTime startPositionTimestamp READ startPositionTimestamp WRITE setStartPositionTimestamp NOTIFY startPositionTimestampChanged )
 
@@ -49,8 +57,11 @@ class Tracker : public QObject
 
     explicit Tracker( QgsVectorLayer *layer );
 
-    RubberbandModel *model() const;
-    void setModel( RubberbandModel *model );
+    RubberbandModel *rubberbandModel() const;
+    void setRubberbandModel( RubberbandModel *rubberbandModel );
+
+    FeatureModel *featureModel() const;
+    void setFeatureModel( FeatureModel *featureModel );
 
     //! Returns the minimum time interval constraint between each tracked point
     double timeInterval() const { return mTimeInterval; }
@@ -106,23 +117,33 @@ class Tracker : public QObject
     bool isActive() const { return mIsActive; }
 
     void start();
-    void stop();
+    void stop( bool resetRubberbandModel = true );
+
+    Q_INVOKABLE void processPositionInformation( const GnssPositionInformation &positionInformation, const QgsPoint &projectedPosition );
+    void replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer = nullptr );
 
   signals:
-    void startPositionTimestampChanged();
     void isActiveChanged();
+    void rubberbandModelChanged();
+    void featureModelChanged();
+    void featureCreated();
+
+    void startPositionTimestampChanged();
 
   private slots:
     void positionReceived();
     void timeReceived();
     void sensorDataReceived();
+    void rubberbandModelVertexCountChanged();
 
   private:
     void trackPosition();
 
     bool mIsActive = false;
+    bool mReplaying = false;
 
     RubberbandModel *mRubberbandModel = nullptr;
+    FeatureModel *mFeatureModel = nullptr;
 
     QTimer mTimer;
     double mTimeInterval = 0.0;
