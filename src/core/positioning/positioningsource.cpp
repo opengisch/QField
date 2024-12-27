@@ -152,9 +152,11 @@ void PositioningSource::setBackgroundMode( bool backgroundMode )
 
   if ( mBackgroundMode )
   {
-    QFile file( QStringLiteral( "%1.information" ).arg( backgroundFilePath ) );
-    file.open( QFile::Truncate );
-    file.close();
+    if ( QFile::exists( QStringLiteral( "%1.information" ).arg( backgroundFilePath ) ) )
+    {
+      // Remove previously collected position information
+      QFile::remove( QStringLiteral( "%1.information" ).arg( backgroundFilePath ) );
+    }
   }
 
   emit backgroundModeChanged();
