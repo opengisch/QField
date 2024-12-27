@@ -1,9 +1,9 @@
 /***************************************************************************
-  qFieldcloudservice.h - QFieldCloudService
+  qFieldpositioningservice.h - QFieldPositioningService
 
  ---------------------
- begin                : 04.12.2022
- copyright            : (C) 2022 by Mathieu Pellerin
+ begin                : 21.12.2024
+ copyright            : (C) 2024 by Mathieu Pellerin
  email                : mathieu at opengis dot ch
  ***************************************************************************
  *                                                                         *
@@ -13,21 +13,36 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef QFIELDCLOUDSERVICE_H
-#define QFIELDCLOUDSERVICE_H
+#ifndef QFIELDPOSITIONINGSERVICE_H
+#define QFIELDPOSITIONINGSERVICE_H
 
+#include "positioningsource.h"
 #include "qfield_service_export.h"
 
+#include <QRemoteObjectHost>
+#include <QTimer>
 #include <QtCore/private/qandroidextras_p.h>
 #include <QtGlobal>
 
-class QFIELD_SERVICE_EXPORT QFieldCloudService : public QAndroidService
+class PositioningSource;
+
+class QFIELD_SERVICE_EXPORT QFieldPositioningService : public QAndroidService
 {
     Q_OBJECT
 
   public:
-    QFieldCloudService( int &argc, char **argv );
-    ~QFieldCloudService() override;
+    QFieldPositioningService( int &argc, char **argv );
+    ~QFieldPositioningService() override;
+
+  private slots:
+    void triggerShowNotification();
+    void triggerCloseNotification();
+
+  private:
+    PositioningSource *mPositioningSource = nullptr;
+    QRemoteObjectHost mHost;
+
+    QTimer mNotificationTimer;
 };
 
-#endif // QFIELDCLOUDSERVICE_H
+#endif // QFIELDPOSITIONINGSERVICE_H

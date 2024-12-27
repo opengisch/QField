@@ -519,6 +519,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
   qmlRegisterUncreatableType<Tracker>( "org.qfield", 1, 0, "Tracker", "" );
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
+  qRegisterMetaType<GnssPositionDetails>( "GnssPositionDetails" );
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
 
   qmlRegisterType<ProcessingAlgorithm>( "org.qfield", 1, 0, "ProcessingAlgorithm" );
@@ -1452,6 +1453,8 @@ void QgisMobileapp::saveProjectPreviewImage()
 
 QgisMobileapp::~QgisMobileapp()
 {
+  PlatformUtilities::instance()->stopPositioningService();
+
   saveProjectPreviewImage();
 
   mPluginManager->unloadPlugins();

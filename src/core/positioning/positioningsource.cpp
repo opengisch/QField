@@ -27,6 +27,9 @@
 #include "tcpreceiver.h"
 #include "udpreceiver.h"
 
+#include <QStandardPaths>
+
+QString PositioningSource::backgroundFilePath = QStringLiteral( "%1/positioning.background" ).arg( QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) );
 
 PositioningSource::PositioningSource( QObject *parent )
   : QObject( parent )
@@ -53,7 +56,10 @@ void PositioningSource::setActive( bool active )
     {
       setupDevice();
     }
-    mReceiver->connectDevice();
+    else
+    {
+      mReceiver->connectDevice();
+    }
     if ( !QSensor::sensorsForType( QCompass::sensorType ).isEmpty() )
     {
       mCompass.setActive( true );
@@ -135,6 +141,16 @@ void PositioningSource::setLogging( bool logging )
   }
 
   emit loggingChanged();
+}
+
+void PositioningSource::setBackgroundMode( bool backgroundMode )
+{
+  if ( mBackgroundMode == backgroundMode )
+    return;
+
+  mBackgroundMode = backgroundMode;
+
+  emit backgroundModeChanged();
 }
 
 void PositioningSource::setElevationCorrectionMode( ElevationCorrectionMode elevationCorrectionMode )
@@ -274,10 +290,13 @@ void PositioningSource::lastGnssPositionInformationChanged( const GnssPositionIn
     mPositionInformation = positionInformation;
   }
 
-  emit positionInformationChanged();
-  if ( mAveragedPosition )
+  if ( !mBackgroundMode )
   {
-    emit averagedPositionCountChanged();
+    emit positionInformationChanged();
+    if ( mAveragedPosition )
+    {
+      emit averagedPositionCountChanged();
+    }
   }
 }
 
@@ -295,7 +314,10 @@ void PositioningSource::processCompassReading()
     if ( mOrientation != orientation )
     {
       mOrientation = orientation;
-      emit orientationChanged();
+      if ( !mBackgroundMode )
+      {
+        emit orientationChanged();
+      }
     }
   }
 }

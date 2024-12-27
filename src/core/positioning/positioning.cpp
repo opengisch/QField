@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "platformutilities.h"
 #include "positioning.h"
 #include "positioningutils.h"
 #include "tcpreceiver.h"
@@ -22,6 +23,10 @@
 #include "serialportreceiver.h"
 #endif
 
+#include <QFile>
+#include <QGuiApplication>
+#include <QPermissions>
+#include <QRemoteObjectPendingCall>
 #include <QScreen>
 #include <qgsapplication.h>
 #include <qgsunittypes.h>
@@ -29,12 +34,34 @@
 Positioning::Positioning( QObject *parent )
   : QObject( parent )
 {
-  // Non-service path, we are both the host and the node
-  mPositioningSource = new PositioningSource( this );
-  mHost.setHostUrl( QUrl( QStringLiteral( "local:replica" ) ) );
-  mHost.enableRemoting( mPositioningSource, "PositioningSource" );
+  if ( QFile::exists( PositioningSource::backgroundFilePath ) )
+  {
+    QFile::remove( PositioningSource::backgroundFilePath );
+  }
 
-  mNode.connectToNode( QUrl( QStringLiteral( "local:replica" ) ) );
+  connect( QgsApplication::instance(), &QGuiApplication::applicationStateChanged, this, &Positioning::onApplicationStateChanged );
+}
+
+void Positioning::setupSource()
+{
+  bool positioningService = false;
+
+#if defined( Q_OS_ANDROID )
+  PlatformUtilities::instance()->startPositioningService();
+  mNode.connectToNode( QUrl( QStringLiteral( "localabstract:replica" ) ) );
+  positioningService = true;
+#endif
+
+  //cppcheck-suppress knownConditionTrueFalse
+  if ( !positioningService )
+  {
+    // Non-service path, we are both the host and the node
+    mPositioningSource = new PositioningSource( this );
+    mHost.setHostUrl( QUrl( QStringLiteral( "local:replica" ) ) );
+    mHost.enableRemoting( mPositioningSource, "PositioningSource" );
+    mNode.connectToNode( QUrl( QStringLiteral( "local:replica" ) ) );
+  }
+
   mPositioningSourceReplica.reset( mNode.acquireDynamic( "PositioningSource" ) );
   mPositioningSourceReplica->waitForSource();
 
@@ -50,12 +77,17 @@ Positioning::Positioning( QObject *parent )
   connect( mPositioningSourceReplica.data(), SIGNAL( antennaHeightChanged() ), this, SIGNAL( antennaHeightChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( orientationChanged() ), this, SIGNAL( orientationChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( loggingChanged() ), this, SIGNAL( loggingChanged() ) );
+
   connect( mPositioningSourceReplica.data(), SIGNAL( positionInformationChanged() ), this, SLOT( processGnssPositionInformation() ) );
 
   connect( this, SIGNAL( triggerConnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerConnectDevice() ) );
   connect( this, SIGNAL( triggerDisconnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerDisconnectDevice() ) );
 
-  connect( QgsApplication::instance(), &QGuiApplication::applicationStateChanged, this, &Positioning::onApplicationStateChanged );
+  const QList<QString> properties = mPropertiesToSync.keys();
+  for ( const QString &property : properties )
+  {
+    mPositioningSourceReplica->setProperty( property.toLatin1(), mPropertiesToSync[property] );
+  }
 }
 
 void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
@@ -63,20 +95,36 @@ void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
 #ifdef Q_OS_ANDROID
   // Google Play policy only allows for background access if it's explicitly stated and justified
   // Not stopping on Activity::onPause is detected as violation
-  const bool isActive = active();
-  switch ( state )
+  if ( !mPositioningSourceReplica )
+    return;
+
+  if ( !mPositioningSource )
   {
-    case Qt::ApplicationState::ApplicationActive:
-      if ( isActive )
+    // Service path
+    setBackgroundMode( state != Qt::ApplicationState::ApplicationActive );
+  }
+  else
+  {
+    // Non-service path
+    const bool isActive = active();
+    if ( isActive )
+    {
+      switch ( state )
       {
-        emit triggerConnectDevice();
+        case Qt::ApplicationState::ApplicationActive:
+          if ( isActive )
+          {
+            emit triggerConnectDevice();
+          }
+          break;
+
+        default:
+          if ( isActive )
+          {
+            emit triggerDisconnectDevice();
+          }
       }
-      break;
-    default:
-      if ( isActive )
-      {
-        emit triggerDisconnectDevice();
-      }
+    }
   }
 #else
   Q_UNUSED( state )
@@ -85,63 +133,164 @@ void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
 
 bool Positioning::active() const
 {
-  return mPositioningSourceReplica->property( "active" ).toBool();
+  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "active" ).toBool() : false;
 }
 
 void Positioning::setActive( bool active )
 {
-  mPositioningSourceReplica->setProperty( "active", active );
+  const QString devId = deviceId();
+  if ( devId.isEmpty() )
+  {
+    // Handle internal receiver permission
+    if ( !mInternalPermissionChecked )
+    {
+      QLocationPermission locationPermission;
+      locationPermission.setAccuracy( QLocationPermission::Precise );
+      Qt::PermissionStatus permissionStatus = qApp->checkPermission( locationPermission );
+
+      if ( permissionStatus == Qt::PermissionStatus::Undetermined )
+      {
+        qApp->requestPermission( locationPermission, this, [=]( const QPermission &permission ) {
+          if ( permission.status() == Qt::PermissionStatus::Granted )
+          {
+            mInternalPermissionChecked = true;
+            setActive( true );
+          }
+          else
+          {
+            setValid( false );
+          }
+        } );
+        return;
+      }
+      else if ( permissionStatus == Qt::PermissionStatus::Denied )
+      {
+        setValid( false );
+        return;
+      }
+      mInternalPermissionChecked = true;
+    }
+  }
+  else
+  {
+    // Handle external receiver permission
+    if (
+      !devId.startsWith( TcpReceiver::identifier + ":" )
+      && !devId.startsWith( UdpReceiver::identifier + ":" )
+#ifdef WITH_SERIALPORT
+      && !devId.startsWith( SerialPortReceiver::identifier + ":" )
+#endif
+    )
+    {
+      if ( !mBluetoothPermissionChecked )
+      {
+        QBluetoothPermission bluetoothPermission;
+        bluetoothPermission.setCommunicationModes( QBluetoothPermission::Access );
+        Qt::PermissionStatus permissionStatus = qApp->checkPermission( bluetoothPermission );
+        if ( permissionStatus == Qt::PermissionStatus::Undetermined )
+        {
+          qApp->requestPermission( bluetoothPermission, this, [=]( const QPermission &permission ) {
+            if ( permission.status() == Qt::PermissionStatus::Granted )
+            {
+              mBluetoothPermissionChecked = true;
+              setActive( true );
+            }
+            else
+            {
+              setValid( false );
+            }
+          } );
+          return;
+        }
+        else if ( permissionStatus == Qt::PermissionStatus::Denied )
+        {
+          setValid( false );
+          return;
+        }
+        mBluetoothPermissionChecked = true;
+      }
+    }
+  }
+
+  if ( !mPositioningSourceReplica )
+  {
+    setupSource();
+  }
+
+  if ( mPositioningSourceReplica->property( "active" ).toBool() != active )
+  {
+    mPositioningSourceReplica->setProperty( "active", active );
+  }
+  else
+  {
+    emit activeChanged();
+  }
 }
 
 bool Positioning::valid() const
 {
-  return mPositioningSourceReplica->property( "valid" ).toBool();
+  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "valid" ).toBool() : mValid;
 }
 
 void Positioning::setValid( bool valid )
 {
-  mPositioningSourceReplica->setProperty( "valid", valid );
+  if ( mPositioningSourceReplica )
+  {
+    mPositioningSourceReplica->setProperty( "valid", valid );
+  }
+  else
+  {
+    mValid = valid;
+    emit validChanged();
+  }
 }
 
 QString Positioning::deviceId() const
 {
-  return mPositioningSourceReplica->property( "deviceId" ).toString();
+  return ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "deviceId" ) : mPropertiesToSync.value( "deviceId" ) ).toString();
 }
 
 void Positioning::setDeviceId( const QString &id )
 {
-  mPositioningSourceReplica->setProperty( "deviceId", id );
+  if ( mPositioningSourceReplica )
+  {
+    mPositioningSourceReplica->setProperty( "deviceId", id );
+  }
+  else
+  {
+    mPropertiesToSync["deviceId"] = id;
+    emit deviceIdChanged();
+  }
 }
 
-QList<QPair<QString, QVariant>> Positioning::deviceDetails() const
+GnssPositionDetails Positioning::deviceDetails() const
 {
-  const QVariantList list = mPositioningSourceReplica->property( "deviceDetails" ).toList();
-  QList<QPair<QString, QVariant>> details;
-  for ( const QVariant &item : list )
+  GnssPositionDetails list;
+  if ( mPositioningSourceReplica )
   {
-    details << item.value<QPair<QString, QVariant>>();
+    list = mPositioningSourceReplica->property( "deviceDetails" ).value<GnssPositionDetails>();
   }
-  return details;
+  return list;
 }
 
 QString Positioning::deviceLastError() const
 {
-  return mPositioningSourceReplica->property( "deviceLastError" ).toString();
+  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "deviceLastError" ).toString() : QString();
 }
 
 QAbstractSocket::SocketState Positioning::deviceSocketState() const
 {
-  return mPositioningSourceReplica->property( "deviceSocketState" ).value<QAbstractSocket::SocketState>();
+  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "deviceSocketState" ).value<QAbstractSocket::SocketState>() : QAbstractSocket::UnconnectedState;
 }
 
 QString Positioning::deviceSocketStateString() const
 {
-  return mPositioningSourceReplica->property( "deviceSocketStateString" ).toString();
+  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "deviceSocketStateString" ).toString() : QString();
 }
 
 AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities() const
 {
-  const QString deviceId = mPositioningSourceReplica->property( "deviceId" ).toString();
+  const QString deviceId = ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "deviceId" ) : mPropertiesToSync.value( "deviceId" ) ).toString();
   if ( !deviceId.isEmpty() || deviceId.startsWith( TcpReceiver::identifier + ":" ) || deviceId.startsWith( UdpReceiver::identifier + ":" ) )
   {
     // NMEA-based devices
@@ -160,47 +309,114 @@ AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities() const
 
 int Positioning::averagedPositionCount() const
 {
-  return mPositioningSourceReplica->property( "averagedPositionCount" ).toInt();
+  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "averagedPositionCount" ).toInt() : 0;
 }
 
 bool Positioning::averagedPosition() const
 {
-  return mPositioningSourceReplica->property( "averagedPosition" ).toBool();
+  return ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "averagedPosition" ) : mPropertiesToSync.value( "averagedPosition", false ) ).toBool();
 }
 
 void Positioning::setAveragedPosition( bool averaged )
 {
-  mPositioningSourceReplica->setProperty( "averagedPosition", averaged );
+  if ( mPositioningSourceReplica )
+  {
+    mPositioningSourceReplica->setProperty( "averagedPosition", averaged );
+  }
+  else
+  {
+    mPropertiesToSync["averagedPosition"] = averaged;
+    emit averagedPositionChanged();
+  }
 }
 
 bool Positioning::logging() const
 {
-  return mPositioningSourceReplica->property( "logging" ).toBool();
+  return ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "logging" ) : mPropertiesToSync.value( "logging", false ) ).toBool();
 }
 
 void Positioning::setLogging( bool logging )
 {
-  mPositioningSourceReplica->setProperty( "logging", logging );
+  if ( mPositioningSourceReplica )
+  {
+    mPositioningSourceReplica->setProperty( "logging", logging );
+  }
+  else
+  {
+    mPropertiesToSync["logging"] = logging;
+    emit loggingChanged();
+  }
+}
+
+bool Positioning::backgroundMode() const
+{
+  return mBackgroundMode;
+}
+
+void Positioning::setBackgroundMode( bool backgroundMode )
+{
+  if ( mBackgroundMode == backgroundMode )
+    return;
+
+  mBackgroundMode = backgroundMode;
+
+  QFile backgroundFile( PositioningSource::backgroundFilePath );
+  if ( mBackgroundMode )
+  {
+    backgroundFile.open( QFile::WriteOnly );
+    backgroundFile.close();
+  }
+  else
+  {
+    if ( backgroundFile.exists() )
+    {
+      backgroundFile.remove();
+    }
+  }
+
+  if ( mPositioningSourceReplica )
+  {
+    // Note that on Android, the property will not be set if the application is suspended _until_ it has become active again
+    mPositioningSourceReplica->setProperty( "backgroundMode", backgroundMode );
+  }
+
+  emit backgroundModeChanged();
 }
 
 PositioningSource::ElevationCorrectionMode Positioning::elevationCorrectionMode() const
 {
-  return static_cast<PositioningSource::ElevationCorrectionMode>( mPositioningSourceReplica->property( "elevationCorrectionMode" ).toInt() );
+  return static_cast<PositioningSource::ElevationCorrectionMode>( ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "elevationCorrectionMode" ) : mPropertiesToSync.value( "elevationCorrectionMode", static_cast<int>( PositioningSource::ElevationCorrectionMode::None ) ) ).toInt() );
 }
 
 void Positioning::setElevationCorrectionMode( PositioningSource::ElevationCorrectionMode elevationCorrectionMode )
 {
-  mPositioningSourceReplica->setProperty( "elevationCorrectionMode", static_cast<int>( elevationCorrectionMode ) );
+  if ( mPositioningSourceReplica )
+  {
+    mPositioningSourceReplica->setProperty( "elevationCorrectionMode", static_cast<int>( elevationCorrectionMode ) );
+  }
+  else
+  {
+    mPropertiesToSync["elevationCorrectionMode"] = static_cast<int>( elevationCorrectionMode );
+    emit elevationCorrectionModeChanged();
+  }
 }
 
 double Positioning::antennaHeight() const
 {
-  return mPositioningSourceReplica->property( "antennaHeight" ).toDouble();
+  return ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "antennaHeight" ) : mPropertiesToSync.value( "antennaHeight", 0.0 ) ).toDouble();
 }
 
 void Positioning::setAntennaHeight( double antennaHeight )
 {
-  mPositioningSourceReplica->setProperty( "antennaHeight", antennaHeight );
+  if ( mPositioningSourceReplica )
+  {
+    mPositioningSourceReplica->setProperty( "antennaHeight", antennaHeight );
+  }
+  else
+  {
+    mPropertiesToSync["antennaHeight"] = antennaHeight;
+    emit antennaHeightChanged();
+  }
 }
 
 GnssPositionInformation Positioning::positionInformation() const
@@ -210,7 +426,7 @@ GnssPositionInformation Positioning::positionInformation() const
 
 double Positioning::orientation() const
 {
-  return adjustOrientation( mPositioningSourceReplica->property( "orientation" ).toDouble() );
+  return mPositioningSourceReplica ? adjustOrientation( mPositioningSourceReplica->property( "orientation" ).toDouble() ) : std::numeric_limits<double>::quiet_NaN();
 }
 
 double Positioning::adjustOrientation( double orientation ) const

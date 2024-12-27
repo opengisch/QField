@@ -1,0 +1,15 @@
+diff --git a/src/plugins/position/android/src/jnipositioning.cpp b/src/plugins/position/android/src/jnipositioning.cpp
+index 2b2919f..bc42c2e 100644
+--- a/src/plugins/position/android/src/jnipositioning.cpp
++++ b/src/plugins/position/android/src/jnipositioning.cpp
+@@ -589,10 +589,6 @@ namespace AndroidPositioning {
+     {
+         QLocationPermission permission;
+ 
+-        // The needed permission depends on whether we run as a service or as an activity
+-        if (!QNativeInterface::QAndroidApplication::isActivityContext())
+-            permission.setAvailability(QLocationPermission::Always); // background location
+-
+         bool permitted = false;
+         if (accuracy & AccuracyType::Precise) {
+             permission.setAccuracy(QLocationPermission::Precise);
