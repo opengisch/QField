@@ -132,7 +132,7 @@ public class QFieldPositioningService extends QtService {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             notificationChannel = new NotificationChannel(
                 CHANNEL_ID, "QField", NotificationManager.IMPORTANCE_DEFAULT);
-            notificationChannel.setDescription("QField positioning");
+            notificationChannel.setDescription("QField Positioning");
             notificationChannel.setImportance(
                 NotificationManager.IMPORTANCE_LOW);
             notificationChannel.enableLights(false);
@@ -145,8 +145,8 @@ public class QFieldPositioningService extends QtService {
                 .setSmallIcon(R.drawable.qfield_logo)
                 .setWhen(System.currentTimeMillis())
                 .setOngoing(true)
-                .setContentTitle("QField")
-                .setContentText("Positioning service running");
+                .setContentTitle(getString(R.string.positioning_title))
+                .setContentText(getString(R.string.positioning_running));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             builder.setChannelId(CHANNEL_ID);
@@ -171,13 +171,14 @@ public class QFieldPositioningService extends QtService {
             this, 0, new Intent(this, QFieldActivity.class),
             PendingIntent.FLAG_MUTABLE);
 
-        Notification.Builder builder = new Notification.Builder(this)
-                                           .setSmallIcon(R.drawable.qfield_logo)
-                                           .setWhen(System.currentTimeMillis())
-                                           .setOngoing(true)
-                                           .setContentTitle("QField")
-                                           .setContentText(contentText)
-                                           .setContentIntent(contentIntent);
+        Notification.Builder builder =
+            new Notification.Builder(this)
+                .setSmallIcon(R.drawable.qfield_logo)
+                .setWhen(System.currentTimeMillis())
+                .setOngoing(true)
+                .setContentTitle(getString(R.string.positioning_title))
+                .setContentText(contentText)
+                .setContentIntent(contentIntent);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             builder.setChannelId(CHANNEL_ID);
@@ -189,7 +190,8 @@ public class QFieldPositioningService extends QtService {
             copyIntent.putExtra("content", contentText);
             PendingIntent copyPendingIntent = PendingIntent.getService(
                 this, 0, copyIntent, PendingIntent.FLAG_MUTABLE);
-            builder.addAction(0, "Copy to clipboard", copyPendingIntent);
+            builder.addAction(0, getString(R.string.copy_to_clipboard),
+                              copyPendingIntent);
         }
 
         Notification notification = builder.build();
