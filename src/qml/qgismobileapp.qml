@@ -1907,16 +1907,6 @@ ApplicationWindow {
 
         anchors.right: parent.right
 
-        onIconSourceChanged: {
-          if (state === "On") {
-            if (positionSource.positionInformation && positionSource.positionInformation.latitudeValid) {
-              displayToast(qsTr("Received position"));
-            } else {
-              displayToast(qsTr("Searching for position"));
-            }
-          }
-        }
-
         /*
         / When set to true, the map will follow the device's current position; the map
         / will stop following the position whe the user manually drag the map.
