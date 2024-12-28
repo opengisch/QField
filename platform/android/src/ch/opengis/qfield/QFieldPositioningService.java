@@ -34,6 +34,7 @@ package ch.opengis.qfield;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ServiceInfo;
@@ -155,12 +156,16 @@ public class QFieldPositioningService extends QtService {
     }
 
     public void showNotification(String contentText) {
+        PendingIntent contentIntent = PendingIntent.getActivity(
+            this, 0, new Intent(this, QFieldActivity.class),
+            PendingIntent.FLAG_MUTABLE);
         Notification.Builder builder = new Notification.Builder(this)
                                            .setSmallIcon(R.drawable.qfield_logo)
                                            .setWhen(System.currentTimeMillis())
                                            .setOngoing(true)
                                            .setContentTitle("QField")
-                                           .setContentText(contentText);
+                                           .setContentText(contentText)
+                                           .setContentIntent(contentIntent);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             builder.setChannelId(CHANNEL_ID);
