@@ -356,7 +356,8 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   mIsReplaying = true;
   emit isReplayingChanged();
 
-  mFeatureModel->setBatchMode( true );
+  const Qgis::GeometryType geometryType = mRubberbandModel->geometryType();
+  mFeatureModel->setBatchMode( geometryType == Qgis::GeometryType::Point );
   connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   for ( const GnssPositionInformation &positionInformation : positionInformationList )
   {
@@ -366,7 +367,6 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   disconnect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   mFeatureModel->setBatchMode( false );
 
-  const Qgis::GeometryType geometryType = mRubberbandModel->geometryType();
   const int vertexCount = mRubberbandModel->vertexCount();
   if ( ( geometryType == Qgis::GeometryType::Line && vertexCount > 2 ) || ( geometryType == Qgis::GeometryType::Polygon && vertexCount > 3 ) )
   {
