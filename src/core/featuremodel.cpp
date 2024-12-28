@@ -886,7 +886,7 @@ bool FeatureModel::create()
               QgsFeature childFeature;
               while ( it.nextFeature( childFeature ) )
               {
-                for ( const QgsRelation::FieldPair fieldPair : fieldPairs )
+                for ( const QgsRelation::FieldPair &fieldPair : fieldPairs )
                 {
                   childFeature.setAttribute( fieldPair.referencingField(), feat.attribute( fieldPair.referencedField() ) );
                 }
