@@ -39,11 +39,12 @@ ApplicationWindow {
   id: mainWindow
   objectName: 'mainWindow'
   visible: true
-  flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0) | (Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint : 0)
+  flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | (sceneBorderless ? Qt.FramelessWindowHint : 0) | (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0) | (Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint : 0)
 
   Material.theme: Theme.darkTheme ? "Dark" : "Light"
   Material.accent: Theme.mainColor
 
+  property bool sceneBorderless: false
   property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
   property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]
 
@@ -134,6 +135,10 @@ ApplicationWindow {
               mainWindow.showMaximized();
             }
           }
+        }
+      } else if (event.key === Qt.Key_F12) {
+        if (Qt.platform.os !== "android" && Qt.platform.os !== "ios") {
+          mainWindow.sceneBorderless = !mainWindow.sceneBorderless;
         }
       }
     }
@@ -4266,6 +4271,40 @@ ApplicationWindow {
     function blockGuides() {
       mapCanvasTour.blockGuide();
       settings.setValue("/QField/showMapCanvasGuide", false);
+    }
+  }
+
+  Rectangle {
+    anchors.top: parent.top
+    anchors.left: parent.left
+
+    width: 14
+    height: 14
+    color: "transparent"
+
+    MouseArea {
+      enabled: mainWindow.sceneBorderless
+      anchors.fill: parent
+      onPressed: mouse => {
+        mainWindow.startSystemMove();
+      }
+    }
+  }
+
+  Rectangle {
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+
+    width: 14
+    height: 14
+    color: "transparent"
+
+    MouseArea {
+      enabled: mainWindow.sceneBorderless
+      anchors.fill: parent
+      onPressed: mouse => {
+        mainWindow.startSystemResize(Qt.RightEdge | Qt.BottomEdge);
+      }
     }
   }
 }
