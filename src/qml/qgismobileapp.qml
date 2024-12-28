@@ -342,7 +342,9 @@ ApplicationWindow {
 
     onBackgroundModeChanged: {
       if (!backgroundMode) {
+        mapCanvasMap.freeze('trackerreplay');
         trackingModel.replayPositionInformationList(positionSource.getBackgroundPositionInformation(), coordinateTransformer);
+        mapCanvasMap.unfreeze('trackerreplay');
       }
     }
   }
