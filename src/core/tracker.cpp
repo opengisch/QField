@@ -356,6 +356,7 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   mIsReplaying = true;
   emit isReplayingChanged();
 
+  mFeatureModel->setBatchMode( true );
   connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   for ( const GnssPositionInformation &positionInformation : positionInformationList )
   {
@@ -363,6 +364,7 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
                                 coordinateTransformer ? coordinateTransformer->transformPosition( QgsPoint( positionInformation.longitude(), positionInformation.latitude(), positionInformation.elevation() ) ) : QgsPoint() );
   }
   disconnect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
+  mFeatureModel->setBatchMode( false );
 
   const Qgis::GeometryType geometryType = mRubberbandModel->geometryType();
   const int vertexCount = mRubberbandModel->vertexCount();
