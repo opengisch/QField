@@ -94,7 +94,7 @@ public class QFieldPositioningService extends QtService {
 
         if (getInstance() != null) {
             Log.v("QFieldPositioningService",
-                  "service already running, aborting.");
+                  "service already running, aborting onCreate.");
             stopSelf();
             return;
         }
@@ -105,6 +105,7 @@ public class QFieldPositioningService extends QtService {
         Log.v("QFieldPositioningService", "onDestroy triggered");
         notificationManager.cancel(NOTIFICATION_ID);
         super.onDestroy();
+        instance = null;
     }
 
     @Override
@@ -120,7 +121,8 @@ public class QFieldPositioningService extends QtService {
 
         int ret = super.onStartCommand(intent, flags, startId);
         if (instance != null) {
-            stopSelf();
+            Log.v("QFieldPositioningService",
+                  "service already running, aborting onStartCommand.");
             return START_NOT_STICKY;
         }
 
