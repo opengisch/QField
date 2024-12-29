@@ -344,8 +344,11 @@ ApplicationWindow {
 
     onBackgroundModeChanged: {
       if (!backgroundMode) {
+        console.log('qqq onBackgroundModeChanged');
         mapCanvasMap.freeze('trackerreplay');
-        trackingModel.replayPositionInformationList(positionSource.getBackgroundPositionInformation(), coordinateTransformer);
+        const list = positionSource.getBackgroundPositionInformation();
+        console.log('qqq collected positions  ' + list.length);
+        trackingModel.replayPositionInformationList(list, coordinateTransformer);
         mapCanvasMap.unfreeze('trackerreplay');
       }
     }

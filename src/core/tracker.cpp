@@ -346,6 +346,7 @@ void Tracker::processPositionInformation( const GnssPositionInformation &positio
 
 void Tracker::replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer )
 {
+  qDebug() << "ttt replayPositionInformationList with count " << positionInformationList.size();
   bool wasActive = false;
   if ( mIsActive )
   {
