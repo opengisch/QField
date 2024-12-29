@@ -91,6 +91,11 @@ void Positioning::setupSource()
   connect( this, SIGNAL( triggerDisconnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerDisconnectDevice() ) );
 }
 
+bool Positioning::isSourceAvailable() const
+{
+  return mPositioningSourceReplica && mPositioningSourceReplica->isInitialized();
+}
+
 void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
 {
 #ifdef Q_OS_ANDROID
@@ -102,7 +107,10 @@ void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
   if ( !mPositioningSource )
   {
     // Service path
-    setBackgroundMode( state != Qt::ApplicationState::ApplicationActive );
+    if ( mPositioningSourceReplica )
+    {
+      setBackgroundMode( state != Qt::ApplicationState::ApplicationActive );
+    }
   }
   else
   {
@@ -134,7 +142,7 @@ void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
 
 bool Positioning::active() const
 {
-  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "active" ).toBool() : false;
+  return isSourceAvailable() ? mPositioningSourceReplica->property( "active" ).toBool() : false;
 }
 
 void Positioning::setActive( bool active )
@@ -230,12 +238,12 @@ void Positioning::setActive( bool active )
 
 bool Positioning::valid() const
 {
-  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "valid" ).toBool() : mValid;
+  return isSourceAvailable() ? mPositioningSourceReplica->property( "valid" ).toBool() : mValid;
 }
 
 void Positioning::setValid( bool valid )
 {
-  if ( mPositioningSourceReplica )
+  if ( isSourceAvailable() )
   {
     mPositioningSourceReplica->setProperty( "valid", valid );
   }
@@ -248,12 +256,12 @@ void Positioning::setValid( bool valid )
 
 QString Positioning::deviceId() const
 {
-  return ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "deviceId" ) : mPropertiesToSync.value( "deviceId" ) ).toString();
+  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "deviceId" ) : mPropertiesToSync.value( "deviceId" ) ).toString();
 }
 
 void Positioning::setDeviceId( const QString &id )
 {
-  if ( mPositioningSourceReplica )
+  if ( isSourceAvailable() )
   {
     mPositioningSourceReplica->setProperty( "deviceId", id );
   }
@@ -267,7 +275,7 @@ void Positioning::setDeviceId( const QString &id )
 GnssPositionDetails Positioning::deviceDetails() const
 {
   GnssPositionDetails list;
-  if ( mPositioningSourceReplica )
+  if ( isSourceAvailable() )
   {
     list = mPositioningSourceReplica->property( "deviceDetails" ).value<GnssPositionDetails>();
   }
@@ -276,22 +284,22 @@ GnssPositionDetails Positioning::deviceDetails() const
 
 QString Positioning::deviceLastError() const
 {
-  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "deviceLastError" ).toString() : QString();
+  return isSourceAvailable() ? mPositioningSourceReplica->property( "deviceLastError" ).toString() : QString();
 }
 
 QAbstractSocket::SocketState Positioning::deviceSocketState() const
 {
-  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "deviceSocketState" ).value<QAbstractSocket::SocketState>() : QAbstractSocket::UnconnectedState;
+  return isSourceAvailable() ? mPositioningSourceReplica->property( "deviceSocketState" ).value<QAbstractSocket::SocketState>() : QAbstractSocket::UnconnectedState;
 }
 
 QString Positioning::deviceSocketStateString() const
 {
-  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "deviceSocketStateString" ).toString() : QString();
+  return isSourceAvailable() ? mPositioningSourceReplica->property( "deviceSocketStateString" ).toString() : QString();
 }
 
 AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities() const
 {
-  const QString deviceId = ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "deviceId" ) : mPropertiesToSync.value( "deviceId" ) ).toString();
+  const QString deviceId = ( isSourceAvailable() ? mPositioningSourceReplica->property( "deviceId" ) : mPropertiesToSync.value( "deviceId" ) ).toString();
   if ( !deviceId.isEmpty() || deviceId.startsWith( TcpReceiver::identifier + ":" ) || deviceId.startsWith( UdpReceiver::identifier + ":" ) )
   {
     // NMEA-based devices
@@ -310,17 +318,17 @@ AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities() const
 
 int Positioning::averagedPositionCount() const
 {
-  return mPositioningSourceReplica ? mPositioningSourceReplica->property( "averagedPositionCount" ).toInt() : 0;
+  return isSourceAvailable() ? mPositioningSourceReplica->property( "averagedPositionCount" ).toInt() : 0;
 }
 
 bool Positioning::averagedPosition() const
 {
-  return ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "averagedPosition" ) : mPropertiesToSync.value( "averagedPosition", false ) ).toBool();
+  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "averagedPosition" ) : mPropertiesToSync.value( "averagedPosition", false ) ).toBool();
 }
 
 void Positioning::setAveragedPosition( bool averaged )
 {
-  if ( mPositioningSourceReplica )
+  if ( isSourceAvailable() )
   {
     mPositioningSourceReplica->setProperty( "averagedPosition", averaged );
   }
@@ -333,12 +341,12 @@ void Positioning::setAveragedPosition( bool averaged )
 
 bool Positioning::logging() const
 {
-  return ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "logging" ) : mPropertiesToSync.value( "logging", false ) ).toBool();
+  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "logging" ) : mPropertiesToSync.value( "logging", false ) ).toBool();
 }
 
 void Positioning::setLogging( bool logging )
 {
-  if ( mPositioningSourceReplica )
+  if ( isSourceAvailable() )
   {
     mPositioningSourceReplica->setProperty( "logging", logging );
   }
@@ -356,7 +364,6 @@ bool Positioning::backgroundMode() const
 
 void Positioning::setBackgroundMode( bool backgroundMode )
 {
-  qDebug() << "ppp setBackgroundMode " << ( backgroundMode ? "true" : "false" );
   if ( mBackgroundMode == backgroundMode )
     return;
 
@@ -376,7 +383,7 @@ void Positioning::setBackgroundMode( bool backgroundMode )
     }
   }
 
-  if ( mPositioningSourceReplica )
+  if ( isSourceAvailable() )
   {
     // Note that on Android, the property will not be set if the application is suspended _until_ it has become active again
     mPositioningSourceReplica->setProperty( "backgroundMode", backgroundMode );
@@ -387,33 +394,27 @@ void Positioning::setBackgroundMode( bool backgroundMode )
 
 QList<GnssPositionInformation> Positioning::getBackgroundPositionInformation() const
 {
-  qDebug() << "ppp getBackgroundPositionInformation";
   QList<GnssPositionInformation> positionInformationList;
 
-  if ( mPositioningSourceReplica )
+  if ( isSourceAvailable() )
   {
     QRemoteObjectPendingCall call;
     QMetaObject::invokeMethod( mPositioningSourceReplica.data(), "getBackgroundPositionInformation", Qt::DirectConnection, Q_RETURN_ARG( QRemoteObjectPendingCall, call ) );
     call.waitForFinished();
-    const QVariantList list = call.returnValue().toList();
-    for ( const QVariant &item : list )
-    {
-      positionInformationList << item.value<GnssPositionInformation>();
-    }
+    positionInformationList = call.returnValue().value<QList<GnssPositionInformation>>();
   }
-  qDebug() << "ppp collected positions " << positionInformationList.size();
 
   return std::move( positionInformationList );
 }
 
 PositioningSource::ElevationCorrectionMode Positioning::elevationCorrectionMode() const
 {
-  return static_cast<PositioningSource::ElevationCorrectionMode>( ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "elevationCorrectionMode" ) : mPropertiesToSync.value( "elevationCorrectionMode", static_cast<int>( PositioningSource::ElevationCorrectionMode::None ) ) ).toInt() );
+  return static_cast<PositioningSource::ElevationCorrectionMode>( ( isSourceAvailable() ? mPositioningSourceReplica->property( "elevationCorrectionMode" ) : mPropertiesToSync.value( "elevationCorrectionMode", static_cast<int>( PositioningSource::ElevationCorrectionMode::None ) ) ).toInt() );
 }
 
 void Positioning::setElevationCorrectionMode( PositioningSource::ElevationCorrectionMode elevationCorrectionMode )
 {
-  if ( mPositioningSourceReplica )
+  if ( isSourceAvailable() )
   {
     mPositioningSourceReplica->setProperty( "elevationCorrectionMode", static_cast<int>( elevationCorrectionMode ) );
   }
@@ -426,12 +427,12 @@ void Positioning::setElevationCorrectionMode( PositioningSource::ElevationCorrec
 
 double Positioning::antennaHeight() const
 {
-  return ( mPositioningSourceReplica ? mPositioningSourceReplica->property( "antennaHeight" ) : mPropertiesToSync.value( "antennaHeight", 0.0 ) ).toDouble();
+  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "antennaHeight" ) : mPropertiesToSync.value( "antennaHeight", 0.0 ) ).toDouble();
 }
 
 void Positioning::setAntennaHeight( double antennaHeight )
 {
-  if ( mPositioningSourceReplica )
+  if ( isSourceAvailable() )
   {
     mPositioningSourceReplica->setProperty( "antennaHeight", antennaHeight );
   }
@@ -449,7 +450,7 @@ GnssPositionInformation Positioning::positionInformation() const
 
 double Positioning::orientation() const
 {
-  return mPositioningSourceReplica ? adjustOrientation( mPositioningSourceReplica->property( "orientation" ).toDouble() ) : std::numeric_limits<double>::quiet_NaN();
+  return isSourceAvailable() ? adjustOrientation( mPositioningSourceReplica->property( "orientation" ).toDouble() ) : std::numeric_limits<double>::quiet_NaN();
 }
 
 double Positioning::adjustOrientation( double orientation ) const

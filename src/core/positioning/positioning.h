@@ -265,6 +265,8 @@ class Positioning : public QObject
 
   private:
     void setupSource();
+    bool isSourceAvailable() const;
+
     double adjustOrientation( double orientation ) const;
 
     bool mValid = true;

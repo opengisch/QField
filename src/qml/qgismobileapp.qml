@@ -346,8 +346,9 @@ ApplicationWindow {
       if (!backgroundMode) {
         console.log('qqq onBackgroundModeChanged');
         mapCanvasMap.freeze('trackerreplay');
-        const list = positionSource.getBackgroundPositionInformation();
-        console.log('qqq collected positions  ' + list.length);
+        let list = positionSource.getBackgroundPositionInformation();
+        // Qt bug weirdly returns an empty list on first invokation to source, call twice to insure we've got the actual list
+        list = positionSource.getBackgroundPositionInformation();
         trackingModel.replayPositionInformationList(list, coordinateTransformer);
         mapCanvasMap.unfreeze('trackerreplay');
       }

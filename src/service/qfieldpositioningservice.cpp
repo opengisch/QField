@@ -28,6 +28,8 @@
 QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
   : QAndroidService( argc, argv )
 {
+  qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
+
   mPositioningSource = new PositioningSource( this );
   mHost.setHostUrl( QUrl( QStringLiteral( "localabstract:replica" ) ) );
   mHost.enableRemoting( mPositioningSource, "PositioningSource" );
