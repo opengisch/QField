@@ -46,30 +46,52 @@ QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
   } );
 
   connect( mPositioningSource, &PositioningSource::backgroundModeChanged, this, [=] {
-    if ( mPositioningSource->backgroundMode() && mPositioningSource->active() )
+    if ( mPositioningSource->active() )
     {
-      triggerShowNotification();
-      mNotificationTimer.start();
+      if ( mPositioningSource->backgroundMode() )
+      {
+        triggerShowNotification();
+        mNotificationTimer.start();
+      }
+      else
+      {
+        mNotificationTimer.stop();
+        triggerReturnNotification();
+      }
+    }
+  } );
+
+  connect( mPositioningSource, &PositioningSource::activeChanged, this, [=] {
+    if ( mPositioningSource->active() )
+    {
+      if ( mPositioningSource->backgroundMode() )
+      {
+        triggerShowNotification();
+        mNotificationTimer.start();
+      }
     }
     else
     {
       mNotificationTimer.stop();
-      triggerCloseNotification();
     }
   } );
+}
 }
 
 void QFieldPositioningService::triggerShowNotification()
 {
-  const GnssPositionInformation pos = mPositioningSource->positionInformation();
-  QJniObject message = QJniObject::fromString( tr( "Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4" ).arg( QLocale::system().toString( pos.latitude(), 'f', 7 ), QLocale::system().toString( pos.longitude(), 'f', 7 ), QLocale::system().toString( pos.elevation(), 'f', 3 ), QLocale::system().toString( mPositioningSource->orientation(), 'f', 1 ) ) );
-  QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",
-                                      "triggerShowNotification",
-                                      message.object<jstring>(),
-                                      true );
+  if ( mPositioningSource->positionInformation()->active() )
+  {
+    const GnssPositionInformation pos = mPositioningSource->positionInformation();
+    QJniObject message = QJniObject::fromString( tr( "Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4" ).arg( QLocale::system().toString( pos.latitude(), 'f', 7 ), QLocale::system().toString( pos.longitude(), 'f', 7 ), QLocale::system().toString( pos.elevation(), 'f', 3 ), QLocale::system().toString( mPositioningSource->orientation(), 'f', 1 ) ) );
+    QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",
+                                        "triggerShowNotification",
+                                        message.object<jstring>(),
+                                        true );
+  }
 }
 
-void QFieldPositioningService::triggerCloseNotification()
+void QFieldPositioningService::triggerReturnNotification()
 {
   QJniObject message = QJniObject::fromString( tr( "Positioning service running" ) );
   QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",
