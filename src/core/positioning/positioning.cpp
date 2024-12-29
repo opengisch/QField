@@ -43,8 +43,6 @@ Positioning::Positioning( QObject *parent )
     QFile::remove( PositioningSource::backgroundFilePath );
     mPropertiesToSync["backgroundMode"] = false;
   }
-
-  connect( QgsApplication::instance(), &QGuiApplication::applicationStateChanged, this, &Positioning::onApplicationStateChanged );
 }
 
 void Positioning::setupSource()
@@ -69,7 +67,6 @@ void Positioning::setupSource()
 
   mPositioningSourceReplica.reset( mNode.acquireDynamic( "PositioningSource" ) );
   mPositioningSourceReplica->waitForSource();
-
   const QList<QString> properties = mPropertiesToSync.keys();
   for ( const QString &property : properties )
   {
@@ -93,6 +90,8 @@ void Positioning::setupSource()
 
   connect( this, SIGNAL( triggerConnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerConnectDevice() ) );
   connect( this, SIGNAL( triggerDisconnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerDisconnectDevice() ) );
+
+  connect( QgsApplication::instance(), &QGuiApplication::applicationStateChanged, this, &Positioning::onApplicationStateChanged );
 }
 
 bool Positioning::isSourceAvailable() const
@@ -105,16 +104,10 @@ void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
 #ifdef Q_OS_ANDROID
   // Google Play policy only allows for background access if it's explicitly stated and justified
   // Not stopping on Activity::onPause is detected as violation
-  if ( !mPositioningSourceReplica )
-    return;
-
   if ( !mPositioningSource )
   {
     // Service path
-    if ( mPositioningSourceReplica )
-    {
-      setBackgroundMode( state != Qt::ApplicationState::ApplicationActive );
-    }
+    setBackgroundMode( state != Qt::ApplicationState::ApplicationActive );
   }
   else
   {
