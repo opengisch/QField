@@ -31,7 +31,7 @@ QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
 
   mPositioningSource = new PositioningSource( this );
-  mHost.setHostUrl( QUrl( QStringLiteral( "localabstract:replica" ) ) );
+  mHost.setHostUrl( QUrl( QStringLiteral( "localabstract:" APP_PACKAGE_NAME "replica" ) ) );
   mHost.enableRemoting( mPositioningSource, "PositioningSource" );
 
   mNotificationTimer.setInterval( 1000 );
