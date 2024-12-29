@@ -323,7 +323,7 @@ ApplicationWindow {
     antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
     logging: positioningSettings.logging
 
-    onProjectedPositionChanged: {
+    onPositionInformationChanged: {
       if (active) {
         bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
