@@ -37,6 +37,7 @@ Positioning::Positioning( QObject *parent )
   if ( QFile::exists( PositioningSource::backgroundFilePath ) )
   {
     QFile::remove( PositioningSource::backgroundFilePath );
+    mPropertiesToSync["backgroundMode"] = false;
   }
 
   connect( QgsApplication::instance(), &QGuiApplication::applicationStateChanged, this, &Positioning::onApplicationStateChanged );
@@ -65,6 +66,12 @@ void Positioning::setupSource()
   mPositioningSourceReplica.reset( mNode.acquireDynamic( "PositioningSource" ) );
   mPositioningSourceReplica->waitForSource();
 
+  const QList<QString> properties = mPropertiesToSync.keys();
+  for ( const QString &property : properties )
+  {
+    mPositioningSourceReplica->setProperty( property.toLatin1(), mPropertiesToSync[property] );
+  }
+
   connect( mPositioningSourceReplica.data(), SIGNAL( activeChanged() ), this, SIGNAL( activeChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( validChanged() ), this, SIGNAL( validChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( deviceIdChanged() ), this, SIGNAL( deviceIdChanged() ) );
@@ -82,12 +89,6 @@ void Positioning::setupSource()
 
   connect( this, SIGNAL( triggerConnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerConnectDevice() ) );
   connect( this, SIGNAL( triggerDisconnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerDisconnectDevice() ) );
-
-  const QList<QString> properties = mPropertiesToSync.keys();
-  for ( const QString &property : properties )
-  {
-    mPositioningSourceReplica->setProperty( property.toLatin1(), mPropertiesToSync[property] );
-  }
 }
 
 void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
@@ -355,6 +356,7 @@ bool Positioning::backgroundMode() const
 
 void Positioning::setBackgroundMode( bool backgroundMode )
 {
+  qDebug() << "ppp setBackgroundMode " << ( backgroundMode ? "true" : "false" );
   if ( mBackgroundMode == backgroundMode )
     return;
 
@@ -385,6 +387,7 @@ void Positioning::setBackgroundMode( bool backgroundMode )
 
 QList<GnssPositionInformation> Positioning::getBackgroundPositionInformation() const
 {
+  qDebug() << "ppp getBackgroundPositionInformation";
   QList<GnssPositionInformation> positionInformationList;
 
   if ( mPositioningSourceReplica )
@@ -398,6 +401,7 @@ QList<GnssPositionInformation> Positioning::getBackgroundPositionInformation() c
       positionInformationList << item.value<GnssPositionInformation>();
     }
   }
+  qDebug() << "ppp collected positions " << positionInformationList.size();
 
   return std::move( positionInformationList );
 }
