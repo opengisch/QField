@@ -145,7 +145,6 @@ void PositioningSource::setLogging( bool logging )
 
 void PositioningSource::setBackgroundMode( bool backgroundMode )
 {
-  qDebug() << "sss setBackgroundMode " << ( backgroundMode ? "true" : "false" );
   if ( mBackgroundMode == backgroundMode )
     return;
 
@@ -165,7 +164,6 @@ void PositioningSource::setBackgroundMode( bool backgroundMode )
 
 QList<GnssPositionInformation> PositioningSource::getBackgroundPositionInformation() const
 {
-  qDebug() << "sss getBackgroundPositionInformation";
   QList<GnssPositionInformation> positionInformationList;
 
   QFile file( QStringLiteral( "%1.information" ).arg( backgroundFilePath ) );
@@ -181,7 +179,6 @@ QList<GnssPositionInformation> PositioningSource::getBackgroundPositionInformati
     }
     file.close();
   }
-  qDebug() << "sss collected positions " << positionInformationList.size();
 
   return std::move( positionInformationList );
 }
@@ -333,7 +330,6 @@ void PositioningSource::lastGnssPositionInformationChanged( const GnssPositionIn
   }
   else
   {
-    qDebug() << "sss writing to information file";
     QFile file( QStringLiteral( "%1.information" ).arg( backgroundFilePath ) );
     file.open( QFile::Append );
     QDataStream stream( &file );
