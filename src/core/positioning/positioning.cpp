@@ -14,13 +14,17 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "platformutilities.h"
 #include "positioning.h"
 #include "positioningutils.h"
 #include "tcpreceiver.h"
 #include "udpreceiver.h"
 #ifdef WITH_SERIALPORT
 #include "serialportreceiver.h"
+#endif
+
+#if defined( Q_OS_ANDROID )
+#include "platformutilities.h"
+#include "qfield_android.h"
 #endif
 
 #include <QFile>
@@ -49,7 +53,7 @@ void Positioning::setupSource()
 
 #if defined( Q_OS_ANDROID )
   PlatformUtilities::instance()->startPositioningService();
-  mNode.connectToNode( QUrl( QStringLiteral( "localabstract:replica" ) ) );
+  mNode.connectToNode( QUrl( QStringLiteral( "localabstract:" APP_PACKAGE_NAME "replica" ) ) );
   positioningService = true;
 #endif
 
