@@ -248,7 +248,10 @@ ListView {
 
           onClicked: {
             displayToast(qsTr('This layer is is currently tracking positions.'), 'info', qsTr('Stop'), function () {
-                trackingModel.stopTracker(VectorLayerPointer);
+                if (trackingModel.layerInTracking(VectorLayerPointer)) {
+                  trackingModel.stopTracker(VectorLayerPointer);
+                  displayToast(qsTr('Track on layer %1 stopped').arg(VectorLayerPointer.name));
+                }
               });
           }
 
