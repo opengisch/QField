@@ -281,7 +281,7 @@ class Positioning : public QObject
     QgsQuickCoordinateTransformer *mCoordinateTransformer = nullptr;
     QgsPoint mSourcePosition;
     QgsPoint mProjectedPosition;
-    double mProjectedHorizontalAccuracy;
+    double mProjectedHorizontalAccuracy = 0.0;
     virtual QList<QPair<QString, QVariant>> details() const { return {}; }
 
     bool mInternalPermissionChecked = false;
