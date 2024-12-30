@@ -175,7 +175,6 @@ Page {
           height: filterBar.defaultHeight
           width: projects.width / filterBar.count
           font: Theme.defaultFont
-          enabled: (cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0)
           onClicked: {
             filterBar.currentIndex = index;
           }
@@ -224,20 +223,26 @@ Page {
           section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
           section.delegate: Component {
             /* section header: layer name */
-            Rectangle {
+            Item {
               width: parent.width
-              height: 30
-              color: Theme.controlBorderColor
+              height: 32
 
-              Text {
-                anchors {
-                  horizontalCenter: parent.horizontalCenter
-                  verticalCenter: parent.verticalCenter
+              Rectangle {
+                width: parent.width
+                height: 30
+                color: Theme.controlBorderColor
+                anchors.bottom: parent.bottom
+
+                Text {
+                  anchors {
+                    horizontalCenter: parent.horizontalCenter
+                    verticalCenter: parent.verticalCenter
+                  }
+                  font.bold: true
+                  font.pointSize: Theme.resultFont.pointSize
+                  color: Theme.mainTextColor
+                  text: section
                 }
-                font.bold: true
-                font.pointSize: Theme.resultFont.pointSize
-                color: Theme.mainTextColor
-                text: section
               }
             }
           }
@@ -266,7 +271,7 @@ Page {
             property int status: Status
 
             width: parent ? parent.width : undefined
-            height: line.height
+            height: line.height + 6
             color: "transparent"
 
             ProgressBar {

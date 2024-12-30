@@ -39,12 +39,9 @@ void NetworkReply::abort()
 }
 
 
-QNetworkReply *NetworkReply::reply() const
+QNetworkReply *NetworkReply::currentRawReply() const
 {
-  if ( mIsFinished )
-    return mReply;
-
-  return nullptr;
+  return mReply;
 }
 
 
@@ -90,6 +87,7 @@ void NetworkReply::initiateRequest()
     case QNetworkAccessManager::UnknownOperation:
       throw QStringLiteral( "Not implemented!" );
   }
+  emit currentRawReplyChanged();
 
   mReply->ignoreSslErrors( mExpectedSslErrors );
 
