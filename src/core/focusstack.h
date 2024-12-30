@@ -28,6 +28,7 @@ class FocusStack : public QObject
 
   public:
     Q_INVOKABLE void addFocusTaker( QQuickItem *item );
+    Q_INVOKABLE void forceActiveFocusOnLastTaker() const;
 
   private slots:
     void itemFocusChanged( bool itemActiveFocus );

@@ -112,41 +112,82 @@ ApplicationWindow {
     visible: true
     focus: true
 
-    property int previousVisibilityState: Window.Windowed
-
     Keys.onReleased: event => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        if (featureForm.visible) {
-          featureForm.hide();
-        } else if (stateMachine.state === 'measure') {
-          mainWindow.closeMeasureTool();
-        } else {
-          mainWindow.close();
-        }
-        event.accepted = true;
-      } else if (event.key === Qt.Key_F11) {
-        if (Qt.platform.os !== "android" && Qt.platform.os !== "ios") {
-          if (mainWindow.visibility !== Window.FullScreen) {
-            previousVisibilityState = mainWindow.visibility;
-            mainWindow.visibility = Window.FullScreen;
+      if (event.modifiers === Qt.NoModifier) {
+        if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+          if (featureForm.visible) {
+            featureForm.hide();
+          } else if (stateMachine.state === 'measure') {
+            mainWindow.closeMeasureTool();
           } else {
-            mainWindow.visibility = Window.Windowed;
-            if (previousVisibilityState === Window.Maximized) {
-              mainWindow.showMaximized();
-            }
+            mainWindow.close();
           }
-        }
-      } else if (event.key === Qt.Key_F12) {
-        if (Qt.platform.os !== "android" && Qt.platform.os !== "ios") {
-          mainWindow.sceneBorderless = !mainWindow.sceneBorderless;
-          if (mainWindow.sceneBorderless) {
-            displayToast(qsTr("Borderless mode activated, use the top left and botom right corner to move and resize the window"));
-          }
+          event.accepted = true;
         }
       }
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
+  Shortcut {
+    property int previousVisibilityState: Window.Windowed
+    enabled: Qt.platform.os !== "android" && Qt.platform.os !== "ios"
+    sequence: "F11"
+    onActivated: {
+      if (mainWindow.visibility !== Window.FullScreen) {
+        previousVisibilityState = mainWindow.visibility;
+        mainWindow.visibility = Window.FullScreen;
+      } else {
+        mainWindow.visibility = Window.Windowed;
+        if (previousVisibilityState === Window.Maximized) {
+          mainWindow.showMaximized();
+        }
+      }
+    }
+  }
+
+  Shortcut {
+    enabled: Qt.platform.os !== "android" && Qt.platform.os !== "ios"
+    sequence: "F12"
+    onActivated: {
+      mainWindow.sceneBorderless = !mainWindow.sceneBorderless;
+      if (mainWindow.sceneBorderless) {
+        displayToast(qsTr("Borderless mode activated, use the top left and botom right corner to move and resize the window"));
+      }
+    }
+  }
+
+  Shortcut {
+    enabled: keyHandler.focus
+    sequence: "Ctrl+K"
+    onActivated: {
+      locatorItem.state = "on";
+    }
+  }
+
+  Shortcut {
+    enabled: true
+    sequence: "Ctrl+M"
+    onActivated: {
+      activateMeasurementMode();
+    }
+  }
+
+  Shortcut {
+    enabled: keyHandler.focus || welcomeScreen.focus
+    sequence: "Ctrl+O"
+    onActivated: {
+      welcomeScreen.openLocalDataPicker();
+    }
+  }
+
+  Shortcut {
+    enabled: projectInfo.insertRights
+    sequence: "Ctrl+Insert"
+    onActivated: {
+      mainWindow.toggleDigitizeMode();
+    }
   }
 
   //currentRubberband provides the rubberband depending on the current state (digitize or measure)
@@ -156,6 +197,7 @@ ApplicationWindow {
 
   signal closeMeasureTool
   signal changeMode(string mode)
+  signal toggleDigitizeMode
 
   Item {
     id: stateMachine
@@ -198,6 +240,18 @@ ApplicationWindow {
       }
     ]
     state: "browse"
+  }
+
+  onToggleDigitizeMode: {
+    if (stateMachine.state === "digitize") {
+      if (digitizingToolbar.rubberbandModel && digitizingToolbar.rubberbandModel.vertexCount > 1) {
+        displayToast(qsTr("Finish or dimiss the digitizing feature before toggling to browse mode"));
+      } else {
+        changeMode("browse");
+      }
+    } else {
+      changeMode("digitize");
+    }
   }
 
   onChangeMode: mode => {
@@ -2255,12 +2309,12 @@ ApplicationWindow {
     mapSettings: mapCanvas.mapSettings
     interactive: !welcomeScreen.visible && !qfieldSettings.visible && !qfieldCloudScreen.visible && !qfieldLocalDataPickerScreen.visible && !codeReader.visible && !screenLocker.enabled
 
-    onOpenedChanged: {
-      if (!opened) {
-        if (featureForm.visible) {
-          featureForm.focus = true;
-        }
-      }
+    onAboutToShow: {
+      dashBoard.contentItem.forceActiveFocus();
+    }
+
+    onClosed: {
+      focusstack.forceActiveFocusOnLastTaker();
     }
 
     function ensureEditableLayerSelected() {
@@ -4220,7 +4274,7 @@ ApplicationWindow {
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       featureForm.state = "Hidden";
-      activateMeasurementMode();
+      mentMode();
     }
     onDiscarded: {
       cancelAlgorithmDialog.visible = false;

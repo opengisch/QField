@@ -49,3 +49,11 @@ void FocusStack::setUnfocused( QQuickItem *item )
     }
   }
 }
+
+void FocusStack::forceActiveFocusOnLastTaker() const
+{
+  if ( mStackList.isEmpty() )
+    return;
+
+  mStackList.last()->forceActiveFocus();
+}
