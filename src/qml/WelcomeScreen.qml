@@ -781,7 +781,7 @@ Page {
 
   QfToolButton {
     id: currentProjectButton
-    visible: !!qgisProject.fileName
+    visible: qgisProject && !!qgisProject.fileName
     anchors {
       top: parent.top
       left: parent.left
@@ -799,7 +799,7 @@ Page {
 
   QfToolButton {
     id: exitButton
-    visible: !!qgisProject.fileName && (Qt.platform.os === "ios" || Qt.platform.os === "android" || mainWindow.sceneBorderless)
+    visible: qgisProject && !!qgisProject.fileName && (Qt.platform.os === "ios" || Qt.platform.os === "android" || mainWindow.sceneBorderless)
     anchors {
       top: parent.top
       right: parent.right
