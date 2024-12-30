@@ -549,17 +549,10 @@ void AndroidPlatformUtilities::requestStoragePermission() const
 {
   if ( !QSettings().value( QStringLiteral( "QField/storagePermissionChecked" ), false ).toBool() )
   {
-    const int sdkVersion = QCoreApplication::instance()->nativeInterface<QNativeInterface::QAndroidApplication>()->sdkVersion();
-
     QStringList permissions;
     permissions << "android.permission.READ_EXTERNAL_STORAGE"
                 << "android.permission.WRITE_EXTERNAL_STORAGE"
                 << "android.permission.ACCESS_MEDIA_LOCATION";
-    if ( sdkVersion >= 33 )
-    {
-      permissions << "android.permission.READ_MEDIA_IMAGES"
-                  << "android.permission.READ_MEDIA_VIDEO";
-    }
 
     checkAndAcquirePermissions( permissions, true );
     QSettings().setValue( QStringLiteral( "QField/storagePermissionChecked" ), true );
