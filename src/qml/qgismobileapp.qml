@@ -139,6 +139,9 @@ ApplicationWindow {
       } else if (event.key === Qt.Key_F12) {
         if (Qt.platform.os !== "android" && Qt.platform.os !== "ios") {
           mainWindow.sceneBorderless = !mainWindow.sceneBorderless;
+          if (mainWindow.sceneBorderless) {
+            displayToast(qsTr("Borderless mode activated, use the top left and botom right corner to move and resize the window"));
+          }
         }
       }
     }
@@ -4285,6 +4288,7 @@ ApplicationWindow {
     MouseArea {
       enabled: mainWindow.sceneBorderless
       anchors.fill: parent
+      cursorShape: enabled ? Qt.DragMoveCursor : Qt.ArrowCursor
       onPressed: mouse => {
         mainWindow.startSystemMove();
       }
@@ -4302,6 +4306,7 @@ ApplicationWindow {
     MouseArea {
       enabled: mainWindow.sceneBorderless
       anchors.fill: parent
+      cursorShape: enabled ? Qt.SizeFDiagCursor : Qt.ArrowCursor
       onPressed: mouse => {
         mainWindow.startSystemResize(Qt.RightEdge | Qt.BottomEdge);
       }
