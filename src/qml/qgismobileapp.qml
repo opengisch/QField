@@ -190,6 +190,14 @@ ApplicationWindow {
     }
   }
 
+  Shortcut {
+    enabled: keyHandler.focus && stateMachine.state === "digitize"
+    sequence: "Ctrl+Space"
+    onActivated: {
+      digitizingToolbar.triggerAddVertex();
+    }
+  }
+
   //currentRubberband provides the rubberband depending on the current state (digitize or measure)
   property Rubberband currentRubberband
   property LayerObserver layerObserverAlias: layerObserver
