@@ -87,3 +87,8 @@ repos:
   rev: v0.1.5  # current revision
   hooks:
     -  id: qml-format
+
+- repo: https://github.com/open-vcpkg/pre-commit
+  rev: v1.0.1
+  hooks:
+    -  id: vcpkg-format-manifest
