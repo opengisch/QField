@@ -38,13 +38,6 @@ repos:
     types: [file, shell]
     exclude: .docker/android_dev/tools/android-accept-licenses.sh
 
-  - id: vcpkg-format
-    name: vcpkg-format
-    description: Formatting vcpkg manifests
-    entry: ./scripts/vcpkg-format.py
-    language: script
-    files: '.*vcpkg\.json'
-
 # Shellcheck
 - repo: https://github.com/jumanjihouse/pre-commit-hooks
   rev: 2.1.5
