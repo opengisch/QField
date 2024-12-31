@@ -154,6 +154,11 @@ Item {
   Connections {
     target: locatorBridge
 
+    function onSearchRequested(text) {
+      locatorItem.state = "on";
+      searchField.text = text;
+    }
+
     function onSearchTextChangeRequested(text) {
       searchField.text = text;
     }

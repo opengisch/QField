@@ -1333,6 +1333,7 @@ ApplicationWindow {
 
     LocatorItem {
       id: locatorItem
+      objectName: "locatorItem"
 
       locatorBridge: locatorBridge
 
