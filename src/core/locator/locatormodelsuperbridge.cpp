@@ -169,6 +169,11 @@ void LocatorModelSuperBridge::setKeepScale( bool keepScale )
   emit keepScaleChanged();
 }
 
+void LocatorModelSuperBridge::requestSearch( const QString &text )
+{
+  emit searchRequested( text );
+}
+
 void LocatorModelSuperBridge::requestSearchTextChange( const QString &text )
 {
   emit searchTextChangeRequested( text );

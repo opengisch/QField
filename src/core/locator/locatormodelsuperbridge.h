@@ -115,6 +115,11 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     void setKeepScale( bool keepScale );
 
     /**
+     * Requests a \a text query against the search bar.
+     */
+    Q_INVOKABLE void requestSearch( const QString &text );
+
+    /**
      * Requests for the current text in the search bar to be changed to the
      * provided \a text string.
      */
@@ -158,6 +163,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     void activeLayerChanged();
     void messageEmitted( const QString &text );
     void keepScaleChanged();
+    void searchRequested( const QString &text );
     void searchTextChangeRequested( const QString &text );
     void locatorFiltersChanged();
 
