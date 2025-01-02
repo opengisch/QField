@@ -338,7 +338,5 @@ ListView {
   LayerTreeItemProperties {
     id: itemProperties
     layerTree: legend.model
-
-    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 }

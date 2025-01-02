@@ -1634,8 +1634,6 @@ Page {
       positioningDeviceComboBox.currentIndex = index;
       positioningDeviceComboBox.onCurrentIndexChanged();
     }
-
-    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   header: QfPageHeader {
