@@ -52,6 +52,7 @@ class FeatureModel : public QAbstractListModel
     Q_PROPERTY( bool positionLocked READ positionLocked WRITE setPositionLocked NOTIFY positionLockedChanged )
     Q_PROPERTY( CloudUserInformation cloudUserInformation READ cloudUserInformation WRITE setCloudUserInformation NOTIFY cloudUserInformationChanged )
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
+    Q_PROPERTY( bool batchMode READ batchMode WRITE setBatchMode NOTIFY batchModeChanged )
 
   public:
     //! keeping the information what attributes are remembered and the last edited feature
@@ -271,6 +272,18 @@ class FeatureModel : public QAbstractListModel
 
     QgsExpressionContext createExpressionContext() const;
 
+    /**
+     * Returns TRUE if the feature model is in batch mode. When enabled, the vector layer
+     * will remain in editing mode until batch mode is disabled.
+     */
+    bool batchMode() const { return mBatchMode; }
+
+    /**
+     * Toggles the feature model batch mode. When enabled, the vector layer
+     * will remain in editing mode until batch mode is disabled.
+     */
+    void setBatchMode( bool batchMode );
+
   public slots:
     void applyGeometry();
     void removeLayer( QObject *layer );
@@ -297,6 +310,7 @@ class FeatureModel : public QAbstractListModel
     void positionLockedChanged();
     void projectChanged();
     void cloudUserInformationChanged();
+    void batchModeChanged();
 
     void warning( const QString &text );
 
@@ -331,6 +345,7 @@ class FeatureModel : public QAbstractListModel
     QgsProject *mProject = nullptr;
     QString mTempName;
     bool mPositionLocked = false;
+    bool mBatchMode = false;
 };
 
 #endif // FEATUREMODEL_H

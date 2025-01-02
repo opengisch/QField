@@ -37,7 +37,7 @@ Popup {
         if (embeddedAttributeFormModel.rowCount() > 0 && !featureModel.suppressFeatureForm()) {
           embeddedFeatureForm.active = true;
         } else {
-          trackingModel.startTracker(tracker.vectorLayer);
+          trackingModel.startTracker(tracker.vectorLayer, positionSource.positionInformation, positionSource.projectedPosition);
           displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name));
           if (featureModel.currentLayer.geometryType === Qgis.GeometryType.Point) {
             projectInfo.saveTracker(featureModel.currentLayer);
@@ -483,7 +483,7 @@ Popup {
           if (embeddedAttributeFormModel.rowCount() > 0 && !featureModel.suppressFeatureForm()) {
             embeddedFeatureForm.active = true;
           } else {
-            trackingModel.startTracker(tracker.vectorLayer);
+            trackingModel.startTracker(tracker.vectorLayer, positionSource.positionInformation, positionSource.projectedPosition);
             displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name));
             if (featureModel.currentLayer.geometryType === Qgis.GeometryType.Point) {
               projectInfo.saveTracker(featureModel.currentLayer);
@@ -508,7 +508,7 @@ Popup {
 
         onClicked: {
           applySettings();
-          trackingModel.startTracker(tracker.vectorLayer);
+          trackingModel.startTracker(tracker.vectorLayer, positionSource.positionInformation, positionSource.projectedPosition);
           displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name));
           projectInfo.saveTracker(featureModel.currentLayer);
           trackerSettings.close();
@@ -577,7 +577,7 @@ Popup {
           tracker.feature = featureModel.feature;
           embeddedFeatureFormPopup.close();
           embeddedFeatureForm.active = false;
-          trackingModel.startTracker(tracker.vectorLayer);
+          trackingModel.startTracker(tracker.vectorLayer, positionSource.positionInformation, positionSource.projectedPosition);
           displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name));
           if (featureModel.currentLayer.geometryType === Qgis.GeometryType.Point) {
             projectInfo.saveTracker(featureModel.currentLayer);

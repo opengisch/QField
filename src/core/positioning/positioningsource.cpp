@@ -150,7 +150,37 @@ void PositioningSource::setBackgroundMode( bool backgroundMode )
 
   mBackgroundMode = backgroundMode;
 
+  if ( mBackgroundMode )
+  {
+    if ( QFile::exists( QStringLiteral( "%1.information" ).arg( backgroundFilePath ) ) )
+    {
+      // Remove previously collected position information
+      QFile::remove( QStringLiteral( "%1.information" ).arg( backgroundFilePath ) );
+    }
+  }
+
   emit backgroundModeChanged();
+}
+
+QList<GnssPositionInformation> PositioningSource::getBackgroundPositionInformation() const
+{
+  QList<GnssPositionInformation> positionInformationList;
+
+  QFile file( QStringLiteral( "%1.information" ).arg( backgroundFilePath ) );
+  if ( file.exists() )
+  {
+    file.open( QFile::ReadOnly );
+    QDataStream stream( &file );
+    while ( !stream.atEnd() )
+    {
+      GnssPositionInformation positionInformation;
+      stream >> positionInformation;
+      positionInformationList << positionInformation;
+    }
+    file.close();
+  }
+
+  return std::move( positionInformationList );
 }
 
 void PositioningSource::setElevationCorrectionMode( ElevationCorrectionMode elevationCorrectionMode )
@@ -265,7 +295,7 @@ void PositioningSource::lastGnssPositionInformationChanged( const GnssPositionIn
                                                      lastGnssPositionInformation.vdop(),
                                                      lastGnssPositionInformation.hacc(),
                                                      lastGnssPositionInformation.vacc(),
-                                                     lastGnssPositionInformation.utcDateTime(),
+                                                     lastGnssPositionInformation.utcDateTime().isValid() ? lastGnssPositionInformation.utcDateTime() : QDateTime::currentDateTimeUtc(),
                                                      lastGnssPositionInformation.fixMode(),
                                                      lastGnssPositionInformation.fixType(),
                                                      lastGnssPositionInformation.quality(),
@@ -297,6 +327,14 @@ void PositioningSource::lastGnssPositionInformationChanged( const GnssPositionIn
     {
       emit averagedPositionCountChanged();
     }
+  }
+  else
+  {
+    QFile file( QStringLiteral( "%1.information" ).arg( backgroundFilePath ) );
+    file.open( QFile::Append );
+    QDataStream stream( &file );
+    stream << mPositionInformation;
+    file.close();
   }
 }
 

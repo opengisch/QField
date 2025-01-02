@@ -321,7 +321,7 @@ ApplicationWindow {
     antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
     logging: positioningSettings.logging
 
-    onProjectedPositionChanged: {
+    onPositionInformationChanged: {
       if (active) {
         bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
@@ -338,6 +338,18 @@ ApplicationWindow {
 
     onDeviceLastErrorChanged: {
       displayToast(qsTr('Positioning device error: %1').arg(positionSource.deviceLastError), 'error');
+    }
+
+    onBackgroundModeChanged: {
+      if (!backgroundMode) {
+        console.log('qqq onBackgroundModeChanged');
+        mapCanvasMap.freeze('trackerreplay');
+        let list = positionSource.getBackgroundPositionInformation();
+        // Qt bug weirdly returns an empty list on first invokation to source, call twice to insure we've got the actual list
+        list = positionSource.getBackgroundPositionInformation();
+        trackingModel.replayPositionInformationList(list, coordinateTransformer);
+        mapCanvasMap.unfreeze('trackerreplay');
+      }
     }
   }
 
@@ -1903,16 +1915,6 @@ ApplicationWindow {
         round: true
 
         anchors.right: parent.right
-
-        onIconSourceChanged: {
-          if (state === "On") {
-            if (positionSource.positionInformation && positionSource.positionInformation.latitudeValid) {
-              displayToast(qsTr("Received position"));
-            } else {
-              displayToast(qsTr("Searching for position"));
-            }
-          }
-        }
 
         /*
         / When set to true, the map will follow the device's current position; the map
