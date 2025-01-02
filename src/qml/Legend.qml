@@ -26,7 +26,6 @@ ListView {
   function openProperties(index) {
     itemProperties.index = legend.model.index(index, 0);
     itemProperties.open();
-    itemProperties.forceActiveFocus();
   }
 
   delegate: Rectangle {
@@ -339,7 +338,7 @@ ListView {
   LayerTreeItemProperties {
     id: itemProperties
     layerTree: legend.model
-    modal: true
-    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 }

@@ -46,7 +46,7 @@ Popup {
   signal featureCancelled
 
   parent: mainWindow.contentItem
-  closePolicy: Popup.NoAutoClose // prevent accidental feature addition and editing
+  closePolicy: form.state === "ReadOnly" ? Popup.CloseOnEscape | Popup.CloseOnPressOutside : Popup.NoAutoClose // prevent accidental feature addition and editing
 
   x: Theme.popupScreenEdgeMargin / 2
   y: Theme.popupScreenEdgeMargin
@@ -56,6 +56,7 @@ Popup {
   width: parent.width - Theme.popupScreenEdgeMargin
   height: parent.height - Theme.popupScreenEdgeMargin * 2
   modal: true
+  focus: visible
 
   FeatureForm {
     id: form
@@ -72,8 +73,6 @@ Popup {
         cloudUserInformation: projectInfo.cloudUserInformation
       }
     }
-
-    focus: true
 
     embedded: true
     toolbarVisible: true

@@ -19,6 +19,9 @@ Page {
   signal openLocalDataPicker
   signal showQFieldCloudScreen
 
+  visible: false
+  focus: visible
+
   Settings {
     id: registry
     category: 'QField'
@@ -793,7 +796,6 @@ Page {
 
     onClicked: {
       welcomeScreen.visible = false;
-      welcomeScreen.focus = false;
     }
   }
 
@@ -969,11 +971,21 @@ Page {
 
   onVisibleChanged: {
     adjustWelcomeScreen();
-    focus = visible;
     if (!visible) {
       feedbackView.visible = false;
       collectionView.visible = false;
       firstShown = true;
+    }
+  }
+
+  Keys.onReleased: event => {
+    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+      if (qgisProject.fileName != '') {
+        event.accepted = true;
+        visible = false;
+      } else {
+        event.accepted = false;
+      }
     }
   }
 }
