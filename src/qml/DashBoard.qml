@@ -38,7 +38,7 @@ Drawer {
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
 
   position: 0
-  focus: opened
+  focus: visible
   clip: true
 
   onShowMenu: mainMenu.popup(settingsButton.x + 2, mainWindow.sceneTopMargin + settingsButton.y + 2)

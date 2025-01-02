@@ -2318,13 +2318,7 @@ ApplicationWindow {
     mapSettings: mapCanvas.mapSettings
     interactive: !welcomeScreen.visible && !qfieldSettings.visible && !qfieldCloudScreen.visible && !qfieldLocalDataPickerScreen.visible && !codeReader.visible && !screenLocker.enabled
 
-    onAboutToShow: {
-      dashBoard.contentItem.forceActiveFocus();
-    }
-
-    onClosed: {
-      focusstack.forceActiveFocusOnLastTaker();
-    }
+    Component.onCompleted: focusstack.addFocusTaker(this)
 
     function ensureEditableLayerSelected() {
       var firstEditableLayer = null;
@@ -3516,6 +3510,8 @@ ApplicationWindow {
     digitizingToolbar: digitizingToolbar
     codeReader: codeReader
     featureModel.currentLayer: dashBoard.activeLayer
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   function displayToast(message, type, action_text, action_function) {
