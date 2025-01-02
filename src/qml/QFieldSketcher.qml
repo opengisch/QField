@@ -25,10 +25,6 @@ Popup {
   focus: visible
   dim: true
 
-  onOpened: {
-    contentItem.forceActiveFocus();
-  }
-
   Settings {
     id: settings
     property color strokeColor: "#000000"

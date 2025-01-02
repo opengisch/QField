@@ -28,6 +28,7 @@ Popup {
   padding: 0
 
   closePolicy: Popup.CloseOnEscape
+  focus: visible
   dim: true
 
   onAboutToShow: {
@@ -41,10 +42,6 @@ Popup {
     if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
       cameraPermission.request();
     }
-  }
-
-  onOpened: {
-    contentItem.forceActiveFocus();
   }
 
   onAboutToHide: {

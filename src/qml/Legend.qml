@@ -26,7 +26,6 @@ ListView {
   function openProperties(index) {
     itemProperties.index = legend.model.index(index, 0);
     itemProperties.open();
-    itemProperties.forceActiveFocus();
   }
 
   delegate: Rectangle {

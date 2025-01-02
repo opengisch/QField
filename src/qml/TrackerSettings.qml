@@ -542,7 +542,6 @@ Popup {
     active: false
     onLoaded: {
       item.open();
-      item.forceActiveFocus();
     }
   }
 
