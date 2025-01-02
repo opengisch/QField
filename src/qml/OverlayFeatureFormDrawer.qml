@@ -19,6 +19,7 @@ Drawer {
 
   edge: parent.width < parent.height ? Qt.BottomEdge : Qt.RightEdge
   closePolicy: Popup.NoAutoClose // prevent accidental feature addition when clicking outside of the popup drawer
+  focus: visible
 
   width: {
     if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300) {
@@ -93,8 +94,6 @@ Drawer {
 
     state: "Add"
 
-    focus: overlayFeatureFormDrawer.opened
-
     onConfirmed: {
       displayToast(qsTr("Changes saved"));
       //close drawer if still open
@@ -131,10 +130,6 @@ Drawer {
         }
         event.accepted = true;
       }
-    }
-
-    Component.onCompleted: {
-      focusstack.addFocusTaker(this);
     }
   }
 

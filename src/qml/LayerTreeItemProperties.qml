@@ -29,6 +29,9 @@ Popup {
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
   padding: 0
+  modal: true
+  closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+  focus: visible
 
   onClosed: {
     index = undefined;

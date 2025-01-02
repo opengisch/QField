@@ -38,7 +38,7 @@ Drawer {
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
 
   position: 0
-  focus: opened
+  focus: visible
   clip: true
 
   onShowMenu: mainMenu.popup(settingsButton.x + 2, mainWindow.sceneTopMargin + settingsButton.y + 2)
@@ -374,7 +374,7 @@ Drawer {
     id: temporalProperties
     mapSettings: dashBoard.mapSettings
     modal: true
-    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+    closePolicy: Popup.CloseOnEscape
     parent: mainWindow.contentItem
   }
 }

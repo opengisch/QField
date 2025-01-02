@@ -16,6 +16,8 @@ Page {
 
   signal finished(var loading)
 
+  focus: visible
+
   header: QfPageHeader {
     title: projectFolderView ? qsTr("Project Folder") : qsTr("Local Projects & Datasets")
 
@@ -704,9 +706,5 @@ Page {
         finished(false);
       }
     }
-  }
-
-  onVisibleChanged: {
-    focus = visible;
   }
 }

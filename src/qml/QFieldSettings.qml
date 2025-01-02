@@ -27,6 +27,9 @@ Page {
   property alias enableMapRotation: registry.enableMapRotation
   property alias quality: registry.quality
 
+  visible: false
+  focus: visible
+
   Component.onCompleted: {
     if (settings.valueBool('nativeCameraLaunched', false)) {
       // a crash occured while the native camera was launched, disable it
@@ -503,7 +506,6 @@ Page {
 
                 onClicked: {
                   pluginManagerSettings.open();
-                  pluginManagerSettings.focus = true;
                 }
               }
             }
@@ -1653,6 +1655,7 @@ Page {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
       event.accepted = true;
       variableEditor.apply();
+      finished();
     }
   }
 }

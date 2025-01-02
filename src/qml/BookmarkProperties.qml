@@ -19,6 +19,7 @@ Popup {
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   padding: 0
+  focus: visible
 
   onAboutToShow: {
     nameField.text = bookmarkName;
@@ -191,6 +192,13 @@ Popup {
     onAccepted: {
       bookmarkModel.removeBookmark(bookmarkProperties.bookmarkId);
       bookmarkProperties.close();
+    }
+  }
+
+  Keys.onReleased: event => {
+    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+      event.accepted = true;
+      visible = false;
     }
   }
 }
