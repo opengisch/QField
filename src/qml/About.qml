@@ -10,6 +10,9 @@ import Theme
 Item {
   id: aboutPanel
 
+  visible: false
+  focus: visible
+
   Rectangle {
     color: "black"
     opacity: 0.8

@@ -22,6 +22,7 @@ Popup {
   padding: 0
 
   closePolicy: Popup.CloseOnEscape
+  focus: visible
   dim: true
 
   onOpened: {

@@ -28,10 +28,10 @@ Popup {
   width: mainWindow.width
   height: mainWindow.height
   padding: 0
+  focus: visible
 
   parent: mainWindow.contentItem
   modal: true
-  focus: true
 
   property string state: "PhotoCapture"
   onStateChanged: {
@@ -296,7 +296,6 @@ Popup {
 
       fillMode: Image.PreserveAspectFit
       smooth: true
-      focus: visible
     }
 
     PinchArea {

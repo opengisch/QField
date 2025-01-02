@@ -29,6 +29,7 @@ Popup {
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
   padding: 0
+  focus: visible
 
   onClosed: {
     index = undefined;

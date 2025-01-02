@@ -18,10 +18,10 @@ Popup {
   padding: 0
   modal: true
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+  visible: false
   focus: visible
 
   Page {
-    focus: true
     anchors.fill: parent
 
     header: QfPageHeader {

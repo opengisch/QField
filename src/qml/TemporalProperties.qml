@@ -17,6 +17,7 @@ Popup {
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   padding: 0
+  focus: visible
 
   Page {
     width: parent.width

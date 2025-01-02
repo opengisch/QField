@@ -93,8 +93,6 @@ Drawer {
 
     state: "Add"
 
-    focus: overlayFeatureFormDrawer.opened
-
     onConfirmed: {
       displayToast(qsTr("Changes saved"));
       //close drawer if still open
@@ -119,22 +117,6 @@ Drawer {
       }
       digitizingToolbar.digitizingLogger.clearCoordinates();
       resetTabs();
-    }
-
-    Keys.onReleased: event => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        if (overlayFeatureForm.model.constraintsHardValid || qfieldSettings.autoSave) {
-          overlayFeatureFormDrawer.close();
-        } else {
-          //block closing to fix constraints or cancel with button
-          displayToast(qsTr("Constraints not valid"), 'warning');
-        }
-        event.accepted = true;
-      }
-    }
-
-    Component.onCompleted: {
-      focusstack.addFocusTaker(this);
     }
   }
 

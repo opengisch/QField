@@ -16,6 +16,7 @@ Popup {
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   padding: 0
+  focus: visible
 
   Page {
     id: page
@@ -267,7 +268,6 @@ Popup {
     id: installFromUrlDialog
     title: "Install Plugin from URL"
     parent: mainWindow.contentItem
-    focus: true
     y: (mainWindow.height - height - 80) / 2
 
     onAboutToShow: {

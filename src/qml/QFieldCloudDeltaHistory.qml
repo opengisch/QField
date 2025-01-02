@@ -17,6 +17,7 @@ Popup {
   x: (parent.width - width) / 2
   y: (parent.height - page.height) / 2
   padding: 0
+  focus: visible
 
   onOpened: function () {
     page.height = mainWindow.height - 160 + 60;

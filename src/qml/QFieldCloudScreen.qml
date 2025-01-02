@@ -15,6 +15,9 @@ Page {
 
   property LayerObserver layerObserver
 
+  visible: false
+  focus: visible
+
   header: QfPageHeader {
     title: qsTr("QFieldCloud Projects")
 
@@ -648,10 +651,8 @@ Page {
     prepareCloudLogin();
   }
 
-  Keys.onReleased: event => {
-    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-      event.accepted = true;
-      finished();
-    }
+  function requestHide() {
+    finished();
+    return true;
   }
 }

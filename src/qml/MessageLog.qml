@@ -15,6 +15,9 @@ Page {
 
   signal finished
 
+  visible: false
+  focus: visible
+
   header: QfPageHeader {
     title: qsTr('Message Logs')
 

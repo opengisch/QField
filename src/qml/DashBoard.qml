@@ -16,12 +16,11 @@ Drawer {
   signal showMenu
   signal showCloudMenu
 
+  property bool preventFromOpening: overlayFeatureFormDrawer.visible
   property alias allowActiveLayerChange: legend.allowActiveLayerChange
   property alias activeLayer: legend.activeLayer
   property alias layerTree: legend.model
   property MapSettings mapSettings
-
-  property color mainColor: Theme.mainColor
 
   Component.onCompleted: {
     if (Material.roundedScale) {
@@ -34,12 +33,9 @@ Drawer {
   edge: Qt.LeftEdge
   dragMargin: 10
   padding: 0
-
-  property bool preventFromOpening: overlayFeatureFormDrawer.visible
-
   position: 0
-  focus: opened
   clip: true
+  closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
 
   onShowMenu: mainMenu.popup(settingsButton.x + 2, mainWindow.sceneTopMargin + settingsButton.y + 2)
   onShowCloudMenu: qfieldCloudPopup.show()
@@ -68,7 +64,7 @@ Drawer {
       Layout.fillWidth: true
       Layout.preferredHeight: height
 
-      color: mainColor
+      color: Theme.mainColor
 
       Row {
         id: buttonsRow

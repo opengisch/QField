@@ -29,6 +29,7 @@ Popup {
   parent: mainWindow.contentItem
 
   closePolicy: Popup.CloseOnEscape
+  focus: visible
   dim: true
 
   onAboutToShow: {

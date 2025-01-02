@@ -60,7 +60,6 @@
 #include "featuremodel.h"
 #include "featureutils.h"
 #include "fileutils.h"
-#include "focusstack.h"
 #include "geofencer.h"
 #include "geometry.h"
 #include "geometryeditorsmodel.h"
@@ -464,7 +463,6 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
   qmlRegisterType<SnappingUtils>( "org.qfield", 1, 0, "SnappingUtils" );
   qmlRegisterType<DistanceArea>( "org.qfield", 1, 0, "DistanceArea" );
-  qmlRegisterType<FocusStack>( "org.qfield", 1, 0, "FocusStack" );
   qmlRegisterType<ParametizedImage>( "org.qfield", 1, 0, "ParametizedImage" );
   qmlRegisterType<PrintLayoutListModel>( "org.qfield", 1, 0, "PrintLayoutListModel" );
   qmlRegisterType<VertexModel>( "org.qfield", 1, 0, "VertexModel" );

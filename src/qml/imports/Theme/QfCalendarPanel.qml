@@ -13,7 +13,7 @@ Popup {
   signal dateTimePicked(var date)
 
   modal: true
-  focus: true
+  focus: visible
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
 
   parent: mainWindow.contentItem

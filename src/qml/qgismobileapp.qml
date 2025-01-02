@@ -44,6 +44,7 @@ ApplicationWindow {
   Material.theme: Theme.darkTheme ? "Dark" : "Light"
   Material.accent: Theme.mainColor
 
+  property var sceneStack: []
   property bool sceneBorderless: false
   property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
   property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]
@@ -100,34 +101,42 @@ ApplicationWindow {
     }
   }
 
-  FocusStack {
-    id: focusstack
-  }
-
-  //this keyHandler is because otherwise the back-key is not handled in the mainWindow. Probably this could be solved cuter.
-  Item {
-    id: keyHandler
-    objectName: "keyHandler"
-
-    visible: true
-    focus: true
-
-    Keys.onReleased: event => {
-      if (event.modifiers === Qt.NoModifier) {
-        if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-          if (featureForm.visible) {
-            featureForm.hide();
-          } else if (stateMachine.state === 'measure') {
-            mainWindow.closeMeasureTool();
-          } else {
-            mainWindow.close();
+  Shortcut {
+    enabled: true
+    sequences: ["Escape", StandardKey.Back]
+    onActivated: {
+      if (locatorItem.state == "on") {
+        locatorItem.state = "off";
+        return;
+      }
+      while (mainWindow.sceneStack.length > 0) {
+        let object = mainWindow.sceneStack.pop();
+        if (object.opened !== undefined) {
+          // Popups and drawers
+          if (object.opened) {
+            object.close();
+            return;
           }
-          event.accepted = true;
+        } else if (object.requestHide !== undefined) {
+          // Items with a custom hide function defined
+          if (object.visible) {
+            if (!object.requestHide()) {
+              mainWindow.sceneStack.push(object);
+            }
+            return;
+          }
+        } else if (object.visible !== undefined) {
+          // All other items
+          if (object.visible) {
+            object.visible = false;
+            return;
+          }
         }
       }
+      if (mainWindow.sceneStack.length == 0) {
+        mainWindow.close();
+      }
     }
-
-    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   Shortcut {
@@ -159,10 +168,12 @@ ApplicationWindow {
   }
 
   Shortcut {
-    enabled: keyHandler.focus
+    enabled: true
     sequence: "Ctrl+K"
     onActivated: {
-      locatorItem.state = "on";
+      if (mainWindow.sceneStack.length == 0) {
+        locatorItem.state = "on";
+      }
     }
   }
 
@@ -175,10 +186,12 @@ ApplicationWindow {
   }
 
   Shortcut {
-    enabled: keyHandler.focus || welcomeScreen.focus
+    enabled: true
     sequence: "Ctrl+O"
     onActivated: {
-      welcomeScreen.openLocalDataPicker();
+      if (mainWindow.sceneStack.length == 0 || (mainWindow.sceneStack.length == 1 && welcomeScreen.visible)) {
+        welcomeScreen.openLocalDataPicker();
+      }
     }
   }
 
@@ -191,10 +204,12 @@ ApplicationWindow {
   }
 
   Shortcut {
-    enabled: keyHandler.focus && stateMachine.state === "digitize"
+    enabled: stateMachine.state === "digitize"
     sequence: "Ctrl+Space"
     onActivated: {
-      digitizingToolbar.triggerAddVertex();
+      if (mainWindow.sceneStack.length == 0) {
+        digitizingToolbar.triggerAddVertex();
+      }
     }
   }
 
@@ -1413,24 +1428,6 @@ ApplicationWindow {
       anchors.rightMargin: 4
 
       visible: !screenLocker.enabled && stateMachine.state !== 'measure'
-
-      Keys.onReleased: event => {
-        if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-          event.accepted = true;
-          state = "off";
-        }
-      }
-
-      onStateChanged: {
-        if (state == "off") {
-          focus = false;
-          if (featureForm.visible) {
-            featureForm.focus = true;
-          } else {
-            keyHandler.focus = true;
-          }
-        }
-      }
     }
 
     QfDropShadow {
@@ -2317,14 +2314,6 @@ ApplicationWindow {
     allowActiveLayerChange: !digitizingToolbar.isDigitizing
     mapSettings: mapCanvas.mapSettings
     interactive: !welcomeScreen.visible && !qfieldSettings.visible && !qfieldCloudScreen.visible && !qfieldLocalDataPickerScreen.visible && !codeReader.visible && !screenLocker.enabled
-
-    onAboutToShow: {
-      dashBoard.contentItem.forceActiveFocus();
-    }
-
-    onClosed: {
-      focusstack.forceActiveFocusOnLastTaker();
-    }
 
     function ensureEditableLayerSelected() {
       var firstEditableLayer = null;
@@ -3443,8 +3432,6 @@ ApplicationWindow {
     rotateFeaturesToolbar: rotateFeaturesToolbar
     codeReader: codeReader
 
-    focus: visible
-
     anchors {
       right: parent.right
       bottom: parent.bottom
@@ -3463,7 +3450,15 @@ ApplicationWindow {
 
     selectionColor: "#ff7777"
 
-    onShowMessage: displayToast(message)
+    onVisibleChanged: {
+      if (visible) {
+        mainWindow.sceneStack.push(this);
+      } else {
+        const idx = mainWindow.sceneStack.indexOf(this);
+        if (idx >= 0)
+          mainWindow.sceneStack.splice(idx, 1);
+      }
+    }
 
     onEditGeometry: {
       // Set overall selected (i.e. current) layer to that of the feature geometry being edited,
@@ -3484,8 +3479,6 @@ ApplicationWindow {
       }
       geometryEditorsToolbar.init();
     }
-
-    Component.onCompleted: focusstack.addFocusTaker(this)
 
     //that the focus is set by selecting the empty space
     MouseArea {
@@ -3763,8 +3756,6 @@ ApplicationWindow {
     objectName: 'messageLog'
 
     anchors.fill: parent
-    focus: visible
-    visible: false
 
     model: messageLogModel
 
@@ -3772,16 +3763,14 @@ ApplicationWindow {
       visible = false;
     }
 
-    Keys.onReleased: event => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true;
-        visible = false;
+    onVisibleChanged: {
+      if (visible) {
+        mainWindow.sceneStack.push(this);
+      } else {
+        const idx = mainWindow.sceneStack.indexOf(this);
+        if (idx >= 0)
+          mainWindow.sceneStack.splice(idx, 1);
       }
-    }
-
-    Component.onCompleted: {
-      focusstack.addFocusTaker(this);
-      unreadMessages = messageLogModel.rowCount() !== 0;
     }
   }
 
@@ -3844,6 +3833,7 @@ ApplicationWindow {
       padding: 0
       modal: true
       closePolicy: Popup.CloseOnEscape
+      focus: visible
 
       LayerLoginDialog {
         id: loginDialog
@@ -3875,18 +3865,16 @@ ApplicationWindow {
   About {
     id: aboutDialog
     anchors.fill: parent
-    focus: visible
 
-    visible: false
-
-    Keys.onReleased: event => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true;
-        visible = false;
+    onVisibleChanged: {
+      if (visible) {
+        mainWindow.sceneStack.push(this);
+      } else {
+        const idx = mainWindow.sceneStack.indexOf(this);
+        if (idx >= 0)
+          mainWindow.sceneStack.splice(idx, 1);
       }
     }
-
-    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   TrackerSettings {
@@ -3897,21 +3885,18 @@ ApplicationWindow {
     id: qfieldSettings
 
     anchors.fill: parent
-    visible: false
-    focus: visible
 
-    onFinished: {
-      visible = false;
-    }
+    onFinished: visible = false
 
-    Keys.onReleased: event => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true;
-        finished();
+    onVisibleChanged: {
+      if (visible) {
+        mainWindow.sceneStack.push(this);
+      } else {
+        const idx = mainWindow.sceneStack.indexOf(this);
+        if (idx >= 0)
+          mainWindow.sceneStack.splice(idx, 1);
       }
     }
-
-    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   QFieldCloudConnection {
@@ -3974,6 +3959,44 @@ ApplicationWindow {
     }
   }
 
+  WelcomeScreen {
+    id: welcomeScreen
+    objectName: "welcomeScreen"
+    visible: !iface.hasProjectOnLaunch()
+
+    model: RecentProjectListModel {
+      id: recentProjectListModel
+    }
+    property ProjectSource __projectSource
+
+    anchors.fill: parent
+
+    onOpenLocalDataPicker: {
+      if (platformUtilities.capabilities & PlatformUtilities.CustomLocalDataPicker) {
+        welcomeScreen.visible = false;
+        qfieldLocalDataPickerScreen.projectFolderView = false;
+        qfieldLocalDataPickerScreen.model.resetToRoot();
+        qfieldLocalDataPickerScreen.visible = true;
+      } else {
+        __projectSource = platformUtilities.openProject(this);
+      }
+    }
+
+    onShowQFieldCloudScreen: {
+      qfieldCloudScreen.visible = true;
+    }
+
+    onVisibleChanged: {
+      if (visible) {
+        mainWindow.sceneStack.push(this);
+      } else {
+        const idx = mainWindow.sceneStack.indexOf(this);
+        if (idx >= 0)
+          mainWindow.sceneStack.splice(idx, 1);
+      }
+    }
+  }
+
   QFieldCloudDeltaHistory {
     id: qfieldCloudDeltaHistory
 
@@ -3986,21 +4009,25 @@ ApplicationWindow {
     id: qfieldCloudScreen
 
     anchors.fill: parent
-    visible: false
-    focus: visible
 
     onFinished: {
       visible = false;
-      welcomeScreen.visible = true;
     }
 
-    Component.onCompleted: focusstack.addFocusTaker(this)
+    onVisibleChanged: {
+      if (visible) {
+        mainWindow.sceneStack.push(this);
+      } else {
+        const idx = mainWindow.sceneStack.indexOf(this);
+        if (idx >= 0)
+          mainWindow.sceneStack.splice(idx, 1);
+      }
+    }
   }
 
   QFieldCloudPopup {
     id: qfieldCloudPopup
     visible: false
-    focus: visible
     parent: Overlay.overlay
 
     width: parent.width
@@ -4020,63 +4047,24 @@ ApplicationWindow {
     id: qfieldLocalDataPickerScreen
 
     anchors.fill: parent
-    visible: false
-    focus: visible
 
     onFinished: {
       visible = false;
       if (model.currentPath === 'root') {
-        welcomeScreen.visible = loading ? false : true;
-      }
-    }
-
-    Component.onCompleted: focusstack.addFocusTaker(this)
-  }
-
-  WelcomeScreen {
-    id: welcomeScreen
-    objectName: "welcomeScreen"
-    visible: !iface.hasProjectOnLaunch()
-
-    model: RecentProjectListModel {
-      id: recentProjectListModel
-    }
-    property ProjectSource __projectSource
-
-    anchors.fill: parent
-    focus: visible
-
-    onOpenLocalDataPicker: {
-      if (platformUtilities.capabilities & PlatformUtilities.CustomLocalDataPicker) {
-        welcomeScreen.visible = false;
-        qfieldLocalDataPickerScreen.projectFolderView = false;
-        qfieldLocalDataPickerScreen.model.resetToRoot();
-        qfieldLocalDataPickerScreen.visible = true;
-      } else {
-        __projectSource = platformUtilities.openProject(this);
-      }
-    }
-
-    onShowQFieldCloudScreen: {
-      welcomeScreen.visible = false;
-      qfieldCloudScreen.visible = true;
-    }
-
-    Keys.onReleased: event => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        if (qgisProject.fileName != '') {
-          event.accepted = true;
-          visible = false;
-          focus = false;
-        } else {
-          event.accepted = false;
-          mainWindow.close();
+        if (loading) {
+          welcomeScreen.visible = false;
         }
       }
     }
 
-    Component.onCompleted: {
-      focusstack.addFocusTaker(this);
+    onVisibleChanged: {
+      if (visible) {
+        mainWindow.sceneStack.push(this);
+      } else {
+        const idx = mainWindow.sceneStack.indexOf(this);
+        if (idx >= 0)
+          mainWindow.sceneStack.splice(idx, 1);
+      }
     }
   }
 

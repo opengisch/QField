@@ -92,7 +92,6 @@ Rectangle {
     color: (featureForm.model.constraintsHardValid && featureForm.model.constraintsSoftValid) || toolBar.state !== "Edit" ? Theme.mainColor : !featureForm.model.constraintsHardValid ? Theme.errorColor : Theme.warningColor
 
     clip: true
-    focus: true
 
     Text {
       // Insure that the text is always visually centered by using the same left and right margi

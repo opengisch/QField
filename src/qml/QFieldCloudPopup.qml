@@ -10,6 +10,7 @@ import Theme
 Popup {
   id: popup
   padding: 0
+  focus: visible
 
   Page {
     anchors.fill: parent

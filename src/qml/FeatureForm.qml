@@ -708,7 +708,6 @@ Page {
     } else if (!model.constraintsSoftValid) {
       displayToast(qsTr('Note: soft constraints were not met'));
     }
-    parent.focus = true;
     if (setupOnly) {
       temporaryStored();
       return;

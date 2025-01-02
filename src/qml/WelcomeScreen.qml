@@ -19,6 +19,9 @@ Page {
   signal openLocalDataPicker
   signal showQFieldCloudScreen
 
+  visible: false
+  focus: visible
+
   Settings {
     id: registry
     category: 'QField'
@@ -975,5 +978,14 @@ Page {
       collectionView.visible = false;
       firstShown = true;
     }
+  }
+
+  function requestHide() {
+    if (qgisProject.fileName == '') {
+      mainWindow.close();
+      return false;
+    }
+    visible = false;
+    return true;
   }
 }

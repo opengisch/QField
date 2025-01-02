@@ -65,7 +65,6 @@ set(QFIELD_CORE_SRCS
     featurelistmodel.cpp
     featurelistmodelselection.cpp
     featuremodel.cpp
-    focusstack.cpp
     geometry.cpp
     geometryeditorsmodel.cpp
     gridmodel.cpp
@@ -189,7 +188,6 @@ set(QFIELD_CORE_HDRS
     featurelistmodel.h
     featurelistmodelselection.h
     featuremodel.h
-    focusstack.h
     geometry.h
     geometryeditorsmodel.h
     gridmodel.h

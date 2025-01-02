@@ -19,6 +19,7 @@ Popup {
   height: parent.height - Theme.popupScreenEdgeMargin * 2
   modal: true
   closePolicy: Popup.NoAutoClose
+  focus: visible
 
   property var tracker: undefined
 
@@ -559,12 +560,12 @@ Popup {
       height: parent.height - Theme.popupScreenEdgeMargin * 2
       modal: true
       closePolicy: Popup.NoAutoClose
+      focus: visible
 
       FeatureForm {
         id: form
         model: embeddedAttributeFormModel
 
-        focus: true
         setupOnly: true
         embedded: true
         toolbarVisible: true

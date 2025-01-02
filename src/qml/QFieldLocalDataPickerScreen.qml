@@ -16,6 +16,9 @@ Page {
 
   signal finished(var loading)
 
+  visible: false
+  focus: visible
+
   header: QfPageHeader {
     title: projectFolderView ? qsTr("Project Folder") : qsTr("Local Projects & Datasets")
 
@@ -647,7 +650,6 @@ Page {
   QfDialog {
     id: importUrlDialog
     title: "Import URL"
-    focus: true
     y: (mainWindow.height - height - 80) / 2
 
     onAboutToShow: {
@@ -695,18 +697,12 @@ Page {
     }
   }
 
-  Keys.onReleased: event => {
-    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-      event.accepted = true;
-      if (table.model.currentDepth > 1) {
-        table.model.moveUp();
-      } else {
-        finished(false);
-      }
+  function requestHide() {
+    if (table.model.currentDepth > 1) {
+      table.model.moveUp();
+      return false;
     }
-  }
-
-  onVisibleChanged: {
-    focus = visible;
+    finished(false);
+    return true;
   }
 }
