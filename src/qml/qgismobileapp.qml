@@ -3936,7 +3936,7 @@ ApplicationWindow {
     id: qfieldCloudDeltaHistory
 
     modal: true
-    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+    closePolicy: Popup.CloseOnEscape
     parent: Overlay.overlay
   }
 

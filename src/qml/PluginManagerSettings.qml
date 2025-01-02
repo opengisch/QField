@@ -17,7 +17,7 @@ Popup {
   y: (parent.height - height) / 2
   padding: 0
   modal: true
-  closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+  closePolicy: Popup.CloseOnEscape
   parent: Overlay.overlay
   focus: visible
 

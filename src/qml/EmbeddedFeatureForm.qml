@@ -46,7 +46,7 @@ Popup {
   signal featureCancelled
 
   parent: mainWindow.contentItem
-  closePolicy: form.state === "ReadOnly" ? Popup.CloseOnEscape | Popup.CloseOnPressOutside : Popup.NoAutoClose // prevent accidental feature addition and editing
+  closePolicy: form.state === "ReadOnly" ? Popup.CloseOnEscape : Popup.NoAutoClose // prevent accidental feature addition and editing
 
   x: Theme.popupScreenEdgeMargin / 2
   y: Theme.popupScreenEdgeMargin

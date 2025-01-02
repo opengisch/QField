@@ -17,7 +17,7 @@ Popup {
   height: parent.height - Theme.popupScreenEdgeMargin * 2
   padding: 0
   modal: true
-  closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+  closePolicy: Popup.CloseOnEscape
   focus: visible
 
   Page {
