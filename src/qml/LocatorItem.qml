@@ -318,7 +318,6 @@ Item {
 
     onPressAndHold: {
       locatorSettings.open();
-      locatorSettings.focus = true;
     }
   }
 

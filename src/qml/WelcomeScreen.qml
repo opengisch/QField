@@ -796,7 +796,6 @@ Page {
 
     onClicked: {
       welcomeScreen.visible = false;
-      welcomeScreen.focus = false;
     }
   }
 
@@ -972,7 +971,6 @@ Page {
 
   onVisibleChanged: {
     adjustWelcomeScreen();
-    focus = visible;
     if (!visible) {
       feedbackView.visible = false;
       collectionView.visible = false;

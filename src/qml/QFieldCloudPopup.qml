@@ -632,7 +632,6 @@ Popup {
     }
     onRejected: {
       visible = false;
-      popup.focus = true;
     }
   }
 
@@ -655,7 +654,6 @@ Popup {
     }
     onRejected: {
       visible = false;
-      popup.focus = true;
     }
   }
 

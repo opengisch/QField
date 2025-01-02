@@ -2348,7 +2348,6 @@ ApplicationWindow {
     mainMenu.close();
     dashBoard.close();
     welcomeScreen.visible = true;
-    welcomeScreen.focus = true;
     homeButton.waitingForDigitizingFinish = false;
   }
 
@@ -3575,9 +3574,7 @@ ApplicationWindow {
           "PostGIS": ["fe_sendauth: no password supplied"]
         });
       qfieldLocalDataPickerScreen.visible = false;
-      qfieldLocalDataPickerScreen.focus = false;
       welcomeScreen.visible = false;
-      welcomeScreen.focus = false;
       if (changelogPopup.visible)
         changelogPopup.close();
       dashBoard.layerTree.freeze();

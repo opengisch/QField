@@ -30,7 +30,6 @@ Popup {
       tracker = trackings.itemAt(trackerIndex.row).tracker;
       if (!skipSettings) {
         trackerSettings.open();
-        trackerSettings.focus = true;
       } else {
         featureModel.resetAttributes();
         featureModel.applyGeometry();
@@ -589,7 +588,6 @@ Popup {
         onCancelled: {
           embeddedFeatureFormPopup.close();
           embeddedFeatureForm.active = false;
-          embeddedFeatureForm.focus = false;
           trackingModel.stopTracker(tracker.vectorLayer);
           tracker = undefined;
           trackerSettings.close();

@@ -19,6 +19,8 @@ Popup {
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   padding: 0
+  closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+  focus: visible
 
   onAboutToShow: {
     nameField.text = bookmarkName;

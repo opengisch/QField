@@ -480,7 +480,6 @@ Rectangle {
     }
 
     onBackClicked: {
-      featureFormList.focus = true;
       if (featureFormList.state != "FeatureList") {
         featureFormList.state = "FeatureList";
       } else {
@@ -606,7 +605,6 @@ Rectangle {
         featureForm.model.featureModel.modelMode = FeatureModel.MultiFeatureModel;
       }
       featureFormList.multiSelection = !featureFormList.multiSelection;
-      featureFormList.focus = true;
     }
 
     onMultiEditClicked: {
@@ -773,12 +771,10 @@ Rectangle {
 
   function show() {
     props.isVisible = true;
-    focus = true;
   }
 
   function hide() {
     props.isVisible = false;
-    focus = false;
     fullScreenView = qfieldSettings.fullScreenIdentifyView;
     if (!featureFormList.canvasOperationRequested) {
       featureFormList.multiSelection = false;
@@ -835,11 +831,9 @@ Rectangle {
         displayToast(qsTr("Failed to merge %n feature(s)", "", selectedCount), 'warning');
       }
       visible = false;
-      featureFormList.focus = true;
     }
     onRejected: {
       visible = false;
-      featureFormList.focus = true;
     }
 
     function show() {
@@ -944,11 +938,9 @@ Rectangle {
         displayToast(qsTr("Failed to delete %n feature(s)", "", selectedCount), 'error');
       }
       visible = false;
-      featureFormList.focus = true;
     }
     onRejected: {
       visible = false;
-      featureFormList.focus = true;
     }
 
     function show() {

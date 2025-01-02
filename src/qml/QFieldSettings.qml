@@ -476,7 +476,6 @@ Page {
 
                 onClicked: {
                   locatorSettings.open();
-                  locatorSettings.focus = true;
                 }
               }
 
@@ -506,7 +505,6 @@ Page {
 
                 onClicked: {
                   pluginManagerSettings.open();
-                  pluginManagerSettings.focus = true;
                 }
               }
             }
