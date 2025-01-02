@@ -184,7 +184,7 @@ ApplicationWindow {
 
   Shortcut {
     enabled: projectInfo.insertRights
-    sequence: "Ctrl+Insert"
+    sequence: "Ctrl++"
     onActivated: {
       mainWindow.toggleDigitizeMode();
     }
