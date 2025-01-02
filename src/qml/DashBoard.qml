@@ -29,10 +29,6 @@ Drawer {
     }
   }
 
-  onOpened: {
-    contentItem.forceActiveFocus();
-  }
-
   width: Math.min(300, mainWindow.width)
   height: parent.height
   edge: Qt.LeftEdge
@@ -234,18 +230,7 @@ Drawer {
           }
         }
 
-        onPositionChanged: {
-          if (checked) {
-            changeMode("digitize");
-          } else {
-            if (digitizingToolbar.rubberbandModel && digitizingToolbar.rubberbandModel.vertexCount > 1) {
-              displayToast(qsTr("Finish or dimiss the digitizing feature before toggling to browse mode"));
-              checked = !checked;
-            } else {
-              changeMode("browse");
-            }
-          }
-        }
+        onPositionChanged: mainWindow.toggleDigitizeMode()
       }
     }
 

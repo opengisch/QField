@@ -39,11 +39,12 @@ ApplicationWindow {
   id: mainWindow
   objectName: 'mainWindow'
   visible: true
-  flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0) | (Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint : 0)
+  flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | (sceneBorderless ? Qt.FramelessWindowHint : 0) | (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0) | (Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint : 0)
 
   Material.theme: Theme.darkTheme ? "Dark" : "Light"
   Material.accent: Theme.mainColor
 
+  property bool sceneBorderless: false
   property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
   property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]
 
@@ -111,34 +112,90 @@ ApplicationWindow {
     visible: true
     focus: true
 
-    property int previousVisibilityState: Window.Windowed
-
     Keys.onReleased: event => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        if (featureForm.visible) {
-          featureForm.hide();
-        } else if (stateMachine.state === 'measure') {
-          mainWindow.closeMeasureTool();
-        } else {
-          mainWindow.close();
-        }
-        event.accepted = true;
-      } else if (event.key === Qt.Key_F11) {
-        if (Qt.platform.os !== "android" && Qt.platform.os !== "ios") {
-          if (mainWindow.visibility !== Window.FullScreen) {
-            previousVisibilityState = mainWindow.visibility;
-            mainWindow.visibility = Window.FullScreen;
+      if (event.modifiers === Qt.NoModifier) {
+        if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+          if (featureForm.visible) {
+            featureForm.hide();
+          } else if (stateMachine.state === 'measure') {
+            mainWindow.closeMeasureTool();
           } else {
-            mainWindow.visibility = Window.Windowed;
-            if (previousVisibilityState === Window.Maximized) {
-              mainWindow.showMaximized();
-            }
+            mainWindow.close();
           }
+          event.accepted = true;
         }
       }
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
+  Shortcut {
+    property int previousVisibilityState: Window.Windowed
+    enabled: Qt.platform.os !== "android" && Qt.platform.os !== "ios"
+    sequence: "F11"
+    onActivated: {
+      if (mainWindow.visibility !== Window.FullScreen) {
+        previousVisibilityState = mainWindow.visibility;
+        mainWindow.visibility = Window.FullScreen;
+      } else {
+        mainWindow.visibility = Window.Windowed;
+        if (previousVisibilityState === Window.Maximized) {
+          mainWindow.showMaximized();
+        }
+      }
+    }
+  }
+
+  Shortcut {
+    enabled: Qt.platform.os !== "android" && Qt.platform.os !== "ios"
+    sequence: "F12"
+    onActivated: {
+      mainWindow.sceneBorderless = !mainWindow.sceneBorderless;
+      if (mainWindow.sceneBorderless) {
+        displayToast(qsTr("Borderless mode activated, use the top left and botom right corner to move and resize the window"));
+      }
+    }
+  }
+
+  Shortcut {
+    enabled: keyHandler.focus
+    sequence: "Ctrl+K"
+    onActivated: {
+      locatorItem.state = "on";
+    }
+  }
+
+  Shortcut {
+    enabled: true
+    sequence: "Ctrl+M"
+    onActivated: {
+      activateMeasurementMode();
+    }
+  }
+
+  Shortcut {
+    enabled: keyHandler.focus || welcomeScreen.focus
+    sequence: "Ctrl+O"
+    onActivated: {
+      welcomeScreen.openLocalDataPicker();
+    }
+  }
+
+  Shortcut {
+    enabled: projectInfo.insertRights
+    sequence: "Ctrl++"
+    onActivated: {
+      mainWindow.toggleDigitizeMode();
+    }
+  }
+
+  Shortcut {
+    enabled: keyHandler.focus && stateMachine.state === "digitize"
+    sequence: "Ctrl+Space"
+    onActivated: {
+      digitizingToolbar.triggerAddVertex();
+    }
   }
 
   //currentRubberband provides the rubberband depending on the current state (digitize or measure)
@@ -148,6 +205,7 @@ ApplicationWindow {
 
   signal closeMeasureTool
   signal changeMode(string mode)
+  signal toggleDigitizeMode
 
   Item {
     id: stateMachine
@@ -190,6 +248,18 @@ ApplicationWindow {
       }
     ]
     state: "browse"
+  }
+
+  onToggleDigitizeMode: {
+    if (stateMachine.state === "digitize") {
+      if (digitizingToolbar.rubberbandModel && digitizingToolbar.rubberbandModel.vertexCount > 1) {
+        displayToast(qsTr("Finish or dimiss the digitizing feature before toggling to browse mode"));
+      } else {
+        changeMode("browse");
+      }
+    } else {
+      changeMode("digitize");
+    }
   }
 
   onChangeMode: mode => {
@@ -2248,12 +2318,12 @@ ApplicationWindow {
     mapSettings: mapCanvas.mapSettings
     interactive: !welcomeScreen.visible && !qfieldSettings.visible && !qfieldCloudScreen.visible && !qfieldLocalDataPickerScreen.visible && !codeReader.visible && !screenLocker.enabled
 
-    onOpenedChanged: {
-      if (!opened) {
-        if (featureForm.visible) {
-          featureForm.focus = true;
-        }
-      }
+    onAboutToShow: {
+      dashBoard.contentItem.forceActiveFocus();
+    }
+
+    onClosed: {
+      focusstack.forceActiveFocusOnLastTaker();
     }
 
     function ensureEditableLayerSelected() {
@@ -4213,7 +4283,7 @@ ApplicationWindow {
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       featureForm.state = "Hidden";
-      activateMeasurementMode();
+      mentMode();
     }
     onDiscarded: {
       cancelAlgorithmDialog.visible = false;
@@ -4267,6 +4337,42 @@ ApplicationWindow {
     function blockGuides() {
       mapCanvasTour.blockGuide();
       settings.setValue("/QField/showMapCanvasGuide", false);
+    }
+  }
+
+  Rectangle {
+    anchors.top: parent.top
+    anchors.left: parent.left
+
+    width: 14
+    height: 14
+    color: "transparent"
+
+    MouseArea {
+      enabled: mainWindow.sceneBorderless
+      anchors.fill: parent
+      cursorShape: enabled ? Qt.DragMoveCursor : Qt.ArrowCursor
+      onPressed: mouse => {
+        mainWindow.startSystemMove();
+      }
+    }
+  }
+
+  Rectangle {
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+
+    width: 14
+    height: 14
+    color: "transparent"
+
+    MouseArea {
+      enabled: mainWindow.sceneBorderless
+      anchors.fill: parent
+      cursorShape: enabled ? Qt.SizeFDiagCursor : Qt.ArrowCursor
+      onPressed: mouse => {
+        mainWindow.startSystemResize(Qt.RightEdge | Qt.BottomEdge);
+      }
     }
   }
 }

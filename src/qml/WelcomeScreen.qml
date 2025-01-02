@@ -781,7 +781,7 @@ Page {
 
   QfToolButton {
     id: currentProjectButton
-    visible: false
+    visible: qgisProject && !!qgisProject.fileName
     anchors {
       top: parent.top
       left: parent.left
@@ -799,7 +799,7 @@ Page {
 
   QfToolButton {
     id: exitButton
-    visible: false
+    visible: qgisProject && !!qgisProject.fileName && (Qt.platform.os === "ios" || Qt.platform.os === "android" || mainWindow.sceneBorderless)
     anchors {
       top: parent.top
       right: parent.right
@@ -918,9 +918,6 @@ Page {
 
   function adjustWelcomeScreen() {
     if (visible) {
-      const currentProjectButtonVisible = !!qgisProject.fileName;
-      currentProjectButton.visible = currentProjectButtonVisible;
-      exitButton.visible = currentProjectButtonVisible && (Qt.platform.os === "ios" || Qt.platform.os === "android");
       if (firstShown) {
         welcomeText.text = " ";
       } else {

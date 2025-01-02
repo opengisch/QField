@@ -23,6 +23,7 @@ Button {
   bottomInset: 2
   leftInset: 4
   rightInset: 4
+  focusPolicy: Qt.NoFocus
 
   icon.color: button.color
   font: Theme.defaultFont

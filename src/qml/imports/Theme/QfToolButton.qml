@@ -21,6 +21,7 @@ RoundButton {
   height: 48
   implicitWidth: width
   implicitHeight: height
+  focusPolicy: Qt.NoFocus
 
   topInset: 0
   bottomInset: 0
