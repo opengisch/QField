@@ -102,6 +102,7 @@ ApplicationWindow {
   }
 
   Shortcut {
+    id: stackShortcut
     enabled: true
     sequences: ["Escape", StandardKey.Back]
     onActivated: {
@@ -394,6 +395,7 @@ ApplicationWindow {
     id: mapCanvas
     objectName: "mapCanvas"
     clip: true
+    focus: true
 
     DragHandler {
       id: freehandHandler
@@ -3526,6 +3528,10 @@ ApplicationWindow {
 
   Connections {
     target: iface
+
+    function onBackPressed() {
+      stackShortcut.activated();
+    }
 
     function onVolumeKeyUp(volumeKeyCode) {
       if (stateMachine.state === 'browse' || !mapCanvasMap.isEnabled) {

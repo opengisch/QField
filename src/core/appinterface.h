@@ -179,6 +179,9 @@ class AppInterface : public QObject
     //! Emitted when a volume key is pressed while QField is set to handle those keys.
     void volumeKeyUp( int volumeKeyCode );
 
+    //! Emitted when the OS 'back' navigation bar or edges swipe gesture has been triggered.
+    void backPressed();
+
   private:
     static AppInterface *sAppInterface;
 

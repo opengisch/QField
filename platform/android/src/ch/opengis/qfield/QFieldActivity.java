@@ -118,6 +118,7 @@ public class QFieldActivity extends QtActivity {
     public static native void openProject(String url);
     public static native void openPath(String path);
 
+    public static native void backPressed();
     public static native void volumeKeyDown(int volumeKeyCode);
     public static native void volumeKeyUp(int volumeKeyCode);
 
@@ -209,12 +210,24 @@ public class QFieldActivity extends QtActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        // Workaround issue handling navigation bar back vs. edge swipe back
+        // gesture
+        backPressed();
+    }
+
+    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (handleVolumeKeys && (keyCode == KeyEvent.KEYCODE_VOLUME_UP ||
                                  keyCode == KeyEvent.KEYCODE_VOLUME_DOWN ||
                                  keyCode == KeyEvent.KEYCODE_MUTE)) {
             // Forward volume keys' presses to QField
             volumeKeyDown(keyCode);
+            return true;
+        } else if (keyCode == KeyEvent.KEYCODE_BACK) {
+            // Workaround issue handling navigation bar back vs. edge swipe back
+            // gesture
+            backPressed();
             return true;
         }
         return super.onKeyDown(keyCode, event);
@@ -227,6 +240,8 @@ public class QFieldActivity extends QtActivity {
                                  keyCode == KeyEvent.KEYCODE_MUTE)) {
             // Forward volume keys's releases to QField
             volumeKeyUp(keyCode);
+            return true;
+        } else if (keyCode == KeyEvent.KEYCODE_BACK) {
             return true;
         }
         return super.onKeyUp(keyCode, event);

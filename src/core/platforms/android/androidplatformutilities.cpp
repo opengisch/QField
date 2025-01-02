@@ -801,6 +801,15 @@ JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, 
 #define ANDROID_VOLUME_DOWN 25
 #define ANDROID_VOLUME_UP 24
 
+JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, backPressed )( JNIEnv *env, jobject obj )
+{
+  if ( AppInterface::instance() )
+  {
+    emit AppInterface::instance()->backPressed();
+  }
+  return;
+}
+
 JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, volumeKeyDown )( JNIEnv *env, jobject obj, int volumeKeyCode )
 {
   if ( AppInterface::instance() )
