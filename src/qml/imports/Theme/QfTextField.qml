@@ -7,7 +7,7 @@ TextField {
   font: Theme.defaultFont
   placeholderTextColor: Theme.accentLightColor
   rightPadding: showPasswordButton.visible ? showPasswordButton.width : 0
-  leftPadding: rightPadding
+  leftPadding: showPasswordButton.visible && horizontalAlignment !== Text.AlignLeft ? rightPadding : 0
   topPadding: 10
   bottomPadding: 10
   inputMethodHints: Qt.ImhNone

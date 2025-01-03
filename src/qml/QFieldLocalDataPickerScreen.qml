@@ -591,6 +591,20 @@ Page {
         }
       }
 
+      MenuItem {
+        id: importWebdav
+
+        font: Theme.defaultFont
+        width: parent.width
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Import WebDAV folder")
+        onTriggered: {
+          importWebdavDialog.open();
+          importWebdavUrlInput.focus();
+        }
+      }
+
       MenuSeparator {
         width: parent.width
       }
@@ -679,6 +693,66 @@ Page {
       QfTextField {
         id: importUrlInput
         width: importUrlLabel.width
+      }
+    }
+
+    onAccepted: {
+      iface.importUrl(importUrlInput.text);
+    }
+  }
+
+  QfDialog {
+    id: importWebdavDialog
+    title: "Import WebDAV folder"
+    focus: true
+    y: (mainWindow.height - height - 80) / 2
+
+    onAboutToShow: {
+      importWebdavUrlInput.text = '';
+    }
+
+    Column {
+      width: childrenRect.width
+      height: childrenRect.height
+      spacing: 10
+
+      TextMetrics {
+        id: importWebdavUrlLabelMetrics
+        font: importWebdavUrlLabel.font
+        text: importWebdavUrlLabel.text
+      }
+
+      Label {
+        id: importWebdavUrlLabel
+        width: mainWindow.width - 60 < importWebdavUrlLabelMetrics.width ? mainWindow.width - 60 : importWebdavUrlLabelMetrics.width
+        text: qsTr("Type the WebDAV details below to import a remote folder:")
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+      }
+
+      QfTextField {
+        id: importWebdavUrlInput
+        width: importWebdavUrlLabel.width
+        placeholderText: qsTr("WebDAV server URL")
+      }
+
+      QfTextField {
+        id: importWebdavUserInput
+        width: importWebdavUrlLabel.width
+        placeholderText: qsTr("User")
+      }
+
+      QfTextField {
+        id: importWebdavPasswordInput
+        width: importWebdavUrlLabel.width
+        placeholderText: qsTr("Password")
+        echoMode: TextInput.Password
+      }
+
+      QfButton {
+        width: importWebdavUrlLabel.width
+        text: qsTr("Connect")
       }
     }
 
