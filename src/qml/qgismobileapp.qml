@@ -3947,14 +3947,14 @@ ApplicationWindow {
     anchors.fill: parent
 
     onOpenLocalDataPicker: {
-      if (platformUtilities.capabilities & PlatformUtilities.CustomLocalDataPicker) {
-        welcomeScreen.visible = false;
-        qfieldLocalDataPickerScreen.projectFolderView = false;
-        qfieldLocalDataPickerScreen.model.resetToRoot();
-        qfieldLocalDataPickerScreen.visible = true;
-      } else {
-        __projectSource = platformUtilities.openProject(this);
-      }
+      //if (platformUtilities.capabilities & PlatformUtilities.CustomLocalDataPicker) {
+      welcomeScreen.visible = false;
+      qfieldLocalDataPickerScreen.projectFolderView = false;
+      qfieldLocalDataPickerScreen.model.resetToRoot();
+      qfieldLocalDataPickerScreen.visible = true;
+      //} else {
+      //  __projectSource = platformUtilities.openProject(this);
+      //}
     }
 
     onShowQFieldCloudScreen: {
