@@ -1458,31 +1458,31 @@ ApplicationWindow {
         }
       }
 
-      QfCloseButton {
+      QfActionButton {
         id: closeMeasureTool
         visible: stateMachine.state === 'measure'
         toolImage: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
         toolText: qsTr('Close measure tool')
 
-        onClose: mainWindow.closeMeasureTool()
+        onClicked: mainWindow.closeMeasureTool()
       }
 
-      QfCloseButton {
+      QfActionButton {
         id: closeGeometryEditorsTool
         visible: (stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0)
         toolImage: geometryEditorsToolbar.image
         toolText: qsTr('Stop editing')
 
-        onClose: geometryEditorsToolbar.cancelEditors()
+        onClicked: geometryEditorsToolbar.cancelEditors()
       }
 
-      QfCloseButton {
+      QfActionButton {
         id: abortRequestGeometry
         visible: digitizingToolbar.geometryRequested
         toolImage: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
         toolText: qsTr('Cancel addition')
 
-        onClose: digitizingToolbar.cancel()
+        onClicked: digitizingToolbar.cancel()
       }
     }
 
@@ -3861,17 +3861,6 @@ ApplicationWindow {
     id: trackerSettings
   }
 
-  QFieldSettings {
-    id: qfieldSettings
-    anchors.fill: parent
-
-    onFinished: {
-      visible = false;
-    }
-
-    Component.onCompleted: focusstack.addFocusTaker(this)
-  }
-
   QFieldCloudConnection {
     id: cloudConnection
 
@@ -4017,6 +4006,22 @@ ApplicationWindow {
     onShowQFieldCloudScreen: {
       welcomeScreen.visible = false;
       qfieldCloudScreen.visible = true;
+    }
+
+    onShowSettings: {
+      qfieldSettings.reset();
+      qfieldSettings.visible = true;
+    }
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
+  QFieldSettings {
+    id: qfieldSettings
+    anchors.fill: parent
+
+    onFinished: {
+      visible = false;
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)

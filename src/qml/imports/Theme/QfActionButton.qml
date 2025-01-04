@@ -9,11 +9,17 @@ ToolButton {
 
   property string toolImage: ''
   property string toolText: qsTr("close")
-
-  signal close
+  property alias innerActionIcon: innerAction
 
   height: 48
-  width: height + buttonText.width + 32 + 24
+  width: height + (buttonText.visible ? buttonText.width + 24 : 0) + (innerAction.visible ? 32 : 0)
+  clip: true
+
+  Behavior on width  {
+    NumberAnimation {
+      duration: 200
+    }
+  }
 
   background: Rectangle {
     width: parent.width
@@ -51,6 +57,7 @@ ToolButton {
     anchors.leftMargin: 48 + 8
     spacing: 8
     padding: 0
+    visible: button.toolText !== ""
 
     Text {
       id: buttonText
@@ -62,6 +69,7 @@ ToolButton {
     }
 
     Image {
+      id: innerAction
       anchors.verticalCenter: parent.verticalCenter
       width: 24
       height: 24
@@ -71,10 +79,7 @@ ToolButton {
       source: Theme.getThemeVectorIcon("ic_close_white_24dp")
       sourceSize.width: 24 * screen.devicePixelRatio
       sourceSize.height: 24 * screen.devicePixelRatio
+      visible: true
     }
-  }
-
-  onClicked: {
-    close();
   }
 }
