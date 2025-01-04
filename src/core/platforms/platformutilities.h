@@ -122,7 +122,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     /**
      * The main application directory within which projects and datasets can be imported.
      */
-    virtual QString applicationDirectory() const;
+    Q_INVOKABLE virtual QString applicationDirectory() const;
 
     /**
      * Secondary application directories which can be used by individual platforms.

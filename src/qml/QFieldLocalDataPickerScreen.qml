@@ -714,7 +714,7 @@ Page {
 
   Loader {
     id: webdavConnectionLoader
-    active: importWebdavDialog.opened
+    active: importWebdavDialog.openedOnce
     sourceComponent: webdavConnectionComponent
   }
 
@@ -724,8 +724,9 @@ Page {
     focus: true
     y: (mainWindow.height - height - 80) / 2
 
+    property bool openedOnce: false
     onAboutToShow: {
-      importWebdavUrlInput.text = '';
+      openedOnce = true;
     }
 
     Column {
@@ -830,9 +831,10 @@ Page {
       }
     }
 
-    onAccepted:
-    // TODO
-    {
+    onAccepted: {
+      if (importWebdavPathInput.displayText !== '') {
+        webdavConnectionLoader.item.importPath(importWebdavPathInput.displayText, platformUtilities.applicationDirectory() + "Imported Projects/");
+      }
     }
   }
 

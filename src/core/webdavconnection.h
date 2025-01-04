@@ -37,7 +37,9 @@ class WebdavConnection : public QObject
     Q_PROPERTY( bool isPasswordStored READ isPasswordStored NOTIFY isPasswordStoredChanged )
 
     Q_PROPERTY( QStringList availablePaths READ availablePaths NOTIFY availablePathsChanged );
+
     Q_PROPERTY( bool isFetchingAvailablePaths READ isFetchingAvailablePaths NOTIFY isFetchingAvailablePathsChanged )
+    Q_PROPERTY( bool isImportingPath READ isImportingPath NOTIFY isImportingPathChanged )
 
   public:
     explicit WebdavConnection( QObject *parent = nullptr );
@@ -57,11 +59,15 @@ class WebdavConnection : public QObject
 
     bool isPasswordStored() const { return !mStoredPassword.isEmpty(); }
 
-    QStringList availablePaths() const { return isFetchingAvailablePaths() ? QStringList() : mAvailablePaths; }
+    QStringList availablePaths() const { return mIsFetchingAvailablePaths ? QStringList() : mAvailablePaths; }
 
-    bool isFetchingAvailablePaths() const { return !mFetchPendingPaths.isEmpty(); }
+    bool isFetchingAvailablePaths() const { return mIsFetchingAvailablePaths; }
+
+    bool isImportingPath() const { return mIsImportingPath; }
 
     Q_INVOKABLE void fetchAvailablePaths();
+
+    Q_INVOKABLE void importPath( const QString &remotePath, const QString &localPath );
 
   signals:
     void urlChanged();
@@ -70,19 +76,26 @@ class WebdavConnection : public QObject
     void isPasswordStoredChanged();
     void availablePathsChanged();
     void isFetchingAvailablePathsChanged();
+    void isImportingPathChanged();
 
   private:
     void checkStoredPassword();
     void setupConnection();
     void processDirParserFinished();
+    void processImportItems();
 
     QString mUrl;
     QString mUsername;
     QString mPassword;
     QString mStoredPassword;
 
+    bool mIsFetchingAvailablePaths = false;
     QStringList mAvailablePaths;
-    QStringList mFetchPendingPaths;
+
+    bool mIsImportingPath = false;
+    QStringList mImportItems;
+    QString mImportRemotePath;
+    QString mImportLocalPath;
 
     QWebdav mWebdavConnection;
     QWebdavDirParser mWebdavDirParser;

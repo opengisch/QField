@@ -18,6 +18,7 @@
 
 #include "webdavconnection.h"
 
+#include <QSettings>
 #include <QtWebDAV/qwebdavitem.h>
 #include <qgsapplication.h>
 #include <qgsauthmanager.h>
@@ -114,33 +115,108 @@ void WebdavConnection::fetchAvailablePaths()
 
   setupConnection();
 
-  mFetchPendingPaths << QStringLiteral( "/" );
+  mIsFetchingAvailablePaths = true;
   emit isFetchingAvailablePathsChanged();
 
-  mWebdavDirParser.listDirectory( &mWebdavConnection, mFetchPendingPaths.first() );
+  mWebdavDirParser.listDirectory( &mWebdavConnection, QStringLiteral( "/" ), true );
 }
 
 void WebdavConnection::processDirParserFinished()
 {
   const QList<QWebdavItem> list = mWebdavDirParser.getList();
-  for ( const QWebdavItem &item : list )
+  if ( mIsFetchingAvailablePaths )
   {
-    if ( item.isDir() )
+    mAvailablePaths << QStringLiteral( "/" );
+    for ( const QWebdavItem &item : list )
     {
-      mFetchPendingPaths << item.path();
+      if ( item.isDir() )
+      {
+        mAvailablePaths << item.path();
+      }
     }
-  }
 
-  mAvailablePaths << mFetchPendingPaths.takeFirst();
-  if ( !mFetchPendingPaths.isEmpty() )
-  {
-    mWebdavDirParser.listDirectory( &mWebdavConnection, mFetchPendingPaths.first() );
-  }
-  else
-  {
+    mIsFetchingAvailablePaths = false;
     emit isFetchingAvailablePathsChanged();
 
     mAvailablePaths.sort();
     emit availablePathsChanged();
   }
+  else if ( mIsImportingPath )
+  {
+    QDir importLocalDir( mImportLocalPath );
+    for ( const QWebdavItem &item : list )
+    {
+      if ( item.isDir() )
+      {
+        importLocalDir.mkpath( item.path().mid( mImportRemotePath.size() ) );
+      }
+      else
+      {
+        mImportItems << item.path();
+      }
+    }
+
+    processImportItems();
+  }
+}
+
+void WebdavConnection::processImportItems()
+{
+  if ( !mImportItems.isEmpty() )
+  {
+    const QString itemPath = mImportItems.first();
+    QNetworkReply *reply = mWebdavConnection.get( itemPath );
+    QTemporaryFile *temporaryFile = new QTemporaryFile( reply );
+    temporaryFile->setFileTemplate( QStringLiteral( "%1%2.XXXXXXXXXXXX" ).arg( mImportLocalPath, itemPath.mid( mImportRemotePath.size() ) ) );
+    temporaryFile->open();
+    connect( reply, &QNetworkReply::downloadProgress, this, [=]( int bytesReceived, int bytesTotal ) {
+      temporaryFile->write( reply->readAll() );
+    } );
+    connect( reply, &QNetworkReply::finished, this, [=]() {
+      if ( reply->error() == QNetworkReply::NoError )
+      {
+        temporaryFile->write( reply->readAll() );
+        temporaryFile->setAutoRemove( false );
+        temporaryFile->close();
+        temporaryFile->rename( mImportLocalPath + itemPath.mid( mImportRemotePath.size() ) );
+      }
+      else
+      {
+        //TODO
+        qDebug() << reply->error() << reply->errorString();
+      }
+
+      mImportItems.removeFirst();
+      processImportItems();
+      reply->deleteLater();
+    } );
+  }
+  else
+  {
+    mIsImportingPath = false;
+    emit isImportingPathChanged();
+  }
+}
+
+void WebdavConnection::importPath( const QString &remotePath, const QString &localPath )
+{
+  if ( mUrl.isEmpty() || mUsername.isEmpty() || ( mPassword.isEmpty() && mStoredPassword.isEmpty() ) )
+    return;
+
+  setupConnection();
+
+  QString localFolder = QStringLiteral( "%1 - %2 - %3" ).arg( mWebdavConnection.hostname(), mWebdavConnection.username(), remotePath );
+  localFolder.replace( QRegularExpression( "[\\\\\\/\\<\\>\\:\\|\\?\\*\\\"]" ), QString( "_" ) );
+
+  QDir localDir( localPath );
+  localDir.mkpath( localFolder );
+
+  mImportRemotePath = remotePath;
+  mImportLocalPath = QDir::cleanPath( localPath + QDir::separator() + localFolder ) + QDir::separator();
+
+  mImportItems.clear();
+  mIsImportingPath = true;
+  emit isImportingPathChanged();
+
+  mWebdavDirParser.listDirectory( &mWebdavConnection, mImportRemotePath, true );
 }
