@@ -122,12 +122,15 @@ void WebdavConnection::processDirParserFinished()
   const QList<QWebdavItem> list = mWebdavDirParser.getList();
   if ( mIsFetchingAvailablePaths )
   {
-    mAvailablePaths << QStringLiteral( "/" );
-    for ( const QWebdavItem &item : list )
+    if ( !list.isEmpty() )
     {
-      if ( item.isDir() )
+      mAvailablePaths << QStringLiteral( "/" );
+      for ( const QWebdavItem &item : list )
       {
-        mAvailablePaths << item.path();
+        if ( item.isDir() )
+        {
+          mAvailablePaths << item.path();
+        }
       }
     }
 
@@ -185,8 +188,7 @@ void WebdavConnection::processImportItems()
       }
       else
       {
-        //TODO
-        qDebug() << reply->error() << reply->errorString();
+        mLastError = tr( "Failed to download file %1 due to network error (%1)" ).arg( reply->error() );
       }
 
       mImportItems.removeFirst();
