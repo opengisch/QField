@@ -1414,13 +1414,6 @@ ApplicationWindow {
 
       visible: !screenLocker.enabled && stateMachine.state !== 'measure'
 
-      Keys.onReleased: event => {
-        if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-          event.accepted = true;
-          state = "off";
-        }
-      }
-
       onStateChanged: {
         if (state == "off") {
           focus = false;
@@ -2298,17 +2291,13 @@ ApplicationWindow {
     id: locatorSettings
     locatorFiltersModel: locatorItem.locatorFiltersModel
 
-    modal: true
-    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-    parent: Overlay.overlay
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   PluginManagerSettings {
     id: pluginManagerSettings
 
-    modal: true
-    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-    parent: Overlay.overlay
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   DashBoard {
@@ -2318,13 +2307,7 @@ ApplicationWindow {
     mapSettings: mapCanvas.mapSettings
     interactive: !welcomeScreen.visible && !qfieldSettings.visible && !qfieldCloudScreen.visible && !qfieldLocalDataPickerScreen.visible && !codeReader.visible && !screenLocker.enabled
 
-    onAboutToShow: {
-      dashBoard.contentItem.forceActiveFocus();
-    }
-
-    onClosed: {
-      focusstack.forceActiveFocusOnLastTaker();
-    }
+    Component.onCompleted: focusstack.addFocusTaker(this)
 
     function ensureEditableLayerSelected() {
       var firstEditableLayer = null;
@@ -2353,6 +2336,8 @@ ApplicationWindow {
 
   BookmarkProperties {
     id: bookmarkProperties
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   function openWelcomeScreen() {
@@ -3516,6 +3501,8 @@ ApplicationWindow {
     digitizingToolbar: digitizingToolbar
     codeReader: codeReader
     featureModel.currentLayer: dashBoard.activeLayer
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   function displayToast(message, type, action_text, action_function) {
@@ -3763,20 +3750,11 @@ ApplicationWindow {
     objectName: 'messageLog'
 
     anchors.fill: parent
-    focus: visible
-    visible: false
 
     model: messageLogModel
 
     onFinished: {
       visible = false;
-    }
-
-    Keys.onReleased: event => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true;
-        visible = false;
-      }
     }
 
     Component.onCompleted: {
@@ -3875,16 +3853,6 @@ ApplicationWindow {
   About {
     id: aboutDialog
     anchors.fill: parent
-    focus: visible
-
-    visible: false
-
-    Keys.onReleased: event => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true;
-        visible = false;
-      }
-    }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
@@ -3895,20 +3863,10 @@ ApplicationWindow {
 
   QFieldSettings {
     id: qfieldSettings
-
     anchors.fill: parent
-    visible: false
-    focus: visible
 
     onFinished: {
       visible = false;
-    }
-
-    Keys.onReleased: event => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true;
-        finished();
-      }
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
@@ -3978,7 +3936,7 @@ ApplicationWindow {
     id: qfieldCloudDeltaHistory
 
     modal: true
-    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+    closePolicy: Popup.CloseOnEscape
     parent: Overlay.overlay
   }
 
@@ -4044,7 +4002,6 @@ ApplicationWindow {
     property ProjectSource __projectSource
 
     anchors.fill: parent
-    focus: visible
 
     onOpenLocalDataPicker: {
       if (platformUtilities.capabilities & PlatformUtilities.CustomLocalDataPicker) {
@@ -4062,22 +4019,7 @@ ApplicationWindow {
       qfieldCloudScreen.visible = true;
     }
 
-    Keys.onReleased: event => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        if (qgisProject.fileName != '') {
-          event.accepted = true;
-          visible = false;
-          focus = false;
-        } else {
-          event.accepted = false;
-          mainWindow.close();
-        }
-      }
-    }
-
-    Component.onCompleted: {
-      focusstack.addFocusTaker(this);
-    }
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   Changelog {

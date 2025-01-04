@@ -17,6 +17,10 @@ Popup {
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   padding: 0
+  modal: true
+  closePolicy: Popup.CloseOnEscape
+  parent: Overlay.overlay
+  focus: visible
 
   Page {
     id: page
@@ -101,6 +105,13 @@ Popup {
           }
         }
       }
+    }
+  }
+
+  Keys.onReleased: event => {
+    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+      event.accepted = true;
+      visible = false;
     }
   }
 }

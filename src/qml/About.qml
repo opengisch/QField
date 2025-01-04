@@ -10,6 +10,9 @@ import Theme
 Item {
   id: aboutPanel
 
+  visible: false
+  focus: visible
+
   Rectangle {
     color: "black"
     opacity: 0.8
@@ -206,6 +209,13 @@ Item {
       onTriggered: {
         changelogPopup.open();
       }
+    }
+  }
+
+  Keys.onReleased: event => {
+    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+      event.accepted = true;
+      visible = false;
     }
   }
 }

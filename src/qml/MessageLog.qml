@@ -15,6 +15,9 @@ Page {
 
   signal finished
 
+  visible: false
+  focus: visible
+
   header: QfPageHeader {
     title: qsTr('Message Logs')
 
@@ -217,5 +220,12 @@ Page {
   onVisibleChanged: {
     if (visible)
       unreadMessages = false;
+  }
+
+  Keys.onReleased: event => {
+    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+      event.accepted = true;
+      visible = false;
+    }
   }
 }
