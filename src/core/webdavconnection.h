@@ -36,10 +36,12 @@ class WebdavConnection : public QObject
     Q_PROPERTY( QString password READ password WRITE setPassword NOTIFY passwordChanged )
     Q_PROPERTY( bool isPasswordStored READ isPasswordStored NOTIFY isPasswordStoredChanged )
 
-    Q_PROPERTY( QStringList availablePaths READ availablePaths NOTIFY availablePathsChanged );
+    Q_PROPERTY( QStringList availablePaths READ availablePaths NOTIFY availablePathsChanged )
 
     Q_PROPERTY( bool isFetchingAvailablePaths READ isFetchingAvailablePaths NOTIFY isFetchingAvailablePathsChanged )
     Q_PROPERTY( bool isImportingPath READ isImportingPath NOTIFY isImportingPathChanged )
+
+    Q_PROPERTY( double progress READ progress NOTIFY progressChanged )
 
   public:
     explicit WebdavConnection( QObject *parent = nullptr );
@@ -65,6 +67,8 @@ class WebdavConnection : public QObject
 
     bool isImportingPath() const { return mIsImportingPath; }
 
+    double progress() const;
+
     Q_INVOKABLE void fetchAvailablePaths();
 
     Q_INVOKABLE void importPath( const QString &remotePath, const QString &localPath );
@@ -77,6 +81,7 @@ class WebdavConnection : public QObject
     void availablePathsChanged();
     void isFetchingAvailablePathsChanged();
     void isImportingPathChanged();
+    void progressChanged();
 
   private:
     void checkStoredPassword();
@@ -93,6 +98,9 @@ class WebdavConnection : public QObject
     QStringList mAvailablePaths;
 
     bool mIsImportingPath = false;
+    qint64 mImportingCurrentBytesReceived = 0;
+    qint64 mImportingBytesReceived = 0;
+    qint64 mImportingBytesTotal = 0;
     QStringList mImportItems;
     QString mImportRemotePath;
     QString mImportLocalPath;

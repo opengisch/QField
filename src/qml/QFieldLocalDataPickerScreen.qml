@@ -709,6 +709,22 @@ Page {
 
       url: importWebdavUrlInput.text
       password: importWebdavPasswordInput.text
+
+      onIsImportingPathChanged: {
+        if (isImportingPath) {
+          busyOverlay.text = qsTr("Importing WebDAV folder");
+          busyOverlay.progress = 0;
+          busyOverlay.state = "visible";
+        } else {
+          busyOverlay.state = "hidden";
+        }
+      }
+
+      onProgressChanged: {
+        if (isImportingPath) {
+          busyOverlay.progress = progress;
+        }
+      }
     }
   }
 

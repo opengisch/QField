@@ -153,8 +153,10 @@ void WebdavConnection::processDirParserFinished()
       else
       {
         mImportItems << item.path();
+        mImportingBytesTotal += item.size();
       }
     }
+    emit progressChanged();
 
     processImportItems();
   }
@@ -170,9 +172,14 @@ void WebdavConnection::processImportItems()
     temporaryFile->setFileTemplate( QStringLiteral( "%1%2.XXXXXXXXXXXX" ).arg( mImportLocalPath, itemPath.mid( mImportRemotePath.size() ) ) );
     temporaryFile->open();
     connect( reply, &QNetworkReply::downloadProgress, this, [=]( int bytesReceived, int bytesTotal ) {
+      mImportingCurrentBytesReceived = bytesReceived;
+      emit progressChanged();
+
       temporaryFile->write( reply->readAll() );
     } );
     connect( reply, &QNetworkReply::finished, this, [=]() {
+      mImportingBytesReceived += mImportingCurrentBytesReceived;
+      mImportingCurrentBytesReceived = 0;
       if ( reply->error() == QNetworkReply::NoError )
       {
         temporaryFile->write( reply->readAll() );
@@ -215,8 +222,23 @@ void WebdavConnection::importPath( const QString &remotePath, const QString &loc
   mImportLocalPath = QDir::cleanPath( localPath + QDir::separator() + localFolder ) + QDir::separator();
 
   mImportItems.clear();
+
+  mImportingBytesReceived = 0;
+  mImportingBytesTotal = 0;
+  emit progressChanged();
+
   mIsImportingPath = true;
   emit isImportingPathChanged();
 
   mWebdavDirParser.listDirectory( &mWebdavConnection, mImportRemotePath, true );
+}
+
+double WebdavConnection::progress() const
+{
+  if ( mIsImportingPath && mImportingBytesTotal > 0 )
+  {
+    return static_cast<double>( mImportingBytesReceived + mImportingCurrentBytesReceived ) / mImportingBytesTotal;
+  }
+
+  return 0;
 }
