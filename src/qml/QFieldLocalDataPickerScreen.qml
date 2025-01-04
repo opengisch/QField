@@ -601,7 +601,7 @@ Page {
         text: qsTr("Import WebDAV folder")
         onTriggered: {
           importWebdavDialog.open();
-          importWebdavUrlInput.focus();
+          importWebdavUrlInput.focus = true;
         }
       }
 
@@ -701,6 +701,23 @@ Page {
     }
   }
 
+  Component {
+    id: webdavConnectionComponent
+
+    WebdavConnection {
+      id: webdavConnection
+
+      url: importWebdavUrlInput.text
+      password: importWebdavPasswordInput.text
+    }
+  }
+
+  Loader {
+    id: webdavConnectionLoader
+    active: importWebdavDialog.opened
+    sourceComponent: webdavConnectionComponent
+  }
+
   QfDialog {
     id: importWebdavDialog
     title: "Import WebDAV folder"
@@ -733,31 +750,89 @@ Page {
 
       QfTextField {
         id: importWebdavUrlInput
+        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
         width: importWebdavUrlLabel.width
         placeholderText: qsTr("WebDAV server URL")
+
+        onDisplayTextChanged: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.url = displayText;
+          }
+        }
       }
 
       QfTextField {
         id: importWebdavUserInput
+        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
         width: importWebdavUrlLabel.width
         placeholderText: qsTr("User")
+
+        onDisplayTextChanged: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.username = displayText;
+          }
+        }
       }
 
       QfTextField {
         id: importWebdavPasswordInput
+        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
         width: importWebdavUrlLabel.width
         placeholderText: qsTr("Password")
         echoMode: TextInput.Password
+
+        onDisplayTextChanged: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.password = text;
+          }
+        }
       }
 
-      QfButton {
+      Row {
+        visible: !webdavConnectionLoader.item || webdavConnectionLoader.item.availablePaths.length === 0
+        spacing: 5
+
+        QfButton {
+          id: importWebdavFetchFoldersButton
+          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+          width: importWebdavUrlLabel.width - (importWebdavFetchFoldersIndicator.visible ? importWebdavFetchFoldersIndicator.width + 5 : 0)
+          text: !enabled ? qsTr("Fetching remote folders") : qsTr("Fetch remote folders")
+
+          onClicked: {
+            webdavConnectionLoader.item.fetchAvailablePaths();
+          }
+        }
+
+        BusyIndicator {
+          id: importWebdavFetchFoldersIndicator
+          anchors.verticalCenter: importWebdavFetchFoldersButton.verticalCenter
+          width: 48
+          height: 48
+          visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
+          running: visible
+        }
+      }
+
+      Label {
         width: importWebdavUrlLabel.width
-        text: qsTr("Connect")
+        visible: importWebdavPathInput.visible
+        text: qsTr("Select the remote folder to import:")
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+      }
+
+      ComboBox {
+        id: importWebdavPathInput
+        width: importWebdavUrlLabel.width
+        visible: webdavConnectionLoader.item && webdavConnectionLoader.item.availablePaths.length > 0
+        model: [''].concat(webdavConnectionLoader.item ? webdavConnectionLoader.item.availablePaths : [])
       }
     }
 
-    onAccepted: {
-      iface.importUrl(importUrlInput.text);
+    onAccepted:
+    // TODO
+    {
     }
   }
 

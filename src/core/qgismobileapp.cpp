@@ -130,6 +130,7 @@
 #include "urlutils.h"
 #include "valuemapmodel.h"
 #include "vertexmodel.h"
+#include "webdavconnection.h"
 
 #include <QDateTime>
 #include <QFileInfo>
@@ -511,6 +512,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<Positioning>( "org.qfield", 1, 0, "Positioning" );
   qmlRegisterType<PositioningInformationModel>( "org.qfield", 1, 0, "PositioningInformationModel" );
   qmlRegisterType<PositioningDeviceModel>( "org.qfield", 1, 0, "PositioningDeviceModel" );
+  qmlRegisterType<WebdavConnection>( "org.qfield", 1, 0, "WebdavConnection" );
   qmlRegisterType<AudioRecorder>( "org.qfield", 1, 0, "AudioRecorder" );
   qmlRegisterType<BarcodeDecoder>( "org.qfield", 1, 0, "BarcodeDecoder" );
   qmlRegisterType<CameraPermission>( "org.qfield", 1, 0, "QfCameraPermission" );
