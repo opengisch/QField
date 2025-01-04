@@ -775,21 +775,21 @@ Page {
         color: Theme.mainTextColor
       }
 
-      QfTextField {
+      TextField {
         id: importWebdavUrlInput
         enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
         width: importWebdavUrlLabel.width
         placeholderText: qsTr("WebDAV server URL")
       }
 
-      QfTextField {
+      TextField {
         id: importWebdavUserInput
         enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
         width: importWebdavUrlLabel.width
         placeholderText: qsTr("User")
       }
 
-      QfTextField {
+      TextField {
         id: importWebdavPasswordInput
         enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
         width: importWebdavUrlLabel.width
