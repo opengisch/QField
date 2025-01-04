@@ -34,15 +34,15 @@ class WebdavConnection : public QObject
     Q_PROPERTY( QString url READ url WRITE setUrl NOTIFY urlChanged );
     Q_PROPERTY( QString username READ username WRITE setUsername NOTIFY usernameChanged )
     Q_PROPERTY( QString password READ password WRITE setPassword NOTIFY passwordChanged )
+
+    Q_PROPERTY( bool storePassword READ storePassword WRITE setStorePassword NOTIFY storePasswordChanged )
+
     Q_PROPERTY( bool isPasswordStored READ isPasswordStored NOTIFY isPasswordStoredChanged )
-
-    Q_PROPERTY( QStringList availablePaths READ availablePaths NOTIFY availablePathsChanged )
-
     Q_PROPERTY( bool isFetchingAvailablePaths READ isFetchingAvailablePaths NOTIFY isFetchingAvailablePathsChanged )
     Q_PROPERTY( bool isImportingPath READ isImportingPath NOTIFY isImportingPathChanged )
 
+    Q_PROPERTY( QStringList availablePaths READ availablePaths NOTIFY availablePathsChanged )
     Q_PROPERTY( double progress READ progress NOTIFY progressChanged )
-
     Q_PROPERTY( QString lastError READ lastError NOTIFY lastErrorChanged )
 
   public:
@@ -60,6 +60,10 @@ class WebdavConnection : public QObject
     QString password() const { return mPassword; }
 
     void setPassword( const QString &password );
+
+    bool storePassword() const { return mStorePassword; }
+
+    void setStorePassword( bool storePassword );
 
     bool isPasswordStored() const { return !mStoredPassword.isEmpty(); }
 
@@ -81,10 +85,11 @@ class WebdavConnection : public QObject
     void urlChanged();
     void usernameChanged();
     void passwordChanged();
+    void storePasswordChanged();
     void isPasswordStoredChanged();
-    void availablePathsChanged();
     void isFetchingAvailablePathsChanged();
     void isImportingPathChanged();
+    void availablePathsChanged();
     void progressChanged();
     void lastErrorChanged();
 
@@ -95,12 +100,15 @@ class WebdavConnection : public QObject
 
   private:
     void checkStoredPassword();
+    void applyStoredPassword();
     void setupConnection();
     void processImportItems();
 
     QString mUrl;
     QString mUsername;
     QString mPassword;
+
+    bool mStorePassword = false;
     QString mStoredPassword;
 
     bool mIsFetchingAvailablePaths = false;

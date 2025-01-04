@@ -83,6 +83,15 @@ void WebdavConnection::setPassword( const QString &password )
   mWebdavConnection.clearAccessCache();
 }
 
+void WebdavConnection::setStorePassword( bool storePassword )
+{
+  if ( mStorePassword == storePassword )
+    return;
+
+  mStorePassword = storePassword;
+  emit storePasswordChanged();
+}
+
 void WebdavConnection::checkStoredPassword()
 {
   mStoredPassword.clear();
@@ -90,17 +99,86 @@ void WebdavConnection::checkStoredPassword()
   if ( !mUrl.isEmpty() && !mUsername.isEmpty() )
   {
     QgsAuthManager *authManager = QgsApplication::instance()->authManager();
-    const QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
-    for ( const QgsAuthMethodConfig &config : configs )
+    QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
+    for ( QgsAuthMethodConfig &config : configs )
     {
-      if ( config.uri() == mUrl && config.config( QStringLiteral( "username" ) ) == mUsername )
+      qDebug() << config.name();
+      qDebug() << config.uri();
+      if ( config.uri() == mUrl )
       {
-        mStoredPassword = config.config( QStringLiteral( "password" ) );
+        authManager->loadAuthenticationConfig( config.id(), config, true );
+        if ( config.config( QStringLiteral( "username" ) ) == mUsername )
+        {
+          mStoredPassword = config.config( QStringLiteral( "password" ) );
+        }
       }
     }
   }
 
   emit isPasswordStoredChanged();
+}
+
+void WebdavConnection::applyStoredPassword()
+{
+  QgsAuthManager *authManager = QgsApplication::instance()->authManager();
+  QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
+  if ( mStorePassword )
+  {
+    if ( !mPassword.isEmpty() )
+    {
+      bool found = false;
+      for ( QgsAuthMethodConfig &config : configs )
+      {
+        if ( config.uri() == mUrl )
+        {
+          authManager->loadAuthenticationConfig( config.id(), config, true );
+          if ( config.config( QStringLiteral( "username" ) ) == mUsername )
+          {
+            if ( config.config( QStringLiteral( "password" ) ) != mPassword )
+            {
+              config.setConfig( "password", mPassword );
+              authManager->updateAuthenticationConfig( config );
+
+              mStoredPassword = mPassword;
+              emit isPasswordStoredChanged();
+            }
+
+            found = true;
+            break;
+          }
+        }
+      }
+
+      if ( !found )
+      {
+        QgsAuthMethodConfig config( QStringLiteral( "Basic" ) );
+        config.setName( QStringLiteral( "WebDAV created on %1" ).arg( QDateTime::currentDateTime().toString() ) );
+        config.setUri( mUrl );
+        config.setConfig( "username", mUsername );
+        config.setConfig( "password", mPassword );
+        authManager->storeAuthenticationConfig( config );
+
+        mStoredPassword = mPassword;
+        emit isPasswordStoredChanged();
+      }
+    }
+  }
+  else
+  {
+    for ( const QgsAuthMethodConfig &config : configs )
+    {
+      if ( config.uri() == mUrl && config.config( QStringLiteral( "username" ) ) == mUsername )
+      {
+        authManager->removeAuthenticationConfig( config.id() );
+      }
+    }
+
+    if ( !mStoredPassword.isEmpty() )
+    {
+      mStoredPassword = mPassword;
+      emit isPasswordStoredChanged();
+    }
+  }
 }
 
 void WebdavConnection::setupConnection()
@@ -133,6 +211,8 @@ void WebdavConnection::processDirParserFinished()
   {
     if ( !list.isEmpty() )
     {
+      applyStoredPassword();
+
       mAvailablePaths << QStringLiteral( "/" );
       for ( const QWebdavItem &item : list )
       {
@@ -151,20 +231,25 @@ void WebdavConnection::processDirParserFinished()
   }
   else if ( mIsImportingPath )
   {
-    QDir importLocalDir( mImportLocalPath );
-    for ( const QWebdavItem &item : list )
+    if ( !list.isEmpty() )
     {
-      if ( item.isDir() )
+      applyStoredPassword();
+
+      QDir importLocalDir( mImportLocalPath );
+      for ( const QWebdavItem &item : list )
       {
-        importLocalDir.mkpath( item.path().mid( mImportRemotePath.size() ) );
+        if ( item.isDir() )
+        {
+          importLocalDir.mkpath( item.path().mid( mImportRemotePath.size() ) );
+        }
+        else
+        {
+          mImportItems << item.path();
+          mImportingBytesTotal += item.size();
+        }
       }
-      else
-      {
-        mImportItems << item.path();
-        mImportingBytesTotal += item.size();
-      }
+      emit progressChanged();
     }
-    emit progressChanged();
 
     processImportItems();
   }
