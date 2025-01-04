@@ -62,6 +62,7 @@ void WebdavConnection::setUsername( const QString &username )
     emit availablePathsChanged();
   }
 
+  mWebdavConnection.clearAccessCache();
   checkStoredPassword();
 }
 
@@ -72,6 +73,14 @@ void WebdavConnection::setPassword( const QString &password )
 
   mPassword = password;
   emit passwordChanged();
+
+  if ( !mAvailablePaths.isEmpty() )
+  {
+    mAvailablePaths.clear();
+    emit availablePathsChanged();
+  }
+
+  mWebdavConnection.clearAccessCache();
 }
 
 void WebdavConnection::checkStoredPassword()
