@@ -102,8 +102,6 @@ void WebdavConnection::checkStoredPassword()
     QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
     for ( QgsAuthMethodConfig &config : configs )
     {
-      qDebug() << config.name();
-      qDebug() << config.uri();
       if ( config.uri() == mUrl )
       {
         authManager->loadAuthenticationConfig( config.id(), config, true );
