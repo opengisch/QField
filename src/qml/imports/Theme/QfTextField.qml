@@ -20,7 +20,7 @@ TextField {
       y: textField.height - height - textField.bottomPadding / 2
       width: textField.width
       height: textField.activeFocus ? 2 : 1
-      color: textField.activeFocus ? Theme.accentColor : Theme.accentLightColor
+      color: textField.activeFocus ? Theme.mainColor : Theme.secondaryTextColor
     }
   }
 
