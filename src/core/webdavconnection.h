@@ -43,6 +43,8 @@ class WebdavConnection : public QObject
 
     Q_PROPERTY( double progress READ progress NOTIFY progressChanged )
 
+    Q_PROPERTY( QString lastError READ lastError NOTIFY lastErrorChanged )
+
   public:
     explicit WebdavConnection( QObject *parent = nullptr );
     ~WebdavConnection() = default;
@@ -69,6 +71,8 @@ class WebdavConnection : public QObject
 
     double progress() const;
 
+    QString lastError() const { return mLastError; }
+
     Q_INVOKABLE void fetchAvailablePaths();
 
     Q_INVOKABLE void importPath( const QString &remotePath, const QString &localPath );
@@ -82,11 +86,16 @@ class WebdavConnection : public QObject
     void isFetchingAvailablePathsChanged();
     void isImportingPathChanged();
     void progressChanged();
+    void lastErrorChanged();
+
+  private slots:
+    void processDirParserFinished();
+    void processConnectionError( const QString &error );
+    void processDirParserError( const QString &error );
 
   private:
     void checkStoredPassword();
     void setupConnection();
-    void processDirParserFinished();
     void processImportItems();
 
     QString mUrl;
@@ -107,6 +116,7 @@ class WebdavConnection : public QObject
 
     QWebdav mWebdavConnection;
     QWebdavDirParser mWebdavDirParser;
+    QString mLastError;
 };
 
 #endif // WEBDAVCONNECTION_H

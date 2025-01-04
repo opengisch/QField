@@ -725,6 +725,10 @@ Page {
           busyOverlay.progress = progress;
         }
       }
+
+      onLastErrorChanged: {
+        displayToast(qsTr("WebDAV error: ") + lastError);
+      }
     }
   }
 

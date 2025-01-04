@@ -26,12 +26,8 @@
 WebdavConnection::WebdavConnection( QObject *parent )
   : QObject( parent )
 {
-  connect( &mWebdavConnection, &QWebdav::errorChanged, this, [=]( const QString &error ) {
-    qDebug() << "connection error:" << error;
-  } );
-  connect( &mWebdavDirParser, &QWebdavDirParser::errorChanged, this, [=]( const QString &error ) {
-    qDebug() << "parser error:" << error;
-  } );
+  connect( &mWebdavConnection, &QWebdav::errorChanged, this, &WebdavConnection::processConnectionError );
+  connect( &mWebdavDirParser, &QWebdavDirParser::errorChanged, this, &WebdavConnection::processDirParserError );
   connect( &mWebdavDirParser, &QWebdavDirParser::finished, this, &WebdavConnection::processDirParserFinished );
 }
 
@@ -241,4 +237,16 @@ double WebdavConnection::progress() const
   }
 
   return 0;
+}
+
+void WebdavConnection::processConnectionError( const QString &error )
+{
+  mLastError = error;
+  emit lastErrorChanged();
+}
+
+void WebdavConnection::processDirParserError( const QString &error )
+{
+  mLastError = error;
+  emit lastErrorChanged();
 }
