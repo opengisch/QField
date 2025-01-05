@@ -178,14 +178,14 @@ bool LocalFilesModel::isDeletedAllowedInCurrentPath() const
 {
   const QString path = currentPath();
   const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
-  if ( !applicationDirectory.isEmpty() && path.startsWith( applicationDirectory + QDir::separator() ) )
+  if ( !applicationDirectory.isEmpty() && path.startsWith( applicationDirectory ) )
   {
     return true;
   }
   else
   {
     const QStringList additionalApplicationDirectories = PlatformUtilities::instance()->additionalApplicationDirectories();
-    if ( std::any_of( additionalApplicationDirectories.begin(), additionalApplicationDirectories.end(), [&path]( const QString &directory ) { return ( !directory.isEmpty() && path.startsWith( directory + QDir::separator() ) ); } ) )
+    if ( std::any_of( additionalApplicationDirectories.begin(), additionalApplicationDirectories.end(), [&path]( const QString &directory ) { return ( !directory.isEmpty() && path.startsWith( directory ) ); } ) )
     {
       return true;
     }
