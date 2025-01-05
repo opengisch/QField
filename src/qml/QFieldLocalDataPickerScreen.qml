@@ -11,12 +11,19 @@ import Theme
 Page {
   id: qfieldLocalDataPickerScreen
 
+  property bool openedOnce: false
   property bool projectFolderView: false
   property alias model: table.model
 
   signal finished(var loading)
 
   focus: visible
+
+  onVisibleChanged: {
+    if (visible) {
+      openedOnce = true;
+    }
+  }
 
   header: QfPageHeader {
     title: projectFolderView ? qsTr("Project Folder") : qsTr("Local Projects & Datasets")
@@ -509,9 +516,10 @@ Page {
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Download folder from WebDAV server...")
-        onTriggered:
-        //platformUtilities.sendCompressedFolderTo(itemMenu.itemPath);
-        {
+        onTriggered: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.downloadPath(itemMenu.itemPath);
+          }
         }
       }
 
@@ -774,8 +782,18 @@ Page {
         }
       }
 
+      onIsDownloadingPathChanged: {
+        if (isDownloadingPath) {
+          busyOverlay.text = qsTr("Downloading WebDAV folder");
+          busyOverlay.progress = 0;
+          busyOverlay.state = "visible";
+        } else {
+          busyOverlay.state = "hidden";
+        }
+      }
+
       onProgressChanged: {
-        if (isImportingPath) {
+        if (isImportingPath || isDownloadingPath) {
           busyOverlay.progress = progress;
         }
       }
@@ -792,7 +810,7 @@ Page {
 
   Loader {
     id: webdavConnectionLoader
-    active: importWebdavDialog.openedOnce
+    active: qfieldLocalDataPickerScreen.openedOnce
     sourceComponent: webdavConnectionComponent
   }
 
@@ -801,11 +819,6 @@ Page {
     title: "Import WebDAV folder"
     focus: true
     y: (mainWindow.height - height - 80) / 2
-
-    property bool openedOnce: false
-    onAboutToShow: {
-      openedOnce = true;
-    }
 
     Column {
       width: childrenRect.width

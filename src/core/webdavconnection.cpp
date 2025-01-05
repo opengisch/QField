@@ -227,94 +227,121 @@ void WebdavConnection::processDirParserFinished()
     mAvailablePaths.sort();
     emit availablePathsChanged();
   }
-  else if ( mIsImportingPath )
+  else if ( mIsImportingPath || mIsDownloadingPath )
   {
     if ( !list.isEmpty() )
     {
       applyStoredPassword();
 
-      QDir importLocalDir( mImportLocalPath );
+      QDir localDir( mGetLocalPath );
       for ( const QWebdavItem &item : list )
       {
         if ( item.isDir() )
         {
-          importLocalDir.mkpath( item.path().mid( mImportRemotePath.size() ) );
+          localDir.mkpath( item.path().mid( mGetRemotePath.size() ) );
         }
         else
         {
-          mImportItems << item;
-          mImportingBytesTotal += item.size();
+          if ( mIsDownloadingPath )
+          {
+            QFileInfo fileInfo( mGetLocalPath + item.path().mid( mGetRemotePath.size() ) );
+            if ( !fileInfo.exists() || ( fileInfo.fileTime( QFileDevice::FileModificationTime ) != item.lastModified() ) )
+            {
+              mWebdavItems << item;
+              mBytesTotal += item.size();
+            }
+          }
+          else
+          {
+            mWebdavItems << item;
+            mBytesTotal += item.size();
+          }
         }
       }
       emit progressChanged();
     }
 
-    processImportItems();
+    getWebdavItems();
   }
 }
 
-void WebdavConnection::processImportItems()
+void WebdavConnection::getWebdavItems()
 {
-  if ( !mImportItems.isEmpty() )
+  if ( !mWebdavItems.isEmpty() )
   {
-    const QString itemPath = mImportItems.first().path();
-    const QDateTime itemLastModified = mImportItems.first().lastModified();
+    const QString itemPath = mWebdavItems.first().path();
+    const QDateTime itemLastModified = mWebdavItems.first().lastModified();
     QNetworkReply *reply = mWebdavConnection.get( itemPath );
     QTemporaryFile *temporaryFile = new QTemporaryFile( reply );
-    temporaryFile->setFileTemplate( QStringLiteral( "%1%2.XXXXXXXXXXXX" ).arg( mImportLocalPath, itemPath.mid( mImportRemotePath.size() ) ) );
+    temporaryFile->setFileTemplate( QStringLiteral( "%1%2.XXXXXXXXXXXX" ).arg( mGetLocalPath, itemPath.mid( mGetRemotePath.size() ) ) );
     temporaryFile->open();
+
     connect( reply, &QNetworkReply::downloadProgress, this, [=]( int bytesReceived, int bytesTotal ) {
-      mImportingCurrentBytesReceived = bytesReceived;
+      mCurrentBytesReceived = bytesReceived;
       emit progressChanged();
 
       temporaryFile->write( reply->readAll() );
     } );
+
     connect( reply, &QNetworkReply::finished, this, [=]() {
-      mImportingBytesReceived += mImportingCurrentBytesReceived;
-      mImportingCurrentBytesReceived = 0;
+      mBytesReceived += mCurrentBytesReceived;
+      mCurrentBytesReceived = 0;
       if ( reply->error() == QNetworkReply::NoError )
       {
+        QFile file( mGetLocalPath + itemPath.mid( mGetRemotePath.size() ) );
+        if ( file.exists() )
+        {
+          // Remove pre-existing file
+          file.remove();
+        }
+
         temporaryFile->write( reply->readAll() );
         temporaryFile->setAutoRemove( false );
-        temporaryFile->rename( mImportLocalPath + itemPath.mid( mImportRemotePath.size() ) );
+        temporaryFile->rename( mGetLocalPath + itemPath.mid( mGetRemotePath.size() ) );
         temporaryFile->close();
         delete temporaryFile;
 
         // Attach last modified date value coming from the server (cannot be done via QTemporaryFile)
-        QFile file( QStringLiteral( "%1%2" ).arg( mImportLocalPath, itemPath.mid( mImportRemotePath.size() ) ) );
         file.open( QFile::Append );
         file.setFileTime( itemLastModified, QFileDevice::FileModificationTime );
         file.setFileTime( itemLastModified, QFileDevice::FileAccessTime );
         file.close();
 
         QFileInfo fi( file );
-        qDebug() << itemLastModified << fi.fileTime( QFileDevice::FileBirthTime ) << fi.fileTime( QFileDevice::FileModificationTime ) << fi.fileTime( QFileDevice::FileAccessTime );
       }
       else
       {
         mLastError = tr( "Failed to download file %1 due to network error (%1)" ).arg( reply->error() );
       }
 
-      mImportItems.removeFirst();
-      processImportItems();
+      mWebdavItems.removeFirst();
+      getWebdavItems();
       reply->deleteLater();
     } );
   }
   else
   {
-    QVariantMap webdavConfiguration;
-    webdavConfiguration[QStringLiteral( "url" )] = mUrl;
-    webdavConfiguration[QStringLiteral( "username" )] = mUsername;
-    webdavConfiguration[QStringLiteral( "remote_path" )] = mImportRemotePath;
+    if ( mIsImportingPath )
+    {
+      QVariantMap webdavConfiguration;
+      webdavConfiguration[QStringLiteral( "url" )] = mUrl;
+      webdavConfiguration[QStringLiteral( "username" )] = mUsername;
+      webdavConfiguration[QStringLiteral( "remote_path" )] = mGetRemotePath;
 
-    QJsonDocument jsonDocument = QJsonDocument::fromVariant( webdavConfiguration );
-    QFile jsonFile( QStringLiteral( "%1qfield_webdav_configuration.json" ).arg( mImportLocalPath ) );
-    jsonFile.open( QFile::WriteOnly );
-    jsonFile.write( jsonDocument.toJson() );
-    jsonFile.close();
+      QJsonDocument jsonDocument = QJsonDocument::fromVariant( webdavConfiguration );
+      QFile jsonFile( QStringLiteral( "%1qfield_webdav_configuration.json" ).arg( mGetLocalPath ) );
+      jsonFile.open( QFile::WriteOnly );
+      jsonFile.write( jsonDocument.toJson() );
+      jsonFile.close();
 
-    mIsImportingPath = false;
-    emit isImportingPathChanged();
+      mIsImportingPath = false;
+      emit isImportingPathChanged();
+    }
+    else if ( mIsDownloadingPath )
+    {
+      mIsDownloadingPath = false;
+      emit isDownloadingPathChanged();
+    }
   }
 }
 
@@ -331,26 +358,74 @@ void WebdavConnection::importPath( const QString &remotePath, const QString &loc
   QDir localDir( localPath );
   localDir.mkpath( localFolder );
 
-  mImportRemotePath = remotePath;
-  mImportLocalPath = QDir::cleanPath( localPath + QDir::separator() + localFolder ) + QDir::separator();
+  mGetRemotePath = remotePath;
+  mGetLocalPath = QDir::cleanPath( localPath + QDir::separator() + localFolder ) + QDir::separator();
 
-  mImportItems.clear();
-
-  mImportingBytesReceived = 0;
-  mImportingBytesTotal = 0;
+  mWebdavItems.clear();
+  mBytesReceived = 0;
+  mBytesTotal = 0;
   emit progressChanged();
 
   mIsImportingPath = true;
   emit isImportingPathChanged();
 
-  mWebdavDirParser.listDirectory( &mWebdavConnection, mImportRemotePath, true );
+  mWebdavDirParser.listDirectory( &mWebdavConnection, mGetRemotePath, true );
+}
+
+void WebdavConnection::downloadPath( const QString &localPath )
+{
+  QDir dir( localPath );
+  bool webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
+  QStringList remoteChildrenPath;
+  while ( !webdavConfigurationExists )
+  {
+    remoteChildrenPath << dir.dirName();
+    if ( !dir.cdUp() )
+      break;
+
+    webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
+  }
+
+  if ( webdavConfigurationExists )
+  {
+    QFile webdavConfigurationFile( dir.absolutePath() + QDir::separator() + QStringLiteral( "qfield_webdav_configuration.json" ) );
+    webdavConfigurationFile.open( QFile::ReadOnly );
+    QJsonDocument jsonDocument = QJsonDocument::fromJson( webdavConfigurationFile.readAll() );
+    if ( !jsonDocument.isEmpty() )
+    {
+      QVariantMap webdavConfiguration = jsonDocument.toVariant().toMap();
+      setUrl( webdavConfiguration["url"].toString() );
+      setUsername( webdavConfiguration["username"].toString() );
+      if ( isPasswordStored() )
+      {
+        setupConnection();
+
+        mGetRemotePath = webdavConfiguration["remote_path"].toString();
+        if ( !remoteChildrenPath.isEmpty() )
+        {
+          mGetRemotePath = mGetRemotePath + remoteChildrenPath.join( "/" ) + QStringLiteral( "/" );
+        }
+        mGetLocalPath = QDir::cleanPath( localPath ) + QDir::separator();
+
+        mWebdavItems.clear();
+        mBytesReceived = 0;
+        mBytesTotal = 0;
+        emit progressChanged();
+
+        mIsDownloadingPath = true;
+        emit isDownloadingPathChanged();
+
+        mWebdavDirParser.listDirectory( &mWebdavConnection, mGetRemotePath, true );
+      }
+    }
+  }
 }
 
 double WebdavConnection::progress() const
 {
-  if ( mIsImportingPath && mImportingBytesTotal > 0 )
+  if ( ( mIsImportingPath || mIsDownloadingPath ) && mBytesTotal > 0 )
   {
-    return static_cast<double>( mImportingBytesReceived + mImportingCurrentBytesReceived ) / mImportingBytesTotal;
+    return static_cast<double>( mBytesReceived + mCurrentBytesReceived ) / mBytesTotal;
   }
 
   return 0;

@@ -40,6 +40,7 @@ class WebdavConnection : public QObject
     Q_PROPERTY( bool isPasswordStored READ isPasswordStored NOTIFY isPasswordStoredChanged )
     Q_PROPERTY( bool isFetchingAvailablePaths READ isFetchingAvailablePaths NOTIFY isFetchingAvailablePathsChanged )
     Q_PROPERTY( bool isImportingPath READ isImportingPath NOTIFY isImportingPathChanged )
+    Q_PROPERTY( bool isDownloadingPath READ isDownloadingPath NOTIFY isDownloadingPathChanged )
 
     Q_PROPERTY( QStringList availablePaths READ availablePaths NOTIFY availablePathsChanged )
     Q_PROPERTY( double progress READ progress NOTIFY progressChanged )
@@ -73,6 +74,8 @@ class WebdavConnection : public QObject
 
     bool isImportingPath() const { return mIsImportingPath; }
 
+    bool isDownloadingPath() const { return mIsDownloadingPath; }
+
     double progress() const;
 
     QString lastError() const { return mLastError; }
@@ -80,6 +83,7 @@ class WebdavConnection : public QObject
     Q_INVOKABLE void fetchAvailablePaths();
 
     Q_INVOKABLE void importPath( const QString &remotePath, const QString &localPath );
+    Q_INVOKABLE void downloadPath( const QString &localPath );
 
   signals:
     void urlChanged();
@@ -89,6 +93,7 @@ class WebdavConnection : public QObject
     void isPasswordStoredChanged();
     void isFetchingAvailablePathsChanged();
     void isImportingPathChanged();
+    void isDownloadingPathChanged();
     void availablePathsChanged();
     void progressChanged();
     void lastErrorChanged();
@@ -102,7 +107,7 @@ class WebdavConnection : public QObject
     void checkStoredPassword();
     void applyStoredPassword();
     void setupConnection();
-    void processImportItems();
+    void getWebdavItems();
 
     QString mUrl;
     QString mUsername;
@@ -115,12 +120,15 @@ class WebdavConnection : public QObject
     QStringList mAvailablePaths;
 
     bool mIsImportingPath = false;
-    qint64 mImportingCurrentBytesReceived = 0;
-    qint64 mImportingBytesReceived = 0;
-    qint64 mImportingBytesTotal = 0;
-    QList<QWebdavItem> mImportItems;
-    QString mImportRemotePath;
-    QString mImportLocalPath;
+    bool mIsDownloadingPath = false;
+
+    QString mGetRemotePath;
+    QString mGetLocalPath;
+
+    QList<QWebdavItem> mWebdavItems;
+    qint64 mCurrentBytesReceived = 0;
+    qint64 mBytesReceived = 0;
+    qint64 mBytesTotal = 0;
 
     QWebdav mWebdavConnection;
     QWebdavDirParser mWebdavDirParser;
