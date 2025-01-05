@@ -1,0 +1,12 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6164046..36bbf15 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -28,7 +28,6 @@ set(QtWebDAV_SOURCES
+ set(QtWebDAV_HEADERS
+     qnaturalsort.h
+     qwebdav.h
+-    qwebdav_global.h
+     qwebdavdirparser.h
+     qwebdavitem.h
+ )
