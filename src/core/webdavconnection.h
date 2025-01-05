@@ -130,6 +130,7 @@ class WebdavConnection : public QObject
     bool mIsUploadingPath = false;
 
     QList<QWebdavItem> mWebdavItems;
+    QList<QString> mWebdavMkDirs;
     QList<QFileInfo> mLocalItems;
 
     QString mProcessRemotePath;

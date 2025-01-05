@@ -267,9 +267,14 @@ void WebdavConnection::processDirParserFinished()
   {
     applyStoredPassword();
 
+    QStringList remoteDirs;
     for ( const QWebdavItem &item : list )
     {
-      if ( !item.isDir() )
+      if ( item.isDir() )
+      {
+        remoteDirs << item.path();
+      }
+      else
       {
         QFileInfo fileInfo( mProcessLocalPath + item.path().mid( mProcessRemotePath.size() ) );
         if ( fileInfo.exists() )
@@ -289,8 +294,25 @@ void WebdavConnection::processDirParserFinished()
       }
     }
 
+    mWebdavMkDirs.clear();
     for ( const QFileInfo &fileInfo : mLocalItems )
     {
+      // Insure the path exists remotely
+      QString remoteDir = mProcessRemotePath + fileInfo.absolutePath().mid( mProcessLocalPath.size() ).replace( QDir::separator(), "/" );
+      if ( !remoteDirs.contains( remoteDir ) && !mWebdavMkDirs.contains( remoteDir ) )
+      {
+        const QStringList remoteDirParts = remoteDir.mid( mProcessRemotePath.size() ).split( "/", Qt::SkipEmptyParts );
+        remoteDir = mProcessRemotePath;
+        for ( const QString &part : remoteDirParts )
+        {
+          remoteDir += part + "/";
+          if ( !remoteDirs.contains( remoteDir ) && !mWebdavMkDirs.contains( remoteDir ) )
+          {
+            mWebdavMkDirs << remoteDir;
+          }
+        }
+      }
+
       mBytesTotal += fileInfo.size();
     }
     emit progressChanged();
@@ -345,7 +367,7 @@ void WebdavConnection::getWebdavItems()
       }
       else
       {
-        mLastError = tr( "Failed to download file %1 due to network error (%1)" ).arg( reply->error() );
+        mLastError = tr( "Failed to download file %1 due to network error (%2)" ).arg( itemPath ).arg( reply->error() );
       }
 
       mWebdavItems.removeFirst();
@@ -381,12 +403,29 @@ void WebdavConnection::getWebdavItems()
 
 void WebdavConnection::putLocalItems()
 {
-  if ( !mLocalItems.isEmpty() )
+  if ( !mWebdavMkDirs.isEmpty() )
+  {
+    const QString dirPath = mWebdavMkDirs.first();
+
+    QNetworkReply *reply = mWebdavConnection.mkdir( dirPath );
+
+    connect( reply, &QNetworkReply::finished, this, [=]() {
+      mBytesProcessed += mCurrentBytesProcessed;
+      mCurrentBytesProcessed = 0;
+      emit progressChanged();
+      if ( reply->error() != QNetworkReply::NoError )
+      {
+        mLastError = tr( "Failed to upload file %1 due to network error (%2)" ).arg( dirPath ).arg( reply->error() );
+      }
+
+      mWebdavMkDirs.removeFirst();
+      putLocalItems();
+    } );
+  }
+  else if ( !mLocalItems.isEmpty() )
   {
     const QString itemPath = mLocalItems.first().absoluteFilePath();
-    qDebug() << "itemPath " << itemPath;
     const QString remoteItemPath = mProcessRemotePath + itemPath.mid( mProcessLocalPath.size() ).replace( QDir::separator(), "/" );
-    qDebug() << "remoteItemPath " << remoteItemPath;
 
     QFile *file = new QFile( itemPath );
     file->open( QFile::ReadOnly );
@@ -404,7 +443,7 @@ void WebdavConnection::putLocalItems()
       emit progressChanged();
       if ( reply->error() != QNetworkReply::NoError )
       {
-        mLastError = tr( "Failed to upload file %1 due to network error (%1)" ).arg( reply->error() );
+        mLastError = tr( "Failed to upload file %1 due to network error (%2)" ).arg( remoteItemPath ).arg( reply->error() );
       }
 
       mLocalItems.removeFirst();

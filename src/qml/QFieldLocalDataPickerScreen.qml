@@ -804,7 +804,7 @@ Page {
       }
 
       onProgressChanged: {
-        if (isImportingPath || isDownloadingPath) {
+        if (isImportingPath || isDownloadingPath || isUploadingPath) {
           busyOverlay.progress = progress;
         }
       }
