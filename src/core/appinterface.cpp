@@ -283,11 +283,6 @@ void AppInterface::importUrl( const QString &url )
   if ( applicationDirectory.isEmpty() )
     return;
 
-  QTemporaryFile *temporaryFile = new QTemporaryFile();
-  temporaryFile->setFileTemplate( QStringLiteral( "%1/XXXXXXXXXXXX" ).arg( applicationDirectory ) );
-  temporaryFile->setAutoRemove( false );
-  temporaryFile->open();
-
   QgsNetworkAccessManager *manager = QgsNetworkAccessManager::instance();
   QNetworkRequest request( ( QUrl( sanitizedUrl ) ) );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy );
@@ -295,6 +290,11 @@ void AppInterface::importUrl( const QString &url )
   emit importTriggered( request.url().fileName() );
 
   QNetworkReply *reply = manager->get( request );
+
+  QTemporaryFile *temporaryFile = new QTemporaryFile( reply );
+  temporaryFile->setFileTemplate( QStringLiteral( "%1/XXXXXXXXXXXX" ).arg( applicationDirectory ) );
+  temporaryFile->open();
+
   connect( reply, &QNetworkReply::downloadProgress, this, [=]( int bytesReceived, int bytesTotal ) {
     temporaryFile->write( reply->readAll() );
     if ( bytesTotal != 0 )
@@ -304,9 +304,6 @@ void AppInterface::importUrl( const QString &url )
   } );
 
   connect( reply, &QNetworkReply::finished, this, [=]() {
-    std::unique_ptr<QTemporaryFile> tmpFile;
-    tmpFile.reset( temporaryFile );
-
     if ( reply->error() == QNetworkReply::NoError )
     {
       QString fileName = reply->url().fileName();
@@ -335,9 +332,10 @@ void AppInterface::importUrl( const QString &url )
       }
       QDir( QFileInfo( filePath ).absolutePath() ).mkpath( "." );
 
-      tmpFile->write( reply->readAll() );
-      tmpFile->close();
-      if ( tmpFile->rename( filePath ) )
+      temporaryFile->write( reply->readAll() );
+      temporaryFile->setAutoRemove( false );
+      temporaryFile->close();
+      if ( temporaryFile->rename( filePath ) )
       {
         if ( fileSuffix == QLatin1String( "zip" ) )
         {
@@ -363,7 +361,6 @@ void AppInterface::importUrl( const QString &url )
 
             if ( QgsZipUtils::unzip( filePath, zipDirectory, zipFiles, false ) )
             {
-              tmpFile->remove();
               // Project archive successfully imported
               emit importEnded( zipDirectory );
               return;
@@ -373,7 +370,6 @@ void AppInterface::importUrl( const QString &url )
               // Broken project archive, bail out
               QDir dir( zipDirectory );
               dir.removeRecursively();
-              tmpFile->remove();
               filePath.clear();
               emit importEnded();
               return;
@@ -387,8 +383,6 @@ void AppInterface::importUrl( const QString &url )
       }
     }
 
-    // cppcheck-suppress nullPointer
-    tmpFile->remove();
     emit importEnded();
   } );
 }
