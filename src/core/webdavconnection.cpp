@@ -296,7 +296,7 @@ void WebdavConnection::processImportItems()
     webdavConfiguration[QStringLiteral( "remote_path" )] = mImportRemotePath;
 
     QJsonDocument jsonDocument = QJsonDocument::fromVariant( webdavConfiguration );
-    QFile jsonFile( QStringLiteral( "%1qfield_webdav_settings.json" ).arg( mImportLocalPath ) );
+    QFile jsonFile( QStringLiteral( "%1qfield_webdav_configuration.json" ).arg( mImportLocalPath ) );
     jsonFile.open( QFile::WriteOnly );
     jsonFile.write( jsonDocument.toJson() );
     jsonFile.close();

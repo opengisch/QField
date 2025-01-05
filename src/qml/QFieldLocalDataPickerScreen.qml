@@ -255,6 +255,7 @@ Page {
                 itemMenu.itemType = ItemType;
                 itemMenu.itemPath = ItemPath;
                 itemMenu.itemIsFavorite = ItemIsFavorite;
+                itemMenu.itemHasWebdavConfiguration = ItemHasWebdavConfiguration;
                 itemMenu.popup(gc.x + width - itemMenu.width, gc.y - height);
               }
             }
@@ -351,6 +352,7 @@ Page {
       property int itemType: 0
       property string itemPath: ''
       property bool itemIsFavorite: false
+      property bool itemHasWebdavConfiguration: false
 
       title: qsTr('Item Actions')
 
@@ -368,6 +370,7 @@ Page {
       topMargin: sceneTopMargin
       bottomMargin: sceneBottomMargin
 
+      // File items
       MenuItem {
         id: sendDatasetTo
         enabled: itemMenu.itemMetaType === LocalFilesModel.File || (platformUtilities.capabilities & PlatformUtilities.CustomSend && itemMenu.itemMetaType == LocalFilesModel.Dataset)
@@ -418,38 +421,7 @@ Page {
         }
       }
 
-      MenuItem {
-        id: removeDataset
-        enabled: itemMenu.itemMetaType == LocalFilesModel.Dataset && !qfieldLocalDataPickerScreen.projectFolderView && table.model.isDeletedAllowedInCurrentPath
-        visible: enabled
-
-        font: Theme.defaultFont
-        width: parent.width
-        height: enabled ? undefined : 0
-        leftPadding: Theme.menuItemLeftPadding
-
-        text: qsTr("Remove dataset")
-        onTriggered: {
-          platformUtilities.removeDataset(itemMenu.itemPath);
-        }
-      }
-
-      MenuItem {
-        id: exportFolderTo
-        enabled: platformUtilities.capabilities & PlatformUtilities.CustomExport && itemMenu.itemMetaType == LocalFilesModel.Folder
-        visible: enabled
-
-        font: Theme.defaultFont
-        width: parent.width
-        height: enabled ? undefined : 0
-        leftPadding: Theme.menuItemLeftPadding
-
-        text: qsTr("Export to folder...")
-        onTriggered: {
-          platformUtilities.exportFolderTo(itemMenu.itemPath);
-        }
-      }
-
+      // Folder items
       MenuItem {
         id: toggleFavoriteState
         enabled: itemMenu.itemMetaType == LocalFilesModel.Folder && localFilesModel.isPathFavoriteEditable(itemMenu.itemPath)
@@ -470,6 +442,29 @@ Page {
         }
       }
 
+      MenuSeparator {
+        enabled: toggleFavoriteState.visible
+        visible: enabled
+        width: parent.width
+        height: enabled ? undefined : 0
+      }
+
+      MenuItem {
+        id: exportFolderTo
+        enabled: platformUtilities.capabilities & PlatformUtilities.CustomExport && itemMenu.itemMetaType == LocalFilesModel.Folder
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? undefined : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Export to folder...")
+        onTriggered: {
+          platformUtilities.exportFolderTo(itemMenu.itemPath);
+        }
+      }
+
       MenuItem {
         id: sendCompressedFolderTo
         enabled: platformUtilities.capabilities & PlatformUtilities.CustomSend && itemMenu.itemMetaType == LocalFilesModel.Folder
@@ -487,6 +482,63 @@ Page {
       }
 
       MenuItem {
+        id: uploadFolderToWebdav
+        enabled: itemMenu.itemHasWebdavConfiguration
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? undefined : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Upload folder to WebDAV server...")
+        onTriggered:
+        //platformUtilities.sendCompressedFolderTo(itemMenu.itemPath);
+        {
+        }
+      }
+
+      MenuItem {
+        id: downloadFolderFromWebdav
+        enabled: itemMenu.itemHasWebdavConfiguration
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? undefined : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Download folder from WebDAV server...")
+        onTriggered:
+        //platformUtilities.sendCompressedFolderTo(itemMenu.itemPath);
+        {
+        }
+      }
+
+      MenuSeparator {
+        enabled: removeProjectFolder.visible
+        visible: enabled
+        width: parent.width
+        height: enabled ? undefined : 0
+      }
+
+      MenuItem {
+        id: removeDataset
+        enabled: itemMenu.itemMetaType == LocalFilesModel.Dataset && !qfieldLocalDataPickerScreen.projectFolderView && table.model.isDeletedAllowedInCurrentPath
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? undefined : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Remove dataset")
+        onTriggered: {
+          platformUtilities.removeDataset(itemMenu.itemPath);
+        }
+      }
+
+      MenuItem {
         id: removeProjectFolder
         enabled: itemMenu.itemMetaType == LocalFilesModel.Folder && !qfieldLocalDataPickerScreen.projectFolderView && table.model.isDeletedAllowedInCurrentPath
         visible: enabled
@@ -496,7 +548,7 @@ Page {
         height: enabled ? undefined : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("Remove project folder")
+        text: qsTr("Remove folder")
         onTriggered: {
           platformUtilities.removeFolder(itemMenu.itemPath);
         }

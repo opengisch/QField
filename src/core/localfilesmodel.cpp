@@ -59,6 +59,7 @@ QHash<int, QByteArray> LocalFilesModel::roleNames() const
   roles[ItemSizeRole] = "ItemSize";
   roles[ItemHasThumbnailRole] = "ItemHasThumbnail";
   roles[ItemIsFavoriteRole] = "ItemIsFavorite";
+  roles[ItemHasWebdavConfigurationRole] = "ItemHasWebdavConfiguration";
   return roles;
 }
 
@@ -332,6 +333,18 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
 
     case ItemIsFavoriteRole:
       return mFavorites.contains( mItems[index.row()].path );
+
+    case ItemHasWebdavConfigurationRole:
+    {
+      const QFileInfo fileInfo( mItems[index.row()].path );
+      QDir dir( fileInfo.isFile() ? fileInfo.absolutePath() : fileInfo.absoluteFilePath() );
+      bool webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
+      while ( !webdavConfigurationExists && dir.cdUp() )
+      {
+        webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
+      }
+      return webdavConfigurationExists;
+    }
   }
 
   return QVariant();
