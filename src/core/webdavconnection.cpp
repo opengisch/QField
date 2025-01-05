@@ -50,7 +50,7 @@ void WebdavConnection::setUrl( const QString &url )
 
 void WebdavConnection::setUsername( const QString &username )
 {
-  if ( mUrl == username )
+  if ( mUsername == username )
     return;
 
   mUsername = username;
@@ -68,7 +68,7 @@ void WebdavConnection::setUsername( const QString &username )
 
 void WebdavConnection::setPassword( const QString &password )
 {
-  if ( mUrl == password )
+  if ( mPassword == password )
     return;
 
   mPassword = password;
@@ -163,17 +163,21 @@ void WebdavConnection::applyStoredPassword()
   }
   else
   {
-    for ( const QgsAuthMethodConfig &config : configs )
+    for ( QgsAuthMethodConfig &config : configs )
     {
-      if ( config.uri() == mUrl && config.config( QStringLiteral( "username" ) ) == mUsername )
+      if ( config.uri() == mUrl )
       {
-        authManager->removeAuthenticationConfig( config.id() );
+        authManager->loadAuthenticationConfig( config.id(), config, true );
+        if ( config.config( QStringLiteral( "username" ) ) == mUsername )
+        {
+          authManager->removeAuthenticationConfig( config.id() );
+        }
       }
     }
 
     if ( !mStoredPassword.isEmpty() )
     {
-      mStoredPassword = mPassword;
+      mStoredPassword.clear();
       emit isPasswordStoredChanged();
     }
   }
@@ -546,25 +550,30 @@ void WebdavConnection::downloadPath( const QString &localPath )
       QVariantMap webdavConfiguration = jsonDocument.toVariant().toMap();
       setUrl( webdavConfiguration["url"].toString() );
       setUsername( webdavConfiguration["username"].toString() );
-      if ( isPasswordStored() )
+      setStorePassword( isPasswordStored() );
+
+      mProcessRemotePath = webdavConfiguration["remote_path"].toString();
+      if ( !remoteChildrenPath.isEmpty() )
+      {
+        mProcessRemotePath = mProcessRemotePath + remoteChildrenPath.join( "/" ) + QStringLiteral( "/" );
+      }
+      mProcessLocalPath = QDir::cleanPath( localPath ) + QDir::separator();
+
+      mWebdavItems.clear();
+      mBytesProcessed = 0;
+      mBytesTotal = 0;
+      emit progressChanged();
+
+      mIsDownloadingPath = true;
+      emit isDownloadingPathChanged();
+
+      if ( !isPasswordStored() )
+      {
+        emit passwordRequested();
+      }
+      else
       {
         setupConnection();
-
-        mProcessRemotePath = webdavConfiguration["remote_path"].toString();
-        if ( !remoteChildrenPath.isEmpty() )
-        {
-          mProcessRemotePath = mProcessRemotePath + remoteChildrenPath.join( "/" ) + QStringLiteral( "/" );
-        }
-        mProcessLocalPath = QDir::cleanPath( localPath ) + QDir::separator();
-
-        mWebdavItems.clear();
-        mBytesProcessed = 0;
-        mBytesTotal = 0;
-        emit progressChanged();
-
-        mIsDownloadingPath = true;
-        emit isDownloadingPathChanged();
-
         mWebdavDirParser.listDirectory( &mWebdavConnection, mProcessRemotePath, true );
       }
     }
@@ -595,40 +604,70 @@ void WebdavConnection::uploadPath( const QString &localPath )
       QVariantMap webdavConfiguration = jsonDocument.toVariant().toMap();
       setUrl( webdavConfiguration["url"].toString() );
       setUsername( webdavConfiguration["username"].toString() );
-      if ( isPasswordStored() )
+      setStorePassword( isPasswordStored() );
+
+      mProcessRemotePath = webdavConfiguration["remote_path"].toString();
+      if ( !remoteChildrenPath.isEmpty() )
+      {
+        mProcessRemotePath = mProcessRemotePath + remoteChildrenPath.join( "/" ) + QStringLiteral( "/" );
+      }
+      mProcessLocalPath = QDir::cleanPath( localPath ) + QDir::separator();
+
+      mWebdavLastModified.clear();
+
+      mLocalItems.clear();
+      QDirIterator it( mProcessLocalPath, QDir::Files | QDir::NoDotAndDotDot, QDirIterator::Subdirectories );
+      while ( it.hasNext() )
+      {
+        it.next();
+        if ( it.fileName() != QStringLiteral( "qfield_webdav_configuration.json" ) )
+        {
+          mLocalItems << it.fileInfo();
+        }
+      }
+
+      mBytesProcessed = 0;
+      mBytesTotal = 0;
+      emit progressChanged();
+
+      mIsUploadingPath = true;
+      emit isUploadingPathChanged();
+
+      if ( !isPasswordStored() )
+      {
+        emit passwordRequested();
+      }
+      else
       {
         setupConnection();
-
-        mProcessRemotePath = webdavConfiguration["remote_path"].toString();
-        if ( !remoteChildrenPath.isEmpty() )
-        {
-          mProcessRemotePath = mProcessRemotePath + remoteChildrenPath.join( "/" ) + QStringLiteral( "/" );
-        }
-        mProcessLocalPath = QDir::cleanPath( localPath ) + QDir::separator();
-
-        mWebdavLastModified.clear();
-
-        mLocalItems.clear();
-        QDirIterator it( mProcessLocalPath, QDir::Files | QDir::NoDotAndDotDot, QDirIterator::Subdirectories );
-        while ( it.hasNext() )
-        {
-          it.next();
-          if ( it.fileName() != QStringLiteral( "qfield_webdav_configuration.json" ) )
-          {
-            mLocalItems << it.fileInfo();
-          }
-        }
-
-        mBytesProcessed = 0;
-        mBytesTotal = 0;
-        emit progressChanged();
-
-        mIsUploadingPath = true;
-        emit isUploadingPathChanged();
-
         mWebdavDirParser.listDirectory( &mWebdavConnection, mProcessRemotePath, true );
       }
     }
+  }
+}
+
+void WebdavConnection::answerPasswordRequest( const QString &password )
+{
+  setPassword( password );
+
+  if ( mIsDownloadingPath || mIsUploadingPath )
+  {
+    setupConnection();
+    mWebdavDirParser.listDirectory( &mWebdavConnection, mProcessRemotePath, true );
+  }
+}
+
+void WebdavConnection::cancelPasswordRequest()
+{
+  if ( mIsDownloadingPath )
+  {
+    mIsDownloadingPath = false;
+    emit isDownloadingPathChanged();
+  }
+  else if ( mIsUploadingPath )
+  {
+    mIsUploadingPath = false;
+    emit isUploadingPathChanged();
   }
 }
 

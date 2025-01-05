@@ -724,7 +724,7 @@ Page {
   QfDialog {
     id: importUrlDialog
     title: "Import URL"
-    focus: true
+    focus: visible
     y: (mainWindow.height - height - 80) / 2
 
     onAboutToShow: {
@@ -768,11 +768,6 @@ Page {
     WebdavConnection {
       id: webdavConnection
 
-      url: importWebdavUrlInput.text
-      username: importWebdavUserInput.text
-      password: importWebdavPasswordInput.text
-      storePassword: importWebdavStorePasswordCheck.checked
-
       onIsImportingPathChanged: {
         if (isImportingPath) {
           busyOverlay.text = qsTr("Importing WebDAV folder");
@@ -813,8 +808,9 @@ Page {
         displayToast(qsTr("WebDAV error: ") + lastError);
       }
 
-      onIsPasswordStoredChanged: {
-        console.log(isPasswordStored ? "stored" : "not stored");
+      onPasswordRequested: {
+        enterWebdavPasswordDialog.open();
+        enterWebdavPasswordInput.focus = true;
       }
     }
   }
@@ -826,10 +822,67 @@ Page {
   }
 
   QfDialog {
-    id: importWebdavDialog
-    title: "Import WebDAV folder"
+    id: enterWebdavPasswordDialog
+    title: "Enter WebDAV password"
     focus: true
     y: (mainWindow.height - height - 80) / 2
+
+    Column {
+      width: childrenRect.width
+      height: childrenRect.height
+      spacing: 10
+
+      TextMetrics {
+        id: enterWebdavPasswordLabelMetrics
+        font: enterWebdavPasswordLabel.font
+        text: enterWebdavPasswordLabel.text
+      }
+
+      Label {
+        id: enterWebdavPasswordLabel
+        width: mainWindow.width - 60 < enterWebdavPasswordLabelMetrics.width ? mainWindow.width - 60 : enterWebdavPasswordLabelMetrics.width
+        text: qsTr("Type the password for user %1 on server %2:").arg((webdavConnectionLoader.item ? webdavConnectionLoader.item.username : '')).arg((webdavConnectionLoader.item ? webdavConnectionLoader.item.url : ''))
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+      }
+
+      TextField {
+        id: enterWebdavPasswordInput
+        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+        width: importWebdavUrlLabel.width
+        placeholderText: qsTr("Password")
+        echoMode: TextInput.Password
+      }
+    }
+
+    onAccepted: {
+      if (webdavConnectionLoader.item) {
+        webdavConnectionLoader.item.answerPasswordRequest(enterWebdavPasswordInput.text);
+      }
+    }
+
+    onDiscarded: {
+      if (webdavConnectionLoader.item) {
+        webdavConnectionLoader.item.cancelPasswordRequest();
+      }
+    }
+  }
+
+  QfDialog {
+    id: importWebdavDialog
+    title: "Import WebDAV folder"
+    focus: visible
+    y: (mainWindow.height - height - 80) / 2
+
+    onAboutToShow: {
+      if (webdavConnectionLoader.item) {
+        webdavConnectionLoader.item.url = importWebdavUrlInput.text;
+        webdavConnectionLoader.item.username = importWebdavUserInput.text;
+        webdavConnectionLoader.item.password = importWebdavPasswordInput.text;
+        webdavConnectionLoader.item.storePassword = importWebdavStorePasswordCheck.checked;
+      }
+    }
 
     Column {
       width: childrenRect.width
@@ -856,6 +909,12 @@ Page {
         enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
         width: importWebdavUrlLabel.width
         placeholderText: qsTr("WebDAV server URL")
+
+        onDisplayTextChanged: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.url = displayText;
+          }
+        }
       }
 
       TextField {
@@ -863,6 +922,12 @@ Page {
         enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
         width: importWebdavUrlLabel.width
         placeholderText: qsTr("User")
+
+        onDisplayTextChanged: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.username = displayText;
+          }
+        }
       }
 
       TextField {
@@ -871,6 +936,12 @@ Page {
         width: importWebdavUrlLabel.width
         placeholderText: text === "" && webdavConnectionLoader.item && webdavConnectionLoader.item.isPasswordStored ? qsTr("Password (leave empty to use remembered)") : qsTr("Password")
         echoMode: TextInput.Password
+
+        onDisplayTextChanged: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.password = text;
+          }
+        }
       }
 
       CheckBox {
@@ -880,6 +951,11 @@ Page {
         text: qsTr('Remember password')
         font: Theme.defaultFont
         checked: true
+
+        onCheckedChanged: {
+          if (webdavConnectionLoader.item) {
+          }
+        }
       }
 
       Row {
@@ -925,7 +1001,11 @@ Page {
     }
 
     onAccepted: {
-      if (importWebdavPathInput.displayText !== '') {
+      if (importWebdavPathInput.displayText !== '' && webdavConnectionLoader.item) {
+        webdavConnectionLoader.item.url = importWebdavUrlInput.text;
+        webdavConnectionLoader.item.username = importWebdavUserInput.text;
+        webdavConnectionLoader.item.password = importWebdavPasswordInput.text;
+        webdavConnectionLoader.item.storePassword = importWebdavStorePasswordCheck.checked;
         webdavConnectionLoader.item.importPath(importWebdavPathInput.displayText, platformUtilities.applicationDirectory() + "Imported Projects/");
       }
     }
