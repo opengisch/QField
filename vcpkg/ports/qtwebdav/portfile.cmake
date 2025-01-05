@@ -4,7 +4,7 @@ vcpkg_from_github(
     REF 6363cabf99368bb8a659af63584ac790f04cc9c6
     SHA512 059e99181fdd751b4598986997721b9e0e7debccbad7f3a258cba2745bd4b28896611566017c50a7bb9ace523bca388551a327b17f76968032c8a6e9a6bb2d34
     HEAD_REF main
-    PATCHES fix.patch
+    PATCHES fix.patch debug.patch
 )
 
 list(APPEND QTWEBDAV_OPTIONS -DBUILD_WITH_QT6=True)
