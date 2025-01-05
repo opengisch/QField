@@ -854,19 +854,32 @@ Page {
           displayToast(qsTr("WebDAV error: ") + lastError);
         }
 
-        onPasswordRequested: {
-          enterWebdavPasswordDialog.open();
-          enterWebdavPasswordInput.focus = true;
+        onConfirmationRequested: (host, username) => {
+          downloadUploadWebdavDialog.isUploadingPath = isUploadingPath;
+          downloadUploadWebdavDialog.host = host;
+          downloadUploadWebdavDialog.username = username;
+          downloadUploadWebdavDialog.open();
         }
       }
     }
   }
 
   QfDialog {
-    id: enterWebdavPasswordDialog
-    title: "Enter WebDAV password"
+    id: downloadUploadWebdavDialog
+    title: isUploadingPath ? qsTr("WebDAV upload") : qsTr("WebDAV download")
     focus: true
     y: (mainWindow.height - height - 80) / 2
+
+    property bool isUploadingPath: false
+    property string host: ""
+    property string username: ""
+
+    onAboutToShow: {
+      if (webdavConnectionLoader.item) {
+        webdavConnectionLoader.item.password = downloadUploadWebdavPasswordInput.text;
+        webdavConnectionLoader.item.storePassword = downloadUploadWebdavPasswordCheck.checked;
+      }
+    }
 
     Column {
       width: childrenRect.width
@@ -874,38 +887,53 @@ Page {
       spacing: 10
 
       TextMetrics {
-        id: enterWebdavPasswordLabelMetrics
-        font: enterWebdavPasswordLabel.font
-        text: enterWebdavPasswordLabel.text
+        id: downloadUploadWebdavIntroMetrics
+        font: downloadUploadWebdavIntroLabel.font
+        text: downloadUploadWebdavIntroLabel.text
       }
 
       Label {
-        id: enterWebdavPasswordLabel
-        width: mainWindow.width - 60 < enterWebdavPasswordLabelMetrics.width ? mainWindow.width - 60 : enterWebdavPasswordLabelMetrics.width
-        text: qsTr("Type the password for user %1 on server %2:").arg((webdavConnectionLoader.item ? webdavConnectionLoader.item.username : '')).arg((webdavConnectionLoader.item ? webdavConnectionLoader.item.url : ''))
+        id: downloadUploadWebdavIntroLabel
+        width: mainWindow.width - 60 < downloadUploadWebdavIntroMetrics.width ? mainWindow.width - 60 : downloadUploadWebdavIntroMetrics.width
+        text: downloadUploadWebdavDialog.isUploadingPath ? qsTr("You are about to upload modified content into <b>%1</b> using user <b>%2</b>.<br><br>This operation will overwrite data stored remotely, make sure this is what you want to do.").arg(downloadUploadWebdavDialog.host).arg(downloadUploadWebdavDialog.username) : qsTr("You are about to download modified content from <b>%1</b> using user <b>%2</b>.<br><br>This operation will overwrite data stored locally, make sure this is what you want to do.").arg(downloadUploadWebdavDialog.host).arg(downloadUploadWebdavDialog.username)
         wrapMode: Text.WordWrap
         font: Theme.defaultFont
         color: Theme.mainTextColor
       }
 
       TextField {
-        id: enterWebdavPasswordInput
+        id: downloadUploadWebdavPasswordInput
         enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
         width: importWebdavUrlLabel.width
-        placeholderText: qsTr("Password")
+        placeholderText: text === "" && webdavConnectionLoader.item && webdavConnectionLoader.item.isPasswordStored ? qsTr("Password (leave empty to use remembered)") : qsTr("Password")
         echoMode: TextInput.Password
+
+        onDisplayTextChanged: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.password = text;
+          }
+        }
+      }
+
+      CheckBox {
+        id: downloadUploadWebdavPasswordCheck
+        width: importWebdavUrlLabel.width
+        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+        text: qsTr('Remember password')
+        font: Theme.defaultFont
+        checked: true
       }
     }
 
     onAccepted: {
       if (webdavConnectionLoader.item) {
-        webdavConnectionLoader.item.answerPasswordRequest(enterWebdavPasswordInput.text);
+        webdavConnectionLoader.item.confirmRequest();
       }
     }
 
-    onDiscarded: {
+    onRejected: {
       if (webdavConnectionLoader.item) {
-        webdavConnectionLoader.item.cancelPasswordRequest();
+        webdavConnectionLoader.item.cancelRequest();
       }
     }
   }
@@ -992,11 +1020,6 @@ Page {
         text: qsTr('Remember password')
         font: Theme.defaultFont
         checked: true
-
-        onCheckedChanged: {
-          if (webdavConnectionLoader.item) {
-          }
-        }
       }
 
       Row {

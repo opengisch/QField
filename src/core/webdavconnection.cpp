@@ -566,16 +566,8 @@ void WebdavConnection::downloadPath( const QString &localPath )
 
       mIsDownloadingPath = true;
       emit isDownloadingPathChanged();
-
-      if ( !isPasswordStored() )
-      {
-        emit passwordRequested();
-      }
-      else
-      {
-        setupConnection();
-        mWebdavDirParser.listDirectory( &mWebdavConnection, mProcessRemotePath, true );
-      }
+      const QUrl url( mUrl );
+      emit confirmationRequested( url.host(), mUsername );
     }
   }
 }
@@ -633,25 +625,14 @@ void WebdavConnection::uploadPath( const QString &localPath )
 
       mIsUploadingPath = true;
       emit isUploadingPathChanged();
-
-      if ( !isPasswordStored() )
-      {
-        emit passwordRequested();
-      }
-      else
-      {
-        qDebug() << mLocalItems;
-        setupConnection();
-        mWebdavDirParser.listDirectory( &mWebdavConnection, mProcessRemotePath, true );
-      }
+      const QUrl url( mUrl );
+      emit confirmationRequested( url.host(), mUsername );
     }
   }
 }
 
-void WebdavConnection::answerPasswordRequest( const QString &password )
+void WebdavConnection::confirmRequest()
 {
-  setPassword( password );
-
   if ( mIsDownloadingPath || mIsUploadingPath )
   {
     setupConnection();
@@ -659,7 +640,7 @@ void WebdavConnection::answerPasswordRequest( const QString &password )
   }
 }
 
-void WebdavConnection::cancelPasswordRequest()
+void WebdavConnection::cancelRequest()
 {
   if ( mIsDownloadingPath )
   {

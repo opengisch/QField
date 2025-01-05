@@ -89,8 +89,8 @@ class WebdavConnection : public QObject
     Q_INVOKABLE void downloadPath( const QString &localPath );
     Q_INVOKABLE void uploadPath( const QString &localPath );
 
-    Q_INVOKABLE void answerPasswordRequest( const QString &password );
-    Q_INVOKABLE void cancelPasswordRequest();
+    Q_INVOKABLE void confirmRequest();
+    Q_INVOKABLE void cancelRequest();
 
     Q_INVOKABLE static bool hasWebdavConfiguration( const QString &path );
 
@@ -108,7 +108,7 @@ class WebdavConnection : public QObject
     void progressChanged();
     void lastErrorChanged();
 
-    void passwordRequested();
+    void confirmationRequested( const QString &host, const QString &username );
 
   private slots:
     void processDirParserFinished();
