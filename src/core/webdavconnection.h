@@ -132,6 +132,7 @@ class WebdavConnection : public QObject
     QList<QWebdavItem> mWebdavItems;
     QList<QString> mWebdavMkDirs;
     QList<QFileInfo> mLocalItems;
+    QList<QString> mWebdavLastModified;
 
     QString mProcessRemotePath;
     QString mProcessLocalPath;
