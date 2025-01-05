@@ -18,6 +18,7 @@
 #include "platformutilities.h"
 #include "qfieldcloudutils.h"
 #include "qgismobileapp.h"
+#include "webdavconnection.h"
 
 #include <QDir>
 #include <QFile>
@@ -336,14 +337,7 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
 
     case ItemHasWebdavConfigurationRole:
     {
-      const QFileInfo fileInfo( mItems[index.row()].path );
-      QDir dir( fileInfo.isFile() ? fileInfo.absolutePath() : fileInfo.absoluteFilePath() );
-      bool webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
-      while ( !webdavConfigurationExists && dir.cdUp() )
-      {
-        webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
-      }
-      return webdavConfigurationExists;
+      return WebdavConnection::hasWebdavConfiguration( mItems[index.row()].path );
     }
   }
 

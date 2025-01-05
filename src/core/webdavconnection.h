@@ -92,6 +92,8 @@ class WebdavConnection : public QObject
     Q_INVOKABLE void answerPasswordRequest( const QString &password );
     Q_INVOKABLE void cancelPasswordRequest();
 
+    Q_INVOKABLE static bool hasWebdavConfiguration( const QString &path );
+
   signals:
     void urlChanged();
     void usernameChanged();

@@ -616,6 +616,7 @@ void WebdavConnection::uploadPath( const QString &localPath )
       mWebdavLastModified.clear();
 
       mLocalItems.clear();
+      qDebug() << mProcessLocalPath;
       QDirIterator it( mProcessLocalPath, QDir::Files | QDir::NoDotAndDotDot, QDirIterator::Subdirectories );
       while ( it.hasNext() )
       {
@@ -639,6 +640,7 @@ void WebdavConnection::uploadPath( const QString &localPath )
       }
       else
       {
+        qDebug() << mLocalItems;
         setupConnection();
         mWebdavDirParser.listDirectory( &mWebdavConnection, mProcessRemotePath, true );
       }
@@ -691,4 +693,16 @@ void WebdavConnection::processDirParserError( const QString &error )
 {
   mLastError = error;
   emit lastErrorChanged();
+}
+
+bool WebdavConnection::hasWebdavConfiguration( const QString &path )
+{
+  const QFileInfo fileInfo( path );
+  QDir dir( fileInfo.isFile() ? fileInfo.absolutePath() : fileInfo.absoluteFilePath() );
+  bool webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
+  while ( !webdavConfigurationExists && dir.cdUp() )
+  {
+    webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
+  }
+  return webdavConfigurationExists;
 }

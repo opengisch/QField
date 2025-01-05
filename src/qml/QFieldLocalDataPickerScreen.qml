@@ -330,7 +330,8 @@ Page {
         round: true
 
         // Since the project menu only has one action for now, hide if PlatformUtilities.UpdateProjectFromArchive is missing
-        property bool isLocalProject: qgisProject && QFieldCloudUtils.getProjectId(qgisProject.fileName) === '' && (projectInfo.filePath.endsWith('.qgs') || projectInfo.filePath.endsWith('.qgz')) && platformUtilities.capabilities & PlatformUtilities.UpdateProjectFromArchive
+        property bool isLocalProject: qgisProject && QFieldCloudUtils.getProjectId(qgisProject.fileName) === '' && (projectInfo.filePath.endsWith('.qgs') || projectInfo.filePath.endsWith('.qgz'))
+        property bool isLocalProjectActionAvailable: updateProjectFromArchive.enabled || uploadProjectToWebdav.enabled
         visible: (projectFolderView && isLocalProject && table.model.currentDepth === 1) || table.model.currentPath === 'root'
 
         anchors.bottom: parent.bottom
@@ -718,6 +719,44 @@ Page {
           platformUtilities.updateProjectFromArchive(projectInfo.filePath);
         }
       }
+
+      MenuItem {
+        id: uploadProjectToWebdav
+
+        enabled: webdavConnectionLoader.item ? webdavConnectionLoader.item.hasWebdavConfiguration(FileUtils.absolutePath(projectInfo.filePath)) : false
+        visible: enabled
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? undefined : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Upload project to WebDAV")
+        onTriggered: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.uploadPath(FileUtils.absolutePath(projectInfo.filePath));
+          }
+        }
+      }
+
+      MenuItem {
+        id: downloadProjectToWebdav
+
+        enabled: uploadProjectToWebdav.enabled
+        visible: enabled
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? undefined : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Download project from WebDAV")
+        onTriggered: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.openedProjectPath = projectInfo.filePath;
+            iface.clearProject();
+            webdavConnectionLoader.item.downloadPath(FileUtils.absolutePath(projectInfo.filePath));
+          }
+        }
+      }
     }
   }
 
@@ -769,6 +808,8 @@ Page {
       WebdavConnection {
         id: webdavConnection
 
+        property string openedProjectPath: ""
+
         onIsImportingPathChanged: {
           if (isImportingPath) {
             busyOverlay.text = qsTr("Importing WebDAV folder");
@@ -786,6 +827,10 @@ Page {
             busyOverlay.state = "visible";
           } else {
             busyOverlay.state = "hidden";
+            if (openedProjectPath) {
+              iface.loadFile(openedProjectPath);
+              openedProjectPath = "";
+            }
           }
         }
 

@@ -40,14 +40,16 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
     Q_INVOKABLE static QString mimeTypeName( const QString &filePath );
     //! Returns TRUE if the provided mimetype is a supported image
     Q_INVOKABLE static bool isImageMimeTypeSupported( const QString &mimeType );
-    //! Returns the filename of a filepath - if no file name exists it's empty
+    //! Returns the filename of a \a filePath - if no file name exists it's empty
     Q_INVOKABLE static QString fileName( const QString &filePath );
-    //! Returns true if the file exists (false if it's a directory)
+    //! Returns true if the \a filePath exists (false if it's a directory)
     Q_INVOKABLE static bool fileExists( const QString &filePath );
     //! Returns the suffix (extension)
     Q_INVOKABLE static QString fileSuffix( const QString &filePath );
     //! Returns a human-friendly size from bytes
     Q_INVOKABLE static QString representFileSize( qint64 bytes );
+    //! Returns the absolute path of tghe folder containing the \a filePath.
+    Q_INVOKABLE static QString absolutePath( const QString &filePath );
 
     /**
      * Insures that a given image's width and height are restricted to a maximum size.
