@@ -405,7 +405,7 @@ Page {
         height: enabled ? undefined : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("Push to QFieldCloud...")
+        text: qsTr("Push to QFieldCloud")
         onTriggered: {
           QFieldCloudUtils.addPendingAttachment(cloudProjectsModel.currentProjectId, itemMenu.itemPath);
           platformUtilities.uploadPendingAttachments(cloudConnection);
@@ -499,7 +499,7 @@ Page {
         height: enabled ? undefined : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("Upload folder to WebDAV server...")
+        text: qsTr("Upload folder to WebDAV server")
         onTriggered: {
           if (webdavConnectionLoader.item) {
             webdavConnectionLoader.item.uploadPath(itemMenu.itemPath);
@@ -517,7 +517,7 @@ Page {
         height: enabled ? undefined : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("Download folder from WebDAV server...")
+        text: qsTr("Download folder from WebDAV server")
         onTriggered: {
           if (webdavConnectionLoader.item) {
             webdavConnectionLoader.item.downloadPath(itemMenu.itemPath);
