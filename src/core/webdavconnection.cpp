@@ -290,6 +290,17 @@ void WebdavConnection::processImportItems()
   }
   else
   {
+    QVariantMap webdavConfiguration;
+    webdavConfiguration[QStringLiteral( "url" )] = mUrl;
+    webdavConfiguration[QStringLiteral( "username" )] = mUsername;
+    webdavConfiguration[QStringLiteral( "remote_path" )] = mImportRemotePath;
+
+    QJsonDocument jsonDocument = QJsonDocument::fromVariant( webdavConfiguration );
+    QFile jsonFile( QStringLiteral( "%1qfield_webdav_settings.json" ).arg( mImportLocalPath ) );
+    jsonFile.open( QFile::WriteOnly );
+    jsonFile.write( jsonDocument.toJson() );
+    jsonFile.close();
+
     mIsImportingPath = false;
     emit isImportingPathChanged();
   }
