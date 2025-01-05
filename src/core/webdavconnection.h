@@ -118,7 +118,7 @@ class WebdavConnection : public QObject
     qint64 mImportingCurrentBytesReceived = 0;
     qint64 mImportingBytesReceived = 0;
     qint64 mImportingBytesTotal = 0;
-    QStringList mImportItems;
+    QList<QWebdavItem> mImportItems;
     QString mImportRemotePath;
     QString mImportLocalPath;
 

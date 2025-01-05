@@ -242,7 +242,7 @@ void WebdavConnection::processDirParserFinished()
         }
         else
         {
-          mImportItems << item.path();
+          mImportItems << item;
           mImportingBytesTotal += item.size();
         }
       }
@@ -257,7 +257,8 @@ void WebdavConnection::processImportItems()
 {
   if ( !mImportItems.isEmpty() )
   {
-    const QString itemPath = mImportItems.first();
+    const QString itemPath = mImportItems.first().path();
+    const QDateTime itemLastModified = mImportItems.first().lastModified();
     QNetworkReply *reply = mWebdavConnection.get( itemPath );
     QTemporaryFile *temporaryFile = new QTemporaryFile( reply );
     temporaryFile->setFileTemplate( QStringLiteral( "%1%2.XXXXXXXXXXXX" ).arg( mImportLocalPath, itemPath.mid( mImportRemotePath.size() ) ) );
@@ -275,8 +276,19 @@ void WebdavConnection::processImportItems()
       {
         temporaryFile->write( reply->readAll() );
         temporaryFile->setAutoRemove( false );
-        temporaryFile->close();
         temporaryFile->rename( mImportLocalPath + itemPath.mid( mImportRemotePath.size() ) );
+        temporaryFile->close();
+        delete temporaryFile;
+
+        // Attach last modified date value coming from the server (cannot be done via QTemporaryFile)
+        QFile file( QStringLiteral( "%1%2" ).arg( mImportLocalPath, itemPath.mid( mImportRemotePath.size() ) ) );
+        file.open( QFile::Append );
+        file.setFileTime( itemLastModified, QFileDevice::FileModificationTime );
+        file.setFileTime( itemLastModified, QFileDevice::FileAccessTime );
+        file.close();
+
+        QFileInfo fi( file );
+        qDebug() << itemLastModified << fi.fileTime( QFileDevice::FileBirthTime ) << fi.fileTime( QFileDevice::FileModificationTime ) << fi.fileTime( QFileDevice::FileAccessTime );
       }
       else
       {
