@@ -762,63 +762,59 @@ Page {
     }
   }
 
-  Component {
-    id: webdavConnectionComponent
-
-    WebdavConnection {
-      id: webdavConnection
-
-      onIsImportingPathChanged: {
-        if (isImportingPath) {
-          busyOverlay.text = qsTr("Importing WebDAV folder");
-          busyOverlay.progress = 0;
-          busyOverlay.state = "visible";
-        } else {
-          busyOverlay.state = "hidden";
-        }
-      }
-
-      onIsDownloadingPathChanged: {
-        if (isDownloadingPath) {
-          busyOverlay.text = qsTr("Downloading WebDAV folder");
-          busyOverlay.progress = 0;
-          busyOverlay.state = "visible";
-        } else {
-          busyOverlay.state = "hidden";
-        }
-      }
-
-      onIsUploadingPathChanged: {
-        if (isUploadingPath) {
-          busyOverlay.text = qsTr("Uploading WebDAV folder");
-          busyOverlay.progress = 0;
-          busyOverlay.state = "visible";
-        } else {
-          busyOverlay.state = "hidden";
-        }
-      }
-
-      onProgressChanged: {
-        if (isImportingPath || isDownloadingPath || isUploadingPath) {
-          busyOverlay.progress = progress;
-        }
-      }
-
-      onLastErrorChanged: {
-        displayToast(qsTr("WebDAV error: ") + lastError);
-      }
-
-      onPasswordRequested: {
-        enterWebdavPasswordDialog.open();
-        enterWebdavPasswordInput.focus = true;
-      }
-    }
-  }
-
   Loader {
     id: webdavConnectionLoader
     active: qfieldLocalDataPickerScreen.openedOnce
-    sourceComponent: webdavConnectionComponent
+    sourceComponent: Component {
+      WebdavConnection {
+        id: webdavConnection
+
+        onIsImportingPathChanged: {
+          if (isImportingPath) {
+            busyOverlay.text = qsTr("Importing WebDAV folder");
+            busyOverlay.progress = 0;
+            busyOverlay.state = "visible";
+          } else {
+            busyOverlay.state = "hidden";
+          }
+        }
+
+        onIsDownloadingPathChanged: {
+          if (isDownloadingPath) {
+            busyOverlay.text = qsTr("Downloading WebDAV folder");
+            busyOverlay.progress = 0;
+            busyOverlay.state = "visible";
+          } else {
+            busyOverlay.state = "hidden";
+          }
+        }
+
+        onIsUploadingPathChanged: {
+          if (isUploadingPath) {
+            busyOverlay.text = qsTr("Uploading WebDAV folder");
+            busyOverlay.progress = 0;
+            busyOverlay.state = "visible";
+          } else {
+            busyOverlay.state = "hidden";
+          }
+        }
+
+        onProgressChanged: {
+          if (isImportingPath || isDownloadingPath || isUploadingPath) {
+            busyOverlay.progress = progress;
+          }
+        }
+
+        onLastErrorChanged: {
+          displayToast(qsTr("WebDAV error: ") + lastError);
+        }
+
+        onPasswordRequested: {
+          enterWebdavPasswordDialog.open();
+          enterWebdavPasswordInput.focus = true;
+        }
+      }
+    }
   }
 
   QfDialog {
