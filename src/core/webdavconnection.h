@@ -41,6 +41,7 @@ class WebdavConnection : public QObject
     Q_PROPERTY( bool isFetchingAvailablePaths READ isFetchingAvailablePaths NOTIFY isFetchingAvailablePathsChanged )
     Q_PROPERTY( bool isImportingPath READ isImportingPath NOTIFY isImportingPathChanged )
     Q_PROPERTY( bool isDownloadingPath READ isDownloadingPath NOTIFY isDownloadingPathChanged )
+    Q_PROPERTY( bool isUploadingPath READ isUploadingPath NOTIFY isUploadingPathChanged )
 
     Q_PROPERTY( QStringList availablePaths READ availablePaths NOTIFY availablePathsChanged )
     Q_PROPERTY( double progress READ progress NOTIFY progressChanged )
@@ -76,6 +77,8 @@ class WebdavConnection : public QObject
 
     bool isDownloadingPath() const { return mIsDownloadingPath; }
 
+    bool isUploadingPath() const { return mIsUploadingPath; }
+
     double progress() const;
 
     QString lastError() const { return mLastError; }
@@ -84,6 +87,7 @@ class WebdavConnection : public QObject
 
     Q_INVOKABLE void importPath( const QString &remotePath, const QString &localPath );
     Q_INVOKABLE void downloadPath( const QString &localPath );
+    Q_INVOKABLE void uploadPath( const QString &localPath );
 
   signals:
     void urlChanged();
@@ -94,6 +98,7 @@ class WebdavConnection : public QObject
     void isFetchingAvailablePathsChanged();
     void isImportingPathChanged();
     void isDownloadingPathChanged();
+    void isUploadingPathChanged();
     void availablePathsChanged();
     void progressChanged();
     void lastErrorChanged();
@@ -108,6 +113,7 @@ class WebdavConnection : public QObject
     void applyStoredPassword();
     void setupConnection();
     void getWebdavItems();
+    void putLocalItems();
 
     QString mUrl;
     QString mUsername;
@@ -121,13 +127,15 @@ class WebdavConnection : public QObject
 
     bool mIsImportingPath = false;
     bool mIsDownloadingPath = false;
-
-    QString mGetRemotePath;
-    QString mGetLocalPath;
+    bool mIsUploadingPath = false;
 
     QList<QWebdavItem> mWebdavItems;
-    qint64 mCurrentBytesReceived = 0;
-    qint64 mBytesReceived = 0;
+    QList<QFileInfo> mLocalItems;
+
+    QString mProcessRemotePath;
+    QString mProcessLocalPath;
+    qint64 mCurrentBytesProcessed = 0;
+    qint64 mBytesProcessed = 0;
     qint64 mBytesTotal = 0;
 
     QWebdav mWebdavConnection;

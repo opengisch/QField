@@ -499,9 +499,10 @@ Page {
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Upload folder to WebDAV server...")
-        onTriggered:
-        //platformUtilities.sendCompressedFolderTo(itemMenu.itemPath);
-        {
+        onTriggered: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.uploadPath(itemMenu.itemPath);
+          }
         }
       }
 
@@ -785,6 +786,16 @@ Page {
       onIsDownloadingPathChanged: {
         if (isDownloadingPath) {
           busyOverlay.text = qsTr("Downloading WebDAV folder");
+          busyOverlay.progress = 0;
+          busyOverlay.state = "visible";
+        } else {
+          busyOverlay.state = "hidden";
+        }
+      }
+
+      onIsUploadingPathChanged: {
+        if (isUploadingPath) {
+          busyOverlay.text = qsTr("Uploading WebDAV folder");
           busyOverlay.progress = 0;
           busyOverlay.state = "visible";
         } else {

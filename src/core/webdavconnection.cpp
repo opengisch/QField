@@ -233,18 +233,18 @@ void WebdavConnection::processDirParserFinished()
     {
       applyStoredPassword();
 
-      QDir localDir( mGetLocalPath );
+      QDir localDir( mProcessLocalPath );
       for ( const QWebdavItem &item : list )
       {
         if ( item.isDir() )
         {
-          localDir.mkpath( item.path().mid( mGetRemotePath.size() ) );
+          localDir.mkpath( item.path().mid( mProcessRemotePath.size() ) );
         }
         else
         {
           if ( mIsDownloadingPath )
           {
-            QFileInfo fileInfo( mGetLocalPath + item.path().mid( mGetRemotePath.size() ) );
+            QFileInfo fileInfo( mProcessLocalPath + item.path().mid( mProcessRemotePath.size() ) );
             if ( !fileInfo.exists() || ( fileInfo.fileTime( QFileDevice::FileModificationTime ) != item.lastModified() ) )
             {
               mWebdavItems << item;
@@ -263,6 +263,40 @@ void WebdavConnection::processDirParserFinished()
 
     getWebdavItems();
   }
+  else if ( mIsUploadingPath )
+  {
+    applyStoredPassword();
+
+    for ( const QWebdavItem &item : list )
+    {
+      if ( !item.isDir() )
+      {
+        QFileInfo fileInfo( mProcessLocalPath + item.path().mid( mProcessRemotePath.size() ) );
+        if ( fileInfo.exists() )
+        {
+          auto localFileInfo = std::find_if( mLocalItems.begin(), mLocalItems.end(), [&fileInfo]( const QFileInfo &entry ) {
+            return entry.absoluteFilePath() == fileInfo.absoluteFilePath();
+          } );
+
+          if ( localFileInfo != mLocalItems.end() )
+          {
+            if ( localFileInfo->fileTime( QFileDevice::FileModificationTime ) == item.lastModified() )
+            {
+              mLocalItems.remove( localFileInfo - mLocalItems.begin(), 1 );
+            }
+          }
+        }
+      }
+    }
+
+    for ( const QFileInfo &fileInfo : mLocalItems )
+    {
+      mBytesTotal += fileInfo.size();
+    }
+    emit progressChanged();
+
+    putLocalItems();
+  }
 }
 
 void WebdavConnection::getWebdavItems()
@@ -273,22 +307,22 @@ void WebdavConnection::getWebdavItems()
     const QDateTime itemLastModified = mWebdavItems.first().lastModified();
     QNetworkReply *reply = mWebdavConnection.get( itemPath );
     QTemporaryFile *temporaryFile = new QTemporaryFile( reply );
-    temporaryFile->setFileTemplate( QStringLiteral( "%1%2.XXXXXXXXXXXX" ).arg( mGetLocalPath, itemPath.mid( mGetRemotePath.size() ) ) );
+    temporaryFile->setFileTemplate( QStringLiteral( "%1%2.XXXXXXXXXXXX" ).arg( mProcessLocalPath, itemPath.mid( mProcessRemotePath.size() ) ) );
     temporaryFile->open();
 
     connect( reply, &QNetworkReply::downloadProgress, this, [=]( int bytesReceived, int bytesTotal ) {
-      mCurrentBytesReceived = bytesReceived;
+      mCurrentBytesProcessed = bytesReceived;
       emit progressChanged();
 
       temporaryFile->write( reply->readAll() );
     } );
 
     connect( reply, &QNetworkReply::finished, this, [=]() {
-      mBytesReceived += mCurrentBytesReceived;
-      mCurrentBytesReceived = 0;
+      mBytesProcessed += mCurrentBytesProcessed;
+      mCurrentBytesProcessed = 0;
       if ( reply->error() == QNetworkReply::NoError )
       {
-        QFile file( mGetLocalPath + itemPath.mid( mGetRemotePath.size() ) );
+        QFile file( mProcessLocalPath + itemPath.mid( mProcessRemotePath.size() ) );
         if ( file.exists() )
         {
           // Remove pre-existing file
@@ -297,7 +331,7 @@ void WebdavConnection::getWebdavItems()
 
         temporaryFile->write( reply->readAll() );
         temporaryFile->setAutoRemove( false );
-        temporaryFile->rename( mGetLocalPath + itemPath.mid( mGetRemotePath.size() ) );
+        temporaryFile->rename( mProcessLocalPath + itemPath.mid( mProcessRemotePath.size() ) );
         temporaryFile->close();
         delete temporaryFile;
 
@@ -326,10 +360,10 @@ void WebdavConnection::getWebdavItems()
       QVariantMap webdavConfiguration;
       webdavConfiguration[QStringLiteral( "url" )] = mUrl;
       webdavConfiguration[QStringLiteral( "username" )] = mUsername;
-      webdavConfiguration[QStringLiteral( "remote_path" )] = mGetRemotePath;
+      webdavConfiguration[QStringLiteral( "remote_path" )] = mProcessRemotePath;
 
       QJsonDocument jsonDocument = QJsonDocument::fromVariant( webdavConfiguration );
-      QFile jsonFile( QStringLiteral( "%1qfield_webdav_configuration.json" ).arg( mGetLocalPath ) );
+      QFile jsonFile( QStringLiteral( "%1qfield_webdav_configuration.json" ).arg( mProcessLocalPath ) );
       jsonFile.open( QFile::WriteOnly );
       jsonFile.write( jsonDocument.toJson() );
       jsonFile.close();
@@ -341,6 +375,49 @@ void WebdavConnection::getWebdavItems()
     {
       mIsDownloadingPath = false;
       emit isDownloadingPathChanged();
+    }
+  }
+}
+
+void WebdavConnection::putLocalItems()
+{
+  if ( !mLocalItems.isEmpty() )
+  {
+    const QString itemPath = mLocalItems.first().absoluteFilePath();
+    qDebug() << "itemPath " << itemPath;
+    const QString remoteItemPath = mProcessRemotePath + itemPath.mid( mProcessLocalPath.size() ).replace( QDir::separator(), "/" );
+    qDebug() << "remoteItemPath " << remoteItemPath;
+
+    QFile *file = new QFile( itemPath );
+    file->open( QFile::ReadOnly );
+    QNetworkReply *reply = mWebdavConnection.put( remoteItemPath, file );
+    file->setParent( reply );
+
+    connect( reply, &QNetworkReply::uploadProgress, this, [=]( int bytesSent, int bytesTotal ) {
+      mCurrentBytesProcessed = bytesSent;
+      emit progressChanged();
+    } );
+
+    connect( reply, &QNetworkReply::finished, this, [=]() {
+      mBytesProcessed += mCurrentBytesProcessed;
+      mCurrentBytesProcessed = 0;
+      emit progressChanged();
+      if ( reply->error() != QNetworkReply::NoError )
+      {
+        mLastError = tr( "Failed to upload file %1 due to network error (%1)" ).arg( reply->error() );
+      }
+
+      mLocalItems.removeFirst();
+      putLocalItems();
+      reply->deleteLater();
+    } );
+  }
+  else
+  {
+    if ( mIsUploadingPath )
+    {
+      mIsUploadingPath = false;
+      emit isUploadingPathChanged();
     }
   }
 }
@@ -358,18 +435,18 @@ void WebdavConnection::importPath( const QString &remotePath, const QString &loc
   QDir localDir( localPath );
   localDir.mkpath( localFolder );
 
-  mGetRemotePath = remotePath;
-  mGetLocalPath = QDir::cleanPath( localPath + QDir::separator() + localFolder ) + QDir::separator();
+  mProcessRemotePath = remotePath;
+  mProcessLocalPath = QDir::cleanPath( localPath + QDir::separator() + localFolder ) + QDir::separator();
 
   mWebdavItems.clear();
-  mBytesReceived = 0;
+  mBytesProcessed = 0;
   mBytesTotal = 0;
   emit progressChanged();
 
   mIsImportingPath = true;
   emit isImportingPathChanged();
 
-  mWebdavDirParser.listDirectory( &mWebdavConnection, mGetRemotePath, true );
+  mWebdavDirParser.listDirectory( &mWebdavConnection, mProcessRemotePath, true );
 }
 
 void WebdavConnection::downloadPath( const QString &localPath )
@@ -400,22 +477,81 @@ void WebdavConnection::downloadPath( const QString &localPath )
       {
         setupConnection();
 
-        mGetRemotePath = webdavConfiguration["remote_path"].toString();
+        mProcessRemotePath = webdavConfiguration["remote_path"].toString();
         if ( !remoteChildrenPath.isEmpty() )
         {
-          mGetRemotePath = mGetRemotePath + remoteChildrenPath.join( "/" ) + QStringLiteral( "/" );
+          mProcessRemotePath = mProcessRemotePath + remoteChildrenPath.join( "/" ) + QStringLiteral( "/" );
         }
-        mGetLocalPath = QDir::cleanPath( localPath ) + QDir::separator();
+        mProcessLocalPath = QDir::cleanPath( localPath ) + QDir::separator();
 
         mWebdavItems.clear();
-        mBytesReceived = 0;
+        mBytesProcessed = 0;
         mBytesTotal = 0;
         emit progressChanged();
 
         mIsDownloadingPath = true;
         emit isDownloadingPathChanged();
 
-        mWebdavDirParser.listDirectory( &mWebdavConnection, mGetRemotePath, true );
+        mWebdavDirParser.listDirectory( &mWebdavConnection, mProcessRemotePath, true );
+      }
+    }
+  }
+}
+
+void WebdavConnection::uploadPath( const QString &localPath )
+{
+  QDir dir( localPath );
+  bool webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
+  QStringList remoteChildrenPath;
+  while ( !webdavConfigurationExists )
+  {
+    remoteChildrenPath << dir.dirName();
+    if ( !dir.cdUp() )
+      break;
+
+    webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
+  }
+
+  if ( webdavConfigurationExists )
+  {
+    QFile webdavConfigurationFile( dir.absolutePath() + QDir::separator() + QStringLiteral( "qfield_webdav_configuration.json" ) );
+    webdavConfigurationFile.open( QFile::ReadOnly );
+    QJsonDocument jsonDocument = QJsonDocument::fromJson( webdavConfigurationFile.readAll() );
+    if ( !jsonDocument.isEmpty() )
+    {
+      QVariantMap webdavConfiguration = jsonDocument.toVariant().toMap();
+      setUrl( webdavConfiguration["url"].toString() );
+      setUsername( webdavConfiguration["username"].toString() );
+      if ( isPasswordStored() )
+      {
+        setupConnection();
+
+        mProcessRemotePath = webdavConfiguration["remote_path"].toString();
+        if ( !remoteChildrenPath.isEmpty() )
+        {
+          mProcessRemotePath = mProcessRemotePath + remoteChildrenPath.join( "/" ) + QStringLiteral( "/" );
+        }
+        mProcessLocalPath = QDir::cleanPath( localPath ) + QDir::separator();
+
+        mLocalItems.clear();
+        QDirIterator it( mProcessLocalPath, QDir::Files | QDir::NoDotAndDotDot, QDirIterator::Subdirectories );
+        while ( it.hasNext() )
+        {
+          it.next();
+          if ( it.fileName() != QStringLiteral( "qfield_webdav_configuration.json" ) )
+          {
+            mLocalItems << it.fileInfo();
+          }
+        }
+
+        mBytesProcessed = 0;
+        mBytesTotal = 0;
+        emit progressChanged();
+
+        mIsUploadingPath = true;
+        emit isUploadingPathChanged();
+
+        mWebdavDirParser.listDirectory( &mWebdavConnection, mProcessRemotePath, true );
       }
     }
   }
@@ -425,7 +561,7 @@ double WebdavConnection::progress() const
 {
   if ( ( mIsImportingPath || mIsDownloadingPath ) && mBytesTotal > 0 )
   {
-    return static_cast<double>( mBytesReceived + mCurrentBytesReceived ) / mBytesTotal;
+    return static_cast<double>( mBytesProcessed + mCurrentBytesProcessed ) / mBytesTotal;
   }
 
   return 0;
