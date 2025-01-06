@@ -31,7 +31,7 @@ class FocusStack : public QObject
     Q_INVOKABLE void forceActiveFocusOnLastTaker() const;
 
   private slots:
-    void itemFocusChanged( bool itemActiveFocus );
+    void visibleChanged();
     void popupOpened();
     void popupClosed();
 

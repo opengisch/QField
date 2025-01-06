@@ -17,8 +17,8 @@
 
 void FocusStack::addFocusTaker( QObject *object )
 {
-  QVariant visible = object->property( "visible" );
-  QVariant opened = object->property( "opened" );
+  const QVariant visible = object->property( "visible" );
+  const QVariant opened = object->property( "opened" );
   if ( opened.isValid() )
   {
     connect( object, SIGNAL( opened() ), this, SLOT( popupOpened() ) );
@@ -26,7 +26,11 @@ void FocusStack::addFocusTaker( QObject *object )
   }
   else if ( visible.isValid() )
   {
-    connect( object, SIGNAL( activeFocusChanged( bool ) ), this, SLOT( itemFocusChanged( bool ) ) );
+    connect( object, SIGNAL( visibleChanged() ), this, SLOT( visibleChanged() ) );
+    if ( visible.toBool() )
+    {
+      mStackList.append( object );
+    }
   }
 }
 
@@ -40,9 +44,10 @@ void FocusStack::popupClosed()
   setUnfocused( sender() );
 }
 
-void FocusStack::itemFocusChanged( bool itemActiveFocus )
+void FocusStack::visibleChanged()
 {
-  if ( itemActiveFocus )
+  const QVariant visible = sender()->property( "visible" );
+  if ( visible.toBool() )
   {
     setFocused( sender() );
   }
@@ -60,8 +65,8 @@ void FocusStack::setFocused( QObject *object )
 
 void FocusStack::setUnfocused( QObject *object )
 {
-  QVariant visible = object->property( "visible" );
-  QVariant opened = object->property( "opened" );
+  const QVariant visible = object->property( "visible" );
+  const QVariant opened = object->property( "opened" );
   if ( opened.isValid() )
   {
     if ( !opened.toBool() )
