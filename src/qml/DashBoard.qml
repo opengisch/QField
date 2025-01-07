@@ -15,6 +15,7 @@ Drawer {
 
   signal showMenu
   signal showCloudMenu
+  signal returnHome
 
   property alias allowActiveLayerChange: legend.allowActiveLayerChange
   property alias activeLayer: legend.activeLayer
@@ -367,6 +368,21 @@ Drawer {
         isVisible: position > 0
         anchors.fill: parent
       }
+    }
+  }
+
+  Rectangle {
+    height: 48
+    width: parent.width
+    anchors.bottom: parent.bottom
+    color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGray
+
+    MenuItem {
+      id: homeButton
+      anchors.fill: parent
+      icon.source: Theme.getThemeVectorIcon("ic_home_black_24dp")
+      text: "Return home"
+      onClicked: returnHome()
     }
   }
 

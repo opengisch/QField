@@ -2157,7 +2157,7 @@ ApplicationWindow {
               geometryRequested = false;
             }
           }
-          if (homeButton.waitingForDigitizingFinish) {
+          if (dashBoard.shouldReturnHome) {
             openWelcomeScreen();
           }
         }
@@ -2309,6 +2309,20 @@ ApplicationWindow {
 
     Component.onCompleted: focusstack.addFocusTaker(this)
 
+    onReturnHome: {
+      if (currentRubberband && currentRubberband.model.vertexCount > 1) {
+        digitizingToolbar.cancelDialog.open();
+        shouldReturnHome = true;
+      } else if (!shouldReturnHome) {
+        openWelcomeScreen();
+      }
+    }
+
+    // If the user clicks the "Return home" button in the middle of digitizing, we will ask if they want to discard their changes.
+    // If they press cancel, nothing will happen, but if they press discard, we will discard their digitizing.
+    // We will also use `shouldReturnHome` to know that we need to return home as well or not.
+    property bool shouldReturnHome: false
+
     function ensureEditableLayerSelected() {
       var firstEditableLayer = null;
       var activeLayerLocked = false;
@@ -2345,7 +2359,7 @@ ApplicationWindow {
     dashBoard.close();
     welcomeScreen.visible = true;
     welcomeScreen.focus = true;
-    homeButton.waitingForDigitizingFinish = false;
+    dashBoard.shouldReturnHome = false;
   }
 
   function activateMeasurementMode() {
@@ -2384,29 +2398,6 @@ ApplicationWindow {
       clip: true
 
       property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
-
-      QfToolButton {
-        id: homeButton
-        anchors.verticalCenter: parent.verticalCenter
-        height: 48
-        width: 48
-        round: true
-        iconSource: Theme.getThemeVectorIcon("ic_home_black_24dp")
-        iconColor: Theme.mainTextColor
-        bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
-
-        property bool waitingForDigitizingFinish: false
-
-        onClicked: {
-          if (currentRubberband && currentRubberband.model.vertexCount > 1) {
-            digitizingToolbar.cancelDialog.open();
-            waitingForDigitizingFinish = true;
-          } else if (!waitingForDigitizingFinish) {
-            openWelcomeScreen();
-            highlighted = false;
-          }
-        }
-      }
 
       QfToolButton {
         id: measurementButton
@@ -2602,7 +2593,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("Settings")
+      text: qsTr("Project Variables")
 
       font: Theme.defaultFont
       height: 48
@@ -2612,6 +2603,7 @@ ApplicationWindow {
         dashBoard.close();
         qfieldSettings.reset();
         qfieldSettings.visible = true;
+        qfieldSettings.currentPanel = 2;
         highlighted = false;
       }
     }
