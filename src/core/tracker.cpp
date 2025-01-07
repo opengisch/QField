@@ -222,9 +222,6 @@ void Tracker::positionReceived()
   if ( !qgsDoubleNear( mTimeInterval, 0.0 ) )
   {
     mTimeIntervalFulfilled = ( mLastDevicePositionTimestamp.toMSecsSinceEpoch() - mLastVertexPositionTimestamp.toMSecsSinceEpoch() ) >= mTimeInterval * 1000;
-    qDebug() << mLastDevicePositionTimestamp;
-    qDebug() << mTimeInterval;
-    qDebug() << ( mLastDevicePositionTimestamp.toMSecsSinceEpoch() - mLastVertexPositionTimestamp.toMSecsSinceEpoch() );
 
     if ( !mConjunction && mTimeIntervalFulfilled )
     {
@@ -346,7 +343,6 @@ void Tracker::processPositionInformation( const GnssPositionInformation &positio
 
 void Tracker::replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer )
 {
-  qDebug() << "ttt replayPositionInformationList with count " << positionInformationList.size();
   bool wasActive = false;
   if ( mIsActive )
   {
