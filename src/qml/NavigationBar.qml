@@ -633,7 +633,7 @@ Rectangle {
       leftPadding: 2
       rightPadding: 2
       spacing: 2
-      height: printItem.height
+      height: 48
       clip: true
 
       property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)

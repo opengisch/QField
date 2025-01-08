@@ -16,6 +16,9 @@ Drawer {
   signal showMenu
   signal showCloudMenu
   signal returnHome
+  signal measurementClicked
+  signal printClicked(Item item)
+  signal projectFolderClicked
 
   property alias allowActiveLayerChange: legend.allowActiveLayerChange
   property alias activeLayer: legend.activeLayer
@@ -80,6 +83,8 @@ Drawer {
         height: 56
         spacing: 1
 
+        property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
+
         QfToolButton {
           id: closeButton
           anchors.verticalCenter: parent.verticalCenter
@@ -90,12 +95,40 @@ Drawer {
         }
 
         QfToolButton {
-          id: settingsButton
+          id: measurementButton
           anchors.verticalCenter: parent.verticalCenter
-          iconSource: Theme.getThemeVectorIcon('ic_settings_white_24dp')
+          round: true
+          iconSource: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
           iconColor: Theme.mainOverlayColor
           bgcolor: "transparent"
-          onClicked: showMenu()
+          onClicked: {
+            measurementClicked();
+            highlighted = false;
+          }
+        }
+
+        QfToolButton {
+          id: printItem
+          anchors.verticalCenter: parent.verticalCenter
+          round: true
+          iconSource: Theme.getThemeVectorIcon("ic_print_black_24dp")
+          iconColor: Theme.mainOverlayColor
+          onClicked: {
+            printClicked(printItem);
+            highlighted = false;
+          }
+        }
+
+        QfToolButton {
+          text: qsTr("Project Folder")
+          anchors.verticalCenter: parent.verticalCenter
+          font: Theme.defaultFont
+          iconSource: Theme.getThemeVectorIcon("ic_project_folder_black_24dp")
+          iconColor: Theme.mainOverlayColor
+          round: true
+          onClicked: {
+            projectFolderClicked();
+          }
         }
 
         QfToolButton {
@@ -168,70 +201,15 @@ Drawer {
             }
           }
         }
-      }
 
-      Switch {
-        id: modeSwitch
-        visible: projectInfo.insertRights
-        height: 56
-        width: (56 + 36)
-        anchors.right: parent.right
-        anchors.verticalCenter: buttonsRow.verticalCenter
-        indicator: Rectangle {
-          implicitHeight: 36
-          implicitWidth: 36 * 2
-          x: modeSwitch.leftPadding
-          radius: 4
-          color: "#66212121"
-          border.color: "#44FFFFFF"
+        QfToolButton {
+          id: settingsButton
           anchors.verticalCenter: parent.verticalCenter
-          Image {
-            width: 28
-            height: 28
-            anchors.left: parent.left
-            anchors.leftMargin: 4
-            anchors.verticalCenter: parent.verticalCenter
-            source: Theme.getThemeVectorIcon('ic_map_white_24dp')
-            sourceSize.width: parent.height * screen.devicePixelRatio
-            sourceSize.height: parent.width * screen.devicePixelRatio
-            opacity: 0.4
-          }
-          Image {
-            width: 28
-            height: 28
-            anchors.right: parent.right
-            anchors.rightMargin: 4
-            anchors.verticalCenter: parent.verticalCenter
-            source: Theme.getThemeVectorIcon('ic_create_white_24dp')
-            sourceSize.width: parent.height * screen.devicePixelRatio
-            sourceSize.height: parent.width * screen.devicePixelRatio
-            opacity: 0.4
-          }
-          Rectangle {
-            x: modeSwitch.checked ? parent.width - width : 0
-            width: 36
-            height: 36
-            radius: 4
-            color: Theme.mainColor
-            border.color: Theme.mainOverlayColor
-            Image {
-              width: 28
-              height: 28
-              anchors.centerIn: parent
-              source: modeSwitch.checked ? Theme.getThemeVectorIcon('ic_create_white_24dp') : Theme.getThemeVectorIcon('ic_map_white_24dp')
-              sourceSize.width: parent.height * screen.devicePixelRatio
-              sourceSize.height: parent.width * screen.devicePixelRatio
-            }
-            Behavior on x  {
-              PropertyAnimation {
-                duration: 100
-                easing.type: Easing.OutQuart
-              }
-            }
-          }
+          iconSource: Theme.getThemeVectorIcon('ic_dot_menu_black_24dp')
+          iconColor: Theme.mainOverlayColor
+          bgcolor: "transparent"
+          onClicked: showMenu()
         }
-
-        onPositionChanged: mainWindow.toggleDigitizeMode()
       }
     }
 
@@ -379,10 +357,73 @@ Drawer {
 
     MenuItem {
       id: homeButton
-      anchors.fill: parent
       icon.source: Theme.getThemeVectorIcon("ic_home_black_24dp")
       text: "Return home"
       onClicked: returnHome()
+    }
+
+    Switch {
+      id: modeSwitch
+      visible: projectInfo.insertRights
+      height: 56
+      width: (56 + 36)
+      anchors.right: parent.right
+      anchors.verticalCenter: parent.verticalCenter
+      indicator: Rectangle {
+        implicitHeight: 36
+        implicitWidth: 36 * 2
+        x: modeSwitch.leftPadding
+        radius: 4
+        color: "#66212121"
+        border.color: "#44FFFFFF"
+        anchors.verticalCenter: parent.verticalCenter
+        Image {
+          width: 28
+          height: 28
+          anchors.left: parent.left
+          anchors.leftMargin: 4
+          anchors.verticalCenter: parent.verticalCenter
+          source: Theme.getThemeVectorIcon('ic_map_white_24dp')
+          sourceSize.width: parent.height * screen.devicePixelRatio
+          sourceSize.height: parent.width * screen.devicePixelRatio
+          opacity: 0.4
+        }
+        Image {
+          width: 28
+          height: 28
+          anchors.right: parent.right
+          anchors.rightMargin: 4
+          anchors.verticalCenter: parent.verticalCenter
+          source: Theme.getThemeVectorIcon('ic_create_white_24dp')
+          sourceSize.width: parent.height * screen.devicePixelRatio
+          sourceSize.height: parent.width * screen.devicePixelRatio
+          opacity: 0.4
+        }
+        Rectangle {
+          x: modeSwitch.checked ? parent.width - width : 0
+          width: 36
+          height: 36
+          radius: 4
+          color: Theme.mainColor
+          border.color: Theme.mainOverlayColor
+          Image {
+            width: 28
+            height: 28
+            anchors.centerIn: parent
+            source: modeSwitch.checked ? Theme.getThemeVectorIcon('ic_create_white_24dp') : Theme.getThemeVectorIcon('ic_map_white_24dp')
+            sourceSize.width: parent.height * screen.devicePixelRatio
+            sourceSize.height: parent.width * screen.devicePixelRatio
+          }
+          Behavior on x  {
+            PropertyAnimation {
+              duration: 100
+              easing.type: Easing.OutQuart
+            }
+          }
+        }
+      }
+
+      onPositionChanged: mainWindow.toggleDigitizeMode()
     }
   }
 

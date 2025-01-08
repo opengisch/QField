@@ -2318,6 +2318,37 @@ ApplicationWindow {
       }
     }
 
+    onMeasurementClicked: {
+      if (featureForm.state === "ProcessingAlgorithmForm") {
+        cancelAlgorithmDialog.visible = true;
+      } else {
+        activateMeasurementMode();
+      }
+    }
+
+    onPrintClicked: printItem => {
+      if (layoutListInstantiator.count > 1) {
+        printMenu.popup(mainMenu.x, mainMenu.y + printItem.y);
+      } else if (layoutListInstantiator.count == 1) {
+        mainMenu.close();
+        displayToast(qsTr('Printing...'));
+        printMenu.printName = layoutListInstantiator.model.titleAt(0);
+        printMenu.printTimer.restart();
+      } else {
+        mainMenu.close();
+        toast.show(qsTr('No print layout available'), 'info', qsTr('Learn more'), function () {
+            Qt.openUrlExternally('https://docs.qfield.org/how-to/print-to-pdf/');
+          });
+      }
+    }
+
+    onProjectFolderClicked: {
+      dashBoard.close();
+      qfieldLocalDataPickerScreen.projectFolderView = true;
+      qfieldLocalDataPickerScreen.model.resetToPath(projectInfo.filePath);
+      qfieldLocalDataPickerScreen.visible = true;
+    }
+
     // If the user clicks the "Return home" button in the middle of digitizing, we will ask if they want to discard their changes.
     // If they press cancel, nothing will happen, but if they press discard, we will discard their digitizing.
     // We will also use `shouldReturnHome` to know that we need to return home as well or not.
@@ -2394,30 +2425,10 @@ ApplicationWindow {
       leftPadding: 2
       rightPadding: 2
       spacing: 2
-      height: printItem.height
+      height: 40
       clip: true
 
       property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
-
-      QfToolButton {
-        id: measurementButton
-        anchors.verticalCenter: parent.verticalCenter
-        height: 48
-        width: 48
-        round: true
-        iconSource: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
-        iconColor: Theme.mainTextColor
-        bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
-
-        onClicked: {
-          if (featureForm.state === "ProcessingAlgorithmForm") {
-            cancelAlgorithmDialog.visible = true;
-          } else {
-            activateMeasurementMode();
-            highlighted = false;
-          }
-        }
-      }
 
       QfToolButton {
         anchors.verticalCenter: parent.verticalCenter
@@ -2487,51 +2498,6 @@ ApplicationWindow {
     }
 
     MenuItem {
-      id: printItem
-      text: qsTr("Print to PDF")
-
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_print_black_24dp")
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      rightPadding: 40
-
-      arrow: Canvas {
-        x: parent.width - width
-        y: (parent.height - height) / 2
-        implicitWidth: 40
-        implicitHeight: 40
-        opacity: layoutListInstantiator.count > 1 ? 1 : 0
-        onPaint: {
-          var ctx = getContext("2d");
-          ctx.strokeStyle = Theme.mainColor;
-          ctx.lineWidth = 1;
-          ctx.moveTo(15, 15);
-          ctx.lineTo(width - 15, height / 2);
-          ctx.lineTo(15, height - 15);
-          ctx.stroke();
-        }
-      }
-
-      onTriggered: {
-        if (layoutListInstantiator.count > 1) {
-          printMenu.popup(mainMenu.x, mainMenu.y + printItem.y);
-        } else if (layoutListInstantiator.count == 1) {
-          mainMenu.close();
-          displayToast(qsTr('Printing...'));
-          printMenu.printName = layoutListInstantiator.model.titleAt(0);
-          printMenu.printTimer.restart();
-        } else {
-          mainMenu.close();
-          toast.show(qsTr('No print layout available'), 'info', qsTr('Learn more'), function () {
-              Qt.openUrlExternally('https://docs.qfield.org/how-to/print-to-pdf/');
-            });
-        }
-        highlighted = false;
-      }
-    }
-
-    MenuItem {
       id: sensorItem
       text: qsTr("Sensors")
 
@@ -2568,23 +2534,6 @@ ApplicationWindow {
             });
         }
         highlighted = false;
-      }
-    }
-
-    MenuItem {
-      text: qsTr("Project Folder")
-
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_project_folder_black_24dp")
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      rightPadding: 40
-
-      onTriggered: {
-        dashBoard.close();
-        qfieldLocalDataPickerScreen.projectFolderView = true;
-        qfieldLocalDataPickerScreen.model.resetToPath(projectInfo.filePath);
-        qfieldLocalDataPickerScreen.visible = true;
       }
     }
 
