@@ -328,10 +328,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Unknown error</source>
         <translation type="vanished">Onbekende fout</translation>
     </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>Gebruik van Bluetooth niet toegestaan </translation>
-    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -507,10 +503,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Map Theme</source>
         <translation>Kaart thema</translation>
-    </message>
-    <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>De digitaliseringsfunctie beëindigen of afbreken voordat u overschakelt naar de bladermodus</translation>
     </message>
 </context>
 <context>
@@ -1144,13 +1136,6 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
 </context>
 <context>
-    <name>InternalGnssReceiver</name>
-    <message>
-        <source>Location permission denied</source>
-        <translation>Gebruik van locatiegegevens is niet toegestaan</translation>
-    </message>
-</context>
-<context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
@@ -1685,13 +1670,6 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Bearing</source>
         <translation>Koers</translation>
-    </message>
-</context>
-<context>
-    <name>NmeaGnssReceiver</name>
-    <message>
-        <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2759,11 +2737,11 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Mijn Projecten</translation>
+        <translation>Mijn Projecten</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Gemeenschap</translation>
+        <translation>Gemeenschap</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3020,6 +2998,17 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Files</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QFieldPositioningService</name>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5064,6 +5053,14 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Unlock the screen to close project and app</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation>De digitaliseringsfunctie beëindigen of afbreken voordat u overschakelt naar de bladermodus</translation>
     </message>
 </context>
 <context>

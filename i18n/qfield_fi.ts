@@ -328,10 +328,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>Unknown error</source>
         <translation type="vanished">Tuntematon virhe</translation>
     </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>Bluetoothin käyttöoikeus estetty</translation>
-    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -507,10 +503,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Map Theme</source>
         <translation>Karttateema</translation>
-    </message>
-    <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>Lopeta tai hylkää digitointi ennen kuin siirryt selaustilaan</translation>
     </message>
 </context>
 <context>
@@ -1144,13 +1136,6 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
 </context>
 <context>
-    <name>InternalGnssReceiver</name>
-    <message>
-        <source>Location permission denied</source>
-        <translation>Kohteen käyttöoikeus estetty</translation>
-    </message>
-</context>
-<context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
@@ -1685,13 +1670,6 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Bearing</source>
         <translation>Suuntima</translation>
-    </message>
-</context>
-<context>
-    <name>NmeaGnssReceiver</name>
-    <message>
-        <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation>Ei voitu jäsentää IMU sijaintia: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -3023,6 +3001,17 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     <message>
         <source>Files</source>
         <translation>Tiedostot</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldPositioningService</name>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning service running</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5066,6 +5055,14 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Unlock the screen to close project and app</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation>Lopeta tai hylkää digitointi ennen kuin siirryt selaustilaan</translation>
     </message>
 </context>
 <context>

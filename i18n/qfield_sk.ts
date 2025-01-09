@@ -328,10 +328,6 @@ Zrušiť a spraviť minimálny sken.</translation>
         <source>Unknown error</source>
         <translation type="vanished">Neznáma chyba</translation>
     </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>Povolenie Bluetooth zamietnuté</translation>
-    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -507,10 +503,6 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Map Theme</source>
         <translation>Mapa</translation>
-    </message>
-    <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>Pred spustením prehliadacieho režimu dokončite alebo zrušte digitalizovanie prvku </translation>
     </message>
 </context>
 <context>
@@ -1146,13 +1138,6 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     </message>
 </context>
 <context>
-    <name>InternalGnssReceiver</name>
-    <message>
-        <source>Location permission denied</source>
-        <translation>Povolenie polohy zamietnuté</translation>
-    </message>
-</context>
-<context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
@@ -1688,13 +1673,6 @@ Dôvod:
     <message>
         <source>Bearing</source>
         <translation>Smerovník</translation>
-    </message>
-</context>
-<context>
-    <name>NmeaGnssReceiver</name>
-    <message>
-        <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation>Nepodarilo sa analyzovať pozíciu IMU: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -3023,6 +3001,17 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>Files</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QFieldPositioningService</name>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5067,6 +5056,14 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Unlock the screen to close project and app</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation>Pred spustením prehliadacieho režimu dokončite alebo zrušte digitalizovanie prvku </translation>
     </message>
 </context>
 <context>

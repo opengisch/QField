@@ -328,10 +328,6 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
         <source>Unknown error</source>
         <translation type="vanished">Error desconocido</translation>
     </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>Denegado el permiso de Bluetooth</translation>
-    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -507,10 +503,6 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <message>
         <source>Map Theme</source>
         <translation>Tema de mapa</translation>
-    </message>
-    <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>Finalizar o descartar el objeto digitalizado antes de cambiar al modo exploración</translation>
     </message>
 </context>
 <context>
@@ -1146,13 +1138,6 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
 </context>
 <context>
-    <name>InternalGnssReceiver</name>
-    <message>
-        <source>Location permission denied</source>
-        <translation>Denegado el permiso de ubicación</translation>
-    </message>
-</context>
-<context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
@@ -1687,13 +1672,6 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Bearing</source>
         <translation>Rumbo</translation>
-    </message>
-</context>
-<context>
-    <name>NmeaGnssReceiver</name>
-    <message>
-        <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation>No se pudo analizar la posición de la IMU: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -3021,6 +2999,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Files</source>
         <translation>Archivos</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldPositioningService</name>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning service running</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5064,6 +5053,14 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Unlock the screen to close project and app</source>
         <translation>Desbloquee la pantalla para cerrar el proyecto y la aplicación</translation>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation>Finalizar o descartar el objeto digitalizado antes de cambiar al modo exploración</translation>
     </message>
 </context>
 <context>

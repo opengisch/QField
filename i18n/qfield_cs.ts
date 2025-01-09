@@ -328,10 +328,6 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>Unknown error</source>
         <translation type="vanished">Neznámá chyba</translation>
     </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>Bluetooth povolení odmítnuto</translation>
-    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -507,10 +503,6 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Map Theme</source>
         <translation>Map Téma</translation>
-    </message>
-    <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>Dokončete nebo vypněte funkci digitalizace před přepnutím do režimu prohlížení.</translation>
     </message>
 </context>
 <context>
@@ -1148,13 +1140,6 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
 </context>
 <context>
-    <name>InternalGnssReceiver</name>
-    <message>
-        <source>Location permission denied</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
@@ -1689,13 +1674,6 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Bearing</source>
         <translation>Směrník</translation>
-    </message>
-</context>
-<context>
-    <name>NmeaGnssReceiver</name>
-    <message>
-        <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3023,6 +3001,17 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Files</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QFieldPositioningService</name>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5067,6 +5056,14 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Unlock the screen to close project and app</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation>Dokončete nebo vypněte funkci digitalizace před přepnutím do režimu prohlížení.</translation>
     </message>
 </context>
 <context>

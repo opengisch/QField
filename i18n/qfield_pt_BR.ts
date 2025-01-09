@@ -23,11 +23,11 @@
     </message>
     <message>
         <source>QField app directories</source>
-        <translation type="unfinished"/>
+        <translation>Diretórios de arquivos QField</translation>
     </message>
     <message>
         <source>QField app directory</source>
-        <translation type="unfinished"/>
+        <translation>Diretório de arquivos QField</translation>
     </message>
 </context>
 <context>
@@ -328,10 +328,6 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>Unknown error</source>
         <translation type="vanished">Erro desconhecido</translation>
     </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>Permissão de Bluetooth negada</translation>
-    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -473,7 +469,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>ClipboardManager</name>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished"/>
+        <translation>Geometria</translation>
     </message>
 </context>
 <context>
@@ -507,10 +503,6 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Map Theme</source>
         <translation>Tema do mapa</translation>
-    </message>
-    <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>Conclua ou diminua o recurso de digitalização antes de alternar para o modo de navegação</translation>
     </message>
 </context>
 <context>
@@ -651,11 +643,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>A conexão foi recusada pelo servidor remoto</translation>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Erro do receptor TCP (%1)</translation>
     </message>
 </context>
 <context>
@@ -789,30 +781,30 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>O último valor inserido neste campo não será reutilizado ao criar novas feições</translation>
     </message>
 </context>
 <context>
     <name>FeatureHistory</name>
     <message>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao desfazer os elementos criados na camada &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao desfazer elementos apagados na camada &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao desfazer a atualização dos elementos na camada &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao confirmar a alteração de desfazer do elemento na camada &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao reverter as alterações do elemento na camada &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -870,7 +862,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message numerus="yes">
         <source>Failed to merge %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Falha ao mesclar %n feição</numerusform><numerusform>Falha ao mesclar %n feições</numerusform><numerusform>Falha ao mesclar %n feições</numerusform></translation>
     </message>
     <message>
         <source>Delete feature(s)</source>
@@ -1136,13 +1128,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>InternalGnssReceiver</name>
-    <message>
-        <source>Location permission denied</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1681,13 +1666,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Bearing</source>
         <translation>Orientação</translation>
-    </message>
-</context>
-<context>
-    <name>NmeaGnssReceiver</name>
-    <message>
-        <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3015,6 +2993,17 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldPositioningService</name>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning service running</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldSettings</name>
     <message>
         <source>Show scale bar</source>
@@ -3846,11 +3835,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>A conexão foi recusada pelo servidor remoto</translation>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Erro do receptor TCP (%1)</translation>
     </message>
 </context>
 <context>
@@ -4219,7 +4208,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>A conexão foi recusada pelo servidor remoto</translation>
     </message>
 </context>
 <context>
@@ -5055,6 +5044,14 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Unlock the screen to close project and app</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation>Conclua ou diminua o recurso de digitalização antes de alternar para o modo de navegação</translation>
     </message>
 </context>
 <context>

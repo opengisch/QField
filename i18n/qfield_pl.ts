@@ -328,10 +328,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Unknown error</source>
         <translation type="vanished">Nieznany błąd</translation>
     </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>Odmowa dostępu do bluetooth</translation>
-    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -507,10 +503,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Map Theme</source>
         <translation>Wygląd mapy</translation>
-    </message>
-    <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>Zakończ lub odrzuć digitizację obiektu przed przełączeniem do trybu przeglądania</translation>
     </message>
 </context>
 <context>
@@ -1148,13 +1140,6 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
 </context>
 <context>
-    <name>InternalGnssReceiver</name>
-    <message>
-        <source>Location permission denied</source>
-        <translation>Odmowa dostępu do lokalizacji</translation>
-    </message>
-</context>
-<context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
@@ -1545,7 +1530,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Move Selected Feature(s)</source>
-        <translation>Przesuń wybrany(e) obiekty(y)</translation>
+        <translation>Przesuń wybrany(e) obiekt(y)</translation>
     </message>
     <message>
         <source>Duplicate Selected Feature(s)</source>
@@ -1689,13 +1674,6 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Bearing</source>
         <translation>Namiar</translation>
-    </message>
-</context>
-<context>
-    <name>NmeaGnssReceiver</name>
-    <message>
-        <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation>Nie można przetworzyć pozycji IMU: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -2763,11 +2741,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Moje projekty</translation>
+        <translation>Moje projekty</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Społeczność</translation>
+        <translation>Społeczność</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3025,6 +3003,17 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Files</source>
         <translation>Pliki</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldPositioningService</name>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <translation>Szerokość geogr. %1 | Długość geogr. %2 | Wysokość %3 | Orientacja %4</translation>
+    </message>
+    <message>
+        <source>Positioning service running</source>
+        <translation>Uruchomiona usługa pozycjonowania</translation>
     </message>
 </context>
 <context>
@@ -5068,6 +5057,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Unlock the screen to close project and app</source>
         <translation>Odblokuj ekran, aby zamknąć projekt i aplikację</translation>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation>Aktywowany tryb bez obramowania, użyj lewego górnego i prawego dolnego rogu do przesuwania i zmiany rozmiaru okna.</translation>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation>Zakończ lub odrzuć digitizację obiektu przed przełączeniem do trybu przeglądania</translation>
     </message>
 </context>
 <context>

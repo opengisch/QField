@@ -328,10 +328,6 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Unknown error</source>
         <translation type="vanished">Penyebab gagal tidak diketahui</translation>
     </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>Izin Bluetooth ditolak</translation>
-    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -507,10 +503,6 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <source>Map Theme</source>
         <translation>Map Theme</translation>
-    </message>
-    <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1142,13 +1134,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>InternalGnssReceiver</name>
-    <message>
-        <source>Location permission denied</source>
-        <translation>Izin lokasi ditolak</translation>
-    </message>
-</context>
-<context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
@@ -1683,13 +1668,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Bearing</source>
         <translation>Bearing</translation>
-    </message>
-</context>
-<context>
-    <name>NmeaGnssReceiver</name>
-    <message>
-        <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3018,6 +2996,17 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Files</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QFieldPositioningService</name>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5061,6 +5050,14 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation type="unfinished"/>
     </message>
 </context>

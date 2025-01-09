@@ -328,10 +328,6 @@ Cancel to make a minimal device scan instead.</source>
         <source>Unknown error</source>
         <translation type="vanished">未知错误</translation>
     </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>蓝牙权限被拒绝</translation>
-    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -507,10 +503,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Map Theme</source>
         <translation>地图主题</translation>
-    </message>
-    <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>切换到浏览模式之前完成或摒弃数字化要素</translation>
     </message>
 </context>
 <context>
@@ -1142,13 +1134,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>InternalGnssReceiver</name>
-    <message>
-        <source>Location permission denied</source>
-        <translation>定位权限被拒绝</translation>
-    </message>
-</context>
-<context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
@@ -1683,13 +1668,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Bearing</source>
         <translation>方位角</translation>
-    </message>
-</context>
-<context>
-    <name>NmeaGnssReceiver</name>
-    <message>
-        <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation>无法解析IMU位置: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -3019,6 +2997,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Files</source>
         <translation>文件</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldPositioningService</name>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <translation>纬度 %1 | 经度 %2 | 海拔 %3 | 方位 %4</translation>
+    </message>
+    <message>
+        <source>Positioning service running</source>
+        <translation>定位服务正在运行</translation>
     </message>
 </context>
 <context>
@@ -5062,6 +5051,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Unlock the screen to close project and app</source>
         <translation>请解锁屏幕以便关闭工程和应用程序</translation>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation>无边界模式已激活，使用左上角和右下角移动和调整窗口大小</translation>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation>切换到浏览模式之前完成或摒弃数字化要素</translation>
     </message>
 </context>
 <context>
