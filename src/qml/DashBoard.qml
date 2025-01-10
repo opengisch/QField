@@ -374,8 +374,8 @@ Drawer {
         implicitWidth: 36 * 2
         x: modeSwitch.leftPadding
         radius: 4
-        color: "#66212121"
-        border.color: "#44FFFFFF"
+        color: "#24212121"
+        border.color: "#14FFFFFF"
         anchors.verticalCenter: parent.verticalCenter
         Image {
           width: 28
@@ -386,7 +386,7 @@ Drawer {
           source: Theme.getThemeVectorIcon('ic_map_white_24dp')
           sourceSize.width: parent.height * screen.devicePixelRatio
           sourceSize.height: parent.width * screen.devicePixelRatio
-          opacity: 0.4
+          opacity: 0.6
         }
         Image {
           width: 28
@@ -397,7 +397,7 @@ Drawer {
           source: Theme.getThemeVectorIcon('ic_create_white_24dp')
           sourceSize.width: parent.height * screen.devicePixelRatio
           sourceSize.height: parent.width * screen.devicePixelRatio
-          opacity: 0.4
+          opacity: 0.6
         }
         Rectangle {
           x: modeSwitch.checked ? parent.width - width : 0

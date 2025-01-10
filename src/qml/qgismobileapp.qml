@@ -17,7 +17,9 @@
 import QtCore
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.impl
 import QtQuick.Controls.Material
+import QtQuick.Controls.Material.impl
 import QtQuick.Effects
 import QtQuick.Shapes
 import QtQuick.Window
@@ -2419,46 +2421,25 @@ ApplicationWindow {
       return Math.max(toolbarWidth, result + padding);
     }
 
-    Row {
+    Item {
       id: mainMenuActionsToolbar
       objectName: "mainMenuActionsToolbar"
-      leftPadding: 2
-      rightPadding: 2
-      spacing: 2
       height: 40
       clip: true
 
       property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
 
-      QfToolButton {
-        anchors.verticalCenter: parent.verticalCenter
-        height: 48
-        width: 48
-        round: true
-        iconSource: Theme.getThemeVectorIcon("ic_lock_black_24dp")
-        iconColor: Theme.mainTextColor
-        bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
-
-        onClicked: {
-          mainMenu.close();
-          dashBoard.close();
-          screenLocker.enabled = true;
-        }
-      }
-
-      QfToolButton {
+      MenuItem {
         id: undoButton
-        property bool isEnabled: featureHistory && featureHistory.isUndoAvailable
-        anchors.verticalCenter: parent.verticalCenter
+        enabled: featureHistory && featureHistory.isUndoAvailable
         height: 48
-        width: 48
-        round: true
-        iconSource: Theme.getThemeVectorIcon("ic_undo_black_24dp")
-        iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        bgcolor: isEnabled && hovered ? parent.hoveredColor : "#00ffffff"
+        width: parent.width / 2
+        anchors.left: parent.left
+        text: "Undo"
+        icon.source: Theme.getThemeVectorIcon("ic_undo_black_24dp")
 
         onClicked: {
-          if (isEnabled) {
+          if (enabled) {
             const msg = featureHistory.undoMessage();
             if (featureHistory.undo()) {
               displayToast(msg);
@@ -2469,19 +2450,35 @@ ApplicationWindow {
         }
       }
 
-      QfToolButton {
+      MenuSeparator {
+        width: 1
+        height: parent.height
+        anchors.left: undoButton.right
+      }
+
+      MenuItem {
         id: redoButton
-        property bool isEnabled: featureHistory && featureHistory.isRedoAvailable
-        anchors.verticalCenter: parent.verticalCenter
+        enabled: featureHistory && featureHistory.isRedoAvailable
         height: 48
-        width: 48
-        round: true
-        iconSource: Theme.getThemeVectorIcon("ic_redo_black_24dp")
-        iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        bgcolor: isEnabled && hovered ? parent.hoveredColor : "#00ffffff"
+        width: parent.width / 2
+        anchors.right: parent.right
+        text: "Redo"
+        icon.source: Theme.getThemeVectorIcon("ic_redo_black_24dp")
+
+        contentItem: IconLabel {
+          leftPadding: 22
+          spacing: redoButton.spacing
+          mirrored: true
+          display: redoButton.display
+          icon: redoButton.icon
+          text: redoButton.text
+          font: redoButton.font
+          color: Theme.mainTextColor
+          opacity: redoButton.enabled ? 1 : .35
+        }
 
         onClicked: {
-          if (isEnabled) {
+          if (enabled) {
             const msg = featureHistory.redoMessage();
             if (featureHistory.redo()) {
               displayToast(msg);
@@ -2537,16 +2534,13 @@ ApplicationWindow {
       }
     }
 
-    MenuSeparator {
-      width: parent.width
-    }
-
     MenuItem {
-      text: qsTr("Project Variables")
+      text: qsTr("Variables")
 
       font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_expression_24dp")
       height: 48
-      leftPadding: Theme.menuItemIconlessLeftPadding
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: {
         dashBoard.close();
@@ -2562,12 +2556,33 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemIconlessLeftPadding
+      icon.source: Theme.getThemeVectorIcon("ic_alert_black_24dp")
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: {
         dashBoard.close();
         messageLog.visible = true;
         highlighted = false;
+      }
+    }
+
+    MenuSeparator {
+      width: parent.width
+    }
+
+    MenuItem {
+      text: qsTr("Lock Screen")
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_lock_black_24dp")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+      rightPadding: 40
+
+      onTriggered: {
+        mainMenu.close();
+        dashBoard.close();
+        screenLocker.enabled = true;
       }
     }
 
