@@ -146,7 +146,7 @@ jobs:
 
       - name: Create dmg and notarize
         run: |
-          export APP_PATH=build/output/qfield.app
+          export APP_PATH=/Users/runner/builddir/output/bin/qfield.app
           export DMG_PATH=qfield.dmg
           echo "${{ secrets.APPLE_DEVELOPER_ID_P12_BASE64 }}" | base64 --decode > cert.p12
           export P12_PATH=cert.p12
