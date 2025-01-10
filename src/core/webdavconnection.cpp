@@ -421,6 +421,7 @@ void WebdavConnection::getWebdavItems()
 
       mIsImportingPath = false;
       emit isImportingPathChanged();
+      emit importSuccessful( mProcessLocalPath );
     }
     else if ( mIsDownloadingPath )
     {

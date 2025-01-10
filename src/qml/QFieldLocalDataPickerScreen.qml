@@ -860,6 +860,10 @@ Page {
           downloadUploadWebdavDialog.username = username;
           downloadUploadWebdavDialog.open();
         }
+
+        onImportSuccessful: path => {
+          table.model.currentPath = path;
+        }
       }
     }
   }

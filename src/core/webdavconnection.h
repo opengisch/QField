@@ -110,6 +110,8 @@ class WebdavConnection : public QObject
 
     void confirmationRequested( const QString &host, const QString &username );
 
+    void importSuccessful( const QString &path );
+
   private slots:
     void processDirParserFinished();
     void processConnectionError( const QString &error );
