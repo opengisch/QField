@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - notarizepkg
       - release-**
   pull_request:
   release:
@@ -140,13 +141,22 @@ jobs:
           ctest --output-on-failure -R smoke -C ${{ env.BUILD_TYPE }}
 
       - name: 📦 Package
-        env:
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         run: |
-          echo "Killing XProtect..."; sudo pkill -9 XProtect >/dev/null || true; # see https://github.com/actions/runner-images/issues/7522
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
-          echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg" >> $GITHUB_ENV
-          echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.triplet }}.dmg" >> $GITHUB_ENV
+
+      - name: Create dmg and notarize
+        run: |
+          export APP_PATH=build/output/qfield.app
+          export DMG_PATH=qfield.dmg
+          echo "${{ secrets.APPLE_DEVELOPER_ID_P12_BASE64 }}" | base64 --decode > cert.p12
+          export P12_PATH=cert.p12
+          export P12_PASSWORD=${{ secrets.APPLE_DEVELOPER_ID_P12_PASSWORD }}
+          export API_KEY_ID=${{ secrets.IOS_APPSTORE_KEY_ID }}
+          export API_KEY_ISSUER_ID=${{ secrets.IOS_APPSTORE_ISSUER_ID }}
+          echo "${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}" > authkey.p8
+          export API_KEY_PATH=authkey.p8
+
+          ./platform/macos/notarize.sh
 
       - name: 📦 Upload package
         uses: actions/upload-artifact@v4
