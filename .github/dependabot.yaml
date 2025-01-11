@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: "weekly"
       day: "monday"
-      time: "7:00"
+      time: "07:00"
     groups:
       all-actions:
         patterns: [ "*" ]
