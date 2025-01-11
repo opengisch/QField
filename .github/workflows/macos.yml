@@ -208,6 +208,7 @@ jobs:
           wget https://raw.githubusercontent.com/faaxm/lipo-dir-merge/refs/heads/main/lipo-dir-merge.py
           python lipo-dir-merge.py ./artifacts/qfield-app-x64-osx ./artifacts/qfield-app-arm64-osx universal
 
+          brew install tree
           tree universal
 
       - name: Create dmg
