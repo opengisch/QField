@@ -1026,31 +1026,6 @@ Page {
         checked: true
       }
 
-      Row {
-        visible: !webdavConnectionLoader.item || webdavConnectionLoader.item.availablePaths.length === 0
-        spacing: 5
-
-        QfButton {
-          id: importWebdavFetchFoldersButton
-          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-          width: importWebdavUrlLabel.width - (importWebdavFetchFoldersIndicator.visible ? importWebdavFetchFoldersIndicator.width + 5 : 0)
-          text: !enabled ? qsTr("Fetching remote folders") : qsTr("Fetch remote folders")
-
-          onClicked: {
-            webdavConnectionLoader.item.fetchAvailablePaths();
-          }
-        }
-
-        BusyIndicator {
-          id: importWebdavFetchFoldersIndicator
-          anchors.verticalCenter: importWebdavFetchFoldersButton.verticalCenter
-          width: 48
-          height: 48
-          visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
-          running: visible
-        }
-      }
-
       Label {
         width: importWebdavUrlLabel.width
         visible: importWebdavPathInput.visible
@@ -1060,11 +1035,52 @@ Page {
         color: Theme.mainTextColor
       }
 
-      ComboBox {
-        id: importWebdavPathInput
-        width: importWebdavUrlLabel.width
-        visible: webdavConnectionLoader.item && webdavConnectionLoader.item.availablePaths.length > 0
-        model: [''].concat(webdavConnectionLoader.item ? webdavConnectionLoader.item.availablePaths : [])
+      Row {
+        spacing: 5
+
+        QfButton {
+          id: importWebdavFetchFoldersButton
+          anchors.verticalCenter: importWebdavPathInput.verticalCenter
+          visible: !webdavConnectionLoader.item || webdavConnectionLoader.item.availablePaths.length === 0
+          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+          width: importWebdavUrlLabel.width - (importWebdavFetchFoldersIndicator.visible ? importWebdavFetchFoldersIndicator.width + 5 : 0)
+          text: !enabled ? qsTr("Fetching remote folders") : qsTr("Fetch remote folders")
+
+          onClicked: {
+            webdavConnectionLoader.item.fetchAvailablePaths();
+          }
+        }
+
+        ComboBox {
+          id: importWebdavPathInput
+          width: importWebdavUrlLabel.width - (importWebdavRefetchFoldersButton.width + 5) - (importWebdavFetchFoldersIndicator.visible ? importWebdavFetchFoldersIndicator.width + 5 : 0)
+          visible: webdavConnectionLoader.item && webdavConnectionLoader.item.availablePaths.length > 0
+          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+          model: [''].concat(webdavConnectionLoader.item ? webdavConnectionLoader.item.availablePaths : [])
+        }
+
+        QfToolButton {
+          id: importWebdavRefetchFoldersButton
+          anchors.verticalCenter: importWebdavPathInput.verticalCenter
+          visible: importWebdavPathInput.visible
+          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+          bgcolor: "transparent"
+          iconSource: Theme.getThemeVectorIcon("refresh_24dp")
+          iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+
+          onClicked: {
+            webdavConnectionLoader.item.fetchAvailablePaths();
+          }
+        }
+
+        BusyIndicator {
+          id: importWebdavFetchFoldersIndicator
+          anchors.verticalCenter: importWebdavPathInput.verticalCenter
+          width: 48
+          height: 48
+          visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
+          running: visible
+        }
       }
     }
 
