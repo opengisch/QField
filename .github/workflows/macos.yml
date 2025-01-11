@@ -74,7 +74,7 @@ jobs:
 
       - name: 🔨 Prepare build env
         run: |
-          brew install automake bison flex gnu-sed create-dmg autoconf-archive nasm libtool
+          brew install automake bison flex gnu-sed create-dmg autoconf-archive nasm libtool xcbeautify
           echo $(brew --prefix bison)/bin >> $GITHUB_PATH
           echo $(brew --prefix flex)/bin >> $GITHUB_PATH
           echo $(brew --prefix libtool)/bin >> $GITHUB_PATH
@@ -128,7 +128,8 @@ jobs:
         run: |
           # https://www.reddit.com/r/MacOS/comments/f37ybt/osascript_cant_open_default_scripting_component/?utm_medium=android_app&utm_source=share
           sudo rm -rf /Library/Audio/Plug-Ins/Components
-          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
+          set -o pipefail
+          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }} | xcbeautify
 
       - name: 🧫 Test
         env:
@@ -139,20 +140,15 @@ jobs:
           cd "${{ env.CMAKE_BUILD_DIR }}"
           ctest --output-on-failure -R smoke -C ${{ env.BUILD_TYPE }}
 
-      - name: 📦 Package
-        env:
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+      - name: 📦 Prepackage
         run: |
-          echo "Killing XProtect..."; sudo pkill -9 XProtect >/dev/null || true; # see https://github.com/actions/runner-images/issues/7522
-          cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
-          echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg" >> $GITHUB_ENV
-          echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.triplet }}.dmg" >> $GITHUB_ENV
+          DESTDIR=staging cmake --install "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
 
       - name: 📦 Upload package
         uses: actions/upload-artifact@v4
         with:
-          name: "QField-dev-${{ matrix.triplet }}-experimental-qt6"
-          path: ${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg
+          name: "qfield-app-${{ matrix.triplet }}"
+          path: staging
 
       - name: 📊 Upload test report
         if: always()
@@ -187,3 +183,58 @@ jobs:
           SENTRY_PROJECT_SLUG: qfield
         run: |
           bundle exec fastlane run sentry_debug_files_upload path:${{ env.CMAKE_BUILD_DIR }}
+
+  create-dmg:
+    name: Create dmg
+    runs-on: macos-15
+    needs: build
+    steps:
+      - name: 🐣 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🔨 Prepare build env
+        run: |
+          brew install create-dmg
+
+      - name: 📤 Download app
+        uses: actions/download-artifact@v4
+        with:
+          pattern: qfield-app-*
+          path: |
+            artifacts
+
+      - name: Create universal app
+        run: |
+          wget https://raw.githubusercontent.com/faaxm/lipo-dir-merge/refs/heads/main/lipo-dir-merge.py
+          python lipo-dir-merge.py ./artifacts/qfield-app-x64-osx ./artifacts/qfield-app-arm64-osx universal
+
+          tree universal
+
+      - name: Create dmg
+        run: |
+          create-dmg --volname "QField Installer" \
+            --hide-extension QField.app \
+            --volicon "$(pwd)/platform/macos/installer.icns" \
+            --background "$(pwd)/platform/macos/installer_background.png" \
+            --window-pos 200 120 \
+            --window-size 512 320 \
+            --icon-size 100 \
+            --icon "QField.app" 130 160 \
+            --app-drop-link 400 155 \
+            "QField Installer.dmg" \
+            universal/staging/usr/local/bin/qfield.app
+
+      - name: 📤 Upload app
+        uses: actions/upload-artifact@v4
+        id: artifact-mac-qt6
+        with:
+          name: qfield-dmg
+          path: |
+            *.dmg
+
+      - name: Upload release assets
+        uses: AButler/upload-release-assets@v3.0
+        if: ${{ github.event_name == 'release' }}
+        with:
+          files: '*.dmg'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
