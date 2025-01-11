@@ -61,6 +61,7 @@ void FocusStack::setFocused( QObject *object )
 {
   mStackList.removeAll( object );
   mStackList.append( object );
+  QMetaObject::invokeMethod( object, "forceActiveFocus", Qt::DirectConnection );
 }
 
 void FocusStack::setUnfocused( QObject *object )
