@@ -908,7 +908,8 @@ Page {
       TextField {
         id: downloadUploadWebdavPasswordInput
         enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-        width: importWebdavUrlLabel.width
+        width: downloadUploadWebdavIntroLabel.width
+        rightPadding: leftPadding + (downloadUploadWebdavShowPasswordInput.width - leftPadding)
         placeholderText: text === "" && webdavConnectionLoader.item && webdavConnectionLoader.item.isPasswordStored ? qsTr("Password (leave empty to use remembered)") : qsTr("Password")
         echoMode: TextInput.Password
 
@@ -917,11 +918,34 @@ Page {
             webdavConnectionLoader.item.password = text;
           }
         }
+
+        QfToolButton {
+          id: downloadUploadWebdavShowPasswordInput
+
+          property int originalEchoMode: TextInput.Normal
+
+          visible: (!!parent.echoMode && parent.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
+          iconSource: parent.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
+          iconColor: Theme.mainColor
+          anchors.right: parent.right
+          anchors.verticalCenter: parent.verticalCenter
+          opacity: parent.text.length > 0 ? 1 : 0.25
+          z: 1
+
+          onClicked: {
+            if (parent.echoMode !== TextInput.Normal) {
+              originalEchoMode = parent.echoMode;
+              parent.echoMode = TextInput.Normal;
+            } else {
+              parent.echoMode = originalEchoMode;
+            }
+          }
+        }
       }
 
       CheckBox {
         id: downloadUploadWebdavPasswordCheck
-        width: importWebdavUrlLabel.width
+        width: downloadUploadWebdavIntroLabel.width
         enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
         text: qsTr('Remember password')
         font: Theme.defaultFont
@@ -1007,12 +1031,36 @@ Page {
         id: importWebdavPasswordInput
         enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
         width: importWebdavUrlLabel.width
+        rightPadding: leftPadding + (importWebdavShowPasswordInput.width - leftPadding)
         placeholderText: text === "" && webdavConnectionLoader.item && webdavConnectionLoader.item.isPasswordStored ? qsTr("Password (leave empty to use remembered)") : qsTr("Password")
         echoMode: TextInput.Password
 
         onDisplayTextChanged: {
           if (webdavConnectionLoader.item) {
             webdavConnectionLoader.item.password = text;
+          }
+        }
+
+        QfToolButton {
+          id: importWebdavShowPasswordInput
+
+          property int originalEchoMode: TextInput.Normal
+
+          visible: (!!parent.echoMode && parent.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
+          iconSource: parent.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
+          iconColor: Theme.mainColor
+          anchors.right: parent.right
+          anchors.verticalCenter: parent.verticalCenter
+          opacity: parent.text.length > 0 ? 1 : 0.25
+          z: 1
+
+          onClicked: {
+            if (parent.echoMode !== TextInput.Normal) {
+              originalEchoMode = parent.echoMode;
+              parent.echoMode = TextInput.Normal;
+            } else {
+              parent.echoMode = originalEchoMode;
+            }
           }
         }
       }
