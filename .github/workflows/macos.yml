@@ -194,8 +194,6 @@ jobs:
       - name: Create dmg
         run: |
           if [[ "${{ github.event_name }}" == "release" && "${{ github.ref }}" == refs/tags/v* ]]; then
-            export APP_PATH=$(pwd)/universal/usr/local/bin/qfield.app
-            export DMG_PATH=qfield.dmg
             echo "${{ secrets.APPLE_DEVELOPER_ID_P12_BASE64 }}" | base64 --decode > cert.p12
             export P12_PATH=cert.p12
             export P12_PASSWORD=${{ secrets.APPLE_DEVELOPER_ID_P12_PASSWORD }}
@@ -205,6 +203,8 @@ jobs:
             export API_KEY_PATH=authkey.p8
           fi
 
+          export APP_PATH=$(pwd)/universal/usr/local/bin/qfield.app
+          export DMG_PATH=qfield.dmg
           ./platform/macos/create_dmg.sh
 
       - name: 📤 Upload app
