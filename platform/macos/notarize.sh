@@ -24,7 +24,7 @@ security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN
 codesign --force --options runtime --sign "Developer ID Application" --deep --keychain "$KEYCHAIN_NAME" "$APP_PATH"
 
 create-dmg --volname "QField Installer" \
-	--hide-extension "$APP_PATH" \
+	--hide-extension "qfield.app" \
 	--volicon "./platform/macos/installer.icns" \
 	--background "./platform/macos/installer_background.png" \
 	--window-pos 200 120 \
