@@ -788,7 +788,7 @@ Page {
     anchors {
       top: parent.top
       left: parent.left
-      margins: mainWindow.sceneTopMargin + 4
+      topMargin: mainWindow.sceneTopMargin
     }
 
     QfActionButton {
@@ -803,20 +803,15 @@ Page {
       }
     }
 
-    Rectangle {
-      width: 48
-      height: 48
-      color: Theme.toolButtonBackgroundColor
-      radius: height / 2
+    QfToolButton {
+      id: settingsButton
+      iconSource: Theme.getThemeVectorIcon('ic_tune_24dp')
+      iconColor: Theme.toolButtonColor
+      bgcolor: Theme.toolButtonBackgroundColor
+      round: true
 
-      QfToolButton {
-        id: settingsButton
-        iconSource: Theme.getThemeVectorIcon('ic_tune_24dp')
-        iconColor: Theme.toolButtonColor
-
-        onClicked: {
-          showSettings();
-        }
+      onClicked: {
+        showSettings();
       }
     }
   }
