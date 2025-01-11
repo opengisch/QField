@@ -173,5 +173,6 @@
         <file>themes/qfield/nodpi/ic_location_tracking_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_tune_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_expression_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_cloud_border_24dp.svg</file>
     </qresource>
 </RCC>

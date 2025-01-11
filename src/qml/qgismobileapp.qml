@@ -2437,6 +2437,7 @@ ApplicationWindow {
         anchors.left: parent.left
         text: "Undo"
         icon.source: Theme.getThemeVectorIcon("ic_undo_black_24dp")
+        leftPadding: Theme.menuItemLeftPadding
 
         onClicked: {
           if (enabled) {
