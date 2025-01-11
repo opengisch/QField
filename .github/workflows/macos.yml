@@ -223,7 +223,7 @@ jobs:
             --icon "QField.app" 130 160 \
             --app-drop-link 400 155 \
             "QField Installer.dmg" \
-            universal/staging/usr/local/bin/qfield.app
+            universal/usr/local/bin/qfield.app
 
       - name: 📤 Upload app
         uses: actions/upload-artifact@v4
