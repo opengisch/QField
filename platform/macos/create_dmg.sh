@@ -10,7 +10,7 @@ set -euo pipefail
 # API_KEY_ISSUER_ID: App Store Connect API Key Issuer ID
 # API_KEY_PATH: Path to the API key file (.p8)
 
-if [[ -n "$API_KEY_ID" ]]; then
+if [[ -n ${API_KEY_ID:-} ]]; then
 	KEYCHAIN_NAME="notary-keychain"
 	KEYCHAIN_PASSWORD="temp-password"
 	security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_NAME"
