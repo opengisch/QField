@@ -2557,7 +2557,7 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      icon.source: Theme.getThemeVectorIcon("ic_alert_black_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_alert_black_not_filled_24dp")
       leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: {

@@ -174,5 +174,6 @@
         <file>themes/qfield/nodpi/ic_tune_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_expression_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_border_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_alert_black_not_filled_24dp.svg</file>
     </qresource>
 </RCC>
