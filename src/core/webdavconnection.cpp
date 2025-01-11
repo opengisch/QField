@@ -609,7 +609,6 @@ void WebdavConnection::uploadPath( const QString &localPath )
       mWebdavLastModified.clear();
 
       mLocalItems.clear();
-      qDebug() << mProcessLocalPath;
       QDirIterator it( mProcessLocalPath, QDir::Files | QDir::NoDotAndDotDot, QDirIterator::Subdirectories );
       while ( it.hasNext() )
       {
