@@ -154,17 +154,17 @@ Drawer {
               case QFieldCloudProjectsModel.Idle:
                 return cloudProjectsModel.currentProjectData.ProjectFileOutdated ? Theme.getThemeVectorIcon('ic_cloud_attention_24dp') : Theme.getThemeVectorIcon('ic_cloud_active_24dp');
               default:
-                Theme.getThemeVectorIcon('ic_cloud_24dp');
+                Theme.getThemeVectorIcon('ic_cloud_border_24dp');
               }
             } else {
-              return Theme.getThemeVectorIcon('ic_cloud_24dp');
+              return Theme.getThemeVectorIcon('ic_cloud_border_24dp');
             }
-            iconColor: {
-              if (iconSource == Theme.getThemeVectorIcon('ic_cloud_24dp')) {
-                return Theme.mainOverlayColor;
-              } else {
-                return "transparent";
-              }
+          }
+          iconColor: {
+            if (iconSource === Theme.getThemeVectorIcon('ic_cloud_border_24dp')) {
+              return Theme.mainOverlayColor;
+            } else {
+              return "transparent";
             }
           }
           bgcolor: "transparent"
@@ -350,81 +350,87 @@ Drawer {
   }
 
   Rectangle {
-    height: 48
+    height: 48 + mainWindow.sceneBottomMargin
     width: parent.width
     anchors.bottom: parent.bottom
-    anchors.bottomMargin: mainWindow.sceneBottomMargin
     color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGray
 
-    MenuItem {
-      id: homeButton
-      icon.source: Theme.getThemeVectorIcon("ic_home_black_24dp")
-      text: "Return home"
-      onClicked: returnHome()
-    }
+    Item {
+      height: 48
+      width: parent.width
+      anchors.bottom: parent.bottom
+      anchors.bottomMargin: mainWindow.sceneBottomMargin
 
-    Switch {
-      id: modeSwitch
-      visible: projectInfo.insertRights
-      height: 56
-      width: (56 + 36)
-      anchors.right: parent.right
-      anchors.verticalCenter: parent.verticalCenter
-      indicator: Rectangle {
-        implicitHeight: 36
-        implicitWidth: 36 * 2
-        x: modeSwitch.leftPadding
-        radius: 4
-        color: "#24212121"
-        border.color: "#14FFFFFF"
+      MenuItem {
+        id: homeButton
+        icon.source: Theme.getThemeVectorIcon("ic_home_black_24dp")
+        text: "Return home"
+        onClicked: returnHome()
+      }
+
+      Switch {
+        id: modeSwitch
+        visible: projectInfo.insertRights
+        height: 56
+        width: (56 + 36)
+        anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
-        Image {
-          width: 28
-          height: 28
-          anchors.left: parent.left
-          anchors.leftMargin: 4
-          anchors.verticalCenter: parent.verticalCenter
-          source: Theme.getThemeVectorIcon('ic_map_white_24dp')
-          sourceSize.width: parent.height * screen.devicePixelRatio
-          sourceSize.height: parent.width * screen.devicePixelRatio
-          opacity: 0.6
-        }
-        Image {
-          width: 28
-          height: 28
-          anchors.right: parent.right
-          anchors.rightMargin: 4
-          anchors.verticalCenter: parent.verticalCenter
-          source: Theme.getThemeVectorIcon('ic_create_white_24dp')
-          sourceSize.width: parent.height * screen.devicePixelRatio
-          sourceSize.height: parent.width * screen.devicePixelRatio
-          opacity: 0.6
-        }
-        Rectangle {
-          x: modeSwitch.checked ? parent.width - width : 0
-          width: 36
-          height: 36
+        indicator: Rectangle {
+          implicitHeight: 36
+          implicitWidth: 36 * 2
+          x: modeSwitch.leftPadding
           radius: 4
-          color: Theme.mainColor
-          border.color: Theme.mainOverlayColor
+          color: "#24212121"
+          border.color: "#14FFFFFF"
+          anchors.verticalCenter: parent.verticalCenter
           Image {
             width: 28
             height: 28
-            anchors.centerIn: parent
-            source: modeSwitch.checked ? Theme.getThemeVectorIcon('ic_create_white_24dp') : Theme.getThemeVectorIcon('ic_map_white_24dp')
+            anchors.left: parent.left
+            anchors.leftMargin: 4
+            anchors.verticalCenter: parent.verticalCenter
+            source: Theme.getThemeVectorIcon('ic_map_white_24dp')
             sourceSize.width: parent.height * screen.devicePixelRatio
             sourceSize.height: parent.width * screen.devicePixelRatio
+            opacity: 0.6
           }
-          Behavior on x  {
-            PropertyAnimation {
-              duration: 100
-              easing.type: Easing.OutQuart
+          Image {
+            width: 28
+            height: 28
+            anchors.right: parent.right
+            anchors.rightMargin: 4
+            anchors.verticalCenter: parent.verticalCenter
+            source: Theme.getThemeVectorIcon('ic_create_white_24dp')
+            sourceSize.width: parent.height * screen.devicePixelRatio
+            sourceSize.height: parent.width * screen.devicePixelRatio
+            opacity: 0.6
+          }
+          Rectangle {
+            x: modeSwitch.checked ? parent.width - width : 0
+            width: 36
+            height: 36
+            radius: 4
+            color: Theme.mainColor
+            border.color: Theme.mainOverlayColor
+            Image {
+              width: 28
+              height: 28
+              anchors.centerIn: parent
+              source: modeSwitch.checked ? Theme.getThemeVectorIcon('ic_create_white_24dp') : Theme.getThemeVectorIcon('ic_map_white_24dp')
+              sourceSize.width: parent.height * screen.devicePixelRatio
+              sourceSize.height: parent.width * screen.devicePixelRatio
+            }
+            Behavior on x  {
+              PropertyAnimation {
+                duration: 100
+                easing.type: Easing.OutQuart
+              }
             }
           }
         }
-      }
 
-      onPositionChanged: mainWindow.toggleDigitizeMode()
+        onPositionChanged: mainWindow.toggleDigitizeMode()
+      }
     }
   }
 
