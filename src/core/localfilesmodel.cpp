@@ -239,10 +239,17 @@ void LocalFilesModel::reloadModel()
     }
 
     const QStringList favorites = QSettings().value( QStringLiteral( "qfieldFavorites" ), QStringList() ).toStringList();
+    QList<Item> favoriteItems;
     for ( const QString &item : favorites )
     {
-      mItems << Item( ItemMetaType::Favorite, ItemType::SimpleFolder, getCurrentTitleFromPath( item ), QString(), item );
+      if ( QFileInfo::exists( item ) )
+      {
+        favoriteItems << Item( ItemMetaType::Favorite, ItemType::SimpleFolder, getCurrentTitleFromPath( item ), QString(), item );
+      }
     }
+
+    std::sort( favoriteItems.begin(), favoriteItems.end(), []( const Item &a, const Item &b ) { return a.title < b.title; } );
+    mItems.append( favoriteItems );
   }
   else
   {
