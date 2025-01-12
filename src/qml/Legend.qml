@@ -247,7 +247,12 @@ ListView {
           icon.color: Theme.mainTextColor
 
           onClicked: {
-            displayToast(qsTr('This layer is is currently tracking the device position.'));
+            displayToast(qsTr('This layer is is currently tracking positions.'), 'info', qsTr('Stop'), function () {
+                if (trackingModel.layerInTracking(VectorLayerPointer)) {
+                  trackingModel.stopTracker(VectorLayerPointer);
+                  displayToast(qsTr('Track on layer %1 stopped').arg(VectorLayerPointer.name));
+                }
+              });
           }
 
           SequentialAnimation on bgcolor  {

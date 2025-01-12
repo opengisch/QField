@@ -51,8 +51,8 @@ class Positioning : public QObject
     Q_PROPERTY( GnssPositionInformation positionInformation READ positionInformation NOTIFY positionInformationChanged )
 
     Q_PROPERTY( QgsPoint sourcePosition READ sourcePosition NOTIFY positionInformationChanged )
-    Q_PROPERTY( QgsPoint projectedPosition READ projectedPosition NOTIFY projectedPositionChanged )
-    Q_PROPERTY( double projectedHorizontalAccuracy READ projectedHorizontalAccuracy NOTIFY projectedPositionChanged )
+    Q_PROPERTY( QgsPoint projectedPosition READ projectedPosition NOTIFY positionInformationChanged )
+    Q_PROPERTY( double projectedHorizontalAccuracy READ projectedHorizontalAccuracy NOTIFY positionInformationChanged )
 
     Q_PROPERTY( bool averagedPosition READ averagedPosition WRITE setAveragedPosition NOTIFY averagedPositionChanged )
     Q_PROPERTY( int averagedPositionCount READ averagedPositionCount NOTIFY averagedPositionCountChanged )
@@ -218,14 +218,25 @@ class Positioning : public QObject
     void setLogging( bool logging );
 
     /**
-     * Returns TRUE if the background mode is active.
+     * Returns TRUE if the background mode is active. When activated, position information details
+     * will not be signaled but instead saved to disk until deactivated.
+     * \see getBackgroundPositionInformation()
      */
     bool backgroundMode() const;
 
     /**
-     * Sets whether the background mode is active.
+     * Sets whether the background mode is active. When activated, position information details
+     * will not be signaled but instead saved to disk until deactivated.
+     * \see getBackgroundPositionInformation()
      */
     void setBackgroundMode( bool backgroundMode );
+
+    /**
+     * Returns a list of position information collected while background mode is active.
+     * \see backgroundMode()
+     * \see setBackgroundMode()
+     */
+    Q_INVOKABLE QList<GnssPositionInformation> getBackgroundPositionInformation() const;
 
   signals:
     void activeChanged();
@@ -250,11 +261,12 @@ class Positioning : public QObject
 
   private slots:
     void onApplicationStateChanged( Qt::ApplicationState state );
-    void projectedPositionTransformed();
     void processGnssPositionInformation();
 
   private:
     void setupSource();
+    bool isSourceAvailable() const;
+
     double adjustOrientation( double orientation ) const;
 
     bool mValid = true;
@@ -269,7 +281,7 @@ class Positioning : public QObject
     QgsQuickCoordinateTransformer *mCoordinateTransformer = nullptr;
     QgsPoint mSourcePosition;
     QgsPoint mProjectedPosition;
-    double mProjectedHorizontalAccuracy;
+    double mProjectedHorizontalAccuracy = 0.0;
     virtual QList<QPair<QString, QVariant>> details() const { return {}; }
 
     bool mInternalPermissionChecked = false;

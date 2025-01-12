@@ -65,4 +65,7 @@
     <string name="import_operation_unsupported">Your device does not support this import operation.</string>
     <string name="export_operation_unsupported">Your device does not support this export operation.</string>
     <string name="processing_message">Processing…</string>
+    <string name="positioning_title">Positioning</string>
+    <string name="positioning_running">Positioning service running</string>
+    <string name="copy_to_clipboard">Copy to clipboard</string>
 </resources>
