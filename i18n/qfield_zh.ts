@@ -504,6 +504,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Map Theme</source>
         <translation>地图主题</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>工程文件夹</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3542,6 +3546,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>关闭</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3564,7 +3575,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>关闭</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4372,6 +4383,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>太棒了！希望您点击下面的按钮并留下评论。</translation>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4602,7 +4617,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>输出为PDF</translation>
+        <translation type="vanished">输出为PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4622,7 +4637,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>设置</translation>
+        <translation type="vanished">设置</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4930,7 +4945,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>工程文件夹</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5059,6 +5074,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation>切换到浏览模式之前完成或摒弃数字化要素</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>变量</translation>
     </message>
 </context>
 <context>

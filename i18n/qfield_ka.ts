@@ -504,6 +504,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Map Theme</source>
         <translation>რუკის თემა</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>პროექტის საქაღალდე</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3533,6 +3537,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>დახურვა</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3555,7 +3566,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>დახურვა</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4363,6 +4374,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4593,7 +4608,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>PDF-ში ბეჭდვა</translation>
+        <translation type="vanished">PDF-ში ბეჭდვა</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4613,7 +4628,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>პარამეტრები</translation>
+        <translation type="vanished">პარამეტრები</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4921,7 +4936,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>პროექტის საქაღალდე</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5050,6 +5065,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>ცვლადები</translation>
     </message>
 </context>
 <context>

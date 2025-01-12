@@ -504,6 +504,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Map Theme</source>
         <translation>지도 테마</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3542,6 +3546,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>close</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3564,7 +3575,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>close</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4372,6 +4383,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4602,7 +4617,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>PDF로 출력</translation>
+        <translation type="vanished">PDF로 출력</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4622,7 +4637,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>설정</translation>
+        <translation type="vanished">설정</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5059,6 +5074,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Variables</translation>
     </message>
 </context>
 <context>

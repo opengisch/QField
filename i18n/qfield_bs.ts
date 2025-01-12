@@ -503,6 +503,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Map Theme</source>
         <translation>Tema karte</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3544,6 +3548,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>zatvori</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3566,7 +3577,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>zatvori</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4374,6 +4385,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4604,7 +4619,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Štampa u PDF</translation>
+        <translation type="vanished">Štampa u PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4624,7 +4639,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Postavke</translation>
+        <translation type="vanished">Postavke</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5061,6 +5076,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Varijable</translation>
     </message>
 </context>
 <context>

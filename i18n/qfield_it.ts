@@ -504,6 +504,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>Map Theme</source>
         <translation>Vista mappa</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Cartella del Progetto</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3549,6 +3553,13 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>chiudi</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3571,7 +3582,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>chiudi</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4379,6 +4390,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4609,7 +4624,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Stampa PDF</translation>
+        <translation type="vanished">Stampa PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4629,7 +4644,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Impostazioni</translation>
+        <translation type="vanished">Impostazioni</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4937,7 +4952,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Cartella del Progetto</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5066,6 +5081,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation>Termina o chiudi la funzione di digitalizzazione prima di passare alla modalità navigazione</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Variabili</translation>
     </message>
 </context>
 <context>

@@ -504,6 +504,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Map Theme</source>
         <translation>Kaart thema</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Projectmap</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3544,6 +3548,13 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>sluiten</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3566,7 +3577,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>sluiten</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4374,6 +4385,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>Dat is geweldig! We zouden het leuk vinden als je op de onderstaande knop klikt en een review in de store achterlaat.</translation>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4604,7 +4619,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Afdrukken naar PDF</translation>
+        <translation type="vanished">Afdrukken naar PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4624,7 +4639,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Settings</source>
-        <translation>Instellingen</translation>
+        <translation type="vanished">Instellingen</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4932,7 +4947,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Projectmap</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5061,6 +5076,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation>De digitaliseringsfunctie beëindigen of afbreken voordat u overschakelt naar de bladermodus</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Variabelen</translation>
     </message>
 </context>
 <context>

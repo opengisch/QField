@@ -504,6 +504,10 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
         <source>Map Theme</source>
         <translation>Kartenthema</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Projektordner</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3541,6 +3545,13 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>schließen</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3563,7 +3574,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>schließen</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4371,6 +4382,10 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>Das ist großartig! Wir würden uns freuen, wenn Sie auf die Schaltfläche unten klicken und einen Kommentar hinterlassen.</translation>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4601,7 +4616,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Als PDF drucken</translation>
+        <translation type="vanished">Als PDF drucken</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4621,7 +4636,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Einstellungen</translation>
+        <translation type="vanished">Einstellungen</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4929,7 +4944,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Projektordner</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5058,6 +5073,10 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation>Bevor in den Navigationsmodus gewechselt werden kann muss das digitalisierte Feature gespeichern oder verworfen werden</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Variablen</translation>
     </message>
 </context>
 <context>

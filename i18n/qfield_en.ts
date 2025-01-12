@@ -509,6 +509,10 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Map Theme</source>
         <translation>Map Theme</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation type="unfinished">Project Folder</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3579,6 +3583,13 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation type="unfinished">close</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3601,7 +3612,7 @@ Cancel to make a minimal device scan instead.</translation>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation type="unfinished">close</translation>
+        <translation type="obsolete">close</translation>
     </message>
 </context>
 <context>
@@ -4409,6 +4420,10 @@ Cancel to make a minimal device scan instead.</translation>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4639,7 +4654,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Print to PDF</translation>
+        <translation type="vanished">Print to PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4659,7 +4674,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Settings</translation>
+        <translation type="vanished">Settings</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4967,7 +4982,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished">Project Folder</translation>
+        <translation type="obsolete">Project Folder</translation>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5096,6 +5111,10 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation type="unfinished">Variables</translation>
     </message>
 </context>
 <context>

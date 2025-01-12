@@ -504,6 +504,10 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
         <source>Map Theme</source>
         <translation>Tema Mape</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Mapa projekta</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3542,6 +3546,13 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>zatvori</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3564,7 +3575,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>zatvori</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4372,6 +4383,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4602,7 +4617,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Isprintaj u PDF</translation>
+        <translation type="vanished">Isprintaj u PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4622,7 +4637,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Postavke</translation>
+        <translation type="vanished">Postavke</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4930,7 +4945,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Mapa projekta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5059,6 +5074,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Varijable</translation>
     </message>
 </context>
 <context>

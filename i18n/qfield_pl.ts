@@ -504,6 +504,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Map Theme</source>
         <translation>Wygląd mapy</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Katalog projektu</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3548,6 +3552,13 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>zamknij</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3570,7 +3581,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>zamknij</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4378,6 +4389,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>To świetnie! Chcielibyśmy, abyś kliknął(ęła) przycisk poniżej i zostawił(a) recenzję.</translation>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4608,7 +4623,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Drukuj do PDF</translation>
+        <translation type="vanished">Drukuj do PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4628,7 +4643,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Ustawienia</translation>
+        <translation type="vanished">Ustawienia</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4936,7 +4951,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Katalog projektu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5065,6 +5080,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation>Zakończ lub odrzuć digitizację obiektu przed przełączeniem do trybu przeglądania</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Zmienne</translation>
     </message>
 </context>
 <context>

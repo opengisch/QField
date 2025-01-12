@@ -505,6 +505,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>Map Theme</source>
         <translation>Tema Hărții</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Folderul Proiectului</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3548,6 +3552,13 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>închidere</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3570,7 +3581,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>închidere</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4378,6 +4389,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4608,7 +4623,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Creează PDF</translation>
+        <translation type="vanished">Creează PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4628,7 +4643,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Setări</translation>
+        <translation type="vanished">Setări</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4936,7 +4951,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Folderul Proiectului</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5065,6 +5080,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Variabile</translation>
     </message>
 </context>
 <context>

@@ -504,6 +504,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Map Theme</source>
         <translation>Térkép téma</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Projekt mappa</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3540,6 +3544,13 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>lezár</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3562,7 +3573,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>lezár</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4370,6 +4381,10 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>Ez nagyszerű! Szeretnénk, ha az alábbi gombra kattintana, és leírná a véleményét.</translation>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4600,7 +4615,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Nyomtatás PDF-be</translation>
+        <translation type="vanished">Nyomtatás PDF-be</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4620,7 +4635,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Settings</source>
-        <translation>Beállítások</translation>
+        <translation type="vanished">Beállítások</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4928,7 +4943,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Projekt mappa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5057,6 +5072,10 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation>A böngészési módba váltás előtt fejezze be vagy szakítsa meg az elem digitalizálását</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Változók</translation>
     </message>
 </context>
 <context>

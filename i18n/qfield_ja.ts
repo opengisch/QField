@@ -504,6 +504,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Map Theme</source>
         <translation>マップテーマ</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>プロジェクトフォルダ</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3542,6 +3546,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>閉じる</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3564,7 +3575,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>閉じる</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4372,6 +4383,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>ありがとうございます！下のボタンからレビューを残していただけると嬉しいです。</translation>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4602,7 +4617,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>PDFを印刷する</translation>
+        <translation type="vanished">PDFを印刷する</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4622,7 +4637,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>設定</translation>
+        <translation type="vanished">設定</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4930,7 +4945,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>プロジェクトフォルダ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5059,6 +5074,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation>閲覧モードに切り替える前に、地物のデジタイジング機能を終了または解除する。</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>変数</translation>
     </message>
 </context>
 <context>

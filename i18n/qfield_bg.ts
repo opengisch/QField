@@ -504,6 +504,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Map Theme</source>
         <translation>Тема</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Директория на проекта</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3546,6 +3550,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>затвори</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3568,7 +3579,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>затвори</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4376,6 +4387,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4606,7 +4621,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Създай PDF</translation>
+        <translation type="vanished">Създай PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4626,7 +4641,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Настройки</translation>
+        <translation type="vanished">Настройки</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4934,7 +4949,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Директория на проекта</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5063,6 +5078,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation>Приключи или откажи цифроването преди активирането на режим преглед</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Променливи</translation>
     </message>
 </context>
 <context>

@@ -504,6 +504,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>Map Theme</source>
         <translation>Map Téma</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Složka projektu</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3547,6 +3551,13 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>zavřít</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3569,7 +3580,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>zavřít</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4377,6 +4388,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4607,7 +4622,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Tisk do PDF</translation>
+        <translation type="vanished">Tisk do PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4627,7 +4642,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Nastavení</translation>
+        <translation type="vanished">Nastavení</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4935,7 +4950,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Složka projektu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5064,6 +5079,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation>Dokončete nebo vypněte funkci digitalizace před přepnutím do režimu prohlížení.</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Proměnné</translation>
     </message>
 </context>
 <context>

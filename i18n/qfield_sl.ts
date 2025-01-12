@@ -503,6 +503,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Map Theme</source>
         <translation>Tema karte</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Mapa projekta</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3528,6 +3532,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>Zapri</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3550,7 +3561,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>Zapri</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4358,6 +4369,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>To je super! Veseli bomo, če klikneš na spodnji gumb in napišeš oceno.</translation>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4588,7 +4603,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Tisk v PDF formatu</translation>
+        <translation type="vanished">Tisk v PDF formatu</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4608,7 +4623,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Nastavitve</translation>
+        <translation type="vanished">Nastavitve</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4916,7 +4931,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Mapa projekta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5045,6 +5060,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Spremenljivke</translation>
     </message>
 </context>
 <context>

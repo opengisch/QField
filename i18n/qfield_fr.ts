@@ -503,6 +503,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Map Theme</source>
         <translation>Thème de carte</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Dossier de projet</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3541,6 +3545,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>Fermer</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3563,7 +3574,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>Fermer</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4373,6 +4384,10 @@ Essayez les exemples de projets répertoriés ci-dessous.</translation>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4603,7 +4618,7 @@ Essayez les exemples de projets répertoriés ci-dessous.</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Imprimer en PDF</translation>
+        <translation type="vanished">Imprimer en PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4623,7 +4638,7 @@ Essayez les exemples de projets répertoriés ci-dessous.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Paramètres</translation>
+        <translation type="vanished">Paramètres</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4933,7 +4948,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Dossier de projet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5062,6 +5077,10 @@ fermer le projet et quitter l&apos;application</translation>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation>Finir ou abandonner la numérisation de l&apos;entité en cours avant de basculer en mode Navigation</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Variables</translation>
     </message>
 </context>
 <context>

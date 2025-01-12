@@ -504,6 +504,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>Map Theme</source>
         <translation>Karttateema</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Projektihakemisto</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3546,6 +3550,13 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>sulje</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3568,7 +3579,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>sulje</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4376,6 +4387,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>Hienoa! Meistä olisi mukavaa jos klikkaisit alla olevaa nappia ja jättäisit arvostelun.</translation>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4606,7 +4621,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Tulosta PDF:ksi</translation>
+        <translation type="vanished">Tulosta PDF:ksi</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4626,7 +4641,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Asetukset</translation>
+        <translation type="vanished">Asetukset</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4934,7 +4949,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Projektihakemisto</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5063,6 +5078,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation>Lopeta tai hylkää digitointi ennen kuin siirryt selaustilaan</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Muuttujat</translation>
     </message>
 </context>
 <context>

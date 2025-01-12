@@ -504,6 +504,10 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>Map Theme</source>
         <translation>Tema do mapa</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Pasta do Projeto</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3535,6 +3539,13 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>fechar</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3557,7 +3568,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>fechar</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4365,6 +4376,10 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4595,7 +4610,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Exportar para PDF</translation>
+        <translation type="vanished">Exportar para PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4615,7 +4630,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Configurações</translation>
+        <translation type="vanished">Configurações</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4923,7 +4938,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Pasta do Projeto</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5052,6 +5067,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation>Conclua ou diminua o recurso de digitalização antes de alternar para o modo de navegação</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Variáveis</translation>
     </message>
 </context>
 <context>

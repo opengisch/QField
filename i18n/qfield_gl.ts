@@ -504,6 +504,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>Map Theme</source>
         <translation>Tema do Mapa</translation>
     </message>
+    <message>
+        <source>Project Folder</source>
+        <translation>Cartafol de proxecto </translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -3544,6 +3548,13 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>pechar</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3566,7 +3577,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>pechar</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4374,6 +4385,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>boolean</name>
@@ -4604,7 +4619,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Imprimir a PDF</translation>
+        <translation type="vanished">Imprimir a PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4624,7 +4639,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Settings</source>
-        <translation>Configuración</translation>
+        <translation type="vanished">Configuración</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -4932,7 +4947,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Cartafol de proxecto </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5061,6 +5076,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation>Rematar ou descartar a entidade en dixitalización antes de cambiar ó modo buscador</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Variables</translation>
     </message>
 </context>
 <context>
