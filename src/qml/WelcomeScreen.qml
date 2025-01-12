@@ -819,14 +819,17 @@ Page {
 
   QfToolButton {
     id: exitButton
-    visible: qgisProject && !!qgisProject.fileName && (Qt.platform.os === "ios" || Qt.platform.os === "android" || mainWindow.sceneBorderless)
+    visible: qgisProject && !!qgisProject.homePath && (Qt.platform.os === "ios" || Qt.platform.os === "android" || mainWindow.sceneBorderless)
     anchors {
       top: parent.top
       right: parent.right
-      topMargin: mainWindow.sceneTopMargin
+      topMargin: mainWindow.sceneTopMargin + 4
+      rightMargin: 4
     }
     iconSource: Theme.getThemeVectorIcon('ic_shutdown_24dp')
-    iconColor: Theme.mainTextColor
+    iconColor: Theme.toolButtonColor
+    bgcolor: Theme.toolButtonBackgroundColor
+    round: true
 
     onClicked: {
       mainWindow.closeAlreadyRequested = true;
