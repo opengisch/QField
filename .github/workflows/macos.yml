@@ -55,26 +55,12 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
 
-      - name: 💎 Setup ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.2' # Not needed with a .ruby-version file
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-
-      - name: 🔏 Setup code signing
-        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
-        env:
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-        run: |
-          bundle install
-          bundle exec fastlane ios setup_signing type:development app_identifier:ch.opengis.qfield #  --verbose
-
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
 
       - name: 🔨 Prepare build env
         run: |
-          brew install automake bison flex gnu-sed create-dmg autoconf-archive nasm libtool
+          brew install automake bison flex gnu-sed autoconf-archive nasm libtool xcbeautify
           echo $(brew --prefix bison)/bin >> $GITHUB_PATH
           echo $(brew --prefix flex)/bin >> $GITHUB_PATH
           echo $(brew --prefix libtool)/bin >> $GITHUB_PATH
@@ -89,7 +75,7 @@ jobs:
           xcode-version: latest-stable
 
       - name: 🍮 ccache
-        uses: hendrikmuhs/ccache-action@v1.2.11
+        uses: hendrikmuhs/ccache-action@v1
         with:
           key: ccache-${{ matrix.triplet }}-qt6
           max-size: 200M
@@ -128,7 +114,8 @@ jobs:
         run: |
           # https://www.reddit.com/r/MacOS/comments/f37ybt/osascript_cant_open_default_scripting_component/?utm_medium=android_app&utm_source=share
           sudo rm -rf /Library/Audio/Plug-Ins/Components
-          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
+          set -o pipefail
+          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }} | xcbeautify
 
       - name: 🧫 Test
         env:
@@ -139,20 +126,15 @@ jobs:
           cd "${{ env.CMAKE_BUILD_DIR }}"
           ctest --output-on-failure -R smoke -C ${{ env.BUILD_TYPE }}
 
-      - name: 📦 Package
-        env:
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+      - name: 📦 Prepackage
         run: |
-          echo "Killing XProtect..."; sudo pkill -9 XProtect >/dev/null || true; # see https://github.com/actions/runner-images/issues/7522
-          cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }}
-          echo "ARTIFACT_PATHNAME=${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg" >> $GITHUB_ENV
-          echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.triplet }}.dmg" >> $GITHUB_ENV
+          DESTDIR=staging cmake --install "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
 
       - name: 📦 Upload package
         uses: actions/upload-artifact@v4
         with:
-          name: "QField-dev-${{ matrix.triplet }}-experimental-qt6"
-          path: ${{ env.CMAKE_BUILD_DIR }}/QField-Installer.dmg
+          name: "qfield-app-${{ matrix.triplet }}"
+          path: staging
 
       - name: 📊 Upload test report
         if: always()
@@ -160,15 +142,6 @@ jobs:
         with:
           name: "test-report-${{ matrix.triplet }}-${{ env.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
-
-      - name: 🚀 Upload release asset
-        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
-        uses: shogo82148/actions-upload-release-asset@v1
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ${{ env.ARTIFACT_PATHNAME }}
-          asset_name: ${{ env.ARTIFACT_NAME }}
-          overwrite: true
 
       - name: 📑 Upload logs
         uses: actions/upload-artifact@v4
@@ -178,6 +151,12 @@ jobs:
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/**/*.log
 
+      - name: 💎 Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
       - name: 📮 Upload debug symbols
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         # if: release or labeled PR
@@ -186,4 +165,61 @@ jobs:
           SENTRY_ORG_SLUG: opengisch
           SENTRY_PROJECT_SLUG: qfield
         run: |
-          bundle exec fastlane run sentry_debug_files_upload path:${{ env.CMAKE_BUILD_DIR }}
+          bundle exec fastlane run sentry_debug_files_upload path:${{ env.CMAKE_BUILD_DIR }}/output/bin/qfield.app
+
+  create-dmg:
+    name: Create dmg
+    runs-on: macos-15
+    needs: build
+    steps:
+      - name: 🐣 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🔨 Prepare build env
+        run: |
+          brew install create-dmg
+
+      - name: 📤 Download app
+        uses: actions/download-artifact@v4
+        with:
+          pattern: qfield-app-*
+          path: |
+            artifacts
+
+      - name: Create universal app
+        run: |
+          wget https://raw.githubusercontent.com/faaxm/lipo-dir-merge/refs/heads/main/lipo-dir-merge.py
+          python lipo-dir-merge.py ./artifacts/qfield-app-x64-osx ./artifacts/qfield-app-arm64-osx universal
+
+      - name: Create dmg
+        run: |
+          if [[ "${{ github.event_name }}" == "release" && "${{ github.ref }}" == refs/tags/v* ]]; then
+            echo "${{ secrets.APPLE_DEVELOPER_ID_P12_BASE64 }}" | base64 --decode > cert.p12
+            export P12_PATH=cert.p12
+            export P12_PASSWORD=${{ secrets.APPLE_DEVELOPER_ID_P12_PASSWORD }}
+            export API_KEY_ID=${{ secrets.IOS_APPSTORE_KEY_ID }}
+            export API_KEY_ISSUER_ID=${{ secrets.IOS_APPSTORE_ISSUER_ID }}
+            echo "${{ secrets.IOS_APPSTORE_PRIVATE_KEY }}" > authkey.p8
+            export API_KEY_PATH=authkey.p8
+          fi
+
+          export APP_PATH=$(pwd)/universal/usr/local/bin/qfield.app
+          export DMG_PATH=qfield.dmg
+          ./platform/macos/create_dmg.sh
+
+      - name: 📤 Upload app
+        uses: actions/upload-artifact@v4
+        id: artifact-mac-qt6
+        with:
+          name: qfield-dmg
+          path: |
+            *.dmg
+
+      - name: 🚀 Upload release asset
+        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
+        uses: shogo82148/actions-upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: "qfield.dmg"
+          asset_name: qfield-${{ github.ref_name }}-macos.dmg
+          overwrite: true
