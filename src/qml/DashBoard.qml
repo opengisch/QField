@@ -154,14 +154,14 @@ Drawer {
               case QFieldCloudProjectsModel.Idle:
                 return cloudProjectsModel.currentProjectData.ProjectFileOutdated ? Theme.getThemeVectorIcon('ic_cloud_attention_24dp') : Theme.getThemeVectorIcon('ic_cloud_active_24dp');
               default:
-                Theme.getThemeVectorIcon('ic_cloud_border_24dp');
+                return Theme.getThemeVectorIcon('ic_cloud_white_24dp');
               }
             } else {
-              return Theme.getThemeVectorIcon('ic_cloud_border_24dp');
+              return Theme.getThemeVectorIcon('ic_cloud_white_24dp');
             }
           }
           iconColor: {
-            if (iconSource === Theme.getThemeVectorIcon('ic_cloud_border_24dp')) {
+            if (iconSource === Theme.getThemeVectorIcon('ic_cloud_white_24dp')) {
               return Theme.mainOverlayColor;
             } else {
               return "transparent";
