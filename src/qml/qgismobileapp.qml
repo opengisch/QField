@@ -2409,7 +2409,6 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-      const toolbarWidth = mainMenuActionsToolbar.childrenRect.width + 4;
       let result = 50;
       let padding = 0;
       // Skip first Row item
@@ -2418,16 +2417,13 @@ ApplicationWindow {
         result = Math.max(item.contentItem.implicitWidth, result);
         padding = Math.max(item.leftPadding + item.rightPadding, padding);
       }
-      return Math.max(toolbarWidth, result + padding);
+      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     Item {
-      id: mainMenuActionsToolbar
-      objectName: "mainMenuActionsToolbar"
-      height: 40
+      width: mainMenu.width
+      height: 48
       clip: true
-
-      property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
 
       MenuItem {
         id: undoButton
@@ -2435,7 +2431,7 @@ ApplicationWindow {
         height: 48
         width: parent.width / 2
         anchors.left: parent.left
-        text: "Undo"
+        text: qsTr("Undo")
         icon.source: Theme.getThemeVectorIcon("ic_undo_black_24dp")
         leftPadding: Theme.menuItemLeftPadding
 
@@ -2463,7 +2459,7 @@ ApplicationWindow {
         height: 48
         width: parent.width / 2
         anchors.right: parent.right
-        text: "Redo"
+        text: qsTr("Redo")
         icon.source: Theme.getThemeVectorIcon("ic_redo_black_24dp")
 
         contentItem: IconLabel {
@@ -2539,7 +2535,7 @@ ApplicationWindow {
       text: qsTr("Variables")
 
       font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_expression_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_expression_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
 
@@ -2557,7 +2553,7 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      icon.source: Theme.getThemeVectorIcon("ic_alert_black_not_filled_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_message_log_black_24dp")
       leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: {

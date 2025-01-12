@@ -84,7 +84,7 @@ QfVisibilityFadingRow {
     bgcolor: Theme.darkRed
 
     onClicked: {
-      homeButton.waitingForDigitizingFinish = false;
+      dashBoard.shouldReturnHome = false;
       if (stateMachine.state !== "measure") {
         cancelDialog.open();
       } else {
@@ -111,7 +111,7 @@ QfVisibilityFadingRow {
     bgcolor: Theme.mainColor
 
     onClicked: {
-      homeButton.waitingForDigitizingFinish = false;
+      dashBoard.shouldReturnHome = false;
       confirm();
     }
   }

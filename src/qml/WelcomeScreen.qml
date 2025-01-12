@@ -788,12 +788,13 @@ Page {
     anchors {
       top: parent.top
       left: parent.left
-      topMargin: mainWindow.sceneTopMargin
+      topMargin: mainWindow.sceneTopMargin + 4
+      leftMargin: 4
     }
 
     QfActionButton {
       id: currentProjectButton
-      toolImage: Theme.getThemeVectorIcon('ic_chevron_left_white_24dp')
+      toolImage: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
       toolText: welcomeScreen.width > 300 ? qsTr('Return to map') : ""
       visible: qgisProject && !!qgisProject.homePath
       innerActionIcon.visible: false
@@ -805,7 +806,7 @@ Page {
 
     QfToolButton {
       id: settingsButton
-      iconSource: Theme.getThemeVectorIcon('ic_tune_24dp')
+      iconSource: Theme.getThemeVectorIcon('ic_tune_white_24dp')
       iconColor: Theme.toolButtonColor
       bgcolor: Theme.toolButtonBackgroundColor
       round: true
@@ -818,14 +819,17 @@ Page {
 
   QfToolButton {
     id: exitButton
-    visible: qgisProject && !!qgisProject.fileName && (Qt.platform.os === "ios" || Qt.platform.os === "android" || mainWindow.sceneBorderless)
+    visible: qgisProject && !!qgisProject.homePath && (Qt.platform.os === "ios" || Qt.platform.os === "android" || mainWindow.sceneBorderless)
     anchors {
       top: parent.top
       right: parent.right
-      topMargin: mainWindow.sceneTopMargin
+      topMargin: mainWindow.sceneTopMargin + 4
+      rightMargin: 4
     }
     iconSource: Theme.getThemeVectorIcon('ic_shutdown_24dp')
-    iconColor: Theme.mainTextColor
+    iconColor: Theme.toolButtonColor
+    bgcolor: Theme.toolButtonBackgroundColor
+    round: true
 
     onClicked: {
       mainWindow.closeAlreadyRequested = true;
