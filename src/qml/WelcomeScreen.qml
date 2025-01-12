@@ -788,7 +788,8 @@ Page {
     anchors {
       top: parent.top
       left: parent.left
-      topMargin: mainWindow.sceneTopMargin
+      topMargin: mainWindow.sceneTopMargin + 4
+      leftMargin: 4
     }
 
     QfActionButton {
