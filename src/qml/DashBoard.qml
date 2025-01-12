@@ -138,18 +138,6 @@ Drawer {
           }
 
           QfToolButton {
-            text: qsTr("Project Folder")
-            anchors.verticalCenter: parent.verticalCenter
-            font: Theme.defaultFont
-            iconSource: Theme.getThemeVectorIcon("ic_project_folder_black_24dp")
-            iconColor: Theme.mainOverlayColor
-            round: true
-            onClicked: {
-              projectFolderClicked();
-            }
-          }
-
-          QfToolButton {
             id: cloudButton
             anchors.verticalCenter: parent.verticalCenter
             iconSource: {
@@ -214,9 +202,22 @@ Drawer {
               }
               running: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
               loops: Animation.Infinite
+
               onStopped: {
                 cloudButton.opacity = 1;
               }
+            }
+          }
+
+          QfToolButton {
+            text: qsTr("Project Folder")
+            anchors.verticalCenter: parent.verticalCenter
+            font: Theme.defaultFont
+            iconSource: Theme.getThemeVectorIcon("ic_project_folder_black_24dp")
+            iconColor: Theme.mainOverlayColor
+            round: true
+            onClicked: {
+              projectFolderClicked();
             }
           }
         }
