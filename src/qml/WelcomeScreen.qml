@@ -80,7 +80,7 @@ Page {
         value: 1
 
         Layout.margins: 6
-        Layout.topMargin: 14
+        Layout.topMargin: 14 + mainWindow.sceneTopMargin
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         Layout.preferredWidth: Math.min(138, mainWindow.height / 4)
         Layout.preferredHeight: Math.min(138, mainWindow.height / 4)
@@ -748,6 +748,7 @@ Page {
           RowLayout {
             Layout.leftMargin: 10
             Layout.rightMargin: 10
+            Layout.bottomMargin: mainWindow.sceneBottomMargin
             Label {
               Layout.fillWidth: true
               Layout.alignment: Qt.AlignVCenter
@@ -795,7 +796,7 @@ Page {
     QfActionButton {
       id: currentProjectButton
       toolImage: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
-      toolText: welcomeScreen.width > 300 ? qsTr('Return to map') : ""
+      toolText: welcomeScreen.width > 420 ? qsTr('Return to map') : ""
       visible: qgisProject && !!qgisProject.homePath
       innerActionIcon.visible: false
 
