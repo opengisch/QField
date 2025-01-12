@@ -3905,6 +3905,11 @@ ApplicationWindow {
       qfieldCloudScreen.visible = true;
     }
 
+    onShowSettings: {
+      qfieldSettings.reset();
+      qfieldSettings.visible = true;
+    }
+
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
@@ -3950,11 +3955,6 @@ ApplicationWindow {
 
     onFinished: loading => {
       visible = false;
-    }
-
-    onShowSettings: {
-      qfieldSettings.reset();
-      qfieldSettings.visible = true;
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
