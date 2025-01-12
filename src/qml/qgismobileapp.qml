@@ -2409,7 +2409,6 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-      const toolbarWidth = mainMenuActionsToolbar.childrenRect.width + 4;
       let result = 50;
       let padding = 0;
       // Skip first Row item
@@ -2418,16 +2417,13 @@ ApplicationWindow {
         result = Math.max(item.contentItem.implicitWidth, result);
         padding = Math.max(item.leftPadding + item.rightPadding, padding);
       }
-      return Math.max(toolbarWidth, result + padding);
+      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     Item {
-      id: mainMenuActionsToolbar
-      objectName: "mainMenuActionsToolbar"
-      height: 40
+      width: mainMenu.width
+      height: 48
       clip: true
-
-      property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
 
       MenuItem {
         id: undoButton

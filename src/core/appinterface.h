@@ -112,11 +112,6 @@ class AppInterface : public QObject
     /**
      * Adds an \a item in the main menu action toolbar container
      */
-    Q_INVOKABLE void addItemToMainMenuActionsToolbar( QQuickItem *item ) const;
-
-    /**
-     * Adds an \a item in the main menu action toolbar container
-     */
     Q_INVOKABLE void addItemToCanvasActionsToolbar( QQuickItem *item ) const;
 
     /**

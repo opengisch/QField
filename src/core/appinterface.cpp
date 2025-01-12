@@ -59,19 +59,6 @@ void AppInterface::addItemToPluginsToolbar( QQuickItem *item ) const
   }
 }
 
-void AppInterface::addItemToMainMenuActionsToolbar( QQuickItem *item ) const
-{
-  if ( !mApp->rootObjects().isEmpty() )
-  {
-    QQuickItem *toolbar = mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( QStringLiteral( "mainMenuActionsToolbar" ) );
-    item->setParentItem( toolbar );
-
-    // Place the item to the left of the Undo/Redo buttons
-    const QList<QQuickItem *> childItems = toolbar->childItems();
-    item->stackBefore( childItems.at( childItems.size() - 3 ) );
-  }
-}
-
 void AppInterface::addItemToCanvasActionsToolbar( QQuickItem *item ) const
 {
   if ( !mApp->rootObjects().isEmpty() )
