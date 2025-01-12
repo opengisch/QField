@@ -345,11 +345,13 @@ Drawer {
         id: legend
         isVisible: position > 0
         anchors.fill: parent
+        bottomMargin: bottomRow.height + 4
       }
     }
   }
 
   Rectangle {
+    id: bottomRow
     height: 48 + mainWindow.sceneBottomMargin
     width: parent.width
     anchors.bottom: parent.bottom
