@@ -358,23 +358,26 @@ Drawer {
     color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGray
 
     Item {
-      height: 48
       width: parent.width
+      height: 48
       anchors.bottom: parent.bottom
       anchors.bottomMargin: mainWindow.sceneBottomMargin
 
       MenuItem {
         id: homeButton
+        width: parent.width - modeSwitch.width
+        height: 48
         icon.source: Theme.getThemeVectorIcon("ic_home_black_24dp")
         text: "Return home"
+
         onClicked: returnHome()
       }
 
       Switch {
         id: modeSwitch
         visible: projectInfo.insertRights
-        height: 56
-        width: (56 + 36)
+        width: 56 + 36
+        height: 48
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
         indicator: Rectangle {
