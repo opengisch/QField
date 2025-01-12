@@ -37,6 +37,7 @@
 #include <QMargins>
 #include <QQuickWindow>
 #include <QStandardPaths>
+#include <QStorageInfo>
 #include <QTimer>
 #include <QUrl>
 #include <QtGui/qpa/qplatformwindow.h>
@@ -97,14 +98,18 @@ void PlatformUtilities::afterUpdate()
   const QStringList dirs = appDataDirs();
   for ( const QString &dir : dirs )
   {
-    QDir appDir( dir );
-    appDir.mkpath( QStringLiteral( "proj" ) );
-    appDir.mkpath( QStringLiteral( "auth" ) );
-    appDir.mkpath( QStringLiteral( "fonts" ) );
-    appDir.mkpath( QStringLiteral( "basemaps" ) );
-    appDir.mkpath( QStringLiteral( "logs" ) );
-    appDir.mkpath( QStringLiteral( "plugins" ) );
+    QDir appDataDir( dir );
+    appDataDir.mkpath( QStringLiteral( "proj" ) );
+    appDataDir.mkpath( QStringLiteral( "auth" ) );
+    appDataDir.mkpath( QStringLiteral( "fonts" ) );
+    appDataDir.mkpath( QStringLiteral( "basemaps" ) );
+    appDataDir.mkpath( QStringLiteral( "logs" ) );
+    appDataDir.mkpath( QStringLiteral( "plugins" ) );
   }
+
+  QDir applicationDir( applicationDirectory() );
+  applicationDir.mkpath( QStringLiteral( "Imported Projects" ) );
+  applicationDir.mkpath( QStringLiteral( "Imported Datasets" ) );
 }
 
 QString PlatformUtilities::systemSharedDataLocation() const
@@ -153,7 +158,7 @@ void PlatformUtilities::loadQgsProject() const
 
 QStringList PlatformUtilities::appDataDirs() const
 {
-  return QStringList() << QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField/" );
+  return QStringList() << QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField Documents/QField/" );
 }
 
 QStringList PlatformUtilities::availableGrids() const
@@ -208,7 +213,7 @@ bool PlatformUtilities::renameFile( const QString &oldFilePath, const QString &n
 
 QString PlatformUtilities::applicationDirectory() const
 {
-  return QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField/" );
+  return QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField Documents/" );
 }
 
 QStringList PlatformUtilities::additionalApplicationDirectories() const
@@ -218,7 +223,19 @@ QStringList PlatformUtilities::additionalApplicationDirectories() const
 
 QStringList PlatformUtilities::rootDirectories() const
 {
-  return QStringList() << QString();
+  QStringList rootDirectories;
+  rootDirectories << QDir::homePath();
+  for ( const QStorageInfo &volume : QStorageInfo::mountedVolumes() )
+  {
+    if ( volume.isReady() && !volume.isReadOnly() )
+    {
+      if ( volume.fileSystemType() != QLatin1String( "tmpfs" ) && !volume.rootPath().startsWith( QLatin1String( "/boot" ) ) )
+      {
+        rootDirectories << volume.rootPath();
+      }
+    }
+  }
+  return rootDirectories;
 }
 
 void PlatformUtilities::importProjectFolder() const

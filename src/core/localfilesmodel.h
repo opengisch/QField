@@ -86,6 +86,7 @@ class LocalFilesModel : public QAbstractListModel
       ItemSizeRole,
       ItemHasThumbnailRole,
       ItemIsFavoriteRole,
+      ItemHasWebdavConfigurationRole,
     };
     Q_ENUM( Role )
 

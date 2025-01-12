@@ -3883,6 +3883,36 @@ ApplicationWindow {
     parent: Overlay.overlay
   }
 
+  WelcomeScreen {
+    id: welcomeScreen
+    objectName: "welcomeScreen"
+    visible: !iface.hasProjectOnLaunch()
+
+    model: RecentProjectListModel {
+      id: recentProjectListModel
+    }
+    property ProjectSource __projectSource
+
+    anchors.fill: parent
+
+    onOpenLocalDataPicker: {
+      qfieldLocalDataPickerScreen.projectFolderView = false;
+      qfieldLocalDataPickerScreen.model.resetToRoot();
+      qfieldLocalDataPickerScreen.visible = true;
+    }
+
+    onShowQFieldCloudScreen: {
+      qfieldCloudScreen.visible = true;
+    }
+
+    onShowSettings: {
+      qfieldSettings.reset();
+      qfieldSettings.visible = true;
+    }
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
   QFieldCloudScreen {
     id: qfieldCloudScreen
 
@@ -3892,7 +3922,6 @@ ApplicationWindow {
 
     onFinished: {
       visible = false;
-      welcomeScreen.visible = true;
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
@@ -3924,47 +3953,8 @@ ApplicationWindow {
     visible: false
     focus: visible
 
-    onFinished: {
+    onFinished: loading => {
       visible = false;
-      if (model.currentPath === 'root') {
-        welcomeScreen.visible = loading ? false : true;
-      }
-    }
-
-    Component.onCompleted: focusstack.addFocusTaker(this)
-  }
-
-  WelcomeScreen {
-    id: welcomeScreen
-    objectName: "welcomeScreen"
-    visible: !iface.hasProjectOnLaunch()
-
-    model: RecentProjectListModel {
-      id: recentProjectListModel
-    }
-    property ProjectSource __projectSource
-
-    anchors.fill: parent
-
-    onOpenLocalDataPicker: {
-      if (platformUtilities.capabilities & PlatformUtilities.CustomLocalDataPicker) {
-        welcomeScreen.visible = false;
-        qfieldLocalDataPickerScreen.projectFolderView = false;
-        qfieldLocalDataPickerScreen.model.resetToRoot();
-        qfieldLocalDataPickerScreen.visible = true;
-      } else {
-        __projectSource = platformUtilities.openProject(this);
-      }
-    }
-
-    onShowQFieldCloudScreen: {
-      welcomeScreen.visible = false;
-      qfieldCloudScreen.visible = true;
-    }
-
-    onShowSettings: {
-      qfieldSettings.reset();
-      qfieldSettings.visible = true;
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)

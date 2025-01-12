@@ -179,7 +179,7 @@ Page {
         color: Theme.mainTextColor
       }
 
-      QfTextField {
+      TextField {
         id: appliationLogInput
         width: applicationLogLabel.width
         placeholderText: qsTr("Type optional details")

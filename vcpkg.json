@@ -101,6 +101,7 @@
       "host": true,
       "default-features": false
     },
+    "qtwebdav",
     {
       "name": "qtwebsockets",
       "features": [

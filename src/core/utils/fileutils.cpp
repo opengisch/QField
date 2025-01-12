@@ -50,6 +50,12 @@ bool FileUtils::isImageMimeTypeSupported( const QString &mimeType )
   return QImageReader::supportedMimeTypes().contains( mimeType.toLatin1() );
 }
 
+QString FileUtils::absolutePath( const QString &filePath )
+{
+  QFileInfo fileInfo( filePath );
+  return fileInfo.absolutePath();
+}
+
 QString FileUtils::fileName( const QString &filePath )
 {
   QFileInfo fileInfo( filePath );
