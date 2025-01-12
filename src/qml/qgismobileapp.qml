@@ -17,7 +17,9 @@
 import QtCore
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.impl
 import QtQuick.Controls.Material
+import QtQuick.Controls.Material.impl
 import QtQuick.Effects
 import QtQuick.Shapes
 import QtQuick.Window
@@ -1458,31 +1460,31 @@ ApplicationWindow {
         }
       }
 
-      QfCloseButton {
+      QfActionButton {
         id: closeMeasureTool
         visible: stateMachine.state === 'measure'
         toolImage: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
         toolText: qsTr('Close measure tool')
 
-        onClose: mainWindow.closeMeasureTool()
+        onClicked: mainWindow.closeMeasureTool()
       }
 
-      QfCloseButton {
+      QfActionButton {
         id: closeGeometryEditorsTool
         visible: (stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0)
         toolImage: geometryEditorsToolbar.image
         toolText: qsTr('Stop editing')
 
-        onClose: geometryEditorsToolbar.cancelEditors()
+        onClicked: geometryEditorsToolbar.cancelEditors()
       }
 
-      QfCloseButton {
+      QfActionButton {
         id: abortRequestGeometry
         visible: digitizingToolbar.geometryRequested
         toolImage: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
         toolText: qsTr('Cancel addition')
 
-        onClose: digitizingToolbar.cancel()
+        onClicked: digitizingToolbar.cancel()
       }
     }
 
@@ -2157,7 +2159,7 @@ ApplicationWindow {
               geometryRequested = false;
             }
           }
-          if (homeButton.waitingForDigitizingFinish) {
+          if (dashBoard.shouldReturnHome) {
             openWelcomeScreen();
           }
         }
@@ -2309,6 +2311,51 @@ ApplicationWindow {
 
     Component.onCompleted: focusstack.addFocusTaker(this)
 
+    onReturnHome: {
+      if (currentRubberband && currentRubberband.model.vertexCount > 1) {
+        digitizingToolbar.cancelDialog.open();
+        shouldReturnHome = true;
+      } else if (!shouldReturnHome) {
+        openWelcomeScreen();
+      }
+    }
+
+    onMeasurementClicked: {
+      if (featureForm.state === "ProcessingAlgorithmForm") {
+        cancelAlgorithmDialog.visible = true;
+      } else {
+        activateMeasurementMode();
+      }
+    }
+
+    onPrintClicked: printItem => {
+      if (layoutListInstantiator.count > 1) {
+        printMenu.popup(mainMenu.x, mainMenu.y + printItem.y);
+      } else if (layoutListInstantiator.count == 1) {
+        mainMenu.close();
+        displayToast(qsTr('Printing...'));
+        printMenu.printName = layoutListInstantiator.model.titleAt(0);
+        printMenu.printTimer.restart();
+      } else {
+        mainMenu.close();
+        toast.show(qsTr('No print layout available'), 'info', qsTr('Learn more'), function () {
+            Qt.openUrlExternally('https://docs.qfield.org/how-to/print-to-pdf/');
+          });
+      }
+    }
+
+    onProjectFolderClicked: {
+      dashBoard.close();
+      qfieldLocalDataPickerScreen.projectFolderView = true;
+      qfieldLocalDataPickerScreen.model.resetToPath(projectInfo.filePath);
+      qfieldLocalDataPickerScreen.visible = true;
+    }
+
+    // If the user clicks the "Return home" button in the middle of digitizing, we will ask if they want to discard their changes.
+    // If they press cancel, nothing will happen, but if they press discard, we will discard their digitizing.
+    // We will also use `shouldReturnHome` to know that we need to return home as well or not.
+    property bool shouldReturnHome: false
+
     function ensureEditableLayerSelected() {
       var firstEditableLayer = null;
       var activeLayerLocked = false;
@@ -2345,7 +2392,7 @@ ApplicationWindow {
     dashBoard.close();
     welcomeScreen.visible = true;
     welcomeScreen.focus = true;
-    homeButton.waitingForDigitizingFinish = false;
+    dashBoard.shouldReturnHome = false;
   }
 
   function activateMeasurementMode() {
@@ -2374,89 +2421,26 @@ ApplicationWindow {
       return Math.max(toolbarWidth, result + padding);
     }
 
-    Row {
+    Item {
       id: mainMenuActionsToolbar
       objectName: "mainMenuActionsToolbar"
-      leftPadding: 2
-      rightPadding: 2
-      spacing: 2
-      height: printItem.height
+      height: 40
       clip: true
 
       property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
 
-      QfToolButton {
-        id: homeButton
-        anchors.verticalCenter: parent.verticalCenter
-        height: 48
-        width: 48
-        round: true
-        iconSource: Theme.getThemeVectorIcon("ic_home_black_24dp")
-        iconColor: Theme.mainTextColor
-        bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
-
-        property bool waitingForDigitizingFinish: false
-
-        onClicked: {
-          if (currentRubberband && currentRubberband.model.vertexCount > 1) {
-            digitizingToolbar.cancelDialog.open();
-            waitingForDigitizingFinish = true;
-          } else if (!waitingForDigitizingFinish) {
-            openWelcomeScreen();
-            highlighted = false;
-          }
-        }
-      }
-
-      QfToolButton {
-        id: measurementButton
-        anchors.verticalCenter: parent.verticalCenter
-        height: 48
-        width: 48
-        round: true
-        iconSource: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
-        iconColor: Theme.mainTextColor
-        bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
-
-        onClicked: {
-          if (featureForm.state === "ProcessingAlgorithmForm") {
-            cancelAlgorithmDialog.visible = true;
-          } else {
-            activateMeasurementMode();
-            highlighted = false;
-          }
-        }
-      }
-
-      QfToolButton {
-        anchors.verticalCenter: parent.verticalCenter
-        height: 48
-        width: 48
-        round: true
-        iconSource: Theme.getThemeVectorIcon("ic_lock_black_24dp")
-        iconColor: Theme.mainTextColor
-        bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
-
-        onClicked: {
-          mainMenu.close();
-          dashBoard.close();
-          screenLocker.enabled = true;
-        }
-      }
-
-      QfToolButton {
+      MenuItem {
         id: undoButton
-        property bool isEnabled: featureHistory && featureHistory.isUndoAvailable
-        anchors.verticalCenter: parent.verticalCenter
+        enabled: featureHistory && featureHistory.isUndoAvailable
         height: 48
-        width: 48
-        round: true
-        iconSource: Theme.getThemeVectorIcon("ic_undo_black_24dp")
-        iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        bgcolor: isEnabled && hovered ? parent.hoveredColor : "#00ffffff"
+        width: parent.width / 2
+        anchors.left: parent.left
+        text: "Undo"
+        icon.source: Theme.getThemeVectorIcon("ic_undo_black_24dp")
+        leftPadding: Theme.menuItemLeftPadding
 
         onClicked: {
-          if (isEnabled) {
+          if (enabled) {
             const msg = featureHistory.undoMessage();
             if (featureHistory.undo()) {
               displayToast(msg);
@@ -2467,19 +2451,35 @@ ApplicationWindow {
         }
       }
 
-      QfToolButton {
+      MenuSeparator {
+        width: 1
+        height: parent.height
+        anchors.left: undoButton.right
+      }
+
+      MenuItem {
         id: redoButton
-        property bool isEnabled: featureHistory && featureHistory.isRedoAvailable
-        anchors.verticalCenter: parent.verticalCenter
+        enabled: featureHistory && featureHistory.isRedoAvailable
         height: 48
-        width: 48
-        round: true
-        iconSource: Theme.getThemeVectorIcon("ic_redo_black_24dp")
-        iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        bgcolor: isEnabled && hovered ? parent.hoveredColor : "#00ffffff"
+        width: parent.width / 2
+        anchors.right: parent.right
+        text: "Redo"
+        icon.source: Theme.getThemeVectorIcon("ic_redo_black_24dp")
+
+        contentItem: IconLabel {
+          leftPadding: 22
+          spacing: redoButton.spacing
+          mirrored: true
+          display: redoButton.display
+          icon: redoButton.icon
+          text: redoButton.text
+          font: redoButton.font
+          color: Theme.mainTextColor
+          opacity: redoButton.enabled ? 1 : .35
+        }
 
         onClicked: {
-          if (isEnabled) {
+          if (enabled) {
             const msg = featureHistory.redoMessage();
             if (featureHistory.redo()) {
               displayToast(msg);
@@ -2493,51 +2493,6 @@ ApplicationWindow {
 
     MenuSeparator {
       width: parent.width
-    }
-
-    MenuItem {
-      id: printItem
-      text: qsTr("Print to PDF")
-
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_print_black_24dp")
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      rightPadding: 40
-
-      arrow: Canvas {
-        x: parent.width - width
-        y: (parent.height - height) / 2
-        implicitWidth: 40
-        implicitHeight: 40
-        opacity: layoutListInstantiator.count > 1 ? 1 : 0
-        onPaint: {
-          var ctx = getContext("2d");
-          ctx.strokeStyle = Theme.mainColor;
-          ctx.lineWidth = 1;
-          ctx.moveTo(15, 15);
-          ctx.lineTo(width - 15, height / 2);
-          ctx.lineTo(15, height - 15);
-          ctx.stroke();
-        }
-      }
-
-      onTriggered: {
-        if (layoutListInstantiator.count > 1) {
-          printMenu.popup(mainMenu.x, mainMenu.y + printItem.y);
-        } else if (layoutListInstantiator.count == 1) {
-          mainMenu.close();
-          displayToast(qsTr('Printing...'));
-          printMenu.printName = layoutListInstantiator.model.titleAt(0);
-          printMenu.printTimer.restart();
-        } else {
-          mainMenu.close();
-          toast.show(qsTr('No print layout available'), 'info', qsTr('Learn more'), function () {
-              Qt.openUrlExternally('https://docs.qfield.org/how-to/print-to-pdf/');
-            });
-        }
-        highlighted = false;
-      }
     }
 
     MenuItem {
@@ -2581,37 +2536,18 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("Project Folder")
+      text: qsTr("Variables")
 
       font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_project_folder_black_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_expression_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
-      rightPadding: 40
-
-      onTriggered: {
-        dashBoard.close();
-        qfieldLocalDataPickerScreen.projectFolderView = true;
-        qfieldLocalDataPickerScreen.model.resetToPath(projectInfo.filePath);
-        qfieldLocalDataPickerScreen.visible = true;
-      }
-    }
-
-    MenuSeparator {
-      width: parent.width
-    }
-
-    MenuItem {
-      text: qsTr("Settings")
-
-      font: Theme.defaultFont
-      height: 48
-      leftPadding: Theme.menuItemIconlessLeftPadding
 
       onTriggered: {
         dashBoard.close();
         qfieldSettings.reset();
         qfieldSettings.visible = true;
+        qfieldSettings.currentPanel = 2;
         highlighted = false;
       }
     }
@@ -2621,12 +2557,33 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemIconlessLeftPadding
+      icon.source: Theme.getThemeVectorIcon("ic_alert_black_not_filled_24dp")
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: {
         dashBoard.close();
         messageLog.visible = true;
         highlighted = false;
+      }
+    }
+
+    MenuSeparator {
+      width: parent.width
+    }
+
+    MenuItem {
+      text: qsTr("Lock Screen")
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_lock_black_24dp")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+      rightPadding: 40
+
+      onTriggered: {
+        mainMenu.close();
+        dashBoard.close();
+        screenLocker.enabled = true;
       }
     }
 
@@ -3861,17 +3818,6 @@ ApplicationWindow {
     id: trackerSettings
   }
 
-  QFieldSettings {
-    id: qfieldSettings
-    anchors.fill: parent
-
-    onFinished: {
-      visible = false;
-    }
-
-    Component.onCompleted: focusstack.addFocusTaker(this)
-  }
-
   QFieldCloudConnection {
     id: cloudConnection
 
@@ -4017,6 +3963,22 @@ ApplicationWindow {
     onShowQFieldCloudScreen: {
       welcomeScreen.visible = false;
       qfieldCloudScreen.visible = true;
+    }
+
+    onShowSettings: {
+      qfieldSettings.reset();
+      qfieldSettings.visible = true;
+    }
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
+  QFieldSettings {
+    id: qfieldSettings
+    anchors.fill: parent
+
+    onFinished: {
+      visible = false;
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)

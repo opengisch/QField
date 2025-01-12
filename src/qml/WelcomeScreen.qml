@@ -18,6 +18,7 @@ Page {
   property alias model: table.model
   signal openLocalDataPicker
   signal showQFieldCloudScreen
+  signal showSettings
 
   visible: false
   focus: visible
@@ -782,20 +783,36 @@ Page {
     }
   }
 
-  QfToolButton {
-    id: currentProjectButton
-    visible: qgisProject && !!qgisProject.fileName
+  Column {
+    spacing: 4
     anchors {
       top: parent.top
       left: parent.left
       topMargin: mainWindow.sceneTopMargin
     }
-    iconSource: Theme.getThemeVectorIcon('ic_chevron_left_white_24dp')
-    iconColor: Theme.mainTextColor
-    bgcolor: "transparent"
 
-    onClicked: {
-      welcomeScreen.visible = false;
+    QfActionButton {
+      id: currentProjectButton
+      toolImage: Theme.getThemeVectorIcon('ic_chevron_left_white_24dp')
+      toolText: welcomeScreen.width > 300 ? qsTr('Return to map') : ""
+      visible: qgisProject && !!qgisProject.homePath
+      innerActionIcon.visible: false
+
+      onClicked: {
+        welcomeScreen.visible = false;
+      }
+    }
+
+    QfToolButton {
+      id: settingsButton
+      iconSource: Theme.getThemeVectorIcon('ic_tune_24dp')
+      iconColor: Theme.toolButtonColor
+      bgcolor: Theme.toolButtonBackgroundColor
+      round: true
+
+      onClicked: {
+        showSettings();
+      }
     }
   }
 
