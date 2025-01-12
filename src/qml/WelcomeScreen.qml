@@ -806,7 +806,7 @@ Page {
 
     QfToolButton {
       id: settingsButton
-      iconSource: Theme.getThemeVectorIcon('ic_tune_24dp')
+      iconSource: Theme.getThemeVectorIcon('ic_tune_white_24dp')
       iconColor: Theme.toolButtonColor
       bgcolor: Theme.toolButtonBackgroundColor
       round: true

@@ -2539,7 +2539,7 @@ ApplicationWindow {
       text: qsTr("Variables")
 
       font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_expression_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_expression_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
 
