@@ -7,6 +7,7 @@ T.ScrollBar {
   id: control
 
   property color color: Theme.mainColor
+  property color backgroundColor: Theme.scrollBarBackgroundColor
   property real _maxSize: 8
   property real _minSize: 4
 
@@ -17,7 +18,7 @@ T.ScrollBar {
   background: Rectangle {
     id: background
     radius: _minSize
-    color: Theme.scrollBarBackgroundColor
+    color: control.backgroundColor
     opacity: {
       if (vertical) {
         return handle.width === _maxSize;
@@ -39,7 +40,7 @@ T.ScrollBar {
     Rectangle {
       id: handle
       width: vertical ? _minSize : parent.width
-      height: Math.max(10, horizontal ? _minSize : parent.height)
+      height: horizontal ? _minSize : Math.max(10, parent.height)
       color: control.color
       anchors {
         right: vertical ? parent.right : undefined
@@ -56,7 +57,7 @@ T.ScrollBar {
         PropertyChanges {
           target: handle
           width: vertical ? _maxSize : parent.width
-          height: Math.max(10, horizontal ? _maxSize : parent.height)
+          height: horizontal ? _maxSize : Math.max(10, parent.height)
         }
       },
       State {
@@ -65,7 +66,7 @@ T.ScrollBar {
         PropertyChanges {
           target: handle
           width: vertical ? _minSize : parent.width
-          height: Math.max(10, horizontal ? _minSize : parent.height)
+          height: horizontal ? _minSize : Math.max(10, parent.height)
         }
       }
     ]

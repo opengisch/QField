@@ -2305,9 +2305,10 @@ ApplicationWindow {
   DashBoard {
     id: dashBoard
     objectName: "dashBoard"
+
     allowActiveLayerChange: !digitizingToolbar.isDigitizing
+    allowInteractive: !welcomeScreen.visible && !qfieldSettings.visible && !qfieldCloudScreen.visible && !qfieldLocalDataPickerScreen.visible && !codeReader.visible && !screenLocker.enabled
     mapSettings: mapCanvas.mapSettings
-    interactive: !welcomeScreen.visible && !qfieldSettings.visible && !qfieldCloudScreen.visible && !qfieldLocalDataPickerScreen.visible && !codeReader.visible && !screenLocker.enabled
 
     Component.onCompleted: focusstack.addFocusTaker(this)
 

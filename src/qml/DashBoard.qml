@@ -20,6 +20,7 @@ Drawer {
   signal printClicked(Item item)
   signal projectFolderClicked
 
+  property bool allowInteractive: true
   property alias allowActiveLayerChange: legend.allowActiveLayerChange
   property alias activeLayer: legend.activeLayer
   property alias layerTree: legend.model
@@ -33,11 +34,12 @@ Drawer {
     }
   }
 
-  width: Math.min(300, mainWindow.width)
+  width: Math.min(330, mainWindow.width)
   height: parent.height
   edge: Qt.LeftEdge
   dragMargin: 10
   padding: 0
+  interactive: allowInteractive && buttonsRowContainer.width >= buttonsRow.width
 
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
 
@@ -45,7 +47,7 @@ Drawer {
   focus: visible
   clip: true
 
-  onShowMenu: mainMenu.popup(settingsButton.x + 2, mainWindow.sceneTopMargin + settingsButton.y + 2)
+  onShowMenu: mainMenu.popup(menuButton.x + menuButton.width - mainMenu.width - 2, mainWindow.sceneTopMargin + menuButton.y - 2)
   onShowCloudMenu: qfieldCloudPopup.show()
 
   onActiveLayerChanged: {
@@ -74,142 +76,160 @@ Drawer {
 
       color: mainColor
 
-      Row {
-        id: buttonsRow
-        anchors.top: parent.top
+      QfToolButton {
+        id: closeButton
         anchors.left: parent.left
+        anchors.verticalCenter: buttonsRowContainer.verticalCenter
+        iconSource: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
+        iconColor: Theme.mainOverlayColor
+        bgcolor: "transparent"
+        onClicked: close()
+      }
+
+      Flickable {
+        id: buttonsRowContainer
+        anchors.left: closeButton.right
+        anchors.right: menuButton.left
+        anchors.top: parent.top
         anchors.topMargin: mainWindow.sceneTopMargin
-        width: parent.width
-        height: 56
-        spacing: 1
+        height: buttonsRow.height
+        contentWidth: buttonsRow.width
+        contentHeight: buttonsRow.height
+        flickableDirection: Flickable.HorizontalFlick
+        clip: true
 
-        property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
-
-        QfToolButton {
-          id: closeButton
-          anchors.verticalCenter: parent.verticalCenter
-          iconSource: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
-          iconColor: Theme.mainOverlayColor
-          bgcolor: "transparent"
-          onClicked: close()
+        ScrollBar.horizontal: QfScrollBar {
+          visible: !dashBoard.interactive
+          color: Theme.mainOverlayColor
+          backgroundColor: Theme.mainColor
+          _minSize: 2
+          _maxSize: 2
         }
 
-        QfToolButton {
-          id: measurementButton
-          anchors.verticalCenter: parent.verticalCenter
-          round: true
-          iconSource: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
-          iconColor: Theme.mainOverlayColor
-          bgcolor: "transparent"
-          onClicked: {
-            measurementClicked();
-            highlighted = false;
+        Row {
+          id: buttonsRow
+          anchors.topMargin: mainWindow.sceneTopMargin
+          height: 56
+          spacing: 1
+
+          QfToolButton {
+            id: measurementButton
+            anchors.verticalCenter: parent.verticalCenter
+            round: true
+            iconSource: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
+            iconColor: Theme.mainOverlayColor
+            bgcolor: "transparent"
+            onClicked: {
+              measurementClicked();
+              highlighted = false;
+            }
           }
-        }
 
-        QfToolButton {
-          id: printItem
-          anchors.verticalCenter: parent.verticalCenter
-          round: true
-          iconSource: Theme.getThemeVectorIcon("ic_print_black_24dp")
-          iconColor: Theme.mainOverlayColor
-          onClicked: {
-            printClicked(printItem);
-            highlighted = false;
+          QfToolButton {
+            id: printItem
+            anchors.verticalCenter: parent.verticalCenter
+            round: true
+            iconSource: Theme.getThemeVectorIcon("ic_print_black_24dp")
+            iconColor: Theme.mainOverlayColor
+            onClicked: {
+              printClicked(printItem);
+              highlighted = false;
+            }
           }
-        }
 
-        QfToolButton {
-          text: qsTr("Project Folder")
-          anchors.verticalCenter: parent.verticalCenter
-          font: Theme.defaultFont
-          iconSource: Theme.getThemeVectorIcon("ic_project_folder_black_24dp")
-          iconColor: Theme.mainOverlayColor
-          round: true
-          onClicked: {
-            projectFolderClicked();
+          QfToolButton {
+            text: qsTr("Project Folder")
+            anchors.verticalCenter: parent.verticalCenter
+            font: Theme.defaultFont
+            iconSource: Theme.getThemeVectorIcon("ic_project_folder_black_24dp")
+            iconColor: Theme.mainOverlayColor
+            round: true
+            onClicked: {
+              projectFolderClicked();
+            }
           }
-        }
 
-        QfToolButton {
-          id: cloudButton
-          anchors.verticalCenter: parent.verticalCenter
-          iconSource: {
-            if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-              switch (cloudProjectsModel.currentProjectData.Status) {
-              case QFieldCloudProjectsModel.Downloading:
-                switch (cloudProjectsModel.currentProjectData.PackagingStatus) {
-                case QFieldCloudProjectsModel.PackagingFinishedStatus:
-                  return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
+          QfToolButton {
+            id: cloudButton
+            anchors.verticalCenter: parent.verticalCenter
+            iconSource: {
+              if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+                switch (cloudProjectsModel.currentProjectData.Status) {
+                case QFieldCloudProjectsModel.Downloading:
+                  switch (cloudProjectsModel.currentProjectData.PackagingStatus) {
+                  case QFieldCloudProjectsModel.PackagingFinishedStatus:
+                    return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
+                  default:
+                    return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                  }
+                case QFieldCloudProjectsModel.Uploading:
+                  switch (cloudProjectsModel.currentProjectData.UploadDeltaStatus) {
+                  case QFieldCloudProjectsModel.DeltaFileLocalStatus:
+                    return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
+                  default:
+                    return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                  }
+                case QFieldCloudProjectsModel.Idle:
+                  return cloudProjectsModel.currentProjectData.ProjectFileOutdated ? Theme.getThemeVectorIcon('ic_cloud_attention_24dp') : Theme.getThemeVectorIcon('ic_cloud_active_24dp');
                 default:
-                  return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                  return Theme.getThemeVectorIcon('ic_cloud_white_24dp');
                 }
-              case QFieldCloudProjectsModel.Uploading:
-                switch (cloudProjectsModel.currentProjectData.UploadDeltaStatus) {
-                case QFieldCloudProjectsModel.DeltaFileLocalStatus:
-                  return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
-                default:
-                  return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
-                }
-              case QFieldCloudProjectsModel.Idle:
-                return cloudProjectsModel.currentProjectData.ProjectFileOutdated ? Theme.getThemeVectorIcon('ic_cloud_attention_24dp') : Theme.getThemeVectorIcon('ic_cloud_active_24dp');
-              default:
+              } else {
                 return Theme.getThemeVectorIcon('ic_cloud_white_24dp');
               }
-            } else {
-              return Theme.getThemeVectorIcon('ic_cloud_white_24dp');
             }
-          }
-          iconColor: {
-            if (iconSource === Theme.getThemeVectorIcon('ic_cloud_white_24dp')) {
-              return Theme.mainOverlayColor;
-            } else {
-              return "transparent";
+            iconColor: {
+              if (iconSource === Theme.getThemeVectorIcon('ic_cloud_white_24dp')) {
+                return Theme.mainOverlayColor;
+              } else {
+                return "transparent";
+              }
             }
-          }
-          bgcolor: "transparent"
+            bgcolor: "transparent"
 
-          onClicked: {
-            if (featureForm.state == "FeatureFormEdit") {
-              featureForm.requestCancel();
-              return;
+            onClicked: {
+              if (featureForm.state == "FeatureFormEdit") {
+                featureForm.requestCancel();
+                return;
+              }
+              if (featureForm.visible) {
+                featureForm.hide();
+              }
+              showCloudMenu();
             }
-            if (featureForm.visible) {
-              featureForm.hide();
-            }
-            showCloudMenu();
-          }
-          bottomRightIndicatorText: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 ? cloudProjectsModel.layerObserver.deltaFileWrapper.count : cloudProjectsModel.layerObserver.deltaFileWrapper.count >= 10 ? '+' : ''
+            bottomRightIndicatorText: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 ? cloudProjectsModel.layerObserver.deltaFileWrapper.count : cloudProjectsModel.layerObserver.deltaFileWrapper.count >= 10 ? '+' : ''
 
-          SequentialAnimation {
-            OpacityAnimator {
-              from: 1
-              to: 0.2
-              duration: 2000
-              target: cloudButton
-            }
-            OpacityAnimator {
-              from: 0.2
-              to: 1
-              duration: 2000
-              target: cloudButton
-            }
-            running: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
-            loops: Animation.Infinite
-            onStopped: {
-              cloudButton.opacity = 1;
+            SequentialAnimation {
+              OpacityAnimator {
+                from: 1
+                to: 0.2
+                duration: 2000
+                target: cloudButton
+              }
+              OpacityAnimator {
+                from: 0.2
+                to: 1
+                duration: 2000
+                target: cloudButton
+              }
+              running: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
+              loops: Animation.Infinite
+              onStopped: {
+                cloudButton.opacity = 1;
+              }
             }
           }
         }
+      }
 
-        QfToolButton {
-          id: settingsButton
-          anchors.verticalCenter: parent.verticalCenter
-          iconSource: Theme.getThemeVectorIcon('ic_dot_menu_black_24dp')
-          iconColor: Theme.mainOverlayColor
-          bgcolor: "transparent"
-          onClicked: showMenu()
-        }
+      QfToolButton {
+        id: menuButton
+        anchors.right: parent.right
+        anchors.verticalCenter: buttonsRowContainer.verticalCenter
+        iconSource: Theme.getThemeVectorIcon('ic_dot_menu_black_24dp')
+        iconColor: Theme.mainOverlayColor
+        bgcolor: "transparent"
+        onClicked: showMenu()
       }
     }
 
