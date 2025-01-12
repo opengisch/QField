@@ -35,7 +35,7 @@ create-dmg --volname "QField Installer" \
 	--app-drop-link 400 155 \
 	"$DMG_PATH" "$APP_PATH"
 
-if [[ -n "$API_KEY_ID" ]]; then
+if [[ -n ${API_KEY_ID:-} ]]; then
 	codesign --force --options runtime --sign "Developer ID Application" --keychain "$KEYCHAIN_NAME" "$DMG_PATH"
 
 	echo "Submitting for notarization..."
