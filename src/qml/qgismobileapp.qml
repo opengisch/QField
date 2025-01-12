@@ -2431,7 +2431,7 @@ ApplicationWindow {
         height: 48
         width: parent.width / 2
         anchors.left: parent.left
-        text: "Undo"
+        text: qsTr("Undo")
         icon.source: Theme.getThemeVectorIcon("ic_undo_black_24dp")
         leftPadding: Theme.menuItemLeftPadding
 
@@ -2459,7 +2459,7 @@ ApplicationWindow {
         height: 48
         width: parent.width / 2
         anchors.right: parent.right
-        text: "Redo"
+        text: qsTr("Redo")
         icon.source: Theme.getThemeVectorIcon("ic_redo_black_24dp")
 
         contentItem: IconLabel {
