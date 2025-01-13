@@ -47,7 +47,7 @@ Drawer {
   focus: visible
   clip: true
 
-  onShowMenu: mainMenu.popup(menuButton.x + menuButton.width - mainMenu.width - 2, mainWindow.sceneTopMargin + menuButton.y - 2)
+  onShowMenu: mainMenu.popup(menuButton.x + menuButton.width - mainMenu.width - 2, menuButton.y - 2)
   onShowCloudMenu: qfieldCloudPopup.show()
 
   onActiveLayerChanged: {
