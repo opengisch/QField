@@ -762,7 +762,7 @@ Page {
 
   QfDialog {
     id: importUrlDialog
-    title: "Import URL"
+    title: qsTr("Import URL")
     focus: visible
     y: (mainWindow.height - height - 80) / 2
 
@@ -968,7 +968,7 @@ Page {
 
   QfDialog {
     id: importWebdavDialog
-    title: "Import WebDAV folder"
+    title: qsTr("Import WebDAV folder")
     focus: visible
     y: (mainWindow.height - height - 80) / 2
 
