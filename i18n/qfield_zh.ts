@@ -810,6 +810,54 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
         <translation>无法在图层 &quot;%1&quot; 中回滚撤消要素的修改</translation>
     </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s) on layer %1.</source>
+        <translation><numerusform>撤消在图层%1创建的%n个要素。</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s).</source>
+        <translation><numerusform>撤消创建的%n个要素。</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s) on layer %1.</source>
+        <translation><numerusform>撤消在图层%1删除的%n个要素。</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s).</source>
+        <translation><numerusform>撤消删除的%n个要素。</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s) on layer %1.</source>
+        <translation><numerusform>撤消在图层%1修改的%n个要素。</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s).</source>
+        <translation><numerusform>撤消对%n个要素的修改。</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s) on layer %1</source>
+        <translation><numerusform>重做在图层%1创建的%n个要素</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s)</source>
+        <translation><numerusform>重做创建的%n个要素</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s) on layer %1</source>
+        <translation><numerusform>重做在图层%1删除的%n个要素</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s)</source>
+        <translation><numerusform>重做删除的%n个要素</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s) on layer %1</source>
+        <translation><numerusform>重做在图层%1修改的%n个要素</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s)</source>
+        <translation><numerusform>重做对%n个要素的修改</numerusform></translation>
+    </message>
 </context>
 <context>
     <name>FeatureListForm</name>
@@ -4385,7 +4433,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Return to map</source>
-        <translation type="unfinished"/>
+        <translation>返回地图</translation>
     </message>
 </context>
 <context>
@@ -5078,6 +5126,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Variables</source>
         <translation>变量</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation>撤消</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation>重做</translation>
     </message>
 </context>
 <context>
