@@ -130,11 +130,15 @@ jobs:
         run: |
           DESTDIR=staging cmake --install "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
 
+      - name: Archive app
+        run: |
+          gtar -cpvzf qfield-app-${{ matrix.triplet }}.tar.gz staging
+
       - name: 📦 Upload package
         uses: actions/upload-artifact@v4
         with:
           name: "qfield-app-${{ matrix.triplet }}"
-          path: staging
+          path: qfield-app-${{ matrix.triplet }}.tar.gz
 
       - name: 📊 Upload test report
         if: always()
@@ -188,8 +192,13 @@ jobs:
 
       - name: Create universal app
         run: |
+          mkdir -p x64
+          gtar --strip-components=4 -zxf ./artifacts/qfield-app-x64-osx/qfield-app-x64-osx.tar.gz -C x64
+          mkdir -p arm64
+          gtar --strip-components=4 -zxf ./artifacts/qfield-app-arm64-osx/qfield-app-arm64-osx.tar.gz -C arm64
+
           wget https://raw.githubusercontent.com/faaxm/lipo-dir-merge/refs/heads/main/lipo-dir-merge.py
-          python lipo-dir-merge.py ./artifacts/qfield-app-x64-osx ./artifacts/qfield-app-arm64-osx universal
+          python lipo-dir-merge.py ./x64 ./arm64 universal
 
       - name: Create dmg
         run: |
@@ -203,7 +212,7 @@ jobs:
             export API_KEY_PATH=authkey.p8
           fi
 
-          export APP_PATH=$(pwd)/universal/usr/local/bin/qfield.app
+          export APP_PATH=$(pwd)/universal/qfield.app
           export DMG_PATH=qfield.dmg
           ./platform/macos/create_dmg.sh
 
