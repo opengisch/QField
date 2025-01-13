@@ -119,7 +119,8 @@ set(QFIELD_CORE_SRCS
     valuemapmodel.cpp
     valuemapmodelbase.cpp
     vertexmodel.cpp
-    viewstatus.cpp)
+    viewstatus.cpp
+    webdavconnection.cpp)
 
 set(QFIELD_CORE_HDRS
     platforms/platformutilities.h
@@ -244,6 +245,7 @@ set(QFIELD_CORE_HDRS
     valuemapmodelbase.h
     vertexmodel.h
     viewstatus.h
+    webdavconnection.h
     ${CMAKE_CURRENT_BINARY_DIR}/qfield.h)
 
 list(APPEND QFIELD_CORE_SRCS permissions.cpp)
@@ -288,6 +290,7 @@ endif()
 
 find_package(SQLite3 REQUIRED)
 find_package(ZXing REQUIRED)
+find_package(QtWebDAV REQUIRED)
 
 add_library(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 
@@ -367,7 +370,8 @@ target_link_libraries(
          GDAL::GDAL
          SQLite::SQLite3
          Qca::qca
-         libzip::zip)
+         libzip::zip
+         QtWebDAV::QtWebDAV)
 
 if(WITH_BLUETOOTH)
   find_package(

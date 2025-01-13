@@ -11,12 +11,19 @@ import Theme
 Page {
   id: qfieldLocalDataPickerScreen
 
+  property bool openedOnce: false
   property bool projectFolderView: false
   property alias model: table.model
 
   signal finished(var loading)
 
   focus: visible
+
+  onVisibleChanged: {
+    if (visible) {
+      openedOnce = true;
+    }
+  }
 
   header: QfPageHeader {
     title: projectFolderView ? qsTr("Project Folder") : qsTr("Local Projects & Datasets")
@@ -255,6 +262,7 @@ Page {
                 itemMenu.itemType = ItemType;
                 itemMenu.itemPath = ItemPath;
                 itemMenu.itemIsFavorite = ItemIsFavorite;
+                itemMenu.itemHasWebdavConfiguration = ItemHasWebdavConfiguration;
                 itemMenu.popup(gc.x + width - itemMenu.width, gc.y - height);
               }
             }
@@ -322,7 +330,8 @@ Page {
         round: true
 
         // Since the project menu only has one action for now, hide if PlatformUtilities.UpdateProjectFromArchive is missing
-        property bool isLocalProject: qgisProject && QFieldCloudUtils.getProjectId(qgisProject.fileName) === '' && (projectInfo.filePath.endsWith('.qgs') || projectInfo.filePath.endsWith('.qgz')) && platformUtilities.capabilities & PlatformUtilities.UpdateProjectFromArchive
+        property bool isLocalProject: qgisProject && QFieldCloudUtils.getProjectId(qgisProject.fileName) === '' && (projectInfo.filePath.endsWith('.qgs') || projectInfo.filePath.endsWith('.qgz'))
+        property bool isLocalProjectActionAvailable: updateProjectFromArchive.enabled || uploadProjectToWebdav.enabled
         visible: (projectFolderView && isLocalProject && table.model.currentDepth === 1) || table.model.currentPath === 'root'
 
         anchors.bottom: parent.bottom
@@ -351,6 +360,7 @@ Page {
       property int itemType: 0
       property string itemPath: ''
       property bool itemIsFavorite: false
+      property bool itemHasWebdavConfiguration: false
 
       title: qsTr('Item Actions')
 
@@ -368,6 +378,7 @@ Page {
       topMargin: sceneTopMargin
       bottomMargin: sceneBottomMargin
 
+      // File items
       MenuItem {
         id: sendDatasetTo
         enabled: itemMenu.itemMetaType === LocalFilesModel.File || (platformUtilities.capabilities & PlatformUtilities.CustomSend && itemMenu.itemMetaType == LocalFilesModel.Dataset)
@@ -394,7 +405,7 @@ Page {
         height: enabled ? undefined : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("Push to QFieldCloud...")
+        text: qsTr("Push to QFieldCloud")
         onTriggered: {
           QFieldCloudUtils.addPendingAttachment(cloudProjectsModel.currentProjectId, itemMenu.itemPath);
           platformUtilities.uploadPendingAttachments(cloudConnection);
@@ -418,38 +429,7 @@ Page {
         }
       }
 
-      MenuItem {
-        id: removeDataset
-        enabled: itemMenu.itemMetaType == LocalFilesModel.Dataset && !qfieldLocalDataPickerScreen.projectFolderView && table.model.isDeletedAllowedInCurrentPath
-        visible: enabled
-
-        font: Theme.defaultFont
-        width: parent.width
-        height: enabled ? undefined : 0
-        leftPadding: Theme.menuItemLeftPadding
-
-        text: qsTr("Remove dataset")
-        onTriggered: {
-          platformUtilities.removeDataset(itemMenu.itemPath);
-        }
-      }
-
-      MenuItem {
-        id: exportFolderTo
-        enabled: platformUtilities.capabilities & PlatformUtilities.CustomExport && itemMenu.itemMetaType == LocalFilesModel.Folder
-        visible: enabled
-
-        font: Theme.defaultFont
-        width: parent.width
-        height: enabled ? undefined : 0
-        leftPadding: Theme.menuItemLeftPadding
-
-        text: qsTr("Export to folder...")
-        onTriggered: {
-          platformUtilities.exportFolderTo(itemMenu.itemPath);
-        }
-      }
-
+      // Folder items
       MenuItem {
         id: toggleFavoriteState
         enabled: itemMenu.itemMetaType == LocalFilesModel.Folder && localFilesModel.isPathFavoriteEditable(itemMenu.itemPath)
@@ -470,6 +450,29 @@ Page {
         }
       }
 
+      MenuSeparator {
+        enabled: toggleFavoriteState.visible
+        visible: enabled
+        width: parent.width
+        height: enabled ? undefined : 0
+      }
+
+      MenuItem {
+        id: exportFolderTo
+        enabled: platformUtilities.capabilities & PlatformUtilities.CustomExport && itemMenu.itemMetaType == LocalFilesModel.Folder
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? undefined : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Export to folder...")
+        onTriggered: {
+          platformUtilities.exportFolderTo(itemMenu.itemPath);
+        }
+      }
+
       MenuItem {
         id: sendCompressedFolderTo
         enabled: platformUtilities.capabilities & PlatformUtilities.CustomSend && itemMenu.itemMetaType == LocalFilesModel.Folder
@@ -487,6 +490,65 @@ Page {
       }
 
       MenuItem {
+        id: uploadFolderToWebdav
+        enabled: itemMenu.itemHasWebdavConfiguration
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? undefined : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Upload folder to WebDAV server")
+        onTriggered: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.uploadPath(itemMenu.itemPath);
+          }
+        }
+      }
+
+      MenuItem {
+        id: downloadFolderFromWebdav
+        enabled: itemMenu.itemHasWebdavConfiguration
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? undefined : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Download folder from WebDAV server")
+        onTriggered: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.downloadPath(itemMenu.itemPath);
+          }
+        }
+      }
+
+      MenuSeparator {
+        enabled: removeProjectFolder.visible
+        visible: enabled
+        width: parent.width
+        height: enabled ? undefined : 0
+      }
+
+      MenuItem {
+        id: removeDataset
+        enabled: itemMenu.itemMetaType == LocalFilesModel.Dataset && !qfieldLocalDataPickerScreen.projectFolderView && table.model.isDeletedAllowedInCurrentPath
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? undefined : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Remove dataset")
+        onTriggered: {
+          platformUtilities.removeDataset(itemMenu.itemPath);
+        }
+      }
+
+      MenuItem {
         id: removeProjectFolder
         enabled: itemMenu.itemMetaType == LocalFilesModel.Folder && !qfieldLocalDataPickerScreen.projectFolderView && table.model.isDeletedAllowedInCurrentPath
         visible: enabled
@@ -496,7 +558,7 @@ Page {
         height: enabled ? undefined : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("Remove project folder")
+        text: qsTr("Remove folder")
         onTriggered: {
           platformUtilities.removeFolder(itemMenu.itemPath);
         }
@@ -591,6 +653,20 @@ Page {
         }
       }
 
+      MenuItem {
+        id: importWebdav
+
+        font: Theme.defaultFont
+        width: parent.width
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Import WebDAV folder")
+        onTriggered: {
+          importWebdavDialog.open();
+          importWebdavUrlInput.focus = true;
+        }
+      }
+
       MenuSeparator {
         width: parent.width
       }
@@ -643,13 +719,51 @@ Page {
           platformUtilities.updateProjectFromArchive(projectInfo.filePath);
         }
       }
+
+      MenuItem {
+        id: uploadProjectToWebdav
+
+        enabled: webdavConnectionLoader.item ? webdavConnectionLoader.item.hasWebdavConfiguration(FileUtils.absolutePath(projectInfo.filePath)) : false
+        visible: enabled
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? undefined : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Upload project to WebDAV")
+        onTriggered: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.uploadPath(FileUtils.absolutePath(projectInfo.filePath));
+          }
+        }
+      }
+
+      MenuItem {
+        id: downloadProjectToWebdav
+
+        enabled: uploadProjectToWebdav.enabled
+        visible: enabled
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? undefined : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Download project from WebDAV")
+        onTriggered: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.openedProjectPath = projectInfo.filePath;
+            iface.clearProject();
+            webdavConnectionLoader.item.downloadPath(FileUtils.absolutePath(projectInfo.filePath));
+          }
+        }
+      }
     }
   }
 
   QfDialog {
     id: importUrlDialog
-    title: "Import URL"
-    focus: true
+    title: qsTr("Import URL")
+    focus: visible
     y: (mainWindow.height - height - 80) / 2
 
     onAboutToShow: {
@@ -684,6 +798,348 @@ Page {
 
     onAccepted: {
       iface.importUrl(importUrlInput.text);
+    }
+  }
+
+  Loader {
+    id: webdavConnectionLoader
+    active: qfieldLocalDataPickerScreen.openedOnce
+    sourceComponent: Component {
+      WebdavConnection {
+        id: webdavConnection
+
+        property string openedProjectPath: ""
+
+        onIsImportingPathChanged: {
+          if (isImportingPath) {
+            busyOverlay.text = qsTr("Importing WebDAV folder");
+            busyOverlay.progress = 0;
+            busyOverlay.state = "visible";
+          } else {
+            busyOverlay.state = "hidden";
+          }
+        }
+
+        onIsDownloadingPathChanged: {
+          if (isDownloadingPath) {
+            busyOverlay.text = qsTr("Downloading WebDAV folder");
+            busyOverlay.progress = 0;
+            busyOverlay.state = "visible";
+          } else {
+            busyOverlay.state = "hidden";
+            if (openedProjectPath) {
+              iface.loadFile(openedProjectPath);
+              openedProjectPath = "";
+            }
+          }
+        }
+
+        onIsUploadingPathChanged: {
+          if (isUploadingPath) {
+            busyOverlay.text = qsTr("Uploading WebDAV folder");
+            busyOverlay.progress = 0;
+            busyOverlay.state = "visible";
+          } else {
+            busyOverlay.state = "hidden";
+          }
+        }
+
+        onProgressChanged: {
+          if (isImportingPath || isDownloadingPath || isUploadingPath) {
+            busyOverlay.progress = progress;
+          }
+        }
+
+        onLastErrorChanged: {
+          displayToast(qsTr("WebDAV error: ") + lastError);
+        }
+
+        onConfirmationRequested: (host, username) => {
+          downloadUploadWebdavDialog.isUploadingPath = isUploadingPath;
+          downloadUploadWebdavDialog.host = host;
+          downloadUploadWebdavDialog.username = username;
+          downloadUploadWebdavDialog.open();
+        }
+
+        onImportSuccessful: path => {
+          table.model.currentPath = path;
+        }
+      }
+    }
+  }
+
+  QfDialog {
+    id: downloadUploadWebdavDialog
+    title: isUploadingPath ? qsTr("WebDAV upload") : qsTr("WebDAV download")
+    focus: true
+    y: (mainWindow.height - height - 80) / 2
+
+    property bool isUploadingPath: false
+    property string host: ""
+    property string username: ""
+
+    onAboutToShow: {
+      if (webdavConnectionLoader.item) {
+        webdavConnectionLoader.item.password = downloadUploadWebdavPasswordInput.text;
+        webdavConnectionLoader.item.storePassword = downloadUploadWebdavPasswordCheck.checked;
+      }
+    }
+
+    Column {
+      width: childrenRect.width
+      height: childrenRect.height
+      spacing: 10
+
+      TextMetrics {
+        id: downloadUploadWebdavIntroMetrics
+        font: downloadUploadWebdavIntroLabel.font
+        text: downloadUploadWebdavIntroLabel.text
+      }
+
+      Label {
+        id: downloadUploadWebdavIntroLabel
+        width: mainWindow.width - 60 < downloadUploadWebdavIntroMetrics.width ? mainWindow.width - 60 : downloadUploadWebdavIntroMetrics.width
+        text: downloadUploadWebdavDialog.isUploadingPath ? qsTr("You are about to upload modified content into <b>%1</b> using user <b>%2</b>.<br><br>This operation will overwrite data stored remotely, make sure this is what you want to do.").arg(downloadUploadWebdavDialog.host).arg(downloadUploadWebdavDialog.username) : qsTr("You are about to download modified content from <b>%1</b> using user <b>%2</b>.<br><br>This operation will overwrite data stored locally, make sure this is what you want to do.").arg(downloadUploadWebdavDialog.host).arg(downloadUploadWebdavDialog.username)
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+      }
+
+      TextField {
+        id: downloadUploadWebdavPasswordInput
+        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+        width: downloadUploadWebdavIntroLabel.width
+        rightPadding: leftPadding + (downloadUploadWebdavShowPasswordInput.width - leftPadding)
+        placeholderText: text === "" && webdavConnectionLoader.item && webdavConnectionLoader.item.isPasswordStored ? qsTr("Password (leave empty to use remembered)") : qsTr("Password")
+        echoMode: TextInput.Password
+
+        onDisplayTextChanged: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.password = text;
+          }
+        }
+
+        QfToolButton {
+          id: downloadUploadWebdavShowPasswordInput
+
+          property int originalEchoMode: TextInput.Normal
+
+          visible: (!!parent.echoMode && parent.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
+          iconSource: parent.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
+          iconColor: Theme.mainColor
+          anchors.right: parent.right
+          anchors.verticalCenter: parent.verticalCenter
+          opacity: parent.text.length > 0 ? 1 : 0.25
+          z: 1
+
+          onClicked: {
+            if (parent.echoMode !== TextInput.Normal) {
+              originalEchoMode = parent.echoMode;
+              parent.echoMode = TextInput.Normal;
+            } else {
+              parent.echoMode = originalEchoMode;
+            }
+          }
+        }
+      }
+
+      CheckBox {
+        id: downloadUploadWebdavPasswordCheck
+        width: downloadUploadWebdavIntroLabel.width
+        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+        text: qsTr('Remember password')
+        font: Theme.defaultFont
+        checked: true
+      }
+    }
+
+    onAccepted: {
+      if (webdavConnectionLoader.item) {
+        webdavConnectionLoader.item.confirmRequest();
+      }
+    }
+
+    onRejected: {
+      if (webdavConnectionLoader.item) {
+        webdavConnectionLoader.item.cancelRequest();
+      }
+    }
+  }
+
+  QfDialog {
+    id: importWebdavDialog
+    title: qsTr("Import WebDAV folder")
+    focus: visible
+    y: (mainWindow.height - height - 80) / 2
+
+    onAboutToShow: {
+      if (webdavConnectionLoader.item) {
+        webdavConnectionLoader.item.url = importWebdavUrlInput.text;
+        webdavConnectionLoader.item.username = importWebdavUserInput.text;
+        webdavConnectionLoader.item.password = importWebdavPasswordInput.text;
+        webdavConnectionLoader.item.storePassword = importWebdavStorePasswordCheck.checked;
+      }
+    }
+
+    Column {
+      width: childrenRect.width
+      height: childrenRect.height
+      spacing: 10
+
+      TextMetrics {
+        id: importWebdavUrlLabelMetrics
+        font: importWebdavUrlLabel.font
+        text: importWebdavUrlLabel.text
+      }
+
+      Label {
+        id: importWebdavUrlLabel
+        width: mainWindow.width - 60 < importWebdavUrlLabelMetrics.width ? mainWindow.width - 60 : importWebdavUrlLabelMetrics.width
+        text: qsTr("Type the WebDAV details below to import a remote folder:")
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+      }
+
+      TextField {
+        id: importWebdavUrlInput
+        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+        width: importWebdavUrlLabel.width
+        placeholderText: qsTr("WebDAV server URL")
+
+        onDisplayTextChanged: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.url = displayText;
+          }
+        }
+      }
+
+      TextField {
+        id: importWebdavUserInput
+        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+        width: importWebdavUrlLabel.width
+        placeholderText: qsTr("User")
+
+        onDisplayTextChanged: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.username = displayText;
+          }
+        }
+      }
+
+      TextField {
+        id: importWebdavPasswordInput
+        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+        width: importWebdavUrlLabel.width
+        rightPadding: leftPadding + (importWebdavShowPasswordInput.width - leftPadding)
+        placeholderText: text === "" && webdavConnectionLoader.item && webdavConnectionLoader.item.isPasswordStored ? qsTr("Password (leave empty to use remembered)") : qsTr("Password")
+        echoMode: TextInput.Password
+
+        onDisplayTextChanged: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.password = text;
+          }
+        }
+
+        QfToolButton {
+          id: importWebdavShowPasswordInput
+
+          property int originalEchoMode: TextInput.Normal
+
+          visible: (!!parent.echoMode && parent.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
+          iconSource: parent.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
+          iconColor: Theme.mainColor
+          anchors.right: parent.right
+          anchors.verticalCenter: parent.verticalCenter
+          opacity: parent.text.length > 0 ? 1 : 0.25
+          z: 1
+
+          onClicked: {
+            if (parent.echoMode !== TextInput.Normal) {
+              originalEchoMode = parent.echoMode;
+              parent.echoMode = TextInput.Normal;
+            } else {
+              parent.echoMode = originalEchoMode;
+            }
+          }
+        }
+      }
+
+      CheckBox {
+        id: importWebdavStorePasswordCheck
+        width: importWebdavUrlLabel.width
+        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+        text: qsTr('Remember password')
+        font: Theme.defaultFont
+        checked: true
+      }
+
+      Label {
+        width: importWebdavUrlLabel.width
+        visible: importWebdavPathInput.visible
+        text: qsTr("Select the remote folder to import:")
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+      }
+
+      Row {
+        spacing: 5
+
+        QfButton {
+          id: importWebdavFetchFoldersButton
+          anchors.verticalCenter: importWebdavPathInput.verticalCenter
+          visible: !webdavConnectionLoader.item || webdavConnectionLoader.item.availablePaths.length === 0
+          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+          width: importWebdavUrlLabel.width - (importWebdavFetchFoldersIndicator.visible ? importWebdavFetchFoldersIndicator.width + 5 : 0)
+          text: !enabled ? qsTr("Fetching remote folders") : qsTr("Fetch remote folders")
+
+          onClicked: {
+            webdavConnectionLoader.item.fetchAvailablePaths();
+          }
+        }
+
+        ComboBox {
+          id: importWebdavPathInput
+          width: importWebdavUrlLabel.width - (importWebdavRefetchFoldersButton.width + 5) - (importWebdavFetchFoldersIndicator.visible ? importWebdavFetchFoldersIndicator.width + 5 : 0)
+          visible: webdavConnectionLoader.item && webdavConnectionLoader.item.availablePaths.length > 0
+          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+          model: [''].concat(webdavConnectionLoader.item ? webdavConnectionLoader.item.availablePaths : [])
+        }
+
+        QfToolButton {
+          id: importWebdavRefetchFoldersButton
+          anchors.verticalCenter: importWebdavPathInput.verticalCenter
+          visible: importWebdavPathInput.visible
+          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+          bgcolor: "transparent"
+          iconSource: Theme.getThemeVectorIcon("refresh_24dp")
+          iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+
+          onClicked: {
+            webdavConnectionLoader.item.fetchAvailablePaths();
+          }
+        }
+
+        BusyIndicator {
+          id: importWebdavFetchFoldersIndicator
+          anchors.verticalCenter: importWebdavPathInput.verticalCenter
+          width: 48
+          height: 48
+          visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
+          running: visible
+        }
+      }
+    }
+
+    onAccepted: {
+      if (importWebdavPathInput.displayText !== '' && webdavConnectionLoader.item) {
+        webdavConnectionLoader.item.url = importWebdavUrlInput.text;
+        webdavConnectionLoader.item.username = importWebdavUserInput.text;
+        webdavConnectionLoader.item.password = importWebdavPasswordInput.text;
+        webdavConnectionLoader.item.storePassword = importWebdavStorePasswordCheck.checked;
+        webdavConnectionLoader.item.importPath(importWebdavPathInput.displayText, platformUtilities.applicationDirectory() + "Imported Projects/");
+      }
     }
   }
 

@@ -18,6 +18,7 @@
 #include "platformutilities.h"
 #include "qfieldcloudutils.h"
 #include "qgismobileapp.h"
+#include "webdavconnection.h"
 
 #include <QDir>
 #include <QFile>
@@ -59,6 +60,7 @@ QHash<int, QByteArray> LocalFilesModel::roleNames() const
   roles[ItemSizeRole] = "ItemSize";
   roles[ItemHasThumbnailRole] = "ItemHasThumbnail";
   roles[ItemIsFavoriteRole] = "ItemIsFavorite";
+  roles[ItemHasWebdavConfigurationRole] = "ItemHasWebdavConfiguration";
   return roles;
 }
 
@@ -177,14 +179,14 @@ bool LocalFilesModel::isDeletedAllowedInCurrentPath() const
 {
   const QString path = currentPath();
   const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
-  if ( !applicationDirectory.isEmpty() && path.startsWith( applicationDirectory + QDir::separator() ) )
+  if ( !applicationDirectory.isEmpty() && path.startsWith( applicationDirectory ) )
   {
     return true;
   }
   else
   {
     const QStringList additionalApplicationDirectories = PlatformUtilities::instance()->additionalApplicationDirectories();
-    if ( std::any_of( additionalApplicationDirectories.begin(), additionalApplicationDirectories.end(), [&path]( const QString &directory ) { return ( !directory.isEmpty() && path.startsWith( directory + QDir::separator() ) ); } ) )
+    if ( std::any_of( additionalApplicationDirectories.begin(), additionalApplicationDirectories.end(), [&path]( const QString &directory ) { return ( !directory.isEmpty() && path.startsWith( directory ) ); } ) )
     {
       return true;
     }
@@ -237,10 +239,17 @@ void LocalFilesModel::reloadModel()
     }
 
     const QStringList favorites = QSettings().value( QStringLiteral( "qfieldFavorites" ), QStringList() ).toStringList();
+    QList<Item> favoriteItems;
     for ( const QString &item : favorites )
     {
-      mItems << Item( ItemMetaType::Favorite, ItemType::SimpleFolder, getCurrentTitleFromPath( item ), QString(), item );
+      if ( QFileInfo::exists( item ) )
+      {
+        favoriteItems << Item( ItemMetaType::Favorite, ItemType::SimpleFolder, getCurrentTitleFromPath( item ), QString(), item );
+      }
     }
+
+    std::sort( favoriteItems.begin(), favoriteItems.end(), []( const Item &a, const Item &b ) { return a.title < b.title; } );
+    mItems.append( favoriteItems );
   }
   else
   {
@@ -332,6 +341,11 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
 
     case ItemIsFavoriteRole:
       return mFavorites.contains( mItems[index.row()].path );
+
+    case ItemHasWebdavConfigurationRole:
+    {
+      return WebdavConnection::hasWebdavConfiguration( mItems[index.row()].path );
+    }
   }
 
   return QVariant();
