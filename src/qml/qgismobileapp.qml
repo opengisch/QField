@@ -2575,7 +2575,6 @@ ApplicationWindow {
       icon.source: Theme.getThemeVectorIcon("ic_lock_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
-      rightPadding: 40
 
       onTriggered: {
         mainMenu.close();
@@ -2588,8 +2587,9 @@ ApplicationWindow {
       text: qsTr("About QField")
 
       font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_qfield_black_24dp")
       height: 48
-      leftPadding: Theme.menuItemIconlessLeftPadding
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: {
         dashBoard.close();
