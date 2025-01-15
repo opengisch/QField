@@ -93,7 +93,7 @@ public class QFieldCloudService extends QtService {
             new Notification.Builder(this)
                 .setSmallIcon(R.drawable.qfield_logo)
                 .setWhen(System.currentTimeMillis())
-                .setContentTitle("QField")
+                .setContentTitle("QFieldCloud")
                 .setContentText(getString(R.string.upload_pending_attachments))
                 .setProgress(0, 0, true);
 

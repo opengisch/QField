@@ -34,6 +34,8 @@ package ch.opengis.qfield;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ServiceInfo;
@@ -66,9 +68,10 @@ public class QFieldPositioningService extends QtService {
         context.stopService(intent);
     }
 
-    public static void triggerShowNotification(String message) {
+    public static void triggerShowNotification(String message,
+                                               boolean addCopyToClipboard) {
         if (getInstance() != null) {
-            getInstance().showNotification(message);
+            getInstance().showNotification(message, addCopyToClipboard);
         } else {
             Log.v("QFieldPositioningService",
                   "Showing message failed, no instance available.");
@@ -91,7 +94,7 @@ public class QFieldPositioningService extends QtService {
 
         if (getInstance() != null) {
             Log.v("QFieldPositioningService",
-                  "service already running, aborting.");
+                  "service already running, aborting onCreate.");
             stopSelf();
             return;
         }
@@ -102,15 +105,24 @@ public class QFieldPositioningService extends QtService {
         Log.v("QFieldPositioningService", "onDestroy triggered");
         notificationManager.cancel(NOTIFICATION_ID);
         super.onDestroy();
+        instance = null;
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.v("QFieldPositioningService", "onStartCommand triggered");
-        int ret = super.onStartCommand(intent, flags, startId);
 
+        if (intent.hasExtra("content")) {
+            ClipboardManager clipboard =
+                (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+            clipboard.setText(intent.getStringExtra("content"));
+            return START_NOT_STICKY;
+        }
+
+        int ret = super.onStartCommand(intent, flags, startId);
         if (instance != null) {
-            stopSelf();
+            Log.v("QFieldPositioningService",
+                  "service already running, aborting onStartCommand.");
             return START_NOT_STICKY;
         }
 
@@ -122,7 +134,7 @@ public class QFieldPositioningService extends QtService {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             notificationChannel = new NotificationChannel(
                 CHANNEL_ID, "QField", NotificationManager.IMPORTANCE_DEFAULT);
-            notificationChannel.setDescription("QField positioning");
+            notificationChannel.setDescription("QField Positioning");
             notificationChannel.setImportance(
                 NotificationManager.IMPORTANCE_LOW);
             notificationChannel.enableLights(false);
@@ -135,8 +147,8 @@ public class QFieldPositioningService extends QtService {
                 .setSmallIcon(R.drawable.qfield_logo)
                 .setWhen(System.currentTimeMillis())
                 .setOngoing(true)
-                .setContentTitle("QField")
-                .setContentText("Positioning service running");
+                .setContentTitle(getString(R.string.positioning_title))
+                .setContentText(getString(R.string.positioning_running));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             builder.setChannelId(CHANNEL_ID);
@@ -154,16 +166,34 @@ public class QFieldPositioningService extends QtService {
         return START_STICKY;
     }
 
-    public void showNotification(String contentText) {
-        Notification.Builder builder = new Notification.Builder(this)
-                                           .setSmallIcon(R.drawable.qfield_logo)
-                                           .setWhen(System.currentTimeMillis())
-                                           .setOngoing(true)
-                                           .setContentTitle("QField")
-                                           .setContentText(contentText);
+    public void showNotification(String contentText,
+                                 boolean addCopyToClipboard) {
+        // Return to QField activity when clicking on the notification
+        PendingIntent contentIntent = PendingIntent.getActivity(
+            this, 0, new Intent(this, QFieldActivity.class),
+            PendingIntent.FLAG_MUTABLE);
+
+        Notification.Builder builder =
+            new Notification.Builder(this)
+                .setSmallIcon(R.drawable.qfield_logo)
+                .setWhen(System.currentTimeMillis())
+                .setOngoing(true)
+                .setContentTitle(getString(R.string.positioning_title))
+                .setContentText(contentText)
+                .setContentIntent(contentIntent);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             builder.setChannelId(CHANNEL_ID);
+        }
+        if (addCopyToClipboard) {
+            // Allow for position details to be copied to the clipboard
+            Intent copyIntent =
+                new Intent(this, QFieldPositioningService.class);
+            copyIntent.putExtra("content", contentText);
+            PendingIntent copyPendingIntent = PendingIntent.getService(
+                this, 0, copyIntent, PendingIntent.FLAG_MUTABLE);
+            builder.addAction(0, getString(R.string.copy_to_clipboard),
+                              copyPendingIntent);
         }
 
         Notification notification = builder.build();

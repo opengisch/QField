@@ -278,7 +278,7 @@
     <meta-data android:name="io.sentry.environment" android:value="@SENTRY_ENV@" />
     <meta-data android:name="io.sentry.auto-init" android:value="false" />
 
-    <service android:process=":qt" android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldCloudService">
+    <service android:process=":qt_service" android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldCloudService">
       <meta-data android:name="android.app.arguments" android:value="--cloudservice"/>
       <meta-data android:name="android.app.lib_name" android:value="@string/lib_name"/>
       <meta-data android:name="android.app.repository" android:value="default"/>

@@ -20,6 +20,7 @@
 
 #include <QAbstractItemModel>
 
+class QgsQuickCoordinateTransformer;
 class RubberbandModel;
 class Track;
 
@@ -37,18 +38,7 @@ class TrackingModel : public QAbstractItemModel
     enum TrackingRoles
     {
       DisplayString = Qt::UserRole,
-      VectorLayer,            //! layer in the current tracking session
-      RubberModel,            //! rubberbandmodel used in the current tracking session
-      TimeInterval,           //! minimum time interval constraint between each tracked point
-      MinimumDistance,        //! minimum distance constraint between each tracked point
-      Conjunction,            //! if TRUE, all constraints needs to be fulfilled before tracking a point
-      Visible,                //! if TRUE, the tracking session rubberband is visible
-      Feature,                //! feature in the current tracking session
-      StartPositionTimestamp, //! timestamp when the current tracking session started
-      MeasureType,            //! measurement type used to set the measure value
-      SensorCapture,          //! if TRUE, newly captured sensor data constraint will be required between each tracked point
-      MaximumDistance,        //! maximum distance tolerated beyond which a position will be considered errenous
-      IsActive,               //! if TRUE, the tracker has been started
+      TrackerPointer,
     };
 
     QHash<int, QByteArray> roleNames() const override;
@@ -64,7 +54,7 @@ class TrackingModel : public QAbstractItemModel
     //! Creates a tracking session for the provided vector \a layer.
     Q_INVOKABLE QModelIndex createTracker( QgsVectorLayer *layer );
     //! Starts tracking for the provided vector \a layer provided it has a tracking session created.
-    Q_INVOKABLE void startTracker( QgsVectorLayer *layer );
+    Q_INVOKABLE void startTracker( QgsVectorLayer *layer, const GnssPositionInformation &positionInformation = GnssPositionInformation(), const QgsPoint &projectedPosition = QgsPoint() );
     //! Stops the tracking session of the provided vector \a layer.
     Q_INVOKABLE void stopTracker( QgsVectorLayer *layer );
     //! Sets whether the tracking session rubber band is \a visible.
@@ -77,6 +67,9 @@ class TrackingModel : public QAbstractItemModel
     Q_INVOKABLE bool layerInTracking( QgsVectorLayer *layer );
     //! Returns the tracker for the vector \a layer if a tracking session is present, otherwise returns NULLPTR.
     Tracker *trackerForLayer( QgsVectorLayer *layer );
+
+    //! Replays a list of position information for all active trackers
+    Q_INVOKABLE void replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer = nullptr );
 
     void reset();
 
@@ -98,7 +91,7 @@ class TrackingModel : public QAbstractItemModel
     QList<Tracker *> mTrackers;
     QList<Tracker *>::const_iterator trackerIterator( QgsVectorLayer *layer )
     {
-      return std::find_if( mTrackers.constBegin(), mTrackers.constEnd(), [layer]( const Tracker *tracker ) { return tracker->layer() == layer; } );
+      return std::find_if( mTrackers.constBegin(), mTrackers.constEnd(), [layer]( const Tracker *tracker ) { return tracker->vectorLayer() == layer; } );
     }
 };
 
