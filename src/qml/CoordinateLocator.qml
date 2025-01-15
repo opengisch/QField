@@ -33,6 +33,7 @@ Item {
   property bool snapToCommonAngles: false
   property bool snappingIsRelative: false
   property real snappingAngleDegrees: 45.0
+  property real snappingTolerance: 0
 
   /**
    * Overrides any possibility for the user to modify the coordinate.
