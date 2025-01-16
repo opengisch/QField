@@ -64,4 +64,5 @@
     <string name="import_operation_unsupported">Vaše zariadenie nepodporuje túto možnosť importu.</string>
     <string name="export_operation_unsupported">Vaše zariadenie nepodporuje túto možnosť exportu.</string>
     <string name="processing_message">Spracováva sa…</string>
-</resources>
+    <string name="positioning_title">Určenie polohy</string>
+    </resources>

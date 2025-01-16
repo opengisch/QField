@@ -42,4 +42,5 @@
     <string name="delete_confirm_folder">Projektni direktorij će biti trajno izbrisan, nastaviti sa uklanjanjem?</string>
     <string name="delete_confirm">Ukloni</string>
     <string name="delete_cancel">Otkaži</string>
+    <string name="positioning_title">Lociranje</string>
     </resources>

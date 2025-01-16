@@ -1364,10 +1364,6 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation>Esta capa está a trazar a posición do dispositivo.</translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Esta capa é incorrecta. Isto pode ser debido a unha incidencia na rede, á falta dun ficheiro ou a unha mala configuración do proxecto.</translation>
     </message>
@@ -1378,6 +1374,18 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Esta capa está configurada coma de &quot;Xeometrías Bloqueadas&quot;, o cal desactiva o engadido e a eliminación de entidades, así como a modificación das xeometrías existentes.</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>Detívose o seguimento na capa %1</translation>
     </message>
 </context>
 <context>
@@ -3148,11 +3156,11 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
 <context>
     <name>QFieldPositioningService</name>
     <message>
-        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Positioning service running</source>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4726,11 +4734,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Received position</source>
-        <translation>Posición recibida</translation>
+        <translation type="vanished">Posición recibida</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Buscando a posición</translation>
+        <translation type="vanished">Buscando a posición</translation>
     </message>
     <message>
         <source>Canvas follows location</source>

@@ -1362,10 +1362,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation>该图层当前正在跟踪设备位置。</translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>此图层无效。这可能是由于网络问题、文件丢失或工程配置错误造成的。</translation>
     </message>
@@ -1376,6 +1372,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>该图层被配置为“锁定几何图形”，禁用添加和删除要素以及修改现有要素的几何图形。</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation>该图层当前正在跟踪位置。</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>停止</translation>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>在图层 %1 上的追踪已停止</translation>
     </message>
 </context>
 <context>
@@ -3146,12 +3154,12 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldPositioningService</name>
     <message>
-        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
-        <translation>纬度 %1 | 经度 %2 | 海拔 %3 | 方位 %4</translation>
-    </message>
-    <message>
         <source>Positioning service running</source>
         <translation>定位服务正在运行</translation>
+    </message>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
+        <translation>纬度 %1 | 经度 %2 | 海拔 %3 m | 速度 %4 m/s | 方向 %5°</translation>
     </message>
 </context>
 <context>
@@ -4724,11 +4732,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Received position</source>
-        <translation>获取定位信息</translation>
+        <translation type="vanished">获取定位信息</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>搜索定位</translation>
+        <translation type="vanished">搜索定位</translation>
     </message>
     <message>
         <source>Canvas follows location</source>

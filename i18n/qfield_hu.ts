@@ -1363,10 +1363,6 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation>Az eszközpozíciót jelenleg rögzítő réteg </translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Ez a réteg hibás. Ezt okozhatja hálózati hiba, hiányzó fájl vagy tévesen konfigurált projekt.</translation>
     </message>
@@ -1377,6 +1373,18 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Ezt  réteget zárolt geometriával konfigurálták, mely tiltja az elemek hozzáadását, törlését és szerkesztését valamint a létező elemek geometriájának módosítását.</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>%1 rétegen a követés leállt</translation>
     </message>
 </context>
 <context>
@@ -3142,11 +3150,11 @@ name(string), owner(string), description(string), user_role(string), is_public(b
 <context>
     <name>QFieldPositioningService</name>
     <message>
-        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Positioning service running</source>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4722,11 +4730,11 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Received position</source>
-        <translation>Kapott pozíció</translation>
+        <translation type="vanished">Kapott pozíció</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Pozíció keresés</translation>
+        <translation type="vanished">Pozíció keresés</translation>
     </message>
     <message>
         <source>Canvas follows location</source>

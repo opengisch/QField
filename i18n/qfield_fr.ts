@@ -1365,10 +1365,6 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation>Cette couche suit actuellement la position de l&apos;appareil.</translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Cette couche est invalide. Cela peut être dû à un problème de réseau, un fichier absent ou une erreur de configuration du projet.</translation>
     </message>
@@ -1379,6 +1375,18 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Cette couche est configurée en &quot;géométries verrouillées&quot;, ce qui désactive l&apos;ajout, la suppression et l&apos;édition d&apos;entités ainsi que la modification des géométries des entités existantes.</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>Suivi de la couche %1 arrêté</translation>
     </message>
 </context>
 <context>
@@ -3146,11 +3154,11 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
 <context>
     <name>QFieldPositioningService</name>
     <message>
-        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Positioning service running</source>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4725,11 +4733,11 @@ Essayez les exemples de projets répertoriés ci-dessous.</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Position reçue</translation>
+        <translation type="vanished">Position reçue</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Recherche de la position</translation>
+        <translation type="vanished">Recherche de la position</translation>
     </message>
     <message>
         <source>Canvas follows location</source>

@@ -1364,10 +1364,6 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation>Tämä taso seuraa laiteesi sijaintia</translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Taso ei ole kelvollinen. Tämä voi johtua yhteysongelmasta, puuttuvasta tiedostosta tai virheellisestä projektista.</translation>
     </message>
@@ -1378,6 +1374,18 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Tämä taso on konfiguroitu &quot;lukittu-geometria&quot;-muotoon, mikä estää kohteiden lisäyksen, poistamisen ja olemassa olevien kohteiden geometrioiden muokkauksen.</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>Jäljitys %1 tasolla keskeytetty</translation>
     </message>
 </context>
 <context>
@@ -3150,11 +3158,11 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
 <context>
     <name>QFieldPositioningService</name>
     <message>
-        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Positioning service running</source>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4728,11 +4736,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Saatiin sijainti</translation>
+        <translation type="vanished">Saatiin sijainti</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Haetaan sijaintia</translation>
+        <translation type="vanished">Haetaan sijaintia</translation>
     </message>
     <message>
         <source>Canvas follows location</source>

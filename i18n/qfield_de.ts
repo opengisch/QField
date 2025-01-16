@@ -1363,10 +1363,6 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation>Dieser Layer trackt momentan die aktuelle Position</translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Dieses Layer ist ungültig. Dies kann auf ein Netzwerkproblem, eine fehlende Datei oder eine Fehlkonfiguration des Projekts zurückzuführen sein.</translation>
     </message>
@@ -1377,6 +1373,18 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Bei diesem Layer ist das Bearbeiten von Geometrien gesperrt. Dies verhindert sowohl das Hinzufügen und Löschen von Objekten, als auch das Bearbeiten der Geometrien von bestehenden Objekten</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>Tracking in Layer %1 deaktiviert</translation>
     </message>
 </context>
 <context>
@@ -3145,11 +3153,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
 <context>
     <name>QFieldPositioningService</name>
     <message>
-        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Positioning service running</source>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4723,11 +4731,11 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Position empfangen</translation>
+        <translation type="vanished">Position empfangen</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Suche Position...</translation>
+        <translation type="vanished">Suche Position...</translation>
     </message>
     <message>
         <source>Canvas follows location</source>

@@ -58,4 +58,5 @@
     <string name="import_project_wait">Molim pričekaj dok QField uvozi projekt</string>
     <string name="import_dataset_wait">Molim pričekaj dok QField uvozi skup(ove) podataka</string>
     <string name="upload_pending_attachments">Trenutno šaljem priloge na QFieldCloud</string>
+    <string name="positioning_title">Pozicioniranje</string>
     </resources>

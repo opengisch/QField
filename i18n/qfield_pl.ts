@@ -1368,10 +1368,6 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation>Ta warstwa aktualnie śledzi pozycję urządzenia.</translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Ta warstwa jest nieprawidłowa. Może to być spowodowane błędem sieci, brakującym plikiem lub błędną konfiguracją projektu.</translation>
     </message>
@@ -1382,6 +1378,18 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Ta warstwa jest skonfigurowana jako „Zablokuj geometrie”, co uniemożliwia dodawanie i usuwanie obiektów, a także modyfikowanie geometrii istniejących obiektów.</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>Zatrzymano ślad na warstwie %1</translation>
     </message>
 </context>
 <context>
@@ -3152,12 +3160,12 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
 <context>
     <name>QFieldPositioningService</name>
     <message>
-        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
-        <translation>Szerokość geogr. %1 | Długość geogr. %2 | Wysokość %3 | Orientacja %4</translation>
-    </message>
-    <message>
         <source>Positioning service running</source>
         <translation>Uruchomiona usługa pozycjonowania</translation>
+    </message>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4730,11 +4738,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Pobrano pozycję</translation>
+        <translation type="vanished">Pobrano pozycję</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Szukanie pozycji</translation>
+        <translation type="vanished">Szukanie pozycji</translation>
     </message>
     <message>
         <source>Canvas follows location</source>

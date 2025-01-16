@@ -1368,10 +1368,6 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation>Tato vrstva právě nese trasování polohy zařízení.</translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Tato vrstva je neplatná. Může to být způsobeno problémem se sítí, chybějícím souborem nebo nesprávnou konfigurací projektu.</translation>
     </message>
@@ -1382,6 +1378,18 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Tato vrstva je nakonfigurována jako „Uzamknout geometrii“, která zakazuje přidávání a mazání prvků, jakož i úpravu geometrie existujících prvků.</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>Trasa na vrstvě %1 se zastavila</translation>
     </message>
 </context>
 <context>
@@ -3151,11 +3159,11 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
 <context>
     <name>QFieldPositioningService</name>
     <message>
-        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Positioning service running</source>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4729,11 +4737,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Získávání polohy</translation>
+        <translation type="vanished">Získávání polohy</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Získávání polohy</translation>
+        <translation type="vanished">Získávání polohy</translation>
     </message>
     <message>
         <source>Canvas follows location</source>

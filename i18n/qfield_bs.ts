@@ -1365,10 +1365,6 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Sloj je pogrešan. Možda je problem sa mrežom, fajl nedostaje ili projekat nije dobro konfigurisan.</translation>
     </message>
@@ -1379,6 +1375,18 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Sloj je konfigurisan kao &quot;Zaključaj geometriju&quot; što onemogućava dodavanje i brisanje objekata, kao i mijenjanje geometrije postojećih objekata.</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>Praćenje na sloju %1 zaustavljeno</translation>
     </message>
 </context>
 <context>
@@ -3149,11 +3157,11 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
 <context>
     <name>QFieldPositioningService</name>
     <message>
-        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Positioning service running</source>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4726,11 +4734,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Primjena lokacija</translation>
+        <translation type="vanished">Primjena lokacija</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Traženje lokacije</translation>
+        <translation type="vanished">Traženje lokacije</translation>
     </message>
     <message>
         <source>Canvas follows location</source>

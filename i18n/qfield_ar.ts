@@ -1360,10 +1360,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>هذه الطبقة غير متاحة، قد يكون ذلك بسبب مشكلة في الشبكة، يوجد ملفات ناقصة أو أخطاء في ضبط المشورع.</translation>
     </message>
@@ -1374,6 +1370,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>هذه الطبقة مضبوطة مقفولة الأشكال، حيث لا يمكن إضافة أو حذف الميزات، بينما يمكن تحرير أشكال الميزات الموجودة فقط.</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>تم إيقاف التتبع على الطبقة %1</translation>
     </message>
 </context>
 <context>
@@ -3144,11 +3152,11 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldPositioningService</name>
     <message>
-        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Positioning service running</source>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4722,11 +4730,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Received position</source>
-        <translation>الموقع المُستقبل</translation>
+        <translation type="vanished">الموقع المُستقبل</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>البحث عن موقع</translation>
+        <translation type="vanished">البحث عن موقع</translation>
     </message>
     <message>
         <source>Canvas follows location</source>

@@ -58,4 +58,5 @@
     <string name="import_project_wait">Vă rugăm să așteptați până când QField importă proiectul</string>
     <string name="import_dataset_wait">Așteptați până când QField importă setul (seturile) de date</string>
     <string name="upload_pending_attachments">În prezent, se încarcă atașamente în QFieldCloud</string>
+    <string name="positioning_title">Poziționare</string>
     </resources>

@@ -1367,10 +1367,6 @@ Dôvod:
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation>Na tejto vrstve prebieha trasovanie polohy zariadenia.</translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Táto vrstva je neplatná. Tento problém mohol vzniknúť kvôli chybe v sieti, chýbajúcemu súboru alebo zlou konfiguráciou projektu.</translation>
     </message>
@@ -1381,6 +1377,18 @@ Dôvod:
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Táto vrstva má zamknuté geometrie, nemožno pridávať ani zmazať prvky, ako aj modifikovať geometrie existujúcich prvkov.</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>Trasovanie na hladine %1 zastavené</translation>
     </message>
 </context>
 <context>
@@ -3151,11 +3159,11 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
 <context>
     <name>QFieldPositioningService</name>
     <message>
-        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Positioning service running</source>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4729,11 +4737,11 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Získaná polohy</translation>
+        <translation type="vanished">Získaná polohy</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Vyhľadávanie polohy</translation>
+        <translation type="vanished">Vyhľadávanie polohy</translation>
     </message>
     <message>
         <source>Canvas follows location</source>

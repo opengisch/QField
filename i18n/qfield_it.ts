@@ -1366,10 +1366,6 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation>Questo layer sta attualmente monitorando la posizione del dispositivo.</translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Questo layer non è valido. Ciò potrebbe essere dovuto a un problema di rete, a un file mancante o ad una configurazione errata del progetto.</translation>
     </message>
@@ -1380,6 +1376,18 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Questo layer è configurato come &quot;Geometrie Bloccate&quot; che disabilita l&apos;aggiunta e l&apos;eliminazione degli elementi, nonché la modifica delle geometrie degli elementi esistenti.</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>Tracking sul layer %1 interrotto</translation>
     </message>
 </context>
 <context>
@@ -3153,11 +3161,11 @@ Messaggio dell&apos;errore: %4</translation>
 <context>
     <name>QFieldPositioningService</name>
     <message>
-        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Positioning service running</source>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4731,11 +4739,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Posizione ricevuta</translation>
+        <translation type="vanished">Posizione ricevuta</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Ricerca della posizione</translation>
+        <translation type="vanished">Ricerca della posizione</translation>
     </message>
     <message>
         <source>Canvas follows location</source>

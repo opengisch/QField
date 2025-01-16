@@ -1362,10 +1362,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation>このレイヤーは現在デバイスの位置を追跡しています。</translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>このレイヤーは無効です。これはネットワークの問題、ファイルの欠落、もしくはプロジェクトの設定ミスが原因の可能性があります。</translation>
     </message>
@@ -1376,6 +1372,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>このレイヤーは、地物の追加と削除、および既存のフィーチャのジオメトリの変更を無効にする「ジオメトリのロック」が設定されています。</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>レイヤ %1 の追跡を停止しました</translation>
     </message>
 </context>
 <context>
@@ -3146,11 +3154,11 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldPositioningService</name>
     <message>
-        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Positioning service running</source>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4724,11 +4732,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Received position</source>
-        <translation>現在地を受信しました</translation>
+        <translation type="vanished">現在地を受信しました</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>現在地を探しています</translation>
+        <translation type="vanished">現在地を探しています</translation>
     </message>
     <message>
         <source>Canvas follows location</source>

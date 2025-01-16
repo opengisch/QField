@@ -1368,10 +1368,6 @@ Motiv:
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Acest strat este invalid. Acest lucru se poate datora unei probleme de rețea, a unui fișier lipsă sau a configurării greșite a proiectului.</translation>
     </message>
@@ -1382,6 +1378,18 @@ Motiv:
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Acest strat este configurat drept &quot;Geometri blocate&quot; fapt care dezactivează adăugarea și ștergerea elementelor, precum și modificarea geometriilor aferente elementelor existente.</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>Urmărirea stratului %1 s-a oprit</translation>
     </message>
 </context>
 <context>
@@ -3152,11 +3160,11 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldPositioningService</name>
     <message>
-        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Positioning service running</source>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4730,11 +4738,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Poziție primită</translation>
+        <translation type="vanished">Poziție primită</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Căutam poziția</translation>
+        <translation type="vanished">Căutam poziția</translation>
     </message>
     <message>
         <source>Canvas follows location</source>

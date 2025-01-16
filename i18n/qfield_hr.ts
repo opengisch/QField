@@ -1366,10 +1366,6 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation>Ovaj sloj trenutno snima poziciju uređaja.</translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Ovaj sloj je nevažeći. Ovo se može događati zbog: problema s mrežom, datoteke koja nedostaje ili projekta koji nije dobro konfiguriran.</translation>
     </message>
@@ -1380,6 +1376,18 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Sloj je konfiguriran kao &quot;Zaključana geometrija&quot; što onemogućava dodavanje i brisanje elemenata, kao i mijenjanje geometrije postojećih elemenata.</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>Praćenje na sloju %1 zaustavljeno</translation>
     </message>
 </context>
 <context>
@@ -3146,11 +3154,11 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldPositioningService</name>
     <message>
-        <source>Latitude %1 | Longitude %2 | Altitude %3 | Orientation %4</source>
+        <source>Positioning service running</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Positioning service running</source>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4724,11 +4732,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Pozicija primljena</translation>
+        <translation type="vanished">Pozicija primljena</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Traženje lokacije</translation>
+        <translation type="vanished">Traženje lokacije</translation>
     </message>
     <message>
         <source>Canvas follows location</source>

@@ -57,4 +57,5 @@
     <string name="storage_information_dismiss">Я прочитаю пізніше</string>
     <string name="import_project_wait">Зачекайте, поки QField імпортує проект</string>
     <string name="import_dataset_wait">Зачекайте, поки QField імпортує набор(и) даних</string>
+    <string name="positioning_title">Позиціювання</string>
     </resources>

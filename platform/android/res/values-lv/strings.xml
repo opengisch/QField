@@ -60,4 +60,4 @@
     <string name="import_operation_unsupported">Jūsu ierīce neatbalsta šo importēšanas darbību.</string>
     <string name="export_operation_unsupported">Jūsu ierīce neatbalsta šo eksportēšanas darbību.</string>
     <string name="processing_message">Notiek apstrāde…</string>
-</resources>
+    </resources>
