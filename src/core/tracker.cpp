@@ -161,7 +161,7 @@ void Tracker::trackPosition()
     return;
   }
 
-  if ( !qgsDoubleNear( mMaximumDistance, 0.0 ) && mCurrentDistance > mMaximumDistance )
+  if ( mRubberbandModel->vertexCount() > 1 && !qgsDoubleNear( mMaximumDistance, 0.0 ) && mCurrentDistance > mMaximumDistance )
   {
     // Simple logic to avoid getting stuck in an infinite erroneous distance having somehow actually moved beyond the safeguard threshold
     if ( ++mMaximumDistanceFailuresCount < MAXIMUM_DISTANCE_FAILURES )
@@ -190,7 +190,7 @@ void Tracker::positionReceived()
     return;
   }
 
-  if ( !qgsDoubleNear( mMinimumDistance, 0.0 ) || !qgsDoubleNear( mMaximumDistance, 0.0 ) )
+  if ( mRubberbandModel->vertexCount() > 1 && ( !qgsDoubleNear( mMinimumDistance, 0.0 ) || !qgsDoubleNear( mMaximumDistance, 0.0 ) ) )
   {
     QVector<QgsPointXY> points = mRubberbandModel->flatPointSequence( QgsProject::instance()->crs() );
 
@@ -210,7 +210,7 @@ void Tracker::positionReceived()
 
   if ( !qgsDoubleNear( mMinimumDistance, 0.0 ) )
   {
-    mMinimumDistanceFulfilled = mCurrentDistance >= mMinimumDistance;
+    mMinimumDistanceFulfilled = mRubberbandModel->vertexCount() == 1 || mCurrentDistance >= mMinimumDistance;
 
     if ( !mConjunction && mMinimumDistanceFulfilled )
     {
@@ -221,7 +221,7 @@ void Tracker::positionReceived()
 
   if ( !qgsDoubleNear( mTimeInterval, 0.0 ) )
   {
-    mTimeIntervalFulfilled = ( mLastDevicePositionTimestamp.toMSecsSinceEpoch() - mLastVertexPositionTimestamp.toMSecsSinceEpoch() ) >= mTimeInterval * 1000;
+    mTimeIntervalFulfilled = mRubberbandModel->vertexCount() == 1 || ( ( mLastDevicePositionTimestamp.toMSecsSinceEpoch() - mLastVertexPositionTimestamp.toMSecsSinceEpoch() ) >= mTimeInterval * 1000 );
 
     if ( !mConjunction && mTimeIntervalFulfilled )
     {
