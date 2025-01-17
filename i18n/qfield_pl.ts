@@ -1381,11 +1381,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
-        <translation type="unfinished"/>
+        <translation>Ta warstwa obecnie śledzi pozycje.</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"/>
+        <translation>Zatrzymaj</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -3165,7 +3165,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
-        <translation type="unfinished"/>
+        <translation>Szerokość geogr. %1 | Długość geogr. %2 | Wysokość %3 m | Prędkość %4 m/s | Kierunek %5°</translation>
     </message>
 </context>
 <context>

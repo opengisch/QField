@@ -65,4 +65,5 @@
     <string name="processing_message">Przetwarzanie...</string>
     <string name="positioning_title">Lokalizacja</string>
     <string name="positioning_running">Uruchomiona usługa pozycjonowania</string>
-    </resources>
+    <string name="copy_to_clipboard">Kopiuj do schowka</string>
+</resources>
