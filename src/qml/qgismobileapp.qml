@@ -2420,7 +2420,7 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-      let result = 50;
+      let result = Math.max(50, undoRedoMetrics.width + undoButton.leftPadding * 2 + undoButton.rightPadding * 2 + 42 * 2);
       let padding = 0;
       // Skip first Row item
       for (let i = 1; i < count; ++i) {
@@ -2429,6 +2429,12 @@ ApplicationWindow {
         padding = Math.max(item.leftPadding + item.rightPadding, padding);
       }
       return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
+    }
+
+    TextMetrics {
+      id: undoRedoMetrics
+      font: undoButton.font
+      text: undoButton.text + redoButton.text
     }
 
     Item {
@@ -2461,7 +2467,7 @@ ApplicationWindow {
       MenuSeparator {
         width: 1
         height: parent.height
-        anchors.left: undoButton.right
+        anchors.right: redoButton.left
       }
 
       MenuItem {
@@ -2474,15 +2480,14 @@ ApplicationWindow {
         icon.source: Theme.getThemeVectorIcon("ic_redo_black_24dp")
 
         contentItem: IconLabel {
-          leftPadding: 22
+          leftPadding: undoButton.leftPadding
           spacing: redoButton.spacing
           mirrored: true
           display: redoButton.display
           icon: redoButton.icon
           text: redoButton.text
           font: redoButton.font
-          color: Theme.mainTextColor
-          opacity: redoButton.enabled ? 1 : .35
+          color: redoButton.enabled ? redoButton.Material.foreground : redoButton.Material.hintTextColor
         }
 
         onClicked: {
