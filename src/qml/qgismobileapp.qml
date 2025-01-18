@@ -2534,11 +2534,15 @@ ApplicationWindow {
       }
     }
 
+    MenuSeparator {
+      width: parent.width
+    }
+
     MenuItem {
-      text: qsTr("Variables")
+      text: qsTr("Settings")
 
       font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_expression_black_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_tune_white_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
 
@@ -2546,7 +2550,6 @@ ApplicationWindow {
         dashBoard.close();
         qfieldSettings.reset();
         qfieldSettings.visible = true;
-        qfieldSettings.currentPanel = 2;
         highlighted = false;
       }
     }
@@ -2566,10 +2569,6 @@ ApplicationWindow {
       }
     }
 
-    MenuSeparator {
-      width: parent.width
-    }
-
     MenuItem {
       text: qsTr("Lock Screen")
 
@@ -2583,6 +2582,10 @@ ApplicationWindow {
         dashBoard.close();
         screenLocker.enabled = true;
       }
+    }
+
+    MenuSeparator {
+      width: parent.width
     }
 
     MenuItem {
