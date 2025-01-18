@@ -66,4 +66,6 @@ Suositeltavaa on, että valitset peruuta, katkaiset USB-kaapeliyhteydet ja käyn
     <string name="export_operation_unsupported">Laitteesi ei tue tätä vienti toimintoa</string>
     <string name="processing_message">Prosessoidaan...</string>
     <string name="positioning_title">Paikannus</string>
-    </resources>
+    <string name="positioning_running">Sijaintipalvelut käynnissä</string>
+    <string name="copy_to_clipboard">Kopioi leikepöydälle</string>
+</resources>

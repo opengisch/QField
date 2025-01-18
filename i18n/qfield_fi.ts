@@ -1381,7 +1381,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"/>
+        <translation>Stop</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -1686,7 +1686,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Rotate Feature</source>
-        <translation type="unfinished"/>
+        <translation>Käännä kohdetta</translation>
     </message>
 </context>
 <context>
@@ -2206,7 +2206,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>QFieldAppAuthRequestHandler</name>
     <message>
         <source>Please enter credentials for database</source>
-        <translation type="unfinished"/>
+        <translation>Syötä tietokannan pääsytiedot</translation>
     </message>
     <message>
         <source>at host</source>
@@ -3120,7 +3120,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Password (leave empty to use remembered)</source>
-        <translation type="unfinished"/>
+        <translation>Salasana (jätä tyhjäksi käyttääksesi muistissa olevaa)</translation>
     </message>
     <message>
         <source>Password</source>
@@ -3128,7 +3128,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Remember password</source>
-        <translation type="unfinished"/>
+        <translation>Muista salasana</translation>
     </message>
     <message>
         <source>Type the WebDAV details below to import a remote folder:</source>
@@ -3136,34 +3136,34 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>WebDAV server URL</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV palvelin URL</translation>
     </message>
     <message>
         <source>User</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjä</translation>
     </message>
     <message>
         <source>Select the remote folder to import:</source>
-        <translation type="unfinished"/>
+        <translation>Valitse tuotava etähakemisto:</translation>
     </message>
     <message>
         <source>Fetching remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Haetaan etähakemistoja</translation>
     </message>
     <message>
         <source>Fetch remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Hae etähakemistot</translation>
     </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>
     <message>
         <source>Positioning service running</source>
-        <translation type="unfinished"/>
+        <translation>Sijaintipalvelut käynnissä</translation>
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
-        <translation type="unfinished"/>
+        <translation>Latitudi %1 | Longitudi %2 | Korkeus %3 m | Nopeus %4 m/s | Suunta %5°</translation>
     </message>
 </context>
 <context>
@@ -4429,11 +4429,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>WebdavConnection</name>
     <message>
         <source>Failed to download file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Tiedoston lataus %1 epäonnistui verkkovirheen vuoksi (%2)</translation>
     </message>
     <message>
         <source>Failed to upload file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Tiedoston lähetys %1 epäonnistui verkkovirheen vuoksi (%2)</translation>
     </message>
 </context>
 <context>
@@ -4548,7 +4548,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Return to map</source>
-        <translation type="unfinished"/>
+        <translation>Palaa kartalle</translation>
     </message>
 </context>
 <context>
@@ -5220,19 +5220,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
-        <translation type="unfinished"/>
+        <translation>Peruuta algoritmitoiminto</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Olet hylkäämässä käynnissä olevan algoritmioperaation, jatketaanko?</translation>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Avaa näytön lukitus sulkeaksesi projektin ja sovelluksen</translation>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
-        <translation type="unfinished"/>
+        <translation>Reunaton tila aktivoitu, käytä vasenta yläkulmaa ja oikeaa alakulmaa ikkunan siirtämiseen ja koon muuttamiseen</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
@@ -5244,11 +5244,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Kumoa</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Tee uudelleen</translation>
     </message>
 </context>
 <context>
