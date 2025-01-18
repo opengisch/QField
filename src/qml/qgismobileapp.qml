@@ -4132,6 +4132,7 @@ ApplicationWindow {
 
   ScreenLocker {
     id: screenLocker
+    objectName: "screenLocker"
     enabled: false
   }
 
