@@ -13,12 +13,12 @@ Drawer {
   id: dashBoard
   objectName: "dashBoard"
 
-  signal showMenu
-  signal showCloudMenu
+  signal showMainMenu(point p)
+  signal showPrintLayouts(point p)
+  signal showCloudPopup
+  signal showProjectFolder
+  signal toggleMeasurementTool
   signal returnHome
-  signal measurementClicked
-  signal printClicked(Item item)
-  signal projectFolderClicked
 
   property bool allowInteractive: true
   property alias allowActiveLayerChange: legend.allowActiveLayerChange
@@ -46,9 +46,6 @@ Drawer {
   position: 0
   focus: visible
   clip: true
-
-  onShowMenu: mainMenu.popup(menuButton.x + menuButton.width - mainMenu.width - 2, menuButton.y - 2)
-  onShowCloudMenu: qfieldCloudPopup.show()
 
   onActiveLayerChanged: {
     if (activeLayer && activeLayer.readOnly && stateMachine.state == "digitize")
@@ -120,7 +117,7 @@ Drawer {
             iconColor: Theme.mainOverlayColor
             bgcolor: "transparent"
             onClicked: {
-              measurementClicked();
+              toggleMeasurementTool();
               highlighted = false;
             }
           }
@@ -132,7 +129,8 @@ Drawer {
             iconSource: Theme.getThemeVectorIcon("ic_print_black_24dp")
             iconColor: Theme.mainOverlayColor
             onClicked: {
-              printClicked(printItem);
+              const p = mapToItem(mainWindow.contentItem, 0, 0);
+              showPrintLayouts(p);
               highlighted = false;
             }
           }
@@ -183,7 +181,7 @@ Drawer {
               if (featureForm.visible) {
                 featureForm.hide();
               }
-              showCloudMenu();
+              showCloudPopup();
             }
             bottomRightIndicatorText: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 ? cloudProjectsModel.layerObserver.deltaFileWrapper.count : cloudProjectsModel.layerObserver.deltaFileWrapper.count >= 10 ? '+' : ''
 
@@ -217,7 +215,7 @@ Drawer {
             iconColor: Theme.mainOverlayColor
             round: true
             onClicked: {
-              projectFolderClicked();
+              showProjectFolder();
             }
           }
         }
@@ -230,7 +228,10 @@ Drawer {
         iconSource: Theme.getThemeVectorIcon('ic_dot_menu_black_24dp')
         iconColor: Theme.mainOverlayColor
         bgcolor: "transparent"
-        onClicked: showMenu()
+        onClicked: {
+            let p = mapToItem(mainWindow.contentItem, width, 0);
+            showMainMenu(p)
+        }
       }
     }
 

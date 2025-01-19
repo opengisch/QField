@@ -2331,7 +2331,16 @@ ApplicationWindow {
       }
     }
 
-    onMeasurementClicked: {
+    onShowMainMenu: p => {
+        mainMenu.popup(p.x- mainMenu.width - 2, p.y - 2)
+    }
+
+    onShowCloudPopup: {
+        dashBoard.close();
+        qfieldCloudPopup.show()
+    }
+
+    onToggleMeasurementTool: {
       if (featureForm.state === "ProcessingAlgorithmForm") {
         cancelAlgorithmDialog.visible = true;
       } else {
@@ -2339,10 +2348,10 @@ ApplicationWindow {
       }
     }
 
-    onPrintClicked: printItem => {
+    onShowPrintLayouts: p => {
       if (layoutListInstantiator.count > 1) {
-        printMenu.popup(mainMenu.x, mainMenu.y + printItem.y);
-      } else if (layoutListInstantiator.count == 1) {
+        printMenu.popup(p.x, p.y);
+      } else if (layoutListInstantiator.count === 1) {
         mainMenu.close();
         displayToast(qsTr('Printing...'));
         printMenu.printName = layoutListInstantiator.model.titleAt(0);
@@ -2355,7 +2364,7 @@ ApplicationWindow {
       }
     }
 
-    onProjectFolderClicked: {
+    onShowProjectFolder: {
       dashBoard.close();
       qfieldLocalDataPickerScreen.projectFolderView = true;
       qfieldLocalDataPickerScreen.model.resetToPath(projectInfo.filePath);
