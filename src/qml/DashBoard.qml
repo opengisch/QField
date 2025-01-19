@@ -229,8 +229,8 @@ Drawer {
         iconColor: Theme.mainOverlayColor
         bgcolor: "transparent"
         onClicked: {
-            let p = mapToItem(mainWindow.contentItem, width, 0);
-            showMainMenu(p)
+          let p = mapToItem(mainWindow.contentItem, width, 0);
+          showMainMenu(p);
         }
       }
     }

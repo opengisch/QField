@@ -2324,12 +2324,12 @@ ApplicationWindow {
     }
 
     onShowMainMenu: p => {
-        mainMenu.popup(p.x- mainMenu.width - 2, p.y - 2)
+      mainMenu.popup(p.x - mainMenu.width - 2, p.y - 2);
     }
 
     onShowCloudPopup: {
-        dashBoard.close();
-        qfieldCloudPopup.show()
+      dashBoard.close();
+      qfieldCloudPopup.show();
     }
 
     onToggleMeasurementTool: {

@@ -47,8 +47,7 @@ Item {
         id: information
         spacing: 6
         width: aboutPanel.width - 40
-        height: Math.max(mainWindow.height - sponsorshipButton.height - linksButton.height - qfieldAppDirectoryLabel.height - aboutContainer.spacing * 3 - aboutContainer.anchors.topMargin - aboutContainer.anchors.bottomMargin - 10,
-                         qfieldPart.height + opengisPart.height + spacing)
+        height: Math.max(mainWindow.height - sponsorshipButton.height - linksButton.height - qfieldAppDirectoryLabel.height - aboutContainer.spacing * 3 - aboutContainer.anchors.topMargin - aboutContainer.anchors.bottomMargin - 10, qfieldPart.height + opengisPart.height + spacing)
 
         ColumnLayout {
           id: qfieldPart
