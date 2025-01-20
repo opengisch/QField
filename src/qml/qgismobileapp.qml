@@ -41,7 +41,7 @@ ApplicationWindow {
   id: mainWindow
   objectName: 'mainWindow'
   visible: true
-  flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | (sceneBorderless ? Qt.FramelessWindowHint : 0) | (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0) | (Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint : 0)
+  flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | (sceneBorderless ? Qt.FramelessWindowHint : 0) | (Qt.platform.os === "ios" || Qt.platform.os === "android" ? Qt.MaximizeUsingFullscreenGeometryHint : 0) | (Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint : 0)
 
   Material.theme: Theme.darkTheme ? "Dark" : "Light"
   Material.accent: Theme.mainColor
