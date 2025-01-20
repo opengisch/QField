@@ -408,7 +408,7 @@ Item {
       return;
     }
     const MINIMAL_PIXEL_DISTANCE_TRESHOLD = 20;
-    const SOFT_CONSTRAINT_TOLERANCE_DEGREES = 20;
+    const SOFT_CONSTRAINT_TOLERANCE_DEGREES = 150;
     const SOFT_CONSTRAINT_TOLERANCE_PIXEL = 40;
     const rubberbandPointsCount = rubberbandModel.vertexCount;
     const targetPoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.firstCoordinate : rubberbandModel.lastCoordinate);
