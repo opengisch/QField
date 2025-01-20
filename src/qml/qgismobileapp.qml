@@ -74,13 +74,21 @@ ApplicationWindow {
     property alias height: mainWindow.height
 
     property int minimumSize: Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? 300 : 50
+    property string screenConfiguration: ''
 
     Component.onCompleted: {
       if (Qt.platform.os !== "ios" && Qt.platform.os !== "android") {
-        width = Math.max(width, minimumSize);
-        height = Math.max(height, minimumSize);
-        x = Math.min(x, mainWindow.screen.width - width);
-        y = Math.min(y, mainWindow.screen.height - height);
+        let currentScreensConfiguration = `${Qt.application.screens.length}`;
+        for (let screen of Qt.application.screens) {
+          currentScreensConfiguration += `:${screen.width}x${screen.height}-${screen.virtualX}-${screen.virtualY}`;
+        }
+        if (currentScreensConfiguration != screenConfiguration) {
+          screenConfiguration = currentScreensConfiguration;
+          width = Math.max(width, minimumSize);
+          height = Math.max(height, minimumSize);
+          x = Math.min(x, mainWindow.screen.width - width);
+          y = Math.min(y, mainWindow.screen.height - height);
+        }
       }
     }
   }
