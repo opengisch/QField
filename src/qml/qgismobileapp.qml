@@ -1747,9 +1747,10 @@ ApplicationWindow {
                 width: (angles.width - ((angles.count - 1) * angles.spacing)) / angles.count
                 height: width
                 radius: width / 2
-                color: selected ? Theme.mainColor : Theme.darkTheme ? Theme.gray : Theme.lightGray
+                color: selected ? Theme.mainColor : "transparent" // Theme.darkTheme ? Theme.gray : Theme.lightGray
                 enabled: !selected
 
+                // border.color: Theme.darkTheme ? Theme.gray : Theme.lightGray
                 property bool selected: modelData === coordinateLocator.snappingAngleDegrees
 
                 Text {
@@ -1817,7 +1818,7 @@ ApplicationWindow {
                 width: (tolorences.width - (tolorences.spacing * (tolorences.count - 1))) / tolorences.count
                 height: 35
                 radius: 4
-                color: selected ? Theme.mainColor : Theme.darkTheme ? Theme.gray : Theme.lightGray
+                color: selected ? Theme.mainColor : "transparent"
                 enabled: !selected
 
                 property bool selected: index === coordinateLocator.snappingTolerance

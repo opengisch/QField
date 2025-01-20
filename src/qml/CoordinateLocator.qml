@@ -407,9 +407,9 @@ Item {
     if (!rubberbandModel) {
       return;
     }
-    const MINIMAL_PIXEL_DISTANCE_TRESHOLD = 20;
-    const SOFT_CONSTRAINT_TOLERANCE_DEGREES = 20;
-    const SOFT_CONSTRAINT_TOLERANCE_PIXEL = 40;
+    const MINIMAL_PIXEL_DISTANCE_TRESHOLD = 20 * getToleranceMultiplier();
+    const SOFT_CONSTRAINT_TOLERANCE_DEGREES = 20 * getToleranceMultiplier();
+    const SOFT_CONSTRAINT_TOLERANCE_PIXEL = 40 * getToleranceMultiplier();
     const rubberbandPointsCount = rubberbandModel.vertexCount;
     const targetPoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.firstCoordinate : rubberbandModel.lastCoordinate);
     const minimumDigitizedPoints = forwardMode ? 3 : 2;
@@ -443,6 +443,28 @@ Item {
       if (dist < SOFT_CONSTRAINT_TOLERANCE_PIXEL) {
         return 180.0 / Math.PI * softAngle;
       }
+    }
+  }
+
+  /** Function to get the multiplier based on the selected tolerance
+  *
+  * - Narrow tolerance (index 0) divides by 2.
+  * - Normal tolerance (index 1) keeps unchanged.
+  * - Large tolerance (index 2) multiplies by 4.
+  */
+  function getToleranceMultiplier() {
+    switch (snappingTolerance) {
+    case 0 // Narrow
+    :
+      return 0.5;
+    case 1 // Normal
+    :
+      return 1;
+    case 2 // Large
+    :
+      return 4;
+    default:
+      return 1;
     }
   }
 
