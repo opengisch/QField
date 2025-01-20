@@ -53,6 +53,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Insets;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -130,8 +131,6 @@ public class QFieldActivity extends QtActivity {
     private boolean handleVolumeKeys = false;
     private String pathsToExport;
     private String projectPath;
-    private double sceneTopMargin = 0;
-    private double sceneBottomMargin = 0;
 
     private static final int CAMERA_RESOURCE = 600;
     private static final int GALLERY_RESOURCE = 601;
@@ -149,53 +148,6 @@ public class QFieldActivity extends QtActivity {
     public void onCreate(Bundle savedInstanceState) {
         prepareQtActivity();
         super.onCreate(savedInstanceState);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            int resourceId = getResources().getIdentifier("status_bar_height",
-                                                          "dimen", "android");
-            if (resourceId > 0) {
-                sceneTopMargin = getResources().getDimension(resourceId);
-            }
-
-            if (sceneTopMargin <= 0) {
-                sceneTopMargin = Math.ceil(
-                    (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? 24 : 25) *
-                    getResources().getDisplayMetrics().density);
-            }
-
-            Window window = getWindow();
-            window.addFlags(
-                WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-            window.setStatusBarColor(Color.TRANSPARENT);
-            View decor = window.getDecorView();
-            decor.setSystemUiVisibility(decor.getSystemUiVisibility() |
-                                        View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-
-            resourceId = getResources().getIdentifier(
-                "config_navBarInteractionMode", "integer", "android");
-            if (resourceId > 0) {
-                // if the navigation bar is in gesture mode, draw under it
-                if (getResources().getInteger(resourceId) == 2) {
-                    resourceId = getResources().getIdentifier(
-                        "navigation_bar_height", "dimen", "android");
-                    if (resourceId > 0) {
-                        sceneBottomMargin =
-                            getResources().getDimension(resourceId);
-
-                        window.addFlags(WindowManager.LayoutParams
-                                            .FLAG_TRANSLUCENT_NAVIGATION);
-                        window.setNavigationBarColor(Color.TRANSPARENT);
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            decor.setSystemUiVisibility(
-                                decor.getSystemUiVisibility() |
-                                View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
-                        }
-                    }
-                }
-            }
-        }
     }
 
     @Override
@@ -246,12 +198,8 @@ public class QFieldActivity extends QtActivity {
 
     private void vibrate(int milliseconds) {
         Vibrator v = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            v.vibrate(VibrationEffect.createOneShot(
-                milliseconds, VibrationEffect.DEFAULT_AMPLITUDE));
-        } else {
-            v.vibrate(milliseconds);
-        }
+        v.vibrate(VibrationEffect.createOneShot(
+            milliseconds, VibrationEffect.DEFAULT_AMPLITUDE));
     }
 
     private void processProjectIntent() {
@@ -287,8 +235,7 @@ public class QFieldActivity extends QtActivity {
                     new File(importProjectPath).mkdir();
                 }
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT &&
-                    (scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0 ||
+                if ((scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0 ||
                      action.compareTo(Intent.ACTION_SEND) == 0) &&
                     importDatasetPath != "") {
                     DocumentFile documentFile =
@@ -396,36 +343,47 @@ public class QFieldActivity extends QtActivity {
         });
     }
 
-    private double statusBarMargin() {
-        double margin = sceneTopMargin;
-        if (margin > 0) {
-            int resourceId = getResources().getIdentifier("status_bar_height",
-                                                          "dimen", "android");
-            if (resourceId > 0) {
-                double dimension = getResources().getDimension(resourceId);
-                if (dimension > 0) {
-                    margin = dimension;
-                }
+    private Insets getSafeInsets() {
+        // TODO when updating to Qt >= 6.9, rely on safeAreaMargins
+        View decorView = getWindow().getDecorView();
+        WindowInsets insets = decorView.getRootWindowInsets();
+        Insets safeInsets;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            int types = WindowInsets.Type.displayCutout() |
+                        WindowInsets.Type.systemBars();
+            safeInsets = insets.getInsets(types);
+        } else {
+            int left = 0;
+            int top = 0;
+            int right = 0;
+            int bottom = 0;
+            int visibility = decorView.getSystemUiVisibility();
+            if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+                left = insets.getSystemWindowInsetLeft();
+                top = insets.getSystemWindowInsetTop();
+                right = insets.getSystemWindowInsetRight();
+                bottom = insets.getSystemWindowInsetBottom();
             }
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                DisplayCutout cutout = getWindow()
-                                           .getDecorView()
-                                           .getRootWindowInsets()
-                                           .getDisplayCutout();
-                if (cutout != null) {
-                    int cutoutHeight = cutout.getSafeInsetTop();
-                    if (cutoutHeight > margin) {
-                        margin = cutoutHeight;
-                    }
-                }
+            // Android 9 and 10 emulators don't seem to be able
+            // to handle this, but let's have the logic here anyway
+            DisplayCutout cutout = insets.getDisplayCutout();
+            if (cutout != null) {
+                left = Math.max(left, cutout.getSafeInsetLeft());
+                top = Math.max(top, cutout.getSafeInsetTop());
+                right = Math.max(right, cutout.getSafeInsetRight());
+                bottom = Math.max(bottom, cutout.getSafeInsetBottom());
             }
+            safeInsets = Insets.of(left, top, right, bottom);
         }
-        return margin;
+        return safeInsets;
+    }
+
+    private double statusBarMargin() {
+        return getSafeInsets().top;
     }
 
     private double navigationBarMargin() {
-        return sceneBottomMargin;
+        return getSafeInsets().bottom;
     }
 
     private void dimBrightness() {
