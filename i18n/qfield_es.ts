@@ -4798,7 +4798,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Configuración</translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5238,7 +5238,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variables</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Undo</source>

@@ -4801,7 +4801,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Nastavenia</translation>
+        <translation>Nastavenia</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5241,7 +5241,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Premenné</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Undo</source>

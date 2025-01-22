@@ -4794,7 +4794,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Beállítások</translation>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5234,7 +5234,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Variables</source>
-        <translation>Változók</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Undo</source>

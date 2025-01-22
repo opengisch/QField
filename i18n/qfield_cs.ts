@@ -4801,7 +4801,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Nastavení</translation>
+        <translation>Nastavení</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5241,7 +5241,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Proměnné</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Undo</source>

@@ -4782,7 +4782,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Nastavitve</translation>
+        <translation>Nastavitve</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5222,7 +5222,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Spremenljivke</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Undo</source>

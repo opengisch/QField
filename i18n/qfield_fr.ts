@@ -4797,7 +4797,7 @@ Essayez les exemples de projets répertoriés ci-dessous.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Paramètres</translation>
+        <translation>Paramètres</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5239,7 +5239,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variables</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Undo</source>

@@ -4869,7 +4869,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Settings</translation>
+        <translation>Settings</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5309,7 +5309,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation type="unfinished">Variables</translation>
+        <translation type="obsolete">Variables</translation>
     </message>
     <message>
         <source>Undo</source>

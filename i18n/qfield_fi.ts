@@ -4800,7 +4800,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Asetukset</translation>
+        <translation>Asetukset</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5240,7 +5240,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Muuttujat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Undo</source>

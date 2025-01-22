@@ -4789,7 +4789,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Configurações</translation>
+        <translation>Configurações</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5229,7 +5229,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variáveis</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Undo</source>

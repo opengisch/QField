@@ -4802,7 +4802,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Ustawienia</translation>
+        <translation>Ustawienia</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5242,7 +5242,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Zmienne</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Undo</source>

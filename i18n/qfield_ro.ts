@@ -4802,7 +4802,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Setări</translation>
+        <translation>Setări</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5242,7 +5242,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variabile</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Undo</source>

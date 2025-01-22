@@ -4803,7 +4803,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Impostazioni</translation>
+        <translation>Impostazioni</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5243,7 +5243,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variabili</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Undo</source>

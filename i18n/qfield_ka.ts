@@ -4787,7 +4787,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">პარამეტრები</translation>
+        <translation>პარამეტრები</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5227,7 +5227,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Variables</source>
-        <translation>ცვლადები</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Undo</source>

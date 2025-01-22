@@ -4795,7 +4795,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Einstellungen</translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5235,7 +5235,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variablen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Undo</source>

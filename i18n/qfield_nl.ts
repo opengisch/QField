@@ -4798,7 +4798,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Instellingen</translation>
+        <translation>Instellingen</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -5238,7 +5238,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variabelen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Undo</source>
