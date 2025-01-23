@@ -4171,7 +4171,7 @@ ApplicationWindow {
     standardButtons: Dialog.Yes | Dialog.No
   }
 
-  Dialog {
+  QfDialog {
     id: cancelAlgorithmDialog
     parent: mainWindow.contentItem
 
