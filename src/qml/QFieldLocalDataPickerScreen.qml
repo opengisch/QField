@@ -483,7 +483,7 @@ Page {
       }
 
       MenuSeparator {
-        enabled: toggleFavoriteState.visible
+        enabled: toggleFavoriteState.visible && (exportFolderTo.visible || sendCompressedFolderTo.visible || uploadFolderToWebdav.visible || downloadFolderFromWebdav.visible)
         visible: enabled
         width: parent.width
         height: enabled ? undefined : 0
@@ -558,7 +558,7 @@ Page {
       }
 
       MenuSeparator {
-        enabled: removeProjectFolder.visible
+        enabled: removeDataset.visible || removeProjectFolder.visible
         visible: enabled
         width: parent.width
         height: enabled ? undefined : 0
