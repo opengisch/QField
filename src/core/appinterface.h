@@ -110,9 +110,21 @@ class AppInterface : public QObject
     Q_INVOKABLE void addItemToPluginsToolbar( QQuickItem *item ) const;
 
     /**
-     * Adds an \a item in the main menu action toolbar container
+     * Adds an \a item in the map canvas menu's action toolbar container
      */
     Q_INVOKABLE void addItemToCanvasActionsToolbar( QQuickItem *item ) const;
+
+    /**
+     * Adds an \a item in the dashboard's action toolbar container
+     */
+    Q_INVOKABLE void addItemToDashboardActionsToolbar( QQuickItem *item ) const;
+
+    /**
+     * Adds an \a item in the dashboard's action toolbar container
+     * \note This function is deprecated and will be removed in the future, use
+     * the addItemToDashboardActionsToolbar function instead
+     */
+    Q_INVOKABLE void addItemToMainMenuActionsToolbar( QQuickItem *item ) const;
 
     /**
      * Returns the main window.

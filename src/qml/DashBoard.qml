@@ -67,7 +67,7 @@ Drawer {
     anchors.fill: parent
 
     Rectangle {
-      height: mainWindow.sceneTopMargin + Math.max(buttonsRow.height, buttonsRow.childrenRect.height)
+      height: mainWindow.sceneTopMargin + Math.max(buttonsRow.height + 8, buttonsRow.childrenRect.height)
       Layout.fillWidth: true
       Layout.preferredHeight: height
 
@@ -88,7 +88,8 @@ Drawer {
         anchors.left: closeButton.right
         anchors.right: menuButton.left
         anchors.top: parent.top
-        anchors.topMargin: mainWindow.sceneTopMargin
+        anchors.topMargin: mainWindow.sceneTopMargin + 4
+        anchors.bottomMargin: 4
         height: buttonsRow.height
         contentWidth: buttonsRow.width
         contentHeight: buttonsRow.height
@@ -105,8 +106,8 @@ Drawer {
 
         Row {
           id: buttonsRow
-          anchors.topMargin: mainWindow.sceneTopMargin
-          height: 56
+          objectName: "dashboardActionsToolbar"
+          height: 48
           spacing: 1
 
           QfToolButton {
