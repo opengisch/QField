@@ -1379,11 +1379,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
-        <translation type="unfinished"/>
+        <translation>Esta capa actualmente está siguiendo posiciones.</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"/>
+        <translation>Detener</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -3058,67 +3058,67 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Enviar a QFieldCloud</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV server</source>
-        <translation type="unfinished"/>
+        <translation>Subir carpeta al servidor WebDAV</translation>
     </message>
     <message>
         <source>Download folder from WebDAV server</source>
-        <translation type="unfinished"/>
+        <translation>Descargar carpeta del servidor WebDAV</translation>
     </message>
     <message>
         <source>Remove folder</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar carpeta</translation>
     </message>
     <message>
         <source>Import WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Importar carpeta WebDAV</translation>
     </message>
     <message>
         <source>Upload project to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Subir proyecto a WebDAV</translation>
     </message>
     <message>
         <source>Download project from WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Descargar proyecto desde WebDAV</translation>
     </message>
     <message>
         <source>Importing WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Importación de carpeta WebDAV</translation>
     </message>
     <message>
         <source>Downloading WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Descargando la carpeta WebDAV</translation>
     </message>
     <message>
         <source>Uploading WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Subir carpeta WebDAV</translation>
     </message>
     <message>
         <source>WebDAV error: </source>
-        <translation type="unfinished"/>
+        <translation>Error de WebDAV:</translation>
     </message>
     <message>
         <source>WebDAV upload</source>
-        <translation type="unfinished"/>
+        <translation>Subir WebDAV</translation>
     </message>
     <message>
         <source>WebDAV download</source>
-        <translation type="unfinished"/>
+        <translation>Descargar WebDAV</translation>
     </message>
     <message>
         <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>Está a punto de cargar contenido modificado en &lt;b&gt;%1&lt;/b&gt; usando el usuario &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Esta operación sobrescribirá los datos almacenados de forma remota, asegúrese de que esto es lo que desea hacer.</translation>
     </message>
     <message>
         <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>Está a punto de descargar contenido modificado de &lt;b&gt;%1&lt;/b&gt; usando el usuario &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Esta operación sobrescribirá los datos almacenados localmente, asegúrese de que esto es lo que desea hacer.</translation>
     </message>
     <message>
         <source>Password (leave empty to use remembered)</source>
-        <translation type="unfinished"/>
+        <translation>Contraseña (dejar vacío para usar la guardada)</translation>
     </message>
     <message>
         <source>Password</source>
@@ -3126,42 +3126,42 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remember password</source>
-        <translation type="unfinished"/>
+        <translation>Recordar contraseña</translation>
     </message>
     <message>
         <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation type="unfinished"/>
+        <translation>Escriba los detalles de WebDAV a continuación para importar una carpeta remota:</translation>
     </message>
     <message>
         <source>WebDAV server URL</source>
-        <translation type="unfinished"/>
+        <translation>URL del servidor WebDAV</translation>
     </message>
     <message>
         <source>User</source>
-        <translation type="unfinished"/>
+        <translation>Usuario</translation>
     </message>
     <message>
         <source>Select the remote folder to import:</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione la carpeta remota a importar:</translation>
     </message>
     <message>
         <source>Fetching remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Obteniendo carpetas remotas</translation>
     </message>
     <message>
         <source>Fetch remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Obtener carpetas remotas</translation>
     </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>
     <message>
         <source>Positioning service running</source>
-        <translation type="unfinished"/>
+        <translation>Servicio de posicionamiento en ejecución</translation>
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
-        <translation type="unfinished"/>
+        <translation>Latitud %1 | Longitud %2 | Altitud %3 m | Velocidad %4 m/s | Dirección %5°</translation>
     </message>
 </context>
 <context>
@@ -4427,11 +4427,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>WebdavConnection</name>
     <message>
         <source>Failed to download file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo descargar el archivo %1 debido a un error de red (%2)</translation>
     </message>
     <message>
         <source>Failed to upload file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo cargar el archivo %1 debido a un error de red (%2)</translation>
     </message>
 </context>
 <context>
@@ -4546,7 +4546,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Return to map</source>
-        <translation type="unfinished"/>
+        <translation>Regresar al mapa</translation>
     </message>
 </context>
 <context>
@@ -5230,7 +5230,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
-        <translation type="unfinished"/>
+        <translation>Modo sin bordes activado, use la esquina superior izquierda e inferior derecha para mover y cambiar el tamaño de la ventana</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
@@ -5242,11 +5242,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Deshacer</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Rehacer</translation>
     </message>
 </context>
 <context>
