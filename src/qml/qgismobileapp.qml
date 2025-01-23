@@ -3918,7 +3918,6 @@ ApplicationWindow {
     model: RecentProjectListModel {
       id: recentProjectListModel
     }
-    property ProjectSource __projectSource
 
     anchors.fill: parent
 
@@ -4110,14 +4109,6 @@ ApplicationWindow {
     interval: 2000
     onTriggered: {
       closeAlreadyRequested = false;
-    }
-  }
-
-  Connections {
-    target: welcomeScreen.__projectSource
-
-    function onProjectOpened(path) {
-      iface.loadFile(path);
     }
   }
 

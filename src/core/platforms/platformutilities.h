@@ -47,7 +47,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
       NativeCamera = 1,                   //!< Native camera handling support
       AdjustBrightness = 1 << 1,          //!< Screen brightness adjustment support
       SentryFramework = 1 << 2,           //!< Sentry framework support
-      CustomLocalDataPicker = 1 << 3,     //!< Custom QML local data picker support
+      NativeLocalDataPicker = 1 << 3,     //!< Native local data picker support
       CustomImport = 1 << 4,              //!< Import project and dataset support
       CustomExport = 1 << 5,              //!< Export project and dataset support
       CustomSend = 1 << 6,                //!< Send/share files support

@@ -58,7 +58,7 @@ PlatformUtilities::~PlatformUtilities()
 
 PlatformUtilities::Capabilities PlatformUtilities::capabilities() const
 {
-  PlatformUtilities::Capabilities capabilities = FilePicker;
+  PlatformUtilities::Capabilities capabilities = PlatformUtilities::Capabilities() | FilePicker | NativeLocalDataPicker;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
