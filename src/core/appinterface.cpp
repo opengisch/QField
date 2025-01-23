@@ -68,6 +68,20 @@ void AppInterface::addItemToCanvasActionsToolbar( QQuickItem *item ) const
   }
 }
 
+void AppInterface::addItemToDashboardActionsToolbar( QQuickItem *item ) const
+{
+  if ( !mApp->rootObjects().isEmpty() )
+  {
+    QQuickItem *toolbar = mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( QStringLiteral( "dashboardActionsToolbar" ) );
+    item->setParentItem( toolbar );
+  }
+}
+
+void AppInterface::addItemToMainMenuActionsToolbar( QQuickItem *item ) const
+{
+  addItemToDashboardActionsToolbar( item );
+}
+
 QObject *AppInterface::mainWindow() const
 {
   if ( !mApp->rootObjects().isEmpty() )
