@@ -577,6 +577,7 @@ Page {
         text: qsTr("Remove dataset")
         onTriggered: {
           platformUtilities.removeDataset(itemMenu.itemPath);
+          table.model.resetToPath(table.model.currentPath);
         }
       }
 
@@ -593,6 +594,7 @@ Page {
         text: qsTr("Remove folder")
         onTriggered: {
           platformUtilities.removeFolder(itemMenu.itemPath);
+          table.model.resetToPath(table.model.currentPath);
         }
       }
     }
