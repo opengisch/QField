@@ -325,6 +325,37 @@ Page {
         }
       }
 
+      Connections {
+        target: nativeLocalDataPickerButton.__projectSource
+
+        function onProjectOpened(path) {
+          finished(true);
+          iface.loadFile(path);
+        }
+      }
+
+      QfToolButton {
+        id: nativeLocalDataPickerButton
+        round: true
+
+        property ProjectSource __projectSource
+
+        visible: platformUtilities.capabilities & PlatformUtilities.NativeLocalDataPicker && table.model.currentPath === 'root'
+
+        anchors.bottom: actionButton.top
+        anchors.right: parent.right
+        anchors.bottomMargin: 4
+        anchors.rightMargin: 10
+
+        bgcolor: Theme.mainColor
+        iconSource: Theme.getThemeVectorIcon("ic_open_black_24dp")
+        iconColor: Theme.toolButtonColor
+
+        onClicked: {
+          __projectSource = platformUtilities.openProject(this);
+        }
+      }
+
       QfToolButton {
         id: actionButton
         round: true
@@ -341,6 +372,7 @@ Page {
 
         bgcolor: Theme.mainColor
         iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
+        iconColor: Theme.toolButtonColor
 
         onClicked: {
           var xy = mapToItem(mainWindow.contentItem, actionButton.width, actionButton.height);
