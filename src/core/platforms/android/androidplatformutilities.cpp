@@ -287,16 +287,29 @@ void AndroidPlatformUtilities::exportDatasetTo( const QString &path ) const
 
 void AndroidPlatformUtilities::removeDataset( const QString &path ) const
 {
-  if ( mActivity.isValid() )
+  bool allowed = false;
+  const QStringList allowedDirectories = QStringList() << applicationDirectory() << additionalApplicationDirectories();
+  for ( const QString &directory : allowedDirectories )
   {
-    runOnAndroidMainThread( [path] {
-      auto activity = qtAndroidContext();
-      if ( activity.isValid() )
-      {
-        QJniObject pathJni = QJniObject::fromString( path );
-        activity.callMethod<void>( "removeDataset", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
-      }
-    } );
+    if ( path.startsWith( directory ) )
+    {
+      allowed = true;
+      break;
+    }
+  }
+  if ( allowed )
+  {
+    if ( mActivity.isValid() )
+    {
+      runOnAndroidMainThread( [path] {
+        auto activity = qtAndroidContext();
+        if ( activity.isValid() )
+        {
+          QJniObject pathJni = QJniObject::fromString( path );
+          activity.callMethod<void>( "removeDataset", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+        }
+      } );
+    }
   }
 }
 
@@ -332,16 +345,29 @@ void AndroidPlatformUtilities::sendCompressedFolderTo( const QString &path ) con
 
 void AndroidPlatformUtilities::removeFolder( const QString &path ) const
 {
-  if ( mActivity.isValid() )
+  bool allowed = false;
+  const QStringList allowedDirectories = QStringList() << applicationDirectory() << additionalApplicationDirectories();
+  for ( const QString &directory : allowedDirectories )
   {
-    runOnAndroidMainThread( [path] {
-      auto activity = qtAndroidContext();
-      if ( activity.isValid() )
-      {
-        QJniObject pathJni = QJniObject::fromString( path );
-        activity.callMethod<void>( "removeProjectFolder", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
-      }
-    } );
+    if ( path.startsWith( directory ) )
+    {
+      allowed = true;
+      break;
+    }
+  }
+  if ( allowed )
+  {
+    if ( mActivity.isValid() )
+    {
+      runOnAndroidMainThread( [path] {
+        auto activity = qtAndroidContext();
+        if ( activity.isValid() )
+        {
+          QJniObject pathJni = QJniObject::fromString( path );
+          activity.callMethod<void>( "removeProjectFolder", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+        }
+      } );
+    }
   }
 }
 

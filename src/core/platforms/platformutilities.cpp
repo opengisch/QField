@@ -35,6 +35,7 @@
 #include <QDir>
 #include <QFileDialog>
 #include <QMargins>
+#include <QMessageBox>
 #include <QQuickWindow>
 #include <QStandardPaths>
 #include <QStorageInfo>
@@ -274,12 +275,52 @@ void PlatformUtilities::sendCompressedFolderTo( const QString &path ) const
 
 void PlatformUtilities::removeDataset( const QString &path ) const
 {
-  QFile::moveToTrash( path );
+  bool allowed = false;
+  const QStringList allowedDirectories = QStringList() << applicationDirectory() << additionalApplicationDirectories();
+  for ( const QString &directory : allowedDirectories )
+  {
+    if ( path.startsWith( directory ) )
+    {
+      allowed = true;
+      break;
+    }
+  }
+  if ( allowed )
+  {
+    if ( QMessageBox::warning( nullptr,
+                               tr( "Removal Confirmation" ),
+                               tr( "The dataset will be deleted, proceed with removal?" ),
+                               QMessageBox::StandardButtons() | QMessageBox::Ok | QMessageBox::Abort )
+         == QMessageBox::Ok )
+    {
+      QFile::moveToTrash( path );
+    }
+  }
 }
 
 void PlatformUtilities::removeFolder( const QString &path ) const
 {
-  QFile::moveToTrash( path );
+  bool allowed = false;
+  const QStringList allowedDirectories = QStringList() << applicationDirectory() << additionalApplicationDirectories();
+  for ( const QString &directory : allowedDirectories )
+  {
+    if ( path.startsWith( directory ) )
+    {
+      allowed = true;
+      break;
+    }
+  }
+  if ( allowed )
+  {
+    if ( QMessageBox::warning( nullptr,
+                               tr( "Removal Confirmation" ),
+                               tr( "The project folder will be deleted, proceed with removal?" ),
+                               QMessageBox::StandardButtons() | QMessageBox::Ok | QMessageBox::Abort )
+         == QMessageBox::Ok )
+    {
+      QFile::moveToTrash( path );
+    }
+  }
 }
 
 ResourceSource *PlatformUtilities::getCameraPicture( const QString &, const QString &, const QString &, QObject * )
