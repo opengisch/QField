@@ -274,12 +274,12 @@ void PlatformUtilities::sendCompressedFolderTo( const QString &path ) const
 
 void PlatformUtilities::removeDataset( const QString &path ) const
 {
-  Q_UNUSED( path )
+  QFile::moveToTrash( path );
 }
 
 void PlatformUtilities::removeFolder( const QString &path ) const
 {
-  Q_UNUSED( path )
+  QFile::moveToTrash( path );
 }
 
 ResourceSource *PlatformUtilities::getCameraPicture( const QString &, const QString &, const QString &, QObject * )
