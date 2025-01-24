@@ -1380,7 +1380,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"/>
+        <translation>Stop</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -1685,7 +1685,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Rotate Feature</source>
-        <translation type="unfinished"/>
+        <translation>Elemforgatás</translation>
     </message>
 </context>
 <context>
@@ -2205,7 +2205,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>QFieldAppAuthRequestHandler</name>
     <message>
         <source>Please enter credentials for database</source>
-        <translation type="unfinished"/>
+        <translation>Kérjük, adja meg az adatbázis hitelesítő adatait</translation>
     </message>
     <message>
         <source>at host</source>
@@ -3052,55 +3052,55 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Push to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Feltöltés a QFieldCloud-ra</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV server</source>
-        <translation type="unfinished"/>
+        <translation>Mappa feltöltése WebDAV szerverre</translation>
     </message>
     <message>
         <source>Download folder from WebDAV server</source>
-        <translation type="unfinished"/>
+        <translation>Mappa letöltése WebDAV szerverről</translation>
     </message>
     <message>
         <source>Remove folder</source>
-        <translation type="unfinished"/>
+        <translation>Mappa eltávolítása</translation>
     </message>
     <message>
         <source>Import WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV mappa import</translation>
     </message>
     <message>
         <source>Upload project to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Projekt feltöltése WebDAV-ra</translation>
     </message>
     <message>
         <source>Download project from WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Projekt letöltése WebDAV-ról</translation>
     </message>
     <message>
         <source>Importing WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV mappa importálása</translation>
     </message>
     <message>
         <source>Downloading WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV mappa letöltése</translation>
     </message>
     <message>
         <source>Uploading WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV mappa feltöltése</translation>
     </message>
     <message>
         <source>WebDAV error: </source>
-        <translation type="unfinished"/>
+        <translation>WebDAV hiba:</translation>
     </message>
     <message>
         <source>WebDAV upload</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV feltöltés</translation>
     </message>
     <message>
         <source>WebDAV download</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV letöltés</translation>
     </message>
     <message>
         <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
@@ -3112,7 +3112,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Password (leave empty to use remembered)</source>
-        <translation type="unfinished"/>
+        <translation>Jelszó (hagyja üresen a megjegyzett használatához)</translation>
     </message>
     <message>
         <source>Password</source>
@@ -3120,42 +3120,42 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Remember password</source>
-        <translation type="unfinished"/>
+        <translation>Jelszó megjegyzése</translation>
     </message>
     <message>
         <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation type="unfinished"/>
+        <translation>Írja be a WebDAV adatokat a távoli mappa importhoz:</translation>
     </message>
     <message>
         <source>WebDAV server URL</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV szerver URL</translation>
     </message>
     <message>
         <source>User</source>
-        <translation type="unfinished"/>
+        <translation>Felhasználó</translation>
     </message>
     <message>
         <source>Select the remote folder to import:</source>
-        <translation type="unfinished"/>
+        <translation>Válassza ki az importálandó távoli mappát:</translation>
     </message>
     <message>
         <source>Fetching remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Távoli mappák lekérése</translation>
     </message>
     <message>
         <source>Fetch remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Távoli mappák lekérése</translation>
     </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>
     <message>
         <source>Positioning service running</source>
-        <translation type="unfinished"/>
+        <translation>Helymeghatározási szolgáltatás aktív</translation>
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
-        <translation type="unfinished"/>
+        <translation>Szélesség %1 | Hosszúság %2 | Magasság %3 m | Sebesség %4 m/s | Irány %5°</translation>
     </message>
 </context>
 <context>
@@ -4423,11 +4423,11 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <name>WebdavConnection</name>
     <message>
         <source>Failed to download file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>%1 fájl sikertelen letöltés hálózati hiba miatt (%2) </translation>
     </message>
     <message>
         <source>Failed to upload file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>%1 fájl sikertelen feltöltés hálózati hiba miatt (%2) </translation>
     </message>
 </context>
 <context>
@@ -4542,7 +4542,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Return to map</source>
-        <translation type="unfinished"/>
+        <translation>Visszatérés a térképhez</translation>
     </message>
 </context>
 <context>
@@ -5238,11 +5238,11 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Visszavonás</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Újra</translation>
     </message>
 </context>
 <context>
