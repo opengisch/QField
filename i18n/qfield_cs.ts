@@ -1844,6 +1844,18 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
         <translation>Zvukové soubory (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>Potvrzení odstranění</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginManager</name>

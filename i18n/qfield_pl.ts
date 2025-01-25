@@ -1844,6 +1844,18 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
         <translation>Pliki dźwiękowe (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>Potwierdzenie usunięcia</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginManager</name>

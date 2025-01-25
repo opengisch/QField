@@ -1842,6 +1842,18 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
         <translation>Zvučne datoteke (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>Potvrda uklanjanja</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginManager</name>

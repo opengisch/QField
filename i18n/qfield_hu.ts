@@ -1839,6 +1839,18 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
         <translation>Audió fájlok (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>Eltávolítás megerősítése</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginManager</name>

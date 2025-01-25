@@ -1839,6 +1839,18 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
         <translation>Audiodateien (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>Datensatz entfernen</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginManager</name>

@@ -1838,6 +1838,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
         <translation>音频文件 (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>确认移除</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation>数据集将被删除，是否继续？</translation>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
+        <translation>工程文件夹将被删除，是否继续？</translation>
+    </message>
 </context>
 <context>
     <name>PluginManager</name>
