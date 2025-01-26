@@ -322,9 +322,26 @@ void PluginManager::disableAppPlugin( const QString &uuid )
   }
 }
 
+void PluginManager::configureAppPlugin( const QString &uuid )
+{
+  callPluginMethod( uuid, QStringLiteral( "configure" ) );
+}
+
 bool PluginManager::isAppPluginEnabled( const QString &uuid ) const
 {
   return mAvailableAppPlugins.contains( uuid ) && mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path() );
+}
+
+bool PluginManager::isAppPluginConfigurable( const QString &uuid ) const
+{
+  if ( mAvailableAppPlugins.contains( uuid ) && mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path() ) )
+  {
+    const char *normalizedSignature = QMetaObject::normalizedSignature( "configure()" );
+    const int idx = mLoadedPlugins[mAvailableAppPlugins[uuid].path()]->metaObject()->indexOfSlot( normalizedSignature );
+    return idx >= 0;
+  }
+
+  return false;
 }
 
 void PluginManager::installFromUrl( const QString &url )
@@ -470,7 +487,7 @@ QString PluginManager::findProjectPlugin( const QString &projectPath )
   return QString();
 }
 
-void PluginManager::callPluginMethod( const QString &uuid, const QString &methodName )
+void PluginManager::callPluginMethod( const QString &uuid, const QString &methodName ) const
 {
   if ( !mAvailableAppPlugins.contains( uuid ) )
   {
