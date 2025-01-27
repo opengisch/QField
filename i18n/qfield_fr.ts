@@ -1687,7 +1687,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Rotate Feature</source>
-        <translation type="unfinished"/>
+        <translation>Faire pivoter l&apos;entité</translation>
     </message>
 </context>
 <context>
@@ -3171,7 +3171,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
-        <translation type="unfinished"/>
+        <translation>Latitude %1 | Longitude %2 | Altitude %3 m | Vitesse %4 m/s | Direction %5°</translation>
     </message>
 </context>
 <context>
@@ -5239,7 +5239,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Déverrouiller l&apos;écran pour fermer le projet et l&apos;application</translation>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
@@ -5255,11 +5255,11 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Annuler</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Rétablir</translation>
     </message>
 </context>
 <context>
