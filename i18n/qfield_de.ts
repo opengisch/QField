@@ -2431,7 +2431,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">Einige Layer sind in QFieldCloud nicht korrekt gepackt worden. Diese Layer könnten falsch konfiguriert sein oder ihre Datenquelle ist fürden QFieldCloud-Server nicht zugänglich.</translation>
+        <translation type="vanished">Einige Layer sind in QFieldCloud nicht korrekt gepackt worden. Diese Layer könnten falsch konfiguriert sein oder ihre Datenquelle ist für den QFieldCloud-Server nicht zugänglich.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
@@ -2439,7 +2439,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation>Einige Layer sind in QFieldCloud nicht korrekt gepackt worden. Diese Layer könnten falsch konfiguriert sein oder ihre Datenquelle ist für den QFieldCloud-Server nicht zugänglich. Bitte prüfen Sie die Protokolle des letzten Paketierungsauftrags auf der qfield.cloud-Webseite.</translation>
+        <translation>Einige Layer sind in QFieldCloud nicht korrekt gepackt worden. Diese Layer könnten falsch konfiguriert sein oder ihre Datenquelle ist für den QFieldCloud-Server nicht zugänglich. Bitte prüfe die Protokolle des letzten Paketierungsauftrags auf der qfield.cloud-Webseite.</translation>
     </message>
 </context>
 <context>
@@ -2474,7 +2474,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation>Dieses QFieldCloud-Projekt wurde zuerst mit einem anderen Cloud-Konto heruntergeladen. Bitte melden Sie sich mit dem ursprünglichen Konto für dieses Projekt an, um die QFieldCloud-Funktionalität zu nutzen.</translation>
+        <translation>Dieses QFieldCloud-Projekt wurde zuerst mit einem anderen Cloud-Konto heruntergeladen. Bitte melde dich mit dem ursprünglichen Konto für dieses Projekt an, um die QFieldCloud-Funktionalität zu nutzen.</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -2482,7 +2482,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="vanished">QFieldCloud bereitet die neuesten Daten für Sie vor. Dies könnte einen Moment dauern, bitte haben Sie ein klein wenig Geduld.</translation>
+        <translation type="vanished">QFieldCloud bereitet die neuesten Daten für dich vor. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld.</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
@@ -2490,7 +2490,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud wendet die neuesten hochgeladenen Änderungen an. Dies könnte einen Moment dauern, bitte haben Sie ein klein wenig Geduld.</translation>
+        <translation>QFieldCloud wendet die neuesten hochgeladenen Änderungen an. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld.</translation>
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -2518,7 +2518,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>Synchronisieren Sie das gesamte Projekt mit allen Änderungen und laden Sie das frisch aktualisierte Projekt aus QFieldCloud herunter.</translation>
+        <translation>Synchronisiere das gesamte Projekt mit allen Änderungen und lade das frisch aktualisierte Projekt aus der QFieldCloud herunter.</translation>
     </message>
     <message>
         <source>Push changes</source>
@@ -2526,7 +2526,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>Sparen Sie Internet-Bandbreite, indem Sie nur die lokalen Objekte und Bilder in die Cloud verschieben, ohne das gesamte Projekt zu aktualisieren.</translation>
+        <translation>Spare Internet-Bandbreite, indem du nur die lokalen Objekte und Bilder in die Cloud verschiebst, ohne das gesamte Projekt zu aktualisieren.</translation>
     </message>
     <message>
         <source>Revert local changes</source>
@@ -2542,13 +2542,13 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">Alle geänderten Objekte in den lokalen Cloud-Layern rückgängig machen. Sie können diese Änderungen nicht wiederherstellen.</translation>
+        <translation type="vanished">Alle geänderten Objekte in den lokalen Cloud-Layern rückgängig machen. Du kannst diese Änderungen nicht wiederherstellen.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>Die lokale Kopie des Cloud Projekts wurde beschädigt. Beim Zurücksetzen wird die Cloud-Version erneut heruntergeladen und alle lokalen Änderungen werden entfernt. Stellen Sie  sicher, diese bei Bedarf zuerst zu kopieren. 
+        <translation>Die lokale Kopie des Cloud Projekts wurde beschädigt. Beim Zurücksetzen wird die Cloud-Version erneut heruntergeladen und alle lokalen Änderungen werden entfernt. Stelle sicher, diese bei Bedarf zuerst zu kopieren. 
 
 Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend empfohlen, es zurückzusetzen, um einen versehentlichen Datenverlust zu vermeiden, da keine der vorgenommenen Änderungen zurück in die Cloud übertragen wird.</translation>
     </message>
@@ -2602,7 +2602,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>Letzte Warnung: Das Zurücksetzen des Cloud-Projekts löscht alle lokalen Änderungen. Sind Sie sicher, dass Sie das ausführen wollen?</translation>
+        <translation>Letzte Warnung: Das Zurücksetzen des Cloud-Projekts löscht alle lokalen Änderungen. Bist du sicher, dass du das ausführen möchtest?</translation>
     </message>
     <message>
         <source>Connecting cloud</source>
@@ -2622,15 +2622,15 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation>Dieses Projekt hat eine aktuellere Projektdatei in der Cloud - synchronisieren Sie bitte!</translation>
+        <translation>Dieses Projekt hat eine aktuellere Projektdatei in der Cloud - bitte synchronisiere!</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation>Das Projekt hat aktuellere Daten in der Cloud, Sie sollten synchronisieren!</translation>
+        <translation>Das Projekt hat aktuellere Daten in der Cloud, du solltest synchronisieren!</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud packt die neuesten Daten. Dies könnte einen Moment dauern, bitte haben Sie ein klein wenig Geduld.</translation>
+        <translation>QFieldCloud packt die neuesten Daten. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld.</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
@@ -2822,7 +2822,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="vanished">QFieldCloud bereitet die neuesten Daten für Sie vor. Dies könnte einen Moment dauern, bitte haben Sie ein klein wenig Geduld.</translation>
+        <translation type="vanished">QFieldCloud bereitet die neuesten Daten für dich vor. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld.</translation>
     </message>
     <message>
         <source>Uploading…</source>
@@ -2874,7 +2874,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation>Tippe Sie lang auf ein Cloud Projekt, um zusätzliche Optionen angezeigt zu bekommen.</translation>
+        <translation>Tippe lang auf ein Cloud Projekt, um zusätzliche Optionen angezeigt zu bekommen.</translation>
     </message>
     <message>
         <source>Refresh projects list</source>
@@ -2898,7 +2898,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud packt die neusten Daten. Dies könnte einen Moment dauern, bitte haben Sie ein klein wenig Geduld.</translation>
+        <translation>QFieldCloud packt die neusten Daten für dich. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld.</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
@@ -2914,7 +2914,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation>Keine Cloud-Projekte gefunden. Um loszulegen, %1lesen Sie die Dokumentation%2.</translation>
+        <translation>Keine Cloud-Projekte gefunden. Um loszulegen, %1lies die Dokumentation%2.</translation>
     </message>
     <message>
         <source>Search for project</source>
