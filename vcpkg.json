@@ -117,6 +117,15 @@
       "name": "sentry-native",
       "platform": "!android & !ios & !osx"
     },
-    "spix-qt6"
+    "spix-qt6",
+    {
+      "name": "tiff",
+      "features": [
+        "lerc",
+        "libdeflate",
+        "webp",
+        "zstd"
+      ]
+    }
   ]
 }
