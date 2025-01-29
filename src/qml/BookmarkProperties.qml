@@ -49,30 +49,19 @@ Popup {
 
     ColumnLayout {
       id: propertiesLayout
-      spacing: 4
+      spacing: 10
       width: parent.width
 
-      Label {
-        Layout.fillWidth: true
-        text: qsTr('Name')
-        font: Theme.defaultFont
-      }
-
-      QfTextField {
+      TextField {
         id: nameField
         Layout.fillWidth: true
         font: Theme.defaultFont
+        placeholderText: qsTr('Name')
         text: ''
 
         onTextChanged: {
           saveBookmark();
         }
-      }
-
-      Label {
-        Layout.fillWidth: true
-        text: qsTr('Color')
-        font: Theme.defaultFont
       }
 
       RowLayout {
@@ -87,9 +76,11 @@ Popup {
           saveBookmark();
         }
 
+        Item {
+          Layout.fillWidth: true
+        }
         Rectangle {
           id: defaultColor
-          Layout.alignment: Qt.AlignVCenter
           width: groupField.iconSize
           height: groupField.iconSize
           color: Theme.bookmarkDefault

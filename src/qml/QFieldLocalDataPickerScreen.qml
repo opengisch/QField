@@ -824,7 +824,7 @@ Page {
         color: Theme.mainTextColor
       }
 
-      QfTextField {
+      TextField {
         id: importUrlInput
         width: importUrlLabel.width
       }

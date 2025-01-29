@@ -312,7 +312,7 @@ Popup {
         color: Theme.mainTextColor
       }
 
-      QfTextField {
+      TextField {
         id: installFromUrlInput
         width: installFromUrlLabel.width
       }

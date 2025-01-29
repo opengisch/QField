@@ -15,27 +15,17 @@ Item {
 
   height: connectionSettings.childrenRect.height
 
-  Image {
-    id: sourceImg
-    fillMode: Image.Stretch
-    width: parent.width
-    height: 200
-    smooth: true
-    opacity: 1
-    source: "qrc:/images/qfieldcloud_background.svg"
-    sourceSize.width: 1024
-    sourceSize.height: 1024
-  }
-
   ColumnLayout {
     id: connectionSettings
     width: parent.width
     Layout.minimumHeight: (logo.height + fontMetrics.height * 9) * 2
-    spacing: 6
+    Layout.bottomMargin: 10
+    spacing: 10
 
     Image {
       id: logo
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+      Layout.bottomMargin: 10
       fillMode: Image.PreserveAspectFit
       smooth: true
       source: "qrc:/images/qfieldcloud_logo.svg"
@@ -51,6 +41,7 @@ Item {
     Text {
       id: loginFeedbackLabel
       Layout.fillWidth: true
+      Layout.bottomMargin: 10
       visible: false
       text: qsTr("Failed to sign in")
       horizontalAlignment: Text.AlignHCenter
@@ -94,6 +85,7 @@ Item {
       id: serverUrlComboBox
       Layout.preferredWidth: parent.width / 1.3
       Layout.alignment: Qt.AlignHCenter
+      Layout.bottomMargin: 10
       visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (prefixUrlWithProtocol(cloudConnection.url) !== cloudConnection.defaultUrl || isServerUrlEditingActive)
       enabled: visible
       font: Theme.defaultFont
@@ -116,12 +108,10 @@ Item {
         serverUrlField.text = displayText;
       }
 
-      contentItem: QfTextField {
+      contentItem: TextField {
         id: serverUrlField
 
         inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
-        Layout.preferredWidth: parent.width / 1.3
-        Layout.alignment: Qt.AlignHCenter
         visible: cloudConnection.status === QFieldCloudConnection.Disconnected
         enabled: visible
         font: Theme.defaultFont
@@ -130,24 +120,14 @@ Item {
 
         onTextChanged: text = text.replace(/\s+/g, '')
         Keys.onReturnPressed: loginFormSumbitHandler()
-      }
 
-      background: Rectangle {
-        color: "transparent"
+        background: Rectangle {
+          color: "transparent"
+        }
       }
     }
 
-    Text {
-      id: usernamelabel
-      Layout.fillWidth: true
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected
-      text: qsTr("Username or email")
-      horizontalAlignment: Text.AlignHCenter
-      font: Theme.defaultFont
-      color: Theme.mainTextColor
-    }
-
-    QfTextField {
+    TextField {
       id: usernameField
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
       Layout.preferredWidth: parent.width / 1.3
@@ -156,31 +136,24 @@ Item {
       enabled: visible
       font: Theme.defaultFont
       horizontalAlignment: Text.AlignHCenter
+      placeholderText: qsTr("Username or email")
 
       onTextChanged: text = text.replace(/\s+/g, '')
       Keys.onReturnPressed: loginFormSumbitHandler()
     }
 
-    Text {
-      id: passwordlabel
-      Layout.fillWidth: true
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected
-      text: qsTr("Password")
-      horizontalAlignment: Text.AlignHCenter
-      font: Theme.defaultFont
-      color: Theme.mainTextColor
-    }
-
-    QfTextField {
+    TextField {
       id: passwordField
       echoMode: TextInput.Password
       inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
       Layout.preferredWidth: parent.width / 1.3
       Layout.alignment: Qt.AlignHCenter
+      Layout.bottomMargin: 10
       visible: cloudConnection.status === QFieldCloudConnection.Disconnected
       enabled: visible
       font: Theme.defaultFont
       horizontalAlignment: Text.AlignHCenter
+      placeholderText: qsTr("Password")
 
       Keys.onReturnPressed: loginFormSumbitHandler()
     }
@@ -192,6 +165,7 @@ Item {
 
     QfButton {
       Layout.fillWidth: true
+      Layout.bottomMargin: 10
       text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr("Sign out") : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr("Signing in, please wait") : qsTr("Sign in")
       enabled: cloudConnection.status != QFieldCloudConnection.Connecting
 

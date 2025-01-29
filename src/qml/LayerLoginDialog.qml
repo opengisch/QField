@@ -27,6 +27,7 @@ Page {
   Flickable {
     id: flickable
     anchors.fill: parent
+    anchors.margins: 20
     Layout.fillWidth: true
     Layout.fillHeight: true
     contentHeight: content.height
@@ -37,94 +38,55 @@ Page {
     ColumnLayout {
       id: content
       width: parent.width
-      spacing: 2
-      anchors {
-        margins: 4
-        topMargin: 52 // Leave space for the toolbar
-      }
-
-      Item {
-        // spacer item
-        height: 24
-      }
+      spacing: 10
 
       Image {
         Layout.alignment: Qt.AlignHCenter
+        Layout.topMargin: 30
+        Layout.bottomMargin: 10
         source: Theme.getThemeVectorIcon('ic_password_48dp')
         sourceSize.width: Math.min(64, parent.width / 5)
         sourceSize.height: Math.min(64, parent.width / 5)
       }
 
-      Item {
-        // spacer item
-        height: 8
-      }
-
       Text {
         text: credentialTitle
-        horizontalAlignment: Text.AlignHCenter
         Layout.fillWidth: true
+        Layout.bottomMargin: 10
+        horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
         font: Theme.defaultFont
         color: Theme.mainTextColor
         padding: 16
       }
 
-      Item {
-        // spacer item
-        height: 35
-      }
-
-      Text {
-        id: usernamelabel
-        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        text: qsTr("Username")
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
-      }
-
-      QfTextField {
+      TextField {
         id: username
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        Layout.preferredWidth: Math.max(parent.width / 2, usernamelabel.width)
+        Layout.preferredWidth: parent.width / 1.3
         inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
         horizontalAlignment: Text.AlignHCenter
+        placeholderText: qsTr("Username")
       }
 
-      Item {
-        // spacer item
-        height: 35
-      }
-
-      Text {
-        id: passwordlabel
-        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        text: qsTr("Password")
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
-      }
-
-      QfTextField {
+      TextField {
         id: password
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        Layout.preferredWidth: Math.max(parent.width / 2, usernamelabel.width)
+        Layout.preferredWidth: parent.width / 1.3
+        Layout.bottomMargin: 10
         echoMode: TextInput.Password
         inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
         horizontalAlignment: Text.AlignHCenter
+        placeholderText: qsTr("Password")
 
         Keys.onReturnPressed: _processAuth()
         Keys.onEnterPressed: _processAuth()
       }
 
-      Item {
-        // spacer item
-        height: 35
-      }
-
       QfButton {
         id: submit
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        Layout.preferredWidth: Math.max(parent.width / 2, usernamelabel.width)
+        Layout.fillWidth: true
         text: "Submit"
         onClicked: _processAuth()
       }
