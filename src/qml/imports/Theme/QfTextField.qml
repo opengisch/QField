@@ -24,12 +24,6 @@ TextField {
     }
   }
 
-  onFocusChanged: {
-    if (focus) {
-      Qt.inputMethod.show();
-    }
-  }
-
   QfToolButton {
     id: showPasswordButton
     property int originalEchoMode: TextInput.Normal
