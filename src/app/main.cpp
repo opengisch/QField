@@ -232,6 +232,7 @@ int main( int argc, char **argv )
   app.installTranslator( &qfieldTranslator );
 
   qputenv( "QT_QUICK_CONTROLS_STYLE", QByteArray( "Material" ) );
+  qputenv( "QT_QUICK_CONTROLS_MATERIAL_VARIANT", QByteArray( "Dense" ) );
 
   QgisMobileapp mApp( &app );
 

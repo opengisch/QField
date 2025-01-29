@@ -18,8 +18,8 @@ Button {
   verticalPadding: Material.buttonVerticalPadding
   leftPadding: Math.max((dropdown ? 40 : 0), Material.buttonLeftPadding(flat, hasIcon && (display !== AbstractButton.TextOnly)))
   rightPadding: Math.max((dropdown ? 40 : 0), Material.buttonRightPadding(flat, hasIcon && (display !== AbstractButton.TextOnly), (text !== "") && (display !== AbstractButton.IconOnly)))
-  topInset: 0
-  bottomInset: 0
+  topInset: 2
+  bottomInset: 2
   leftInset: 4
   rightInset: 4
   focusPolicy: Qt.NoFocus
