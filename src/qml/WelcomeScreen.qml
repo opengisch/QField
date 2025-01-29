@@ -135,6 +135,7 @@ Page {
 
             Text {
               Layout.margins: 6
+              Layout.topMargin: 12
               Layout.maximumWidth: feedbackView.width - 12
               text: qsTr("We're sorry to hear that. Click on the button below to comment or seek support.")
               font: Theme.defaultFont
@@ -147,9 +148,12 @@ Page {
               spacing: 6
               Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
               Layout.bottomMargin: 10
+
               QfButton {
-                leftPadding: 20
-                rightPadding: 20
+                topPadding: 8
+                bottomPadding: 8
+                leftPadding: 10
+                rightPadding: 10
 
                 text: qsTr("Reach out")
                 icon.source: Theme.getThemeVectorIcon('ic_create_white_24dp')
@@ -188,6 +192,7 @@ Page {
 
             Text {
               Layout.margins: 6
+              Layout.topMargin: 12
               Layout.maximumWidth: feedbackView.width - 12
               text: qsTr("Hey there, how do you like your experience with QField so far?")
               font: Theme.defaultFont
@@ -252,6 +257,7 @@ Page {
 
             Text {
               Layout.margins: 6
+              Layout.topMargin: 12
               Layout.maximumWidth: feedbackView.width - 12
               text: qsTr("That's great! We'd love for you to click on the button below and leave a review.")
               font: Theme.defaultFont
@@ -266,8 +272,10 @@ Page {
               Layout.margins: 6
               Layout.bottomMargin: 10
               QfButton {
-                leftPadding: 20
-                rightPadding: 20
+                topPadding: 8
+                bottomPadding: 8
+                leftPadding: 10
+                rightPadding: 10
 
                 text: qsTr("Rate us")
                 icon.source: Theme.getThemeVectorIcon('ic_star_white_24dp')
@@ -334,6 +342,7 @@ Page {
 
             Text {
               Layout.margins: 6
+              Layout.topMargin: 12
               Layout.maximumWidth: collectionView.width - 12
               text: qsTr("Anonymized metrics collection has been disabled. You can re-enable through the settings panel.")
               font: Theme.defaultFont
@@ -369,6 +378,7 @@ Page {
 
             Text {
               Layout.margins: 6
+              Layout.topMargin: 12
               Layout.maximumWidth: collectionView.width - 12
               text: qsTr("To improve stability for everyone, QField collects and sends anonymized metrics.")
               font: Theme.defaultFont
@@ -382,6 +392,11 @@ Page {
               Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
               Layout.bottomMargin: 10
               QfButton {
+                topPadding: 8
+                bottomPadding: 8
+                leftPadding: 10
+                rightPadding: 10
+
                 text: qsTr('I agree')
 
                 onClicked: {
@@ -391,6 +406,11 @@ Page {
               }
 
               QfButton {
+                topPadding: 8
+                bottomPadding: 8
+                leftPadding: 10
+                rightPadding: 10
+
                 text: qsTr('I prefer not')
                 bgcolor: "transparent"
                 color: Theme.mainColor
