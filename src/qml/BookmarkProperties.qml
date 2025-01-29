@@ -68,6 +68,7 @@ Popup {
         id: groupField
         spacing: 8
         Layout.fillWidth: true
+        Layout.alignment: Qt.AlignHCenter
 
         property int iconSize: 32
         property string value: ''
@@ -76,9 +77,6 @@ Popup {
           saveBookmark();
         }
 
-        Item {
-          Layout.fillWidth: true
-        }
         Rectangle {
           id: defaultColor
           width: groupField.iconSize
@@ -135,15 +133,11 @@ Popup {
             onClicked: groupField.value = 'blue'
           }
         }
-        Item {
-          Layout.fillWidth: true
-        }
       }
 
       QfButton {
         id: updateBookmarkButton
         Layout.fillWidth: true
-        Layout.topMargin: 10
         text: qsTr('Copy bookmark details')
 
         onClicked: {
