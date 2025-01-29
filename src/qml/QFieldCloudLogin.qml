@@ -130,7 +130,7 @@ Item {
     TextField {
       id: usernameField
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
-      Layout.preferredWidth: parent.width / 1.3
+      Layout.preferredWidth: parent.width - showPasswordButton.width * 2
       Layout.alignment: Qt.AlignHCenter
       visible: cloudConnection.status === QFieldCloudConnection.Disconnected
       enabled: visible
@@ -146,7 +146,7 @@ Item {
       id: passwordField
       echoMode: TextInput.Password
       inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
-      Layout.preferredWidth: parent.width / 1.3
+      Layout.preferredWidth: parent.width - showPasswordButton.width * 2
       Layout.alignment: Qt.AlignHCenter
       Layout.bottomMargin: 10
       visible: cloudConnection.status === QFieldCloudConnection.Disconnected
@@ -156,6 +156,29 @@ Item {
       placeholderText: qsTr("Password")
 
       Keys.onReturnPressed: loginFormSumbitHandler()
+
+      QfToolButton {
+        id: showPasswordButton
+
+        property var linkedField: passwordField
+        property int originalEchoMode: TextInput.Normal
+
+        visible: (!!linkedField.echoMode && linkedField.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
+        iconSource: linkedField.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
+        iconColor: Theme.mainColor
+        anchors.left: linkedField.right
+        anchors.verticalCenter: linkedField.verticalCenter
+        opacity: linkedField.text.length > 0 ? 1 : 0.25
+
+        onClicked: {
+          if (linkedField.echoMode !== TextInput.Normal) {
+            originalEchoMode = linkedField.echoMode;
+            linkedField.echoMode = TextInput.Normal;
+          } else {
+            linkedField.echoMode = originalEchoMode;
+          }
+        }
+      }
     }
 
     FontMetrics {

@@ -61,18 +61,18 @@ Page {
       }
 
       TextField {
-        id: username
+        id: usernameField
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        Layout.preferredWidth: parent.width / 1.3
+        Layout.preferredWidth: parent.width - showPasswordButton.width * 2
         inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
         horizontalAlignment: Text.AlignHCenter
         placeholderText: qsTr("Username")
       }
 
       TextField {
-        id: password
+        id: passwordField
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        Layout.preferredWidth: parent.width / 1.3
+        Layout.preferredWidth: parent.width - showPasswordButton.width * 2
         Layout.bottomMargin: 10
         echoMode: TextInput.Password
         inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
@@ -81,6 +81,29 @@ Page {
 
         Keys.onReturnPressed: _processAuth()
         Keys.onEnterPressed: _processAuth()
+
+        QfToolButton {
+          id: showPasswordButton
+
+          property var linkedField: passwordField
+          property int originalEchoMode: TextInput.Normal
+
+          visible: (!!linkedField.echoMode && linkedField.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
+          iconSource: linkedField.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
+          iconColor: Theme.mainColor
+          anchors.left: linkedField.right
+          anchors.verticalCenter: linkedField.verticalCenter
+          opacity: linkedField.text.length > 0 ? 1 : 0.25
+
+          onClicked: {
+            if (linkedField.echoMode !== TextInput.Normal) {
+              originalEchoMode = linkedField.echoMode;
+              linkedField.echoMode = TextInput.Normal;
+            } else {
+              linkedField.echoMode = originalEchoMode;
+            }
+          }
+        }
       }
 
       QfButton {
@@ -101,13 +124,13 @@ Page {
 
   onVisibleChanged: {
     if (visible) {
-      username.forceActiveFocus();
+      usernameField.forceActiveFocus();
     }
   }
 
   function _processAuth() {
-    enter(username.text, password.text);
-    username.text = '';
-    password.text = '';
+    enter(usernameField.text, passwordField.text);
+    usernameField.text = '';
+    passwordField.text = '';
   }
 }
