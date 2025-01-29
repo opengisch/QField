@@ -25,7 +25,6 @@ Item {
     Image {
       id: logo
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-      Layout.bottomMargin: 10
       fillMode: Image.PreserveAspectFit
       smooth: true
       source: "qrc:/images/qfieldcloud_logo.svg"
@@ -36,6 +35,17 @@ Item {
         anchors.fill: parent
         onDoubleClicked: toggleServerUrlEditing()
       }
+    }
+
+    Text {
+      Layout.fillWidth: true
+      Layout.bottomMargin: 10
+      horizontalAlignment: Text.AlignHCenter
+      font.pointSize: Theme.titleFont.pointSize
+      font.bold: true
+      color: Theme.cloudColor
+      wrapMode: Text.WordWrap
+      text: qsTr("QFieldCloud")
     }
 
     Text {
@@ -77,7 +87,7 @@ Item {
       text: qsTr("Server URL\n(Leave empty to use the default server)")
       horizontalAlignment: Text.AlignHCenter
       font: Theme.defaultFont
-      color: 'gray'
+      color: Theme.secondaryTextColor
       wrapMode: Text.WordWrap
     }
 
