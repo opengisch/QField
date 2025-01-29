@@ -19,6 +19,7 @@ Popup {
   x: Theme.popupScreenEdgeMargin
   y: Theme.popupScreenEdgeMargin
   padding: 0
+  modal: true
   focus: visible
 
   property alias name: positioningDeviceName.text
