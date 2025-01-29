@@ -15,12 +15,11 @@ Button {
 
   signal dropdownClicked
 
-  topPadding: 8
-  bottomPadding: 8
-  leftPadding: 8
-  rightPadding: dropdown ? 40 : 8
-  topInset: 2
-  bottomInset: 2
+  verticalPadding: Material.buttonVerticalPadding
+  leftPadding: Math.max((dropdown ? 40 : 0), Material.buttonLeftPadding(flat, hasIcon && (display !== AbstractButton.TextOnly)))
+  rightPadding: Math.max((dropdown ? 40 : 0), Material.buttonRightPadding(flat, hasIcon && (display !== AbstractButton.TextOnly), (text !== "") && (display !== AbstractButton.IconOnly)))
+  topInset: 0
+  bottomInset: 0
   leftInset: 4
   rightInset: 4
   focusPolicy: Qt.NoFocus
@@ -52,11 +51,6 @@ Button {
     spacing: parent.spacing
     mirrored: parent.mirrored
     display: parent.display
-
-    topPadding: 2
-    bottomPadding: 2
-    leftPadding: 0
-    rightPadding: 0
 
     icon: parent.icon
     color: button.color
