@@ -1850,11 +1850,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>The dataset will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>Zbiór danych zostanie usunięty, kontynuować usuwanie?</translation>
     </message>
     <message>
         <source>The project folder will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>Folder projektu zostanie usunięty, kontynuować usuwanie?</translation>
     </message>
 </context>
 <context>
