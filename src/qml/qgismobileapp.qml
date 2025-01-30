@@ -3966,10 +3966,6 @@ ApplicationWindow {
   QFieldCloudPackageLayersFeedback {
     id: cloudPackageLayersFeedback
     visible: false
-    parent: Overlay.overlay
-
-    width: parent.width
-    height: parent.height
   }
 
   QFieldLocalDataPickerScreen {

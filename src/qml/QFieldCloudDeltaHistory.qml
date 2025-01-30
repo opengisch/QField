@@ -79,7 +79,7 @@ Popup {
         leftPadding: 48
         rightPadding: 48
         width: parent.width
-        visible: !!model && model.rowCount === 0
+        visible: deltaList.count === 0
 
         text: qsTr("No changes have been pushed yet!")
         color: Theme.mainTextDisabledColor
@@ -91,7 +91,7 @@ Popup {
         id: deltaList
         Layout.fillWidth: true
         Layout.fillHeight: true
-        visible: !!model !== undefined && model.rowCount !== 0
+        visible: count !== 0
         clip: true
         ScrollBar.vertical: QfScrollBar {
         }

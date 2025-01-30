@@ -8,13 +8,14 @@ import Theme
  * \ingroup qml
  */
 QfDialog {
-  parent: mainWindow.contentItem
-
   property int selectedCount: 0
   property bool isDeleted: false
   property alias packagedLayersListViewModel: packagedLayersListView.model
 
-  width: mainWindow.width - 20
+  parent: mainWindow.contentItem
+  width: mainWindow.width - Theme.popupScreenEdgeMargin * 2
+  height: Math.min(300 + packagedLayersListView.contentHeight, mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+
   title: qsTr("QFieldCloud had troubles packaging your project")
 
   ColumnLayout {
@@ -32,8 +33,9 @@ QfDialog {
       model: []
 
       Layout.fillWidth: true
+      Layout.fillHeight: true
       Layout.topMargin: 10
-      Layout.preferredHeight: Math.min(childrenRect.height, 300)
+      Layout.preferredHeight: contentHeight
 
       delegate: Text {
         width: parent.width
