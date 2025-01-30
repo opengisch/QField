@@ -14,12 +14,12 @@ Popup {
   property alias model: deltaList.model
 
   width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeMargin * 2)
-  x: (parent.width - width) / 2
-  y: (parent.height - page.height) / 2
+  height: page.height
+  x: (mainWindow.width - width) / 2
+  y: (mainWindow.height - height) / 2
   padding: 0
 
   onOpened: function () {
-    page.height = mainWindow.height - 160 + 60;
     if (cloudProjectsModel.currentProjectId) {
       cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId);
     }
@@ -32,7 +32,7 @@ Popup {
   Page {
     id: page
     width: parent.width
-    height: deltaList.height + 60
+    height: Math.min(deltaList.contentHeight + toolBar.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
     padding: 10
     header: ToolBar {
       id: toolBar
@@ -70,11 +70,12 @@ Popup {
       }
     }
 
-    Column {
+    ColumnLayout {
+      anchors.fill: parent
       spacing: 4
-      width: parent.width
 
       Label {
+        Layout.fillWidth: true
         leftPadding: 48
         rightPadding: 48
         width: parent.width
@@ -88,10 +89,12 @@ Popup {
 
       ListView {
         id: deltaList
-        width: parent.width
-        height: visible ? mainWindow.height - 160 : 0
-        visible: deltaList && deltaList.model !== undefined && deltaList.model.rowCount !== 0
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        visible: !!model !== undefined && model.rowCount !== 0
         clip: true
+        ScrollBar.vertical: QfScrollBar {
+        }
 
         delegate: Rectangle {
           id: rectangle
