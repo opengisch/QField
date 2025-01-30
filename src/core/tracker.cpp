@@ -310,42 +310,46 @@ void Tracker::processPositionInformation( const GnssPositionInformation &positio
 
   mLastDevicePositionTimestamp = positionInformation.utcDateTime();
 
+  double measureValue = 0.0;
   switch ( mMeasureType )
   {
     case Tracker::SecondsSinceStart:
-      mRubberbandModel->setMeasureValue( positionInformation.utcDateTime().toSecsSinceEpoch() - mStartPositionTimestamp.toSecsSinceEpoch() );
+      measureValue = positionInformation.utcDateTime().toSecsSinceEpoch() - mStartPositionTimestamp.toSecsSinceEpoch();
       break;
     case Tracker::Timestamp:
-      mRubberbandModel->setMeasureValue( positionInformation.utcDateTime().toSecsSinceEpoch() );
+      measureValue = positionInformation.utcDateTime().toSecsSinceEpoch();
       break;
     case Tracker::GroundSpeed:
-      mRubberbandModel->setMeasureValue( positionInformation.speed() );
+      measureValue = positionInformation.speed();
       break;
     case Tracker::Bearing:
-      mRubberbandModel->setMeasureValue( positionInformation.direction() );
+      measureValue = positionInformation.direction();
       break;
     case Tracker::HorizontalAccuracy:
-      mRubberbandModel->setMeasureValue( positionInformation.hacc() );
+      measureValue = positionInformation.hacc();
       break;
     case Tracker::VerticalAccuracy:
-      mRubberbandModel->setMeasureValue( positionInformation.vacc() );
+      measureValue = positionInformation.vacc();
       break;
     case Tracker::PDOP:
-      mRubberbandModel->setMeasureValue( positionInformation.pdop() );
+      measureValue = positionInformation.pdop();
       break;
     case Tracker::HDOP:
-      mRubberbandModel->setMeasureValue( positionInformation.hdop() );
+      measureValue = positionInformation.hdop();
       break;
     case Tracker::VDOP:
-      mRubberbandModel->setMeasureValue( positionInformation.vdop() );
+      measureValue = positionInformation.vdop();
       break;
   }
 
+  whileBlocking( mRubberbandModel )->setMeasureValue( measureValue );
   mRubberbandModel->setCurrentCoordinate( projectedPosition );
 }
 
 void Tracker::replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer )
 {
+  const qint64 startTime = QDateTime::currentMSecsSinceEpoch();
+
   bool wasActive = false;
   if ( mIsActive )
   {
@@ -390,6 +394,11 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   {
     start();
   }
+
+  const qint64 endTime = QDateTime::currentMSecsSinceEpoch();
+  qDebug() << "---";
+  qDebug() << ( endTime - startTime ) << "ms";
+  qDebug() << "---";
 }
 
 void Tracker::rubberbandModelVertexCountChanged()
