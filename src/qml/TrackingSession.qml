@@ -48,6 +48,7 @@ Item {
   Rubberband {
     id: rubberband
     visible: tracker.visible
+    freeze: tracker.isReplaying
 
     color: Qt.rgba(Math.min(0.75, Math.random()), Math.min(0.75, Math.random()), Math.min(0.75, Math.random()), 0.6)
     geometryType: Qgis.GeometryType.Line

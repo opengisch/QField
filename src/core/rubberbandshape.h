@@ -35,6 +35,8 @@ class RubberbandShape : public QQuickItem
 {
     Q_OBJECT
 
+    Q_PROPERTY( bool freeze READ freeze WRITE setFreeze NOTIFY freezeChanged )
+
     Q_PROPERTY( RubberbandModel *model READ model WRITE setModel NOTIFY modelChanged )
     Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
@@ -66,6 +68,11 @@ class RubberbandShape : public QQuickItem
     QgsQuickMapSettings *mapSettings() const;
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
+    //! \copydoc freeze
+    bool freeze() const;
+    //! \copydoc freeze
+    void setFreeze( bool freeze );
+
     //! \copydoc color
     QColor color() const;
     //! \copydoc color
@@ -96,6 +103,8 @@ class RubberbandShape : public QQuickItem
     void modelChanged();
     void vertexModelChanged();
     void mapSettingsChanged();
+    //! \copydoc freeze
+    void freezeChanged();
     //! \copydoc color
     void colorChanged();
     //! \copydoc outlineColor
@@ -121,6 +130,7 @@ class RubberbandShape : public QQuickItem
     RubberbandModel *mRubberbandModel = nullptr;
     VertexModel *mVertexModel = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
+    bool mFreeze = false;
     bool mDirty = false;
     QColor mColor = QColor( 192, 57, 43, 150 );
     QColor mOutlineColor = QColor( 255, 255, 255, 100 );
