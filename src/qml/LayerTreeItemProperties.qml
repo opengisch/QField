@@ -26,6 +26,7 @@ Popup {
 
   parent: mainWindow.contentItem
   width: Math.min(childrenRect.width, mainWindow.width - Theme.popupScreenEdgeMargin)
+  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
   padding: 0
@@ -60,8 +61,10 @@ Popup {
   Page {
     id: popupContent
     width: parent.width
-    padding: 0
+    height: parent.height
+    padding: 10
     header: RowLayout {
+      id: headerLayout
       spacing: 2
       Label {
         id: titleLabel
@@ -95,13 +98,13 @@ Popup {
     }
 
     ScrollView {
-      padding: 10
+      padding: 0
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
       ScrollBar.vertical: QfScrollBar {
       }
       contentWidth: popupLayout.childrenRect.width
       contentHeight: popupLayout.childrenRect.height
-      height: Math.min(popupLayout.childrenRect.height + 20, mainWindow.height - mainWindow.sceneTopMargin - mainWindow.sceneBottomMargin)
+      height: parent.height
       clip: true
 
       ColumnLayout {

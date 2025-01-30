@@ -60,11 +60,11 @@ Item {
     id: searchFeaturePopup
 
     parent: mainWindow.contentItem
+    width: mainWindow.width - Theme.popupScreenEdgeMargin * 2
+    height: mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
     x: Theme.popupScreenEdgeMargin
-    y: Theme.popupScreenEdgeMargin
+    y: (mainWindow.height - height) / 2
     z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
-    width: parent.width - Theme.popupScreenEdgeMargin * 2
-    height: parent.height - Theme.popupScreenEdgeMargin * 2
     padding: 0
     modal: true
     closePolicy: Popup.CloseOnEscape

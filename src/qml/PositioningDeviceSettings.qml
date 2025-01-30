@@ -15,9 +15,9 @@ Popup {
   signal apply
 
   width: mainWindow.width - Theme.popupScreenEdgeMargin * 2
-  height: mainWindow.height - Theme.popupScreenEdgeMargin * 2
+  height: mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
   x: Theme.popupScreenEdgeMargin
-  y: Theme.popupScreenEdgeMargin
+  y: (mainWindow.height - height) / 2
   padding: 0
   modal: true
   focus: visible
