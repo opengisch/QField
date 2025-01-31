@@ -33,7 +33,7 @@ Item {
   property bool snapToCommonAngles: false
   property bool snappingIsRelative: false
   property real snappingAngleDegrees: 45.0
-  property real snappingTolerance: 0
+  property real snappingTolerance: 1
 
   /**
    * Overrides any possibility for the user to modify the coordinate.
@@ -393,6 +393,28 @@ Item {
     flashAnimation.start();
   }
 
+  /** Function to get the multiplier based on the selected tolerance
+  *
+  * - Narrow tolerance (index 0) divides by 2.
+  * - Normal tolerance (index 1) keeps unchanged.
+  * - Large tolerance (index 2) multiplies by 4.
+  */
+  function getToleranceMultiplier() {
+    switch (snappingTolerance) {
+    case 0 // Narrow
+    :
+      return 0.5;
+    case 1 // Normal
+    :
+      return 1;
+    case 2 // Large
+    :
+      return 4;
+    default:
+      return 1;
+    }
+  }
+
   /**
    * Computes the possible common angle
    *
@@ -443,28 +465,6 @@ Item {
       if (dist < SOFT_CONSTRAINT_TOLERANCE_PIXEL) {
         return 180.0 / Math.PI * softAngle;
       }
-    }
-  }
-
-  /** Function to get the multiplier based on the selected tolerance
-  *
-  * - Narrow tolerance (index 0) divides by 2.
-  * - Normal tolerance (index 1) keeps unchanged.
-  * - Large tolerance (index 2) multiplies by 4.
-  */
-  function getToleranceMultiplier() {
-    switch (snappingTolerance) {
-    case 0 // Narrow
-    :
-      return 0.5;
-    case 1 // Normal
-    :
-      return 1;
-    case 2 // Large
-    :
-      return 4;
-    default:
-      return 1;
     }
   }
 

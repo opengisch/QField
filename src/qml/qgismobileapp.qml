@@ -1697,7 +1697,7 @@ ApplicationWindow {
             coordinateLocator.snapToCommonAngles = settings.valueBool("/QField/Digitizing/SnapToCommonAngleIsEnabled", false);
             coordinateLocator.snappingIsRelative = settings.valueBool("/QField/Digitizing/SnapToCommonAngleIsRelative", true);
             coordinateLocator.snappingAngleDegrees = settings.valueInt("/QField/Digitizing/SnapToCommonAngleDegrees", 45);
-            coordinateLocator.snappingTolerance = settings.valueInt("/QField/Digitizing/SnappingTolerance", 0);
+            coordinateLocator.snappingTolerance = settings.valueInt("/QField/Digitizing/SnappingTolerance", 1);
           }
 
           Menu {
@@ -1747,10 +1747,9 @@ ApplicationWindow {
                 width: (angles.width - ((angles.count - 1) * angles.spacing)) / angles.count
                 height: width
                 radius: width / 2
-                color: selected ? Theme.mainColor : "transparent" // Theme.darkTheme ? Theme.gray : Theme.lightGray
+                color: selected ? Theme.mainColor : "transparent"
                 enabled: !selected
 
-                // border.color: Theme.darkTheme ? Theme.gray : Theme.lightGray
                 property bool selected: modelData === coordinateLocator.snappingAngleDegrees
 
                 Text {
@@ -1828,6 +1827,9 @@ ApplicationWindow {
                   font: parent.selected ? Theme.strongTipFont : Theme.tipFont
                   anchors.centerIn: parent
                   color: Theme.mainTextColor
+                  elide: Text.ElideRight
+                  width: parent.width
+                  horizontalAlignment: Text.AlignHCenter
                 }
 
                 Ripple {
