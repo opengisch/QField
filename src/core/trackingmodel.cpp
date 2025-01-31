@@ -169,9 +169,21 @@ void TrackingModel::replayPositionInformationList( const QList<GnssPositionInfor
   for ( int i = 0; i < mTrackers.size(); i++ )
   {
     Tracker *tracker = mTrackers[i];
-    if ( tracker->isActive() )
+    if ( tracker->isSuspended() )
     {
       tracker->replayPositionInformationList( positionInformationList, coordinateTransformer );
+    }
+  }
+}
+
+void TrackingModel::suspendUntilReplay()
+{
+  for ( int i = 0; i < mTrackers.size(); i++ )
+  {
+    Tracker *tracker = mTrackers[i];
+    if ( tracker->isActive() )
+    {
+      tracker->suspendUntilReplay();
     }
   }
 }

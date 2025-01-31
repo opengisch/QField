@@ -23,10 +23,8 @@ Item {
     enabled: tracker.isActive
 
     function onPositionInformationChanged() {
-      if (!positionSource.backgroundMode) {
-        featureModel.positionInformation = positionSource.positionInformation;
-        tracker.processPositionInformation(positionSource.positionInformation, positionSource.projectedPosition);
-      }
+      featureModel.positionInformation = positionSource.positionInformation;
+      tracker.processPositionInformation(positionSource.positionInformation, positionSource.projectedPosition);
     }
   }
 

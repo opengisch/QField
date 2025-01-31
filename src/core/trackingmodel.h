@@ -71,6 +71,8 @@ class TrackingModel : public QAbstractItemModel
     //! Replays a list of position information for all active trackers
     Q_INVOKABLE void replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer = nullptr );
 
+    Q_INVOKABLE void suspendUntilReplay();
+
     void reset();
 
     /**

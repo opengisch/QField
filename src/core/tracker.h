@@ -35,6 +35,7 @@ class Tracker : public QObject
     Q_OBJECT
 
     Q_PROPERTY( bool isActive READ isActive NOTIFY isActiveChanged )
+    Q_PROPERTY( bool isSuspended READ isSuspended NOTIFY isSuspendedChanged )
     Q_PROPERTY( bool isReplaying READ isReplaying NOTIFY isReplayingChanged )
 
     Q_PROPERTY( bool visible READ visible WRITE setVisible NOTIFY visibleChanged )
@@ -134,6 +135,9 @@ class Tracker : public QObject
     //! Returns whether the tracker has been started
     bool isActive() const { return mIsActive; }
 
+    //! Returns whether the track has been suspended
+    bool isSuspended() const { return mIsSuspended; }
+
     //! Returns whether the tracker is replaying positions
     bool isReplaying() const { return mIsReplaying; }
 
@@ -148,8 +152,11 @@ class Tracker : public QObject
     //! Replays a list of position information taking into account the tracker settings
     void replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer = nullptr );
 
+    void suspendUntilReplay();
+
   signals:
     void isActiveChanged();
+    void isSuspendedChanged();
     void isReplayingChanged();
     void visibleChanged();
     void vectorLayerChanged();
@@ -177,6 +184,7 @@ class Tracker : public QObject
     void trackPosition();
 
     bool mIsActive = false;
+    bool mIsSuspended = false;
     bool mIsReplaying = false;
 
     RubberbandModel *mRubberbandModel = nullptr;

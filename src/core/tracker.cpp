@@ -350,13 +350,6 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
 {
   const qint64 startTime = QDateTime::currentMSecsSinceEpoch();
 
-  bool wasActive = false;
-  if ( mIsActive )
-  {
-    wasActive = true;
-    stop();
-  }
-
   mIsReplaying = true;
   emit isReplayingChanged();
 
@@ -396,13 +389,25 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   mIsReplaying = false;
   emit isReplayingChanged();
 
-  if ( wasActive )
+  if ( mIsSuspended )
   {
+    mIsSuspended = false;
+    emit isSuspendedChanged();
     start();
   }
 
   const qint64 endTime = QDateTime::currentMSecsSinceEpoch();
   qInfo() << QStringLiteral( "Tracker position information replay duration: %1ms" ).arg( endTime - startTime );
+}
+
+void Tracker::suspendUntilReplay()
+{
+  if ( mIsActive )
+  {
+    mIsSuspended = true;
+    emit isSuspendedChanged();
+    stop();
+  }
 }
 
 void Tracker::rubberbandModelVertexCountChanged()
