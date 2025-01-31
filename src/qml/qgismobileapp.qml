@@ -3796,10 +3796,10 @@ ApplicationWindow {
     Popup {
       id: loginDialogPopup
       parent: Overlay.overlay
-      x: Theme.popupScreenEdgeMargin
-      y: Theme.popupScreenEdgeMargin
       width: parent.width - Theme.popupScreenEdgeMargin * 2
-      height: parent.height - Theme.popupScreenEdgeMargin * 2
+      height: parent.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+      x: Theme.popupScreenEdgeMargin
+      y: (mainWindow.height - height) / 2
       padding: 0
       modal: true
       closePolicy: Popup.CloseOnEscape
@@ -3966,10 +3966,6 @@ ApplicationWindow {
   QFieldCloudPackageLayersFeedback {
     id: cloudPackageLayersFeedback
     visible: false
-    parent: Overlay.overlay
-
-    width: parent.width
-    height: parent.height
   }
 
   QFieldLocalDataPickerScreen {

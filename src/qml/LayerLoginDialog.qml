@@ -27,6 +27,7 @@ Page {
   Flickable {
     id: flickable
     anchors.fill: parent
+    anchors.margins: 20
     Layout.fillWidth: true
     Layout.fillHeight: true
     contentHeight: content.height
@@ -37,94 +38,78 @@ Page {
     ColumnLayout {
       id: content
       width: parent.width
-      spacing: 2
-      anchors {
-        margins: 4
-        topMargin: 52 // Leave space for the toolbar
-      }
-
-      Item {
-        // spacer item
-        height: 24
-      }
+      spacing: 10
 
       Image {
         Layout.alignment: Qt.AlignHCenter
+        Layout.topMargin: 30
+        Layout.bottomMargin: 10
         source: Theme.getThemeVectorIcon('ic_password_48dp')
         sourceSize.width: Math.min(64, parent.width / 5)
         sourceSize.height: Math.min(64, parent.width / 5)
       }
 
-      Item {
-        // spacer item
-        height: 8
-      }
-
       Text {
         text: credentialTitle
-        horizontalAlignment: Text.AlignHCenter
         Layout.fillWidth: true
+        Layout.bottomMargin: 10
+        horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
         font: Theme.defaultFont
         color: Theme.mainTextColor
         padding: 16
       }
 
-      Item {
-        // spacer item
-        height: 35
-      }
-
-      Text {
-        id: usernamelabel
+      TextField {
+        id: usernameField
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        text: qsTr("Username")
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
-      }
-
-      QfTextField {
-        id: username
-        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        Layout.preferredWidth: Math.max(parent.width / 2, usernamelabel.width)
+        Layout.preferredWidth: parent.width - showPasswordButton.width * 2
         inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
         horizontalAlignment: Text.AlignHCenter
+        placeholderText: qsTr("Username")
       }
 
-      Item {
-        // spacer item
-        height: 35
-      }
-
-      Text {
-        id: passwordlabel
+      TextField {
+        id: passwordField
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        text: qsTr("Password")
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
-      }
-
-      QfTextField {
-        id: password
-        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        Layout.preferredWidth: Math.max(parent.width / 2, usernamelabel.width)
+        Layout.preferredWidth: parent.width - showPasswordButton.width * 2
+        Layout.bottomMargin: 10
         echoMode: TextInput.Password
         inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
         horizontalAlignment: Text.AlignHCenter
+        placeholderText: qsTr("Password")
 
         Keys.onReturnPressed: _processAuth()
         Keys.onEnterPressed: _processAuth()
-      }
 
-      Item {
-        // spacer item
-        height: 35
+        QfToolButton {
+          id: showPasswordButton
+
+          property var linkedField: passwordField
+          property int originalEchoMode: TextInput.Normal
+
+          visible: (!!linkedField.echoMode && linkedField.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
+          iconSource: linkedField.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
+          iconColor: Theme.mainColor
+          anchors.left: linkedField.right
+          anchors.verticalCenter: linkedField.verticalCenter
+          opacity: linkedField.text.length > 0 ? 1 : 0.25
+
+          onClicked: {
+            if (linkedField.echoMode !== TextInput.Normal) {
+              originalEchoMode = linkedField.echoMode;
+              linkedField.echoMode = TextInput.Normal;
+            } else {
+              linkedField.echoMode = originalEchoMode;
+            }
+          }
+        }
       }
 
       QfButton {
         id: submit
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        Layout.preferredWidth: Math.max(parent.width / 2, usernamelabel.width)
+        Layout.fillWidth: true
         text: "Submit"
         onClicked: _processAuth()
       }
@@ -139,13 +124,13 @@ Page {
 
   onVisibleChanged: {
     if (visible) {
-      username.forceActiveFocus();
+      usernameField.forceActiveFocus();
     }
   }
 
   function _processAuth() {
-    enter(username.text, password.text);
-    username.text = '';
-    password.text = '';
+    enter(usernameField.text, passwordField.text);
+    usernameField.text = '';
+    passwordField.text = '';
   }
 }

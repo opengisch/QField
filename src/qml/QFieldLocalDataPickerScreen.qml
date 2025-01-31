@@ -798,7 +798,8 @@ Page {
     id: importUrlDialog
     title: qsTr("Import URL")
     focus: visible
-    y: (mainWindow.height - height - 80) / 2
+    parent: mainWindow.contentItem
+    y: (mainWindow.height - height) / 2
 
     onAboutToShow: {
       importUrlInput.text = '';
@@ -824,7 +825,7 @@ Page {
         color: Theme.mainTextColor
       }
 
-      QfTextField {
+      TextField {
         id: importUrlInput
         width: importUrlLabel.width
       }
@@ -905,8 +906,9 @@ Page {
   QfDialog {
     id: downloadUploadWebdavDialog
     title: isUploadingPath ? qsTr("WebDAV upload") : qsTr("WebDAV download")
-    focus: true
-    y: (mainWindow.height - height - 80) / 2
+    focus: visible
+    parent: mainWindow.contentItem
+    y: (mainWindow.height - height) / 2
 
     property bool isUploadingPath: false
     property string host: ""
@@ -1004,7 +1006,8 @@ Page {
     id: importWebdavDialog
     title: qsTr("Import WebDAV folder")
     focus: visible
-    y: (mainWindow.height - height - 80) / 2
+    parent: mainWindow.contentItem
+    y: (mainWindow.height - height) / 2
 
     onAboutToShow: {
       if (webdavConnectionLoader.item) {

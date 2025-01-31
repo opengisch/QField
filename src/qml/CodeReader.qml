@@ -21,7 +21,7 @@ Popup {
   property bool openedOnce: false
 
   width: popupWidth
-  height: Math.min(mainWindow.height - Theme.popupScreenEdgeMargin, popupWidth + toolBar.height + acceptButton.height)
+  height: Math.min(mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4), popupWidth + toolBar.height + acceptButton.height)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes

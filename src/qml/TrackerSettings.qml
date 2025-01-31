@@ -10,13 +10,13 @@ import Theme
  */
 Popup {
   id: trackInformationPopup
-  parent: mainWindow.contentItem
 
-  x: Theme.popupScreenEdgeMargin / 2
-  y: Theme.popupScreenEdgeMargin
+  parent: mainWindow.contentItem
   padding: 0
-  width: parent.width - Theme.popupScreenEdgeMargin
-  height: parent.height - Theme.popupScreenEdgeMargin * 2
+  width: mainWindow.width - Theme.popupScreenEdgeMargin
+  height: mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+  x: Theme.popupScreenEdgeMargin / 2
+  y: (mainWindow.height - height) / 2
   modal: true
   closePolicy: Popup.NoAutoClose
 

@@ -49,19 +49,14 @@ Popup {
 
     ColumnLayout {
       id: propertiesLayout
-      spacing: 4
+      spacing: 10
       width: parent.width
 
-      Label {
-        Layout.fillWidth: true
-        text: qsTr('Name')
-        font: Theme.defaultFont
-      }
-
-      QfTextField {
+      TextField {
         id: nameField
         Layout.fillWidth: true
         font: Theme.defaultFont
+        placeholderText: qsTr('Name')
         text: ''
 
         onTextChanged: {
@@ -69,16 +64,11 @@ Popup {
         }
       }
 
-      Label {
-        Layout.fillWidth: true
-        text: qsTr('Color')
-        font: Theme.defaultFont
-      }
-
       RowLayout {
         id: groupField
         spacing: 8
         Layout.fillWidth: true
+        Layout.alignment: Qt.AlignHCenter
 
         property int iconSize: 32
         property string value: ''
@@ -89,7 +79,6 @@ Popup {
 
         Rectangle {
           id: defaultColor
-          Layout.alignment: Qt.AlignVCenter
           width: groupField.iconSize
           height: groupField.iconSize
           color: Theme.bookmarkDefault
@@ -144,15 +133,11 @@ Popup {
             onClicked: groupField.value = 'blue'
           }
         }
-        Item {
-          Layout.fillWidth: true
-        }
       }
 
       QfButton {
         id: updateBookmarkButton
         Layout.fillWidth: true
-        Layout.topMargin: 10
         text: qsTr('Copy bookmark details')
 
         onClicked: {
