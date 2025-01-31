@@ -12,7 +12,7 @@ import ".."
 EditorWidgetBase {
   id: relationEditor
 
-  property int itemHeight: 40
+  property int itemHeight: 48
   property int bottomMargin: 10
   property int maximumVisibleItems: 4
 
@@ -229,16 +229,20 @@ EditorWidgetBase {
           id: featureText
           anchors.verticalCenter: parent.verticalCenter
           width: parent.width - viewButton.width - deleteButton.width
+          topPadding: 5
+          bottomPadding: 5
           font: Theme.defaultFont
           color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
           elide: Text.ElideRight
+          wrapMode: Text.WordWrap
           text: nmRelationId ? model.nmDisplayString : model.displayString
         }
 
         QfToolButton {
           id: viewButton
-          width: 40
-          height: 40
+          anchors.verticalCenter: parent.verticalCenter
+          width: 48
+          height: 48
 
           round: false
           iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : Theme.getThemeVectorIcon('ic_baseline-list_white_24dp')
@@ -257,9 +261,10 @@ EditorWidgetBase {
 
         QfToolButton {
           id: deleteButton
+          anchors.verticalCenter: parent.verticalCenter
           visible: isEnabled && isButtonEnabled('DeleteChildFeature')
-          width: visible ? 40 : 0
-          height: 40
+          width: visible ? 48 : 0
+          height: 48
 
           round: false
           iconSource: Theme.getThemeVectorIcon('ic_delete_forever_white_24dp')

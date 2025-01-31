@@ -13,7 +13,7 @@ import ".."
 EditorWidgetBase {
   id: relationEditor
 
-  property int itemHeight: 40
+  property int itemHeight: 48
 
   // because no additional addEntry item on readOnly (isEnabled false)
   height: listView.contentHeight + (isEnabled ? addEntry.height : 0)
@@ -250,27 +250,31 @@ EditorWidgetBase {
           Image {
             id: featureImage
             source: ImagePath ? UrlUtils.fromString(ImagePath) : Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
-            width: parent.height
-            height: parent.height
+            anchors.verticalCenter: parent.verticalCenter
+            width: 48
+            height: 48
             fillMode: Image.PreserveAspectFit
             visible: !!ImagePath
           }
 
           Text {
             id: featureText
+            anchors.verticalCenter: parent.verticalCenter
+            width: parent.width - 8 - (featureImage.visible ? featureImage.width : 0) - viewButton.width - moveDownButton.width - moveUpButton.width - deleteButton.width
+            topPadding: 5
+            bottomPadding: 5
             font: Theme.defaultFont
             color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
             text: Description || model.displayString
-            verticalAlignment: Text.AlignVCenter
-            padding: 4
             elide: Text.ElideRight
-            width: parent.width - 8 - (featureImage.visible ? featureImage.width : 0) - viewButton.width - moveDownButton.width - moveUpButton.width - deleteButton.width
+            wrapMode: Text.WordWrap
           }
 
           QfToolButton {
             id: viewButton
-            width: 40
-            height: 40
+            anchors.verticalCenter: parent.verticalCenter
+            width: 48
+            height: 48
 
             round: false
             iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : Theme.getThemeVectorIcon('ic_baseline-list_white_24dp')
@@ -290,9 +294,10 @@ EditorWidgetBase {
 
           QfToolButton {
             id: moveDownButton
+            anchors.verticalCenter: parent.verticalCenter
             visible: isEnabled
-            width: visible ? 40 : 0
-            height: 40
+            width: visible ? 48 : 0
+            height: 48
             opacity: (index === listView.count - 1) ? 0.3 : 1
 
             round: false
@@ -310,9 +315,10 @@ EditorWidgetBase {
 
           QfToolButton {
             id: moveUpButton
+            anchors.verticalCenter: parent.verticalCenter
             visible: isEnabled
-            width: visible ? 40 : 0
-            height: 40
+            width: visible ? 48 : 0
+            height: 48
             opacity: (index === 0) ? 0.3 : 1
 
             round: false
@@ -330,9 +336,10 @@ EditorWidgetBase {
 
           QfToolButton {
             id: deleteButton
+            anchors.verticalCenter: parent.verticalCenter
             visible: isEnabled
-            width: visible ? 40 : 0
-            height: 40
+            width: visible ? 48 : 0
+            height: 48
 
             round: false
             iconSource: Theme.getThemeVectorIcon('ic_delete_forever_white_24dp')
