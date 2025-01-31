@@ -799,7 +799,6 @@ Page {
     title: qsTr("Import URL")
     focus: visible
     parent: mainWindow.contentItem
-    y: (mainWindow.height - height) / 2
 
     onAboutToShow: {
       importUrlInput.text = '';
@@ -908,7 +907,6 @@ Page {
     title: isUploadingPath ? qsTr("WebDAV upload") : qsTr("WebDAV download")
     focus: visible
     parent: mainWindow.contentItem
-    y: (mainWindow.height - height) / 2
 
     property bool isUploadingPath: false
     property string host: ""
@@ -1007,7 +1005,6 @@ Page {
     title: qsTr("Import WebDAV folder")
     focus: visible
     parent: mainWindow.contentItem
-    y: (mainWindow.height - height) / 2
 
     onAboutToShow: {
       if (webdavConnectionLoader.item) {

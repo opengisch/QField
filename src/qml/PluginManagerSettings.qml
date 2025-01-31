@@ -238,7 +238,6 @@ Popup {
     id: authorDetails
     title: authorName
     parent: mainWindow.contentItem
-    y: (mainWindow.height - height - 80) / 2
 
     property string authorName: ""
     property string authorHomepage: ""
@@ -286,7 +285,6 @@ Popup {
     title: "Install Plugin from URL"
     parent: mainWindow.contentItem
     focus: true
-    y: (mainWindow.height - height - 80) / 2
 
     onAboutToShow: {
       installFromUrlInput.text = '';
@@ -327,7 +325,6 @@ Popup {
     id: uninstallConfirmation
     title: "Uninstall Plugin"
     parent: mainWindow.contentItem
-    y: (mainWindow.height - height - 80) / 2
 
     property string pluginName: ""
     property string pluginUuid: ""

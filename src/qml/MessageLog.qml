@@ -153,7 +153,6 @@ Page {
     id: applicationLogDialog
     title: qsTr("Send application log")
     focus: true
-    y: (mainWindow.height - height - 80) / 2
 
     onAboutToShow: {
       appliationLogInput.text = '';
