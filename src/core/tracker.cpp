@@ -402,9 +402,7 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   }
 
   const qint64 endTime = QDateTime::currentMSecsSinceEpoch();
-  qDebug() << "---";
-  qDebug() << ( endTime - startTime ) << "ms";
-  qDebug() << "---";
+  qInfo() << QStringLiteral( "Tracker position information replay duration: %1ms" ).arg( endTime - startTime );
 }
 
 void Tracker::rubberbandModelVertexCountChanged()
