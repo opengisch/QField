@@ -514,7 +514,9 @@ void FeatureListModel::setCurrentFormFeature( const QgsFeature &feature )
   mCurrentFormFeature = feature;
 
   if ( !mFilterExpression.isEmpty() && QgsValueRelationFieldFormatter::expressionRequiresFormScope( mFilterExpression ) )
+  {
     reloadLayer();
+  }
 
   emit currentFormFeatureChanged();
 }
