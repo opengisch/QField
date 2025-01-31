@@ -25,7 +25,7 @@ EditorWidgetBase {
     orderByValue: !!config['OrderByValue']
     attributeField: field
     currentFormFeature: currentFeature
-    filterExpression: ""
+    filterExpression: config['FilterExpression'] ? config['FilterExpression'] : ""
     allowMulti: false
 
     // passing "" instead of undefined, so the model is cleared on adding new features
@@ -46,7 +46,7 @@ EditorWidgetBase {
       rightMargin: viewButton.width + openFormButton.width + 4
     }
     enabled: isEnabled
-    useSearch: true
+    useSearch: false
     allowAddFeature: config['AllowAddFeatures'] !== undefined && config['AllowAddFeatures'] === true
     relation: _rel
   }
