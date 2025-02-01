@@ -347,7 +347,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Color</source>
-        <translation>Barva</translation>
+        <translation type="vanished">Barva</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -2004,7 +2004,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Name:</source>
-        <translation>Ime:</translation>
+        <translation type="vanished">Ime:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
@@ -2036,6 +2036,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Ime</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2411,6 +2427,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Preberite več o QFieldCloud-u</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3956,11 +3976,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Naslov:</translation>
+        <translation type="vanished">Naslov:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Vrata:</translation>
+        <translation type="vanished">Vrata:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4329,11 +4357,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Naslov:</translation>
+        <translation type="vanished">Naslov:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

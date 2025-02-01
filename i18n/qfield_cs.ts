@@ -348,7 +348,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Color</source>
-        <translation>Barva</translation>
+        <translation type="vanished">Barva</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -2017,15 +2017,15 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Name:</source>
-        <translation>Název:</translation>
+        <translation type="vanished">Název:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>Nechte prázdné pro automatické vyplnění</translation>
+        <translation type="vanished">Nechte prázdné pro automatické vyplnění</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>Druh připojení:</translation>
+        <translation type="vanished">Druh připojení:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2049,6 +2049,22 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Název</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2425,6 +2441,10 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Další informace o QFieldCloudu</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3975,11 +3995,19 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Adresa:</translation>
+        <translation type="vanished">Adresa:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4348,11 +4376,19 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Adresa:</translation>
+        <translation type="vanished">Adresa:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

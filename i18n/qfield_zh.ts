@@ -348,7 +348,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Color</source>
-        <translation>颜色</translation>
+        <translation type="vanished">颜色</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -2011,15 +2011,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Name:</source>
-        <translation>名称：</translation>
+        <translation type="vanished">名称：</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>留空自动填写</translation>
+        <translation type="vanished">留空自动填写</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>连接类型：</translation>
+        <translation type="vanished">连接类型：</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2044,6 +2044,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Egeniouss</source>
         <translation>Egeniouss</translation>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation>连接类型</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>名称</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation>(留空自动填写)</translation>
+    </message>
+    <message>
+        <source>Connection details</source>
+        <translation>连接详细信息</translation>
     </message>
 </context>
 <context>
@@ -2420,6 +2436,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>了解有关QFieldCloud的更多信息</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3970,11 +3990,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>地址:</translation>
+        <translation type="vanished">地址:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>端口:</translation>
+        <translation type="vanished">端口:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation>IP地址</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>端口</translation>
     </message>
 </context>
 <context>
@@ -4343,11 +4371,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>地址:</translation>
+        <translation type="vanished">地址:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>端口:</translation>
+        <translation type="vanished">端口:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>地址</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>端口</translation>
     </message>
 </context>
 <context>

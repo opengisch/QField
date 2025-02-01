@@ -348,7 +348,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation>Colore</translation>
+        <translation type="vanished">Colore</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -2015,15 +2015,15 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Name:</source>
-        <translation>Nome:</translation>
+        <translation type="vanished">Nome:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>Lascia vuoto per il riempimento automatico</translation>
+        <translation type="vanished">Lascia vuoto per il riempimento automatico</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>Tipo di connessione:</translation>
+        <translation type="vanished">Tipo di connessione:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2047,6 +2047,22 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nome</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2424,6 +2440,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Scopri di più su QFieldCloud</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3977,11 +3997,19 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Indirizzo:</translation>
+        <translation type="vanished">Indirizzo:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Porta:</translation>
+        <translation type="vanished">Porta:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4350,11 +4378,19 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Indirizzo:</translation>
+        <translation type="vanished">Indirizzo:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Porta:</translation>
+        <translation type="vanished">Porta:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

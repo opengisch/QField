@@ -348,7 +348,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation>Color</translation>
+        <translation type="vanished">Color</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -2011,15 +2011,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Name:</source>
-        <translation>Nama:</translation>
+        <translation type="vanished">Nama:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>Biarkan data kosong menjadi terisi otomatis.</translation>
+        <translation type="vanished">Biarkan data kosong menjadi terisi otomatis.</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>Jenis koneksi:</translation>
+        <translation type="vanished">Jenis koneksi:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2043,6 +2043,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Name</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2420,6 +2436,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Learn more about QFieldCloud</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3970,11 +3990,19 @@ Cancel to make a minimal device scan instead.</translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Alamat:</translation>
+        <translation type="vanished">Alamat:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4343,11 +4371,19 @@ Cancel to make a minimal device scan instead.</translation>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Alamat:</translation>
+        <translation type="vanished">Alamat:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -348,7 +348,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation>Kolor</translation>
+        <translation type="vanished">Kolor</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -2017,15 +2017,15 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Name:</source>
-        <translation>Nazwa:</translation>
+        <translation type="vanished">Nazwa:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>Zostaw puste dla automatycznego wypełnienia</translation>
+        <translation type="vanished">Zostaw puste dla automatycznego wypełnienia</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>Typ połączenia:</translation>
+        <translation type="vanished">Typ połączenia:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2050,6 +2050,22 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Egeniouss</source>
         <translation>Egeniouss</translation>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nazwa</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2426,6 +2442,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Dowiedz się więcej o QFieldCloud</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3976,11 +3996,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Adres:</translation>
+        <translation type="vanished">Adres:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4349,11 +4377,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Adres:</translation>
+        <translation type="vanished">Adres:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

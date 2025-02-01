@@ -348,7 +348,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Color</source>
-        <translation>Kleur</translation>
+        <translation type="vanished">Kleur</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -2013,15 +2013,15 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Name:</source>
-        <translation>Naam:</translation>
+        <translation type="vanished">Naam:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>Niet invullen, gebeurt automatisch</translation>
+        <translation type="vanished">Niet invullen, gebeurt automatisch</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>Verbindingstype:</translation>
+        <translation type="vanished">Verbindingstype:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2045,6 +2045,22 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Naam</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2422,6 +2438,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Leer meer over QFieldCloud</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3972,11 +3992,19 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Adres:</translation>
+        <translation type="vanished">Adres:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Poort:</translation>
+        <translation type="vanished">Poort:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4345,11 +4373,19 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Adres:</translation>
+        <translation type="vanished">Adres:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Poort:</translation>
+        <translation type="vanished">Poort:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

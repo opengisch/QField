@@ -348,7 +348,7 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation>Boja</translation>
+        <translation type="vanished">Boja</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -2015,15 +2015,15 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Name:</source>
-        <translation>Naziv:</translation>
+        <translation type="vanished">Naziv:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>Ostavi prazno za automatsko popunjavanje</translation>
+        <translation type="vanished">Ostavi prazno za automatsko popunjavanje</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>Vrsta konekcije:</translation>
+        <translation type="vanished">Vrsta konekcije:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2047,6 +2047,22 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Ime</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2424,6 +2440,10 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Saznaj više o QFieldCloud-u</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3970,11 +3990,19 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Adresa:</translation>
+        <translation type="vanished">Adresa:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4343,11 +4371,19 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Adresa:</translation>
+        <translation type="vanished">Adresa:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

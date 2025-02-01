@@ -348,7 +348,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation>Cor</translation>
+        <translation type="vanished">Cor</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -2015,15 +2015,15 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Name:</source>
-        <translation>Nome:</translation>
+        <translation type="vanished">Nome:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>Deixar vazio no preenchimento automático</translation>
+        <translation type="vanished">Deixar vazio no preenchimento automático</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>Tipo de ligação:</translation>
+        <translation type="vanished">Tipo de ligação:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2047,6 +2047,22 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nome</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2424,6 +2440,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Aprenda mais sobre o QField Cloud</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3974,11 +3994,19 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Endereço:</translation>
+        <translation type="vanished">Endereço:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Porta:</translation>
+        <translation type="vanished">Porta:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4347,11 +4375,19 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Endereço:</translation>
+        <translation type="vanished">Endereço:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Porta:</translation>
+        <translation type="vanished">Porta:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

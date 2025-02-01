@@ -348,7 +348,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Color</source>
-        <translation>Szín</translation>
+        <translation type="vanished">Szín</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -2012,15 +2012,15 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Name:</source>
-        <translation>Név:</translation>
+        <translation type="vanished">Név:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>Automatikus kitöltéséhez hagyd üresen </translation>
+        <translation type="vanished">Automatikus kitöltéséhez hagyd üresen </translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>Kapcsolódási típus:</translation>
+        <translation type="vanished">Kapcsolódási típus:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2044,6 +2044,22 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Név</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2420,6 +2436,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Tanuljon többet a QFieldCloud-ról</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3968,11 +3988,19 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Cím:</translation>
+        <translation type="vanished">Cím:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4341,11 +4369,19 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Cím:</translation>
+        <translation type="vanished">Cím:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

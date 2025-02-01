@@ -348,7 +348,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Color</source>
-        <translation>Цвят</translation>
+        <translation type="vanished">Цвят</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -2047,6 +2047,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Egeniouss</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Име</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningInformationModel</name>
@@ -2422,6 +2438,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Научи повече за QFieldCloud</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3980,6 +4000,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>Port:</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>TcpReceiver</name>
@@ -4351,6 +4379,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Port:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -348,7 +348,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation>Cor</translation>
+        <translation type="vanished">Cor</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -2043,6 +2043,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Egeniouss</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nome</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningInformationModel</name>
@@ -2416,6 +2432,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Aprenda mais sobre o QField Cloud</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3969,6 +3989,14 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>Port:</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>TcpReceiver</name>
@@ -4340,6 +4368,14 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Port:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -348,7 +348,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation>Väri</translation>
+        <translation type="vanished">Väri</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -2013,15 +2013,15 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Name:</source>
-        <translation>Nimi:</translation>
+        <translation type="vanished">Nimi:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>Jätä tyhjäksi automaattiselle täytölle</translation>
+        <translation type="vanished">Jätä tyhjäksi automaattiselle täytölle</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>Yhteystyyppi:</translation>
+        <translation type="vanished">Yhteystyyppi:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2046,6 +2046,22 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Egeniouss</source>
         <translation>Nerokas</translation>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nimi</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2422,6 +2438,10 @@ syy: %2</translation>
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Lue lisää QFieldCloudista</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3974,11 +3994,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Osoite:</translation>
+        <translation type="vanished">Osoite:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Portti:</translation>
+        <translation type="vanished">Portti:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4347,11 +4375,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Osoite:</translation>
+        <translation type="vanished">Osoite:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Portti:</translation>
+        <translation type="vanished">Portti:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

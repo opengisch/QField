@@ -348,7 +348,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Color</source>
-        <translation>Cor</translation>
+        <translation type="vanished">Cor</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -2013,15 +2013,15 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Name:</source>
-        <translation>Nome:</translation>
+        <translation type="vanished">Nome:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>Deixar baleiro para encher automaticamente</translation>
+        <translation type="vanished">Deixar baleiro para encher automaticamente</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>Tipo de conexión:</translation>
+        <translation type="vanished">Tipo de conexión:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2045,6 +2045,22 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nome</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2422,6 +2438,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Aprende máis acerca de QFieldCloud</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3972,11 +3992,19 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Enderezo:</translation>
+        <translation type="vanished">Enderezo:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Porto:</translation>
+        <translation type="vanished">Porto:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4345,11 +4373,19 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Enderezo:</translation>
+        <translation type="vanished">Enderezo:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Porto:</translation>
+        <translation type="vanished">Porto:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

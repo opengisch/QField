@@ -348,7 +348,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Color</source>
-        <translation>Color</translation>
+        <translation type="vanished">Color</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -2015,15 +2015,15 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Name:</source>
-        <translation>Nombre:</translation>
+        <translation type="vanished">Nombre:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>Dejar vacío para autocompletar</translation>
+        <translation type="vanished">Dejar vacío para autocompletar</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>Tipo de conexión:</translation>
+        <translation type="vanished">Tipo de conexión:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2048,6 +2048,22 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Egeniouss</source>
         <translation>Egeniouss</translation>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nombre</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2424,6 +2440,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Aprender más sobre QFieldCloud</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3972,11 +3992,19 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Dirección:</translation>
+        <translation type="vanished">Dirección:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Puerto:</translation>
+        <translation type="vanished">Puerto:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4345,11 +4373,19 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Dirección:</translation>
+        <translation type="vanished">Dirección:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Puerto:</translation>
+        <translation type="vanished">Puerto:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -348,7 +348,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation>Farba</translation>
+        <translation type="vanished">Farba</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -2016,15 +2016,15 @@ Dôvod:
     </message>
     <message>
         <source>Name:</source>
-        <translation>Názov:</translation>
+        <translation type="vanished">Názov:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>Zachovajte prázdne pre automatické doplnenie</translation>
+        <translation type="vanished">Zachovajte prázdne pre automatické doplnenie</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>Druh pripojenia</translation>
+        <translation type="vanished">Druh pripojenia</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2048,6 +2048,22 @@ Dôvod:
     </message>
     <message>
         <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Názov</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2425,6 +2441,10 @@ Dôvod:
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Zistite viac o QFieldCloud</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3975,11 +3995,19 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Adresa:</translation>
+        <translation type="vanished">Adresa:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4348,11 +4376,19 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Adresa:</translation>
+        <translation type="vanished">Adresa:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
