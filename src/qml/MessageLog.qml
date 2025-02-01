@@ -152,7 +152,8 @@ Page {
   QfDialog {
     id: applicationLogDialog
     title: qsTr("Send application log")
-    focus: true
+    focus: visible
+    parent: mainWindow.contentItem
 
     onAboutToShow: {
       appliationLogInput.text = '';
