@@ -277,6 +277,9 @@ void Tracker::start( const GnssPositionInformation &positionInformation, const Q
     //set the start time of first position
     setStartPositionTimestamp( positionInformation.utcDateTime().isValid() ? positionInformation.utcDateTime() : QDateTime::currentDateTime() );
 
+    //ignore maximum distance when starting/restarting a track
+    mMaximumDistanceFailuresCount = MAXIMUM_DISTANCE_FAILURES + 1;
+
     //track first position
     processPositionInformation( positionInformation, projectedPosition );
   }
