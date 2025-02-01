@@ -147,23 +147,28 @@ Item {
         }
 
         delegate: Rectangle {
-          id: delegateRect
+          id: rectangle
 
           property int idx: index
           property string itemText: StringUtils.highlightText(displayString, featureListModel.searchTerm, Theme.mainTextColor)
 
           anchors.margins: 10
-          height: radioButton.visible ? radioButton.height : checkBoxButton.height
           width: parent ? parent.width : undefined
+          height: line.height + 20
           color: model.checked ? Theme.mainColor : searchFeaturePopup.Material ? searchFeaturePopup.Material.dialogColor : Theme.mainBackgroundColor
 
           Row {
+            id: line
+            anchors.verticalCenter: parent.verticalCenter
+            spacing: 5
+
             RadioButton {
               id: radioButton
 
               visible: !featureListModel.allowMulti
               anchors.verticalCenter: parent.verticalCenter
-              width: resultsList.width - padding * 2
+              width: 0
+              height: 48
               padding: 12
 
               font.pointSize: Theme.defaultFont.pointSize
@@ -172,18 +177,6 @@ Item {
               checked: model.checked
               indicator: Rectangle {
               }
-
-              text: itemText
-              contentItem: Text {
-                text: parent.text
-                font: parent.font
-                width: parent.width
-                verticalAlignment: Text.AlignVCenter
-                leftPadding: parent.indicator.width + parent.spacing
-                elide: Text.ElideRight
-                color: featureListModel.searchTerm != '' ? Theme.secondaryTextColor : Theme.mainTextColor
-                textFormat: Text.RichText
-              }
             }
 
             CheckBox {
@@ -191,23 +184,24 @@ Item {
 
               visible: !!featureListModel.allowMulti
               anchors.verticalCenter: parent.verticalCenter
-              width: resultsList.width - padding * 2
               padding: 12
 
               font.pointSize: Theme.defaultFont.pointSize
               font.weight: model.checked ? Font.DemiBold : Font.Normal
+            }
 
+            Text {
+              id: contentText
+              width: rectangle.width - (checkBoxButton.visible ? checkBoxButton.width : radioButton.width) - 10
+              anchors.verticalCenter: parent.verticalCenter
+              leftPadding: 5
+              font.pointSize: Theme.defaultFont.pointSize
+              font.weight: model.checked ? Font.DemiBold : Font.Normal
+              elide: Text.ElideRight
+              wrapMode: Text.WordWrap
+              color: featureListModel.searchTerm != '' ? Theme.secondaryTextColor : Theme.mainTextColor
+              textFormat: Text.RichText
               text: itemText
-              contentItem: Text {
-                text: parent.text
-                font: parent.font
-                width: parent.width
-                verticalAlignment: Text.AlignVCenter
-                leftPadding: parent.indicator.width + parent.spacing
-                elide: Text.ElideRight
-                color: Theme.mainTextColor
-                textFormat: Text.RichText
-              }
             }
           }
 
@@ -216,7 +210,7 @@ Item {
             anchors.bottom: parent.bottom
             height: 1
             color: Theme.controlBorderColor
-            width: resultsList.width
+            width: parent.width
           }
 
           function performClick() {
