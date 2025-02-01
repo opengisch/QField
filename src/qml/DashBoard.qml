@@ -458,7 +458,7 @@ Drawer {
           }
         }
 
-        onPositionChanged: mainWindow.toggleDigitizeMode()
+        onClicked: mainWindow.toggleDigitizeMode()
       }
     }
   }
