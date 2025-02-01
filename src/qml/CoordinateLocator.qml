@@ -73,19 +73,19 @@ Item {
         let backwardCommonAngleInDegrees = undefined;
         let backwardCoords = {};
         let backwardPoint = undefined;
-        backwardCommonAngleInDegrees = getCommonAngleInDegrees(location, locator.rubberbandModel, locator.snappingAngleDegrees, locator.snappingIsRelative);
+        backwardCommonAngleInDegrees = getCommonAngleInDegrees(location, rubberbandCopy, locator.snappingAngleDegrees, locator.snappingIsRelative);
         if (backwardCommonAngleInDegrees !== undefined) {
-          backwardPoint = snapPointToCommonAngle(location, locator.rubberbandModel, backwardCommonAngleInDegrees, locator.snappingIsRelative);
-          backwardCoords = calculateSnapToAngleLineEndCoords(backwardPoint, backwardCommonAngleInDegrees, locator.snappingIsRelative, 1000);
+          backwardPoint = snapPointToCommonAngle(location, rubberbandCopy, backwardCommonAngleInDegrees, locator.snappingIsRelative);
+          backwardCoords = calculateSnapToAngleLineEndCoords(backwardPoint, rubberbandCopy, backwardCommonAngleInDegrees, locator.snappingIsRelative, 1000);
         }
         let forwardCommonAngleInDegrees = undefined;
         let forwardCoords = {};
         let forwardPoint = undefined;
-        if (locator.rubberbandModel && locator.rubberbandModel.vertexCount >= 4) {
-          forwardCommonAngleInDegrees = getCommonAngleInDegrees(location, locator.rubberbandModel, locator.snappingAngleDegrees, locator.snappingIsRelative, true);
+        if (rubberbandCopy.vertexCount >= 4) {
+          forwardCommonAngleInDegrees = getCommonAngleInDegrees(location, rubberbandCopy, locator.snappingAngleDegrees, locator.snappingIsRelative, true);
           if (forwardCommonAngleInDegrees !== undefined) {
-            forwardPoint = snapPointToCommonAngle(location, locator.rubberbandModel, forwardCommonAngleInDegrees, locator.snappingIsRelative, true);
-            forwardCoords = calculateSnapToAngleLineEndCoords(forwardPoint, forwardCommonAngleInDegrees, locator.snappingIsRelative, 1000, -1);
+            forwardPoint = snapPointToCommonAngle(location, rubberbandCopy, forwardCommonAngleInDegrees, locator.snappingIsRelative, true);
+            forwardCoords = calculateSnapToAngleLineEndCoords(forwardPoint, rubberbandCopy, forwardCommonAngleInDegrees, locator.snappingIsRelative, 1000, -1);
           }
         }
         snappingLinesModel.setProperty(0, "beginCoordX", backwardCoords.x1 || 0);
@@ -392,6 +392,40 @@ Item {
     flashAnimation.start();
   }
 
+  // `rubberbandCopy`: A small copy of the rubberband data that is updated with a slight delay
+  // to avoid triggering a binding loop. Directly binding to `rubberbandModel` would create a
+  // circular dependency, resulting in a warning. By using `rubberbandCopy` and updating it
+  // periodically with a delay (via `rubberBandUpdaterTimer`), we prevent the binding loop
+  // while ensuring the rubberband data remains up-to-date.
+  QtObject {
+    id: rubberbandCopy
+    property var firstCoordinate
+    property var lastCoordinate
+    property var vertices
+    property var penultimateCoordinate
+    property int vertexCount: 0
+
+    function update() {
+      if (rubberbandModel) {
+        firstCoordinate = rubberbandModel.firstCoordinate;
+        lastCoordinate = rubberbandModel.lastCoordinate;
+        vertices = rubberbandModel.vertices;
+        penultimateCoordinate = rubberbandModel.penultimateCoordinate;
+        vertexCount = rubberbandModel.vertexCount;
+      }
+    }
+  }
+
+  Timer {
+    id: rubberBandUpdaterTimer
+    running: false
+    repeat: false
+    interval: 10
+    onTriggered: {
+      rubberbandCopy.update();
+    }
+  }
+
   /**
    * Computes the possible common angle
    *
@@ -403,7 +437,8 @@ Item {
    * @param {boolean} forwardMode - true: snap to firstPoint and false: snap to previousPoint
    */
   function getCommonAngleInDegrees(currentPoint, rubberbandModel, commonAngleStepDeg, isRelativeAngle, forwardMode = false) {
-    if (!rubberbandModel) {
+    rubberBandUpdaterTimer.start();
+    if (!rubberbandModel.firstCoordinate || !rubberbandModel.lastCoordinate) {
       return;
     }
     const MINIMAL_PIXEL_DISTANCE_TRESHOLD = 20;
@@ -426,7 +461,7 @@ Item {
     // only if not in HardLock mode
     let softAngle = Math.atan2(currentPoint.y - targetPoint.y, currentPoint.x - targetPoint.x);
     let deltaAngle = 0;
-    if (isRelativeAngle && rubberbandPointsCount >= 3) {
+    if (isRelativeAngle && rubberbandPointsCount >= 3 && rubberbandModel.vertices[1]) {
       // compute the angle relative to the last segment (0° is aligned with last segment)
       const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.vertices[1] : rubberbandModel.penultimateCoordinate);
       deltaAngle = Math.atan2(targetPoint.y - penultimatePoint.y, targetPoint.x - penultimatePoint.x);
@@ -456,7 +491,7 @@ Item {
    * @returns {QPointF} - the resulting snapped to common angle point. If no snapping was possible, then `currentPoint` is returned.
    */
   function snapPointToCommonAngle(currentPoint, rubberbandModel, commonAngleDegrees, isRelativeAngle, forwardMode = false) {
-    if (!rubberbandModel) {
+    if (!rubberbandModel.firstCoordinate || !rubberbandModel.lastCoordinate) {
       return currentPoint;
     }
     if (commonAngleDegrees === null || commonAngleDegrees === undefined) {
@@ -466,7 +501,7 @@ Item {
     const returnPoint = currentPoint;
     const rubberbandPointsCount = rubberbandModel.vertexCount;
     const targetPoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.firstCoordinate : rubberbandModel.lastCoordinate);
-    if (isRelativeAngle && rubberbandPointsCount >= 3) {
+    if (isRelativeAngle && rubberbandPointsCount >= 3 && rubberbandModel.vertices[1]) {
       // compute the angle relative to the last segment (0° is aligned with last segment)
       const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.vertices[1] : rubberbandModel.penultimateCoordinate);
       angleValue += Math.atan2(targetPoint.y - penultimatePoint.y, targetPoint.x - penultimatePoint.x);
@@ -482,13 +517,14 @@ Item {
   /**
    * Calculates snap to angle guide line end coordinate.
    * @param {QPointF} currentPoint - the current point being proposed
+   * @param {Rubberband} rubberbandModel - holds all previously added points in the current digitizing session
    * @param {number} angleDegrees - angle of the line in degrees.
    * @param {boolean} isRelativeAngle - whether the angle should be calculated relative to the last geometry segment
    * @param {number} screenSize - size of the screen. Used to make sure the end of the line is outside the screen.
    * @param {number} forwardMode - true: aimed towards first point and false: snap to previous point
    */
-  function calculateSnapToAngleLineEndCoords(currentPoint, angleDegrees, isRelativeAngle, screenSize, forwardMode = false) {
-    if (rubberbandModel == null) {
+  function calculateSnapToAngleLineEndCoords(currentPoint, rubberbandModel, angleDegrees, isRelativeAngle, screenSize, forwardMode = false) {
+    if (!rubberbandModel.firstCoordinate || !rubberbandModel.lastCoordinate) {
       return {};
     }
     const rubberbandPointsCount = rubberbandModel.vertexCount;
@@ -496,7 +532,7 @@ Item {
       return {};
     }
     let deltaAngle = 0;
-    if (isRelativeAngle && rubberbandPointsCount >= 3) {
+    if (isRelativeAngle && rubberbandPointsCount >= 3 && rubberbandModel.vertices[1]) {
       // compute the angle relative to the last segment (0° is aligned with last segment)
       const targetPoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.firstCoordinate : rubberbandModel.lastCoordinate);
       const penultimatePoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.vertices[1] : rubberbandModel.penultimateCoordinate);
