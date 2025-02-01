@@ -34,7 +34,7 @@ Drawer {
     }
   }
 
-  width: Math.min(330, mainWindow.width)
+  width: Math.min(Math.max(330, closeButton.width + buttonsRow.width + menuButton.width), mainWindow.width)
   height: parent.height
   edge: Qt.LeftEdge
   dragMargin: 10
