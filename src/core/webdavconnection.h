@@ -94,6 +94,8 @@ class WebdavConnection : public QObject
 
     Q_INVOKABLE static bool hasWebdavConfiguration( const QString &path );
 
+    Q_INVOKABLE static QVariantMap importHistory();
+
   signals:
     void urlChanged();
     void usernameChanged();

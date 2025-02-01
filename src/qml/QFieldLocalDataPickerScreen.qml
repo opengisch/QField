@@ -901,6 +901,18 @@ Page {
         onImportSuccessful: path => {
           table.model.currentPath = path;
         }
+
+        onIsFetchingAvailablePathsChanged: {
+          if (!isFetchingAvailablePaths && importWebdavDialog.visible) {
+            importWebdavPathInput.model = [""].concat(availablePaths);
+            if (importWebdavDialog.importHistory["urls"][url] !== undefined && importWebdavDialog.importHistory["urls"][url]["users"][username] !== undefined) {
+              const index = importWebdavPathInput.find(importWebdavDialog.importHistory["urls"][url]["users"][username]["lastImportPath"]);
+              if (index >= 0) {
+                importWebdavPathInput.currentIndex = index;
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -1009,10 +1021,21 @@ Page {
     focus: visible
     parent: mainWindow.contentItem
 
+    property var importHistory: undefined
+
     onAboutToShow: {
       if (webdavConnectionLoader.item) {
-        webdavConnectionLoader.item.url = importWebdavUrlInput.text;
-        webdavConnectionLoader.item.username = importWebdavUserInput.text;
+        importHistory = webdavConnectionLoader.item.importHistory();
+        importWebdavUrlInput.model = [""].concat(Object.keys(importHistory["urls"]));
+        if (importHistory["lastUrl"] !== "") {
+          importWebdavUrlInput.editText = importHistory["lastUrl"];
+          importWebdavUserInput.model = [""].concat(Object.keys(importHistory["urls"][importHistory["lastUrl"]]["users"]));
+          importWebdavUserInput.editText = importHistory["urls"][importHistory["lastUrl"]]["lastUser"];
+        } else {
+          importWebdavUserInput.model = [];
+        }
+        webdavConnectionLoader.item.url = importWebdavUrlInput.editText;
+        webdavConnectionLoader.item.username = importWebdavUserInput.editText;
         webdavConnectionLoader.item.password = importWebdavPasswordInput.text;
         webdavConnectionLoader.item.storePassword = importWebdavStorePasswordCheck.checked;
       }
@@ -1038,28 +1061,60 @@ Page {
         color: Theme.mainTextColor
       }
 
-      TextField {
+      Label {
+        width: importWebdavUrlLabel.width
+        text: qsTr("WebDAV server URL")
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.secondaryTextColor
+      }
+
+      ComboBox {
         id: importWebdavUrlInput
         enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
         width: importWebdavUrlLabel.width
-        placeholderText: qsTr("WebDAV server URL")
+        editable: true
 
-        onDisplayTextChanged: {
-          if (webdavConnectionLoader.item) {
-            webdavConnectionLoader.item.url = displayText;
+        Connections {
+          target: importWebdavUrlInput.contentItem
+          ignoreUnknownSignals: true
+
+          function onDisplayTextChanged() {
+            if (webdavConnectionLoader.item && webdavConnectionLoader.item.url !== importWebdavUrlInput.editText) {
+              webdavConnectionLoader.item.url = importWebdavUrlInput.editText;
+              if (importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText] !== undefined) {
+                importWebdavUserInput.model = [""].concat(Object.keys(importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"]));
+                importWebdavUserInput.editText = importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["lastUser"];
+              } else {
+                importWebdavUserInput.model = [];
+              }
+            }
           }
         }
       }
 
-      TextField {
+      Label {
+        width: importWebdavUrlLabel.width
+        text: qsTr("User and password")
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.secondaryTextColor
+      }
+
+      ComboBox {
         id: importWebdavUserInput
         enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
         width: importWebdavUrlLabel.width
-        placeholderText: qsTr("User")
+        editable: true
 
-        onDisplayTextChanged: {
-          if (webdavConnectionLoader.item) {
-            webdavConnectionLoader.item.username = displayText;
+        Connections {
+          target: importWebdavUserInput.contentItem
+          ignoreUnknownSignals: true
+
+          function onDisplayTextChanged() {
+            if (webdavConnectionLoader.item) {
+              webdavConnectionLoader.item.username = importWebdavUserInput.editText;
+            }
           }
         }
       }
@@ -1069,7 +1124,7 @@ Page {
         enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
         width: importWebdavUrlLabel.width
         rightPadding: leftPadding + (importWebdavShowPasswordInput.width - leftPadding)
-        placeholderText: text === "" && webdavConnectionLoader.item && webdavConnectionLoader.item.isPasswordStored ? qsTr("Password (leave empty to use remembered)") : qsTr("Password")
+        placeholderText: text === "" && webdavConnectionLoader.item && webdavConnectionLoader.item.isPasswordStored ? qsTr("leave empty to use remembered") : ""
         echoMode: TextInput.Password
 
         onDisplayTextChanged: {
@@ -1126,7 +1181,7 @@ Page {
         QfButton {
           id: importWebdavFetchFoldersButton
           anchors.verticalCenter: importWebdavPathInput.verticalCenter
-          visible: !webdavConnectionLoader.item || webdavConnectionLoader.item.availablePaths.length === 0
+          visible: importWebdavPathInput.count <= 1
           enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
           width: importWebdavUrlLabel.width - (importWebdavFetchFoldersIndicator.visible ? importWebdavFetchFoldersIndicator.width + 5 : 0)
           text: !enabled ? qsTr("Fetching remote folders") : qsTr("Fetch remote folders")
@@ -1139,9 +1194,9 @@ Page {
         ComboBox {
           id: importWebdavPathInput
           width: importWebdavUrlLabel.width - (importWebdavRefetchFoldersButton.width + 5) - (importWebdavFetchFoldersIndicator.visible ? importWebdavFetchFoldersIndicator.width + 5 : 0)
-          visible: webdavConnectionLoader.item && webdavConnectionLoader.item.availablePaths.length > 0
+          visible: importWebdavPathInput.count > 1
           enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-          model: [''].concat(webdavConnectionLoader.item ? webdavConnectionLoader.item.availablePaths : [])
+          model: ['']
         }
 
         QfToolButton {
@@ -1171,8 +1226,8 @@ Page {
 
     onAccepted: {
       if (importWebdavPathInput.displayText !== '' && webdavConnectionLoader.item) {
-        webdavConnectionLoader.item.url = importWebdavUrlInput.text;
-        webdavConnectionLoader.item.username = importWebdavUserInput.text;
+        webdavConnectionLoader.item.url = importWebdavUrlInput.editText;
+        webdavConnectionLoader.item.username = importWebdavUserInput.editText;
         webdavConnectionLoader.item.password = importWebdavPasswordInput.text;
         webdavConnectionLoader.item.storePassword = importWebdavStorePasswordCheck.checked;
         webdavConnectionLoader.item.importPath(importWebdavPathInput.displayText, platformUtilities.applicationDirectory() + "Imported Projects/");
