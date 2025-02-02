@@ -144,7 +144,7 @@ void VertexModel::undoHistory()
       {
         setCurrentVertexIndex( -1 );
         beginResetModel();
-        mVertices.insert( std::max( 0, change.index - 1 ), change.vertex );
+        mVertices.insert( std::max<long long int>( change.index - 1, 0 ), change.vertex );
         createCandidates();
         endResetModel();
         setCurrentVertexIndex( change.index );
@@ -246,7 +246,7 @@ void VertexModel::createCandidates()
                                    []( const Vertex &vertex ) { return vertex.type != ExistingVertex; } ),
                    mVertices.end() );
 
-  int r = 0;
+  qsizetype r = 0;
 
   while ( r < mVertices.count() )
   {
@@ -382,7 +382,7 @@ QModelIndex VertexModel::parent( const QModelIndex &child ) const
 int VertexModel::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
-  return mVertices.count();
+  return static_cast<int>( mVertices.count() );
 }
 
 int VertexModel::columnCount( const QModelIndex &parent ) const
@@ -732,7 +732,7 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
   emit geometryChanged();
 }
 
-void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
+void VertexModel::setCurrentVertex( qsizetype newVertex, bool forceUpdate )
 {
   if ( mCurrentIndex >= 0 && mCurrentIndex < mVertices.count() )
   {
@@ -768,7 +768,7 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
   emit currentVertexIndexChanged();
 }
 
-void VertexModel::setCurrentVertexIndex( int currentIndex )
+void VertexModel::setCurrentVertexIndex( qsizetype currentIndex )
 {
   if ( currentIndex == mCurrentIndex )
     return;
@@ -786,7 +786,7 @@ int VertexModel::currentVertexIndex() const
 
 int VertexModel::vertexCount() const
 {
-  return mVertices.count();
+  return static_cast<int>( mVertices.count() );
 }
 
 int VertexModel::ringCount() const
