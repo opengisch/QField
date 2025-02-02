@@ -302,7 +302,7 @@ void VertexModel::createCandidates()
     if ( ( r == 0 || mVertices.at( r - 1 ).ring != vertex.ring ) && mGeometryType == Qgis::GeometryType::Polygon )
     {
       Vertex lastVertex;
-      for ( int i = r + 1; i < mVertices.count(); i++ )
+      for ( qsizetype i = r + 1; i < mVertices.count(); i++ )
       {
         if ( mVertices.at( i ).ring != vertex.ring )
           break;
@@ -670,7 +670,7 @@ void VertexModel::removeCurrentVertex()
 
 void VertexModel::updateGeometry( const QgsGeometry &geometry )
 {
-  int preservedIndex = mCurrentIndex;
+  qsizetype preservedIndex = mCurrentIndex;
   setGeometry( geometry );
   //since the index is shifted after reload, we decrement
   setCurrentVertex( preservedIndex - 1 );
@@ -737,7 +737,8 @@ void VertexModel::setCurrentVertex( qsizetype newVertex, bool forceUpdate )
   if ( mCurrentIndex >= 0 && mCurrentIndex < mVertices.count() )
   {
     mVertices[mCurrentIndex].currentVertex = false;
-    emit dataChanged( index( mCurrentIndex, 0, QModelIndex() ), index( mCurrentIndex, 0, QModelIndex() ) );
+    const QModelIndex changedIndex = index( static_cast<int>( mCurrentIndex ), 0, QModelIndex() );
+    emit dataChanged( changedIndex, changedIndex );
   }
 
   if ( mVertices.count() == 0 )
@@ -762,7 +763,8 @@ void VertexModel::setCurrentVertex( qsizetype newVertex, bool forceUpdate )
   if ( mCurrentIndex >= 0 && mCurrentIndex < mVertices.count() )
   {
     mVertices[mCurrentIndex].currentVertex = true;
-    emit dataChanged( index( mCurrentIndex, 0, QModelIndex() ), index( mCurrentIndex, 0, QModelIndex() ) );
+    const QModelIndex changedIndex = index( static_cast<int>( mCurrentIndex ), 0, QModelIndex() );
+    emit dataChanged( changedIndex, changedIndex );
   }
 
   emit currentVertexIndexChanged();
@@ -781,7 +783,7 @@ void VertexModel::setCurrentVertexIndex( qsizetype currentIndex )
 
 int VertexModel::currentVertexIndex() const
 {
-  return mCurrentIndex;
+  return static_cast<int>( mCurrentIndex );
 }
 
 int VertexModel::vertexCount() const
