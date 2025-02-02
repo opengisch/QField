@@ -57,7 +57,7 @@ QModelIndex TrackingModel::parent( const QModelIndex &index ) const
 int TrackingModel::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
-  return mTrackers.size();
+  return static_cast<int>( mTrackers.size() );
 }
 
 int TrackingModel::columnCount( const QModelIndex &parent ) const
