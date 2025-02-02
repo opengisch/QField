@@ -66,25 +66,37 @@ Item {
 
     enabled: locator.visible
     mapSettings: locator.mapSettings
-    inputCoordinate: {
-      // Get the current crosshair location in screen coordinates. If `undefined`, then we use the center of the screen as input point.
-      const location = sourceLocation === undefined ? Qt.point(locator.width / 2, locator.height / 2) : sourceLocation;
+    config: qgisProject ? qgisProject.snappingConfig : snappingUtils.emptySnappingConfig()
+    // Get the current crosshair location in screen coordinates. If `undefined`, then we use the center of the screen as input point.
+    inputCoordinate: sourceLocation === undefined ? Qt.point(locator.width / 2, locator.height / 2) : sourceLocation
+
+    property variant snappedCoordinate
+    property point snappedPoint
+
+    onSnappingResultChanged: {
+      if (snappingResult.isValid) {
+        snappedCoordinate = snappingResult.point;
+        snappedPoint = mapSettings.coordinateToScreen(snappedCoordinate);
+      } else {
+        snappedPoint = inputCoordinate;
+        snappedCoordinate = mapSettings.screenToCoordinate(snappedPoint);
+      }
       if (!locator.positionLocked && locator.snapToCommonAngles) {
         let backwardCommonAngleInDegrees = undefined;
         let backwardCoords = {};
         let backwardPoint = undefined;
-        backwardCommonAngleInDegrees = getCommonAngleInDegrees(location, locator.rubberbandModel, locator.snappingAngleDegrees, locator.snappingIsRelative);
+        backwardCommonAngleInDegrees = getCommonAngleInDegrees(snappedPoint, locator.rubberbandModel, locator.snappingAngleDegrees, locator.snappingIsRelative);
         if (backwardCommonAngleInDegrees !== undefined) {
-          backwardPoint = snapPointToCommonAngle(location, locator.rubberbandModel, backwardCommonAngleInDegrees, locator.snappingIsRelative);
+          backwardPoint = snapPointToCommonAngle(snappedPoint, locator.rubberbandModel, backwardCommonAngleInDegrees, locator.snappingIsRelative);
           backwardCoords = calculateSnapToAngleLineEndCoords(backwardPoint, backwardCommonAngleInDegrees, locator.snappingIsRelative, 1000);
         }
         let forwardCommonAngleInDegrees = undefined;
         let forwardCoords = {};
         let forwardPoint = undefined;
         if (locator.rubberbandModel && locator.rubberbandModel.vertexCount >= 4) {
-          forwardCommonAngleInDegrees = getCommonAngleInDegrees(location, locator.rubberbandModel, locator.snappingAngleDegrees, locator.snappingIsRelative, true);
+          forwardCommonAngleInDegrees = getCommonAngleInDegrees(snappedPoint, locator.rubberbandModel, locator.snappingAngleDegrees, locator.snappingIsRelative, true);
           if (forwardCommonAngleInDegrees !== undefined) {
-            forwardPoint = snapPointToCommonAngle(location, locator.rubberbandModel, forwardCommonAngleInDegrees, locator.snappingIsRelative, true);
+            forwardPoint = snapPointToCommonAngle(snappedPoint, locator.rubberbandModel, forwardCommonAngleInDegrees, locator.snappingIsRelative, true);
             forwardCoords = calculateSnapToAngleLineEndCoords(forwardPoint, forwardCommonAngleInDegrees, locator.snappingIsRelative, 1000, -1);
           }
         }
@@ -113,12 +125,13 @@ Item {
           const ub = ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) / denominator;
           const intersectX = x1 + ua * (x2 - x1);
           const intersectY = y1 + ua * (y2 - y1);
-          return Qt.point(intersectX, intersectY);
+          snappedPoint = Qt.point(intersectX, intersectY);
         } else if (backwardCommonAngleInDegrees !== undefined) {
-          return backwardPoint;
+          snappedPoint = backwardPoint;
         } else if (forwardCommonAngleInDegrees !== undefined) {
-          return forwardPoint;
+          snappedPoint = forwardPoint;
         }
+        snappedCoordinate = mapSettings.screenToCoordinate(snappedPoint);
       } else {
         for (let i = 0; i < snappingLinesModel.count; ++i) {
           snappingLinesModel.setProperty(i, "beginCoordX", 0);
@@ -127,21 +140,6 @@ Item {
           snappingLinesModel.setProperty(i, "endCoordY", 0);
           snappingLinesModel.setProperty(i, "snappedToAngle", false);
         }
-      }
-      return location;
-    }
-    config: qgisProject ? qgisProject.snappingConfig : snappingUtils.emptySnappingConfig()
-
-    property variant snappedCoordinate
-    property point snappedPoint
-
-    onSnappingResultChanged: {
-      if (snappingResult.isValid) {
-        snappedCoordinate = snappingResult.point;
-        snappedPoint = mapSettings.coordinateToScreen(snappedCoordinate);
-      } else {
-        snappedPoint = inputCoordinate;
-        snappedCoordinate = mapSettings.screenToCoordinate(snappedPoint);
       }
     }
   }
