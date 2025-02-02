@@ -127,14 +127,14 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
 
     struct VertexChange
     {
-        VertexChange( VertexChangeType type, int &index, const Vertex &vertex )
+        VertexChange( VertexChangeType type, qsizetype &index, const Vertex &vertex )
           : type( type )
           , index( index )
           , vertex( vertex )
         {}
 
         VertexChangeType type = NoChange;
-        int index = -1;
+        qsizetype index = -1;
         Vertex vertex;
     };
 
@@ -253,7 +253,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
 
     int currentVertexIndex() const;
 
-    void setCurrentVertexIndex( int currentIndex );
+    void setCurrentVertexIndex( qsizetype currentIndex );
 
     Vertex vertex( int row ) const;
 
@@ -330,11 +330,11 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
      * @param newVertex the new vertex index
      * @param forceUpdate if true, it will force to update all vertices and emit signal
      */
-    void setCurrentVertex( int newVertex, bool forceUpdate = false );
+    void setCurrentVertex( qsizetype newVertex, bool forceUpdate = false );
 
     EditingMode mMode = NoEditing;
     //!
-    int mCurrentIndex = -1;
+    qsizetype mCurrentIndex = -1;
     int mRingCount = 0;
     Qgis::GeometryType mGeometryType = Qgis::GeometryType::Line;
     Qgis::WkbType mGeometryWkbType = Qgis::WkbType::Unknown;
@@ -346,7 +346,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     bool mIsHovering = false;
 
     QList<VertexChange> mHistory;
-    int mHistoryIndex = -1;
+    qsizetype mHistoryIndex = -1;
     bool mHistoryTraversing = false;
 
     friend class VertexModelTest;

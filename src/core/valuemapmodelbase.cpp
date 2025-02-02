@@ -37,7 +37,7 @@ void ValueMapModelBase::setMap( const QVariant &map )
   const QVariantList list = map.toList();
   if ( !list.empty() ) // QGIS 3
   {
-    beginInsertRows( QModelIndex(), 0, list.size() - 1 );
+    beginInsertRows( QModelIndex(), 0, static_cast<int>( list.size() ) - 1 );
 
     for ( const QVariant &item : list )
     {
