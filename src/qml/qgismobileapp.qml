@@ -2675,6 +2675,7 @@ ApplicationWindow {
 
         font: Theme.defaultFont
         leftPadding: Theme.menuItemLeftPadding
+        height: 48
 
         onTriggered: {
           if (SensorStatus == Qgis.DeviceConnectionStatus.Connected) {
@@ -2742,6 +2743,7 @@ ApplicationWindow {
 
         font: Theme.defaultFont
         leftPadding: Theme.menuItemLeftPadding
+        height: 48
 
         onTriggered: {
           highlighted = false;
@@ -2954,10 +2956,12 @@ ApplicationWindow {
 
         MenuItem {
           text: qsTr('Layer:') + ' ' + layerName
+          height: 48
           enabled: false
         }
         MenuItem {
           text: qsTr('Feature:') + ' ' + featureName
+          height: 48
           enabled: false
         }
         MenuSeparator {
@@ -2969,6 +2973,7 @@ ApplicationWindow {
           font: Theme.defaultFont
           icon.source: Theme.getThemeVectorIcon("ic_baseline-list_white_24dp")
           leftPadding: Theme.menuItemLeftPadding
+          height: 48
 
           onTriggered: {
             featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid);
@@ -2982,6 +2987,7 @@ ApplicationWindow {
           font: Theme.defaultFont
           icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
           leftPadding: Theme.menuItemLeftPadding
+          height: 48
 
           onTriggered: {
             clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true);
@@ -2994,6 +3000,7 @@ ApplicationWindow {
           enabled: projectInfo.insertRights
           icon.source: Theme.getThemeVectorIcon("ic_duplicate_black_24dp")
           leftPadding: Theme.menuItemLeftPadding
+          height: 48
 
           onTriggered: {
             featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid);

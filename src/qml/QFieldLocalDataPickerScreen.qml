@@ -418,7 +418,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Send to...")
@@ -434,7 +434,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Push to QFieldCloud")
@@ -452,7 +452,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Export to folder...")
@@ -469,7 +469,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: !itemMenu.itemIsFavorite ? qsTr("Add to favorites") : qsTr("Remove from favorites")
@@ -496,7 +496,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Export to folder...")
@@ -512,7 +512,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Send compressed folder to...")
@@ -528,7 +528,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Upload folder to WebDAV server")
@@ -546,7 +546,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Download folder from WebDAV server")
@@ -571,7 +571,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Remove dataset")
@@ -588,7 +588,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Remove folder")
@@ -625,7 +625,7 @@ Page {
         visible: enabled
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Import project from folder")
@@ -641,7 +641,7 @@ Page {
         visible: enabled
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Import project from ZIP")
@@ -657,7 +657,7 @@ Page {
         visible: enabled
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Import dataset(s)")
@@ -678,6 +678,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
+        height: 48
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Import URL")
@@ -692,6 +693,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
+        height: 48
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Import WebDAV folder")
@@ -710,6 +712,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
+        height: 48
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Storage management help")
@@ -745,7 +748,7 @@ Page {
         visible: enabled
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Update project from ZIP")
@@ -761,7 +764,7 @@ Page {
         visible: enabled
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Upload project to WebDAV")
@@ -779,7 +782,7 @@ Page {
         visible: enabled
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Download project from WebDAV")
