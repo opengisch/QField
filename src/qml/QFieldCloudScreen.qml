@@ -222,27 +222,20 @@ Page {
           section.property: "Owner"
           section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
           section.delegate: Component {
-            /* section header: layer name */
-            Item {
+            Rectangle {
               width: parent.width
-              height: 32
+              height: 30
+              color: Theme.controlBorderColor
 
-              Rectangle {
-                width: parent.width
-                height: 30
-                color: Theme.controlBorderColor
-                anchors.bottom: parent.bottom
-
-                Text {
-                  anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    verticalCenter: parent.verticalCenter
-                  }
-                  font.bold: true
-                  font.pointSize: Theme.resultFont.pointSize
-                  color: Theme.mainTextColor
-                  text: section
+              Text {
+                anchors {
+                  horizontalCenter: parent.horizontalCenter
+                  verticalCenter: parent.verticalCenter
                 }
+                font.bold: true
+                font.pointSize: Theme.resultFont.pointSize
+                color: Theme.mainTextColor
+                text: section
               }
             }
           }
@@ -276,7 +269,7 @@ Page {
 
             ProgressBar {
               anchors.bottom: line.bottom
-              anchors.bottomMargin: -6
+              anchors.bottomMargin: -4
               anchors.left: line.left
               anchors.leftMargin: line.leftPadding
               width: line.width - 20
