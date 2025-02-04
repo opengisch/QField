@@ -401,15 +401,11 @@ Item {
   */
   function getToleranceMultiplier() {
     switch (snappingTolerance) {
-    case 0 // Narrow
-    :
+    case 0:
       return 0.5;
-    case 1 // Normal
-    :
-      return 1;
-    case 2 // Large
-    :
+    case 2:
       return 4;
+    case 1:
     default:
       return 1;
     }
@@ -429,9 +425,9 @@ Item {
     if (!rubberbandModel) {
       return;
     }
-    const MINIMAL_PIXEL_DISTANCE_TRESHOLD = 20 * getToleranceMultiplier();
+    const MINIMAL_PIXEL_DISTANCE_TRESHOLD = 20;
     const SOFT_CONSTRAINT_TOLERANCE_DEGREES = 20 * getToleranceMultiplier();
-    const SOFT_CONSTRAINT_TOLERANCE_PIXEL = 40 * getToleranceMultiplier();
+    const SOFT_CONSTRAINT_TOLERANCE_PIXEL = 40;
     const rubberbandPointsCount = rubberbandModel.vertexCount;
     const targetPoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.firstCoordinate : rubberbandModel.lastCoordinate);
     const minimumDigitizedPoints = forwardMode ? 3 : 2;

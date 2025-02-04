@@ -600,7 +600,7 @@ ApplicationWindow {
       id: mapCanvasMap
 
       property bool isEnabled: !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.visible && !rotateFeaturesToolbar.rotateFeaturesRequested
-      interactive: isEnabled && !screenLocker.enabled
+      interactive: isEnabled && !screenLocker.enabled && !snapToCommonAngleMenu.visible
       isMapRotationEnabled: qfieldSettings.enableMapRotation
       incrementalRendering: true
       quality: qfieldSettings.quality
@@ -1702,6 +1702,7 @@ ApplicationWindow {
 
           Menu {
             id: snapToCommonAngleMenu
+            width: Theme.menuItemIconlessLeftPadding + Math.max(angles.count * 35, tolorences.count * 55) + 24
 
             MenuItem {
               text: qsTr("Relative angle")
@@ -1726,7 +1727,7 @@ ApplicationWindow {
               text: qsTr("Snapping to every")
               color: Theme.mainTextColor
               font: Theme.defaultFont
-              leftPadding: 8
+              leftPadding: Theme.menuItemIconlessLeftPadding
             }
 
             Item {
@@ -1737,17 +1738,27 @@ ApplicationWindow {
             ListView {
               id: angles
               height: 35
-              anchors.left: parent.left
-              anchors.right: parent.right
-              anchors.margins: 4
+              anchors {
+                left: parent.left
+                leftMargin: Theme.menuItemIconlessLeftPadding
+                rightMargin: 4
+              }
               spacing: 3
               orientation: ListView.Horizontal
               model: [10, 15, 30, 45, 90]
-              delegate: Rectangle {
-                width: (angles.width - ((angles.count - 1) * angles.spacing)) / angles.count
-                height: width
+              currentIndex: Math.max(model.findIndex(q => q === coordinateLocator.snappingAngleDegrees), 0)
+              highlightFollowsCurrentItem: true
+
+              highlight: Rectangle {
+                width: 35
+                height: parent.height
+                color: Theme.mainColor
                 radius: width / 2
-                color: selected ? Theme.mainColor : "transparent"
+              }
+
+              delegate: Item {
+                width: 35
+                height: width
                 enabled: !selected
 
                 property bool selected: modelData === coordinateLocator.snappingAngleDegrees
@@ -1780,7 +1791,6 @@ ApplicationWindow {
                     coordinateLocator.snappingAngleDegrees = modelData;
                     settings.setValue("/QField/Digitizing/SnapToCommonAngleDegrees", coordinateLocator.snappingAngleDegrees);
                     displayToast(qsTr("Snap to %1° angle turned on").arg(modelData));
-                    snapToCommonAngleMenu.close();
                   }
                 }
               }
@@ -1795,7 +1805,7 @@ ApplicationWindow {
               text: qsTr("Snapping tolerance")
               color: Theme.mainTextColor
               font: Theme.defaultFont
-              leftPadding: 8
+              leftPadding: Theme.menuItemIconlessLeftPadding
             }
 
             Item {
@@ -1806,23 +1816,32 @@ ApplicationWindow {
             ListView {
               id: tolorences
               height: 35
-              anchors.left: parent.left
-              anchors.right: parent.right
-              anchors.margins: 4
+              anchors {
+                left: parent.left
+                leftMargin: Theme.menuItemIconlessLeftPadding
+                rightMargin: 4
+              }
               spacing: 3
               orientation: ListView.Horizontal
               model: [qsTr("Narrow"), qsTr("Normal"), qsTr("Large")]
-
-              delegate: Rectangle {
-                width: (tolorences.width - (tolorences.spacing * (tolorences.count - 1))) / tolorences.count
-                height: 35
+              highlight: Rectangle {
+                width: 35
+                height: parent.height
+                color: Theme.mainColor
                 radius: 4
-                color: selected ? Theme.mainColor : "transparent"
+              }
+              currentIndex: coordinateLocator.snappingTolerance
+              highlightFollowsCurrentItem: true
+              delegate: Item {
+                id: tolorenceDelegate
+                width: (angles.contentWidth) / 3
+                height: 35
                 enabled: !selected
 
                 property bool selected: index === coordinateLocator.snappingTolerance
 
                 Text {
+                  id: tolorenceText
                   text: modelData
                   font: parent.selected ? Theme.strongTipFont : Theme.tipFont
                   anchors.centerIn: parent
@@ -1852,8 +1871,7 @@ ApplicationWindow {
                     coordinateLocator.snapToCommonAngles = true;
                     coordinateLocator.snappingTolerance = index;
                     settings.setValue("/QField/Digitizing/SnappingTolerance", coordinateLocator.snappingTolerance);
-                    displayToast(qsTr("Snappin tolerance setted to %1").arg(modelData));
-                    snapToCommonAngleMenu.close();
+                    displayToast(qsTr("Snapping tolerance setted to %1").arg(modelData));
                   }
                 }
               }
