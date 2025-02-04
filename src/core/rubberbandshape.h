@@ -35,6 +35,7 @@ class RubberbandShape : public QQuickItem
 {
     Q_OBJECT
 
+    //! When set to TRUE, changes to the linked rubber band or vertex model as well as map settings will be ignored and the rubber band shape data will be left untouched
     Q_PROPERTY( bool freeze READ freeze WRITE setFreeze NOTIFY freezeChanged )
 
     Q_PROPERTY( RubberbandModel *model READ model WRITE setModel NOTIFY modelChanged )
