@@ -904,9 +904,10 @@ Page {
 
         onIsFetchingAvailablePathsChanged: {
           if (!isFetchingAvailablePaths && importWebdavDialog.visible) {
-            importWebdavPathInput.model = [""].concat(availablePaths);
+            swipeDialog.currentIndex = 1;
+            importWebdavPathInput.model = availablePaths;
             if (importWebdavDialog.importHistory["urls"][url] !== undefined && importWebdavDialog.importHistory["urls"][url]["users"][username] !== undefined) {
-              const index = importWebdavPathInput.find(importWebdavDialog.importHistory["urls"][url]["users"][username]["lastImportPath"]);
+              const index = importWebdavPathInput.model.indexOf(importWebdavDialog.importHistory["urls"][url]["users"][username]["lastImportPath"]);
               if (index >= 0) {
                 importWebdavPathInput.currentIndex = index;
               }
@@ -1024,6 +1025,7 @@ Page {
     property var importHistory: undefined
 
     onAboutToShow: {
+      swipeDialog.currentIndex = 0;
       if (webdavConnectionLoader.item) {
         importHistory = webdavConnectionLoader.item.importHistory();
         importWebdavUrlInput.model = [""].concat(Object.keys(importHistory["urls"]));
@@ -1041,196 +1043,335 @@ Page {
       }
     }
 
-    Column {
-      width: childrenRect.width
-      height: childrenRect.height
-      spacing: 10
+    SwipeView {
+      id: swipeDialog
+      width: mainWindow.width - 60 < importWebdavUrlLabelMetrics.width ? mainWindow.width - 60 : importWebdavUrlLabelMetrics.width
+      clip: true
 
-      TextMetrics {
-        id: importWebdavUrlLabelMetrics
-        font: importWebdavUrlLabel.font
-        text: importWebdavUrlLabel.text
-      }
+      Column {
+        id: firstPage
+        width: childrenRect.width
+        height: childrenRect.height
+        spacing: 10
 
-      Label {
-        id: importWebdavUrlLabel
-        width: mainWindow.width - 60 < importWebdavUrlLabelMetrics.width ? mainWindow.width - 60 : importWebdavUrlLabelMetrics.width
-        text: qsTr("Type the WebDAV details below to import a remote folder:")
-        wrapMode: Text.WordWrap
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
-      }
+        TextMetrics {
+          id: importWebdavUrlLabelMetrics
+          font: importWebdavUrlLabel.font
+          text: importWebdavUrlLabel.text
+        }
 
-      Label {
-        width: importWebdavUrlLabel.width
-        text: qsTr("WebDAV server URL")
-        wrapMode: Text.WordWrap
-        font: Theme.defaultFont
-        color: Theme.secondaryTextColor
-      }
+        Label {
+          id: importWebdavUrlLabel
+          width: mainWindow.width - 60 < importWebdavUrlLabelMetrics.width ? mainWindow.width - 60 : importWebdavUrlLabelMetrics.width
+          text: qsTr("Type the WebDAV details below to import a remote folder:")
+          wrapMode: Text.WordWrap
+          font: Theme.defaultFont
+          color: Theme.mainTextColor
+        }
 
-      ComboBox {
-        id: importWebdavUrlInput
-        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-        width: importWebdavUrlLabel.width
-        editable: true
+        Label {
+          width: importWebdavUrlLabel.width
+          text: qsTr("WebDAV server URL")
+          wrapMode: Text.WordWrap
+          font: Theme.defaultFont
+          color: Theme.secondaryTextColor
+        }
 
-        Connections {
-          target: importWebdavUrlInput.contentItem
-          ignoreUnknownSignals: true
+        ComboBox {
+          id: importWebdavUrlInput
+          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+          width: importWebdavUrlLabel.width
+          editable: true
 
-          function onDisplayTextChanged() {
-            if (webdavConnectionLoader.item && webdavConnectionLoader.item.url !== importWebdavUrlInput.editText) {
-              webdavConnectionLoader.item.url = importWebdavUrlInput.editText;
-              if (importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText] !== undefined) {
-                importWebdavUserInput.model = [""].concat(Object.keys(importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"]));
-                importWebdavUserInput.editText = importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["lastUser"];
-              } else {
-                importWebdavUserInput.model = [];
+          Connections {
+            target: importWebdavUrlInput.contentItem
+            ignoreUnknownSignals: true
+
+            function onDisplayTextChanged() {
+              if (webdavConnectionLoader.item && webdavConnectionLoader.item.url !== importWebdavUrlInput.editText) {
+                webdavConnectionLoader.item.url = importWebdavUrlInput.editText;
+                if (importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText] !== undefined) {
+                  importWebdavUserInput.model = [""].concat(Object.keys(importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"]));
+                  importWebdavUserInput.editText = importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["lastUser"];
+                } else {
+                  importWebdavUserInput.model = [];
+                }
               }
             }
           }
         }
-      }
 
-      Label {
-        width: importWebdavUrlLabel.width
-        text: qsTr("User and password")
-        wrapMode: Text.WordWrap
-        font: Theme.defaultFont
-        color: Theme.secondaryTextColor
-      }
-
-      ComboBox {
-        id: importWebdavUserInput
-        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-        width: importWebdavUrlLabel.width
-        editable: true
-
-        Connections {
-          target: importWebdavUserInput.contentItem
-          ignoreUnknownSignals: true
-
-          function onDisplayTextChanged() {
-            if (webdavConnectionLoader.item) {
-              webdavConnectionLoader.item.username = importWebdavUserInput.editText;
-            }
-          }
-        }
-      }
-
-      TextField {
-        id: importWebdavPasswordInput
-        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-        width: importWebdavUrlLabel.width
-        rightPadding: leftPadding + (importWebdavShowPasswordInput.width - leftPadding)
-        placeholderText: text === "" && webdavConnectionLoader.item && webdavConnectionLoader.item.isPasswordStored ? qsTr("leave empty to use remembered") : ""
-        echoMode: TextInput.Password
-
-        onDisplayTextChanged: {
-          if (webdavConnectionLoader.item) {
-            webdavConnectionLoader.item.password = text;
-          }
-        }
-
-        QfToolButton {
-          id: importWebdavShowPasswordInput
-
-          property int originalEchoMode: TextInput.Normal
-
-          visible: (!!parent.echoMode && parent.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
-          iconSource: parent.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
-          iconColor: Theme.mainColor
-          anchors.right: parent.right
-          anchors.verticalCenter: parent.verticalCenter
-          opacity: parent.text.length > 0 ? 1 : 0.25
-          z: 1
-
-          onClicked: {
-            if (parent.echoMode !== TextInput.Normal) {
-              originalEchoMode = parent.echoMode;
-              parent.echoMode = TextInput.Normal;
-            } else {
-              parent.echoMode = originalEchoMode;
-            }
-          }
-        }
-      }
-
-      CheckBox {
-        id: importWebdavStorePasswordCheck
-        width: importWebdavUrlLabel.width
-        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-        text: qsTr('Remember password')
-        font: Theme.defaultFont
-        checked: true
-      }
-
-      Label {
-        width: importWebdavUrlLabel.width
-        visible: importWebdavPathInput.visible
-        text: qsTr("Select the remote folder to import:")
-        wrapMode: Text.WordWrap
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
-      }
-
-      Row {
-        spacing: 5
-
-        QfButton {
-          id: importWebdavFetchFoldersButton
-          anchors.verticalCenter: importWebdavPathInput.verticalCenter
-          visible: importWebdavPathInput.count <= 1
-          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-          width: importWebdavUrlLabel.width - (importWebdavFetchFoldersIndicator.visible ? importWebdavFetchFoldersIndicator.width + 5 : 0)
-          text: !enabled ? qsTr("Fetching remote folders") : qsTr("Fetch remote folders")
-
-          onClicked: {
-            webdavConnectionLoader.item.fetchAvailablePaths();
-          }
+        Label {
+          width: importWebdavUrlLabel.width
+          text: qsTr("User and password")
+          wrapMode: Text.WordWrap
+          font: Theme.defaultFont
+          color: Theme.secondaryTextColor
         }
 
         ComboBox {
-          id: importWebdavPathInput
-          width: importWebdavUrlLabel.width - (importWebdavRefetchFoldersButton.width + 5) - (importWebdavFetchFoldersIndicator.visible ? importWebdavFetchFoldersIndicator.width + 5 : 0)
-          visible: importWebdavPathInput.count > 1
+          id: importWebdavUserInput
           enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-          model: ['']
-        }
+          width: importWebdavUrlLabel.width
+          editable: true
 
-        QfToolButton {
-          id: importWebdavRefetchFoldersButton
-          anchors.verticalCenter: importWebdavPathInput.verticalCenter
-          visible: importWebdavPathInput.visible
-          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-          bgcolor: "transparent"
-          iconSource: Theme.getThemeVectorIcon("refresh_24dp")
-          iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+          Connections {
+            target: importWebdavUserInput.contentItem
+            ignoreUnknownSignals: true
 
-          onClicked: {
-            webdavConnectionLoader.item.fetchAvailablePaths();
+            function onDisplayTextChanged() {
+              if (webdavConnectionLoader.item) {
+                webdavConnectionLoader.item.username = importWebdavUserInput.editText;
+              }
+            }
           }
         }
 
-        BusyIndicator {
-          id: importWebdavFetchFoldersIndicator
-          anchors.verticalCenter: importWebdavPathInput.verticalCenter
-          width: 48
-          height: 48
-          visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
-          running: visible
+        TextField {
+          id: importWebdavPasswordInput
+          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+          width: importWebdavUrlLabel.width
+          rightPadding: leftPadding + (importWebdavShowPasswordInput.width - leftPadding)
+          placeholderText: text === "" && webdavConnectionLoader.item && webdavConnectionLoader.item.isPasswordStored ? qsTr("leave empty to use remembered") : ""
+          echoMode: TextInput.Password
+
+          onDisplayTextChanged: {
+            if (webdavConnectionLoader.item) {
+              webdavConnectionLoader.item.password = text;
+            }
+          }
+
+          QfToolButton {
+            id: importWebdavShowPasswordInput
+
+            property int originalEchoMode: TextInput.Normal
+
+            visible: (!!parent.echoMode && parent.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
+            iconSource: parent.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
+            iconColor: Theme.mainColor
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
+            opacity: parent.text.length > 0 ? 1 : 0.25
+            z: 1
+
+            onClicked: {
+              if (parent.echoMode !== TextInput.Normal) {
+                originalEchoMode = parent.echoMode;
+                parent.echoMode = TextInput.Normal;
+              } else {
+                parent.echoMode = originalEchoMode;
+              }
+            }
+          }
+        }
+
+        CheckBox {
+          id: importWebdavStorePasswordCheck
+          width: importWebdavUrlLabel.width
+          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+          text: qsTr('Remember password')
+          font: Theme.defaultFont
+          checked: true
+        }
+
+        Row {
+          QfButton {
+            id: importWebdavFetchFoldersButton
+            anchors.verticalCenter: importWebdavFetchFoldersIndicator.verticalCenter
+            enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+            width: importWebdavUrlLabel.width - (importWebdavFetchFoldersIndicator.visible ? importWebdavFetchFoldersIndicator.width : 0)
+            text: !enabled ? qsTr("Fetching remote folders") : qsTr("Fetch remote folders")
+
+            onClicked: {
+              webdavConnectionLoader.item.fetchAvailablePaths();
+            }
+          }
+
+          BusyIndicator {
+            id: importWebdavFetchFoldersIndicator
+            anchors.verticalCenter: importWebdavFetchFoldersButton.verticalCenter
+            width: 48
+            height: 48
+            visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
+            running: visible
+          }
+        }
+      }
+
+      Column {
+        Label {
+          width: importWebdavUrlLabel.width
+          visible: importWebdavPathInput.visible
+          text: qsTr("Select the remote folder to import:")
+          wrapMode: Text.WordWrap
+          font: Theme.defaultFont
+          color: Theme.mainTextColor
+        }
+
+        Rectangle {
+          id: importWebdavPathContainer
+          width: importWebdavUrlLabel.width
+          height: 340
+          color: Theme.controlBackgroundColor
+          border.color: Theme.controlBorderColor
+          border.width: 1
+
+          ListView {
+            id: importWebdavPathInput
+            anchors.fill: parent
+            anchors.margins: 1
+            enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+            clip: true
+            model: []
+
+            property var expandedPaths: []
+            property int expandedPathsClicks: 0
+
+            delegate: Rectangle {
+              id: rectangleDialog
+
+              anchors.margins: 10
+              width: parent ? parent.width : undefined
+              height: lineDialog.isVisible ? lineDialog.height + 20 : 0
+              color: importWebdavPathInput.currentIndex == index ? Theme.mainColor : Theme.mainBackgroundColor
+              clip: true
+
+              Row {
+                id: lineDialog
+                anchors.verticalCenter: parent.verticalCenter
+                spacing: 5
+
+                property string label: {
+                  let parts = modelData.split('/');
+                  if (parts.length > 1) {
+                    return parts[parts.length - 2];
+                  }
+                  return "";
+                }
+                property int level: Math.max(0, modelData.split('/').length - 2)
+                property bool isVisible: {
+                  let parts = modelData.split('/').slice(1, -2);
+                  while (parts.length > 0) {
+                    if (importWebdavPathInput.expandedPaths.indexOf("/" + parts.join("/") + "/") == -1) {
+                      return false;
+                    }
+                    parts = parts.slice(0, -1);
+                  }
+                  return true;
+                }
+                property bool hasChildren: {
+                  for (const availablePath of importWebdavPathInput.model) {
+                    if (availablePath.indexOf(modelData) === 0 && availablePath !== modelData) {
+                      return true;
+                    }
+                  }
+                  return false;
+                }
+
+                Item {
+                  id: expandSpacing
+                  height: 35
+                  width: 20 * Math.max(1, lineDialog.level) - 1
+                }
+
+                QfToolButton {
+                  id: epxandButton
+                  height: 35
+                  width: height
+                  anchors.verticalCenter: parent.verticalCenter
+                  iconSource: Theme.getThemeVectorIcon('ic_legend_collapsed_state_24dp')
+                  iconColor: Theme.mainTextColor
+                  bgcolor: "transparent"
+                  enabled: false
+                  opacity: lineDialog.level > 0 && lineDialog.hasChildren ? 1 : 0
+                  rotation: importWebdavPathInput.expandedPaths.indexOf(modelData) > -1 ? 90 : 0
+
+                  Behavior on rotation  {
+                    NumberAnimation {
+                      duration: 100
+                    }
+                  }
+                }
+
+                Text {
+                  id: contentTextDialog
+                  width: rectangleDialog.width - epxandButton.width - expandSpacing.width - 10
+                  anchors.verticalCenter: parent.verticalCenter
+                  leftPadding: 5
+                  font.pointSize: Theme.defaultFont.pointSize
+                  font.weight: model.checked ? Font.DemiBold : Font.Normal
+                  elide: Text.ElideRight
+                  wrapMode: Text.WordWrap
+                  color: lineDialog.label !== "" ? Theme.mainTextColor : importWebdavPathInput.currentIndex == index ? "white" : Theme.secondaryTextColor
+                  textFormat: Text.RichText
+                  text: lineDialog.label !== "" ? lineDialog.label : qsTr("(root folder)")
+                }
+              }
+
+              /* bottom border */
+              Rectangle {
+                anchors.bottom: parent.bottom
+                height: 1
+                color: Theme.controlBorderColor
+                width: parent.width
+                visible: lineDialog.isVisible
+              }
+
+              MouseArea {
+                anchors.fill: parent
+                anchors.rightMargin: 48
+                onClicked: mouse => {
+                  importWebdavPathInput.currentIndex = index;
+                }
+                onDoubleClicked: mouse => {
+                  const index = importWebdavPathInput.expandedPaths.indexOf(modelData);
+                  if (importWebdavPathInput.expandedPaths.indexOf(modelData) == -1) {
+                    importWebdavPathInput.expandedPaths.push(modelData);
+                  } else {
+                    importWebdavPathInput.expandedPaths.splice(index, 1);
+                  }
+                  importWebdavPathInput.expandedPathsChanged();
+                }
+              }
+            }
+          }
+        }
+
+        Row {
+          spacing: 5
+
+          QfButton {
+            id: importWebdavRefetchFoldersButton
+            width: importWebdavUrlLabel.width - (importWebdavRefreshFoldersIndicator.visible ? importWebdavRefreshFoldersIndicator.width : 0)
+            enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+            bgcolor: "transparent"
+            text: !enabled ? qsTr("Refreshing remote folders") : qsTr("Refresh remote folders")
+
+            onClicked: {
+              importWebdavPathInput.currentIndex = -1;
+              webdavConnectionLoader.item.fetchAvailablePaths();
+            }
+          }
+
+          BusyIndicator {
+            id: importWebdavRefreshFoldersIndicator
+            anchors.verticalCenter: importWebdavRefetchFoldersButton.verticalCenter
+            width: 48
+            height: 48
+            visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
+            running: visible
+          }
         }
       }
     }
 
     onAccepted: {
-      if (importWebdavPathInput.displayText !== '' && webdavConnectionLoader.item) {
+      if (importWebdavPathInput.currentIndex > -1 && webdavConnectionLoader.item) {
         webdavConnectionLoader.item.url = importWebdavUrlInput.editText;
         webdavConnectionLoader.item.username = importWebdavUserInput.editText;
         webdavConnectionLoader.item.password = importWebdavPasswordInput.text;
         webdavConnectionLoader.item.storePassword = importWebdavStorePasswordCheck.checked;
-        webdavConnectionLoader.item.importPath(importWebdavPathInput.displayText, platformUtilities.applicationDirectory() + "/Imported Projects/");
+        webdavConnectionLoader.item.importPath(importWebdavPathInput.model[importWebdavPathInput.currentIndex], platformUtilities.applicationDirectory() + "/Imported Projects/");
       }
     }
   }
