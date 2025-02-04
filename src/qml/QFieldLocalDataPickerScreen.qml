@@ -1230,7 +1230,7 @@ Page {
         webdavConnectionLoader.item.username = importWebdavUserInput.editText;
         webdavConnectionLoader.item.password = importWebdavPasswordInput.text;
         webdavConnectionLoader.item.storePassword = importWebdavStorePasswordCheck.checked;
-        webdavConnectionLoader.item.importPath(importWebdavPathInput.displayText, platformUtilities.applicationDirectory() + "Imported Projects/");
+        webdavConnectionLoader.item.importPath(importWebdavPathInput.displayText, platformUtilities.applicationDirectory() + "/Imported Projects/");
       }
     }
   }
