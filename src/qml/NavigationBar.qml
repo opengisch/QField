@@ -545,6 +545,7 @@ Rectangle {
     MenuItem {
       id: mergeSelectedFeaturesBtn
       text: qsTr('Merge Selected Features')
+      height: 48
       icon.source: Theme.getThemeVectorIcon("ic_merge_features_white_24dp")
       enabled: toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
 
@@ -557,6 +558,7 @@ Rectangle {
     MenuItem {
       id: moveSelectedFeaturesBtn
       text: qsTr('Move Selected Feature(s)')
+      height: 48
       icon.source: Theme.getThemeVectorIcon("ic_move_white_24dp")
       enabled: toolBar.model && toolBar.model.canMoveSelection && projectInfo.editRights
 
@@ -569,6 +571,7 @@ Rectangle {
     MenuItem {
       id: duplicateSelectedFeaturesBtn
       text: qsTr('Duplicate Selected Feature(s)')
+      height: 48
       icon.source: Theme.getThemeVectorIcon("ic_duplicate_black_24dp")
       enabled: toolBar.model && toolBar.model.canDuplicateSelection && projectInfo.insertRights
 
@@ -584,7 +587,7 @@ Rectangle {
       icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
       enabled: toolBar.model && toolBar.model.canDeleteSelection && projectInfo.editRights
       visible: enabled
-      height: enabled ? undefined : 0
+      height: enabled ? 48 : 0
 
       font: Theme.defaultFont
       leftPadding: Theme.menuItemLeftPadding
@@ -599,6 +602,7 @@ Rectangle {
     MenuItem {
       id: processingSelectedFeaturesBtn
       text: qsTr('Process Selected Feature(s)')
+      height: 48
       icon.source: Theme.getThemeVectorIcon("ic_processing_black_24dp")
       enabled: toolBar.model && toolBar.model.canProcessSelection && projectInfo.editRights
 
