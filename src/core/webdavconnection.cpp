@@ -224,11 +224,10 @@ void WebdavConnection::processDirParserFinished()
         }
       }
     }
+    mAvailablePaths.sort();
 
     mIsFetchingAvailablePaths = false;
     emit isFetchingAvailablePathsChanged();
-
-    mAvailablePaths.sort();
     emit availablePathsChanged();
   }
   else if ( mIsImportingPath || mIsDownloadingPath )
@@ -419,6 +418,12 @@ void WebdavConnection::getWebdavItems()
       jsonFile.write( jsonDocument.toJson() );
       jsonFile.close();
 
+      QSettings settings;
+      settings.beginGroup( QStringLiteral( "/qfield/webdavImports/%1/users/%2" ).arg( QUrl::toPercentEncoding( mUrl ), QUrl::toPercentEncoding( mUsername ) ) );
+      settings.setValue( QStringLiteral( "lastImportPath" ), mProcessRemotePath );
+      settings.setValue( QStringLiteral( "lastImportTime" ), QDateTime::currentDateTime() );
+      settings.endGroup();
+
       mIsImportingPath = false;
       emit isImportingPathChanged();
       emit importSuccessful( mProcessLocalPath );
@@ -429,6 +434,61 @@ void WebdavConnection::getWebdavItems()
       emit isDownloadingPathChanged();
     }
   }
+}
+
+QVariantMap WebdavConnection::importHistory()
+{
+  QVariantMap history;
+
+  QSettings settings;
+  settings.beginGroup( QStringLiteral( "/qfield/webdavImports" ) );
+  const QStringList urls = settings.childGroups();
+  settings.endGroup();
+
+  QDateTime lastUrlImportTime( QDate( 1900, 0, 0 ), QTime( 0, 0, 0, 0 ) );
+  QString lastUrl;
+  QVariantMap urlsDetails;
+  for ( const QString &url : urls )
+  {
+    const QString decodedUrl = QUrl::fromPercentEncoding( url.toLatin1() );
+    settings.beginGroup( QStringLiteral( "/qfield/webdavImports/%1/users" ).arg( url ) );
+    const QStringList users = settings.childGroups();
+    settings.endGroup();
+
+    QDateTime lastUserImportTime( QDate( 1900, 0, 0 ), QTime( 0, 0, 0, 0 ) );
+    QString lastUser;
+    QVariantMap usersDetails;
+    for ( const QString &user : users )
+    {
+      const QString decodedUser = QUrl::fromPercentEncoding( user.toLatin1() );
+      settings.beginGroup( QStringLiteral( "/qfield/webdavImports/%1/users/%2" ).arg( url, user ) );
+
+      QVariantMap details;
+      details["lastImportPath"] = settings.value( "lastImportPath" ).toString();
+      usersDetails[decodedUser] = details;
+
+      if ( lastUserImportTime < settings.value( "lastImportTime" ).toDateTime() )
+      {
+        lastUserImportTime = settings.value( "lastImportTime" ).toDateTime();
+        lastUser = decodedUser;
+      }
+      if ( lastUrlImportTime < settings.value( "lastImportTime" ).toDateTime() )
+      {
+        lastUrlImportTime = settings.value( "lastImportTime" ).toDateTime();
+        lastUrl = decodedUrl;
+      }
+    }
+
+    QVariantMap details;
+    details["users"] = usersDetails;
+    details["lastUser"] = lastUser;
+    urlsDetails[decodedUrl] = details;
+  }
+
+  history["urls"] = urlsDetails;
+  history["lastUrl"] = lastUrl;
+
+  return history;
 }
 
 void WebdavConnection::putLocalItems()
