@@ -1,37 +1,31 @@
 {
-  "name": "qtquick3d",
+  "name": "qtserialbus",
   "version": "6.8.2",
-  "description": "Qt Quick 3D provides a high-level API for creating 3D content and 3D user interfaces based on Qt Quick.",
+  "description": "The Qt Serial Bus API provides classes and functions to access the various industrial serial buses and protocols, such as CAN, ModBus, and others.",
   "homepage": "https://www.qt.io/",
   "license": null,
   "dependencies": [
-    "meshoptimizer",
     {
       "name": "qtbase",
       "default-features": false,
       "features": [
-        "gui"
+        "network"
       ]
     },
-    "qtdeclarative",
     {
-      "name": "qtquick3d",
+      "name": "qtserialbus",
       "host": true,
       "default-features": false
     },
-    "qtquicktimeline",
-    "qtshadertools"
+    {
+      "name": "qtserialport",
+      "default-features": false
+    }
   ],
   "default-features": [
     "default-features"
   ],
   "features": {
-    "assimp": {
-      "description": "assimp",
-      "dependencies": [
-        "assimp"
-      ]
-    },
     "default-features": {
       "description": "Platform-dependent default features"
     }

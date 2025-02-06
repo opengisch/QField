@@ -1,19 +1,13 @@
 {
-  "name": "qtpositioning",
-  "version": "6.8.2",
-  "description": "The Qt Positioning API provides positioning information via QML and C++ interfaces.",
+  "name": "qtwebchannel",
+  "version": "6.8.1",
+  "description": "Qt WebChannel enables peer-to-peer communication between a server (QML/C++ application) and a client (HTML/JavaScript or QML application).",
   "homepage": "https://www.qt.io/",
   "license": null,
   "dependencies": [
-    "jhasse-poly2tri",
     {
       "name": "qtbase",
       "default-features": false
-    },
-    {
-      "name": "qtserialport",
-      "default-features": false,
-      "platform": "!ios"
     }
   ],
   "features": {

@@ -1,19 +1,16 @@
 {
-  "name": "qtpositioning",
-  "version": "6.8.2",
-  "description": "The Qt Positioning API provides positioning information via QML and C++ interfaces.",
+  "name": "qtwebsockets",
+  "version": "6.8.1",
+  "description": "The Qt WebSockets module provides C++ and QML interfaces that enable Qt applications to act as a server that can process WebSocket requests, or a client that can consume data received from the server, or both.",
   "homepage": "https://www.qt.io/",
   "license": null,
   "dependencies": [
-    "jhasse-poly2tri",
     {
       "name": "qtbase",
-      "default-features": false
-    },
-    {
-      "name": "qtserialport",
       "default-features": false,
-      "platform": "!ios"
+      "features": [
+        "network"
+      ]
     }
   ],
   "features": {

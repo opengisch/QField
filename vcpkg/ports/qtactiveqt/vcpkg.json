@@ -1,19 +1,24 @@
 {
-  "name": "qtpositioning",
-  "version": "6.8.2",
-  "description": "The Qt Positioning API provides positioning information via QML and C++ interfaces.",
+  "name": "qtactiveqt",
+  "version": "6.8.1",
+  "description": "ActiveQt",
   "homepage": "https://www.qt.io/",
   "license": null,
+  "supports": "windows",
   "dependencies": [
-    "jhasse-poly2tri",
     {
-      "name": "qtbase",
+      "name": "qtactiveqt",
+      "host": true,
       "default-features": false
     },
     {
-      "name": "qtserialport",
+      "$comment": "also requires printsupport!",
+      "name": "qtbase",
       "default-features": false,
-      "platform": "!ios"
+      "features": [
+        "gui",
+        "widgets"
+      ]
     }
   ],
   "features": {

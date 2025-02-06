@@ -1,19 +1,21 @@
 {
-  "name": "qtpositioning",
+  "name": "qtscxml",
   "version": "6.8.2",
-  "description": "The Qt Positioning API provides positioning information via QML and C++ interfaces.",
+  "description": "The Qt SCXML module provides functionality to create state machines from SCXML files.",
   "homepage": "https://www.qt.io/",
   "license": null,
   "dependencies": [
-    "jhasse-poly2tri",
     {
       "name": "qtbase",
-      "default-features": false
+      "default-features": false,
+      "features": [
+        "gui"
+      ]
     },
     {
-      "name": "qtserialport",
-      "default-features": false,
-      "platform": "!ios"
+      "name": "qtscxml",
+      "host": true,
+      "default-features": false
     }
   ],
   "features": {
