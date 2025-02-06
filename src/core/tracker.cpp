@@ -310,63 +310,66 @@ void Tracker::processPositionInformation( const GnssPositionInformation &positio
 
   mLastDevicePositionTimestamp = positionInformation.utcDateTime();
 
+  double measureValue = 0.0;
   switch ( mMeasureType )
   {
     case Tracker::SecondsSinceStart:
-      mRubberbandModel->setMeasureValue( positionInformation.utcDateTime().toSecsSinceEpoch() - mStartPositionTimestamp.toSecsSinceEpoch() );
+      measureValue = positionInformation.utcDateTime().toSecsSinceEpoch() - mStartPositionTimestamp.toSecsSinceEpoch();
       break;
     case Tracker::Timestamp:
-      mRubberbandModel->setMeasureValue( positionInformation.utcDateTime().toSecsSinceEpoch() );
+      measureValue = positionInformation.utcDateTime().toSecsSinceEpoch();
       break;
     case Tracker::GroundSpeed:
-      mRubberbandModel->setMeasureValue( positionInformation.speed() );
+      measureValue = positionInformation.speed();
       break;
     case Tracker::Bearing:
-      mRubberbandModel->setMeasureValue( positionInformation.direction() );
+      measureValue = positionInformation.direction();
       break;
     case Tracker::HorizontalAccuracy:
-      mRubberbandModel->setMeasureValue( positionInformation.hacc() );
+      measureValue = positionInformation.hacc();
       break;
     case Tracker::VerticalAccuracy:
-      mRubberbandModel->setMeasureValue( positionInformation.vacc() );
+      measureValue = positionInformation.vacc();
       break;
     case Tracker::PDOP:
-      mRubberbandModel->setMeasureValue( positionInformation.pdop() );
+      measureValue = positionInformation.pdop();
       break;
     case Tracker::HDOP:
-      mRubberbandModel->setMeasureValue( positionInformation.hdop() );
+      measureValue = positionInformation.hdop();
       break;
     case Tracker::VDOP:
-      mRubberbandModel->setMeasureValue( positionInformation.vdop() );
+      measureValue = positionInformation.vdop();
       break;
   }
 
+  whileBlocking( mRubberbandModel )->setMeasureValue( measureValue );
   mRubberbandModel->setCurrentCoordinate( projectedPosition );
 }
 
 void Tracker::replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer )
 {
-  bool wasActive = false;
-  if ( mIsActive )
-  {
-    wasActive = true;
-    stop();
-  }
+  const qint64 startTime = QDateTime::currentMSecsSinceEpoch();
 
   mIsReplaying = true;
   emit isReplayingChanged();
 
   const Qgis::GeometryType geometryType = mRubberbandModel->geometryType();
-  mFeatureModel->setBatchMode( geometryType == Qgis::GeometryType::Point );
+  const bool isPointGeometry = geometryType == Qgis::GeometryType::Point;
+  mFeatureModel->setBatchMode( isPointGeometry );
+
   connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   for ( const GnssPositionInformation &positionInformation : positionInformationList )
   {
+    if ( isPointGeometry )
+    {
+      mFeatureModel->setPositionInformation( positionInformation );
+    }
     processPositionInformation( positionInformation,
                                 coordinateTransformer ? coordinateTransformer->transformPosition( QgsPoint( positionInformation.longitude(), positionInformation.latitude(), positionInformation.elevation() ) ) : QgsPoint() );
   }
   disconnect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
-  mFeatureModel->setBatchMode( false );
 
+  mFeatureModel->setBatchMode( false );
   const int vertexCount = mRubberbandModel->vertexCount();
   if ( ( geometryType == Qgis::GeometryType::Line && vertexCount > 2 ) || ( geometryType == Qgis::GeometryType::Polygon && vertexCount > 3 ) )
   {
@@ -386,9 +389,24 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   mIsReplaying = false;
   emit isReplayingChanged();
 
-  if ( wasActive )
+  if ( mIsSuspended )
   {
+    mIsSuspended = false;
+    emit isSuspendedChanged();
     start();
+  }
+
+  const qint64 endTime = QDateTime::currentMSecsSinceEpoch();
+  qInfo() << QStringLiteral( "Tracker position information replay duration: %1ms" ).arg( endTime - startTime );
+}
+
+void Tracker::suspendUntilReplay()
+{
+  if ( mIsActive )
+  {
+    mIsSuspended = true;
+    emit isSuspendedChanged();
+    stop();
   }
 }
 

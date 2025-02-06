@@ -822,7 +822,7 @@ bool FeatureModel::create()
 
   if ( mBatchMode )
   {
-    isSuccess = mLayer->addFeature( mFeature );
+    isSuccess = mLayer->addFeature( mFeature, QgsFeatureSink::FastInsert );
     if ( isSuccess )
     {
       mFeature.setId( createdFeatureId );

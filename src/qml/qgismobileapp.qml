@@ -351,15 +351,31 @@ ApplicationWindow {
     }
 
     onBackgroundModeChanged: {
-      if (!backgroundMode) {
-        console.log('qqq onBackgroundModeChanged');
-        mapCanvasMap.freeze('trackerreplay');
-        let list = positionSource.getBackgroundPositionInformation();
-        // Qt bug weirdly returns an empty list on first invokation to source, call twice to insure we've got the actual list
-        list = positionSource.getBackgroundPositionInformation();
-        trackingModel.replayPositionInformationList(list, coordinateTransformer);
-        mapCanvasMap.unfreeze('trackerreplay');
+      if (trackings.count > 0) {
+        if (backgroundMode) {
+          trackingModel.suspendUntilReplay();
+        } else {
+          busyOverlay.text = qsTr("Replaying collected positions, hold on");
+          busyOverlay.state = "visible";
+          replayTimer.restart();
+        }
       }
+    }
+  }
+
+  Timer {
+    id: replayTimer
+
+    interval: 250
+    repeat: false
+    onTriggered: {
+      mapCanvasMap.freeze('trackerreplay');
+      let list = positionSource.getBackgroundPositionInformation();
+      // Qt bug weirdly returns an empty list on first invokation to source, call twice to insure we've got the actual list
+      list = positionSource.getBackgroundPositionInformation();
+      trackingModel.replayPositionInformationList(list, positionSource.coordinateTransformer);
+      mapCanvasMap.unfreeze('trackerreplay');
+      busyOverlay.state = "hidden";
     }
   }
 
