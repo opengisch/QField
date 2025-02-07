@@ -26,6 +26,10 @@ Page {
   property alias enableInfoCollection: registry.enableInfoCollection
   property alias enableMapRotation: registry.enableMapRotation
   property alias quality: registry.quality
+  property alias snapToCommonAngleIsEnabled: registry.snapToCommonAngleIsEnabled
+  property alias snapToCommonAngleIsRelative: registry.snapToCommonAngleIsRelative
+  property alias snapToCommonAngleDegrees: registry.snapToCommonAngleDegrees
+  property alias snapToCommonAngleTolerance: registry.snapToCommonAngleTolerance
 
   visible: false
   focus: visible
@@ -56,6 +60,11 @@ Page {
     property bool enableInfoCollection: true
     property bool enableMapRotation: true
     property double quality: 1.0
+
+    property bool snapToCommonAngleIsEnabled: false
+    property bool snapToCommonAngleIsRelative: true
+    property double snapToCommonAngleDegrees: 45.0// = settings.valueInt("/QField/Digitizing/SnapToCommonAngleDegrees", 45);
+    property int snapToCommonAngleTolerance: 1// = settings.valueInt("/QField/Digitizing/SnappingTolerance", 1);
 
     onEnableInfoCollectionChanged: {
       if (enableInfoCollection) {
