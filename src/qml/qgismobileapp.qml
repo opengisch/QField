@@ -616,7 +616,7 @@ ApplicationWindow {
       id: mapCanvasMap
 
       property bool isEnabled: !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.visible && !rotateFeaturesToolbar.rotateFeaturesRequested
-      interactive: isEnabled && !screenLocker.enabled
+      interactive: isEnabled && !screenLocker.enabled && !snapToCommonAngleMenu.visible
       isMapRotationEnabled: qfieldSettings.enableMapRotation
       incrementalRendering: true
       quality: qfieldSettings.quality
@@ -1713,10 +1713,12 @@ ApplicationWindow {
             coordinateLocator.snapToCommonAngles = settings.valueBool("/QField/Digitizing/SnapToCommonAngleIsEnabled", false);
             coordinateLocator.snappingIsRelative = settings.valueBool("/QField/Digitizing/SnapToCommonAngleIsRelative", true);
             coordinateLocator.snappingAngleDegrees = settings.valueInt("/QField/Digitizing/SnapToCommonAngleDegrees", 45);
+            coordinateLocator.snappingTolerance = settings.valueInt("/QField/Digitizing/SnappingTolerance", 1);
           }
 
           Menu {
             id: snapToCommonAngleMenu
+            width: Theme.menuItemIconlessLeftPadding + Math.max(angles.count * 35, tolorences.count * 55) + 24
 
             MenuItem {
               text: qsTr("Relative angle")
@@ -1737,31 +1739,156 @@ ApplicationWindow {
               width: parent.width
             }
 
-            Repeater {
-              // list of common angles to snap to
+            Text {
+              text: qsTr("Snapping to every")
+              color: Theme.mainTextColor
+              font: Theme.defaultFont
+              leftPadding: Theme.menuItemIconlessLeftPadding
+            }
+
+            Item {
+              width: 1
+              height: 8
+            }
+
+            ListView {
+              id: angles
+              height: 35
+              anchors {
+                left: parent.left
+                leftMargin: Theme.menuItemIconlessLeftPadding
+                rightMargin: 4
+              }
+              spacing: 3
+              orientation: ListView.Horizontal
               model: [10, 15, 30, 45, 90]
-              delegate: MenuItem {
-                required property int modelData
+              currentIndex: Math.max(model.findIndex(q => q === coordinateLocator.snappingAngleDegrees), 0)
+              highlightFollowsCurrentItem: true
 
-                text: qsTr("Snap every %1°").arg(modelData)
+              highlight: Rectangle {
+                width: 35
+                height: parent.height
+                color: Theme.mainColor
+                radius: width / 2
+              }
 
-                font: Theme.defaultFont
-                height: 48
-                leftPadding: Theme.menuItemCheckLeftPadding
+              delegate: Item {
+                width: 35
+                height: width
+                enabled: !selected
 
-                checkable: true
-                checked: modelData === coordinateLocator.snappingAngleDegrees
-                enabled: modelData !== coordinateLocator.snappingAngleDegrees
+                property bool selected: modelData === coordinateLocator.snappingAngleDegrees
 
-                onTriggered: {
-                  if (!checked) {
-                    return;
+                Text {
+                  text: qsTr("%1°").arg(modelData)
+                  font: parent.selected ? Theme.strongTipFont : Theme.tipFont
+                  anchors.centerIn: parent
+                  color: Theme.mainTextColor
+                }
+
+                Ripple {
+                  clip: true
+                  anchors.fill: parent
+                  clipRadius: width / 2
+                  pressed: angleMouseArea.pressed
+                  anchor: parent
+                  active: angleMouseArea.pressed
+                  color: "#22aaaaaa"
+                }
+
+                MouseArea {
+                  id: angleMouseArea
+                  anchors.fill: parent
+                  onClicked: {
+                    if (parent.selected) {
+                      return;
+                    }
+                    coordinateLocator.snapToCommonAngles = true;
+                    coordinateLocator.snappingAngleDegrees = modelData;
+                    settings.setValue("/QField/Digitizing/SnapToCommonAngleDegrees", coordinateLocator.snappingAngleDegrees);
+                    displayToast(qsTr("Snap to %1° angle turned on").arg(modelData));
                   }
-                  coordinateLocator.snapToCommonAngles = true;
-                  coordinateLocator.snappingAngleDegrees = modelData;
-                  settings.setValue("/QField/Digitizing/SnapToCommonAngleDegrees", coordinateLocator.snappingAngleDegrees);
-                  displayToast(qsTr("Snap to %1° angle turned on").arg(modelData));
-                  snapToCommonAngleMenu.close();
+                }
+              }
+            }
+
+            Item {
+              width: 1
+              height: 8
+            }
+
+            Text {
+              text: qsTr("Snapping tolerance")
+              color: Theme.mainTextColor
+              font: Theme.defaultFont
+              leftPadding: Theme.menuItemIconlessLeftPadding
+            }
+
+            Item {
+              width: 1
+              height: 8
+            }
+
+            ListView {
+              id: tolorences
+              height: 35
+              anchors {
+                left: parent.left
+                leftMargin: Theme.menuItemIconlessLeftPadding
+                rightMargin: 4
+              }
+              spacing: 3
+              orientation: ListView.Horizontal
+              model: [qsTr("Narrow"), qsTr("Normal"), qsTr("Large")]
+              highlight: Rectangle {
+                width: 35
+                height: parent.height
+                color: Theme.mainColor
+                radius: 4
+              }
+              currentIndex: coordinateLocator.snappingTolerance
+              highlightFollowsCurrentItem: true
+              delegate: Item {
+                id: tolorenceDelegate
+                width: (angles.contentWidth) / 3
+                height: 35
+                enabled: !selected
+
+                property bool selected: index === coordinateLocator.snappingTolerance
+
+                Text {
+                  id: tolorenceText
+                  text: modelData
+                  font: parent.selected ? Theme.strongTipFont : Theme.tipFont
+                  anchors.centerIn: parent
+                  color: Theme.mainTextColor
+                  elide: Text.ElideRight
+                  width: parent.width
+                  horizontalAlignment: Text.AlignHCenter
+                }
+
+                Ripple {
+                  clip: true
+                  anchors.fill: parent
+                  clipRadius: 4
+                  pressed: tolerancesMouseArea.pressed
+                  anchor: parent
+                  active: tolerancesMouseArea.pressed
+                  color: "#22aaaaaa"
+                }
+
+                MouseArea {
+                  id: tolerancesMouseArea
+                  anchors.fill: parent
+                  onClicked: {
+                    if (parent.selected) {
+                      return;
+                    }
+                    coordinateLocator.snapToCommonAngles = true;
+                    coordinateLocator.snappingTolerance = index;
+                    settings.setValue("/QField/Digitizing/SnappingTolerance", coordinateLocator.snappingTolerance);
+                    displayToast(qsTr("Snapping tolerance setted to %1").arg(modelData));
+                  }
                 }
               }
             }
