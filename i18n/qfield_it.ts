@@ -3174,10 +3174,6 @@ Messaggio dell&apos;errore: %4</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>User</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Select the remote folder to import:</source>
         <translation type="unfinished"/>
     </message>
@@ -3187,6 +3183,26 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Fetch remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>(root folder)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh remote folders</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5299,6 +5315,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
         <translation type="unfinished"/>
     </message>
 </context>

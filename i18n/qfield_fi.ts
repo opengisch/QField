@@ -3171,10 +3171,6 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
         <translation>WebDAV palvelin URL</translation>
     </message>
     <message>
-        <source>User</source>
-        <translation>Käyttäjä</translation>
-    </message>
-    <message>
         <source>Select the remote folder to import:</source>
         <translation>Valitse tuotava etähakemisto:</translation>
     </message>
@@ -3185,6 +3181,26 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     <message>
         <source>Fetch remote folders</source>
         <translation>Hae etähakemistot</translation>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>(root folder)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh remote folders</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5297,6 +5313,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Redo</source>
         <translation>Tee uudelleen</translation>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

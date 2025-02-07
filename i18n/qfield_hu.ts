@@ -3163,10 +3163,6 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation>WebDAV szerver URL</translation>
     </message>
     <message>
-        <source>User</source>
-        <translation>Felhasználó</translation>
-    </message>
-    <message>
         <source>Select the remote folder to import:</source>
         <translation>Válassza ki az importálandó távoli mappát:</translation>
     </message>
@@ -3177,6 +3173,26 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>Fetch remote folders</source>
         <translation>Távoli mappák lekérése</translation>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>(root folder)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh remote folders</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5291,6 +5307,10 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>Redo</source>
         <translation>Újra</translation>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

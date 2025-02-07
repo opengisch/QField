@@ -3167,10 +3167,6 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>User</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Select the remote folder to import:</source>
         <translation type="unfinished"/>
     </message>
@@ -3180,6 +3176,26 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Fetch remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>(root folder)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh remote folders</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5296,6 +5312,10 @@ fermer le projet et quitter l&apos;application</translation>
     <message>
         <source>Redo</source>
         <translation>Rétablir</translation>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

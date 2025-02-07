@@ -3169,10 +3169,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>URL del servidor WebDAV</translation>
     </message>
     <message>
-        <source>User</source>
-        <translation>Usuario</translation>
-    </message>
-    <message>
         <source>Select the remote folder to import:</source>
         <translation>Seleccione la carpeta remota a importar:</translation>
     </message>
@@ -3183,6 +3179,26 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Fetch remote folders</source>
         <translation>Obtener carpetas remotas</translation>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>(root folder)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh remote folders</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5295,6 +5311,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Redo</source>
         <translation>Rehacer</translation>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

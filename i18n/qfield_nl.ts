@@ -3169,10 +3169,6 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>User</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Select the remote folder to import:</source>
         <translation type="unfinished"/>
     </message>
@@ -3182,6 +3178,26 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Fetch remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>(root folder)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh remote folders</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5294,6 +5310,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
         <translation type="unfinished"/>
     </message>
 </context>

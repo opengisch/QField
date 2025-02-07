@@ -3171,10 +3171,6 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>User</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Select the remote folder to import:</source>
         <translation type="unfinished"/>
     </message>
@@ -3184,6 +3180,26 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Fetch remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>(root folder)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh remote folders</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5296,6 +5312,10 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
         <translation type="unfinished"/>
     </message>
 </context>

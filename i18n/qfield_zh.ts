@@ -582,7 +582,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DigitizingToolbar</name>
     <message>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
-        <translation>定位精度未达到最低要求，不能添加顶点</translation>
+        <translation>位置精度未达到最低要求，不能添加顶点</translation>
     </message>
     <message>
         <source>Cancel digitizing</source>
@@ -590,7 +590,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation>收集的定位数量未符合需求</translation>
+        <translation>收集的位置数量未符合需求</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
@@ -3167,10 +3167,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>WebDAV服务器URL</translation>
     </message>
     <message>
-        <source>User</source>
-        <translation>用户</translation>
-    </message>
-    <message>
         <source>Select the remote folder to import:</source>
         <translation>选择要导入的远程文件夹:</translation>
     </message>
@@ -3181,6 +3177,26 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Fetch remote folders</source>
         <translation>获取远程文件夹</translation>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation>用户名和密码</translation>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation>留空供记忆使用</translation>
+    </message>
+    <message>
+        <source>(root folder)</source>
+        <translation>(根文件夹)</translation>
+    </message>
+    <message>
+        <source>Refreshing remote folders</source>
+        <translation>正在刷新远程文件夹</translation>
+    </message>
+    <message>
+        <source>Refresh remote folders</source>
+        <translation>刷新远程文件夹</translation>
     </message>
 </context>
 <context>
@@ -3356,7 +3372,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>显示定位信息</translation>
+        <translation>显示位置信息</translation>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
@@ -3376,7 +3392,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation type="vanished">启用精度指示器后，定位按钮上会附加一个标识：如果精度值较差，将其标记为&lt;span %1&gt;红色&lt;/span&gt;；如果精度值低于优，将其标记为&lt;span %2&gt;黄色&lt;/span&gt;；反之将其标记为&lt;span %3&gt;绿色&lt;/span&gt;。&lt;br&gt;差-&gt;红；良-&gt;黄；优-&gt;绿&lt;br&gt;此外，可以打开精度限制模式。当锁定坐标光标的定位精度值低于较差阈值时，将限制添加顶点。</translation>
+        <translation type="vanished">启用精度指示器后，定位按钮上会附加一个标识：如果精度值较差，将其标记为&lt;span %1&gt;红色&lt;/span&gt;；如果精度值低于优，将其标记为&lt;span %2&gt;黄色&lt;/span&gt;；反之将其标记为&lt;span %3&gt;绿色&lt;/span&gt;。&lt;br&gt;差-&gt;红；良-&gt;黄；优-&gt;绿&lt;br&gt;此外，可以打开精度限制模式。当锁定坐标光标的位置精度值低于较差阈值时，将限制添加顶点。</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -3384,7 +3400,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation>收集的最少定位数</translation>
+        <translation>收集的最少位置数量</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
@@ -3392,7 +3408,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>启用后，将光标锁定到定位的数字化顶点仅接受最少收集定位数的平均定位。通过按住添加顶点按钮，可以使用平均定位进行数字化，该按钮将收集定位，直到释放才结束。启用后，将遵守精度需求设置。</translation>
+        <translation>启用后，将光标锁定到位置的数字化顶点仅接受最少收集位置数量的平均位置。通过按住添加顶点按钮，可以使用平均位置进行数字化，该按钮将收集位置，直到释放才结束。启用后，将遵守精度需求设置。</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
@@ -3702,7 +3718,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Position</source>
-        <translation>定位</translation>
+        <translation>位置</translation>
     </message>
     <message>
         <source>Map Tool Capture</source>
@@ -4772,7 +4788,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>坐标光标现已锁定定位</translation>
+        <translation>坐标光标现已锁定位置</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
@@ -4780,11 +4796,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Received position</source>
-        <translation type="vanished">获取定位信息</translation>
+        <translation type="vanished">获取位置信息</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation type="vanished">搜索定位</translation>
+        <translation type="vanished">搜索位置</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
@@ -4988,7 +5004,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>显示定位信息</translation>
+        <translation>显示位置信息</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
@@ -5212,19 +5228,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
-        <translation>定位已侵入 ‘%1’</translation>
+        <translation>位置已侵入 ‘%1’</translation>
     </message>
     <message>
         <source>Position outside areas after leaving ‘%1’</source>
-        <translation>离开 ‘%1’ 后定位在外部区域</translation>
+        <translation>离开 ‘%1’ 后位置在外部区域</translation>
     </message>
     <message>
         <source>Position entered into ‘%1’</source>
-        <translation>定位已进入 ‘%1’</translation>
+        <translation>位置已进入 ‘%1’</translation>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
-        <translation>定位从 ‘%1’ 离开</translation>
+        <translation>位置从 ‘%1’ 离开</translation>
     </message>
     <message>
         <source>Enable Map Rotation</source>
@@ -5293,6 +5309,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Redo</source>
         <translation>重做</translation>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
+        <translation>重播已收集的位置，请稍等</translation>
     </message>
 </context>
 <context>
