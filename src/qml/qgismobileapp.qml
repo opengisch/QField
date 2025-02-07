@@ -913,7 +913,7 @@ ApplicationWindow {
       averagedPositionCount: positionSource.averagedPositionCount
       overrideLocation: positionLocked ? positionSource.projectedPosition : undefined
 
-      snapToCommonAngles: qfieldSettings.snapToCommonAngleIsEnabled
+      snapToCommonAngles: qfieldSettings.snapToCommonAngleIsEnabled && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)
       snappingIsRelative: qfieldSettings.snapToCommonAngleIsRelative
       snappingAngleDegrees: qfieldSettings.snapToCommonAngleDegrees
       snappingTolerance: qfieldSettings.snapToCommonAngleTolerance
