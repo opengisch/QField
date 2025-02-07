@@ -912,6 +912,11 @@ ApplicationWindow {
       averagedPosition: positionSource.averagedPosition
       averagedPositionCount: positionSource.averagedPositionCount
       overrideLocation: positionLocked ? positionSource.projectedPosition : undefined
+
+      snapToCommonAngles: qfieldSettings.snapToCommonAngleIsEnabled
+      snappingIsRelative: qfieldSettings.snapToCommonAngleIsRelative
+      snappingAngleDegrees: qfieldSettings.snapToCommonAngleDegrees
+      snappingTolerance: qfieldSettings.snapToCommonAngleTolerance
     }
 
     /* Location marker reflecting the current GNSS position */
@@ -1678,7 +1683,7 @@ ApplicationWindow {
           iconColor: Theme.toolButtonColor
           bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
-          state: coordinateLocator.snapToCommonAngles ? "On" : "Off"
+          state: qfieldSettings.snapToCommonAngleIsEnabled ? "On" : "Off"
 
           states: [
             State {
@@ -1700,20 +1705,12 @@ ApplicationWindow {
           ]
 
           onClicked: {
-            coordinateLocator.snapToCommonAngles = !coordinateLocator.snapToCommonAngles;
-            settings.setValue("/QField/Digitizing/SnapToCommonAngleIsEnabled", coordinateLocator.snapToCommonAngles);
-            displayToast(coordinateLocator.snapToCommonAngles ? qsTr("Snap to %1° angle turned on").arg(coordinateLocator.snappingAngleDegrees) : qsTr("Snap to common angle turned off"));
+            qfieldSettings.snapToCommonAngleIsEnabled = !qfieldSettings.snapToCommonAngleIsEnabled;
+            displayToast(qfieldSettings.snapToCommonAngleIsEnabled ? qsTr("Snap to %1° angle turned on").arg(qfieldSettings.snapToCommonAngleDegrees) : qsTr("Snap to common angle turned off"));
           }
 
           onPressAndHold: {
             snapToCommonAngleMenu.popup(parent.x, parent.y);
-          }
-
-          Component.onCompleted: {
-            coordinateLocator.snapToCommonAngles = settings.valueBool("/QField/Digitizing/SnapToCommonAngleIsEnabled", false);
-            coordinateLocator.snappingIsRelative = settings.valueBool("/QField/Digitizing/SnapToCommonAngleIsRelative", true);
-            coordinateLocator.snappingAngleDegrees = settings.valueInt("/QField/Digitizing/SnapToCommonAngleDegrees", 45);
-            coordinateLocator.snappingTolerance = settings.valueInt("/QField/Digitizing/SnappingTolerance", 1);
           }
 
           Menu {
@@ -1727,11 +1724,10 @@ ApplicationWindow {
               leftPadding: Theme.menuItemCheckLeftPadding
 
               checkable: true
-              checked: coordinateLocator.snappingIsRelative
+              checked: qfieldSettings.snapToCommonAngleIsRelative
 
               onTriggered: {
-                coordinateLocator.snappingIsRelative = checked;
-                settings.setValue("/QField/Digitizing/SnapToCommonAngleIsRelative", coordinateLocator.snappingIsRelative);
+                qfieldSettings.snapToCommonAngleIsRelative = !qfieldSettings.snapToCommonAngleIsRelative;
               }
             }
 
@@ -1762,7 +1758,7 @@ ApplicationWindow {
               spacing: 3
               orientation: ListView.Horizontal
               model: [10, 15, 30, 45, 90]
-              currentIndex: Math.max(model.findIndex(q => q === coordinateLocator.snappingAngleDegrees), 0)
+              currentIndex: Math.max(model.findIndex(q => q === qfieldSettings.snapToCommonAngleDegrees), 0)
               highlightFollowsCurrentItem: true
 
               highlight: Rectangle {
@@ -1777,7 +1773,7 @@ ApplicationWindow {
                 height: width
                 enabled: !selected
 
-                property bool selected: modelData === coordinateLocator.snappingAngleDegrees
+                property bool selected: modelData === qfieldSettings.snapToCommonAngleDegrees
 
                 Text {
                   text: qsTr("%1°").arg(modelData)
@@ -1803,9 +1799,8 @@ ApplicationWindow {
                     if (parent.selected) {
                       return;
                     }
-                    coordinateLocator.snapToCommonAngles = true;
-                    coordinateLocator.snappingAngleDegrees = modelData;
-                    settings.setValue("/QField/Digitizing/SnapToCommonAngleDegrees", coordinateLocator.snappingAngleDegrees);
+                    qfieldSettings.snapToCommonAngleIsEnabled = true;
+                    qfieldSettings.snapToCommonAngleDegrees = modelData;
                     displayToast(qsTr("Snap to %1° angle turned on").arg(modelData));
                   }
                 }
@@ -1846,7 +1841,7 @@ ApplicationWindow {
                 color: Theme.mainColor
                 radius: 4
               }
-              currentIndex: coordinateLocator.snappingTolerance
+              currentIndex: qfieldSettings.snapToCommonAngleTolerance
               highlightFollowsCurrentItem: true
               delegate: Item {
                 id: tolorenceDelegate
@@ -1854,7 +1849,7 @@ ApplicationWindow {
                 height: 35
                 enabled: !selected
 
-                property bool selected: index === coordinateLocator.snappingTolerance
+                property bool selected: index === qfieldSettings.snapToCommonAngleTolerance
 
                 Text {
                   id: tolorenceText
@@ -1884,10 +1879,9 @@ ApplicationWindow {
                     if (parent.selected) {
                       return;
                     }
-                    coordinateLocator.snapToCommonAngles = true;
-                    coordinateLocator.snappingTolerance = index;
-                    settings.setValue("/QField/Digitizing/SnappingTolerance", coordinateLocator.snappingTolerance);
-                    displayToast(qsTr("Snapping tolerance setted to %1").arg(modelData));
+                    qfieldSettings.snapToCommonAngleIsEnabled = true;
+                    qfieldSettings.snapToCommonAngleTolerance = index;
+                    displayToast(qsTr("Snapping tolerance set to %1").arg(modelData));
                   }
                 }
               }
