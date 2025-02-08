@@ -16,8 +16,10 @@
  ***************************************************************************/
 
 
+#include "platformutilities.h"
 #include "webdavconnection.h"
 
+#include <QDirIterator>
 #include <QSettings>
 #include <QtWebDAV/qwebdavitem.h>
 #include <qgsapplication.h>
@@ -438,6 +440,22 @@ void WebdavConnection::getWebdavItems()
 
 QVariantMap WebdavConnection::importHistory()
 {
+  // Collect imported folders
+  QMap<QString, QStringList> importedFolders;
+  QDirIterator it( QStringLiteral( "%1/Imported Projects/" ).arg( PlatformUtilities::instance()->applicationDirectory() ), { QStringLiteral( "qfield_webdav_configuration.json" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
+  while ( it.hasNext() )
+  {
+    QFile webdavConfigurationFile( it.next() );
+    webdavConfigurationFile.open( QFile::ReadOnly );
+    QJsonDocument jsonDocument = QJsonDocument::fromJson( webdavConfigurationFile.readAll() );
+    if ( !jsonDocument.isEmpty() )
+    {
+      QVariantMap webdavConfiguration = jsonDocument.toVariant().toMap();
+      importedFolders[QStringLiteral( "%1 - %2" ).arg( webdavConfiguration["url"].toString(), webdavConfiguration["username"].toString() )] << webdavConfiguration["remote_path"].toString();
+    }
+  }
+
+  // Collect saved imports
   QVariantMap history;
 
   QSettings settings;
@@ -465,6 +483,7 @@ QVariantMap WebdavConnection::importHistory()
 
       QVariantMap details;
       details["lastImportPath"] = settings.value( "lastImportPath" ).toString();
+      details["importPaths"] = importedFolders.contains( QStringLiteral( "%1 - %2" ).arg( decodedUrl, decodedUser ) ) ? importedFolders[QStringLiteral( "%1 - %2" ).arg( decodedUrl, decodedUser )] : QStringList();
       usersDetails[decodedUser] = details;
 
       if ( lastUserImportTime < settings.value( "lastImportTime" ).toDateTime() )
