@@ -5148,10 +5148,6 @@ Zrušiť a spraviť minimálny sken.</translation>
         <translation>Susedný uhol</translation>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation>Prichytiť každých %1°</translation>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>Mapové okno nasleduje polohu a orientáciu kompasu</translation>
     </message>
@@ -5317,6 +5313,34 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normálny</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Veľký</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance setted to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

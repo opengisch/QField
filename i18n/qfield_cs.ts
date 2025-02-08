@@ -5148,10 +5148,6 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
         <translation type="unfinished"/>
     </message>
@@ -5317,6 +5313,34 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normální</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Velké</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance setted to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

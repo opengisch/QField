@@ -5141,10 +5141,6 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <translation>Relatív szög</translation>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation>Illesztés minden %1°-nál</translation>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>A térképvászon követi a pozíciót és az irányt</translation>
     </message>
@@ -5310,6 +5306,34 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Szokásos</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Nagy</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance setted to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

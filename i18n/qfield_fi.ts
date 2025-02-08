@@ -5147,10 +5147,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <translation>Relatiivinen kulma</translation>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation>Tartu jokaiseen %1°</translation>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>Karttapohja seuraa sijaintia ja kompassin suuntaa</translation>
     </message>
@@ -5316,6 +5312,34 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normaali</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Iso</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance setted to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

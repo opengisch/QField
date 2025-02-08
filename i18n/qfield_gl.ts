@@ -5145,10 +5145,6 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <translation>Ángulo relativo</translation>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation>Fotografar cada %1º</translation>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>A vista do mapa segue a localización e a orientación da brúxula</translation>
     </message>
@@ -5314,6 +5310,34 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Grande</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance setted to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

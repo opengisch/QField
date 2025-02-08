@@ -5129,10 +5129,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Relativni kot</translation>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
         <translation type="unfinished"/>
     </message>
@@ -5298,6 +5294,34 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Veliko</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance setted to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

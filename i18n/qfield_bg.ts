@@ -23,11 +23,11 @@
     </message>
     <message>
         <source>QField app directories</source>
-        <translation type="unfinished"/>
+        <translation>Директории на QField</translation>
     </message>
     <message>
         <source>QField app directory</source>
-        <translation type="unfinished"/>
+        <translation>Директория на QField</translation>
     </message>
 </context>
 <context>
@@ -53,7 +53,7 @@
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Ограничи търсенето до поле &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Open form</source>
@@ -244,7 +244,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Избери Bluetooth устройство от списъка:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
@@ -680,7 +680,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Копирано “%1” в клипборда</translation>
     </message>
     <message>
         <source>Calculator</source>
@@ -816,7 +816,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Отмяна на създаването на %n обект(а)</numerusform><numerusform>Отмяна на създаването на %n обект(а).</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s) on layer %1.</source>
@@ -1184,7 +1184,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Профил на релефа</translation>
     </message>
 </context>
 <context>
@@ -1309,7 +1309,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Read-only layer</source>
-        <translation type="unfinished"/>
+        <translation>Слой само за четене</translation>
     </message>
     <message>
         <source>Geometry-locked layer</source>
@@ -1377,7 +1377,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
-        <translation type="unfinished"/>
+        <translation>Този слой в момента проследява местоположения.</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -1686,7 +1686,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Rotate Feature</source>
-        <translation type="unfinished"/>
+        <translation>Завърти обекта</translation>
     </message>
 </context>
 <context>
@@ -1810,7 +1810,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select Image File</source>
-        <translation type="unfinished"/>
+        <translation>Избери файл с изображение</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
@@ -1818,7 +1818,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select Video File</source>
-        <translation type="unfinished"/>
+        <translation>Избери видео файл</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
@@ -1826,15 +1826,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Аудио файлове (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Всички файлове (*)</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"/>
+        <translation>Избери файл</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
@@ -1865,7 +1865,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Can&apos;t save the downloaded file</source>
-        <translation type="unfinished"/>
+        <translation>Изтегленият файл не може да бъде запазен</translation>
     </message>
     <message>
         <source>Download file is not an zipped plugin</source>
@@ -1888,7 +1888,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Install plugin from URL</source>
-        <translation type="unfinished"/>
+        <translation>Инсталиране на плъгин от URL</translation>
     </message>
     <message>
         <source>Clear remembered permissions</source>
@@ -1916,7 +1916,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Uninstall plugin</source>
-        <translation type="unfinished"/>
+        <translation>Деинсталиране на плъгин</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
@@ -3464,7 +3464,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Наземна скорост</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -3472,11 +3472,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Хоризонтална точност</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Вертикална точност</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -3955,7 +3955,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Refresh list</source>
-        <translation type="unfinished"/>
+        <translation>Опресняване на списъка</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
@@ -4010,19 +4010,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Адрес:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Порт:</translation>
     </message>
     <message>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP адрес</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Порт</translation>
     </message>
 </context>
 <context>
@@ -4150,7 +4150,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Общи настройк</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
@@ -4178,7 +4178,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>Наземна скорост</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -4186,11 +4186,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Хоризонтална точност</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Вертикална точност</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -4218,7 +4218,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation type="unfinished"/>
+        <translation>Възобнови проследяването</translation>
     </message>
 </context>
 <context>
@@ -4281,7 +4281,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Наземна скорост</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -4289,11 +4289,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Хоризонтална точност</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Вертикална точност</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -4391,19 +4391,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Адрес:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Порт:</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Адрес</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Порт</translation>
     </message>
 </context>
 <context>
@@ -4468,11 +4468,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>Глобални променливи</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>Променливи на проекта</translation>
     </message>
 </context>
 <context>
@@ -4576,15 +4576,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>Проект по подразбиране</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Базова карта</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>Проект по подразбиране</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
@@ -5147,10 +5147,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Относителен ъгъл</translation>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation>Залепване на всеки %1°</translation>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
         <translation type="unfinished"/>
     </message>
@@ -5224,7 +5220,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"/>
+        <translation>Запомни моя избор</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
@@ -5308,14 +5304,42 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Отмени</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Повтори</translation>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance setted to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

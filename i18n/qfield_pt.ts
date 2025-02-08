@@ -5147,10 +5147,6 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation>Ângulo relativo</translation>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation>Snap a cada %1°</translation>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>O enquadramento acompanha a localização e a orientação da bússola.</translation>
     </message>
@@ -5316,6 +5312,34 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Largo</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance setted to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

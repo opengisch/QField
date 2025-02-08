@@ -3186,23 +3186,23 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>User and password</source>
-        <translation type="unfinished"/>
+        <translation>Użytkownik i hasło</translation>
     </message>
     <message>
         <source>leave empty to use remembered</source>
-        <translation type="unfinished"/>
+        <translation>pozostaw puste, aby użyć zapamiętanego</translation>
     </message>
     <message>
         <source>(root folder)</source>
-        <translation type="unfinished"/>
+        <translation>(folder główny)</translation>
     </message>
     <message>
         <source>Refreshing remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Odświeżanie folderów zdalnych</translation>
     </message>
     <message>
         <source>Refresh remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Odśwież zdalne foldery</translation>
     </message>
 </context>
 <context>
@@ -5149,10 +5149,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Kąt względny</translation>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation>Przyciągaj do każdej wartości %1°</translation>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>Widok mapy podąża za lokalizacją i orientacją kompasu</translation>
     </message>
@@ -5318,7 +5314,35 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
-        <translation type="unfinished"/>
+        <translation>Odtwarzanie zebranych pozycji, proszę czekać</translation>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation>Przyciąganie do każdego</translation>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation>%1°</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation>Tolerancja przyciągania</translation>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation>Wąski</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normalny</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Duży</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance setted to %1</source>
+        <translation>Tolerancja przyciągania ustawiona na %1</translation>
     </message>
 </context>
 <context>

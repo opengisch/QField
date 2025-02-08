@@ -5143,10 +5143,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>相对角度</translation>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation>每隔 %1° 捕捉一次</translation>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>地图遵循位置和指南针方向</translation>
     </message>
@@ -5313,6 +5309,34 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Replaying collected positions, hold on</source>
         <translation>重播已收集的位置，请稍等</translation>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation>捕捉全部</translation>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation>%1°</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation>捕捉容差</translation>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation>限制</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>标准</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>大号</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance setted to %1</source>
+        <translation>捕捉容差设置为%1</translation>
     </message>
 </context>
 <context>

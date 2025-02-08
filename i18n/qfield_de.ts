@@ -5142,10 +5142,6 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
         <translation>Relativer Winkel</translation>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation>Fangen alle %1° </translation>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>Kartenausschnitt folgt Standort und Kompassausrichtung</translation>
     </message>
@@ -5311,6 +5307,34 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Groß</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance setted to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
