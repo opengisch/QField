@@ -9,28 +9,34 @@ import Theme
  * \ingroup qml
  */
 Popup {
-  id: popup
+  id: temporalProperties
 
   property MapSettings mapSettings
 
+  parent: mainWindow.contentItem
   width: Math.min(350, mainWindow.width - Theme.popupScreenEdgeMargin)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   padding: 0
+  modal: true
+  closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+  focus: visible
 
   Page {
     width: parent.width
     padding: 10
-    header: Label {
-      padding: 10
-      topPadding: 15
-      bottomPadding: 0
-      width: parent.width - 20
-      text: qsTr('Temporal Properties')
-      font: Theme.strongFont
-      color: Theme.mainColor
-      horizontalAlignment: Text.AlignHCenter
-      wrapMode: Text.WordWrap
+    header: QfPageHeader {
+      id: pageHeader
+      title: qsTr("Temporal Properties")
+
+      showBackButton: false
+      showApplyButton: false
+      showCancelButton: true
+      backgroundFill: false
+
+      onCancel: {
+        temporalProperties.close();
+      }
     }
 
     ColumnLayout {
@@ -91,7 +97,7 @@ Popup {
           iconColor: Theme.mainTextColor
           bgcolor: "transparent"
           onClicked: {
-            calendarPanel.selectedDate = mapCanvas.mapSettings.temporalBegin;
+            calendarPanel.selectedDate = !isNaN(mapCanvas.mapSettings.temporalBegin) ? mapCanvas.mapSettings.temporalBegin : new Date();
             calendarPanel.temporalField = 'begin';
             calendarPanel.open();
           }
@@ -140,7 +146,7 @@ Popup {
           iconColor: Theme.mainTextColor
           bgcolor: "transparent"
           onClicked: {
-            calendarPanel.selectedDate = mapCanvas.mapSettings.temporalEnd;
+            calendarPanel.selectedDate = !isNaN(mapCanvas.mapSettings.temporalEnd) ? mapCanvas.mapSettings.temporalEnd : new Date();
             calendarPanel.temporalField = 'end';
             calendarPanel.open();
           }
@@ -156,7 +162,7 @@ Popup {
 
     isDateTime: true
 
-    onDateTimePicked: {
+    onDateTimePicked: date => {
       if (temporalField == 'begin') {
         mapCanvas.mapSettings.temporalBegin = date;
         beginField.text = Qt.formatDateTime(date, "yyyy-MM-dd HH:mm:ss");

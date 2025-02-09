@@ -418,13 +418,6 @@ Popup {
     }
   }
 
-  Keys.onReleased: event => {
-    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-      event.accepted = true;
-      visible = false;
-    }
-  }
-
   Component.onCompleted: {
     refreshAppPluginsList();
   }

@@ -15,10 +15,13 @@ Popup {
   property string bookmarkName: ''
   property string bookmarkGroup: ''
 
+  parent: mainWindow.contentItem
   width: Math.min(350, mainWindow.width - Theme.popupScreenEdgeMargin)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   padding: 0
+  modal: true
+  closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
   focus: visible
 
   onAboutToShow: {
@@ -177,13 +180,6 @@ Popup {
     onAccepted: {
       bookmarkModel.removeBookmark(bookmarkProperties.bookmarkId);
       bookmarkProperties.close();
-    }
-  }
-
-  Keys.onReleased: event => {
-    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-      event.accepted = true;
-      visible = false;
     }
   }
 }

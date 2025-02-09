@@ -905,13 +905,8 @@ Page {
         onIsFetchingAvailablePathsChanged: {
           if (!isFetchingAvailablePaths && importWebdavDialog.visible) {
             swipeDialog.currentIndex = 1;
+            importWebdavPathInput.currentIndex = -1;
             importWebdavPathInput.model = availablePaths;
-            if (importWebdavDialog.importHistory["urls"][url] !== undefined && importWebdavDialog.importHistory["urls"][url]["users"][username] !== undefined) {
-              const index = importWebdavPathInput.model.indexOf(importWebdavDialog.importHistory["urls"][url]["users"][username]["lastImportPath"]);
-              if (index >= 0) {
-                importWebdavPathInput.currentIndex = index;
-              }
-            }
           }
         }
       }
@@ -1221,6 +1216,8 @@ Page {
             anchors.fill: parent
             anchors.margins: 1
             enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+            ScrollBar.vertical: QfScrollBar {
+            }
             clip: true
             model: []
 
@@ -1267,6 +1264,13 @@ Page {
                   }
                   return false;
                 }
+                property bool isImported: {
+                  if (importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText] !== undefined && importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"][importWebdavUserInput.editText] !== undefined) {
+                    console.log(importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"][importWebdavUserInput.editText]["importPaths"]);
+                    return importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"][importWebdavUserInput.editText]["importPaths"].indexOf(modelData) >= 0;
+                  }
+                  return false;
+                }
 
                 Item {
                   id: expandSpacing
@@ -1283,7 +1287,7 @@ Page {
                   iconColor: Theme.mainTextColor
                   bgcolor: "transparent"
                   enabled: false
-                  opacity: lineDialog.level > 0 && lineDialog.hasChildren ? 1 : 0
+                  opacity: lineDialog.level > 0 && lineDialog.hasChildren && !lineDialog.isImported ? 1 : 0
                   rotation: importWebdavPathInput.expandedPaths.indexOf(modelData) > -1 ? 90 : 0
 
                   Behavior on rotation  {
@@ -1293,18 +1297,31 @@ Page {
                   }
                 }
 
-                Text {
-                  id: contentTextDialog
+                Column {
                   width: rectangleDialog.width - epxandButton.width - expandSpacing.width - 10
                   anchors.verticalCenter: parent.verticalCenter
-                  leftPadding: 5
-                  font.pointSize: Theme.defaultFont.pointSize
-                  font.weight: model.checked ? Font.DemiBold : Font.Normal
-                  elide: Text.ElideRight
-                  wrapMode: Text.WordWrap
-                  color: lineDialog.label !== "" ? Theme.mainTextColor : importWebdavPathInput.currentIndex == index ? "white" : Theme.secondaryTextColor
-                  textFormat: Text.RichText
-                  text: lineDialog.label !== "" ? lineDialog.label : qsTr("(root folder)")
+
+                  Text {
+                    id: contentTextDialog
+                    width: parent.width
+                    leftPadding: 5
+                    font: Theme.defaultFont
+                    elide: Text.ElideRight
+                    wrapMode: Text.WordWrap
+                    color: !lineDialog.isImported ? Theme.mainTextColor : Theme.secondaryTextColor
+                    text: lineDialog.label !== "" ? lineDialog.label : qsTr("(root folder)")
+                  }
+                  Text {
+                    id: noteTextDialog
+                    width: parent.width
+                    visible: lineDialog.isImported
+                    leftPadding: 5
+                    font: Theme.tipFont
+                    elide: Text.ElideRight
+                    wrapMode: Text.WordWrap
+                    color: Theme.secondaryTextColor
+                    text: qsTr("Imported and available locally")
+                  }
                 }
               }
 
@@ -1318,6 +1335,7 @@ Page {
               }
 
               MouseArea {
+                enabled: !lineDialog.isImported
                 anchors.fill: parent
                 anchors.rightMargin: 48
                 onClicked: mouse => {

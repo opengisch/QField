@@ -52,9 +52,24 @@
       "features": [
         "brotli",
         "concurrent",
-        "default-features",
         "doubleconversion",
+        {
+          "name": "egl",
+          "platform": "linux"
+        },
+        {
+          "name": "egl",
+          "platform": "android"
+        },
+        {
+          "name": "fontconfig",
+          "platform": "linux"
+        },
         "freetype",
+        {
+          "name": "gles2",
+          "platform": "android"
+        },
         "gui",
         "harfbuzz",
         "jpeg",
@@ -75,6 +90,18 @@
         "testlib",
         "thread",
         "widgets",
+        {
+          "name": "xcb",
+          "platform": "linux"
+        },
+        {
+          "name": "xcb-xlib",
+          "platform": "linux"
+        },
+        {
+          "name": "xrender",
+          "platform": "linux"
+        },
         "zstd"
       ]
     },
