@@ -5408,7 +5408,7 @@ Cancel to make a minimal device scan instead.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Snapping tolerance setted to %1</source>
+        <source>Snapping tolerance set to %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -5335,7 +5335,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation>大号</translation>
     </message>
     <message>
-        <source>Snapping tolerance setted to %1</source>
+        <source>Snapping tolerance set to %1</source>
         <translation>捕捉容差设置为%1</translation>
     </message>
 </context>

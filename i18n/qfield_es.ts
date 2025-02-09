@@ -5337,7 +5337,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <translation>Grande</translation>
     </message>
     <message>
-        <source>Snapping tolerance setted to %1</source>
+        <source>Snapping tolerance set to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -5340,7 +5340,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <translation>Velké</translation>
     </message>
     <message>
-        <source>Snapping tolerance setted to %1</source>
+        <source>Snapping tolerance set to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -5341,7 +5341,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Duży</translation>
     </message>
     <message>
-        <source>Snapping tolerance setted to %1</source>
+        <source>Snapping tolerance set to %1</source>
         <translation>Tolerancja przyciągania ustawiona na %1</translation>
     </message>
 </context>

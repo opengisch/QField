@@ -5338,7 +5338,7 @@ fermer le projet et quitter l&apos;application</translation>
         <translation>Grande</translation>
     </message>
     <message>
-        <source>Snapping tolerance setted to %1</source>
+        <source>Snapping tolerance set to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
