@@ -2495,9 +2495,8 @@ ApplicationWindow {
         printMenu.printTimer.restart();
       } else {
         mainMenu.close();
-        toast.show(qsTr('No print layout available'), 'info', qsTr('Learn more'), function () {
-            Qt.openUrlExternally('https://docs.qfield.org/how-to/print-to-pdf/');
-          });
+        printMenu.printName = "";
+        printMenu.printTimer.restart();
       }
     }
 

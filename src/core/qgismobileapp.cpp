@@ -158,6 +158,7 @@
 #include <qgslayertreeregistrybridge.h>
 #include <qgslayoutatlas.h>
 #include <qgslayoutexporter.h>
+#include <qgslayoutitemlabel.h>
 #include <qgslayoutitemmap.h>
 #include <qgslayoutmanager.h>
 #include <qgslayoutpagecollection.h>
@@ -1245,19 +1246,49 @@ bool QgisMobileapp::print( const QString &layoutName )
 {
   const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
   QgsPrintLayout *layoutToPrint = nullptr;
-  for ( QgsPrintLayout *layout : printLayouts )
+  if ( layoutName.isEmpty() && printLayouts.isEmpty() )
   {
-    if ( layout->name() == layoutName )
+    QFile templateFile( QStringLiteral( "%1/qfield/templates/layout.qpt" ).arg( PlatformUtilities::instance()->systemSharedDataLocation() ) );
+    QDomDocument templateDoc;
+    templateDoc.setContent( &templateFile );
+
+    QgsPrintLayout *layout = new QgsPrintLayout( QgsProject::instance() );
+    bool loadedOK = false;
+    QList<QgsLayoutItem *> items = layout->loadFromTemplate( templateDoc, QgsReadWriteContext(), true, &loadedOK );
+    if ( !loadedOK )
     {
-      layoutToPrint = layout;
-      break;
+      return false;
+    }
+
+    for ( QgsLayoutItem *item : items )
+    {
+      if ( item->type() == QgsLayoutItemRegistry::LayoutLabel && item->id() == QStringLiteral( "Title" ) )
+      {
+        QgsLayoutItemLabel *labelItem = qobject_cast<QgsLayoutItemLabel *>( item );
+        labelItem->setText( tr( "Map printed on %1 using QField" ).arg( "[%format_date(now(), 'yyyy-MM-dd @ hh:mm')%]" ) );
+      }
+    }
+    layout->setName( QStringLiteral( "default print layout" ) );
+    QgsProject::instance()->layoutManager()->addLayout( layout );
+    layoutToPrint = layout;
+  }
+  else
+  {
+    for ( QgsPrintLayout *layout : printLayouts )
+    {
+      if ( layout->name() == layoutName || layoutName.isEmpty() )
+      {
+        layoutToPrint = layout;
+        break;
+      }
     }
   }
 
   if ( !layoutToPrint || layoutToPrint->pageCollection()->pageCount() == 0 )
     return false;
 
-  const QString destination = QStringLiteral( "%1/layouts/%2-%3.pdf" ).arg( mProject->homePath(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
+  const QFileInfo fi( mProjectFilePath );
+  const QString destination = QStringLiteral( "%1/layouts/%2-%3.pdf" ).arg( fi.absolutePath(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
 
   if ( !layoutToPrint->atlas() || !layoutToPrint->atlas()->enabled() )
   {
