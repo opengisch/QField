@@ -47,8 +47,7 @@ Popup {
   onAboutToShow: {
     if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
       cameraPermission.request();
-    }
-    if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
+    } else if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
       microphonePermission.request();
     }
     recorder.mediaFormat.audioCodec = MediaFormat.AudioCodec.AAC;
@@ -74,9 +73,21 @@ Popup {
 
   QfCameraPermission {
     id: cameraPermission
+
+    onStatusChanged: {
+      if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
+        microphonePermission.request();
+      }
+    }
   }
   QfMicrophonePermission {
     id: microphonePermission
+
+    onStatusChanged: {
+      if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
+        cameraPermission.request();
+      }
+    }
   }
 
   Settings {
