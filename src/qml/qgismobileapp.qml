@@ -2488,14 +2488,10 @@ ApplicationWindow {
     onShowPrintLayouts: p => {
       if (layoutListInstantiator.count > 1) {
         printMenu.popup(p.x, p.y);
-      } else if (layoutListInstantiator.count === 1) {
-        mainMenu.close();
-        displayToast(qsTr('Printing...'));
-        printMenu.printName = layoutListInstantiator.model.titleAt(0);
-        printMenu.printTimer.restart();
       } else {
         mainMenu.close();
-        printMenu.printName = "";
+        displayToast(qsTr('Printing...'));
+        printMenu.printName = layoutListInstantiator.count === 1 ? layoutListInstantiator.model.titleAt(0) : "";
         printMenu.printTimer.restart();
       }
     }
