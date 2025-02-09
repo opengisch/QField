@@ -15,8 +15,8 @@
  ***************************************************************************/
 
 #include "platformutilities.h"
+#include "qfield.h"
 #include "qfieldcloudutils.h"
-#include "qgismobileapp.h"
 #include "recentprojectlistmodel.h"
 
 #include <QDir>

@@ -22,7 +22,6 @@
 #include "projectsource.h"
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
-#include "qgismobileapp.h"
 #include "qgsmessagelog.h"
 #include "resourcesource.h"
 #include "stringutils.h"

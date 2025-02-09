@@ -16,8 +16,8 @@
 
 #include "localfilesmodel.h"
 #include "platformutilities.h"
+#include "qfield.h"
 #include "qfieldcloudutils.h"
-#include "qgismobileapp.h"
 #include "webdavconnection.h"
 
 #include <QDir>
@@ -289,7 +289,7 @@ void LocalFilesModel::reloadModel()
           {
             datasets << Item( ItemMetaType::Dataset, ItemType::RasterDataset, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
-          else if ( suffix == QStringLiteral( "log" ) || suffix == QStringLiteral( "txt" ) )
+          else if ( SUPPORTED_FILE_EXTENSIONS.contains( suffix ) )
           {
             files << Item( ItemMetaType::File, ItemType::OtherFile, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
