@@ -262,6 +262,7 @@ class Positioning : public QObject
   private slots:
     void onApplicationStateChanged( Qt::ApplicationState state );
     void processGnssPositionInformation();
+    void processProjectedPosition();
 
   private:
     void setupSource();
