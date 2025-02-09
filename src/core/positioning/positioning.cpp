@@ -475,7 +475,23 @@ void Positioning::setCoordinateTransformer( QgsQuickCoordinateTransformer *coord
   if ( mCoordinateTransformer == coordinateTransformer )
     return;
 
+  if ( mCoordinateTransformer )
+  {
+    disconnect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::destinationCrsChanged, this, &Positioning::processProjectedPosition );
+    disconnect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::sourceCrsChanged, this, &Positioning::processProjectedPosition );
+    disconnect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::deltaZChanged, this, &Positioning::processProjectedPosition );
+    disconnect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::verticalGridChanged, this, &Positioning::processProjectedPosition );
+  }
+
   mCoordinateTransformer = coordinateTransformer;
+
+  if ( mCoordinateTransformer )
+  {
+    connect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::destinationCrsChanged, this, &Positioning::processProjectedPosition );
+    connect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::sourceCrsChanged, this, &Positioning::processProjectedPosition );
+    connect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::deltaZChanged, this, &Positioning::processProjectedPosition );
+    connect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::verticalGridChanged, this, &Positioning::processProjectedPosition );
+  }
 
   emit coordinateTransformerChanged();
 }
@@ -506,9 +522,28 @@ void Positioning::processGnssPositionInformation()
   else
   {
     mSourcePosition.clear();
+    mProjectedPosition.clear();
   }
 
-  if ( mCoordinateTransformer )
+  if ( mPositionInformation.orientationValid() )
+  {
+    mPositionInformation.setOrientation( adjustOrientation( mPositionInformation.orientation() ) );
+  }
+
+  if ( mCoordinateTransformer && !mSourcePosition.isEmpty() )
+  {
+    // positionInformationChanged() will be emitted in this function
+    processProjectedPosition();
+  }
+  else
+  {
+    emit positionInformationChanged();
+  }
+}
+
+void Positioning::processProjectedPosition()
+{
+  if ( !mSourcePosition.isEmpty() )
   {
     mProjectedPosition = mCoordinateTransformer->transformPosition( mSourcePosition );
     mProjectedHorizontalAccuracy = mPositionInformation.hacc();
@@ -524,11 +559,6 @@ void Positioning::processGnssPositionInformation()
         mProjectedHorizontalAccuracy = 0.0;
       }
     }
-  }
-
-  if ( mPositionInformation.orientationValid() )
-  {
-    mPositionInformation.setOrientation( adjustOrientation( mPositionInformation.orientation() ) );
   }
 
   emit positionInformationChanged();
