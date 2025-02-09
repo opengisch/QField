@@ -63,7 +63,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     //! The current project's map settings
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     //! The locator highlight geometry object through which locator actions can highhlight features
-    Q_PROPERTY( QObject *locatorHighlightGeometry READ locatorHighlightGeometry WRITE setLocatorHighlightGeometry NOTIFY locatorHighlightGeometryChanged )
+    Q_PROPERTY( QObject *geometryHighlighter READ geometryHighlighter WRITE setGeometryHighlighter NOTIFY geometryHighlighterChanged )
     //! The feature list extent controller
     Q_PROPERTY( FeatureListExtentController *featureListController READ featureListController WRITE setFeatureListController NOTIFY featureListControllerChanged )
     //! The current project's active layer
@@ -94,10 +94,10 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     //! \copydoc LocatorModelSuperBridge::navigation
     void setNavigation( Navigation *navigation );
 
-    //! \copydoc LocatorModelSuperBridge::locatorHighlightGeometry
-    QObject *locatorHighlightGeometry() const;
-    //! \copydoc LocatorModelSuperBridge::locatorHighlightGeometry
-    void setLocatorHighlightGeometry( QObject *locatorHighlightGeometry );
+    //! \copydoc LocatorModelSuperBridge::geometryHighlighter
+    QObject *geometryHighlighter() const;
+    //! \copydoc LocatorModelSuperBridge::geometryHighlighter
+    void setGeometryHighlighter( QObject *geometryHighlighter );
 
     //! \copydoc LocatorModelSuperBridge::featureListController
     FeatureListExtentController *featureListController() const;
@@ -158,7 +158,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     void mapSettingsChanged();
     void bookmarksChanged();
     void navigationChanged();
-    void locatorHighlightGeometryChanged();
+    void geometryHighlighterChanged();
     void featureListControllerChanged();
     void activeLayerChanged();
     void messageEmitted( const QString &text );
@@ -172,7 +172,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
 
   private:
     QgsQuickMapSettings *mMapSettings = nullptr;
-    QObject *mLocatorHighlightGeometry = nullptr;
+    QObject *mGeometryHighlighter = nullptr;
     FeatureListExtentController *mFeatureListController = nullptr;
     QPointer<QgsMapLayer> mActiveLayer;
     bool mKeepScale = false;
