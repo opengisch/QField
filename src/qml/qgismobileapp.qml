@@ -102,7 +102,7 @@ ApplicationWindow {
     featureListController: featureForm.extentController
     mapSettings: mapCanvas.mapSettings
     navigation: navigation
-    locatorHighlightGeometry: locatorHighlightItem.geometryWrapper
+    geometryHighlighter: geometryHighlighter.geometryWrapper
     keepScale: qfieldSettings.locatorKeepScale
 
     onMessageEmitted: {
@@ -987,7 +987,8 @@ ApplicationWindow {
 
     /* Highlight features identified by locator or relation editor widgets */
     GeometryHighlighter {
-      id: locatorHighlightItem
+      id: geometryHighlighter
+      objectName: "geometryHighlighter"
     }
 
     MapToScreen {

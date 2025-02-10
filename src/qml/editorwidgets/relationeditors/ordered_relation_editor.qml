@@ -197,8 +197,8 @@ EditorWidgetBase {
 
       onClicked: {
         if (orderedRelationModel.relation.referencingLayer !== undefined) {
-          locatorHighlightItem.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry;
-          locatorHighlightItem.geometryWrapper.crs = orderedRelationModel.relation.referencingLayer.crs;
+          geometryHighlighter.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry;
+          geometryHighlighter.geometryWrapper.crs = orderedRelationModel.relation.referencingLayer.crs;
           mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings, orderedRelationModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature);
         }
       }

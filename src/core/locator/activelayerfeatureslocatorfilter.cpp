@@ -436,8 +436,8 @@ void ActiveLayerFeaturesLocatorFilter::triggerResultFromAction( const QgsLocator
             mLocatorBridge->mapSettings()->setExtent( r, true );
           }
 
-          mLocatorBridge->locatorHighlightGeometry()->setProperty( "qgsGeometry", geom );
-          mLocatorBridge->locatorHighlightGeometry()->setProperty( "crs", layer->crs() );
+          mLocatorBridge->geometryHighlighter()->setProperty( "qgsGeometry", geom );
+          mLocatorBridge->geometryHighlighter()->setProperty( "crs", layer->crs() );
           break;
         }
       }

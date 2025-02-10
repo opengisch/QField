@@ -181,7 +181,7 @@ Item {
     target: codeReader
     enabled: false
 
-    function onDecoded(string) {
+    function onAccepted(string) {
       var prefix = locatorBridge.getPrefixFromSearchString(searchField.text);
       searchField.text = prefix !== '' ? prefix + ' ' + string : string;
     }

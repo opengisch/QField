@@ -13,7 +13,10 @@ import Theme
 Popup {
   id: codeReader
 
+  //! Emitted when a QR code or NFC tag has been decoded/received
   signal decoded(var string)
+  //! Emitted when a QR code or NFC tag has been accepted
+  signal accepted(var string)
 
   property string decodedString: ''
   property var barcodeRequestedItem: undefined //<! when a feature form is requesting a bardcode, this will be set to attribute editor widget which triggered the request
@@ -70,6 +73,7 @@ Popup {
       if (decodedString !== '') {
         codeReader.decodedString = decodedString;
         decodedFlashAnimation.start();
+        decoded(decodedString);
       }
     }
   }
@@ -525,7 +529,7 @@ Popup {
               codeReader.barcodeRequestedItem.requestedBarcodeReceived(codeReader.decodedString);
               codeReader.barcodeRequestedItem = undefined;
             } else {
-              codeReader.decoded(codeReader.decodedString);
+              codeReader.accepted(codeReader.decodedString);
             }
             codeReader.close();
           }
