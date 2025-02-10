@@ -1355,7 +1355,7 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   const QString priorFilterExpression = layoutToPrint->atlas()->filterExpression();
   const bool priorFilterFeatures = layoutToPrint->atlas()->filterFeatures();
 
-  layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "$id IN (%1)" ).arg( ids.join( ',' ) ), error );
+  layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "@id IN (%1)" ).arg( ids.join( ',' ) ), error );
   layoutToPrint->atlas()->setFilterFeatures( true );
   layoutToPrint->atlas()->updateFeatures();
 

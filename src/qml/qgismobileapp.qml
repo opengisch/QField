@@ -3108,7 +3108,7 @@ ApplicationWindow {
           height: 48
 
           onTriggered: {
-            featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid);
+            featureForm.model.setFeatures(menu.featureLayer, '@id = ' + menu.fid);
             featureForm.selection.focusedItem = 0;
             featureForm.state = "FeatureForm";
           }
@@ -3135,7 +3135,7 @@ ApplicationWindow {
           height: 48
 
           onTriggered: {
-            featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid);
+            featureForm.model.setFeatures(menu.featureLayer, '@id = ' + menu.fid);
             featureForm.selection.focusedItem = 0;
             featureForm.multiSelection = true;
             featureForm.selection.toggleSelectedItem(0);
