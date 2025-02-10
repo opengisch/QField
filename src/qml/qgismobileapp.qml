@@ -2489,16 +2489,11 @@ ApplicationWindow {
     onShowPrintLayouts: p => {
       if (layoutListInstantiator.count > 1) {
         printMenu.popup(p.x, p.y);
-      } else if (layoutListInstantiator.count === 1) {
-        mainMenu.close();
-        displayToast(qsTr('Printing...'));
-        printMenu.printName = layoutListInstantiator.model.titleAt(0);
-        printMenu.printTimer.restart();
       } else {
         mainMenu.close();
-        toast.show(qsTr('No print layout available'), 'info', qsTr('Learn more'), function () {
-            Qt.openUrlExternally('https://docs.qfield.org/how-to/print-to-pdf/');
-          });
+        displayToast(qsTr('Printing...'));
+        printMenu.printName = layoutListInstantiator.count === 1 ? layoutListInstantiator.model.titleAt(0) : "";
+        printMenu.printTimer.restart();
       }
     }
 
@@ -3114,7 +3109,7 @@ ApplicationWindow {
           height: 48
 
           onTriggered: {
-            featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid);
+            featureForm.model.setFeatures(menu.featureLayer, '@id = ' + menu.fid);
             featureForm.selection.focusedItem = 0;
             featureForm.state = "FeatureForm";
           }
@@ -3141,7 +3136,7 @@ ApplicationWindow {
           height: 48
 
           onTriggered: {
-            featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid);
+            featureForm.model.setFeatures(menu.featureLayer, '@id = ' + menu.fid);
             featureForm.selection.focusedItem = 0;
             featureForm.multiSelection = true;
             featureForm.selection.toggleSelectedItem(0);

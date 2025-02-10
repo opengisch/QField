@@ -158,6 +158,7 @@
 #include <qgslayertreeregistrybridge.h>
 #include <qgslayoutatlas.h>
 #include <qgslayoutexporter.h>
+#include <qgslayoutitemlabel.h>
 #include <qgslayoutitemmap.h>
 #include <qgslayoutmanager.h>
 #include <qgslayoutpagecollection.h>
@@ -1029,6 +1030,7 @@ void QgisMobileapp::readProjectFile()
     mProject->setCrs( crs );
     mProject->setEllipsoid( crs.ellipsoidAcronym() );
     mProject->setTitle( mProjectFileName );
+    mProject->setPresetHomePath( fi.absolutePath() );
     mProject->writeEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), true );
 
     for ( QgsMapLayer *l : std::as_const( rasterLayers ) )
@@ -1245,12 +1247,40 @@ bool QgisMobileapp::print( const QString &layoutName )
 {
   const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
   QgsPrintLayout *layoutToPrint = nullptr;
-  for ( QgsPrintLayout *layout : printLayouts )
+  std::unique_ptr<QgsPrintLayout> templateLayout;
+  if ( layoutName.isEmpty() && printLayouts.isEmpty() )
   {
-    if ( layout->name() == layoutName )
+    QFile templateFile( QStringLiteral( "%1/qfield/templates/layout.qpt" ).arg( PlatformUtilities::instance()->systemSharedDataLocation() ) );
+    QDomDocument templateDoc;
+    templateDoc.setContent( &templateFile );
+
+    templateLayout = std::make_unique<QgsPrintLayout>( QgsProject::instance() );
+    bool loadedOK = false;
+    QList<QgsLayoutItem *> items = templateLayout->loadFromTemplate( templateDoc, QgsReadWriteContext(), true, &loadedOK );
+    if ( !loadedOK )
     {
-      layoutToPrint = layout;
-      break;
+      return false;
+    }
+
+    for ( QgsLayoutItem *item : items )
+    {
+      if ( item->type() == QgsLayoutItemRegistry::LayoutLabel && item->id() == QStringLiteral( "Title" ) )
+      {
+        QgsLayoutItemLabel *labelItem = qobject_cast<QgsLayoutItemLabel *>( item );
+        labelItem->setText( tr( "Map printed on %1 using QField" ).arg( "[%format_date(now(), 'yyyy-MM-dd @ hh:mm')%]" ) );
+      }
+    }
+    layoutToPrint = templateLayout.get();
+  }
+  else
+  {
+    for ( QgsPrintLayout *layout : printLayouts )
+    {
+      if ( layout->name() == layoutName || layoutName.isEmpty() )
+      {
+        layoutToPrint = layout;
+        break;
+      }
     }
   }
 
@@ -1324,7 +1354,7 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   const QString priorFilterExpression = layoutToPrint->atlas()->filterExpression();
   const bool priorFilterFeatures = layoutToPrint->atlas()->filterFeatures();
 
-  layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "$id IN (%1)" ).arg( ids.join( ',' ) ), error );
+  layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "@id IN (%1)" ).arg( ids.join( ',' ) ), error );
   layoutToPrint->atlas()->setFilterFeatures( true );
   layoutToPrint->atlas()->updateFeatures();
 
