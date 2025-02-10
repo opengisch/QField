@@ -1027,8 +1027,6 @@ void QgisMobileapp::readProjectFile()
       mProject->clear();
     }
 
-    const QFileInfo fi( mProjectFilePath );
-
     mProject->setCrs( crs );
     mProject->setEllipsoid( crs.ellipsoidAcronym() );
     mProject->setTitle( mProjectFileName );
@@ -1249,15 +1247,16 @@ bool QgisMobileapp::print( const QString &layoutName )
 {
   const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
   QgsPrintLayout *layoutToPrint = nullptr;
+  std::unique_ptr<QgsPrintLayout> templateLayout;
   if ( layoutName.isEmpty() && printLayouts.isEmpty() )
   {
     QFile templateFile( QStringLiteral( "%1/qfield/templates/layout.qpt" ).arg( PlatformUtilities::instance()->systemSharedDataLocation() ) );
     QDomDocument templateDoc;
     templateDoc.setContent( &templateFile );
 
-    QgsPrintLayout *layout = new QgsPrintLayout( QgsProject::instance() );
+    templateLayout = std::make_unique<QgsPrintLayout>( QgsProject::instance() );
     bool loadedOK = false;
-    QList<QgsLayoutItem *> items = layout->loadFromTemplate( templateDoc, QgsReadWriteContext(), true, &loadedOK );
+    QList<QgsLayoutItem *> items = templateLayout->loadFromTemplate( templateDoc, QgsReadWriteContext(), true, &loadedOK );
     if ( !loadedOK )
     {
       return false;
@@ -1271,7 +1270,7 @@ bool QgisMobileapp::print( const QString &layoutName )
         labelItem->setText( tr( "Map printed on %1 using QField" ).arg( "[%format_date(now(), 'yyyy-MM-dd @ hh:mm')%]" ) );
       }
     }
-    layoutToPrint = layout;
+    layoutToPrint = templateLayout.get();
   }
   else
   {
