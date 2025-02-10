@@ -1027,9 +1027,12 @@ void QgisMobileapp::readProjectFile()
       mProject->clear();
     }
 
+    const QFileInfo fi( mProjectFilePath );
+
     mProject->setCrs( crs );
     mProject->setEllipsoid( crs.ellipsoidAcronym() );
     mProject->setTitle( mProjectFileName );
+    mProject->setPresetHomePath( fi.absolutePath() );
     mProject->writeEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), true );
 
     for ( QgsMapLayer *l : std::as_const( rasterLayers ) )
@@ -1285,8 +1288,7 @@ bool QgisMobileapp::print( const QString &layoutName )
   if ( !layoutToPrint || layoutToPrint->pageCollection()->pageCount() == 0 )
     return false;
 
-  const QFileInfo fi( mProjectFilePath );
-  const QString destination = QStringLiteral( "%1/layouts/%2-%3.pdf" ).arg( fi.absolutePath(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
+  const QString destination = QStringLiteral( "%1/layouts/%2-%3.pdf" ).arg( mProject->homePath(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
 
   if ( !layoutToPrint->atlas() || !layoutToPrint->atlas()->enabled() )
   {
