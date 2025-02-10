@@ -1268,8 +1268,6 @@ bool QgisMobileapp::print( const QString &layoutName )
         labelItem->setText( tr( "Map printed on %1 using QField" ).arg( "[%format_date(now(), 'yyyy-MM-dd @ hh:mm')%]" ) );
       }
     }
-    layout->setName( QStringLiteral( "default print layout" ) );
-    QgsProject::instance()->layoutManager()->addLayout( layout );
     layoutToPrint = layout;
   }
   else
