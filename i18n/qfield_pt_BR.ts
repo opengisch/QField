@@ -3191,6 +3191,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Refresh remote folders</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Imported and available locally</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>

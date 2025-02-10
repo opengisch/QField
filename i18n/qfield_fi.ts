@@ -3202,6 +3202,10 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
         <source>Refresh remote folders</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Imported and available locally</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>

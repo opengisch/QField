@@ -3203,6 +3203,10 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
         <source>Refresh remote folders</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Imported and available locally</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>

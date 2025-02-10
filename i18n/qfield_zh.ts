@@ -3198,6 +3198,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Refresh remote folders</source>
         <translation>刷新远程文件夹</translation>
     </message>
+    <message>
+        <source>Imported and available locally</source>
+        <translation>已导入并本地可用</translation>
+    </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>

@@ -3198,6 +3198,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <source>Refresh remote folders</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Imported and available locally</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>

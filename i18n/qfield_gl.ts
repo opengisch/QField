@@ -3200,6 +3200,10 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
         <source>Refresh remote folders</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Imported and available locally</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>
