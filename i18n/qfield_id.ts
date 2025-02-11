@@ -3819,6 +3819,10 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Map printed on %1 using QField</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -5149,10 +5153,6 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <source>Canvas follows location and compass orientation</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation>Tidak ada tampilan cetak tersedia</translation>
     </message>
     <message>
         <source>Learn more</source>

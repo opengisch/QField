@@ -3819,6 +3819,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Map printed on %1 using QField</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -5149,10 +5153,6 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>Okvir karte prati lokaciju i smjer kompasa</translation>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation>Nema dostupnog okvira za ispis</translation>
     </message>
     <message>
         <source>Learn more</source>

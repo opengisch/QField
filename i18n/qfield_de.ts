@@ -3818,6 +3818,10 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation>Projekt kann nicht gelesen werden, die Datei &quot;%1&quot; existiert nicht.</translation>
     </message>
+    <message>
+        <source>Map printed on %1 using QField</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -5148,10 +5152,6 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>Kartenausschnitt folgt Standort und Kompassausrichtung</translation>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation>Drucklayout nicht verfügbar</translation>
     </message>
     <message>
         <source>Learn more</source>

@@ -3206,7 +3206,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Imported and available locally</source>
-        <translation type="unfinished"/>
+        <translation>Zaimportowane i dostępne lokalnie</translation>
     </message>
 </context>
 <context>
@@ -3824,6 +3824,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation>Nie można odczytać projektu, plik &quot;%1&quot; nie istnieje</translation>
+    </message>
+    <message>
+        <source>Map printed on %1 using QField</source>
+        <translation>Mapa wydrukowana na %1 przy użyciu QField</translation>
     </message>
 </context>
 <context>
@@ -5155,10 +5159,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>Widok mapy podąża za lokalizacją i orientacją kompasu</translation>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation>Brak dostępnego układu wydruku</translation>
     </message>
     <message>
         <source>Learn more</source>

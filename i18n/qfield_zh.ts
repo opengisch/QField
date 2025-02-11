@@ -3819,6 +3819,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation>无法读取工程，文件 &quot;%1&quot; 不存在</translation>
     </message>
+    <message>
+        <source>Map printed on %1 using QField</source>
+        <translation>使用QField在%1打印地图</translation>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -5149,10 +5153,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>地图遵循位置和指南针方向</translation>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation>无可用打印布局</translation>
     </message>
     <message>
         <source>Learn more</source>

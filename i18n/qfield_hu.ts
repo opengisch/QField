@@ -812,51 +812,51 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n elem létrehozásának visszavonása a %1 rétegen.</numerusform><numerusform>%n elem létrehozásának visszavonása a %1 rétegen.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n elem létrehozásának visszavonása.</numerusform><numerusform>%n elem létrehozásának visszavonása.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n elem törlésének visszavonása a %1 rétegen.</numerusform><numerusform>%n elem törlésének visszavonása a %1 rétegen.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n elem törlésének visszavonása.</numerusform><numerusform>%n elem törlésének visszavonása.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n elem módosításának visszavonása a %1 rétegen.</numerusform><numerusform>%n elem módosításának visszavonása a %1 rétegen.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n elem módosításának visszavonása.</numerusform><numerusform>%n elem módosításának visszavonása.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n elem létrehozása újra a %1 rétegen</numerusform><numerusform>%n elem létrehozása újra a %1 rétegen</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n elem létrehozása újra</numerusform><numerusform>%n elem létrehozása újra</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n elem törlése újra a %1 rétegen</numerusform><numerusform>%n elem törlése újra a %1 rétegen</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n elem törlése újra</numerusform><numerusform>%n elem törlése újra</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n elem módosítása újra a %1 rétegen</numerusform><numerusform>%n elem módosítása újra a %1 rétegen</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n elem módosítása újra</numerusform><numerusform>%n elem módosítása újra</numerusform></translation>
     </message>
 </context>
 <context>
@@ -1849,7 +1849,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>The project folder will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>A projekt mappát törlöm, folytassuk az eltávolítást?</translation>
     </message>
 </context>
 <context>
@@ -2048,7 +2048,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Connection type</source>
-        <translation type="unfinished"/>
+        <translation>Kapcsolódás típus</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2056,11 +2056,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source> (leave empty to auto-fill)</source>
-        <translation type="unfinished"/>
+        <translation>(automatikus kitöltéséhez hagyja üresen)</translation>
     </message>
     <message>
         <source>Connection details</source>
-        <translation type="unfinished"/>
+        <translation>Kapcsolat részletei</translation>
     </message>
 </context>
 <context>
@@ -3136,7 +3136,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>Módosított tartalmat fog feltölteni &lt;b&gt;%1&lt;/b&gt;-be mint &lt;b&gt;%2&lt;/b&gt; felhasználó. &lt;br&gt;&lt;br&gt;Ez a művelet felülírja a távol tárolt tartalmat, győződjön meg róla, hogy ezt akarja csinálni.</translation>
     </message>
     <message>
         <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
@@ -3176,7 +3176,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>User and password</source>
-        <translation type="unfinished"/>
+        <translation>Felhasználó és jelszó</translation>
     </message>
     <message>
         <source>leave empty to use remembered</source>
@@ -3184,19 +3184,19 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>(root folder)</source>
-        <translation type="unfinished"/>
+        <translation>(gyökér mappa)</translation>
     </message>
     <message>
         <source>Refreshing remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Távoli mappák frissítése</translation>
     </message>
     <message>
         <source>Refresh remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Távoli mappák frissítése</translation>
     </message>
     <message>
         <source>Imported and available locally</source>
-        <translation type="unfinished"/>
+        <translation>Importálva és elérhető helyben</translation>
     </message>
 </context>
 <context>
@@ -3817,6 +3817,10 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation>A projekt nem olvasható, a &quot;%1&quot; file nem létezik</translation>
     </message>
+    <message>
+        <source>Map printed on %1 using QField</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -4016,11 +4020,11 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP cím</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Port</translation>
     </message>
 </context>
 <context>
@@ -4397,11 +4401,11 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Cím</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Port</translation>
     </message>
 </context>
 <context>
@@ -5149,10 +5153,6 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <translation>A térképvászon követi a pozíciót és az irányt</translation>
     </message>
     <message>
-        <source>No print layout available</source>
-        <translation>Nincs elérhető nyomtatási elrendezés</translation>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>Tudjon meg többet</translation>
     </message>
@@ -5282,11 +5282,11 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>A folyamatban lévő algoritmusművelet megszakítására készül, folytatja?</translation>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Oldja fel a képernyő zárolását a projekt és az alkalmazás bezárásához</translation>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
@@ -5314,15 +5314,15 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Snapping to every</source>
-        <translation type="unfinished"/>
+        <translation>Illesztés minden</translation>
     </message>
     <message>
         <source>%1°</source>
-        <translation type="unfinished"/>
+        <translation>%1°</translation>
     </message>
     <message>
         <source>Snapping tolerance</source>
-        <translation type="unfinished"/>
+        <translation>Illesztési tolerancia</translation>
     </message>
     <message>
         <source>Narrow</source>

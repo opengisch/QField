@@ -3826,6 +3826,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Map printed on %1 using QField</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -5156,10 +5160,6 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>La mappa segue la posizione e l&apos;orientamento della bussola</translation>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation>Nessun layout di stampa disponibile</translation>
     </message>
     <message>
         <source>Learn more</source>

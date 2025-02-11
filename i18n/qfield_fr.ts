@@ -3818,6 +3818,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation>Impossible de lire le projet, le fichier &quot;%1&quot; n&apos;existe pas</translation>
     </message>
+    <message>
+        <source>Map printed on %1 using QField</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -5152,10 +5156,6 @@ fermer le projet et quitter l&apos;application</translation>
     <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>Le canevas suit la localisation et l&apos;orientation de la boussole</translation>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation>Pas de mise-en-page disponible</translation>
     </message>
     <message>
         <source>Learn more</source>

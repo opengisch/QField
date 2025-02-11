@@ -3821,6 +3821,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation>Non se pode ler o proxecto, o ficheiro &quot;%1&quot; non existe</translation>
     </message>
+    <message>
+        <source>Map printed on %1 using QField</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -5151,10 +5155,6 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>A vista do mapa segue a localización e a orientación da brúxula</translation>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation>Non hai dispoñible ningún deseño para imprimir</translation>
     </message>
     <message>
         <source>Learn more</source>
