@@ -812,15 +812,15 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Deshacer creación de un objeto en la capa %1.</numerusform><numerusform>Deshacer creación de %n objetos en la capa %1.</numerusform><numerusform>Deshacer creación de %n objetos en la capa %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Deshacer creación de un objeto.</numerusform><numerusform>Deshacer creación de %n objetos.</numerusform><numerusform>Deshacer creación de %n objetos.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Deshacer borrado de un objeto en la capa %1.</numerusform><numerusform>Deshacer borrado de %n objetos en la capa %1.</numerusform><numerusform>Deshacer borrado de %n objetos en la capa %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s).</source>
