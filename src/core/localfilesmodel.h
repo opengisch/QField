@@ -29,6 +29,7 @@ class LocalFilesModel : public QAbstractListModel
     Q_PROPERTY( QString currentPath READ currentPath WRITE setCurrentPath NOTIFY currentPathChanged )
     Q_PROPERTY( int currentDepth READ currentDepth NOTIFY currentPathChanged )
     Q_PROPERTY( bool isDeletedAllowedInCurrentPath READ isDeletedAllowedInCurrentPath NOTIFY currentPathChanged )
+    Q_PROPERTY( bool inSelectionMode READ inSelectionMode NOTIFY inSelectionModeChanged )
 
   public:
     enum ItemMetaType
@@ -57,13 +58,14 @@ class LocalFilesModel : public QAbstractListModel
     {
         Item() = default;
 
-        Item( ItemMetaType metaType, ItemType type, const QString &title, const QString &format, const QString &path, qint64 size = 0 )
+        Item( ItemMetaType metaType, ItemType type, const QString &title, const QString &format, const QString &path, qint64 size = 0, const bool checked = false )
           : metaType( metaType )
           , type( type )
           , title( title )
           , format( format )
           , path( path )
           , size( size )
+          , checked( checked )
         {}
 
         ItemMetaType metaType = ItemMetaType::Folder;
@@ -72,6 +74,7 @@ class LocalFilesModel : public QAbstractListModel
         QString format;
         QString path;
         qint64 size = 0;
+        bool checked;
     };
 
     enum Role
@@ -85,6 +88,7 @@ class LocalFilesModel : public QAbstractListModel
       ItemHasThumbnailRole,
       ItemIsFavoriteRole,
       ItemHasWebdavConfigurationRole,
+      ItemCheckedRole,
     };
     Q_ENUM( Role )
 
@@ -132,9 +136,17 @@ class LocalFilesModel : public QAbstractListModel
     //! Walks the navigation history back up on step
     Q_INVOKABLE void moveUp();
 
+    //! Returns whether list is in multi-selection mode or not
+    bool inSelectionMode();
+
+    //! Set checked state of an item in list
+    Q_INVOKABLE void setChecked( const int &mIdx, const bool &checked );
+
   signals:
 
     void currentPathChanged();
+
+    void inSelectionModeChanged();
 
   private:
     void reloadModel();

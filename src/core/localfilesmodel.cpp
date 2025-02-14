@@ -61,6 +61,7 @@ QHash<int, QByteArray> LocalFilesModel::roleNames() const
   roles[ItemHasThumbnailRole] = "ItemHasThumbnail";
   roles[ItemIsFavoriteRole] = "ItemIsFavorite";
   roles[ItemHasWebdavConfigurationRole] = "ItemHasWebdavConfiguration";
+  roles[ItemCheckedRole] = "ItemChecked";
   return roles;
 }
 
@@ -315,38 +316,61 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
   if ( index.row() >= mItems.size() || index.row() < 0 )
     return QVariant();
 
+  const Item item = mItems[index.row()];
+
   switch ( static_cast<Role>( role ) )
   {
     case ItemMetaTypeRole:
-      return mItems[index.row()].metaType;
+      return item.metaType;
 
     case ItemTypeRole:
-      return mItems[index.row()].type;
+      return item.type;
 
     case ItemTitleRole:
-      return mItems[index.row()].title;
+      return item.title;
 
     case ItemFormatRole:
-      return mItems[index.row()].format;
+      return item.format;
 
     case ItemPathRole:
-      return mItems[index.row()].path;
+      return item.path;
 
     case ItemSizeRole:
-      return mItems[index.row()].size;
+      return item.size;
 
     case ItemHasThumbnailRole:
-      return mItems[index.row()].size < 25000000
-             && SUPPORTED_DATASET_THUMBNAIL.contains( mItems[index.row()].format );
+      return item.size < 25000000 && SUPPORTED_DATASET_THUMBNAIL.contains( item.format );
 
     case ItemIsFavoriteRole:
-      return mFavorites.contains( mItems[index.row()].path );
+      return mFavorites.contains( item.path );
 
     case ItemHasWebdavConfigurationRole:
-    {
-      return WebdavConnection::hasWebdavConfiguration( mItems[index.row()].path );
-    }
+      return WebdavConnection::hasWebdavConfiguration( item.path );
+
+    case ItemCheckedRole:
+      return item.checked;
   }
 
   return QVariant();
+}
+
+bool LocalFilesModel::inSelectionMode()
+{
+  for ( const Item &item : mItems )
+  {
+    if ( item.checked )
+      return true;
+  }
+  return false;
+}
+
+void LocalFilesModel::setChecked( const int &mIdx, const bool &checked )
+{
+  if ( mItems[mIdx].checked != checked )
+  {
+    mItems[mIdx].checked = checked;
+
+    emit inSelectionModeChanged();
+    emit dataChanged( index( 0, 0, QModelIndex() ), index( mItems.size() - 1, 0, QModelIndex() ), { ItemCheckedRole } );
+  }
 }
