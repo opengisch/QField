@@ -31,6 +31,7 @@ Page {
     showBackButton: true
     showApplyButton: false
     showCancelButton: false
+    showMenuButton: localFilesModel.inSelectionMode
 
     topMargin: mainWindow.sceneTopMargin
 

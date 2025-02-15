@@ -12,6 +12,7 @@ ToolBar {
   property alias showBackButton: backButton.visible
   property alias showApplyButton: applyButton.visible
   property alias showCancelButton: cancelButton.visible
+  property alias showMenuButton: menuButton.visible
 
   property alias busyIndicatorState: busyIndicator.state
   property alias busyIndicatorValue: busyIndicator.value
@@ -24,6 +25,7 @@ ToolBar {
   signal apply
   signal back
   signal finished
+  signal openMenu
 
   anchors {
     top: parent.top
@@ -131,7 +133,7 @@ ToolBar {
     Label {
       id: titleLabel
       leftPadding: !showApplyButton && showCancelButton ? 48 : 0
-      rightPadding: (showApplyButton || showBackButton) && !showCancelButton ? 48 : 0
+      rightPadding: (showApplyButton || showBackButton) && !showCancelButton && !showMenuButton ? 48 : 0
       font: Theme.strongFont
       color: backgroundFill ? Theme.mainOverlayColor : Theme.mainColor
       elide: Label.ElideRight
@@ -151,6 +153,21 @@ ToolBar {
       onClicked: {
         cancel();
         finished();
+      }
+    }
+
+    QfToolButton {
+      id: menuButton
+
+      Layout.alignment: Qt.AlignTop | Qt.AlignRight
+      clip: true
+      visible: false
+
+      iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+      iconColor: Theme.mainOverlayColor
+
+      onClicked: {
+        openMenu();
       }
     }
   }

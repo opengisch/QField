@@ -356,6 +356,9 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
 
 bool LocalFilesModel::inSelectionMode()
 {
+  if ( currentTitle() == QStringLiteral( "Home" ) )
+    return false;
+
   for ( const Item &item : mItems )
   {
     if ( item.checked )
