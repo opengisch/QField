@@ -75,10 +75,11 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, cons
           legendParts.removeLast();
 
           QModelIndex nextIndex = mLayerTreeModel->sibling( index.row() + 1, 0, index );
-          if ( !nextIndex.isValid() && index.parent() != layerIndex )
+          while ( !nextIndex.isValid() && index != layerIndex )
           {
             legendParts.removeLast();
-            nextIndex = mLayerTreeModel->sibling( index.parent().row() + 1, 0, index.parent() );
+            index = index.parent();
+            nextIndex = mLayerTreeModel->sibling( index.row() + 1, 0, index );
           }
           index = nextIndex;
         }
