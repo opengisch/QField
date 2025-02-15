@@ -254,7 +254,7 @@ Page {
               }
             }
             QfToolButton {
-              visible: itemMenuVisible
+              visible: itemMenuVisible && !localFilesModel.inSelectionMode
               round: true
               opacity: 0.5
 
