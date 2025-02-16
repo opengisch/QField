@@ -389,6 +389,12 @@ Item {
 
   function flash() {
     flashAnimation.start();
+    if (positionLocked) {
+      const outOfScreen = crosshairCircle.x <= 0 || crosshairCircle.x >= mainWindow.width || crosshairCircle.y <= 0 || crosshairCircle.y >= mainWindow.height;
+      if (outOfScreen) {
+        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+      }
+    }
   }
 
   /** Function to get the multiplier based on the selected tolerance
