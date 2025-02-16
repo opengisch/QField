@@ -8,6 +8,7 @@ ToolBar {
   property alias title: titleLabel.text
 
   property bool backgroundFill: true
+  property bool backAsCancel: false
 
   property alias showBackButton: backButton.visible
   property alias showApplyButton: applyButton.visible
@@ -107,11 +108,15 @@ ToolBar {
 
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
       clip: true
-      iconSource: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
+      iconSource: backAsCancel ? Theme.getThemeVectorIcon('ic_close_white_24dp') : Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
       iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
 
       onClicked: {
-        back();
+        if (backAsCancel) {
+          cancel();
+        } else {
+          back();
+        }
         finished();
       }
     }

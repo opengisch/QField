@@ -32,8 +32,13 @@ Page {
     showApplyButton: false
     showCancelButton: false
     showMenuButton: localFilesModel.inSelectionMode
+    backAsCancel: localFilesModel.inSelectionMode
 
     topMargin: mainWindow.sceneTopMargin
+
+    onCancel: {
+      localFilesModel.clearSelection();
+    }
 
     onBack: {
       if (table.model.currentDepth > 1) {

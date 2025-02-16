@@ -142,6 +142,9 @@ class LocalFilesModel : public QAbstractListModel
     //! Set checked state of an item in list
     Q_INVOKABLE void setChecked( const int &mIdx, const bool &checked );
 
+    //! Set checked state of all items to false
+    Q_INVOKABLE void clearSelection();
+
   signals:
 
     void currentPathChanged();

@@ -316,7 +316,7 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
   if ( index.row() >= mItems.size() || index.row() < 0 )
     return QVariant();
 
-  const Item item = mItems[index.row()];
+  const Item &item = mItems[index.row()];
 
   switch ( static_cast<Role>( role ) )
   {
@@ -376,4 +376,14 @@ void LocalFilesModel::setChecked( const int &mIdx, const bool &checked )
     emit inSelectionModeChanged();
     emit dataChanged( index( 0, 0, QModelIndex() ), index( mItems.size() - 1, 0, QModelIndex() ), { ItemCheckedRole } );
   }
+}
+
+void LocalFilesModel::clearSelection()
+{
+  for ( Item &item : mItems )
+  {
+    item.checked = false;
+  }
+  emit inSelectionModeChanged();
+  emit dataChanged( index( 0, 0, QModelIndex() ), index( mItems.size() - 1, 0, QModelIndex() ), { ItemCheckedRole } );
 }
