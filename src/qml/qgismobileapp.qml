@@ -558,10 +558,13 @@ ApplicationWindow {
      * PointerDevice.TouchScreen was explicitly taken out of the accepted devices.
      * The timer is needed as adding additional fingers onto a device re-triggers hovered
      * changes in unpredictable order.
+     *
+     * Known issue: Switching between finger and stylus input within 500 milliseconds may break
+     * the stylus binding to the CoordinateLocator.
      */
     Timer {
       id: dummyHoverTimer
-      interval: 750
+      interval: 500
       repeat: false
 
       onTriggered: {
@@ -571,7 +574,7 @@ ApplicationWindow {
 
     HoverHandler {
       id: dummyHoverHandler
-      enabled: !qfieldSettings.mouseAsTouchScreen && !(positionSource.active && positioningSettings.positioningCoordinateLock)
+      enabled: !qfieldSettings.mouseAsTouchScreen && hoverHandler.enabled
       acceptedDevices: PointerDevice.TouchScreen
       grabPermissions: PointerHandler.TakeOverForbidden
 
