@@ -390,7 +390,7 @@ Item {
   function flash() {
     flashAnimation.start();
     if (positionLocked) {
-      const outOfScreen = crosshairCircle.x <= 0 || crosshairCircle.x >= mainWindow.width || crosshairCircle.y <= 0 || crosshairCircle.y >= mainWindow.height;
+      const outOfScreen = crosshairCircle.x + crosshairCircle.width <= 0 || crosshairCircle.x - crosshairCircle.width >= mainWindow.width || crosshairCircle.y + crosshairCircle.height <= 0 || crosshairCircle.y - crosshairCircle.height >= mainWindow.height;
       if (outOfScreen) {
         mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
       }
