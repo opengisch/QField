@@ -1,0 +1,86 @@
+name: Bug report for QField (not any other QField platform product)
+description: Create a bug report to help us improve QField.
+labels:
+  - 'Bug'
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report correctly.
+
+        Please report only issues related to the QField application, and not QFieldSync, QFieldCloud, QFieldCloud SDK, or QField plugins.
+        Note that feature requests should not be requested here.
+        You can go one step back and choose the right place to put your report.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What is the bug or the crash? What were your expectations and what actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce the issue
+      description: |
+        Steps and sample QField project as a .zip to reproduce the behavior. Screen recordings or screenshots are more than welcome, you can drag&drop them in the textbox.
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: qfield-version
+    attributes:
+      label: Version
+      description: |
+        In the QField main menu -> About, then paste the QField version here.
+        Do not make a screenshot.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: qfield-os-name
+    attributes:
+      label: Operating system name
+      description: |
+        What is your operating system name?
+      options:
+        - Android
+        - iOS
+        - Linux
+        - MacOs
+        - Windows
+        - Other (please specify in additional context)
+    validations:
+      required: true
+
+  - type: input
+    id: qfield-os-version
+    attributes:
+      label: Operating system version
+      description: |
+        What is your operating system version?
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: cleaned-data
+    attributes:
+      label: Reinstall QField
+      description: |
+        Did you try to uninstalling and upgrading to the latest QField version, or try to replicate the issue with another project?
+      options:
+        - label: I have a fresh install of the latest QField version, but the problem persists.
+        - label: Problem can be reliably reproduced, doesn't happen randomly.
+        - label: Problem happens with all files and projects, not only some files or projects.
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: |
+        Add any other context about the problem here.
