@@ -359,12 +359,7 @@ bool LocalFilesModel::inSelectionMode()
   if ( currentTitle() == QStringLiteral( "Home" ) )
     return false;
 
-  for ( const Item &item : mItems )
-  {
-    if ( item.checked )
-      return true;
-  }
-  return false;
+  return std::any_of( mItems.begin(), mItems.end(), []( const Item &item ) { return item.checked; } );
 }
 
 void LocalFilesModel::setChecked( const int &mIdx, const bool &checked )
