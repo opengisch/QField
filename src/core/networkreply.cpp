@@ -103,7 +103,10 @@ void NetworkReply::initiateRequest()
     for ( const QSslError &error : errors )
       qDebug() << "SSL: " << error;
 
-    mReply->ignoreSslErrors( errors );
+    if ( !mRequest.url().host().endsWith( QStringLiteral( ".qfield.cloud" ) ) )
+    {
+      mReply->ignoreSslErrors( errors );
+    }
   } );
 }
 
