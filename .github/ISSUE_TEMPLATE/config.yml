@@ -1,7 +1,7 @@
 blank_issues_enabled: false
 
 contact_links:
-  - name: Enhancement proposals/feature requests for the QField platform
+  - name: Enhancement proposals/feature requests for the QField ecosystem
     url: https://ideas.qfield.org
     about: >
       Add your suggestion how to improve QField, QFieldSync, QFieldCloud or QFieldCloud SDK at https://support.qfield.cloud/ .
@@ -24,7 +24,7 @@ contact_links:
   - name: Commercial and community support
     url: https://docs.qfield.org/get-started/support/
     about: >
-      Check how to get commercial or community support for your QField platform questions.
+      Check how to get commercial or community support for your QField ecosystem questions.
 
   - name: Missing documentation (QField, QFieldSync, QFieldCloud, QFieldCloud SDK)
     url: https://github.com/opengisch/qfield-docs/issues
