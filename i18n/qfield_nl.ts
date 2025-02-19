@@ -491,7 +491,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>Centreer je apparaat op een code</translation>
     </message>
 </context>
 <context>
@@ -623,19 +623,19 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Received data is too short to process</source>
-        <translation type="unfinished"/>
+        <translation>Ontvangen gegevens zijn te kort om te verwerken</translation>
     </message>
     <message>
         <source>Invalid start byte</source>
-        <translation type="unfinished"/>
+        <translation>Invalid start byte</translation>
     </message>
     <message>
         <source>Received data is too short to contain the payload</source>
-        <translation type="unfinished"/>
+        <translation>Received data is too short to contain the payload</translation>
     </message>
     <message>
         <source>Failed to parse JSON</source>
-        <translation type="unfinished"/>
+        <translation>Failed to parse JSON</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -651,7 +651,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>TCP receiver error (%1)</translation>
     </message>
 </context>
 <context>
@@ -816,7 +816,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Aanmaak van %n object(s) ongedaan maken.</numerusform><numerusform>Aanmaken van %n objecten ongedaan maken.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s) on layer %1.</source>
@@ -824,7 +824,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Verwijdering van %n object(s) ongedaan maken.</numerusform><numerusform>Verwijderen van %n objecten ongedaan maken.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s) on layer %1.</source>
@@ -951,7 +951,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Feature attributes transferred</source>
-        <translation type="unfinished"/>
+        <translation>Attributen gekopieerd</translation>
     </message>
     <message>
         <source>No feature attributes were transferred</source>
@@ -1381,7 +1381,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"/>
+        <translation>Stop</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -1435,23 +1435,23 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>Geeft een lijst van objecten van de actieve laag met overeenkomende eigenschappen. Het zoeken op een enkele eigenschap is mogelijk door de naam toe te voegen voorafgegaan door een &apos;@&apos;.</translation>
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
+        <translation>Geeft een lijst van objecten in alle doorzoekbare lagen met overeenkomende weergavenaam.</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Geeft een locatie van X- en Y-coördinaten - of WGS84 breedtegraad en lengtegraad - die in de zoekbalk zijn ingevoerd.</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>Geeft een lijst van favorieten in het project met overeenkomende namen.</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Geeft de waarde van een expressie die in de zoekbalk is getypt.</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms.</source>
@@ -1459,7 +1459,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>Geeft QField documentatiepagina&apos;s terug die overeenkomen.</translation>
     </message>
 </context>
 <context>
@@ -1662,19 +1662,19 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Feature attributes copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Object attributen gekopieerd naar klembord</translation>
     </message>
     <message>
         <source>Feature attributes updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Object attributen gekopieerd vanaf klembord</translation>
     </message>
     <message>
         <source>No feature attributes were updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Er zijn object object attributen bijgewerkt vanaf het klembord</translation>
     </message>
     <message>
         <source>Feature set as navigation destination</source>
-        <translation type="unfinished"/>
+        <translation>Object ingesteld als bestemming</translation>
     </message>
     <message>
         <source>Update Attributes From Feature</source>
@@ -1806,7 +1806,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation type="unfinished"/>
+        <translation>Er is een fout opgetreden bij het opslaan van het bestand</translation>
     </message>
     <message>
         <source>Select Image File</source>
@@ -1846,30 +1846,30 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>The dataset will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>Het dataset wordt verwijderd, weet u het zeker?</translation>
     </message>
     <message>
         <source>The project folder will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>De project map wordt verwijderd, wilt u doorgaan?</translation>
     </message>
 </context>
 <context>
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
-        <translation type="unfinished"/>
+        <translation>Het gedownloade zip-bestand kan niet worden uitgepakt</translation>
     </message>
     <message>
         <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation type="unfinished"/>
+        <translation>Het gedownloade zip-bestand bevat niet het vereiste pluginbestand main.qml</translation>
     </message>
     <message>
         <source>Can&apos;t save the downloaded file</source>
-        <translation type="unfinished"/>
+        <translation>Kan het gedownloade bestand niet opslaan</translation>
     </message>
     <message>
         <source>Download file is not an zipped plugin</source>
-        <translation type="unfinished"/>
+        <translation>Downloadbestand is geen gezipte plugin</translation>
     </message>
     <message>
         <source>Network error</source>
@@ -1904,11 +1904,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Authored by %1%2%3</source>
-        <translation type="unfinished"/>
+        <translation>Aangemaakt door %1%2%3</translation>
     </message>
     <message>
         <source>Are you sure you want to uninstall `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Weet je zeker dat je `%1` wilt verwijderen?</translation>
     </message>
     <message>
         <source>Uninstall version %1</source>
@@ -1924,7 +1924,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Plugins management menu</source>
-        <translation type="unfinished"/>
+        <translation>Plugins beheermenu</translation>
     </message>
 </context>
 <context>
@@ -2049,7 +2049,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Connection type</source>
-        <translation type="unfinished"/>
+        <translation>Verbindingstype</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2057,11 +2057,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source> (leave empty to auto-fill)</source>
-        <translation type="unfinished"/>
+        <translation> (leeg laten om automatisch in te vullen)</translation>
     </message>
     <message>
         <source>Connection details</source>
-        <translation type="unfinished"/>
+        <translation>Verbindingsdetails</translation>
     </message>
 </context>
 <context>
@@ -2216,7 +2216,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Algorithm description</source>
-        <translation type="unfinished"/>
+        <translation>Beschrijving algoritme</translation>
     </message>
 </context>
 <context>
@@ -2234,7 +2234,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>QFieldAppAuthRequestHandler</name>
     <message>
         <source>Please enter credentials for database</source>
-        <translation type="unfinished"/>
+        <translation>Voer de gegevens voor de database in</translation>
     </message>
     <message>
         <source>at host</source>
@@ -2675,7 +2675,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Projecten opslaan op QFieldCloud biedt naadloze synchronisatie, offline bewerken en teambeheer.&lt;br&gt;&lt;br&gt;</translation>
     </message>
 </context>
 <context>
@@ -2686,7 +2686,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ingepakte laag &apos;%1&apos; is ongeldig: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
@@ -2937,7 +2937,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Geen cloudprojecten gevonden. Om te beginnen, %1lees de documentatie%2.</translation>
     </message>
     <message>
         <source>Search for project</source>
@@ -2956,7 +2956,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>De beschikbare opslagruimte van je account is vol.</translation>
     </message>
 </context>
 <context>
@@ -2982,7 +2982,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation type="unfinished"/>
+        <translation>Lokale Projecten &amp; Datasets</translation>
     </message>
     <message>
         <source>Folders</source>
@@ -3074,71 +3074,71 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>&apos;%1&apos; wordt geüpload naar QFieldCloud</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>Toevoegen aan favorieten</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
-        <translation type="unfinished"/>
+        <translation>Verwijderen uit favorieten</translation>
     </message>
     <message>
         <source>Files</source>
-        <translation type="unfinished"/>
+        <translation>Bestanden</translation>
     </message>
     <message>
         <source>Push to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Versturen naar QFieldCloud</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV server</source>
-        <translation type="unfinished"/>
+        <translation>Map uploaden naar WebDAV-server</translation>
     </message>
     <message>
         <source>Download folder from WebDAV server</source>
-        <translation type="unfinished"/>
+        <translation>Map downloaden van WebDAV-server</translation>
     </message>
     <message>
         <source>Remove folder</source>
-        <translation type="unfinished"/>
+        <translation>Map verwijderen</translation>
     </message>
     <message>
         <source>Import WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV-map importeren</translation>
     </message>
     <message>
         <source>Upload project to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Project uploaden naar WebDAV</translation>
     </message>
     <message>
         <source>Download project from WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Project downloaden van WebDAV</translation>
     </message>
     <message>
         <source>Importing WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV-map importeren</translation>
     </message>
     <message>
         <source>Downloading WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV-map downloaden</translation>
     </message>
     <message>
         <source>Uploading WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV-map uploaden</translation>
     </message>
     <message>
         <source>WebDAV error: </source>
-        <translation type="unfinished"/>
+        <translation>WebDAV Fout: </translation>
     </message>
     <message>
         <source>WebDAV upload</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV upload</translation>
     </message>
     <message>
         <source>WebDAV download</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV download</translation>
     </message>
     <message>
         <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
@@ -3150,7 +3150,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Password (leave empty to use remembered)</source>
-        <translation type="unfinished"/>
+        <translation>Wachtwoord (leeg laten om opgeslagen wachtwoord te gebruiken)</translation>
     </message>
     <message>
         <source>Password</source>
@@ -3158,7 +3158,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Remember password</source>
-        <translation type="unfinished"/>
+        <translation>Wachtwoord onthouden</translation>
     </message>
     <message>
         <source>Type the WebDAV details below to import a remote folder:</source>
@@ -3166,7 +3166,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>WebDAV server URL</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV server URL</translation>
     </message>
     <message>
         <source>Select the remote folder to import:</source>
@@ -3182,11 +3182,11 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>User and password</source>
-        <translation type="unfinished"/>
+        <translation>Gebruikersnaam en wachtwoord</translation>
     </message>
     <message>
         <source>leave empty to use remembered</source>
-        <translation type="unfinished"/>
+        <translation>leeg laten om de onthouden gegevens te gebruiken</translation>
     </message>
     <message>
         <source>(root folder)</source>
@@ -3213,7 +3213,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
-        <translation type="unfinished"/>
+        <translation>Breedtegraad %1 | Lengtegraad %2 | Hoogte %3 m | Snelheid %4 m/s | Oriëntatie %5°</translation>
     </message>
 </context>
 <context>
@@ -3542,11 +3542,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
-        <translation type="unfinished"/>
+        <translation>NMEA-berichten opslaan in bestand</translation>
     </message>
     <message>
         <source>Map canvas rendering quality:</source>
-        <translation type="unfinished"/>
+        <translation>Weergavekwaliteit van kaart:</translation>
     </message>
     <message>
         <source>Best quality</source>
@@ -3582,19 +3582,19 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
-        <translation type="unfinished"/>
+        <translation>Tik met je vinger op het scherm om hoekpunten toe te voegen</translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation type="unfinished"/>
+        <translation>Indien ingeschakeld kun je met je vinger op het kaartbeeld tikken om een Vertex toe te voegen op de gekozen locatie.</translation>
     </message>
     <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation type="unfinished"/>
+        <translation>Indien ingeschakeld gedraagt de muis zich als een vinger. Als deze optie is uitgeschakeld, gedraagt de muis zich als een stylus.</translation>
     </message>
     <message>
         <source>Map Canvas</source>
-        <translation type="unfinished"/>
+        <translation>Kaartbeeld</translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
@@ -3807,7 +3807,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Project Plugin</translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
@@ -3815,15 +3815,15 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Kan project niet laden, bestand &quot;%1&quot; bestaat niet</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Kan project niet lezen, bestand &quot;%1&quot; bestaat niet</translation>
     </message>
     <message>
         <source>Map printed on %1 using QField</source>
-        <translation type="unfinished"/>
+        <translation>Kaart afgedrukt op %1 met QField</translation>
     </message>
 </context>
 <context>
@@ -3988,7 +3988,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Seriële poort ontvangerfout (%1)</translation>
     </message>
 </context>
 <context>
@@ -4024,11 +4024,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP addres</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Poort</translation>
     </message>
 </context>
 <context>
@@ -4059,11 +4059,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">De verbinding werd geweigerd door de server</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">UDP ontvangerfout (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
@@ -4071,7 +4071,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>TCP receiver error (%1)</translation>
     </message>
 </context>
 <context>
@@ -4112,11 +4112,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Requirement Settings</source>
-        <translation type="unfinished"/>
+        <translation>Vereiste instellingen</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation type="unfinished"/>
+        <translation>Tijdsvereiste</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
@@ -4124,11 +4124,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Indien ingeschakeld zullen vertices worden toegevoegd wanneer de tijd tussen de laatste en de nieuwe vertex voldoet aan een geconfigureerde minimale waarde.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Afstandsvereiste</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -4405,11 +4405,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Adres</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Poort</translation>
     </message>
 </context>
 <context>
@@ -4440,11 +4440,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">De verbinding werd geweigerd door de server</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>UDP ontvangerfout (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
@@ -4499,11 +4499,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>WebdavConnection</name>
     <message>
         <source>Failed to download file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Downloaden van bestand %1 mislukt door netwerkfout (%2)</translation>
     </message>
     <message>
         <source>Failed to upload file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Kan bestand %1 niet uploaden vanwege netwerkfout (%2)</translation>
     </message>
 </context>
 <context>
@@ -4606,7 +4606,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Recent Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Recente wijzigingen</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
@@ -4618,7 +4618,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Return to map</source>
-        <translation type="unfinished"/>
+        <translation>Terug naar kaart</translation>
     </message>
 </context>
 <context>
@@ -4640,7 +4640,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;unknown&gt;</translation>
     </message>
     <message>
         <source>meters</source>
@@ -4862,7 +4862,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Open Project Folder</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Projectmap openen</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -4934,7 +4934,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nauwkeurige weergave-instellingen</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -5142,11 +5142,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>Vastzetten op %1° hoek is ingeschakeld</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>Vastzetten op hoeken is uitgeschakeld</translation>
     </message>
     <message>
         <source>Relative angle</source>
@@ -5218,7 +5218,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Geef je toestemming om `%1` te activeren?</translation>
     </message>
     <message>
         <source>Remember my choice</source>
@@ -5230,19 +5230,19 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Positie is overschreden in &apos;%1&apos;.</translation>
     </message>
     <message>
         <source>Position outside areas after leaving ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Positie buiten gebied na het verlaten van &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Position entered into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Positie bereikt op &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Positie verlaten van &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Enable Map Rotation</source>
@@ -5274,11 +5274,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"/>
+        <translation>Zoom</translation>
     </message>
     <message>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
-        <translation type="unfinished"/>
+        <translation>Naast het zoomen met twee vingers helpen deze knoppen je om snel in en uit te zoomen.</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
@@ -5290,7 +5290,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Ontgrendel het scherm om project en app te sluiten</translation>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
@@ -5306,11 +5306,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Ongedaan maken</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Herhalen</translation>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
@@ -5318,11 +5318,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Snapping to every</source>
-        <translation type="unfinished"/>
+        <translation>Vastzetten op elke</translation>
     </message>
     <message>
         <source>%1°</source>
-        <translation type="unfinished"/>
+        <translation>%1°</translation>
     </message>
     <message>
         <source>Snapping tolerance</source>
@@ -5330,7 +5330,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Narrow</source>
-        <translation type="unfinished"/>
+        <translation>Smal</translation>
     </message>
     <message>
         <source>Normal</source>
