@@ -72,7 +72,7 @@ body:
     attributes:
       label: Reinstall QField
       description: |
-        Did you try to uninstalling and upgrading to the latest QField version, or try to replicate the issue with another project?
+        Have you tried uninstalling and upgrading to the latest QField version, or tried to replicate the issue with another project?
       options:
         - label: I have a fresh install of the latest QField version, but the problem persists.
         - label: Problem can be reliably reproduced, doesn't happen randomly.
