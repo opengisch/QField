@@ -428,7 +428,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Error while fetching changelog, try again later.</source>
-        <translation>Fehler beim laden der neusten Änderungen, versuch es später nochmal.</translation>
+        <translation>Fehler beim Laden der neusten Änderungen, versuch es später nochmal.</translation>
     </message>
     <message>
         <source>Support QField</source>
@@ -714,7 +714,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation>Nimm einen Audoclip auf</translation>
+        <translation>Nimm einen Audioclip auf</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
@@ -726,7 +726,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Draw a sketch</source>
-        <translation>Zeichne eine Zkizze</translation>
+        <translation>Zeichne eine Skizze</translation>
     </message>
 </context>
 <context>
