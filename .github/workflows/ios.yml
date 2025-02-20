@@ -24,7 +24,7 @@ jobs:
     env:
       DEPLOYMENT_TARGET: '14.0'
       BUILD_TYPE: 'Release'
-      TRIPLET: 'arm64-ios'
+      TRIPLET: 'x64-ios'
 
     steps:
       - name: 🐣 Checkout
