@@ -1,5 +1,7 @@
-name: Bug report for QField (not any other QField ecosystem product)
-description: Create a bug report to help us improve QField.
+name: Bug report for QField
+description: |
+  Create a bug report to help us improve QField.
+  Do not report issues related to other QField ecosystem products.
 labels:
   - 'Bug'
 body:
@@ -8,8 +10,10 @@ body:
       value: |
         Thanks for taking the time to fill out this bug report correctly.
 
-        Please report only issues related to the QField application, and not QFieldSync, QFieldCloud, QFieldCloud SDK, or QField plugins.
+        Please report only issues related to the QField application.
+        Do not report issues related to other QField ecosystem products.
         Note that feature requests should not be requested here.
+
         You can go one step back and choose the right place to put your report.
 
   - type: textarea
@@ -32,7 +36,7 @@ body:
     validations:
       required: true
 
-  - type: textarea
+  - type: input
     id: qfield-version
     attributes:
       label: Version

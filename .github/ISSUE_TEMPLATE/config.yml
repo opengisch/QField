@@ -1,15 +1,15 @@
 blank_issues_enabled: false
 
 contact_links:
-  - name: Enhancement proposals/feature requests for the QField ecosystem
+  - name: Enhancement proposals/feature requests
     url: https://ideas.qfield.org
     about: >
-      Add your suggestion how to improve QField, QFieldSync, QFieldCloud or QFieldCloud SDK at https://support.qfield.cloud/ .
+      Add your suggestion how to improve QField, QFieldSync, QFieldCloud or QFieldCloud SDK at https://ideas.qfield.cloud/ .
 
-  - name: Support for your QFieldCloud account at [app.qfield.cloud](https://app.qfield.cloud)
+  - name: Support for your app.qfield.cloud account
     url: https://support.qfield.cloud
     about: >
-      Open a ticket at our support platform for app.qfield.cloud users at https://support.qfield.cloud/ .
+      Open a ticket at our support platform for your QFieldCloud account at app.qfield.cloud users at https://support.qfield.cloud/                                                                                     .
 
   - name: Bug report for QFieldSync
     url: https://github.com/opengisch/QFieldSync/issues
@@ -21,15 +21,15 @@ contact_links:
     about: >
       Check if your issue was already reported and if not, then create a new issue at the QFieldCloud Python SDK repository.
 
-  - name: Commercial and community support
+  - name: Community and commercial support
     url: https://docs.qfield.org/get-started/support/
     about: >
-      Check how to get commercial or community support for your QField ecosystem questions.
+      Check how to get commercial or community support for your QFieldCloud on-premise or other QField ecosystem questions.
 
-  - name: Missing documentation (QField, QFieldSync, QFieldCloud, QFieldCloud SDK)
+  - name: Missing documentation
     url: https://github.com/opengisch/qfield-docs/issues
     about: >
-      Suggest improvements or report documentation errors regarding https://docs.qfield.org .
+      Suggest improvements or report documentation errors on https://docs.qfield.org.
 
   - name: QField plugin issue
     url: https://github.com/topics/qfield-plugin
