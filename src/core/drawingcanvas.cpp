@@ -110,6 +110,12 @@ QString DrawingCanvas::save() const
       image.save( path, "jpg", 88 );
       for ( const QString &key : metadata.keys() )
       {
+        if ( key == QLatin1String( "Exif.Image.Orientation" ) )
+        {
+          // The rotation transform already happened when we loaded the image, skip the tag
+          continue;
+        }
+
         QgsExifTools::tagImage( path, key, metadata[key] );
       }
       return path;
