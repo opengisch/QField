@@ -31,8 +31,14 @@ Page {
     showBackButton: true
     showApplyButton: false
     showCancelButton: false
+    showMenuButton: localFilesModel.inSelectionMode
+    backAsCancel: localFilesModel.inSelectionMode
 
     topMargin: mainWindow.sceneTopMargin
+
+    onCancel: {
+      localFilesModel.clearSelection();
+    }
 
     onBack: {
       if (table.model.currentDepth > 1) {
@@ -139,11 +145,13 @@ Page {
         delegate: Rectangle {
           id: rectangle
 
+          property int itemIndex: index
           property int itemMetaType: ItemMetaType
           property int itemType: ItemType
           property string itemTitle: ItemTitle
           property string itemPath: ItemPath
           property bool itemIsFavorite: ItemIsFavorite
+          property bool itemChecked: ItemChecked
           property bool itemMenuLoadable: !projectFolderView && (ItemMetaType === LocalFilesModel.Project || ItemMetaType === LocalFilesModel.Dataset)
           property bool itemMenuVisible: ((ItemType === LocalFilesModel.SimpleFolder || ItemMetaType == LocalFilesModel.Dataset || ItemMetaType == LocalFilesModel.File) && table.model.currentPath !== 'root') || ((platformUtilities.capabilities & PlatformUtilities.CustomExport || platformUtilities.capabilities & PlatformUtilities.CustomSend) && (ItemMetaType === LocalFilesModel.Dataset)) || (ItemMetaType === LocalFilesModel.Dataset && ItemType === LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId)
 
@@ -156,6 +164,11 @@ Page {
             width: parent.width
             anchors.verticalCenter: parent.verticalCenter
             spacing: 2
+
+            CheckBox {
+              checked: itemChecked
+              visible: localFilesModel.inSelectionMode
+            }
 
             Image {
               id: type
@@ -192,6 +205,7 @@ Page {
               width: 48
               height: 48
             }
+
             ColumnLayout {
               id: inner
               Layout.alignment: Qt.AlignVCenter
@@ -245,7 +259,7 @@ Page {
               }
             }
             QfToolButton {
-              visible: itemMenuVisible
+              visible: itemMenuVisible && !localFilesModel.inSelectionMode
               round: true
               opacity: 0.5
 
@@ -274,12 +288,16 @@ Page {
           anchors.fill: parent
           anchors.rightMargin: 48
           onClicked: mouse => {
+            const item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
+            if (item && localFilesModel.inSelectionMode) {
+              table.model.setChecked(item.itemIndex, !item.itemChecked);
+              return;
+            }
             if (itemMenu.visible) {
               itemMenu.close();
             } else if (importMenu.visible) {
               importMenu.close();
             } else {
-              var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
               if (item) {
                 if (item.itemMetaType === LocalFilesModel.Folder || item.itemMetaType === LocalFilesModel.Favorite) {
                   table.model.currentPath = item.itemPath;
@@ -293,9 +311,9 @@ Page {
           onPressed: mouse => {
             if (itemMenu.visible || importMenu.visible)
               return;
-            var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
+            const item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
             if (item && item.itemMenuLoadable) {
-              pressedItem = item.children[0].children[1].children[0];
+              pressedItem = item.children[0].children[2].children[0];
               pressedItem.color = "#5a8725";
             }
           }
@@ -313,14 +331,9 @@ Page {
           }
 
           onPressAndHold: mouse => {
-            var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
-            if (item && item.itemMenuVisible) {
-              itemMenu.itemMetaType = item.itemMetaType;
-              itemMenu.itemType = item.itemType;
-              itemMenu.itemPath = item.itemPath;
-              itemMenu.itemIsFavorite = item.itemIsFavorite;
-              itemMenu.popup(mouse.x, mouse.y);
-            }
+            const item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
+            if (item)
+              table.model.setChecked(item.itemIndex, !item.itemChecked);
           }
         }
       }
