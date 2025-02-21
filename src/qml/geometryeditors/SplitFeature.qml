@@ -17,7 +17,7 @@ QfVisibilityFadingRow {
 
   function canvasClicked(point, type) {
     if (type === "stylus") {
-      if (settings.valueBool("/QField/Digitizing/CurveEdition", false) == true) {
+      if (LayerUtils.isCurvedGeometry(featureModel.currentLayer) == true && settings.valueBool("/QField/Digitizing/CurveEdition", false) == true) {
         if (drawLineToolbar.rubberbandModel.isDuringCurveDrawing() == true || drawLineToolbar.rubberbandModel.vertexCount == 1) {
           if (drawLineToolbar.rubberbandModel.vertexCount != 1) {
             drawLineToolbar.addCurve();

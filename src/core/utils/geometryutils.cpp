@@ -36,6 +36,10 @@ QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandMod
   polygon->setExteriorRing( ext.clone() );
 
   QgsGeometry g( std::move( polygon ) );
+  if ( QgsWkbTypes::isCurvedType( wkbType ) )
+  {
+    g = g.convertToCurves();
+  }
   if ( QgsWkbTypes::isMultiType( wkbType ) )
   {
     g.convertToMultiType();
@@ -166,13 +170,33 @@ GeometryUtils::GeometryOperationResult GeometryUtils::addRingFromRubberband( Qgs
     if ( !geometry.isNull() )
       static_cast<QgsLineString *>( geometry.get() )->points( ring );
   }
-  return static_cast<GeometryUtils::GeometryOperationResult>( layer->addRing( ring, &fid ) );
+  if ( QgsWkbTypes::isCurvedType( layer->wkbType() ) )
+  {
+    QgsCompoundCurve *curve = rubberBandModel->getCompoundCurve().clone();
+    if ( curve->isClosed() == false )
+    {
+      curve->addVertex( curve->startPoint() );
+    }
+    return static_cast<GeometryUtils::GeometryOperationResult>( layer->addRing( curve, &fid ) );
+  }
+  else
+  {
+    return static_cast<GeometryUtils::GeometryOperationResult>( layer->addRing( ring, &fid ) );
+  }
 }
 
 GeometryUtils::GeometryOperationResult GeometryUtils::splitFeatureFromRubberband( QgsVectorLayer *layer, RubberbandModel *rubberBandModel )
 {
   QgsPointSequence line = rubberBandModel->pointSequence( layer->crs(), Qgis::WkbType::Point, false );
-  return static_cast<GeometryUtils::GeometryOperationResult>( layer->splitFeatures( line, true ) );
+  if ( QgsWkbTypes::isCurvedType( layer->wkbType() ) == false )
+  {
+    return static_cast<GeometryUtils::GeometryOperationResult>( layer->splitFeatures( line, true ) );
+  }
+  else
+  {
+    QgsCompoundCurve *curve = rubberBandModel->getCompoundCurve().clone();
+    return static_cast<GeometryUtils::GeometryOperationResult>( layer->splitFeatures( curve, line, true, true ) );
+  }
 }
 
 QgsPoint GeometryUtils::coordinateToPoint( const QGeoCoordinate &coor )

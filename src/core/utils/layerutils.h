@@ -139,6 +139,11 @@ class LayerUtils : public QObject
      * Returns a feature request to get features.
      */
     Q_INVOKABLE static FeatureIterator createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression );
+
+    /**
+     * Returns TRUE if the vector \a layer geometry is a curved geometry.
+     */
+    Q_INVOKABLE static bool isCurvedGeometry( QgsVectorLayer *layer );
 };
 
 #endif // LAYERUTILS_H

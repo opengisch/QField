@@ -769,6 +769,10 @@ void FeatureModel::applyGeometry()
       geometry = deduplicatedGeometry;
   }
 
+  if ( QgsWkbTypes::isCurvedType( layer()->wkbType() ) == true )
+  {
+    geometry = geometry.convertToCurves();
+  }
   mFeature.setGeometry( geometry );
 }
 

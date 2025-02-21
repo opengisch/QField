@@ -504,7 +504,7 @@ ApplicationWindow {
               if (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Point || Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Null) {
                 digitizingToolbar.confirm();
               } else {
-                if (settings.valueBool("/QField/Digitizing/CurveEdition", false) == true) {
+                if (LayerUtils.isCurvedGeometry(currentRubberband.model.vectorLayer) == true && settings.valueBool("/QField/Digitizing/CurveEdition", false) == true) {
                   if (currentRubberband.model.isDuringCurveDrawing() == true || currentRubberband.model.vertexCount == 1) {
                     if (currentRubberband.model.vertexCount != 1) {
                       digitizingToolbar.addCurve();
@@ -1578,7 +1578,7 @@ ApplicationWindow {
           height: visible ? 40 : 0
           padding: 2
           round: true
-          visible: dashBoard.activeLayer && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)
+          visible: dashBoard.activeLayer && LayerUtils.isCurvedGeometry(dashBoard.activeLayer) == true
           iconSource: Theme.getThemeVectorIcon("ic_line_curve_24dp")
           iconColor: "white"
           bgcolor: Theme.darkGray
