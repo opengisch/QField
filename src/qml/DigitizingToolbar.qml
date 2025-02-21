@@ -242,7 +242,7 @@ QfVisibilityFadingRow {
       if (Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point || Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
         confirm();
       } else {
-        if (LayerUtils.isCurvedGeometry(rubberbandModel.vectorLayer) == true && settings.valueBool("/QField/Digitizing/CurveEdition", false) == true) {
+        if (LayerUtils.isCurvedGeometry(rubberbandModel.vectorLayer) == true && settings.valueBool("/QField/Digitizing/CurveEdition", false) == true && settings.valueBool("/QField/Digitizing/FreehandActive", false)) {
           if (currentRubberband.model.isDuringCurveDrawing() == true || currentRubberband.model.vertexCount == 1) {
             if (currentRubberband.model.vertexCount != 1) {
               addCurve();
