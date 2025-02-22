@@ -219,10 +219,14 @@ EditorWidgetBase {
     title: qsTr("Child Menu")
     z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
 
-    property int entryReferencingFeatureId: -1
+    property var entryReferencingFeature: undefined
     property string entryDisplayString: ""
-    property int entryNmReferencedFeatureId: -1
+    property var entryNmReferencedFeature: undefined
     property string entryNmReferencedFeatureDisplayMessage: ""
+
+    onAboutToShow: {
+      atlasMenuLoader.enabled = true;
+    }
 
     width: {
       let result = 50;
@@ -239,8 +243,41 @@ EditorWidgetBase {
     bottomMargin: mainWindow.sceneBottomMargin
 
     MenuItem {
-      id: deleteChildItem
-      enabled: isEnabled
+      id: copyChildFeatureAttributes
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+      icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+
+      text: qsTr("Copy Feature Attributes")
+      onTriggered: {
+        clipboardManager.copyFeatureToClipboard(childMenu.entryReferencingFeature, true);
+      }
+    }
+
+    MenuItem {
+      id: printAtlasChildFeature
+      enabled: LayerUtils.isAtlasCoverageLayer(relationEditorModel.relation.referencingLayer)
+      visible: enabled
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+      icon.source: Theme.getThemeVectorIcon("ic_print_black_24dp")
+
+      text: qsTr("Print Atlas Feature to PDF")
+      onTriggered: {
+        childMenu.close();
+        showAtlasMenu();
+      }
+    }
+
+    MenuItem {
+      id: deleteChildFeature
+      enabled: true
       visible: isActionEnabled('DeleteChildFeature')
 
       font: Theme.defaultFont
@@ -249,14 +286,110 @@ EditorWidgetBase {
       leftPadding: Theme.menuItemLeftPadding
       icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
 
-      text: qsTr("Delete Child Feature")
+      text: qsTr("Delete Feature")
       onTriggered: {
-        deleteDialog.referencingFeatureId = childMenu.entryReferencingFeatureId;
+        deleteDialog.referencingFeatureId = childMenu.entryReferencingFeature.id;
         deleteDialog.referencingFeatureDisplayMessage = childMenu.entryDisplayString;
-        deleteDialog.nmReferencedFeatureId = childMenu.entryNmReferencedFeatureId;
+        deleteDialog.nmReferencedFeatureId = childMenu.entryNmReferencedFeature.id;
         deleteDialog.nmReferencedFeatureDisplayMessage = childMenu.entryNmReferencedFeatureDisplayMessage;
         deleteDialog.visible = true;
       }
+    }
+  }
+
+  Loader {
+    id: atlasMenuLoader
+    enabled: false
+    sourceComponent: Component {
+      Menu {
+        id: atlasMenu
+
+        property alias printInstantiator: atlasListInstantiator
+        property alias printTimer: timer
+        property alias printName: timer.printName
+
+        title: qsTr("Print Atlas Feature(s)")
+
+        signal enablePrintItem(int rows)
+
+        width: {
+          let result = 50;
+          let padding = 0;
+          for (let i = 0; i < count; ++i) {
+            let item = itemAt(i);
+            result = Math.max(item.contentItem.implicitWidth, result);
+            padding = Math.max(item.leftPadding + item.rightPadding, padding);
+          }
+          return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
+        }
+
+        topMargin: mainWindow.sceneTopMargin
+        bottomMargin: mainWindow.sceneBottomMargin
+
+        MenuItem {
+          text: qsTr('Select template below')
+
+          font: Theme.defaultFont
+          height: 48
+          leftPadding: Theme.menuItemLeftPadding
+
+          enabled: false
+        }
+
+        Instantiator {
+          id: atlasListInstantiator
+
+          model: PrintLayoutListModel {
+            project: qgisProject
+            atlasCoverageLayer: relationEditorModel.relation.referencingLayer
+          }
+
+          MenuItem {
+            text: Title
+
+            font: Theme.defaultFont
+            height: 48
+            leftPadding: Theme.menuItemLeftPadding
+
+            onTriggered: {
+              displayToast(qsTr('Printing...'));
+              atlasMenu.printName = Title;
+              atlasMenu.printTimer.restart();
+            }
+          }
+          onObjectAdded: (index, object) => {
+            atlasMenu.insertItem(index + 1, object);
+          }
+          onObjectRemoved: (index, object) => {
+            atlasMenu.removeItem(object);
+          }
+        }
+
+        Timer {
+          id: timer
+
+          property string printName: ''
+
+          interval: 500
+          repeat: false
+          onTriggered: {
+            var ids = [childMenu.entryReferencingFeature.id];
+            if (iface.printAtlasFeatures(printName, ids)) {
+              displayToast(qsTr('Atlas feature(s) successfully printed and placed in your project folder'));
+            }
+          }
+        }
+      }
+    }
+  }
+
+  function showAtlasMenu() {
+    if (atlasMenuLoader.item.printInstantiator.count > 1) {
+      atlasMenuLoader.item.popup(menuButton.x + menuButton.width - atlasMenuLoader.item.width, menuButton.y);
+    } else {
+      displayToast(qsTr('Printing...'));
+      atlasMenuLoader.item.printName = atlasMenuLoader.item.printInstantiator.model.titleAt(0);
+      atlasMenuLoader.item.printTimer.restart();
     }
   }
 
