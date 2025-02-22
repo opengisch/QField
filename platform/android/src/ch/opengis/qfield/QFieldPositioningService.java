@@ -112,7 +112,7 @@ public class QFieldPositioningService extends QtService {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.v("QFieldPositioningService", "onStartCommand triggered");
 
-        if (intent.hasExtra("content")) {
+        if (intent != null && intent.hasExtra("content")) {
             ClipboardManager clipboard =
                 (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
             clipboard.setText(intent.getStringExtra("content"));
