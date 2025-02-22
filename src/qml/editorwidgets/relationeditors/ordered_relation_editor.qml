@@ -13,15 +13,17 @@ import ".."
 RelationEditorBase {
   id: relationEditor
 
+  showAllItems: true
+
   relationEditorModel: OrderedRelationModel {
     //containing the current (parent) feature, the relation to the children
     //and the relation from the children to the other parent (if it's nm and cardinality is set)
     id: orderedRelationModel
     currentRelationId: relationId
     feature: currentFeature
-    orderingField: relationEditorWidgetConfig['ordering_field']
-    imagePath: relationEditorWidgetConfig['image_path']
-    description: relationEditorWidgetConfig['description']
+    orderingField: relationEditorWidgetConfig['ordering_field'] || ""
+    imagePath: relationEditorWidgetConfig['image_path'] || ""
+    description: relationEditorWidgetConfig['description'] || ""
 
     property int featureFocus: -1
 
@@ -49,9 +51,9 @@ RelationEditorBase {
 
       anchors.left: parent ? parent.left : undefined
       anchors.right: parent ? parent.right : undefined
-      height: content.height
+      height: listitem.height
 
-      drag.target: held ? content : undefined
+      drag.target: held ? listitem : undefined
       drag.axis: Drag.YAxis
 
       onPressAndHold: {
@@ -78,20 +80,20 @@ RelationEditorBase {
       }
 
       Rectangle {
-        id: content
+        id: listitem
         anchors {
           horizontalCenter: parent.horizontalCenter
           verticalCenter: parent.verticalCenter
         }
         width: dragArea.width
-        height: row.implicitHeight + 4
+        height: row.implicitHeight
 
         Ripple {
           clip: true
           width: parent.width
           height: parent.height
           pressed: dragArea.pressed
-          anchor: content
+          anchor: listitem
           active: dragArea.pressed
           color: Material.rippleColor
         }
@@ -108,7 +110,7 @@ RelationEditorBase {
           when: dragArea.held
 
           AnchorChanges {
-            target: content
+            target: listitem
             anchors.horizontalCenter: undefined
             anchors.verticalCenter: undefined
           }
@@ -117,9 +119,9 @@ RelationEditorBase {
         Row {
           id: row
           anchors.fill: parent
-          anchors.margins: 2
-
-          height: Math.max(itemHeight, featureText.height)
+          anchors.rightMargin: 10
+          anchors.leftMargin: 10
+          height: listitem.height
 
           Image {
             id: featureImage
@@ -134,14 +136,14 @@ RelationEditorBase {
           Text {
             id: featureText
             anchors.verticalCenter: parent.verticalCenter
-            width: parent.width - 8 - (featureImage.visible ? featureImage.width : 0) - viewButton.width - moveDownButton.width - moveUpButton.width - deleteButton.width
+            width: parent.width - (featureImage.visible ? featureImage.width : 0) - viewButton.width - moveDownButton.width - moveUpButton.width - deleteButton.width
             topPadding: 5
             bottomPadding: 5
             font: Theme.defaultFont
             color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
-            text: Description || model.displayString
             elide: Text.ElideRight
             wrapMode: Text.WordWrap
+            text: Description || model.displayString
           }
 
           QfToolButton {
@@ -243,12 +245,12 @@ RelationEditorBase {
         anchors.fill: parent
         anchors.margins: 10
 
-        onEntered: {
+        onEntered: drag => {
           if (dragArea.indexFrom === -1) {
             dragArea.indexFrom = drag.source.DelegateModel.itemsIndex;
           }
           dragArea.indexTo = dragArea.DelegateModel.itemsIndex;
-          visualModel.items.move(drag.source.DelegateModel.itemsIndex, dragArea.DelegateModel.itemsIndex);
+          listView.model.items.move(drag.source.DelegateModel.itemsIndex, dragArea.DelegateModel.itemsIndex);
         }
       }
     }

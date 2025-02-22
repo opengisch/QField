@@ -19,6 +19,7 @@ EditorWidgetBase {
   property int itemHeight: 48
   property int bottomMargin: 10
   property int maximumVisibleItems: 4
+  property bool showAllItems: false
 
   Component.onCompleted: {
     if (currentLayer && currentLayer.customProperty('QFieldSync/relationship_maximum_visible') !== undefined) {
@@ -46,7 +47,7 @@ EditorWidgetBase {
     ListView {
       id: listView
       width: parent.width
-      height: maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * itemHeight, listView.count * itemHeight) + (listView.count > maximumVisibleItems ? itemHeight / 2 : 0) : listView.count * itemHeight
+      height: !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * itemHeight, listView.count * itemHeight) + (listView.count > maximumVisibleItems ? itemHeight / 2 : 0) : listView.count * itemHeight
       focus: true
       clip: true
       highlightRangeMode: ListView.ApplyRange
