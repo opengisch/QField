@@ -223,9 +223,9 @@ RelationEditorBase {
 
             onClicked: {
               //var gc = mapToItem(mainWindow, 0, 0);
-              childMenu.entryReferencingFeatureId = model.referencingFeature.id;
+              childMenu.entryReferencingFeature = model.referencingFeature;
               childMenu.entryDisplayString = model.displayString;
-              childMenu.entryNmReferencedFeatureId = nmRelationId ? model.model.nmReferencedFeature.id : 0;
+              childMenu.entryNmReferencedFeature = nmRelationId ? model.model.nmReferencedFeature : undefined;
               childMenu.entryNmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : '';
               childMenu.popup(menuButton.x, menuButton.y);
             }
