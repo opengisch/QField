@@ -1,14 +1,9 @@
 import QtQuick
 import QtQuick.Controls
-import QtQml.Models
-import QtQuick.Layouts
-import QtQuick.Controls.Material
-import QtQuick.Controls.Material.impl
 import org.qfield
 import org.qgis
 import Theme
-import "../.."
-import ".."
+import "../"
 
 EditorWidgetBase {
   id: relationEditorBase
@@ -60,7 +55,7 @@ EditorWidgetBase {
       anchors.bottom: parent.bottom
       height: itemHeight
       width: parent.width
-      visible: isButtonEnabled('AddChildFeature')
+      visible: isActionEnabled('AddChildFeature')
 
       focus: true
 
@@ -219,7 +214,53 @@ EditorWidgetBase {
     }
   }
 
-  function isButtonEnabled(buttonType) {
+  property Menu childMenu: Menu {
+    id: childMenu
+    title: qsTr("Child Menu")
+    z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
+
+    property int entryReferencingFeatureId: -1
+    property string entryDisplayString: ""
+    property int entryNmReferencedFeatureId: -1
+    property string entryNmReferencedFeatureDisplayMessage: ""
+
+    width: {
+      let result = 50;
+      let padding = 0;
+      for (var i = 0; i < count; ++i) {
+        let item = itemAt(i);
+        result = Math.max(item.contentItem.implicitWidth, result);
+        padding = Math.max(item.leftPadding + item.rightPadding, padding);
+      }
+      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
+    }
+
+    topMargin: mainWindow.sceneTopMargin
+    bottomMargin: mainWindow.sceneBottomMargin
+
+    MenuItem {
+      id: deleteChildItem
+      enabled: isEnabled
+      visible: isActionEnabled('DeleteChildFeature')
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+      icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
+
+      text: qsTr("Delete Child Feature")
+      onTriggered: {
+        deleteDialog.referencingFeatureId = childMenu.entryReferencingFeatureId;
+        deleteDialog.referencingFeatureDisplayMessage = childMenu.entryDisplayString;
+        deleteDialog.nmReferencedFeatureId = childMenu.entryNmReferencedFeatureId;
+        deleteDialog.nmReferencedFeatureDisplayMessage = childMenu.entryNmReferencedFeatureDisplayMessage;
+        deleteDialog.visible = true;
+      }
+    }
+  }
+
+  function isActionEnabled(buttonType) {
     const buttons = relationEditorWidgetConfig.buttons;
     if (buttons === undefined)
       return true;

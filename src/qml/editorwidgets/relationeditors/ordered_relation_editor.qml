@@ -136,7 +136,7 @@ RelationEditorBase {
           Text {
             id: featureText
             anchors.verticalCenter: parent.verticalCenter
-            width: parent.width - (featureImage.visible ? featureImage.width : 0) - viewButton.width - moveDownButton.width - moveUpButton.width - deleteButton.width
+            width: parent.width - (featureImage.visible ? featureImage.width : 0) - viewButton.width - moveDownButton.width - moveUpButton.width - menuButton.width
             topPadding: 5
             bottomPadding: 5
             font: Theme.defaultFont
@@ -211,23 +211,23 @@ RelationEditorBase {
           }
 
           QfToolButton {
-            id: deleteButton
+            id: menuButton
             anchors.verticalCenter: parent.verticalCenter
-            visible: isEnabled
-            width: visible ? 48 : 0
+            width: 48
             height: 48
 
             round: false
-            iconSource: Theme.getThemeVectorIcon('ic_delete_forever_white_24dp')
+            iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
             iconColor: Theme.mainTextColor
             bgcolor: 'transparent'
 
             onClicked: {
-              deleteDialog.referencingFeatureId = model.referencingFeature.id;
-              deleteDialog.referencingFeatureDisplayMessage = model.displayString;
-              deleteDialog.nmReferencedFeatureId = nmRelationId ? model.model.nmReferencedFeature.id : 0;
-              deleteDialog.nmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : '';
-              deleteDialog.visible = true;
+              //var gc = mapToItem(mainWindow, 0, 0);
+              childMenu.entryReferencingFeatureId = model.referencingFeature.id;
+              childMenu.entryDisplayString = model.displayString;
+              childMenu.entryNmReferencedFeatureId = nmRelationId ? model.model.nmReferencedFeature.id : 0;
+              childMenu.entryNmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : '';
+              childMenu.popup(menuButton.x, menuButton.y);
             }
           }
         }
