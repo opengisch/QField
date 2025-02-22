@@ -176,12 +176,15 @@ EditorWidgetBase {
     property string nmReferencingLayerName
 
     z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
-    title: nmRelationId ? qsTr('Unlink feature %1 (%2) of %3').arg(nmReferencedFeatureDisplayMessage).arg(nmReferencedFeatureId).arg(nmReferencedLayerName) : qsTr('Delete feature %1 (%2) on %3').arg(referencingFeatureDisplayMessage).arg(referencingFeatureId).arg(referencingLayerName)
+    title: nmRelationId ? qsTr('Unlink Feature') : qsTr('Delete Feature')
+
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
       text: nmRelationId ? qsTr('Should the feature <b>%1 (%2)</b> of layer <b>%3</b> be unlinked?<br><i>(The connection will be deleted on layer <b>%4</b>)</i>').arg(deleteDialog.nmReferencedFeatureDisplayMessage).arg(deleteDialog.nmReferencedFeatureId).arg(deleteDialog.nmReferencedLayerName).arg(deleteDialog.referencingLayerName) : qsTr('Should the feature <b>%1 (%2)</b> on layer <b>%3</b> be deleted?').arg(deleteDialog.referencingFeatureDisplayMessage).arg(deleteDialog.referencingFeatureId).arg(deleteDialog.referencingLayerName)
+      font: Theme.defaultFont
     }
+
     onAccepted: {
       if (!relationEditorModel || !relationEditorModel.deleteFeature(referencingFeatureId)) {
         displayToast(qsTr("Failed to delete referencing feature"), 'error');
@@ -290,7 +293,7 @@ EditorWidgetBase {
       onTriggered: {
         deleteDialog.referencingFeatureId = childMenu.entryReferencingFeature.id;
         deleteDialog.referencingFeatureDisplayMessage = childMenu.entryDisplayString;
-        deleteDialog.nmReferencedFeatureId = childMenu.entryNmReferencedFeature.id;
+        deleteDialog.nmReferencedFeatureId = childMenu.entryNmReferencedFeature !== undefined ? childMenu.entryNmReferencedFeature.id : 0;
         deleteDialog.nmReferencedFeatureDisplayMessage = childMenu.entryNmReferencedFeatureDisplayMessage;
         deleteDialog.visible = true;
       }
