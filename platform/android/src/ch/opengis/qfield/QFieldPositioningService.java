@@ -156,11 +156,17 @@ public class QFieldPositioningService extends QtService {
 
         Notification notification = builder.build();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            startForeground(NOTIFICATION_ID, notification,
-                            ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION);
-        } else {
-            startForeground(NOTIFICATION_ID, notification);
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                startForeground(NOTIFICATION_ID, notification,
+                                ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION);
+            } else {
+                startForeground(NOTIFICATION_ID, notification);
+            }
+        } catch (SecurityException e) {
+            Log.v("QFieldPositioningService",
+                  "Missing permission to launch the positioning service");
+            return START_NOT_STICKY;
         }
 
         return START_STICKY;
