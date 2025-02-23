@@ -205,7 +205,14 @@ void Tracker::positionReceived()
     QgsDistanceArea distanceArea;
     distanceArea.setEllipsoid( QgsProject::instance()->ellipsoid() );
     distanceArea.setSourceCrs( QgsProject::instance()->crs(), QgsProject::instance()->transformContext() );
-    mCurrentDistance = distanceArea.measureLine( flatPoints );
+    try
+    {
+      mCurrentDistance = distanceArea.measureLine( flatPoints );
+    }
+    catch ( const QgsException & )
+    {
+      mCurrentDistance = 0.0;
+    }
   }
 
   if ( !qgsDoubleNear( mMinimumDistance, 0.0 ) )

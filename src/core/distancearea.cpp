@@ -138,10 +138,20 @@ void DistanceArea::setGeometry( Geometry *geometry )
 
 qreal DistanceArea::length() const
 {
+  double length = std::numeric_limits<double>::quiet_NaN();
   if ( mRubberbandModel )
-    return mDistanceArea.measureLine( mRubberbandModel->flatPointSequence( mCrs ) );
+  {
+    try
+    {
+      length = mDistanceArea.measureLine( mRubberbandModel->flatPointSequence( mCrs ) );
+    }
+    catch ( const QgsException & )
+    {
+      length = std::numeric_limits<double>::quiet_NaN();
+    }
+  }
 
-  return qQNaN();
+  return length;
 }
 
 bool DistanceArea::lengthValid() const
@@ -197,10 +207,20 @@ bool DistanceArea::perimeterValid() const
 
 qreal DistanceArea::area() const
 {
+  double area = std::numeric_limits<double>::quiet_NaN();
   if ( mRubberbandModel )
-    return mDistanceArea.measurePolygon( mRubberbandModel->flatPointSequence( mCrs ) );
+  {
+    try
+    {
+      area = mDistanceArea.measurePolygon( mRubberbandModel->flatPointSequence( mCrs ) );
+    }
+    catch ( const QgsException & )
+    {
+      area = std::numeric_limits<double>::quiet_NaN();
+    }
+  }
 
-  return qQNaN();
+  return area;
 }
 
 bool DistanceArea::areaValid() const
@@ -242,7 +262,16 @@ qreal DistanceArea::segmentLength() const
   pointIt--;
   flatPoints << *pointIt;
 
-  return mDistanceArea.measureLine( flatPoints );
+  double length = std::numeric_limits<double>::quiet_NaN();
+  try
+  {
+    length = mDistanceArea.measureLine( flatPoints );
+  }
+  catch ( const QgsException & )
+  {
+    length = std::numeric_limits<double>::quiet_NaN();
+  }
+  return length;
 }
 
 qreal DistanceArea::azimuth() const
