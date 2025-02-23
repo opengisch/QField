@@ -103,7 +103,7 @@ function(create_executable)
   qt_import_plugins(${exe_TARGET} INCLUDE Qt::QSvgPlugin)
   qt_import_plugins(${exe_TARGET} INCLUDE Qt::Core5Compat)
 
-  if(IOS)
+  if(IOS OR CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     target_link_libraries(
       ${exe_TARGET}
       PUBLIC Qt6::QDarwinCameraPermissionPlugin
@@ -121,6 +121,9 @@ function(create_executable)
 
   set_target_properties(${exe_TARGET} PROPERTIES AUTORCC TRUE)
   if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+    # Handles platform-specific tasks, including insuring permission plugins
+    qt_finalize_executable(qfield)
+
     set_target_properties(
       ${exe_TARGET}
       PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME "${PROJECT_NAME}"
