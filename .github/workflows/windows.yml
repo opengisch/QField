@@ -86,14 +86,14 @@ jobs:
                 -D ENABLE_TESTS=ON \
                 -D NUGET_USERNAME=opengisch \
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
-                -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
-                -D SENTRY_ENV="${APP_ENV}" \
                 -D CMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded\$<\$<CONFIG:Debug>:Debug>" \
                 -D PKG_CONFIG_EXECUTABLE=${CMAKE_BUILD_DIR}/vcpkg_installed/x64-windows-static/tools/pkgconf/pkgconf.exe \
                 -D WITH_BLUETOOTH=ON \
                 -D VCPKG_INSTALL_OPTIONS="--x-buildtrees-root=C:/src" \
                 -D CMAKE_COMPILE_WARNING_AS_ERROR=ON \
                 ${EXTRA_CMAKE_ARGS}
+#                -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
+#                -D SENTRY_ENV="${APP_ENV}" \
 
       - name: 📑 Upload dep build logs
         uses: actions/upload-artifact@v4
@@ -198,14 +198,14 @@ jobs:
         run: |
           bundle exec fastlane windows upload_s3 exe:${{ env.ARTIFACT_PATHNAME }}
 
-      - name: 📮 Upload debug symbols
-        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_ORG_SLUG: opengisch
-          SENTRY_PROJECT_SLUG: qfield
-        run: |
-          bundle exec fastlane run sentry_debug_files_upload path:${{ env.CMAKE_BUILD_DIR }}
+      # - name: 📮 Upload debug symbols
+      #   if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
+      #   env:
+      #     SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      #     SENTRY_ORG_SLUG: opengisch
+      #     SENTRY_PROJECT_SLUG: qfield
+      #   run: |
+      #     bundle exec fastlane run sentry_debug_files_upload path:${{ env.CMAKE_BUILD_DIR }}
 
   deploy:
     name: deploy (ms store)
