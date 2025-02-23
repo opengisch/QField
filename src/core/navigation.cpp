@@ -273,7 +273,16 @@ void Navigation::updateDetails()
   const QgsPoint destinationPoint = destination();
   const bool handleZ = QgsWkbTypes::hasZ( mLocation.wkbType() )
                        && QgsWkbTypes::hasZ( destinationPoint.wkbType() );
-  mDistance = mDa.measureLine( mLocation, destinationPoint );
+
+  try
+  {
+    mDistance = mDa.measureLine( mLocation, destinationPoint );
+  }
+  catch ( const QgsException & )
+  {
+    mDistance = 0.0;
+  }
+
   if ( handleZ )
   {
     mVerticalDistance = destinationPoint.z() - mLocation.z();
