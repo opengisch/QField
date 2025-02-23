@@ -46,9 +46,18 @@ ApplicationWindow {
   Material.theme: Theme.darkTheme ? "Dark" : "Light"
   Material.accent: Theme.mainColor
 
+  property bool sceneLoaded: false
   property bool sceneBorderless: false
   property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
   property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]
+
+  onSceneLoadedChanged: {
+    // This requires the scene to be fully loaded not to crash due to possibility of
+    // a thread blocking permission request being thrown
+    if (positioningSettings.positioningActivated) {
+      positionSource.active = true;
+    }
+  }
 
   Timer {
     id: refreshSceneMargins
@@ -384,11 +393,13 @@ ApplicationWindow {
     objectName: "positioningSettings"
 
     onPositioningActivatedChanged: {
-      if (positioningActivated) {
-        displayToast(qsTr("Activating positioning service"));
-        positionSource.active = true;
-      } else {
-        positionSource.active = false;
+      if (mainWindow.sceneLoaded) {
+        if (positioningActivated) {
+          displayToast(qsTr("Activating positioning service"));
+          positionSource.active = true;
+        } else {
+          positionSource.active = false;
+        }
       }
     }
   }
