@@ -688,6 +688,7 @@ void QgisMobileapp::onAfterFirstRendering()
         }
       }
     }
+    rootObjects().first()->setProperty( "sceneLoaded", true );
     mFirstRenderingFlag = false;
   }
 }
