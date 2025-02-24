@@ -121,6 +121,11 @@ function(create_executable)
 
   set_target_properties(${exe_TARGET} PROPERTIES AUTORCC TRUE)
   if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+    # Set to match CPACK_BUNDLE_PLIST value
+    set_target_properties(
+      ${exe_TARGET} PROPERTIES MACOSX_BUNDLE_INFO_PLIST
+                               "${CMAKE_BINARY_DIR}/Info.plist")
+
     # Handles platform-specific tasks, including insuring permission plugins
     qt_finalize_executable(qfield)
 
