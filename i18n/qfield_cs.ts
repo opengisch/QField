@@ -328,10 +328,6 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>Unknown error</source>
         <translation type="vanished">Neznámá chyba</translation>
     </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>Bluetooth povolení odmítnuto</translation>
-    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -352,7 +348,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Color</source>
-        <translation>Barva</translation>
+        <translation type="vanished">Barva</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -509,8 +505,8 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <translation>Map Téma</translation>
     </message>
     <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>Dokončete nebo vypněte funkci digitalizace před přepnutím do režimu prohlížení.</translation>
+        <source>Project Folder</source>
+        <translation>Složka projektu</translation>
     </message>
 </context>
 <context>
@@ -813,6 +809,54 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
         <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -1148,13 +1192,6 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
 </context>
 <context>
-    <name>InternalGnssReceiver</name>
-    <message>
-        <source>Location permission denied</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
@@ -1331,10 +1368,6 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation>Tato vrstva právě nese trasování polohy zařízení.</translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Tato vrstva je neplatná. Může to být způsobeno problémem se sítí, chybějícím souborem nebo nesprávnou konfigurací projektu.</translation>
     </message>
@@ -1345,6 +1378,18 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Tato vrstva je nakonfigurována jako „Uzamknout geometrii“, která zakazuje přidávání a mazání prvků, jakož i úpravu geometrie existujících prvků.</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>Trasa na vrstvě %1 se zastavila</translation>
     </message>
 </context>
 <context>
@@ -1643,6 +1688,10 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <source>Process Selected Feature(s)</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
@@ -1685,13 +1734,6 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Bearing</source>
         <translation>Směrník</translation>
-    </message>
-</context>
-<context>
-    <name>NmeaGnssReceiver</name>
-    <message>
-        <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1801,6 +1843,18 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
         <translation>Zvukové soubory (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
+    </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>Potvrzení odstranění</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1963,15 +2017,15 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Name:</source>
-        <translation>Název:</translation>
+        <translation type="vanished">Název:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>Nechte prázdné pro automatické vyplnění</translation>
+        <translation type="vanished">Nechte prázdné pro automatické vyplnění</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>Druh připojení:</translation>
+        <translation type="vanished">Druh připojení:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -1995,6 +2049,22 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Název</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2371,6 +2441,10 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Další informace o QFieldCloudu</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -2758,11 +2832,11 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Moje projekty</translation>
+        <translation>Moje projekty</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Komunita</translation>
+        <translation>Komunita</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2959,7 +3033,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation>Odstranit složku projektu</translation>
+        <translation type="vanished">Odstranit složku projektu</translation>
     </message>
     <message>
         <source>Import project from folder</source>
@@ -3002,10 +3076,6 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Push to QFieldCloud...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
@@ -3019,6 +3089,133 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Heslo</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>(root folder)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported and available locally</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QFieldPositioningService</name>
+    <message>
+        <source>Positioning service running</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3554,6 +3751,13 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>zavřít</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3576,7 +3780,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>zavřít</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3618,6 +3822,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map printed on %1 using QField</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3811,11 +4019,19 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Adresa:</translation>
+        <translation type="vanished">Adresa:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4184,11 +4400,19 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Adresa:</translation>
+        <translation type="vanished">Adresa:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4272,6 +4496,17 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Failed to save feature!</source>
         <translation type="vanished">Nepodařilo se uložit prvek!</translation>
+    </message>
+</context>
+<context>
+    <name>WebdavConnection</name>
+    <message>
+        <source>Failed to download file %1 due to network error (%2)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to upload file %1 due to network error (%2)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4382,6 +4617,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Return to map</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4570,11 +4809,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Získávání polohy</translation>
+        <translation type="vanished">Získávání polohy</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Získávání polohy</translation>
+        <translation type="vanished">Získávání polohy</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
@@ -4614,7 +4853,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Tisk do PDF</translation>
+        <translation type="vanished">Tisk do PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4917,15 +5156,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No print layout available</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4942,7 +5173,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Složka projektu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -4987,10 +5218,6 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <message>
         <source>Import URL failed</source>
         <translation>Import URL selhal</translation>
-    </message>
-    <message>
-        <source>Unlock the screen to to close project and app</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
@@ -5064,6 +5291,62 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation>Dokončete nebo vypněte funkci digitalizace před přepnutím do režimu prohlížení.</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normální</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Velké</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance set to %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -5109,41 +5392,6 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>tst_qFieldGuide</name>
-    <message>
-        <source>dummyItem1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem1 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem2 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem3</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem3 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem4</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem4 responsibility.</source>
         <translation type="unfinished"/>
     </message>
 </context>

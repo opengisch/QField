@@ -15,6 +15,9 @@ Page {
 
   signal finished
 
+  visible: false
+  focus: visible
+
   header: QfPageHeader {
     title: qsTr('Message Logs')
 
@@ -149,8 +152,8 @@ Page {
   QfDialog {
     id: applicationLogDialog
     title: qsTr("Send application log")
-    focus: true
-    y: (mainWindow.height - height - 80) / 2
+    focus: visible
+    parent: mainWindow.contentItem
 
     onAboutToShow: {
       appliationLogInput.text = '';
@@ -176,7 +179,7 @@ Page {
         color: Theme.mainTextColor
       }
 
-      QfTextField {
+      TextField {
         id: appliationLogInput
         width: applicationLogLabel.width
         placeholderText: qsTr("Type optional details")
@@ -217,5 +220,12 @@ Page {
   onVisibleChanged: {
     if (visible)
       unreadMessages = false;
+  }
+
+  Keys.onReleased: event => {
+    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+      event.accepted = true;
+      visible = false;
+    }
   }
 }

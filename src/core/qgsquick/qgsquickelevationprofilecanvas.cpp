@@ -672,7 +672,6 @@ void QgsQuickElevationProfileCanvas::zoomFullInRatio()
   const QgsDoubleRange zRange = mCurrentJob->zRange();
   double xLength = mProfileCurve.get()->length();
   double yLength = zRange.upper() - zRange.lower();
-  qDebug() << yLength;
   if ( yLength < 0.0 )
   {
     // invalid range, e.g. no features found in plot!
@@ -689,11 +688,8 @@ void QgsQuickElevationProfileCanvas::zoomFullInRatio()
     double xInRatioLength = yLength * mPlotItem->size().width() / mPlotItem->size().height();
     if ( yInRatioLength > yLength )
     {
-      qDebug() << "yInRatioLength";
       mPlotItem->setYMinimum( zRange.lower() - ( yInRatioLength / 2 ) );
-      qDebug() << mPlotItem->yMinimum();
       mPlotItem->setYMaximum( zRange.upper() + ( yInRatioLength / 2 ) );
-      qDebug() << mPlotItem->yMaximum();
 
       mPlotItem->setXMinimum( 0 );
       // just 2% margin to max distance -- any more is overkill and wasted space
@@ -701,13 +697,10 @@ void QgsQuickElevationProfileCanvas::zoomFullInRatio()
     }
     else
     {
-      qDebug() << "xInRatioLength";
       // add 5% margin to height range
       const double margin = yLength * 0.05;
       mPlotItem->setYMinimum( zRange.lower() - margin );
-      qDebug() << mPlotItem->yMinimum();
       mPlotItem->setYMaximum( zRange.upper() + margin );
-      qDebug() << mPlotItem->yMaximum();
 
       mPlotItem->setXMinimum( 0 - ( xInRatioLength / 2 ) );
       mPlotItem->setXMaximum( xLength + ( xInRatioLength / 2 ) );

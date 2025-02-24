@@ -19,7 +19,7 @@ QfVisibilityFadingRow {
 
   function canvasClicked(point, type) {
     if (type === "stylus") {
-      if (settings.valueBool("/QField/Digitizing/CurveEdition", false) == true) {
+      if (LayerUtils.isCurvedGeometry(featureModel.currentLayer) == true && settings.valueBool("/QField/Digitizing/CurveEdition", false) == true) {
         if (drawPolygonToolbar.rubberbandModel.isDuringCurveDrawing() == true || drawPolygonToolbar.rubberbandModel.vertexCount == 1) {
           if (drawPolygonToolbar.rubberbandModel.vertexCount != 1) {
             drawPolygonToolbar.addCurve();

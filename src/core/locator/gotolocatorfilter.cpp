@@ -206,7 +206,7 @@ void GotoLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result,
   {
     mLocatorBridge->mapSettings()->setCenter( geom.vertexAt( 0 ), true );
 
-    mLocatorBridge->locatorHighlightGeometry()->setProperty( "qgsGeometry", geom );
-    mLocatorBridge->locatorHighlightGeometry()->setProperty( "crs", mLocatorBridge->mapSettings()->mapSettings().destinationCrs() );
+    mLocatorBridge->geometryHighlighter()->setProperty( "qgsGeometry", geom );
+    mLocatorBridge->geometryHighlighter()->setProperty( "crs", mLocatorBridge->mapSettings()->mapSettings().destinationCrs() );
   }
 }

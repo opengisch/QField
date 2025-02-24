@@ -98,11 +98,17 @@ def test_start_app(app, screenshot_path, extra, process_alive):
 
     time.sleep(1)
 
+    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
+
     app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "startup.png"))
     assert process_alive()
     extra.append(extras.html('<img src="images/startup.png"/>'))
 
 
+@pytest.mark.skipif(
+    platform.system() != "Linux",
+    reason="PostGIS test requires a docker linux container",
+)
 @pytest.mark.project_file("test_wms.qgz")
 def test_wms_layer(app, screenshot_path, screenshot_check, extra, process_alive):
     """
@@ -110,8 +116,6 @@ def test_wms_layer(app, screenshot_path, screenshot_check, extra, process_alive)
     This also tests that QField is able to reach QGIS's crucial srs.db.
     """
     assert app.existsAndVisible("mainWindow")
-
-    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
 
     # Arbitrary wait period to insure project fully loaded and rendered
     time.sleep(4)
@@ -232,6 +236,10 @@ def test_svg(app, screenshot_path, screenshot_check, extra, process_alive):
     assert screenshot_check("test_svg", "test_svg", 0.025)
 
 
+@pytest.mark.skipif(
+    platform.system() != "Linux",
+    reason="PostGIS test requires a docker linux container",
+)
 @pytest.mark.project_file("test_postgis_ssl.qgz")
 def test_postgis_ssl(app, screenshot_path, screenshot_check, extra, process_alive):
     """

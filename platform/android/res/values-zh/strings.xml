@@ -63,4 +63,7 @@
     <string name="import_operation_unsupported">您的设备不支持此导入操作。</string>
     <string name="export_operation_unsupported">您的设备不支持此导出操作。</string>
     <string name="processing_message">数据处理…</string>
+    <string name="positioning_title">定位</string>
+    <string name="positioning_running">定位服务正在运行</string>
+    <string name="copy_to_clipboard">复制到剪贴板</string>
 </resources>

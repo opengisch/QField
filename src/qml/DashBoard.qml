@@ -13,9 +13,14 @@ Drawer {
   id: dashBoard
   objectName: "dashBoard"
 
-  signal showMenu
-  signal showCloudMenu
+  signal showMainMenu(point p)
+  signal showPrintLayouts(point p)
+  signal showCloudPopup
+  signal showProjectFolder
+  signal toggleMeasurementTool
+  signal returnHome
 
+  property bool allowInteractive: true
   property alias allowActiveLayerChange: legend.allowActiveLayerChange
   property alias activeLayer: legend.activeLayer
   property alias layerTree: legend.model
@@ -29,24 +34,18 @@ Drawer {
     }
   }
 
-  onOpened: {
-    contentItem.forceActiveFocus();
-  }
-
-  width: Math.min(300, mainWindow.width)
+  width: Math.min(Math.max(330, closeButton.width + buttonsRow.width + menuButton.width), mainWindow.width)
   height: parent.height
   edge: Qt.LeftEdge
   dragMargin: 10
   padding: 0
+  interactive: allowInteractive && buttonsRowContainer.width >= buttonsRow.width
 
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
 
   position: 0
-  focus: opened
+  focus: visible
   clip: true
-
-  onShowMenu: mainMenu.popup(settingsButton.x + 2, mainWindow.sceneTopMargin + settingsButton.y + 2)
-  onShowCloudMenu: qfieldCloudPopup.show()
 
   onActiveLayerChanged: {
     if (activeLayer && activeLayer.readOnly && stateMachine.state == "digitize")
@@ -68,174 +67,171 @@ Drawer {
     anchors.fill: parent
 
     Rectangle {
-      height: mainWindow.sceneTopMargin + Math.max(buttonsRow.height, buttonsRow.childrenRect.height)
+      height: mainWindow.sceneTopMargin + Math.max(buttonsRow.height + 8, buttonsRow.childrenRect.height)
       Layout.fillWidth: true
       Layout.preferredHeight: height
 
       color: mainColor
 
-      Row {
-        id: buttonsRow
-        anchors.top: parent.top
+      QfToolButton {
+        id: closeButton
         anchors.left: parent.left
-        anchors.topMargin: mainWindow.sceneTopMargin
-        width: parent.width
-        height: 56
-        spacing: 1
+        anchors.verticalCenter: buttonsRowContainer.verticalCenter
+        iconSource: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
+        iconColor: Theme.mainOverlayColor
+        bgcolor: "transparent"
+        onClicked: close()
+      }
 
-        QfToolButton {
-          id: closeButton
-          anchors.verticalCenter: parent.verticalCenter
-          iconSource: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
-          bgcolor: "transparent"
-          onClicked: close()
+      Flickable {
+        id: buttonsRowContainer
+        anchors.left: closeButton.right
+        anchors.right: menuButton.left
+        anchors.top: parent.top
+        anchors.topMargin: mainWindow.sceneTopMargin + 4
+        anchors.bottomMargin: 4
+        height: buttonsRow.height
+        contentWidth: buttonsRow.width
+        contentHeight: buttonsRow.height
+        flickableDirection: Flickable.HorizontalFlick
+        clip: true
+
+        ScrollBar.horizontal: QfScrollBar {
+          visible: !dashBoard.interactive
+          color: Theme.mainOverlayColor
+          backgroundColor: Theme.mainColor
+          _minSize: 2
+          _maxSize: 2
         }
 
-        QfToolButton {
-          id: settingsButton
-          anchors.verticalCenter: parent.verticalCenter
-          iconSource: Theme.getThemeVectorIcon('ic_settings_white_24dp')
-          bgcolor: "transparent"
-          onClicked: showMenu()
-        }
+        Row {
+          id: buttonsRow
+          objectName: "dashboardActionsToolbar"
+          height: 48
+          spacing: 1
 
-        QfToolButton {
-          id: cloudButton
-          anchors.verticalCenter: parent.verticalCenter
-          iconSource: {
-            if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-              switch (cloudProjectsModel.currentProjectData.Status) {
-              case QFieldCloudProjectsModel.Downloading:
-                switch (cloudProjectsModel.currentProjectData.PackagingStatus) {
-                case QFieldCloudProjectsModel.PackagingFinishedStatus:
-                  return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
+          QfToolButton {
+            id: measurementButton
+            anchors.verticalCenter: parent.verticalCenter
+            round: true
+            iconSource: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
+            iconColor: Theme.mainOverlayColor
+            bgcolor: "transparent"
+            onClicked: {
+              toggleMeasurementTool();
+              highlighted = false;
+            }
+          }
+
+          QfToolButton {
+            id: printItem
+            anchors.verticalCenter: parent.verticalCenter
+            round: true
+            iconSource: Theme.getThemeVectorIcon("ic_print_black_24dp")
+            iconColor: Theme.mainOverlayColor
+            onClicked: {
+              const p = mapToItem(mainWindow.contentItem, 0, 0);
+              showPrintLayouts(p);
+              highlighted = false;
+            }
+          }
+
+          QfToolButton {
+            id: cloudButton
+            anchors.verticalCenter: parent.verticalCenter
+            iconSource: {
+              if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+                switch (cloudProjectsModel.currentProjectData.Status) {
+                case QFieldCloudProjectsModel.Downloading:
+                  switch (cloudProjectsModel.currentProjectData.PackagingStatus) {
+                  case QFieldCloudProjectsModel.PackagingFinishedStatus:
+                    return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
+                  default:
+                    return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                  }
+                case QFieldCloudProjectsModel.Uploading:
+                  switch (cloudProjectsModel.currentProjectData.UploadDeltaStatus) {
+                  case QFieldCloudProjectsModel.DeltaFileLocalStatus:
+                    return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
+                  default:
+                    return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                  }
+                case QFieldCloudProjectsModel.Idle:
+                  return cloudProjectsModel.currentProjectData.ProjectFileOutdated ? Theme.getThemeVectorIcon('ic_cloud_attention_24dp') : Theme.getThemeVectorIcon('ic_cloud_active_24dp');
                 default:
-                  return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                  return Theme.getThemeVectorIcon('ic_cloud_white_24dp');
                 }
-              case QFieldCloudProjectsModel.Uploading:
-                switch (cloudProjectsModel.currentProjectData.UploadDeltaStatus) {
-                case QFieldCloudProjectsModel.DeltaFileLocalStatus:
-                  return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
-                default:
-                  return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
-                }
-              case QFieldCloudProjectsModel.Idle:
-                return cloudProjectsModel.currentProjectData.ProjectFileOutdated ? Theme.getThemeVectorIcon('ic_cloud_attention_24dp') : Theme.getThemeVectorIcon('ic_cloud_active_24dp');
-              default:
-                Theme.getThemeVectorIcon('ic_cloud_24dp');
+              } else {
+                return Theme.getThemeVectorIcon('ic_cloud_white_24dp');
               }
-            } else {
-              return Theme.getThemeVectorIcon('ic_cloud_24dp');
+            }
+            iconColor: {
+              if (iconSource === Theme.getThemeVectorIcon('ic_cloud_white_24dp')) {
+                return Theme.mainOverlayColor;
+              } else {
+                return "transparent";
+              }
+            }
+            bgcolor: "transparent"
+
+            onClicked: {
+              if (featureForm.state == "FeatureFormEdit") {
+                featureForm.requestCancel();
+                return;
+              }
+              if (featureForm.visible) {
+                featureForm.hide();
+              }
+              showCloudPopup();
+            }
+            bottomRightIndicatorText: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 ? cloudProjectsModel.layerObserver.deltaFileWrapper.count : cloudProjectsModel.layerObserver.deltaFileWrapper.count >= 10 ? '+' : ''
+
+            SequentialAnimation {
+              OpacityAnimator {
+                from: 1
+                to: 0.2
+                duration: 2000
+                target: cloudButton
+              }
+              OpacityAnimator {
+                from: 0.2
+                to: 1
+                duration: 2000
+                target: cloudButton
+              }
+              running: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
+              loops: Animation.Infinite
+
+              onStopped: {
+                cloudButton.opacity = 1;
+              }
             }
           }
-          bgcolor: "transparent"
 
-          onClicked: {
-            if (featureForm.state == "FeatureFormEdit") {
-              featureForm.requestCancel();
-              return;
-            }
-            if (featureForm.visible) {
-              featureForm.hide();
-            }
-            showCloudMenu();
-          }
-          bottomRightIndicatorText: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 ? cloudProjectsModel.layerObserver.deltaFileWrapper.count : cloudProjectsModel.layerObserver.deltaFileWrapper.count >= 10 ? '+' : ''
-
-          SequentialAnimation {
-            OpacityAnimator {
-              from: 1
-              to: 0.2
-              duration: 2000
-              target: cloudButton
-            }
-            OpacityAnimator {
-              from: 0.2
-              to: 1
-              duration: 2000
-              target: cloudButton
-            }
-            running: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
-            loops: Animation.Infinite
-            onStopped: {
-              cloudButton.opacity = 1;
+          QfToolButton {
+            text: qsTr("Project Folder")
+            anchors.verticalCenter: parent.verticalCenter
+            font: Theme.defaultFont
+            iconSource: Theme.getThemeVectorIcon("ic_project_folder_black_24dp")
+            iconColor: Theme.mainOverlayColor
+            round: true
+            onClicked: {
+              showProjectFolder();
             }
           }
         }
       }
 
-      Switch {
-        id: modeSwitch
-        visible: projectInfo.insertRights
-        height: 56
-        width: (56 + 36)
+      QfToolButton {
+        id: menuButton
         anchors.right: parent.right
-        anchors.verticalCenter: buttonsRow.verticalCenter
-        indicator: Rectangle {
-          implicitHeight: 36
-          implicitWidth: 36 * 2
-          x: modeSwitch.leftPadding
-          radius: 4
-          color: "#66212121"
-          border.color: "#44FFFFFF"
-          anchors.verticalCenter: parent.verticalCenter
-          Image {
-            width: 28
-            height: 28
-            anchors.left: parent.left
-            anchors.leftMargin: 4
-            anchors.verticalCenter: parent.verticalCenter
-            source: Theme.getThemeVectorIcon('ic_map_white_24dp')
-            sourceSize.width: parent.height * screen.devicePixelRatio
-            sourceSize.height: parent.width * screen.devicePixelRatio
-            opacity: 0.4
-          }
-          Image {
-            width: 28
-            height: 28
-            anchors.right: parent.right
-            anchors.rightMargin: 4
-            anchors.verticalCenter: parent.verticalCenter
-            source: Theme.getThemeVectorIcon('ic_create_white_24dp')
-            sourceSize.width: parent.height * screen.devicePixelRatio
-            sourceSize.height: parent.width * screen.devicePixelRatio
-            opacity: 0.4
-          }
-          Rectangle {
-            x: modeSwitch.checked ? parent.width - width : 0
-            width: 36
-            height: 36
-            radius: 4
-            color: Theme.mainColor
-            border.color: "white"
-            Image {
-              width: 28
-              height: 28
-              anchors.centerIn: parent
-              source: modeSwitch.checked ? Theme.getThemeVectorIcon('ic_create_white_24dp') : Theme.getThemeVectorIcon('ic_map_white_24dp')
-              sourceSize.width: parent.height * screen.devicePixelRatio
-              sourceSize.height: parent.width * screen.devicePixelRatio
-            }
-            Behavior on x  {
-              PropertyAnimation {
-                duration: 100
-                easing.type: Easing.OutQuart
-              }
-            }
-          }
-        }
-
-        onPositionChanged: {
-          if (checked) {
-            changeMode("digitize");
-          } else {
-            if (digitizingToolbar.rubberbandModel && digitizingToolbar.rubberbandModel.vertexCount > 1) {
-              displayToast(qsTr("Finish or dimiss the digitizing feature before toggling to browse mode"));
-              checked = !checked;
-            } else {
-              changeMode("browse");
-            }
-          }
+        anchors.verticalCenter: buttonsRowContainer.verticalCenter
+        iconSource: Theme.getThemeVectorIcon('ic_dot_menu_black_24dp')
+        iconColor: Theme.mainOverlayColor
+        bgcolor: "transparent"
+        onClicked: {
+          let p = mapToItem(mainWindow.contentItem, width, 0);
+          showMainMenu(p);
         }
       }
     }
@@ -372,6 +368,97 @@ Drawer {
         id: legend
         isVisible: position > 0
         anchors.fill: parent
+        bottomMargin: bottomRow.height + 4
+      }
+    }
+  }
+
+  Rectangle {
+    id: bottomRow
+    height: 48 + mainWindow.sceneBottomMargin
+    width: parent.width
+    anchors.bottom: parent.bottom
+    color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGray
+
+    Item {
+      width: parent.width
+      height: 48
+      anchors.bottom: parent.bottom
+      anchors.bottomMargin: mainWindow.sceneBottomMargin
+
+      MenuItem {
+        id: homeButton
+        width: parent.width - modeSwitch.width
+        height: 48
+        icon.source: Theme.getThemeVectorIcon("ic_home_black_24dp")
+        font: Theme.defaultFont
+        text: "Return home"
+
+        onClicked: returnHome()
+      }
+
+      Switch {
+        id: modeSwitch
+        visible: projectInfo.insertRights
+        width: 56 + 36
+        height: 48
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
+        indicator: Rectangle {
+          implicitHeight: 36
+          implicitWidth: 36 * 2
+          x: modeSwitch.leftPadding
+          radius: 4
+          color: "#24212121"
+          border.color: "#14FFFFFF"
+          anchors.verticalCenter: parent.verticalCenter
+          Image {
+            width: 28
+            height: 28
+            anchors.left: parent.left
+            anchors.leftMargin: 4
+            anchors.verticalCenter: parent.verticalCenter
+            source: Theme.getThemeVectorIcon('ic_map_white_24dp')
+            sourceSize.width: parent.height * screen.devicePixelRatio
+            sourceSize.height: parent.width * screen.devicePixelRatio
+            opacity: 0.6
+          }
+          Image {
+            width: 28
+            height: 28
+            anchors.right: parent.right
+            anchors.rightMargin: 4
+            anchors.verticalCenter: parent.verticalCenter
+            source: Theme.getThemeVectorIcon('ic_create_white_24dp')
+            sourceSize.width: parent.height * screen.devicePixelRatio
+            sourceSize.height: parent.width * screen.devicePixelRatio
+            opacity: 0.6
+          }
+          Rectangle {
+            x: modeSwitch.checked ? parent.width - width : 0
+            width: 36
+            height: 36
+            radius: 4
+            color: Theme.mainColor
+            border.color: Theme.mainOverlayColor
+            Image {
+              width: 28
+              height: 28
+              anchors.centerIn: parent
+              source: modeSwitch.checked ? Theme.getThemeVectorIcon('ic_create_white_24dp') : Theme.getThemeVectorIcon('ic_map_white_24dp')
+              sourceSize.width: parent.height * screen.devicePixelRatio
+              sourceSize.height: parent.width * screen.devicePixelRatio
+            }
+            Behavior on x  {
+              PropertyAnimation {
+                duration: 100
+                easing.type: Easing.OutQuart
+              }
+            }
+          }
+        }
+
+        onClicked: mainWindow.toggleDigitizeMode()
       }
     }
   }
@@ -379,8 +466,5 @@ Drawer {
   TemporalProperties {
     id: temporalProperties
     mapSettings: dashBoard.mapSettings
-    modal: true
-    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-    parent: mainWindow.contentItem
   }
 }

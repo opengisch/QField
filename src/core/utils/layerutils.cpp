@@ -383,3 +383,11 @@ FeatureIterator LayerUtils::createFeatureIteratorFromExpression( QgsVectorLayer 
   const QgsFeatureRequest request = QgsFeatureRequest( QgsExpression( expression ) );
   return FeatureIterator( layer, request );
 }
+
+bool LayerUtils::isCurvedGeometry( QgsVectorLayer *layer )
+{
+  if ( !layer )
+    return false;
+
+  return QgsWkbTypes::isCurvedType( layer->wkbType() );
+}

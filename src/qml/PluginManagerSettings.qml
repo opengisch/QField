@@ -16,6 +16,10 @@ Popup {
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   padding: 0
+  modal: true
+  closePolicy: Popup.CloseOnEscape
+  parent: Overlay.overlay
+  focus: visible
 
   Page {
     id: page
@@ -77,7 +81,7 @@ Popup {
             anchors.leftMargin: 20
             anchors.rightMargin: 20
 
-            columns: 2
+            columns: 3
             columnSpacing: 0
             rowSpacing: 2
 
@@ -113,6 +117,19 @@ Popup {
               }
             }
 
+            QfToolButton {
+              id: configureEnabledPlugin
+              Layout.preferredWidth: enabled ? 48 : 0
+              enabled: Configurable
+
+              iconSource: Theme.getThemeVectorIcon("ic_tune_white_24dp")
+              iconColor: Theme.mainTextColor
+
+              onClicked: {
+                pluginManager.configureAppPlugin(Uuid);
+              }
+            }
+
             QfSwitch {
               id: toggleEnabledPlugin
               Layout.preferredWidth: implicitContentWidth
@@ -129,6 +146,7 @@ Popup {
             }
 
             ColumnLayout {
+              Layout.columnSpan: 2
               Layout.fillWidth: true
 
               Label {
@@ -220,7 +238,6 @@ Popup {
     id: authorDetails
     title: authorName
     parent: mainWindow.contentItem
-    y: (mainWindow.height - height - 80) / 2
 
     property string authorName: ""
     property string authorHomepage: ""
@@ -268,7 +285,6 @@ Popup {
     title: "Install Plugin from URL"
     parent: mainWindow.contentItem
     focus: true
-    y: (mainWindow.height - height - 80) / 2
 
     onAboutToShow: {
       installFromUrlInput.text = '';
@@ -294,7 +310,7 @@ Popup {
         color: Theme.mainTextColor
       }
 
-      QfTextField {
+      TextField {
         id: installFromUrlInput
         width: installFromUrlLabel.width
       }
@@ -309,7 +325,6 @@ Popup {
     id: uninstallConfirmation
     title: "Uninstall Plugin"
     parent: mainWindow.contentItem
-    y: (mainWindow.height - height - 80) / 2
 
     property string pluginName: ""
     property string pluginUuid: ""
@@ -366,6 +381,7 @@ Popup {
       for (let i = 0; i < pluginsList.model.count; i++) {
         if (pluginsList.model.get(i).Uuid === uuid) {
           pluginsList.model.get(i).Enabled = true;
+          pluginsList.model.get(i).Configurable = pluginManager.isAppPluginConfigurable(uuid);
         }
       }
     }
@@ -374,6 +390,7 @@ Popup {
       for (let i = 0; i < pluginsList.model.count; i++) {
         if (pluginsList.model.get(i).Uuid === uuid) {
           pluginsList.model.get(i).Enabled = false;
+          pluginsList.model.get(i).Configurable = false;
         }
       }
     }
@@ -386,9 +403,11 @@ Popup {
   function refreshAppPluginsList() {
     pluginsList.model.clear();
     for (const plugin of pluginManager.availableAppPlugins) {
+      const isEnabled = pluginManager.isAppPluginEnabled(plugin.uuid);
       pluginsList.model.append({
           "Uuid": plugin.uuid,
-          "Enabled": pluginManager.isAppPluginEnabled(plugin.uuid),
+          "Enabled": isEnabled,
+          "Configurable": isEnabled && pluginManager.isAppPluginConfigurable(plugin.uuid),
           "Name": plugin.name,
           "Description": plugin.description,
           "Author": plugin.author,

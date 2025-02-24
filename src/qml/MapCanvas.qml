@@ -355,14 +355,20 @@ Item {
     grabPermissions: PointerHandler.TakeOverForbidden
     acceptedButtons: Qt.MiddleButton
 
-    property real oldTranslationY: 0
-    property bool translationThresholdReached: false
+    property real pressClickX: 0
+    property real pressClickY: 0
+    property real screenCenterX: 0
+    property real screenCenterY: 0
+    property real lastRotateAngle: 0
 
     onActiveChanged: {
       if (active) {
         freeze('rotate');
-        oldTranslationY = 0;
-        translationThresholdReached = false;
+        pressClickX = centroid.position.x;
+        pressClickY = centroid.position.y;
+        screenCenterX = width / 2;
+        screenCenterY = height / 2;
+        lastRotateAngle = 0;
       } else {
         unfreeze('rotate');
       }
@@ -370,15 +376,19 @@ Item {
 
     onTranslationChanged: {
       if (active) {
-        if (translationThresholdReached) {
-          if (oldTranslationY != 0) {
-            mapCanvasWrapper.rotate(oldTranslationY - translation.y);
+        if (lastRotateAngle != 0) {
+          let newPositionX = pressClickX + translation.x;
+          let newPositionY = pressClickY + translation.y;
+          let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX);
+          if (angle != 0) {
+            mapCanvasWrapper.rotate(angle * 180 / Math.PI - lastRotateAngle);
           }
-          oldTranslationY = translation.y;
-          translationThresholdReached = true;
-        } else if (Math.abs(oldTranslationY - translation.y) > pinchHandler.rotationTreshold) {
-          oldTranslationY = translation.y;
-          translationThresholdReached = true;
+          lastRotateAngle = angle * 180 / Math.PI;
+        } else {
+          let newPositionX = pressClickX + translation.x;
+          let newPositionY = pressClickY + translation.y;
+          let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX);
+          lastRotateAngle = angle * 180 / Math.PI;
         }
       }
     }

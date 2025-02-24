@@ -167,7 +167,7 @@ Page {
 
       QfTabBar {
         id: filterBar
-        model: ["My Projects", "Community"]
+        model: [qsTr("My Projects"), qsTr("Community")]
         Layout.fillWidth: true
         Layout.preferredHeight: defaultHeight
         delegate: TabButton {
@@ -175,7 +175,6 @@ Page {
           height: filterBar.defaultHeight
           width: projects.width / filterBar.count
           font: Theme.defaultFont
-          enabled: (cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0)
           onClicked: {
             filterBar.currentIndex = index;
           }
@@ -223,7 +222,6 @@ Page {
           section.property: "Owner"
           section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
           section.delegate: Component {
-            /* section header: layer name */
             Rectangle {
               width: parent.width
               height: 30
@@ -266,12 +264,12 @@ Page {
             property int status: Status
 
             width: parent ? parent.width : undefined
-            height: line.height
+            height: line.height + 6
             color: "transparent"
 
             ProgressBar {
               anchors.bottom: line.bottom
-              anchors.bottomMargin: -6
+              anchors.bottomMargin: -4
               anchors.left: line.left
               anchors.leftMargin: line.leftPadding
               width: line.width - 20

@@ -64,4 +64,5 @@ Merci pour votre soutien !</string>
     <string name="import_operation_unsupported">Votre appareil ne prend pas en charge cette procédure d\'importation.</string>
     <string name="export_operation_unsupported">Votre appareil ne prend pas en charge cette procédure d’exportation</string>
     <string name="processing_message">Traitement en cours ...</string>
-</resources>
+    <string name="positioning_title">Positionnement</string>
+    </resources>

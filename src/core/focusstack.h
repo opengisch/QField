@@ -27,15 +27,18 @@ class FocusStack : public QObject
     Q_OBJECT
 
   public:
-    Q_INVOKABLE void addFocusTaker( QQuickItem *item );
+    Q_INVOKABLE void addFocusTaker( QObject *object );
+    Q_INVOKABLE void forceActiveFocusOnLastTaker() const;
 
   private slots:
-    void itemFocusChanged( bool itemActiveFocus );
+    void visibleChanged();
+    void popupOpened();
+    void popupClosed();
 
   private:
-    QList<QQuickItem *> mStackList;
-    void setFocused( QQuickItem *item );
-    void setUnfocused( QQuickItem *item );
+    QList<QObject *> mStackList;
+    void setFocused( QObject *object );
+    void setUnfocused( QObject *object );
 };
 
 #endif // FOCUSSTACK_H

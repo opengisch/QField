@@ -20,6 +20,7 @@
 #include <QObject>
 #include <QQmlEngine>
 
+
 /**
  * \ingroup core
  */
@@ -97,7 +98,10 @@ class PluginManager : public QObject
 
     Q_INVOKABLE void enableAppPlugin( const QString &uuid );
     Q_INVOKABLE void disableAppPlugin( const QString &uuid );
+    Q_INVOKABLE void configureAppPlugin( const QString &uuid );
+
     Q_INVOKABLE bool isAppPluginEnabled( const QString &uuid ) const;
+    Q_INVOKABLE bool isAppPluginConfigurable( const QString &uuid ) const;
 
     void refreshAppPlugins();
     void restoreAppPlugins();
@@ -121,7 +125,7 @@ class PluginManager : public QObject
 
   private slots:
     void handleWarnings( const QList<QQmlError> &warnings );
-    void callPluginMethod( const QString &uuid, const QString &methodName );
+    void callPluginMethod( const QString &uuid, const QString &methodName ) const;
 
   private:
     QQmlEngine *mEngine = nullptr;

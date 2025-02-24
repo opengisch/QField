@@ -53,7 +53,7 @@ QStringList FeaturesLocatorFilter::prepare( const QString &string, const QgsLoca
   for ( auto it = layers.constBegin(); it != layers.constEnd(); ++it )
   {
     QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( it.value() );
-    if ( !layer || !layer->dataProvider() || !layer->flags().testFlag( QgsMapLayer::Searchable ) )
+    if ( !layer || !layer->isValid() || !layer->dataProvider() || !layer->flags().testFlag( QgsMapLayer::Searchable ) )
       continue;
 
     QgsExpression expression( layer->displayExpression() );
@@ -121,10 +121,10 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
 #endif
       result.icon = preparedLayer->layerIcon;
       result.score = static_cast<double>( string.length() ) / result.displayString.size();
-      result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_baseline-list_white_24dp" ) );
+      result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_baseline-list_white_24dp.svg" ) );
       if ( preparedLayer->layerGeometryType != Qgis::GeometryType::Null && preparedLayer->layerGeometryType != Qgis::GeometryType::Unknown )
       {
-        result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as destination" ), QStringLiteral( "ic_navigation_flag_purple_24dp" ) );
+        result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as destination" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
       }
 
       emit resultFetched( result );
@@ -241,7 +241,7 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
       mLocatorBridge->mapSettings()->setExtent( r, true );
 
 
-    mLocatorBridge->locatorHighlightGeometry()->setProperty( "qgsGeometry", geom );
-    mLocatorBridge->locatorHighlightGeometry()->setProperty( "crs", layer->crs() );
+    mLocatorBridge->geometryHighlighter()->setProperty( "qgsGeometry", geom );
+    mLocatorBridge->geometryHighlighter()->setProperty( "crs", layer->crs() );
   }
 }

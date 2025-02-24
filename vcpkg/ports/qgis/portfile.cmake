@@ -1,5 +1,5 @@
-set(QGIS_REF final-3_40_0)
-set(QGIS_SHA512 2c7348790748b979cdda280e60649ad64de232b0894f1310f4558b19e20ba834f832e92e814cb94b2b089406c2448013def5b3cbd932b8e2892a2b7570721764)
+set(QGIS_REF 55d788f1f80183bd52fd8045c1fbed5e6260f194)
+set(QGIS_SHA512 6eb3e2259fda72f7e2e8203d951b891963d52d47128793af02dfa989a467ba5524ab7a1019b4cf4acfd9e70c21635bd7b8577dc452d5cf7b98fcf7ce03d97b9f)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -16,7 +16,8 @@ vcpkg_from_github(
         crssync-no-install.patch
         include-qthread.patch
         processing.patch # Needed to avoid link issue with tinygltf (ATM embedded into QGIS) and _GEOSQueryCallback defined multiple times
-        meshoptimizer.patch
+        locatorcontext.patch # Remove when upgrading to QGIS 3.42  
+        rectangle.patch # Remove when upgrading to QGIS 3.42
 )
 
 file(REMOVE ${SOURCE_PATH}/cmake/FindGDAL.cmake)

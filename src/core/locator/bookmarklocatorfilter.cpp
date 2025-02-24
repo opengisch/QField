@@ -77,6 +77,6 @@ void BookmarkLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
   mLocatorBridge->bookmarks()->setExtentFromBookmark( mLocatorBridge->bookmarks()->index( row, 0 ) );
 
   QgsGeometry geom( mLocatorBridge->bookmarks()->data( mLocatorBridge->bookmarks()->index( row, 0 ), BookmarkModel::BookmarkPoint ).value<QgsGeometry>() );
-  mLocatorBridge->locatorHighlightGeometry()->setProperty( "qgsGeometry", geom );
-  mLocatorBridge->locatorHighlightGeometry()->setProperty( "crs", mLocatorBridge->mapSettings()->mapSettings().destinationCrs() );
+  mLocatorBridge->geometryHighlighter()->setProperty( "qgsGeometry", geom );
+  mLocatorBridge->geometryHighlighter()->setProperty( "crs", mLocatorBridge->mapSettings()->mapSettings().destinationCrs() );
 }

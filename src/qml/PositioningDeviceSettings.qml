@@ -15,10 +15,12 @@ Popup {
   signal apply
 
   width: mainWindow.width - Theme.popupScreenEdgeMargin * 2
-  height: mainWindow.height - Theme.popupScreenEdgeMargin * 2
+  height: mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
   x: Theme.popupScreenEdgeMargin
-  y: Theme.popupScreenEdgeMargin
+  y: (mainWindow.height - height) / 2
   padding: 0
+  modal: true
+  focus: visible
 
   property alias name: positioningDeviceName.text
   property alias type: positioningDeviceType.currentValue
@@ -107,26 +109,12 @@ Popup {
     }
 
     ColumnLayout {
-      spacing: 5
+      spacing: 10
       width: parent.width
 
       Label {
         Layout.fillWidth: true
-        text: qsTr("Name:")
-        font: Theme.defaultFont
-        wrapMode: Text.WordWrap
-      }
-
-      QfTextField {
-        id: positioningDeviceName
-        Layout.fillWidth: true
-        font: Theme.defaultFont
-        placeholderText: displayText === '' ? qsTr('Leave empty to auto-fill') : ''
-      }
-
-      Label {
-        Layout.fillWidth: true
-        text: qsTr("Connection type:")
+        text: qsTr("Connection type")
         font: Theme.defaultFont
         wrapMode: Text.WordWrap
       }
@@ -195,6 +183,20 @@ Popup {
 
           onClicked: positioningDeviceType.popup.open()
         }
+      }
+
+      TextField {
+        id: positioningDeviceName
+        Layout.fillWidth: true
+        font: Theme.defaultFont
+        placeholderText: qsTr("Name") + (displayText === '' ? qsTr(' (leave empty to auto-fill)') : '')
+      }
+
+      Label {
+        Layout.fillWidth: true
+        text: qsTr("Connection details")
+        font: Theme.defaultFont
+        wrapMode: Text.WordWrap
       }
 
       ListModel {

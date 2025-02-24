@@ -49,6 +49,7 @@
         <file>themes/qfield/nodpi/ic_remove_vertex_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_menu_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_move_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_rotate_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_location_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_location_valid_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_location_disabled_white_24dp.svg</file>
@@ -67,7 +68,7 @@
         <file>themes/qfield/nodpi/ic_calendar_today_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_close_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_ellipsis_black_24dp.svg</file>
-        <file>themes/qfield/nodpi/ic_cloud_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_cloud_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_active_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_attention_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_project_48dp.svg</file>
@@ -81,7 +82,6 @@
         <file>themes/qfield/nodpi/ic_cloud_project_localonly_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_geotag_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_geotag_missing_white_24dp.svg</file>
-        <file>themes/qfield/nodpi/ic_compass_arrow_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_chevron_left_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_chevron_right_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_fullscreen_white_24dp.svg</file>
@@ -164,6 +164,7 @@
         <file>themes/qfield/nodpi/ic_chevron_up.svg</file>
         <file>themes/qfield/nodpi/ic_arrow_left_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_opacity_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_open_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_common_angle_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_password_48dp.svg</file>
         <file>themes/qfield/nodpi/ic_arrow_drop_down_48dp.svg</file>
@@ -171,6 +172,10 @@
         <file>themes/qfield/nodpi/ic_shutdown_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_egeniouss_receiver_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_location_tracking_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_tune_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_expression_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_message_log_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_qfield_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_line_curve_24dp.svg</file>
     </qresource>
 </RCC>

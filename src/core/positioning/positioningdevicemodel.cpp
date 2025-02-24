@@ -14,7 +14,13 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "egenioussreceiver.h"
 #include "positioningdevicemodel.h"
+#include "tcpreceiver.h"
+#include "udpreceiver.h"
+#ifdef WITH_SERIALPORT
+#include "serialportreceiver.h"
+#endif
 
 #include <QSettings>
 
@@ -164,16 +170,18 @@ const QString PositioningDeviceModel::deviceId( const Device &device ) const
       return device.settings.value( QStringLiteral( "address" ) ).toString();
 
     case TcpDevice:
-      return QStringLiteral( "tcp:%1:%2" ).arg( device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
+      return QStringLiteral( "%1:%2:%3" ).arg( TcpReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
 
     case UdpDevice:
-      return QStringLiteral( "udp:%1:%2" ).arg( device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
+      return QStringLiteral( "%1:%2:%3" ).arg( UdpReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
 
+#ifdef WITH_SERIALPORT
     case SerialPortDevice:
-      return QStringLiteral( "serial:%1" ).arg( device.settings.value( QStringLiteral( "address" ) ).toString() );
+      return QStringLiteral( "%1:%2" ).arg( SerialPortReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString() );
+#endif
 
     case EgenioussDevice:
-      return QStringLiteral( "egeniouss:" );
+      return QStringLiteral( "%1:" ).arg( EgenioussReceiver::identifier );
   }
 
   return QString();

@@ -36,7 +36,6 @@ class InternalGnssReceiver : public AbstractGnssReceiver
 
   private slots:
 
-    void onApplicationStateChanged( Qt::ApplicationState state );
     void handlePositionUpdated( const QGeoPositionInfo &positionInfo );
     void handleError( QGeoPositionInfoSource::Error positioningError );
 
@@ -47,8 +46,6 @@ class InternalGnssReceiver : public AbstractGnssReceiver
   private:
     void handleConnectDevice() override;
     void handleDisconnectDevice() override;
-
-    bool mPermissionChecked = false;
 
     std::unique_ptr<QGeoPositionInfoSource> mGeoPositionSource;
     std::unique_ptr<QGeoSatelliteInfoSource> mGeoSatelliteSource;

@@ -144,7 +144,7 @@ void VertexModel::undoHistory()
       {
         setCurrentVertexIndex( -1 );
         beginResetModel();
-        mVertices.insert( std::max( 0, change.index - 1 ), change.vertex );
+        mVertices.insert( std::max<long long int>( change.index - 1, 0 ), change.vertex );
         createCandidates();
         endResetModel();
         setCurrentVertexIndex( change.index );
@@ -186,6 +186,11 @@ void VertexModel::refreshGeometry()
     {
       QgsMessageLog::logMessage( QStringLiteral( "Transformation error occurred: %1" ).arg( cs.what() ) );
     }
+  }
+
+  if ( QgsWkbTypes::isCurvedType( geom.wkbType() ) == true )
+  {
+    geom.convertToStraightSegment();
   }
 
   const QgsAbstractGeometry *abstractGeom = geom.constGet();
@@ -246,7 +251,7 @@ void VertexModel::createCandidates()
                                    []( const Vertex &vertex ) { return vertex.type != ExistingVertex; } ),
                    mVertices.end() );
 
-  int r = 0;
+  qsizetype r = 0;
 
   while ( r < mVertices.count() )
   {
@@ -302,7 +307,7 @@ void VertexModel::createCandidates()
     if ( ( r == 0 || mVertices.at( r - 1 ).ring != vertex.ring ) && mGeometryType == Qgis::GeometryType::Polygon )
     {
       Vertex lastVertex;
-      for ( int i = r + 1; i < mVertices.count(); i++ )
+      for ( qsizetype i = r + 1; i < mVertices.count(); i++ )
       {
         if ( mVertices.at( i ).ring != vertex.ring )
           break;
@@ -382,7 +387,7 @@ QModelIndex VertexModel::parent( const QModelIndex &child ) const
 int VertexModel::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
-  return mVertices.count();
+  return static_cast<int>( mVertices.count() );
 }
 
 int VertexModel::columnCount( const QModelIndex &parent ) const
@@ -471,6 +476,11 @@ QgsGeometry VertexModel::geometry() const
   if ( mTransform.isValid() )
   {
     geometry.transform( mTransform, Qgis::TransformDirection::Reverse );
+  }
+
+  if ( QgsWkbTypes::isCurvedType( mGeometryWkbType ) )
+  {
+    geometry = geometry.convertToCurves();
   }
 
   if ( QgsWkbTypes::isMultiType( mGeometryWkbType ) )
@@ -670,7 +680,7 @@ void VertexModel::removeCurrentVertex()
 
 void VertexModel::updateGeometry( const QgsGeometry &geometry )
 {
-  int preservedIndex = mCurrentIndex;
+  qsizetype preservedIndex = mCurrentIndex;
   setGeometry( geometry );
   //since the index is shifted after reload, we decrement
   setCurrentVertex( preservedIndex - 1 );
@@ -732,12 +742,13 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
   emit geometryChanged();
 }
 
-void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
+void VertexModel::setCurrentVertex( qsizetype newVertex, bool forceUpdate )
 {
   if ( mCurrentIndex >= 0 && mCurrentIndex < mVertices.count() )
   {
     mVertices[mCurrentIndex].currentVertex = false;
-    emit dataChanged( index( mCurrentIndex, 0, QModelIndex() ), index( mCurrentIndex, 0, QModelIndex() ) );
+    const QModelIndex changedIndex = index( static_cast<int>( mCurrentIndex ), 0, QModelIndex() );
+    emit dataChanged( changedIndex, changedIndex );
   }
 
   if ( mVertices.count() == 0 )
@@ -762,13 +773,14 @@ void VertexModel::setCurrentVertex( int newVertex, bool forceUpdate )
   if ( mCurrentIndex >= 0 && mCurrentIndex < mVertices.count() )
   {
     mVertices[mCurrentIndex].currentVertex = true;
-    emit dataChanged( index( mCurrentIndex, 0, QModelIndex() ), index( mCurrentIndex, 0, QModelIndex() ) );
+    const QModelIndex changedIndex = index( static_cast<int>( mCurrentIndex ), 0, QModelIndex() );
+    emit dataChanged( changedIndex, changedIndex );
   }
 
   emit currentVertexIndexChanged();
 }
 
-void VertexModel::setCurrentVertexIndex( int currentIndex )
+void VertexModel::setCurrentVertexIndex( qsizetype currentIndex )
 {
   if ( currentIndex == mCurrentIndex )
     return;
@@ -781,12 +793,12 @@ void VertexModel::setCurrentVertexIndex( int currentIndex )
 
 int VertexModel::currentVertexIndex() const
 {
-  return mCurrentIndex;
+  return static_cast<int>( mCurrentIndex );
 }
 
 int VertexModel::vertexCount() const
 {
-  return mVertices.count();
+  return static_cast<int>( mVertices.count() );
 }
 
 int VertexModel::ringCount() const

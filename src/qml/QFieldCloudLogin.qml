@@ -15,23 +15,12 @@ Item {
 
   height: connectionSettings.childrenRect.height
 
-  Image {
-    id: sourceImg
-    fillMode: Image.Stretch
-    width: parent.width
-    height: 200
-    smooth: true
-    opacity: 1
-    source: "qrc:/images/qfieldcloud_background.svg"
-    sourceSize.width: 1024
-    sourceSize.height: 1024
-  }
-
   ColumnLayout {
     id: connectionSettings
     width: parent.width
     Layout.minimumHeight: (logo.height + fontMetrics.height * 9) * 2
-    spacing: 6
+    Layout.bottomMargin: 10
+    spacing: 10
 
     Image {
       id: logo
@@ -49,8 +38,20 @@ Item {
     }
 
     Text {
+      Layout.fillWidth: true
+      Layout.bottomMargin: 10
+      horizontalAlignment: Text.AlignHCenter
+      font.pointSize: Theme.titleFont.pointSize
+      font.bold: true
+      color: Theme.cloudColor
+      wrapMode: Text.WordWrap
+      text: qsTr("QFieldCloud")
+    }
+
+    Text {
       id: loginFeedbackLabel
       Layout.fillWidth: true
+      Layout.bottomMargin: 10
       visible: false
       text: qsTr("Failed to sign in")
       horizontalAlignment: Text.AlignHCenter
@@ -86,7 +87,7 @@ Item {
       text: qsTr("Server URL\n(Leave empty to use the default server)")
       horizontalAlignment: Text.AlignHCenter
       font: Theme.defaultFont
-      color: 'gray'
+      color: Theme.secondaryTextColor
       wrapMode: Text.WordWrap
     }
 
@@ -94,6 +95,7 @@ Item {
       id: serverUrlComboBox
       Layout.preferredWidth: parent.width / 1.3
       Layout.alignment: Qt.AlignHCenter
+      Layout.bottomMargin: 10
       visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (prefixUrlWithProtocol(cloudConnection.url) !== cloudConnection.defaultUrl || isServerUrlEditingActive)
       enabled: visible
       font: Theme.defaultFont
@@ -116,12 +118,10 @@ Item {
         serverUrlField.text = displayText;
       }
 
-      contentItem: QfTextField {
+      contentItem: TextField {
         id: serverUrlField
 
         inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
-        Layout.preferredWidth: parent.width / 1.3
-        Layout.alignment: Qt.AlignHCenter
         visible: cloudConnection.status === QFieldCloudConnection.Disconnected
         enabled: visible
         font: Theme.defaultFont
@@ -130,59 +130,65 @@ Item {
 
         onTextChanged: text = text.replace(/\s+/g, '')
         Keys.onReturnPressed: loginFormSumbitHandler()
-      }
 
-      background: Rectangle {
-        color: "transparent"
+        background: Rectangle {
+          color: "transparent"
+        }
       }
     }
 
-    Text {
-      id: usernamelabel
-      Layout.fillWidth: true
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected
-      text: qsTr("Username or email")
-      horizontalAlignment: Text.AlignHCenter
-      font: Theme.defaultFont
-      color: Theme.mainTextColor
-    }
-
-    QfTextField {
+    TextField {
       id: usernameField
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
-      Layout.preferredWidth: parent.width / 1.3
+      Layout.preferredWidth: parent.width - showPasswordButton.width * 2
       Layout.alignment: Qt.AlignHCenter
       visible: cloudConnection.status === QFieldCloudConnection.Disconnected
       enabled: visible
       font: Theme.defaultFont
       horizontalAlignment: Text.AlignHCenter
+      placeholderText: qsTr("Username or email")
 
       onTextChanged: text = text.replace(/\s+/g, '')
       Keys.onReturnPressed: loginFormSumbitHandler()
     }
 
-    Text {
-      id: passwordlabel
-      Layout.fillWidth: true
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected
-      text: qsTr("Password")
-      horizontalAlignment: Text.AlignHCenter
-      font: Theme.defaultFont
-      color: Theme.mainTextColor
-    }
-
-    QfTextField {
+    TextField {
       id: passwordField
       echoMode: TextInput.Password
       inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
-      Layout.preferredWidth: parent.width / 1.3
+      Layout.preferredWidth: parent.width - showPasswordButton.width * 2
       Layout.alignment: Qt.AlignHCenter
+      Layout.bottomMargin: 10
       visible: cloudConnection.status === QFieldCloudConnection.Disconnected
       enabled: visible
       font: Theme.defaultFont
       horizontalAlignment: Text.AlignHCenter
+      placeholderText: qsTr("Password")
 
       Keys.onReturnPressed: loginFormSumbitHandler()
+
+      QfToolButton {
+        id: showPasswordButton
+
+        property var linkedField: passwordField
+        property int originalEchoMode: TextInput.Normal
+
+        visible: (!!linkedField.echoMode && linkedField.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
+        iconSource: linkedField.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
+        iconColor: Theme.mainColor
+        anchors.left: linkedField.right
+        anchors.verticalCenter: linkedField.verticalCenter
+        opacity: linkedField.text.length > 0 ? 1 : 0.25
+
+        onClicked: {
+          if (linkedField.echoMode !== TextInput.Normal) {
+            originalEchoMode = linkedField.echoMode;
+            linkedField.echoMode = TextInput.Normal;
+          } else {
+            linkedField.echoMode = originalEchoMode;
+          }
+        }
+      }
     }
 
     FontMetrics {
@@ -192,6 +198,7 @@ Item {
 
     QfButton {
       Layout.fillWidth: true
+      Layout.bottomMargin: 10
       text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr("Sign out") : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr("Signing in, please wait") : qsTr("Sign in")
       enabled: cloudConnection.status != QFieldCloudConnection.Connecting
 

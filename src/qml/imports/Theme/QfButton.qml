@@ -8,21 +8,21 @@ Button {
   id: button
 
   property color bgcolor: Theme.mainColor
-  property color color: button.enabled ? Theme.controlBackgroundColor : Theme.mainTextDisabledColor
+  property color color: button.enabled ? Theme.buttonTextColor : Theme.mainTextDisabledColor
   property alias radius: backgroundRectangle.radius
   property alias borderColor: backgroundRectangle.border.color
   property bool dropdown: false
 
   signal dropdownClicked
 
-  topPadding: 8
-  bottomPadding: 8
-  leftPadding: 8
-  rightPadding: dropdown ? 40 : 8
+  verticalPadding: Material.buttonVerticalPadding
+  leftPadding: Math.max((dropdown ? 40 : 0), Material.buttonLeftPadding(flat, hasIcon && (display !== AbstractButton.TextOnly)))
+  rightPadding: Math.max((dropdown ? 40 : 0), Material.buttonRightPadding(flat, hasIcon && (display !== AbstractButton.TextOnly), (text !== "") && (display !== AbstractButton.IconOnly)))
   topInset: 2
   bottomInset: 2
   leftInset: 4
   rightInset: 4
+  focusPolicy: Qt.NoFocus
 
   icon.color: button.color
   font: Theme.defaultFont
@@ -51,11 +51,6 @@ Button {
     spacing: parent.spacing
     mirrored: parent.mirrored
     display: parent.display
-
-    topPadding: 2
-    bottomPadding: 2
-    leftPadding: 0
-    rightPadding: 0
 
     icon: parent.icon
     color: button.color

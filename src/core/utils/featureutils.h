@@ -59,6 +59,12 @@ class QFIELD_CORE_EXPORT FeatureUtils : public QObject
      * \returns a QgsRectangle extent
      */
     static Q_INVOKABLE QgsRectangle extent( QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &feature );
+
+    /**
+     * Returns a list of features while attempting to parse a GeoJSON \a string. If the string could not
+     * be parsed, an enmpty list will be returned.
+     */
+    static Q_INVOKABLE QList<QgsFeature> featuresFromJsonString( const QString &string );
 };
 
 #endif // FEATUREUTILS_H

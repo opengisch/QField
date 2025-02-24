@@ -63,4 +63,7 @@
     <string name="import_operation_unsupported">Az eszköze nem támogatja ezt az import műveletet.</string>
     <string name="export_operation_unsupported">Az eszköze nem támogatja ezt az export műveletet.</string>
     <string name="processing_message">Feldolgozás...</string>
+    <string name="positioning_title">Pozícionálás</string>
+    <string name="positioning_running">Helymeghatározási szolgáltatás aktív</string>
+    <string name="copy_to_clipboard">Másolás  vágólapra</string>
 </resources>

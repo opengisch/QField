@@ -32,6 +32,9 @@ class QFIELD_CORE_EXPORT CoordinateReferenceSystemUtils : public QObject
   public:
     explicit CoordinateReferenceSystemUtils( QObject *parent = nullptr );
 
+    //! Returns an CRS matching the provided \a definition.
+    static Q_INVOKABLE QgsCoordinateReferenceSystem fromDescription( const QString &definition ) { return QgsCoordinateReferenceSystem( definition ); }
+
     //! Returns an EPGS:4326 WGS84 CRS
     static Q_INVOKABLE QgsCoordinateReferenceSystem wgs84Crs() { return QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ); }
 

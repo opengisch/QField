@@ -390,7 +390,7 @@ void QFieldCloudProjectsModel::refreshProjectFileOutdatedStatus( const QString &
       return;
     }
 
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
     reply->deleteLater();
 
     if ( rawReply->error() != QNetworkReply::NoError )
@@ -519,7 +519,7 @@ void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, con
     if ( !findProject( projectId ) )
       return;
 
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
 
     reply->deleteLater();
 
@@ -620,7 +620,7 @@ void QFieldCloudProjectsModel::projectStartJob( const QString &projectId, const 
       return;
     }
 
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
@@ -699,7 +699,7 @@ void QFieldCloudProjectsModel::projectGetJobStatus( const QString &projectId, co
       return;
     }
 
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
@@ -1005,7 +1005,7 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
       return;
     }
 
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
 
     reply->deleteLater();
 
@@ -1379,7 +1379,7 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
     emit dataChanged( projectIndex, projectIndex, QVector<int>() << UploadDeltaProgressRole );
   } );
   connect( deltasCloudReply, &NetworkReply::finished, this, [=]() {
-    QNetworkReply *deltasReply = deltasCloudReply->reply();
+    QNetworkReply *deltasReply = deltasCloudReply->currentRawReply();
     deltasCloudReply->deleteLater();
 
     Q_ASSERT( deltasCloudReply->isFinished() );
@@ -1561,7 +1561,7 @@ void QFieldCloudProjectsModel::refreshProjectDeltaList( const QString &projectId
   }
 
   connect( deltaStatusReply, &NetworkReply::finished, this, [=]() {
-    QNetworkReply *rawReply = deltaStatusReply->reply();
+    QNetworkReply *rawReply = deltaStatusReply->currentRawReply();
     deltaStatusReply->deleteLater();
 
     Q_ASSERT( deltaStatusReply->isFinished() );
@@ -1591,7 +1591,7 @@ void QFieldCloudProjectsModel::projectGetDeltaStatus( const QString &projectId )
 
   project->deltaFileUploadStatusString = QString();
   connect( deltaStatusReply, &NetworkReply::finished, this, [=]() {
-    QNetworkReply *rawReply = deltaStatusReply->reply();
+    QNetworkReply *rawReply = deltaStatusReply->currentRawReply();
     deltaStatusReply->deleteLater();
 
     Q_ASSERT( deltaStatusReply->isFinished() );
@@ -1688,7 +1688,7 @@ void QFieldCloudProjectsModel::layerObserverLayerEdited( const QString &layerId 
 void QFieldCloudProjectsModel::projectListReceived()
 {
   NetworkReply *reply = qobject_cast<NetworkReply *>( sender() );
-  QNetworkReply *rawReply = reply->reply();
+  QNetworkReply *rawReply = reply->currentRawReply();
 
   Q_ASSERT( rawReply );
 
@@ -1735,7 +1735,6 @@ NetworkReply *QFieldCloudProjectsModel::downloadFile( const QString &projectId, 
 
   return mCloudConnection->get( request, QStringLiteral( "/api/v1/packages/%1/latest/files/%2/" ).arg( projectId, fileName ) );
 }
-
 
 void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId, const QString &fileName )
 {
@@ -1809,6 +1808,44 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
   } );
 
   connect( reply, &NetworkReply::downloadProgress, reply, [=]( int bytesReceived, int bytesTotal ) {
+    QNetworkReply *rawReply = reply->currentRawReply();
+    if ( !rawReply )
+    {
+      return;
+    }
+
+    const QString temporaryFileName = project->downloadFileTransfers[fileName].tmpFile;
+    QFile file( temporaryFileName );
+    QString errorMessageDetail;
+    QString errorMessage;
+    bool hasError = false;
+
+    if ( file.open( QIODevice::WriteOnly | QIODevice::Append ) )
+    {
+      file.write( rawReply->readAll() );
+
+      if ( file.error() != QFile::NoError )
+      {
+        hasError = true;
+        errorMessageDetail = file.errorString();
+        errorMessage = tr( "File system error. Failed to write file to temporary location `%1`." ).arg( temporaryFileName );
+      }
+    }
+    else
+    {
+      hasError = true;
+      errorMessageDetail = file.errorString();
+      errorMessage = tr( "File system error. Failed to open file for writing on temporary `%1`." ).arg( temporaryFileName );
+    }
+
+    // check if the code above failed with error
+    if ( hasError )
+    {
+      logFailedDownload( project, fileName, errorMessage, errorMessageDetail );
+      rawReply->abort();
+      return;
+    }
+
     if ( !findProject( projectId ) )
     {
       QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: updating download progress, but the project is deleted." ).arg( projectId, fileName ) );
@@ -1835,7 +1872,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     }
 
     QVector<int> rolesChanged;
-    QNetworkReply *rawReply = reply->reply();
+    QNetworkReply *rawReply = reply->currentRawReply();
 
     Q_ASSERT( reply->isFinished() );
     Q_ASSERT( reply );
@@ -1863,46 +1900,13 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
       project->downloadBytesReceived += project->downloadFileTransfers[fileName].bytesTotal;
       project->downloadProgress = std::clamp( ( static_cast<double>( project->downloadBytesReceived ) / std::max( project->downloadBytesTotal, 1 ) ), 0., 1. );
       emit dataChanged( projectIndex, projectIndex, QVector<int>() << DownloadProgressRole );
-
-      QFile file( project->downloadFileTransfers[fileName].tmpFile );
-
-      if ( file.open( QIODevice::ReadWrite ) )
-      {
-        file.write( rawReply->readAll() );
-
-        if ( file.error() != QFile::NoError )
-        {
-          hasError = true;
-          errorMessageDetail = file.errorString();
-          errorMessage = tr( "File system error. Failed to write file to temporary location `%1`." ).arg( project->downloadFileTransfers[fileName].tmpFile );
-        }
-      }
-      else
-      {
-        hasError = true;
-        errorMessageDetail = file.errorString();
-        errorMessage = tr( "File system error. Failed to open file for writing on temporary `%1`." ).arg( project->downloadFileTransfers[fileName].tmpFile );
-      }
     }
 
     // check if the code above failed with error
     if ( hasError )
     {
-      project->downloadFilesFailed++;
-
-      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: %3 %4" ).arg( errorMessage, fileName, errorMessage, errorMessageDetail ) );
-
-      // translate the user messages
-      const QString baseMessage = tr( "Project `%1`, file `%2`: %3" ).arg( project->name, fileName, errorMessage );
-      const QString trimmedMessage = baseMessage + QStringLiteral( " " ) + tr( "System message: " )
-                                     + ( ( errorMessageDetail.size() > 100 )
-                                           ? ( errorMessageDetail.left( 100 ) + tr( " (see more in the QField error log)…" ) )
-                                           : errorMessageDetail );
-
-      QgsMessageLog::logMessage( QStringLiteral( "%1\n%2" ).arg( baseMessage, errorMessageDetail ) );
-
-      emit projectDownloadFinished( projectId, trimmedMessage );
-
+      logFailedDownload( project, fileName, errorMessage, errorMessageDetail );
+      rawReply->abort();
       return;
     }
 
@@ -2078,6 +2082,24 @@ void QFieldCloudProjectsModel::insertProjects( const QList<CloudProject *> &proj
   }
   beginInsertRows( QModelIndex(), currentCount, currentCount + newProjectsCount - 1 );
   endInsertRows();
+}
+
+void QFieldCloudProjectsModel::logFailedDownload( CloudProject *project, const QString &fileName, const QString &errorMessage, const QString &errorMessageDetail )
+{
+  project->downloadFilesFailed++;
+
+  QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: %3 %4" ).arg( errorMessage, fileName, errorMessage, errorMessageDetail ) );
+
+  // translate the user messages
+  const QString baseMessage = tr( "Project `%1`, file `%2`: %3" ).arg( project->name, fileName, errorMessage );
+  const QString trimmedMessage = baseMessage + QStringLiteral( " " ) + tr( "System message: " )
+                                 + ( ( errorMessageDetail.size() > 100 )
+                                       ? ( errorMessageDetail.left( 100 ) + tr( " (see more in the QField error log)…" ) )
+                                       : errorMessageDetail );
+
+  QgsMessageLog::logMessage( QStringLiteral( "%1\n%2" ).arg( baseMessage, errorMessageDetail ) );
+
+  emit projectDownloadFinished( project->id, trimmedMessage );
 }
 
 void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, bool skipLocalProjects )

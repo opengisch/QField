@@ -31,6 +31,8 @@
 #include <qgsgeometry.h>
 #include <qgspoint.h>
 
+#include <layerutils.h>
+
 class QgsVectorLayer;
 
 /**
@@ -194,6 +196,8 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
 
     //! Returns all vertices points keeping only X and Y coordinates
     QVector<QgsPointXY> flatPointSequence( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem() ) const;
+
+    QgsCompoundCurve getCompoundCurve() { return mCompoundCurve; }
 
   signals:
     void vertexChanged( int index );

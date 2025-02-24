@@ -4,6 +4,11 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "07:00"
+    groups:
+      all-actions:
+        patterns: [ "*" ]
   - package-ecosystem: "bundler"
     directory: "/"
     schedule:

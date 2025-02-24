@@ -16,8 +16,9 @@
 
 #include "localfilesmodel.h"
 #include "platformutilities.h"
+#include "qfield.h"
 #include "qfieldcloudutils.h"
-#include "qgismobileapp.h"
+#include "webdavconnection.h"
 
 #include <QDir>
 #include <QFile>
@@ -59,6 +60,8 @@ QHash<int, QByteArray> LocalFilesModel::roleNames() const
   roles[ItemSizeRole] = "ItemSize";
   roles[ItemHasThumbnailRole] = "ItemHasThumbnail";
   roles[ItemIsFavoriteRole] = "ItemIsFavorite";
+  roles[ItemHasWebdavConfigurationRole] = "ItemHasWebdavConfiguration";
+  roles[ItemCheckedRole] = "ItemChecked";
   return roles;
 }
 
@@ -177,14 +180,14 @@ bool LocalFilesModel::isDeletedAllowedInCurrentPath() const
 {
   const QString path = currentPath();
   const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
-  if ( !applicationDirectory.isEmpty() && path.startsWith( applicationDirectory + QDir::separator() ) )
+  if ( !applicationDirectory.isEmpty() && path.startsWith( applicationDirectory ) )
   {
     return true;
   }
   else
   {
     const QStringList additionalApplicationDirectories = PlatformUtilities::instance()->additionalApplicationDirectories();
-    if ( std::any_of( additionalApplicationDirectories.begin(), additionalApplicationDirectories.end(), [&path]( const QString &directory ) { return ( !directory.isEmpty() && path.startsWith( directory + QDir::separator() ) ); } ) )
+    if ( std::any_of( additionalApplicationDirectories.begin(), additionalApplicationDirectories.end(), [&path]( const QString &directory ) { return ( !directory.isEmpty() && path.startsWith( directory ) ); } ) )
     {
       return true;
     }
@@ -237,10 +240,17 @@ void LocalFilesModel::reloadModel()
     }
 
     const QStringList favorites = QSettings().value( QStringLiteral( "qfieldFavorites" ), QStringList() ).toStringList();
+    QList<Item> favoriteItems;
     for ( const QString &item : favorites )
     {
-      mItems << Item( ItemMetaType::Favorite, ItemType::SimpleFolder, getCurrentTitleFromPath( item ), QString(), item );
+      if ( QFileInfo::exists( item ) )
+      {
+        favoriteItems << Item( ItemMetaType::Favorite, ItemType::SimpleFolder, getCurrentTitleFromPath( item ), QString(), item );
+      }
     }
+
+    std::sort( favoriteItems.begin(), favoriteItems.end(), []( const Item &a, const Item &b ) { return a.title < b.title; } );
+    mItems.append( favoriteItems );
   }
   else
   {
@@ -280,7 +290,7 @@ void LocalFilesModel::reloadModel()
           {
             datasets << Item( ItemMetaType::Dataset, ItemType::RasterDataset, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
-          else if ( suffix == QStringLiteral( "log" ) || suffix == QStringLiteral( "txt" ) )
+          else if ( SUPPORTED_FILE_EXTENSIONS.contains( suffix ) )
           {
             files << Item( ItemMetaType::File, ItemType::OtherFile, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
@@ -306,33 +316,69 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
   if ( index.row() >= mItems.size() || index.row() < 0 )
     return QVariant();
 
+  const Item &item = mItems[index.row()];
+
   switch ( static_cast<Role>( role ) )
   {
     case ItemMetaTypeRole:
-      return mItems[index.row()].metaType;
+      return item.metaType;
 
     case ItemTypeRole:
-      return mItems[index.row()].type;
+      return item.type;
 
     case ItemTitleRole:
-      return mItems[index.row()].title;
+      return item.title;
 
     case ItemFormatRole:
-      return mItems[index.row()].format;
+      return item.format;
 
     case ItemPathRole:
-      return mItems[index.row()].path;
+      return item.path;
 
     case ItemSizeRole:
-      return mItems[index.row()].size;
+      return item.size;
 
     case ItemHasThumbnailRole:
-      return mItems[index.row()].size < 25000000
-             && SUPPORTED_DATASET_THUMBNAIL.contains( mItems[index.row()].format );
+      return item.size < 25000000 && SUPPORTED_DATASET_THUMBNAIL.contains( item.format );
 
     case ItemIsFavoriteRole:
-      return mFavorites.contains( mItems[index.row()].path );
+      return mFavorites.contains( item.path );
+
+    case ItemHasWebdavConfigurationRole:
+      return WebdavConnection::hasWebdavConfiguration( item.path );
+
+    case ItemCheckedRole:
+      return item.checked;
   }
 
   return QVariant();
+}
+
+bool LocalFilesModel::inSelectionMode()
+{
+  if ( currentTitle() == QStringLiteral( "Home" ) )
+    return false;
+
+  return std::any_of( mItems.begin(), mItems.end(), []( const Item &item ) { return item.checked; } );
+}
+
+void LocalFilesModel::setChecked( const int &mIdx, const bool &checked )
+{
+  if ( mItems[mIdx].checked != checked )
+  {
+    mItems[mIdx].checked = checked;
+
+    emit inSelectionModeChanged();
+    emit dataChanged( index( 0, 0, QModelIndex() ), index( mItems.size() - 1, 0, QModelIndex() ), { ItemCheckedRole } );
+  }
+}
+
+void LocalFilesModel::clearSelection()
+{
+  for ( Item &item : mItems )
+  {
+    item.checked = false;
+  }
+  emit inSelectionModeChanged();
+  emit dataChanged( index( 0, 0, QModelIndex() ), index( mItems.size() - 1, 0, QModelIndex() ), { ItemCheckedRole } );
 }

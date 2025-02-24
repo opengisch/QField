@@ -16,6 +16,7 @@
 #include "rubberbandmodel.h"
 #include "snappingutils.h"
 
+#include <qgscurvepolygon.h>
 #include <qgslogger.h>
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
@@ -39,7 +40,7 @@ bool RubberbandModel::isEmpty() const
 
 QVector<QgsPoint> RubberbandModel::vertices() const
 {
-  QgsVertexIterator vertexIterator = mCompoundCurve.curveToLine( QSettings().value( "/QField/Digitizing/CurveTolerance", true ).toDouble(), QgsAbstractGeometry::SegmentationToleranceType::MaximumDifference )->vertices();
+  QgsVertexIterator vertexIterator = mCompoundCurve.curveToLine()->vertices();
 
 
   // Create an empty QVector<QgsPoint>
@@ -366,7 +367,7 @@ void RubberbandModel::removeVertex()
 {
   setCurrentCoordinateIndex( mCurrentCoordinateIndex - 1 );
   removeVertices( mCurrentCoordinateIndex + 1, 1 );
-  if ( QSettings().value( "/QField/Digitizing/CurveEdition", true ).toBool() )
+  if ( QSettings().value( "/QField/Digitizing/CurveEdition", true ).toBool() && LayerUtils::isCurvedGeometry( mLayer ) == true )
   {
     mDuringCurveDrawing = !mDuringCurveDrawing;
     if ( mDuringCurveDrawing == false )
@@ -430,15 +431,30 @@ void RubberbandModel::setDataFromGeometry( QgsGeometry geometry, const QgsCoordi
   if ( !abstractGeom )
     return;
 
-  QgsVertexId vertexId;
-  QgsPoint pt;
-  while ( abstractGeom->nextVertex( vertexId, pt ) )
+  if ( LayerUtils::isCurvedGeometry( mLayer ) == false )
   {
-    if ( vertexId.part > 1 || vertexId.ring > 0 )
+    QgsVertexId vertexId;
+    QgsPoint pt;
+    while ( abstractGeom->nextVertex( vertexId, pt ) )
     {
-      break;
+      if ( vertexId.part > 1 || vertexId.ring > 0 )
+      {
+        break;
+      }
+      mCompoundCurve.addVertex( pt );
     }
-    mCompoundCurve.addVertex( pt );
+  }
+  else
+  {
+    if ( geometry.type() == Qgis::GeometryType::Polygon )
+    {
+      QgsCurvePolygon *curve = qgsgeometry_cast<QgsCurvePolygon *>( abstractGeom->clone() );
+      mCompoundCurve = *qgsgeometry_cast<QgsCompoundCurve *>( curve->exteriorRing() );
+    }
+    else
+    {
+      mCompoundCurve = *qgsgeometry_cast<QgsCompoundCurve *>( abstractGeom->clone() );
+    }
   }
 
   // for polygons, remove the last vertex which is a duplicate of the first vertex

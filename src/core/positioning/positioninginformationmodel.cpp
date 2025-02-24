@@ -20,7 +20,9 @@ void PositioningInformationModel::refreshData()
 
   const double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, distanceUnits() );
   const QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( distanceUnits() );
-  const QList<QPair<QString, QVariant>> deviceDetails = mPositioningSource->device()->details();
+  const GnssPositionDetails deviceDetails = mPositioningSource->deviceDetails();
+  const QList<QString> detailNames = deviceDetails.names();
+  const QList<QVariant> detailValues = deviceDetails.values();
 
   updateCoordinates();
 
@@ -34,12 +36,9 @@ void PositioningInformationModel::refreshData()
   updateInfo( tr( "H. Accuracy" ), hAccuracy );
   updateInfo( tr( "V. Accuracy" ), vAccuracy );
 
-  for ( int i = 0; i < deviceDetails.size(); ++i )
+  for ( int i = 0; i < detailNames.size(); ++i )
   {
-    const QString key = deviceDetails[i].first;
-    const QVariant value = deviceDetails[i].second;
-
-    updateInfo( key, value );
+    updateInfo( detailNames[i], detailValues[i] );
   }
 }
 
@@ -92,11 +91,11 @@ QString PositioningInformationModel::getAltitude( double distanceUnitFactor, con
     QString altitude = QLocale::system().toString( positioningSource()->projectedPosition().z() * distanceUnitFactor, 'f', 3 ) + ' ' + distanceUnitAbbreviation + ' ';
     QStringList details;
 
-    if ( positioningSource()->elevationCorrectionMode() == Positioning::ElevationCorrectionMode::OrthometricFromGeoidFile )
+    if ( positioningSource()->elevationCorrectionMode() == PositioningSource::ElevationCorrectionMode::OrthometricFromGeoidFile )
     {
       details.push_back( tr( "grid" ) );
     }
-    else if ( positioningSource()->elevationCorrectionMode() == Positioning::ElevationCorrectionMode::OrthometricFromDevice )
+    else if ( positioningSource()->elevationCorrectionMode() == PositioningSource::ElevationCorrectionMode::OrthometricFromDevice )
     {
       details.push_back( tr( "ortho." ) );
     }
@@ -240,7 +239,7 @@ void PositioningInformationModel::setPositioningSource( Positioning *positioning
   if ( mPositioningSource )
   {
     disconnect( mPositioningSource, &Positioning::positionInformationChanged, this, &PositioningInformationModel::refreshData );
-    disconnect( mPositioningSource, &Positioning::deviceChanged, this, &PositioningInformationModel::softReset );
+    disconnect( mPositioningSource, &Positioning::deviceIdChanged, this, &PositioningInformationModel::softReset );
   }
 
   mPositioningSource = positioningSource;
@@ -249,7 +248,7 @@ void PositioningInformationModel::setPositioningSource( Positioning *positioning
   if ( mPositioningSource )
   {
     connect( mPositioningSource, &Positioning::positionInformationChanged, this, &PositioningInformationModel::refreshData );
-    connect( mPositioningSource, &Positioning::deviceChanged, this, &PositioningInformationModel::softReset );
+    connect( mPositioningSource, &Positioning::deviceIdChanged, this, &PositioningInformationModel::softReset );
     refreshData();
   }
 }

@@ -4,9 +4,12 @@
   <!-- The permissions are specified manually. This way we do not request the microphone permissions which would be pulled in
        as dependent permissions because of qt multimedia. -->
   <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
   <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" tools:node="remove" />
   <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
   <uses-permission android:name="android.permission.CAMERA" />
@@ -23,9 +26,9 @@
       />
   <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
   <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-  <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-  <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+      android:maxSdkVersion="29"
+      />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
       android:maxSdkVersion="28"
       />
@@ -275,8 +278,25 @@
     <meta-data android:name="io.sentry.environment" android:value="@SENTRY_ENV@" />
     <meta-data android:name="io.sentry.auto-init" android:value="false" />
 
-    <service android:process=":qt" android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldService">
-      <meta-data android:name="android.app.arguments" android:value="--service"/>
+    <service android:process=":qt_service" android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldCloudService">
+      <meta-data android:name="android.app.arguments" android:value="--cloudservice"/>
+      <meta-data android:name="android.app.lib_name" android:value="@string/lib_name"/>
+      <meta-data android:name="android.app.repository" android:value="default"/>
+      <meta-data android:name="android.app.qt_libs_resource_id" android:resource="@array/qt_libs"/>
+      <meta-data android:name="android.app.bundled_libs_resource_id" android:resource="@array/bundled_libs"/>
+      <meta-data android:name="android.app.bundle_local_qt_libs" android:value="-- %%BUNDLE_LOCAL_QT_LIBS%% --"/>
+      <meta-data android:name="android.app.use_local_qt_libs" android:value="-- %%USE_LOCAL_QT_LIBS%% --"/>
+      <meta-data android:name="android.app.libs_prefix" android:value="/data/local/tmp/qt/"/>
+      <meta-data android:name="android.app.load_local_libs_resource_id" android:resource="@array/load_local_libs"/>
+      <meta-data android:name="android.app.load_local_libs" android:value="-- %%INSERT_LOCAL_LIBS%% --"/>
+      <meta-data android:name="android.app.load_local_jars" android:value="-- %%INSERT_LOCAL_JARS%% --"/>
+      <meta-data android:name="android.app.static_init_classes" android:value="-- %%INSERT_INIT_CLASSES%% --"/>
+
+      <meta-data android:name="android.app.background_running" android:value="true"/>
+    </service>
+
+    <service android:process=":qt" android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldPositioningService" android:foregroundServiceType="location">
+      <meta-data android:name="android.app.arguments" android:value="--positioningservice"/>
       <meta-data android:name="android.app.lib_name" android:value="@string/lib_name"/>
       <meta-data android:name="android.app.repository" android:value="default"/>
       <meta-data android:name="android.app.qt_libs_resource_id" android:resource="@array/qt_libs"/>

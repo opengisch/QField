@@ -17,8 +17,11 @@
 import QtCore
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.impl
 import QtQuick.Controls.Material
+import QtQuick.Controls.Material.impl
 import QtQuick.Effects
+import QtQuick.Shapes
 import QtQuick.Window
 import QtQml
 import QtSensors
@@ -38,11 +41,12 @@ ApplicationWindow {
   id: mainWindow
   objectName: 'mainWindow'
   visible: true
-  flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | (Qt.platform.os === "ios" ? Qt.MaximizeUsingFullscreenGeometryHint : 0) | (Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint : 0)
+  flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | (sceneBorderless ? Qt.FramelessWindowHint : 0) | (Qt.platform.os === "ios" || Qt.platform.os === "android" ? Qt.MaximizeUsingFullscreenGeometryHint : 0) | (Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint : 0)
 
   Material.theme: Theme.darkTheme ? "Dark" : "Light"
   Material.accent: Theme.mainColor
 
+  property bool sceneBorderless: false
   property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
   property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]
 
@@ -70,14 +74,39 @@ ApplicationWindow {
     property alias height: mainWindow.height
 
     property int minimumSize: Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? 300 : 50
+    property string screenConfiguration: ''
 
     Component.onCompleted: {
       if (Qt.platform.os !== "ios" && Qt.platform.os !== "android") {
-        width = Math.max(width, minimumSize);
-        height = Math.max(height, minimumSize);
-        x = Math.min(x, mainWindow.screen.width - width);
-        y = Math.min(y, mainWindow.screen.height - height);
+        let currentScreensConfiguration = `${Qt.application.screens.length}`;
+        for (let screen of Qt.application.screens) {
+          currentScreensConfiguration += `:${screen.width}x${screen.height}-${screen.virtualX}-${screen.virtualY}`;
+        }
+        if (currentScreensConfiguration != screenConfiguration) {
+          screenConfiguration = currentScreensConfiguration;
+          width = Math.max(width, minimumSize);
+          height = Math.max(height, minimumSize);
+          x = Math.min(x, mainWindow.screen.width - width);
+          y = Math.min(y, mainWindow.screen.height - height);
+        }
       }
+    }
+  }
+
+  LocatorModelSuperBridge {
+    id: locatorBridge
+    objectName: "locatorBridge"
+
+    activeLayer: dashBoard.activeLayer
+    bookmarks: bookmarkModel
+    featureListController: featureForm.extentController
+    mapSettings: mapCanvas.mapSettings
+    navigation: navigation
+    geometryHighlighter: geometryHighlighter.geometryWrapper
+    keepScale: qfieldSettings.locatorKeepScale
+
+    onMessageEmitted: {
+      displayToast(text);
     }
   }
 
@@ -93,34 +122,90 @@ ApplicationWindow {
     visible: true
     focus: true
 
-    property int previousVisibilityState: Window.Windowed
-
     Keys.onReleased: event => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        if (featureForm.visible) {
-          featureForm.hide();
-        } else if (stateMachine.state === 'measure') {
-          mainWindow.closeMeasureTool();
-        } else {
-          mainWindow.close();
-        }
-        event.accepted = true;
-      } else if (event.key === Qt.Key_F11) {
-        if (Qt.platform.os !== "android" && Qt.platform.os !== "ios") {
-          if (mainWindow.visibility !== Window.FullScreen) {
-            previousVisibilityState = mainWindow.visibility;
-            mainWindow.visibility = Window.FullScreen;
+      if (event.modifiers === Qt.NoModifier) {
+        if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+          if (featureForm.visible) {
+            featureForm.hide();
+          } else if (stateMachine.state === 'measure') {
+            mainWindow.closeMeasureTool();
           } else {
-            mainWindow.visibility = Window.Windowed;
-            if (previousVisibilityState === Window.Maximized) {
-              mainWindow.showMaximized();
-            }
+            mainWindow.close();
           }
+          event.accepted = true;
         }
       }
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
+  Shortcut {
+    property int previousVisibilityState: Window.Windowed
+    enabled: Qt.platform.os !== "android" && Qt.platform.os !== "ios"
+    sequence: "F11"
+    onActivated: {
+      if (mainWindow.visibility !== Window.FullScreen) {
+        previousVisibilityState = mainWindow.visibility;
+        mainWindow.visibility = Window.FullScreen;
+      } else {
+        mainWindow.visibility = Window.Windowed;
+        if (previousVisibilityState === Window.Maximized) {
+          mainWindow.showMaximized();
+        }
+      }
+    }
+  }
+
+  Shortcut {
+    enabled: Qt.platform.os !== "android" && Qt.platform.os !== "ios"
+    sequence: "F12"
+    onActivated: {
+      mainWindow.sceneBorderless = !mainWindow.sceneBorderless;
+      if (mainWindow.sceneBorderless) {
+        displayToast(qsTr("Borderless mode activated, use the top left and botom right corner to move and resize the window"));
+      }
+    }
+  }
+
+  Shortcut {
+    enabled: keyHandler.focus
+    sequence: "Ctrl+K"
+    onActivated: {
+      locatorItem.state = "on";
+    }
+  }
+
+  Shortcut {
+    enabled: true
+    sequence: "Ctrl+M"
+    onActivated: {
+      activateMeasurementMode();
+    }
+  }
+
+  Shortcut {
+    enabled: keyHandler.focus || welcomeScreen.focus
+    sequence: "Ctrl+O"
+    onActivated: {
+      welcomeScreen.openLocalDataPicker();
+    }
+  }
+
+  Shortcut {
+    enabled: projectInfo.insertRights
+    sequence: "Ctrl++"
+    onActivated: {
+      mainWindow.toggleDigitizeMode();
+    }
+  }
+
+  Shortcut {
+    enabled: keyHandler.focus && stateMachine.state === "digitize"
+    sequence: "Ctrl+Space"
+    onActivated: {
+      digitizingToolbar.triggerAddVertex();
+    }
   }
 
   //currentRubberband provides the rubberband depending on the current state (digitize or measure)
@@ -130,6 +215,7 @@ ApplicationWindow {
 
   signal closeMeasureTool
   signal changeMode(string mode)
+  signal toggleDigitizeMode
 
   Item {
     id: stateMachine
@@ -172,6 +258,18 @@ ApplicationWindow {
       }
     ]
     state: "browse"
+  }
+
+  onToggleDigitizeMode: {
+    if (stateMachine.state === "digitize") {
+      if (digitizingToolbar.rubberbandModel && digitizingToolbar.rubberbandModel.vertexCount > 1) {
+        displayToast(qsTr("Finish or dimiss the digitizing feature before toggling to browse mode"));
+      } else {
+        changeMode("browse");
+      }
+    } else {
+      changeMode("digitize");
+    }
   }
 
   onChangeMode: mode => {
@@ -233,7 +331,7 @@ ApplicationWindow {
     antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
     logging: positioningSettings.logging
 
-    onProjectedPositionChanged: {
+    onPositionInformationChanged: {
       if (active) {
         bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
@@ -246,6 +344,38 @@ ApplicationWindow {
       if (active && gnssButton.followOrientationActive) {
         gnssButton.followOrientation();
       }
+    }
+
+    onDeviceLastErrorChanged: {
+      displayToast(qsTr('Positioning device error: %1').arg(positionSource.deviceLastError), 'error');
+    }
+
+    onBackgroundModeChanged: {
+      if (trackings.count > 0) {
+        if (backgroundMode) {
+          trackingModel.suspendUntilReplay();
+        } else {
+          busyOverlay.text = qsTr("Replaying collected positions, hold on");
+          busyOverlay.state = "visible";
+          replayTimer.restart();
+        }
+      }
+    }
+  }
+
+  Timer {
+    id: replayTimer
+
+    interval: 250
+    repeat: false
+    onTriggered: {
+      mapCanvasMap.freeze('trackerreplay');
+      let list = positionSource.getBackgroundPositionInformation();
+      // Qt bug weirdly returns an empty list on first invokation to source, call twice to insure we've got the actual list
+      list = positionSource.getBackgroundPositionInformation();
+      trackingModel.replayPositionInformationList(list, positionSource.coordinateTransformer);
+      mapCanvasMap.unfreeze('trackerreplay');
+      busyOverlay.state = "hidden";
     }
   }
 
@@ -260,14 +390,6 @@ ApplicationWindow {
       } else {
         positionSource.active = false;
       }
-    }
-  }
-
-  Connections {
-    target: positionSource.device
-
-    function onLastErrorChanged() {
-      displayToast(qsTr('Positioning device error: %1').arg(positionSource.device.lastError), 'error');
     }
   }
 
@@ -324,6 +446,42 @@ ApplicationWindow {
             if (!geometryEditorsToolbar.canvasClicked(centroid.position)) {
               digitizingToolbar.addVertex();
             }
+          }
+        }
+      }
+    }
+
+    DragHandler {
+      id: rotateDragHandler
+      enabled: rotateFeaturesToolbar.rotateFeaturesRequested == true
+      acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen | PointerDevice.Mouse : PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.Stylus
+      grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
+
+      property real pressClickX: 0
+      property real pressClickY: 0
+      property real screenCenterX: 0
+      property real screenCenterY: 0
+
+      onActiveChanged: {
+        if (active) {
+          pressClickX = centroid.position.x;
+          pressClickY = centroid.position.y;
+          screenCenterX = width / 2;
+          screenCenterY = height / 2;
+        }
+      }
+
+      onTranslationChanged: {
+        if (active) {
+          let newPositionX = pressClickX + translation.x;
+          let newPositionY = pressClickY + translation.y;
+          screenCenterX = mapCanvas.mapSettings.coordinateToScreen(featureForm.extentController.getCentroidFromSelected()).x;
+          screenCenterY = mapCanvas.mapSettings.coordinateToScreen(featureForm.extentController.getCentroidFromSelected()).y;
+          let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX);
+          if (angle != 0) {
+            moveAndRotateFeaturesHighlight.originX = screenCenterX;
+            moveAndRotateFeaturesHighlight.originY = screenCenterY;
+            moveAndRotateFeaturesHighlight.rotationDegrees = angle * 180 / Math.PI;
           }
         }
       }
@@ -387,7 +545,7 @@ ApplicationWindow {
           } else if (geometryEditorsToolbar.editorRubberbandModel && geometryEditorsToolbar.editorRubberbandModel.vertexCount > 1) {
             coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen(geometryEditorsToolbar.editorRubberbandModel.lastCoordinate);
           } else {
-            if (!digitizingToolbar.rubberbandModel.frozen) {
+            if (digitizingToolbar.rubberbandModel == undefined || !digitizingToolbar.rubberbandModel.frozen) {
               coordinateLocator.sourceLocation = undefined;
             }
           }
@@ -400,10 +558,13 @@ ApplicationWindow {
      * PointerDevice.TouchScreen was explicitly taken out of the accepted devices.
      * The timer is needed as adding additional fingers onto a device re-triggers hovered
      * changes in unpredictable order.
+     *
+     * Known issue: Switching between finger and stylus input within 500 milliseconds may break
+     * the stylus binding to the CoordinateLocator.
      */
     Timer {
       id: dummyHoverTimer
-      interval: 750
+      interval: 500
       repeat: false
 
       onTriggered: {
@@ -413,7 +574,7 @@ ApplicationWindow {
 
     HoverHandler {
       id: dummyHoverHandler
-      enabled: !qfieldSettings.mouseAsTouchScreen && !(positionSource.active && positioningSettings.positioningCoordinateLock)
+      enabled: !qfieldSettings.mouseAsTouchScreen && hoverHandler.enabled
       acceptedDevices: PointerDevice.TouchScreen
       grabPermissions: PointerHandler.TakeOverForbidden
 
@@ -457,8 +618,8 @@ ApplicationWindow {
     MapCanvas {
       id: mapCanvasMap
 
-      property bool isEnabled: !dashBoard.opened && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.visible
-      interactive: isEnabled && !screenLocker.enabled
+      property bool isEnabled: !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.visible && !rotateFeaturesToolbar.rotateFeaturesRequested
+      interactive: isEnabled && !screenLocker.enabled && !snapToCommonAngleMenu.visible
       isMapRotationEnabled: qfieldSettings.enableMapRotation
       incrementalRendering: true
       quality: qfieldSettings.quality
@@ -504,7 +665,7 @@ ApplicationWindow {
               if (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Point || Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Null) {
                 digitizingToolbar.confirm();
               } else {
-                if (settings.valueBool("/QField/Digitizing/CurveEdition", false) == true) {
+                if (LayerUtils.isCurvedGeometry(currentRubberband.model.vectorLayer) == true && settings.valueBool("/QField/Digitizing/CurveEdition", false) == true) {
                   if (currentRubberband.model.isDuringCurveDrawing() == true || currentRubberband.model.vertexCount == 1) {
                     if (currentRubberband.model.vertexCount != 1) {
                       digitizingToolbar.addCurve();
@@ -724,6 +885,8 @@ ApplicationWindow {
 
     Navigation {
       id: navigation
+      objectName: "navigation"
+
       mapSettings: mapCanvas.mapSettings
       location: positionSource.active ? positionSource.projectedPosition : GeometryUtils.emptyPoint()
 
@@ -764,6 +927,11 @@ ApplicationWindow {
       averagedPosition: positionSource.averagedPosition
       averagedPositionCount: positionSource.averagedPositionCount
       overrideLocation: positionLocked ? positionSource.projectedPosition : undefined
+
+      snapToCommonAngles: qfieldSettings.snapToCommonAngleIsEnabled && (dashBoard.activeLayer && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line))
+      snappingIsRelative: qfieldSettings.snapToCommonAngleIsRelative
+      snappingAngleDegrees: qfieldSettings.snapToCommonAngleDegrees
+      snappingTolerance: qfieldSettings.snapToCommonAngleTolerance
     }
 
     /* Location marker reflecting the current GNSS position */
@@ -800,7 +968,7 @@ ApplicationWindow {
     /* Highlight the currently selected item on the feature list */
     FeatureListSelectionHighlight {
       id: featureListHighlight
-      visible: !moveFeaturesToolbar.moveFeaturesRequested
+      visible: !moveFeaturesToolbar.moveFeaturesRequested && !rotateFeaturesToolbar.rotateFeaturesRequested
 
       selectionModel: featureForm.selection
       mapSettings: mapCanvas.mapSettings
@@ -811,10 +979,10 @@ ApplicationWindow {
       width: 5
     }
 
-    /* Highlight the currently selected item being moved */
+    /* Highlight the currently selected item being moved or rotate */
     FeatureListSelectionHighlight {
-      id: moveFeaturesHighlight
-      visible: moveFeaturesToolbar.moveFeaturesRequested
+      id: moveAndRotateFeaturesHighlight
+      visible: moveFeaturesToolbar.moveFeaturesRequested || rotateFeaturesToolbar.rotateFeaturesRequested
       showSelectedOnly: true
 
       selectionModel: featureForm.selection
@@ -824,6 +992,7 @@ ApplicationWindow {
       property double rotationRadians: -mapSettings.rotation * Math.PI / 180
       translateX: mapToScreenTranslateX.screenDistance * Math.cos(rotationRadians) - mapToScreenTranslateY.screenDistance * Math.sin(rotationRadians)
       translateY: mapToScreenTranslateY.screenDistance * Math.cos(rotationRadians) + mapToScreenTranslateX.screenDistance * Math.sin(rotationRadians)
+      rotationDegrees: 0
 
       color: "yellow"
       focusedColor: "#ff7777"
@@ -833,7 +1002,8 @@ ApplicationWindow {
 
     /* Highlight features identified by locator or relation editor widgets */
     GeometryHighlighter {
-      id: locatorHighlightItem
+      id: geometryHighlighter
+      objectName: "geometryHighlighter"
     }
 
     MapToScreen {
@@ -1149,8 +1319,65 @@ ApplicationWindow {
       anchors.leftMargin: 4
       anchors.bottomMargin: 54
       round: true
-      bgcolor: Theme.darkGraySemiOpaque
-      iconSource: Theme.getThemeVectorIcon('ic_compass_arrow_24dp')
+      bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+
+      Shape {
+        width: compassArrow.width
+        height: compassArrow.height
+
+        ShapePath {
+          strokeWidth: 3
+          strokeColor: "transparent"
+          strokeStyle: ShapePath.SolidLine
+          fillColor: Theme.mainColor
+          joinStyle: ShapePath.MiterJoin
+          startX: compassArrow.width / 2
+          startY: 8
+          PathLine {
+            x: compassArrow.width / 2 + 6
+            y: compassArrow.height / 2
+          }
+          PathLine {
+            x: compassArrow.width / 2
+            y: compassArrow.height / 2 - 2
+          }
+          PathLine {
+            x: compassArrow.width / 2 - 6
+            y: compassArrow.height / 2
+          }
+          PathLine {
+            x: compassArrow.width / 2
+            y: 8
+          }
+        }
+
+        ShapePath {
+          strokeWidth: 3
+          strokeColor: "transparent"
+          strokeStyle: ShapePath.SolidLine
+          fillColor: Theme.toolButtonColor
+          joinStyle: ShapePath.MiterJoin
+          startX: compassArrow.width / 2
+          startY: compassArrow.height - 8
+          PathLine {
+            x: compassArrow.width / 2 + 6
+            y: compassArrow.height / 2
+          }
+          PathLine {
+            x: compassArrow.width / 2
+            y: compassArrow.height / 2 + 2
+          }
+          PathLine {
+            x: compassArrow.width / 2 - 6
+            y: compassArrow.height / 2
+          }
+          PathLine {
+            x: compassArrow.width / 2
+            y: compassArrow.height - 8
+          }
+        }
+      }
+
       onClicked: mapCanvas.mapSettings.rotation = 0
     }
 
@@ -1200,8 +1427,9 @@ ApplicationWindow {
         round: true
         anchors.right: parent.right
 
-        bgcolor: Theme.darkGray
+        bgcolor: Theme.toolButtonBackgroundColor
         iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
+        iconColor: Theme.toolButtonColor
 
         width: 36
         height: 36
@@ -1217,8 +1445,9 @@ ApplicationWindow {
         round: true
         anchors.right: parent.right
 
-        bgcolor: Theme.darkGray
+        bgcolor: Theme.toolButtonBackgroundColor
         iconSource: Theme.getThemeVectorIcon("ic_remove_white_24dp")
+        iconColor: Theme.toolButtonColor
 
         width: 36
         height: 36
@@ -1233,10 +1462,9 @@ ApplicationWindow {
 
     LocatorItem {
       id: locatorItem
+      objectName: "locatorItem"
 
-      locatorModelSuperBridge.navigation: navigation
-      locatorModelSuperBridge.bookmarks: bookmarkModel
-      locatorModelSuperBridge.activeLayer: dashBoard.activeLayer
+      locatorBridge: locatorBridge
 
       anchors.right: parent.right
       anchors.top: parent.top
@@ -1244,13 +1472,6 @@ ApplicationWindow {
       anchors.rightMargin: 4
 
       visible: !screenLocker.enabled && stateMachine.state !== 'measure'
-
-      Keys.onReleased: event => {
-        if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-          event.accepted = true;
-          state = "off";
-        }
-      }
 
       onStateChanged: {
         if (state == "off") {
@@ -1296,31 +1517,31 @@ ApplicationWindow {
         }
       }
 
-      QfCloseButton {
+      QfActionButton {
         id: closeMeasureTool
         visible: stateMachine.state === 'measure'
         toolImage: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
         toolText: qsTr('Close measure tool')
 
-        onClose: mainWindow.closeMeasureTool()
+        onClicked: mainWindow.closeMeasureTool()
       }
 
-      QfCloseButton {
+      QfActionButton {
         id: closeGeometryEditorsTool
         visible: (stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0)
         toolImage: geometryEditorsToolbar.image
         toolText: qsTr('Stop editing')
 
-        onClose: geometryEditorsToolbar.cancelEditors()
+        onClicked: geometryEditorsToolbar.cancelEditors()
       }
 
-      QfCloseButton {
+      QfActionButton {
         id: abortRequestGeometry
         visible: digitizingToolbar.geometryRequested
         toolImage: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
         toolText: qsTr('Cancel addition')
 
-        onClose: digitizingToolbar.cancel()
+        onClicked: digitizingToolbar.cancel()
       }
     }
 
@@ -1337,9 +1558,9 @@ ApplicationWindow {
         name: "digitizingDrawer"
         size: 48
         round: true
-        bgcolor: Theme.darkGray
+        bgcolor: Theme.toolButtonBackgroundColor
         iconSource: Theme.getThemeVectorIcon('ic_digitizing_settings_black_24dp')
-        iconColor: "white"
+        iconColor: Theme.toolButtonColor
         spacing: 4
         visible: stateMachine.state === "digitize" && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point)
 
@@ -1351,8 +1572,8 @@ ApplicationWindow {
           round: true
           state: qgisProject && qgisProject.snappingConfig.enabled ? "On" : "Off"
           iconSource: Theme.getThemeVectorIcon("ic_snapping_white_24dp")
-          iconColor: "white"
-          bgcolor: Theme.darkGray
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
           states: [
             State {
@@ -1360,8 +1581,8 @@ ApplicationWindow {
               name: "Off"
               PropertyChanges {
                 target: snappingButton
-                iconColor: "white"
-                bgcolor: Theme.darkGraySemiOpaque
+                iconColor: Theme.toolButtonColor
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
@@ -1369,7 +1590,7 @@ ApplicationWindow {
               PropertyChanges {
                 target: snappingButton
                 iconColor: Theme.mainColor
-                bgcolor: Theme.darkGray
+                bgcolor: Theme.toolButtonBackgroundColor
               }
             }
           ]
@@ -1391,8 +1612,8 @@ ApplicationWindow {
           round: true
           state: qgisProject && qgisProject.topologicalEditing ? "On" : "Off"
           iconSource: Theme.getThemeVectorIcon("ic_topology_white_24dp")
-          iconColor: "white"
-          bgcolor: Theme.darkGray
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
           states: [
             State {
@@ -1400,8 +1621,8 @@ ApplicationWindow {
               name: "Off"
               PropertyChanges {
                 target: topologyButton
-                iconColor: "white"
-                bgcolor: Theme.darkGraySemiOpaque
+                iconColor: Theme.toolButtonColor
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
@@ -1409,7 +1630,7 @@ ApplicationWindow {
               PropertyChanges {
                 target: topologyButton
                 iconColor: Theme.mainColor
-                bgcolor: Theme.darkGray
+                bgcolor: Theme.toolButtonBackgroundColor
               }
             }
           ]
@@ -1428,8 +1649,8 @@ ApplicationWindow {
           round: true
           visible: hoverHandler.hasBeenHovered && !(positionSource.active && positioningSettings.positioningCoordinateLock) && stateMachine.state === "digitize" && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid && (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line)) || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
           iconSource: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
-          iconColor: "white"
-          bgcolor: Theme.darkGray
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
           property bool freehandDigitizing: false
           state: freehandDigitizing ? "On" : "Off"
@@ -1439,8 +1660,8 @@ ApplicationWindow {
               name: "Off"
               PropertyChanges {
                 target: freehandButton
-                iconColor: "white"
-                bgcolor: Theme.darkGraySemiOpaque
+                iconColor: Theme.toolButtonColor
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
@@ -1448,7 +1669,7 @@ ApplicationWindow {
               PropertyChanges {
                 target: freehandButton
                 iconColor: Theme.mainColor
-                bgcolor: Theme.darkGray
+                bgcolor: Theme.toolButtonBackgroundColor
               }
             }
           ]
@@ -1475,22 +1696,18 @@ ApplicationWindow {
           round: true
           visible: dashBoard.activeLayer && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)
           iconSource: Theme.getThemeVectorIcon("ic_common_angle_white_24dp")
-          iconColor: "white"
-          bgcolor: Theme.darkGray
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
-          property bool isSnapToCommonAngleEnabled: false
-          property bool isSnapToCommonAngleRelative: true
-          property int snapToCommonAngleDegrees: 45
-
-          state: isSnapToCommonAngleEnabled ? "On" : "Off"
+          state: qfieldSettings.snapToCommonAngleIsEnabled ? "On" : "Off"
 
           states: [
             State {
               name: "Off"
               PropertyChanges {
                 target: snapToCommonAngleButton
-                iconColor: "white"
-                bgcolor: Theme.darkGraySemiOpaque
+                iconColor: Theme.toolButtonColor
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
@@ -1498,29 +1715,23 @@ ApplicationWindow {
               PropertyChanges {
                 target: snapToCommonAngleButton
                 iconColor: Theme.mainColor
-                bgcolor: Theme.darkGray
+                bgcolor: Theme.toolButtonBackgroundColor
               }
             }
           ]
 
           onClicked: {
-            isSnapToCommonAngleEnabled = !isSnapToCommonAngleEnabled;
-            settings.setValue("/QField/Digitizing/SnapToCommonAngleIsEnabled", isSnapToCommonAngleEnabled);
-            displayToast(isSnapToCommonAngleEnabled ? qsTr("Snap to %1° angle turned on").arg(snapToCommonAngleDegrees) : qsTr("Snap to common angle turned off"));
+            qfieldSettings.snapToCommonAngleIsEnabled = !qfieldSettings.snapToCommonAngleIsEnabled;
+            displayToast(qfieldSettings.snapToCommonAngleIsEnabled ? qsTr("Snap to %1° angle turned on").arg(qfieldSettings.snapToCommonAngleDegrees) : qsTr("Snap to common angle turned off"));
           }
 
           onPressAndHold: {
             snapToCommonAngleMenu.popup(parent.x, parent.y);
           }
 
-          Component.onCompleted: {
-            isSnapToCommonAngleEnabled = settings.valueBool("/QField/Digitizing/SnapToCommonAngleIsEnabled", false);
-            isSnapToCommonAngleRelative = settings.valueBool("/QField/Digitizing/SnapToCommonAngleIsRelative", true);
-            snapToCommonAngleDegrees = settings.valueInt("/QField/Digitizing/SnapToCommonAngleDegrees", snapToCommonAngleDegrees);
-          }
-
           Menu {
             id: snapToCommonAngleMenu
+            width: Theme.menuItemIconlessLeftPadding + Math.max(angles.count * 35, tolorences.count * 55) + 24
 
             MenuItem {
               text: qsTr("Relative angle")
@@ -1529,11 +1740,10 @@ ApplicationWindow {
               leftPadding: Theme.menuItemCheckLeftPadding
 
               checkable: true
-              checked: snapToCommonAngleButton.isSnapToCommonAngleRelative
+              checked: qfieldSettings.snapToCommonAngleIsRelative
 
               onTriggered: {
-                snapToCommonAngleButton.isSnapToCommonAngleRelative = checked;
-                settings.setValue("/QField/Digitizing/SnapToCommonAngleIsRelative", snapToCommonAngleButton.isSnapToCommonAngleRelative);
+                qfieldSettings.snapToCommonAngleIsRelative = !qfieldSettings.snapToCommonAngleIsRelative;
               }
             }
 
@@ -1541,31 +1751,154 @@ ApplicationWindow {
               width: parent.width
             }
 
-            Repeater {
-              // list of common angles to snap to
+            Text {
+              text: qsTr("Snapping to every")
+              color: Theme.mainTextColor
+              font: Theme.defaultFont
+              leftPadding: Theme.menuItemIconlessLeftPadding
+            }
+
+            Item {
+              width: 1
+              height: 8
+            }
+
+            ListView {
+              id: angles
+              height: 35
+              anchors {
+                left: parent.left
+                leftMargin: Theme.menuItemIconlessLeftPadding
+                rightMargin: 4
+              }
+              spacing: 3
+              orientation: ListView.Horizontal
               model: [10, 15, 30, 45, 90]
-              delegate: MenuItem {
-                required property int modelData
+              currentIndex: Math.max(model.findIndex(q => q === qfieldSettings.snapToCommonAngleDegrees), 0)
+              highlightFollowsCurrentItem: true
 
-                text: qsTr("Snap every %1°").arg(modelData)
+              highlight: Rectangle {
+                width: 35
+                height: parent.height
+                color: Theme.mainColor
+                radius: width / 2
+              }
 
-                font: Theme.defaultFont
-                height: 48
-                leftPadding: Theme.menuItemCheckLeftPadding
+              delegate: Item {
+                width: 35
+                height: width
+                enabled: !selected
 
-                checkable: true
-                checked: modelData === snapToCommonAngleButton.snapToCommonAngleDegrees
-                enabled: modelData !== snapToCommonAngleButton.snapToCommonAngleDegrees
+                property bool selected: modelData === qfieldSettings.snapToCommonAngleDegrees
 
-                onTriggered: {
-                  if (!checked) {
-                    return;
+                Text {
+                  text: qsTr("%1°").arg(modelData)
+                  font: parent.selected ? Theme.strongTipFont : Theme.tipFont
+                  anchors.centerIn: parent
+                  color: Theme.mainTextColor
+                }
+
+                Ripple {
+                  clip: true
+                  anchors.fill: parent
+                  clipRadius: width / 2
+                  pressed: angleMouseArea.pressed
+                  anchor: parent
+                  active: angleMouseArea.pressed
+                  color: "#22aaaaaa"
+                }
+
+                MouseArea {
+                  id: angleMouseArea
+                  anchors.fill: parent
+                  onClicked: {
+                    if (parent.selected) {
+                      return;
+                    }
+                    qfieldSettings.snapToCommonAngleIsEnabled = true;
+                    qfieldSettings.snapToCommonAngleDegrees = modelData;
+                    displayToast(qsTr("Snap to %1° angle turned on").arg(modelData));
                   }
-                  snapToCommonAngleButton.isSnapToCommonAngleEnabled = true;
-                  snapToCommonAngleButton.snapToCommonAngleDegrees = modelData;
-                  settings.setValue("/QField/Digitizing/SnapToCommonAngleDegrees", snapToCommonAngleButton.snapToCommonAngleDegrees);
-                  displayToast(qsTr("Snap to %1° angle turned on").arg(modelData));
-                  snapToCommonAngleMenu.close();
+                }
+              }
+            }
+
+            Item {
+              width: 1
+              height: 8
+            }
+
+            Text {
+              text: qsTr("Snapping tolerance")
+              color: Theme.mainTextColor
+              font: Theme.defaultFont
+              leftPadding: Theme.menuItemIconlessLeftPadding
+            }
+
+            Item {
+              width: 1
+              height: 8
+            }
+
+            ListView {
+              id: tolorences
+              height: 35
+              anchors {
+                left: parent.left
+                leftMargin: Theme.menuItemIconlessLeftPadding
+                rightMargin: 4
+              }
+              spacing: 3
+              orientation: ListView.Horizontal
+              model: [qsTr("Narrow"), qsTr("Normal"), qsTr("Large")]
+              highlight: Rectangle {
+                width: 35
+                height: parent.height
+                color: Theme.mainColor
+                radius: 4
+              }
+              currentIndex: qfieldSettings.snapToCommonAngleTolerance
+              highlightFollowsCurrentItem: true
+              delegate: Item {
+                id: tolorenceDelegate
+                width: (angles.contentWidth) / 3
+                height: 35
+                enabled: !selected
+
+                property bool selected: index === qfieldSettings.snapToCommonAngleTolerance
+
+                Text {
+                  id: tolorenceText
+                  text: modelData
+                  font: parent.selected ? Theme.strongTipFont : Theme.tipFont
+                  anchors.centerIn: parent
+                  color: Theme.mainTextColor
+                  elide: Text.ElideRight
+                  width: parent.width
+                  horizontalAlignment: Text.AlignHCenter
+                }
+
+                Ripple {
+                  clip: true
+                  anchors.fill: parent
+                  clipRadius: 4
+                  pressed: tolerancesMouseArea.pressed
+                  anchor: parent
+                  active: tolerancesMouseArea.pressed
+                  color: "#22aaaaaa"
+                }
+
+                MouseArea {
+                  id: tolerancesMouseArea
+                  anchors.fill: parent
+                  onClicked: {
+                    if (parent.selected) {
+                      return;
+                    }
+                    qfieldSettings.snapToCommonAngleIsEnabled = true;
+                    qfieldSettings.snapToCommonAngleTolerance = index;
+                    displayToast(qsTr("Snapping tolerance set to %1").arg(modelData));
+                  }
                 }
               }
             }
@@ -1578,7 +1911,7 @@ ApplicationWindow {
           height: visible ? 40 : 0
           padding: 2
           round: true
-          visible: dashBoard.activeLayer && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)
+          visible: dashBoard.activeLayer && LayerUtils.isCurvedGeometry(dashBoard.activeLayer) == true
           iconSource: Theme.getThemeVectorIcon("ic_line_curve_24dp")
           iconColor: "white"
           bgcolor: Theme.darkGray
@@ -1623,8 +1956,8 @@ ApplicationWindow {
         round: true
         visible: stateMachine.state === 'measure'
         iconSource: Theme.getThemeVectorIcon("ic_elevation_white_24dp")
-
-        bgcolor: Theme.darkGray
+        iconColor: Theme.toolButtonColor
+        bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
         property bool elevationProfileActive: false
         state: elevationProfileActive ? "On" : "Off"
@@ -1634,16 +1967,16 @@ ApplicationWindow {
             name: "Off"
             PropertyChanges {
               target: elevationProfileButton
-              iconSource: Theme.getThemeVectorIcon("ic_elevation_white_24dp")
-              bgcolor: Theme.darkGraySemiOpaque
+              iconColor: Theme.toolButtonColor
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
             }
           },
           State {
             name: "On"
             PropertyChanges {
               target: elevationProfileButton
-              iconSource: Theme.getThemeVectorIcon("ic_elevation_green_24dp")
-              bgcolor: Theme.darkGray
+              iconColor: Theme.mainColor
+              bgcolor: Theme.toolButtonBackgroundColor
             }
           }
         ]
@@ -1693,8 +2026,8 @@ ApplicationWindow {
 
         property bool isFollowLocationActive: positionSource.active && gnssButton.followActive && followIncludeDestination
         iconSource: Theme.getThemeVectorIcon("ic_navigation_flag_purple_24dp")
-        iconColor: isFollowLocationActive ? "white" : Theme.navigationColor
-        bgcolor: isFollowLocationActive ? Theme.navigationColor : Theme.darkGray
+        iconColor: isFollowLocationActive ? Theme.toolButtonColor : Theme.navigationColor
+        bgcolor: isFollowLocationActive ? Theme.navigationColor : Theme.toolButtonBackgroundColor
 
         /*
         / When set to true, when the map follows the device's current position, the extent
@@ -1736,7 +2069,8 @@ ApplicationWindow {
             PropertyChanges {
               target: gnssLockButton
               iconSource: Theme.getThemeVectorIcon("ic_location_locked_white_24dp")
-              bgcolor: Theme.darkGraySemiOpaque
+              iconColor: Theme.toolButtonColor
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
             }
           },
           State {
@@ -1745,7 +2079,7 @@ ApplicationWindow {
               target: gnssLockButton
               iconSource: Theme.getThemeVectorIcon("ic_location_locked_active_white_24dp")
               iconColor: Theme.positionColor
-              bgcolor: Theme.darkGray
+              bgcolor: Theme.toolButtonBackgroundColor
             }
           }
         ]
@@ -1783,16 +2117,6 @@ ApplicationWindow {
 
         anchors.right: parent.right
 
-        onIconSourceChanged: {
-          if (state === "On") {
-            if (positionSource.positionInformation && positionSource.positionInformation.latitudeValid) {
-              displayToast(qsTr("Received position"));
-            } else {
-              displayToast(qsTr("Searching for position"));
-            }
-          }
-        }
-
         /*
         / When set to true, the map will follow the device's current position; the map
         / will stop following the position whe the user manually drag the map.
@@ -1819,7 +2143,8 @@ ApplicationWindow {
             PropertyChanges {
               target: gnssButton
               iconSource: Theme.getThemeVectorIcon("ic_location_disabled_white_24dp")
-              bgcolor: Theme.darkGraySemiOpaque
+              iconColor: Theme.toolButtonColor
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
             }
           },
           State {
@@ -1827,8 +2152,8 @@ ApplicationWindow {
             PropertyChanges {
               target: gnssButton
               iconSource: trackings.count > 0 ? Theme.getThemeVectorIcon("ic_location_tracking_white_24dp") : positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? Theme.getThemeVectorIcon("ic_location_valid_white_24dp") : Theme.getThemeVectorIcon("ic_location_white_24dp")
-              iconColor: followActive ? "white" : Theme.positionColor
-              bgcolor: followActive ? Theme.positionColor : Theme.darkGray
+              iconColor: followActive ? Theme.toolButtonColor : Theme.positionColor
+              bgcolor: followActive ? Theme.positionColor : Theme.toolButtonBackgroundColor
             }
           }
         ]
@@ -1906,7 +2231,7 @@ ApplicationWindow {
           radius: width / 2
 
           border.width: 1.5
-          border.color: 'white'
+          border.color: "white"
 
           visible: positioningSettings.accuracyIndicator && gnssButton.state === "On"
           color: !positionSource.positionInformation || !positionSource.positionInformation.haccValid || positionSource.positionInformation.hacc > positioningSettings.accuracyBad ? Theme.accuracyBad : positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent ? Theme.accuracyTolerated : Theme.accuracyExcellent
@@ -1954,7 +2279,7 @@ ApplicationWindow {
 
         stateVisible: !screenLocker.enabled && (!positioningSettings.geofencingPreventDigitizingDuringAlert || !geofencer.isAlerting) && ((stateMachine.state === "digitize" && dashBoard.activeLayer && !dashBoard.activeLayer.readOnly &&
             // unfortunately there is no way to call QVariant::toBool in QML so the value is a string
-            dashBoard.activeLayer.customProperty('QFieldSync/is_geometry_locked') !== 'true' && !geometryEditorsToolbar.stateVisible && !moveFeaturesToolbar.stateVisible && (projectInfo.editRights || projectInfo.insertRights)) || stateMachine.state === 'measure' || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
+            dashBoard.activeLayer.customProperty('QFieldSync/is_geometry_locked') !== 'true' && !geometryEditorsToolbar.stateVisible && !moveFeaturesToolbar.stateVisible && !rotateFeaturesToolbar.stateVisible && (projectInfo.editRights || projectInfo.insertRights)) || stateMachine.state === 'measure' || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
         rubberbandModel: currentRubberband ? currentRubberband.model : null
         mapSettings: mapCanvas.mapSettings
         showConfirmButton: stateMachine.state === "digitize"
@@ -2042,7 +2367,7 @@ ApplicationWindow {
               geometryRequested = false;
             }
           }
-          if (homeButton.waitingForDigitizingFinish) {
+          if (dashBoard.shouldReturnHome) {
             openWelcomeScreen();
           }
         }
@@ -2135,7 +2460,38 @@ ApplicationWindow {
             featureForm.extentController.zoomToSelected();
           }
           startPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y);
+          moveAndRotateFeaturesHighlight.rotationDegrees = 0;
           moveFeaturesRequested = true;
+        }
+      }
+
+      ConfirmationToolbar {
+        id: rotateFeaturesToolbar
+
+        property bool rotateFeaturesRequested: false
+        property var angle: 0.0
+
+        signal rotateConfirmed
+        signal rotateCanceled
+
+        stateVisible: rotateFeaturesRequested
+
+        onConfirm: {
+          rotateFeaturesRequested = false;
+          angle = moveAndRotateFeaturesHighlight.rotationDegrees;
+          rotateConfirmed();
+        }
+        onCancel: {
+          rotateFeaturesRequested = false;
+          rotateCanceled();
+        }
+
+        function initializeRotateFeatures() {
+          if (featureForm && featureForm.selection.model.selectedCount === 1) {
+            featureForm.extentController.zoomToSelected();
+          }
+          moveAndRotateFeaturesHighlight.rotationDegrees = 0;
+          rotateFeaturesRequested = true;
         }
       }
     }
@@ -2145,33 +2501,73 @@ ApplicationWindow {
     id: locatorSettings
     locatorFiltersModel: locatorItem.locatorFiltersModel
 
-    modal: true
-    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-    parent: Overlay.overlay
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   PluginManagerSettings {
     id: pluginManagerSettings
 
-    modal: true
-    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-    parent: Overlay.overlay
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   DashBoard {
     id: dashBoard
     objectName: "dashBoard"
-    allowActiveLayerChange: !digitizingToolbar.isDigitizing
-    mapSettings: mapCanvas.mapSettings
-    interactive: !welcomeScreen.visible && !qfieldSettings.visible && !qfieldCloudScreen.visible && !qfieldLocalDataPickerScreen.visible && !codeReader.visible && !screenLocker.enabled
 
-    onOpenedChanged: {
-      if (!opened) {
-        if (featureForm.visible) {
-          featureForm.focus = true;
-        }
+    allowActiveLayerChange: !digitizingToolbar.isDigitizing
+    allowInteractive: !welcomeScreen.visible && !qfieldSettings.visible && !qfieldCloudScreen.visible && !qfieldLocalDataPickerScreen.visible && !codeReader.visible && !screenLocker.enabled
+    mapSettings: mapCanvas.mapSettings
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
+
+    onReturnHome: {
+      if (currentRubberband && currentRubberband.model.vertexCount > 1) {
+        digitizingToolbar.cancelDialog.open();
+        shouldReturnHome = true;
+      } else if (!shouldReturnHome) {
+        openWelcomeScreen();
       }
     }
+
+    onShowMainMenu: p => {
+      mainMenu.popup(p.x - mainMenu.width - 2, p.y - 2);
+    }
+
+    onShowCloudPopup: {
+      dashBoard.close();
+      qfieldCloudPopup.show();
+    }
+
+    onToggleMeasurementTool: {
+      if (featureForm.state === "ProcessingAlgorithmForm") {
+        cancelAlgorithmDialog.visible = true;
+      } else {
+        activateMeasurementMode();
+      }
+    }
+
+    onShowPrintLayouts: p => {
+      if (layoutListInstantiator.count > 1) {
+        printMenu.popup(p.x, p.y);
+      } else {
+        mainMenu.close();
+        displayToast(qsTr('Printing...'));
+        printMenu.printName = layoutListInstantiator.count === 1 ? layoutListInstantiator.model.titleAt(0) : "";
+        printMenu.printTimer.restart();
+      }
+    }
+
+    onShowProjectFolder: {
+      dashBoard.close();
+      qfieldLocalDataPickerScreen.projectFolderView = true;
+      qfieldLocalDataPickerScreen.model.resetToPath(projectInfo.filePath);
+      qfieldLocalDataPickerScreen.visible = true;
+    }
+
+    // If the user clicks the "Return home" button in the middle of digitizing, we will ask if they want to discard their changes.
+    // If they press cancel, nothing will happen, but if they press discard, we will discard their digitizing.
+    // We will also use `shouldReturnHome` to know that we need to return home as well or not.
+    property bool shouldReturnHome: false
 
     function ensureEditableLayerSelected() {
       var firstEditableLayer = null;
@@ -2200,6 +2596,8 @@ ApplicationWindow {
 
   BookmarkProperties {
     id: bookmarkProperties
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   function openWelcomeScreen() {
@@ -2207,7 +2605,7 @@ ApplicationWindow {
     dashBoard.close();
     welcomeScreen.visible = true;
     welcomeScreen.focus = true;
-    homeButton.waitingForDigitizingFinish = false;
+    dashBoard.shouldReturnHome = false;
   }
 
   function activateMeasurementMode() {
@@ -2224,8 +2622,7 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     width: {
-      const toolbarWidth = mainMenuActionsToolbar.childrenRect.width + 4;
-      let result = 50;
+      let result = Math.max(50, undoRedoMetrics.width + undoButton.leftPadding * 2 + undoButton.rightPadding * 2 + 42 * 2);
       let padding = 0;
       // Skip first Row item
       for (let i = 1; i < count; ++i) {
@@ -2233,92 +2630,32 @@ ApplicationWindow {
         result = Math.max(item.contentItem.implicitWidth, result);
         padding = Math.max(item.leftPadding + item.rightPadding, padding);
       }
-      return Math.max(toolbarWidth, result + padding);
+      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
-    Row {
-      id: mainMenuActionsToolbar
-      objectName: "mainMenuActionsToolbar"
-      leftPadding: 2
-      rightPadding: 2
-      spacing: 2
-      height: printItem.height
+    TextMetrics {
+      id: undoRedoMetrics
+      font: undoButton.font
+      text: undoButton.text + redoButton.text
+    }
+
+    Item {
+      width: mainMenu.width
+      height: 48
       clip: true
 
-      property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
-
-      QfToolButton {
-        id: homeButton
-        anchors.verticalCenter: parent.verticalCenter
-        height: 48
-        width: 48
-        round: true
-        iconSource: Theme.getThemeVectorIcon("ic_home_black_24dp")
-        iconColor: Theme.mainTextColor
-        bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
-
-        property bool waitingForDigitizingFinish: false
-
-        onClicked: {
-          if (currentRubberband && currentRubberband.model.vertexCount > 1) {
-            digitizingToolbar.cancelDialog.open();
-            waitingForDigitizingFinish = true;
-          } else if (!waitingForDigitizingFinish) {
-            openWelcomeScreen();
-            highlighted = false;
-          }
-        }
-      }
-
-      QfToolButton {
-        id: measurementButton
-        anchors.verticalCenter: parent.verticalCenter
-        height: 48
-        width: 48
-        round: true
-        iconSource: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
-        iconColor: Theme.mainTextColor
-        bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
-
-        onClicked: {
-          if (featureForm.state === "ProcessingAlgorithmForm") {
-            cancelAlgorithmDialog.visible = true;
-          } else {
-            activateMeasurementMode();
-            highlighted = false;
-          }
-        }
-      }
-
-      QfToolButton {
-        anchors.verticalCenter: parent.verticalCenter
-        height: 48
-        width: 48
-        round: true
-        iconSource: Theme.getThemeVectorIcon("ic_lock_black_24dp")
-        iconColor: Theme.mainTextColor
-        bgcolor: hovered ? parent.hoveredColor : "#00ffffff"
-
-        onClicked: {
-          mainMenu.close();
-          dashBoard.close();
-          screenLocker.enabled = true;
-        }
-      }
-
-      QfToolButton {
+      MenuItem {
         id: undoButton
-        property bool isEnabled: featureHistory && featureHistory.isUndoAvailable
-        anchors.verticalCenter: parent.verticalCenter
+        enabled: featureHistory && featureHistory.isUndoAvailable
         height: 48
-        width: 48
-        round: true
-        iconSource: Theme.getThemeVectorIcon("ic_undo_black_24dp")
-        iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        bgcolor: isEnabled && hovered ? parent.hoveredColor : "#00ffffff"
+        width: parent.width / 2
+        anchors.left: parent.left
+        text: qsTr("Undo")
+        icon.source: Theme.getThemeVectorIcon("ic_undo_black_24dp")
+        leftPadding: Theme.menuItemLeftPadding
 
         onClicked: {
-          if (isEnabled) {
+          if (enabled) {
             const msg = featureHistory.undoMessage();
             if (featureHistory.undo()) {
               displayToast(msg);
@@ -2329,19 +2666,34 @@ ApplicationWindow {
         }
       }
 
-      QfToolButton {
+      MenuSeparator {
+        width: 1
+        height: parent.height
+        anchors.right: redoButton.left
+      }
+
+      MenuItem {
         id: redoButton
-        property bool isEnabled: featureHistory && featureHistory.isRedoAvailable
-        anchors.verticalCenter: parent.verticalCenter
+        enabled: featureHistory && featureHistory.isRedoAvailable
         height: 48
-        width: 48
-        round: true
-        iconSource: Theme.getThemeVectorIcon("ic_redo_black_24dp")
-        iconColor: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        bgcolor: isEnabled && hovered ? parent.hoveredColor : "#00ffffff"
+        width: parent.width / 2
+        anchors.right: parent.right
+        text: qsTr("Redo")
+        icon.source: Theme.getThemeVectorIcon("ic_redo_black_24dp")
+
+        contentItem: IconLabel {
+          leftPadding: undoButton.leftPadding
+          spacing: redoButton.spacing
+          mirrored: true
+          display: redoButton.display
+          icon: redoButton.icon
+          text: redoButton.text
+          font: redoButton.font
+          color: redoButton.enabled ? redoButton.Material.foreground : redoButton.Material.hintTextColor
+        }
 
         onClicked: {
-          if (isEnabled) {
+          if (enabled) {
             const msg = featureHistory.redoMessage();
             if (featureHistory.redo()) {
               displayToast(msg);
@@ -2355,51 +2707,6 @@ ApplicationWindow {
 
     MenuSeparator {
       width: parent.width
-    }
-
-    MenuItem {
-      id: printItem
-      text: qsTr("Print to PDF")
-
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_print_black_24dp")
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      rightPadding: 40
-
-      arrow: Canvas {
-        x: parent.width - width
-        y: (parent.height - height) / 2
-        implicitWidth: 40
-        implicitHeight: 40
-        opacity: layoutListInstantiator.count > 1 ? 1 : 0
-        onPaint: {
-          var ctx = getContext("2d");
-          ctx.strokeStyle = Theme.mainColor;
-          ctx.lineWidth = 1;
-          ctx.moveTo(15, 15);
-          ctx.lineTo(width - 15, height / 2);
-          ctx.lineTo(15, height - 15);
-          ctx.stroke();
-        }
-      }
-
-      onTriggered: {
-        if (layoutListInstantiator.count > 1) {
-          printMenu.popup(mainMenu.x, mainMenu.y + printItem.y);
-        } else if (layoutListInstantiator.count == 1) {
-          mainMenu.close();
-          displayToast(qsTr('Printing...'));
-          printMenu.printName = layoutListInstantiator.model.titleAt(0);
-          printMenu.printTimer.restart();
-        } else {
-          mainMenu.close();
-          toast.show(qsTr('No print layout available'), 'info', qsTr('Learn more'), function () {
-              Qt.openUrlExternally('https://docs.qfield.org/how-to/print-to-pdf/');
-            });
-        }
-        highlighted = false;
-      }
     }
 
     MenuItem {
@@ -2442,23 +2749,6 @@ ApplicationWindow {
       }
     }
 
-    MenuItem {
-      text: qsTr("Project Folder")
-
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_project_folder_black_24dp")
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      rightPadding: 40
-
-      onTriggered: {
-        dashBoard.close();
-        qfieldLocalDataPickerScreen.projectFolderView = true;
-        qfieldLocalDataPickerScreen.model.resetToPath(projectInfo.filePath);
-        qfieldLocalDataPickerScreen.visible = true;
-      }
-    }
-
     MenuSeparator {
       width: parent.width
     }
@@ -2467,8 +2757,9 @@ ApplicationWindow {
       text: qsTr("Settings")
 
       font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_tune_white_24dp")
       height: 48
-      leftPadding: Theme.menuItemIconlessLeftPadding
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: {
         dashBoard.close();
@@ -2483,7 +2774,8 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemIconlessLeftPadding
+      icon.source: Theme.getThemeVectorIcon("ic_message_log_black_24dp")
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: {
         dashBoard.close();
@@ -2493,11 +2785,31 @@ ApplicationWindow {
     }
 
     MenuItem {
+      text: qsTr("Lock Screen")
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_lock_black_24dp")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: {
+        mainMenu.close();
+        dashBoard.close();
+        screenLocker.enabled = true;
+      }
+    }
+
+    MenuSeparator {
+      width: parent.width
+    }
+
+    MenuItem {
       text: qsTr("About QField")
 
       font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_qfield_black_24dp")
       height: 48
-      leftPadding: Theme.menuItemIconlessLeftPadding
+      leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: {
         dashBoard.close();
@@ -2556,6 +2868,7 @@ ApplicationWindow {
 
         font: Theme.defaultFont
         leftPadding: Theme.menuItemLeftPadding
+        height: 48
 
         onTriggered: {
           if (SensorStatus == Qgis.DeviceConnectionStatus.Connected) {
@@ -2623,6 +2936,7 @@ ApplicationWindow {
 
         font: Theme.defaultFont
         leftPadding: Theme.menuItemLeftPadding
+        height: 48
 
         onTriggered: {
           highlighted = false;
@@ -2835,10 +3149,12 @@ ApplicationWindow {
 
         MenuItem {
           text: qsTr('Layer:') + ' ' + layerName
+          height: 48
           enabled: false
         }
         MenuItem {
           text: qsTr('Feature:') + ' ' + featureName
+          height: 48
           enabled: false
         }
         MenuSeparator {
@@ -2850,9 +3166,10 @@ ApplicationWindow {
           font: Theme.defaultFont
           icon.source: Theme.getThemeVectorIcon("ic_baseline-list_white_24dp")
           leftPadding: Theme.menuItemLeftPadding
+          height: 48
 
           onTriggered: {
-            featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid);
+            featureForm.model.setFeatures(menu.featureLayer, '@id = ' + menu.fid);
             featureForm.selection.focusedItem = 0;
             featureForm.state = "FeatureForm";
           }
@@ -2863,6 +3180,7 @@ ApplicationWindow {
           font: Theme.defaultFont
           icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
           leftPadding: Theme.menuItemLeftPadding
+          height: 48
 
           onTriggered: {
             clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true);
@@ -2875,9 +3193,10 @@ ApplicationWindow {
           enabled: projectInfo.insertRights
           icon.source: Theme.getThemeVectorIcon("ic_duplicate_black_24dp")
           leftPadding: Theme.menuItemLeftPadding
+          height: 48
 
           onTriggered: {
-            featureForm.model.setFeatures(menu.featureLayer, '$id = ' + menu.fid);
+            featureForm.model.setFeatures(menu.featureLayer, '@id = ' + menu.fid);
             featureForm.selection.focusedItem = 0;
             featureForm.multiSelection = true;
             featureForm.selection.toggleSelectedItem(0);
@@ -3287,6 +3606,7 @@ ApplicationWindow {
     mapSettings: mapCanvas.mapSettings
     digitizingToolbar: digitizingToolbar
     moveFeaturesToolbar: moveFeaturesToolbar
+    rotateFeaturesToolbar: rotateFeaturesToolbar
     codeReader: codeReader
 
     focus: visible
@@ -3362,6 +3682,8 @@ ApplicationWindow {
     digitizingToolbar: digitizingToolbar
     codeReader: codeReader
     featureModel.currentLayer: dashBoard.activeLayer
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   function displayToast(message, type, action_text, action_function) {
@@ -3496,6 +3818,10 @@ ApplicationWindow {
       imageDecoration.strokeColor = imageDecorationConfiguration["strokeColor"];
       const gridDecorationConfiguration = projectInfo.getGridDecorationConfiguration();
       gridDecoration.enabled = false;
+      gridDecoration.xInterval = gridDecorationConfiguration["xInterval"];
+      gridDecoration.yInterval = gridDecorationConfiguration["yInterval"];
+      gridDecoration.xOffset = gridDecorationConfiguration["xOffset"];
+      gridDecoration.yOffset = gridDecorationConfiguration["yOffset"];
       gridDecoration.prepareLines = gridDecorationConfiguration["hasLines"];
       gridDecoration.lineColor = gridDecorationConfiguration["lineColor"];
       gridDecoration.prepareMarkers = gridDecorationConfiguration["hasMarkers"];
@@ -3605,20 +3931,11 @@ ApplicationWindow {
     objectName: 'messageLog'
 
     anchors.fill: parent
-    focus: visible
-    visible: false
 
     model: messageLogModel
 
     onFinished: {
       visible = false;
-    }
-
-    Keys.onReleased: event => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true;
-        visible = false;
-      }
     }
 
     Component.onCompleted: {
@@ -3679,10 +3996,10 @@ ApplicationWindow {
     Popup {
       id: loginDialogPopup
       parent: Overlay.overlay
-      x: Theme.popupScreenEdgeMargin
-      y: Theme.popupScreenEdgeMargin
       width: parent.width - Theme.popupScreenEdgeMargin * 2
-      height: parent.height - Theme.popupScreenEdgeMargin * 2
+      height: parent.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+      x: Theme.popupScreenEdgeMargin
+      y: (mainWindow.height - height) / 2
       padding: 0
       modal: true
       closePolicy: Popup.CloseOnEscape
@@ -3717,43 +4034,12 @@ ApplicationWindow {
   About {
     id: aboutDialog
     anchors.fill: parent
-    focus: visible
-
-    visible: false
-
-    Keys.onReleased: event => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true;
-        visible = false;
-      }
-    }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   TrackerSettings {
     id: trackerSettings
-  }
-
-  QFieldSettings {
-    id: qfieldSettings
-
-    anchors.fill: parent
-    visible: false
-    focus: visible
-
-    onFinished: {
-      visible = false;
-    }
-
-    Keys.onReleased: event => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        event.accepted = true;
-        finished();
-      }
-    }
-
-    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   QFieldCloudConnection {
@@ -3820,8 +4106,37 @@ ApplicationWindow {
     id: qfieldCloudDeltaHistory
 
     modal: true
-    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+    closePolicy: Popup.CloseOnEscape
     parent: Overlay.overlay
+  }
+
+  WelcomeScreen {
+    id: welcomeScreen
+    objectName: "welcomeScreen"
+    visible: !iface.hasProjectOnLaunch()
+
+    model: RecentProjectListModel {
+      id: recentProjectListModel
+    }
+
+    anchors.fill: parent
+
+    onOpenLocalDataPicker: {
+      qfieldLocalDataPickerScreen.projectFolderView = false;
+      qfieldLocalDataPickerScreen.model.resetToRoot();
+      qfieldLocalDataPickerScreen.visible = true;
+    }
+
+    onShowQFieldCloudScreen: {
+      qfieldCloudScreen.visible = true;
+    }
+
+    onShowSettings: {
+      qfieldSettings.reset();
+      qfieldSettings.visible = true;
+    }
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   QFieldCloudScreen {
@@ -3833,7 +4148,6 @@ ApplicationWindow {
 
     onFinished: {
       visible = false;
-      welcomeScreen.visible = true;
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
@@ -3852,10 +4166,6 @@ ApplicationWindow {
   QFieldCloudPackageLayersFeedback {
     id: cloudPackageLayersFeedback
     visible: false
-    parent: Overlay.overlay
-
-    width: parent.width
-    height: parent.height
   }
 
   QFieldLocalDataPickerScreen {
@@ -3865,61 +4175,22 @@ ApplicationWindow {
     visible: false
     focus: visible
 
-    onFinished: {
+    onFinished: loading => {
       visible = false;
-      if (model.currentPath === 'root') {
-        welcomeScreen.visible = loading ? false : true;
-      }
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
-  WelcomeScreen {
-    id: welcomeScreen
-    objectName: "welcomeScreen"
-    visible: !iface.hasProjectOnLaunch()
-
-    model: RecentProjectListModel {
-      id: recentProjectListModel
-    }
-    property ProjectSource __projectSource
-
+  QFieldSettings {
+    id: qfieldSettings
     anchors.fill: parent
-    focus: visible
 
-    onOpenLocalDataPicker: {
-      if (platformUtilities.capabilities & PlatformUtilities.CustomLocalDataPicker) {
-        welcomeScreen.visible = false;
-        qfieldLocalDataPickerScreen.projectFolderView = false;
-        qfieldLocalDataPickerScreen.model.resetToRoot();
-        qfieldLocalDataPickerScreen.visible = true;
-      } else {
-        __projectSource = platformUtilities.openProject(this);
-      }
+    onFinished: {
+      visible = false;
     }
 
-    onShowQFieldCloudScreen: {
-      welcomeScreen.visible = false;
-      qfieldCloudScreen.visible = true;
-    }
-
-    Keys.onReleased: event => {
-      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-        if (qgisProject.fileName != '') {
-          event.accepted = true;
-          visible = false;
-          focus = false;
-        } else {
-          event.accepted = false;
-          mainWindow.close();
-        }
-      }
-    }
-
-    Component.onCompleted: {
-      focusstack.addFocusTaker(this);
-    }
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   Changelog {
@@ -4016,7 +4287,7 @@ ApplicationWindow {
   onClosing: close => {
     if (screenLocker.enabled) {
       close.accepted = false;
-      displayToast(qsTr("Unlock the screen to to close project and app"));
+      displayToast(qsTr("Unlock the screen to close project and app"));
       return;
     }
     if (!closeAlreadyRequested) {
@@ -4034,14 +4305,6 @@ ApplicationWindow {
     interval: 2000
     onTriggered: {
       closeAlreadyRequested = false;
-    }
-  }
-
-  Connections {
-    target: welcomeScreen.__projectSource
-
-    function onProjectOpened(path) {
-      iface.loadFile(path);
     }
   }
 
@@ -4065,6 +4328,7 @@ ApplicationWindow {
 
   ScreenLocker {
     id: screenLocker
+    objectName: "screenLocker"
     enabled: false
   }
 
@@ -4103,7 +4367,7 @@ ApplicationWindow {
     standardButtons: Dialog.Yes | Dialog.No
   }
 
-  Dialog {
+  QfDialog {
     id: cancelAlgorithmDialog
     parent: mainWindow.contentItem
 
@@ -4112,8 +4376,6 @@ ApplicationWindow {
     font: Theme.defaultFont
 
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
-    x: (mainWindow.width - width) / 2
-    y: (mainWindow.height - height) / 2
 
     title: qsTr("Cancel algorithm operation")
     Label {
@@ -4125,7 +4387,7 @@ ApplicationWindow {
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
       featureForm.state = "Hidden";
-      activateMeasurementMode();
+      mentMode();
     }
     onDiscarded: {
       cancelAlgorithmDialog.visible = false;
@@ -4178,6 +4440,43 @@ ApplicationWindow {
 
     function blockGuides() {
       mapCanvasTour.blockGuide();
+      settings.setValue("/QField/showMapCanvasGuide", false);
+    }
+  }
+
+  Rectangle {
+    anchors.top: parent.top
+    anchors.left: parent.left
+
+    width: 14
+    height: 14
+    color: "transparent"
+
+    MouseArea {
+      enabled: mainWindow.sceneBorderless
+      anchors.fill: parent
+      cursorShape: enabled ? Qt.DragMoveCursor : Qt.ArrowCursor
+      onPressed: mouse => {
+        mainWindow.startSystemMove();
+      }
+    }
+  }
+
+  Rectangle {
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+
+    width: 14
+    height: 14
+    color: "transparent"
+
+    MouseArea {
+      enabled: mainWindow.sceneBorderless
+      anchors.fill: parent
+      cursorShape: enabled ? Qt.SizeFDiagCursor : Qt.ArrowCursor
+      onPressed: mouse => {
+        mainWindow.startSystemResize(Qt.RightEdge | Qt.BottomEdge);
+      }
     }
   }
 }

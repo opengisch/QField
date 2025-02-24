@@ -47,10 +47,12 @@ Popup {
   onAboutToShow: {
     if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
       cameraPermission.request();
-    }
-    if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
+    } else if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
       microphonePermission.request();
     }
+    recorder.mediaFormat.audioCodec = MediaFormat.AudioCodec.AAC;
+    recorder.mediaFormat.videoCodec = MediaFormat.VideoCodec.H264;
+    recorder.mediaFormat.fileFormat = MediaFormat.MPEG4;
   }
 
   Component.onCompleted: {
@@ -71,9 +73,21 @@ Popup {
 
   QfCameraPermission {
     id: cameraPermission
+
+    onStatusChanged: {
+      if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
+        microphonePermission.request();
+      }
+    }
   }
   QfMicrophonePermission {
     id: microphonePermission
+
+    onStatusChanged: {
+      if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
+        cameraPermission.request();
+      }
+    }
   }
 
   Settings {
@@ -368,6 +382,7 @@ Popup {
               round: true
               roundborder: true
               iconSource: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview" ? Theme.getThemeVectorIcon("ic_check_white_24dp") : ''
+              iconColor: Theme.toolButtonColor
               bgcolor: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview" ? Theme.mainColor : cameraItem.state == "VideoCapture" ? "red" : "white"
 
               onClicked: {
@@ -413,8 +428,8 @@ Popup {
             x: cameraItem.isPortraitMode ? (parent.width / 4) - (width / 2) : (parent.width - width) / 2
             y: cameraItem.isPortraitMode ? (parent.height - height) / 2 : (parent.height / 4) * 3 - (height / 2)
 
-            iconColor: "white"
-            bgcolor: Theme.darkGraySemiOpaque
+            iconColor: Theme.toolButtonColor
+            bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
             round: true
 
             text: camera.zoomFactor.toFixed(1) + 'X'
@@ -444,8 +459,8 @@ Popup {
                 return '';
               }
             }
-            iconColor: "white"
-            bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.5)
+            iconColor: Theme.toolButtonColor
+            bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
             round: true
 
             onClicked: {
@@ -485,7 +500,7 @@ Popup {
                   return '00:00:01';
                 }
               }
-              color: 'white'
+              color: "white"
             }
 
             FontMetrics {
@@ -506,8 +521,8 @@ Popup {
       anchors.topMargin: mainWindow.sceneTopMargin + 4
 
       iconSource: Theme.getThemeVectorIcon("ic_chevron_left_white_24dp")
-      iconColor: "white"
-      bgcolor: Qt.hsla(Theme.darkGray.hslHue, Theme.darkGray.hslSaturation, Theme.darkGray.hslLightness, 0.5)
+      iconColor: Theme.toolButtonColor
+      bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
       round: true
 
       onClicked: {
@@ -534,8 +549,8 @@ Popup {
       anchors.topMargin: 4
 
       iconSource: Theme.getThemeVectorIcon("ic_camera_settings_black_24dp")
-      iconColor: "white"
-      bgcolor: Theme.darkGraySemiOpaque
+      iconColor: Theme.toolButtonColor
+      bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
       spacing: 4
       collapsed: false
 
@@ -548,8 +563,8 @@ Popup {
         padding: 2
 
         iconSource: Theme.getThemeVectorIcon("ic_camera_switch_black_24dp")
-        iconColor: "white"
-        bgcolor: Theme.darkGraySemiOpaque
+        iconColor: Theme.toolButtonColor
+        bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
         round: true
 
         onClicked: {
@@ -566,8 +581,8 @@ Popup {
         padding: 2
 
         iconSource: Theme.getThemeVectorIcon("ic_camera_resolution_black_24dp")
-        iconColor: "white"
-        bgcolor: Theme.darkGraySemiOpaque
+        iconColor: Theme.toolButtonColor
+        bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
         round: true
 
         onClicked: {
@@ -583,8 +598,8 @@ Popup {
         padding: 2
 
         iconSource: Theme.getThemeVectorIcon("ic_text_black_24dp")
-        iconColor: cameraSettings.stamping ? Theme.mainColor : "white"
-        bgcolor: Theme.darkGraySemiOpaque
+        iconColor: cameraSettings.stamping ? Theme.mainColor : Theme.toolButtonColor
+        bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
         round: true
 
         onClicked: {
@@ -601,8 +616,8 @@ Popup {
         padding: 2
 
         iconSource: positionSource.active ? Theme.getThemeVectorIcon("ic_geotag_white_24dp") : Theme.getThemeVectorIcon("ic_geotag_missing_white_24dp")
-        iconColor: cameraSettings.geoTagging ? Theme.mainColor : "white"
-        bgcolor: Theme.darkGraySemiOpaque
+        iconColor: cameraSettings.geoTagging ? Theme.mainColor : Theme.toolButtonColor
+        bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
         round: true
 
         onClicked: {
@@ -619,8 +634,8 @@ Popup {
         padding: 2
 
         iconSource: Theme.getThemeVectorIcon("ic_3x3_grid_white_24dp")
-        iconColor: cameraSettings.showGrid ? Theme.mainColor : "white"
-        bgcolor: Theme.darkGraySemiOpaque
+        iconColor: cameraSettings.showGrid ? Theme.mainColor : Theme.toolButtonColor
+        bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
         round: true
 
         onClicked: {

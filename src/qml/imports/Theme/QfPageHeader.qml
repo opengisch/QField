@@ -8,10 +8,12 @@ ToolBar {
   property alias title: titleLabel.text
 
   property bool backgroundFill: true
+  property bool backAsCancel: false
 
   property alias showBackButton: backButton.visible
   property alias showApplyButton: applyButton.visible
   property alias showCancelButton: cancelButton.visible
+  property alias showMenuButton: menuButton.visible
 
   property alias busyIndicatorState: busyIndicator.state
   property alias busyIndicatorValue: busyIndicator.value
@@ -24,6 +26,7 @@ ToolBar {
   signal apply
   signal back
   signal finished
+  signal openMenu
 
   anchors {
     top: parent.top
@@ -105,11 +108,15 @@ ToolBar {
 
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
       clip: true
-      iconSource: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
-      iconColor: backgroundFill ? Theme.light : Theme.mainTextColor
+      iconSource: backAsCancel ? Theme.getThemeVectorIcon('ic_close_white_24dp') : Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
+      iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
 
       onClicked: {
-        back();
+        if (backAsCancel) {
+          cancel();
+        } else {
+          back();
+        }
         finished();
       }
     }
@@ -120,7 +127,7 @@ ToolBar {
       Layout.alignment: Qt.AlignTop | Qt.AlignLeft
       clip: true
       iconSource: Theme.getThemeVectorIcon('ic_check_white_24dp')
-      iconColor: backgroundFill ? Theme.light : Theme.mainTextColor
+      iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
 
       onClicked: {
         apply();
@@ -131,9 +138,9 @@ ToolBar {
     Label {
       id: titleLabel
       leftPadding: !showApplyButton && showCancelButton ? 48 : 0
-      rightPadding: (showApplyButton || showBackButton) && !showCancelButton ? 48 : 0
+      rightPadding: (showApplyButton || showBackButton) && !showCancelButton && !showMenuButton ? 48 : 0
       font: Theme.strongFont
-      color: backgroundFill ? Theme.light : Theme.mainColor
+      color: backgroundFill ? Theme.mainOverlayColor : Theme.mainColor
       elide: Label.ElideRight
       horizontalAlignment: Qt.AlignHCenter
       verticalAlignment: Qt.AlignVCenter
@@ -146,11 +153,26 @@ ToolBar {
       Layout.alignment: Qt.AlignTop | Qt.AlignRight
       clip: true
       iconSource: Theme.getThemeVectorIcon('ic_close_white_24dp')
-      iconColor: backgroundFill ? Theme.light : Theme.mainTextColor
+      iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
 
       onClicked: {
         cancel();
         finished();
+      }
+    }
+
+    QfToolButton {
+      id: menuButton
+
+      Layout.alignment: Qt.AlignTop | Qt.AlignRight
+      clip: true
+      visible: false
+
+      iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+      iconColor: Theme.mainOverlayColor
+
+      onClicked: {
+        openMenu();
       }
     }
   }

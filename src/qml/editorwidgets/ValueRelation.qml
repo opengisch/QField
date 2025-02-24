@@ -170,8 +170,4 @@ EditorWidgetBase {
       }
     }
   }
-
-  function siblingValueChanged(field, feature) {
-    listModel.currentFormFeature = feature;
-  }
 }

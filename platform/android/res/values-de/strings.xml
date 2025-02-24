@@ -63,4 +63,5 @@
     <string name="import_operation_unsupported">Ihr Gerät unterstützt diesen Importvorgang nicht.</string>
     <string name="export_operation_unsupported">Ihr Gerät unterstützt diesen Exportvorgang nicht.</string>
     <string name="processing_message">Verarbeitung...</string>
-</resources>
+    <string name="positioning_title">Positionierung</string>
+    </resources>

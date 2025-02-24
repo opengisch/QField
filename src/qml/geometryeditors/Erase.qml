@@ -21,7 +21,7 @@ QfVisibilityFadingRow {
 
   function canvasClicked(point, type) {
     if (type === "stylus") {
-      if (settings.valueBool("/QField/Digitizing/CurveEdition", false) == true) {
+      if (LayerUtils.isCurvedGeometry(featureModel.currentLayer) == true && settings.valueBool("/QField/Digitizing/CurveEdition", false) == true) {
         if (drawPolygonToolbar.rubberbandModel.isDuringCurveDrawing() == true || drawPolygonToolbar.rubberbandModel.vertexCount == 1) {
           if (drawPolygonToolbar.rubberbandModel.vertexCount != 1) {
             drawPolygonToolbar.addCurve();
@@ -126,10 +126,10 @@ QfVisibilityFadingRow {
     property int sizeLarge: 12
 
     iconSource: eraseToolbar.size == sizeSmall ? Theme.getThemeVectorIcon("ic_size_small_white_24dp") : eraseToolbar.size == sizeMedium ? Theme.getThemeVectorIcon("ic_size_medium_white_24dp") : Theme.getThemeVectorIcon("ic_size_large_white_24dp")
-    iconColor: "white"
+    iconColor: Theme.toolButtonColor
     round: true
     visible: true
-    bgcolor: Theme.darkGray
+    bgcolor: Theme.toolButtonBackgroundColor
 
     onClicked: {
       if (eraseToolbar.size == sizeSmall) {

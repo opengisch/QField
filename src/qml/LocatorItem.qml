@@ -12,8 +12,9 @@ import Theme
 Item {
   id: locatorItem
 
+  property LocatorModelSuperBridge locatorBridge
+
   property bool searchFieldVisible: searchField.visible
-  property alias locatorModelSuperBridge: locator
   property alias locatorFiltersModel: locatorFilters
 
   /* Emitted when the search term typed into the locator bar has changed. If
@@ -145,27 +146,22 @@ Item {
     }
   ]
 
-  LocatorModelSuperBridge {
-    id: locator
-
-    mapSettings: mapCanvas.mapSettings
-    locatorHighlightGeometry: locatorHighlightItem.geometryWrapper
-    keepScale: qfieldSettings.locatorKeepScale
-
-    featureListController: featureForm.extentController
-
-    onMessageEmitted: {
-      displayToast(text);
-    }
-
-    onSearchTextChangeRequested: text => {
-      searchField.text = text;
-    }
-  }
-
   LocatorFiltersModel {
     id: locatorFilters
-    locatorModelSuperBridge: locator
+    locatorModelSuperBridge: locatorBridge
+  }
+
+  Connections {
+    target: locatorBridge
+
+    function onSearchRequested(text) {
+      locatorItem.state = "on";
+      searchField.text = text;
+    }
+
+    function onSearchTextChangeRequested(text) {
+      searchField.text = text;
+    }
   }
 
   Connections {
@@ -185,8 +181,8 @@ Item {
     target: codeReader
     enabled: false
 
-    function onDecoded(string) {
-      var prefix = locator.getPrefixFromSearchString(searchField.text);
+    function onAccepted(string) {
+      var prefix = locatorBridge.getPrefixFromSearchString(searchField.text);
       searchField.text = prefix !== '' ? prefix + ' ' + string : string;
     }
 
@@ -235,9 +231,9 @@ Item {
         searchTermHandled = false;
         searchTermChanged(searchField.displayText);
         if (!searchTermHandled) {
-          locator.performSearch(searchField.displayText);
+          locatorBridge.performSearch(searchField.displayText);
         }
-        if (searchField.displayText == 'f ' && dashBoard.activeLayer == undefined) {
+        if (searchField.displayText === 'f ' && dashBoard.activeLayer == undefined) {
           displayToast(qsTr('To search features within the active layer, select a vector layer through the legend.'));
         }
       }
@@ -247,7 +243,7 @@ Item {
   BusyIndicator {
     id: busyIndicator
     z: 11
-    running: locator.isRunning
+    running: locatorBridge.isRunning
     anchors.right: codeReaderButton.left
     anchors.rightMargin: -15
     anchors.verticalCenter: codeReaderButton.verticalCenter
@@ -312,8 +308,9 @@ Item {
     }
 
     iconSource: Theme.getThemeVectorIcon("ic_baseline_search_white")
-    round: true
+    iconColor: Theme.mainOverlayColor
     bgcolor: Theme.mainColor
+    round: true
 
     onClicked: {
       locatorItem.state = locatorItem.state == "off" ? "on" : "off";
@@ -349,7 +346,7 @@ Item {
       z: 2
       anchors.top: resultsBox.top
       anchors.topMargin: 24
-      model: searchField.displayText !== '' ? locator.proxyModel() : locatorFilters
+      model: searchField.displayText !== '' ? locatorBridge.proxyModel() : locatorFilters
       width: parent.width
       height: resultsList.count > 0 ? Math.min(contentHeight, mainWindow.height / 2 - searchFieldRect.height - 10) : 0
       clip: true
@@ -449,8 +446,8 @@ Item {
       Rectangle {
         id: delegateRect
 
-        property bool isGroup: ResultFilterGroupSorting === 0
-        property bool isFilterName: ResultType === 0
+        property bool isGroup: ResultType !== undefined && ResultType === 1
+        property bool isFilterName: ResultType !== undefined && ResultType === 0
         property int resultIndex: index
 
         anchors.margins: 10
@@ -487,7 +484,7 @@ Item {
             text: isFilterName ? ResultFilterName : typeof (model.Text) == 'string' ? model.Text.trim() : ''
             font.bold: false
             font.pointSize: Theme.resultFont.pointSize
-            color: isFilterName ? "white" : Theme.mainTextColor
+            color: isFilterName ? Theme.mainOverlayColor : Theme.mainTextColor
             elide: Text.ElideRight
             horizontalAlignment: isGroup ? Text.AlignHCenter : Text.AlignLeft
           }
@@ -499,7 +496,7 @@ Item {
             anchors.right: parent.right
             anchors.leftMargin: 5
             anchors.rightMargin: 5
-            text: locator.getLocatorModelDescription(index)
+            text: locatorBridge.getLocatorModelDescription(index)
             font.bold: false
             font.pointSize: Theme.resultFont.pointSize
             color: Theme.secondaryTextColor
@@ -511,12 +508,12 @@ Item {
         Row {
           id: actionsRow
           anchors.right: parent.right
-          anchors.top: parent.top
-          height: parent.height
-          anchors.rightMargin: 1
+          anchors.verticalCenter: parent.verticalCenter
+          height: 32
+          anchors.rightMargin: 5
 
           Repeater {
-            model: locator.contextMenuActionsModel(index)
+            model: locatorBridge.contextMenuActionsModel(index)
 
             QfToolButton {
               anchors.verticalCenter: parent.verticalCenter
@@ -525,11 +522,11 @@ Item {
               padding: 0
               bgcolor: "transparent"
 
-              iconSource: Theme.getThemeVectorIcon(IconPath)
+              iconSource: IconPath
 
               onClicked: {
                 locatorItem.state = "off";
-                locator.triggerResultAtRow(delegateRect.resultIndex, Id);
+                locatorBridge.triggerResultAtRow(delegateRect.resultIndex, Id);
               }
             }
           }
@@ -552,12 +549,19 @@ Item {
 
           onClicked: {
             if (!isFilterName && !isGroup && nameCell.text !== '') {
-              locator.triggerResultAtRow(index);
+              locatorBridge.triggerResultAtRow(index);
               locatorItem.state = "off";
             }
           }
         }
       }
+    }
+  }
+
+  Keys.onReleased: event => {
+    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+      event.accepted = true;
+      state = "off";
     }
   }
 }

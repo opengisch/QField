@@ -32,4 +32,5 @@
     <string name="grant">허용</string>
     <string name="deny_always">영구 거부 </string>
     <string name="deny_once">한번 거부 </string>
+    <string name="positioning_title">Positioning</string>
     </resources>

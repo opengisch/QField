@@ -58,10 +58,10 @@ class NetworkReply : public QObject
 
 
     /**
-     * Get the QNetworkReply object once the CloudReply is finilized. Do not delete it manually.
-     * @return network reply
+     * Get the current `QNetworkReply` object. Note that it might get deleted even if the parent `NetworkReply` is not in case of redirect or internal retry. Do not delete it manually.
+     * @return network currentRawReply
      */
-    QNetworkReply *reply() const;
+    QNetworkReply *currentRawReply() const;
 
 
     /**
@@ -144,6 +144,11 @@ class NetworkReply : public QObject
      * @param code
      */
     void temporaryErrorOccurred( QNetworkReply::NetworkError code );
+
+    /**
+     * Emitted when reply has changed.
+     */
+    void currentRawReplyChanged();
 
   private:
     /**

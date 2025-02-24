@@ -177,7 +177,7 @@ bool ProcessingAlgorithm::run( bool previewMode )
                                                                                                       -1,
                                                                                                       Qgis::ProcessingFeatureSourceDefinitionFlags(),
                                                                                                       Qgis::InvalidGeometryCheck(),
-                                                                                                      QStringLiteral( "$id IN (%1)" ).arg( featureIds.join( ',' ) ) );
+                                                                                                      QStringLiteral( "@id IN (%1)" ).arg( featureIds.join( ',' ) ) );
       parameters[QStringLiteral( "OUTPUT" )] = QStringLiteral( "memory:" );
 
       if ( !previewMode )
@@ -273,7 +273,7 @@ bool ProcessingAlgorithm::run( bool previewMode )
                                                                                     -1,
                                                                                     Qgis::ProcessingFeatureSourceDefinitionFlags(),
                                                                                     Qgis::InvalidGeometryCheck(),
-                                                                                    QStringLiteral( "$id IN (%1)" ).arg( featureIds.join( ',' ) ) );
+                                                                                    QStringLiteral( "@id IN (%1)" ).arg( featureIds.join( ',' ) ) );
       parameters[QStringLiteral( "OUTPUT" )] = QStringLiteral( "memory:" );
 
       bool ok;

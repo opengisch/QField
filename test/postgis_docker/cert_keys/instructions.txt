@@ -1,0 +1,11 @@
+# server
+openssl req -x509 -newkey rsa:4096 -keyout server.key -out server.crt -days 3650 -nodes -sha256 -subj '/CN=localhost'
+
+# CA
+cp server.crt root.crt
+
+# client
+openssl req -newkey rsa:4096 -keyout client.key -out client.csr -days 3650 -nodes -sha256 -subj '/CN=localhost'
+
+# sign client
+openssl x509 -req -in client.csr -CA server.crt -CAkey server.key -CAcreateserial -out client.crt -days 3650

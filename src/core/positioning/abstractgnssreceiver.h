@@ -28,11 +28,6 @@ class AbstractGnssReceiver : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( GnssPositionInformation lastGnssPositionInformation READ lastGnssPositionInformation NOTIFY lastGnssPositionInformationChanged )
-    Q_PROPERTY( QAbstractSocket::SocketState socketState READ socketState NOTIFY socketStateChanged )
-    Q_PROPERTY( QString socketStateString READ socketStateString NOTIFY socketStateStringChanged )
-    Q_PROPERTY( QString lastError READ lastError NOTIFY lastErrorChanged )
-
   public:
     enum Capability
     {
@@ -49,19 +44,20 @@ class AbstractGnssReceiver : public QObject
     bool valid() const { return mValid; }
     void setValid( bool valid ) { mValid = valid; }
 
-    Q_INVOKABLE void connectDevice() { handleConnectDevice(); }
-    Q_INVOKABLE void disconnectDevice() { handleDisconnectDevice(); }
+    void connectDevice() { handleConnectDevice(); }
+    void disconnectDevice() { handleDisconnectDevice(); }
 
-    Q_INVOKABLE void startLogging() { handleStartLogging(); }
-    Q_INVOKABLE void stopLogging() { handleStopLogging(); }
+    void startLogging() { handleStartLogging(); }
+    void stopLogging() { handleStopLogging(); }
 
     GnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
 
     QString lastError() const { return mLastError; }
 
-    Q_INVOKABLE virtual AbstractGnssReceiver::Capabilities capabilities() const { return NoCapabilities; }
-
-    virtual QList<QPair<QString, QVariant>> details() const { return {}; }
+    /**
+     * Returns extra details (such as hdop, vdop, pdop) provided by the positioning device.
+     */
+    virtual GnssPositionDetails details() const { return {}; }
     virtual QAbstractSocket::SocketState socketState() const { return mSocketState; }
     virtual QString socketStateString();
 

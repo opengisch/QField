@@ -329,10 +329,6 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>Unknown error</source>
         <translation type="vanished">Eroare necunoscută</translation>
     </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -353,7 +349,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation>Culoare</translation>
+        <translation type="vanished">Culoare</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -510,8 +506,8 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <translation>Tema Hărții</translation>
     </message>
     <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <source>Project Folder</source>
+        <translation>Folderul Proiectului</translation>
     </message>
 </context>
 <context>
@@ -814,6 +810,54 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
         <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -1148,13 +1192,6 @@ Motiv:
     </message>
 </context>
 <context>
-    <name>InternalGnssReceiver</name>
-    <message>
-        <source>Location permission denied</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
@@ -1331,10 +1368,6 @@ Motiv:
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Acest strat este invalid. Acest lucru se poate datora unei probleme de rețea, a unui fișier lipsă sau a configurării greșite a proiectului.</translation>
     </message>
@@ -1345,6 +1378,18 @@ Motiv:
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Acest strat este configurat drept &quot;Geometri blocate&quot; fapt care dezactivează adăugarea și ștergerea elementelor, precum și modificarea geometriilor aferente elementelor existente.</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>Urmărirea stratului %1 s-a oprit</translation>
     </message>
 </context>
 <context>
@@ -1643,6 +1688,10 @@ Motiv:
         <source>Process Selected Feature(s)</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
@@ -1685,13 +1734,6 @@ Motiv:
     <message>
         <source>Bearing</source>
         <translation>Direcție</translation>
-    </message>
-</context>
-<context>
-    <name>NmeaGnssReceiver</name>
-    <message>
-        <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1800,6 +1842,18 @@ Motiv:
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>Confirmați Eliminarea</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1995,6 +2049,22 @@ Motiv:
     </message>
     <message>
         <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nume</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2372,6 +2442,10 @@ Motiv:
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Aflați mai multe despre QFieldCloud</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -2759,11 +2833,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Proiectele Mele</translation>
+        <translation>Proiectele Mele</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Comunitate</translation>
+        <translation>Comunitate</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2960,7 +3034,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation>Eliminați folderul proiectului</translation>
+        <translation type="vanished">Eliminați folderul proiectului</translation>
     </message>
     <message>
         <source>Import project from folder</source>
@@ -3003,10 +3077,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Push to QFieldCloud...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
@@ -3020,6 +3090,133 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Parola</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>(root folder)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported and available locally</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QFieldPositioningService</name>
+    <message>
+        <source>Positioning service running</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3555,6 +3752,13 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>închidere</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3577,7 +3781,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>închidere</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3619,6 +3823,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map printed on %1 using QField</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3812,11 +4020,19 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Adresă:</translation>
+        <translation type="vanished">Adresă:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4185,11 +4401,19 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Adresă:</translation>
+        <translation type="vanished">Adresă:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4273,6 +4497,17 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <message>
         <source>Failed to save feature!</source>
         <translation type="vanished">Salvarea elementului a eșuat!</translation>
+    </message>
+</context>
+<context>
+    <name>WebdavConnection</name>
+    <message>
+        <source>Failed to download file %1 due to network error (%2)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to upload file %1 due to network error (%2)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4383,6 +4618,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Return to map</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4571,11 +4810,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Poziție primită</translation>
+        <translation type="vanished">Poziție primită</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Căutam poziția</translation>
+        <translation type="vanished">Căutam poziția</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
@@ -4615,7 +4854,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Creează PDF</translation>
+        <translation type="vanished">Creează PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4918,15 +5157,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No print layout available</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4943,7 +5174,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Folderul Proiectului</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -4987,10 +5218,6 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unlock the screen to to close project and app</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5065,6 +5292,62 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance set to %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -5110,41 +5393,6 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>tst_qFieldGuide</name>
-    <message>
-        <source>dummyItem1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem1 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem2 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem3</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem3 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem4</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem4 responsibility.</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -328,10 +328,6 @@ Cancel to make a minimal device scan instead.</source>
         <source>Unknown error</source>
         <translation type="vanished">未知错误</translation>
     </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>蓝牙权限被拒绝</translation>
-    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -352,7 +348,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Color</source>
-        <translation>颜色</translation>
+        <translation type="vanished">颜色</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -509,8 +505,8 @@ Cancel to make a minimal device scan instead.</source>
         <translation>地图主题</translation>
     </message>
     <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>切换到浏览模式之前完成或摒弃数字化要素</translation>
+        <source>Project Folder</source>
+        <translation>工程文件夹</translation>
     </message>
 </context>
 <context>
@@ -586,7 +582,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DigitizingToolbar</name>
     <message>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
-        <translation>定位精度未达到最低要求，不能添加顶点</translation>
+        <translation>位置精度未达到最低要求，不能添加顶点</translation>
     </message>
     <message>
         <source>Cancel digitizing</source>
@@ -594,7 +590,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation>收集的定位数量未符合需求</translation>
+        <translation>收集的位置数量未符合需求</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
@@ -813,6 +809,54 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
         <translation>无法在图层 &quot;%1&quot; 中回滚撤消要素的修改</translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s) on layer %1.</source>
+        <translation><numerusform>撤消在图层%1创建的%n个要素。</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s).</source>
+        <translation><numerusform>撤消创建的%n个要素。</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s) on layer %1.</source>
+        <translation><numerusform>撤消在图层%1删除的%n个要素。</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s).</source>
+        <translation><numerusform>撤消删除的%n个要素。</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s) on layer %1.</source>
+        <translation><numerusform>撤消在图层%1修改的%n个要素。</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s).</source>
+        <translation><numerusform>撤消对%n个要素的修改。</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s) on layer %1</source>
+        <translation><numerusform>重做在图层%1创建的%n个要素</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s)</source>
+        <translation><numerusform>重做创建的%n个要素</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s) on layer %1</source>
+        <translation><numerusform>重做在图层%1删除的%n个要素</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s)</source>
+        <translation><numerusform>重做删除的%n个要素</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s) on layer %1</source>
+        <translation><numerusform>重做在图层%1修改的%n个要素</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s)</source>
+        <translation><numerusform>重做对%n个要素的修改</numerusform></translation>
     </message>
 </context>
 <context>
@@ -1142,13 +1186,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>InternalGnssReceiver</name>
-    <message>
-        <source>Location permission denied</source>
-        <translation>定位权限被拒绝</translation>
-    </message>
-</context>
-<context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
@@ -1325,10 +1362,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation>该图层当前正在跟踪设备位置。</translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>此图层无效。这可能是由于网络问题、文件丢失或工程配置错误造成的。</translation>
     </message>
@@ -1339,6 +1372,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>该图层被配置为“锁定几何图形”，禁用添加和删除要素以及修改现有要素的几何图形。</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation>该图层当前正在跟踪位置。</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>停止</translation>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>在图层 %1 上的追踪已停止</translation>
     </message>
 </context>
 <context>
@@ -1637,6 +1682,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Process Selected Feature(s)</source>
         <translation>处理所选要素</translation>
     </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation>旋转要素</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
@@ -1679,13 +1728,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Bearing</source>
         <translation>方位角</translation>
-    </message>
-</context>
-<context>
-    <name>NmeaGnssReceiver</name>
-    <message>
-        <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation>无法解析IMU位置: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -1795,6 +1837,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
         <translation>音频文件 (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
+    </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>确认移除</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation>数据集将被删除，是否继续？</translation>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
+        <translation>工程文件夹将被删除，是否继续？</translation>
     </message>
 </context>
 <context>
@@ -1957,15 +2011,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Name:</source>
-        <translation>名称：</translation>
+        <translation type="vanished">名称：</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>留空自动填写</translation>
+        <translation type="vanished">留空自动填写</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>连接类型：</translation>
+        <translation type="vanished">连接类型：</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -1990,6 +2044,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Egeniouss</source>
         <translation>Egeniouss</translation>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation>连接类型</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>名称</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation>(留空自动填写)</translation>
+    </message>
+    <message>
+        <source>Connection details</source>
+        <translation>连接详细信息</translation>
     </message>
 </context>
 <context>
@@ -2366,6 +2436,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>了解有关QFieldCloud的更多信息</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -2753,11 +2827,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">我的工程</translation>
+        <translation>我的工程</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">社区</translation>
+        <translation>社区</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2954,7 +3028,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation>移除工程文件夹</translation>
+        <translation type="vanished">移除工程文件夹</translation>
     </message>
     <message>
         <source>Import project from folder</source>
@@ -2997,10 +3071,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>从ZIP更新工程</translation>
     </message>
     <message>
-        <source>Push to QFieldCloud...</source>
-        <translation>推送到QFieldCloud...</translation>
-    </message>
-    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>‘%1’ 正在上传到QFieldCloud</translation>
     </message>
@@ -3015,6 +3085,133 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Files</source>
         <translation>文件</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation>推送到QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation>将文件夹上传到WebDAV服务器</translation>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation>从WebDAV服务器下载文件夹</translation>
+    </message>
+    <message>
+        <source>Remove folder</source>
+        <translation>移除文件夹</translation>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation>导入WebDAV文件夹</translation>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation>将工程上传到WebDAV</translation>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation>从WebDAV下载工程</translation>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation>正在导入WebDAV文件夹</translation>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation>正在下载WebDAV文件夹</translation>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation>正在上传WebDAV文件夹</translation>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation>WebDAV错误: </translation>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation>WebDAV上传</translation>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation>WebDAV下载</translation>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation>使用用户 &lt;b&gt;%2 &lt;/b&gt; 将修改后的内容上载到 &lt;b&gt;%1&lt;/b&gt;。&lt;br&gt;&lt;br&gt;此操作将盖写远程存储的数据，请确保这是您想要的结果。</translation>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation>您将使用用户 &lt;b&gt;%2&lt;/b&gt; 从 &lt;b&gt;%1&lt;/b&gt; 下载修改后的内容。&lt;br&gt;&lt;br&gt;此操作将盖写本地存储的数据，请确保这是您想要的结果。</translation>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation>密码 (留空供记忆使用)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation>记忆密码</translation>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation>请在下面输入WebDAV详细信息以导入远程文件夹:</translation>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation>WebDAV服务器URL</translation>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation>选择要导入的远程文件夹:</translation>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation>正在获取远程文件夹</translation>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation>获取远程文件夹</translation>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation>用户名和密码</translation>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation>留空供记忆使用</translation>
+    </message>
+    <message>
+        <source>(root folder)</source>
+        <translation>(根文件夹)</translation>
+    </message>
+    <message>
+        <source>Refreshing remote folders</source>
+        <translation>正在刷新远程文件夹</translation>
+    </message>
+    <message>
+        <source>Refresh remote folders</source>
+        <translation>刷新远程文件夹</translation>
+    </message>
+    <message>
+        <source>Imported and available locally</source>
+        <translation>已导入并本地可用</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldPositioningService</name>
+    <message>
+        <source>Positioning service running</source>
+        <translation>定位服务正在运行</translation>
+    </message>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
+        <translation>纬度 %1 | 经度 %2 | 海拔 %3 m | 速度 %4 m/s | 方向 %5°</translation>
     </message>
 </context>
 <context>
@@ -3179,7 +3376,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>显示定位信息</translation>
+        <translation>显示位置信息</translation>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
@@ -3199,7 +3396,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation type="vanished">启用精度指示器后，定位按钮上会附加一个标识：如果精度值较差，将其标记为&lt;span %1&gt;红色&lt;/span&gt;；如果精度值低于优，将其标记为&lt;span %2&gt;黄色&lt;/span&gt;；反之将其标记为&lt;span %3&gt;绿色&lt;/span&gt;。&lt;br&gt;差-&gt;红；良-&gt;黄；优-&gt;绿&lt;br&gt;此外，可以打开精度限制模式。当锁定坐标光标的定位精度值低于较差阈值时，将限制添加顶点。</translation>
+        <translation type="vanished">启用精度指示器后，定位按钮上会附加一个标识：如果精度值较差，将其标记为&lt;span %1&gt;红色&lt;/span&gt;；如果精度值低于优，将其标记为&lt;span %2&gt;黄色&lt;/span&gt;；反之将其标记为&lt;span %3&gt;绿色&lt;/span&gt;。&lt;br&gt;差-&gt;红；良-&gt;黄；优-&gt;绿&lt;br&gt;此外，可以打开精度限制模式。当锁定坐标光标的位置精度值低于较差阈值时，将限制添加顶点。</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -3207,7 +3404,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation>收集的最少定位数</translation>
+        <translation>收集的最少位置数量</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
@@ -3215,7 +3412,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>启用后，将光标锁定到定位的数字化顶点仅接受最少收集定位数的平均定位。通过按住添加顶点按钮，可以使用平均定位进行数字化，该按钮将收集定位，直到释放才结束。启用后，将遵守精度需求设置。</translation>
+        <translation>启用后，将光标锁定到位置的数字化顶点仅接受最少收集位置数量的平均位置。通过按住添加顶点按钮，可以使用平均位置进行数字化，该按钮将收集位置，直到释放才结束。启用后，将遵守精度需求设置。</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
@@ -3525,7 +3722,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Position</source>
-        <translation>定位</translation>
+        <translation>位置</translation>
     </message>
     <message>
         <source>Map Tool Capture</source>
@@ -3546,6 +3743,13 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>centroid</source>
         <translation>质心</translation>
+    </message>
+</context>
+<context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>关闭</translation>
     </message>
 </context>
 <context>
@@ -3571,7 +3775,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>关闭</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3614,6 +3818,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation>无法读取工程，文件 &quot;%1&quot; 不存在</translation>
+    </message>
+    <message>
+        <source>Map printed on %1 using QField</source>
+        <translation>使用QField在%1打印地图</translation>
     </message>
 </context>
 <context>
@@ -3806,11 +4014,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>地址:</translation>
+        <translation type="vanished">地址:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>端口:</translation>
+        <translation type="vanished">端口:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation>IP地址</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>端口</translation>
     </message>
 </context>
 <context>
@@ -4179,11 +4395,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>地址:</translation>
+        <translation type="vanished">地址:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>端口:</translation>
+        <translation type="vanished">端口:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>地址</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>端口</translation>
     </message>
 </context>
 <context>
@@ -4267,6 +4491,17 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Failed to save feature!</source>
         <translation type="vanished">保存要素失败！</translation>
+    </message>
+</context>
+<context>
+    <name>WebdavConnection</name>
+    <message>
+        <source>Failed to download file %1 due to network error (%2)</source>
+        <translation>由于网络错误 (%2)，下载文件%1失败</translation>
+    </message>
+    <message>
+        <source>Failed to upload file %1 due to network error (%2)</source>
+        <translation>由于网络错误 (%2)，上传文件%1失败</translation>
     </message>
 </context>
 <context>
@@ -4378,6 +4613,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>太棒了！希望您点击下面的按钮并留下评论。</translation>
+    </message>
+    <message>
+        <source>Return to map</source>
+        <translation>返回地图</translation>
     </message>
 </context>
 <context>
@@ -4557,7 +4796,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>坐标光标现已锁定定位</translation>
+        <translation>坐标光标现已锁定位置</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
@@ -4565,11 +4804,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Received position</source>
-        <translation>获取定位信息</translation>
+        <translation type="vanished">获取位置信息</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>搜索定位</translation>
+        <translation type="vanished">搜索位置</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
@@ -4609,7 +4848,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>输出为PDF</translation>
+        <translation type="vanished">输出为PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4773,7 +5012,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>显示定位信息</translation>
+        <translation>显示位置信息</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
@@ -4912,16 +5151,8 @@ Cancel to make a minimal device scan instead.</source>
         <translation>相对角度</translation>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation>每隔 %1° 捕捉一次</translation>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>地图遵循位置和指南针方向</translation>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation>无可用打印布局</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -4937,7 +5168,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>工程文件夹</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -4984,10 +5215,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>导入URL失败</translation>
     </message>
     <message>
-        <source>Unlock the screen to to close project and app</source>
-        <translation>请解锁屏幕以便关闭工程和应用程序</translation>
-    </message>
-    <message>
         <source>Do you grant permission to activate `%1`?</source>
         <translation>是否授予激活 `%1` 的权限？</translation>
     </message>
@@ -5001,19 +5228,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
-        <translation>定位已侵入 ‘%1’</translation>
+        <translation>位置已侵入 ‘%1’</translation>
     </message>
     <message>
         <source>Position outside areas after leaving ‘%1’</source>
-        <translation>离开 ‘%1’ 后定位在外部区域</translation>
+        <translation>离开 ‘%1’ 后位置在外部区域</translation>
     </message>
     <message>
         <source>Position entered into ‘%1’</source>
-        <translation>定位已进入 ‘%1’</translation>
+        <translation>位置已进入 ‘%1’</translation>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
-        <translation>定位从 ‘%1’ 离开</translation>
+        <translation>位置从 ‘%1’ 离开</translation>
     </message>
     <message>
         <source>Enable Map Rotation</source>
@@ -5058,6 +5285,62 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
         <translation>您将终止正在进行的算法运算，是否继续？</translation>
+    </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation>请解锁屏幕以便关闭工程和应用程序</translation>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation>无边界模式已激活，使用左上角和右下角移动和调整窗口大小</translation>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation>切换到浏览模式之前完成或摒弃数字化要素</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation>撤消</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation>重做</translation>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
+        <translation>重播已收集的位置，请稍等</translation>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation>捕捉全部</translation>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation>%1°</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation>捕捉容差</translation>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation>限制</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>标准</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>大号</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance set to %1</source>
+        <translation>捕捉容差设置为%1</translation>
     </message>
 </context>
 <context>
@@ -5105,41 +5388,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Ensure contraints are met</source>
         <translation>确认符合约束</translation>
-    </message>
-</context>
-<context>
-    <name>tst_qFieldGuide</name>
-    <message>
-        <source>dummyItem1</source>
-        <translation>虚拟项1</translation>
-    </message>
-    <message>
-        <source>dummyItem1 responsibility.</source>
-        <translation>虚拟项1的作用。</translation>
-    </message>
-    <message>
-        <source>dummyItem2</source>
-        <translation>虚拟项2</translation>
-    </message>
-    <message>
-        <source>dummyItem2 responsibility.</source>
-        <translation>虚拟项2的作用。</translation>
-    </message>
-    <message>
-        <source>dummyItem3</source>
-        <translation>虚拟项3</translation>
-    </message>
-    <message>
-        <source>dummyItem3 responsibility.</source>
-        <translation>虚拟项3的作用。</translation>
-    </message>
-    <message>
-        <source>dummyItem4</source>
-        <translation>虚拟项4</translation>
-    </message>
-    <message>
-        <source>dummyItem4 responsibility.</source>
-        <translation>虚拟项4的作用。</translation>
     </message>
 </context>
 </TS>

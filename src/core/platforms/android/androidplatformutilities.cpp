@@ -26,26 +26,6 @@
 #include "qfield_android.h"
 #include "qfieldcloudconnection.h"
 
-
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-#include <QAndroidJniEnvironment>
-#include <QAndroidJniObject>
-#include <QtAndroid>
-
-inline QAndroidJniObject qtAndroidContext()
-{
-  auto result = QtAndroid::androidActivity();
-  if ( result.isValid() )
-    return result;
-  return QtAndroid::androidService();
-}
-
-inline void runOnAndroidMainThread( const QtAndroid::Runnable &runnable )
-{
-  QtAndroid::runOnAndroidThread( runnable );
-}
-
-#else
 #include <QJniEnvironment>
 #include <QJniObject>
 #include <QtCore/private/qandroidextras_p.h>
@@ -62,7 +42,6 @@ inline void runOnAndroidMainThread( const std::function<void()> &runnable )
     return QVariant();
   } );
 }
-#endif
 
 #include <QApplication>
 #include <QCoreApplication>
@@ -98,7 +77,7 @@ AndroidPlatformUtilities::AndroidPlatformUtilities()
 
 PlatformUtilities::Capabilities AndroidPlatformUtilities::capabilities() const
 {
-  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera | AdjustBrightness | CustomLocalDataPicker | CustomImport | CustomExport | CustomSend | FilePicker | VolumeKeys | UpdateProjectFromArchive;
+  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera | AdjustBrightness | CustomImport | CustomExport | CustomSend | FilePicker | VolumeKeys | UpdateProjectFromArchive;
 #ifdef WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -115,11 +94,7 @@ void AndroidPlatformUtilities::afterUpdate()
       auto activity = qtAndroidContext();
       if ( activity.isValid() )
       {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-        QAndroidJniObject messageJni = QAndroidJniObject::fromString( QObject::tr( "Please wait while QField installation finalizes." ) );
-#else
         QJniObject messageJni = QJniObject::fromString( QObject::tr( "Please wait while QField installation finalizes." ) );
-#endif
         activity.callMethod<void>( "showBlockingProgressDialog", "(Ljava/lang/String;)V", messageJni.object<jstring>() );
       }
     } );
@@ -173,11 +148,7 @@ QString AndroidPlatformUtilities::applicationDirectory() const
 {
   if ( mActivity.isValid() )
   {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-    QAndroidJniObject rootDirs = mActivity.callObjectMethod<jstring>( "getApplicationDirectory" );
-#else
     QJniObject rootDirs = mActivity.callObjectMethod<jstring>( "getApplicationDirectory" );
-#endif
     if ( rootDirs.isValid() )
     {
       return rootDirs.toString();
@@ -191,11 +162,7 @@ QStringList AndroidPlatformUtilities::additionalApplicationDirectories() const
 {
   if ( mActivity.isValid() )
   {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-    QAndroidJniObject rootDirs = mActivity.callObjectMethod<jstring>( "getAdditionalApplicationDirectories" );
-#else
     QJniObject rootDirs = mActivity.callObjectMethod<jstring>( "getAdditionalApplicationDirectories" );
-#endif
     if ( rootDirs.isValid() )
     {
       return rootDirs.toString().split( "--;--" );
@@ -209,11 +176,7 @@ QStringList AndroidPlatformUtilities::rootDirectories() const
 {
   if ( mActivity.isValid() )
   {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-    QAndroidJniObject rootDirs = mActivity.callObjectMethod<jstring>( "getRootDirectories" );
-#else
     QJniObject rootDirs = mActivity.callObjectMethod<jstring>( "getRootDirectories" );
-#endif
     if ( rootDirs.isValid() )
     {
       return rootDirs.toString().split( "--;--" );
@@ -273,11 +236,7 @@ void AndroidPlatformUtilities::updateProjectFromArchive( const QString &projectP
       auto activity = qtAndroidContext();
       if ( activity.isValid() )
       {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-        QAndroidJniObject projectPathJni = QAndroidJniObject::fromString( projectPath );
-#else
         QJniObject projectPathJni = QJniObject::fromString( projectPath );
-#endif
         activity.callMethod<void>( "triggerUpdateProjectFromArchive", "(Ljava/lang/String;)V", projectPathJni.object<jstring>() );
       }
     } );
@@ -298,11 +257,7 @@ void AndroidPlatformUtilities::sendDatasetTo( const QString &path ) const
         {
           paths << file;
         }
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-        QAndroidJniObject pathsJni = QAndroidJniObject::fromString( paths.join( "--;--" ) );
-#else
         QJniObject pathsJni = QJniObject::fromString( paths.join( "--;--" ) );
-#endif
         activity.callMethod<void>( "sendDatasetTo", "(Ljava/lang/String;)V", pathsJni.object<jstring>() );
       }
     } );
@@ -323,11 +278,7 @@ void AndroidPlatformUtilities::exportDatasetTo( const QString &path ) const
         {
           paths << file;
         }
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-        QAndroidJniObject pathsJni = QAndroidJniObject::fromString( paths.join( "--;--" ) );
-#else
         QJniObject pathsJni = QJniObject::fromString( paths.join( "--;--" ) );
-#endif
         activity.callMethod<void>( "exportToFolder", "(Ljava/lang/String;)V", pathsJni.object<jstring>() );
       }
     } );
@@ -336,20 +287,29 @@ void AndroidPlatformUtilities::exportDatasetTo( const QString &path ) const
 
 void AndroidPlatformUtilities::removeDataset( const QString &path ) const
 {
-  if ( mActivity.isValid() )
+  bool allowed = false;
+  const QStringList allowedDirectories = QStringList() << applicationDirectory() << additionalApplicationDirectories();
+  for ( const QString &directory : allowedDirectories )
   {
-    runOnAndroidMainThread( [path] {
-      auto activity = qtAndroidContext();
-      if ( activity.isValid() )
-      {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
-#else
-        QJniObject pathJni = QJniObject::fromString( path );
-#endif
-        activity.callMethod<void>( "removeDataset", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
-      }
-    } );
+    if ( path.startsWith( directory ) )
+    {
+      allowed = true;
+      break;
+    }
+  }
+  if ( allowed )
+  {
+    if ( mActivity.isValid() )
+    {
+      runOnAndroidMainThread( [path] {
+        auto activity = qtAndroidContext();
+        if ( activity.isValid() )
+        {
+          QJniObject pathJni = QJniObject::fromString( path );
+          activity.callMethod<void>( "removeDataset", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+        }
+      } );
+    }
   }
 }
 
@@ -361,11 +321,7 @@ void AndroidPlatformUtilities::exportFolderTo( const QString &path ) const
       auto activity = qtAndroidContext();
       if ( activity.isValid() )
       {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
-#else
         QJniObject pathJni = QJniObject::fromString( path );
-#endif
         activity.callMethod<void>( "exportToFolder", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
       }
     } );
@@ -380,11 +336,7 @@ void AndroidPlatformUtilities::sendCompressedFolderTo( const QString &path ) con
       auto activity = qtAndroidContext();
       if ( activity.isValid() )
       {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
-#else
         QJniObject pathJni = QJniObject::fromString( path );
-#endif
         activity.callMethod<void>( "sendCompressedFolderTo", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
       }
     } );
@@ -393,28 +345,33 @@ void AndroidPlatformUtilities::sendCompressedFolderTo( const QString &path ) con
 
 void AndroidPlatformUtilities::removeFolder( const QString &path ) const
 {
-  if ( mActivity.isValid() )
+  bool allowed = false;
+  const QStringList allowedDirectories = QStringList() << applicationDirectory() << additionalApplicationDirectories();
+  for ( const QString &directory : allowedDirectories )
   {
-    runOnAndroidMainThread( [path] {
-      auto activity = qtAndroidContext();
-      if ( activity.isValid() )
-      {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-        QAndroidJniObject pathJni = QAndroidJniObject::fromString( path );
-#else
-        QJniObject pathJni = QJniObject::fromString( path );
-#endif
-        activity.callMethod<void>( "removeProjectFolder", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
-      }
-    } );
+    if ( path.startsWith( directory ) )
+    {
+      allowed = true;
+      break;
+    }
+  }
+  if ( allowed )
+  {
+    if ( mActivity.isValid() )
+    {
+      runOnAndroidMainThread( [path] {
+        auto activity = qtAndroidContext();
+        if ( activity.isValid() )
+        {
+          QJniObject pathJni = QJniObject::fromString( path );
+          activity.callMethod<void>( "removeProjectFolder", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+        }
+      } );
+    }
   }
 }
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-QString AndroidPlatformUtilities::getIntentExtra( const QString &extra, QAndroidJniObject extras ) const
-#else
 QString AndroidPlatformUtilities::getIntentExtra( const QString &extra, QJniObject extras ) const
-#endif
 {
   if ( extras == nullptr )
   {
@@ -422,11 +379,7 @@ QString AndroidPlatformUtilities::getIntentExtra( const QString &extra, QJniObje
   }
   if ( extras.isValid() )
   {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-    QAndroidJniObject extraJni = QAndroidJniObject::fromString( extra );
-#else
     QJniObject extraJni = QJniObject::fromString( extra );
-#endif
     extraJni = extras.callObjectMethod( "getString", "(Ljava/lang/String;)Ljava/lang/String;", extraJni.object<jstring>() );
     if ( extraJni.isValid() )
     {
@@ -436,29 +389,6 @@ QString AndroidPlatformUtilities::getIntentExtra( const QString &extra, QJniObje
   return QString();
 }
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-QAndroidJniObject AndroidPlatformUtilities::getNativeIntent() const
-{
-  if ( mActivity.isValid() )
-  {
-    QAndroidJniObject intent = mActivity.callObjectMethod( "getIntent", "()Landroid/content/Intent;" );
-    return intent;
-  }
-  return nullptr;
-}
-
-QAndroidJniObject AndroidPlatformUtilities::getNativeExtras() const
-{
-  QAndroidJniObject intent = getNativeIntent();
-  if ( intent.isValid() )
-  {
-    QAndroidJniObject extras = intent.callObjectMethod( "getExtras", "()Landroid/os/Bundle;" );
-
-    return extras;
-  }
-  return nullptr;
-}
-#else
 QJniObject AndroidPlatformUtilities::getNativeIntent() const
 {
   if ( mActivity.isValid() )
@@ -480,7 +410,6 @@ QJniObject AndroidPlatformUtilities::getNativeExtras() const
   }
   return nullptr;
 }
-#endif
 
 ResourceSource *AndroidPlatformUtilities::processCameraActivity( const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo, QObject *parent )
 {
@@ -500,15 +429,10 @@ ResourceSource *AndroidPlatformUtilities::processCameraActivity( const QString &
       auto activity = qtAndroidContext();
       if ( activity.isValid() )
       {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-        QAndroidJniObject prefixJni = QAndroidJniObject::fromString( prefix );
-        QAndroidJniObject filePathJni = QAndroidJniObject::fromString( filePath );
-        QAndroidJniObject suffixJni = QAndroidJniObject::fromString( suffix );
-#else
         QJniObject prefixJni = QJniObject::fromString( prefix );
         QJniObject filePathJni = QJniObject::fromString( filePath );
         QJniObject suffixJni = QJniObject::fromString( suffix );
-#endif
+
         QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), true );
         activity.callMethod<void>( "getCameraResource", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V",
                                    prefixJni.object<jstring>(),
@@ -546,15 +470,10 @@ ResourceSource *AndroidPlatformUtilities::processGalleryActivity( const QString 
       auto activity = qtAndroidContext();
       if ( activity.isValid() )
       {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-        QAndroidJniObject prefixJni = QAndroidJniObject::fromString( prefix );
-        QAndroidJniObject filePathJni = QAndroidJniObject::fromString( filePath );
-        QAndroidJniObject mimeTypeJni = QAndroidJniObject::fromString( mimeType );
-#else
         QJniObject prefixJni = QJniObject::fromString( prefix );
         QJniObject filePathJni = QJniObject::fromString( filePath );
         QJniObject mimeTypeJni = QJniObject::fromString( mimeType );
-#endif
+
         QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), true );
         activity.callMethod<void>( "getGalleryResource", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
                                    prefixJni.object<jstring>(),
@@ -603,15 +522,10 @@ ResourceSource *AndroidPlatformUtilities::getFile( const QString &prefix, const 
       auto activity = qtAndroidContext();
       if ( activity.isValid() )
       {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-        QAndroidJniObject prefixJni = QAndroidJniObject::fromString( prefix );
-        QAndroidJniObject filePathJni = QAndroidJniObject::fromString( filePath );
-        QAndroidJniObject mimeTypeJni = QAndroidJniObject::fromString( mimeType );
-#else
         QJniObject prefixJni = QJniObject::fromString( prefix );
         QJniObject filePathJni = QJniObject::fromString( filePath );
         QJniObject mimeTypeJni = QJniObject::fromString( mimeType );
-#endif
+
         QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), true );
         activity.callMethod<void>( "getFilePickerResource", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
                                    prefixJni.object<jstring>(),
@@ -628,8 +542,6 @@ ViewStatus *AndroidPlatformUtilities::open( const QString &filePath, bool isEdit
   if ( QFileInfo( filePath ).isDir() )
     return nullptr;
 
-  checkWriteExternalStoragePermissions();
-
   QMimeDatabase db;
   const QString mimeType = db.mimeTypeForFile( filePath ).name();
 
@@ -645,13 +557,9 @@ ViewStatus *AndroidPlatformUtilities::open( const QString &filePath, bool isEdit
       auto activity = qtAndroidContext();
       if ( activity.isValid() )
       {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-        QAndroidJniObject filePathJni = QAndroidJniObject::fromString( filePath );
-        QAndroidJniObject mimeTypeJni = QAndroidJniObject::fromString( mimeType );
-#else
         QJniObject filePathJni = QJniObject::fromString( filePath );
         QJniObject mimeTypeJni = QJniObject::fromString( mimeType );
-#endif
+
         QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), true );
         activity.callMethod<void>( "openResource", "(Ljava/lang/String;Ljava/lang/String;Z)V",
                                    filePathJni.object<jstring>(),
@@ -663,85 +571,70 @@ ViewStatus *AndroidPlatformUtilities::open( const QString &filePath, bool isEdit
   return viewStatus;
 }
 
+void AndroidPlatformUtilities::requestStoragePermission() const
+{
+  if ( !QSettings().value( QStringLiteral( "QField/storagePermissionChecked" ), false ).toBool() )
+  {
+    QStringList permissions;
+    permissions << "android.permission.READ_EXTERNAL_STORAGE"
+                << "android.permission.WRITE_EXTERNAL_STORAGE"
+                << "android.permission.ACCESS_MEDIA_LOCATION";
+
+    checkAndAcquirePermissions( permissions, true );
+    QSettings().setValue( QStringLiteral( "QField/storagePermissionChecked" ), true );
+  }
+}
+
 bool AndroidPlatformUtilities::checkPositioningPermissions() const
 {
   // First check for coarse permissions. If the user configured QField to only get coarse permissions
   // it's his wish and we just let it be.
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  QtAndroid::PermissionResult r = QtAndroid::checkPermission( "android.permission.ACCESS_COARSE_LOCATION" );
-  if ( r == QtAndroid::PermissionResult::Denied )
-#else
   auto r = QtAndroidPrivate::checkPermission( "android.permission.ACCESS_COARSE_LOCATION" ).result();
   if ( r == QtAndroidPrivate::Denied )
-#endif
   {
-    return checkAndAcquirePermissions( "android.permission.ACCESS_FINE_LOCATION" );
+    return checkAndAcquirePermissions( { QStringLiteral( "android.permission.ACCESS_FINE_LOCATION" ) } );
   }
   return true;
 }
 
 bool AndroidPlatformUtilities::checkCameraPermissions() const
 {
-  return checkAndAcquirePermissions( "android.permission.CAMERA" );
+  return checkAndAcquirePermissions( { QStringLiteral( "android.permission.CAMERA" ) } );
 }
 
 bool AndroidPlatformUtilities::checkMicrophonePermissions() const
 {
-  return checkAndAcquirePermissions( "android.permission.RECORD_AUDIO" );
+  return checkAndAcquirePermissions( { QStringLiteral( "android.permission.RECORD_AUDIO" ) } );
 }
 
-bool AndroidPlatformUtilities::checkWriteExternalStoragePermissions() const
+bool AndroidPlatformUtilities::checkAndAcquirePermissions( QStringList permissions, bool forceAsk ) const
 {
-  return checkAndAcquirePermissions( "android.permission.WRITE_EXTERNAL_STORAGE" );
-}
-
-bool AndroidPlatformUtilities::checkAndAcquirePermissions( const QString &permissions ) const
-{
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-  QStringList requestedPermissions = permissions.split( ';' );
-  requestedPermissions.erase( std::remove_if( requestedPermissions.begin(), requestedPermissions.end(),
-                                              []( const QString &permission ) {
-                                                return QtAndroid::checkPermission( permission ) != QtAndroid::PermissionResult::Denied;
-                                              } ),
-                              requestedPermissions.end() );
-
-  if ( !requestedPermissions.isEmpty() )
+  if ( !forceAsk )
   {
-    QtAndroid::requestPermissionsSync( requestedPermissions );
-    for ( const QString &permission : requestedPermissions )
-    {
-      QtAndroid::PermissionResult r = QtAndroid::checkPermission( permission );
-      if ( r == QtAndroid::PermissionResult::Denied )
-      {
-        return false;
-      }
-    }
+    permissions.erase( std::remove_if( permissions.begin(), permissions.end(),
+                                       []( const QString &permission ) {
+                                         auto r = QtAndroidPrivate::checkPermission( permission ).result();
+                                         return r != QtAndroidPrivate::Denied;
+                                       } ),
+                       permissions.end() );
   }
 
-  return true;
-#else
-  QStringList requestedPermissions = permissions.split( ';' );
-  requestedPermissions.erase( std::remove_if( requestedPermissions.begin(), requestedPermissions.end(),
-                                              []( const QString &permission ) {
-                                                auto r = QtAndroidPrivate::checkPermission( permission ).result();
-                                                return r != QtAndroidPrivate::Denied;
-                                              } ),
-                              requestedPermissions.end() );
-
-  if ( !requestedPermissions.isEmpty() )
+  if ( !permissions.isEmpty() )
   {
-    for ( const QString &permission : requestedPermissions )
+    for ( const QString &permission : permissions )
     {
       auto r = QtAndroidPrivate::requestPermission( permission ).result();
       if ( r == QtAndroidPrivate::Denied )
       {
-        return false;
+        if ( !forceAsk )
+        {
+          return false;
+        }
       }
     }
   }
 
   return true;
-#endif
 }
 
 void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
@@ -752,11 +645,7 @@ void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
       auto activity = qtAndroidContext();
       if ( activity.isValid() )
       {
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-        QAndroidJniObject window = activity.callObjectMethod( "getWindow", "()Landroid/view/Window;" );
-#else
         QJniObject window = activity.callObjectMethod( "getWindow", "()Landroid/view/Window;" );
-#endif
 
         if ( window.isValid() )
         {
@@ -772,11 +661,7 @@ void AndroidPlatformUtilities::setScreenLockPermission( const bool allowLock )
         }
       }
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-      QAndroidJniEnvironment env;
-#else
       QJniEnvironment env;
-#endif
       if ( env->ExceptionCheck() )
       {
         env->ExceptionClear();
@@ -847,21 +732,17 @@ QVariantMap AndroidPlatformUtilities::sceneMargins( QQuickWindow *window ) const
 
 void AndroidPlatformUtilities::uploadPendingAttachments( QFieldCloudConnection *connection ) const
 {
+  // Request notification permission
+  checkAndAcquirePermissions( { QStringLiteral( "android.permission.POST_NOTIFICATIONS" ) } );
+
   QTimer::singleShot( 500, [connection]() {
     if ( connection )
     {
-      qInfo() << "Launching service from main...";
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-      QAndroidJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldService",
-                                                 "startQFieldService",
-                                                 "(Landroid/content/Context;)V",
-                                                 qtAndroidContext().object() );
-#else
-      QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldService",
-                                          "startQFieldService",
+      qInfo() << "Launching QFieldCloud service...";
+      QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldCloudService",
+                                          "startQFieldCloudService",
                                           "(Landroid/content/Context;)V",
                                           qtAndroidContext().object() );
-#endif
     }
   } );
 }
@@ -888,6 +769,32 @@ void AndroidPlatformUtilities::vibrate( int milliseconds ) const
       }
     } );
   }
+}
+
+void AndroidPlatformUtilities::requestBackgroundPositioningPermissions()
+{
+  checkAndAcquirePermissions( { QStringLiteral( "android.permission.ACCESS_BACKGROUND_LOCATION" ) } );
+}
+
+void AndroidPlatformUtilities::startPositioningService() const
+{
+  // Request notification permission
+  checkAndAcquirePermissions( { QStringLiteral( "android.permission.POST_NOTIFICATIONS" ) } );
+
+  qInfo() << "Launching QField positioning service...";
+  QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",
+                                      "startQFieldPositioningService",
+                                      "(Landroid/content/Context;)V",
+                                      qtAndroidContext().object() );
+}
+
+void AndroidPlatformUtilities::stopPositioningService() const
+{
+  qInfo() << "Terminating QField positioning service...";
+  QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",
+                                      "stopQFieldPositioningService",
+                                      "(Landroid/content/Context;)V",
+                                      qtAndroidContext().object() );
 }
 
 #ifdef __cplusplus

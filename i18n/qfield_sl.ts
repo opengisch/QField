@@ -23,11 +23,11 @@
     </message>
     <message>
         <source>QField app directories</source>
-        <translation type="unfinished"/>
+        <translation>QField imeniki aplikacij</translation>
     </message>
     <message>
         <source>QField app directory</source>
-        <translation type="unfinished"/>
+        <translation>QField imenik aplikacij</translation>
     </message>
 </context>
 <context>
@@ -327,10 +327,6 @@ Cancel to make a minimal device scan instead.</source>
         <source>Unknown error</source>
         <translation type="vanished">Neznana napaka</translation>
     </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>Bluetooth dovoljenje zavrnjeno</translation>
-    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -351,7 +347,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Color</source>
-        <translation>Barva</translation>
+        <translation type="vanished">Barva</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -508,8 +504,8 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Tema karte</translation>
     </message>
     <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <source>Project Folder</source>
+        <translation>Mapa projekta</translation>
     </message>
 </context>
 <context>
@@ -812,6 +808,54 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
         <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -1138,13 +1182,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>InternalGnssReceiver</name>
-    <message>
-        <source>Location permission denied</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
@@ -1318,10 +1355,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Ta sloj ni veljaven. To je lahko posledica težave z omrežjem, manjkajoče datoteke ali napačne konfiguracije projekta.</translation>
     </message>
@@ -1332,6 +1365,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>Sledenje na sloju %1 je zaustavljeno</translation>
     </message>
 </context>
 <context>
@@ -1630,6 +1675,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Process Selected Feature(s)</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
@@ -1671,13 +1720,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bearing</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>NmeaGnssReceiver</name>
-    <message>
-        <source>Could not parse the IMU position: %1,%2,%3</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1789,6 +1831,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
         <translation>Zvočne datoteke (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov) </translation>
     </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>Potrditev izbrisa</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginManager</name>
@@ -1810,14 +1864,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Napaka omrežja</translation>
     </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Vtičniki</translation>
     </message>
     <message>
         <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
@@ -1932,7 +1986,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Quality</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kakovost</translation>
     </message>
 </context>
 <context>
@@ -1950,7 +2004,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ime:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
@@ -1966,15 +2020,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>UDP (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
@@ -1982,6 +2036,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Ime</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2096,7 +2166,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Quality</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kakovost</translation>
     </message>
 </context>
 <context>
@@ -2121,11 +2191,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>ProcessingAlgorithmForm</name>
     <message>
         <source>General Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Splošni Parametri</translation>
     </message>
     <message>
         <source>Advanced Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Napredni Parametri</translation>
     </message>
     <message>
         <source>Help</source>
@@ -2209,11 +2279,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Latitude</source>
-        <translation type="unfinished"/>
+        <translation>Zemljepisna širina</translation>
     </message>
     <message>
         <source>Longitude</source>
-        <translation type="unfinished"/>
+        <translation>Zemljepisna dolžina</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -2358,6 +2428,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Learn more about QFieldCloud</source>
         <translation>Preberite več o QFieldCloud-u</translation>
     </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
@@ -2434,7 +2508,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Prišlo je do napake omrežaj, poskusi ponovno.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
@@ -2740,11 +2814,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Moji projekti</translation>
+        <translation>Moji projekti</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Skupnost</translation>
+        <translation>Skupnost</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2852,7 +2926,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Search for project</source>
-        <translation type="unfinished"/>
+        <translation>Iskanje projekta</translation>
     </message>
 </context>
 <context>
@@ -2863,7 +2937,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Prišlo je do napake omrežaj, poskusi ponovno.</translation>
     </message>
     <message>
         <source>Your account&apos;s available storage is full.</source>
@@ -2874,15 +2948,15 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
-        <translation type="unfinished"/>
+        <translation>Konec</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Naslednja</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation type="unfinished"/>
+        <translation>Prejšnja</translation>
     </message>
 </context>
 <context>
@@ -2941,7 +3015,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation>Odstrani mapo projekta</translation>
+        <translation type="vanished">Odstrani mapo projekta</translation>
     </message>
     <message>
         <source>Import project from folder</source>
@@ -2984,23 +3058,146 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Push to QFieldCloud...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj v priljubljene</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
-        <translation type="unfinished"/>
+        <translation>Odstrani iz priljubljenih</translation>
     </message>
     <message>
         <source>Files</source>
+        <translation>Datoteke</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Geslo</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>(root folder)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported and available locally</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QFieldPositioningService</name>
+    <message>
+        <source>Positioning service running</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3221,7 +3418,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation type="unfinished"/>
+        <translation>Uporabite nadmorsko višino, ki jo je sporočila naprava za določanje položaja. Preskočite kakršen koli popravek nadmorske višine, ki bi lahko bil posledica transformacije koordinatnega sistema.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
@@ -3285,11 +3482,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Dodajanje</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Urejanje</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -3321,11 +3518,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Veliko</translation>
     </message>
     <message>
         <source>Extra-large</source>
-        <translation type="unfinished"/>
+        <translation>Zelo veliko</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
@@ -3389,23 +3586,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>User Interface</source>
-        <translation type="unfinished"/>
+        <translation>Uporabniški vmesnik</translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Izgled:</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="unfinished"/>
+        <translation>Velikost pisave:</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>Jezik:</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Napredno</translation>
     </message>
     <message>
         <source>Manage plugins</source>
@@ -3413,7 +3610,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation type="unfinished"/>
+        <translation>Omogoči vrtenje karte</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
@@ -3495,7 +3692,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QGIS export failed</source>
-        <translation type="unfinished"/>
+        <translation>Izvoz v QGIS ni uspel</translation>
     </message>
     <message>
         <source>QGIS is unable to open the QGIS project</source>
@@ -3535,6 +3732,13 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>Zapri</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3557,7 +3761,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>Zapri</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3599,6 +3803,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map printed on %1 using QField</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3792,11 +4000,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Naslov:</translation>
+        <translation type="vanished">Naslov:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Vrata:</translation>
+        <translation type="vanished">Vrata:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3872,11 +4088,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking: %1</source>
-        <translation type="unfinished"/>
+        <translation>Sledenje: %1</translation>
     </message>
     <message>
         <source>Tracking</source>
-        <translation type="unfinished"/>
+        <translation>Sledenje</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
@@ -3896,7 +4112,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Zahtevana razdalja</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -3924,7 +4140,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Splošne nastavitve</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
@@ -4165,11 +4381,19 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Naslov:</translation>
+        <translation type="vanished">Naslov:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4234,11 +4458,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>Globalne spremenljivke</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>Projektne spremenljivke</translation>
     </message>
 </context>
 <context>
@@ -4253,6 +4477,17 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Failed to save feature!</source>
         <translation type="vanished">Objekta ni mogoče shraniti!</translation>
+    </message>
+</context>
+<context>
+    <name>WebdavConnection</name>
+    <message>
+        <source>Failed to download file %1 due to network error (%2)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to upload file %1 due to network error (%2)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4335,7 +4570,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>Osnovna karta</translation>
     </message>
     <message>
         <source>Default Project</source>
@@ -4347,11 +4582,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Naloži privzeti projekt ob zagonu</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Naloži zadnji odprt projekt ob zagonu </translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
@@ -4359,10 +4594,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Dobrodošli v QField-u. Prvič uporabljaš to aplikacijo? Preizkusi spodaj navedene vzorčne projekte.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation>To je super! Veseli bomo, če klikneš na spodnji gumb in napišeš oceno.</translation>
+    </message>
+    <message>
+        <source>Return to map</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4551,11 +4790,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Lokacija določena</translation>
+        <translation type="vanished">Lokacija določena</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Iskanje lokacije</translation>
+        <translation type="vanished">Iskanje lokacije</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
@@ -4595,7 +4834,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Tisk v PDF formatu</translation>
+        <translation type="vanished">Tisk v PDF formatu</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4863,7 +5102,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print</source>
-        <translation>Tisk</translation>
+        <translation>Tiskanje</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
@@ -4895,18 +5134,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snap every %1°</source>
-        <translation type="unfinished"/>
+        <translation>Relativni kot</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No print layout available</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4923,7 +5154,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Mapa projekta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -4970,16 +5201,12 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Uvoz URL ni uspel</translation>
     </message>
     <message>
-        <source>Unlock the screen to to close project and app</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Do you grant permission to activate `%1`?</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"/>
+        <translation>Zapomni si mojo izbiro</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
@@ -5003,7 +5230,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Omogoči vrtenje karte</translation>
     </message>
     <message>
         <source>Dashboard</source>
@@ -5043,6 +5270,62 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Veliko</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance set to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5090,41 +5373,6 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>tst_qFieldGuide</name>
-    <message>
-        <source>dummyItem1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem1 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem2 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem3</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem3 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem4</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem4 responsibility.</source>
         <translation type="unfinished"/>
     </message>
 </context>

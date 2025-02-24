@@ -328,10 +328,6 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
         <source>Unknown error</source>
         <translation type="vanished">Unbekannter Fehler</translation>
     </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>Bluetooth Berechtigung verweigert</translation>
-    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -352,7 +348,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Color</source>
-        <translation>Farbe</translation>
+        <translation type="vanished">Farbe</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -509,8 +505,8 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
         <translation>Kartenthema</translation>
     </message>
     <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>Bevor in den Navigationsmodus gewechselt werden kann muss das digitalisierte Feature gespeichern oder verworfen werden</translation>
+        <source>Project Folder</source>
+        <translation>Projektordner</translation>
     </message>
 </context>
 <context>
@@ -813,6 +809,54 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
         <translation>Rollback von rückgängig gemachten Featureänderungen in Ebene &quot;%1&quot; fehlgeschlagen</translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -1144,13 +1188,6 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
 </context>
 <context>
-    <name>InternalGnssReceiver</name>
-    <message>
-        <source>Location permission denied</source>
-        <translation>Standortberechtigung verweigert</translation>
-    </message>
-</context>
-<context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
@@ -1326,10 +1363,6 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation>Dieser Layer trackt momentan die aktuelle Position</translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Dieses Layer ist ungültig. Dies kann auf ein Netzwerkproblem, eine fehlende Datei oder eine Fehlkonfiguration des Projekts zurückzuführen sein.</translation>
     </message>
@@ -1340,6 +1373,18 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Bei diesem Layer ist das Bearbeiten von Geometrien gesperrt. Dies verhindert sowohl das Hinzufügen und Löschen von Objekten, als auch das Bearbeiten der Geometrien von bestehenden Objekten</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>Stop</translation>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>Tracking in Layer %1 deaktiviert</translation>
     </message>
 </context>
 <context>
@@ -1638,6 +1683,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <source>Process Selected Feature(s)</source>
         <translation>Verarbeite ausgewählte(s) Objekt(e)</translation>
     </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
@@ -1680,13 +1729,6 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Bearing</source>
         <translation>Peilung</translation>
-    </message>
-</context>
-<context>
-    <name>NmeaGnssReceiver</name>
-    <message>
-        <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation>Die IMU-Position konnte nicht analysiert werden: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -1796,6 +1838,18 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
         <translation>Audiodateien (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
+    </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>Datensatz entfernen</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1958,15 +2012,15 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Name:</source>
-        <translation>Name:</translation>
+        <translation type="vanished">Name:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>Leer lassen um automatisch auszufüllen</translation>
+        <translation type="vanished">Leer lassen um automatisch auszufüllen</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>Verbindungsart:</translation>
+        <translation type="vanished">Verbindungsart:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -1991,6 +2045,22 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Egeniouss</source>
         <translation>Egeniouss</translation>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Name</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2368,6 +2438,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <source>Learn more about QFieldCloud</source>
         <translation>Erfahre mehr über QFieldCloud.</translation>
     </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
@@ -2377,7 +2451,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">Einige Layer sind in QFieldCloud nicht korrekt gepackt worden. Diese Layer könnten falsch konfiguriert sein oder ihre Datenquelle ist fürden QFieldCloud-Server nicht zugänglich.</translation>
+        <translation type="vanished">Einige Layer sind in QFieldCloud nicht korrekt gepackt worden. Diese Layer könnten falsch konfiguriert sein oder ihre Datenquelle ist für den QFieldCloud-Server nicht zugänglich.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
@@ -2385,7 +2459,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation>Einige Layer sind in QFieldCloud nicht korrekt gepackt worden. Diese Layer könnten falsch konfiguriert sein oder ihre Datenquelle ist für den QFieldCloud-Server nicht zugänglich. Bitte prüfen Sie die Protokolle des letzten Paketierungsauftrags auf der qfield.cloud-Webseite.</translation>
+        <translation>Einige Layer sind in QFieldCloud nicht korrekt gepackt worden. Diese Layer könnten falsch konfiguriert sein oder ihre Datenquelle ist für den QFieldCloud-Server nicht zugänglich. Bitte prüfe die Protokolle des letzten Paketierungsauftrags auf der qfield.cloud-Webseite.</translation>
     </message>
 </context>
 <context>
@@ -2420,7 +2494,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation>Dieses QFieldCloud-Projekt wurde zuerst mit einem anderen Cloud-Konto heruntergeladen. Bitte melden Sie sich mit dem ursprünglichen Konto für dieses Projekt an, um die QFieldCloud-Funktionalität zu nutzen.</translation>
+        <translation>Dieses QFieldCloud-Projekt wurde zuerst mit einem anderen Cloud-Konto heruntergeladen. Bitte melde dich mit dem ursprünglichen Konto für dieses Projekt an, um die QFieldCloud-Funktionalität zu nutzen.</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -2428,7 +2502,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="vanished">QFieldCloud bereitet die neuesten Daten für Sie vor. Dies könnte einen Moment dauern, bitte haben Sie ein klein wenig Geduld.</translation>
+        <translation type="vanished">QFieldCloud bereitet die neuesten Daten für dich vor. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld.</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
@@ -2436,7 +2510,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud wendet die neuesten hochgeladenen Änderungen an. Dies könnte einen Moment dauern, bitte haben Sie ein klein wenig Geduld.</translation>
+        <translation>QFieldCloud wendet die neuesten hochgeladenen Änderungen an. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld.</translation>
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -2464,7 +2538,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>Synchronisieren Sie das gesamte Projekt mit allen Änderungen und laden Sie das frisch aktualisierte Projekt aus QFieldCloud herunter.</translation>
+        <translation>Synchronisiere das gesamte Projekt mit allen Änderungen und lade das frisch aktualisierte Projekt aus der QFieldCloud herunter.</translation>
     </message>
     <message>
         <source>Push changes</source>
@@ -2472,7 +2546,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>Sparen Sie Internet-Bandbreite, indem Sie nur die lokalen Objekte und Bilder in die Cloud verschieben, ohne das gesamte Projekt zu aktualisieren.</translation>
+        <translation>Spare Internet-Bandbreite, indem du nur die lokalen Objekte und Bilder in die Cloud verschiebst, ohne das gesamte Projekt zu aktualisieren.</translation>
     </message>
     <message>
         <source>Revert local changes</source>
@@ -2488,13 +2562,13 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">Alle geänderten Objekte in den lokalen Cloud-Layern rückgängig machen. Sie können diese Änderungen nicht wiederherstellen.</translation>
+        <translation type="vanished">Alle geänderten Objekte in den lokalen Cloud-Layern rückgängig machen. Du kannst diese Änderungen nicht wiederherstellen.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>Die lokale Kopie des Cloud Projekts wurde beschädigt. Beim Zurücksetzen wird die Cloud-Version erneut heruntergeladen und alle lokalen Änderungen werden entfernt. Stellen Sie  sicher, diese bei Bedarf zuerst zu kopieren. 
+        <translation>Die lokale Kopie des Cloud Projekts wurde beschädigt. Beim Zurücksetzen wird die Cloud-Version erneut heruntergeladen und alle lokalen Änderungen werden entfernt. Stelle sicher, diese bei Bedarf zuerst zu kopieren. 
 
 Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend empfohlen, es zurückzusetzen, um einen versehentlichen Datenverlust zu vermeiden, da keine der vorgenommenen Änderungen zurück in die Cloud übertragen wird.</translation>
     </message>
@@ -2548,7 +2622,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>Letzte Warnung: Das Zurücksetzen des Cloud-Projekts löscht alle lokalen Änderungen. Sind Sie sicher, dass Sie das ausführen wollen?</translation>
+        <translation>Letzte Warnung: Das Zurücksetzen des Cloud-Projekts löscht alle lokalen Änderungen. Bist du sicher, dass du das ausführen möchtest?</translation>
     </message>
     <message>
         <source>Connecting cloud</source>
@@ -2568,15 +2642,15 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation>Dieses Projekt hat eine aktuellere Projektdatei in der Cloud - synchronisieren Sie bitte!</translation>
+        <translation>Dieses Projekt hat eine aktuellere Projektdatei in der Cloud - bitte synchronisiere!</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation>Das Projekt hat aktuellere Daten in der Cloud, Sie sollten synchronisieren!</translation>
+        <translation>Das Projekt hat aktuellere Daten in der Cloud, du solltest synchronisieren!</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud packt die neuesten Daten. Dies könnte einen Moment dauern, bitte haben Sie ein klein wenig Geduld.</translation>
+        <translation>QFieldCloud packt die neuesten Daten. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld.</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
@@ -2752,11 +2826,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Meine Projekte</translation>
+        <translation>Meine Projekte</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Gemeinschaft</translation>
+        <translation>Gemeinschaft</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2768,7 +2842,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="vanished">QFieldCloud bereitet die neuesten Daten für Sie vor. Dies könnte einen Moment dauern, bitte haben Sie ein klein wenig Geduld.</translation>
+        <translation type="vanished">QFieldCloud bereitet die neuesten Daten für dich vor. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld.</translation>
     </message>
     <message>
         <source>Uploading…</source>
@@ -2820,7 +2894,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation>Tippe Sie lang auf ein Cloud Projekt, um zusätzliche Optionen angezeigt zu bekommen.</translation>
+        <translation>Tippe lang auf ein Cloud Projekt, um zusätzliche Optionen angezeigt zu bekommen.</translation>
     </message>
     <message>
         <source>Refresh projects list</source>
@@ -2844,7 +2918,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud packt die neusten Daten. Dies könnte einen Moment dauern, bitte haben Sie ein klein wenig Geduld.</translation>
+        <translation>QFieldCloud packt die neusten Daten für dich. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld.</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
@@ -2860,7 +2934,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation>Keine Cloud-Projekte gefunden. Um loszulegen, %1lesen Sie die Dokumentation%2.</translation>
+        <translation>Keine Cloud-Projekte gefunden. Um loszulegen, %1lies die Dokumentation%2.</translation>
     </message>
     <message>
         <source>Search for project</source>
@@ -2953,7 +3027,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation>Projektordner entfernen</translation>
+        <translation type="vanished">Projektordner entfernen</translation>
     </message>
     <message>
         <source>Import project from folder</source>
@@ -2996,10 +3070,6 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
         <translation>Projekt aus ZIP-Ordner aktualisieren</translation>
     </message>
     <message>
-        <source>Push to QFieldCloud...</source>
-        <translation>Push zu QFieldCloud...</translation>
-    </message>
-    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>‘%1’ wird in die QFieldCloud hochgeladen </translation>
     </message>
@@ -3014,6 +3084,133 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <message>
         <source>Files</source>
         <translation>Dateien</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Passwort</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>(root folder)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported and available locally</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QFieldPositioningService</name>
+    <message>
+        <source>Positioning service running</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3548,6 +3745,13 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>schließen</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3570,7 +3774,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>schließen</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3613,6 +3817,10 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation>Projekt kann nicht gelesen werden, die Datei &quot;%1&quot; existiert nicht.</translation>
+    </message>
+    <message>
+        <source>Map printed on %1 using QField</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3805,11 +4013,19 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Adresse:</translation>
+        <translation type="vanished">Adresse:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4178,11 +4394,19 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Adresse:</translation>
+        <translation type="vanished">Adresse:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4266,6 +4490,17 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>Failed to save feature!</source>
         <translation type="vanished">Objekt konnte nicht gespeichert werden!</translation>
+    </message>
+</context>
+<context>
+    <name>WebdavConnection</name>
+    <message>
+        <source>Failed to download file %1 due to network error (%2)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to upload file %1 due to network error (%2)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4377,6 +4612,10 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>Das ist großartig! Wir würden uns freuen, wenn Sie auf die Schaltfläche unten klicken und einen Kommentar hinterlassen.</translation>
+    </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4564,11 +4803,11 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Position empfangen</translation>
+        <translation type="vanished">Position empfangen</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Suche Position...</translation>
+        <translation type="vanished">Suche Position...</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
@@ -4608,7 +4847,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Als PDF drucken</translation>
+        <translation type="vanished">Als PDF drucken</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4911,16 +5150,8 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
         <translation>Relativer Winkel</translation>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation>Fangen alle %1° </translation>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>Kartenausschnitt folgt Standort und Kompassausrichtung</translation>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation>Drucklayout nicht verfügbar</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -4936,7 +5167,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Projektordner</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -4981,10 +5212,6 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>Import URL failed</source>
         <translation>Importieren der URL gescheitert</translation>
-    </message>
-    <message>
-        <source>Unlock the screen to to close project and app</source>
-        <translation>Bildschirm entsperren, um Projekt und App zu beenden</translation>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
@@ -5058,6 +5285,62 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation>Entsperre den Bildschirm, um das Projekt und die App und das Projekt zu schließen</translation>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation>Bevor in den Navigationsmodus gewechselt werden kann muss das digitalisierte Feature gespeichern oder verworfen werden</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Groß</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance set to %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
@@ -5103,41 +5386,6 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>tst_qFieldGuide</name>
-    <message>
-        <source>dummyItem1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem1 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem2 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem3</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem3 responsibility.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem4</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>dummyItem4 responsibility.</source>
         <translation type="unfinished"/>
     </message>
 </context>

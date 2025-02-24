@@ -21,11 +21,7 @@
 
 #include "platformutilities.h"
 
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-#include <QAndroidJniObject>
-#else
 #include <QJniObject>
-#endif
 
 class AndroidPlatformUtilities : public PlatformUtilities
 {
@@ -66,10 +62,10 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     ViewStatus *open( const QString &filePath, bool isEditing, QObject *parent = nullptr ) override;
 
+    void requestStoragePermission() const override;
     bool checkPositioningPermissions() const override;
     bool checkCameraPermissions() const override;
     bool checkMicrophonePermissions() const override;
-    bool checkWriteExternalStoragePermissions() const override;
 
     void setScreenLockPermission( const bool allowLock ) override;
 
@@ -88,22 +84,22 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     void vibrate( int milliseconds ) const override;
 
+    void startPositioningService() const override;
+    void stopPositioningService() const override;
+
+    void requestBackgroundPositioningPermissions() override;
+
   private:
     // separate multiple permissions using a semi-column (;)
-    bool checkAndAcquirePermissions( const QString &permissions ) const;
+    bool checkAndAcquirePermissions( QStringList permissions, bool forceAsk = false ) const;
     ResourceSource *processCameraActivity( const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo, QObject *parent = nullptr );
     ResourceSource *processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent = nullptr );
-#if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )
-    QString getIntentExtra( const QString &, QAndroidJniObject = nullptr ) const;
-    QAndroidJniObject getNativeIntent() const;
-    QAndroidJniObject getNativeExtras() const;
-    QAndroidJniObject mActivity;
-#else
+
     QString getIntentExtra( const QString &, QJniObject = nullptr ) const;
+
     QJniObject getNativeIntent() const;
     QJniObject getNativeExtras() const;
     QJniObject mActivity;
-#endif
     QString mSystemGenericDataLocation;
 };
 

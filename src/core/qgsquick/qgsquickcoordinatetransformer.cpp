@@ -107,11 +107,22 @@ QgsCoordinateTransformContext QgsQuickCoordinateTransformer::transformContext() 
   return mCoordinateTransform.context();
 }
 
+QgsPoint QgsQuickCoordinateTransformer::transformPosition( const QgsPoint &position ) const
+{
+  return processPosition( position );
+}
+
 void QgsQuickCoordinateTransformer::updatePosition()
 {
-  double x = mSourcePosition.x();
-  double y = mSourcePosition.y();
-  double z = mSourcePosition.z();
+  mProjectedPosition = processPosition( mSourcePosition );
+  emit projectedPositionChanged();
+}
+
+QgsPoint QgsQuickCoordinateTransformer::processPosition( const QgsPoint &position ) const
+{
+  double x = position.x();
+  double y = position.y();
+  double z = position.z();
 
   // If Z is NaN, proj's coordinate transformation will
   // also set X and Y to NaN. But we also want to get projected
@@ -137,13 +148,13 @@ void QgsQuickCoordinateTransformer::updatePosition()
   }
 
   if ( mSkipAltitudeTransformation )
-    z = mSourcePosition.z();
+    z = position.z();
 
   if ( !mVerticalGridPath.isEmpty() )
   {
-    std::vector<double> xVector = { mSourcePosition.x() };
-    std::vector<double> yVector = { mSourcePosition.y() };
-    std::vector<double> zVector = { !std::isnan( mSourcePosition.z() ) ? mSourcePosition.z() : 0 };
+    std::vector<double> xVector = { position.x() };
+    std::vector<double> yVector = { position.y() };
+    std::vector<double> zVector = { !std::isnan( position.z() ) ? position.z() : 0 };
     try
     {
       double zDummy = 0.0; // we don't want to manipulate the elevation data yet, use a dummy z value to transform coordinates first
@@ -173,10 +184,10 @@ void QgsQuickCoordinateTransformer::updatePosition()
     }
   }
 
-  mProjectedPosition = QgsPoint( x, y );
-  mProjectedPosition.addZValue( z + mDeltaZ );
+  QgsPoint projectedPoint( x, y );
+  projectedPoint.addZValue( z + mDeltaZ );
 
-  emit projectedPositionChanged();
+  return std::move( projectedPoint );
 }
 
 bool QgsQuickCoordinateTransformer::skipAltitudeTransformation() const
@@ -242,52 +253,54 @@ void QgsQuickCoordinateTransformer::setVerticalGrid( const QString &grid )
   mVerticalGrid = grid;
   mVerticalGridPath.clear();
 
-  if ( mVerticalGrid.isEmpty() )
-    return;
-
-  if ( QFile::exists( mVerticalGrid ) )
+  if ( !mVerticalGrid.isEmpty() )
   {
-    mVerticalGridPath = mVerticalGrid;
-  }
-  else
-  {
-    QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
-    if ( !dataDirs.isEmpty() )
+    if ( QFile::exists( mVerticalGrid ) )
     {
-      for ( const QString &dataDir : dataDirs )
-      {
-        const QString verticalGridPath = QStringLiteral( "%1proj/%2" ).arg( dataDir, mVerticalGrid );
-        if ( QFile::exists( verticalGridPath ) )
-        {
-          mVerticalGridPath = verticalGridPath;
-          break;
-        }
-      }
-    }
-  }
-
-  if ( !mVerticalGridPath.isEmpty() )
-  {
-    GDALDatasetH hDataset;
-    GDALAllRegister();
-    hDataset = GDALOpen( mVerticalGridPath.toUtf8().constData(), GA_ReadOnly );
-    if ( hDataset != NULL )
-    {
-      OGRSpatialReferenceH spatialRef = GDALGetSpatialRef( hDataset );
-      char *pszWkt = nullptr;
-      const QByteArray multiLineOption = QStringLiteral( "MULTILINE=NO" ).toLocal8Bit();
-      const QByteArray formatOption = QStringLiteral( "FORMAT=WKT2" ).toLocal8Bit();
-      const char *const options[] = { multiLineOption.constData(), formatOption.constData(), nullptr };
-      OSRExportToWktEx( spatialRef, &pszWkt, options );
-      mCoordinateVerticalGridTransform.setDestinationCrs( QgsCoordinateReferenceSystem::fromWkt( QString( pszWkt ) ) );
-      mCoordinateVerticalGridTransform.setContext( mCoordinateTransform.context() );
-      CPLFree( pszWkt );
+      mVerticalGridPath = mVerticalGrid;
     }
     else
     {
-      // Invalid grid file, skip
-      mVerticalGridPath.clear();
+      QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
+      if ( !dataDirs.isEmpty() )
+      {
+        for ( const QString &dataDir : dataDirs )
+        {
+          const QString verticalGridPath = QStringLiteral( "%1proj/%2" ).arg( dataDir, mVerticalGrid );
+          if ( QFile::exists( verticalGridPath ) )
+          {
+            mVerticalGridPath = verticalGridPath;
+            break;
+          }
+        }
+      }
     }
-    GDALClose( hDataset );
+
+    if ( !mVerticalGridPath.isEmpty() )
+    {
+      GDALDatasetH hDataset;
+      GDALAllRegister();
+      hDataset = GDALOpen( mVerticalGridPath.toUtf8().constData(), GA_ReadOnly );
+      if ( hDataset != NULL )
+      {
+        OGRSpatialReferenceH spatialRef = GDALGetSpatialRef( hDataset );
+        char *pszWkt = nullptr;
+        const QByteArray multiLineOption = QStringLiteral( "MULTILINE=NO" ).toLocal8Bit();
+        const QByteArray formatOption = QStringLiteral( "FORMAT=WKT2" ).toLocal8Bit();
+        const char *const options[] = { multiLineOption.constData(), formatOption.constData(), nullptr };
+        OSRExportToWktEx( spatialRef, &pszWkt, options );
+        mCoordinateVerticalGridTransform.setDestinationCrs( QgsCoordinateReferenceSystem::fromWkt( QString( pszWkt ) ) );
+        mCoordinateVerticalGridTransform.setContext( mCoordinateTransform.context() );
+        CPLFree( pszWkt );
+      }
+      else
+      {
+        // Invalid grid file, skip
+        mVerticalGridPath.clear();
+      }
+      GDALClose( hDataset );
+    }
   }
+
+  emit verticalGridChanged();
 }

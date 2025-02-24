@@ -37,8 +37,6 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
 
     void initNmeaConnection( QIODevice *ioDevice );
 
-    AbstractGnssReceiver::Capabilities capabilities() const override { return Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging; }
-
   protected:
     std::unique_ptr<QgsNmeaConnection> mNmeaConnection;
 
@@ -51,7 +49,7 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
   private:
     void handleStartLogging() override;
     void handleStopLogging() override;
-    QList<QPair<QString, QVariant>> details() const override;
+    GnssPositionDetails details() const override;
 
     void processImuSentence( const QString &sentence );
 

@@ -34,6 +34,8 @@ class SerialPortReceiver : public NmeaGnssReceiver
     explicit SerialPortReceiver( const QString &address = QString(), QObject *parent = nullptr );
     ~SerialPortReceiver() override;
 
+    static QLatin1String identifier;
+
   private:
     void handleConnectDevice() override;
     void handleDisconnectDevice() override;
