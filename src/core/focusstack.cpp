@@ -15,37 +15,87 @@
  ***************************************************************************/
 #include "focusstack.h"
 
-void FocusStack::addFocusTaker( QQuickItem *item )
+void FocusStack::addFocusTaker( QObject *object )
 {
-  connect( item, &QQuickItem::activeFocusChanged, this, &FocusStack::itemFocusChanged );
+  const QVariant visible = object->property( "visible" );
+  const QVariant opened = object->property( "opened" );
+  if ( opened.isValid() )
+  {
+    connect( object, SIGNAL( opened() ), this, SLOT( popupOpened() ) );
+    connect( object, SIGNAL( closed() ), this, SLOT( popupClosed() ) );
+  }
+  else if ( visible.isValid() )
+  {
+    connect( object, SIGNAL( visibleChanged() ), this, SLOT( visibleChanged() ) );
+    if ( visible.toBool() )
+    {
+      mStackList.append( object );
+    }
+  }
 }
 
-void FocusStack::itemFocusChanged( bool itemActiveFocus )
+void FocusStack::popupOpened()
 {
-  if ( itemActiveFocus )
+  setFocused( sender() );
+}
+
+void FocusStack::popupClosed()
+{
+  setUnfocused( sender() );
+}
+
+void FocusStack::visibleChanged()
+{
+  const QVariant visible = sender()->property( "visible" );
+  if ( visible.toBool() )
   {
-    setFocused( qobject_cast<QQuickItem *>( sender() ) );
+    setFocused( sender() );
   }
   else
   {
-    setUnfocused( qobject_cast<QQuickItem *>( sender() ) );
+    setUnfocused( sender() );
   }
 }
 
-void FocusStack::setFocused( QQuickItem *item )
+void FocusStack::setFocused( QObject *object )
 {
-  mStackList.removeAll( item );
-  mStackList.append( item );
+  mStackList.removeAll( object );
+  mStackList.append( object );
+  QMetaObject::invokeMethod( object, "forceActiveFocus", Qt::DirectConnection );
 }
 
-void FocusStack::setUnfocused( QQuickItem *item )
+void FocusStack::setUnfocused( QObject *object )
 {
-  if ( !item->isVisible() )
+  const QVariant visible = object->property( "visible" );
+  const QVariant opened = object->property( "opened" );
+  if ( opened.isValid() )
   {
-    mStackList.removeAll( item );
-    if ( !mStackList.isEmpty() )
+    if ( !opened.toBool() )
     {
-      mStackList.last()->forceActiveFocus();
+      mStackList.removeAll( object );
+      if ( !mStackList.isEmpty() )
+      {
+        QMetaObject::invokeMethod( mStackList.last(), "forceActiveFocus", Qt::DirectConnection );
+      }
     }
   }
+  else if ( visible.isValid() )
+  {
+    if ( !visible.toBool() )
+    {
+      mStackList.removeAll( object );
+      if ( !mStackList.isEmpty() )
+      {
+        QMetaObject::invokeMethod( mStackList.last(), "forceActiveFocus", Qt::DirectConnection );
+      }
+    }
+  }
+}
+
+void FocusStack::forceActiveFocusOnLastTaker() const
+{
+  if ( mStackList.isEmpty() )
+    return;
+
+  QMetaObject::invokeMethod( mStackList.last(), "forceActiveFocus", Qt::DirectConnection );
 }

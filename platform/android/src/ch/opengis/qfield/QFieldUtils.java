@@ -483,11 +483,9 @@ public class QFieldUtils {
     // original script by SANJAY GUPTA
     // (https://stackoverflow.com/questions/17546101/get-real-path-for-uri-android)
     public static String getPathFromUri(final Context context, final Uri uri) {
-        final boolean isKitKat =
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
         String path = null;
 
-        if (isKitKat && DocumentsContract.isDocumentUri(context, uri)) {
+        if (DocumentsContract.isDocumentUri(context, uri)) {
             // DocumentProvider
             if (isExternalStorageDocument(uri)) {
                 // ExternalStorageProvider
@@ -537,6 +535,10 @@ public class QFieldUtils {
         }
 
         // Fallback
+        if (uri == null) {
+            return path;
+        }
+
         if (path == null && ("content".equalsIgnoreCase(uri.getScheme()) ||
                              "file".equalsIgnoreCase(uri.getScheme()))) {
             path = uri.getPath();

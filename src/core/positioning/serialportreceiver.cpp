@@ -16,6 +16,8 @@
 
 #include "serialportreceiver.h"
 
+QLatin1String SerialPortReceiver::identifier = QLatin1String( "serial" );
+
 SerialPortReceiver::SerialPortReceiver( const QString &address, QObject *parent )
   : NmeaGnssReceiver( parent )
   , mAddress( address )

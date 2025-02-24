@@ -84,7 +84,7 @@ QfVisibilityFadingRow {
     bgcolor: Theme.darkRed
 
     onClicked: {
-      homeButton.waitingForDigitizingFinish = false;
+      dashBoard.shouldReturnHome = false;
       if (stateMachine.state !== "measure") {
         cancelDialog.open();
       } else {
@@ -111,7 +111,7 @@ QfVisibilityFadingRow {
     bgcolor: Theme.mainColor
 
     onClicked: {
-      homeButton.waitingForDigitizingFinish = false;
+      dashBoard.shouldReturnHome = false;
       confirm();
     }
   }
@@ -133,9 +133,10 @@ QfVisibilityFadingRow {
   QfToolButton {
     id: removeVertexButton
     iconSource: Theme.getThemeVectorIcon("ic_remove_vertex_white_24dp")
+    iconColor: Theme.toolButtonColor
     visible: rubberbandModel && rubberbandModel.vertexCount > 1
     round: true
-    bgcolor: Theme.darkGray
+    bgcolor: Theme.toolButtonBackgroundColor
 
     onPressed: {
       removeVertex();
@@ -156,17 +157,17 @@ QfVisibilityFadingRow {
     enabled: !screenHovering
     bgcolor: {
       if (!enabled) {
-        Theme.darkGraySemiOpaque;
+        Theme.toolButtonBackgroundSemiOpaqueColor;
       } else if (!showConfirmButton) {
-        Theme.darkGray;
+        Theme.toolButtonBackgroundColor;
       } else if (Number(rubberbandModel ? rubberbandModel.geometryType : 0) === Qgis.GeometryType.Point || Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
         Theme.mainColor;
       } else {
-        Theme.darkGray;
+        Theme.toolButtonBackgroundColor;
       }
     }
     iconSource: Theme.getThemeVectorIcon("ic_add_vertex_white_24dp")
-    iconColor: enabled ? "white" : Theme.darkGraySemiOpaque
+    iconColor: enabled ? Theme.toolButtonColor : Theme.toolButtonBackgroundSemiOpaqueColor
 
     property bool lastAdditionAveraged: false
     property bool averagedPositionPressAndHeld: false

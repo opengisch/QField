@@ -11,10 +11,19 @@ import Theme
 Page {
   id: qfieldLocalDataPickerScreen
 
+  property bool openedOnce: false
   property bool projectFolderView: false
   property alias model: table.model
 
   signal finished(var loading)
+
+  focus: visible
+
+  onVisibleChanged: {
+    if (visible) {
+      openedOnce = true;
+    }
+  }
 
   header: QfPageHeader {
     title: projectFolderView ? qsTr("Project Folder") : qsTr("Local Projects & Datasets")
@@ -22,8 +31,14 @@ Page {
     showBackButton: true
     showApplyButton: false
     showCancelButton: false
+    showMenuButton: localFilesModel.inSelectionMode
+    backAsCancel: localFilesModel.inSelectionMode
 
     topMargin: mainWindow.sceneTopMargin
+
+    onCancel: {
+      localFilesModel.clearSelection();
+    }
 
     onBack: {
       if (table.model.currentDepth > 1) {
@@ -130,13 +145,15 @@ Page {
         delegate: Rectangle {
           id: rectangle
 
+          property int itemIndex: index
           property int itemMetaType: ItemMetaType
           property int itemType: ItemType
           property string itemTitle: ItemTitle
           property string itemPath: ItemPath
           property bool itemIsFavorite: ItemIsFavorite
+          property bool itemChecked: ItemChecked
           property bool itemMenuLoadable: !projectFolderView && (ItemMetaType === LocalFilesModel.Project || ItemMetaType === LocalFilesModel.Dataset)
-          property bool itemMenuVisible: ((ItemType === LocalFilesModel.SimpleFolder || ItemMetaType == LocalFilesModel.File) && table.model.currentPath !== 'root') || ((platformUtilities.capabilities & PlatformUtilities.CustomExport || platformUtilities.capabilities & PlatformUtilities.CustomSend) && (ItemMetaType === LocalFilesModel.Dataset)) || (ItemMetaType === LocalFilesModel.Dataset && ItemType === LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId)
+          property bool itemMenuVisible: ((ItemType === LocalFilesModel.SimpleFolder || ItemMetaType == LocalFilesModel.Dataset || ItemMetaType == LocalFilesModel.File) && table.model.currentPath !== 'root') || ((platformUtilities.capabilities & PlatformUtilities.CustomExport || platformUtilities.capabilities & PlatformUtilities.CustomSend) && (ItemMetaType === LocalFilesModel.Dataset)) || (ItemMetaType === LocalFilesModel.Dataset && ItemType === LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId)
 
           width: parent ? parent.width : undefined
           height: line.height
@@ -147,6 +164,11 @@ Page {
             width: parent.width
             anchors.verticalCenter: parent.verticalCenter
             spacing: 2
+
+            CheckBox {
+              checked: itemChecked
+              visible: localFilesModel.inSelectionMode
+            }
 
             Image {
               id: type
@@ -183,6 +205,7 @@ Page {
               width: 48
               height: 48
             }
+
             ColumnLayout {
               id: inner
               Layout.alignment: Qt.AlignVCenter
@@ -236,7 +259,7 @@ Page {
               }
             }
             QfToolButton {
-              visible: itemMenuVisible
+              visible: itemMenuVisible && !localFilesModel.inSelectionMode
               round: true
               opacity: 0.5
 
@@ -253,6 +276,7 @@ Page {
                 itemMenu.itemType = ItemType;
                 itemMenu.itemPath = ItemPath;
                 itemMenu.itemIsFavorite = ItemIsFavorite;
+                itemMenu.itemHasWebdavConfiguration = ItemHasWebdavConfiguration;
                 itemMenu.popup(gc.x + width - itemMenu.width, gc.y - height);
               }
             }
@@ -264,12 +288,16 @@ Page {
           anchors.fill: parent
           anchors.rightMargin: 48
           onClicked: mouse => {
+            const item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
+            if (item && localFilesModel.inSelectionMode) {
+              table.model.setChecked(item.itemIndex, !item.itemChecked);
+              return;
+            }
             if (itemMenu.visible) {
               itemMenu.close();
             } else if (importMenu.visible) {
               importMenu.close();
             } else {
-              var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
               if (item) {
                 if (item.itemMetaType === LocalFilesModel.Folder || item.itemMetaType === LocalFilesModel.Favorite) {
                   table.model.currentPath = item.itemPath;
@@ -283,9 +311,9 @@ Page {
           onPressed: mouse => {
             if (itemMenu.visible || importMenu.visible)
               return;
-            var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
+            const item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
             if (item && item.itemMenuLoadable) {
-              pressedItem = item.children[0].children[1].children[0];
+              pressedItem = item.children[0].children[2].children[0];
               pressedItem.color = "#5a8725";
             }
           }
@@ -303,15 +331,41 @@ Page {
           }
 
           onPressAndHold: mouse => {
-            var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
-            if (item && item.itemMenuVisible) {
-              itemMenu.itemMetaType = item.itemMetaType;
-              itemMenu.itemType = item.itemType;
-              itemMenu.itemPath = item.itemPath;
-              itemMenu.itemIsFavorite = item.itemIsFavorite;
-              itemMenu.popup(mouse.x, mouse.y);
-            }
+            const item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
+            if (item)
+              table.model.setChecked(item.itemIndex, !item.itemChecked);
           }
+        }
+      }
+
+      Connections {
+        target: nativeLocalDataPickerButton.__projectSource
+
+        function onProjectOpened(path) {
+          finished(true);
+          iface.loadFile(path);
+        }
+      }
+
+      QfToolButton {
+        id: nativeLocalDataPickerButton
+        round: true
+
+        property ProjectSource __projectSource
+
+        visible: platformUtilities.capabilities & PlatformUtilities.NativeLocalDataPicker && table.model.currentPath === 'root'
+
+        anchors.bottom: actionButton.top
+        anchors.right: parent.right
+        anchors.bottomMargin: 4
+        anchors.rightMargin: 10
+
+        bgcolor: Theme.mainColor
+        iconSource: Theme.getThemeVectorIcon("ic_open_black_24dp")
+        iconColor: Theme.toolButtonColor
+
+        onClicked: {
+          __projectSource = platformUtilities.openProject(this);
         }
       }
 
@@ -320,7 +374,8 @@ Page {
         round: true
 
         // Since the project menu only has one action for now, hide if PlatformUtilities.UpdateProjectFromArchive is missing
-        property bool isLocalProject: qgisProject && QFieldCloudUtils.getProjectId(qgisProject.fileName) === '' && (projectInfo.filePath.endsWith('.qgs') || projectInfo.filePath.endsWith('.qgz')) && platformUtilities.capabilities & PlatformUtilities.UpdateProjectFromArchive
+        property bool isLocalProject: qgisProject && QFieldCloudUtils.getProjectId(qgisProject.fileName) === '' && (projectInfo.filePath.endsWith('.qgs') || projectInfo.filePath.endsWith('.qgz'))
+        property bool isLocalProjectActionAvailable: updateProjectFromArchive.enabled || uploadProjectToWebdav.enabled
         visible: (projectFolderView && isLocalProject && table.model.currentDepth === 1) || table.model.currentPath === 'root'
 
         anchors.bottom: parent.bottom
@@ -330,6 +385,7 @@ Page {
 
         bgcolor: Theme.mainColor
         iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
+        iconColor: Theme.toolButtonColor
 
         onClicked: {
           var xy = mapToItem(mainWindow.contentItem, actionButton.width, actionButton.height);
@@ -349,6 +405,7 @@ Page {
       property int itemType: 0
       property string itemPath: ''
       property bool itemIsFavorite: false
+      property bool itemHasWebdavConfiguration: false
 
       title: qsTr('Item Actions')
 
@@ -366,6 +423,7 @@ Page {
       topMargin: sceneTopMargin
       bottomMargin: sceneBottomMargin
 
+      // File items
       MenuItem {
         id: sendDatasetTo
         enabled: itemMenu.itemMetaType === LocalFilesModel.File || (platformUtilities.capabilities & PlatformUtilities.CustomSend && itemMenu.itemMetaType == LocalFilesModel.Dataset)
@@ -373,7 +431,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Send to...")
@@ -389,10 +447,10 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("Push to QFieldCloud...")
+        text: qsTr("Push to QFieldCloud")
         onTriggered: {
           QFieldCloudUtils.addPendingAttachment(cloudProjectsModel.currentProjectId, itemMenu.itemPath);
           platformUtilities.uploadPendingAttachments(cloudConnection);
@@ -407,7 +465,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Export to folder...")
@@ -416,38 +474,7 @@ Page {
         }
       }
 
-      MenuItem {
-        id: removeDataset
-        enabled: itemMenu.itemMetaType == LocalFilesModel.Dataset && !qfieldLocalDataPickerScreen.projectFolderView && table.model.isDeletedAllowedInCurrentPath
-        visible: enabled
-
-        font: Theme.defaultFont
-        width: parent.width
-        height: enabled ? undefined : 0
-        leftPadding: Theme.menuItemLeftPadding
-
-        text: qsTr("Remove dataset")
-        onTriggered: {
-          platformUtilities.removeDataset(itemMenu.itemPath);
-        }
-      }
-
-      MenuItem {
-        id: exportFolderTo
-        enabled: platformUtilities.capabilities & PlatformUtilities.CustomExport && itemMenu.itemMetaType == LocalFilesModel.Folder
-        visible: enabled
-
-        font: Theme.defaultFont
-        width: parent.width
-        height: enabled ? undefined : 0
-        leftPadding: Theme.menuItemLeftPadding
-
-        text: qsTr("Export to folder...")
-        onTriggered: {
-          platformUtilities.exportFolderTo(itemMenu.itemPath);
-        }
-      }
-
+      // Folder items
       MenuItem {
         id: toggleFavoriteState
         enabled: itemMenu.itemMetaType == LocalFilesModel.Folder && localFilesModel.isPathFavoriteEditable(itemMenu.itemPath)
@@ -455,7 +482,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: !itemMenu.itemIsFavorite ? qsTr("Add to favorites") : qsTr("Remove from favorites")
@@ -468,6 +495,29 @@ Page {
         }
       }
 
+      MenuSeparator {
+        enabled: toggleFavoriteState.visible && (exportFolderTo.visible || sendCompressedFolderTo.visible || uploadFolderToWebdav.visible || downloadFolderFromWebdav.visible)
+        visible: enabled
+        width: parent.width
+        height: enabled ? undefined : 0
+      }
+
+      MenuItem {
+        id: exportFolderTo
+        enabled: platformUtilities.capabilities & PlatformUtilities.CustomExport && itemMenu.itemMetaType == LocalFilesModel.Folder
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Export to folder...")
+        onTriggered: {
+          platformUtilities.exportFolderTo(itemMenu.itemPath);
+        }
+      }
+
       MenuItem {
         id: sendCompressedFolderTo
         enabled: platformUtilities.capabilities & PlatformUtilities.CustomSend && itemMenu.itemMetaType == LocalFilesModel.Folder
@@ -475,12 +525,72 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Send compressed folder to...")
         onTriggered: {
           platformUtilities.sendCompressedFolderTo(itemMenu.itemPath);
+        }
+      }
+
+      MenuItem {
+        id: uploadFolderToWebdav
+        enabled: itemMenu.itemHasWebdavConfiguration
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Upload folder to WebDAV server")
+        onTriggered: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.uploadPath(itemMenu.itemPath);
+          }
+        }
+      }
+
+      MenuItem {
+        id: downloadFolderFromWebdav
+        enabled: itemMenu.itemHasWebdavConfiguration
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Download folder from WebDAV server")
+        onTriggered: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.downloadPath(itemMenu.itemPath);
+          }
+        }
+      }
+
+      MenuSeparator {
+        enabled: removeDataset.visible || removeProjectFolder.visible
+        visible: enabled
+        width: parent.width
+        height: enabled ? undefined : 0
+      }
+
+      MenuItem {
+        id: removeDataset
+        enabled: itemMenu.itemMetaType == LocalFilesModel.Dataset && !qfieldLocalDataPickerScreen.projectFolderView && table.model.isDeletedAllowedInCurrentPath
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Remove dataset")
+        onTriggered: {
+          platformUtilities.removeDataset(itemMenu.itemPath);
+          table.model.resetToPath(table.model.currentPath);
         }
       }
 
@@ -491,12 +601,13 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("Remove project folder")
+        text: qsTr("Remove folder")
         onTriggered: {
           platformUtilities.removeFolder(itemMenu.itemPath);
+          table.model.resetToPath(table.model.currentPath);
         }
       }
     }
@@ -527,7 +638,7 @@ Page {
         visible: enabled
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Import project from folder")
@@ -543,7 +654,7 @@ Page {
         visible: enabled
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Import project from ZIP")
@@ -559,7 +670,7 @@ Page {
         visible: enabled
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Import dataset(s)")
@@ -580,12 +691,28 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
+        height: 48
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Import URL")
         onTriggered: {
           importUrlDialog.open();
           importUrlInput.focus = true;
+        }
+      }
+
+      MenuItem {
+        id: importWebdav
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: 48
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Import WebDAV folder")
+        onTriggered: {
+          importWebdavDialog.open();
+          importWebdavUrlInput.focus = true;
         }
       }
 
@@ -598,6 +725,7 @@ Page {
 
         font: Theme.defaultFont
         width: parent.width
+        height: 48
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Storage management help")
@@ -633,7 +761,7 @@ Page {
         visible: enabled
         font: Theme.defaultFont
         width: parent.width
-        height: enabled ? undefined : 0
+        height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
         text: qsTr("Update project from ZIP")
@@ -641,14 +769,52 @@ Page {
           platformUtilities.updateProjectFromArchive(projectInfo.filePath);
         }
       }
+
+      MenuItem {
+        id: uploadProjectToWebdav
+
+        enabled: webdavConnectionLoader.item ? webdavConnectionLoader.item.hasWebdavConfiguration(FileUtils.absolutePath(projectInfo.filePath)) : false
+        visible: enabled
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Upload project to WebDAV")
+        onTriggered: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.uploadPath(FileUtils.absolutePath(projectInfo.filePath));
+          }
+        }
+      }
+
+      MenuItem {
+        id: downloadProjectToWebdav
+
+        enabled: uploadProjectToWebdav.enabled
+        visible: enabled
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Download project from WebDAV")
+        onTriggered: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.openedProjectPath = projectInfo.filePath;
+            iface.clearProject();
+            webdavConnectionLoader.item.downloadPath(FileUtils.absolutePath(projectInfo.filePath));
+          }
+        }
+      }
     }
   }
 
   QfDialog {
     id: importUrlDialog
-    title: "Import URL"
-    focus: true
-    y: (mainWindow.height - height - 80) / 2
+    title: qsTr("Import URL")
+    focus: visible
+    parent: mainWindow.contentItem
 
     onAboutToShow: {
       importUrlInput.text = '';
@@ -674,7 +840,7 @@ Page {
         color: Theme.mainTextColor
       }
 
-      QfTextField {
+      TextField {
         id: importUrlInput
         width: importUrlLabel.width
       }
@@ -682,6 +848,562 @@ Page {
 
     onAccepted: {
       iface.importUrl(importUrlInput.text);
+    }
+  }
+
+  Loader {
+    id: webdavConnectionLoader
+    active: qfieldLocalDataPickerScreen.openedOnce
+    sourceComponent: Component {
+      WebdavConnection {
+        id: webdavConnection
+
+        property string openedProjectPath: ""
+
+        onIsImportingPathChanged: {
+          if (isImportingPath) {
+            busyOverlay.text = qsTr("Importing WebDAV folder");
+            busyOverlay.progress = 0;
+            busyOverlay.state = "visible";
+          } else {
+            busyOverlay.state = "hidden";
+          }
+        }
+
+        onIsDownloadingPathChanged: {
+          if (isDownloadingPath) {
+            busyOverlay.text = qsTr("Downloading WebDAV folder");
+            busyOverlay.progress = 0;
+            busyOverlay.state = "visible";
+          } else {
+            busyOverlay.state = "hidden";
+            if (openedProjectPath) {
+              iface.loadFile(openedProjectPath);
+              openedProjectPath = "";
+            }
+          }
+        }
+
+        onIsUploadingPathChanged: {
+          if (isUploadingPath) {
+            busyOverlay.text = qsTr("Uploading WebDAV folder");
+            busyOverlay.progress = 0;
+            busyOverlay.state = "visible";
+          } else {
+            busyOverlay.state = "hidden";
+          }
+        }
+
+        onProgressChanged: {
+          if (isImportingPath || isDownloadingPath || isUploadingPath) {
+            busyOverlay.progress = progress;
+          }
+        }
+
+        onLastErrorChanged: {
+          displayToast(qsTr("WebDAV error: ") + lastError);
+        }
+
+        onConfirmationRequested: (host, username) => {
+          downloadUploadWebdavDialog.isUploadingPath = isUploadingPath;
+          downloadUploadWebdavDialog.host = host;
+          downloadUploadWebdavDialog.username = username;
+          downloadUploadWebdavDialog.open();
+        }
+
+        onImportSuccessful: path => {
+          table.model.currentPath = path;
+        }
+
+        onIsFetchingAvailablePathsChanged: {
+          if (!isFetchingAvailablePaths && importWebdavDialog.visible) {
+            swipeDialog.currentIndex = 1;
+            importWebdavPathInput.currentIndex = -1;
+            importWebdavPathInput.model = availablePaths;
+          }
+        }
+      }
+    }
+  }
+
+  QfDialog {
+    id: downloadUploadWebdavDialog
+    title: isUploadingPath ? qsTr("WebDAV upload") : qsTr("WebDAV download")
+    focus: visible
+    parent: mainWindow.contentItem
+
+    property bool isUploadingPath: false
+    property string host: ""
+    property string username: ""
+
+    onAboutToShow: {
+      if (webdavConnectionLoader.item) {
+        webdavConnectionLoader.item.password = downloadUploadWebdavPasswordInput.text;
+        webdavConnectionLoader.item.storePassword = downloadUploadWebdavPasswordCheck.checked;
+      }
+    }
+
+    Column {
+      width: childrenRect.width
+      height: childrenRect.height
+      spacing: 10
+
+      TextMetrics {
+        id: downloadUploadWebdavIntroMetrics
+        font: downloadUploadWebdavIntroLabel.font
+        text: downloadUploadWebdavIntroLabel.text
+      }
+
+      Label {
+        id: downloadUploadWebdavIntroLabel
+        width: mainWindow.width - 60 < downloadUploadWebdavIntroMetrics.width ? mainWindow.width - 60 : downloadUploadWebdavIntroMetrics.width
+        text: downloadUploadWebdavDialog.isUploadingPath ? qsTr("You are about to upload modified content into <b>%1</b> using user <b>%2</b>.<br><br>This operation will overwrite data stored remotely, make sure this is what you want to do.").arg(downloadUploadWebdavDialog.host).arg(downloadUploadWebdavDialog.username) : qsTr("You are about to download modified content from <b>%1</b> using user <b>%2</b>.<br><br>This operation will overwrite data stored locally, make sure this is what you want to do.").arg(downloadUploadWebdavDialog.host).arg(downloadUploadWebdavDialog.username)
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+      }
+
+      TextField {
+        id: downloadUploadWebdavPasswordInput
+        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+        width: downloadUploadWebdavIntroLabel.width
+        rightPadding: leftPadding + (downloadUploadWebdavShowPasswordInput.width - leftPadding)
+        placeholderText: text === "" && webdavConnectionLoader.item && webdavConnectionLoader.item.isPasswordStored ? qsTr("Password (leave empty to use remembered)") : qsTr("Password")
+        echoMode: TextInput.Password
+
+        onDisplayTextChanged: {
+          if (webdavConnectionLoader.item) {
+            webdavConnectionLoader.item.password = text;
+          }
+        }
+
+        QfToolButton {
+          id: downloadUploadWebdavShowPasswordInput
+
+          property int originalEchoMode: TextInput.Normal
+
+          visible: (!!parent.echoMode && parent.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
+          iconSource: parent.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
+          iconColor: Theme.mainColor
+          anchors.right: parent.right
+          anchors.verticalCenter: parent.verticalCenter
+          opacity: parent.text.length > 0 ? 1 : 0.25
+          z: 1
+
+          onClicked: {
+            if (parent.echoMode !== TextInput.Normal) {
+              originalEchoMode = parent.echoMode;
+              parent.echoMode = TextInput.Normal;
+            } else {
+              parent.echoMode = originalEchoMode;
+            }
+          }
+        }
+      }
+
+      CheckBox {
+        id: downloadUploadWebdavPasswordCheck
+        width: downloadUploadWebdavIntroLabel.width
+        enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+        text: qsTr('Remember password')
+        font: Theme.defaultFont
+        checked: true
+      }
+    }
+
+    onAccepted: {
+      if (webdavConnectionLoader.item) {
+        webdavConnectionLoader.item.confirmRequest();
+      }
+    }
+
+    onRejected: {
+      if (webdavConnectionLoader.item) {
+        webdavConnectionLoader.item.cancelRequest();
+      }
+    }
+  }
+
+  QfDialog {
+    id: importWebdavDialog
+    title: qsTr("Import WebDAV folder")
+    focus: visible
+    parent: mainWindow.contentItem
+
+    property var importHistory: undefined
+
+    onAboutToShow: {
+      swipeDialog.currentIndex = 0;
+      if (webdavConnectionLoader.item) {
+        importHistory = webdavConnectionLoader.item.importHistory();
+        importWebdavUrlInput.model = [""].concat(Object.keys(importHistory["urls"]));
+        if (importHistory["lastUrl"] !== "") {
+          importWebdavUrlInput.editText = importHistory["lastUrl"];
+          importWebdavUserInput.model = [""].concat(Object.keys(importHistory["urls"][importHistory["lastUrl"]]["users"]));
+          importWebdavUserInput.editText = importHistory["urls"][importHistory["lastUrl"]]["lastUser"];
+        } else {
+          importWebdavUserInput.model = [];
+        }
+        webdavConnectionLoader.item.url = importWebdavUrlInput.editText;
+        webdavConnectionLoader.item.username = importWebdavUserInput.editText;
+        webdavConnectionLoader.item.password = importWebdavPasswordInput.text;
+        webdavConnectionLoader.item.storePassword = importWebdavStorePasswordCheck.checked;
+      }
+    }
+
+    SwipeView {
+      id: swipeDialog
+      width: mainWindow.width - 60 < importWebdavUrlLabelMetrics.width ? mainWindow.width - 60 : importWebdavUrlLabelMetrics.width
+      clip: true
+
+      Column {
+        id: firstPage
+        width: childrenRect.width
+        height: childrenRect.height
+        spacing: 10
+
+        TextMetrics {
+          id: importWebdavUrlLabelMetrics
+          font: importWebdavUrlLabel.font
+          text: importWebdavUrlLabel.text
+        }
+
+        Label {
+          id: importWebdavUrlLabel
+          width: mainWindow.width - 60 < importWebdavUrlLabelMetrics.width ? mainWindow.width - 60 : importWebdavUrlLabelMetrics.width
+          text: qsTr("Type the WebDAV details below to import a remote folder:")
+          wrapMode: Text.WordWrap
+          font: Theme.defaultFont
+          color: Theme.mainTextColor
+        }
+
+        Label {
+          width: importWebdavUrlLabel.width
+          text: qsTr("WebDAV server URL")
+          wrapMode: Text.WordWrap
+          font: Theme.defaultFont
+          color: Theme.secondaryTextColor
+        }
+
+        ComboBox {
+          id: importWebdavUrlInput
+          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+          width: importWebdavUrlLabel.width
+          editable: true
+
+          Connections {
+            target: importWebdavUrlInput.contentItem
+            ignoreUnknownSignals: true
+
+            function onDisplayTextChanged() {
+              if (webdavConnectionLoader.item && webdavConnectionLoader.item.url !== importWebdavUrlInput.editText) {
+                webdavConnectionLoader.item.url = importWebdavUrlInput.editText;
+                if (importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText] !== undefined) {
+                  importWebdavUserInput.model = [""].concat(Object.keys(importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"]));
+                  importWebdavUserInput.editText = importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["lastUser"];
+                } else {
+                  importWebdavUserInput.model = [];
+                }
+              }
+            }
+          }
+        }
+
+        Label {
+          width: importWebdavUrlLabel.width
+          text: qsTr("User and password")
+          wrapMode: Text.WordWrap
+          font: Theme.defaultFont
+          color: Theme.secondaryTextColor
+        }
+
+        ComboBox {
+          id: importWebdavUserInput
+          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+          width: importWebdavUrlLabel.width
+          editable: true
+
+          Connections {
+            target: importWebdavUserInput.contentItem
+            ignoreUnknownSignals: true
+
+            function onDisplayTextChanged() {
+              if (webdavConnectionLoader.item) {
+                webdavConnectionLoader.item.username = importWebdavUserInput.editText;
+              }
+            }
+          }
+        }
+
+        TextField {
+          id: importWebdavPasswordInput
+          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+          width: importWebdavUrlLabel.width
+          rightPadding: leftPadding + (importWebdavShowPasswordInput.width - leftPadding)
+          placeholderText: text === "" && webdavConnectionLoader.item && webdavConnectionLoader.item.isPasswordStored ? qsTr("leave empty to use remembered") : ""
+          echoMode: TextInput.Password
+
+          onDisplayTextChanged: {
+            if (webdavConnectionLoader.item) {
+              webdavConnectionLoader.item.password = text;
+            }
+          }
+
+          QfToolButton {
+            id: importWebdavShowPasswordInput
+
+            property int originalEchoMode: TextInput.Normal
+
+            visible: (!!parent.echoMode && parent.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
+            iconSource: parent.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
+            iconColor: Theme.mainColor
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
+            opacity: parent.text.length > 0 ? 1 : 0.25
+            z: 1
+
+            onClicked: {
+              if (parent.echoMode !== TextInput.Normal) {
+                originalEchoMode = parent.echoMode;
+                parent.echoMode = TextInput.Normal;
+              } else {
+                parent.echoMode = originalEchoMode;
+              }
+            }
+          }
+        }
+
+        CheckBox {
+          id: importWebdavStorePasswordCheck
+          width: importWebdavUrlLabel.width
+          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+          text: qsTr('Remember password')
+          font: Theme.defaultFont
+          checked: true
+        }
+
+        Row {
+          QfButton {
+            id: importWebdavFetchFoldersButton
+            anchors.verticalCenter: importWebdavFetchFoldersIndicator.verticalCenter
+            enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+            width: importWebdavUrlLabel.width - (importWebdavFetchFoldersIndicator.visible ? importWebdavFetchFoldersIndicator.width : 0)
+            text: !enabled ? qsTr("Fetching remote folders") : qsTr("Fetch remote folders")
+
+            onClicked: {
+              webdavConnectionLoader.item.fetchAvailablePaths();
+            }
+          }
+
+          BusyIndicator {
+            id: importWebdavFetchFoldersIndicator
+            anchors.verticalCenter: importWebdavFetchFoldersButton.verticalCenter
+            width: 48
+            height: 48
+            visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
+            running: visible
+          }
+        }
+      }
+
+      Column {
+        Label {
+          width: importWebdavUrlLabel.width
+          visible: importWebdavPathInput.visible
+          text: qsTr("Select the remote folder to import:")
+          wrapMode: Text.WordWrap
+          font: Theme.defaultFont
+          color: Theme.mainTextColor
+        }
+
+        Rectangle {
+          id: importWebdavPathContainer
+          width: importWebdavUrlLabel.width
+          height: 340
+          color: Theme.controlBackgroundColor
+          border.color: Theme.controlBorderColor
+          border.width: 1
+
+          ListView {
+            id: importWebdavPathInput
+            anchors.fill: parent
+            anchors.margins: 1
+            enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+            ScrollBar.vertical: QfScrollBar {
+            }
+            clip: true
+            model: []
+
+            property var expandedPaths: []
+            property int expandedPathsClicks: 0
+
+            delegate: Rectangle {
+              id: rectangleDialog
+
+              anchors.margins: 10
+              width: parent ? parent.width : undefined
+              height: lineDialog.isVisible ? lineDialog.height + 20 : 0
+              color: importWebdavPathInput.currentIndex == index ? Theme.mainColor : Theme.mainBackgroundColor
+              clip: true
+
+              Row {
+                id: lineDialog
+                anchors.verticalCenter: parent.verticalCenter
+                spacing: 5
+
+                property string label: {
+                  let parts = modelData.split('/');
+                  if (parts.length > 1) {
+                    return parts[parts.length - 2];
+                  }
+                  return "";
+                }
+                property int level: Math.max(0, modelData.split('/').length - 2)
+                property bool isVisible: {
+                  let parts = modelData.split('/').slice(1, -2);
+                  while (parts.length > 0) {
+                    if (importWebdavPathInput.expandedPaths.indexOf("/" + parts.join("/") + "/") == -1) {
+                      return false;
+                    }
+                    parts = parts.slice(0, -1);
+                  }
+                  return true;
+                }
+                property bool hasChildren: {
+                  for (const availablePath of importWebdavPathInput.model) {
+                    if (availablePath.indexOf(modelData) === 0 && availablePath !== modelData) {
+                      return true;
+                    }
+                  }
+                  return false;
+                }
+                property bool isImported: {
+                  if (importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText] !== undefined && importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"][importWebdavUserInput.editText] !== undefined) {
+                    console.log(importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"][importWebdavUserInput.editText]["importPaths"]);
+                    return importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"][importWebdavUserInput.editText]["importPaths"].indexOf(modelData) >= 0;
+                  }
+                  return false;
+                }
+
+                Item {
+                  id: expandSpacing
+                  height: 35
+                  width: 20 * Math.max(1, lineDialog.level) - 1
+                }
+
+                QfToolButton {
+                  id: epxandButton
+                  height: 35
+                  width: height
+                  anchors.verticalCenter: parent.verticalCenter
+                  iconSource: Theme.getThemeVectorIcon('ic_legend_collapsed_state_24dp')
+                  iconColor: Theme.mainTextColor
+                  bgcolor: "transparent"
+                  enabled: false
+                  opacity: lineDialog.level > 0 && lineDialog.hasChildren && !lineDialog.isImported ? 1 : 0
+                  rotation: importWebdavPathInput.expandedPaths.indexOf(modelData) > -1 ? 90 : 0
+
+                  Behavior on rotation  {
+                    NumberAnimation {
+                      duration: 100
+                    }
+                  }
+                }
+
+                Column {
+                  width: rectangleDialog.width - epxandButton.width - expandSpacing.width - 10
+                  anchors.verticalCenter: parent.verticalCenter
+
+                  Text {
+                    id: contentTextDialog
+                    width: parent.width
+                    leftPadding: 5
+                    font: Theme.defaultFont
+                    elide: Text.ElideRight
+                    wrapMode: Text.WordWrap
+                    color: !lineDialog.isImported ? Theme.mainTextColor : Theme.secondaryTextColor
+                    text: lineDialog.label !== "" ? lineDialog.label : qsTr("(root folder)")
+                  }
+                  Text {
+                    id: noteTextDialog
+                    width: parent.width
+                    visible: lineDialog.isImported
+                    leftPadding: 5
+                    font: Theme.tipFont
+                    elide: Text.ElideRight
+                    wrapMode: Text.WordWrap
+                    color: Theme.secondaryTextColor
+                    text: qsTr("Imported and available locally")
+                  }
+                }
+              }
+
+              /* bottom border */
+              Rectangle {
+                anchors.bottom: parent.bottom
+                height: 1
+                color: Theme.controlBorderColor
+                width: parent.width
+                visible: lineDialog.isVisible
+              }
+
+              MouseArea {
+                enabled: !lineDialog.isImported
+                anchors.fill: parent
+                anchors.rightMargin: 48
+                onClicked: mouse => {
+                  importWebdavPathInput.currentIndex = index;
+                }
+                onDoubleClicked: mouse => {
+                  const index = importWebdavPathInput.expandedPaths.indexOf(modelData);
+                  if (importWebdavPathInput.expandedPaths.indexOf(modelData) == -1) {
+                    importWebdavPathInput.expandedPaths.push(modelData);
+                  } else {
+                    importWebdavPathInput.expandedPaths.splice(index, 1);
+                  }
+                  importWebdavPathInput.expandedPathsChanged();
+                }
+              }
+            }
+          }
+        }
+
+        Row {
+          spacing: 5
+
+          QfButton {
+            id: importWebdavRefetchFoldersButton
+            width: importWebdavUrlLabel.width - (importWebdavRefreshFoldersIndicator.visible ? importWebdavRefreshFoldersIndicator.width : 0)
+            enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+            bgcolor: "transparent"
+            text: !enabled ? qsTr("Refreshing remote folders") : qsTr("Refresh remote folders")
+
+            onClicked: {
+              importWebdavPathInput.currentIndex = -1;
+              webdavConnectionLoader.item.fetchAvailablePaths();
+            }
+          }
+
+          BusyIndicator {
+            id: importWebdavRefreshFoldersIndicator
+            anchors.verticalCenter: importWebdavRefetchFoldersButton.verticalCenter
+            width: 48
+            height: 48
+            visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
+            running: visible
+          }
+        }
+      }
+    }
+
+    onAccepted: {
+      if (importWebdavPathInput.currentIndex > -1 && webdavConnectionLoader.item) {
+        webdavConnectionLoader.item.url = importWebdavUrlInput.editText;
+        webdavConnectionLoader.item.username = importWebdavUserInput.editText;
+        webdavConnectionLoader.item.password = importWebdavPasswordInput.text;
+        webdavConnectionLoader.item.storePassword = importWebdavStorePasswordCheck.checked;
+        webdavConnectionLoader.item.importPath(importWebdavPathInput.model[importWebdavPathInput.currentIndex], platformUtilities.applicationDirectory() + "/Imported Projects/");
+      }
     }
   }
 
@@ -704,9 +1426,5 @@ Page {
         finished(false);
       }
     }
-  }
-
-  onVisibleChanged: {
-    focus = visible;
   }
 }

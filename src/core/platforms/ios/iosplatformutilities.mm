@@ -65,7 +65,7 @@ IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {
 
 PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
   PlatformUtilities::Capabilities capabilities =
-      Capabilities() | NativeCamera | AdjustBrightness | CustomLocalDataPicker;
+      Capabilities() | NativeCamera | AdjustBrightness | FilePicker;
 #ifdef WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -192,7 +192,6 @@ bool IosPlatformUtilities::isSystemDarkTheme() const {
   return false;
 }
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
 Qt::PermissionStatus IosPlatformUtilities::checkCameraPermission() const {
   switch ([AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo]) {
   case AVAuthorizationStatusNotDetermined: {
@@ -242,4 +241,3 @@ void IosPlatformUtilities::requestMicrophonePermission(
                                             : Qt::PermissionStatus::Denied);
                            }];
 }
-#endif

@@ -1,0 +1,29 @@
+services:
+  db:
+    build:
+      context: ./postgis_docker
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./postgis_docker/setupdata.sql:/docker-entrypoint-initdb.d/setup-db.sql
+    environment:
+      - POSTGRES_DB=gis
+      - POSTGRES_USER=docker
+      - POSTGRES_PASS=docker
+      - ALLOW_IP_RANGE=0.0.0.0/0
+      - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore
+      - SSL_CA_FILE=/var/lib/postgresql/root.crt
+      - SSL_CERT_FILE=/var/lib/postgresql/server.crt
+      - SSL_KEY_FILE=/var/lib/postgresql/server.key
+      - IGNORE_INIT_HOOK_LOCKFILE=true
+    ports:
+      - "5440:5432"
+    restart: on-failure
+    healthcheck:
+      test: "PGPASSWORD=docker pg_isready -h 127.0.0.1 -U docker -d gis"
+
+  qgis-server:
+    image: qgis/qgis-server:3.40.1-jammy
+    volumes:
+      - ./qgis_server_docker/data/:/io/data
+    ports:
+      - "8010:80"

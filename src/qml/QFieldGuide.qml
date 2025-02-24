@@ -43,6 +43,9 @@ Popup {
 
   function blockGuide() {
     allowedToShow = false;
+    if (opened) {
+      close();
+    }
   }
 
   function runTour() {

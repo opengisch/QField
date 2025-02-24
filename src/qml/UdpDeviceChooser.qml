@@ -35,32 +35,20 @@ Item {
     columnSpacing: 0
     rowSpacing: 5
 
-    Label {
-      Layout.fillWidth: true
-      text: qsTr("Address:")
-      font: Theme.defaultFont
-      wrapMode: Text.WordWrap
-    }
-
-    QfTextField {
+    TextField {
       id: udpDeviceAddress
       Layout.fillWidth: true
       font: Theme.defaultFont
+      placeholderText: qsTr("Address")
       text: '127.0.0.1'
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
     }
 
-    Label {
-      Layout.fillWidth: true
-      text: qsTr("Port:")
-      font: Theme.defaultFont
-      wrapMode: Text.WordWrap
-    }
-
-    QfTextField {
+    TextField {
       id: udpDevicePort
       Layout.fillWidth: true
       font: Theme.defaultFont
+      placeholderText: qsTr("Port")
       text: '11111'
       inputMethodHints: Qt.ImhFormattedNumbersOnly
     }

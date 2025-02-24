@@ -59,4 +59,5 @@
     <string name="storage_information_dismiss">ساقرأها لاحقاً</string>
     <string name="import_project_wait">يرجى الانتظار بينما ينهي QField استيراد المشروع</string>
     <string name="import_dataset_wait">يرجى الانتظار بينما ينهي QField استيراد قاعدة (ات) البيانات</string>
+    <string name="positioning_title">التموضع</string>
     </resources>

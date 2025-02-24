@@ -47,6 +47,7 @@ Container {
   }
   spacing: 4
   clip: true
+  focusPolicy: Qt.NoFocus
 
   Behavior on width  {
     enabled: true

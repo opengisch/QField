@@ -333,10 +333,6 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Unknown error</source>
         <translation type="vanished">Unknown error</translation>
     </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -357,7 +353,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation>Color</translation>
+        <translation type="vanished">Color</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -514,8 +510,8 @@ Cancel to make a minimal device scan instead.</translation>
         <translation>Map Theme</translation>
     </message>
     <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"></translation>
+        <source>Project Folder</source>
+        <translation type="unfinished">Project Folder</translation>
     </message>
 </context>
 <context>
@@ -818,6 +814,90 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s) on layer %1.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s).</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s) on layer %1.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s).</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s) on layer %1.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s).</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s) on layer %1</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s) on layer %1</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s) on layer %1</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -1167,13 +1247,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>InternalGnssReceiver</name>
-    <message>
-        <source>Location permission denied</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
@@ -1350,10 +1423,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation type="unfinished">This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</translation>
     </message>
@@ -1364,6 +1433,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation type="unfinished">This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation type="unfinished">Track on layer %1 stopped</translation>
     </message>
 </context>
 <context>
@@ -1662,6 +1743,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Process Selected Feature(s)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
@@ -1704,13 +1789,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Bearing</source>
         <translation>Bearing</translation>
-    </message>
-</context>
-<context>
-    <name>NmeaGnssReceiver</name>
-    <message>
-        <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1819,6 +1897,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1982,15 +2072,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Name:</source>
-        <translation>Name:</translation>
+        <translation type="vanished">Name:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>Leave empty to auto-fill</translation>
+        <translation type="vanished">Leave empty to auto-fill</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>Connection type:</translation>
+        <translation type="vanished">Connection type:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2014,6 +2104,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Egeniouss</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Name</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection details</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2391,6 +2497,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Learn more about QFieldCloud</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation type="unfinished">QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -2787,11 +2897,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">My Projects</translation>
+        <translation>My Projects</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Community</translation>
+        <translation>Community</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2988,7 +3098,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation>Remove project folder</translation>
+        <translation type="vanished">Remove project folder</translation>
     </message>
     <message>
         <source>Import project from folder</source>
@@ -3031,10 +3141,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Push to QFieldCloud...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3048,6 +3154,133 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished">Password</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(root folder)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refreshing remote folders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh remote folders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imported and available locally</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QFieldPositioningService</name>
+    <message>
+        <source>Positioning service running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3586,6 +3819,13 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation type="unfinished">close</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3608,7 +3848,7 @@ Cancel to make a minimal device scan instead.</translation>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation type="unfinished">close</translation>
+        <translation type="obsolete">close</translation>
     </message>
 </context>
 <context>
@@ -3650,6 +3890,10 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Map printed on %1 using QField</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3843,11 +4087,19 @@ Cancel to make a minimal device scan instead.</translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Address:</translation>
+        <translation type="vanished">Address:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4216,11 +4468,19 @@ Cancel to make a minimal device scan instead.</translation>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Address:</translation>
+        <translation type="vanished">Address:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4304,6 +4564,17 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <source>Failed to save feature!</source>
         <translation type="vanished">Failed to save feature!</translation>
+    </message>
+</context>
+<context>
+    <name>WebdavConnection</name>
+    <message>
+        <source>Failed to download file %1 due to network error (%2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to upload file %1 due to network error (%2)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4414,6 +4685,10 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Return to map</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4602,11 +4877,11 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Received position</translation>
+        <translation type="vanished">Received position</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Searching for position</translation>
+        <translation type="vanished">Searching for position</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
@@ -4646,7 +4921,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Print to PDF</translation>
+        <translation type="vanished">Print to PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4949,15 +5224,7 @@ Cancel to make a minimal device scan instead.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No print layout available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4974,7 +5241,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished">Project Folder</translation>
+        <translation type="obsolete">Project Folder</translation>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -5018,10 +5285,6 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unlock the screen to to close project and app</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5094,6 +5357,62 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation type="obsolete">Variables</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snapping tolerance set to %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -9,4 +9,8 @@ Dialog {
 
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
+
+  onClosed: {
+    focusstack.forceActiveFocusOnLastTaker();
+  }
 }

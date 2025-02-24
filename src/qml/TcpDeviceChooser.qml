@@ -33,34 +33,22 @@ Item {
     width: parent.width
     columns: 1
     columnSpacing: 0
-    rowSpacing: 5
+    rowSpacing: 10
 
-    Label {
-      Layout.fillWidth: true
-      text: qsTr("Address:")
-      font: Theme.defaultFont
-      wrapMode: Text.WordWrap
-    }
-
-    QfTextField {
+    TextField {
       id: tcpDeviceAddress
       Layout.fillWidth: true
       font: Theme.defaultFont
+      placeholderText: qsTr("IP address")
       text: '127.0.0.1'
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
     }
 
-    Label {
-      Layout.fillWidth: true
-      text: qsTr("Port:")
-      font: Theme.defaultFont
-      wrapMode: Text.WordWrap
-    }
-
-    QfTextField {
+    TextField {
       id: tcpDevicePort
       Layout.fillWidth: true
       font: Theme.defaultFont
+      placeholderText: qsTr("Port")
       text: '9000'
       inputMethodHints: Qt.ImhFormattedNumbersOnly
     }

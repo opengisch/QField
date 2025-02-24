@@ -147,6 +147,5 @@ void HelpLocatorFilter::triggerResult( const QgsLocatorResult &result )
 void HelpLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int )
 {
   const QString url = result.userData().toString();
-  qDebug() << url;
   QDesktopServices::openUrl( url );
 }

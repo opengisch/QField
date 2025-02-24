@@ -17,6 +17,10 @@ Popup {
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   padding: 0
+  modal: true
+  closePolicy: Popup.CloseOnEscape
+  parent: Overlay.overlay
+  focus: visible
 
   Page {
     id: page
@@ -96,7 +100,7 @@ Popup {
               indicator.implicitHeight: 24
               indicator.implicitWidth: 24
               checked: Default ? true : false
-              onCheckedChanged: Default = checked
+              onClicked: Default = checked
             }
           }
         }

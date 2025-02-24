@@ -46,6 +46,11 @@ class GnssPositionInformation
 {
     Q_GADGET
 
+    Q_PROPERTY( bool isValid READ isValid )
+    Q_PROPERTY( FixStatus fixStatus READ fixStatus )
+    Q_PROPERTY( QString qualityDescription READ qualityDescription )
+    Q_PROPERTY( QString fixStatusDescription READ fixStatusDescription )
+
     Q_PROPERTY( double latitude READ latitude )
     Q_PROPERTY( bool latitudeValid READ latitudeValid )
     Q_PROPERTY( double longitude READ longitude )
@@ -74,10 +79,6 @@ class GnssPositionInformation
     Q_PROPERTY( QChar status READ status )
     Q_PROPERTY( QList<int> satPrn READ satPrn )
     Q_PROPERTY( bool satInfoComplete READ satInfoComplete )
-    Q_PROPERTY( bool isValid READ isValid )
-    Q_PROPERTY( FixStatus fixStatus READ fixStatus )
-    Q_PROPERTY( QString qualityDescription READ qualityDescription )
-    Q_PROPERTY( QString fixStatusDescription READ fixStatusDescription )
     Q_PROPERTY( double verticalSpeed READ verticalSpeed )
     Q_PROPERTY( double magneticVariation READ magneticVariation )
     Q_PROPERTY( int averagedCount READ averagedCount )
@@ -112,141 +113,6 @@ class GnssPositionInformation
     bool operator!=( const GnssPositionInformation &other ) const { return !operator==( other ); }
 
     /**
-     * Latitude in decimal degrees, using the WGS84 datum. A positive value indicates the Northern Hemisphere, and
-     * a negative value indicates the Southern Hemisphere.
-     */
-    double latitude() const { return mLatitude; }
-    bool latitudeValid() const { return !std::isnan( mLatitude ); }
-    /**
-     * Longitude in decimal degrees, using the WGS84 datum. A positive value indicates the Eastern Hemisphere, and
-     * a negative value indicates the Western Hemisphere.
-     */
-    double longitude() const { return mLongitude; }
-    bool longitudeValid() const { return !std::isnan( mLongitude ); }
-
-    /**
-     * Altitude (in meters) above or below the mean sea level.
-     */
-    double elevation() const { return mElevation; }
-    bool elevationValid() const { return !std::isnan( mElevation ); }
-
-    /**
-     * Ground speed, in km/h.
-     */
-    double speed() const { return mSpeed; }
-    bool speedValid() const { return !std::isnan( mSpeed ); }
-
-    /**
-     * The bearing measured in degrees clockwise from true north to the direction of travel.
-     */
-    double direction() const { return mDirection; }
-    bool directionValid() const { return !std::isnan( mDirection ); }
-
-
-    /**
-     * Contains a list of information relating to the current satellites in view.
-     */
-    QList<QgsSatelliteInfo> satellitesInView() const { return mSatellitesInView; }
-
-    /**
-     * Dilution of precision.
-     */
-    double pdop() const { return mPdop; }
-
-    /**
-     * Horizontal dilution of precision.
-     */
-    double hdop() const { return mHdop; }
-
-    /**
-     * Vertical dilution of precision.
-     */
-    double vdop() const { return mVdop; }
-
-    /**
-     * Horizontal accuracy in meters.
-     * RMS
-     */
-    double hacc() const { return mHacc; }
-    bool haccValid() const { return !std::isnan( mHacc ); }
-
-
-    /**
-     * Vertical accuracy in meters
-     * VRMS
-     */
-    double vacc() const { return mVacc; }
-    bool vaccValid() const { return !std::isnan( mVacc ); }
-
-    /**
-     * 3D accuracy in meters
-     * 3DRMS
-     */
-    double hvacc() const { return mHvacc; }
-    bool hvaccValid() const { return !std::isnan( mHvacc ); }
-
-    /**
-     * The date and time at which this position was reported, in UTC time.
-     */
-    QDateTime utcDateTime() const { return mUtcDateTime; }
-
-    /**
-     * Fix mode (where M = Manual, forced to operate in 2D or 3D or A = Automatic, 3D/2D)
-     */
-    QChar fixMode() const { return mFixMode; }
-
-    /**
-     * Contains the fix type, where 1 = no fix, 2 = 2d fix, 3 = 3d fix
-     */
-    int fixType() const { return mFixType; }
-
-    /**
-     * GPS quality indicator (0 = Invalid; 1 = Fix; 2 = Differential, 3 = Sensitive)
-     */
-    int quality() const { return mQuality; }
-
-    /**
-     * Count of satellites used in obtaining the fix.
-     */
-    int satellitesUsed() const { return mSatellitesUsed; }
-
-    /**
-     * Status (A = active or V = void)
-     */
-    QChar status() const { return mStatus; }
-
-    /**
-     * IDs of satellites used in the position fix.
-     */
-    QList<int> satPrn() const { return mSatPrn; }
-
-    /**
-     * TRUE if satellite information is complete.
-     */
-    bool satInfoComplete() const { return mSatInfoComplete; }
-
-    /**
-     * Vertical speed, in km/h.
-     */
-    double verticalSpeed() const { return mVerticalSpeed; }
-
-    /**
-     * magnetic variation in degrees
-     */
-    double magneticVariation() const { return mMagneticVariation; }
-
-    /**
-     * source name (used by QtPositioning)
-     */
-    QString sourceName() const { return mSourceName; }
-
-    /**
-     * Returns the number of collected position from which the averaged positioning details were computed
-     * \note A value of zero means the position information isn't averaged
-     */
-    int averagedCount() const { return mAveragedCount; }
-
-    /**
      * Returns whether the connection information is valid
      */
     bool isValid() const;
@@ -267,13 +133,174 @@ class GnssPositionInformation
     QString fixStatusDescription() const;
 
     /**
+     * Latitude in decimal degrees, using the WGS84 datum. A positive value indicates the Northern Hemisphere, and
+     * a negative value indicates the Southern Hemisphere.
+     */
+    void setLatitude( double latitude ) { mLatitude = latitude; }
+    double latitude() const { return mLatitude; }
+    bool latitudeValid() const { return !std::isnan( mLatitude ); }
+
+    /**
+     * Longitude in decimal degrees, using the WGS84 datum. A positive value indicates the Eastern Hemisphere, and
+     * a negative value indicates the Western Hemisphere.
+     */
+    void setLongitude( double longitude ) { mLongitude = longitude; }
+    double longitude() const { return mLongitude; }
+    bool longitudeValid() const { return !std::isnan( mLongitude ); }
+
+    /**
+     * Altitude (in meters) above or below the mean sea level.
+     */
+    void setElevation( double elevation ) { mElevation = elevation; }
+    double elevation() const { return mElevation; }
+    bool elevationValid() const { return !std::isnan( mElevation ); }
+
+    /**
+     * Ground speed, in km/h.
+     */
+    void setSpeed( double speed ) { mSpeed = speed; }
+    double speed() const { return mSpeed; }
+    bool speedValid() const { return !std::isnan( mSpeed ); }
+
+    /**
+     * The bearing measured in degrees clockwise from true north to the direction of travel.
+     */
+    void setDirection( double direction ) { mDirection = direction; }
+    double direction() const { return mDirection; }
+    bool directionValid() const { return !std::isnan( mDirection ); }
+
+    /**
+     * Contains a list of information relating to the current satellites in view.
+     */
+    void setSatellitesInView( const QList<QgsSatelliteInfo> &satellitesInView ) { mSatellitesInView = satellitesInView; }
+    QList<QgsSatelliteInfo> satellitesInView() const { return mSatellitesInView; }
+
+    /**
+     * Dilution of precision.
+     */
+    void setPdop( double pdop ) { mPdop = pdop; }
+    double pdop() const { return mPdop; }
+
+    /**
+     * Horizontal dilution of precision.
+     */
+    void setHdop( double hdop ) { mHdop = hdop; }
+    double hdop() const { return mHdop; }
+
+    /**
+     * Vertical dilution of precision.
+     */
+    void setVdop( double vdop ) { mVdop = vdop; }
+    double vdop() const { return mVdop; }
+
+    /**
+     * Horizontal accuracy in meters.
+     * RMS
+     */
+    void setHacc( double hacc ) { mHacc = hacc; }
+    double hacc() const { return mHacc; }
+    bool haccValid() const { return !std::isnan( mHacc ); }
+
+
+    /**
+     * Vertical accuracy in meters
+     * VRMS
+     */
+    void setVacc( double vacc ) { mVacc = vacc; }
+    double vacc() const { return mVacc; }
+    bool vaccValid() const { return !std::isnan( mVacc ); }
+
+    /**
+     * 3D accuracy in meters
+     * 3DRMS
+     */
+    void setHVacc( double hvacc ) { mHvacc = hvacc; }
+    double hvacc() const { return mHvacc; }
+    bool hvaccValid() const { return !std::isnan( mHvacc ); }
+
+    /**
+     * The date and time at which this position was reported, in UTC time.
+     */
+    void setUtcDateTime( const QDateTime &utcDateTime ) { mUtcDateTime = utcDateTime; }
+    QDateTime utcDateTime() const { return mUtcDateTime; }
+
+    /**
+     * Fix mode (where M = Manual, forced to operate in 2D or 3D or A = Automatic, 3D/2D)
+     */
+    void setFixMode( QChar fixMode ) { mFixMode = fixMode; }
+    QChar fixMode() const { return mFixMode; }
+
+    /**
+     * Contains the fix type, where 1 = no fix, 2 = 2d fix, 3 = 3d fix
+     */
+    void setFixType( int fixType ) { mFixType = fixType; }
+    int fixType() const { return mFixType; }
+
+    /**
+     * GPS quality indicator (0 = Invalid; 1 = Fix; 2 = Differential, 3 = Sensitive)
+     */
+    void setQuality( int quality ) { mQuality = quality; }
+    int quality() const { return mQuality; }
+
+    /**
+     * Count of satellites used in obtaining the fix.
+     */
+    void setSatellitesUsed( int satellitesUsed ) { mSatellitesUsed = satellitesUsed; }
+    int satellitesUsed() const { return mSatellitesUsed; }
+
+    /**
+     * Status (A = active or V = void)
+     */
+    void setStatus( QChar status ) { mStatus = status; }
+    QChar status() const { return mStatus; }
+
+    /**
+     * IDs of satellites used in the position fix.
+     */
+    void setSatPrn( const QList<int> &satPrn ) { mSatPrn = satPrn; }
+    QList<int> satPrn() const { return mSatPrn; }
+
+    /**
+     * TRUE if satellite information is complete.
+     */
+    void setSatInfoComplete( bool satInfoComplete ) { mSatInfoComplete = satInfoComplete; }
+    bool satInfoComplete() const { return mSatInfoComplete; }
+
+    /**
+     * Vertical speed, in km/h.
+     */
+    void setVerticalSpeed( double verticalSpeed ) { mVerticalSpeed = verticalSpeed; }
+    double verticalSpeed() const { return mVerticalSpeed; }
+
+    /**
+     * magnetic variation in degrees
+     */
+    void setMagneticVaritation( double magneticVariation ) { mMagneticVariation = magneticVariation; }
+    double magneticVariation() const { return mMagneticVariation; }
+
+    /**
+     * source name (used by QtPositioning)
+     */
+    void setSourceName( const QString &sourceName ) { mSourceName = sourceName; }
+    QString sourceName() const { return mSourceName; }
+
+    /**
+     * Returns the number of collected position from which the averaged positioning details were computed
+     * \note A value of zero means the position information isn't averaged
+     */
+    void setAveragedCount( int averagedCount ) { mAveragedCount = averagedCount; }
+    int averagedCount() const { return mAveragedCount; }
+
+    /**
      * Returns whether the IMU correction is active
      */
+    void setImuCorrection( bool imuCorrection ) { mImuCorrection = imuCorrection; }
     bool imuCorrection() const { return mImuCorrection; }
 
     /**
-     * Orientation (in degrees).
+     * Orientation (in degrees)
      */
+    void setOrientation( double orientation ) { mOrientation = orientation; }
     double orientation() const { return mOrientation; }
     bool orientationValid() const { return !std::isnan( mOrientation ); }
 
@@ -304,8 +331,46 @@ class GnssPositionInformation
     QString mSourceName;
     bool mImuCorrection;
     double mOrientation = std::numeric_limits<double>::quiet_NaN();
+
+    friend QDataStream &operator<<( QDataStream &stream, const GnssPositionInformation &position );
+    friend QDataStream &operator>>( QDataStream &stream, GnssPositionInformation &position );
 };
 
 Q_DECLARE_METATYPE( GnssPositionInformation )
+
+class GnssPositionDetails
+{
+    Q_GADGET
+
+  public:
+    GnssPositionDetails() {};
+
+    void append( const QString &name, const QVariant &value )
+    {
+      mNames << name;
+      mValues << value;
+    }
+
+    QList<QString> names() const { return mNames; }
+    QList<QVariant> values() const { return mValues; }
+
+  private:
+    QList<QString> mNames;
+    QList<QVariant> mValues;
+
+    friend QDataStream &operator<<( QDataStream &stream, const GnssPositionDetails &position );
+    friend QDataStream &operator>>( QDataStream &stream, GnssPositionDetails &position );
+};
+
+Q_DECLARE_METATYPE( GnssPositionDetails )
+
+QDataStream &operator<<( QDataStream &stream, const GnssPositionDetails &positionDetails );
+QDataStream &operator>>( QDataStream &stream, GnssPositionDetails &positionDetails );
+
+QDataStream &operator<<( QDataStream &stream, const GnssPositionInformation &position );
+QDataStream &operator>>( QDataStream &stream, GnssPositionInformation &position );
+
+QDataStream &operator<<( QDataStream &stream, const QgsSatelliteInfo &satelliteInfo );
+QDataStream &operator>>( QDataStream &stream, QgsSatelliteInfo &satelliteInfo );
 
 #endif // GNSSPOSITIONINFORMATION_H

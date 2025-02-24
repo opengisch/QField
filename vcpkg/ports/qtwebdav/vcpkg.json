@@ -1,0 +1,16 @@
+{
+  "name": "qtwebdav",
+  "version-string": "2.1",
+  "description": " Qt library for WebDAV with support for HTTP/HTTPS.",
+  "homepage": "https://github.com/PikachuHy/QtWebDAV",
+  "dependencies": [
+    {
+      "name": "qtbase",
+      "default-features": false
+    },
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    }
+  ]
+}

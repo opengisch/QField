@@ -27,6 +27,7 @@ Popup {
   padding: 0
   modal: true
   closePolicy: Popup.CloseOnEscape
+  focus: visible
 
   Page {
     id: browserContainer

@@ -33,7 +33,9 @@ class EgenioussReceiver : public AbstractGnssReceiver
     explicit EgenioussReceiver( QObject *parent = nullptr );
     ~EgenioussReceiver();
 
-    QList<QPair<QString, QVariant>> details() const override;
+    GnssPositionDetails details() const override;
+
+    static QLatin1String identifier;
 
   private:
     void handleConnectDevice() override;

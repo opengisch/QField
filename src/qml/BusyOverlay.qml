@@ -108,7 +108,7 @@ Rectangle {
     anchors.top: busyIndicator.bottom
     anchors.topMargin: 10
     anchors.horizontalCenter: parent.horizontalCenter
-    color: Theme.darkGraySemiOpaque
+    color: Theme.toolButtonBackgroundSemiOpaqueColor
     radius: 4
 
     width: busyMessage.width
@@ -123,7 +123,7 @@ Rectangle {
       anchors.centerIn: parent
       horizontalAlignment: Text.AlignHCenter
       font: Theme.tipFont
-      color: "white"
+      color: Theme.toolButtonColor
       text: ''
       wrapMode: Text.WordWrap
     }

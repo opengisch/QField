@@ -1,0 +1,39 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: Propose an enhancement / feature
+    url: https://ideas.qfield.org
+    about: >
+      Add your suggestion how to improve QField, QFieldSync, QFieldCloud or QFieldCloud SDK at https://ideas.qfield.cloud/ .
+
+  - name: Request support for your app.qfield.cloud account
+    url: https://support.qfield.cloud
+    about: >
+      Open a ticket at our support platform for your QFieldCloud account at app.qfield.cloud users at https://support.qfield.cloud/                                                                                     .
+
+  - name: Report bug for QFieldSync
+    url: https://github.com/opengisch/QFieldSync/issues
+    about: >
+      Check if your issue was already reported and if not, then create a new issue at the QFieldSync repository.
+
+  - name: Report bug for QFieldCloud SDK
+    url: https://github.com/opengisch/QFieldCloud-sdk-python/issues
+    about: >
+      Check if your issue was already reported and if not, then create a new issue at the QFieldCloud Python SDK repository.
+
+  - name: Seek community and commercial support
+    url: https://docs.qfield.org/get-started/support/
+    about: >
+      Check how to get commercial or community support for your QFieldCloud on-premise or other QField ecosystem questions.
+
+  - name: Report missing documentation
+    url: https://github.com/opengisch/qfield-docs/issues
+    about: >
+      Suggest improvements or report documentation errors on https://docs.qfield.org.
+
+  - name: Report issue with QField plugins
+    url: https://github.com/topics/qfield-plugin
+    about: >
+      If the issue concerns a third party plugin (downloaded within the QField plugin manager)
+      then it can't be fixed by the QField core team.
+      Please raise your issue in the dedicated bug tracker for that specific plugin.

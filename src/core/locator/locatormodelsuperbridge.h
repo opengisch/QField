@@ -28,6 +28,7 @@ class QgsQuickMapSettings;
 class FeatureListExtentController;
 class PeliasGeocoder;
 class GnssPositionInformation;
+class QFieldLocatorFilter;
 class QgsLocator;
 
 /**
@@ -62,7 +63,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     //! The current project's map settings
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     //! The locator highlight geometry object through which locator actions can highhlight features
-    Q_PROPERTY( QObject *locatorHighlightGeometry READ locatorHighlightGeometry WRITE setLocatorHighlightGeometry NOTIFY locatorHighlightGeometryChanged )
+    Q_PROPERTY( QObject *geometryHighlighter READ geometryHighlighter WRITE setGeometryHighlighter NOTIFY geometryHighlighterChanged )
     //! The feature list extent controller
     Q_PROPERTY( FeatureListExtentController *featureListController READ featureListController WRITE setFeatureListController NOTIFY featureListControllerChanged )
     //! The current project's active layer
@@ -93,10 +94,10 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     //! \copydoc LocatorModelSuperBridge::navigation
     void setNavigation( Navigation *navigation );
 
-    //! \copydoc LocatorModelSuperBridge::locatorHighlightGeometry
-    QObject *locatorHighlightGeometry() const;
-    //! \copydoc LocatorModelSuperBridge::locatorHighlightGeometry
-    void setLocatorHighlightGeometry( QObject *locatorHighlightGeometry );
+    //! \copydoc LocatorModelSuperBridge::geometryHighlighter
+    QObject *geometryHighlighter() const;
+    //! \copydoc LocatorModelSuperBridge::geometryHighlighter
+    void setGeometryHighlighter( QObject *geometryHighlighter );
 
     //! \copydoc LocatorModelSuperBridge::featureListController
     FeatureListExtentController *featureListController() const;
@@ -112,6 +113,11 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     bool keepScale() const;
     //! \copydoc LocatorModelSuperBridge::keepScale
     void setKeepScale( bool keepScale );
+
+    /**
+     * Requests a \a text query against the search bar.
+     */
+    Q_INVOKABLE void requestSearch( const QString &text );
 
     /**
      * Requests for the current text in the search bar to be changed to the
@@ -136,25 +142,37 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
      */
     Q_INVOKABLE QString getPrefixFromSearchString( const QString &string );
 
+    /**
+     * Registers a given \a filter with the locator.
+     */
+    Q_INVOKABLE void registerQFieldLocatorFilter( QFieldLocatorFilter *filter );
+
+    /**
+     * Deregisters a given \a filter with the locator.
+     */
+    Q_INVOKABLE void deregisterQFieldLocatorFilter( QFieldLocatorFilter *filter );
+
     void emitMessage( const QString &text );
 
   signals:
     void mapSettingsChanged();
     void bookmarksChanged();
     void navigationChanged();
-    void locatorHighlightGeometryChanged();
+    void geometryHighlighterChanged();
     void featureListControllerChanged();
     void activeLayerChanged();
     void messageEmitted( const QString &text );
     void keepScaleChanged();
+    void searchRequested( const QString &text );
     void searchTextChangeRequested( const QString &text );
+    void locatorFiltersChanged();
 
   public slots:
     Q_INVOKABLE void triggerResultAtRow( const int row, const int id = -1 );
 
   private:
     QgsQuickMapSettings *mMapSettings = nullptr;
-    QObject *mLocatorHighlightGeometry = nullptr;
+    QObject *mGeometryHighlighter = nullptr;
     FeatureListExtentController *mFeatureListController = nullptr;
     QPointer<QgsMapLayer> mActiveLayer;
     bool mKeepScale = false;
@@ -199,8 +217,10 @@ class LocatorFiltersModel : public QAbstractListModel
     Q_INVOKABLE void setGeocoderLocatorFiltersDefaulByPosition( const GnssPositionInformation &position );
 
   signals:
-
     void locatorModelSuperBridgeChanged();
+
+  private slots:
+    void locatorFiltersChanged();
 
   private:
     LocatorModelSuperBridge *mLocatorModelSuperBridge = nullptr;

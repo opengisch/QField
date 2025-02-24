@@ -21,7 +21,7 @@ Popup {
   property int popupWidth: Math.min(400, mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeMargin : mainWindow.height - Theme.popupScreenEdgeMargin)
 
   width: popupWidth
-  height: Math.min(mainWindow.height - Theme.popupScreenEdgeMargin, popupWidth + toolBar.height + recordButton.height)
+  height: Math.min(mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4), popupWidth + toolBar.height + recordButton.height)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
@@ -37,6 +37,8 @@ Popup {
     if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
       microphonePermission.request();
     }
+    recorder.mediaFormat.audioCodec = MediaFormat.AudioCodec.MP3;
+    recorder.mediaFormat.fileFormat = MediaFormat.MP3;
   }
 
   QfMicrophonePermission {
@@ -291,7 +293,7 @@ Popup {
           opacity: enabled ? 1 : 0.2
           Layout.alignment: Qt.AlignVCenter
           iconSource: Theme.getThemeVectorIcon('ic_check_white_24dp')
-          iconColor: enabled ? "white" : Theme.mainTextColor
+          iconColor: enabled ? Theme.toolButtonColor : Theme.toolButtonBackgroundSemiOpaqueColor
           bgcolor: enabled ? Theme.mainColor : "transparent"
           round: true
 

@@ -238,10 +238,10 @@ void ActiveLayerFeaturesLocatorFilter::fetchResults( const QString &string, cons
       result.userData = QVariantList() << f.id() << mLayerId;
 #endif
       result.score = static_cast<double>( searchString.length() ) / result.displayString.size();
-      result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_baseline-list_white_24dp" ) );
+      result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_baseline-list_white_24dp.svg" ) );
       if ( mLayerIsSpatial )
       {
-        result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as destination" ), QStringLiteral( "ic_navigation_flag_purple_24dp" ) );
+        result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as destination" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
       }
 
       emit resultFetched( result );
@@ -296,10 +296,10 @@ void ActiveLayerFeaturesLocatorFilter::fetchResults( const QString &string, cons
     result.userData = QVariantList() << f.id() << mLayerId;
 #endif
     result.score = static_cast<double>( searchString.length() ) / result.displayString.size();
-    result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "ic_baseline-list_white_24dp" ) );
+    result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_baseline-list_white_24dp.svg" ) );
     if ( mLayerIsSpatial )
     {
-      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as destination" ), QStringLiteral( "ic_navigation_flag_purple_24dp" ) );
+      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as destination" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
     }
 
     emit resultFetched( result );
@@ -436,8 +436,8 @@ void ActiveLayerFeaturesLocatorFilter::triggerResultFromAction( const QgsLocator
             mLocatorBridge->mapSettings()->setExtent( r, true );
           }
 
-          mLocatorBridge->locatorHighlightGeometry()->setProperty( "qgsGeometry", geom );
-          mLocatorBridge->locatorHighlightGeometry()->setProperty( "crs", layer->crs() );
+          mLocatorBridge->geometryHighlighter()->setProperty( "qgsGeometry", geom );
+          mLocatorBridge->geometryHighlighter()->setProperty( "crs", layer->crs() );
           break;
         }
       }

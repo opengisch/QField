@@ -19,6 +19,9 @@
 #include <QHostAddress>
 #include <QJsonDocument>
 #include <QJsonValue>
+#include <QTimeZone>
+
+QLatin1String EgenioussReceiver::identifier = QLatin1String( "egeniouss" );
 
 EgenioussReceiver::EgenioussReceiver( QObject *parent )
   : AbstractGnssReceiver( parent ), mTcpSocket( new QTcpSocket() )
@@ -46,16 +49,16 @@ void EgenioussReceiver::handleDisconnectDevice()
   mTcpSocket->disconnectFromHost();
 }
 
-QList<QPair<QString, QVariant>> EgenioussReceiver::details() const
+GnssPositionDetails EgenioussReceiver::details() const
 {
-  QList<QPair<QString, QVariant>> detailsList;
+  GnssPositionDetails detailsList;
 
   if ( mPayload.isEmpty() )
   {
     return detailsList;
   }
 
-  detailsList.append( qMakePair( "q", mPayload.value( "q" ).toDouble() ) );
+  detailsList.append( "q", mPayload.value( "q" ).toDouble() );
 
   return detailsList;
 }
@@ -112,7 +115,7 @@ void EgenioussReceiver::onReadyRead()
     0,
     std::numeric_limits<double>::quiet_NaN(),
     std::numeric_limits<double>::quiet_NaN(),
-    QDateTime::fromMSecsSinceEpoch( mPayload.value( "utc" ).toDouble() / 1e6, Qt::UTC ),
+    QDateTime::fromMSecsSinceEpoch( mPayload.value( "utc" ).toDouble() / 1e6, QTimeZone( QTimeZone::Initialization::UTC ) ),
     QChar(),
     0,
     1 );

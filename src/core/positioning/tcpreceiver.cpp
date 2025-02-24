@@ -16,6 +16,8 @@
 
 #include "tcpreceiver.h"
 
+QLatin1String TcpReceiver::identifier = QLatin1String( "tcp" );
+
 TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *parent )
   : NmeaGnssReceiver( parent )
   , mAddress( address )

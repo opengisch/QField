@@ -26,6 +26,7 @@
 #include "helplocatorfilter.h"
 #include "locatormodelsuperbridge.h"
 #include "peliasgeocoder.h"
+#include "qfieldlocatorfilter.h"
 #include "qgsquickmapsettings.h"
 
 #include <QStandardItem>
@@ -47,6 +48,18 @@ LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
   // Finnish's Digitransit geocoder (disabled until API access can be sorted)
   //mFinlandGeocoder = new PeliasGeocoder( QStringLiteral( "https://api.digitransit.fi/geocoding/v1/search" ) );
   //locator()->registerFilter( new FinlandLocatorFilter( mFinlandGeocoder, this ) );
+}
+
+void LocatorModelSuperBridge::registerQFieldLocatorFilter( QFieldLocatorFilter *filter )
+{
+  locator()->registerFilter( filter );
+  emit locatorFiltersChanged();
+}
+
+void LocatorModelSuperBridge::deregisterQFieldLocatorFilter( QFieldLocatorFilter *filter )
+{
+  locator()->deregisterFilter( filter );
+  emit locatorFiltersChanged();
 }
 
 Navigation *LocatorModelSuperBridge::navigation() const
@@ -100,18 +113,18 @@ void LocatorModelSuperBridge::setMapSettings( QgsQuickMapSettings *mapSettings )
   emit mapSettingsChanged();
 }
 
-QObject *LocatorModelSuperBridge::locatorHighlightGeometry() const
+QObject *LocatorModelSuperBridge::geometryHighlighter() const
 {
-  return mLocatorHighlightGeometry;
+  return mGeometryHighlighter;
 }
 
-void LocatorModelSuperBridge::setLocatorHighlightGeometry( QObject *locatorHighlightGeometry )
+void LocatorModelSuperBridge::setGeometryHighlighter( QObject *geometryHighlighter )
 {
-  if ( locatorHighlightGeometry == mLocatorHighlightGeometry )
+  if ( mGeometryHighlighter == geometryHighlighter )
     return;
 
-  mLocatorHighlightGeometry = locatorHighlightGeometry;
-  emit locatorHighlightGeometryChanged();
+  mGeometryHighlighter = geometryHighlighter;
+  emit geometryHighlighterChanged();
 }
 
 FeatureListExtentController *LocatorModelSuperBridge::featureListController() const
@@ -154,6 +167,11 @@ void LocatorModelSuperBridge::setKeepScale( bool keepScale )
 
   mKeepScale = keepScale;
   emit keepScaleChanged();
+}
+
+void LocatorModelSuperBridge::requestSearch( const QString &text )
+{
+  emit searchRequested( text );
 }
 
 void LocatorModelSuperBridge::requestSearchTextChange( const QString &text )
@@ -254,7 +272,7 @@ LocatorFiltersModel::LocatorFiltersModel()
 
 int LocatorFiltersModel::rowCount( const QModelIndex &parent ) const
 {
-  if ( !mLocatorModelSuperBridge->locator() || parent.isValid() )
+  if ( !mLocatorModelSuperBridge || !mLocatorModelSuperBridge->locator() || parent.isValid() )
     return 0;
 
   return static_cast<int>( mLocatorModelSuperBridge->locator()->filters().count() );
@@ -311,7 +329,7 @@ QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
 
 bool LocatorFiltersModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
-  if ( !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() || index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
+  if ( !mLocatorModelSuperBridge || !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() || index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
     return false;
 
   switch ( role )
@@ -357,7 +375,7 @@ bool LocatorFiltersModel::setData( const QModelIndex &index, const QVariant &val
 
 void LocatorFiltersModel::setGeocoderLocatorFiltersDefaulByPosition( const GnssPositionInformation &position )
 {
-  if ( !mLocatorModelSuperBridge->locator() )
+  if ( !mLocatorModelSuperBridge || !mLocatorModelSuperBridge->locator() )
     return;
 
   QgsPointXY point( position.longitude(), position.latitude() );
@@ -388,7 +406,7 @@ void LocatorFiltersModel::setGeocoderLocatorFiltersDefaulByPosition( const GnssP
 
 QgsLocatorFilter *LocatorFiltersModel::filterForIndex( const QModelIndex &index ) const
 {
-  if ( !mLocatorModelSuperBridge->locator() )
+  if ( !mLocatorModelSuperBridge || !mLocatorModelSuperBridge->locator() )
     return nullptr;
 
   return mLocatorModelSuperBridge->locator()->filters().at( index.row() );
@@ -399,13 +417,25 @@ LocatorModelSuperBridge *LocatorFiltersModel::locatorModelSuperBridge() const
   return mLocatorModelSuperBridge;
 }
 
+void LocatorFiltersModel::locatorFiltersChanged()
+{
+  emit beginResetModel();
+  emit endResetModel();
+}
+
 void LocatorFiltersModel::setLocatorModelSuperBridge( LocatorModelSuperBridge *locatorModelSuperBridge )
 {
   if ( mLocatorModelSuperBridge == locatorModelSuperBridge )
     return;
 
+  if ( mLocatorModelSuperBridge )
+  {
+    disconnect( mLocatorModelSuperBridge, &LocatorModelSuperBridge::locatorFiltersChanged, this, &LocatorFiltersModel::locatorFiltersChanged );
+  }
   emit beginResetModel();
   mLocatorModelSuperBridge = locatorModelSuperBridge;
   emit locatorModelSuperBridgeChanged();
   emit endResetModel();
+
+  connect( mLocatorModelSuperBridge, &LocatorModelSuperBridge::locatorFiltersChanged, this, &LocatorFiltersModel::locatorFiltersChanged );
 }

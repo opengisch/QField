@@ -1,8 +1,8 @@
 diff --git a/src/analysis/processing/qgsnativealgorithms.cpp b/src/analysis/processing/qgsnativealgorithms.cpp
-index a74cdfc700b..2b2412c933a 100644
+index 7b50c49a..f850a311 100644
 --- a/src/analysis/processing/qgsnativealgorithms.cpp
 +++ b/src/analysis/processing/qgsnativealgorithms.cpp
-@@ -31,7 +31,6 @@
+@@ -32,7 +32,6 @@
  #include "qgsalgorithmaspect.h"
  #include "qgsalgorithmassignprojection.h"
  #include "qgsalgorithmattributeindex.h"
@@ -10,15 +10,15 @@ index a74cdfc700b..2b2412c933a 100644
  #include "qgsalgorithmbasicstatistics.h"
  #include "qgsalgorithmbatchnominatimgeocode.h"
  #include "qgsalgorithmboundary.h"
-@@ -100,7 +99,6 @@
+@@ -101,7 +100,6 @@
  #include "qgsalgorithmforcerhr.h"
  #include "qgsalgorithmfuzzifyraster.h"
  #include "qgsalgorithmgeometrybyexpression.h"
 -#include "qgsalgorithmgltftovector.h"
- #if QT_CONFIG(process)
+ #if QT_CONFIG( process )
  #include "qgsalgorithmgpsbabeltools.h"
  #endif
-@@ -204,7 +202,6 @@
+@@ -205,7 +203,6 @@
  #include "qgsalgorithmsinglesidedbuffer.h"
  #include "qgsalgorithmslope.h"
  #include "qgsalgorithmsmooth.h"
@@ -26,7 +26,7 @@ index a74cdfc700b..2b2412c933a 100644
  #include "qgsalgorithmsnaptogrid.h"
  #include "qgsalgorithmspatialindex.h"
  #include "qgsalgorithmsplitfeaturesbyattributecharacter.h"
-@@ -300,7 +297,6 @@ void QgsNativeAlgorithms::loadAlgorithms()
+@@ -301,7 +298,6 @@ void QgsNativeAlgorithms::loadAlgorithms()
    addAlgorithm( new QgsAspectAlgorithm() );
    addAlgorithm( new QgsAssignProjectionAlgorithm() );
    addAlgorithm( new QgsAttributeIndexAlgorithm() );
@@ -34,15 +34,15 @@ index a74cdfc700b..2b2412c933a 100644
    addAlgorithm( new QgsBasicStatisticsAlgorithm() );
    addAlgorithm( new QgsBatchNominatimGeocodeAlgorithm() );
    addAlgorithm( new QgsBookmarksToLayerAlgorithm() );
-@@ -384,7 +380,6 @@ void QgsNativeAlgorithms::loadAlgorithms()
+@@ -385,7 +381,6 @@ void QgsNativeAlgorithms::loadAlgorithms()
    addAlgorithm( new QgsFuzzifyRasterGaussianMembershipAlgorithm() );
    addAlgorithm( new QgsFuzzifyRasterNearMembershipAlgorithm() );
    addAlgorithm( new QgsGeometryByExpressionAlgorithm() );
 -  addAlgorithm( new QgsGltfToVectorFeaturesAlgorithm() );
- #if QT_CONFIG(process)
+ #if QT_CONFIG( process )
    addAlgorithm( new QgsConvertGpxFeatureTypeAlgorithm() );
    addAlgorithm( new QgsConvertGpsDataAlgorithm() );
-@@ -519,7 +514,6 @@ void QgsNativeAlgorithms::loadAlgorithms()
+@@ -520,7 +515,6 @@ void QgsNativeAlgorithms::loadAlgorithms()
    addAlgorithm( new QgsSingleSidedBufferAlgorithm() );
    addAlgorithm( new QgsSlopeAlgorithm() );
    addAlgorithm( new QgsSmoothAlgorithm() );

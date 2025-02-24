@@ -22,7 +22,6 @@
 #include "projectsource.h"
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
-#include "qgismobileapp.h"
 #include "qgsmessagelog.h"
 #include "resourcesource.h"
 #include "stringutils.h"
@@ -35,8 +34,10 @@
 #include <QDir>
 #include <QFileDialog>
 #include <QMargins>
+#include <QMessageBox>
 #include <QQuickWindow>
 #include <QStandardPaths>
+#include <QStorageInfo>
 #include <QTimer>
 #include <QUrl>
 #include <QtGui/qpa/qplatformwindow.h>
@@ -57,7 +58,7 @@ PlatformUtilities::~PlatformUtilities()
 
 PlatformUtilities::Capabilities PlatformUtilities::capabilities() const
 {
-  PlatformUtilities::Capabilities capabilities = FilePicker;
+  PlatformUtilities::Capabilities capabilities = PlatformUtilities::Capabilities() | FilePicker | NativeLocalDataPicker;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -97,14 +98,18 @@ void PlatformUtilities::afterUpdate()
   const QStringList dirs = appDataDirs();
   for ( const QString &dir : dirs )
   {
-    QDir appDir( dir );
-    appDir.mkpath( QStringLiteral( "proj" ) );
-    appDir.mkpath( QStringLiteral( "auth" ) );
-    appDir.mkpath( QStringLiteral( "fonts" ) );
-    appDir.mkpath( QStringLiteral( "basemaps" ) );
-    appDir.mkpath( QStringLiteral( "logs" ) );
-    appDir.mkpath( QStringLiteral( "plugins" ) );
+    QDir appDataDir( dir );
+    appDataDir.mkpath( QStringLiteral( "proj" ) );
+    appDataDir.mkpath( QStringLiteral( "auth" ) );
+    appDataDir.mkpath( QStringLiteral( "fonts" ) );
+    appDataDir.mkpath( QStringLiteral( "basemaps" ) );
+    appDataDir.mkpath( QStringLiteral( "logs" ) );
+    appDataDir.mkpath( QStringLiteral( "plugins" ) );
   }
+
+  QDir applicationDir( applicationDirectory() );
+  applicationDir.mkpath( QStringLiteral( "Imported Projects" ) );
+  applicationDir.mkpath( QStringLiteral( "Imported Datasets" ) );
 }
 
 QString PlatformUtilities::systemSharedDataLocation() const
@@ -135,7 +140,7 @@ QString PlatformUtilities::systemSharedDataLocation() const
 
 QString PlatformUtilities::systemLocalDataLocation( const QString &subDir ) const
 {
-  return QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + '/' + subDir;
+  return QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + ( !subDir.isEmpty() ? '/' + subDir : QString() );
 }
 
 bool PlatformUtilities::hasQgsProject() const
@@ -153,7 +158,7 @@ void PlatformUtilities::loadQgsProject() const
 
 QStringList PlatformUtilities::appDataDirs() const
 {
-  return QStringList() << QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField/" );
+  return QStringList() << QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField Documents/QField/" );
 }
 
 QStringList PlatformUtilities::availableGrids() const
@@ -183,19 +188,32 @@ bool PlatformUtilities::rmFile( const QString &filename ) const
   return file.remove( filename );
 }
 
-bool PlatformUtilities::renameFile( const QString &filename, const QString &newname ) const
+bool PlatformUtilities::renameFile( const QString &oldFilePath, const QString &newFilePath, bool overwrite ) const
 {
-  QFileInfo fi( newname );
-  QDir dir( fi.absolutePath() );
-  dir.mkpath( fi.absolutePath() );
+  QFileInfo oldFi( oldFilePath );
+  QFileInfo newFi( newFilePath );
+  if ( oldFi.absoluteFilePath() == newFi.absoluteFilePath() )
+  {
+    return true;
+  }
 
-  QFile file( filename );
-  return file.rename( newname );
+  // Insure the path exists
+  QDir dir( newFi.absolutePath() );
+  dir.mkpath( newFi.absolutePath() );
+
+  // If the renamed file exists, overwrite
+  if ( newFi.exists() && overwrite )
+  {
+    QFile newfile( newFilePath );
+    newfile.remove();
+  }
+
+  return QFile::rename( oldFilePath, newFilePath );
 }
 
 QString PlatformUtilities::applicationDirectory() const
 {
-  return QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField/" );
+  return QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField Documents/" );
 }
 
 QStringList PlatformUtilities::additionalApplicationDirectories() const
@@ -205,7 +223,19 @@ QStringList PlatformUtilities::additionalApplicationDirectories() const
 
 QStringList PlatformUtilities::rootDirectories() const
 {
-  return QStringList() << QString();
+  QStringList rootDirectories;
+  rootDirectories << QDir::homePath();
+  for ( const QStorageInfo &volume : QStorageInfo::mountedVolumes() )
+  {
+    if ( volume.isReady() && !volume.isReadOnly() )
+    {
+      if ( volume.fileSystemType() != QLatin1String( "tmpfs" ) && !volume.rootPath().startsWith( QLatin1String( "/boot" ) ) )
+      {
+        rootDirectories << volume.rootPath();
+      }
+    }
+  }
+  return rootDirectories;
 }
 
 void PlatformUtilities::importProjectFolder() const
@@ -244,12 +274,52 @@ void PlatformUtilities::sendCompressedFolderTo( const QString &path ) const
 
 void PlatformUtilities::removeDataset( const QString &path ) const
 {
-  Q_UNUSED( path )
+  bool allowed = false;
+  const QStringList allowedDirectories = QStringList() << applicationDirectory() << additionalApplicationDirectories();
+  for ( const QString &directory : allowedDirectories )
+  {
+    if ( path.startsWith( directory ) )
+    {
+      allowed = true;
+      break;
+    }
+  }
+  if ( allowed )
+  {
+    if ( QMessageBox::warning( nullptr,
+                               tr( "Removal Confirmation" ),
+                               tr( "The dataset will be deleted, proceed with removal?" ),
+                               QMessageBox::StandardButtons() | QMessageBox::Ok | QMessageBox::Abort )
+         == QMessageBox::Ok )
+    {
+      QFile::moveToTrash( path );
+    }
+  }
 }
 
 void PlatformUtilities::removeFolder( const QString &path ) const
 {
-  Q_UNUSED( path )
+  bool allowed = false;
+  const QStringList allowedDirectories = QStringList() << applicationDirectory() << additionalApplicationDirectories();
+  for ( const QString &directory : allowedDirectories )
+  {
+    if ( path.startsWith( directory ) )
+    {
+      allowed = true;
+      break;
+    }
+  }
+  if ( allowed )
+  {
+    if ( QMessageBox::warning( nullptr,
+                               tr( "Removal Confirmation" ),
+                               tr( "The project folder will be deleted, proceed with removal?" ),
+                               QMessageBox::StandardButtons() | QMessageBox::Ok | QMessageBox::Abort )
+         == QMessageBox::Ok )
+    {
+      QFile::moveToTrash( path );
+    }
+  }
 }
 
 ResourceSource *PlatformUtilities::getCameraPicture( const QString &, const QString &, const QString &, QObject * )
@@ -356,11 +426,6 @@ bool PlatformUtilities::checkCameraPermissions() const
 }
 
 bool PlatformUtilities::checkMicrophonePermissions() const
-{
-  return true;
-}
-
-bool PlatformUtilities::checkWriteExternalStoragePermissions() const
 {
   return true;
 }

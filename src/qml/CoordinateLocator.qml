@@ -28,6 +28,14 @@ Item {
   property int averagedPositionCount: 0
 
   /**
+   * Snapping-related information
+   */
+  property bool snapToCommonAngles: false
+  property bool snappingIsRelative: false
+  property real snappingAngleDegrees: 45.0
+  property real snappingTolerance: 1
+
+  /**
    * Overrides any possibility for the user to modify the coordinate.
    * There will be no user interaction or snapping if this is set to a QgsPoint.
    * Set this to `undefined` to revert to the user and snapping controlled behavior.
@@ -59,26 +67,38 @@ Item {
 
     enabled: locator.visible
     mapSettings: locator.mapSettings
-    inputCoordinate: {
-      // Get the current crosshair location in screen coordinates. If `undefined`, then we use the center of the screen as input point.
-      const location = sourceLocation === undefined ? Qt.point(locator.width / 2, locator.height / 2) : sourceLocation;
-      if (snapToCommonAngleButton.isSnapToCommonAngleEnabled) {
+    config: qgisProject ? qgisProject.snappingConfig : snappingUtils.emptySnappingConfig()
+    // Get the current crosshair location in screen coordinates. If `undefined`, then we use the center of the screen as input point.
+    inputCoordinate: sourceLocation === undefined ? Qt.point(locator.width / 2, locator.height / 2) : sourceLocation
+
+    property variant snappedCoordinate
+    property point snappedPoint
+
+    onSnappingResultChanged: {
+      if (snappingResult.isValid) {
+        snappedCoordinate = snappingResult.point;
+        snappedPoint = mapSettings.coordinateToScreen(snappedCoordinate);
+      } else {
+        snappedPoint = inputCoordinate;
+        snappedCoordinate = mapSettings.screenToCoordinate(snappedPoint);
+      }
+      if (!locator.positionLocked && locator.snapToCommonAngles) {
         let backwardCommonAngleInDegrees = undefined;
         let backwardCoords = {};
         let backwardPoint = undefined;
-        backwardCommonAngleInDegrees = getCommonAngleInDegrees(location, locator.rubberbandModel, snapToCommonAngleButton.snapToCommonAngleDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative);
+        backwardCommonAngleInDegrees = getCommonAngleInDegrees(snappedPoint, locator.rubberbandModel, locator.snappingAngleDegrees, locator.snappingIsRelative);
         if (backwardCommonAngleInDegrees !== undefined) {
-          backwardPoint = snapPointToCommonAngle(location, locator.rubberbandModel, backwardCommonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative);
-          backwardCoords = calculateSnapToAngleLineEndCoords(backwardPoint, backwardCommonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, 1000);
+          backwardPoint = snapPointToCommonAngle(snappedPoint, locator.rubberbandModel, backwardCommonAngleInDegrees, locator.snappingIsRelative);
+          backwardCoords = calculateSnapToAngleLineEndCoords(backwardPoint, backwardCommonAngleInDegrees, locator.snappingIsRelative, 1000);
         }
         let forwardCommonAngleInDegrees = undefined;
         let forwardCoords = {};
         let forwardPoint = undefined;
         if (locator.rubberbandModel && locator.rubberbandModel.vertexCount >= 4) {
-          forwardCommonAngleInDegrees = getCommonAngleInDegrees(location, locator.rubberbandModel, snapToCommonAngleButton.snapToCommonAngleDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, true);
+          forwardCommonAngleInDegrees = getCommonAngleInDegrees(snappedPoint, locator.rubberbandModel, locator.snappingAngleDegrees, locator.snappingIsRelative, true);
           if (forwardCommonAngleInDegrees !== undefined) {
-            forwardPoint = snapPointToCommonAngle(location, locator.rubberbandModel, forwardCommonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, true);
-            forwardCoords = calculateSnapToAngleLineEndCoords(forwardPoint, forwardCommonAngleInDegrees, snapToCommonAngleButton.isSnapToCommonAngleRelative, 1000, -1);
+            forwardPoint = snapPointToCommonAngle(snappedPoint, locator.rubberbandModel, forwardCommonAngleInDegrees, locator.snappingIsRelative, true);
+            forwardCoords = calculateSnapToAngleLineEndCoords(forwardPoint, forwardCommonAngleInDegrees, locator.snappingIsRelative, 1000, -1);
           }
         }
         snappingLinesModel.setProperty(0, "beginCoordX", backwardCoords.x1 || 0);
@@ -106,12 +126,13 @@ Item {
           const ub = ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) / denominator;
           const intersectX = x1 + ua * (x2 - x1);
           const intersectY = y1 + ua * (y2 - y1);
-          return Qt.point(intersectX, intersectY);
+          snappedPoint = Qt.point(intersectX, intersectY);
         } else if (backwardCommonAngleInDegrees !== undefined) {
-          return backwardPoint;
+          snappedPoint = backwardPoint;
         } else if (forwardCommonAngleInDegrees !== undefined) {
-          return forwardPoint;
+          snappedPoint = forwardPoint;
         }
+        snappedCoordinate = mapSettings.screenToCoordinate(snappedPoint);
       } else {
         for (let i = 0; i < snappingLinesModel.count; ++i) {
           snappingLinesModel.setProperty(i, "beginCoordX", 0);
@@ -120,21 +141,6 @@ Item {
           snappingLinesModel.setProperty(i, "endCoordY", 0);
           snappingLinesModel.setProperty(i, "snappedToAngle", false);
         }
-      }
-      return location;
-    }
-    config: qgisProject ? qgisProject.snappingConfig : snappingUtils.emptySnappingConfig()
-
-    property variant snappedCoordinate
-    property point snappedPoint
-
-    onSnappingResultChanged: {
-      if (snappingResult.isValid) {
-        snappedCoordinate = snappingResult.point;
-        snappedPoint = mapSettings.coordinateToScreen(snappedCoordinate);
-      } else {
-        snappedPoint = inputCoordinate;
-        snappedCoordinate = mapSettings.screenToCoordinate(snappedPoint);
       }
     }
   }
@@ -383,6 +389,30 @@ Item {
 
   function flash() {
     flashAnimation.start();
+    if (positionLocked) {
+      const outOfScreen = crosshairCircle.x + crosshairCircle.width <= 0 || crosshairCircle.x - crosshairCircle.width >= mainWindow.width || crosshairCircle.y + crosshairCircle.height <= 0 || crosshairCircle.y - crosshairCircle.height >= mainWindow.height;
+      if (outOfScreen) {
+        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+      }
+    }
+  }
+
+  /** Function to get the multiplier based on the selected tolerance
+  *
+  * - Narrow tolerance (index 0) divides by 2.
+  * - Normal tolerance (index 1) keeps unchanged.
+  * - Large tolerance (index 2) multiplies by 4.
+  */
+  function getToleranceMultiplier() {
+    switch (snappingTolerance) {
+    case 0:
+      return 0.5;
+    case 2:
+      return 4;
+    case 1:
+    default:
+      return 1;
+    }
   }
 
   /**
@@ -400,7 +430,7 @@ Item {
       return;
     }
     const MINIMAL_PIXEL_DISTANCE_TRESHOLD = 20;
-    const SOFT_CONSTRAINT_TOLERANCE_DEGREES = 20;
+    const SOFT_CONSTRAINT_TOLERANCE_DEGREES = 20 * getToleranceMultiplier();
     const SOFT_CONSTRAINT_TOLERANCE_PIXEL = 40;
     const rubberbandPointsCount = rubberbandModel.vertexCount;
     const targetPoint = mapCanvas.mapSettings.coordinateToScreen(forwardMode ? rubberbandModel.firstCoordinate : rubberbandModel.lastCoordinate);

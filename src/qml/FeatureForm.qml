@@ -93,6 +93,7 @@ Page {
       delegate: TabButton {
         id: tabButton
         property bool isCurrentIndex: index == tabRow.currentIndex
+        objectName: "tabRowdDelegate_" + index
         text: Name
         topPadding: 0
         bottomPadding: 0
@@ -100,7 +101,6 @@ Page {
         rightPadding: 8
         width: contentItem.width + leftPadding + rightPadding
         height: 48
-        objectName: "tabRowdDelegate_" + index
 
         onClicked: {
           tabRow.currentIndex = index;
@@ -783,6 +783,7 @@ Page {
         clip: true
 
         iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
+        iconColor: Theme.mainOverlayColor
         opacity: model.constraintsHardValid ? 1.0 : 0.3
 
         onClicked: {
@@ -804,7 +805,7 @@ Page {
         objectName: "titleLabel"
 
         font: Theme.strongFont
-        color: Theme.light
+        color: Theme.mainOverlayColor
 
         text: {
           const featureModel = model.featureModel;
@@ -838,6 +839,7 @@ Page {
         visible: !setupOnly
 
         iconSource: form.state === 'Add' ? Theme.getThemeVectorIcon('ic_delete_forever_white_24dp') : Theme.getThemeVectorIcon('ic_close_white_24dp')
+        iconColor: Theme.mainOverlayColor
 
         onClicked: {
           Qt.inputMethod.hide();
@@ -850,6 +852,7 @@ Page {
       }
     }
   }
+
   QfDialog {
     id: cancelDialog
     parent: mainWindow.contentItem

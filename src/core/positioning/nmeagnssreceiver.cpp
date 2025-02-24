@@ -16,8 +16,7 @@
 
 #include "nmeagnssreceiver.h"
 #include "platformutilities.h"
-#include "positioning.h"
-#include "qgsmessagelog.h"
+#include "positioningsource.h"
 
 #include <QSettings>
 
@@ -46,10 +45,10 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
 
   bool ellipsoidalElevation = false;
   double antennaHeight = 0.0;
-  if ( Positioning *positioning = qobject_cast<Positioning *>( parent() ) )
+  if ( PositioningSource *positioningSource = qobject_cast<PositioningSource *>( parent() ) )
   {
-    ellipsoidalElevation = positioning->elevationCorrectionMode() != Positioning::ElevationCorrectionMode::OrthometricFromDevice;
-    antennaHeight = positioning->antennaHeight();
+    ellipsoidalElevation = positioningSource->elevationCorrectionMode() != PositioningSource::ElevationCorrectionMode::OrthometricFromDevice;
+    antennaHeight = positioningSource->antennaHeight();
   }
 
   if ( info.utcTime != mLastGnssPositionUtcTime )
@@ -116,17 +115,15 @@ void NmeaGnssReceiver::handleStopLogging()
   mLogFile.close();
 }
 
-QList<QPair<QString, QVariant>> NmeaGnssReceiver::details() const
+GnssPositionDetails NmeaGnssReceiver::details() const
 {
-  QList<QPair<QString, QVariant>> dataList;
-
-  dataList.append( qMakePair( "PDOP", QLocale::system().toString( mLastGnssPositionInformation.pdop(), 'f', 1 ) ) );
-  dataList.append( qMakePair( "HDOP", QLocale::system().toString( mLastGnssPositionInformation.hdop(), 'f', 1 ) ) );
-  dataList.append( qMakePair( "VDOP", QLocale::system().toString( mLastGnssPositionInformation.vdop(), 'f', 1 ) ) );
-  dataList.append( qMakePair( "Valid", mLastGnssPositionInformation.isValid() ? "True" : "False" ) );
-  dataList.append( qMakePair( "Fix", mLastGnssPositionInformation.fixStatusDescription() ) );
-  dataList.append( qMakePair( "Quality", mLastGnssPositionInformation.qualityDescription() ) );
-
+  GnssPositionDetails dataList;
+  dataList.append( "PDOP", QLocale::system().toString( mLastGnssPositionInformation.pdop(), 'f', 1 ) );
+  dataList.append( "HDOP", QLocale::system().toString( mLastGnssPositionInformation.hdop(), 'f', 1 ) );
+  dataList.append( "VDOP", QLocale::system().toString( mLastGnssPositionInformation.vdop(), 'f', 1 ) );
+  dataList.append( "Valid", mLastGnssPositionInformation.isValid() ? "True" : "False" );
+  dataList.append( "Fix", mLastGnssPositionInformation.fixStatusDescription() );
+  dataList.append( "Quality", mLastGnssPositionInformation.qualityDescription() );
   return dataList;
 }
 
@@ -176,9 +173,6 @@ void NmeaGnssReceiver::processImuSentence( const QString &sentence )
   if ( !latitudeOk || !longitudeOk || !altitudeOk )
   {
     mImuPosition.valid = false;
-    QgsMessageLog::logMessage( tr( "Could not parse the IMU position: %1,%2,%3" ).arg( parameters[2], parameters[3], parameters[4] ),
-                               "Nmea",
-                               Qgis::Warning );
     return;
   }
 

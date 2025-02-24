@@ -398,16 +398,14 @@ void FeatureListModel::processFeatureList()
   if ( mOrderByValue || !mGroupField.isEmpty() || !mSearchTerm.isEmpty() )
   {
     std::sort( entries.begin(), entries.end(), [=]( const Entry &entry1, const Entry &entry2 ) {
-      if ( entry1.key.isNull() )
+      if ( entry1.key.isNull() && !entry2.key.isNull() )
         return true;
 
-      if ( entry2.key.isNull() )
+      if ( !entry1.key.isNull() && entry2.key.isNull() )
         return false;
 
       if ( !mGroupField.isEmpty() && entry1.group != entry2.group )
-      {
         return entry1.group < entry2.group;
-      }
 
       if ( !mSearchTerm.isEmpty() )
       {
@@ -516,7 +514,9 @@ void FeatureListModel::setCurrentFormFeature( const QgsFeature &feature )
   mCurrentFormFeature = feature;
 
   if ( !mFilterExpression.isEmpty() && QgsValueRelationFieldFormatter::expressionRequiresFormScope( mFilterExpression ) )
+  {
     reloadLayer();
+  }
 
   emit currentFormFeatureChanged();
 }

@@ -18,6 +18,10 @@ Page {
   property alias model: table.model
   signal openLocalDataPicker
   signal showQFieldCloudScreen
+  signal showSettings
+
+  visible: false
+  focus: visible
 
   Settings {
     id: registry
@@ -76,7 +80,7 @@ Page {
         value: 1
 
         Layout.margins: 6
-        Layout.topMargin: 14
+        Layout.topMargin: 14 + mainWindow.sceneTopMargin
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         Layout.preferredWidth: Math.min(138, mainWindow.height / 4)
         Layout.preferredHeight: Math.min(138, mainWindow.height / 4)
@@ -114,11 +118,11 @@ Page {
             gradient: Gradient {
               GradientStop {
                 position: 0.0
-                color: "#4480cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
               }
               GradientStop {
                 position: 0.88
-                color: "#0580cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
               }
             }
 
@@ -131,6 +135,7 @@ Page {
 
             Text {
               Layout.margins: 6
+              Layout.topMargin: 12
               Layout.maximumWidth: feedbackView.width - 12
               text: qsTr("We're sorry to hear that. Click on the button below to comment or seek support.")
               font: Theme.defaultFont
@@ -143,9 +148,12 @@ Page {
               spacing: 6
               Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
               Layout.bottomMargin: 10
+
               QfButton {
-                leftPadding: 20
-                rightPadding: 20
+                topPadding: 8
+                bottomPadding: 8
+                leftPadding: 10
+                rightPadding: 10
 
                 text: qsTr("Reach out")
                 icon.source: Theme.getThemeVectorIcon('ic_create_white_24dp')
@@ -167,11 +175,11 @@ Page {
             gradient: Gradient {
               GradientStop {
                 position: 0.0
-                color: "#4480cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
               }
               GradientStop {
                 position: 0.88
-                color: "#0580cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
               }
             }
 
@@ -184,6 +192,7 @@ Page {
 
             Text {
               Layout.margins: 6
+              Layout.topMargin: 12
               Layout.maximumWidth: feedbackView.width - 12
               text: qsTr("Hey there, how do you like your experience with QField so far?")
               font: Theme.defaultFont
@@ -198,6 +207,7 @@ Page {
               Layout.bottomMargin: 10
               QfToolButton {
                 iconSource: Theme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
+                iconColor: Theme.mainOverlayColor
                 bgcolor: Theme.mainColor
                 round: true
 
@@ -207,6 +217,7 @@ Page {
               }
               QfToolButton {
                 iconSource: Theme.getThemeVectorIcon('ic_satisfied_white_24dp')
+                iconColor: Theme.mainOverlayColor
                 bgcolor: Theme.mainColor
                 round: true
 
@@ -229,11 +240,11 @@ Page {
             gradient: Gradient {
               GradientStop {
                 position: 0.0
-                color: "#4480cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
               }
               GradientStop {
                 position: 0.88
-                color: "#0580cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
               }
             }
 
@@ -246,6 +257,7 @@ Page {
 
             Text {
               Layout.margins: 6
+              Layout.topMargin: 12
               Layout.maximumWidth: feedbackView.width - 12
               text: qsTr("That's great! We'd love for you to click on the button below and leave a review.")
               font: Theme.defaultFont
@@ -260,8 +272,10 @@ Page {
               Layout.margins: 6
               Layout.bottomMargin: 10
               QfButton {
-                leftPadding: 20
-                rightPadding: 20
+                topPadding: 8
+                bottomPadding: 8
+                leftPadding: 10
+                rightPadding: 10
 
                 text: qsTr("Rate us")
                 icon.source: Theme.getThemeVectorIcon('ic_star_white_24dp')
@@ -311,11 +325,11 @@ Page {
             gradient: Gradient {
               GradientStop {
                 position: 0.0
-                color: "#4480cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
               }
               GradientStop {
                 position: 0.88
-                color: "#0580cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
               }
             }
 
@@ -328,6 +342,7 @@ Page {
 
             Text {
               Layout.margins: 6
+              Layout.topMargin: 12
               Layout.maximumWidth: collectionView.width - 12
               text: qsTr("Anonymized metrics collection has been disabled. You can re-enable through the settings panel.")
               font: Theme.defaultFont
@@ -346,11 +361,11 @@ Page {
             gradient: Gradient {
               GradientStop {
                 position: 0.0
-                color: "#4480cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
               }
               GradientStop {
                 position: 0.88
-                color: "#0580cc28"
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
               }
             }
 
@@ -363,6 +378,7 @@ Page {
 
             Text {
               Layout.margins: 6
+              Layout.topMargin: 12
               Layout.maximumWidth: collectionView.width - 12
               text: qsTr("To improve stability for everyone, QField collects and sends anonymized metrics.")
               font: Theme.defaultFont
@@ -376,6 +392,11 @@ Page {
               Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
               Layout.bottomMargin: 10
               QfButton {
+                topPadding: 8
+                bottomPadding: 8
+                leftPadding: 10
+                rightPadding: 10
+
                 text: qsTr('I agree')
 
                 onClicked: {
@@ -385,6 +406,11 @@ Page {
               }
 
               QfButton {
+                topPadding: 8
+                bottomPadding: 8
+                leftPadding: 10
+                rightPadding: 10
+
                 text: qsTr('I prefer not')
                 bgcolor: "transparent"
                 color: Theme.mainColor
@@ -444,6 +470,7 @@ Page {
             Layout.fillWidth: true
             text: qsTr("Open local file")
             onClicked: {
+              platformUtilities.requestStoragePermission();
               openLocalDataPicker();
             }
           }
@@ -741,6 +768,7 @@ Page {
           RowLayout {
             Layout.leftMargin: 10
             Layout.rightMargin: 10
+            Layout.bottomMargin: mainWindow.sceneBottomMargin
             Label {
               Layout.fillWidth: true
               Layout.alignment: Qt.AlignVCenter
@@ -776,34 +804,53 @@ Page {
     }
   }
 
-  QfToolButton {
-    id: currentProjectButton
-    visible: false
+  Column {
+    spacing: 4
     anchors {
       top: parent.top
       left: parent.left
-      topMargin: mainWindow.sceneTopMargin
+      topMargin: mainWindow.sceneTopMargin + 4
+      leftMargin: 4
     }
-    iconSource: Theme.getThemeVectorIcon('ic_chevron_left_white_24dp')
-    iconColor: Theme.mainTextColor
-    bgcolor: "transparent"
 
-    onClicked: {
-      welcomeScreen.visible = false;
-      welcomeScreen.focus = false;
+    QfActionButton {
+      id: currentProjectButton
+      toolImage: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
+      toolText: welcomeScreen.width > 420 ? qsTr('Return to map') : ""
+      visible: qgisProject && !!qgisProject.homePath
+      innerActionIcon.visible: false
+
+      onClicked: {
+        welcomeScreen.visible = false;
+      }
+    }
+
+    QfToolButton {
+      id: settingsButton
+      iconSource: Theme.getThemeVectorIcon('ic_tune_white_24dp')
+      iconColor: Theme.toolButtonColor
+      bgcolor: Theme.toolButtonBackgroundColor
+      round: true
+
+      onClicked: {
+        showSettings();
+      }
     }
   }
 
   QfToolButton {
     id: exitButton
-    visible: false
+    visible: qgisProject && !!qgisProject.homePath && (Qt.platform.os === "ios" || Qt.platform.os === "android" || mainWindow.sceneBorderless)
     anchors {
       top: parent.top
       right: parent.right
-      topMargin: mainWindow.sceneTopMargin
+      topMargin: mainWindow.sceneTopMargin + 4
+      rightMargin: 4
     }
     iconSource: Theme.getThemeVectorIcon('ic_shutdown_24dp')
-    iconColor: Theme.mainTextColor
+    iconColor: Theme.toolButtonColor
+    bgcolor: Theme.toolButtonBackgroundColor
+    round: true
 
     onClicked: {
       mainWindow.closeAlreadyRequested = true;
@@ -915,9 +962,6 @@ Page {
 
   function adjustWelcomeScreen() {
     if (visible) {
-      const currentProjectButtonVisible = !!qgisProject.fileName;
-      currentProjectButton.visible = currentProjectButtonVisible;
-      exitButton.visible = currentProjectButtonVisible && (Qt.platform.os === "ios" || Qt.platform.os === "android");
       if (firstShown) {
         welcomeText.text = " ";
       } else {
@@ -969,11 +1013,21 @@ Page {
 
   onVisibleChanged: {
     adjustWelcomeScreen();
-    focus = visible;
     if (!visible) {
       feedbackView.visible = false;
       collectionView.visible = false;
       firstShown = true;
+    }
+  }
+
+  Keys.onReleased: event => {
+    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+      if (qgisProject.fileName != '') {
+        event.accepted = true;
+        visible = false;
+      } else {
+        event.accepted = false;
+      }
     }
   }
 }

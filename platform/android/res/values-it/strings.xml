@@ -63,4 +63,5 @@
     <string name="import_operation_unsupported">Il tuo dispositivo non supporta questa operazione di importazione.</string>
     <string name="export_operation_unsupported">Il tuo dispositivo non supporta questa operazione di esportazione.</string>
     <string name="processing_message">Elaborazione...</string>
-</resources>
+    <string name="positioning_title">Posizione</string>
+    </resources>

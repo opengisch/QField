@@ -314,6 +314,7 @@ EditorWidgetBase {
 
       onClicked: {
         if (FileUtils.fileExists(prefixToRelativePath + value)) {
+          platformUtilities.requestStoragePermission();
           __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled, this);
         }
       }
@@ -327,8 +328,8 @@ EditorWidgetBase {
 
       round: true
       iconSource: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
-      iconColor: "white"
-      bgcolor: Theme.darkGraySemiOpaque
+      iconColor: Theme.toolButtonColor
+      bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
       onClicked: {
         sketcherConnection.enabled = true;
@@ -347,6 +348,10 @@ EditorWidgetBase {
         filepath = filepath.replace('{filename}', FileUtils.fileName(path));
         filepath = filepath.replace('{extension}', FileUtils.fileSuffix(path));
         platformUtilities.renameFile(path, prefixToRelativePath + filepath);
+
+        // In order to insure an edited image gets refreshed in the feature form, reset the source
+        image.source = '';
+        image.source = UrlUtils.fromString(prefixToRelativePath + filepath);
         valueChangeRequested(filepath, false);
         enabled = false;
       }
@@ -627,6 +632,7 @@ EditorWidgetBase {
 
   function attachFile() {
     Qt.inputMethod.hide();
+    platformUtilities.requestStoragePermission();
     var filepath = getResourceFilePath();
     if (documentViewer == document_AUDIO) {
       __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, PlatformUtilities.AudioFiles, this);
@@ -637,6 +643,7 @@ EditorWidgetBase {
 
   function attachGallery() {
     Qt.inputMethod.hide();
+    platformUtilities.requestStoragePermission();
     var filepath = getResourceFilePath();
     if (documentViewer == document_VIDEO) {
       __resourceSource = platformUtilities.getGalleryVideo(qgisProject.homePath + '/', filepath, this);

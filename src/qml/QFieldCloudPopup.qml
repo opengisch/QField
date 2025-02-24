@@ -66,6 +66,7 @@ Popup {
     }
 
     ScrollView {
+      visible: cloudProjectsModel.currentProjectId
       padding: 0
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
       ScrollBar.vertical: QfScrollBar {

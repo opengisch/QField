@@ -416,24 +416,44 @@ const QString FeatureHistory::undoMessage()
 
   int totalChanges = 0;
   QMap<QString, FeatureModifications> modifiedFeaturesByLayerId = mUndoHistory.last();
-
-  for ( const FeatureModifications &modifiedFeatures : modifiedFeaturesByLayerId.values() )
+  QStringList layerIds;
+  bool hasCreatedFeatures = false;
+  bool hasUpdatedFeatures = false;
+  bool hasDeletedFeatures = false;
+  for ( const QString &layerId : modifiedFeaturesByLayerId.keys() )
   {
+    if ( !layerIds.contains( layerId ) )
+    {
+      layerIds << layerId;
+    }
+
+    hasCreatedFeatures |= modifiedFeaturesByLayerId[layerId].createdFeatures.count() > 0;
+    hasUpdatedFeatures |= modifiedFeaturesByLayerId[layerId].updatedFeatures.count() > 0;
+    hasDeletedFeatures |= modifiedFeaturesByLayerId[layerId].deletedFeatures.count() > 0;
     // cppcheck-suppress useStlAlgorithm
-    totalChanges += modifiedFeatures.createdFeatures.count()
-                    + modifiedFeatures.updatedFeatures.count()
-                    + modifiedFeatures.deletedFeatures.count();
+    totalChanges += modifiedFeaturesByLayerId[layerId].createdFeatures.count()
+                    + modifiedFeaturesByLayerId[layerId].updatedFeatures.count()
+                    + modifiedFeaturesByLayerId[layerId].deletedFeatures.count();
   }
 
-  if ( totalChanges == 0 )
+  if ( totalChanges > 0 )
   {
-    return QString();
+    QgsVectorLayer *vl = layerIds.size() == 1 ? qobject_cast<QgsVectorLayer *>( mProject->mapLayer( layerIds.first() ) ) : nullptr;
+    if ( hasCreatedFeatures && !hasUpdatedFeatures && !hasDeletedFeatures )
+    {
+      return vl ? tr( "Undo creation of %n feature(s) on layer %1.", "", totalChanges ).arg( vl->name() ) : tr( "Undo creation of %n feature(s).", "", totalChanges );
+    }
+    else if ( !hasCreatedFeatures && !hasUpdatedFeatures && hasDeletedFeatures )
+    {
+      return vl ? tr( "Undo deletion of %n feature(s) on layer %1.", "", totalChanges ).arg( vl->name() ) : tr( "Undo deletion of %n feature(s).", "", totalChanges );
+    }
+    else
+    {
+      return vl ? tr( "Undo modifications on %n feature(s) on layer %1.", "", totalChanges ).arg( vl->name() ) : tr( "Undo modifications on %n feature(s).", "", totalChanges );
+    }
   }
-  else
-  {
-    // TODO show the display string of the first feature and say something like "Changed <feature> and N more"
-    return QStringLiteral( "Undo modifications on %1 feature(s)." ).arg( totalChanges );
-  }
+
+  return QString();
 }
 
 
@@ -446,22 +466,42 @@ const QString FeatureHistory::redoMessage()
 
   int totalChanges = 0;
   QMap<QString, FeatureModifications> modifiedFeaturesByLayerId = mRedoHistory.last();
-
-  for ( const FeatureModifications &modifiedFeatures : modifiedFeaturesByLayerId.values() )
+  QStringList layerIds;
+  bool hasCreatedFeatures = false;
+  bool hasUpdatedFeatures = false;
+  bool hasDeletedFeatures = false;
+  for ( const QString &layerId : modifiedFeaturesByLayerId.keys() )
   {
+    if ( !layerIds.contains( layerId ) )
+    {
+      layerIds << layerId;
+    }
+
+    hasCreatedFeatures |= modifiedFeaturesByLayerId[layerId].deletedFeatures.count() > 0;
+    hasUpdatedFeatures |= modifiedFeaturesByLayerId[layerId].updatedFeatures.count() > 0;
+    hasDeletedFeatures |= modifiedFeaturesByLayerId[layerId].createdFeatures.count() > 0;
     // cppcheck-suppress useStlAlgorithm
-    totalChanges += modifiedFeatures.createdFeatures.count()
-                    + modifiedFeatures.updatedFeatures.count()
-                    + modifiedFeatures.deletedFeatures.count();
+    totalChanges += modifiedFeaturesByLayerId[layerId].deletedFeatures.count()
+                    + modifiedFeaturesByLayerId[layerId].updatedFeatures.count()
+                    + modifiedFeaturesByLayerId[layerId].createdFeatures.count();
   }
 
-  if ( totalChanges == 0 )
+  if ( totalChanges > 0 )
   {
-    return QString();
+    QgsVectorLayer *vl = layerIds.size() == 1 ? qobject_cast<QgsVectorLayer *>( mProject->mapLayer( layerIds.first() ) ) : nullptr;
+    if ( hasCreatedFeatures && !hasUpdatedFeatures && !hasDeletedFeatures )
+    {
+      return vl ? tr( "Redo creation of %n feature(s) on layer %1", "", totalChanges ).arg( vl->name() ) : tr( "Redo creation of %n feature(s)", "", totalChanges );
+    }
+    else if ( !hasCreatedFeatures && !hasUpdatedFeatures && hasDeletedFeatures )
+    {
+      return vl ? tr( "Redo deletion of %n feature(s) on layer %1", "", totalChanges ).arg( vl->name() ) : tr( "Redo deletion of %n feature(s)", "", totalChanges );
+    }
+    else
+    {
+      return vl ? tr( "Redo modifications on %n feature(s) on layer %1", "", totalChanges ).arg( vl->name() ) : tr( "Redo modifications on %n feature(s)", "", totalChanges );
+    }
   }
-  else
-  {
-    // TODO show the display string of the first feature and say something like "Changed <feature> and N more"
-    return QStringLiteral( "Redo modifications on %1 feature(s)." ).arg( totalChanges );
-  }
+
+  return QString();
 }

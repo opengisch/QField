@@ -61,4 +61,10 @@ namespace qfield
 #define WITH_SENTRY @WITH_SENTRY@
 #define QGIS_PREFIX_PATH "@QGIS_PREFIX_PATH@"
 
+#define SUPPORTED_PROJECT_EXTENSIONS QStringList( { QStringLiteral( "qgs" ), QStringLiteral( "qgz" ) } )
+#define SUPPORTED_VECTOR_EXTENSIONS QStringList( { QStringLiteral( "gpkg" ), QStringLiteral( "shp" ), QStringLiteral( "kml" ), QStringLiteral( "kmz" ), QStringLiteral( "geojson" ), QStringLiteral( "json" ), QStringLiteral( "pdf" ), QStringLiteral( "gpx" ), QStringLiteral( "gml" ), QStringLiteral( "mif" ), QStringLiteral( "fgb" ), QStringLiteral( "db" ), QStringLiteral( "sqlite" ), QStringLiteral( "mbtiles" ), QStringLiteral( "vrt" ), QStringLiteral( "zip" ), QStringLiteral( "7z" ), QStringLiteral( "rar" ) } )
+#define SUPPORTED_RASTER_EXTENSIONS QStringList( { QStringLiteral( "tif" ), QStringLiteral( "tiff" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "jpeg" ), QStringLiteral( "png" ), QStringLiteral( "gpkg" ), QStringLiteral( "jp2" ), QStringLiteral( "webp" ), QStringLiteral( "mbtiles" ), QStringLiteral( "vrt" ), QStringLiteral( "zip" ), QStringLiteral( "7z" ) } )
+#define SUPPORTED_FILE_EXTENSIONS QStringList( { QStringLiteral( "log" ), QStringLiteral( "txt" ), QStringLiteral( "mp4" ), QStringLiteral( "m4a" ), QStringLiteral( "ogg" ), QStringLiteral( "mp3" ) } )
+#define SUPPORTED_DATASET_THUMBNAIL QStringList( { QStringLiteral( "zip" ), QStringLiteral( "tif" ), QStringLiteral( "tiff" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "jpeg" ), QStringLiteral( "png" ), QStringLiteral( "jp2" ), QStringLiteral( "webp" ) } )
+
 #endif // QFIELD_H

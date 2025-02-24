@@ -63,4 +63,7 @@
     <string name="import_operation_unsupported">Su dispositivo no soporta esta operación de importación</string>
     <string name="export_operation_unsupported">Su dispositivo no soporta esta operación de exportación</string>
     <string name="processing_message">Procesando...</string>
+    <string name="positioning_title">Posicionamiento</string>
+    <string name="positioning_running">Servicio de posicionamiento en ejecución</string>
+    <string name="copy_to_clipboard">Copiar al portapapeles</string>
 </resources>

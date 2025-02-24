@@ -52,4 +52,5 @@
     <string name="operation_unsupported">Eragiketa ez da onartzen</string>
     <string name="import_operation_unsupported">Zure gailuak ez du inportazio-eragiketa hau onartzen.</string>
     <string name="export_operation_unsupported">Zure gailuak ez du esportazio-eragiketa hau onartzen</string>
+    <string name="positioning_title">Lokalizazioa</string>
     </resources>

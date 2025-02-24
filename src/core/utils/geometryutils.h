@@ -100,11 +100,20 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
     //! Returns an empty (i.e. null) point.
     static Q_INVOKABLE QgsPoint emptyPoint() { return QgsPoint(); }
 
-    //! Creates a point from \a x and \a y.
-    static Q_INVOKABLE QgsPoint point( double x, double y ) { return QgsPoint( x, y ); }
+    //! Creates a point from \a x and \a y with optional \a z and \a values
+    static Q_INVOKABLE QgsPoint point( double x, double y, double z = std::numeric_limits<double>::quiet_NaN(), double m = std::numeric_limits<double>::quiet_NaN() ) { return QgsPoint( x, y, z, m ); }
+
+    //! Creates a centroid point from a given \a geometry.
+    static Q_INVOKABLE QgsPoint centroid( const QgsGeometry &geometry );
 
     //! Creates a geometry from a WKT string.
     static Q_INVOKABLE QgsGeometry createGeometryFromWkt( const QString &wkt );
+
+    //! Returns the bounding box of a given \a geometry.
+    static Q_INVOKABLE QgsRectangle boundingBox( const QgsGeometry &geometry ) { return geometry.boundingBox(); }
+
+    //! Returns a reprojected \a rectangle from the stated \a sourceCrs to a \a destinationCrs.
+    static Q_INVOKABLE QgsRectangle reprojectRectangle( const QgsRectangle &rectangle, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs );
 };
 
 #endif // GEOMETRYUTILS_H

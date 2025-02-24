@@ -24,7 +24,8 @@
 #endif
 
 #if defined( Q_OS_ANDROID )
-#include "qfieldservice.h"
+#include "qfieldcloudservice.h"
+#include "qfieldpositioningservice.h"
 #endif
 
 #include <qgsapplication.h>
@@ -74,18 +75,31 @@ void initGraphics()
 
 int main( int argc, char **argv )
 {
-  if ( argc > 1 && strcmp( argv[1], "--service" ) == 0 )
-  {
-    QCoreApplication::setOrganizationName( "OPENGIS.ch" );
-    QCoreApplication::setOrganizationDomain( "opengis.ch" );
-    QCoreApplication::setApplicationName( qfield::appName );
-
 #if defined( Q_OS_ANDROID )
-    // For now the service only deals with background attachment uploads and will terminate once all uploads are done
-    QFieldService app( argc, argv );
-#endif
-    return 0;
+  if ( argc > 1 )
+  {
+    if ( strcmp( argv[1], "--cloudservice" ) == 0 )
+    {
+      QCoreApplication::setOrganizationName( "OPENGIS.ch" );
+      QCoreApplication::setOrganizationDomain( "opengis.ch" );
+      QCoreApplication::setApplicationName( qfield::appName );
+
+      // This service only deals with background attachment uploads;
+      // it will terminate once all uploads are done
+      QFieldCloudService app( argc, argv );
+      return 0;
+    }
+    else if ( strcmp( argv[1], "--positioningservice" ) == 0 )
+    {
+      QCoreApplication::setOrganizationName( "OPENGIS.ch" );
+      QCoreApplication::setOrganizationDomain( "opengis.ch" );
+      QCoreApplication::setApplicationName( qfield::appName );
+
+      QFieldPositioningService app( argc, argv );
+      return app.exec();
+    }
   }
+#endif
 
   initGraphics();
 
@@ -187,6 +201,60 @@ int main( int argc, char **argv )
     delete[] newPaths;
   }
 
+#if defined( Q_OS_ANDROID ) || defined( Q_OS_IOS )
+  for ( const QString &dataDir : dataDirs )
+  {
+    const QFileInfo pgServiceFileInfo( QStringLiteral( "%1/pg_service.conf" ).arg( dataDir ) );
+    if ( pgServiceFileInfo.exists() && pgServiceFileInfo.isReadable() )
+    {
+      const QString systemLocalDataPath = platformUtils->systemLocalDataLocation( QString() );
+
+      QFile pgServiceFile( QStringLiteral( "%1/pg_service.conf" ).arg( dataDir ) );
+      pgServiceFile.open( QFile::ReadOnly | QFile::Text );
+      QTextStream textStream( &pgServiceFile );
+      QString psServiceFileContent = textStream.readAll();
+      pgServiceFile.close();
+
+      const QStringList keys = QStringList() << QStringLiteral( "sslrootcert" ) << QStringLiteral( "sslcert" ) << QStringLiteral( "sslkey" );
+      for ( const QString &key : keys )
+      {
+        const QRegularExpression rx( QStringLiteral( "%1=(.*)" ).arg( key ) );
+        QRegularExpressionMatchIterator matchIt = rx.globalMatch( psServiceFileContent );
+        while ( matchIt.hasNext() )
+        {
+          const QRegularExpressionMatch match = matchIt.next();
+          const QString fileName = match.captured( 1 ).trimmed();
+
+          // Check if the file is relative to the pg_service.conf, in which case copy to user-owned location, use absolute path, and change permissions
+          const QString filePath = QStringLiteral( "%1/%2" ).arg( dataDir, fileName );
+          const QFileInfo fileInfo( filePath );
+          if ( QFileInfo::exists( filePath ) )
+          {
+            const QString newFilePath = QStringLiteral( "%1/%2" ).arg( systemLocalDataPath, fileName );
+            if ( QFileInfo::exists( newFilePath ) )
+            {
+              QFile newFile( newFilePath );
+              newFile.remove();
+            }
+            QFile::copy( filePath, newFilePath );
+            QFile::setPermissions( newFilePath, QFileDevice::ReadOwner | QFileDevice::WriteOwner );
+            psServiceFileContent.replace( QStringLiteral( "%1=%2" ).arg( key, match.captured( 1 ) ), QStringLiteral( "%1=%2" ).arg( key, newFilePath ) );
+          }
+        }
+      }
+
+      const QString localPgServiceFileName = QStringLiteral( "%1/pg_service.conf" ).arg( systemLocalDataPath );
+      QFile localPgServiceFile( localPgServiceFileName );
+      localPgServiceFile.open( QFile::WriteOnly );
+      localPgServiceFile.write( psServiceFileContent.toUtf8() );
+      localPgServiceFile.close();
+
+      setenv( "PGSYSCONFDIR", systemLocalDataPath.toUtf8(), true );
+      break;
+    }
+  }
+#endif
+
 #if WITH_SENTRY
   sentry_wrapper::install_message_handler();
 #endif
@@ -218,6 +286,7 @@ int main( int argc, char **argv )
   app.installTranslator( &qfieldTranslator );
 
   qputenv( "QT_QUICK_CONTROLS_STYLE", QByteArray( "Material" ) );
+  qputenv( "QT_QUICK_CONTROLS_MATERIAL_VARIANT", QByteArray( "Dense" ) );
 
   QgisMobileapp mApp( &app );
 

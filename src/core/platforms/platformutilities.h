@@ -47,7 +47,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
       NativeCamera = 1,                   //!< Native camera handling support
       AdjustBrightness = 1 << 1,          //!< Screen brightness adjustment support
       SentryFramework = 1 << 2,           //!< Sentry framework support
-      CustomLocalDataPicker = 1 << 3,     //!< Custom QML local data picker support
+      NativeLocalDataPicker = 1 << 3,     //!< Native local data picker support
       CustomImport = 1 << 4,              //!< Import project and dataset support
       CustomExport = 1 << 5,              //!< Export project and dataset support
       CustomSend = 1 << 6,                //!< Send/share files support
@@ -92,7 +92,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      *          this includes local qfieldcloud data or sample projects.
      *          A \a subDir is appended to the path.
      */
-    virtual QString systemLocalDataLocation( const QString &subDir ) const;
+    virtual QString systemLocalDataLocation( const QString &subDir = QString() ) const;
 
     /**
      * Returns TRUE is a project file has been provided and should be opened at launch.
@@ -116,13 +116,13 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     // TODO: move these functions to fileutils. Make sure to adjust any qml code relying on this.
     Q_INVOKABLE bool createDir( const QString &path, const QString &dirname ) const;
     Q_INVOKABLE bool rmFile( const QString &filename ) const;
-    Q_INVOKABLE bool renameFile( const QString &filename, const QString &newname ) const;
+    Q_INVOKABLE bool renameFile( const QString &oldFilePath, const QString &newFilePath, bool overwrite = true ) const;
 
 
     /**
      * The main application directory within which projects and datasets can be imported.
      */
-    virtual QString applicationDirectory() const;
+    Q_INVOKABLE virtual QString applicationDirectory() const;
 
     /**
      * Secondary application directories which can be used by individual platforms.
@@ -248,14 +248,6 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_DECL_DEPRECATED Q_INVOKABLE virtual bool checkMicrophonePermissions() const;
 
     /**
-     * Checks for permissions to write exeternal storage.
-     * If the permissions are not given, the user will be asked to grant
-     * permissions.
-     * \deprecated Since QField 3.1
-     */
-    Q_DECL_DEPRECATED Q_INVOKABLE virtual bool checkWriteExternalStoragePermissions() const;
-
-    /**
      * Sets whether the device screen is allowed to go in lock mode.
      * @param allowLock if set to FALSE, the screen will not be allowed to lock.
      */
@@ -311,12 +303,25 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual void vibrate( int milliseconds ) const { Q_UNUSED( milliseconds ) }
 
-    static PlatformUtilities *instance();
 
+    /**
+     * Starts a positioning service on supported platforms.
+     */
+    virtual void startPositioningService() const {}
+
+    /**
+     * Starts a positioning service on supported platforms.
+     */
+    virtual void stopPositioningService() const {}
+
+    Q_INVOKABLE virtual void requestStoragePermission() const {};
     virtual Qt::PermissionStatus checkCameraPermission() const;
     virtual void requestCameraPermission( std::function<void( Qt::PermissionStatus )> func );
     virtual Qt::PermissionStatus checkMicrophonePermission() const;
     virtual void requestMicrophonePermission( std::function<void( Qt::PermissionStatus )> func );
+    virtual void requestBackgroundPositioningPermissions() {};
+
+    static PlatformUtilities *instance();
 
   signals:
     //! Emitted when a resource has been received.

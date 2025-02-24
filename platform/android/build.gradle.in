@@ -13,9 +13,11 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.2.2'
+        classpath 'com.android.tools.build:gradle:8.6.1'
     }
 }
+
+apply plugin: 'com.android.application'
 
 allprojects {
     repositories {
@@ -29,8 +31,6 @@ allprojects {
         }
     }
 }
-
-apply plugin: 'com.android.application'
 
 def outputPathName = "some.apk"
 
@@ -109,5 +109,5 @@ android {
 
 // Add Sentry's SDK as a dependency.
 dependencies {
-    implementation 'io.sentry:sentry-android:7.14.0'
+    implementation 'io.sentry:sentry-android:7.19.1'
 }

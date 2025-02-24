@@ -25,6 +25,7 @@ set(QFIELD_CORE_SRCS
     locator/finlandlocatorfilter.cpp
     locator/gotolocatorfilter.cpp
     locator/helplocatorfilter.cpp
+    locator/qfieldlocatorfilter.cpp
     locator/locatormodelsuperbridge.cpp
     positioning/abstractgnssreceiver.cpp
     positioning/gnsspositioninformation.cpp
@@ -34,6 +35,7 @@ set(QFIELD_CORE_SRCS
     positioning/tcpreceiver.cpp
     positioning/udpreceiver.cpp
     positioning/positioning.cpp
+    positioning/positioningsource.cpp
     positioning/positioningdevicemodel.cpp
     positioning/geofencer.cpp
     positioning/positioninginformationmodel.cpp
@@ -117,7 +119,8 @@ set(QFIELD_CORE_SRCS
     valuemapmodel.cpp
     valuemapmodelbase.cpp
     vertexmodel.cpp
-    viewstatus.cpp)
+    viewstatus.cpp
+    webdavconnection.cpp)
 
 set(QFIELD_CORE_HDRS
     platforms/platformutilities.h
@@ -146,10 +149,12 @@ set(QFIELD_CORE_HDRS
     locator/finlandlocatorfilter.h
     locator/gotolocatorfilter.h
     locator/helplocatorfilter.h
+    locator/qfieldlocatorfilter.h
     locator/locatormodelsuperbridge.h
     positioning/abstractgnssreceiver.h
     positioning/gnsspositioninformation.h
     positioning/positioning.h
+    positioning/positioningsource.h
     positioning/positioningdevicemodel.h
     positioning/internalgnssreceiver.h
     positioning/nmeagnssreceiver.h
@@ -240,6 +245,7 @@ set(QFIELD_CORE_HDRS
     valuemapmodelbase.h
     vertexmodel.h
     viewstatus.h
+    webdavconnection.h
     ${CMAKE_CURRENT_BINARY_DIR}/qfield.h)
 
 list(APPEND QFIELD_CORE_SRCS permissions.cpp)
@@ -284,6 +290,7 @@ endif()
 
 find_package(SQLite3 REQUIRED)
 find_package(ZXing REQUIRED)
+find_package(QtWebDAV REQUIRED)
 
 add_library(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 
@@ -353,6 +360,7 @@ target_link_libraries(
          Qt::Concurrent
          Qt::WebView
          Qt::Multimedia
+         Qt::RemoteObjects
          Qt::WebSockets
          Qt::Quick3D
          QGIS::Core
@@ -362,7 +370,8 @@ target_link_libraries(
          GDAL::GDAL
          SQLite::SQLite3
          Qca::qca
-         libzip::zip)
+         libzip::zip
+         QtWebDAV::QtWebDAV)
 
 if(WITH_BLUETOOTH)
   find_package(
@@ -394,6 +403,26 @@ endif()
 
 if(TARGET Qt::PrintSupport)
   target_link_libraries(qfield_core PUBLIC Qt::PrintSupport)
+endif()
+
+if(MSVC)
+  find_package(FFMPEG REQUIRED)
+  find_library(AVCODEC_LIBRARY avcodec)
+  find_library(AVDEVICE_LIBRARY avdevice)
+  find_library(AVFORMAT_LIBRARY avformat)
+  find_library(AVUTIL_LIBRARY avutil)
+  find_library(SWRESAMPLE_LIBRARY swresample)
+  find_library(SWSCALE_LIBRARY swscale)
+  find_library(OPENH264_LIBRARY openh264)
+  target_link_libraries(
+    qfield_core
+    PUBLIC ${AVCODEC_LIBRARY}
+           ${AVDEVICE_LIBRARY}
+           ${AVFORMAT_LIBRARY}
+           ${AVUTIL_LIBRARY}
+           ${SWRESAMPLE_LIBRARY}
+           ${SWSCALE_LIBRARY}
+           ${OPENH264_LIBRARY})
 endif()
 
 install(FILES ${QFIELD_CORE_HDRS} DESTINATION ${QFIELD_INCLUDE_DIR})

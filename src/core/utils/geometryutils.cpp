@@ -230,6 +230,16 @@ QgsPoint GeometryUtils::reprojectPointToWgs84( const QgsPoint &point, const QgsC
                    point.isMeasure() ? point.m() : std::numeric_limits<double>::quiet_NaN() );
 }
 
+QgsPoint GeometryUtils::centroid( const QgsGeometry &geometry )
+{
+  const QgsGeometry centroid = geometry.centroid();
+  if ( !centroid.isEmpty() )
+  {
+    return QgsPoint( *static_cast<const QgsPoint *>( centroid.constGet() ) );
+  }
+  return QgsPoint();
+}
+
 QgsPoint GeometryUtils::reprojectPoint( const QgsPoint &point, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs )
 {
   if ( sourceCrs == destinationCrs )
@@ -252,6 +262,26 @@ QgsPoint GeometryUtils::reprojectPoint( const QgsPoint &point, const QgsCoordina
                    point.is3D() ? point.z() : std::numeric_limits<double>::quiet_NaN(),
                    point.isMeasure() ? point.m() : std::numeric_limits<double>::quiet_NaN() );
 }
+
+QgsRectangle GeometryUtils::reprojectRectangle( const QgsRectangle &rectangle, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs )
+{
+  if ( sourceCrs == destinationCrs )
+    return rectangle;
+
+  const QgsCoordinateTransform ct( sourceCrs, destinationCrs, QgsProject::instance() );
+  QgsRectangle reprojectedRectangle;
+  try
+  {
+    reprojectedRectangle = ct.transform( rectangle );
+  }
+  catch ( QgsCsException & )
+  {
+    return QgsRectangle();
+  }
+
+  return reprojectedRectangle;
+}
+
 QgsGeometry GeometryUtils::createGeometryFromWkt( const QString &wkt )
 {
   return QgsGeometry::fromWkt( wkt );

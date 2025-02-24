@@ -57,14 +57,6 @@
       "default-features": false
     },
     {
-      "name": "qtbase",
-      "default-features": false,
-      "features": [
-        "gles3"
-      ],
-      "platform": "!windows & !osx & !android"
-    },
-    {
       "name": "qtcharts",
       "features": [
         "qml"
@@ -85,6 +77,7 @@
       ]
     },
     "qtquick3d",
+    "qtremoteobjects",
     {
       "name": "qtsensors",
       "features": [
@@ -100,6 +93,7 @@
       "host": true,
       "default-features": false
     },
+    "qtwebdav",
     {
       "name": "qtwebsockets",
       "features": [
@@ -115,6 +109,15 @@
       "name": "sentry-native",
       "platform": "!android & !ios & !osx"
     },
-    "spix-qt6"
+    "spix-qt6",
+    {
+      "name": "tiff",
+      "features": [
+        "lerc",
+        "libdeflate",
+        "webp",
+        "zstd"
+      ]
+    }
   ]
 }

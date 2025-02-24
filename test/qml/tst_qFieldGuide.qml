@@ -46,20 +46,20 @@ TestCase {
       id: testTour
       baseRoot: dummyParent
       steps: [{
-          "title": qsTr("dummyItem1"),
-          "description": qsTr("dummyItem1 responsibility."),
+          "title": "dummyItem1",
+          "description": "dummyItem1 responsibility.",
           "target": () => [dummyItem1]
         }, {
-          "title": qsTr("dummyItem2"),
-          "description": qsTr("dummyItem2 responsibility."),
+          "title": "dummyItem2",
+          "description": "dummyItem2 responsibility.",
           "target": () => [dummyItem2]
         }, {
-          "title": qsTr("dummyItem3"),
-          "description": qsTr("dummyItem3 responsibility."),
+          "title": "dummyItem3",
+          "description": "dummyItem3 responsibility.",
           "target": () => [dummyItem3]
         }, {
-          "title": qsTr("dummyItem4"),
-          "description": qsTr("dummyItem4 responsibility."),
+          "title": "dummyItem4",
+          "description": "dummyItem4 responsibility.",
           "target": () => [dummyItem4]
         }]
     }

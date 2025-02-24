@@ -26,7 +26,6 @@ ListView {
   function openProperties(index) {
     itemProperties.index = legend.model.index(index, 0);
     itemProperties.open();
-    itemProperties.forceActiveFocus();
   }
 
   delegate: Rectangle {
@@ -101,7 +100,7 @@ ListView {
             width: height
             anchors.centerIn: parent
             iconSource: Theme.getThemeVectorIcon('ic_legend_collapsed_state_24dp')
-            iconColor: isSelectedLayer ? "white" : Theme.mainTextColor
+            iconColor: isSelectedLayer ? Theme.mainOverlayColor : Theme.mainTextColor
             bgcolor: "transparent"
             visible: HasChildren
             enabled: HasChildren
@@ -147,7 +146,7 @@ ListView {
             opacity: Visible ? 1 : 0.25
             anchors.centerIn: parent
             iconSource: !Visible ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
-            iconColor: isSelectedLayer ? "white" : Theme.mainTextColor
+            iconColor: isSelectedLayer ? Theme.mainOverlayColor : Theme.mainTextColor
             bgcolor: "transparent"
             visible: HasSpatialExtent
             enabled: (allowActiveLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
@@ -225,7 +224,7 @@ ListView {
           opacity: Visible ? 1 : 0.25
           color: {
             if (isSelectedLayer)
-              return Theme.light;
+              return Theme.mainOverlayColor;
             else if (IsValid)
               return Theme.mainTextColor;
             else
@@ -248,7 +247,12 @@ ListView {
           icon.color: Theme.mainTextColor
 
           onClicked: {
-            displayToast(qsTr('This layer is is currently tracking the device position.'));
+            displayToast(qsTr('This layer is is currently tracking positions.'), 'info', qsTr('Stop'), function () {
+                if (trackingModel.layerInTracking(VectorLayerPointer)) {
+                  trackingModel.stopTracker(VectorLayerPointer);
+                  displayToast(qsTr('Track on layer %1 stopped').arg(VectorLayerPointer.name));
+                }
+              });
           }
 
           SequentialAnimation on bgcolor  {
@@ -339,7 +343,5 @@ ListView {
   LayerTreeItemProperties {
     id: itemProperties
     layerTree: legend.model
-    modal: true
-    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
   }
 }

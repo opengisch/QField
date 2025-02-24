@@ -328,10 +328,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>Unknown error</source>
         <translation type="vanished">Tuntematon virhe</translation>
     </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>Bluetoothin käyttöoikeus estetty</translation>
-    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -352,7 +348,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation>Väri</translation>
+        <translation type="vanished">Väri</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
@@ -509,8 +505,8 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <translation>Karttateema</translation>
     </message>
     <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>Lopeta tai hylkää digitointi ennen kuin siirryt selaustilaan</translation>
+        <source>Project Folder</source>
+        <translation>Projektihakemisto</translation>
     </message>
 </context>
 <context>
@@ -813,6 +809,54 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
         <translation>Kohteiden muutosten palautus tasolla &quot;% 1&quot; epäonnistui</translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -1144,13 +1188,6 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
 </context>
 <context>
-    <name>InternalGnssReceiver</name>
-    <message>
-        <source>Location permission denied</source>
-        <translation>Kohteen käyttöoikeus estetty</translation>
-    </message>
-</context>
-<context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
@@ -1327,10 +1364,6 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
 <context>
     <name>Legend</name>
     <message>
-        <source>This layer is is currently tracking the device position.</source>
-        <translation>Tämä taso seuraa laiteesi sijaintia</translation>
-    </message>
-    <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Taso ei ole kelvollinen. Tämä voi johtua yhteysongelmasta, puuttuvasta tiedostosta tai virheellisestä projektista.</translation>
     </message>
@@ -1341,6 +1374,18 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation>Tämä taso on konfiguroitu &quot;lukittu-geometria&quot;-muotoon, mikä estää kohteiden lisäyksen, poistamisen ja olemassa olevien kohteiden geometrioiden muokkauksen.</translation>
+    </message>
+    <message>
+        <source>This layer is is currently tracking positions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>Stop</translation>
+    </message>
+    <message>
+        <source>Track on layer %1 stopped</source>
+        <translation>Jäljitys %1 tasolla keskeytetty</translation>
     </message>
 </context>
 <context>
@@ -1639,6 +1684,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <source>Process Selected Feature(s)</source>
         <translation>Aja prosessi valitu(i)lle kohteelle/kohteille</translation>
     </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation>Käännä kohdetta</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
@@ -1681,13 +1730,6 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Bearing</source>
         <translation>Suuntima</translation>
-    </message>
-</context>
-<context>
-    <name>NmeaGnssReceiver</name>
-    <message>
-        <source>Could not parse the IMU position: %1,%2,%3</source>
-        <translation>Ei voitu jäsentää IMU sijaintia: %1,%2,%3</translation>
     </message>
 </context>
 <context>
@@ -1797,6 +1839,18 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
         <translation>Äänitiedostot (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
+    </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>Poiston vahvistus</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1959,15 +2013,15 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Name:</source>
-        <translation>Nimi:</translation>
+        <translation type="vanished">Nimi:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation>Jätä tyhjäksi automaattiselle täytölle</translation>
+        <translation type="vanished">Jätä tyhjäksi automaattiselle täytölle</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation>Yhteystyyppi:</translation>
+        <translation type="vanished">Yhteystyyppi:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -1992,6 +2046,22 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Egeniouss</source>
         <translation>Nerokas</translation>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nimi</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2164,7 +2234,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>QFieldAppAuthRequestHandler</name>
     <message>
         <source>Please enter credentials for database</source>
-        <translation type="unfinished"/>
+        <translation>Syötä tietokannan pääsytiedot</translation>
     </message>
     <message>
         <source>at host</source>
@@ -2368,6 +2438,10 @@ syy: %2</translation>
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Lue lisää QFieldCloudista</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -2756,11 +2830,11 @@ syy: %2</translation>
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Omat projektini</translation>
+        <translation>Omat projektini</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">Yhteisö</translation>
+        <translation>Yhteisö</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -2958,7 +3032,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation>Poista projektihakemisto</translation>
+        <translation type="vanished">Poista projektihakemisto</translation>
     </message>
     <message>
         <source>Import project from folder</source>
@@ -3001,10 +3075,6 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
         <translation>Päivitä projekti ZIP-tiedostosta.</translation>
     </message>
     <message>
-        <source>Push to QFieldCloud...</source>
-        <translation>Aja muutokset QFieldCloudiin...</translation>
-    </message>
-    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>‘%1’ on ladattu QFieldCloud</translation>
     </message>
@@ -3019,6 +3089,133 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     <message>
         <source>Files</source>
         <translation>Tiedostot</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation>Salasana (jätä tyhjäksi käyttääksesi muistissa olevaa)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Salasana</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation>Muista salasana</translation>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation>WebDAV palvelin URL</translation>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation>Valitse tuotava etähakemisto:</translation>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation>Haetaan etähakemistoja</translation>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation>Hae etähakemistot</translation>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>(root folder)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported and available locally</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QFieldPositioningService</name>
+    <message>
+        <source>Positioning service running</source>
+        <translation>Sijaintipalvelut käynnissä</translation>
+    </message>
+    <message>
+        <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
+        <translation>Latitudi %1 | Longitudi %2 | Korkeus %3 m | Nopeus %4 m/s | Suunta %5°</translation>
     </message>
 </context>
 <context>
@@ -3553,6 +3750,13 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
 </context>
 <context>
+    <name>QfActionButton</name>
+    <message>
+        <source>close</source>
+        <translation>sulje</translation>
+    </message>
+</context>
+<context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
@@ -3575,7 +3779,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation>sulje</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3618,6 +3822,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation>Projektia ei voitu lukea, tiedostoa &quot;%1&quot; ei ole olemassa</translation>
+    </message>
+    <message>
+        <source>Map printed on %1 using QField</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3810,11 +4018,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Osoite:</translation>
+        <translation type="vanished">Osoite:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Portti:</translation>
+        <translation type="vanished">Portti:</translation>
+    </message>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4183,11 +4399,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation>Osoite:</translation>
+        <translation type="vanished">Osoite:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Portti:</translation>
+        <translation type="vanished">Portti:</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4271,6 +4495,17 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Failed to save feature!</source>
         <translation type="vanished">Kohteen tallennus epäonnistui!</translation>
+    </message>
+</context>
+<context>
+    <name>WebdavConnection</name>
+    <message>
+        <source>Failed to download file %1 due to network error (%2)</source>
+        <translation>Tiedoston lataus %1 epäonnistui verkkovirheen vuoksi (%2)</translation>
+    </message>
+    <message>
+        <source>Failed to upload file %1 due to network error (%2)</source>
+        <translation>Tiedoston lähetys %1 epäonnistui verkkovirheen vuoksi (%2)</translation>
     </message>
 </context>
 <context>
@@ -4382,6 +4617,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>Hienoa! Meistä olisi mukavaa jos klikkaisit alla olevaa nappia ja jättäisit arvostelun.</translation>
+    </message>
+    <message>
+        <source>Return to map</source>
+        <translation>Palaa kartalle</translation>
     </message>
 </context>
 <context>
@@ -4569,11 +4808,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Received position</source>
-        <translation>Saatiin sijainti</translation>
+        <translation type="vanished">Saatiin sijainti</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation>Haetaan sijaintia</translation>
+        <translation type="vanished">Haetaan sijaintia</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
@@ -4613,7 +4852,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation>Tulosta PDF:ksi</translation>
+        <translation type="vanished">Tulosta PDF:ksi</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
@@ -4916,16 +5155,8 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <translation>Relatiivinen kulma</translation>
     </message>
     <message>
-        <source>Snap every %1°</source>
-        <translation>Tartu jokaiseen %1°</translation>
-    </message>
-    <message>
         <source>Canvas follows location and compass orientation</source>
         <translation>Karttapohja seuraa sijaintia ja kompassin suuntaa</translation>
-    </message>
-    <message>
-        <source>No print layout available</source>
-        <translation>Tulosteen asettelua ei käytettävissä</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -4941,7 +5172,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Projektihakemisto</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -4986,10 +5217,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Import URL failed</source>
         <translation>Tuonti URL:ista epäonnistui</translation>
-    </message>
-    <message>
-        <source>Unlock the screen to to close project and app</source>
-        <translation>Avaa näytön lukitus sulkeaksesi projektin ja sovelluksen</translation>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
@@ -5057,10 +5284,66 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
-        <translation type="unfinished"/>
+        <translation>Peruuta algoritmitoiminto</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
+        <translation>Olet hylkäämässä käynnissä olevan algoritmioperaation, jatketaanko?</translation>
+    </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation>Avaa näytön lukitus sulkeaksesi projektin ja sovelluksen</translation>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation>Reunaton tila aktivoitu, käytä vasenta yläkulmaa ja oikeaa alakulmaa ikkunan siirtämiseen ja koon muuttamiseen</translation>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation>Lopeta tai hylkää digitointi ennen kuin siirryt selaustilaan</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation>Kumoa</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation>Tee uudelleen</translation>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normaali</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Iso</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance set to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5109,41 +5392,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Ensure contraints are met</source>
         <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>tst_qFieldGuide</name>
-    <message>
-        <source>dummyItem1</source>
-        <translation>dummyItem1</translation>
-    </message>
-    <message>
-        <source>dummyItem1 responsibility.</source>
-        <translation>dummyItem1 responsibility.</translation>
-    </message>
-    <message>
-        <source>dummyItem2</source>
-        <translation>dummyItem2</translation>
-    </message>
-    <message>
-        <source>dummyItem2 responsibility.</source>
-        <translation>dummyItem2 responsibility.</translation>
-    </message>
-    <message>
-        <source>dummyItem3</source>
-        <translation>dummyItem3</translation>
-    </message>
-    <message>
-        <source>dummyItem3 responsibility.</source>
-        <translation>dummyItem3 responsibility.</translation>
-    </message>
-    <message>
-        <source>dummyItem4</source>
-        <translation>dummyItem4</translation>
-    </message>
-    <message>
-        <source>dummyItem4 responsibility.</source>
-        <translation>dummyItem4 responsibility.</translation>
     </message>
 </context>
 </TS>

@@ -26,6 +26,13 @@ Page {
   property alias enableInfoCollection: registry.enableInfoCollection
   property alias enableMapRotation: registry.enableMapRotation
   property alias quality: registry.quality
+  property alias snapToCommonAngleIsEnabled: registry.snapToCommonAngleIsEnabled
+  property alias snapToCommonAngleIsRelative: registry.snapToCommonAngleIsRelative
+  property alias snapToCommonAngleDegrees: registry.snapToCommonAngleDegrees
+  property alias snapToCommonAngleTolerance: registry.snapToCommonAngleTolerance
+
+  visible: false
+  focus: visible
 
   Component.onCompleted: {
     if (settings.valueBool('nativeCameraLaunched', false)) {
@@ -53,6 +60,11 @@ Page {
     property bool enableInfoCollection: true
     property bool enableMapRotation: true
     property double quality: 1.0
+
+    property bool snapToCommonAngleIsEnabled: false
+    property bool snapToCommonAngleIsRelative: true
+    property double snapToCommonAngleDegrees: 45.0// = settings.valueInt("/QField/Digitizing/SnapToCommonAngleDegrees", 45);
+    property int snapToCommonAngleTolerance: 1// = settings.valueInt("/QField/Digitizing/SnappingTolerance", 1);
 
     onEnableInfoCollectionChanged: {
       if (enableInfoCollection) {
@@ -503,7 +515,6 @@ Page {
 
                 onClicked: {
                   pluginManagerSettings.open();
-                  pluginManagerSettings.focus = true;
                 }
               }
             }
@@ -989,7 +1000,7 @@ Page {
                 Layout.columnSpan: 2
                 Layout.topMargin: 5
                 text: {
-                  switch (positionSource.device.socketState) {
+                  switch (positionSource.deviceSocketState) {
                   case QAbstractSocket.ConnectedState:
                   case QAbstractSocket.BoundState:
                     return qsTr('Connected to %1').arg(positioningSettings.positioningDeviceName);
@@ -999,7 +1010,7 @@ Page {
                     return qsTr('Connecting to %1').arg(positioningSettings.positioningDeviceName);
                   }
                 }
-                enabled: positionSource.device.socketState === QAbstractSocket.UnconnectedState
+                enabled: positionSource.deviceSocketState === QAbstractSocket.UnconnectedState
                 visible: positionSource.deviceId !== ''
 
                 onClicked: {
@@ -1007,7 +1018,7 @@ Page {
                   if (!positioningSettings.positioningActivated) {
                     positioningSettings.positioningActivated = true;
                   } else {
-                    positionSource.device.connectDevice();
+                    positionSource.triggerConnectDevice();
                   }
                 }
               }
@@ -1514,7 +1525,7 @@ Page {
                       "text": qsTr("None"),
                       "value": Positioning.ElevationCorrectionMode.None
                     });
-                  if (positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude)
+                  if (positionSource.deviceCapabilities & AbstractGnssReceiver.OrthometricAltitude)
                     verticalGridShiftComboBox.model.append({
                         "text": qsTr("Orthometric from device"),
                         "value": Positioning.ElevationCorrectionMode.OrthometricFromDevice
@@ -1531,7 +1542,7 @@ Page {
                     verticalGridShiftComboBox.currentIndex = indexOfValue(positioningSettings.elevationCorrectionMode);
                     positioningSettings.verticalGrid = "";
                   } else if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromDevice) {
-                    if (positionSource.device.capabilities() & AbstractGnssReceiver.OrthometricAltitude)
+                    if (positionSource.deviceCapabilities & AbstractGnssReceiver.OrthometricAltitude)
                       verticalGridShiftComboBox.currentIndex = verticalGridShiftComboBox.indexOfValue(positioningSettings.elevationCorrectionMode);
                     else
                       // Orthometric not available -> fallback to None
@@ -1572,7 +1583,7 @@ Page {
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
-                visible: positionSource.device.capabilities() & AbstractGnssReceiver.Logging
+                visible: positionSource.deviceCapabilities & AbstractGnssReceiver.Logging
 
                 MouseArea {
                   anchors.fill: parent
@@ -1584,7 +1595,7 @@ Page {
                 id: positionLogging
                 Layout.preferredWidth: implicitContentWidth
                 Layout.alignment: Qt.AlignTop
-                visible: positionSource.device.capabilities() & AbstractGnssReceiver.Logging
+                visible: positionSource.deviceCapabilities & AbstractGnssReceiver.Logging
                 checked: positioningSettings.logging
                 onCheckedChanged: {
                   positioningSettings.logging = checked;
@@ -1653,6 +1664,7 @@ Page {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
       event.accepted = true;
       variableEditor.apply();
+      finished();
     }
   }
 }

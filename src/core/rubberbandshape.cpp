@@ -51,7 +51,7 @@ void RubberbandShape::setModel( RubberbandModel *model )
 
   mRubberbandModel = model;
 
-  if ( mRubberbandModel )
+  if ( mRubberbandModel && !mFreeze )
   {
     connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &RubberbandShape::markDirty );
     connect( mRubberbandModel, &RubberbandModel::verticesRemoved, this, &RubberbandShape::markDirty );
@@ -85,7 +85,7 @@ void RubberbandShape::setVertexModel( VertexModel *vertexModel )
 
   mVertexModel = vertexModel;
 
-  if ( mVertexModel )
+  if ( mVertexModel && !mFreeze )
   {
     connect( mVertexModel, &VertexModel::dataChanged, this, &RubberbandShape::markDirty );
     connect( mVertexModel, &VertexModel::vertexCountChanged, this, &RubberbandShape::markDirty );
@@ -97,6 +97,62 @@ void RubberbandShape::setVertexModel( VertexModel *vertexModel )
   emit vertexModelChanged();
 }
 
+bool RubberbandShape::freeze() const
+{
+  return mFreeze;
+}
+
+void RubberbandShape::setFreeze( bool freeze )
+{
+  if ( mFreeze == freeze )
+    return;
+
+  mFreeze = freeze;
+  emit freezeChanged();
+
+  if ( mFreeze )
+  {
+    if ( mVertexModel )
+    {
+      disconnect( mVertexModel, &VertexModel::dataChanged, this, &RubberbandShape::markDirty );
+      disconnect( mVertexModel, &VertexModel::vertexCountChanged, this, &RubberbandShape::markDirty );
+      disconnect( mVertexModel, &VertexModel::geometryChanged, this, &RubberbandShape::markDirty );
+    }
+    if ( mRubberbandModel )
+    {
+      disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &RubberbandShape::markDirty );
+      disconnect( mRubberbandModel, &RubberbandModel::verticesRemoved, this, &RubberbandShape::markDirty );
+      disconnect( mRubberbandModel, &RubberbandModel::verticesInserted, this, &RubberbandShape::markDirty );
+    }
+    if ( mMapSettings )
+    {
+      disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &RubberbandShape::visibleExtentChanged );
+      disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &RubberbandShape::rotationChanged );
+    }
+  }
+  else
+  {
+    if ( mVertexModel )
+    {
+      connect( mVertexModel, &VertexModel::dataChanged, this, &RubberbandShape::markDirty );
+      connect( mVertexModel, &VertexModel::vertexCountChanged, this, &RubberbandShape::markDirty );
+      connect( mVertexModel, &VertexModel::geometryChanged, this, &RubberbandShape::markDirty );
+    }
+    if ( mRubberbandModel )
+    {
+      connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &RubberbandShape::markDirty );
+      connect( mRubberbandModel, &RubberbandModel::verticesRemoved, this, &RubberbandShape::markDirty );
+      connect( mRubberbandModel, &RubberbandModel::verticesInserted, this, &RubberbandShape::markDirty );
+    }
+    if ( mMapSettings && !mFreeze )
+    {
+      connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &RubberbandShape::visibleExtentChanged );
+      connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &RubberbandShape::rotationChanged );
+    }
+
+    markDirty();
+  }
+}
 
 QgsQuickMapSettings *RubberbandShape::mapSettings() const
 {
@@ -115,8 +171,12 @@ void RubberbandShape::setMapSettings( QgsQuickMapSettings *mapSettings )
   }
 
   mMapSettings = mapSettings;
-  connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &RubberbandShape::visibleExtentChanged );
-  connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &RubberbandShape::rotationChanged );
+
+  if ( mMapSettings && !mFreeze )
+  {
+    connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &RubberbandShape::visibleExtentChanged );
+    connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &RubberbandShape::rotationChanged );
+  }
 
   markDirty();
 

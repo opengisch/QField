@@ -26,9 +26,9 @@ Item {
     anchors.horizontalCenter: bar.horizontalCenter
     anchors.left: undefined
     font: Theme.defaultFont
-    color: Theme.darkGray
+    color: Theme.toolButtonBackgroundColor
     style: Text.Outline
-    styleColor: "#CCFFFFFF"
+    styleColor: Qt.hsla(Theme.toolButtonColor.hslHue, Theme.toolButtonColor.hslSaturation, Theme.toolButtonColor.hslLightness, 0.8)
 
     states: State {
       name: "narrow"
@@ -52,7 +52,7 @@ Item {
 
     ShapePath {
       strokeWidth: barLine.strokeWidth + 1.5
-      strokeColor: "#CCFFFFFF"
+      strokeColor: Qt.hsla(Theme.toolButtonColor.hslHue, Theme.toolButtonColor.hslSaturation, Theme.toolButtonColor.hslLightness, 0.8)
       fillColor: "transparent"
       startX: 0
       startY: 0
@@ -74,7 +74,7 @@ Item {
     ShapePath {
       id: barLine
       strokeWidth: scaleBar.lineWidth
-      strokeColor: "#000000"
+      strokeColor: Theme.toolButtonBackgroundColor
       fillColor: "transparent"
       startX: 0
       startY: 0

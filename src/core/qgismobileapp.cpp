@@ -27,6 +27,7 @@
 #include "cpl_conv.h"
 #include "cpl_string.h"
 #include "cpl_vsi.h"
+#include "gdal_version.h"
 
 #ifdef WITH_BLUETOOTH
 #include "bluetoothdevicemodel.h"
@@ -103,6 +104,7 @@
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudprojectsmodel.h"
 #include "qfieldcloudutils.h"
+#include "qfieldlocatorfilter.h"
 #include "qgismobileapp.h"
 #include "qgsgeometrywrapper.h"
 #include "qgsproviderregistry.h"
@@ -128,6 +130,7 @@
 #include "urlutils.h"
 #include "valuemapmodel.h"
 #include "vertexmodel.h"
+#include "webdavconnection.h"
 
 #include <QDateTime>
 #include <QFileInfo>
@@ -155,11 +158,13 @@
 #include <qgslayertreeregistrybridge.h>
 #include <qgslayoutatlas.h>
 #include <qgslayoutexporter.h>
+#include <qgslayoutitemlabel.h>
 #include <qgslayoutitemmap.h>
 #include <qgslayoutmanager.h>
 #include <qgslayoutpagecollection.h>
 #include <qgslocalizeddatapathregistry.h>
 #include <qgslocator.h>
+#include <qgslocatorcontext.h>
 #include <qgslocatormodel.h>
 #include <qgsmaplayer.h>
 #include <qgsmaplayerstyle.h>
@@ -283,18 +288,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   if ( !dataDirs.isEmpty() )
   {
-#if defined( Q_OS_ANDROID ) || defined( Q_OS_IOS )
-    for ( const QString &dataDir : dataDirs )
-    {
-      QFileInfo pgServiceFile( QStringLiteral( "%1/pg_service.conf" ).arg( dataDir ) );
-      if ( pgServiceFile.exists() && pgServiceFile.isReadable() )
-      {
-        setenv( "PGSYSCONFDIR", dataDir.toUtf8(), true );
-        break;
-      }
-    }
-#endif
-
     QgsApplication::instance()->authManager()->setPasswordHelperEnabled( false );
     QgsApplication::instance()->authManager()->setMasterPassword( QString( "qfield" ) );
     // import authentication method configurations
@@ -362,7 +355,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
 void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 {
-#if defined( Q_OS_ANDROID ) && QT_VERSION >= QT_VERSION_CHECK( 5, 14, 0 )
+#if defined( Q_OS_ANDROID )
   QResource::registerResource( QStringLiteral( "assets:/android_rcc_bundle.rcc" ) );
 #endif
   engine->addImportPath( QStringLiteral( "qrc:/qml/imports" ) );
@@ -432,7 +425,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<QFieldCloudProjectsModel::ProjectCheckout>( "QFieldCloudProjectsModel::ProjectCheckout" );
   qRegisterMetaType<QFieldCloudProjectsModel::ProjectModification>( "QFieldCloudProjectsModel::ProjectModification" );
   qRegisterMetaType<Tracker::MeasureType>( "Tracker::MeasureType" );
-  qRegisterMetaType<Positioning::ElevationCorrectionMode>( "Positioning::ElevationCorrectionMode" );
+  qRegisterMetaType<PositioningSource::ElevationCorrectionMode>( "PositioningSource::ElevationCorrectionMode" );
 
   qmlRegisterType<MultiFeatureListModel>( "org.qfield", 1, 0, "MultiFeatureListModel" );
   qmlRegisterType<FeatureIterator>( "org.qfield", 1, 0, "FeatureIterator" );
@@ -508,6 +501,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<Positioning>( "org.qfield", 1, 0, "Positioning" );
   qmlRegisterType<PositioningInformationModel>( "org.qfield", 1, 0, "PositioningInformationModel" );
   qmlRegisterType<PositioningDeviceModel>( "org.qfield", 1, 0, "PositioningDeviceModel" );
+  qmlRegisterType<WebdavConnection>( "org.qfield", 1, 0, "WebdavConnection" );
   qmlRegisterType<AudioRecorder>( "org.qfield", 1, 0, "AudioRecorder" );
   qmlRegisterType<BarcodeDecoder>( "org.qfield", 1, 0, "BarcodeDecoder" );
   qmlRegisterType<CameraPermission>( "org.qfield", 1, 0, "QfCameraPermission" );
@@ -516,11 +510,15 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
   qmlRegisterUncreatableType<Tracker>( "org.qfield", 1, 0, "Tracker", "" );
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
+  qRegisterMetaType<GnssPositionDetails>( "GnssPositionDetails" );
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
 
   qmlRegisterType<ProcessingAlgorithm>( "org.qfield", 1, 0, "ProcessingAlgorithm" );
   qmlRegisterType<ProcessingAlgorithmParametersModel>( "org.qfield", 1, 0, "ProcessingAlgorithmParametersModel" );
   qmlRegisterType<ProcessingAlgorithmsModel>( "org.qfield", 1, 0, "ProcessingAlgorithmsModel" );
+
+  qmlRegisterType<QgsLocatorContext>( "org.qgis", 1, 0, "QgsLocatorContext" );
+  qmlRegisterType<QFieldLocatorFilter>( "org.qfield", 1, 0, "QFieldLocatorFilter" );
 
   REGISTER_SINGLETON( "org.qfield", ExpressionContextUtils, "ExpressionContextUtils" );
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
@@ -552,6 +550,8 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 
   // Register some globally available variables
   engine->rootContext()->setContextProperty( "qVersion", qVersion() );
+  engine->rootContext()->setContextProperty( "qgisVersion", Qgis::version() );
+  engine->rootContext()->setContextProperty( "gdalVersion", GDAL_RELEASE_NAME );
   engine->rootContext()->setContextProperty( "withNfc", QVariant( NearFieldReader::isSupported() ) );
   engine->rootContext()->setContextProperty( "systemFontPointSize", PlatformUtilities::instance()->systemFontPointSize() );
   engine->rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
@@ -1018,6 +1018,7 @@ void QgisMobileapp::readProjectFile()
     mProject->setCrs( crs );
     mProject->setEllipsoid( crs.ellipsoidAcronym() );
     mProject->setTitle( mProjectFileName );
+    mProject->setPresetHomePath( fi.absolutePath() );
     mProject->writeEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), true );
 
     for ( QgsMapLayer *l : std::as_const( rasterLayers ) )
@@ -1234,19 +1235,47 @@ bool QgisMobileapp::print( const QString &layoutName )
 {
   const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
   QgsPrintLayout *layoutToPrint = nullptr;
-  for ( QgsPrintLayout *layout : printLayouts )
+  std::unique_ptr<QgsPrintLayout> templateLayout;
+  if ( layoutName.isEmpty() && printLayouts.isEmpty() )
   {
-    if ( layout->name() == layoutName )
+    QFile templateFile( QStringLiteral( "%1/qfield/templates/layout.qpt" ).arg( PlatformUtilities::instance()->systemSharedDataLocation() ) );
+    QDomDocument templateDoc;
+    templateDoc.setContent( &templateFile );
+
+    templateLayout = std::make_unique<QgsPrintLayout>( QgsProject::instance() );
+    bool loadedOK = false;
+    QList<QgsLayoutItem *> items = templateLayout->loadFromTemplate( templateDoc, QgsReadWriteContext(), true, &loadedOK );
+    if ( !loadedOK )
     {
-      layoutToPrint = layout;
-      break;
+      return false;
+    }
+
+    for ( QgsLayoutItem *item : items )
+    {
+      if ( item->type() == QgsLayoutItemRegistry::LayoutLabel && item->id() == QStringLiteral( "Title" ) )
+      {
+        QgsLayoutItemLabel *labelItem = qobject_cast<QgsLayoutItemLabel *>( item );
+        labelItem->setText( tr( "Map printed on %1 using QField" ).arg( "[%format_date(now(), 'yyyy-MM-dd @ hh:mm')%]" ) );
+      }
+    }
+    layoutToPrint = templateLayout.get();
+  }
+  else
+  {
+    for ( QgsPrintLayout *layout : printLayouts )
+    {
+      if ( layout->name() == layoutName || layoutName.isEmpty() )
+      {
+        layoutToPrint = layout;
+        break;
+      }
     }
   }
 
   if ( !layoutToPrint || layoutToPrint->pageCollection()->pageCount() == 0 )
     return false;
 
-  const QString destination = mProject->homePath() + '/' + layoutToPrint->name() + '-' + QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) + QStringLiteral( ".pdf" );
+  const QString destination = QStringLiteral( "%1/layouts/%2-%3.pdf" ).arg( mProject->homePath(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
 
   if ( !layoutToPrint->atlas() || !layoutToPrint->atlas()->enabled() )
   {
@@ -1313,11 +1342,11 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   const QString priorFilterExpression = layoutToPrint->atlas()->filterExpression();
   const bool priorFilterFeatures = layoutToPrint->atlas()->filterFeatures();
 
-  layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "$id IN (%1)" ).arg( ids.join( ',' ) ), error );
+  layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "@id IN (%1)" ).arg( ids.join( ',' ) ), error );
   layoutToPrint->atlas()->setFilterFeatures( true );
   layoutToPrint->atlas()->updateFeatures();
 
-  const QString destination = mProject->homePath() + '/' + layoutToPrint->name() + '-' + QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) + QStringLiteral( ".pdf" );
+  const QString destination = QStringLiteral( "%1/layouts/%2-%3.pdf" ).arg( mProject->homePath(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
   QString finalDestination;
   const bool destinationSingleFile = layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool();
   if ( !destinationSingleFile && ids.size() == 1 )
@@ -1444,6 +1473,8 @@ void QgisMobileapp::saveProjectPreviewImage()
 
 QgisMobileapp::~QgisMobileapp()
 {
+  PlatformUtilities::instance()->stopPositioningService();
+
   saveProjectPreviewImage();
 
   mPluginManager->unloadPlugins();
