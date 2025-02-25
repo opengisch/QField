@@ -31,7 +31,7 @@ Page {
     showBackButton: true
     showApplyButton: false
     showCancelButton: false
-    showMenuButton: localFilesModel.inSelectionMode
+    showMenuButton: localFilesModel.inSelectionMode && (table.selectedItemsPushableToQField || table.selectedItemsWebDavConfigured)
     backAsCancel: localFilesModel.inSelectionMode
 
     topMargin: mainWindow.sceneTopMargin
@@ -47,6 +47,21 @@ Page {
         parent.finished(false);
       }
     }
+
+    onOpenMenu: {
+      selectionMenu.open();
+    }
+  }
+
+  function determineMenuWidth(menu) {
+    let result = 50;
+    let padding = 0;
+    for (let i = 0; i < menu.count; ++i) {
+      let item = menu.itemAt(i);
+      result = Math.max(item.contentItem.implicitWidth, result);
+      padding = Math.max(item.leftPadding + item.rightPadding, padding);
+    }
+    return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
   }
 
   ColumnLayout {
@@ -142,6 +157,10 @@ Page {
           }
         }
 
+        property var selectedList: []
+        property bool selectedItemsWebDavConfigured
+        property bool selectedItemsPushableToQField
+
         delegate: Rectangle {
           id: rectangle
 
@@ -152,6 +171,7 @@ Page {
           property string itemPath: ItemPath
           property bool itemIsFavorite: ItemIsFavorite
           property bool itemChecked: ItemChecked
+          property bool itemHasWebdavConfiguration: ItemHasWebdavConfiguration
           property bool itemMenuLoadable: !projectFolderView && (ItemMetaType === LocalFilesModel.Project || ItemMetaType === LocalFilesModel.Dataset)
           property bool itemMenuVisible: ((ItemType === LocalFilesModel.SimpleFolder || ItemMetaType == LocalFilesModel.Dataset || ItemMetaType == LocalFilesModel.File) && table.model.currentPath !== 'root') || ((platformUtilities.capabilities & PlatformUtilities.CustomExport || platformUtilities.capabilities & PlatformUtilities.CustomSend) && (ItemMetaType === LocalFilesModel.Dataset)) || (ItemMetaType === LocalFilesModel.Dataset && ItemType === LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId)
 
@@ -279,6 +299,22 @@ Page {
                 itemMenu.itemHasWebdavConfiguration = ItemHasWebdavConfiguration;
                 itemMenu.popup(gc.x + width - itemMenu.width, gc.y - height);
               }
+            }
+          }
+
+          onItemCheckedChanged: {
+            const itemIndexInList = table.selectedList.findIndex(q => q === index);
+            if (itemIndexInList === -1) {
+              table.selectedList.push(index);
+            } else {
+              table.selectedList.splice(itemIndexInList, 1);
+            }
+            table.selectedItemsWebDavConfigured = true;
+            table.selectedItemsPushableToQField = true;
+            for (let i = 0; i < table.selectedList.length; ++i) {
+              const item = table.itemAtIndex(table.selectedList[i]);
+              table.selectedItemsWebDavConfigured = table.selectedItemsWebDavConfigured && item.itemHasWebdavConfiguration;
+              table.selectedItemsPushableToQField = table.selectedItemsPushableToQField && item.itemMetaType == LocalFilesModel.Dataset && item.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId;
             }
           }
         }
@@ -409,16 +445,7 @@ Page {
 
       title: qsTr('Item Actions')
 
-      width: {
-        let result = 50;
-        let padding = 0;
-        for (let i = 0; i < count; ++i) {
-          let item = itemAt(i);
-          result = Math.max(item.contentItem.implicitWidth, result);
-          padding = Math.max(item.leftPadding + item.rightPadding, padding);
-        }
-        return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
-      }
+      width: determineMenuWidth(itemMenu)
 
       topMargin: sceneTopMargin
       bottomMargin: sceneBottomMargin
@@ -617,16 +644,7 @@ Page {
 
       title: qsTr('Import Actions')
 
-      width: {
-        let result = 50;
-        let padding = 0;
-        for (let i = 0; i < count; ++i) {
-          let item = itemAt(i);
-          result = Math.max(item.contentItem.implicitWidth, result);
-          padding = Math.max(item.leftPadding + item.rightPadding, padding);
-        }
-        return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
-      }
+      width: determineMenuWidth(importMenu)
 
       topMargin: sceneTopMargin
       bottomMargin: sceneBottomMargin
@@ -740,16 +758,7 @@ Page {
 
       title: qsTr('Project Actions')
 
-      width: {
-        let result = 50;
-        let padding = 0;
-        for (let i = 0; i < count; ++i) {
-          let item = itemAt(i);
-          result = Math.max(item.contentItem.implicitWidth, result);
-          padding = Math.max(item.leftPadding + item.rightPadding, padding);
-        }
-        return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
-      }
+      width: determineMenuWidth(projectMenu)
 
       topMargin: sceneTopMargin
       bottomMargin: sceneBottomMargin
@@ -804,6 +813,52 @@ Page {
             webdavConnectionLoader.item.openedProjectPath = projectInfo.filePath;
             iface.clearProject();
             webdavConnectionLoader.item.downloadPath(FileUtils.absolutePath(projectInfo.filePath));
+          }
+        }
+      }
+    }
+
+    Menu {
+      id: selectionMenu
+      x: parent.width - width - 8
+      width: determineMenuWidth(selectionMenu)
+
+      MenuItem {
+        id: uploadToWebdav
+
+        enabled: table.selectedItemsWebDavConfigured
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Upload file(s) to WebDAV")
+        onTriggered: {
+          console.log("Send it to web dav!");
+        }
+      }
+
+      MenuItem {
+        id: pushToQfieldCloud
+
+        enabled: table.selectedItemsPushableToQField
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Push file(s) to QFieldCloud")
+        onTriggered: {
+          for (let i = 0; i < table.selectedList.length; ++i) {
+            const item = table.itemAtIndex(table.selectedList[i]);
+            if (item.itemMetaType == LocalFilesModel.Dataset && item.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) {
+              QFieldCloudUtils.addPendingAttachment(cloudProjectsModel.currentProjectId, item.itemPath);
+              platformUtilities.uploadPendingAttachments(cloudConnection);
+            }
           }
         }
       }
