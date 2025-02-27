@@ -99,8 +99,7 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
                                         "(\\s*%1[^0-9.,]*[-+NSEWnsew]?)[,\\s]+(%1[^0-9.,]*[-+NSEWnsew]?)"
                                         ")|("
                                         "((?:([-+NSEWnsew])\\s*)%1[^0-9.,]*)[,\\s]+((?:([-+NSEWnsew])\\s*)%1[^0-9.,]*)"
-                                        ")$"
-    )
+                                        ")$" )
                                         .arg( dmsRx ) );
 
     match = separatorRx.match( string.trimmed() );
