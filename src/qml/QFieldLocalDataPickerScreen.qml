@@ -479,7 +479,7 @@ Page {
 
         text: qsTr("Push to QFieldCloud")
         onTriggered: {
-          QFieldCloudUtils.addPendingAttachment(cloudProjectsModel.currentProjectId, itemMenu.itemPath);
+          QFieldCloudUtils.addPendingAttachments(cloudProjectsModel.currentProjectId, [itemMenu.itemPath]);
           platformUtilities.uploadPendingAttachments(cloudConnection);
           displayToast(qsTr("‘%1’ is being uploaded to QFieldCloud").arg(FileUtils.fileName(itemMenu.itemPath)));
         }
@@ -853,13 +853,15 @@ Page {
 
         text: qsTr("Push file(s) to QFieldCloud")
         onTriggered: {
+          var fileNames = [];
           for (let i = 0; i < table.selectedList.length; ++i) {
             const item = table.itemAtIndex(table.selectedList[i]);
-            if (item.itemMetaType == LocalFilesModel.Dataset && item.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) {
-              QFieldCloudUtils.addPendingAttachment(cloudProjectsModel.currentProjectId, item.itemPath);
-              platformUtilities.uploadPendingAttachments(cloudConnection);
-            }
+            const pushableToCloud = item.itemMetaType == LocalFilesModel.Dataset && item.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId;
+            if (pushableToCloud)
+              fileNames.push(item.itemPath);
           }
+          QFieldCloudUtils.addPendingAttachments(cloudProjectsModel.currentProjectId, fileNames);
+          platformUtilities.uploadPendingAttachments(cloudConnection);
         }
       }
     }
