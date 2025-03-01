@@ -574,7 +574,7 @@ Page {
         text: qsTr("Upload folder to WebDAV server")
         onTriggered: {
           if (webdavConnectionLoader.item) {
-            webdavConnectionLoader.item.uploadPath(itemMenu.itemPath);
+            webdavConnectionLoader.item.uploadPaths([itemMenu.itemPath]);
           }
         }
       }
@@ -792,7 +792,7 @@ Page {
         text: qsTr("Upload project to WebDAV")
         onTriggered: {
           if (webdavConnectionLoader.item) {
-            webdavConnectionLoader.item.uploadPath(FileUtils.absolutePath(projectInfo.filePath));
+            webdavConnectionLoader.item.uploadPaths([FileUtils.absolutePath(projectInfo.filePath)]);
           }
         }
       }
@@ -836,7 +836,14 @@ Page {
 
         text: qsTr("Upload file(s) to WebDAV")
         onTriggered: {
-          console.log("Send it to web dav!");
+          var fileNames = [];
+          for (let i = 0; i < table.selectedList.length; ++i) {
+            const item = table.itemAtIndex(table.selectedList[i]);
+            fileNames.push(item.itemPath);
+          }
+          if (webdavConnectionLoader.item && fileNames.length > 0) {
+            webdavConnectionLoader.item.uploadPaths(fileNames);
+          }
         }
       }
 
@@ -857,11 +864,17 @@ Page {
           for (let i = 0; i < table.selectedList.length; ++i) {
             const item = table.itemAtIndex(table.selectedList[i]);
             const pushableToCloud = item.itemMetaType == LocalFilesModel.Dataset && item.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId;
-            if (pushableToCloud)
+            if (pushableToCloud) {
               fileNames.push(item.itemPath);
+            }
           }
-          QFieldCloudUtils.addPendingAttachments(cloudProjectsModel.currentProjectId, fileNames);
-          platformUtilities.uploadPendingAttachments(cloudConnection);
+          if (fileNames.length > 0) {
+            QFieldCloudUtils.addPendingAttachments(cloudProjectsModel.currentProjectId, fileNames);
+            platformUtilities.uploadPendingAttachments(cloudConnection);
+            localFilesModel.clearSelection();
+          } else {
+            displayToast(qsTr("Please select one or more files to push to QFieldCloud."));
+          }
         }
       }
     }
@@ -948,6 +961,7 @@ Page {
             busyOverlay.state = "visible";
           } else {
             busyOverlay.state = "hidden";
+            localFilesModel.clearSelection();
           }
         }
 

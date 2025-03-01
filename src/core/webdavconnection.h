@@ -87,7 +87,7 @@ class WebdavConnection : public QObject
 
     Q_INVOKABLE void importPath( const QString &remotePath, const QString &localPath );
     Q_INVOKABLE void downloadPath( const QString &localPath );
-    Q_INVOKABLE void uploadPath( const QString &localPath );
+    Q_INVOKABLE void uploadPaths( const QStringList &localPaths );
 
     Q_INVOKABLE void confirmRequest();
     Q_INVOKABLE void cancelRequest();
