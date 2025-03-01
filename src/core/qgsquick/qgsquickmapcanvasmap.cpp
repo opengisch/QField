@@ -26,6 +26,7 @@
 #include <qgsmaplayertemporalproperties.h>
 #include <qgsmaprenderercache.h>
 #include <qgsmaprendererparalleljob.h>
+#include <qgsmaprenderersequentialjob.h>
 #include <qgsmessagelog.h>
 #include <qgspallabeling.h>
 #include <qgsproject.h>
@@ -153,6 +154,7 @@ void QgsQuickMapCanvasMap::refreshMap()
   connect( mJob, &QgsMapRendererJob::renderingLayersFinished, this, &QgsQuickMapCanvasMap::renderJobUpdated );
   connect( mJob, &QgsMapRendererJob::finished, this, &QgsQuickMapCanvasMap::renderJobFinished );
   mJob->setCache( mCache.get() );
+  mJob->setLayerRenderingTimeHints( mLastLayerRenderTime );
 
   mJob->start();
 
@@ -226,6 +228,10 @@ void QgsQuickMapCanvasMap::renderJobFinished()
     mDeferredRefreshPending = false;
     mSilentRefresh = true;
     refresh();
+  }
+  else
+  {
+    startPreviewJobs();
   }
 }
 
@@ -479,6 +485,44 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
   }
 
   node->setRect( rect );
+  node->removeAllChildNodes();
+
+
+  for ( auto [number, previewImage] : mPreviewImages.asKeyValueRange() )
+  {
+    QSGSimpleTextureNode *childNode = new QSGSimpleTextureNode();
+    childNode->setFiltering( QSGTexture::Linear );
+    QSGTexture *texture = window()->createTextureFromImage( previewImage );
+    childNode->setTexture( texture );
+    childNode->setOwnsTexture( true );
+
+    QRectF childRect( rect );
+    // Adjust left/right
+    if ( number == 0 || number == 3 || number == 6 )
+    {
+      childRect.setLeft( rect.left() - rect.width() );
+      childRect.setRight( rect.right() - rect.width() );
+    }
+    else if ( number == 2 || number == 5 || number == 8 )
+    {
+      childRect.setLeft( rect.left() + rect.width() );
+      childRect.setRight( rect.right() + rect.width() );
+    }
+    //Adjust top/bottom
+    if ( number < 3 )
+    {
+      childRect.setTop( rect.top() - rect.height() );
+      childRect.setBottom( rect.bottom() - rect.height() );
+    }
+    else if ( number > 5 )
+    {
+      childRect.setTop( rect.top() + rect.height() );
+      childRect.setBottom( rect.bottom() + rect.height() );
+    }
+    childNode->setRect( childRect );
+
+    node->appendChildNode( childNode );
+  }
 
   return node;
 }
@@ -535,6 +579,7 @@ void QgsQuickMapCanvasMap::stopRendering()
     mJob->cancelWithoutBlocking();
     mJob = nullptr;
   }
+  stopPreviewJobs();
 }
 
 void QgsQuickMapCanvasMap::zoomToFullExtent()
@@ -603,4 +648,140 @@ void QgsQuickMapCanvasMap::clearTemporalCache()
       mCache->clearCacheImage( QStringLiteral( "_preview_labels_" ) );
     }
   }
+}
+
+QList<QgsMapLayer *> filterLayersForRender( const QList<QgsMapLayer *> &layers )
+{
+  QList<QgsMapLayer *> filteredLayers;
+  for ( QgsMapLayer *layer : layers )
+  {
+    if ( QgsAnnotationLayer *annotationLayer = qobject_cast<QgsAnnotationLayer *>( layer ) )
+    {
+      if ( QgsMapLayer *linkedLayer = annotationLayer->linkedVisibilityLayer() )
+      {
+        if ( !layers.contains( linkedLayer ) )
+          continue;
+      }
+    }
+    filteredLayers.append( layer );
+  }
+  return filteredLayers;
+}
+
+void QgsQuickMapCanvasMap::startPreviewJobs()
+{
+  stopPreviewJobs();
+
+  //canvas preview jobs aren't compatible with rotation
+  if ( !qgsDoubleNear( mMapSettings->mapSettings().rotation(), 0.0 ) )
+    return;
+
+  schedulePreviewJob( 0 );
+}
+
+void QgsQuickMapCanvasMap::startPreviewJob( int number )
+{
+  QgsRectangle mapRect = mMapSettings->mapSettings().visibleExtent();
+
+  if ( number == 4 )
+    number += 1;
+
+  int j = number / 3;
+  int i = number % 3;
+
+  //copy settings, only update extent
+  QgsMapSettings jobSettings = mMapSettings->mapSettings();
+
+  double dx = ( i - 1 ) * mapRect.width();
+  double dy = ( 1 - j ) * mapRect.height();
+  QgsRectangle jobExtent = mapRect;
+
+  jobExtent.setXMaximum( jobExtent.xMaximum() + dx );
+  jobExtent.setXMinimum( jobExtent.xMinimum() + dx );
+  jobExtent.setYMaximum( jobExtent.yMaximum() + dy );
+  jobExtent.setYMinimum( jobExtent.yMinimum() + dy );
+
+  jobSettings.setExtent( jobExtent );
+  jobSettings.setFlag( Qgis::MapSettingsFlag::DrawLabeling, false );
+  jobSettings.setFlag( Qgis::MapSettingsFlag::RenderPreviewJob, true );
+  jobSettings.setFlag( Qgis::MapSettingsFlag::RecordProfile, false );
+
+  // truncate preview layers to fast layers
+  const QList<QgsMapLayer *> layers = jobSettings.layers();
+  QList<QgsMapLayer *> previewLayers;
+  QgsDataProvider::PreviewContext context;
+  context.maxRenderingTimeMs = MAXIMUM_LAYER_PREVIEW_TIME_MS;
+  for ( QgsMapLayer *layer : layers )
+  {
+    if ( layer->customProperty( QStringLiteral( "rendering/noPreviewJobs" ), false ).toBool() )
+    {
+      QgsDebugMsgLevel( QStringLiteral( "Layer %1 not rendered because it is explicitly blocked from preview jobs" ).arg( layer->id() ), 3 );
+      continue;
+    }
+    context.lastRenderingTimeMs = mLastLayerRenderTime.value( layer->id(), 0 );
+    QgsDataProvider *provider = layer->dataProvider();
+    if ( provider && !provider->renderInPreview( context ) )
+    {
+      QgsDebugMsgLevel( QStringLiteral( "Layer %1 not rendered because it does not match the renderInPreview criterion %2" ).arg( layer->id() ).arg( mLastLayerRenderTime.value( layer->id() ) ), 3 );
+      continue;
+    }
+
+    previewLayers << layer;
+  }
+  if ( QgsProject::instance()->mainAnnotationLayer()->dataProvider()->renderInPreview( context ) )
+  {
+    previewLayers.insert( 0, QgsProject::instance()->mainAnnotationLayer() );
+  }
+  jobSettings.setLayers( filterLayersForRender( previewLayers ) );
+
+  QgsMapRendererQImageJob *job = new QgsMapRendererSequentialJob( jobSettings );
+  job->setProperty( "number", number );
+  mPreviewJobs.append( job );
+  connect( job, &QgsMapRendererJob::finished, this, &QgsQuickMapCanvasMap::previewJobFinished );
+  job->start();
+}
+
+void QgsQuickMapCanvasMap::stopPreviewJobs()
+{
+  mPreviewTimer.stop();
+  for ( auto previewJob = mPreviewJobs.constBegin(); previewJob != mPreviewJobs.constEnd(); ++previewJob )
+  {
+    if ( *previewJob )
+    {
+      disconnect( *previewJob, &QgsMapRendererJob::finished, this, &QgsQuickMapCanvasMap::previewJobFinished );
+      connect( *previewJob, &QgsMapRendererQImageJob::finished, *previewJob, &QgsMapRendererQImageJob::deleteLater );
+      ( *previewJob )->cancelWithoutBlocking();
+    }
+  }
+  mPreviewJobs.clear();
+  mPreviewImages.clear();
+}
+
+void QgsQuickMapCanvasMap::schedulePreviewJob( int number )
+{
+  mPreviewTimer.setSingleShot( true );
+  mPreviewTimer.setInterval( PREVIEW_JOB_DELAY_MS );
+  disconnect( mPreviewTimerConnection );
+  mPreviewTimerConnection = connect( &mPreviewTimer, &QTimer::timeout, this, [=]() {
+    startPreviewJob( number );
+  } );
+  mPreviewTimer.start();
+}
+
+void QgsQuickMapCanvasMap::previewJobFinished()
+{
+  QgsMapRendererQImageJob *job = qobject_cast<QgsMapRendererQImageJob *>( sender() );
+  Q_ASSERT( job );
+
+  const int number = job->property( "number" ).toInt();
+  mPreviewImages.insert( number, job->renderedImage() );
+  mPreviewJobs.removeAll( job );
+  if ( number < 8 )
+  {
+    startPreviewJob( number + 1 );
+  }
+  delete job;
+
+  mDirty = true;
+  update();
 }

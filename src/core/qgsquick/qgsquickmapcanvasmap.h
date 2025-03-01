@@ -27,6 +27,7 @@
 #include <memory>
 
 class QgsMapRendererParallelJob;
+class QgsMapRendererQImageJob;
 class QgsMapRendererCache;
 class QgsLabelingResults;
 
@@ -232,11 +233,18 @@ class QgsQuickMapCanvasMap : public QQuickItem
      */
     void refresh();
 
+    void startPreviewJobs();
+    void stopPreviewJobs();
+    void schedulePreviewJob( int number );
+
   private slots:
     void refreshMap();
     void renderJobUpdated();
     void renderJobFinished();
     void layerRepaintRequested( bool deferred );
+    void startPreviewJob( int number );
+    void previewJobFinished();
+
     void onWindowChanged( QQuickWindow *window );
     void onScreenChanged( QScreen *screen );
     void onExtentChanged();
@@ -272,6 +280,13 @@ class QgsQuickMapCanvasMap : public QQuickItem
     bool mDeferredRefreshPending = false;
     double mQuality = 1.0;
     bool mForceDeferredLayersRepaint = false;
+
+    QHash<QString, int> mLastLayerRenderTime;
+
+    QList<QgsMapRendererQImageJob *> mPreviewJobs;
+    QTimer mPreviewTimer;
+    QMetaObject::Connection mPreviewTimerConnection;
+    QMap<int, QImage> mPreviewImages;
 
     QQuickWindow *mWindow = nullptr;
 };
