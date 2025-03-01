@@ -86,6 +86,10 @@ Item {
     mapCanvasWrapper.zoom(point, 1.5);
   }
 
+  function stopRendering() {
+    mapCanvasWrapper.stopRendering();
+  }
+
   MapCanvasMap {
     id: mapCanvasWrapper
 

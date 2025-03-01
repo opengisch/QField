@@ -429,10 +429,10 @@ void QgsQuickMapCanvasMap::setFreeze( bool freeze )
 
   mFreeze = freeze;
 
-  if ( mFreeze )
-    stopRendering();
-  else
+  if ( !mFreeze )
+  {
     refresh();
+  }
 
   emit freezeChanged();
 }
@@ -486,8 +486,7 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
 
   node->setRect( rect );
   node->removeAllChildNodes();
-
-
+  qDebug() << rect;
   for ( auto [number, previewImage] : mPreviewImages.asKeyValueRange() )
   {
     QSGSimpleTextureNode *childNode = new QSGSimpleTextureNode();
@@ -673,7 +672,7 @@ void QgsQuickMapCanvasMap::startPreviewJobs()
   stopPreviewJobs();
 
   //canvas preview jobs aren't compatible with rotation
-  if ( !qgsDoubleNear( mMapSettings->mapSettings().rotation(), 0.0 ) )
+  if ( mImage.isNull() || !qgsDoubleNear( mImageMapSettings.rotation(), 0.0 ) )
     return;
 
   schedulePreviewJob( 0 );
@@ -681,7 +680,7 @@ void QgsQuickMapCanvasMap::startPreviewJobs()
 
 void QgsQuickMapCanvasMap::startPreviewJob( int number )
 {
-  QgsRectangle mapRect = mMapSettings->mapSettings().visibleExtent();
+  QgsRectangle mapRect = mImageMapSettings.visibleExtent();
 
   if ( number == 4 )
     number += 1;
@@ -690,7 +689,7 @@ void QgsQuickMapCanvasMap::startPreviewJob( int number )
   int i = number % 3;
 
   //copy settings, only update extent
-  QgsMapSettings jobSettings = mMapSettings->mapSettings();
+  QgsMapSettings jobSettings = mImageMapSettings;
 
   double dx = ( i - 1 ) * mapRect.width();
   double dy = ( 1 - j ) * mapRect.height();
