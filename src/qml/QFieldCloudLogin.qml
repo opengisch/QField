@@ -260,9 +260,13 @@ Item {
   }
 
   function prefixUrlWithProtocol(url) {
-    if (!url || url.startsWith('http://') || url.startsWith('https://'))
-      return url;
-    return 'https://' + url;
+    let cleanedUrl = url.trim();
+    if (cleanedUrl.endsWith('/')) {
+      cleanedUrl = cleanedUrl.slice(0, -1);
+    }
+    if (!cleanedUrl || cleanedUrl.startsWith('http://') || cleanedUrl.startsWith('https://'))
+      return cleanedUrl;
+    return 'https://' + cleanedUrl;
   }
 
   function loginFormSumbitHandler() {
