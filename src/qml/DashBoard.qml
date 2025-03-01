@@ -124,7 +124,7 @@ Drawer {
           }
 
           QfToolButton {
-            id: printItem
+            id: printItemButton
             anchors.verticalCenter: parent.verticalCenter
             round: true
             iconSource: Theme.getThemeVectorIcon("ic_print_black_24dp")
@@ -209,7 +209,7 @@ Drawer {
           }
 
           QfToolButton {
-            text: qsTr("Project Folder")
+            id: projectFolderButton
             anchors.verticalCenter: parent.verticalCenter
             font: Theme.defaultFont
             iconSource: Theme.getThemeVectorIcon("ic_project_folder_black_24dp")
