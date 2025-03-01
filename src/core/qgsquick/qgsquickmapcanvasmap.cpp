@@ -229,7 +229,7 @@ void QgsQuickMapCanvasMap::renderJobFinished()
     mSilentRefresh = true;
     refresh();
   }
-  else
+  else if ( mPreviewJobsEnabled )
   {
     startPreviewJobs();
   }
@@ -486,7 +486,6 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
 
   node->setRect( rect );
   node->removeAllChildNodes();
-  qDebug() << rect;
   for ( auto [number, previewImage] : mPreviewImages.asKeyValueRange() )
   {
     QSGSimpleTextureNode *childNode = new QSGSimpleTextureNode();
@@ -665,6 +664,26 @@ QList<QgsMapLayer *> filterLayersForRender( const QList<QgsMapLayer *> &layers )
     filteredLayers.append( layer );
   }
   return filteredLayers;
+}
+
+bool QgsQuickMapCanvasMap::previewJobsEnabled() const
+{
+  return mPreviewJobsEnabled;
+}
+
+void QgsQuickMapCanvasMap::setPreviewJobsEnabled( bool enabled )
+{
+  if ( mPreviewJobsEnabled == enabled )
+    return;
+
+  mPreviewJobsEnabled = enabled;
+  emit previewJobsEnabledChanged();
+
+  if ( !mPreviewJobsEnabled )
+  {
+    // Clear previously stored preview images
+    mPreviewImages.clear();
+  }
 }
 
 void QgsQuickMapCanvasMap::startPreviewJobs()
