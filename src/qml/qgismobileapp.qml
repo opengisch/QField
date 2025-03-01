@@ -3710,6 +3710,7 @@ ApplicationWindow {
       if (changelogPopup.visible)
         changelogPopup.close();
       dashBoard.layerTree.freeze();
+      mapCanvasMap.stopRendering();
       mapCanvasMap.freeze('projectload');
       busyOverlay.text = qsTr("Loading %1").arg(name !== '' ? name : path);
       busyOverlay.state = "visible";
