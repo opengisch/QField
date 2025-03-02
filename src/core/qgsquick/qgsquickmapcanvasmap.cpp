@@ -608,12 +608,12 @@ void QgsQuickMapCanvasMap::zoomToFullExtent()
   refresh();
 }
 
-void QgsQuickMapCanvasMap::refresh()
+void QgsQuickMapCanvasMap::refresh( bool ignoreFreeze )
 {
   if ( mMapSettings->outputSize().isNull() )
     return; // the map image size has not been set yet
 
-  if ( !mFreeze )
+  if ( ignoreFreeze || !mFreeze )
     mRefreshTimer.start( 1 );
 }
 

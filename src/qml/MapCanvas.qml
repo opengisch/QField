@@ -24,6 +24,7 @@ import org.qgis
  */
 Item {
   id: mapArea
+  property alias mapCanvasWrapper: mapCanvasWrapper
   property alias mapSettings: mapCanvasWrapper.mapSettings
   property alias bottomMargin: mapCanvasWrapper.bottomMargin
   property alias rightMargin: mapCanvasWrapper.rightMargin
@@ -86,6 +87,10 @@ Item {
 
   function zoomOut(point) {
     mapCanvasWrapper.zoom(point, 1.5);
+  }
+
+  function refresh(ignoreFreeze) {
+    mapCanvasWrapper.refresh(ignoreFreeze === undefined ? false : ignoreFreeze);
   }
 
   function stopRendering() {
