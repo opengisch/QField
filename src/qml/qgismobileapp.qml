@@ -2164,6 +2164,35 @@ ApplicationWindow {
             triggerRecenter = Math.abs(mapCanvasMap.mapCanvasWrapper.x) > mainWindow.width - followLocationMinMargin || Math.abs(mapCanvasMap.mapCanvasWrapper.y) > mainWindow.height - followLocationMinMargin;
           }
           if (triggerRecenter || forceRecenter) {
+            if (positionSource.positionInformation.directionValid) {
+              // Prioritize preview quadrants based on movement direction
+              const direction = positionSource.positionInformation.direction;
+              if (direction >= 337.5 || direction < 22.5) {
+                // moving ~north
+                mapCanvasMap.previewJobsQuadrants = [1, 2, 0, 5, 2, 8, 6, 7];
+              } else if (direction >= 22.5 && direction < 67.5) {
+                // moving ~northeast
+                mapCanvasMap.previewJobsQuadrants = [2, 5, 1, 8, 0, 7, 3, 6];
+              } else if (direction >= 67.5 && direction < 112.5) {
+                // moving ~east
+                mapCanvasMap.previewJobsQuadrants = [5, 8, 2, 7, 1, 6, 0, 3];
+              } else if (direction >= 112.5 && direction < 157.5) {
+                // moving ~southeast
+                mapCanvasMap.previewJobsQuadrants = [8, 7, 5, 6, 2, 3, 1, 0];
+              } else if (direction >= 157.5 && direction < 202.5) {
+                // moving ~south
+                mapCanvasMap.previewJobsQuadrants = [7, 8, 6, 5, 3, 2, 0, 1];
+              } else if (direction >= 202.5 && direction < 247.5) {
+                // moving ~southwest
+                mapCanvasMap.previewJobsQuadrants = [6, 7, 3, 8, 0, 5, 1, 2];
+              } else if (direction >= 247.5 && direction < 292.5) {
+                // moving ~west
+                mapCanvasMap.previewJobsQuadrants = [3, 6, 0, 7, 1, 8, 2, 5];
+              } else if (direction >= 292.5 && direction < 337.5) {
+                // moving ~northwest
+                mapCanvasMap.previewJobsQuadrants = [0, 1, 3, 2, 6, 5, 7, 8];
+              }
+            }
             mapCanvasMap.refresh(true);
           }
         }
