@@ -105,6 +105,12 @@ class QgsQuickMapCanvasMap : public QQuickItem
     Q_PROPERTY( double quality READ quality WRITE setQuality NOTIFY qualityChanged )
 
     /**
+     * When the smooth property is set to true, canvas map panning, zooming,
+     * and rotation changes while be interpolated to create a smoother transition.
+     */
+    Q_PROPERTY( bool smooth READ smooth WRITE setSmooth NOTIFY smoothChanged )
+
+    /**
      * When the forceDeferredLayersRepaint property is set to true, all layer repaint signals will be deferred.
      */
     Q_PROPERTY( double forceDeferredLayersRepaint READ forceDeferredLayersRepaint WRITE setForceDeferredLayersRepaint NOTIFY forceDeferredLayersRepaintChanged )
@@ -163,6 +169,12 @@ class QgsQuickMapCanvasMap : public QQuickItem
 
     //! \copydoc QgsQuickMapCanvasMap::incrementalRendering
     void setQuality( double quality );
+
+    //!\copydoc QgsQuickMapCanvasMap::smooth
+    bool smooth() const;
+
+    //!\copydoc QgsQuickMapCanvasMap::smooth
+    void setSmooth( bool smooth );
 
     //!\copydoc QgsQuickMapCanvasMap::forceDeferredLayersRepaint
     bool forceDeferredLayersRepaint() const;
@@ -241,6 +253,9 @@ class QgsQuickMapCanvasMap : public QQuickItem
     //!\copydoc QgsQuickMapCanvasMap::previewJobsQuadrants
     void previewJobsQuadrantsChanged() const;
 
+    //!\copydoc QgsQuickMapCanvasMap::previewJobsQuadrants
+    void smoothChanged() const;
+
   protected:
     void geometryChange( const QRectF &newGeometry, const QRectF &oldGeometry ) override;
 
@@ -294,7 +309,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
      */
     void destroyJob( QgsMapRendererJob *job );
     QgsMapSettings prepareMapSettings() const;
-    void updateTransform();
+    void updateTransform( bool skipSmooth = false );
     void zoomToFullExtent();
     void clearTemporalCache();
 
@@ -315,6 +330,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     bool mSilentRefresh = false;
     bool mDeferredRefreshPending = false;
     double mQuality = 1.0;
+    bool mSmooth = false;
     bool mForceDeferredLayersRepaint = false;
 
     QHash<QString, int> mLastLayerRenderTime;

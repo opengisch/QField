@@ -31,6 +31,7 @@ Item {
   property alias isRendering: mapCanvasWrapper.isRendering
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
   property alias quality: mapCanvasWrapper.quality
+  property alias smooth: mapCanvasWrapper.smooth
   property alias previewJobsEnabled: mapCanvasWrapper.previewJobsEnabled
   property alias previewJobsQuadrants: mapCanvasWrapper.previewJobsQuadrants
   property alias forceDeferredLayersRepaint: mapCanvasWrapper.forceDeferredLayersRepaint
@@ -106,6 +107,27 @@ Item {
     property var __freezecount: ({})
 
     freeze: false
+
+    Behavior on x  {
+      NumberAnimation {
+        duration: 50
+      }
+    }
+    Behavior on y  {
+      NumberAnimation {
+        duration: 50
+      }
+    }
+    Behavior on scale  {
+      NumberAnimation {
+        duration: 50
+      }
+    }
+    Behavior on rotation  {
+      NumberAnimation {
+        duration: 50
+      }
+    }
   }
 
   TapHandler {

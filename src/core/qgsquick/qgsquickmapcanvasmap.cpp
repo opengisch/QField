@@ -175,7 +175,7 @@ void QgsQuickMapCanvasMap::renderJobUpdated()
   // Temporarily freeze the canvas, we only need to reset the geometry but not trigger a repaint
   bool freeze = mFreeze;
   mFreeze = true;
-  updateTransform();
+  updateTransform( true );
   mFreeze = freeze;
 
   update();
@@ -210,7 +210,7 @@ void QgsQuickMapCanvasMap::renderJobFinished()
   // Temporarily freeze the canvas, we only need to reset the geometry but not trigger a repaint
   bool freeze = mFreeze;
   mFreeze = true;
-  updateTransform();
+  updateTransform( true );
   mFreeze = freeze;
 
   update();
@@ -313,18 +313,27 @@ void QgsQuickMapCanvasMap::onTemporalStateChanged()
   // And trigger a new rendering job
   refresh();
 }
-void QgsQuickMapCanvasMap::updateTransform()
+void QgsQuickMapCanvasMap::updateTransform( bool skipSmooth )
 {
-  QgsRectangle imageExtent = mImageMapSettings.extent();
-  QgsRectangle newExtent = mMapSettings->mapSettings().extent();
+  const QgsRectangle imageExtent = mImageMapSettings.extent();
+  const QgsRectangle newExtent = mMapSettings->mapSettings().extent();
+  const QgsPointXY center = imageExtent.center();
+  const QgsPointXY pixelPt = mMapSettings->coordinateToScreen( QgsPoint( center.x(), center.y() ) );
 
-  setScale( static_cast<double>( imageExtent.width() ) / newExtent.width() );
-  setRotation( mMapSettings->mapSettings().rotation() - mImageMapSettings.rotation() );
-
-  QgsPointXY center = imageExtent.center();
-  QgsPointXY pixelPt = mMapSettings->coordinateToScreen( QgsPoint( center.x(), center.y() ) );
-  setX( pixelPt.x() - static_cast<qreal>( mMapSettings->outputSize().width() ) / mMapSettings->devicePixelRatio() / 2 );
-  setY( pixelPt.y() - static_cast<qreal>( mMapSettings->outputSize().height() ) / mMapSettings->devicePixelRatio() / 2 );
+  if ( mSmooth && !skipSmooth )
+  {
+    setProperty( "scale", static_cast<double>( imageExtent.width() ) / newExtent.width() );
+    setProperty( "rotation", mMapSettings->mapSettings().rotation() - mImageMapSettings.rotation() );
+    setProperty( "x", pixelPt.x() - static_cast<qreal>( mMapSettings->outputSize().width() ) / mMapSettings->devicePixelRatio() / 2 );
+    setProperty( "y", pixelPt.y() - static_cast<qreal>( mMapSettings->outputSize().height() ) / mMapSettings->devicePixelRatio() / 2 );
+  }
+  else
+  {
+    setScale( static_cast<double>( imageExtent.width() ) / newExtent.width() );
+    setRotation( mMapSettings->mapSettings().rotation() - mImageMapSettings.rotation() );
+    setX( pixelPt.x() - static_cast<qreal>( mMapSettings->outputSize().width() ) / mMapSettings->devicePixelRatio() / 2 );
+    setY( pixelPt.y() - static_cast<qreal>( mMapSettings->outputSize().height() ) / mMapSettings->devicePixelRatio() / 2 );
+  }
 }
 
 int QgsQuickMapCanvasMap::mapUpdateInterval() const
@@ -368,11 +377,24 @@ void QgsQuickMapCanvasMap::setQuality( double quality )
     return;
 
   mQuality = quality;
-
   emit qualityChanged();
 
   // And trigger a new rendering job
   refresh();
+}
+
+bool QgsQuickMapCanvasMap::smooth() const
+{
+  return mSmooth;
+}
+
+void QgsQuickMapCanvasMap::setSmooth( bool smooth )
+{
+  if ( mSmooth == smooth )
+    return;
+
+  mSmooth = smooth;
+  emit smoothChanged();
 }
 
 double QgsQuickMapCanvasMap::bottomMargin() const
