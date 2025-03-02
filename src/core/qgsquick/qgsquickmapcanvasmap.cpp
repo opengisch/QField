@@ -686,11 +686,25 @@ void QgsQuickMapCanvasMap::setPreviewJobsEnabled( bool enabled )
   }
 }
 
+QList<int> QgsQuickMapCanvasMap::previewJobsQuadrants() const
+{
+  return mPreviewJobsQuadrants;
+}
+
+void QgsQuickMapCanvasMap::setPreviewJobsQuadrants( const QList<int> &quadrants )
+{
+  if ( mPreviewJobsQuadrants == quadrants )
+    return;
+
+  mPreviewJobsQuadrants = quadrants;
+  emit previewJobsQuadrantsChanged();
+}
+
 void QgsQuickMapCanvasMap::startPreviewJobs()
 {
   stopPreviewJobs();
 
-  if ( mImage.isNull() )
+  if ( mImage.isNull() || mPreviewJobsQuadrants.isEmpty() )
   {
     return;
   }
@@ -700,11 +714,13 @@ void QgsQuickMapCanvasMap::startPreviewJobs()
 
 void QgsQuickMapCanvasMap::startPreviewJob( int number )
 {
-  if ( number == 4 )
-    number += 1;
+  int quadrant = mPreviewJobsQuadrants.at( number );
 
-  int j = number / 3;
-  int i = number % 3;
+  if ( quadrant == 4 )
+    quadrant += 1;
+
+  int j = quadrant / 3;
+  int i = quadrant % 3;
 
   QgsMapSettings mapSettings = mImageMapSettings;
   mapSettings.setRotation( 0 );
@@ -765,6 +781,7 @@ void QgsQuickMapCanvasMap::startPreviewJob( int number )
 
   QgsMapRendererQImageJob *job = new QgsMapRendererSequentialJob( jobSettings );
   job->setProperty( "number", number );
+  job->setProperty( "quadrant", quadrant );
   mPreviewJobs.append( job );
   connect( job, &QgsMapRendererJob::finished, this, &QgsQuickMapCanvasMap::previewJobFinished );
   job->start();
@@ -802,12 +819,14 @@ void QgsQuickMapCanvasMap::previewJobFinished()
   QgsMapRendererQImageJob *job = qobject_cast<QgsMapRendererQImageJob *>( sender() );
   Q_ASSERT( job );
 
-  const int number = job->property( "number" ).toInt();
-  mPreviewImages.insert( number, job->renderedImage() );
+  const int quadrant = job->property( "quadrant" ).toInt();
+  mPreviewImages.insert( quadrant, job->renderedImage() );
   mPreviewJobs.removeAll( job );
-  if ( number < 8 )
+
+  const int number = job->property( "number" ).toInt() + 1;
+  if ( number < mPreviewJobsQuadrants.size() )
   {
-    startPreviewJob( number + 1 );
+    startPreviewJob( number );
   }
   delete job;
 

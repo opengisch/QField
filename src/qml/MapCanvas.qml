@@ -31,6 +31,7 @@ Item {
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
   property alias quality: mapCanvasWrapper.quality
   property alias previewJobsEnabled: mapCanvasWrapper.previewJobsEnabled
+  property alias previewJobsQuadrants: mapCanvasWrapper.previewJobsQuadrants
   property alias forceDeferredLayersRepaint: mapCanvasWrapper.forceDeferredLayersRepaint
 
   property bool interactive: true
