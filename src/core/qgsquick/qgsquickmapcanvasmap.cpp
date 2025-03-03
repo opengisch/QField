@@ -480,16 +480,6 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
     return nullptr;
   }
 
-  QSGSimpleTextureNode *node = static_cast<QSGSimpleTextureNode *>( oldNode );
-  if ( !node )
-  {
-    node = new QSGSimpleTextureNode();
-    node->setFiltering( QSGTexture::Linear );
-    QSGTexture *texture = window()->createTextureFromImage( mImage );
-    node->setTexture( texture );
-    node->setOwnsTexture( true );
-  }
-
   QRectF rect( boundingRect() );
   QSizeF size = mImage.size();
   if ( !size.isEmpty() )
@@ -508,42 +498,65 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
     }
   }
 
-  node->setRect( rect );
-  node->removeAllChildNodes();
-  for ( auto [number, previewImage] : mPreviewImages.asKeyValueRange() )
+  QSGSimpleTextureNode *node = static_cast<QSGSimpleTextureNode *>( oldNode );
+  bool setChildRects = !node;
+  if ( !node )
   {
-    QSGSimpleTextureNode *childNode = new QSGSimpleTextureNode();
-    childNode->setFiltering( QSGTexture::Linear );
-    QSGTexture *texture = window()->createTextureFromImage( previewImage );
-    childNode->setTexture( texture );
-    childNode->setOwnsTexture( true );
+    node = new QSGSimpleTextureNode();
+    node->setFiltering( QSGTexture::Linear );
+    QSGTexture *texture = window()->createTextureFromImage( mImage );
+    node->setTexture( texture );
+    node->setOwnsTexture( true );
+    node->setRect( rect );
 
-    QRectF childRect( rect );
-    // Adjust left/right
-    if ( number == 0 || number == 3 || number == 6 )
+    for ( auto [number, previewImage] : mPreviewImages.asKeyValueRange() )
     {
-      childRect.setLeft( rect.left() - rect.width() );
-      childRect.setRight( rect.right() - rect.width() );
+      QSGSimpleTextureNode *childNode = new QSGSimpleTextureNode();
+      childNode->setFiltering( QSGTexture::Linear );
+      texture = window()->createTextureFromImage( previewImage );
+      childNode->setTexture( texture );
+      childNode->setOwnsTexture( true );
+      node->appendChildNode( childNode );
     }
-    else if ( number == 2 || number == 5 || number == 8 )
-    {
-      childRect.setLeft( rect.left() + rect.width() );
-      childRect.setRight( rect.right() + rect.width() );
-    }
-    //Adjust top/bottom
-    if ( number < 3 )
-    {
-      childRect.setTop( rect.top() - rect.height() );
-      childRect.setBottom( rect.bottom() - rect.height() );
-    }
-    else if ( number > 5 )
-    {
-      childRect.setTop( rect.top() + rect.height() );
-      childRect.setBottom( rect.bottom() + rect.height() );
-    }
-    childNode->setRect( childRect );
+  }
+  else if ( node->rect() != rect )
+  {
+    node->setRect( rect );
+    setChildRects = true;
+  }
 
-    node->appendChildNode( childNode );
+  if ( setChildRects )
+  {
+    const QList<int> numbers = mPreviewImages.keys();
+    for ( int i = 0; i < node->childCount(); i++ )
+    {
+      const int number = numbers[i];
+      QRectF childRect( rect );
+      // Adjust left/right
+      if ( number == 0 || number == 3 || number == 6 )
+      {
+        childRect.setLeft( rect.left() - rect.width() );
+        childRect.setRight( rect.right() - rect.width() );
+      }
+      else if ( number == 2 || number == 5 || number == 8 )
+      {
+        childRect.setLeft( rect.left() + rect.width() );
+        childRect.setRight( rect.right() + rect.width() );
+      }
+      //Adjust top/bottom
+      if ( number < 3 )
+      {
+        childRect.setTop( rect.top() - rect.height() );
+        childRect.setBottom( rect.bottom() - rect.height() );
+      }
+      else if ( number > 5 )
+      {
+        childRect.setTop( rect.top() + rect.height() );
+        childRect.setBottom( rect.bottom() + rect.height() );
+      }
+
+      static_cast<QSGSimpleTextureNode *>( node->childAtIndex( i ) )->setRect( childRect );
+    }
   }
 
   return node;
