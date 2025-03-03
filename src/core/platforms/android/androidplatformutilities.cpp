@@ -35,6 +35,11 @@ inline QJniObject qtAndroidContext()
   return QJniObject( QCoreApplication::instance()->nativeInterface<QNativeInterface::QAndroidApplication>()->context() );
 }
 
+inline int qtAndroidSkdVersion()
+{
+  return QCoreApplication::instance()->nativeInterface<QNativeInterface::QAndroidApplication>()->sdkVersion();
+}
+
 inline void runOnAndroidMainThread( const std::function<void()> &runnable )
 {
   QCoreApplication::instance()->nativeInterface<QNativeInterface::QAndroidApplication>()->runOnAndroidMainThread( [runnable]() {
@@ -778,8 +783,11 @@ void AndroidPlatformUtilities::requestBackgroundPositioningPermissions()
 
 void AndroidPlatformUtilities::startPositioningService() const
 {
-  // Request notification permission
-  checkAndAcquirePermissions( { QStringLiteral( "android.permission.POST_NOTIFICATIONS" ) } );
+  if ( qtAndroidSkdVersion() >= 33 )
+  {
+    // Request notification permission
+    checkAndAcquirePermissions( { QStringLiteral( "android.permission.POST_NOTIFICATIONS" ) } );
+  }
 
   qInfo() << "Launching QField positioning service...";
   QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",
