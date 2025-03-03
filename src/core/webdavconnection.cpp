@@ -652,72 +652,81 @@ void WebdavConnection::downloadPath( const QString &localPath )
   }
 }
 
-void WebdavConnection::uploadPath( const QString &localPath )
+void WebdavConnection::uploadPaths( const QStringList &localPaths )
 {
-  QFileInfo fi( QDir::cleanPath( localPath ) );
-  QDir dir( fi.isFile() ? fi.absolutePath() : fi.absoluteFilePath() );
+  bool webdavConfigurationExists = false;
 
-  bool webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
-  QStringList remoteChildrenPath;
-  while ( !webdavConfigurationExists )
+  for ( const QString &localPath : localPaths )
   {
-    remoteChildrenPath.prepend( dir.dirName() );
-    if ( !dir.cdUp() )
-      break;
+    QFileInfo fi( QDir::cleanPath( localPath ) );
+    QDir dir( fi.isFile() ? fi.absolutePath() : fi.absoluteFilePath() );
+    QStringList remoteChildrenPath;
 
-    webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
-  }
-
-  if ( webdavConfigurationExists )
-  {
-    QFile webdavConfigurationFile( dir.absolutePath() + QDir::separator() + QStringLiteral( "qfield_webdav_configuration.json" ) );
-    webdavConfigurationFile.open( QFile::ReadOnly );
-    QJsonDocument jsonDocument = QJsonDocument::fromJson( webdavConfigurationFile.readAll() );
-    if ( !jsonDocument.isEmpty() )
+    if ( !webdavConfigurationExists )
     {
-      QVariantMap webdavConfiguration = jsonDocument.toVariant().toMap();
-      setUrl( webdavConfiguration["url"].toString() );
-      setUsername( webdavConfiguration["username"].toString() );
-      setStorePassword( isPasswordStored() );
+      webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
 
-      mProcessRemotePath = webdavConfiguration["remote_path"].toString();
-      if ( !remoteChildrenPath.isEmpty() )
+      while ( !webdavConfigurationExists )
       {
-        mProcessRemotePath = mProcessRemotePath + remoteChildrenPath.join( "/" ) + QStringLiteral( "/" );
+        remoteChildrenPath.prepend( dir.dirName() );
+        if ( !dir.cdUp() )
+          break;
+
+        webdavConfigurationExists = dir.exists( "qfield_webdav_configuration.json" );
       }
+    }
 
-      mProcessLocalPath = QDir::cleanPath( fi.isFile() ? fi.absolutePath() : fi.absoluteFilePath() ) + QDir::separator();
+    if ( webdavConfigurationExists )
+    {
+      QFile webdavConfigurationFile( dir.absolutePath() + QDir::separator() + QStringLiteral( "qfield_webdav_configuration.json" ) );
+      webdavConfigurationFile.open( QFile::ReadOnly );
+      QJsonDocument jsonDocument = QJsonDocument::fromJson( webdavConfigurationFile.readAll() );
 
-      mWebdavLastModified.clear();
-
-      if ( fi.isDir() )
+      if ( !jsonDocument.isEmpty() )
       {
-        mLocalItems.clear();
-        QDirIterator it( mProcessLocalPath, QDir::Files | QDir::NoDotAndDotDot, QDirIterator::Subdirectories );
-        while ( it.hasNext() )
+        QVariantMap webdavConfiguration = jsonDocument.toVariant().toMap();
+        setUrl( webdavConfiguration["url"].toString() );
+        setUsername( webdavConfiguration["username"].toString() );
+        setStorePassword( isPasswordStored() );
+
+        mProcessRemotePath = webdavConfiguration["remote_path"].toString();
+        if ( !remoteChildrenPath.isEmpty() )
         {
-          it.next();
-          if ( it.fileName() != QStringLiteral( "qfield_webdav_configuration.json" ) )
-          {
-            mLocalItems << it.fileInfo();
-          }
+          mProcessRemotePath = mProcessRemotePath + remoteChildrenPath.join( "/" ) + QStringLiteral( "/" );
+        }
+
+        mProcessLocalPath = QDir::cleanPath( fi.isFile() ? fi.absolutePath() : fi.absoluteFilePath() ) + QDir::separator();
+      }
+    }
+
+    if ( fi.isDir() )
+    {
+      mLocalItems.clear();
+      QDirIterator it( mProcessLocalPath, QDir::Files | QDir::NoDotAndDotDot, QDirIterator::Subdirectories );
+      while ( it.hasNext() )
+      {
+        it.next();
+        if ( it.fileName() != QStringLiteral( "qfield_webdav_configuration.json" ) )
+        {
+          mLocalItems << it.fileInfo();
         }
       }
-      else
-      {
-        mLocalItems << fi;
-      }
-
-      mBytesProcessed = 0;
-      mBytesTotal = 0;
-      emit progressChanged();
-
-      mIsUploadingPath = true;
-      emit isUploadingPathChanged();
-      const QUrl url( mUrl );
-      emit confirmationRequested( url.host(), mUsername );
+    }
+    else
+    {
+      mLocalItems << fi;
     }
   }
+
+  mWebdavLastModified.clear();
+  mBytesProcessed = 0;
+  mBytesTotal = 0;
+  emit progressChanged();
+
+  mIsUploadingPath = true;
+  emit isUploadingPathChanged();
+  const QUrl url( mUrl );
+  emit confirmationRequested( url.host(), mUsername );
 }
 
 void WebdavConnection::confirmRequest()
