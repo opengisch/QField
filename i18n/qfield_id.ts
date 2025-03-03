@@ -506,7 +506,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Project Folder</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

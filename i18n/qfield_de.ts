@@ -506,7 +506,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Projektordner</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

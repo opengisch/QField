@@ -506,7 +506,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Katalog projektu</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

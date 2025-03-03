@@ -505,7 +505,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Mapa projekta</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

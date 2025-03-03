@@ -506,7 +506,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Projektihakemisto</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

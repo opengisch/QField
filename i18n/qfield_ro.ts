@@ -507,7 +507,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Folderul Proiectului</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

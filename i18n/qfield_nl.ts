@@ -506,7 +506,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Projectmap</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

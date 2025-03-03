@@ -506,7 +506,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Složka projektu</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

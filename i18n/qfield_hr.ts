@@ -506,7 +506,7 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation>Mapa projekta</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
