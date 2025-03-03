@@ -26,6 +26,7 @@ Page {
   property alias enableInfoCollection: registry.enableInfoCollection
   property alias enableMapRotation: registry.enableMapRotation
   property alias quality: registry.quality
+  property alias previewJobsEnabled: registry.previewJobsEnabled
   property alias snapToCommonAngleIsEnabled: registry.snapToCommonAngleIsEnabled
   property alias snapToCommonAngleIsRelative: registry.snapToCommonAngleIsRelative
   property alias snapToCommonAngleDegrees: registry.snapToCommonAngleDegrees
@@ -60,6 +61,7 @@ Page {
     property bool enableInfoCollection: true
     property bool enableMapRotation: true
     property double quality: 1.0
+    property bool previewJobsEnabled: true
 
     property bool snapToCommonAngleIsEnabled: false
     property bool snapToCommonAngleIsRelative: true
@@ -166,6 +168,12 @@ Page {
 
   ListModel {
     id: advancedSettingsModel
+    ListElement {
+      title: qsTr("Render preview content around visible map canvas")
+      description: qsTr("If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning")
+      settingAlias: "previewJobsEnabled"
+      isVisible: true
+    }
     ListElement {
       title: qsTr("Use native camera")
       description: qsTr("If disabled, QField will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos.")
@@ -776,8 +784,6 @@ Page {
               columns: 2
               columnSpacing: 0
               rowSpacing: 5
-
-              visible: platformUtilities.capabilities & PlatformUtilities.NativeCamera || platformUtilities.capabilities & PlatformUtilities.SentryFramework
 
               Label {
                 text: qsTr('Advanced')
