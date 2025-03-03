@@ -171,6 +171,7 @@ void QgsQuickMapCanvasMap::renderJobUpdated()
 
   mImage = mJob->renderedImage();
   mImageMapSettings = mJob->mapSettings();
+  mPreviewImages.clear();
   mDirty = true;
   // Temporarily freeze the canvas, we only need to reset the geometry but not trigger a repaint
   bool freeze = mFreeze;
@@ -199,6 +200,7 @@ void QgsQuickMapCanvasMap::renderJobFinished()
 
   mImage = mJob->renderedImage();
   mImageMapSettings = mJob->mapSettings();
+  mPreviewImages.clear();
 
   // now we are in a slot called from mJob - do not delete it immediately
   // so the class is still valid when the execution returns to the class
@@ -725,6 +727,7 @@ void QgsQuickMapCanvasMap::setPreviewJobsQuadrants( const QList<int> &quadrants 
 void QgsQuickMapCanvasMap::startPreviewJobs()
 {
   stopPreviewJobs();
+  mPreviewImages.clear();
 
   if ( mImage.isNull() || mPreviewJobsQuadrants.isEmpty() )
   {
@@ -822,7 +825,6 @@ void QgsQuickMapCanvasMap::stopPreviewJobs()
     }
   }
   mPreviewJobs.clear();
-  mPreviewImages.clear();
 }
 
 void QgsQuickMapCanvasMap::schedulePreviewJob( int number )
