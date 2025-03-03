@@ -2169,7 +2169,7 @@ ApplicationWindow {
               const direction = positionSource.positionInformation.direction;
               if (direction >= 337.5 || direction < 22.5) {
                 // moving ~north
-                mapCanvasMap.previewJobsQuadrants = [1, 2, 0, 5, 2, 8, 6, 7];
+                mapCanvasMap.previewJobsQuadrants = [1, 2, 0, 5, 3, 8, 6, 7];
               } else if (direction >= 22.5 && direction < 67.5) {
                 // moving ~northeast
                 mapCanvasMap.previewJobsQuadrants = [2, 5, 1, 8, 0, 7, 3, 6];
