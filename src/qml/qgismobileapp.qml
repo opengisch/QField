@@ -2201,8 +2201,8 @@ ApplicationWindow {
           if (!isNaN(positionSource.orientation) && Math.abs(-positionSource.orientation - mapCanvas.mapSettings.rotation) >= 2) {
             gnssButton.followActiveSkipRotationChanged = true;
             mapCanvas.mapSettings.rotation = -positionSource.orientation;
-            const triggerRecenter = Math.abs(mapCanvasMap.mapCanvasWrapper.rotation) > 10;
-            if (triggerRecenter) {
+            const triggerRefresh = Math.abs(mapCanvasMap.mapCanvasWrapper.rotation) > 33.3;
+            if (triggerRefresh) {
               mapCanvasMap.refresh(true);
             }
           }
