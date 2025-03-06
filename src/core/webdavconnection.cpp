@@ -700,7 +700,7 @@ void WebdavConnection::uploadPaths( const QStringList &localPaths )
         }
       }
     }
-    else if ( webdavConfigurationExists && !webdavJson.isEmpty() )
+    else if ( !webdavJson.isEmpty() )
     {
       QString newRemotePath = webdavConfiguration["remote_path"].toString();
       if ( !remoteChildrenPath.isEmpty() )
@@ -710,7 +710,7 @@ void WebdavConnection::uploadPaths( const QStringList &localPaths )
       mProcessRemotePath = getCommonPath( newRemotePath, mProcessRemotePath );
     }
 
-    if ( webdavConfigurationExists && !webdavJson.isEmpty() )
+    if ( !webdavJson.isEmpty() )
     {
       if ( fi.isDir() )
       {
@@ -748,7 +748,7 @@ QString WebdavConnection::getCommonPath( const QString &addressA, const QString 
 {
   const QStringList pathComponentsA = addressA.split( "/" );
   const QStringList pathComponentsB = addressB.split( "/" );
-  const int minLength = qMin( pathComponentsA.size(), pathComponentsB.size() );
+  const int minLength = std::min( pathComponentsA.size(), pathComponentsB.size() );
 
   QString commonPath = QStringLiteral( "/" );
 
