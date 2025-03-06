@@ -126,6 +126,9 @@ class WebdavConnection : public QObject
     void getWebdavItems();
     void putLocalItems();
 
+    ///! Computes the common path between two given paths.
+    QString getCommonPath( const QString &addressA, const QString &addressB );
+
     QString mUrl;
     QString mUsername;
     QString mPassword;
