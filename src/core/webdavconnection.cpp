@@ -326,6 +326,12 @@ void WebdavConnection::processDirParserFinished()
       }
 
       mWebdavMkDirs.clear();
+
+      if ( !remoteDirs.contains( mProcessRemotePath ) )
+      {
+        mWebdavMkDirs << mProcessRemotePath;
+      }
+
       for ( const QFileInfo &fileInfo : mLocalItems )
       {
         // Insure the path exists remotely
