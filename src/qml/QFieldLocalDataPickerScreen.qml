@@ -1106,8 +1106,7 @@ Page {
 
     property var importHistory: undefined
 
-    onAboutToShow: {
-      swipeDialog.currentIndex = 0;
+    function reloadHistory() {
       if (webdavConnectionLoader.item) {
         importHistory = webdavConnectionLoader.item.importHistory();
         importWebdavUrlInput.model = [""].concat(Object.keys(importHistory["urls"]));
@@ -1125,27 +1124,34 @@ Page {
       }
     }
 
+    onAboutToShow: {
+      swipeDialog.currentIndex = 0;
+      reloadHistory();
+    }
+
+    TextMetrics {
+      id: importWebdavUrlLabelMetrics
+      font: importWebdavUrlLabel.font
+      text: importWebdavUrlLabel.text
+    }
+
     SwipeView {
       id: swipeDialog
       width: mainWindow.width - 60 < importWebdavUrlLabelMetrics.width ? mainWindow.width - 60 : importWebdavUrlLabelMetrics.width
       clip: true
       interactive: false
 
-      Column {
+      GridLayout {
         id: firstPage
-        width: childrenRect.width
-        height: childrenRect.height
-        spacing: 10
-
-        TextMetrics {
-          id: importWebdavUrlLabelMetrics
-          font: importWebdavUrlLabel.font
-          text: importWebdavUrlLabel.text
-        }
+        width: swipeDialog.width
+        rowSpacing: 10
+        columnSpacing: 5
+        columns: 2
 
         Label {
           id: importWebdavUrlLabel
-          width: mainWindow.width - 60 < importWebdavUrlLabelMetrics.width ? mainWindow.width - 60 : importWebdavUrlLabelMetrics.width
+          Layout.fillWidth: true
+          Layout.columnSpan: 2
           text: qsTr("Type the WebDAV details below to import a remote folder:")
           wrapMode: Text.WordWrap
           font: Theme.defaultFont
@@ -1153,7 +1159,8 @@ Page {
         }
 
         Label {
-          width: importWebdavUrlLabel.width
+          Layout.fillWidth: true
+          Layout.columnSpan: 2
           text: qsTr("WebDAV server URL")
           wrapMode: Text.WordWrap
           font: Theme.defaultFont
@@ -1162,8 +1169,8 @@ Page {
 
         ComboBox {
           id: importWebdavUrlInput
+          Layout.fillWidth: true
           enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-          width: importWebdavUrlLabel.width
           editable: true
 
           Connections {
@@ -1184,8 +1191,26 @@ Page {
           }
         }
 
+        QfToolButton {
+          bgcolor: "transparent"
+          iconSource: Theme.getThemeVectorIcon('ic_wipe_white_24dp')
+          iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+          enabled: importWebdavUrlInput.editText !== ""
+
+          onClicked: {
+            if (webdavConnectionLoader.item) {
+              webdavConnectionLoader.item.forgetHistory(importWebdavUrlInput.editText);
+              importWebdavUrlInput.currentIndex = 0;
+              importWebdavUserInput.currentIndex = 0;
+              importWebdavPasswordInput.text = '';
+              importWebdavDialog.reloadHistory();
+            }
+          }
+        }
+
         Label {
-          width: importWebdavUrlLabel.width
+          Layout.fillWidth: true
+          Layout.columnSpan: 2
           text: qsTr("User and password")
           wrapMode: Text.WordWrap
           font: Theme.defaultFont
@@ -1195,7 +1220,7 @@ Page {
         ComboBox {
           id: importWebdavUserInput
           enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-          width: importWebdavUrlLabel.width
+          Layout.fillWidth: true
           editable: true
 
           Connections {
@@ -1210,10 +1235,27 @@ Page {
           }
         }
 
+        QfToolButton {
+          bgcolor: "transparent"
+          iconSource: Theme.getThemeVectorIcon('ic_wipe_white_24dp')
+          iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+          enabled: importWebdavUrlInput.editText !== "" && importWebdavUserInput.editText !== ""
+
+          onClicked: {
+            if (webdavConnectionLoader.item) {
+              webdavConnectionLoader.item.forgetHistory(importWebdavUrlInput.editText, importWebdavUserInput.editText);
+              importWebdavUrlInput.currentIndex = 0;
+              importWebdavUserInput.currentIndex = 0;
+              importWebdavPasswordInput.text = '';
+              importWebdavDialog.reloadHistory();
+            }
+          }
+        }
+
         TextField {
           id: importWebdavPasswordInput
           enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-          width: importWebdavUrlLabel.width
+          Layout.fillWidth: true
           rightPadding: leftPadding + (importWebdavShowPasswordInput.width - leftPadding)
           placeholderText: text === "" && webdavConnectionLoader.item && webdavConnectionLoader.item.isPasswordStored ? qsTr("leave empty to use remembered") : ""
           echoMode: TextInput.Password
@@ -1248,40 +1290,43 @@ Page {
           }
         }
 
+        Item {
+        }
+
         CheckBox {
           id: importWebdavStorePasswordCheck
-          width: importWebdavUrlLabel.width
+          Layout.fillWidth: true
+          Layout.columnSpan: 2
           enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
           text: qsTr('Remember password')
           font: Theme.defaultFont
           checked: true
         }
 
-        Row {
-          QfButton {
-            id: importWebdavFetchFoldersButton
-            anchors.verticalCenter: importWebdavFetchFoldersIndicator.verticalCenter
-            enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-            width: importWebdavUrlLabel.width - (importWebdavFetchFoldersIndicator.visible ? importWebdavFetchFoldersIndicator.width : 0)
-            text: !enabled ? qsTr("Fetching remote folders") : qsTr("Fetch remote folders")
+        QfButton {
+          id: importWebdavFetchFoldersButton
+          Layout.fillWidth: true
+          Layout.columnSpan: importWebdavFetchFoldersIndicator.visible ? 1 : 2
+          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+          text: !enabled ? qsTr("Fetching remote folders") : qsTr("Fetch remote folders")
 
-            onClicked: {
-              webdavConnectionLoader.item.fetchAvailablePaths();
-            }
+          onClicked: {
+            webdavConnectionLoader.item.fetchAvailablePaths();
           }
+        }
 
-          BusyIndicator {
-            id: importWebdavFetchFoldersIndicator
-            anchors.verticalCenter: importWebdavFetchFoldersButton.verticalCenter
-            width: 48
-            height: 48
-            visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
-            running: visible
-          }
+        BusyIndicator {
+          id: importWebdavFetchFoldersIndicator
+          Layout.preferredWidth: 48
+          Layout.preferredHeight: 48
+          visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
+          running: visible
         }
       }
 
       Column {
+        width: swipeDialog.width
+
         Label {
           width: importWebdavUrlLabel.width
           visible: importWebdavPathInput.visible
