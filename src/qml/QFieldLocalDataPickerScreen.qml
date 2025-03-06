@@ -1239,6 +1239,7 @@ Page {
 
       Column {
         width: swipeDialog.width
+        spacing: 10
 
         Label {
           width: importWebdavUrlLabel.width
@@ -1409,6 +1410,8 @@ Page {
             width: importWebdavUrlLabel.width - (importWebdavRefreshFoldersIndicator.visible ? importWebdavRefreshFoldersIndicator.width : 0)
             enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
             bgcolor: "transparent"
+            borderColor: enabled ? Theme.secondaryTextColor : Theme.mainTextDisabledColor
+            color: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
             text: !enabled ? qsTr("Refreshing remote folders") : qsTr("Refresh remote folders")
 
             onClicked: {
