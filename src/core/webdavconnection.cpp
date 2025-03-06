@@ -656,11 +656,8 @@ void WebdavConnection::uploadPaths( const QStringList &localPaths )
 {
   mLocalItems.clear();
   bool webdavConfigurationExists = false;
-  QString webdavConfigurationPath = "";
-  QJsonDocument jsonDocument;
-  QFile webdavConfigurationFile;
+  QJsonDocument webdavJson;
   QVariantMap webdavConfiguration;
-  QString mBaseRemotePath;
 
   for ( const QString &localPath : localPaths )
   {
@@ -682,14 +679,14 @@ void WebdavConnection::uploadPaths( const QStringList &localPaths )
 
       if ( webdavConfigurationExists )
       {
-        webdavConfigurationPath = dir.absolutePath() + QDir::separator() + QStringLiteral( "qfield_webdav_configuration.json" );
-        webdavConfigurationFile.setFileName( webdavConfigurationPath );
+        const QString webdavConfigurationPath = dir.absolutePath() + QDir::separator() + QStringLiteral( "qfield_webdav_configuration.json" );
+        QFile webdavConfigurationFile( webdavConfigurationPath );
         webdavConfigurationFile.open( QFile::ReadOnly );
-        jsonDocument = QJsonDocument::fromJson( webdavConfigurationFile.readAll() );
+        webdavJson = QJsonDocument::fromJson( webdavConfigurationFile.readAll() );
 
-        if ( !jsonDocument.isEmpty() )
+        if ( !webdavJson.isEmpty() )
         {
-          webdavConfiguration = jsonDocument.toVariant().toMap();
+          webdavConfiguration = webdavJson.toVariant().toMap();
           setUrl( webdavConfiguration["url"].toString() );
           setUsername( webdavConfiguration["username"].toString() );
           setStorePassword( isPasswordStored() );
@@ -703,7 +700,7 @@ void WebdavConnection::uploadPaths( const QStringList &localPaths )
         }
       }
     }
-    else if ( webdavConfigurationExists && !jsonDocument.isEmpty() )
+    else if ( webdavConfigurationExists && !webdavJson.isEmpty() )
     {
       QString newRemotePath = webdavConfiguration["remote_path"].toString();
       if ( !remoteChildrenPath.isEmpty() )
@@ -713,7 +710,7 @@ void WebdavConnection::uploadPaths( const QStringList &localPaths )
       mProcessRemotePath = getCommonPath( newRemotePath, mProcessRemotePath );
     }
 
-    if ( webdavConfigurationExists && !jsonDocument.isEmpty() )
+    if ( webdavConfigurationExists && !webdavJson.isEmpty() )
     {
       if ( fi.isDir() )
       {
