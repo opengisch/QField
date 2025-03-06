@@ -1193,7 +1193,7 @@ Page {
 
         QfToolButton {
           bgcolor: "transparent"
-          iconSource: Theme.getThemeVectorIcon('ic_wipe_white_24dp')
+          iconSource: Theme.getThemeVectorIcon('ic_delete_forever_white_24dp')
           iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
           enabled: importWebdavUrlInput.editText !== ""
 
@@ -1237,7 +1237,7 @@ Page {
 
         QfToolButton {
           bgcolor: "transparent"
-          iconSource: Theme.getThemeVectorIcon('ic_wipe_white_24dp')
+          iconSource: Theme.getThemeVectorIcon('ic_delete_forever_white_24dp')
           iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
           enabled: importWebdavUrlInput.editText !== "" && importWebdavUserInput.editText !== ""
 
