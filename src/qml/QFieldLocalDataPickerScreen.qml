@@ -1055,6 +1055,7 @@ Page {
       id: swipeDialog
       width: mainWindow.width - 60 < importWebdavUrlLabelMetrics.width ? mainWindow.width - 60 : importWebdavUrlLabelMetrics.width
       clip: true
+      interactive: false
 
       Column {
         id: firstPage
