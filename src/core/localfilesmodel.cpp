@@ -277,6 +277,11 @@ void LocalFilesModel::reloadModel()
             // Skip project preview images
             continue;
           }
+          else if ( item == QStringLiteral( "qfield_webdav_configuration.json" ) )
+          {
+            // Skip QField WebDAV configuration file
+            continue;
+          }
 
           if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) )
           {
