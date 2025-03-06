@@ -37,7 +37,7 @@ jobs:
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           rm -rf /Applications/Xcode_14*
-          rm -rf /Applications/Xcode_16*
+          rm -rf /Applications/Xcode_15*
           rm -rf /Users/runner/Library/Android/sdk
 
       - name: 🌾 Prepare variables
@@ -96,7 +96,7 @@ jobs:
         uses: maxim-lobanov/setup-xcode@v1.6.0
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
-          xcode-version: latest-stable
+          xcode-version: 16.2
 
       - name: 🍮 ccache
         uses: hendrikmuhs/ccache-action@v1
