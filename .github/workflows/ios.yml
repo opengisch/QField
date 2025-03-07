@@ -122,6 +122,7 @@ jobs:
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
                 -D ENABLE_BITCODE=OFF \
+                -DVCPKG_INSTALL_OPTIONS="--debug" \
                 -D ENABLE_ARC=ON \
                 -D QT_IOS_TEAM_ID="${{ secrets.IOS_TEAM_ID }}" \
                 -D QT_IOS_CODE_SIGN_IDENTITY="${{ env.IOS_CODE_SIGN_IDENTITY }}" \
