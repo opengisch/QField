@@ -1112,11 +1112,9 @@ Page {
 
           onClicked: {
             if (webdavConnectionLoader.item) {
-              webdavConnectionLoader.item.forgetHistory(importWebdavUrlInput.editText);
-              importWebdavUrlInput.currentIndex = 0;
-              importWebdavUserInput.currentIndex = 0;
-              importWebdavPasswordInput.text = '';
-              importWebdavDialog.reloadHistory();
+              webdavForgetConfirmationDialog.url = importWebdavUrlInput.editText;
+              webdavForgetConfirmationDialog.username = "";
+              webdavForgetConfirmationDialog.open();
             }
           }
         }
@@ -1156,11 +1154,9 @@ Page {
 
           onClicked: {
             if (webdavConnectionLoader.item) {
-              webdavConnectionLoader.item.forgetHistory(importWebdavUrlInput.editText, importWebdavUserInput.editText);
-              importWebdavUrlInput.currentIndex = 0;
-              importWebdavUserInput.currentIndex = 0;
-              importWebdavPasswordInput.text = '';
-              importWebdavDialog.reloadHistory();
+              webdavForgetConfirmationDialog.url = importWebdavUrlInput.editText;
+              webdavForgetConfirmationDialog.username = importWebdavUserInput.editText;
+              webdavForgetConfirmationDialog.open();
             }
           }
         }
@@ -1440,6 +1436,49 @@ Page {
         webdavConnectionLoader.item.storePassword = importWebdavStorePasswordCheck.checked;
         webdavConnectionLoader.item.importPath(importWebdavPathInput.model[importWebdavPathInput.currentIndex], platformUtilities.applicationDirectory() + "/Imported Projects/");
       }
+    }
+  }
+
+  QfDialog {
+    id: webdavForgetConfirmationDialog
+    title: qsTr("Confirm")
+    focus: visible
+    parent: mainWindow.contentItem
+
+    property string url: ""
+    property string username: ""
+
+    Column {
+      width: childrenRect.width
+      height: childrenRect.height
+      spacing: 10
+
+      TextMetrics {
+        id: webdavForgetConfirmationMetrics
+        font: webdavForgetConfirmationLabel.font
+        text: webdavForgetConfirmationLabel.text
+      }
+
+      Label {
+        id: webdavForgetConfirmationLabel
+        width: mainWindow.width - 60 < webdavForgetConfirmationMetrics.width ? mainWindow.width - 60 : webdavForgetConfirmationMetrics.width
+        text: qsTr("You are about to remove a saved WebDAV item, proceed?")
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+      }
+    }
+
+    onAccepted: {
+      if (webdavForgetConfirmationDialog.username != "") {
+        webdavConnectionLoader.item.forgetHistory(webdavForgetConfirmationDialog.url, webdavForgetConfirmationDialog.username);
+      } else {
+        webdavConnectionLoader.item.forgetHistory(webdavForgetConfirmationDialog.url);
+      }
+      importWebdavUrlInput.currentIndex = 0;
+      importWebdavUserInput.currentIndex = 0;
+      importWebdavPasswordInput.text = '';
+      importWebdavDialog.reloadHistory();
     }
   }
 
