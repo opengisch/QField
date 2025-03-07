@@ -367,6 +367,9 @@ Page {
           }
 
           onPressAndHold: mouse => {
+            if (localFilesModel.currentTitle === "Home") {
+              return;
+            }
             const item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
             if (item)
               table.model.setChecked(item.itemIndex, !item.itemChecked);
