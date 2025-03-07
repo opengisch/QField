@@ -65,13 +65,6 @@ jobs:
         with:
           xcode-version: 16.2
 
-      - name: 🔏 Setup code signing
-        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
-        env:
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-        run: |
-          bundle exec fastlane ios setup_signing type:${{ env.IOS_SIGN_TYPE }}  app_identifier:${{ env.IOS_APP_IDENTIFIER }} #  --verbose
-
       - name: 🍹 Prepare ios build env
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
@@ -149,6 +142,13 @@ jobs:
           name: build-logs-${{ env.TRIPLET }}
           path: |
             /Users/runner/builddir/**/*.log
+
+      - name: 🔏 Setup code signing
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
+        env:
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        run: |
+          bundle exec fastlane ios setup_signing type:${{ env.IOS_SIGN_TYPE }}  app_identifier:${{ env.IOS_APP_IDENTIFIER }} #  --verbose
 
       - name: 📦 Package
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
