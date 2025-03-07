@@ -108,6 +108,11 @@ EditorWidgetBase {
     }
   }
 
+  ExternalStorage {
+    id: externalStorage
+    type: config["StorageType"] !== undefined ? config["StorageType"] : ""
+  }
+
   ExpressionEvaluator {
     id: expressionEvaluator
     feature: currentFeature
