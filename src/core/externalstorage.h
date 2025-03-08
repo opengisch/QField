@@ -30,8 +30,9 @@ class ExternalStorage : public QObject
 
     Q_PROPERTY( Qgis::ContentStatus status READ status NOTIFY statusChanged )
     Q_PROPERTY( QString type READ type WRITE setType NOTIFY typeChanged )
+    Q_PROPERTY( QString lastError READ lastError NOTIFY lastErrorChanged );
 
-    Q_PROPERTY( QString fetchedContent READ fetchedContent NOTIFY authenticationIdChanged )
+    Q_PROPERTY( QString fetchedContent READ fetchedContent NOTIFY fetchedContentChanged )
 
   public:
     explicit ExternalStorage( QObject *parent = nullptr );
@@ -42,15 +43,17 @@ class ExternalStorage : public QObject
 
     void setType( const QString &type );
 
-    Q_INVOKABLE void fetch( const QString &url, const QString &authenticationId );
+    QString lastError() const;
 
     QString fetchedContent() const;
+
+    Q_INVOKABLE void fetch( const QString &url, const QString &authenticationConfigurationId );
 
   signals:
     void statusChanged();
     void typeChanged();
-    void authenticationIdChanged();
     void fetchedContentChanged();
+    void lastErrorChanged();
 
   private slots:
     void contentFetched();
@@ -58,7 +61,7 @@ class ExternalStorage : public QObject
   private:
     Qgis::ContentStatus mStatus = Qgis::ContentStatus::NotStarted;
     std::unique_ptr<QgsExternalStorage> mStorage;
-    QString mAuthenticationId;
+    QString mLastError;
 
     QString mFetchUrl;
     std::unique_ptr<QgsExternalStorageFetchedContent> mFetchedContent;

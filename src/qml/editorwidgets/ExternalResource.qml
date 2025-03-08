@@ -129,6 +129,10 @@ EditorWidgetBase {
     onFetchedContentChanged: {
       prepareValue(fetchedContent);
     }
+
+    onLastErrorChanged: {
+      mainWindow.displayToast(lastError, 'error');
+    }
   }
 
   ExpressionEvaluator {
