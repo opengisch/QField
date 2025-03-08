@@ -29,6 +29,7 @@
 #include <QQuickItem>
 #include <QTemporaryFile>
 #include <qgsapplication.h>
+#include <qgsauthmanager.h>
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
 #include <qgsruntimeprofiler.h>
@@ -226,6 +227,13 @@ bool AppInterface::isFileExtensionSupported( const QString &filename ) const
   const QFileInfo fi( filename );
   const QString suffix = fi.suffix().toLower();
   return SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) || SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) || SUPPORTED_RASTER_EXTENSIONS.contains( suffix );
+}
+
+bool AppInterface::isAuthenticationConfigurationAvailable( const QString &id ) const
+{
+  QgsAuthManager *authManager = QgsApplication::instance()->authManager();
+  QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
+  return configs.contains( id );
 }
 
 void AppInterface::logMessage( const QString &message )

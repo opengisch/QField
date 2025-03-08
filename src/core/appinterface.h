@@ -66,6 +66,11 @@ class AppInterface : public QObject
     Q_INVOKABLE bool isFileExtensionSupported( const QString &filename ) const;
 
     /**
+     * Returns TRUE if the authentication configuration \a id is available.
+     */
+    Q_INVOKABLE bool isAuthenticationConfigurationAvailable( const QString &id ) const;
+
+    /**
      * Adds a log \a message that will be visible to the user through the
      * message log panel, as well as added into the device's system logs
      * which will be captured by the sentry's reporting framework when enabled.
