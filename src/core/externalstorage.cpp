@@ -37,7 +37,10 @@ QString ExternalStorage::type() const
 
 void ExternalStorage::setType( const QString &type )
 {
-  mStorage.reset( QgsApplication::instance()->externalStorageRegistry()->externalStorageFromType( type ) );
+  if ( mStorage && mStorage->type() == type )
+    return;
+
+  mStorage = QgsApplication::instance()->externalStorageRegistry()->externalStorageFromType( type );
   emit typeChanged();
 }
 
@@ -68,9 +71,12 @@ void ExternalStorage::fetch( const QString &url, const QString &authenticationCo
         return;
       }
     }
+
     mFetchedContent.reset( mStorage->fetch( url, authenticationConfigurationId, Qgis::ActionStart::Immediate ) );
     emit statusChanged();
+    emit fetchedContentChanged();
 
+    connect( mFetchedContent.get(), &QgsExternalStorageContent::errorOccurred, this, &ExternalStorage::contentErrorOccurred );
     connect( mFetchedContent.get(), &QgsExternalStorageFetchedContent::fetched, this, &ExternalStorage::contentFetched );
   }
 }
@@ -84,4 +90,11 @@ void ExternalStorage::contentFetched()
 {
   emit statusChanged();
   emit fetchedContentChanged();
+}
+
+void ExternalStorage::contentErrorOccurred( const QString &errorString )
+{
+  mLastError = errorString;
+  emit statusChanged();
+  emit lastErrorChanged();
 }

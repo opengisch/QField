@@ -57,10 +57,11 @@ class ExternalStorage : public QObject
 
   private slots:
     void contentFetched();
+    void contentErrorOccurred( const QString &errorString );
 
   private:
     Qgis::ContentStatus mStatus = Qgis::ContentStatus::NotStarted;
-    std::unique_ptr<QgsExternalStorage> mStorage;
+    QgsExternalStorage *mStorage = nullptr;
     QString mLastError;
 
     QString mFetchUrl;
