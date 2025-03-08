@@ -3864,6 +3864,7 @@ ApplicationWindow {
 
   ProjectInfo {
     id: projectInfo
+    objectName: "projectInfo"
 
     mapSettings: mapCanvas.mapSettings
     layerTree: dashBoard.layerTree
