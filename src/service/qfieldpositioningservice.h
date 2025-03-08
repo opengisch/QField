@@ -37,6 +37,7 @@ class QFIELD_SERVICE_EXPORT QFieldPositioningService : public QAndroidService
   private slots:
     void triggerShowNotification();
     void triggerReturnNotification();
+    void triggerStopNotification();
 
   private:
     PositioningSource *mPositioningSource = nullptr;

@@ -69,10 +69,15 @@ QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
         triggerShowNotification();
         mNotificationTimer.start();
       }
+      else
+      {
+        triggerReturnNotification();
+      }
     }
     else
     {
       mNotificationTimer.stop();
+      triggerStopNotification();
     }
   } );
 }
@@ -90,6 +95,15 @@ void QFieldPositioningService::triggerShowNotification()
 void QFieldPositioningService::triggerReturnNotification()
 {
   QJniObject message = QJniObject::fromString( tr( "Positioning service running" ) );
+  QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",
+                                      "triggerShowNotification",
+                                      message.object<jstring>(),
+                                      false );
+}
+
+void QFieldPositioningService::triggerStopNotification()
+{
+  QJniObject message = QJniObject::fromString( tr( "Positioning service stopped" ) );
   QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",
                                       "triggerShowNotification",
                                       message.object<jstring>(),
