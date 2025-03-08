@@ -16,7 +16,9 @@
 #ifndef FEATUREUTILS_H
 #define FEATUREUTILS_H
 
+#include "gnsspositioninformation.h"
 #include "qfield_core_export.h"
+#include "qfieldcloudutils.h"
 
 #include <QObject>
 #include <qgsfeature.h>
@@ -42,7 +44,7 @@ class QFIELD_CORE_EXPORT FeatureUtils : public QObject
     /**
      * Returns a new feature with its fields set to default values.
      */
-    static Q_INVOKABLE QgsFeature createFeature( QgsVectorLayer *layer, const QgsGeometry &geometry = QgsGeometry() );
+    static Q_INVOKABLE QgsFeature createFeature( QgsVectorLayer *layer, const QgsGeometry &geometry = QgsGeometry(), const GnssPositionInformation &positionInformation = GnssPositionInformation(), const CloudUserInformation &cloudUserInformation = CloudUserInformation() );
 
     /**
     * Returns the display name of a given feature.

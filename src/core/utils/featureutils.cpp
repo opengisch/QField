@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "expressioncontextutils.h"
 #include "featureutils.h"
 #include "qgsquickmapsettings.h"
 
@@ -35,11 +36,19 @@ QgsFeature FeatureUtils::createBlankFeature( const QgsFields &fields, const QgsG
   return feature;
 }
 
-QgsFeature FeatureUtils::createFeature( QgsVectorLayer *layer, const QgsGeometry &geometry )
+QgsFeature FeatureUtils::createFeature( QgsVectorLayer *layer, const QgsGeometry &geometry, const GnssPositionInformation &positionInformation, const CloudUserInformation &cloudUserInformation )
 {
   QgsFeature feature;
   QgsAttributeMap attributes;
   QgsExpressionContext context = layer->createExpressionContext();
+  if ( positionInformation.isValid() )
+  {
+    context << ExpressionContextUtils::positionScope( positionInformation, false );
+  }
+  if ( !cloudUserInformation.isEmpty() )
+  {
+    context << ExpressionContextUtils::cloudUserScope( cloudUserInformation );
+  }
   feature = QgsVectorLayerUtils::createFeature( layer, geometry, attributes, &context );
   return feature;
 }
