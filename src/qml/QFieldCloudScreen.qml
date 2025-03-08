@@ -36,15 +36,17 @@ Page {
     Layout.fillHeight: true
     spacing: 2
 
-    RowLayout {
+    Item {
       id: connectionInformation
-      spacing: 2
       Layout.fillWidth: true
+      Layout.minimumHeight: cloudAvatarRect.height + (storageBar.visible * storageBar.height) + 8
+      Layout.leftMargin: 10
+      Layout.rightMargin: 10
+      Layout.topMargin: 12
       visible: cloudConnection.status === QFieldCloudConnection.LoggedIn || table.count > 0
 
       Label {
-        Layout.fillWidth: true
-        padding: 10
+        anchors.left: parent.left
         opacity: projects.visible ? 1 : 0
         text: switch (cloudConnection.status) {
         case 0:
@@ -64,8 +66,7 @@ Page {
 
       Rectangle {
         id: cloudAvatarRect
-        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        Layout.margins: 10
+        anchors.right: parent.right
         width: 48
         height: 48
         border.color: Theme.mainColor
@@ -120,6 +121,45 @@ Page {
               projects.visible = true;
               refreshProjectsListBtn.forceActiveFocus();
             }
+          }
+        }
+      }
+
+      Label {
+        id: storageText
+        anchors.bottom: storageBar.top
+        anchors.bottomMargin: 4
+        color: Theme.mainTextColor
+        font.italic: true
+        textFormat: Text.RichText
+        onLinkActivated: link => Qt.openUrlExternally(link)
+      }
+
+      ProgressBar {
+        id: storageBar
+        anchors.top: cloudAvatarRect.bottom
+        anchors.topMargin: 8
+        width: parent.width
+        visible: false
+        from: 0
+        to: 1
+        value: usage
+
+        // The `value` property is being animated, so we need the actual value at all times.
+        property double usage: 0
+
+        Material.accent: {
+          if (usage < .9)
+            return Theme.qfieldCloudBlue;
+          else if (usage < .975)
+            return Theme.warningColor;
+          else
+            return Theme.bookmarkRed;
+        }
+
+        Behavior on value  {
+          NumberAnimation {
+            duration: 1000
           }
         }
       }
@@ -620,8 +660,34 @@ Page {
       } else {
         projects.visible = true;
         connectionSettings.visible = false;
+
+        // uncomment when storage bar api is ready
+        // showStorageBar()
       }
+    } else
+    // uncomment when storage bar api is ready
+    // hideStorageBar()
+    {
     }
+  }
+
+  function showStorageBar() {
+    const usedStorage = 1;
+    const totalStorage = 1;
+    storageBar.usage = usedStorage / totalStorage;
+    storageText.text = qsTr(`${usedStorage} GB of ${totalStorage} GB used`);
+    if (storageBar.usage >= .975) {
+      const upgradeStorageText = qsTr("upgrade to more storage here");
+      storageText.text += `; <a href="https://apps.qfield.cloud/plans">${upgradeStorageText}</a>`;
+    }
+    storageText.visible = true;
+    storageBar.visible = true;
+  }
+
+  function hideStorageBar() {
+    storageBar.usage = 0;
+    storageBar.visible = false;
+    storageText.visible = false;
   }
 
   Component.onCompleted: {
