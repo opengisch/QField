@@ -300,6 +300,8 @@ EditorWidgetBase {
     }
   }
 
+  // The loader is used to defer the cost involved in atlas-related item / model generation until the
+  // menu is opened in order to avoid extra cost when opening a feature form
   Loader {
     id: atlasMenuLoader
     enabled: false
