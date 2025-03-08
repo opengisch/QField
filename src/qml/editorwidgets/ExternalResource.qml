@@ -77,6 +77,20 @@ EditorWidgetBase {
     if (currentValue != undefined && currentValue !== '') {
       const isHttp = value.startsWith('http://') || value.startsWith('https://');
       var fullValue = isHttp ? value : prefixToRelativePath + value;
+      const fullValueExists = FileUtils.fileExists(fullValue);
+      if (!fullValueExists && externalStorage.type != "") {
+        prepareValue("");
+        externalStorage.fetch(value, config["StorageAuthConfigId"]);
+      } else {
+        prepareValue(fullValue);
+      }
+    } else {
+      prepareValue("");
+    }
+  }
+
+  function prepareValue(fullValue) {
+    if (fullValue !== "") {
       var mimeType = FileUtils.mimeTypeName(fullValue);
       isImage = !config.UseLink && mimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(mimeType);
       isAudio = !config.UseLink && mimeType.startsWith("audio/");
@@ -111,6 +125,10 @@ EditorWidgetBase {
   ExternalStorage {
     id: externalStorage
     type: config["StorageType"] !== undefined ? config["StorageType"] : ""
+
+    onFetchedContentChanged: {
+      prepareValue(fetchedContent);
+    }
   }
 
   ExpressionEvaluator {
