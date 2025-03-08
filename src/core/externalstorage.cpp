@@ -17,6 +17,8 @@
 #include "externalstorage.h"
 
 #include <qgsapplication.h>
+#include <qgsauthmanager.h>
+
 
 ExternalStorage::ExternalStorage( QObject *parent )
   : QObject( parent )
@@ -39,7 +41,12 @@ void ExternalStorage::setType( const QString &type )
   emit typeChanged();
 }
 
-void ExternalStorage::fetch( const QString &url, const QString &authenticationId )
+QString ExternalStorage::lastError() const
+{
+  return mLastError;
+}
+
+void ExternalStorage::fetch( const QString &url, const QString &authenticationConfigurationId )
 {
   if ( mStorage )
   {
@@ -50,7 +57,18 @@ void ExternalStorage::fetch( const QString &url, const QString &authenticationId
       mFetchedContent->deleteLater();
     }
 
-    mFetchedContent.reset( mStorage->fetch( url, authenticationId, Qgis::ActionStart::Immediate ) );
+    if ( !authenticationConfigurationId.isEmpty() )
+    {
+      QgsAuthManager *authManager = QgsApplication::instance()->authManager();
+      QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
+      if ( !configs.contains( authenticationConfigurationId ) )
+      {
+        mLastError = tr( "The external storage's authentication configuration ID is missing, please insure it is imported into Field" );
+        emit lastErrorChanged();
+        return;
+      }
+    }
+    mFetchedContent.reset( mStorage->fetch( url, authenticationConfigurationId, Qgis::ActionStart::Immediate ) );
     emit statusChanged();
 
     connect( mFetchedContent.get(), &QgsExternalStorageFetchedContent::fetched, this, &ExternalStorage::contentFetched );
