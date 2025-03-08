@@ -60,18 +60,6 @@ void ExternalStorage::fetch( const QString &url, const QString &authenticationCo
       mFetchedContent->deleteLater();
     }
 
-    if ( !authenticationConfigurationId.isEmpty() )
-    {
-      QgsAuthManager *authManager = QgsApplication::instance()->authManager();
-      QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
-      if ( !configs.contains( authenticationConfigurationId ) )
-      {
-        mLastError = tr( "The external storage's authentication configuration ID is missing, please insure it is imported into Field" );
-        emit lastErrorChanged();
-        return;
-      }
-    }
-
     mFetchedContent.reset( mStorage->fetch( url, authenticationConfigurationId, Qgis::ActionStart::Immediate ) );
     emit statusChanged();
     emit fetchedContentChanged();
