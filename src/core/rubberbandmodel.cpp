@@ -319,7 +319,6 @@ void RubberbandModel::removeVertex()
 void RubberbandModel::reset()
 {
   removeVertices( 0, mPointList.size() - 1 );
-  mPointList.replace( 0, QgsPoint() );
 
   mFrozen = false;
   emit frozenChanged();
