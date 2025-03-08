@@ -188,6 +188,11 @@ void VertexModel::refreshGeometry()
     }
   }
 
+  if ( QgsWkbTypes::isCurvedType( geom.wkbType() ) == true )
+  {
+    geom.convertToStraightSegment();
+  }
+
   const QgsAbstractGeometry *abstractGeom = geom.constGet();
   if ( !abstractGeom )
     return;
@@ -471,6 +476,11 @@ QgsGeometry VertexModel::geometry() const
   if ( mTransform.isValid() )
   {
     geometry.transform( mTransform, Qgis::TransformDirection::Reverse );
+  }
+
+  if ( QgsWkbTypes::isCurvedType( mGeometryWkbType ) )
+  {
+    geometry = geometry.convertToCurves();
   }
 
   if ( QgsWkbTypes::isMultiType( mGeometryWkbType ) )

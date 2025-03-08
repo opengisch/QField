@@ -176,5 +176,6 @@
         <file>themes/qfield/nodpi/ic_expression_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_message_log_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_qfield_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_line_curve_24dp.svg</file>
     </qresource>
 </RCC>

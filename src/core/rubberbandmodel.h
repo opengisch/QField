@@ -25,9 +25,13 @@
 #include <QVector>
 #include <qgis.h>
 #include <qgsabstractgeometry.h>
+#include <qgscircularstring.h>
+#include <qgscompoundcurve.h>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsgeometry.h>
 #include <qgspoint.h>
+
+#include <layerutils.h>
 
 class QgsVectorLayer;
 
@@ -154,8 +158,20 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     //! Remove the vertex at the current index
     Q_INVOKABLE void removeVertex();
 
+    //! Add a curve at the current index
+    Q_INVOKABLE void addCurve();
+
+    //! Set the middle point of the curve at the current index
+    Q_INVOKABLE void addMiddlePointCurve();
+
+    //! Remove the curve at the current index
+    Q_INVOKABLE void removeCurve();
+
     //! Reset the model, remove all vertices and restart the vertex index
     Q_INVOKABLE void reset();
+
+    //! Returns whether the rubberband model is currently drawing a curve
+    Q_INVOKABLE bool isDuringCurveDrawing() const { return mDuringCurveDrawing; }
 
     /**
      * Sets the model data to match a given \a geometry
@@ -181,6 +197,8 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     //! Returns all vertices points keeping only X and Y coordinates
     QVector<QgsPointXY> flatPointSequence( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem() ) const;
 
+    QgsCompoundCurve getCompoundCurve() { return mCompoundCurve; }
+
   signals:
     void vertexChanged( int index );
     void verticesInserted( int index, int count );
@@ -197,7 +215,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     void measureValueChanged();
 
   private:
-    QVector<QgsPoint> mPointList;
+    QgsCompoundCurve mCompoundCurve;
     int mCurrentCoordinateIndex = 0;
     QDateTime mCurrentPositionTimestamp;
     Qgis::GeometryType mGeometryType = Qgis::GeometryType::Line;
@@ -205,6 +223,11 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     QgsCoordinateReferenceSystem mCrs;
     double mMeasureValue = std::numeric_limits<double>::quiet_NaN();
     bool mFrozen = false;
+    bool mDuringCurveDrawing = false;
+
+    QgsPoint mLastStartCurvePoint;
+    QgsPoint mLastMiddleCurvePoint;
+    QgsPoint mCurrentCoordinate;
 };
 
 #endif // RUBBERBANDMODEL_H

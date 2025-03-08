@@ -676,7 +676,19 @@ ApplicationWindow {
               if (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Point || Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Null) {
                 digitizingToolbar.confirm();
               } else {
-                digitizingToolbar.addVertex();
+                if (LayerUtils.isCurvedGeometry(currentRubberband.model.vectorLayer) == true && settings.valueBool("/QField/Digitizing/CurveEdition", false) == true) {
+                  if (currentRubberband.model.isDuringCurveDrawing() == true || currentRubberband.model.vertexCount == 1) {
+                    if (currentRubberband.model.vertexCount != 1) {
+                      digitizingToolbar.addCurve();
+                    } else {
+                      digitizingToolbar.addVertex();
+                    }
+                  } else {
+                    digitizingToolbar.addMiddlePointCurve();
+                  }
+                } else {
+                  digitizingToolbar.addVertex();
+                }
               }
             }
           } else {
@@ -1901,6 +1913,51 @@ ApplicationWindow {
                 }
               }
             }
+          }
+        }
+
+        QfToolButton {
+          id: curveEditionButton
+          width: visible ? 40 : 0
+          height: visible ? 40 : 0
+          padding: 2
+          round: true
+          visible: dashBoard.activeLayer && LayerUtils.isCurvedGeometry(dashBoard.activeLayer) == true
+          iconSource: Theme.getThemeVectorIcon("ic_line_curve_24dp")
+          iconColor: "white"
+          bgcolor: Theme.darkGray
+
+          property bool curveEdition: false
+          state: curveEdition ? "On" : "Off"
+
+          states: [
+            State {
+
+              name: "Off"
+              PropertyChanges {
+                target: curveEditionButton
+                iconColor: "white"
+                bgcolor: Theme.darkGraySemiOpaque
+              }
+            },
+            State {
+              name: "On"
+              PropertyChanges {
+                target: curveEditionButton
+                iconColor: Theme.mainColor
+                bgcolor: Theme.darkGray
+              }
+            }
+          ]
+
+          onClicked: {
+            curveEdition = !curveEdition;
+            displayToast(curveEdition ? qsTr("Curve edition turned on") : qsTr("Curve edition turned off"));
+            settings.setValue("/QField/Digitizing/CurveEdition", curveEdition);
+          }
+
+          Component.onCompleted: {
+            curveEdition = settings.valueBool("/QField/Digitizing/CurveEdition", false);
           }
         }
       }
