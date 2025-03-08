@@ -22,7 +22,7 @@ EditorWidgetBase {
     if (qgisProject == undefined)
       return "";
     var path = "";
-    if (config["RelativeStorage"] === 1) {
+    if (config["RelativeStorage"] === 1 || externalStorage.type != "") {
       path = qgisProject.homePath;
       if (!path.endsWith("/"))
         path = path + "/";
