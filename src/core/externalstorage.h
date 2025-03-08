@@ -37,16 +37,41 @@ class ExternalStorage : public QObject
   public:
     explicit ExternalStorage( QObject *parent = nullptr );
 
+    /**
+     * Returns the current status of the external storage object. When a fetch operation has been triggered,
+     * the status will reflect the last fetched content operation.
+     */
     Qgis::ContentStatus status() const;
 
+    /**
+     * Returns the current external storage type string.
+     */
     QString type() const;
 
+    /**
+     * Sets the current external storage type string. The type string must be tied to an
+     * external storage object that was added in the QgsApplication::externalStorageRegistry().
+     *
+     */
     void setType( const QString &type );
 
+    /**
+     * Returns the last error emitted by an external storage operation.
+     */
     QString lastError() const;
 
+    /**
+     * Returns the file path of a successfully fetched content operation.
+     */
     QString fetchedContent() const;
 
+    /**
+     * Triggers a fetch operation to download the content from an external storage and
+     * make it available locally.
+     * \param url the remote URL of the content
+     * \param authenticationConfigurationId the authentication configuration ID used to
+     * connect to the external storage endpoint
+     */
     Q_INVOKABLE void fetch( const QString &url, const QString &authenticationConfigurationId );
 
   signals:
