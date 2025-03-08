@@ -87,7 +87,7 @@ class WebdavConnection : public QObject
 
     Q_INVOKABLE void importPath( const QString &remotePath, const QString &localPath );
     Q_INVOKABLE void downloadPath( const QString &localPath );
-    Q_INVOKABLE void uploadPath( const QString &localPath );
+    Q_INVOKABLE void uploadPaths( const QStringList &localPaths );
 
     Q_INVOKABLE void confirmRequest();
     Q_INVOKABLE void cancelRequest();
@@ -125,6 +125,9 @@ class WebdavConnection : public QObject
     void setupConnection();
     void getWebdavItems();
     void putLocalItems();
+
+    ///! Computes the common path between two given paths.
+    QString getCommonPath( const QString &addressA, const QString &addressB );
 
     QString mUrl;
     QString mUsername;

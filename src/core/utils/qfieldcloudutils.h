@@ -134,8 +134,8 @@ class QFieldCloudUtils : public QObject
     //! Returns the list of attachments that have not yet been uploaded to the cloud.
     static const QMultiMap<QString, QString> getPendingAttachments();
 
-    //! Adds an \a fileName for a given \a projectId to the pending attachments list
-    Q_INVOKABLE static void addPendingAttachment( const QString &projectId, const QString &fileName );
+    //! Adds an array of \a fileNames for a given \a projectId to the pending attachments list
+    Q_INVOKABLE static void addPendingAttachments( const QString &projectId, const QStringList &fileNames );
 
     //! Adds removes a \a fileName for a given \a projectId to the pending attachments list
     static void removePendingAttachment( const QString &projectId, const QString &fileName );
