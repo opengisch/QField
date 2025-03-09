@@ -444,6 +444,66 @@ void WebdavConnection::getWebdavItems()
   }
 }
 
+void WebdavConnection::forgetHistory( const QString &url, const QString &username )
+{
+  QSettings settings;
+  if ( !username.isEmpty() )
+  {
+    // Add a dummy value into the root of the server to avoid it being deleted due to empty group
+    settings.setValue( QStringLiteral( "/qfield/webdavImports/%1/dummy" ).arg( QUrl::toPercentEncoding( url ) ), 1 );
+    settings.beginGroup( QStringLiteral( "/qfield/webdavImports/%1/users/%2" ).arg( QUrl::toPercentEncoding( url ), QUrl::toPercentEncoding( username ) ) );
+    settings.remove( "" );
+    settings.endGroup();
+
+    QgsAuthManager *authManager = QgsApplication::instance()->authManager();
+    QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
+    for ( QgsAuthMethodConfig &config : configs )
+    {
+      if ( config.uri() == url )
+      {
+        authManager->loadAuthenticationConfig( config.id(), config, true );
+        if ( config.config( QStringLiteral( "username" ) ) == username )
+        {
+          authManager->removeAuthenticationConfig( config.id() );
+        }
+      }
+    }
+  }
+  else if ( !url.isEmpty() )
+  {
+    settings.beginGroup( QStringLiteral( "/qfield/webdavImports/%1" ).arg( QUrl::toPercentEncoding( url ) ) );
+    settings.remove( "" );
+    settings.endGroup();
+
+    QgsAuthManager *authManager = QgsApplication::instance()->authManager();
+    QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
+    for ( QgsAuthMethodConfig &config : configs )
+    {
+      if ( config.uri() == url )
+      {
+        authManager->removeAuthenticationConfig( config.id() );
+      }
+    }
+  }
+  else
+  {
+    settings.beginGroup( QStringLiteral( "/qfield/webdavImports" ) );
+    const QStringList urls = settings.allKeys();
+    settings.remove( "" );
+    settings.endGroup();
+
+    QgsAuthManager *authManager = QgsApplication::instance()->authManager();
+    QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
+    for ( QgsAuthMethodConfig &config : configs )
+    {
+      if ( urls.contains( config.uri() ) )
+      {
+        authManager->removeAuthenticationConfig( config.id() );
+      }
+    }
+  }
+}
+
 QVariantMap WebdavConnection::importHistory()
 {
   // Collect imported folders
