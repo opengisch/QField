@@ -22,11 +22,7 @@ Popup {
   padding: 0
 
   closePolicy: Popup.CloseOnEscape
-  dim: true
-
-  onOpened: {
-    contentItem.forceActiveFocus();
-  }
+  focus: visible
 
   Settings {
     id: settings

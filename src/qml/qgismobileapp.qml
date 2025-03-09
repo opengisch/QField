@@ -4189,6 +4189,8 @@ ApplicationWindow {
   QFieldSketcher {
     id: sketcher
     visible: false
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   Connections {
