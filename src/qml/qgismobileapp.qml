@@ -4153,6 +4153,8 @@ ApplicationWindow {
 
     width: parent.width
     height: parent.height
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   QFieldCloudPackageLayersFeedback {
