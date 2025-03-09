@@ -60,6 +60,7 @@ set(QFIELD_CORE_SRCS
     drawingtemplatemodel.cpp
     expressionevaluator.cpp
     expressionvariablemodel.cpp
+    externalstorage.cpp
     featurechecklistmodel.cpp
     featurelistextentcontroller.cpp
     featurelistmodel.cpp
@@ -184,6 +185,7 @@ set(QFIELD_CORE_HDRS
     drawingtemplatemodel.h
     expressionevaluator.h
     expressionvariablemodel.h
+    externalstorage.h
     featurechecklistmodel.h
     featureexpressionvaluesgatherer.h
     featurelistextentcontroller.h
