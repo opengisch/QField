@@ -10,31 +10,20 @@ import Theme
 import "../.."
 import ".."
 
-EditorWidgetBase {
+RelationEditorBase {
   id: relationEditor
 
-  property int itemHeight: 48
+  showAllItems: true
 
-  // because no additional addEntry item on readOnly (isEnabled false)
-  height: listView.contentHeight + (isEnabled ? addEntry.height : 0)
-  enabled: true
-
-  Rectangle {
-    anchors.fill: parent
-    color: "transparent"
-    border.color: Theme.controlBorderColor
-    border.width: 1
-  }
-
-  OrderedRelationModel {
+  relationEditorModel: OrderedRelationModel {
     //containing the current (parent) feature, the relation to the children
     //and the relation from the children to the other parent (if it's nm and cardinality is set)
     id: orderedRelationModel
     currentRelationId: relationId
     feature: currentFeature
-    orderingField: relationEditorWidgetConfig['ordering_field']
-    imagePath: relationEditorWidgetConfig['image_path']
-    description: relationEditorWidgetConfig['description']
+    orderingField: relationEditorWidgetConfig['ordering_field'] || ""
+    imagePath: relationEditorWidgetConfig['image_path'] || ""
+    description: relationEditorWidgetConfig['description'] || ""
 
     property int featureFocus: -1
 
@@ -43,122 +32,9 @@ EditorWidgetBase {
     }
   }
 
-  DelegateModel {
-    id: visualModel
-
+  listView.model: DelegateModel {
     model: orderedRelationModel
     delegate: dragDelegate
-  }
-
-  ListView {
-    id: listView
-    model: visualModel
-    width: parent.width
-    height: contentHeight
-    focus: true
-    clip: true
-    boundsMovement: Flickable.StopAtBounds
-    highlightRangeMode: ListView.ApplyRange
-  }
-
-  Item {
-    id: addEntry
-    anchors.top: listView.bottom
-    height: itemHeight
-    width: parent.width
-
-    focus: true
-
-    Rectangle {
-      anchors.fill: parent
-      color: Theme.controlBorderColor
-      visible: isEnabled
-
-      Text {
-        visible: isEnabled
-        color: Theme.secondaryTextColor
-        text: isEnabled && !constraintsHardValid ? qsTr('Ensure contraints are met') : ''
-        anchors {
-          leftMargin: 10
-          left: parent.left
-          right: addButtonRow.left
-          verticalCenter: parent.verticalCenter
-        }
-        font: Theme.tipFont
-      }
-
-      Row {
-        id: addButtonRow
-        anchors {
-          top: parent.top
-          right: parent.right
-          rightMargin: 10
-        }
-        height: parent.height
-
-        QfToolButton {
-          id: addButton
-          width: parent.height
-          height: parent.height
-          enabled: constraintsHardValid
-
-          round: false
-          iconSource: Theme.getThemeVectorIcon('ic_add_white_24dp')
-          bgcolor: parent.enabled ? 'black' : 'grey'
-        }
-      }
-
-      BusyIndicator {
-        id: addingIndicator
-        anchors {
-          top: parent.top
-          right: parent.right
-          rightMargin: 10
-        }
-        width: parent.height
-        height: parent.height
-        running: false
-      }
-
-      Timer {
-        id: addingTimer
-
-        property string printName: ''
-
-        interval: 50
-        repeat: false
-
-        onTriggered: {
-          let saved = form.state === 'Add' ? !form.setupOnly && save() : true;
-          if (ProjectUtils.transactionMode(qgisProject) !== Qgis.TransactionMode.Disabled) {
-            // When a transaction mode is enabled, we must fallback to saving the parent feature to have provider-side issues
-            if (!saved) {
-              displayToast(qsTr('Cannot add child feature: insure the parent feature meets all constraints and can be saved'), 'warning');
-              return;
-            }
-          }
-
-          //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
-          if (orderedRelationModel.parentPrimariesAvailable) {
-            displayToast(qsTr('Adding child feature in layer %1').arg(orderedRelationModel.relation.referencingLayer.name));
-            if (orderedRelationModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null) {
-              requestGeometry(relationEditor, orderedRelationModel.relation.referencingLayer);
-              return;
-            }
-            showAddFeaturePopup();
-          } else {
-            displayToast(qsTr('Cannot add child feature: attribute value linking parent and children is not set'), 'warning');
-          }
-        }
-      }
-
-      MouseArea {
-        anchors.fill: parent
-        onClicked: {
-          addingTimer.restart();
-        }
-      }
-    }
   }
 
   Component {
@@ -175,9 +51,9 @@ EditorWidgetBase {
 
       anchors.left: parent ? parent.left : undefined
       anchors.right: parent ? parent.right : undefined
-      height: content.height
+      height: listitem.height
 
-      drag.target: held ? content : undefined
+      drag.target: held ? listitem : undefined
       drag.axis: Drag.YAxis
 
       onPressAndHold: {
@@ -204,20 +80,20 @@ EditorWidgetBase {
       }
 
       Rectangle {
-        id: content
+        id: listitem
         anchors {
           horizontalCenter: parent.horizontalCenter
           verticalCenter: parent.verticalCenter
         }
         width: dragArea.width
-        height: row.implicitHeight + 4
+        height: row.implicitHeight
 
         Ripple {
           clip: true
           width: parent.width
           height: parent.height
           pressed: dragArea.pressed
-          anchor: content
+          anchor: listitem
           active: dragArea.pressed
           color: Material.rippleColor
         }
@@ -234,7 +110,7 @@ EditorWidgetBase {
           when: dragArea.held
 
           AnchorChanges {
-            target: content
+            target: listitem
             anchors.horizontalCenter: undefined
             anchors.verticalCenter: undefined
           }
@@ -243,9 +119,9 @@ EditorWidgetBase {
         Row {
           id: row
           anchors.fill: parent
-          anchors.margins: 2
-
-          height: Math.max(itemHeight, featureText.height)
+          anchors.rightMargin: 10
+          anchors.leftMargin: 10
+          height: listitem.height
 
           Image {
             id: featureImage
@@ -260,14 +136,14 @@ EditorWidgetBase {
           Text {
             id: featureText
             anchors.verticalCenter: parent.verticalCenter
-            width: parent.width - 8 - (featureImage.visible ? featureImage.width : 0) - viewButton.width - moveDownButton.width - moveUpButton.width - deleteButton.width
+            width: parent.width - (featureImage.visible ? featureImage.width : 0) - viewButton.width - moveDownButton.width - moveUpButton.width - menuButton.width
             topPadding: 5
             bottomPadding: 5
             font: Theme.defaultFont
             color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
-            text: Description || model.displayString
             elide: Text.ElideRight
             wrapMode: Text.WordWrap
+            text: Description || model.displayString
           }
 
           QfToolButton {
@@ -335,23 +211,23 @@ EditorWidgetBase {
           }
 
           QfToolButton {
-            id: deleteButton
+            id: menuButton
             anchors.verticalCenter: parent.verticalCenter
-            visible: isEnabled
-            width: visible ? 48 : 0
+            width: 48
             height: 48
 
             round: false
-            iconSource: Theme.getThemeVectorIcon('ic_delete_forever_white_24dp')
+            iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
             iconColor: Theme.mainTextColor
             bgcolor: 'transparent'
 
             onClicked: {
-              deleteDialog.referencingFeatureId = model.referencingFeature.id;
-              deleteDialog.referencingFeatureDisplayMessage = model.displayString;
-              deleteDialog.nmReferencedFeatureId = nmRelationId ? model.model.nmReferencedFeature.id : 0;
-              deleteDialog.nmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : '';
-              deleteDialog.visible = true;
+              //var gc = mapToItem(mainWindow, 0, 0);
+              childMenu.entryReferencingFeature = model.referencingFeature;
+              childMenu.entryDisplayString = model.displayString;
+              childMenu.entryNmReferencedFeature = nmRelationId ? model.model.nmReferencedFeature : undefined;
+              childMenu.entryNmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : '';
+              childMenu.popup(menuButton.x, menuButton.y);
             }
           }
         }
@@ -369,92 +245,14 @@ EditorWidgetBase {
         anchors.fill: parent
         anchors.margins: 10
 
-        onEntered: {
+        onEntered: drag => {
           if (dragArea.indexFrom === -1) {
             dragArea.indexFrom = drag.source.DelegateModel.itemsIndex;
           }
           dragArea.indexTo = dragArea.DelegateModel.itemsIndex;
-          visualModel.items.move(drag.source.DelegateModel.itemsIndex, dragArea.DelegateModel.itemsIndex);
+          listView.model.items.move(drag.source.DelegateModel.itemsIndex, dragArea.DelegateModel.itemsIndex);
         }
       }
     }
-  }
-
-  BusyIndicator {
-    id: busyIndicator
-    anchors.centerIn: parent
-    width: 36
-    height: 36
-    running: orderedRelationModel.isLoading
-  }
-
-  QfDialog {
-    id: deleteDialog
-    parent: mainWindow.contentItem
-
-    property int referencingFeatureId
-    property string referencingFeatureDisplayMessage
-    property string referencingLayerName: orderedRelationModel.relation.referencingLayer ? orderedRelationModel.relation.referencingLayer.name : ''
-    property int nmReferencedFeatureId
-    property string nmReferencedFeatureDisplayMessage
-    property string nmReferencedLayerName: orderedRelationModel.nmRelation.referencedLayer ? orderedRelationModel.nmRelation.referencedLayer.name : ''
-    property string nmReferencingLayerName
-
-    z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
-    title: nmRelationId ? qsTr('Unlink feature %1 (%2) of %3').arg(nmReferencedFeatureDisplayMessage).arg(nmReferencedFeatureId).arg(nmReferencedLayerName) : qsTr('Delete feature %1 (%2) on %3').arg(referencingFeatureDisplayMessage).arg(referencingFeatureId).arg(referencingLayerName)
-    Label {
-      width: parent.width
-      wrapMode: Text.WordWrap
-      text: nmRelationId ? qsTr('Should the feature <b>%1 (%2)</b> of layer <b>%3</b> be unlinked?<br><i>(The connection will be deleted on layer <b>%4</b>)</i>').arg(deleteDialog.nmReferencedFeatureDisplayMessage).arg(deleteDialog.nmReferencedFeatureId).arg(deleteDialog.nmReferencedLayerName).arg(deleteDialog.referencingLayerName) : qsTr('Should the feature <b>%1 (%2)</b> on layer <b>%3</b> be deleted?').arg(deleteDialog.referencingFeatureDisplayMessage).arg(deleteDialog.referencingFeatureId).arg(deleteDialog.referencingLayerName)
-    }
-    onAccepted: {
-      if (!orderedRelationModel.deleteFeature(referencingFeatureId)) {
-        displayToast(qsTr("Failed to delete referencing feature"), 'error');
-      }
-      visible = false;
-    }
-    onRejected: {
-      visible = false;
-    }
-  }
-
-  EmbeddedFeatureForm {
-    id: embeddedPopup
-
-    embeddedLevel: form.embeddedLevel + 1
-    digitizingToolbar: form.digitizingToolbar
-    codeReader: form.codeReader
-
-    onFeatureCancelled: {
-      if (autoSave) {
-        orderedRelationModel.reload();
-      }
-    }
-
-    onFeatureSaved: id => {
-      orderedRelationModel.featureFocus = id;
-      orderedRelationModel.reload();
-    }
-
-    onOpened: {
-      addingIndicator.running = false;
-    }
-  }
-
-  function requestedGeometryReceived(geometry) {
-    showAddFeaturePopup(geometry);
-  }
-
-  function showAddFeaturePopup(geometry) {
-    embeddedPopup.state = 'Add';
-    embeddedPopup.currentLayer = orderedRelationModel.relation.referencingLayer;
-    embeddedPopup.linkedParentFeature = orderedRelationModel.feature;
-    embeddedPopup.linkedRelation = orderedRelationModel.relation;
-    embeddedPopup.linkedRelationOrderingField = orderedRelationModel.orderingField;
-    if (geometry !== undefined) {
-      embeddedPopup.applyGeometry(geometry);
-    }
-    embeddedPopup.open();
-    embeddedPopup.attributeFormModel.applyParentDefaultValues();
   }
 }
