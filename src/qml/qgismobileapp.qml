@@ -634,6 +634,7 @@ ApplicationWindow {
       isMapRotationEnabled: qfieldSettings.enableMapRotation
       incrementalRendering: true
       quality: qfieldSettings.quality
+      previewJobsEnabled: qfieldSettings.previewJobsEnabled
       forceDeferredLayersRepaint: trackings.count > 0
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
 
@@ -3710,6 +3711,7 @@ ApplicationWindow {
       if (changelogPopup.visible)
         changelogPopup.close();
       dashBoard.layerTree.freeze();
+      mapCanvasMap.stopRendering();
       mapCanvasMap.freeze('projectload');
       busyOverlay.text = qsTr("Loading %1").arg(name !== '' ? name : path);
       busyOverlay.state = "visible";
