@@ -22,7 +22,7 @@ EditorWidgetBase {
     if (qgisProject == undefined)
       return "";
     var path = "";
-    if (config["RelativeStorage"] === 1) {
+    if (config["RelativeStorage"] === 1 || externalStorage.type != "") {
       path = qgisProject.homePath;
       if (!path.endsWith("/"))
         path = path + "/";
@@ -77,6 +77,26 @@ EditorWidgetBase {
     if (currentValue != undefined && currentValue !== '') {
       const isHttp = value.startsWith('http://') || value.startsWith('https://');
       var fullValue = isHttp ? value : prefixToRelativePath + value;
+      const fullValueExists = FileUtils.fileExists(fullValue);
+      if (!fullValueExists && externalStorage.type != "") {
+        prepareValue("");
+        if (config["StorageAuthConfigId"] !== "" && !iface.isAuthenticationConfigurationAvailable(config["StorageAuthConfigId"])) {
+          mainWindow.displayToast(qsTr("The external storage's authentication configuration ID is missing, please insure it is imported into QField"), "error", qsTr("Learn more"), function () {
+              Qt.openUrlExternally('https://docs.qfield.org/how-to/authentication/');
+            });
+        } else {
+          externalStorage.fetch(value, config["StorageAuthConfigId"]);
+        }
+      } else {
+        prepareValue(fullValue);
+      }
+    } else {
+      prepareValue("");
+    }
+  }
+
+  function prepareValue(fullValue) {
+    if (fullValue !== "") {
       var mimeType = FileUtils.mimeTypeName(fullValue);
       isImage = !config.UseLink && mimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(mimeType);
       isAudio = !config.UseLink && mimeType.startsWith("audio/");
@@ -105,6 +125,19 @@ EditorWidgetBase {
       image.opacity = 0.15;
       geoTagBadge.visible = false;
       player.sourceUrl = '';
+    }
+  }
+
+  ExternalStorage {
+    id: externalStorage
+    type: config["StorageType"] !== undefined ? config["StorageType"] : ""
+
+    onFetchedContentChanged: {
+      prepareValue(fetchedContent);
+    }
+
+    onLastErrorChanged: {
+      mainWindow.displayToast(lastError, "error");
     }
   }
 
