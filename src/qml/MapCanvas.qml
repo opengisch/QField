@@ -24,12 +24,14 @@ import org.qgis
  */
 Item {
   id: mapArea
+  property alias mapCanvasWrapper: mapCanvasWrapper
   property alias mapSettings: mapCanvasWrapper.mapSettings
   property alias bottomMargin: mapCanvasWrapper.bottomMargin
   property alias rightMargin: mapCanvasWrapper.rightMargin
   property alias isRendering: mapCanvasWrapper.isRendering
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
   property alias quality: mapCanvasWrapper.quality
+  property alias smooth: mapCanvasWrapper.smooth
   property alias previewJobsEnabled: mapCanvasWrapper.previewJobsEnabled
   property alias previewJobsQuadrants: mapCanvasWrapper.previewJobsQuadrants
   property alias forceDeferredLayersRepaint: mapCanvasWrapper.forceDeferredLayersRepaint
@@ -88,6 +90,10 @@ Item {
     mapCanvasWrapper.zoom(point, 1.5);
   }
 
+  function refresh(ignoreFreeze) {
+    mapCanvasWrapper.refresh(ignoreFreeze === undefined ? false : ignoreFreeze);
+  }
+
   function stopRendering() {
     mapCanvasWrapper.stopRendering();
   }
@@ -99,8 +105,30 @@ Item {
     height: mapArea.height
 
     property var __freezecount: ({})
+    property int animationDuration: 50
 
     freeze: false
+
+    Behavior on x  {
+      NumberAnimation {
+        duration: mapCanvasWrapper.animationDuration
+      }
+    }
+    Behavior on y  {
+      NumberAnimation {
+        duration: mapCanvasWrapper.animationDuration
+      }
+    }
+    Behavior on scale  {
+      NumberAnimation {
+        duration: mapCanvasWrapper.animationDuration
+      }
+    }
+    Behavior on rotation  {
+      NumberAnimation {
+        duration: mapCanvasWrapper.animationDuration
+      }
+    }
   }
 
   TapHandler {

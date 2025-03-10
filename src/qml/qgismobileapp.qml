@@ -634,6 +634,7 @@ ApplicationWindow {
       isMapRotationEnabled: qfieldSettings.enableMapRotation
       incrementalRendering: true
       quality: qfieldSettings.quality
+      smooth: gnssButton.followActive
       previewJobsEnabled: qfieldSettings.previewJobsEnabled
       forceDeferredLayersRepaint: trackings.count > 0
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
@@ -2120,6 +2121,7 @@ ApplicationWindow {
             displayToast(qsTr("Canvas follows location and compass orientation"));
           } else {
             followActive = true;
+            mapCanvasMap.freeze('follow');
             if (positionSource.projectedPosition.x) {
               if (!positionSource.active) {
                 positioningSettings.positioningActivated = true;
@@ -2144,32 +2146,65 @@ ApplicationWindow {
         }
 
         property int followLocationMinScale: 125
-        property int followLocationMinMargin: 40
+        property int followLocationMinMargin: 60
         property int followLocationScreenFraction: settings ? settings.value("/QField/Positioning/FollowScreenFraction", 5) : 5
 
         function followLocation(forceRecenter) {
-          var screenLocation = mapCanvas.mapSettings.coordinateToScreen(positionSource.projectedPosition);
+          let triggerRecenter = false;
           if (navigation.isActive && navigationButton.followIncludeDestination) {
             if (mapCanvas.mapSettings.scale > followLocationMinScale) {
-              var screenDestination = mapCanvas.mapSettings.coordinateToScreen(navigation.destination);
-              if (forceRecenter || screenDestination.x < followLocationMinMargin || screenDestination.x > (mainWindow.width - followLocationMinMargin) || screenDestination.y < followLocationMinMargin || screenDestination.y > (mainWindow.height - followLocationMinMargin) || screenLocation.x < followLocationMinMargin || screenLocation.x > (mainWindow.width - followLocationMinMargin) || screenLocation.y < followLocationMinMargin || screenLocation.y > (mainWindow.height - followLocationMinMargin) || (Math.abs(screenDestination.x - screenLocation.x) < mainWindow.width / 3 && Math.abs(screenDestination.y - screenLocation.y) < mainWindow.height / 3)) {
-                gnssButton.followActiveSkipExtentChanged = true;
-                var points = [positionSource.projectedPosition, navigation.destination];
-                mapCanvas.mapSettings.setExtentFromPoints(points, followLocationMinScale, true);
-              }
+              gnssButton.followActiveSkipExtentChanged = true;
+              const points = [positionSource.projectedPosition, navigation.destination];
+              mapCanvas.mapSettings.setExtentFromPoints(points, followLocationMinScale, true);
+              triggerRecenter = Math.abs(Math.abs(mapCanvasMap.mapCanvasWrapper.scale) - 1) > 0.25;
             }
           } else {
-            var threshold = Math.min(mainWindow.width, mainWindow.height) / followLocationScreenFraction;
-            if (forceRecenter || screenLocation.x < mapCanvas.x + threshold || screenLocation.x > mapCanvas.width - threshold || screenLocation.y < mapCanvas.y + threshold || screenLocation.y > mapCanvas.height - threshold) {
-              gnssButton.followActiveSkipExtentChanged = true;
-              mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+            gnssButton.followActiveSkipExtentChanged = true;
+            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+            triggerRecenter = Math.abs(mapCanvasMap.mapCanvasWrapper.x) > mainWindow.width - followLocationMinMargin || Math.abs(mapCanvasMap.mapCanvasWrapper.y) > mainWindow.height - followLocationMinMargin;
+          }
+          if (triggerRecenter || forceRecenter) {
+            if (positionSource.positionInformation.directionValid) {
+              // Prioritize preview quadrants based on movement direction
+              const direction = positionSource.positionInformation.direction;
+              if (direction >= 337.5 || direction < 22.5) {
+                // moving ~north
+                mapCanvasMap.previewJobsQuadrants = [1, 2, 0, 5, 3, 8, 6, 7];
+              } else if (direction >= 22.5 && direction < 67.5) {
+                // moving ~northeast
+                mapCanvasMap.previewJobsQuadrants = [2, 5, 1, 8, 0, 7, 3, 6];
+              } else if (direction >= 67.5 && direction < 112.5) {
+                // moving ~east
+                mapCanvasMap.previewJobsQuadrants = [5, 8, 2, 7, 1, 6, 0, 3];
+              } else if (direction >= 112.5 && direction < 157.5) {
+                // moving ~southeast
+                mapCanvasMap.previewJobsQuadrants = [8, 7, 5, 6, 2, 3, 1, 0];
+              } else if (direction >= 157.5 && direction < 202.5) {
+                // moving ~south
+                mapCanvasMap.previewJobsQuadrants = [7, 8, 6, 5, 3, 2, 0, 1];
+              } else if (direction >= 202.5 && direction < 247.5) {
+                // moving ~southwest
+                mapCanvasMap.previewJobsQuadrants = [6, 7, 3, 8, 0, 5, 1, 2];
+              } else if (direction >= 247.5 && direction < 292.5) {
+                // moving ~west
+                mapCanvasMap.previewJobsQuadrants = [3, 6, 0, 7, 1, 8, 2, 5];
+              } else if (direction >= 292.5 && direction < 337.5) {
+                // moving ~northwest
+                mapCanvasMap.previewJobsQuadrants = [0, 1, 3, 2, 6, 5, 7, 8];
+              }
             }
+            mapCanvasMap.refresh(true);
           }
         }
+
         function followOrientation() {
-          if (!isNaN(positionSource.orientation) && Math.abs(-positionSource.orientation - mapCanvas.mapSettings.rotation) >= 10) {
+          if (!isNaN(positionSource.orientation) && Math.abs(-positionSource.orientation - mapCanvas.mapSettings.rotation) >= 2) {
             gnssButton.followActiveSkipRotationChanged = true;
             mapCanvas.mapSettings.rotation = -positionSource.orientation;
+            const triggerRefresh = Math.abs(mapCanvasMap.mapCanvasWrapper.rotation) > 33.3;
+            if (triggerRefresh) {
+              mapCanvasMap.refresh(true);
+            }
           }
         }
 
@@ -2201,6 +2236,7 @@ ApplicationWindow {
             if (gnssButton.followActiveSkipExtentChanged) {
               gnssButton.followActiveSkipExtentChanged = false;
             } else {
+              mapCanvasMap.unfreeze('follow');
               gnssButton.followActive = false;
               gnssButton.followOrientationActive = false;
               displayToast(qsTr("Canvas stopped following location"));
