@@ -105,27 +105,28 @@ Item {
     height: mapArea.height
 
     property var __freezecount: ({})
+    property int animationDuration: 50
 
     freeze: false
 
     Behavior on x  {
       NumberAnimation {
-        duration: 50
+        duration: mapCanvasWrapper.animationDuration
       }
     }
     Behavior on y  {
       NumberAnimation {
-        duration: 50
+        duration: mapCanvasWrapper.animationDuration
       }
     }
     Behavior on scale  {
       NumberAnimation {
-        duration: 50
+        duration: mapCanvasWrapper.animationDuration
       }
     }
     Behavior on rotation  {
       NumberAnimation {
-        duration: 50
+        duration: mapCanvasWrapper.animationDuration
       }
     }
   }
