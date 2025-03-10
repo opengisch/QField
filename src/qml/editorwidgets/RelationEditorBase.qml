@@ -30,10 +30,8 @@ EditorWidgetBase {
   enabled: true
 
   Rectangle {
-    anchors.top: parent.top
-    anchors.bottom: parent.bottom
+    anchors.fill: parent
     anchors.bottomMargin: relationEditorBase.bottomMargin
-    width: parent.width
     color: "transparent"
     border.color: Theme.controlBorderColor
     border.width: 1
