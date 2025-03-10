@@ -60,6 +60,7 @@
         <file>editorwidgets/Range.qml</file>
         <file>editorwidgets/ValueMap.qml</file>
         <file>editorwidgets/UuidGenerator.qml</file>
+        <file>editorwidgets/RelationEditorBase.qml</file>
         <file>editorwidgets/RelationReference.qml</file>
         <file>editorwidgets/relationeditors/relation_editor.qml</file>
         <file>editorwidgets/relationeditors/ordered_relation_editor.qml</file>
