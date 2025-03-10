@@ -146,15 +146,16 @@ Page {
         value: usage
 
         // The `value` property is being animated, so we need the actual value at all times.
-        property double usage: 0
+        property double usage: 0.0
 
         Material.accent: {
-          if (usage < .9)
+          if (usage < .9) {
             return Theme.qfieldCloudBlue;
-          else if (usage < .975)
+          } else if (usage < .975) {
             return Theme.warningColor;
-          else
+          } else {
             return Theme.bookmarkRed;
+          }
         }
 
         Behavior on value  {
