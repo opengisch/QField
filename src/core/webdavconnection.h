@@ -83,12 +83,12 @@ class WebdavConnection : public QObject
     void setPassword( const QString &password );
 
     /**
-     * Returns TRUE if the current authentication password will be saved upon successful list or file transfer oopertation.
+     * Returns TRUE if the current authentication password will be saved upon successful list or file transfer operation.
      */
     bool storePassword() const { return mStorePassword; }
 
     /**
-     * Sets whether the current authentication password will be saved upon successful list or file transfer oopertation
+     * Sets whether the current authentication password will be saved upon successful list or file transfer operation
      * \param storePassword set to TRUE to store the current authentication password.
      */
     void setStorePassword( bool storePassword );
@@ -164,16 +164,23 @@ class WebdavConnection : public QObject
     Q_INVOKABLE void uploadPaths( const QStringList &localPaths );
 
     /**
-     * Used to confirm a requested download or upload operation.
+     * Launches a requested download or upload operation.
      * \see confirmationRequested
      * \see isDownloadingPath
      * \see isUploadingPath
      */
     Q_INVOKABLE void confirmRequest();
+
+    /**
+     * Cancels a requested download or upload operation.
+     * \see confirmationRequested
+     * \see isDownloadingPath
+     * \see isUploadingPath
+     */
     Q_INVOKABLE void cancelRequest();
 
     /**
-     * Returns TRUE if a given path contains a WebDAV configuration JSON file or is pareentd
+     * Returns TRUE if a given path contains a WebDAV configuration JSON file or is parented
      * to a folder containing such a file.
      */
     Q_INVOKABLE static bool hasWebdavConfiguration( const QString &path );
