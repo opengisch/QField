@@ -440,6 +440,8 @@ void WebdavConnection::getWebdavItems()
 
 void WebdavConnection::forgetHistory( const QString &url, const QString &username )
 {
+  QgsAuthManager *authManager = QgsApplication::instance()->authManager();
+  QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
   QSettings settings;
   if ( !username.isEmpty() )
   {
@@ -449,8 +451,6 @@ void WebdavConnection::forgetHistory( const QString &url, const QString &usernam
     settings.remove( "" );
     settings.endGroup();
 
-    QgsAuthManager *authManager = QgsApplication::instance()->authManager();
-    QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
     for ( QgsAuthMethodConfig &config : configs )
     {
       if ( config.uri() == url )
@@ -469,8 +469,6 @@ void WebdavConnection::forgetHistory( const QString &url, const QString &usernam
     settings.remove( "" );
     settings.endGroup();
 
-    QgsAuthManager *authManager = QgsApplication::instance()->authManager();
-    QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
     for ( QgsAuthMethodConfig &config : configs )
     {
       if ( config.uri() == url )
@@ -486,8 +484,6 @@ void WebdavConnection::forgetHistory( const QString &url, const QString &usernam
     settings.remove( "" );
     settings.endGroup();
 
-    QgsAuthManager *authManager = QgsApplication::instance()->authManager();
-    QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
     for ( QgsAuthMethodConfig &config : configs )
     {
       if ( urls.contains( config.uri() ) )
