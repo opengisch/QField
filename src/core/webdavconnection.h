@@ -190,6 +190,8 @@ class WebdavConnection : public QObject
      */
     Q_INVOKABLE static QVariantMap importHistory();
 
+    Q_INVOKABLE static void forgetHistory( const QString &url = QString(), const QString &username = QString() );
+
   signals:
     void urlChanged();
     void usernameChanged();
