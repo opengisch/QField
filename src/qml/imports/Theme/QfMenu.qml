@@ -10,7 +10,7 @@ Menu {
     let result = 50;
     let padding = 0;
     for (let i = 0; i < control.count; ++i) {
-      let item = control.itemAt(i);
+      const item = control.itemAt(i);
       if (item) {
         if (item.contentItem) {
           result = Math.max(item.contentItem.implicitWidth, result);
