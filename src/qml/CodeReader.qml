@@ -56,6 +56,12 @@ Popup {
     }
   }
 
+  onDecodedStringChanged: {
+    if (decodedString != "") {
+      decoded(decodedString);
+    }
+  }
+
   QfCameraPermission {
     id: cameraPermission
   }
@@ -73,7 +79,6 @@ Popup {
       if (decodedString !== '') {
         codeReader.decodedString = decodedString;
         decodedFlashAnimation.start();
-        decoded(decodedString);
       }
     }
   }
