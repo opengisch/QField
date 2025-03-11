@@ -4115,6 +4115,8 @@ ApplicationWindow {
 
     width: parent.width
     height: parent.height
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   QFieldCloudPackageLayersFeedback {
@@ -4187,6 +4189,8 @@ ApplicationWindow {
   QFieldSketcher {
     id: sketcher
     visible: false
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   Connections {
