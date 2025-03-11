@@ -150,7 +150,7 @@ Page {
 
         Material.accent: {
           if (usage < .9) {
-            return Theme.qfieldCloudBlue;
+            return Theme.qfieldcloudBlue;
           } else if (usage < .975) {
             return Theme.warningColor;
           } else {
