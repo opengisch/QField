@@ -67,7 +67,7 @@ Item {
       id: nyukiLeft
       width: 10
       height: 10
-      color: Theme.qfieldCloudBlue
+      color: Theme.qfieldcloudBlue
       x: 84
       y: 84
       radius: 5
@@ -92,7 +92,7 @@ Item {
       id: nyukiRight
       width: 10
       height: 10
-      color: Theme.qfieldCloudBlue
+      color: Theme.qfieldcloudBlue
       x: 106
       y: 84
       radius: 5
