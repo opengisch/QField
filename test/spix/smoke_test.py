@@ -236,6 +236,25 @@ def test_svg(app, screenshot_path, screenshot_check, extra, process_alive):
     assert screenshot_check("test_svg", "test_svg", 0.025)
 
 
+@pytest.mark.project_file("test_offline_project.qgs")
+def test_offline_project(app, screenshot_path, screenshot_check, extra, process_alive):
+    """
+    Starts a test app and check if offlined data.gpkg alongside basemap.mbtiles render properly
+    """
+    assert app.existsAndVisible("mainWindow")
+
+    # Arbitrary wait period to insure project fully loaded and rendered
+    time.sleep(4)
+
+    app.takeScreenshot(
+        "mainWindow", os.path.join(screenshot_path, "test_offline_project.png")
+    )
+    assert process_alive()
+    extra.append(extras.html('<img src="images/test_offline_project.png"/>'))
+
+    assert screenshot_check("test_offline_project", "test_offline_project", 0.025)
+
+
 @pytest.mark.skipif(
     platform.system() != "Linux",
     reason="PostGIS test requires a docker linux container",
