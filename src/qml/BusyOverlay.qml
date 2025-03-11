@@ -133,4 +133,16 @@ Rectangle {
     id: busyMessageFontMetrics
     font: busyMessage.font
   }
+
+  MouseArea {
+    id: busyOverlayCatcher
+    anchors.fill: parent
+    enabled: busyOverlay.visible
+
+    onClicked: mouse => {
+      // Needed to avoid people interacting with the UI while the busy overlay is visible
+      // (e.g. while uploading to webDAV, users shouldn't be allowed to select other files or navigate to other pages)
+      return;
+    }
+  }
 }
