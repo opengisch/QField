@@ -126,5 +126,6 @@
         <file>imports/Theme/QfScrollBar.qml</file>
         <file>imports/Theme/QfSearchBar.qml</file>
         <file>imports/Theme/QfDialog.qml</file>
+        <file>imports/Theme/QfMenu.qml</file>
     </qresource>
 </RCC>

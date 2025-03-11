@@ -2810,7 +2810,7 @@ ApplicationWindow {
     }
   }
 
-  Menu {
+  QfMenu {
     id: sensorMenu
 
     property alias printTimer: timer
@@ -2820,17 +2820,6 @@ ApplicationWindow {
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
-
-    width: {
-      let result = 50;
-      let padding = 0;
-      for (let i = 0; i < count; ++i) {
-        let item = itemAt(i);
-        result = Math.max(item.contentItem.implicitWidth, result);
-        padding = Math.max(item.leftPadding + item.rightPadding, padding);
-      }
-      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
-    }
 
     MenuItem {
       text: qsTr('Select sensor below')
@@ -2883,7 +2872,7 @@ ApplicationWindow {
     }
   }
 
-  Menu {
+  QfMenu {
     id: printMenu
 
     property alias printTimer: timer
@@ -2893,17 +2882,6 @@ ApplicationWindow {
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
-
-    width: {
-      let result = 50;
-      let padding = 0;
-      for (let i = 0; i < count; ++i) {
-        let item = itemAt(i);
-        result = Math.max(item.contentItem.implicitWidth, result);
-        padding = Math.max(item.leftPadding + item.rightPadding, padding);
-      }
-      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
-    }
 
     MenuItem {
       text: qsTr('Select layout below')
@@ -3109,7 +3087,7 @@ ApplicationWindow {
         id: canvasMenuFeatureListModel
       }
 
-      Menu {
+      QfMenu {
         id: featureMenu
 
         property int fid: featureId
@@ -3120,17 +3098,6 @@ ApplicationWindow {
 
         title: layerName + ': ' + featureName
         font: Theme.defaultFont
-
-        width: {
-          let result = 50;
-          let padding = 0;
-          for (let i = 0; i < count; ++i) {
-            let item = itemAt(i);
-            result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.leftPadding + item.rightPadding, padding);
-          }
-          return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
-        }
 
         Component.onCompleted: {
           if (featureMenu.icon !== undefined) {
@@ -3214,24 +3181,13 @@ ApplicationWindow {
     }
   }
 
-  Menu {
+  QfMenu {
     id: navigationMenu
     title: qsTr("Navigation Options")
     font: Theme.defaultFont
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
-
-    width: {
-      let result = 50;
-      let padding = 0;
-      for (let i = 0; i < count; ++i) {
-        let item = itemAt(i);
-        result = Math.max(item.contentItem.implicitWidth, result);
-        padding = Math.max(item.leftPadding + item.rightPadding, padding);
-      }
-      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
-    }
 
     MenuItem {
       id: preciseViewItem
@@ -3282,24 +3238,14 @@ ApplicationWindow {
     }
   }
 
-  Menu {
+  QfMenu {
     id: preciseViewMenu
     title: qsTr("Precise View Settings")
     font: Theme.defaultFont
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
-
-    width: {
-      let result = 50;
-      let padding = 0;
-      for (let i = 0; i < count; ++i) {
-        let item = itemAt(i);
-        result = Math.max(item.contentItem.implicitWidth, result);
-        padding = Math.max(item.leftPadding + item.rightPadding, padding);
-      }
-      return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
-    }
+    paddingMultiplier: 2
 
     MenuItem {
       text: qsTr("%1 Precision").arg(UnitTypes.formatDistance(0.10, 2, projectInfo.distanceUnits))
@@ -3455,24 +3401,13 @@ ApplicationWindow {
     }
   }
 
-  Menu {
+  QfMenu {
     id: gnssMenu
     title: qsTr("Positioning Options")
     font: Theme.defaultFont
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
-
-    width: {
-      let result = 50;
-      let padding = 0;
-      for (let i = 0; i < count; ++i) {
-        let item = itemAt(i);
-        result = Math.max(item.contentItem.implicitWidth, result);
-        padding = Math.max(item.leftPadding + item.rightPadding, padding);
-      }
-      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
-    }
 
     MenuItem {
       id: positioningDeviceName
