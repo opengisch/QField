@@ -1,0 +1,116 @@
+From 154560df217475825651682e463fccea5affcdd8 Mon Sep 17 00:00:00 2001
+From: Bartlomiej Moskal <bartlomiej.moskal@qt.io>
+Date: Wed, 5 Feb 2025 12:20:46 +0100
+Subject: [PATCH] Android: Fix cursorHandle and EditPopup positions
+
+After the commit 28df9a49776a88cb1a8e69348ae19a59b16a5b7e, a regression
+occurred in the positioning of cursorHandle and EditPopup.
+
+Previously, these positions were calculated using QtEditText
+coordinates, which worked correctly because the QtEditText size matched
+the QtWindow size. However, after the mentioned commit, the QtEditText
+size no longer reflects the window size. In this case, we need to use
+the parent View for calculations.
+
+This adjustment was already made for the single cursorHandle.
+
+This commit also updates the positioning of selection handles and the EditPopup.
+
+Fixes: QTBUG-132589
+Change-Id: I861292e363452d487284e3f603fe03a21a334aa4
+Reviewed-by: Assam Boudjelthia <assam.boudjelthia@qt.io>
+(cherry picked from commit 5bd26fda7a3f0a509a64847b58b916830ebc2d0c)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+(cherry picked from commit 941434e81fe073d55607267ea839025282413900)
+---
+ .../jar/src/org/qtproject/qt/android/CursorHandle.java    | 12 ++++++++++--
+ .../jar/src/org/qtproject/qt/android/EditPopupMenu.java   | 15 +++++++++++----
+ .../jar/src/org/qtproject/qt/android/QtEditText.java      |  2 +-
+ 3 files changed, 22 insertions(+), 7 deletions(-)
+
+diff --git a/src/android/jar/src/org/qtproject/qt/android/CursorHandle.java b/src/android/jar/src/org/qtproject/qt/android/CursorHandle.java
+index 519fe86968d3..79e25ea977aa 100644
+--- a/src/android/jar/src/org/qtproject/qt/android/CursorHandle.java
++++ b/src/android/jar/src/org/qtproject/qt/android/CursorHandle.java
+@@ -133,7 +133,15 @@ class CursorHandle implements ViewTreeObserver.OnPreDrawListener
+         initOverlay();
+ 
+         final int[] layoutLocation = new int[2];
+-        m_layout.getLocationOnScreen(layoutLocation);
++
++        // m_layout is QtEditText. Since it doesn't match the QtWindow size, we should use its
++        // parent for cursorHandle positioning. However, there may be cases where the parent is
++        // not set. In such cases, we need to use QtEditText instead.
++        View positioningView = (View) m_layout.getParent();
++        if (positioningView == null)
++            positioningView = m_layout;
++
++        positioningView.getLocationOnScreen(layoutLocation);
+ 
+         // These values are used for handling split screen case
+         final int[] activityLocation = new int[2];
+@@ -156,7 +164,7 @@ class CursorHandle implements ViewTreeObserver.OnPreDrawListener
+             m_popup.update(x2, y2, -1, -1);
+             m_cursorView.adjusted(x - m_posX, y - m_posY);
+         } else {
+-            m_popup.showAtLocation(m_layout, 0, x2, y2);
++            m_popup.showAtLocation(positioningView, 0, x2, y2);
+         }
+ 
+         m_posX = x;
+diff --git a/src/android/jar/src/org/qtproject/qt/android/EditPopupMenu.java b/src/android/jar/src/org/qtproject/qt/android/EditPopupMenu.java
+index cd107ab4882a..885c43225d2f 100644
+--- a/src/android/jar/src/org/qtproject/qt/android/EditPopupMenu.java
++++ b/src/android/jar/src/org/qtproject/qt/android/EditPopupMenu.java
+@@ -58,7 +58,14 @@ class EditPopupMenu implements ViewTreeObserver.OnPreDrawListener, View.OnLayout
+         Point viewSize = m_view.getCalculatedSize();
+ 
+         final int[] layoutLocation = new int[2];
+-        m_editText.getLocationOnScreen(layoutLocation);
++
++        // Since QtEditText doesn't match the QtWindow size, we should use its parent for
++        // EditPopupMenu positioning. However, there may be cases where the parent is
++        // not set. In such cases, we need to use QtEditText instead.
++        View positioningView = (View) m_editText.getParent();
++        if (positioningView == null)
++            positioningView = m_editText;
++        positioningView.getLocationOnScreen(layoutLocation);
+ 
+         // These values are used for handling split screen case
+         final int[] activityLocation = new int[2];
+@@ -88,8 +95,8 @@ class EditPopupMenu implements ViewTreeObserver.OnPreDrawListener, View.OnLayout
+             }
+         }
+ 
+-        if (m_editText.getWidth() < x + viewSize.x / 2)
+-            x2 = m_editText.getWidth() - viewSize.x;
++        if (positioningView.getWidth() < x + viewSize.x / 2)
++            x2 = positioningView.getWidth() - viewSize.x;
+ 
+         if (x2 < 0)
+             x2 = 0;
+@@ -97,7 +104,7 @@ class EditPopupMenu implements ViewTreeObserver.OnPreDrawListener, View.OnLayout
+         if (m_popup.isShowing())
+             m_popup.update(x2, y2, -1, -1);
+         else
+-            m_popup.showAtLocation(m_editText, 0, x2, y2);
++            m_popup.showAtLocation(positioningView, 0, x2, y2);
+ 
+         m_posX = x;
+         m_posY = y;
+diff --git a/src/android/jar/src/org/qtproject/qt/android/QtEditText.java b/src/android/jar/src/org/qtproject/qt/android/QtEditText.java
+index 69126192169c..edff72d6937d 100644
+--- a/src/android/jar/src/org/qtproject/qt/android/QtEditText.java
++++ b/src/android/jar/src/org/qtproject/qt/android/QtEditText.java
+@@ -267,7 +267,7 @@ class QtEditText extends View
+             break;
+         case CursorHandleShowNormal:
+             if (m_cursorHandle == null) {
+-                m_cursorHandle = new CursorHandle((Activity) getContext(), (View) getParent(),
++                m_cursorHandle = new CursorHandle((Activity) getContext(), this,
+                         CursorHandle.IdCursorHandle,
+                         android.R.attr.textSelectHandle, false);
+             }
+-- 
+2.16.3
+
