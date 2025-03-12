@@ -7,6 +7,7 @@ set(${PORT}_PATCHES
     remove-static-ssl-stub.patch
     private_libs.patch
     ffmpeg-compile-def.patch
+    video_recording_fix.patch
 )
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
