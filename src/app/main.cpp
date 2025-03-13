@@ -133,8 +133,6 @@ int main( int argc, char **argv )
   dummyApp->installTranslator( &qtTranslator );
   dummyApp->installTranslator( &qfieldTranslator );
 
-  QtWebView::initialize();
-
   PlatformUtilities *platformUtils = PlatformUtilities::instance();
   platformUtils->initSystem();
 
@@ -289,6 +287,7 @@ int main( int argc, char **argv )
   qputenv( "QT_QUICK_CONTROLS_MATERIAL_VARIANT", QByteArray( "Dense" ) );
 
   QgisMobileapp mApp( &app );
+  QtWebView::initialize();
 
 #ifdef WITH_SPIX
   spix::AnyRpcServer server;
