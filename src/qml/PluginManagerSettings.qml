@@ -71,7 +71,7 @@ Popup {
 
         delegate: Rectangle {
           id: rectangle
-          width: parent.width
+          width: parent ? parent.width : 10
           height: inner.height + 10
           color: "transparent"
 

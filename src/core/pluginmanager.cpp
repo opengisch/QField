@@ -400,26 +400,41 @@ void PluginManager::installFromUrl( const QString &url )
           file.write( data );
           file.close();
 
+          bool pluginDirectoryWithinZip = false;
+          QString pluginDirectoryName;
           QStringList zipFiles = QgsZipUtils::files( filePath );
-          if ( zipFiles.contains( QStringLiteral( "main.qml" ) ) )
+          if ( zipFiles.at( 0 ).indexOf( '/' ) >= 0 )
+          {
+            pluginDirectoryName = zipFiles.at( 0 ).mid( 0, zipFiles.at( 0 ).indexOf( '/' ) );
+            pluginDirectoryWithinZip = true;
+          }
+          if ( zipFiles.contains( QStringLiteral( "%1main.qml" ).arg( !pluginDirectoryName.isEmpty() ? pluginDirectoryName + "/" : QString() ) ) )
           {
             // Insure no previous version is running
             disableAppPlugin( fileInfo.completeBaseName() );
 
             // Remove the .zip suffix as well as version information (e.g. myplugin-v1.0.zip becomes myplugin)
-            const QString pluginDirectoryName = fileName.replace( QRegularExpression( "(-v?\\d+(\\.\\d+)*)?.zIP$", QRegularExpression::CaseInsensitiveOption ), QString() );
+            if ( !pluginDirectoryWithinZip )
+            {
+              pluginDirectoryName = fileName.replace( QRegularExpression( "(-v?\\d+(\\.\\d+)*)?.zIP$", QRegularExpression::CaseInsensitiveOption ), QString() );
+            }
+
             QDir pluginDirectory = QStringLiteral( "%1/plugins/%2" ).arg( dataDir, pluginDirectoryName );
             if ( pluginDirectory.exists() )
             {
               pluginDirectory.removeRecursively();
             }
             pluginDirectory.mkpath( "." );
+            if ( pluginDirectoryWithinZip )
+            {
+              pluginDirectory.cdUp();
+            }
             if ( QgsZipUtils::unzip( filePath, pluginDirectory.absolutePath(), zipFiles, false ) )
             {
               file.remove();
 
               refreshAppPlugins();
-              emit installEnded( pluginDirectory.dirName() );
+              emit installEnded( pluginDirectoryName );
 
               return;
             }
