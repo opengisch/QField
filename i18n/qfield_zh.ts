@@ -380,7 +380,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation>您即将移除书签，是否继续？</translation>
+        <translation>将移除书签，是否继续？</translation>
     </message>
 </context>
 <context>
@@ -773,11 +773,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation>您即将取消编辑新要素，是否继续？</translation>
+        <translation>将取消编辑新要素，是否继续？</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation>您即将离开编辑状态，任何更改都将丢失。是否继续？</translation>
+        <translation>将离开编辑状态，任何更改都将丢失。是否继续？</translation>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
@@ -879,7 +879,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>已成功复制要素</translation>
+        <translation>已成功再制要素</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to delete those</source>
@@ -891,7 +891,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation>已成功复制选定要素，列表已更新并显示新创建的要素</translation>
+        <translation>已成功再制所选要素，列表已更新并显示新创建的要素</translation>
     </message>
     <message>
         <source>No feature at this position</source>
@@ -1588,7 +1588,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Duplicate Selected Feature(s)</source>
-        <translation>复制所选要素</translation>
+        <translation>再制所选要素</translation>
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
@@ -1620,7 +1620,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>复制要素</translation>
+        <translation>再制要素</translation>
     </message>
     <message>
         <source>Delete Feature</source>
@@ -3202,6 +3202,26 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Imported and available locally</source>
         <translation>已导入并本地可用</translation>
     </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation>将文件上传到WebDAV</translation>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation>将文件推送到QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation>请选择一个或多个文件推送到QFieldCloud。</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>确定</translation>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation>将移除已保存的WebDAV项，是否继续？</translation>
+    </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>
@@ -3212,6 +3232,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation>纬度 %1 | 经度 %2 | 海拔 %3 m | 速度 %4 m/s | 方向 %5°</translation>
+    </message>
+    <message>
+        <source>Positioning service stopped</source>
+        <translation>定位服务已停止</translation>
     </message>
 </context>
 <context>
@@ -3646,6 +3670,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
         <translation>启用精度指示器后，位置按钮会附加标记：如果精度值较&lt;i&gt;差&lt;/i&gt;，将其标记为&lt;span %1&gt;红色&lt;/span&gt;；如果精度值良，标记颜色为&lt;span %2&gt;黄色&lt;/span&gt;，如果精度值&lt;i&gt;优&lt;/i&gt;，标记颜色为&lt;span %3&gt;绿色&lt;/span&gt;。&lt;br&gt;&lt;br&gt;此外，可以打开精度限制模式。当锁定光标坐标的位置精度值低于差阈值时，将限制添加顶点。</translation>
     </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>在可见地图画布周围预渲染内容</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
+        <translation>如果勾选，将渲染可见地图画布范围之外的周边区域，以便平滑缩放和平移</translation>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -3917,6 +3949,73 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Invalid relation</source>
         <translation>关联错误</translation>
+    </message>
+</context>
+<context>
+    <name>RelationEditorBase</name>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation>确认符合约束</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation>无法添加子要素：确保父要素满足所有约束并且可以保存</translation>
+    </message>
+    <message>
+        <source>Adding child feature in layer %1</source>
+        <translation>在图层%1中添加子要素 </translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation>无法添加子要素：未设置链接父与子的属性值</translation>
+    </message>
+    <message>
+        <source>Unlink Feature</source>
+        <translation>取消链接要素</translation>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>删除要素</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation>是否取消链接图层&lt;b&gt;%3&lt;/b&gt;中的要素 &lt;b&gt;%1 (%2)&lt;/b&gt;？&lt;br&gt;&lt;i&gt;（图层&lt;b&gt;%4&lt;/b&gt;中的链接将被删除）&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>确定删除图层&lt;b&gt;%3&lt;/b&gt;中的要素feature &lt;b&gt;%1 (%2)&lt;/b&gt;吗？</translation>
+    </message>
+    <message>
+        <source>Failed to delete referencing feature</source>
+        <translation>删除参考要素失败</translation>
+    </message>
+    <message>
+        <source>Child Menu</source>
+        <translation>子菜单</translation>
+    </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation>复制要素属性</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature to PDF</source>
+        <translation>地图集要素输出为PDF文件</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation>输出地图集要素</translation>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>请选择模板</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>正在输出...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation>地图集要素已成功输出并保存在您的工程文件夹中</translation>
     </message>
 </context>
 <context>
@@ -4685,7 +4784,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>在图层%1中添加子要素 </translation>
+        <translation type="vanished">在图层%1中添加子要素 </translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -4693,35 +4792,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>取消链接 %3 的要素%1（%2） </translation>
+        <translation type="vanished">取消链接 %3 的要素%1（%2） </translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>在 %3 删除要素 %1 (%2) </translation>
+        <translation type="vanished">在 %3 删除要素 %1 (%2) </translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>是否取消链接图层&lt;b&gt;%3&lt;/b&gt;中的要素 &lt;b&gt;%1 (%2)&lt;/b&gt;？&lt;br&gt;&lt;i&gt;（图层&lt;b&gt;%4&lt;/b&gt;中的链接将被删除）&lt;/i&gt;</translation>
+        <translation type="vanished">是否取消链接图层&lt;b&gt;%3&lt;/b&gt;中的要素 &lt;b&gt;%1 (%2)&lt;/b&gt;？&lt;br&gt;&lt;i&gt;（图层&lt;b&gt;%4&lt;/b&gt;中的链接将被删除）&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>确定删除图层&lt;b&gt;%3&lt;/b&gt;中的要素feature &lt;b&gt;%1 (%2)&lt;/b&gt;吗？</translation>
+        <translation type="vanished">确定删除图层&lt;b&gt;%3&lt;/b&gt;中的要素feature &lt;b&gt;%1 (%2)&lt;/b&gt;吗？</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>删除参考要素失败</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>无法添加子要素：未设置链接父与子的属性值</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation>无法添加子要素：确保父要素满足所有约束并且可以保存</translation>
-    </message>
-    <message>
-        <source>Ensure contraints are met</source>
-        <translation>确认符合约束</translation>
+        <translation type="vanished">删除参考要素失败</translation>
     </message>
 </context>
 <context>
@@ -4840,7 +4927,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>菜单</translation>
+        <translation>主菜单</translation>
     </message>
     <message>
         <source>Measure Tool</source>
@@ -5124,11 +5211,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>复制要素</translation>
+        <translation>再制要素</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>已成功复制要素</translation>
+        <translation>已成功再制要素</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
@@ -5284,7 +5371,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation>您将终止正在进行的算法运算，是否继续？</translation>
+        <translation>将终止正在进行的算法运算，是否继续？</translation>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
@@ -5351,7 +5438,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>在图层%1中添加子要素 </translation>
+        <translation type="vanished">在图层%1中添加子要素 </translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -5359,35 +5446,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>取消链接 %3 的要素%1（%2） </translation>
+        <translation type="vanished">取消链接 %3 的要素%1（%2） </translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>在 %3 删除要素 %1 (%2) </translation>
+        <translation type="vanished">在 %3 删除要素 %1 (%2) </translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>是否取消链接图层&lt;b&gt;%3&lt;/b&gt;中的要素 &lt;b&gt;%1 (%2)&lt;/b&gt;？&lt;br&gt;&lt;i&gt;（图层&lt;b&gt;%4&lt;/b&gt;中的链接将被删除）&lt;/i&gt;</translation>
+        <translation type="vanished">是否取消链接图层&lt;b&gt;%3&lt;/b&gt;中的要素 &lt;b&gt;%1 (%2)&lt;/b&gt;？&lt;br&gt;&lt;i&gt;（图层&lt;b&gt;%4&lt;/b&gt;中的链接将被删除）&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>确定删除图层&lt;b&gt;%3&lt;/b&gt;中的要素feature &lt;b&gt;%1 (%2)&lt;/b&gt;吗？</translation>
+        <translation type="vanished">确定删除图层&lt;b&gt;%3&lt;/b&gt;中的要素feature &lt;b&gt;%1 (%2)&lt;/b&gt;吗？</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>删除参考要素失败</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>无法添加子要素：未设置链接父与子的属性值</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation>无法添加子要素：确保父要素满足所有约束并且可以保存</translation>
-    </message>
-    <message>
-        <source>Ensure contraints are met</source>
-        <translation>确认符合约束</translation>
+        <translation type="vanished">删除参考要素失败</translation>
     </message>
 </context>
 </TS>

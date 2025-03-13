@@ -3198,6 +3198,26 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <source>Imported and available locally</source>
         <translation>Importálva és elérhető helyben</translation>
     </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>
@@ -3208,6 +3228,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation>Szélesség %1 | Hosszúság %2 | Magasság %3 m | Sebesség %4 m/s | Irány %5°</translation>
+    </message>
+    <message>
+        <source>Positioning service stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3644,6 +3668,14 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <translation>Ha pontossági jelző be van kapcsolva, a helymeghatározó gomb oldalán egy színezett jelvény látható. Ami &lt;span %1&gt;vörös&lt;/span&gt; ha a pontosság értéke rosszabb, a &lt;i&gt;gyenge&lt;/i&gt;értékénél, &lt;span %2&gt;sárga&lt;/span&gt; ha rosszabb, mint a &lt;i&gt;kíváló&lt;/i&gt;, viszont ha jobb, akkor &lt;span %3&gt;zöld&lt;/span&gt;.&lt;br&gt;
 Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gyenge küszöbértéknél rosszabb pontosságú töréspontok létrehozását, ha a digitalizálás a pozícióhoz van kötve.</translation>
     </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -3915,6 +3947,73 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>Invalid relation</source>
         <translation>Hibás reláció</translation>
+    </message>
+</context>
+<context>
+    <name>RelationEditorBase</name>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation>Gyermek elem nem létrehozható: győződjön meg, hogy a szülő elem minden megszorítása teljesül és menthető</translation>
+    </message>
+    <message>
+        <source>Adding child feature in layer %1</source>
+        <translation>Utód elem hozzáadása a %1 réteghez</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation>Gyermek elem nem létrehozható: nincs megadva a szülő és gyermek elemet kapcsoló attibútum</translation>
+    </message>
+    <message>
+        <source>Unlink Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>Elem törlés</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation>A &lt;b&gt;%3&lt;/b&gt; réteg &lt;b&gt;%1 (%2)&lt;/b&gt; eleme lekapcsolódhatott?&lt;br&gt;&lt;i&gt;(A  &lt;b&gt;%4&lt;/b&gt; réteghez való kapcsolat törlődik.)&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>Töröljük a &lt;b&gt;%1 (%2)&lt;/b&gt; elemet a &lt;b&gt;%3&lt;/b&gt; rétegen?</translation>
+    </message>
+    <message>
+        <source>Failed to delete referencing feature</source>
+        <translation>Nem sikerült a hivatkozó elemet törölni</translation>
+    </message>
+    <message>
+        <source>Child Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation>Másold az elem attribútumait</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature to PDF</source>
+        <translation>Atlasz elem nyomtatása PDF fájlba</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation>Atlasz elem(ek) nyomtatása</translation>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>Válasszon sablont lent</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Nyomtatás...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation>Az atlasz elem(ek) nyomtatása és a projekt könyvtáradba helyezése sikeres volt</translation>
     </message>
 </context>
 <context>
@@ -4683,7 +4782,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Utód-funkció hozzáadása a %1 réteghez</translation>
+        <translation type="vanished">Utód-funkció hozzáadása a %1 réteghez</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -4691,35 +4790,23 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Elem törlése %1 (%2) ebből %3</translation>
+        <translation type="vanished">Elem törlése %1 (%2) ebből %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Elem törlése %1 (%2) %3</translation>
+        <translation type="vanished">Elem törlése %1 (%2) %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Meg kell szüntetni a(z) %3 réteg %1 (%2) szolgáltatását? (A kapcsolat a(z) %4 rétegen törlődik.)</translation>
+        <translation type="vanished">Meg kell szüntetni a(z) %3 réteg %1 (%2) szolgáltatását? (A kapcsolat a(z) %4 rétegen törlődik.)</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Töröljük a &lt;b&gt;%1 (%2)&lt;/b&gt; elemet a &lt;b&gt;%3&lt;/b&gt; rétegen?</translation>
+        <translation type="vanished">Töröljük a &lt;b&gt;%1 (%2)&lt;/b&gt; elemet a &lt;b&gt;%3&lt;/b&gt; rétegen?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Nem sikerült a hivatkozó elemet törölni</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>Gyermek elem nem létrehozható: nincs megadva a szülő és gyermek elemet kapcsoló attibútum</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation>Gyermek elem nem létrehozható: győződjön meg, hogy a szülő elem minden megszorítása teljesül és menthető</translation>
-    </message>
-    <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nem sikerült a hivatkozó elemet törölni</translation>
     </message>
 </context>
 <context>
@@ -5349,7 +5436,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Utód elem hozzáadása a %1 réteghez</translation>
+        <translation type="vanished">Utód elem hozzáadása a %1 réteghez</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -5357,35 +5444,23 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Elem törlése %1 (%2) ebből %3</translation>
+        <translation type="vanished">Elem törlése %1 (%2) ebből %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Elem törlése %1 (%2) %3</translation>
+        <translation type="vanished">Elem törlése %1 (%2) %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>A &lt;b&gt;%3&lt;/b&gt; réteg &lt;b&gt;%1 (%2)&lt;/b&gt; eleme lekapcsolódhatott?&lt;br&gt;&lt;i&gt;(A  &lt;b&gt;%4&lt;/b&gt; réteghez való kapcsolat törlődik.)&lt;/i&gt;</translation>
+        <translation type="vanished">A &lt;b&gt;%3&lt;/b&gt; réteg &lt;b&gt;%1 (%2)&lt;/b&gt; eleme lekapcsolódhatott?&lt;br&gt;&lt;i&gt;(A  &lt;b&gt;%4&lt;/b&gt; réteghez való kapcsolat törlődik.)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Töröljük a &lt;b&gt;%1 (%2)&lt;/b&gt; elemet a &lt;b&gt;%3&lt;/b&gt; rétegen?</translation>
+        <translation type="vanished">Töröljük a &lt;b&gt;%1 (%2)&lt;/b&gt; elemet a &lt;b&gt;%3&lt;/b&gt; rétegen?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Nem sikerült a hivatkozó elemet törölni</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>Gyermek elem nem létrehozható: nincs megadva a szülő és gyermek elemet kapcsoló attibútum</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation>Gyermek elem nem létrehozható: győződjön meg, hogy a szülő elem minden megszorítása teljesül és menthető</translation>
-    </message>
-    <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nem sikerült a hivatkozó elemet törölni</translation>
     </message>
 </context>
 </TS>

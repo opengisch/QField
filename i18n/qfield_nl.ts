@@ -3204,6 +3204,26 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <source>Imported and available locally</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>
@@ -3214,6 +3234,10 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation>Breedtegraad %1 | Lengtegraad %2 | Hoogte %3 m | Snelheid %4 m/s | Oriëntatie %5°</translation>
+    </message>
+    <message>
+        <source>Positioning service stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3648,6 +3672,14 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -3919,6 +3951,73 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Invalid relation</source>
         <translation>Ongeldige relatie</translation>
+    </message>
+</context>
+<context>
+    <name>RelationEditorBase</name>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Adding child feature in layer %1</source>
+        <translation>Onderliggend object toevoegen aan laag %1</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation>Kan geen kindobject toevoegen: sleutel die ouder en kinderen koppelt is niet ingesteld</translation>
+    </message>
+    <message>
+        <source>Unlink Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>Verwijder object</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation>Moet object &lt;b&gt;%1 (%2)&lt;/b&gt; van laag &lt;b&gt;%3&lt;/b&gt; worden ontkoppeld?&lt;br&gt;&lt;i&gt;(De verbinding wordt verwijderd op laag &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>Moet het object &lt;b&gt;%1 (%2)&lt;/b&gt; op laag &lt;b&gt;%3&lt;/b&gt; worden verwijderd?</translation>
+    </message>
+    <message>
+        <source>Failed to delete referencing feature</source>
+        <translation>Kan verwijzingsobject niet verwijderen</translation>
+    </message>
+    <message>
+        <source>Child Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation>Kopieer attributen</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature to PDF</source>
+        <translation>Atlas object naar PDF printen</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>Selecteer hieronder een sjabloon</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Printing...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4687,7 +4786,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Onderliggend object toevoegen aan laag %1</translation>
+        <translation type="vanished">Onderliggend object toevoegen aan laag %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -4695,35 +4794,23 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Ontkoppel object %1 (%2) van %3</translation>
+        <translation type="vanished">Ontkoppel object %1 (%2) van %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Object %1 (%2) verwijderen van %3</translation>
+        <translation type="vanished">Object %1 (%2) verwijderen van %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Moet object &lt;b&gt;%1 (%2)&lt;/b&gt; van laag &lt;b&gt;%3&lt;/b&gt; worden ontkoppeld?&lt;br&gt;&lt;i&gt;(De verbinding wordt verwijderd op laag &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation type="vanished">Moet object &lt;b&gt;%1 (%2)&lt;/b&gt; van laag &lt;b&gt;%3&lt;/b&gt; worden ontkoppeld?&lt;br&gt;&lt;i&gt;(De verbinding wordt verwijderd op laag &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Moet het object &lt;b&gt;%1 (%2)&lt;/b&gt; op laag &lt;b&gt;%3&lt;/b&gt; worden verwijderd?</translation>
+        <translation type="vanished">Moet het object &lt;b&gt;%1 (%2)&lt;/b&gt; op laag &lt;b&gt;%3&lt;/b&gt; worden verwijderd?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Kan verwijzingsobject niet verwijderen</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>Kan geen kindobject toevoegen: sleutel die ouder en kinderen koppelt is niet ingesteld</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kan verwijzingsobject niet verwijderen</translation>
     </message>
 </context>
 <context>
@@ -5353,7 +5440,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Onderliggend object toevoegen aan laag %1</translation>
+        <translation type="vanished">Onderliggend object toevoegen aan laag %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -5361,35 +5448,23 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Ontkoppel object %1 (%2) van %3</translation>
+        <translation type="vanished">Ontkoppel object %1 (%2) van %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Object %1 (%2) verwijderen van %3</translation>
+        <translation type="vanished">Object %1 (%2) verwijderen van %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Moet object &lt;b&gt;%1 (%2)&lt;/b&gt; van laag &lt;b&gt;%3&lt;/b&gt; worden ontkoppeld?&lt;br&gt;&lt;i&gt;(De verbinding wordt verwijderd op laag &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation type="vanished">Moet object &lt;b&gt;%1 (%2)&lt;/b&gt; van laag &lt;b&gt;%3&lt;/b&gt; worden ontkoppeld?&lt;br&gt;&lt;i&gt;(De verbinding wordt verwijderd op laag &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Moet het object &lt;b&gt;%1 (%2)&lt;/b&gt; op laag &lt;b&gt;%3&lt;/b&gt; worden verwijderd?</translation>
+        <translation type="vanished">Moet het object &lt;b&gt;%1 (%2)&lt;/b&gt; op laag &lt;b&gt;%3&lt;/b&gt; worden verwijderd?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Kan verwijzingsobject niet verwijderen</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>Kan geen kindobject toevoegen: sleutel die ouder en kinderen koppelt is niet ingesteld</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kan verwijzingsobject niet verwijderen</translation>
     </message>
 </context>
 </TS>

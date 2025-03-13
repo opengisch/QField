@@ -3208,6 +3208,26 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>Imported and available locally</source>
         <translation>Zaimportowane i dostępne lokalnie</translation>
     </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation>Prześlij plik(i) do WebDAV</translation>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation>Prześlij plik(i) do QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation>Wybierz jeden lub więcej plików do przesłania do QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>Potwierdź</translation>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation>Zamierzasz usunąć zapisany element WebDAV, czy kontynuować?</translation>
+    </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>
@@ -3218,6 +3238,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation>Szerokość geogr. %1 | Długość geogr. %2 | Wysokość %3 m | Prędkość %4 m/s | Kierunek %5°</translation>
+    </message>
+    <message>
+        <source>Positioning service stopped</source>
+        <translation>Usługa pozycjonowania zatrzymana</translation>
     </message>
 </context>
 <context>
@@ -3652,6 +3676,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
         <translation>Gdy wskaźnik dokładności jest włączony, plakietka jest dołączona do przycisku lokalizacji i ma kolor &lt;span %1&gt;czerwony&lt;/span&gt; jeśli wartość dokładności jest gorsza niż &lt;i&gt;zła&lt;/i&gt;, &lt;span %2&gt;żółty&lt;/span&gt; jeśli jest gorsza niż &lt;i&gt;doskonała&lt;/i&gt;, lub &lt;span %3&gt;zielony&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Ponadto można włączyć tryb ograniczenia dokładności, który ogranicza dodawanie wierzchołków po zablokowaniu kursora współrzędnych do pozycji o wartości dokładności gorszej niż zły próg.</translation>
     </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>Renderuj zawartość podglądu wokół widocznego obszaru mapy</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
+        <translation>Jeśli opcja ta jest włączona, obszary znajdujące się poza widocznym obszarem mapy będą częściowo renderowane, aby umożliwić podgląd podczas powiększania i przesuwania.</translation>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -3923,6 +3955,73 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Invalid relation</source>
         <translation>Błędna relacja</translation>
+    </message>
+</context>
+<context>
+    <name>RelationEditorBase</name>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation>Upewnij się, że ograniczenia są spełnione</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation>Nie można dodać elementu potomnego: upewnij się, że element nadrzędny spełnia wszystkie ograniczenia i może zostać zapisany</translation>
+    </message>
+    <message>
+        <source>Adding child feature in layer %1</source>
+        <translation>Dodawanie obiektu potomnego na warstwie %1</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation>Nie można dodać elementu potomnego: wartość atrybutu łączącego element nadrzędny i potomny nie jest ustawiona</translation>
+    </message>
+    <message>
+        <source>Unlink Feature</source>
+        <translation>Odłącz element</translation>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>Usuń obiekt</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation>Czy obiekt &lt;b&gt;%1 (%2)&lt;/b&gt; na warstwie &lt;b&gt;%3&lt;/b&gt; ma być odłączony?&lt;br&gt;&lt;i&gt;(Połączenie będzie usunięte na warstwie &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>Czy obiekt &lt;b&gt;%1 (%2)&lt;/b&gt; na warstwie &lt;b&gt;%3&lt;/b&gt; ma być usunięty?</translation>
+    </message>
+    <message>
+        <source>Failed to delete referencing feature</source>
+        <translation>Nie udało się usunąć odnośnego obiektu</translation>
+    </message>
+    <message>
+        <source>Child Menu</source>
+        <translation>Menu potomne</translation>
+    </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation>Kopiuj atrybuty elementu</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature to PDF</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>Wybierz szablon poniżej</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Drukowanie...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation>Element(y) atlasu zostały pomyślnie wydrukowane i umieszczone w twoim katalogu projektu.</translation>
     </message>
 </context>
 <context>
@@ -4691,7 +4790,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Dodawanie obiektu potomnego na warstwie %1</translation>
+        <translation type="vanished">Dodawanie obiektu potomnego na warstwie %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -4699,35 +4798,23 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Odłącz obiekt %1 (%2) od %3</translation>
+        <translation type="vanished">Odłącz obiekt %1 (%2) od %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Usuń obiekt %1 (%2) na %3</translation>
+        <translation type="vanished">Usuń obiekt %1 (%2) na %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Czy obiekt &lt;b&gt;%1 (%2)&lt;/b&gt; na warstwie &lt;b&gt;%3&lt;/b&gt; ma być odłączony?&lt;br&gt;&lt;i&gt;(Połączenie będzie usunięte na warstwie &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation type="vanished">Czy obiekt &lt;b&gt;%1 (%2)&lt;/b&gt; na warstwie &lt;b&gt;%3&lt;/b&gt; ma być odłączony?&lt;br&gt;&lt;i&gt;(Połączenie będzie usunięte na warstwie &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Czy obiekt &lt;b&gt;%1 (%2)&lt;/b&gt; na warstwie &lt;b&gt;%3&lt;/b&gt; ma być usunięty?</translation>
+        <translation type="vanished">Czy obiekt &lt;b&gt;%1 (%2)&lt;/b&gt; na warstwie &lt;b&gt;%3&lt;/b&gt; ma być usunięty?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Nie udało się usunąć odnośnego obiektu</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>Nie można dodać elementu potomnego: wartość atrybutu łączącego element nadrzędny i potomny nie jest ustawiona</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation>Nie można dodać elementu potomnego: upewnij się, że element nadrzędny spełnia wszystkie ograniczenia i może zostać zapisany</translation>
-    </message>
-    <message>
-        <source>Ensure contraints are met</source>
-        <translation>Upewnij się, że ograniczenia są spełnione</translation>
+        <translation type="vanished">Nie udało się usunąć odnośnego obiektu</translation>
     </message>
 </context>
 <context>
@@ -5357,7 +5444,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Dodawanie obiektu potomnego na warstwie %1</translation>
+        <translation type="vanished">Dodawanie obiektu potomnego na warstwie %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -5365,35 +5452,23 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Odłącz obiekt %1 (%2) od %3</translation>
+        <translation type="vanished">Odłącz obiekt %1 (%2) od %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Usuń obiekt %1 (%2) na %3</translation>
+        <translation type="vanished">Usuń obiekt %1 (%2) na %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Czy obiekt &lt;b&gt;%1 (%2)&lt;/b&gt; na warstwie &lt;b&gt;%3&lt;/b&gt; ma być odłączony?&lt;br&gt;&lt;i&gt;(Połączenie będzie usunięte na warstwie &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation type="vanished">Czy obiekt &lt;b&gt;%1 (%2)&lt;/b&gt; na warstwie &lt;b&gt;%3&lt;/b&gt; ma być odłączony?&lt;br&gt;&lt;i&gt;(Połączenie będzie usunięte na warstwie &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Czy obiekt &lt;b&gt;%1 (%2)&lt;/b&gt; na warstwie &lt;b&gt;%3&lt;/b&gt; ma być usunięty?</translation>
+        <translation type="vanished">Czy obiekt &lt;b&gt;%1 (%2)&lt;/b&gt; na warstwie &lt;b&gt;%3&lt;/b&gt; ma być usunięty?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Nie udało się usunąć odnośnego obiektu</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>Nie można dodać elementu potomnego: wartość atrybutu łączącego element nadrzędny i potomny nie jest ustawiona</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation>Nie można dodać elementu podrzędnego: upewnij się, że element nadrzędny spełnia wszystkie ograniczenia i może zostać zapisany</translation>
-    </message>
-    <message>
-        <source>Ensure contraints are met</source>
-        <translation>Upewnij się, że ograniczenia są spełnione</translation>
+        <translation type="vanished">Nie udało się usunąć odnośnego obiektu</translation>
     </message>
 </context>
 </TS>

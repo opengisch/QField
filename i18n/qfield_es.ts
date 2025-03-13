@@ -3204,6 +3204,26 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Imported and available locally</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>
@@ -3214,6 +3234,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation>Latitud %1 | Longitud %2 | Altitud %3 m | Velocidad %4 m/s | Dirección %5°</translation>
+    </message>
+    <message>
+        <source>Positioning service stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3648,6 +3672,14 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
         <translation>Cuando el indicador de precisión está activado, se adjunta una marca al botón de localización y se colorea en &lt;span %1&gt;rojo&lt;/span&gt;  si el valor de precisión es peor que &lt;i&gt;malo&lt;/i&gt;, &lt;span %2&gt;amarillo&lt;/span&gt;si no llega a &lt;i&gt;excelente&lt;/i&gt;, o &lt;span %3&gt;verde&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Además, se puede activar un modo de restricción de precisión, que restringe la adición de vértices cuando está bloqueado a las coordenadas del cursor a posiciones con una precisión por encima del umbral malo.</translation>
     </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -3919,6 +3951,73 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Invalid relation</source>
         <translation>Relación no válida</translation>
+    </message>
+</context>
+<context>
+    <name>RelationEditorBase</name>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation>Asegurar que se cumplan las restricciones</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation>No se puede añadir el objeto hijo: no es seguro que el objeto padre cumpla todas las restricciones y se pueda guardar</translation>
+    </message>
+    <message>
+        <source>Adding child feature in layer %1</source>
+        <translation>Añadiendo objeto hijo a la capa %1</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation>No se puede agregar objeto hijo: el valor del atributo relacional padre e hijo no está asignado</translation>
+    </message>
+    <message>
+        <source>Unlink Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>Borrar objeto</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation>¿Se debe desenlazar el objeto &lt;b&gt;%1 (%2)&lt;/b&gt; de la capa &lt;b&gt;%3&lt;/b&gt; ?&lt;br&gt;&lt;i&gt;(Se borrará la conexión en la capa &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>¿Se debe borrar el objeto &lt;b&gt;%1 (%2)&lt;/b&gt; de la capa &lt;b&gt;%3&lt;/b&gt;?</translation>
+    </message>
+    <message>
+        <source>Failed to delete referencing feature</source>
+        <translation>No se pudo borrar el objeto que hace referencia</translation>
+    </message>
+    <message>
+        <source>Child Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation>Copiar atributos de objeto</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature to PDF</source>
+        <translation>Imprimir objeto de atlas a PDF</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation>Imprimir entidad(es) del atlas</translation>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>Seleccionar plantilla abajo</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Imprimiendo...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation>La entidad(es) del Atlas se imprimieron correctamente y se colocaron en la carpeta de su proyecto</translation>
     </message>
 </context>
 <context>
@@ -4687,7 +4786,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Añadiendo objeto hijo a la capa %1</translation>
+        <translation type="vanished">Añadiendo objeto hijo a la capa %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -4695,35 +4794,23 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Desenlazar objeto %1 (%2) de %3</translation>
+        <translation type="vanished">Desenlazar objeto %1 (%2) de %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Borrar objeto %1 (%2) en %3</translation>
+        <translation type="vanished">Borrar objeto %1 (%2) en %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>¿Se debe desenlazar el objeto &lt;b&gt;%1 (%2)&lt;/b&gt; de la capa &lt;b&gt;%3&lt;/b&gt; ?&lt;br&gt;&lt;i&gt;(Se borrará la conexión en la capa &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation type="vanished">¿Se debe desenlazar el objeto &lt;b&gt;%1 (%2)&lt;/b&gt; de la capa &lt;b&gt;%3&lt;/b&gt; ?&lt;br&gt;&lt;i&gt;(Se borrará la conexión en la capa &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>¿Se debe borrar el objeto &lt;b&gt;%1 (%2)&lt;/b&gt; de la capa &lt;b&gt;%3&lt;/b&gt;?</translation>
+        <translation type="vanished">¿Se debe borrar el objeto &lt;b&gt;%1 (%2)&lt;/b&gt; de la capa &lt;b&gt;%3&lt;/b&gt;?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>No se pudo borrar el objeto que hace referencia</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>No se puede agregar objeto hijo: el valor del atributo relacional padre e hijo no está asignado</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation>No se puede añadir el objeto hijo: no es seguro que el objeto padre cumpla todas las restricciones y se pueda guardar</translation>
-    </message>
-    <message>
-        <source>Ensure contraints are met</source>
-        <translation>Asegurar que se cumplan las restricciones</translation>
+        <translation type="vanished">No se pudo borrar el objeto que hace referencia</translation>
     </message>
 </context>
 <context>
@@ -5353,7 +5440,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Añadiendo objeto hijo a la capa %1</translation>
+        <translation type="vanished">Añadiendo objeto hijo a la capa %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -5361,35 +5448,23 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Desenlazar objeto %1 (%2) de %3</translation>
+        <translation type="vanished">Desenlazar objeto %1 (%2) de %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Borrar objeto %1 (%2) en %3</translation>
+        <translation type="vanished">Borrar objeto %1 (%2) en %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>¿Se debe desenlazar el objeto &lt;b&gt;%1 (%2)&lt;/b&gt; de la capa &lt;b&gt;%3&lt;/b&gt; ?&lt;br&gt;&lt;i&gt;(Se borrará la conexión en la capa &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation type="vanished">¿Se debe desenlazar el objeto &lt;b&gt;%1 (%2)&lt;/b&gt; de la capa &lt;b&gt;%3&lt;/b&gt; ?&lt;br&gt;&lt;i&gt;(Se borrará la conexión en la capa &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>¿Se debe borrar el objeto &lt;b&gt;%1 (%2)&lt;/b&gt; de la capa &lt;b&gt;%3&lt;/b&gt;?</translation>
+        <translation type="vanished">¿Se debe borrar el objeto &lt;b&gt;%1 (%2)&lt;/b&gt; de la capa &lt;b&gt;%3&lt;/b&gt;?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>No se pudo borrar el objeto que hace referencia</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>No se puede agregar objeto hijo: el valor del atributo relacional padre e hijo no está asignado</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation>No se puede añadir el objeto hijo: no es seguro que el objeto padre cumpla todas las restricciones y se pueda guardar</translation>
-    </message>
-    <message>
-        <source>Ensure contraints are met</source>
-        <translation>Asegurar que se cumplan las restricciones</translation>
+        <translation type="vanished">No se pudo borrar el objeto que hace referencia</translation>
     </message>
 </context>
 </TS>

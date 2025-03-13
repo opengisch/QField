@@ -3209,6 +3209,26 @@ Messaggio dell&apos;errore: %4</translation>
         <source>Imported and available locally</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>
@@ -3218,6 +3238,10 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning service stopped</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3653,6 +3677,14 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -3924,6 +3956,73 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Invalid relation</source>
         <translation>Relazione non valida</translation>
+    </message>
+</context>
+<context>
+    <name>RelationEditorBase</name>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Adding child feature in layer %1</source>
+        <translation>Aggiunta elemento figlio nel layer %1</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation>Impossibile aggiungere l&apos;elemento figlio: il valore dell&apos;attributo che collega genitore e figli non è impostato</translation>
+    </message>
+    <message>
+        <source>Unlink Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>Cancella l&apos;elemento</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation>Disconnettere l&apos;elemento &lt;b&gt;%1 (%2)&lt;/b&gt; del layer &lt;b&gt;%3&lt;/b&gt;?&lt;br&gt;&lt;i&gt;(La connessione verrà cancellata nel layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>Cancellare l&apos;elemento &lt;b&gt;%1 (%2)&lt;/b&gt; nel layer &lt;b&gt;%3&lt;/b&gt;?</translation>
+    </message>
+    <message>
+        <source>Failed to delete referencing feature</source>
+        <translation>Impossibile eliminare l&apos;elemento di riferimento</translation>
+    </message>
+    <message>
+        <source>Child Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature to PDF</source>
+        <translation>Stampa Elemento Atlante in PDF</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation>Stampa Elementi Atlante</translation>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>Seleziona il modello sottostante</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Stampa in corso...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation>Elementi Atlante stampati correttamente e inseriti nella tua cartella di progetto</translation>
     </message>
 </context>
 <context>
@@ -4692,7 +4791,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Aggiunta elemento figlio nel layer %1</translation>
+        <translation type="vanished">Aggiunta elemento figlio nel layer %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -4700,35 +4799,23 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Disconnetti elemento %1 (%2) di %3</translation>
+        <translation type="vanished">Disconnetti elemento %1 (%2) di %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Cancella elemento %1 (%2) di %3</translation>
+        <translation type="vanished">Cancella elemento %1 (%2) di %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Disconnettere l&apos;elemento &lt;b&gt;%1 (%2)&lt;/b&gt; del layer &lt;b&gt;%3&lt;/b&gt;?&lt;br&gt;&lt;i&gt;(La connessione verrà cancellata nel layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation type="vanished">Disconnettere l&apos;elemento &lt;b&gt;%1 (%2)&lt;/b&gt; del layer &lt;b&gt;%3&lt;/b&gt;?&lt;br&gt;&lt;i&gt;(La connessione verrà cancellata nel layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Cancellare l&apos;elemento &lt;b&gt;%1 (%2)&lt;/b&gt; nel layer &lt;b&gt;%3&lt;/b&gt;?</translation>
+        <translation type="vanished">Cancellare l&apos;elemento &lt;b&gt;%1 (%2)&lt;/b&gt; nel layer &lt;b&gt;%3&lt;/b&gt;?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Impossibile eliminare l&apos;elemento di riferimento</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>Impossibile aggiungere l&apos;elemento figlio: il valore dell&apos;attributo che collega genitore e figli non è impostato</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Impossibile eliminare l&apos;elemento di riferimento</translation>
     </message>
 </context>
 <context>
@@ -5358,7 +5445,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Aggiunta elemento figlio nel layer %1</translation>
+        <translation type="vanished">Aggiunta elemento figlio nel layer %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -5366,35 +5453,23 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Disconnetti elemento %1 (%2) di %3</translation>
+        <translation type="vanished">Disconnetti elemento %1 (%2) di %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Cancella elemento %1 (%2) di %3</translation>
+        <translation type="vanished">Cancella elemento %1 (%2) di %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Disconnettere l&apos;elemento &lt;b&gt;%1 (%2)&lt;/b&gt; del layer &lt;b&gt;%3&lt;/b&gt;?&lt;br&gt;&lt;i&gt;(La connessione verrà cancellata nel layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation type="vanished">Disconnettere l&apos;elemento &lt;b&gt;%1 (%2)&lt;/b&gt; del layer &lt;b&gt;%3&lt;/b&gt;?&lt;br&gt;&lt;i&gt;(La connessione verrà cancellata nel layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Cancellare l&apos;elemento &lt;b&gt;%1 (%2)&lt;/b&gt; nel layer &lt;b&gt;%3&lt;/b&gt;?</translation>
+        <translation type="vanished">Cancellare l&apos;elemento &lt;b&gt;%1 (%2)&lt;/b&gt; nel layer &lt;b&gt;%3&lt;/b&gt;?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Impossibile eliminare l&apos;elemento di riferimento</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>Impossibile aggiungere l&apos;elemento figlio: il valore dell&apos;attributo che collega genitore e figli non è impostato</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Impossibile eliminare l&apos;elemento di riferimento</translation>
     </message>
 </context>
 </TS>

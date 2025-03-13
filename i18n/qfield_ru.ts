@@ -3206,6 +3206,26 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Imported and available locally</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>
@@ -3215,6 +3235,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning service stopped</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3650,6 +3674,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
         <translation>Когда индикатор точности включен, к кнопке локации прикрепляется значок, который окрашивается в  &lt;span %1&gt; красный цвет &lt;/span&gt; если значение точности хуже &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;желтый&lt;/span&gt;если менее, чем &lt;i&gt;excellent&lt;/i&gt;, или &lt;span %3&gt;зеленый&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Кроме того, можно включить режим ограничения точности, который ограничивает добавление вершин при фиксации координатного курсора к позициям со значением точности хуже порога &quot;плохости&quot;.</translation>
     </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -3921,6 +3953,73 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Invalid relation</source>
         <translation>Недействительная связь</translation>
+    </message>
+</context>
+<context>
+    <name>RelationEditorBase</name>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation>Невозможно добавить дочерний элемент: убедитесь, что родительский элемент соответствует всем ограничениям и может быть сохранена</translation>
+    </message>
+    <message>
+        <source>Adding child feature in layer %1</source>
+        <translation>Добавление дочернего объекта на слой %1</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation>Невозможно добавить дочернюю функцию: значение атрибута, связывающего родительскую и дочернюю функции, не установлено</translation>
+    </message>
+    <message>
+        <source>Unlink Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>Удалить объект</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation>Разорвать связь с объектом &lt;b&gt;%1 (%2)&lt;/b&gt; слоя &lt;b&gt;%3&lt;/b&gt;?&lt;br&gt;&lt;i&gt;(Связь будет удалена из слоя &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>Удалить объект &lt;b&gt;%1 (%2)&lt;/b&gt; на слое &lt;b&gt;%3&lt;/b&gt;?</translation>
+    </message>
+    <message>
+        <source>Failed to delete referencing feature</source>
+        <translation>Невозможно удалить дочерний объект</translation>
+    </message>
+    <message>
+        <source>Child Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation>Копировать атрибуты объекта</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature to PDF</source>
+        <translation>Печать Атласа объекта в PDF</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation>Печать объекта(ов) атласа</translation>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>Выберите шаблон ниже</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Идёт печать…</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation>Объект(ы) атласа успешно напечатан(ы) в PDF и сохранен(ы) в папке вашего проекта</translation>
     </message>
 </context>
 <context>
@@ -4689,7 +4788,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Добавление дочернего объекта на слой %1</translation>
+        <translation type="vanished">Добавление дочернего объекта на слой %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -4697,35 +4796,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Разорвать связь с объектом %1 (%2) из %3</translation>
+        <translation type="vanished">Разорвать связь с объектом %1 (%2) из %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Удалить объект %1 (%2) из %3</translation>
+        <translation type="vanished">Удалить объект %1 (%2) из %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Разорвать связь с объектом &lt;b&gt;%1 (%2)&lt;/b&gt; слоя &lt;b&gt;%3&lt;/b&gt;?&lt;br&gt;&lt;i&gt;(Связь будет удалена из слоя &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation type="vanished">Разорвать связь с объектом &lt;b&gt;%1 (%2)&lt;/b&gt; слоя &lt;b&gt;%3&lt;/b&gt;?&lt;br&gt;&lt;i&gt;(Связь будет удалена из слоя &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Удалить объект &lt;b&gt;%1 (%2)&lt;/b&gt; на слое &lt;b&gt;%3&lt;/b&gt;?</translation>
+        <translation type="vanished">Удалить объект &lt;b&gt;%1 (%2)&lt;/b&gt; на слое &lt;b&gt;%3&lt;/b&gt;?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Невозможно удалить дочерний объект</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>Невозможно добавить дочернюю функцию: значение атрибута, связывающего родительскую и дочернюю функции, не установлено</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation>Невозможно добавить дочерний элемент: убедитесь, что родительский элемент соответствует всем ограничениям и может быть сохранена</translation>
-    </message>
-    <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Невозможно удалить дочерний объект</translation>
     </message>
 </context>
 <context>
@@ -5355,7 +5442,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Добавление дочернего объекта на слой %1</translation>
+        <translation type="vanished">Добавление дочернего объекта на слой %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -5363,35 +5450,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Разорвать связь с объектом %1 (%2) из %3</translation>
+        <translation type="vanished">Разорвать связь с объектом %1 (%2) из %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Удалить объект %1 (%2) из %3</translation>
+        <translation type="vanished">Удалить объект %1 (%2) из %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Разорвать связь с объектом &lt;b&gt;%1 (%2)&lt;/b&gt; слоя &lt;b&gt;%3&lt;/b&gt;?&lt;br&gt;&lt;i&gt;(Связь будет удалена из слоя &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation type="vanished">Разорвать связь с объектом &lt;b&gt;%1 (%2)&lt;/b&gt; слоя &lt;b&gt;%3&lt;/b&gt;?&lt;br&gt;&lt;i&gt;(Связь будет удалена из слоя &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Удалить объект &lt;b&gt;%1 (%2)&lt;/b&gt; на слое &lt;b&gt;%3&lt;/b&gt;?</translation>
+        <translation type="vanished">Удалить объект &lt;b&gt;%1 (%2)&lt;/b&gt; на слое &lt;b&gt;%3&lt;/b&gt;?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Невозможно удалить дочерний объект</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>Невозможно добавить дочернюю функцию: значение атрибута, связывающего родительскую и дочернюю функции, не установлено</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation>Невозможно добавить дочерний элемент: убедитесь, что родительский элемент соответствует всем ограничениям и может быть сохранена</translation>
-    </message>
-    <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Невозможно удалить дочерний объект</translation>
     </message>
 </context>
 </TS>

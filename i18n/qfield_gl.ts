@@ -3204,6 +3204,26 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
         <source>Imported and available locally</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>
@@ -3213,6 +3233,10 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning service stopped</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3648,6 +3672,14 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
@@ -3919,6 +3951,73 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Invalid relation</source>
         <translation>Relación non válida</translation>
+    </message>
+</context>
+<context>
+    <name>RelationEditorBase</name>
+    <message>
+        <source>Ensure contraints are met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation>Non se pode engadir unha entidade aniñada: asegúrate de que a entidade principal cumpre con tódalas restricións e que se poida gardar</translation>
+    </message>
+    <message>
+        <source>Adding child feature in layer %1</source>
+        <translation>Engadindo entidade filla na capa %1</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation>Non se pode engadir a entidade filla: non se estableceu o valor de atributo que enlaza pais con fillas</translation>
+    </message>
+    <message>
+        <source>Unlink Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>Eliminar Entidade</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation>Debe retirarse a ligazón da entidade &lt;b&gt;%1 (%2)&lt;/b&gt; da capa  &lt;b&gt;%3&lt;/b&gt; ?&lt;br&gt;&lt;i&gt;(Eliminarase a conexión na capa &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>Debe eliminarse a entidade &lt;b&gt;%1 (%2)&lt;/b&gt; na capa &lt;b&gt;%3&lt;/b&gt;?</translation>
+    </message>
+    <message>
+        <source>Failed to delete referencing feature</source>
+        <translation>Non se puido eliminar a entidade de referencia</translation>
+    </message>
+    <message>
+        <source>Child Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation>Copiar os Atributos da Entidade</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature to PDF</source>
+        <translation>Imprimir Entidade do Atlas a PDF</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation>Imprimir Entidade(s) do Atlas</translation>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>Selecciona un modelo de abaixo</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Imprimindo...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation>Imprimíronse con éxito as entidade(s) do Atlas e situáronse no directorio do proxecto</translation>
     </message>
 </context>
 <context>
@@ -4687,7 +4786,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Engadindo entidade filla na capa %1</translation>
+        <translation type="vanished">Engadindo entidade filla na capa %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -4695,35 +4794,23 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Retirar ligazón da entidade %1 (%2) de %3</translation>
+        <translation type="vanished">Retirar ligazón da entidade %1 (%2) de %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Eliminar entidade %1 (%2) en %3</translation>
+        <translation type="vanished">Eliminar entidade %1 (%2) en %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Debe retirarse a ligazón da entidade &lt;b&gt;%1 (%2)&lt;/b&gt; da capa  &lt;b&gt;%3&lt;/b&gt; ?&lt;br&gt;&lt;i&gt;(Eliminarase a conexión na capa &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation type="vanished">Debe retirarse a ligazón da entidade &lt;b&gt;%1 (%2)&lt;/b&gt; da capa  &lt;b&gt;%3&lt;/b&gt; ?&lt;br&gt;&lt;i&gt;(Eliminarase a conexión na capa &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Debe eliminarse a entidade &lt;b&gt;%1 (%2)&lt;/b&gt; na capa &lt;b&gt;%3&lt;/b&gt;?</translation>
+        <translation type="vanished">Debe eliminarse a entidade &lt;b&gt;%1 (%2)&lt;/b&gt; na capa &lt;b&gt;%3&lt;/b&gt;?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Non se puido eliminar a entidade de referencia</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>Non se pode engadir a entidade filla: non se estableceu o valor de atributo que enlaza pais con fillas</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation>Non se pode engadir unha entidade aniñada: asegúrate de que a entidade principal cumpre con tódalas restricións e que se poida gardar</translation>
-    </message>
-    <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Non se puido eliminar a entidade de referencia</translation>
     </message>
 </context>
 <context>
@@ -5353,7 +5440,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Engadindo entidade filla na capa %1</translation>
+        <translation type="vanished">Engadindo entidade filla na capa %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
@@ -5361,35 +5448,23 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation>Retirar ligazón da entidade %1 (%2) de %3</translation>
+        <translation type="vanished">Retirar ligazón da entidade %1 (%2) de %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation>Eliminar entidade %1 (%2) en %3</translation>
+        <translation type="vanished">Eliminar entidade %1 (%2) en %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Debe retirarse a ligazón da entidade &lt;b&gt;%1 (%2)&lt;/b&gt; da capa  &lt;b&gt;%3&lt;/b&gt; ?&lt;br&gt;&lt;i&gt;(Eliminarase a conexión na capa &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation type="vanished">Debe retirarse a ligazón da entidade &lt;b&gt;%1 (%2)&lt;/b&gt; da capa  &lt;b&gt;%3&lt;/b&gt; ?&lt;br&gt;&lt;i&gt;(Eliminarase a conexión na capa &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Debe eliminarse a entidade &lt;b&gt;%1 (%2)&lt;/b&gt; na capa &lt;b&gt;%3&lt;/b&gt;?</translation>
+        <translation type="vanished">Debe eliminarse a entidade &lt;b&gt;%1 (%2)&lt;/b&gt; na capa &lt;b&gt;%3&lt;/b&gt;?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Non se puido eliminar a entidade de referencia</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>Non se pode engadir a entidade filla: non se estableceu o valor de atributo que enlaza pais con fillas</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation>Non se pode engadir unha entidade aniñada: asegúrate de que a entidade principal cumpre con tódalas restricións e que se poida gardar</translation>
-    </message>
-    <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Non se puido eliminar a entidade de referencia</translation>
     </message>
 </context>
 </TS>
