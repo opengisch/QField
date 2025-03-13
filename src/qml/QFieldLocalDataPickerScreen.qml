@@ -1135,9 +1135,10 @@ Page {
       text: importWebdavUrlLabel.text
     }
 
+    width: swipeDialog.width + padding * 2
     SwipeView {
       id: swipeDialog
-      width: mainWindow.width - 60 < importWebdavUrlLabelMetrics.width ? mainWindow.width - 60 : importWebdavUrlLabelMetrics.width
+      width: mainWindow.width - 60 < importWebdavUrlLabelMetrics.width + 40 ? mainWindow.width - 60 : importWebdavUrlLabelMetrics.width + 40
       clip: true
       interactive: false
 
@@ -1234,6 +1235,8 @@ Page {
         }
 
         QfToolButton {
+          Layout.rowSpan: 2
+          Layout.alignment: Qt.AlignVCenter
           bgcolor: "transparent"
           iconSource: Theme.getThemeVectorIcon('ic_delete_forever_white_24dp')
           iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
@@ -1286,9 +1289,6 @@ Page {
           }
         }
 
-        Item {
-        }
-
         CheckBox {
           id: importWebdavStorePasswordCheck
           Layout.fillWidth: true
@@ -1325,7 +1325,7 @@ Page {
         spacing: 10
 
         Label {
-          width: importWebdavUrlLabel.width
+          width: parent.width
           visible: importWebdavPathInput.visible
           text: qsTr("Select the remote folder to import:")
           wrapMode: Text.WordWrap
@@ -1335,7 +1335,7 @@ Page {
 
         Rectangle {
           id: importWebdavPathContainer
-          width: importWebdavUrlLabel.width
+          width: parent.width
           height: 340
           color: Theme.controlBackgroundColor
           border.color: Theme.controlBorderColor
@@ -1490,11 +1490,8 @@ Page {
 
           QfButton {
             id: importWebdavRefetchFoldersButton
-            width: importWebdavUrlLabel.width - (importWebdavRefreshFoldersIndicator.visible ? importWebdavRefreshFoldersIndicator.width : 0)
+            width: parent.parent.width - (importWebdavRefreshFoldersIndicator.visible ? importWebdavRefreshFoldersIndicator.width : 0)
             enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-            bgcolor: "transparent"
-            borderColor: enabled ? Theme.secondaryTextColor : Theme.mainTextDisabledColor
-            color: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
             text: !enabled ? qsTr("Refreshing remote folders") : qsTr("Refresh remote folders")
 
             onClicked: {
