@@ -614,11 +614,9 @@ void QFieldCloudConnection::setAuthenticationToken( QNetworkRequest &request )
                                                 providerDetails.value( "refresh_token_url" ).toString(),
                                                 providerDetails.value( "scope" ).toString(),
                                                 extraTokens.join( ',' ) ) );
-      qDebug() << config.config( "oauth2config" );
       QgsApplication::instance()->authManager()->storeAuthenticationConfig( config, true );
 
       mProviderConfigId = config.id();
-      qDebug() << mProviderConfigId;
       QSettings().setValue( QStringLiteral( "/QFieldCloud/providerConfigId" ), mProviderConfigId );
       emit providerConfigurationChanged();
     }
