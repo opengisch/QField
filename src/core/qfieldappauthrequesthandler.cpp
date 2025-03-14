@@ -39,6 +39,20 @@ void QFieldAppAuthRequestHandler::enterCredentials( const QString &realm, const 
   QgsCredentials::instance()->put( realm, username, password );
 }
 
+bool QFieldAppAuthRequestHandler::isProjectLoading() const
+{
+  return mIsProjectLoading;
+}
+
+void QFieldAppAuthRequestHandler::setIsProjectLoading( bool loading )
+{
+  if ( mIsProjectLoading == loading )
+    return;
+
+  mIsProjectLoading = loading;
+  emit isProjectLoadingChanged();
+}
+
 bool QFieldAppAuthRequestHandler::hasPendingAuthRequest() const
 {
   if ( mBrowserAuthenticationOngoing )

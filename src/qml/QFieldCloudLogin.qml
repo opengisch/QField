@@ -10,10 +10,16 @@ import Theme
 Item {
   id: qfieldCloudLogin
 
+  property bool hasCredentialsAuthentication: true
   property bool isServerUrlEditingActive: false
   property bool isVisible: false
 
   height: connectionSettings.childrenRect.height
+
+  FontMetrics {
+    id: fontMetrics
+    font: Theme.defaultFont
+  }
 
   ColumnLayout {
     id: connectionSettings
@@ -93,7 +99,7 @@ Item {
 
     ComboBox {
       id: serverUrlComboBox
-      Layout.preferredWidth: parent.width / 1.3
+      Layout.preferredWidth: parent.width - showPasswordButton.width * 2
       Layout.alignment: Qt.AlignHCenter
       Layout.bottomMargin: 10
       visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (prefixUrlWithProtocol(cloudConnection.url) !== cloudConnection.defaultUrl || isServerUrlEditingActive)
@@ -126,9 +132,14 @@ Item {
         enabled: visible
         font: Theme.defaultFont
         horizontalAlignment: Text.AlignHCenter
-        text: parent.displayText
 
-        onTextChanged: text = text.replace(/\s+/g, '')
+        text: parent.displayText
+        onTextChanged: {
+          availableProvidersRepeater.model = [];
+          getAvailableProvidersButton.visible = true;
+          return text = text.replace(/\s+/g, '');
+        }
+
         Keys.onReturnPressed: loginFormSumbitHandler()
 
         background: Rectangle {
@@ -142,7 +153,7 @@ Item {
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
       Layout.preferredWidth: parent.width - showPasswordButton.width * 2
       Layout.alignment: Qt.AlignHCenter
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && qfieldCloudLogin.hasCredentialsAuthentication
       enabled: visible
       font: Theme.defaultFont
       horizontalAlignment: Text.AlignHCenter
@@ -159,7 +170,7 @@ Item {
       Layout.preferredWidth: parent.width - showPasswordButton.width * 2
       Layout.alignment: Qt.AlignHCenter
       Layout.bottomMargin: 10
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && qfieldCloudLogin.hasCredentialsAuthentication
       enabled: visible
       font: Theme.defaultFont
       horizontalAlignment: Text.AlignHCenter
@@ -191,24 +202,57 @@ Item {
       }
     }
 
-    FontMetrics {
-      id: fontMetrics
-      font: Theme.defaultFont
+    QfButton {
+      Layout.fillWidth: true
+      text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr("Sign out") : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr("Signing in, please wait") : qsTr("Sign in")
+      enabled: cloudConnection.status != QFieldCloudConnection.Connecting
+      visible: qfieldCloudLogin.hasCredentialsAuthentication || cloudConnection.status != QFieldCloudConnection.Disconnected
+
+      onClicked: loginFormSumbitHandler()
+    }
+
+    Label {
+      Layout.fillWidth: true
+      text: "- " + qsTr("or") + " -"
+      font: Theme.tipFont
+      color: Theme.secondaryTextColor
+      horizontalAlignment: Qt.AlignHCenter
+      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (qfieldCloudLogin.hasCredentialsAuthentication && availableProvidersRepeater.count > 2 || availableProvidersRepeater.count > 1 || getAvailableProvidersButton.visible)
+    }
+
+    Repeater {
+      id: availableProvidersRepeater
+      model: []
+
+      QfButton {
+        visible: modelData.id !== "credentials" && cloudConnection.status === QFieldCloudConnection.Disconnected
+        Layout.fillWidth: true
+        text: qsTr("Sign in using %1").arg(modelData.name)
+        height: 48
+
+        onClicked: {
+          loginFormSubmitProvider(modelData.id);
+        }
+      }
     }
 
     QfButton {
+      id: getAvailableProvidersButton
       Layout.fillWidth: true
-      Layout.bottomMargin: 10
-      text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr("Sign out") : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr("Signing in, please wait") : qsTr("Sign in")
-      enabled: cloudConnection.status != QFieldCloudConnection.Connecting
+      text: qsTr("Retrieve additional sign in methods")
+      enabled: !cloudConnection.isFetchingAvailableProviders
+      visible: false
 
-      onClicked: loginFormSumbitHandler()
+      onClicked: {
+        cloudConnection.url = serverUrlField.text !== '' && prefixUrlWithProtocol(serverUrlField.text) !== cloudConnection.defaultUrl ? prefixUrlWithProtocol(serverUrlField.text) : cloudConnection.defaultUrl;
+        cloudConnection.getAuthenticationProviders();
+      }
     }
 
     Text {
       id: cloudRegisterLabel
       Layout.fillWidth: true
-      Layout.topMargin: 6
+      Layout.topMargin: 16
       text: qsTr('New user?') + ' <a href="https://app.qfield.cloud/accounts/signup/">' + qsTr('Register an account') + '</a>.'
       horizontalAlignment: Text.AlignHCenter
       font: Theme.defaultFont
@@ -257,6 +301,22 @@ Item {
       if (cloudConnection.status === QFieldCloudConnection.LoggedIn)
         usernameField.text = cloudConnection.username;
     }
+
+    function onAvailableProvidersChanged() {
+      let credentialAuthenticationAvailable = true;
+      if (cloudConnection.availableProviders.length > 0) {
+        credentialAuthenticationAvailable = false;
+        for (const availableProvider of cloudConnection.availableProviders) {
+          if (availableProvider.id === "credentials") {
+            credentialAuthenticationAvailable = true;
+            break;
+          }
+        }
+      }
+      qfieldCloudLogin.hasCredentialsAuthentication = credentialAuthenticationAvailable;
+      availableProvidersRepeater.model = cloudConnection.availableProviders;
+      getAvailableProvidersButton.visible = false;
+    }
   }
 
   function prefixUrlWithProtocol(url) {
@@ -275,9 +335,16 @@ Item {
     } else {
       cloudConnection.username = usernameField.text;
       cloudConnection.password = passwordField.text;
+      cloudConnection.provider = "";
       cloudConnection.url = serverUrlField.text !== '' && prefixUrlWithProtocol(serverUrlField.text) !== cloudConnection.defaultUrl ? prefixUrlWithProtocol(serverUrlField.text) : cloudConnection.defaultUrl;
       cloudConnection.login();
     }
+  }
+
+  function loginFormSubmitProvider(provider) {
+    cloudConnection.provider = provider;
+    cloudConnection.url = serverUrlField.text !== '' && prefixUrlWithProtocol(serverUrlField.text) !== cloudConnection.defaultUrl ? prefixUrlWithProtocol(serverUrlField.text) : cloudConnection.defaultUrl;
+    cloudConnection.login();
   }
 
   function toggleServerUrlEditing() {

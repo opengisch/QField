@@ -38,6 +38,7 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsCredentials, publi
 {
     Q_OBJECT
 
+    Q_PROPERTY( bool isProjectLoading READ isProjectLoading WRITE setIsProjectLoading NOTIFY isProjectLoadingChanged )
     Q_PROPERTY( bool hasPendingAuthRequest READ hasPendingAuthRequest NOTIFY hasPendingAuthRequestChanged )
 
   public:
@@ -60,6 +61,12 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsCredentials, publi
     //! abort an ongoing external browser authentication request
     Q_INVOKABLE void abortAuthBrowser();
 
+    //! returns TRUE is a project is loading
+    bool isProjectLoading() const;
+
+    //! sets whether a project is \a loading
+    void setIsProjectLoading( bool loading );
+
     //! returns the number of pending authentication requests
     bool hasPendingAuthRequest() const;
 
@@ -69,6 +76,7 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsCredentials, publi
     void reloadEverything();
     void showLoginBrowser( const QString &url );
     void hideLoginBrowser();
+    void isProjectLoadingChanged();
     void hasPendingAuthRequestChanged();
 
   protected:
@@ -102,6 +110,8 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsCredentials, publi
 
     QList<RealmEntry> mRealms;
     bool mBrowserAuthenticationOngoing = false;
+
+    bool mIsProjectLoading = false;
 };
 
 #endif // QFIELDAPPAUTHREQUESTHANDLER_H
