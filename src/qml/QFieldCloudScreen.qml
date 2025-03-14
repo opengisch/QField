@@ -149,9 +149,9 @@ Page {
         property double usage: 0.0
 
         Material.accent: {
-          if (usage < .9) {
+          if (usage < 0.9) {
             return Theme.qfieldcloudBlue;
-          } else if (usage < .975) {
+          } else if (usage < 0.975) {
             return Theme.warningColor;
           } else {
             return Theme.bookmarkRed;
@@ -677,7 +677,7 @@ Page {
     const totalStorage = 1;
     storageBar.usage = usedStorage / totalStorage;
     storageText.text = qsTr(`${usedStorage} GB of ${totalStorage} GB used`);
-    if (storageBar.usage >= .975) {
+    if (storageBar.usage >= 0.975) {
       const upgradeStorageText = qsTr("upgrade to more storage here");
       storageText.text += `; <a href="https://apps.qfield.cloud/plans">${upgradeStorageText}</a>`;
     }
