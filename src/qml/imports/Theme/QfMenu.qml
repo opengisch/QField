@@ -5,11 +5,14 @@ Menu {
   id: control
 
   property int paddingMultiplier: 1
+  property bool skipFirstRow: false
+  property real minimumRowWidth: 50
 
   width: {
-    let result = 50;
+    let result = minimumRowWidth;
     let padding = 0;
-    for (let i = 0; i < control.count; ++i) {
+    const initialRow = skipFirstRow ? 1 : 0;
+    for (let i = initialRow; i < control.count; ++i) {
       const item = control.itemAt(i);
       if (item) {
         if (item.contentItem) {

@@ -2605,24 +2605,14 @@ ApplicationWindow {
     changeMode('measure');
   }
 
-  Menu {
+  QfMenu {
     id: mainMenu
     title: qsTr("Main Menu")
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
-
-    width: {
-      let result = Math.max(50, undoRedoMetrics.width + undoButton.leftPadding * 2 + undoButton.rightPadding * 2 + 42 * 2);
-      let padding = 0;
-      // Skip first Row item
-      for (let i = 1; i < count; ++i) {
-        const item = itemAt(i);
-        result = Math.max(item.contentItem.implicitWidth, result);
-        padding = Math.max(item.leftPadding + item.rightPadding, padding);
-      }
-      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
-    }
+    skipFirstRow: true
+    minimumRowWidth: Math.max(50, undoRedoMetrics.width + undoButton.leftPadding * 2 + undoButton.rightPadding * 2 + 42 * 2)
 
     TextMetrics {
       id: undoRedoMetrics
@@ -2933,7 +2923,7 @@ ApplicationWindow {
     }
   }
 
-  Menu {
+  QfMenu {
     id: canvasMenu
     objectName: "canvasMenu"
 
@@ -2956,19 +2946,8 @@ ApplicationWindow {
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
-
-    width: {
-      const toolbarWidth = canvasMenuActionsToolbar.childrenRect.width + 4;
-      let result = 0;
-      let padding = 0;
-      // Skip first Row item
-      for (let i = 1; i < count; ++i) {
-        const item = itemAt(i);
-        result = Math.max(item.contentItem.implicitWidth, result);
-        padding = Math.max(item.padding, padding);
-      }
-      return Math.min(Math.max(toolbarWidth, result + padding * 2), mainWindow.width - 20);
-    }
+    skipFirstRow: true
+    minimumRowWidth: canvasMenuActionsToolbar.childrenRect.width + 4
 
     Row {
       id: canvasMenuActionsToolbar
