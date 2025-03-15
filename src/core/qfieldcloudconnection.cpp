@@ -300,6 +300,14 @@ void QFieldCloudConnection::login()
         emit loginFailed( message );
       }
 
+      if ( !mProvider.isEmpty() && !mProviderConfigId.isEmpty() )
+      {
+        QgsApplication::instance()->authManager()->removeAuthenticationConfig( mProviderConfigId );
+        mProviderConfigId.clear();
+        QSettings().remove( "/QFieldCloud/providerConfigId" );
+        emit providerConfigurationChanged();
+      }
+
       setStatus( ConnectionStatus::Disconnected );
       return;
     }
