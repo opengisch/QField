@@ -215,7 +215,7 @@ EditorWidgetBase {
     }
   }
 
-  property Menu childMenu: Menu {
+  property Menu childMenu: QfMenu {
     id: childMenu
     title: qsTr("Child Menu")
     z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
@@ -227,17 +227,6 @@ EditorWidgetBase {
 
     onAboutToShow: {
       atlasMenuLoader.enabled = true;
-    }
-
-    width: {
-      let result = 50;
-      let padding = 0;
-      for (var i = 0; i < count; ++i) {
-        let item = itemAt(i);
-        result = Math.max(item.contentItem.implicitWidth, result);
-        padding = Math.max(item.leftPadding + item.rightPadding, padding);
-      }
-      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
     }
 
     topMargin: mainWindow.sceneTopMargin
@@ -304,7 +293,7 @@ EditorWidgetBase {
     id: atlasMenuLoader
     enabled: false
     sourceComponent: Component {
-      Menu {
+      QfMenu {
         id: atlasMenu
 
         property alias printInstantiator: atlasListInstantiator
@@ -314,17 +303,6 @@ EditorWidgetBase {
         title: qsTr("Print Atlas Feature(s)")
 
         signal enablePrintItem(int rows)
-
-        width: {
-          let result = 50;
-          let padding = 0;
-          for (let i = 0; i < count; ++i) {
-            let item = itemAt(i);
-            result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.leftPadding + item.rightPadding, padding);
-          }
-          return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
-        }
 
         topMargin: mainWindow.sceneTopMargin
         bottomMargin: mainWindow.sceneBottomMargin

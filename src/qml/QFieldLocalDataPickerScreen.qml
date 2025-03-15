@@ -53,17 +53,6 @@ Page {
     }
   }
 
-  function determineMenuWidth(menu) {
-    let result = 50;
-    let padding = 0;
-    for (let i = 0; i < menu.count; ++i) {
-      let item = menu.itemAt(i);
-      result = Math.max(item.contentItem.implicitWidth, result);
-      padding = Math.max(item.leftPadding + item.rightPadding, padding);
-    }
-    return mainWindow.width > 0 ? Math.min(result + padding * 2, mainWindow.width - 20) : result + padding;
-  }
-
   ColumnLayout {
     id: files
     anchors.fill: parent
@@ -437,7 +426,7 @@ Page {
       }
     }
 
-    Menu {
+    QfMenu {
       id: itemMenu
 
       property int itemMetaType: 0
@@ -448,10 +437,9 @@ Page {
 
       title: qsTr('Item Actions')
 
-      width: determineMenuWidth(itemMenu)
-
       topMargin: sceneTopMargin
       bottomMargin: sceneBottomMargin
+      paddingMultiplier: 2
 
       // File items
       MenuItem {
@@ -642,15 +630,14 @@ Page {
       }
     }
 
-    Menu {
+    QfMenu {
       id: importMenu
 
       title: qsTr('Import Actions')
 
-      width: determineMenuWidth(importMenu)
-
       topMargin: sceneTopMargin
       bottomMargin: sceneBottomMargin
+      paddingMultiplier: 2
 
       MenuItem {
         id: importProjectFromFolder
@@ -756,15 +743,14 @@ Page {
       }
     }
 
-    Menu {
+    QfMenu {
       id: projectMenu
 
       title: qsTr('Project Actions')
 
-      width: determineMenuWidth(projectMenu)
-
       topMargin: sceneTopMargin
       bottomMargin: sceneBottomMargin
+      paddingMultiplier: 2
 
       MenuItem {
         id: updateProjectFromArchive
@@ -821,10 +807,10 @@ Page {
       }
     }
 
-    Menu {
+    QfMenu {
       id: selectionMenu
       x: parent.width - width - 8
-      width: determineMenuWidth(selectionMenu)
+      paddingMultiplier: 2
 
       MenuItem {
         id: uploadToWebdav
