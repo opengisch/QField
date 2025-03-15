@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - release-**
+      - arm64-linux
   pull_request:
   release:
     types: ['published']
@@ -15,8 +16,17 @@ concurrency:
 
 jobs:
   build:
-    name: build (linux)
-    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            triplet: x64-linux
+            target-arch: x86_64
+          - os: ubuntu-24.04-arm
+            triplet: arm64-linux
+            target-arch: aarch64
+    name: build (${{ matrix.triplet }})
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: 🐣 Checkout
@@ -77,7 +87,7 @@ jobs:
                 -D CMAKE_INSTALL_PREFIX=/usr \
                 -D CMAKE_EXPORT_COMPILE_COMMANDS=ON \
                 -D CMAKE_COMPILE_WARNING_AS_ERROR=ON \
-                -D LINUXDEPLOY_EXECUTABLE=${{ env.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage
+                -D LINUXDEPLOY_EXECUTABLE=${{ env.BUILD_ROOT }}/linuxdeploy-${{ matrix.target-arch }}.AppImage
                 # -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 # -D SENTRY_ENV="${APP_ENV}" \
 
@@ -85,7 +95,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: build-logs-x64-linux
+          name: build-logs-${{ matrix.triplet }}
           path: |
             build/**/*.log
 
@@ -108,21 +118,21 @@ jobs:
 
       - name: Package
         run: |
-          export LD_LIBRARY_PATH="${{ github.workspace }}/build/vcpkg_installed/x64-linux/lib/":${LD_LIBRARY_PATH}
+          export LD_LIBRARY_PATH="${{ github.workspace }}/build/vcpkg_installed/${{ matrix.triplet }}/lib/":${LD_LIBRARY_PATH}
           cmake --build  "build" --target bundle --config ${{ env.BUILD_TYPE }}
-          echo "ARTIFACT_PATHNAME=build/QField-x86_64.AppImage" >> $GITHUB_ENV
-          echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-linux-x64.AppImage" >> $GITHUB_ENV
+          echo "ARTIFACT_PATHNAME=build/QField-${{ matrix.target-arch }}.AppImage" >> $GITHUB_ENV
+          echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.triplet }}.AppImage" >> $GITHUB_ENV
 
       - name: 📦 Upload package
         if: ${{ env.ARTIFACT_NAME != null }}
         uses: actions/upload-artifact@v4
         with:
-          name: "QField-dev-x64-linux-${{ env.BUILD_TYPE }}"
+          name: "QField-dev-${{ matrix.triplet }}-${{ env.BUILD_TYPE }}"
           path: ${{ env.ARTIFACT_PATHNAME }}
 
       - name: 🧫 Test
         env:
-          PROJ_LIB: ${{ github.workspace }}/build/vcpkg_installed/x64-linux/share/proj
+          PROJ_LIB: ${{ github.workspace }}/build/vcpkg_installed/${{ matrix.triplet }}/share/proj
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" up -d
@@ -152,14 +162,14 @@ jobs:
         uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: package-logs-x64-linux
+          name: package-logs-${{ matrix.triplet }}
           path: build/_CPack_Packages/**/*.log
 
       - name: 📊 Upload test report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: "test-report-x64-linux-${{ env.BUILD_TYPE }}"
+          name: "test-report-${{ matrix.triplet }}-${{ env.BUILD_TYPE }}"
           path: "build/report"
 
       - name: 🚀 Upload release asset
