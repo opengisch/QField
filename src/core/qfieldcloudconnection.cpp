@@ -612,6 +612,16 @@ void QFieldCloudConnection::setAuthenticationToken( QNetworkRequest &request )
     }
 
     QgsApplication::instance()->authManager()->updateNetworkRequest( request, mProviderConfigId );
+    const QList<QNetworkCookie> cookies = QgsNetworkAccessManager::instance()->cookieJar()->cookiesForUrl( mUrl );
+    for ( const QNetworkCookie &cookie : cookies )
+    {
+      if ( cookie.name() == QLatin1String( "csrftoken" ) )
+      {
+        request.setRawHeader( "X-CSRFToken", cookie.value() );
+        request.setRawHeader( "Referer", mUrl.toLatin1() );
+        break;
+      }
+    }
   }
 }
 
