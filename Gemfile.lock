@@ -227,6 +227,7 @@ PLATFORMS
   x64-mingw-ucrt
   x86_64-darwin-21
   x86_64-linux
+  aarch64-linux
 
 DEPENDENCIES
   fastlane
