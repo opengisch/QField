@@ -135,15 +135,31 @@ Item {
 
         text: parent.displayText
         onTextChanged: {
-          availableProvidersRepeater.model = [];
-          getAvailableProvidersButton.visible = true;
-          return text = text.replace(/\s+/g, '');
+          const cleanedText = text.replace(/\s+/g, '');
+          if (cleanedText !== cloudConnection.url) {
+            getAuthenticationProvidersTimer.restart();
+          } else {
+            getAuthenticationProvidersTimer.stop();
+          }
+          return cleanedText;
         }
 
         Keys.onReturnPressed: loginFormSumbitHandler()
 
         background: Rectangle {
           color: "transparent"
+        }
+      }
+
+      Timer {
+        id: getAuthenticationProvidersTimer
+        interval: 500
+        repeat: false
+        running: false
+
+        onTriggered: {
+          cloudConnection.url = serverUrlField.text !== '' && prefixUrlWithProtocol(serverUrlField.text) !== cloudConnection.defaultUrl ? prefixUrlWithProtocol(serverUrlField.text) : cloudConnection.defaultUrl;
+          cloudConnection.getAuthenticationProviders();
         }
       }
     }
@@ -217,7 +233,7 @@ Item {
       font: Theme.tipFont
       color: Theme.secondaryTextColor
       horizontalAlignment: Qt.AlignHCenter
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (qfieldCloudLogin.hasCredentialsAuthentication && availableProvidersRepeater.count > 2 || availableProvidersRepeater.count > 1 || getAvailableProvidersButton.visible)
+      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (qfieldCloudLogin.hasCredentialsAuthentication && availableProvidersRepeater.count > 2 || availableProvidersRepeater.count > 1)
     }
 
     Repeater {
@@ -233,19 +249,6 @@ Item {
         onClicked: {
           loginFormSubmitProvider(modelData.id);
         }
-      }
-    }
-
-    QfButton {
-      id: getAvailableProvidersButton
-      Layout.fillWidth: true
-      text: qsTr("Retrieve additional sign in methods")
-      enabled: !cloudConnection.isFetchingAvailableProviders
-      visible: false
-
-      onClicked: {
-        cloudConnection.url = serverUrlField.text !== '' && prefixUrlWithProtocol(serverUrlField.text) !== cloudConnection.defaultUrl ? prefixUrlWithProtocol(serverUrlField.text) : cloudConnection.defaultUrl;
-        cloudConnection.getAuthenticationProviders();
       }
     }
 
@@ -315,7 +318,6 @@ Item {
       }
       qfieldCloudLogin.hasCredentialsAuthentication = credentialAuthenticationAvailable;
       availableProvidersRepeater.model = cloudConnection.availableProviders;
-      getAvailableProvidersButton.visible = false;
     }
   }
 
