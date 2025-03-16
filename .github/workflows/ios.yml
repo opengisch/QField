@@ -59,13 +59,11 @@ jobs:
           ruby-version: '3.2' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
-      - name: 🔏 Setup code signing
+      - name: 🍭 Setup XCode
+        uses: maxim-lobanov/setup-xcode@v1.6.0
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
-        env:
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-        run: |
-          bundle exec fastlane ios setup_signing type:${{ env.IOS_SIGN_TYPE }}  app_identifier:${{ env.IOS_APP_IDENTIFIER }} #  --verbose
-
+        with:
+          xcode-version: 16.2
 
       - name: 🍹 Prepare ios build env
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
@@ -91,12 +89,6 @@ jobs:
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           python-version: '3.11'
-
-      - name: 🍭 Setup XCode
-        uses: maxim-lobanov/setup-xcode@v1.6.0
-        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
-        with:
-          xcode-version: latest-stable
 
       - name: 🍮 ccache
         uses: hendrikmuhs/ccache-action@v1
@@ -150,6 +142,13 @@ jobs:
           name: build-logs-${{ env.TRIPLET }}
           path: |
             /Users/runner/builddir/**/*.log
+
+      - name: 🔏 Setup code signing
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
+        env:
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        run: |
+          bundle exec fastlane ios setup_signing type:${{ env.IOS_SIGN_TYPE }}  app_identifier:${{ env.IOS_APP_IDENTIFIER }} #  --verbose
 
       - name: 📦 Package
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
