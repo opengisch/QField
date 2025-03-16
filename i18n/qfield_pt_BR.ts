@@ -179,7 +179,7 @@
     <name>Binary</name>
     <message>
         <source>(Blob)</source>
-        <translation type="unfinished"/>
+        <translation>(Bolha)</translation>
     </message>
 </context>
 <context>
@@ -623,19 +623,19 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Received data is too short to process</source>
-        <translation type="unfinished"/>
+        <translation>Os dados recebidos são muito curtos para serem processados</translation>
     </message>
     <message>
         <source>Invalid start byte</source>
-        <translation type="unfinished"/>
+        <translation>Byte inicial inválido</translation>
     </message>
     <message>
         <source>Received data is too short to contain the payload</source>
-        <translation type="unfinished"/>
+        <translation>Os dados recebidos são muito curtos para conter a carga útil</translation>
     </message>
     <message>
         <source>Failed to parse JSON</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao analisar JSON</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -812,47 +812,47 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Desfazer criação de %n elemento(s) na camada %1.</numerusform><numerusform>Desfazer criação de %n elemento(s) na camada %1.</numerusform><numerusform>Desfazer criação de %n elemento(s) na camada %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Desfazer a criação de %n elemento(s).</numerusform><numerusform>Desfazer a criação de %n elemento(s).</numerusform><numerusform>Desfazer a criação de %n elemento(s).</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Desfazer a exclusão de %n elemento(s) na camada %1.</numerusform><numerusform>Desfazer a exclusão de %n elemento(s) na camada %1.</numerusform><numerusform>Desfazer a exclusão de %n elemento(s) na camada %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Desfazer a exclusão de %n elemento(s).</numerusform><numerusform>Desfazer a exclusão de %n elemento(s).</numerusform><numerusform>Desfazer a exclusão de %n elemento(s).</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Desfazer as modificações em %n elemento(s) na camada %1.</numerusform><numerusform>Desfazer as modificações em %n elemento(s) na camada %1.</numerusform><numerusform>Desfazer as modificações em %n elemento(s) na camada %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Desfazer as modificações em %n elemento(s).</numerusform><numerusform>Desfazer as modificações em %n elemento(s).</numerusform><numerusform>Desfazer as modificações em %n elemento(s).</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refazer a criação de %n elemento(s) na camada %1</numerusform><numerusform>Refazer a criação de %n elemento(s) na camada %1</numerusform><numerusform>Refazer a criação de %n elemento(s) na camada %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refazer a criação de %n elemento(s)</numerusform><numerusform>Refazer a criação de %n elemento(s)</numerusform><numerusform>Refazer a criação de %n elemento(s)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refazer a exclusão de %n elemento(s) na camada %1</numerusform><numerusform>Refazer a exclusão de %n elemento(s) na camada %1</numerusform><numerusform>Refazer a exclusão de %n elemento(s) na camada %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refazer a exclusão de %n elemento(s)</numerusform><numerusform>Refazer a exclusão de %n elemento(s)</numerusform><numerusform>Refazer a exclusão de %n elemento(s)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refazer as modificações em %n elemento(s) na camada %1</numerusform><numerusform>Refazer as modificações em %n elemento(s) na camada %1</numerusform><numerusform>Refazer as modificações em %n elemento(s) na camada %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s)</source>
