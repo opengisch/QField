@@ -932,12 +932,14 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
     const QStringList fileNames = project->downloadFileTransfers.keys();
     for ( const QString &fileNameKey : fileNames )
     {
-      if ( project->downloadFileTransfers[fileNameKey].networkReply
-           && !project->downloadFileTransfers[fileNameKey].networkReply->isFinished() )
+      if ( project->downloadFileTransfers[fileNameKey].networkReply )
       {
-        project->downloadFileTransfers[fileNameKey].networkReply->abort();
+        if ( !project->downloadFileTransfers[fileNameKey].networkReply->isFinished() )
+        {
+          project->downloadFileTransfers[fileNameKey].networkReply->abort();
+        }
+        project->downloadFileTransfers[fileNameKey].networkReply->deleteLater();
       }
-      project->downloadFileTransfers[fileNameKey].networkReply->deleteLater();
     }
 
     mActiveProjectFilesToDownload.clear();
