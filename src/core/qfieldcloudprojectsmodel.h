@@ -17,18 +17,19 @@
 #define QFIELDCLOUDPROJECTSMODEL_H
 
 #include "deltalistmodel.h"
+#include "networkreply.h"
 #include "qgsgpkgflusher.h"
 
 #include <QAbstractListModel>
 #include <QJsonArray>
 #include <QNetworkReply>
+#include <QPointer>
 #include <QSortFilterProxyModel>
 #include <QTimer>
 
 
 class QNetworkRequest;
 class QFieldCloudConnection;
-class NetworkReply;
 class LayerObserver;
 class QgsMapLayer;
 class QgsProject;
@@ -341,7 +342,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         long long bytesTotal;
         long long bytesTransferred = 0;
         bool isFinished = false;
-        NetworkReply *networkReply;
+        QPointer<NetworkReply> networkReply;
         QNetworkReply::NetworkError error = QNetworkReply::NoError;
         QStringList layerIds;
         int redirectsCount = 0;
