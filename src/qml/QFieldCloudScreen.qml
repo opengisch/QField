@@ -40,7 +40,7 @@ Page {
       id: connectionInformation
       spacing: 2
       Layout.fillWidth: true
-      visible: cloudConnection.hasToken || cloudProjectsModel.rowCount() > 0
+      visible: cloudConnection.status === QFieldCloudConnection.LoggedIn || cloudProjectsModel.rowCount() > 0
 
       Label {
         Layout.fillWidth: true
@@ -164,6 +164,7 @@ Page {
       Layout.margins: 10
       Layout.topMargin: 0
       spacing: 2
+      visible: connectionInformation.visible
 
       QfTabBar {
         id: filterBar
@@ -618,7 +619,7 @@ Page {
   function prepareCloudLogin() {
     if (visible) {
       if (cloudConnection.status == QFieldCloudConnection.Disconnected) {
-        if (cloudConnection.hasToken) {
+        if (cloudConnection.hasToken || cloudConnection.hasProviderConfiguration) {
           cloudConnection.login();
           projects.visible = true;
           connectionSettings.visible = false;
@@ -626,6 +627,7 @@ Page {
           projects.visible = false;
           connectionSettings.visible = true;
         }
+        cloudConnection.getAuthenticationProviders();
       } else {
         projects.visible = true;
         connectionSettings.visible = false;

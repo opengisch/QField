@@ -3735,6 +3735,7 @@ ApplicationWindow {
     }
 
     function onLoadProjectTriggered(path, name) {
+      qfieldAuthRequestHandler.isProjectLoading = true;
       messageLogModel.suppress({
           "WFS": [""],
           "WMS": [""],
@@ -3764,6 +3765,7 @@ ApplicationWindow {
         qfieldAuthRequestHandler.handleLayerLogins();
       } else {
         // project in need of handling layer credentials
+        qfieldAuthRequestHandler.isProjectLoading = true;
         messageLogModel.unsuppress({
             "WFS": [],
             "WMS": [],
@@ -3960,10 +3962,14 @@ ApplicationWindow {
       }
 
       function onShowLoginBrowser(url) {
-        browserPopup.url = url;
-        browserPopup.fullscreen = false;
-        browserPopup.clearCookiesOnOpen = true;
-        browserPopup.open();
+        if (qfieldAuthRequestHandler.isProjectLoading) {
+          browserPopup.url = url;
+          browserPopup.fullscreen = false;
+          browserPopup.clearCookiesOnOpen = true;
+          browserPopup.open();
+        } else {
+          Qt.openUrlExternally(url);
+        }
       }
 
       function onHideLoginBrowser() {
