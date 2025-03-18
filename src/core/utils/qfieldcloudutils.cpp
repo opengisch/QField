@@ -176,7 +176,7 @@ void QFieldCloudUtils::addPendingAttachments( const QString &projectId, const QS
         const QJsonArray files = QJsonDocument::fromJson( rawReply->readAll() ).array();
         QHash<QString, QString> fileChecksumMap;
 
-        for ( const QJsonValue &fileValue : files )
+        for ( const QJsonValueConstRef &fileValue : files )
         {
           const QJsonObject fileObject = fileValue.toObject();
           const QString cloudEtag = fileObject.value( QStringLiteral( "md5sum" ) ).toString();
