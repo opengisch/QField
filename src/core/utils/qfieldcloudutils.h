@@ -151,7 +151,11 @@ class QFieldCloudUtils : public QObject
   private:
     static inline const QString errorCodeOverQuota { QStringLiteral( "over_quota" ) };
 
-    static void writeToAttachmentsFile( const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, bool checkSumCheck );
+    static void writeToAttachmentsFile( const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck );
+
+    static void writeFilesFromDirectory( const QString &dirPath, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream );
+
+    static void writeFileDetails( const QString &fileName, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream );
 };
 
 #endif // QFIELDCLOUDUTILS_H

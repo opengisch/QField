@@ -194,7 +194,7 @@ void QFieldCloudUtils::addPendingAttachments( const QString &projectId, const QS
   }
 }
 
-void QFieldCloudUtils::writeToAttachmentsFile( const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, bool checkSumCheck )
+void QFieldCloudUtils::writeToAttachmentsFile( const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck )
 {
   QFile attachmentsFile( QStringLiteral( "%1/attachments.csv" ).arg( QFieldCloudUtils::localCloudDirectory() ) );
   attachmentsFile.open( QFile::Append | QFile::Text );
@@ -202,23 +202,58 @@ void QFieldCloudUtils::writeToAttachmentsFile( const QString &projectId, const Q
 
   for ( const QString &fileName : fileNames )
   {
-    QString cloudFileName = "";
-    const QString localEtag = FileUtils::fileEtag( fileName );
-    const QStringList fileNameParts = fileName.split( projectId + "/" );
-
-    if ( fileNameParts.size() > 1 )
+    QFileInfo fi( QDir::cleanPath( fileName ) );
+    if ( fi.isDir() )
     {
-      cloudFileName = fileNameParts[1];
+      writeFilesFromDirectory( fileName, projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
     }
-
-    if ( !checkSumCheck || localEtag != fileChecksumMap->value( cloudFileName ) )
+    else if ( fi.isFile() )
     {
-      QStringList values = QStringList() << projectId << fileName;
-      attachmentsStream << StringUtils::stringListToCsv( values ) << Qt::endl;
+      writeFileDetails( fileName, projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
     }
   }
 
   attachmentsFile.close();
+}
+
+void QFieldCloudUtils::writeFilesFromDirectory( const QString &dirPath, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream )
+{
+  QDir dir( dirPath );
+  if ( !dir.exists() )
+  {
+    return;
+  }
+
+  QFileInfoList entries = dir.entryInfoList( QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot );
+
+  for ( const QFileInfo &entry : entries )
+  {
+    if ( entry.isDir() )
+    {
+      writeFilesFromDirectory( entry.absoluteFilePath(), projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
+    }
+    else if ( entry.isFile() )
+    {
+      writeFileDetails( entry.absoluteFilePath(), projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
+    }
+  }
+}
+
+void QFieldCloudUtils::writeFileDetails( const QString &fileName, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream )
+{
+  const QString localEtag = FileUtils::fileEtag( fileName );
+  QString cloudFileName = "";
+  const QStringList fileNameParts = fileName.split( projectId + "/" );
+  if ( fileNameParts.size() > 1 )
+  {
+    cloudFileName = fileNameParts[1];
+  }
+
+  if ( !checkSumCheck || localEtag != fileChecksumMap->value( cloudFileName ) )
+  {
+    QStringList values { projectId, fileName };
+    attachmentsStream << StringUtils::stringListToCsv( values ) << Qt::endl;
+  }
 }
 
 void QFieldCloudUtils::removePendingAttachment( const QString &projectId, const QString &fileName )
