@@ -179,7 +179,7 @@
     <name>Binary</name>
     <message>
         <source>(Blob)</source>
-        <translation type="unfinished"/>
+        <translation>(Blob)</translation>
     </message>
 </context>
 <context>
@@ -1376,7 +1376,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
-        <translation type="unfinished"/>
+        <translation>Ez a réteg jelenleg követi a pozíciókat.</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -1845,7 +1845,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>The dataset will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>Az adatkészlet törlődik. Folytatja az eltávolítást?</translation>
     </message>
     <message>
         <source>The project folder will be deleted, proceed with removal?</source>
