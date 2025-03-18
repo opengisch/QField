@@ -303,7 +303,7 @@ Page {
             for (let i = 0; i < table.selectedList.length; ++i) {
               const item = table.itemAtIndex(table.selectedList[i]);
               table.selectedItemsWebDavConfigured = table.selectedItemsWebDavConfigured && item.itemHasWebdavConfiguration;
-              table.selectedItemsPushableToQField = table.selectedItemsPushableToQField && item.itemMetaType == LocalFilesModel.Dataset && item.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId;
+              table.selectedItemsPushableToQField = (table.selectedItemsPushableToQField && item.itemMetaType == LocalFilesModel.Dataset && item.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || item.itemMetaType == LocalFilesModel.Folder;
             }
           }
         }
@@ -852,7 +852,7 @@ Page {
           var fileNames = [];
           for (let i = 0; i < table.selectedList.length; ++i) {
             const item = table.itemAtIndex(table.selectedList[i]);
-            const pushableToCloud = item.itemMetaType == LocalFilesModel.Dataset && item.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId;
+            const pushableToCloud = (item.itemMetaType == LocalFilesModel.Dataset && item.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || item.itemMetaType == LocalFilesModel.Folder;
             if (pushableToCloud) {
               fileNames.push(item.itemPath);
             }
