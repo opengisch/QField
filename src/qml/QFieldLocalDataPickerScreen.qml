@@ -171,7 +171,7 @@ Page {
           property string itemPath: ItemPath
           property bool itemIsFavorite: ItemIsFavorite
           property bool itemChecked: ItemChecked
-          property bool withinQFieldCloudProjectFolder: cloudProjectsModel.currentProjectId !== "" && itemPath.search(cloudProjectsModel.currentProjectId) !== -1
+          property bool itemWithinQFieldCloudProjectFolder: cloudProjectsModel.currentProjectId !== "" && itemPath.search(cloudProjectsModel.currentProjectId) !== -1
           property bool itemHasWebdavConfiguration: ItemHasWebdavConfiguration
           property bool itemMenuLoadable: !projectFolderView && (ItemMetaType === LocalFilesModel.Project || ItemMetaType === LocalFilesModel.Dataset)
           property bool itemMenuVisible: ((ItemType === LocalFilesModel.SimpleFolder || ItemMetaType == LocalFilesModel.Dataset || ItemMetaType == LocalFilesModel.File) && table.model.currentPath !== 'root') || ((platformUtilities.capabilities & PlatformUtilities.CustomExport || platformUtilities.capabilities & PlatformUtilities.CustomSend) && (ItemMetaType === LocalFilesModel.Dataset)) || (ItemMetaType === LocalFilesModel.Dataset && ItemType === LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId)
@@ -297,7 +297,7 @@ Page {
                 itemMenu.itemType = ItemType;
                 itemMenu.itemPath = ItemPath;
                 itemMenu.itemIsFavorite = ItemIsFavorite;
-                itemMenu.withinQFieldCloudProjectFolder = rectangle.withinQFieldCloudProjectFolder;
+                itemMenu.itemWithinQFieldCloudProjectFolder = rectangle.itemWithinQFieldCloudProjectFolder;
                 itemMenu.itemHasWebdavConfiguration = ItemHasWebdavConfiguration;
                 itemMenu.popup(gc.x + width - itemMenu.width, gc.y - height);
               }
@@ -316,7 +316,7 @@ Page {
             for (let i = 0; i < table.selectedList.length; ++i) {
               const item = table.itemAtIndex(table.selectedList[i]);
               table.selectedItemsWebDavConfigured = table.selectedItemsWebDavConfigured && item.itemHasWebdavConfiguration;
-              table.selectedItemsPushableToQField = (table.selectedItemsPushableToQField && item.itemMetaType == LocalFilesModel.Dataset && item.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (item.itemMetaType == LocalFilesModel.Folder && item.withinQFieldCloudProjectFolder);
+              table.selectedItemsPushableToQField = (table.selectedItemsPushableToQField && item.itemMetaType == LocalFilesModel.Dataset && item.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (item.itemMetaType == LocalFilesModel.Folder && item.itemWithinQFieldCloudProjectFolder);
             }
           }
         }
@@ -447,7 +447,7 @@ Page {
       property string itemPath: ''
       property bool itemIsFavorite: false
       property bool itemHasWebdavConfiguration: false
-      property bool withinQFieldCloudProjectFolder: false
+      property bool itemWithinQFieldCloudProjectFolder: false
 
       title: qsTr('Item Actions')
 
@@ -475,7 +475,7 @@ Page {
 
       MenuItem {
         id: pushDatasetToCloud
-        enabled: (itemMenu.itemMetaType == LocalFilesModel.Dataset && itemMenu.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (itemMenu.itemMetaType == LocalFilesModel.Folder && itemMenu.withinQFieldCloudProjectFolder)
+        enabled: (itemMenu.itemMetaType == LocalFilesModel.Dataset && itemMenu.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (itemMenu.itemMetaType == LocalFilesModel.Folder && itemMenu.itemWithinQFieldCloudProjectFolder)
         visible: enabled
 
         font: Theme.defaultFont
@@ -869,7 +869,7 @@ Page {
           var fileNames = [];
           for (let i = 0; i < table.selectedList.length; ++i) {
             const item = table.itemAtIndex(table.selectedList[i]);
-            const pushableToCloud = (item.itemMetaType == LocalFilesModel.Dataset && item.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (item.itemMetaType == LocalFilesModel.Folder && item.withinQFieldCloudProjectFolder);
+            const pushableToCloud = (item.itemMetaType == LocalFilesModel.Dataset && item.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (item.itemMetaType == LocalFilesModel.Folder && item.itemWithinQFieldCloudProjectFolder);
             if (pushableToCloud) {
               fileNames.push(item.itemPath);
             }
