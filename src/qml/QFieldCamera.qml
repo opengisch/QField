@@ -645,23 +645,12 @@ Popup {
       }
     }
 
-    Menu {
+    QfMenu {
       id: cameraSelectionMenu
 
       topMargin: sceneTopMargin
       bottomMargin: sceneBottomMargin
       z: 10000 // 1000s are embedded feature forms, use higher value
-
-      width: {
-        let result = 50;
-        let padding = 0;
-        for (let i = 0; i < count; ++i) {
-          let item = itemAt(i);
-          result = Math.max(item.contentItem.implicitWidth, result);
-          padding = Math.max(item.leftPadding + item.rightPadding, padding);
-        }
-        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : 0;
-      }
 
       Repeater {
         model: mediaDevices.videoInputs
@@ -693,23 +682,12 @@ Popup {
       }
     }
 
-    Menu {
+    QfMenu {
       id: resolutionSelectionMenu
 
       topMargin: sceneTopMargin
       bottomMargin: sceneBottomMargin
       z: 10000 // 1000s are embedded feature forms, use higher value
-
-      width: {
-        let result = 50;
-        let padding = 0;
-        for (let i = 0; i < count; ++i) {
-          let item = itemAt(i);
-          result = Math.max(item.contentItem.implicitWidth, result);
-          padding = Math.max(item.leftPadding + item.rightPadding, padding);
-        }
-        return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : 0;
-      }
 
       function ratioFromResolution(resolution) {
         let smallerValue = Math.min(resolution.width, resolution.height);

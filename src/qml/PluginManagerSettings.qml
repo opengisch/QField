@@ -204,20 +204,9 @@ Popup {
         }
       }
 
-      Menu {
+      QfMenu {
         id: pluginsManagementMenu
         title: qsTr('Plugins management menu')
-
-        width: {
-          let result = 50;
-          let padding = 0;
-          for (let i = 0; i < count; ++i) {
-            let item = itemAt(i);
-            result = Math.max(item.contentItem.implicitWidth, result);
-            padding = Math.max(item.leftPadding + item.rightPadding, padding);
-          }
-          return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
-        }
 
         MenuItem {
           text: qsTr('Clear remembered permissions')
