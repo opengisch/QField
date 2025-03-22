@@ -1205,7 +1205,6 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
 
     NetworkReply *reply = downloadFile( projectId, fileName );
     QTemporaryFile *file = new QTemporaryFile( reply );
-
     file->setAutoRemove( false );
 
     if ( !file->open() )
@@ -1267,7 +1266,9 @@ bool QFieldCloudProjectsModel::projectMoveDownloadedFilesToPermanentStorage( con
     }
 
     if ( !file.remove() )
+    {
       QgsMessageLog::logMessage( QStringLiteral( "Failed to remove temporary file `%1`" ).arg( fileName ) );
+    }
   }
 
   return !hasError;
@@ -1832,6 +1833,8 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
         errorMessageDetail = file.errorString();
         errorMessage = tr( "File system error. Failed to write file to temporary location `%1`." ).arg( temporaryFileName );
       }
+
+      file.close();
     }
     else
     {
