@@ -22,7 +22,7 @@ jobs:
     name: build (ios)
     runs-on: macos-15
     env:
-      DEPLOYMENT_TARGET: '14.0'
+      DEPLOYMENT_TARGET: '16.0'
       BUILD_TYPE: 'Release'
       TRIPLET: 'arm64-ios'
 
