@@ -20,6 +20,7 @@
 #include "abstractgnssreceiver.h"
 
 #include <QJsonObject>
+#include <QNetworkAccessManager>
 #include <QTcpSocket>
 
 /**
@@ -44,14 +45,17 @@ class EgenioussReceiver : public AbstractGnssReceiver
   private slots:
     void onReadyRead();
     void handleError( QAbstractSocket::SocketError error );
+    void onHttpFinished( QNetworkReply *reply );
 
   private:
     void processReceivedData();
+    void handleHttpError( const QString &errorMessage );
 
   private:
     QTcpSocket *mTcpSocket = nullptr;
+    QNetworkAccessManager *mNetworkManager = nullptr;
     QJsonObject mPayload;
-    const QHostAddress::SpecialAddress mAddress = QHostAddress::LocalHost;
+    const QHostAddress mAddress = QHostAddress( "127.0.0.1" ); // 192.168.1.101 for wifi connection
     const int mPort = 1235;
 };
 
