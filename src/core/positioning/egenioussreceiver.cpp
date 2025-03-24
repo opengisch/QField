@@ -21,13 +21,13 @@
 #include <QJsonValue>
 #include <QNetworkReply>
 #include <QTimeZone>
+#include <qgsnetworkaccessmanager.h>
 
 QLatin1String EgenioussReceiver::identifier = QLatin1String( "egeniouss" );
 
 EgenioussReceiver::EgenioussReceiver( QObject *parent )
-  : AbstractGnssReceiver( parent ), mTcpSocket( new QTcpSocket() ), mNetworkManager( new QNetworkAccessManager( this ) )
+  : AbstractGnssReceiver( parent ), mTcpSocket( new QTcpSocket() )
 {
-  connect( mNetworkManager, &QNetworkAccessManager::finished, this, &EgenioussReceiver::onHttpFinished );
   connect( mTcpSocket, &QTcpSocket::readyRead, this, &EgenioussReceiver::onReadyRead );
   connect( mTcpSocket, &QTcpSocket::errorOccurred, this, &EgenioussReceiver::handleError );
   connect( mTcpSocket, &QTcpSocket::stateChanged, this, &AbstractGnssReceiver::setSocketState );
@@ -38,71 +38,60 @@ EgenioussReceiver::EgenioussReceiver( QObject *parent )
 EgenioussReceiver::~EgenioussReceiver()
 {
   mTcpSocket->deleteLater();
-  mNetworkManager->deleteLater();
   mTcpSocket = nullptr;
-  mNetworkManager = nullptr;
 }
 
 void EgenioussReceiver::handleConnectDevice()
 {
   QNetworkRequest request( QString( "http://%1:%2/app/start" ).arg( mAddress.toString() ).arg( mPort ) );
-  mNetworkManager->get( request );
+  QNetworkReply *reply = QgsNetworkAccessManager::instance()->get( request );
+  connect( reply, &QNetworkReply::finished, this, [=]() {
+    if ( reply->error() != QNetworkReply::NoError )
+    {
+      handleErrorMessage( QString( "HTTP request failed: %1" ).arg( reply->errorString() ) );
+      return;
+    }
+    const QJsonObject jsonObject = QJsonDocument::fromJson( reply->readAll() ).object();
+    const bool success = jsonObject.value( "success" ).toBool();
+
+    if ( success )
+    {
+      mTcpSocket->connectToHost( mAddress, mPort + 1, QTcpSocket::ReadOnly );
+    }
+    else
+    {
+      handleErrorMessage( tr( "Failed to start egeniouss server." ) );
+    }
+    reply->deleteLater();
+  } );
 }
 
 void EgenioussReceiver::handleDisconnectDevice()
 {
   QNetworkRequest request( QString( "http://%1:%2/app/stop" ).arg( mAddress.toString() ).arg( mPort ) );
-  mNetworkManager->get( request );
-}
-
-void EgenioussReceiver::onHttpFinished( QNetworkReply *reply )
-{
-  if ( reply->error() != QNetworkReply::NoError )
-  {
-    handleHttpError( QString( "HTTP request failed: %1" ).arg( reply->errorString() ) );
-    return;
-  }
-
-  const QByteArray responseData = reply->readAll();
-  const QJsonDocument jsonDoc = QJsonDocument::fromJson( responseData );
-
-  if ( !jsonDoc.isObject() )
-  {
-    handleHttpError( "Failed to parse HTTP response." );
-    return;
-  }
-
-  const QJsonObject jsonObject = jsonDoc.object();
-  const QString message = jsonObject.value( "message" ).toString();
-  const bool success = jsonObject.value( "success" ).toBool();
-
-  if ( message.contains( "started egeniouss" ) )
-  {
-    if ( success )
+  QNetworkReply *reply = QgsNetworkAccessManager::instance()->get( request );
+  connect( reply, &QNetworkReply::finished, this, [=]() {
+    if ( reply->error() != QNetworkReply::NoError )
     {
-      mTcpSocket->connectToHost( mAddress, mPort + 1, QTcpSocket::ReadWrite );
+      handleErrorMessage( QString( "HTTP request failed: %1" ).arg( reply->errorString() ) );
+      return;
     }
-    else
-    {
-      handleHttpError( tr( "Failed to start egeniouss server." ) );
-    }
-  }
-  else if ( message.contains( "stopped egeniouss" ) )
-  {
+    const QJsonObject jsonObject = QJsonDocument::fromJson( reply->readAll() ).object();
+    const bool success = jsonObject.value( "success" ).toBool();
+
     if ( success )
     {
       mTcpSocket->disconnectFromHost();
     }
     else
     {
-      handleHttpError( tr( "Failed to stop egeniouss server." ) );
+      handleErrorMessage( tr( "Failed to stop egeniouss server." ) );
     }
-  }
-
-  reply->deleteLater();
+    reply->deleteLater();
+  } );
 }
 
-void EgenioussReceiver::handleHttpError( const QString &errorMessage )
+void EgenioussReceiver::handleErrorMessage( const QString &errorMessage )
 {
   mLastError = errorMessage;
   emit lastErrorChanged( mLastError );
@@ -132,14 +121,12 @@ void EgenioussReceiver::onReadyRead()
 
   if ( mReceivedData.size() < minimumDataSize )
   {
-    mLastError = tr( "Received data is too short to process" );
-    emit lastErrorChanged( mLastError );
+    handleErrorMessage( tr( "Received data is too short to process" ) );
     return;
   }
   if ( static_cast<uint8_t>( mReceivedData[0] ) != validStartByte )
   {
-    mLastError = tr( "Invalid start byte" );
-    emit lastErrorChanged( mLastError );
+    handleErrorMessage( tr( "Invalid start byte" ) );
     return;
   }
   uint32_t payloadLength;
@@ -148,15 +135,13 @@ void EgenioussReceiver::onReadyRead()
   dataStream >> payloadLength;
   if ( mReceivedData.size() < payloadHeaderSize + payloadLength )
   {
-    mLastError = tr( "Received data is too short to contain the payload" );
-    emit lastErrorChanged( mLastError );
+    handleErrorMessage( tr( "Received data is too short to contain the payload" ) );
     return;
   }
   QJsonDocument jsonDoc = QJsonDocument::fromJson( mReceivedData.mid( payloadHeaderSize, payloadLength ) );
   if ( jsonDoc.isNull() || !jsonDoc.isObject() )
   {
-    mLastError = tr( "Failed to parse JSON" );
-    emit lastErrorChanged( mLastError );
+    handleErrorMessage( tr( "Failed to parse JSON" ) );
     return;
   }
   mPayload = jsonDoc.object();
