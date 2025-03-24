@@ -47,7 +47,7 @@ jobs:
           ./scripts/ci/env_gh.sh
 
       - name: ⛓️ Setup SSH
-        uses: webfactory/ssh-agent@v0.9.0
+        uses: webfactory/ssh-agent@v0.9.1
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
