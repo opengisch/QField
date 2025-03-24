@@ -127,6 +127,7 @@ public class QFieldActivity extends QtActivity {
     public static native void resourceCanceled(String message);
 
     private Intent projectIntent;
+
     private float originalBrightness;
     private boolean handleVolumeKeys = false;
     private String pathsToExport;
@@ -152,7 +153,12 @@ public class QFieldActivity extends QtActivity {
 
     @Override
     public void onNewIntent(Intent intent) {
+        // Prevent activity restart
+        intent.setFlags(intent.getFlags() &
+                        ~(Intent.FLAG_ACTIVITY_NEW_TASK |
+                          Intent.FLAG_ACTIVITY_NEW_DOCUMENT));
         super.onNewIntent(intent);
+
         if (intent.getAction() == Intent.ACTION_VIEW ||
             intent.getAction() == Intent.ACTION_SEND) {
             projectIntent = intent;
@@ -522,8 +528,11 @@ public class QFieldActivity extends QtActivity {
             }
         }
 
-        Intent intent = new Intent();
+        Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setClass(QFieldActivity.this, QtActivity.class);
+        // Prevent activity restart
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                        Intent.FLAG_ACTIVITY_SINGLE_TOP);
         try {
             ActivityInfo activityInfo = getPackageManager().getActivityInfo(
                 getComponentName(), PackageManager.GET_META_DATA);
@@ -548,6 +557,7 @@ public class QFieldActivity extends QtActivity {
             projectIntent = sourceIntent;
             intent.putExtra("QGS_PROJECT", "trigger_load");
         }
+
         setIntent(intent);
     }
 
