@@ -53,12 +53,18 @@
     android:theme="@style/AppTheme">
     <activity
       android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldActivity"
+      android:taskAffinity="ch.opengis.@APP_PACKAGE_NAME@"
+      android:launchMode="singleInstance"
+      android:allowTaskReparenting="false"
+      android:documentLaunchMode="never"
+      android:alwaysRetainTaskState="true"
+      android:clearTaskOnLaunch="false"
       android:label="@APP_NAME@"
       android:icon="@AT@drawable/@APP_ICON@"
-      android:launchMode="singleTask"
       android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation"
       android:theme="@style/AppTheme"
       android:exported="true">
+
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>
@@ -93,7 +99,7 @@
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE"/>
+        <category android:name="android.intent.category.BROWSABLE" />
         <data android:scheme="file" />
         <data android:scheme="content" />
         <data android:host="*" />
@@ -115,7 +121,7 @@
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE"/>
+        <category android:name="android.intent.category.BROWSABLE" />
         <data android:scheme="file" />
         <data android:scheme="content" />
         <data android:host="*" />
