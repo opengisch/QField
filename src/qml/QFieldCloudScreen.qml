@@ -40,7 +40,7 @@ Page {
       id: connectionInformation
       spacing: 2
       Layout.fillWidth: true
-      visible: cloudConnection.status === QFieldCloudConnection.LoggedIn || cloudProjectsModel.rowCount() > 0
+      visible: cloudConnection.status === QFieldCloudConnection.LoggedIn || table.count > 0
 
       Label {
         Layout.fillWidth: true
