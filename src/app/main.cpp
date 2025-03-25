@@ -101,6 +101,8 @@ int main( int argc, char **argv )
   }
 #endif
 
+  QCoreApplication::setAttribute( Qt::AA_DisableShaderDiskCache );
+
   initGraphics();
 
   // Read settings, use a dummy app to get access to QSettings
