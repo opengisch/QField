@@ -233,7 +233,7 @@ Item {
       font: Theme.tipFont
       color: Theme.secondaryTextColor
       horizontalAlignment: Qt.AlignHCenter
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (qfieldCloudLogin.hasCredentialsAuthentication && availableProvidersRepeater.count > 2 || availableProvidersRepeater.count > 1)
+      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (qfieldCloudLogin.hasCredentialsAuthentication && availableProvidersRepeater.count >= 2)
     }
 
     Repeater {
