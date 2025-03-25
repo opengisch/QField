@@ -483,20 +483,9 @@ Rectangle {
     }
   }
 
-  Menu {
+  QfMenu {
     id: featureListMenu
     title: qsTr("Feature List Menu")
-
-    width: {
-      let result = 50;
-      let padding = 0;
-      for (let i = 0; i < count; ++i) {
-        let item = itemAt(i);
-        result = Math.max(item.contentItem.implicitWidth, result);
-        padding = Math.max(item.leftPadding + item.rightPadding, padding);
-      }
-      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
-    }
 
     topMargin: mainWindow.sceneTopMargin
     bottomMargin: mainWindow.sceneBottomMargin
@@ -613,24 +602,12 @@ Rectangle {
     }
   }
 
-  Menu {
+  QfMenu {
     id: featureMenu
     title: qsTr("Feature Menu")
 
     topMargin: mainWindow.sceneTopMargin
     bottomMargin: mainWindow.sceneBottomMargin
-
-    width: {
-      const toolbarWidth = featureMenuActionsToolbar.childrenRect.width + 4;
-      let result = 50;
-      let padding = 0;
-      for (let i = 1; i < count; ++i) {
-        let item = itemAt(i);
-        result = Math.max(item.contentItem.implicitWidth, result);
-        padding = Math.max(item.leftPadding + item.rightPadding, padding);
-      }
-      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
-    }
 
     Row {
       id: featureMenuActionsToolbar
@@ -816,7 +793,7 @@ Rectangle {
     }
   }
 
-  Menu {
+  QfMenu {
     id: atlasMenu
 
     property alias printTimer: timer
@@ -825,17 +802,6 @@ Rectangle {
     title: qsTr("Print Atlas Feature(s)")
 
     signal enablePrintItem(int rows)
-
-    width: {
-      let result = 50;
-      let padding = 0;
-      for (let i = 0; i < count; ++i) {
-        let item = itemAt(i);
-        result = Math.max(item.contentItem.implicitWidth, result);
-        padding = Math.max(item.leftPadding + item.rightPadding, padding);
-      }
-      return mainWindow.width > 0 ? Math.min(result + padding, mainWindow.width - 20) : result + padding;
-    }
 
     topMargin: mainWindow.sceneTopMargin
     bottomMargin: mainWindow.sceneBottomMargin

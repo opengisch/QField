@@ -21,3 +21,4 @@ QfScrollBar 1.0 QfScrollBar.qml
 QfSearchBar 1.0 QfSearchBar.qml
 QfVisibilityFadingRow 1.0 QfVisibilityFadingRow.qml
 QfDialog 1.0 QfDialog.qml
+QfMenu 1.0 QfMenu.qml
