@@ -203,14 +203,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   , mFirstRenderingFlag( true )
   , mApp( app )
 {
-  QSslConfiguration sslConfiguration = QSslConfiguration::defaultConfiguration();
-  const QList<QSslCertificate> certs = sslConfiguration.caCertificates();
-  qInfo() << QStringLiteral( "Available CA certificates:" );
-  for ( const QSslCertificate cert : certs )
-  {
-    qInfo() << QStringLiteral( "- %1" ).arg( cert.issuerDisplayName() );
-  }
-
   // Set a nicer default hyperlink color to be used in QML Text items
   QPalette palette = app->palette();
   palette.setColor( QPalette::Link, QColor( 128, 204, 40 ) );
