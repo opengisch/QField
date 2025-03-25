@@ -354,7 +354,7 @@ void QFieldCloudConnection::logout()
   QgsNetworkAccessManager *nam = QgsNetworkAccessManager::instance();
   QNetworkRequest request( mUrl + QStringLiteral( "/api/v1/auth/logout/" ) );
   request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
-  setAuthenticationToken( request );
+  setAuthenticationDetails( request );
 
   QNetworkReply *reply = nam->post( request, QByteArray() );
 
@@ -393,7 +393,7 @@ NetworkReply *QFieldCloudConnection::post( const QString &endpoint, const QVaria
 {
   QNetworkRequest request( mUrl + endpoint );
   QByteArray requestBody = QJsonDocument( QJsonObject::fromVariantMap( params ) ).toJson();
-  setAuthenticationToken( request );
+  setAuthenticationDetails( request );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
 
   if ( fileNames.isEmpty() )
@@ -464,7 +464,7 @@ NetworkReply *QFieldCloudConnection::get( const QString &endpoint, const QVarian
 
   request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
-  setAuthenticationToken( request );
+  setAuthenticationDetails( request );
 
   return get( request, endpoint, params );
 }
@@ -567,7 +567,7 @@ void QFieldCloudConnection::setState( ConnectionState state )
   emit stateChanged();
 }
 
-void QFieldCloudConnection::setAuthenticationToken( QNetworkRequest &request )
+void QFieldCloudConnection::setAuthenticationDetails( QNetworkRequest &request )
 {
   if ( !mToken.isNull() )
   {

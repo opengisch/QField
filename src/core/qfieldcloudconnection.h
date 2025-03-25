@@ -201,9 +201,9 @@ class QFieldCloudConnection : public QObject
     NetworkReply *get( QNetworkRequest &request, const QUrl &url, const QVariantMap &params = QVariantMap() );
 
     /**
-     * Sets authentication token on a \a request.
+     * Sets authentication details on a \a request.
      */
-    void setAuthenticationToken( QNetworkRequest &request );
+    void setAuthenticationDetails( QNetworkRequest &request );
 
     /**
      * Uploads any pending attachments linked to the logged in user account.
