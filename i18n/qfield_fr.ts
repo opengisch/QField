@@ -138,7 +138,7 @@
     </message>
     <message>
         <source>Not NULL</source>
-        <translation>Not NULL</translation>
+        <translation>Champs obligatoire</translation>
     </message>
     <message>
         <source>Unique</source>
