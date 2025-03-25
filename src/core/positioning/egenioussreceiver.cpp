@@ -25,8 +25,8 @@
 
 QLatin1String EgenioussReceiver::identifier = QLatin1String( "egeniouss" );
 
-EgenioussReceiver::EgenioussReceiver( QObject *parent )
-  : AbstractGnssReceiver( parent ), mTcpSocket( new QTcpSocket() )
+EgenioussReceiver::EgenioussReceiver( const QString &address, const int port, QObject *parent )
+  : AbstractGnssReceiver( parent ), mTcpSocket( new QTcpSocket() ), mAddress( address ), mPort( port )
 {
   connect( mTcpSocket, &QTcpSocket::readyRead, this, &EgenioussReceiver::onReadyRead );
   connect( mTcpSocket, &QTcpSocket::errorOccurred, this, &EgenioussReceiver::handleError );

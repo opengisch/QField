@@ -181,7 +181,7 @@ const QString PositioningDeviceModel::deviceId( const Device &device ) const
 #endif
 
     case EgenioussDevice:
-      return QStringLiteral( "%1:" ).arg( EgenioussReceiver::identifier );
+      return QStringLiteral( "%1:%2:%3" ).arg( EgenioussReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
   }
 
   return QString();

@@ -10,15 +10,22 @@ import Theme
 Item {
   width: parent.width
 
+  property string deviceAddress
+  property string devicePort
+
   function generateName() {
     return "Egeniouss";
   }
 
   function setSettings(settings) {
-  // nothing to save!
+    deviceAddress = settings['address'];
+    devicePort = settings['port'];
   }
 
   function getSettings() {
-    return {};
+    return {
+      "address": deviceAddress.trim(),
+      "port": parseInt(devicePort)
+    };
   }
 }

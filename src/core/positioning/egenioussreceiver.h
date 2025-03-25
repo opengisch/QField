@@ -31,7 +31,7 @@ class EgenioussReceiver : public AbstractGnssReceiver
     Q_OBJECT
 
   public:
-    explicit EgenioussReceiver( QObject *parent = nullptr );
+    explicit EgenioussReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
     ~EgenioussReceiver();
 
     GnssPositionDetails details() const override;
@@ -53,8 +53,8 @@ class EgenioussReceiver : public AbstractGnssReceiver
   private:
     QTcpSocket *mTcpSocket = nullptr;
     QJsonObject mPayload;
-    const QHostAddress mAddress = QHostAddress( "127.0.0.1" ); // 192.168.1.101 for wifi connection
-    const int mPort = 1235;
+    const QHostAddress mAddress;
+    const int mPort;
 };
 
 #endif // EGENIOUSSRECEIVER_H
