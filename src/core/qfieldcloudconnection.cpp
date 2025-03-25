@@ -576,9 +576,11 @@ void QFieldCloudConnection::setAuthenticationDetails( QNetworkRequest &request )
 
   if ( !mProvider.isEmpty() )
   {
+    QString providerId;
     if ( mProviderConfigId.isEmpty() && mAvailableProviders.contains( mProvider ) )
     {
       const QVariantMap providerDetails = mAvailableProviders[mProvider].details();
+      providerId = providerDetails.value( "id" ).toString();
 
       QVariantMap configMap;
       configMap["accessMethod"] = 0;
@@ -604,14 +606,23 @@ void QFieldCloudConnection::setAuthenticationDetails( QNetworkRequest &request )
       config.setName( "qfieldcloud-sso" );
       config.setMethod( "OAuth2" );
       config.setConfig( "oauth2config", json.toJson() );
+      config.setConfig( "qfieldcloud-sso-id", providerId );
       QgsApplication::instance()->authManager()->storeAuthenticationConfig( config, true );
 
       mProviderConfigId = config.id();
       QSettings().setValue( QStringLiteral( "/QFieldCloud/providerConfigId" ), mProviderConfigId );
       emit providerConfigurationChanged();
     }
+    else
+    {
+      QgsAuthMethodConfig config;
+      QgsApplication::instance()->authManager()->loadAuthenticationConfig( mProviderConfigId, config, true );
+      providerId = config.config( "qfieldcloud-sso-id" );
+    }
 
     QgsApplication::instance()->authManager()->updateNetworkRequest( request, mProviderConfigId );
+    request.setRawHeader( "X-QFC-IDP-ID", providerId.toLatin1() );
+
     const QList<QNetworkCookie> cookies = QgsNetworkAccessManager::instance()->cookieJar()->cookiesForUrl( mUrl );
     for ( const QNetworkCookie &cookie : cookies )
     {
