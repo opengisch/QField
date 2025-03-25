@@ -230,7 +230,7 @@ void QFieldCloudProjectsModel::refreshProjectsList( bool shouldRefreshPublic, in
       request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::RefreshPublicProjects ), shouldRefreshPublic );
       request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsFetchOffset ), projectFetchOffset );
 
-      mCloudConnection->setAuthenticationToken( request );
+      mCloudConnection->setAuthenticationDetails( request );
       NetworkReply *reply = mCloudConnection->get( request, url, params );
       connect( reply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectListReceived );
 
@@ -1734,7 +1734,7 @@ NetworkReply *QFieldCloudProjectsModel::downloadFile( const QString &projectId, 
 {
   QNetworkRequest request;
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::UserVerifiedRedirectPolicy );
-  mCloudConnection->setAuthenticationToken( request );
+  mCloudConnection->setAuthenticationDetails( request );
 
   return mCloudConnection->get( request, QStringLiteral( "/api/v1/packages/%1/latest/files/%2/" ).arg( projectId, fileName ) );
 }

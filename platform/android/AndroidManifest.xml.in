@@ -48,6 +48,7 @@
     android:label="@APP_NAME@"
     android:icon="@AT@drawable/@APP_ICON@"
     android:usesCleartextTraffic="true"
+    android:networkSecurityConfig="@xml/network_security_config"
     android:requestLegacyExternalStorage="true"
     android:theme="@style/AppTheme">
     <activity

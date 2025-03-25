@@ -30,6 +30,7 @@
 #include <QTimer>
 #include <QUrlQuery>
 #include <qgsapplication.h>
+#include <qgsauthmanager.h>
 #include <qgsmessagelog.h>
 #include <qgsnetworkaccessmanager.h>
 #include <qgssettings.h>
@@ -39,12 +40,20 @@ QFieldCloudConnection::QFieldCloudConnection()
   : mUrl( QSettings().value( QStringLiteral( "/QFieldCloud/url" ), defaultUrl() ).toString() )
   , mUsername( QSettings().value( QStringLiteral( "/QFieldCloud/username" ) ).toString() )
   , mToken( QSettings().value( QStringLiteral( "/QFieldCloud/token" ) ).toByteArray() )
+  , mProvider( QSettings().value( QStringLiteral( "/QFieldCloud/provider" ) ).toString() )
+  , mProviderConfigId( QSettings().value( QStringLiteral( "/QFieldCloud/providerConfigId" ) ).toString() )
 {
   QgsNetworkAccessManager::instance()->setTimeout( 60 * 60 * 1000 );
   QgsNetworkAccessManager::instance()->setTransferTimeout( 5 * 60 * 1000 );
   // we cannot use "/" as separator, since QGIS puts a suffix QGIS/31700 anyway
   const QString userAgent = QStringLiteral( "qfield|%1|%2|%3|" ).arg( qfield::appVersion, qfield::appVersionStr.normalized( QString::NormalizationForm_KD ), qfield::gitRev );
   QgsSettings().setValue( QStringLiteral( "/qgis/networkAndProxy/userAgent" ), userAgent );
+
+  if ( !QgsApplication::authManager()->availableAuthMethodConfigs().contains( mProviderConfigId ) )
+  {
+    mProviderConfigId.clear();
+    QSettings().remove( "/QFieldCloud/providerConfigId" );
+  }
 }
 
 QMap<QString, QString> QFieldCloudConnection::sErrors = QMap<QString, QString>(
@@ -104,14 +113,30 @@ QStringList QFieldCloudConnection::urls() const
   return savedUrls;
 }
 
-QString QFieldCloudConnection::username() const
-{
-  return mUsername;
-}
-
 QString QFieldCloudConnection::avatarUrl() const
 {
   return mAvatarUrl;
+}
+
+QString QFieldCloudConnection::provider() const
+{
+  return mProvider;
+}
+
+void QFieldCloudConnection::setProvider( const QString &provider )
+{
+  if ( mProvider == provider )
+    return;
+
+  mProvider = provider;
+  QSettings().setValue( QStringLiteral( "/QFieldCloud/provider" ), provider );
+
+  emit providerChanged();
+}
+
+QString QFieldCloudConnection::username() const
+{
+  return mUsername;
 }
 
 void QFieldCloudConnection::setUsername( const QString &username )
@@ -149,9 +174,74 @@ CloudUserInformation QFieldCloudConnection::userInformation() const
   return mUserInformation;
 }
 
+bool QFieldCloudConnection::isFetchingAvailableProviders() const
+{
+  return mIsFetchingAvailableProviders;
+}
+
+QList<AuthenticationProvider> QFieldCloudConnection::availableProviders() const
+{
+  return mAvailableProviders.values();
+}
+
+void QFieldCloudConnection::getAuthenticationProviders()
+{
+  if ( !mAvailableProviders.isEmpty() )
+  {
+    mAvailableProviders.clear();
+    emit availableProvidersChanged();
+  }
+
+  mIsFetchingAvailableProviders = true;
+  emit isFetchingAvailableProvidersChanged();
+
+  QNetworkRequest request;
+  request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  NetworkReply *reply = get( request, "/api/v1/auth/providers/" );
+
+  connect( reply, &NetworkReply::finished, this, [=]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+
+    Q_ASSERT( reply->isFinished() );
+    Q_ASSERT( rawReply );
+
+    reply->deleteLater();
+    rawReply->deleteLater();
+
+    mIsFetchingAvailableProviders = false;
+    emit isFetchingAvailableProvidersChanged();
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      return;
+    }
+
+    const QVariantList providers = QJsonDocument::fromJson( rawReply->readAll() ).toVariant().toList();
+    for ( const QVariant &provider : providers )
+    {
+      const QVariantMap providerDetails = provider.toMap();
+      const QString providerId = providerDetails.value( QStringLiteral( "id" ) ).toString();
+      mAvailableProviders[providerId] = AuthenticationProvider( providerId, providerDetails.value( QStringLiteral( "name" ) ).toString(), providerDetails );
+    }
+    emit availableProvidersChanged();
+  } );
+}
+
 void QFieldCloudConnection::login()
 {
-  const bool loginUsingToken = !mToken.isEmpty() && ( mPassword.isEmpty() || mUsername.isEmpty() );
+  if ( !mProvider.isEmpty() )
+  {
+    if ( mProviderConfigId.isEmpty() && !mAvailableProviders.contains( mProvider ) )
+    {
+      emit loginFailed( tr( "Authentication provider missing" ) );
+      return;
+    }
+  }
+
+  setStatus( ConnectionStatus::Connecting );
+
+  const bool loginUsingToken = !mProvider.isEmpty() || ( !mToken.isEmpty() && ( mPassword.isEmpty() || mUsername.isEmpty() ) );
   NetworkReply *reply = loginUsingToken
                           ? get( QStringLiteral( "/api/v1/auth/user/" ) )
                           : post( QStringLiteral( "/api/v1/auth/token/" ), QVariantMap(
@@ -159,8 +249,6 @@ void QFieldCloudConnection::login()
                                                                                { "username", mUsername },
                                                                                { "password", mPassword },
                                                                              } ) );
-
-  setStatus( ConnectionStatus::Connecting );
 
   // Handle login redirect as an error state
   connect( reply, &NetworkReply::redirected, this, [=]() {
@@ -212,6 +300,14 @@ void QFieldCloudConnection::login()
         emit loginFailed( message );
       }
 
+      if ( !mProvider.isEmpty() && !mProviderConfigId.isEmpty() )
+      {
+        QgsApplication::instance()->authManager()->removeAuthenticationConfig( mProviderConfigId );
+        mProviderConfigId.clear();
+        QSettings().remove( "/QFieldCloud/providerConfigId" );
+        emit providerConfigurationChanged();
+      }
+
       setStatus( ConnectionStatus::Disconnected );
       return;
     }
@@ -258,7 +354,7 @@ void QFieldCloudConnection::logout()
   QgsNetworkAccessManager *nam = QgsNetworkAccessManager::instance();
   QNetworkRequest request( mUrl + QStringLiteral( "/api/v1/auth/logout/" ) );
   request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
-  setAuthenticationToken( request );
+  setAuthenticationDetails( request );
 
   QNetworkReply *reply = nam->post( request, QByteArray() );
 
@@ -271,6 +367,14 @@ void QFieldCloudConnection::logout()
 
   mAvatarUrl.clear();
   emit avatarUrlChanged();
+
+  if ( !mProviderConfigId.isEmpty() )
+  {
+    QgsApplication::instance()->authManager()->removeAuthenticationConfig( mProviderConfigId );
+    mProviderConfigId.clear();
+    QSettings().remove( "/QFieldCloud/providerConfigId" );
+    emit providerConfigurationChanged();
+  }
 
   setStatus( ConnectionStatus::Disconnected );
 }
@@ -289,7 +393,7 @@ NetworkReply *QFieldCloudConnection::post( const QString &endpoint, const QVaria
 {
   QNetworkRequest request( mUrl + endpoint );
   QByteArray requestBody = QJsonDocument( QJsonObject::fromVariantMap( params ) ).toJson();
-  setAuthenticationToken( request );
+  setAuthenticationDetails( request );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
 
   if ( fileNames.isEmpty() )
@@ -360,7 +464,7 @@ NetworkReply *QFieldCloudConnection::get( const QString &endpoint, const QVarian
 
   request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
-  setAuthenticationToken( request );
+  setAuthenticationDetails( request );
 
   return get( request, endpoint, params );
 }
@@ -463,11 +567,69 @@ void QFieldCloudConnection::setState( ConnectionState state )
   emit stateChanged();
 }
 
-void QFieldCloudConnection::setAuthenticationToken( QNetworkRequest &request )
+void QFieldCloudConnection::setAuthenticationDetails( QNetworkRequest &request )
 {
   if ( !mToken.isNull() )
   {
     request.setRawHeader( "Authorization", "Token " + mToken );
+  }
+
+  if ( !mProvider.isEmpty() )
+  {
+    QString providerId;
+    if ( mProviderConfigId.isEmpty() && mAvailableProviders.contains( mProvider ) )
+    {
+      const QVariantMap providerDetails = mAvailableProviders[mProvider].details();
+      providerId = providerDetails.value( "id" ).toString();
+
+      QVariantMap configMap;
+      configMap["accessMethod"] = 0;
+      configMap["clientId"] = providerDetails.value( "client_id" ).toString();
+      configMap["clientSecret"] = providerDetails.value( "client_secret" ).toString();
+      configMap["configType"] = 1;
+      configMap["description"] = QString( "Connection details for QFieldCloud using %1 provider" ).arg( mProvider );
+      configMap["extraTokens"] = providerDetails.value( "extra_tokens" ).toMap();
+      configMap["grantFlow"] = providerDetails.value( "grant_flow" ).toInt();
+      configMap["name"] = QString( "Autogenerated by QField" );
+      configMap["persistToken"] = true;
+      configMap["redirectHost"] = QString( "localhost" );
+      configMap["redirectPort"] = 7070;
+      configMap["refreshTokenUrl"] = providerDetails.value( "refresh_token_url" ).toString();
+      configMap["requestTimeout"] = 30;
+      configMap["requestUrl"] = providerDetails.value( "request_url" ).toString();
+      configMap["scope"] = providerDetails.value( "scope" ).toString();
+      configMap["tokenUrl"] = providerDetails.value( "token_url" ).toString();
+      configMap["version"] = 1;
+      QJsonDocument json = QJsonDocument::fromVariant( configMap );
+
+      QgsAuthMethodConfig config;
+      config.setName( "qfieldcloud-sso" );
+      config.setMethod( "OAuth2" );
+      config.setConfig( "oauth2config", json.toJson() );
+      config.setConfig( "qfieldcloud-sso-id", providerId );
+      QgsApplication::instance()->authManager()->storeAuthenticationConfig( config, true );
+
+      mProviderConfigId = config.id();
+      QSettings().setValue( QStringLiteral( "/QFieldCloud/providerConfigId" ), mProviderConfigId );
+      emit providerConfigurationChanged();
+    }
+    else
+    {
+      QgsAuthMethodConfig config;
+      QgsApplication::instance()->authManager()->loadAuthenticationConfig( mProviderConfigId, config, true );
+      providerId = config.config( "qfieldcloud-sso-id" );
+    }
+
+    QgsApplication::instance()->authManager()->updateNetworkRequest( request, mProviderConfigId );
+    request.setRawHeader( "X-QFC-IDP-ID", providerId.toLatin1() );
+
+    const QList<QNetworkCookie> cookies = QgsNetworkAccessManager::instance()->cookieJar()->cookiesForUrl( mUrl );
+    auto match = std::find_if( cookies.begin(), cookies.end(), []( const QNetworkCookie &cookie ) { return cookie.name() == QLatin1String( "csrftoken" ); } );
+    if ( match != cookies.end() )
+    {
+      request.setRawHeader( "X-CSRFToken", match->value() );
+      request.setRawHeader( "Referer", mUrl.toLatin1() );
+    }
   }
 }
 

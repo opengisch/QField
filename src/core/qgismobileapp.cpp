@@ -140,6 +140,7 @@
 #include <QQmlFileSelector>
 #include <QResource>
 #include <QScreen>
+#include <QSslConfiguration>
 #include <QStyleHints>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QQmlContext>

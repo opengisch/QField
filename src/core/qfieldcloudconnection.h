@@ -26,12 +26,63 @@
 
 class QNetworkRequest;
 
+
+/**
+ * \ingroup core
+ */
+class AuthenticationProvider
+{
+    Q_GADGET
+
+    Q_PROPERTY( QString id READ id );
+    Q_PROPERTY( QString name READ name );
+    Q_PROPERTY( QVariantMap details READ details );
+
+  public:
+    explicit AuthenticationProvider( const QString &id = QString(), const QString &name = QString(), const QVariantMap &details = QVariantMap() )
+      : mId( id )
+      , mName( name )
+      , mDetails( details )
+    {
+    }
+
+    QString id() const { return mId; }
+    QString name() const { return mName; }
+    QVariantMap details() const { return mDetails; }
+
+  private:
+    QString mId;
+    QString mName;
+    QVariantMap mDetails;
+};
+
+Q_DECLARE_METATYPE( AuthenticationProvider )
+
+
 /**
  * \ingroup core
  */
 class QFieldCloudConnection : public QObject
 {
     Q_OBJECT
+
+    Q_PROPERTY( QString provider READ provider WRITE setProvider NOTIFY providerChanged )
+    Q_PROPERTY( QString username READ username WRITE setUsername NOTIFY usernameChanged )
+    Q_PROPERTY( QString password READ password WRITE setPassword NOTIFY passwordChanged )
+    Q_PROPERTY( QString avatarUrl READ avatarUrl NOTIFY avatarUrlChanged )
+    Q_PROPERTY( QString url READ url WRITE setUrl NOTIFY urlChanged )
+    Q_PROPERTY( QString defaultUrl READ defaultUrl CONSTANT )
+    Q_PROPERTY( QStringList urls READ urls NOTIFY urlsChanged )
+
+    Q_PROPERTY( ConnectionStatus status READ status NOTIFY statusChanged )
+    Q_PROPERTY( ConnectionState state READ state NOTIFY stateChanged )
+    Q_PROPERTY( bool hasToken READ hasToken NOTIFY tokenChanged )
+    Q_PROPERTY( bool hasProviderConfiguration READ hasProviderConfiguration NOTIFY providerConfigurationChanged )
+
+    Q_PROPERTY( CloudUserInformation userInformation READ userInformation NOTIFY userInformationChanged )
+
+    Q_PROPERTY( QList<AuthenticationProvider> availableProviders READ availableProviders NOTIFY availableProvidersChanged )
+    Q_PROPERTY( bool isFetchingAvailableProviders READ isFetchingAvailableProviders NOTIFY isFetchingAvailableProvidersChanged )
 
   public:
     enum class ConnectionStatus
@@ -69,18 +120,6 @@ class QFieldCloudConnection : public QObject
 
     QFieldCloudConnection();
 
-    Q_PROPERTY( QString username READ username WRITE setUsername NOTIFY usernameChanged )
-    Q_PROPERTY( QString password READ password WRITE setPassword NOTIFY passwordChanged )
-    Q_PROPERTY( QString avatarUrl READ avatarUrl NOTIFY avatarUrlChanged )
-    Q_PROPERTY( QString url READ url WRITE setUrl NOTIFY urlChanged )
-    Q_PROPERTY( QString defaultUrl READ defaultUrl CONSTANT )
-    Q_PROPERTY( QStringList urls READ urls NOTIFY urlsChanged )
-
-    Q_PROPERTY( ConnectionStatus status READ status NOTIFY statusChanged )
-    Q_PROPERTY( ConnectionState state READ state NOTIFY stateChanged )
-    Q_PROPERTY( bool hasToken READ hasToken NOTIFY tokenChanged )
-    Q_PROPERTY( CloudUserInformation userInformation READ userInformation NOTIFY userInformationChanged )
-
     //!Returns an error string to be shown to the user if \a reply has an error.
     static QString errorString( QNetworkReply *reply );
 
@@ -107,6 +146,9 @@ class QFieldCloudConnection : public QObject
      */
     Q_INVOKABLE QStringList urls() const;
 
+    QString provider() const;
+    void setProvider( const QString &provider );
+
     QString username() const;
     void setUsername( const QString &username );
 
@@ -122,10 +164,15 @@ class QFieldCloudConnection : public QObject
     Q_INVOKABLE void login();
     Q_INVOKABLE void logout();
 
+    Q_INVOKABLE void getAuthenticationProviders();
+    QList<AuthenticationProvider> availableProviders() const;
+    bool isFetchingAvailableProviders() const;
+
     ConnectionStatus status() const;
     ConnectionState state() const;
 
     bool hasToken() { return !mToken.isEmpty(); }
+    bool hasProviderConfiguration() { return !mProviderConfigId.isEmpty(); }
 
     /**
      * Sends a post request with the given \a parameters to the given \a endpoint.
@@ -154,9 +201,9 @@ class QFieldCloudConnection : public QObject
     NetworkReply *get( QNetworkRequest &request, const QUrl &url, const QVariantMap &params = QVariantMap() );
 
     /**
-     * Sets authentication token on a \a request.
+     * Sets authentication details on a \a request.
      */
-    void setAuthenticationToken( QNetworkRequest &request );
+    void setAuthenticationDetails( QNetworkRequest &request );
 
     /**
      * Uploads any pending attachments linked to the logged in user account.
@@ -165,6 +212,7 @@ class QFieldCloudConnection : public QObject
     int uploadPendingAttachments();
 
   signals:
+    void providerChanged();
     void usernameChanged();
     void passwordChanged();
     void avatarUrlChanged();
@@ -173,11 +221,15 @@ class QFieldCloudConnection : public QObject
     void statusChanged();
     void stateChanged();
     void tokenChanged();
+    void providerConfigurationChanged();
     void userInformationChanged();
     void pendingAttachmentsUploadFinished();
     void error();
 
     void loginFailed( const QString &reason );
+
+    void availableProvidersChanged();
+    void isFetchingAvailableProvidersChanged();
 
   private:
     void setStatus( ConnectionStatus status );
@@ -191,6 +243,11 @@ class QFieldCloudConnection : public QObject
     QString mUsername;
     QString mPassword;
     QByteArray mToken;
+
+    QMap<QString, AuthenticationProvider> mAvailableProviders;
+    bool mIsFetchingAvailableProviders = false;
+    QString mProvider;
+    QString mProviderConfigId;
 
     QString mAvatarUrl;
     CloudUserInformation mUserInformation;

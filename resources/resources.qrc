@@ -12,4 +12,7 @@
 <qresource prefix="/sounds">
     <file alias="proximity_alarm.wav">sounds/proximity_alarm.wav</file>
 </qresource>
+<qresource prefix="/oauth2method">
+    <file alias="oauth2_verification_finished.html">templates/oauth2_verification_finished.html</file>
+</qresource>
 </RCC>
