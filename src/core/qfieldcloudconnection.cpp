@@ -293,6 +293,8 @@ void QFieldCloudConnection::login()
         {
           emit loginFailed( tr( "Session expired" ) );
         }
+
+        qInfo() << "Error reply content " << rawReply->readAll();
       }
       else
       {
@@ -609,6 +611,8 @@ void QFieldCloudConnection::setAuthenticationDetails( QNetworkRequest &request )
       config.setConfig( "qfieldcloud-sso-id", providerId );
       QgsApplication::instance()->authManager()->storeAuthenticationConfig( config, true );
 
+      qInfo() << "Stored OAuth2 configuration " << json.toJson();
+
       mProviderConfigId = config.id();
       QSettings().setValue( QStringLiteral( "/QFieldCloud/providerConfigId" ), mProviderConfigId );
       emit providerConfigurationChanged();
@@ -620,7 +624,10 @@ void QFieldCloudConnection::setAuthenticationDetails( QNetworkRequest &request )
       providerId = config.config( "qfieldcloud-sso-id" );
     }
 
-    QgsApplication::instance()->authManager()->updateNetworkRequest( request, mProviderConfigId );
+    if ( !QgsApplication::instance()->authManager()->updateNetworkRequest( request, mProviderConfigId ) )
+    {
+      qInfo() << "Authentication network request updated failed";
+    }
     request.setRawHeader( "X-QFC-IDP-ID", providerId.toLatin1() );
 
     const QList<QNetworkCookie> cookies = QgsNetworkAccessManager::instance()->cookieJar()->cookiesForUrl( mUrl );
@@ -630,6 +637,8 @@ void QFieldCloudConnection::setAuthenticationDetails( QNetworkRequest &request )
       request.setRawHeader( "X-CSRFToken", match->value() );
       request.setRawHeader( "Referer", mUrl.toLatin1() );
     }
+
+    qInfo() << "Headers " << request.headers().toListOfPairs();
   }
 }
 
