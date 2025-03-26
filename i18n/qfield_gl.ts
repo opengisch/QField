@@ -2359,6 +2359,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <source>Login error due to unexpected redirect, please retry later</source>
         <translation>Erro de inicio de sesión debido a unha redirección inesperada, por favor, téntao máis tarde</translation>
     </message>
+    <message>
+        <source>Authentication provider missing</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -2442,6 +2446,14 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>QFieldCloud</source>
         <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

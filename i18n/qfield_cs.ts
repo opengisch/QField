@@ -2363,6 +2363,10 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <source>Login error due to unexpected redirect, please retry later</source>
         <translation>Chyba přihlášení vinou neočekávaného přesměrování, prosím zkuste znovu později</translation>
     </message>
+    <message>
+        <source>Authentication provider missing</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -2445,6 +2449,14 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>QFieldCloud</source>
         <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

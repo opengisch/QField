@@ -2359,6 +2359,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <source>Login error due to unexpected redirect, please retry later</source>
         <translation>Het inloggen is mislukt door een onverwachte doorverwijzing. Probeer het later opnieuw.</translation>
     </message>
+    <message>
+        <source>Authentication provider missing</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -2442,6 +2446,14 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>QFieldCloud</source>
         <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

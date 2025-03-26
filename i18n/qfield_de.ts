@@ -2358,6 +2358,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <source>Login error due to unexpected redirect, please retry later</source>
         <translation>Login Fehler aufgrund einer unerwarteten Weiterleitung, bitte versuchen Sie es später erneut.</translation>
     </message>
+    <message>
+        <source>Authentication provider missing</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -2441,6 +2445,14 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>QFieldCloud</source>
         <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

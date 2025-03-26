@@ -2357,6 +2357,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Login error due to unexpected redirect, please retry later</source>
         <translation>由于意外重定向导致登录错误，请稍后重试</translation>
     </message>
+    <message>
+        <source>Authentication provider missing</source>
+        <translation>缺少身份验证提供程序</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -2440,6 +2444,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>QFieldCloud</source>
         <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation>或</translation>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation>使用%1登录</translation>
     </message>
 </context>
 <context>

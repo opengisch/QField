@@ -65,4 +65,6 @@ Merci pour votre soutien !</string>
     <string name="export_operation_unsupported">Votre appareil ne prend pas en charge cette procédure d’exportation</string>
     <string name="processing_message">Traitement en cours ...</string>
     <string name="positioning_title">Positionnement</string>
-    </resources>
+    <string name="positioning_running">Service de positionnement en cours d\'exécution</string>
+    <string name="copy_to_clipboard">Copier dans le presse-papiers</string>
+</resources>

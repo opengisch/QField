@@ -2363,6 +2363,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Login error due to unexpected redirect, please retry later</source>
         <translation>Błąd logowania z powodu nieoczekiwanego przekierowania, proszę spróbuj ponownie później</translation>
     </message>
+    <message>
+        <source>Authentication provider missing</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -2446,6 +2450,14 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>QFieldCloud</source>
         <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

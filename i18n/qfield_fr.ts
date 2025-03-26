@@ -138,7 +138,7 @@
     </message>
     <message>
         <source>Not NULL</source>
-        <translation>Not NULL</translation>
+        <translation>Non NULL</translation>
     </message>
     <message>
         <source>Unique</source>
@@ -600,7 +600,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DrawingTemplateModel</name>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>Vierge</translation>
     </message>
 </context>
 <context>
@@ -622,19 +622,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Received data is too short to process</source>
-        <translation type="unfinished"/>
+        <translation>La donnée reçue est trop courte pour être traitée</translation>
     </message>
     <message>
         <source>Invalid start byte</source>
-        <translation type="unfinished"/>
+        <translation>Octet de départ incorrect</translation>
     </message>
     <message>
         <source>Received data is too short to contain the payload</source>
-        <translation type="unfinished"/>
+        <translation>La donnée reçue est trop courte pour contenir la charge utile</translation>
     </message>
     <message>
         <source>Failed to parse JSON</source>
-        <translation type="unfinished"/>
+        <translation>Erreur lors de l&apos;analyse du JSON</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -650,7 +650,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Erreur de réception TCP (%1)</translation>
     </message>
 </context>
 <context>
@@ -807,15 +807,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Échec de l&apos;annulation des modifications de l&apos;entité dans la couche &quot;%1&quot;</translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Annuler la création de %n entité pour la couche %1.</numerusform><numerusform>Annuler la création de %n entités pour la couche %1.</numerusform><numerusform>Annuler la création de %n entité(s) pour la couche %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Annuler la création de %n entité.</numerusform><numerusform>Annuler la création de %n entités.</numerusform><numerusform>Annuler la création de %n entité(s).</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s) on layer %1.</source>
@@ -1382,7 +1382,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"/>
+        <translation>Arrêt</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -1529,7 +1529,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>Profileur d&apos;exécution du journal des logs</translation>
     </message>
     <message>
         <source>Type optional details</source>
@@ -1537,7 +1537,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>Inclure les détails de l&apos;utilisateur depuis le cloud</translation>
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
@@ -2360,6 +2360,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>Login error due to unexpected redirect, please retry later</source>
         <translation>Erreur de connexion due à une redirection inattendue, veuillez réessayer ultérieurement.</translation>
     </message>
+    <message>
+        <source>Authentication provider missing</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
@@ -2442,6 +2446,14 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>QFieldCloud</source>
         <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3227,7 +3239,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <name>QFieldPositioningService</name>
     <message>
         <source>Positioning service running</source>
-        <translation type="unfinished"/>
+        <translation>Service de positionnement en cours d&apos;exécution</translation>
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
@@ -4167,7 +4179,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Erreur de réception TCP (%1)</translation>
     </message>
 </context>
 <context>
