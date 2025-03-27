@@ -171,6 +171,20 @@ QgsVectorLayer *FeatureModel::layer() const
   return mLayer.data();
 }
 
+AppExpressionContextScopesGenerator *FeatureModel::appExpressionContextScopesGenerator() const
+{
+  return mAppExpressionContextScopesGenerator.data();
+}
+
+void FeatureModel::setAppExpressionContextScopesGenerator( AppExpressionContextScopesGenerator *generator )
+{
+  if ( mAppExpressionContextScopesGenerator == generator )
+    return;
+
+  mAppExpressionContextScopesGenerator = generator;
+  emit appExpressionContextScopesGeneratorChanged();
+}
+
 VertexModel *FeatureModel::vertexModel()
 {
   return mVertexModel;
@@ -216,28 +230,6 @@ void FeatureModel::setLinkedFeatureValues()
   endResetModel();
 
   emit featureChanged();
-}
-
-bool FeatureModel::positionLocked() const
-{
-  return mPositionLocked;
-}
-
-void FeatureModel::setPositionLocked( bool positionLocked )
-{
-  if ( mPositionLocked == positionLocked )
-    return;
-
-  mPositionLocked = positionLocked;
-
-  emit positionLockedChanged();
-}
-
-void FeatureModel::setCloudUserInformation( const CloudUserInformation &cloudUserInformation )
-{
-  mCloudUserInformation = cloudUserInformation;
-
-  emit cloudUserInformationChanged();
 }
 
 void FeatureModel::setLinkedParentFeature( const QgsFeature &feature )
@@ -461,15 +453,19 @@ QgsExpressionContext FeatureModel::createExpressionContext() const
     expressionContext = mLayer->createExpressionContext();
   }
 
-  if ( mPositionInformation.isValid() )
+  if ( mAppExpressionContextScopesGenerator )
   {
-    expressionContext << ExpressionContextUtils::positionScope( mPositionInformation, mPositionLocked );
+    QList<QgsExpressionContextScope *> scopes = mAppExpressionContextScopesGenerator->generate();
+    while ( !scopes.isEmpty() )
+    {
+      expressionContext << scopes.takeFirst();
+    }
   }
+
   if ( mTopSnappingResult.isValid() )
   {
     expressionContext << ExpressionContextUtils::mapToolCaptureScope( mTopSnappingResult );
   }
-  expressionContext << ExpressionContextUtils::cloudUserScope( mCloudUserInformation );
 
   if ( mLinkedParentFeature.isValid() )
   {
@@ -964,17 +960,6 @@ bool FeatureModel::startEditing()
   }
 
   return true;
-}
-
-GnssPositionInformation FeatureModel::positionInformation() const
-{
-  return mPositionInformation;
-}
-
-void FeatureModel::setPositionInformation( const GnssPositionInformation &positionInformation )
-{
-  mPositionInformation = positionInformation;
-  emit positionInformationChanged();
 }
 
 SnappingResult FeatureModel::topSnappingResult() const

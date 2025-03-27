@@ -85,10 +85,8 @@ Drawer {
       id: attributeFormModel
       featureModel: FeatureModel {
         project: qgisProject
-        positionInformation: coordinateLocator.positionInformation
-        positionLocked: coordinateLocator.overrideLocation !== undefined
+        appExpressionContextScopesGenerator: appScopesGenerator
         topSnappingResult: coordinateLocator.topSnappingResult
-        cloudUserInformation: projectInfo.cloudUserInformation
       }
     }
 

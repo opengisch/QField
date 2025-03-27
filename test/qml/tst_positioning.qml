@@ -37,8 +37,10 @@ TestCase {
     id: featureModel
     project: qgisProject
     currentLayer: qgisProject.mapLayersByName('Apiary')[0]
-    positionInformation: positioning.positionInformation
-    positionLocked: false
+    appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
+      positionInformation: positioning.positionInformation
+      positionLocked: false
+    }
   }
 
   /**
