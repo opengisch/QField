@@ -19,8 +19,6 @@ TestCase {
         project: qgisProject
         currentLayer: featureForm.mSelectedLayer
         feature: featureForm.mSelectedFeature
-        // features: featureFormList.selection.model.selectedFeatures
-        // cloudUserInformation: projectInfo.cloudUserInformation
       }
     }
   }
