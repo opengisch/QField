@@ -18,6 +18,7 @@ EditorWidgetBase {
     id: rootPathEvaluator
     project: qgisProject
   }
+
   property string prefixToRelativePath: {
     if (qgisProject == undefined)
       return "";
