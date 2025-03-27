@@ -18,14 +18,19 @@ Item {
   }
 
   function setSettings(settings) {
-    deviceAddress = settings['address'];
-    devicePort = settings['port'];
+    loader.item.setSettings(settings);
   }
 
   function getSettings() {
-    return {
-      "address": deviceAddress.trim(),
-      "port": parseInt(devicePort)
-    };
+    return loader.item.getSettings();
+  }
+
+  function setupLoader(uiComponent) {
+    loader.sourceComponent = uiComponent;
+  }
+
+  Loader {
+    id: loader
+    width: parent.width
   }
 }
