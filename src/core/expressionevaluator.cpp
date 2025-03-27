@@ -15,7 +15,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "expressioncontextutils.h"
 #include "expressionevaluator.h"
 
 #include <qgsexpressioncontextutils.h>
