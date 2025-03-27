@@ -34,6 +34,7 @@ EditorWidgetBase {
     displayGroupName: config['DisplayGroupName'] ? config['DisplayGroupName'] : ""
     addNull: config['AllowNull'] ? config['AllowNull'] : ""
     orderByValue: config['OrderByValue'] ? config['OrderByValue'] : ""
+    appExpressionContextScopesGenerator: appScopesGenerator
     filterExpression: config['FilterExpression'] ? config['FilterExpression'] : ""
 
     // passing "" instead of undefined, so the model is cleared on adding new features
