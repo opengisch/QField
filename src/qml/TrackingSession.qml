@@ -77,7 +77,7 @@ Item {
 
     appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
       positionLocked: true
-      cloudUserInformation: projectInfo.cloudUserInformation
+      cloudUserInformation: appScopesGenerator.cloudUserInformation
     }
   }
 }
