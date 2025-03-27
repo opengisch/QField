@@ -1126,8 +1126,7 @@ ApplicationWindow {
       mode: ExpressionEvaluator.ExpressionTemplateMode
       mapSettings: mapCanvas.mapSettings
       project: qgisProject
-      positionInformation: positionSource.positionInformation
-      cloudUserInformation: projectInfo.cloudUserInformation
+      appExpressionContextScopesGenerator: appScopesGenerator
     }
 
     Connections {
