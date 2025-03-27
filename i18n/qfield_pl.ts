@@ -2365,7 +2365,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Authentication provider missing</source>
-        <translation type="unfinished"/>
+        <translation>Brak dostawcy uwierzytelniania</translation>
     </message>
 </context>
 <context>
@@ -2453,11 +2453,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>lub</translation>
     </message>
     <message>
         <source>Sign in using %1</source>
-        <translation type="unfinished"/>
+        <translation>Zaloguj się przy użyciu %1</translation>
     </message>
 </context>
 <context>

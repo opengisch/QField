@@ -5090,7 +5090,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation>Lösche Zielpunkt</translation>
+        <translation>Ziel aufheben</translation>
     </message>
     <message>
         <source>%1 Precision</source>
