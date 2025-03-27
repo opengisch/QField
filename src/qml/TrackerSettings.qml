@@ -523,10 +523,11 @@ Popup {
 
     geometry: Geometry {
     }
+
     appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
-      positionInformation: coordinateLocator.positionInformation
+      positionInformation: appScopesGenerator.positionInformation
       positionLocked: true
-      cloudUserInformation: projectInfo.cloudUserInformation
+      cloudUserInformation: appScopesGenerator.cloudUserInformation
     }
   }
 
