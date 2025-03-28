@@ -1352,8 +1352,8 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
 
     const long long fileSize = fileInfo.size();
 
-    // ? should we also check the checksums of the files being uploaded? they are available at deltaFile->attachmentFileNames()->values() || Or just send true instead of false!
-    QFieldCloudUtils::addPendingAttachments( project->id, { absoluteFilePath }, mCloudConnection, false );
+    // ? should we also check the checksums of the files being uploaded? they are available at deltaFile->attachmentFileNames()->values()
+    QFieldCloudUtils::addPendingAttachments( project->id, { absoluteFilePath } );
   }
 
   QString deltaFileToUpload = deltaFileWrapper->toFileForUpload();

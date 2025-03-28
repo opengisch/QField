@@ -154,7 +154,7 @@ const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments()
 
 void QFieldCloudUtils::addPendingAttachments( const QString &projectId, const QStringList &fileNames, QFieldCloudConnection *cloudConnection, const bool &checkSumCheck )
 {
-  if ( checkSumCheck )
+  if ( checkSumCheck && cloudConnection )
   {
     QVariantMap params;
     params.insert( "skip_metadata", 1 );
