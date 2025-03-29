@@ -27,6 +27,10 @@ class QgsRasterLayer;
 class QgsSymbol;
 
 /**
+ * A class providing a feature iterator interface to be used within QML/javascript environment.
+ *
+ * Users of this class must manually call its close() once feature iteration is finished.
+ *
  * \ingroup core
  */
 class FeatureIterator
@@ -63,6 +67,11 @@ class FeatureIterator
         mHasNextChecked = false;
       }
       return mCurrentFeature;
+    }
+
+    Q_INVOKABLE void close()
+    {
+      mFeatureIterator.close();
     }
 
   private:
@@ -136,7 +145,7 @@ class LayerUtils : public QObject
     Q_INVOKABLE static bool hasMValue( QgsVectorLayer *layer );
 
     /**
-     * Returns a feature request to get features.
+     * Returns a feature iterator to get features matching a given \a expression within the provided \a layer.
      */
     Q_INVOKABLE static FeatureIterator createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression );
 };
