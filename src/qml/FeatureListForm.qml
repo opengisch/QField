@@ -400,7 +400,7 @@ Rectangle {
         currentLayer: featureFormList.selection.focusedLayer
         feature: featureFormList.selection.focusedFeature
         features: featureFormList.selection.model.selectedFeatures
-        cloudUserInformation: projectInfo.cloudUserInformation
+        appExpressionContextScopesGenerator: appScopesGenerator
       }
     }
 

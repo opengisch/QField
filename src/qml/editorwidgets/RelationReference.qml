@@ -25,6 +25,7 @@ EditorWidgetBase {
     orderByValue: !!config['OrderByValue']
     attributeField: field
     currentFormFeature: currentFeature
+    appExpressionContextScopesGenerator: appScopesGenerator
     filterExpression: config['FilterExpression'] ? config['FilterExpression'] : ""
     allowMulti: false
 

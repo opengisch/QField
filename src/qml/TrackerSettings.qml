@@ -524,9 +524,11 @@ Popup {
     geometry: Geometry {
     }
 
-    positionInformation: coordinateLocator.positionInformation
-    positionLocked: true
-    cloudUserInformation: projectInfo.cloudUserInformation
+    appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
+      positionInformation: appScopesGenerator.positionInformation
+      positionLocked: true
+      cloudUserInformation: appScopesGenerator.cloudUserInformation
+    }
   }
 
   AttributeFormModel {

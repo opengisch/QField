@@ -15,6 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "appexpressioncontextscopesgenerator.h"
 #include "catch2.h"
 #include "featuremodel.h"
 #include "gnsspositioninformation.h"
@@ -29,11 +30,14 @@ TEST_CASE( "FeatureModel" )
   layer->setDefaultValueDefinition( 2, QgsDefaultValue( QStringLiteral( "@position_vertical_accuracy" ), true ) );
   std::unique_ptr<FeatureModel> featureModel = std::make_unique<FeatureModel>();
 
+  std::unique_ptr<AppExpressionContextScopesGenerator> appExpressionContextScopesGenerator = std::make_unique<AppExpressionContextScopesGenerator>();
+  featureModel->setAppExpressionContextScopesGenerator( appExpressionContextScopesGenerator.get() );
+
   GnssPositionInformation position( 1.1, 2.2, 50.0, 50.0, 0.0, QList<QgsSatelliteInfo>(), 0, 0, 0, 5.5, 10.5, QDateTime(), QChar(), 0, 100 );
 
   featureModel->setCurrentLayer( layer.get() );
-  featureModel->setPositionInformation( position );
-  featureModel->setPositionLocked( true );
+  featureModel->appExpressionContextScopesGenerator()->setPositionInformation( position );
+  featureModel->appExpressionContextScopesGenerator()->setPositionLocked( true );
   featureModel->resetFeature();
   featureModel->resetAttributes();
   featureModel->setData( featureModel->index( 0, 0 ), QStringLiteral( "created" ), FeatureModel::AttributeValue );

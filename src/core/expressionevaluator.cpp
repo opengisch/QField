@@ -15,7 +15,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "expressioncontextutils.h"
 #include "expressionevaluator.h"
 
 #include <qgsexpressioncontextutils.h>
@@ -79,16 +78,18 @@ void ExpressionEvaluator::setMapSettings( QgsQuickMapSettings *mapSettings )
   emit mapSettingsChanged();
 }
 
-void ExpressionEvaluator::setPositionInformation( const GnssPositionInformation &positionInformation )
+AppExpressionContextScopesGenerator *ExpressionEvaluator::appExpressionContextScopesGenerator() const
 {
-  mPositionInformation = positionInformation;
-  emit positionInformationChanged();
+  return mAppExpressionContextScopesGenerator.data();
 }
 
-void ExpressionEvaluator::setCloudUserInformation( const CloudUserInformation &cloudUserInformation )
+void ExpressionEvaluator::setAppExpressionContextScopesGenerator( AppExpressionContextScopesGenerator *generator )
 {
-  mCloudUserInformation = cloudUserInformation;
-  emit cloudUserInformationChanged();
+  if ( mAppExpressionContextScopesGenerator == generator )
+    return;
+
+  mAppExpressionContextScopesGenerator = generator;
+  emit appExpressionContextScopesGeneratorChanged();
 }
 
 QVariant ExpressionEvaluator::evaluate()
@@ -99,13 +100,13 @@ QVariant ExpressionEvaluator::evaluate()
   QgsExpressionContext expressionContext;
   expressionContext << QgsExpressionContextUtils::globalScope();
 
-  if ( mPositionInformation.isValid() )
+  if ( mAppExpressionContextScopesGenerator )
   {
-    expressionContext << ExpressionContextUtils::positionScope( mPositionInformation, false );
-  }
-  if ( !mCloudUserInformation.username.isEmpty() )
-  {
-    expressionContext << ExpressionContextUtils::cloudUserScope( mCloudUserInformation );
+    QList<QgsExpressionContextScope *> scopes = mAppExpressionContextScopesGenerator->generate();
+    while ( !scopes.isEmpty() )
+    {
+      expressionContext << scopes.takeFirst();
+    }
   }
   if ( mMapSettings )
   {
