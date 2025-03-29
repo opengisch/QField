@@ -20,6 +20,7 @@
 #include "abstractgnssreceiver.h"
 
 #include <QJsonObject>
+#include <QNetworkAccessManager>
 #include <QTcpSocket>
 
 /**
@@ -30,7 +31,7 @@ class EgenioussReceiver : public AbstractGnssReceiver
     Q_OBJECT
 
   public:
-    explicit EgenioussReceiver( QObject *parent = nullptr );
+    explicit EgenioussReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
     ~EgenioussReceiver();
 
     GnssPositionDetails details() const override;
@@ -47,12 +48,13 @@ class EgenioussReceiver : public AbstractGnssReceiver
 
   private:
     void processReceivedData();
+    void handleErrorMessage( const QString &errorMessage );
 
   private:
     QTcpSocket *mTcpSocket = nullptr;
     QJsonObject mPayload;
-    const QHostAddress::SpecialAddress mAddress = QHostAddress::LocalHost;
-    const int mPort = 1235;
+    const QHostAddress mAddress;
+    const int mPort;
 };
 
 #endif // EGENIOUSSRECEIVER_H

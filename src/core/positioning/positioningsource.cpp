@@ -239,7 +239,10 @@ void PositioningSource::setupDevice()
     }
     else if ( mDeviceId.startsWith( EgenioussReceiver::identifier + ":" ) )
     {
-      mReceiver = new EgenioussReceiver( this );
+      const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
+      const QString address = mDeviceId.mid( 10, portSeparator - 10 );
+      const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
+      mReceiver = new EgenioussReceiver( address, port, this );
     }
 #ifdef WITH_SERIALPORT
     else if ( mDeviceId.startsWith( SerialPortReceiver::identifier + ":" ) )

@@ -32,7 +32,7 @@ Item {
   GridLayout {
     width: parent.width
     columns: 1
-    columnSpacing: 0
+    columnSpacing: 10
     rowSpacing: 10
 
     TextField {
