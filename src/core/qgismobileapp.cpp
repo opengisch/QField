@@ -52,6 +52,7 @@
 #include "expressioncontextutils.h"
 #include "expressionevaluator.h"
 #include "expressionvariablemodel.h"
+#include "externalstorage.h"
 #include "featurechecklistmodel.h"
 #include "featurehistory.h"
 #include "featurelistextentcontroller.h"
@@ -452,6 +453,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<DrawingCanvas>( "org.qfield", 1, 0, "DrawingCanvas" );
   qmlRegisterType<SubModel>( "org.qfield", 1, 0, "SubModel" );
   qmlRegisterType<ExpressionVariableModel>( "org.qfield", 1, 0, "ExpressionVariableModel" );
+  qmlRegisterType<ExternalStorage>( "org.qfield", 1, 0, "ExternalStorage" );
   qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
   qmlRegisterType<SnappingUtils>( "org.qfield", 1, 0, "SnappingUtils" );
   qmlRegisterType<DistanceArea>( "org.qfield", 1, 0, "DistanceArea" );
