@@ -1,5 +1,5 @@
 /***************************************************************************
-    qfieldcloudutils.cpp
+    qfieldcloudutils.h
     ---------------------
     begin                : February 2020
     copyright            : (C) 2020 by Mathieu Pellerin
@@ -134,14 +134,28 @@ class QFieldCloudUtils : public QObject
     //! Returns the list of attachments that have not yet been uploaded to the cloud.
     static const QMultiMap<QString, QString> getPendingAttachments();
 
-    //! Adds an array of \a fileNames for a given \a projectId to the pending attachments list
-    Q_INVOKABLE static void addPendingAttachments( const QString &projectId, const QStringList &fileNames );
+    /**
+     * Adds an array of files and/or folders for a given cloud project to the pending upload attachments list.
+     * If \a checkSumCheck is true, checks file checksums with the server; otherwise, adds all files without validation.
+     *
+     * @param projectId The project ID for which files are added.
+     * @param fileNames The list of file and/or folder path(s) to be added.
+     * @param cloudConnection The cloud connection used to fetch file data.
+     * @param checkSumCheck Whether to validate files by comparing checksums with the server.
+     */
+    Q_INVOKABLE static void addPendingAttachments( const QString &projectId, const QStringList &fileNames, QFieldCloudConnection *cloudConnection = nullptr, const bool &checkSumCheck = false );
 
     //! Adds removes a \a fileName for a given \a projectId to the pending attachments list
     static void removePendingAttachment( const QString &projectId, const QString &fileName );
 
   private:
     static inline const QString errorCodeOverQuota { QStringLiteral( "over_quota" ) };
+
+    static void writeToAttachmentsFile( const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck );
+
+    static void writeFilesFromDirectory( const QString &dirPath, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream );
+
+    static void writeFileDetails( const QString &fileName, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream );
 };
 
 #endif // QFIELDCLOUDUTILS_H

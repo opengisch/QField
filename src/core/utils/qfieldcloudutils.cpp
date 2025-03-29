@@ -13,7 +13,9 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "fileutils.h"
 #include "platformutilities.h"
+#include "qfieldcloudconnection.h"
 #include "qfieldcloudutils.h"
 #include "stringutils.h"
 
@@ -150,7 +152,45 @@ const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments()
   return std::move( files );
 }
 
-void QFieldCloudUtils::addPendingAttachments( const QString &projectId, const QStringList &fileNames )
+void QFieldCloudUtils::addPendingAttachments( const QString &projectId, const QStringList &fileNames, QFieldCloudConnection *cloudConnection, const bool &checkSumCheck )
+{
+  if ( checkSumCheck && cloudConnection )
+  {
+    QVariantMap params;
+    params.insert( "skip_metadata", 1 );
+    NetworkReply *reply = cloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( projectId ), params );
+
+    connect( reply, &NetworkReply::finished, reply, [=]() {
+      QNetworkReply *rawReply = reply->currentRawReply();
+      reply->deleteLater();
+
+      if ( rawReply->error() != QNetworkReply::NoError )
+      {
+        QgsLogger::debug( QStringLiteral( "Project %1: failed to retrieve file information. %2" ).arg( projectId, QFieldCloudConnection::errorString( rawReply ) ) );
+        return;
+      }
+
+      const QJsonArray files = QJsonDocument::fromJson( rawReply->readAll() ).array();
+      QHash<QString, QString> fileChecksumMap;
+
+      for ( const QJsonValueConstRef &fileValue : files )
+      {
+        const QJsonObject fileObject = fileValue.toObject();
+        const QString cloudEtag = fileObject.value( QStringLiteral( "md5sum" ) ).toString();
+        const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
+        fileChecksumMap.insert( fileName, cloudEtag );
+      }
+
+      writeToAttachmentsFile( projectId, fileNames, &fileChecksumMap, checkSumCheck );
+    } );
+  }
+  else
+  {
+    writeToAttachmentsFile( projectId, fileNames, nullptr, false );
+  }
+}
+
+void QFieldCloudUtils::writeToAttachmentsFile( const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck )
 {
   QLockFile attachmentsLock( QStringLiteral( "%1/attachments.lock" ).arg( QFieldCloudUtils::localCloudDirectory() ) );
   if ( attachmentsLock.tryLock( 10000 ) )
@@ -158,15 +198,61 @@ void QFieldCloudUtils::addPendingAttachments( const QString &projectId, const QS
     QFile attachmentsFile( QStringLiteral( "%1/attachments.csv" ).arg( QFieldCloudUtils::localCloudDirectory() ) );
     attachmentsFile.open( QFile::Append | QFile::Text );
     QTextStream attachmentsStream( &attachmentsFile );
-    QFileInfo fi( attachmentsFile );
 
     for ( const QString &fileName : fileNames )
     {
-      QStringList values = QStringList() << projectId << fileName;
-      attachmentsStream << StringUtils::stringListToCsv( values )
-                        << Qt::endl;
+      QFileInfo fi( QDir::cleanPath( fileName ) );
+      if ( fi.isDir() )
+      {
+        writeFilesFromDirectory( fileName, projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
+      }
+      else if ( fi.isFile() )
+      {
+        writeFileDetails( fileName, projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
+      }
     }
+
     attachmentsFile.close();
+  }
+}
+
+void QFieldCloudUtils::writeFilesFromDirectory( const QString &dirPath, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream )
+{
+  QDir dir( dirPath );
+  if ( !dir.exists() )
+  {
+    return;
+  }
+
+  QFileInfoList entries = dir.entryInfoList( QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot );
+
+  for ( const QFileInfo &entry : entries )
+  {
+    if ( entry.isDir() )
+    {
+      writeFilesFromDirectory( entry.absoluteFilePath(), projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
+    }
+    else if ( entry.isFile() )
+    {
+      writeFileDetails( entry.absoluteFilePath(), projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
+    }
+  }
+}
+
+void QFieldCloudUtils::writeFileDetails( const QString &fileName, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream )
+{
+  const QString localEtag = FileUtils::fileEtag( fileName );
+  QString cloudFileName = "";
+  const QStringList fileNameParts = fileName.split( projectId + "/" );
+  if ( fileNameParts.size() > 1 )
+  {
+    cloudFileName = fileNameParts[1];
+  }
+
+  if ( !checkSumCheck || localEtag != fileChecksumMap->value( cloudFileName ) )
+  {
+    QStringList values { projectId, fileName };
+    attachmentsStream << StringUtils::stringListToCsv( values ) << Qt::endl;
   }
 }
 
