@@ -55,9 +55,6 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
 
-      - name: 🐩 Install CMake and Ninja
-        uses: lukka/get-cmake@latest
-
       - name: 🔨 Prepare build env
         run: |
           brew install automake bison flex gnu-sed autoconf-archive nasm libtool xcbeautify mono
