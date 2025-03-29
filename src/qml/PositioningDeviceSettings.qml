@@ -113,10 +113,20 @@ Popup {
       width: parent.width
 
       Label {
-        Layout.fillWidth: true
         text: qsTr("Connection type")
-        font: Theme.defaultFont
+        font: Theme.strongFont
+        color: Theme.mainColor
         wrapMode: Text.WordWrap
+        Layout.fillWidth: true
+        Layout.topMargin: 5
+        Layout.columnSpan: 2
+      }
+
+      Rectangle {
+        Layout.fillWidth: true
+        Layout.columnSpan: 2
+        height: 1
+        color: Theme.mainColor
       }
 
       ComboBox {
@@ -193,10 +203,20 @@ Popup {
       }
 
       Label {
-        Layout.fillWidth: true
         text: qsTr("Connection details")
-        font: Theme.defaultFont
+        font: Theme.strongFont
+        color: Theme.mainColor
         wrapMode: Text.WordWrap
+        Layout.fillWidth: true
+        Layout.topMargin: 5
+        Layout.columnSpan: 2
+      }
+
+      Rectangle {
+        Layout.fillWidth: true
+        Layout.columnSpan: 2
+        height: 1
+        color: Theme.mainColor
       }
 
       ListModel {

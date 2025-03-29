@@ -32,8 +32,8 @@ Item {
   GridLayout {
     width: parent.width
     columns: 1
-    columnSpacing: 0
-    rowSpacing: 5
+    columnSpacing: 10
+    rowSpacing: 10
 
     TextField {
       id: udpDeviceAddress
