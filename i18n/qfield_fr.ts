@@ -138,7 +138,7 @@
     </message>
     <message>
         <source>Not NULL</source>
-        <translation>Non NULL</translation>
+        <translation>Non vide</translation>
     </message>
     <message>
         <source>Unique</source>
@@ -461,7 +461,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
+        <translation>Vide</translation>
     </message>
 </context>
 <context>
@@ -1204,7 +1204,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Credentials Details</source>
-        <translation type="unfinished"/>
+        <translation>Détails des certificats</translation>
     </message>
 </context>
 <context>
@@ -1378,7 +1378,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
-        <translation type="unfinished"/>
+        <translation>.Cette couche suit actuellement votre position.</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -1847,11 +1847,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>The dataset will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>Ce jeu de données va être supprimé, procéder à sa suppression ?</translation>
     </message>
     <message>
         <source>The project folder will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>Le répertoire du projet va être supprimé, procéder à sa suppression ?</translation>
     </message>
 </context>
 <context>
@@ -1905,7 +1905,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Authored by %1%2%3</source>
-        <translation type="unfinished"/>
+        <translation>Réalisé par %1%2%3</translation>
     </message>
     <message>
         <source>Are you sure you want to uninstall `%1`?</source>
@@ -2050,7 +2050,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Connection type</source>
-        <translation type="unfinished"/>
+        <translation>Type de connexion</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2058,11 +2058,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source> (leave empty to auto-fill)</source>
-        <translation type="unfinished"/>
+        <translation>(Laisser vide pour remplir automatiquement)</translation>
     </message>
     <message>
         <source>Connection details</source>
-        <translation type="unfinished"/>
+        <translation>Détails de connexion</translation>
     </message>
 </context>
 <context>
@@ -2105,7 +2105,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>grid</source>
-        <translation type="unfinished"/>
+        <translation>grille</translation>
     </message>
     <message>
         <source>ortho.</source>
@@ -2235,15 +2235,15 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>QFieldAppAuthRequestHandler</name>
     <message>
         <source>Please enter credentials for database</source>
-        <translation type="unfinished"/>
+        <translation>Veuillez saisir vos identifiants de connexion à la base de données</translation>
     </message>
     <message>
         <source>at host</source>
-        <translation type="unfinished"/>
+        <translation>chez l&apos;hôte</translation>
     </message>
     <message>
         <source>at service</source>
-        <translation type="unfinished"/>
+        <translation>au service</translation>
     </message>
 </context>
 <context>
@@ -2273,11 +2273,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>front</source>
-        <translation type="unfinished"/>
+        <translation>avant</translation>
     </message>
     <message>
         <source>back</source>
-        <translation type="unfinished"/>
+        <translation>arrière</translation>
     </message>
     <message>
         <source>Image geotagging requires positioning to be turned on</source>
@@ -2285,7 +2285,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Details stamping enabled</source>
-        <translation type="unfinished"/>
+        <translation>Estampillage des détails activé</translation>
     </message>
     <message>
         <source>Latitude</source>
@@ -2305,11 +2305,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Orientation</source>
-        <translation type="unfinished"/>
+        <translation>Orientation</translation>
     </message>
     <message>
         <source>Details stamping disabled</source>
-        <translation type="unfinished"/>
+        <translation>Estampillage des détails désactivé</translation>
     </message>
 </context>
 <context>
@@ -2362,7 +2362,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Authentication provider missing</source>
-        <translation type="unfinished"/>
+        <translation>Fournisseur d&apos;authentification absent</translation>
     </message>
 </context>
 <context>
@@ -2449,11 +2449,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>ou</translation>
     </message>
     <message>
         <source>Sign in using %1</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;identifier en utilisant %1</translation>
     </message>
 </context>
 <context>
@@ -2675,7 +2675,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Connexion à QFieldCloud pour télécharger le projet</translation>
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
@@ -2943,7 +2943,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>Connexion à QFieldCloud pour télécharger le projet</translation>
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
@@ -2951,7 +2951,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Search for project</source>
-        <translation type="unfinished"/>
+        <translation>Rechercher du projet</translation>
     </message>
 </context>
 <context>
@@ -2966,14 +2966,14 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;espace de stockage à disposition de votre compte est plein.</translation>
     </message>
 </context>
 <context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
-        <translation type="unfinished"/>
+        <translation>Terminé</translation>
     </message>
     <message>
         <source>Next</source>
@@ -3088,79 +3088,79 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>Ajouter aux favoris</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
-        <translation type="unfinished"/>
+        <translation>Retirer des favoris</translation>
     </message>
     <message>
         <source>Files</source>
-        <translation type="unfinished"/>
+        <translation>Fichiers</translation>
     </message>
     <message>
         <source>Push to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Envoyer vers QFieldCloud</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV server</source>
-        <translation type="unfinished"/>
+        <translation>Envoyer le dossier au serveur WebDAV</translation>
     </message>
     <message>
         <source>Download folder from WebDAV server</source>
-        <translation type="unfinished"/>
+        <translation>Télécharger le dossier depuis le serveur WebDAV</translation>
     </message>
     <message>
         <source>Remove folder</source>
-        <translation type="unfinished"/>
+        <translation>Supprimer le répertoire</translation>
     </message>
     <message>
         <source>Import WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Importer le dossier WebDAV</translation>
     </message>
     <message>
         <source>Upload project to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Envoyer le projet vers WebDAV</translation>
     </message>
     <message>
         <source>Download project from WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Télécharger le projet depuis WebDAV</translation>
     </message>
     <message>
         <source>Importing WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Importation du dossier WebDAV</translation>
     </message>
     <message>
         <source>Downloading WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Téléchargement du répertoire WebDAV</translation>
     </message>
     <message>
         <source>Uploading WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Envoi du répertoire WebDAV</translation>
     </message>
     <message>
         <source>WebDAV error: </source>
-        <translation type="unfinished"/>
+        <translation>Erreur WebDAV</translation>
     </message>
     <message>
         <source>WebDAV upload</source>
-        <translation type="unfinished"/>
+        <translation>Mettre en ligne WebDAV</translation>
     </message>
     <message>
         <source>WebDAV download</source>
-        <translation type="unfinished"/>
+        <translation>Télécharger WebDAV</translation>
     </message>
     <message>
         <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>Vous êtes sur le point d&apos;envoyer du contenu modifié dans &lt;b&gt;%1&lt;/b&gt; en utilisant l&apos;utilisateur &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Cette opération va écraser les données stockées sur le cloud, assurez-vous que c&apos;est bien ce que vous souhaitez faire.</translation>
     </message>
     <message>
         <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>Vous êtes sur le point de télécharger du contenu modifié depuis &lt;b&gt;%1&lt;/b&gt; en utilisant l&apos;utilisateur &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt; Cette opération va écraser les données stockées localement, assurez-vous que c&apos;est bien ce que vous souhaitez faire.</translation>
     </message>
     <message>
         <source>Password (leave empty to use remembered)</source>
-        <translation type="unfinished"/>
+        <translation>Mot de passe (laisser vide pour utilisé le mot de passe enregistré)</translation>
     </message>
     <message>
         <source>Password</source>
@@ -3168,71 +3168,71 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Remember password</source>
-        <translation type="unfinished"/>
+        <translation>Se souvenir du mot de passe</translation>
     </message>
     <message>
         <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation type="unfinished"/>
+        <translation>Saisissez les détails WebDAV ci-dessous pour importer le fichier du cloud</translation>
     </message>
     <message>
         <source>WebDAV server URL</source>
-        <translation type="unfinished"/>
+        <translation>URL du serveur WebDAV</translation>
     </message>
     <message>
         <source>Select the remote folder to import:</source>
-        <translation type="unfinished"/>
+        <translation>Sélectionner le fichier à importer depuis le cloud:</translation>
     </message>
     <message>
         <source>Fetching remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Récupération des dossier du cloud</translation>
     </message>
     <message>
         <source>Fetch remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Récupérer les dossier du cloud</translation>
     </message>
     <message>
         <source>User and password</source>
-        <translation type="unfinished"/>
+        <translation>Utilisateur et mot de passe</translation>
     </message>
     <message>
         <source>leave empty to use remembered</source>
-        <translation type="unfinished"/>
+        <translation>Laisser vide pour utiliser l&apos;enregistré</translation>
     </message>
     <message>
         <source>(root folder)</source>
-        <translation type="unfinished"/>
+        <translation>(dossier racine)</translation>
     </message>
     <message>
         <source>Refreshing remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Mise à jour des dossiers du cloud</translation>
     </message>
     <message>
         <source>Refresh remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Mettre à jour les dossiers du cloud</translation>
     </message>
     <message>
         <source>Imported and available locally</source>
-        <translation type="unfinished"/>
+        <translation>Importé et disponible localement</translation>
     </message>
     <message>
         <source>Upload file(s) to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Envoyer des fichiers vers WebDAV</translation>
     </message>
     <message>
         <source>Push file(s) to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Envoyer des fichiers vers QFieldCloud</translation>
     </message>
     <message>
         <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Veuillez sélectionner un ou plusieurs fichiers à envoyer vers QFieldCloud</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmer</translation>
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Vous êtes sur le point de supprimé un objet WebDAV enregistré, continuer ?</translation>
     </message>
 </context>
 <context>
@@ -3247,7 +3247,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Positioning service stopped</source>
-        <translation type="unfinished"/>
+        <translation>Service de positionnement arrêté</translation>
     </message>
 </context>
 <context>
@@ -3683,18 +3683,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Render preview content around visible map canvas</source>
-        <translation type="unfinished"/>
+        <translation>Prévisualisation du rendu du contenu visible autour du canevas de la carte</translation>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
-        <translation type="unfinished"/>
+        <translation>Si cette option est activée, les zones situées juste en dehors de l&apos;étendue visible du canevas de la carte n&apos;auront qu&apos;un rendu partie pour permettre un aperçu lors des zooms et des panoramiques</translation>
     </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
     <message>
         <source>Select drawing template</source>
-        <translation type="unfinished"/>
+        <translation>Sélectionner un modèle de dessin</translation>
     </message>
 </context>
 <context>
@@ -3864,7 +3864,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Map printed on %1 using QField</source>
-        <translation type="unfinished"/>
+        <translation>Carte imprimée sur %1 en utilisant QField</translation>
     </message>
 </context>
 <context>
@@ -3966,7 +3966,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>RelationEditorBase</name>
     <message>
         <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Assurez-vous que les contraintes soient respectées</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -3982,7 +3982,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unlink Feature</source>
-        <translation type="unfinished"/>
+        <translation>Délier l&apos;entité</translation>
     </message>
     <message>
         <source>Delete Feature</source>
@@ -4002,7 +4002,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Child Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu de l&apos;enfant</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
@@ -4132,11 +4132,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>Adresse IP</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Port</translation>
     </message>
 </context>
 <context>
@@ -4513,11 +4513,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Adresse</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Port</translation>
     </message>
 </context>
 <context>
@@ -4607,11 +4607,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>WebdavConnection</name>
     <message>
         <source>Failed to download file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Échec du téléchargement du fichier %1 en raison d&apos;une erreur réseau (%2)</translation>
     </message>
     <message>
         <source>Failed to upload file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Échec de l&apos;envoi du fichier %1 en raison d&apos;une erreur réseau (%2)</translation>
     </message>
 </context>
 <context>
@@ -4724,11 +4724,11 @@ Essayez les exemples de projets répertoriés ci-dessous.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation type="unfinished"/>
+        <translation>Super ! Nous serions ravis que vous cliquiez sur le bouton ci-dessous et que vous laissiez un commentaire</translation>
     </message>
     <message>
         <source>Return to map</source>
-        <translation type="unfinished"/>
+        <translation>Revenir à la carte</translation>
     </message>
 </context>
 <context>
@@ -5330,19 +5330,19 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>La position a franchi la limite de &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Position outside areas after leaving ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Positionner les zones extérieures après avoir quitté &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Position entered into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Position saisie dans &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Position à gauche de &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Enable Map Rotation</source>
@@ -5382,11 +5382,11 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
-        <translation type="unfinished"/>
+        <translation>Annuler l&apos;opération algorithmique</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Vous êtes sur le point d&apos;annuler l&apos;opération algorithmique en cours, continuer ?</translation>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
@@ -5394,7 +5394,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
-        <translation type="unfinished"/>
+        <translation>Mode sans bordure activé, utilisez les coins supérieurs droit et gauche pour déplacer ou redimensionner la fenêtre</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
@@ -5414,23 +5414,23 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
-        <translation type="unfinished"/>
+        <translation>Récupération des positions collectées, patienter</translation>
     </message>
     <message>
         <source>Snapping to every</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;accroche à tous</translation>
     </message>
     <message>
         <source>%1°</source>
-        <translation type="unfinished"/>
+        <translation>%1°</translation>
     </message>
     <message>
         <source>Snapping tolerance</source>
-        <translation type="unfinished"/>
+        <translation>Tolérance d&apos;accrochage</translation>
     </message>
     <message>
         <source>Narrow</source>
-        <translation type="unfinished"/>
+        <translation>Étroit</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -5442,7 +5442,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Snapping tolerance set to %1</source>
-        <translation type="unfinished"/>
+        <translation>Tolérance d&apos;accrochage paramétrée à %1</translation>
     </message>
 </context>
 <context>
