@@ -233,7 +233,7 @@ Popup {
 
       Loader {
         id: positioningDeviceItem
-        objectName: "positioningDeviceItem"
+        objectName: "positioningDeviceDetailsLoader"
         Layout.fillWidth: true
         Layout.fillHeight: true
         source: {
