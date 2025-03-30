@@ -10,15 +10,27 @@ import Theme
 Item {
   width: parent.width
 
+  property string deviceAddress
+  property string devicePort
+
   function generateName() {
     return "Egeniouss";
   }
 
   function setSettings(settings) {
-  // nothing to save!
+    loader.item.setSettings(settings);
   }
 
   function getSettings() {
-    return {};
+    return loader.item.getSettings();
+  }
+
+  function setupLoader(uiComponent) {
+    loader.sourceComponent = uiComponent;
+  }
+
+  Loader {
+    id: loader
+    width: parent.width
   }
 }
