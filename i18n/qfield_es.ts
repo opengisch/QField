@@ -653,6 +653,14 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
         <source>TCP receiver error (%1)</source>
         <translation>Error de receptor TCP (%1)</translation>
     </message>
+    <message>
+        <source>Failed to start egeniouss server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to stop egeniouss server.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ElevationProfile</name>

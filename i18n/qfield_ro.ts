@@ -654,6 +654,14 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>TCP receiver error (%1)</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Failed to start egeniouss server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to stop egeniouss server.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ElevationProfile</name>

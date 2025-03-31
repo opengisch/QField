@@ -653,6 +653,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>TCP receiver error (%1)</source>
         <translation>Błąd odbiornika TCP (%1)</translation>
     </message>
+    <message>
+        <source>Failed to start egeniouss server.</source>
+        <translation>Nie udało się uruchomić serwera egeniouss.</translation>
+    </message>
+    <message>
+        <source>Failed to stop egeniouss server.</source>
+        <translation>Nie udało się zatrzymać serwera egeniouss.</translation>
+    </message>
 </context>
 <context>
     <name>ElevationProfile</name>

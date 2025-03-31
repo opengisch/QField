@@ -652,6 +652,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>TCP receiver error (%1)</source>
         <translation>Erreur de réception TCP (%1)</translation>
     </message>
+    <message>
+        <source>Failed to start egeniouss server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to stop egeniouss server.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ElevationProfile</name>

@@ -653,6 +653,14 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
         <source>TCP receiver error (%1)</source>
         <translation>TCP-Empfänger Fehler (%1)</translation>
     </message>
+    <message>
+        <source>Failed to start egeniouss server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to stop egeniouss server.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ElevationProfile</name>
