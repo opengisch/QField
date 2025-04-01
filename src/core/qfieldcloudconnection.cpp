@@ -376,6 +376,12 @@ void QFieldCloudConnection::logout()
     emit providerConfigurationChanged();
   }
 
+  const QList<QNetworkCookie> cookies = QgsNetworkAccessManager::instance()->cookieJar()->cookiesForUrl( mUrl );
+  for ( const QNetworkCookie &cookie : cookies )
+  {
+    QgsNetworkAccessManager::instance()->cookieJar()->deleteCookie( cookie );
+  }
+
   setStatus( ConnectionStatus::Disconnected );
 }
 
