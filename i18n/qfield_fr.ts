@@ -179,7 +179,7 @@
     <name>Binary</name>
     <message>
         <source>(Blob)</source>
-        <translation type="unfinished"/>
+        <translation>(Blob)</translation>
     </message>
 </context>
 <context>
@@ -654,11 +654,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to start egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>Échec du démarrage du serveur egeniouss.</translation>
     </message>
     <message>
         <source>Failed to stop egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>Échec de l&apos;arrêt du serveur egeniouss.</translation>
     </message>
 </context>
 <context>
@@ -827,43 +827,43 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Annuler la suppression de %n entité sur la couche %1.</numerusform><numerusform>Annuler la suppression de %n entités sur la couche %1.</numerusform><numerusform>Annuler la suppression de %n entité(s) sur la couche %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Annuler la suppression de %n entité.</numerusform><numerusform>Annuler la suppression de %n entités.</numerusform><numerusform>Annuler la suppression de %n entité(s).</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Annuler la modification de %n entité sur la couche %1.</numerusform><numerusform>Annuler les modifications de %n entités sur la couche %1.</numerusform><numerusform>Annuler la modification de %n entité(s) sur la couche %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Annuler la modification de %n entité.</numerusform><numerusform>Annuler les modifications de %n entités.</numerusform><numerusform>Annuler les modifications de %n entité(s).</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refaire la création de %n entité de la couche %1</numerusform><numerusform>Refaire la création de %n entités de la couche %1</numerusform><numerusform>Refaire la création de %n entité(s) de la couche %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refaire la création de %n entité</numerusform><numerusform>Refaire la création de %n entités</numerusform><numerusform>Refaire la création de %n entité(s)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refaire la suppression de %n entité de la couche %1</numerusform><numerusform>Refaire la suppression de %n entités de la couche %1</numerusform><numerusform>Refaire la suppression de %n entité(s) de la couche %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refaire la suppression de %n entité</numerusform><numerusform>Refaire la suppression de %n entités</numerusform><numerusform>Refaire la suppression de %n entité(s)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refaire la modification de %n entité de la couche %1</numerusform><numerusform>Refaire les modifications de %n entités de la couche %1</numerusform><numerusform>Refaire les modifications de %n entité(s) de la couche %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refaire la modification de %n entité.</numerusform><numerusform>Refaire les modifications de %n entités.</numerusform><numerusform>Refaire les modifications de %n entité(s).</numerusform></translation>
     </message>
 </context>
 <context>
@@ -2054,7 +2054,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Egeniouss</source>
-        <translation type="unfinished"/>
+        <translation>Egeniouss</translation>
     </message>
     <message>
         <source>Connection type</source>
@@ -2117,11 +2117,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>ortho.</source>
-        <translation type="unfinished"/>
+        <translation>ortho.</translation>
     </message>
     <message>
         <source>ant.</source>
-        <translation type="unfinished"/>
+        <translation>ant.</translation>
     </message>
 </context>
 <context>
