@@ -60,6 +60,7 @@ jobs:
 
       - name: 🍹 Prepare ios build env
         run: |
+          brew uninstall cmake
           # Workaround GitHub Actions Python issues
           brew unlink python && brew link --overwrite python
           brew install automake bison flex gnu-sed s3cmd gettext autoconf-archive nasm libtool
@@ -73,7 +74,7 @@ jobs:
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
         with:
-          cmakeVersion: 3.29.0
+          cmakeVersion: 3.31.6
 
       - name: 🐍 Setup Python
         uses: actions/setup-python@v5
