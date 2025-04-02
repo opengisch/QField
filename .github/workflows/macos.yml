@@ -67,6 +67,7 @@ jobs:
 
       - name: 🔨 Prepare build env
         run: |
+          brew uninstall cmake
           brew install automake bison flex gnu-sed create-dmg autoconf-archive nasm libtool
           echo $(brew --prefix bison)/bin >> $GITHUB_PATH
           echo $(brew --prefix flex)/bin >> $GITHUB_PATH
@@ -75,7 +76,7 @@ jobs:
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
         with:
-          cmakeVersion: 3.29.0
+          cmakeVersion: 3.31.6
       - name: 🍭 Setup XCode
         uses: maxim-lobanov/setup-xcode@v1.6.0
         with:
