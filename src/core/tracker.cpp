@@ -367,9 +367,9 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   for ( const GnssPositionInformation &positionInformation : positionInformationList )
   {
-    if ( isPointGeometry )
+    if ( isPointGeometry && mFeatureModel->appExpressionContextScopesGenerator() )
     {
-      mFeatureModel->setPositionInformation( positionInformation );
+      mFeatureModel->appExpressionContextScopesGenerator()->setPositionInformation( positionInformation );
     }
     processPositionInformation( positionInformation,
                                 coordinateTransformer ? coordinateTransformer->transformPosition( QgsPoint( positionInformation.longitude(), positionInformation.latitude(), positionInformation.elevation() ) ) : QgsPoint() );

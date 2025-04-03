@@ -1126,8 +1126,7 @@ ApplicationWindow {
       mode: ExpressionEvaluator.ExpressionTemplateMode
       mapSettings: mapCanvas.mapSettings
       project: qgisProject
-      positionInformation: positionSource.positionInformation
-      cloudUserInformation: projectInfo.cloudUserInformation
+      appExpressionContextScopesGenerator: appScopesGenerator
     }
 
     Connections {
@@ -2282,10 +2281,8 @@ ApplicationWindow {
           id: digitizingFeature
           project: qgisProject
           currentLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.activeLayer
-          positionInformation: positionSource.positionInformation
+          appExpressionContextScopesGenerator: appScopesGenerator
           topSnappingResult: coordinateLocator.topSnappingResult
-          positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
-          cloudUserInformation: projectInfo.cloudUserInformation
           geometry: Geometry {
             id: digitizingGeometry
             rubberbandModel: digitizingRubberband.model
@@ -4152,6 +4149,14 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
+  AppExpressionContextScopesGenerator {
+    id: appScopesGenerator
+
+    positionInformation: positionSource.positionInformation
+    positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
+    cloudUserInformation: projectInfo.cloudUserInformation
+  }
+
   Connections {
     target: locatorItem
 
@@ -4230,10 +4235,8 @@ ApplicationWindow {
     id: geometryEditingFeature
     project: qgisProject
     currentLayer: null
-    positionInformation: positionSource.positionInformation
-    positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
+    appExpressionContextScopesGenerator: appScopesGenerator
     vertexModel: geometryEditingVertexModel
-    cloudUserInformation: projectInfo.cloudUserInformation
   }
 
   VertexModel {
