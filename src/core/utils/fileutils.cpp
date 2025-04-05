@@ -26,6 +26,7 @@
 #include <QMimeDatabase>
 #include <QPainter>
 #include <QPainterPath>
+#include <QStandardPaths>
 #include <qgis.h>
 #include <qgsexiftools.h>
 #include <qgsfileutils.h>
@@ -317,4 +318,150 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text )
       QgsExifTools::tagImage( imagePath, key, metadata[key] );
     }
   }
+}
+
+QByteArray FileUtils::readFileContent( const QString &filePath )
+{
+  QByteArray content;
+  QFile file( filePath );
+
+  if ( file.exists() )
+  {
+    if ( file.open( QIODevice::ReadOnly ) )
+    {
+      content = file.readAll();
+      file.close();
+    }
+    else
+    {
+      qDebug() << QStringLiteral( "Failed to read file content: %1" ).arg( file.errorString() );
+    }
+  }
+  else
+  {
+    qDebug() << QStringLiteral( "File does not exist: %1" ).arg( filePath );
+  }
+
+  return content;
+}
+
+bool FileUtils::writeFileContent( const QString &filePath, const QByteArray &content )
+{
+  QFile file( filePath );
+
+  // Ensure the directory exists
+  QFileInfo fileInfo( filePath );
+  QDir directory = fileInfo.dir();
+
+  // Check if the path is likely to be writable based on platform constraints
+  bool isLikelyWritable = false;
+
+#ifdef Q_OS_ANDROID
+  // On Android, check if path is in app's private storage
+  QString appStorage = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
+  isLikelyWritable = filePath.startsWith( appStorage );
+#elif defined( Q_OS_IOS )
+  // On iOS, similar check for app container
+  QString appStorage = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
+  isLikelyWritable = filePath.startsWith( appStorage );
+#else
+  // On desktop platforms, check directory write permission
+  QFileInfo dirInfo( directory.absolutePath() );
+  isLikelyWritable = dirInfo.isWritable(); // Check if directory is writable
+#endif
+
+  if ( !isLikelyWritable )
+  {
+    qWarning() << QStringLiteral( "Writing to %1 may fail due to platform restrictions. Use PlatformUtilities.applicationDirectory() for a safe location." ).arg( filePath );
+  }
+
+  if ( !directory.exists() )
+  {
+    if ( !directory.mkpath( "." ) )
+    {
+      qDebug() << QStringLiteral( "Failed to create directory for file: %1. This may be due to permission restrictions." ).arg( filePath );
+      return false;
+    }
+  }
+
+  if ( file.open( QIODevice::WriteOnly ) )
+  {
+    qint64 bytesWritten = file.write( content );
+    file.close();
+
+    if ( bytesWritten != content.size() )
+    {
+      qDebug() << QStringLiteral( "Failed to write all data to file: %1" ).arg( filePath );
+      return false;
+    }
+
+    return true;
+  }
+  else
+  {
+    QString errorMsg = file.errorString();
+    if ( file.error() == QFile::PermissionsError )
+    {
+      errorMsg += QStringLiteral( " - This may be due to platform security restrictions." );
+    }
+    qDebug() << QStringLiteral( "Failed to open file for writing: %1" ).arg( errorMsg );
+    return false;
+  }
+}
+
+QVariantMap FileUtils::getFileInfo( const QString &filePath )
+{
+  QVariantMap info;
+  QFile file( filePath );
+  QFileInfo fileInfo( filePath );
+
+  // First check if the file exists
+  if ( fileInfo.exists() )
+  {
+    info["exists"] = true;
+    info["fileName"] = fileInfo.fileName();
+    info["filePath"] = fileInfo.absoluteFilePath();
+    info["fileSize"] = fileInfo.size();
+    info["lastModified"] = fileInfo.lastModified();
+    info["suffix"] = fileInfo.suffix();
+
+    // Try to determine MIME type (may work even with no read permission)
+    QMimeDatabase db;
+    info["mimeType"] = db.mimeTypeForFile( filePath ).name();
+
+    // Try to calculate MD5 - this requires read permission
+    QByteArray md5Hash = fileChecksum( filePath, QCryptographicHash::Md5 );
+    if ( !md5Hash.isEmpty() )
+    {
+      info["md5"] = md5Hash.toHex();
+    }
+    else
+    {
+      info["md5Error"] = QStringLiteral( "Could not calculate MD5 hash - possibly due to permission restrictions" );
+    }
+
+    // Try to read content - this requires read permission
+    if ( file.open( QIODevice::ReadOnly ) )
+    {
+      info["content"] = file.readAll();
+      info["readable"] = true;
+      file.close();
+    }
+    else
+    {
+      info["readable"] = false;
+      info["readError"] = file.errorString();
+
+      if ( file.error() == QFile::PermissionsError )
+      {
+        info["readError"] = info["readError"].toString() + QStringLiteral( " - This may be due to platform security restrictions" );
+      }
+    }
+  }
+  else
+  {
+    info["exists"] = false;
+  }
+
+  return info;
 }
