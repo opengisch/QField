@@ -21,6 +21,7 @@
 
 #include <QCryptographicHash>
 #include <QObject>
+#include <QVariantMap>
 #include <qgsfeedback.h>
 
 class GnssPositionInformation;
@@ -48,8 +49,52 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
     Q_INVOKABLE static QString fileSuffix( const QString &filePath );
     //! Returns a human-friendly size from bytes
     Q_INVOKABLE static QString representFileSize( qint64 bytes );
-    //! Returns the absolute path of tghe folder containing the \a filePath.
+    //! Returns the absolute path of the folder containing the \a filePath.
     Q_INVOKABLE static QString absolutePath( const QString &filePath );
+
+    /**
+    * Checks if a file path is securely within the current project directory.
+    * Security measures:
+    * - Prevents directory traversal attacks using path normalization
+    * - Handles symbolic links that could escape project boundaries
+    * - Supports cross-platform path comparisons (Windows, macOS, Linux, Android, iOS)
+    * - Validates non-existent files safely for write operations
+    * - Prevents partial directory matching by enforcing complete path containment
+    *
+    * \param filePath The path to check
+    * \return True if the path is safely within the current project directory
+    */
+    static bool isWithinProjectDirectory( const QString &filePath );
+
+    /**
+    * Reads the entire content of a file and returns it as a byte array.
+    * \param filePath The path to the file to be read
+    * \return The file content as a QByteArray
+    */
+    Q_INVOKABLE static QByteArray readFileContent( const QString &filePath );
+
+    /**
+    * Writes content to a file.
+    * \param filePath The path to the file to be written
+    * \param content The content to write to the file
+    * \return True if the write operation was successful, false otherwise
+    *
+    * \note Platform restrictions apply:
+    * - On Android: Writing is only permitted within the app's internal storage or
+    *   properly requested scoped storage locations.
+    * - On iOS: Writing is restricted to the app's sandbox.
+    * - Use PlatformUtilities.applicationDirectory() to get a safe write location.
+    */
+    Q_INVOKABLE static bool writeFileContent( const QString &filePath, const QByteArray &content );
+
+    /**
+    * Gets detailed information about a file including content, MD5 hash and metadata.
+    * This is useful for file validation, caching, and efficient file handling in QML.
+    * \param filePath The path to the file
+    * \return A map containing file metadata and optionally its content
+    */
+    Q_INVOKABLE static QVariantMap getFileInfo( const QString &filePath );
+
 
     /**
      * Insures that a given image's width and height are restricted to a maximum size.
