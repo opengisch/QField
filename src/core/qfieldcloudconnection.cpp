@@ -228,7 +228,7 @@ void QFieldCloudConnection::getAuthenticationProviders()
   } );
 }
 
-void QFieldCloudConnection::login()
+void QFieldCloudConnection::login( const QString &password )
 {
   if ( !mProvider.isEmpty() )
   {
@@ -238,7 +238,16 @@ void QFieldCloudConnection::login()
       return;
     }
   }
+  else
+  {
+    if ( mToken.isEmpty() && password.isEmpty() )
+    {
+      emit loginFailed( tr( "Password missing" ) );
+      return;
+    }
+  }
 
+  setPassword( password );
   setStatus( ConnectionStatus::Connecting );
 
   const bool loginUsingToken = !mProvider.isEmpty() || ( !mToken.isEmpty() && ( mPassword.isEmpty() || mUsername.isEmpty() ) );

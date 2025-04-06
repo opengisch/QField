@@ -161,7 +161,7 @@ class QFieldCloudConnection : public QObject
 
     CloudUserInformation userInformation() const;
 
-    Q_INVOKABLE void login();
+    Q_INVOKABLE void login( const QString &password = QString() );
     Q_INVOKABLE void logout();
 
     Q_INVOKABLE void getAuthenticationProviders();
