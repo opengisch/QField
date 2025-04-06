@@ -11,8 +11,8 @@ index 7b50c49a..f850a311 100644
  #include "qgsalgorithmbatchnominatimgeocode.h"
  #include "qgsalgorithmboundary.h"
 @@ -101,7 +100,6 @@
- #include "qgsalgorithmforcerhr.h"
  #include "qgsalgorithmfuzzifyraster.h"
+ #include "qgsalgorithmgenerateelevationprofile.h"
  #include "qgsalgorithmgeometrybyexpression.h"
 -#include "qgsalgorithmgltftovector.h"
  #if QT_CONFIG( process )
@@ -35,8 +35,8 @@ index 7b50c49a..f850a311 100644
    addAlgorithm( new QgsBatchNominatimGeocodeAlgorithm() );
    addAlgorithm( new QgsBookmarksToLayerAlgorithm() );
 @@ -385,7 +381,6 @@ void QgsNativeAlgorithms::loadAlgorithms()
-   addAlgorithm( new QgsFuzzifyRasterGaussianMembershipAlgorithm() );
    addAlgorithm( new QgsFuzzifyRasterNearMembershipAlgorithm() );
+  addAlgorithm( new QgsGenerateElevationProfileAlgorithm() );
    addAlgorithm( new QgsGeometryByExpressionAlgorithm() );
 -  addAlgorithm( new QgsGltfToVectorFeaturesAlgorithm() );
  #if QT_CONFIG( process )
