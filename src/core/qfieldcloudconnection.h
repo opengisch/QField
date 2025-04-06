@@ -243,6 +243,7 @@ class QFieldCloudConnection : public QObject
     QString mUsername;
     QString mPassword;
     QByteArray mToken;
+    QString mTokenConfigId;
 
     QMap<QString, AuthenticationProvider> mAvailableProviders;
     bool mIsFetchingAvailableProviders = false;
