@@ -144,7 +144,7 @@ class QFieldCloudConnection : public QObject
     /**
      * Returns the connections URLs successfully logged in in the past.
      */
-    Q_INVOKABLE QStringList urls() const;
+    QStringList urls() const;
 
     QString provider() const;
     void setProvider( const QString &provider );
