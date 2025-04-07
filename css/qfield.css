@@ -330,11 +330,11 @@ div.feature {
 }
 
 div.feature h2, div.feature p {
- color: rgb(33, 33, 33) !important;
+  color: rgb(33, 33, 33) !important;
 }
 
 div.feature img {
- width:150px;
+  width:150px;
 }
 
 @font-face {
@@ -395,12 +395,11 @@ div.feature img {
   text-align: center;
   font-weight: bold;
   border-radius: 32px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.support-button a:hover {
+/* .support-button a:hover {
   background-color: #ffffff;
   color: rgb(82, 82, 81);
-}
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+} */
