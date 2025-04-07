@@ -11,13 +11,13 @@
 
 A simplified touch-optimized interface for QGIS in the field.
 
-[![header](https://github.com/user-attachments/assets/88771ae0-3701-4cf4-8d8c-cd295c0831b1)](https://qfield.org)
+[![Visit QField's homepage](https://github.com/user-attachments/assets/88771ae0-3701-4cf4-8d8c-cd295c0831b1)](https://qfield.org)
 
-## ![QField icon](https://blog.qgis.org/wp-content/uploads/2025/02/image.png?w=40) About QField
+## ![DPG icon](https://blog.qgis.org/wp-content/uploads/2025/02/image.png?w=40) About QField
 
 QField is officially recognized as a [Digital Public Good](https://digitalpublicgoods.net/r/qfield) for its contributions to open, inclusive, and sustainable digital development.
 
-QField works fully offline or connected, and supports seamless synchronization with the optional [**QFieldCloud** platform](https://qfield.cloud) for collaborative field-to-office workflows.  
+QField works fully offline or connected, and supports seamless synchronization with the optional [**QFieldCloud** platform](https://qfield.cloud) for collaborative field-to-office workflows.
 You can find the open-source QFieldCloud backend on GitHub here: [github.com/opengisch/QFieldCloud](https://github.com/opengisch/QFieldCloud)
 
 Explore the full documentation at [docs.qfield.org](https://docs.qfield.org/)
@@ -33,7 +33,7 @@ Explore the full documentation at [docs.qfield.org](https://docs.qfield.org/)
   <a href="https://qfield.org/get_latest?platform=macos"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" alt="macOS" width="20"/>Download for macOS</a>
 </p>
 
-### All Platforms  
+### All Platforms
 📦 Prefer direct downloads or older versions?  Check out the full list of releases on [GitHub Releases](https://github.com/opengisch/QField/releases)
 
 ## Verify Authenticity of the App (Android only)
@@ -55,7 +55,7 @@ We are very happy if this app helps you to get your job done or in whatever crea
 If you found it useful, we will be even happier if you could give something back. A couple of things you can do are
 
  * Rate the app [★★★★★](https://play.google.com/store/apps/details?id=ch.opengis.qfield&hl=en#details-reviews)
- * [Share about it on Mastodon](https://mastodon.social/share?text=Looking%20for%20a%20good%20tool%20for%20field%20work%20in%20GIS?%20Check%20out%20%23QField!)  
+ * [Share about it on Mastodon](https://mastodon.social/share?text=Looking%20for%20a%20good%20tool%20for%20field%20work%20in%20GIS?%20Check%20out%20%23QField!)
  * [Share on Bluesky](https://bsky.app/profile/qfield.bsky.social/share?text=Looking%20for%20a%20good%20tool%20for%20field%20work%20in%20GIS?%20Check%20out%20%23QField!)
  * Write about your experience (please [let us know](mailto:sales@qfield.cloud)!)
  * [Help with the documentation](https://github.com/opengisch/QField-docs#documentation-process)
