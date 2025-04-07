@@ -36,15 +36,11 @@ Explore the full documentation at [docs.qfield.org](https://docs.qfield.org/)
 ### All Platforms
 📦 Prefer direct downloads or older versions?  Check out the full list of releases on [GitHub Releases](https://github.com/opengisch/QField/releases)
 
-## Verify Authenticity of the App (Android only)
+### Get master (unstable) version
 
-SHA-256 hash of signing certificate:
+We automatically publish the latest master build to a [dedicated channel on the playstore](https://play.google.com/store/apps/details?id=ch.opengis.qfield_dev). You'll need to [join the beta program](https://play.google.com/apps/testing/ch.opengis.qfield_dev) to start getting the latest version.
 
-```5a7dd946a4b700c081a5bd375dbc8f0d11aa89d53832567ce5b8a92088e0e898```
-
-Use the following command to verify the hash of the signing certificate:
-
-```apksigner verify --print-certs [filename.apk] | grep "5a7dd946a4b700c081a5bd375dbc8f0d11aa89d53832567ce5b8a92088e0e898"```
+Please remember that this is the latest development build and is not meant for production.
 
 ## Contribute
 
@@ -63,12 +59,18 @@ If you found it useful, we will be even happier if you could give something back
  * [Sponsor a feature](https://docs.qfield.org/get-started/sponsor/)
  * And just drop by to say thank you or have a beer with us next time you meet OPENGIS.ch at a conference
 
-## Get master (unstable) version
-
-We automatically publish the latest master build to a [dedicated channel on the playstore](https://play.google.com/store/apps/details?id=ch.opengis.qfield_dev). You'll need to [join the beta program](https://play.google.com/apps/testing/ch.opengis.qfield_dev) to start getting the latest version.
-
-Please remember that this is the latest development build and is not meant for production.
 
 ## Development
 
 For development information, refer to the dedicated [developer documentation](doc/dev.md).
+
+## Verify Authenticity of the App packages (Android only)
+
+SHA-256 hash of signing certificate:
+
+```5a7dd946a4b700c081a5bd375dbc8f0d11aa89d53832567ce5b8a92088e0e898```
+
+Use the following command to verify the hash of the signing certificate:
+
+```apksigner verify --print-certs [filename.apk] | grep "5a7dd946a4b700c081a5bd375dbc8f0d11aa89d53832567ce5b8a92088e0e898"```
+
