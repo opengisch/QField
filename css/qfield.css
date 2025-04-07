@@ -376,3 +376,14 @@ div.feature img {
 #partner img {
   margin: 10px;
 }
+
+.social-links {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.linkedin-icon {
+  filter: invert(18%) sepia(7%) saturate(749%) hue-rotate(172deg) brightness(96%) contrast(90%);
+}
