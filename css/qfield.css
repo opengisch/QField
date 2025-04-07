@@ -134,10 +134,10 @@ text-align: justify;
     margin-bottom:70px;
 }
 
-.point { 
+.point {
   background: white;
-  height: auto;  
-  margin: 50px 50px 80px 50px; 
+  height: auto;
+  margin: 50px 50px 80px 50px;
   position: relative;
   box-sizing: border-box;
 }
@@ -279,12 +279,12 @@ text-align: justify;
   float: right;
 }
 
-#about { 
+#about {
   background-color: #212121;
   height: auto;
   margin: 0 auto 0px auto;
-  width: 100%; 
-  position: relative; 
+  width: 100%;
+  position: relative;
   padding: 100px 0;
   color: #fff;
 }
@@ -387,3 +387,20 @@ div.feature img {
 .linkedin-icon {
   filter: invert(18%) sepia(7%) saturate(749%) hue-rotate(172deg) brightness(96%) contrast(90%);
 }
+
+.support-button a {
+  margin-left: 10px;
+  padding: 11px !important;
+  background-color: rgb(82, 82, 81);
+  text-align: center;
+  font-weight: bold;
+  border-radius: 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.support-button a:hover {
+  background-color: #ffffff;
+  color: rgb(82, 82, 81);
+}
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
