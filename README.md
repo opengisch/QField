@@ -13,12 +13,12 @@ A simplified touch-optimized interface for QGIS in the field.
 
 [![Visit QField's homepage](https://github.com/user-attachments/assets/88771ae0-3701-4cf4-8d8c-cd295c0831b1)](https://qfield.org)
 
-## ![DPG icon](https://blog.qgis.org/wp-content/uploads/2025/02/image.png?w=40) About QField
-
-QField is officially recognized as a [Digital Public Good](https://digitalpublicgoods.net/r/qfield) for its contributions to open, inclusive, and sustainable digital development.
+## 🧭 About QField
 
 QField works fully offline or connected, and supports seamless synchronization with the optional [**QFieldCloud** platform](https://qfield.cloud) for collaborative field-to-office workflows.
 You can find the open-source QFieldCloud backend on GitHub here: [github.com/opengisch/QFieldCloud](https://github.com/opengisch/QFieldCloud)
+
+QField is officially recognized as a [Digital Public Good](https://digitalpublicgoods.net/r/qfield) for its contributions to open, inclusive, and sustainable digital development.
 
 Explore the full documentation at [docs.qfield.org](https://docs.qfield.org/)
 
