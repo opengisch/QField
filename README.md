@@ -34,8 +34,7 @@ Explore the full documentation at [docs.qfield.org](https://docs.qfield.org/)
 </p>
 
 ### All Platforms  
-📦 Prefer direct downloads or older versions?  
-Check out the full list of releases on [GitHub Releases](https://github.com/opengisch/QField/releases)
+📦 Prefer direct downloads or older versions?  Check out the full list of releases on [GitHub Releases](https://github.com/opengisch/QField/releases)
 
 ## Verify Authenticity of the App (Android only)
 
