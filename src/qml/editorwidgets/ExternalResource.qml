@@ -17,7 +17,9 @@ EditorWidgetBase {
   ExpressionEvaluator {
     id: rootPathEvaluator
     project: qgisProject
+    appExpressionContextScopesGenerator: appScopesGenerator
   }
+
   property string prefixToRelativePath: {
     if (qgisProject == undefined)
       return "";
@@ -146,6 +148,7 @@ EditorWidgetBase {
     feature: currentFeature
     layer: currentLayer
     project: qgisProject
+    appExpressionContextScopesGenerator: appScopesGenerator
     expressionText: {
       var value;
       if (currentLayer && currentLayer.customProperty('QFieldSync/attachment_naming') !== undefined) {

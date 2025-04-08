@@ -338,6 +338,15 @@ void FeatureListModel::gatherFeatureList()
   {
     QgsExpressionContext filterContext = QgsExpressionContext( QgsExpressionContextUtils::globalProjectLayerScopes( mCurrentLayer ) );
 
+    if ( mAppExpressionContextScopesGenerator )
+    {
+      QList<QgsExpressionContextScope *> scopes = mAppExpressionContextScopesGenerator->generate();
+      while ( !scopes.isEmpty() )
+      {
+        filterContext.appendScope( scopes.takeFirst() );
+      }
+    }
+
     if ( mCurrentFormFeature.isValid() && QgsValueRelationFieldFormatter::expressionRequiresFormScope( mFilterExpression ) )
       filterContext.appendScope( QgsExpressionContextUtils::formScope( mCurrentFormFeature ) );
 
@@ -519,4 +528,24 @@ void FeatureListModel::setCurrentFormFeature( const QgsFeature &feature )
   }
 
   emit currentFormFeatureChanged();
+}
+
+AppExpressionContextScopesGenerator *FeatureListModel::appExpressionContextScopesGenerator() const
+{
+  return mAppExpressionContextScopesGenerator.data();
+}
+
+void FeatureListModel::setAppExpressionContextScopesGenerator( AppExpressionContextScopesGenerator *generator )
+{
+  if ( mAppExpressionContextScopesGenerator == generator )
+    return;
+
+  mAppExpressionContextScopesGenerator = generator;
+
+  if ( !mFilterExpression.isEmpty() )
+  {
+    reloadLayer();
+  }
+
+  emit appExpressionContextScopesGeneratorChanged();
 }

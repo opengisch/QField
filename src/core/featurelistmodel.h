@@ -17,6 +17,7 @@
 #ifndef FEATURELISTMODEL_H
 #define FEATURELISTMODEL_H
 
+#include "appexpressioncontextscopesgenerator.h"
 #include "featureexpressionvaluesgatherer.h"
 
 #include <QAbstractItemModel>
@@ -40,43 +41,43 @@ class FeatureListModel : public QAbstractItemModel
     Q_OBJECT
 
     /**
-       * The vector layer to list
-       */
+     * The vector layer to list
+     */
     Q_PROPERTY( QgsVectorLayer *currentLayer READ currentLayer WRITE setCurrentLayer NOTIFY currentLayerChanged )
 
     /**
-       * The primary key field
-       */
+     * The primary key field
+     */
     Q_PROPERTY( QString keyField READ keyField WRITE setKeyField NOTIFY keyFieldChanged )
 
     /**
-       * The display value field
-       */
+     * The display value field
+     */
     Q_PROPERTY( QString displayValueField READ displayValueField WRITE setDisplayValueField NOTIFY displayValueFieldChanged )
 
     /**
-       * The grouping key field
-       */
+     * The grouping key field
+     */
     Q_PROPERTY( QString groupField READ groupField WRITE setGroupField NOTIFY groupFieldChanged )
 
     /**
-      * Set to TRUE if the group name will be displayed in the list
-      */
+     * Set to TRUE if the group name will be displayed in the list
+     */
     Q_PROPERTY( bool displayGroupName READ displayGroupName WRITE setDisplayGroupName NOTIFY displayGroupNameChanged )
 
     /**
-      * Set to TRUE if features should be ordered by value
-      */
+     * Set to TRUE if features should be ordered by value
+     */
     Q_PROPERTY( bool orderByValue READ orderByValue WRITE setOrderByValue NOTIFY orderByValueChanged )
 
     /**
-      * Set to TRUE if null values are allowed in the list
-      */
+     * Set to TRUE if null values are allowed in the list
+     */
     Q_PROPERTY( bool addNull READ addNull WRITE setAddNull NOTIFY addNullChanged )
 
     /**
-      * Expression to filter features with. Empty string if no filter is applied.
-      */
+     * Expression to filter features with. Empty string if no filter is applied.
+     */
     Q_PROPERTY( QString filterExpression READ filterExpression WRITE setFilterExpression NOTIFY filterExpressionChanged )
 
     /**
@@ -85,9 +86,14 @@ class FeatureListModel : public QAbstractItemModel
     Q_PROPERTY( QString searchTerm READ searchTerm WRITE setSearchTerm NOTIFY searchTermChanged )
 
     /**
-      * The current form feature, used to evaluate expressions such as `current_value('attr1')`
-      **/
+     * The current form feature, used to evaluate expressions such as `current_value('attr1')`
+     */
     Q_PROPERTY( QgsFeature currentFormFeature READ currentFormFeature WRITE setCurrentFormFeature NOTIFY currentFormFeatureChanged )
+
+    /**
+     * The application expression context scope generator used when filtering by expression
+     */
+    Q_PROPERTY( AppExpressionContextScopesGenerator *appExpressionContextScopesGenerator READ appExpressionContextScopesGenerator WRITE setAppExpressionContextScopesGenerator NOTIFY appExpressionContextScopesGeneratorChanged )
 
   public:
     enum FeatureListRoles
@@ -198,6 +204,16 @@ class FeatureListModel : public QAbstractItemModel
      */
     void setCurrentFormFeature( const QgsFeature &feature );
 
+    /**
+     * Returns the application expression context scope generator used when filtering by expression
+     */
+    AppExpressionContextScopesGenerator *appExpressionContextScopesGenerator() const;
+
+    /**
+     * Sets the application expression context scope generator used when filtering by expression
+     */
+    void setAppExpressionContextScopesGenerator( AppExpressionContextScopesGenerator *generator );
+
   signals:
     void currentLayerChanged();
     void keyFieldChanged();
@@ -209,6 +225,7 @@ class FeatureListModel : public QAbstractItemModel
     void filterExpressionChanged();
     void searchTermChanged();
     void currentFormFeatureChanged();
+    void appExpressionContextScopesGeneratorChanged();
 
   private slots:
     void onFeatureAdded();
@@ -274,6 +291,7 @@ class FeatureListModel : public QAbstractItemModel
     QString mFilterExpression;
     QString mSearchTerm;
     QgsFeature mCurrentFormFeature;
+    QPointer<AppExpressionContextScopesGenerator> mAppExpressionContextScopesGenerator;
 
     QTimer mReloadTimer;
 };

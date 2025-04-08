@@ -75,7 +75,9 @@ Item {
       vectorLayer: tracker.vectorLayer
     }
 
-    positionLocked: true
-    cloudUserInformation: projectInfo.cloudUserInformation
+    appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
+      positionLocked: true
+      cloudUserInformation: appScopesGenerator.cloudUserInformation
+    }
   }
 }

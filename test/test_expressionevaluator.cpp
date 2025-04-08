@@ -15,6 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "appexpressioncontextscopesgenerator.h"
 #include "catch2.h"
 #include "expressionevaluator.h"
 #include "positioningutils.h"
@@ -25,6 +26,8 @@
 TEST_CASE( "ExpressionEvaluator" )
 {
   ExpressionEvaluator evaluator;
+  AppExpressionContextScopesGenerator appExpressionContextScopesGenerator;
+  evaluator.setAppExpressionContextScopesGenerator( &appExpressionContextScopesGenerator );
 
   QgsProject project;
   project.setTitle( QStringLiteral( "QField rocks!" ) );
@@ -37,10 +40,10 @@ TEST_CASE( "ExpressionEvaluator" )
   evaluator.setFeature( feature );
 
   GnssPositionInformation positionInformation = PositioningUtils::createGnssPositionInformation( 1.234, 1.234, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, QDateTime(), QStringLiteral( "test" ) );
-  evaluator.setPositionInformation( positionInformation );
+  evaluator.appExpressionContextScopesGenerator()->setPositionInformation( positionInformation );
 
   CloudUserInformation cloudUserInformation( QStringLiteral( "nyuki" ), QStringLiteral( "nyuki@opengis.ch" ) );
-  evaluator.setCloudUserInformation( cloudUserInformation );
+  evaluator.appExpressionContextScopesGenerator()->setCloudUserInformation( cloudUserInformation );
 
   SECTION( "Expression mode" )
   {

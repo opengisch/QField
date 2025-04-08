@@ -49,6 +49,11 @@ struct CloudUserInformation
       , email( cloudUserInformation.value( QStringLiteral( "email" ) ).toString() )
     {}
 
+    bool operator==( const CloudUserInformation &other ) const
+    {
+      return username == other.username && email == other.email;
+    }
+
     QJsonObject toJson() const
     {
       QJsonObject cloudUserInformation;

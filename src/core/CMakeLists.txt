@@ -43,6 +43,7 @@ set(QFIELD_CORE_SRCS
     processing/processingalgorithmparametersmodel.cpp
     processing/processingalgorithmsmodel.cpp
     appcoordinateoperationhandlers.cpp
+    appexpressioncontextscopesgenerator.cpp
     appinterface.cpp
     attributeformmodel.cpp
     attributeformmodelbase.cpp
@@ -168,6 +169,7 @@ set(QFIELD_CORE_HDRS
     processing/processingalgorithmparametersmodel.h
     processing/processingalgorithmsmodel.h
     appcoordinateoperationhandlers.h
+    appexpressioncontextscopesgenerator.h
     appinterface.h
     attributeformmodel.h
     attributeformmodelbase.h
