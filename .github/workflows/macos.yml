@@ -194,9 +194,8 @@ jobs:
           gtar --strip-components=4 -zxf ./artifacts/qfield-app-x64-osx/qfield-app-x64-osx.tar.gz -C x64
           mkdir -p arm64
           gtar --strip-components=4 -zxf ./artifacts/qfield-app-arm64-osx/qfield-app-arm64-osx.tar.gz -C arm64
-
-          wget https://raw.githubusercontent.com/faaxm/lipo-dir-merge/refs/heads/main/lipo-dir-merge.py
-          python lipo-dir-merge.py ./x64 ./arm64 universal
+          pip install lipomerge
+          lipomerge ./x64 ./arm64 universal
 
       - name: Create dmg
         run: |
