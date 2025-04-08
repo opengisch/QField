@@ -75,9 +75,8 @@ Page {
 
         Rectangle {
           id: cloudAvatarMask
-          anchors.centerIn: parent
-          width: 46
-          height: 46
+          anchors.fill: parent
+          anchors.margins: 1
           radius: width / 2
           color: "white"
           visible: false
@@ -87,7 +86,7 @@ Page {
         Image {
           id: cloudAvatar
           anchors.fill: parent
-          anchors.margins: 2
+          anchors.margins: 1
           fillMode: Image.PreserveAspectFit
           smooth: true
           source: cloudConnection.avatarUrl !== '' ? cloudConnection.avatarUrl : 'qrc:/images/qfieldcloud_logo.svg'

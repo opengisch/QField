@@ -144,7 +144,7 @@ class QFieldCloudConnection : public QObject
     /**
      * Returns the connections URLs successfully logged in in the past.
      */
-    Q_INVOKABLE QStringList urls() const;
+    QStringList urls() const;
 
     QString provider() const;
     void setProvider( const QString &provider );
@@ -161,7 +161,7 @@ class QFieldCloudConnection : public QObject
 
     CloudUserInformation userInformation() const;
 
-    Q_INVOKABLE void login();
+    Q_INVOKABLE void login( const QString &password = QString() );
     Q_INVOKABLE void logout();
 
     Q_INVOKABLE void getAuthenticationProviders();
@@ -243,6 +243,7 @@ class QFieldCloudConnection : public QObject
     QString mUsername;
     QString mPassword;
     QByteArray mToken;
+    QString mTokenConfigId;
 
     QMap<QString, AuthenticationProvider> mAvailableProviders;
     bool mIsFetchingAvailableProviders = false;

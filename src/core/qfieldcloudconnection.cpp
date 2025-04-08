@@ -39,7 +39,7 @@
 QFieldCloudConnection::QFieldCloudConnection()
   : mUrl( QSettings().value( QStringLiteral( "/QFieldCloud/url" ), defaultUrl() ).toString() )
   , mUsername( QSettings().value( QStringLiteral( "/QFieldCloud/username" ) ).toString() )
-  , mToken( QSettings().value( QStringLiteral( "/QFieldCloud/token" ) ).toByteArray() )
+  , mTokenConfigId( QSettings().value( QStringLiteral( "/QFieldCloud/tokenConfigId" ) ).toString() )
   , mProvider( QSettings().value( QStringLiteral( "/QFieldCloud/provider" ) ).toString() )
   , mProviderConfigId( QSettings().value( QStringLiteral( "/QFieldCloud/providerConfigId" ) ).toString() )
 {
@@ -53,6 +53,18 @@ QFieldCloudConnection::QFieldCloudConnection()
   {
     mProviderConfigId.clear();
     QSettings().remove( "/QFieldCloud/providerConfigId" );
+  }
+
+  if ( QgsApplication::authManager()->availableAuthMethodConfigs().contains( mTokenConfigId ) )
+  {
+    QgsAuthMethodConfig config;
+    QgsApplication::instance()->authManager()->loadAuthenticationConfig( mTokenConfigId, config, true );
+    mToken = config.config( "qfieldcloud-token" ).toLatin1();
+  }
+  else
+  {
+    mTokenConfigId.clear();
+    QSettings().remove( "/QFieldCloud/tokenConfigId" );
   }
 }
 
@@ -228,7 +240,7 @@ void QFieldCloudConnection::getAuthenticationProviders()
   } );
 }
 
-void QFieldCloudConnection::login()
+void QFieldCloudConnection::login( const QString &password )
 {
   if ( !mProvider.isEmpty() )
   {
@@ -238,7 +250,16 @@ void QFieldCloudConnection::login()
       return;
     }
   }
+  else
+  {
+    if ( mToken.isEmpty() && password.isEmpty() )
+    {
+      emit loginFailed( tr( "Password missing" ) );
+      return;
+    }
+  }
 
+  setPassword( password );
   setStatus( ConnectionStatus::Connecting );
 
   const bool loginUsingToken = !mProvider.isEmpty() || ( !mToken.isEmpty() && ( mPassword.isEmpty() || mUsername.isEmpty() ) );
@@ -539,7 +560,32 @@ void QFieldCloudConnection::setToken( const QByteArray &token )
     return;
 
   mToken = token;
-  QSettings().setValue( "/QFieldCloud/token", token );
+
+  if ( !mToken.isEmpty() )
+  {
+    QgsAuthMethodConfig config;
+    if ( QgsApplication::authManager()->availableAuthMethodConfigs().contains( mTokenConfigId ) )
+    {
+      QgsApplication::instance()->authManager()->loadAuthenticationConfig( mProviderConfigId, config, true );
+    }
+    else
+    {
+      config.setName( "qfieldcloud-credentials" );
+      config.setMethod( "Basic" );
+    }
+    config.setConfig( "qfieldcloud-token", mToken );
+    QgsApplication::instance()->authManager()->storeAuthenticationConfig( config, true );
+    QSettings().setValue( "/QFieldCloud/tokenConfigId", config.id() );
+  }
+  else
+  {
+    if ( !mTokenConfigId.isEmpty() )
+    {
+      QgsApplication::instance()->authManager()->removeAuthenticationConfig( mTokenConfigId );
+      mTokenConfigId.clear();
+      QSettings().remove( "/QFieldCloud/tokenConfigId" );
+    }
+  }
 
   emit tokenChanged();
 }
@@ -550,7 +596,13 @@ void QFieldCloudConnection::invalidateToken()
     return;
 
   mToken = QByteArray();
-  QSettings().remove( "/QFieldCloud/token" );
+
+  if ( !mTokenConfigId.isEmpty() )
+  {
+    QgsApplication::instance()->authManager()->removeAuthenticationConfig( mTokenConfigId );
+    mTokenConfigId.clear();
+    QSettings().remove( "/QFieldCloud/tokenConfigId" );
+  }
 
   emit tokenChanged();
 }

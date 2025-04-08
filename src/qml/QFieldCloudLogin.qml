@@ -336,10 +336,9 @@ Item {
       cloudConnection.logout();
     } else {
       cloudConnection.username = usernameField.text;
-      cloudConnection.password = passwordField.text;
       cloudConnection.provider = "";
       cloudConnection.url = serverUrlField.text !== '' && prefixUrlWithProtocol(serverUrlField.text) !== cloudConnection.defaultUrl ? prefixUrlWithProtocol(serverUrlField.text) : cloudConnection.defaultUrl;
-      cloudConnection.login();
+      cloudConnection.login(passwordField.text);
     }
   }
 
