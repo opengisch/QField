@@ -75,5 +75,5 @@ QList<QgsExpressionContextScope *> AppExpressionContextScopesGenerator::generate
   }
   scopes << ExpressionContextUtils::cloudUserScope( mCloudUserInformation );
 
-  return std::move( scopes );
+  return scopes;
 }
