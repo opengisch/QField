@@ -246,6 +246,12 @@ Item {
         text: qsTr("Sign in using %1").arg(modelData.name)
         height: 48
 
+        bgcolor: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.color_fill : modelData.details.styles.light.color_fill : Theme.mainColor
+        borderColor: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.color_stroke : modelData.details.styles.light.color_stroke : Theme.mainColor
+        color: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.color_text : modelData.details.styles.light.color_text : Theme.buttonTextColor
+        icon.source: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.logo : modelData.details.styles.light.logo : ""
+        icon.color: "transparent"
+
         onClicked: {
           loginFormSubmitProvider(modelData.id);
         }
