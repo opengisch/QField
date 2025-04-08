@@ -28,16 +28,16 @@ div.navbar li a {
 }
 
 @media (min-width: 768px) {
- .navbar-nav {
-   height:100px;
- }
+.navbar-nav {
+  height:100px;
+}
 
- .navbar-nav>li {
-   float:none;
-   display:table-cell;
-   height:100px;
-   vertical-align:middle;
-   font-weight:bold;
+.navbar-nav>li {
+  float:none;
+  display:table-cell;
+  height:100px;
+  vertical-align:middle;
+  font-weight:bold;
  }
 }
 
