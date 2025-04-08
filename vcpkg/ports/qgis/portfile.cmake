@@ -11,7 +11,6 @@ vcpkg_from_github(
         qgspython.patch # Make qgis support python's debug library
         libxml2.patch
         exiv2.patch
-        bigobj.patch
         mesh.patch
         crssync-no-install.patch
         include-qthread.patch
