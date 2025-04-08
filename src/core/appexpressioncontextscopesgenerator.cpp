@@ -29,6 +29,9 @@ GnssPositionInformation AppExpressionContextScopesGenerator::positionInformation
 
 void AppExpressionContextScopesGenerator::setPositionInformation( const GnssPositionInformation &positionInformation )
 {
+  if ( mPositionInformation == positionInformation )
+    return;
+
   mPositionInformation = positionInformation;
   emit positionInformationChanged();
 }
@@ -55,6 +58,9 @@ CloudUserInformation AppExpressionContextScopesGenerator::cloudUserInformation()
 
 void AppExpressionContextScopesGenerator::setCloudUserInformation( const CloudUserInformation &cloudUserInformation )
 {
+  if ( mCloudUserInformation == cloudUserInformation )
+    return;
+
   mCloudUserInformation = cloudUserInformation;
   emit cloudUserInformationChanged();
 }
