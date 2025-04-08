@@ -30,7 +30,7 @@ class ExternalStorage : public QObject
 
     Q_PROPERTY( Qgis::ContentStatus status READ status NOTIFY statusChanged )
     Q_PROPERTY( QString type READ type WRITE setType NOTIFY typeChanged )
-    Q_PROPERTY( QString lastError READ lastError NOTIFY lastErrorChanged );
+    Q_PROPERTY( QString lastError READ lastError NOTIFY lastErrorChanged )
 
     Q_PROPERTY( QString fetchedContent READ fetchedContent NOTIFY fetchedContentChanged )
 
@@ -51,7 +51,6 @@ class ExternalStorage : public QObject
     /**
      * Sets the current external storage type string. The type string must be tied to an
      * external storage object that was added in the QgsApplication::externalStorageRegistry().
-     *
      */
     void setType( const QString &type );
 
