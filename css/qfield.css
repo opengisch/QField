@@ -38,7 +38,7 @@ div.navbar li a {
   height:100px;
   vertical-align:middle;
   font-weight:bold;
- }
+}
 }
 
 .navbar-default .navbar-toggle {
@@ -143,8 +143,8 @@ text-align: justify;
 }
 
 .point img {
- width:220px;
- max-width:100%;
+  width:220px;
+  max-width:100%;
 }
 
 #customers {
