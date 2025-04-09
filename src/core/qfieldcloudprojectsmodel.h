@@ -453,6 +453,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         int autoPushIntervalMins = 30;
 
         QMap<JobType, Job> jobs;
+        QStringList localizedDatasets;
     };
 
     inline QString layerFileName( const QgsMapLayer *layer ) const;

@@ -2178,6 +2178,16 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
       }
     }
 
+    if ( projectDetails.contains( "localized_datasets" ) )
+    {
+      const QVariantList localizedDatasets = projectDetails.value( "localized_datasets" ).toList();
+      for ( const QVariant &localizedDataset : localizedDatasets )
+      {
+        const QVariantMap localizedDatasetDetails = localizedDataset.toMap();
+        cloudProject->localizedDatasets << localizedDatasetDetails.value( "datasource" ).toString().mid( 10 );
+      }
+    }
+
     cloudProject->lastRefreshedAt = QDateTime::currentDateTimeUtc();
     freshCloudProjects.push_back( cloudProject );
   }
