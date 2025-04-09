@@ -331,15 +331,16 @@ class QFieldCloudProjectsModel : public QAbstractListModel
         FileTransfer(
           const QString &fileName,
           const long long bytesTotal,
-          NetworkReply *networkReply = nullptr,
-          const QStringList &layerIds = QStringList() )
-          : fileName( fileName ), bytesTotal( bytesTotal ), networkReply( networkReply ), layerIds( layerIds ) {};
+          const QString &projectId )
+          : fileName( fileName ), bytesTotal( bytesTotal ), projectId( projectId ) {};
 
         FileTransfer() = default;
 
         QString fileName;
-        QString tmpFile;
         long long bytesTotal;
+        QString projectId;
+
+        QString tmpFile;
         long long bytesTransferred = 0;
         bool isFinished = false;
         QPointer<NetworkReply> networkReply;
@@ -467,7 +468,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QString mUsername;
     QStringList mActiveProjectFilesToDownload;
     const int mProjectsPerFetch = 250;
-    QMap<QString, QString> mLocalizedDatasets;
+    QMap<QString, QString> mLocalizedDatasetsProjects;
 
     QModelIndex findProjectIndex( const QString &projectId ) const;
     CloudProject *findProject( const QString &projectId ) const;

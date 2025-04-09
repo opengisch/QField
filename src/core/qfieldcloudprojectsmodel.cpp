@@ -1019,6 +1019,7 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
     }
 
     const QJsonObject payload = QJsonDocument::fromJson( rawReply->readAll() ).object();
+    qDebug() << payload.toVariantMap();
     const QString packageId = payload.value( QStringLiteral( "package_id" ) ).toString();
     const QString packagedAt = payload.value( QStringLiteral( "packaged_at" ) ).toString();
 
@@ -1057,13 +1058,14 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
       if ( cloudEtag == localEtag )
         continue;
 
-      project->downloadFileTransfers.insert( fileName, FileTransfer( fileName, fileSize ) );
+      project->downloadFileTransfers.insert( fileName, FileTransfer( fileName, fileSize, projectId ) );
       project->downloadBytesTotal += std::max( fileSize, 0 );
     }
 
     emit dataChanged( projectIndex, projectIndex, QVector<int>() << DownloadSizeRole );
 
     const QJsonObject layers = payload.value( QStringLiteral( "layers" ) ).toObject();
+    QStringList localizedDatasets;
     bool hasLayerExportErrror = false;
     for ( const QString &layerKey : layers.keys() )
     {
@@ -1081,7 +1083,15 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
       }
       else
       {
-        if ( !layer.value( QStringLiteral( "is_valid" ) ).toBool() && !layer.value( QStringLiteral( "is_localized" ) ).toBool() )
+        if ( layer.value( QStringLiteral( "is_localized" ) ).toBool() )
+        {
+          const QString localizedDataset = layer.value( "datasource" ).toString().mid( 10 );
+          if ( !localizedDataset.isEmpty() )
+          {
+            localizedDatasets << localizedDataset;
+          }
+        }
+        else if ( !layer.value( QStringLiteral( "is_valid" ) ).toBool() )
         {
           QString errorSummary = layer.value( QStringLiteral( "error_summary" ) ).toString() + layer.value( QStringLiteral( "provider_error_summary" ) ).toString();
 
@@ -1102,13 +1112,77 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
     project->lastExportId = packageId;
     project->lastExportedAt = packagedAt;
 
-    QgsLogger::debug( QStringLiteral( "Project %1: packaged files to download - %2 files, namely: %3" )
-                        .arg( projectId )
-                        .arg( project->downloadFileTransfers.count() )
-                        .arg( project->downloadFileTransfers.keys().join( ", " ) ) );
+    if ( !localizedDatasets.isEmpty() && mLocalizedDatasetsProjects.contains( project->owner ) )
+    {
+      NetworkReply *localizedDatasetsReply = mCloudConnection->get( QStringLiteral( "/api/v1/files/%1/latest/" ).arg( mLocalizedDatasetsProjects[project->owner] ) );
+      connect( localizedDatasetsReply, &NetworkReply::finished, reply, [=]() {
+        if ( !findProject( projectId ) )
+        {
+          QgsLogger::debug( QStringLiteral( "Project %1: adding download file connections, but the project is deleted." ).arg( projectId ) );
+          return;
+        }
 
-    updateActiveProjectFilesToDownload( projectId );
-    projectDownloadFiles( projectId );
+        QNetworkReply *rawReply = reply->currentRawReply();
+        reply->deleteLater();
+
+        if ( rawReply->error() != QNetworkReply::NoError )
+        {
+          QgsLogger::debug( QStringLiteral( "Project %1: failed to get latest package data. %2" ).arg( projectId, QFieldCloudConnection::errorString( rawReply ) ) );
+          emit projectDownloadFinished( projectId, tr( "Failed to get latest package data." ) );
+          return;
+        }
+
+        const QJsonArray files = QJsonDocument::fromJson( rawReply->readAll() ).array();
+        for ( const QJsonValue &fileValue : files )
+        {
+          const QJsonObject fileObject = fileValue.toObject();
+          const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
+          if ( localizedDatasets.contains( fileName ) )
+          {
+            const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
+            const QString absoluteFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), project->owner, mLocalizedDatasetsProjects[project->owner], fileName );
+            // NOTE the cloud API is giving the false impression that the file keys `md5sum` is having a MD5 or another checksum.
+            // This actually is an Object Storage (S3) implementation specific ETag.
+            const QString cloudEtag = fileObject.value( QStringLiteral( "md5sum" ) ).toString();
+            const QString localEtag = FileUtils::fileEtag( absoluteFileName );
+
+            if (
+              !fileObject.value( QStringLiteral( "size" ) ).isDouble()
+              || fileName.isEmpty()
+              || cloudEtag.isEmpty() )
+            {
+              QgsLogger::debug( QStringLiteral( "Project %1: package in \"files\" list does not contain the expected fields: size(int), name(string), md5sum(string)" ).arg( projectId ) );
+              emit projectDownloadFinished( projectId, tr( "Latest package data structure error." ) );
+              return;
+            }
+
+            if ( cloudEtag == localEtag )
+              continue;
+
+            project->downloadFileTransfers.insert( fileName, FileTransfer( fileName, fileSize, mLocalizedDatasetsProjects[project->owner] ) );
+            project->downloadBytesTotal += std::max( fileSize, 0 );
+          }
+        }
+
+        QgsLogger::debug( QStringLiteral( "Project %1: packaged files to download - %2 files, namely: %3" )
+                            .arg( projectId )
+                            .arg( project->downloadFileTransfers.count() )
+                            .arg( project->downloadFileTransfers.keys().join( ", " ) ) );
+
+        updateActiveProjectFilesToDownload( projectId );
+        projectDownloadFiles( projectId );
+      } );
+    }
+    else
+    {
+      QgsLogger::debug( QStringLiteral( "Project %1: packaged files to download - %2 files, namely: %3" )
+                          .arg( projectId )
+                          .arg( project->downloadFileTransfers.count() )
+                          .arg( project->downloadFileTransfers.keys().join( ", " ) ) );
+
+      updateActiveProjectFilesToDownload( projectId );
+      projectDownloadFiles( projectId );
+    }
   } );
 }
 
@@ -1708,7 +1782,7 @@ void QFieldCloudProjectsModel::projectListReceived()
     beginResetModel();
     mProjects.clear();
     endResetModel();
-    mLocalizedDatasets.clear();
+    mLocalizedDatasetsProjects.clear();
   }
 
   QByteArray response = rawReply->readAll();
@@ -2142,7 +2216,7 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
     if ( projectDetails.value( "name" ) == QStringLiteral( "localized_datasets" ) )
     {
       // Protected name, skip
-      mLocalizedDatasets[projectDetails.value( "owner" ).toString()] = projectDetails.value( "id" ).toString();
+      mLocalizedDatasetsProjects[projectDetails.value( "owner" ).toString()] = projectDetails.value( "id" ).toString();
       continue;
     }
 
