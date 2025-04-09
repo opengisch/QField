@@ -736,6 +736,14 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>Draw a sketch</source>
         <translation>Piirrä luonnos</translation>
     </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Opi lisää</translation>
+    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -1626,7 +1634,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Move Feature</source>
-        <translation>Siirrä ominaisuus</translation>
+        <translation>Siirrä kohde</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -2369,6 +2377,10 @@ syy: %2</translation>
     </message>
     <message>
         <source>Authentication provider missing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password missing</source>
         <translation type="unfinished"/>
     </message>
 </context>

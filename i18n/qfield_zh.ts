@@ -736,6 +736,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>Draw a sketch</source>
         <translation>绘制草图</translation>
     </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
+        <translation>外部存储的认证配置ID缺失，请确保已将其导入QField</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>点击了解更多信息</translation>
+    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2368,6 +2376,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Authentication provider missing</source>
         <translation>缺少身份验证提供程序</translation>
+    </message>
+    <message>
+        <source>Password missing</source>
+        <translation>密码缺失</translation>
     </message>
 </context>
 <context>

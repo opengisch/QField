@@ -736,6 +736,14 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>Draw a sketch</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Více informací</translation>
+    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2373,6 +2381,10 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Authentication provider missing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password missing</source>
         <translation type="unfinished"/>
     </message>
 </context>

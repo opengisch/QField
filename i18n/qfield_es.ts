@@ -736,6 +736,14 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
         <source>Draw a sketch</source>
         <translation>Dibujar un esquema</translation>
     </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Aprende más</translation>
+    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2371,6 +2379,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Authentication provider missing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password missing</source>
         <translation type="unfinished"/>
     </message>
 </context>

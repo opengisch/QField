@@ -735,6 +735,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>Draw a sketch</source>
         <translation>Dessiner un croquis</translation>
     </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>En savoir plus</translation>
+    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2371,6 +2379,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Authentication provider missing</source>
         <translation>Fournisseur d&apos;authentification absent</translation>
+    </message>
+    <message>
+        <source>Password missing</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

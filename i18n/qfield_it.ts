@@ -736,6 +736,14 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>Draw a sketch</source>
         <translation>Disegna uno schizzo</translation>
     </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Per saperne di più</translation>
+    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2371,6 +2379,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Authentication provider missing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password missing</source>
         <translation type="unfinished"/>
     </message>
 </context>

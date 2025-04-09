@@ -736,6 +736,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Draw a sketch</source>
         <translation>Narysuj szkic</translation>
     </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
+        <translation>Brakuje identyfikatora konfiguracji uwierzytelniania zewnętrznej pamięci masowej, upewnij się, że został on zaimportowany do QField.</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Dowiedz się więcej</translation>
+    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2374,6 +2382,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Authentication provider missing</source>
         <translation>Brak dostawcy uwierzytelniania</translation>
+    </message>
+    <message>
+        <source>Password missing</source>
+        <translation>Brak hasła</translation>
     </message>
 </context>
 <context>
