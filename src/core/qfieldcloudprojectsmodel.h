@@ -484,23 +484,22 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void projectSetSetting( const QString &projectId, const QString &setting, const QVariant &value );
     QVariant projectSetting( const QString &projectId, const QString &setting, const QVariant &defaultValue = QVariant() );
 
-    NetworkReply *downloadFile( const QString &projectId, const QString &fileName );
+    NetworkReply *downloadFile( const QString &projectId, const QString &fileName, bool fromPackage = true );
     void projectDownloadFiles( const QString &projectId );
     void updateActiveProjectFilesToDownload( const QString &projectId );
 
     bool canSyncProject( const QString &projectId ) const;
 
     bool deleteGpkgShmAndWal( const QStringList &gpkgFileNames );
-    QStringList projectFileNames( const QString &projectPath, const QStringList &fileNames ) const;
-    QStringList filterGpkgFileNames( const QStringList &fileNames ) const;
+    QStringList projectFileNames( CloudProject *project, const QStringList &fileKeys, bool filterGpkgFileNames = false ) const;
 
     QFieldCloudProjectsModel::JobStatus getJobStatusFromString( const QString &status ) const;
     QString getJobTypeAsString( JobType jobType ) const;
 
-    void downloadFileConnections( const QString &projectId, const QString &fileName );
+    void downloadFileConnections( const QString &projectId, const QString &fileKey );
     void loadProjects( const QJsonArray &remoteProjects = QJsonArray(), bool skipLocalProjects = false );
     void insertProjects( const QList<CloudProject *> &projects );
-    void logFailedDownload( CloudProject *project, const QString &fileName, const QString &errorMessage, const QString &errorMessageDetail );
+    void logFailedDownload( CloudProject *project, const QString &fileKey, const QString &errorMessage, const QString &errorMessageDetail );
 };
 
 Q_DECLARE_METATYPE( QFieldCloudProjectsModel::ProjectStatus )
