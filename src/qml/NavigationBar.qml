@@ -766,7 +766,7 @@ Rectangle {
 
     MenuItem {
       id: transferFeatureAttributesBtn
-      text: qsTr('Update Attributes From Feature')
+      text: qsTr('Update Attributes from Feature')
       icon.source: Theme.getThemeVectorIcon("ic_transfer_into_black_24dp")
       enabled: (projectInfo.insertRights && (!selection.focusedLayer || !selection.focusedLayer.customProperty("QFieldSync/is_geometry_locked", false)))
       visible: enabled
