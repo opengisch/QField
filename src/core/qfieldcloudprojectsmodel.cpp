@@ -1708,6 +1708,7 @@ void QFieldCloudProjectsModel::projectListReceived()
     beginResetModel();
     mProjects.clear();
     endResetModel();
+    mLocalizedDatasets.clear();
   }
 
   QByteArray response = rawReply->readAll();
@@ -2141,6 +2142,7 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
     if ( projectDetails.value( "name" ) == QStringLiteral( "localized_datasets" ) )
     {
       // Protected name, skip
+      mLocalizedDatasets[projectDetails.value( "owner" ).toString()] = projectDetails.value( "id" ).toString();
       continue;
     }
 

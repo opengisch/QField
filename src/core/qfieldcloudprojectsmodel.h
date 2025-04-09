@@ -466,6 +466,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QString mUsername;
     QStringList mActiveProjectFilesToDownload;
     const int mProjectsPerFetch = 250;
+    QMap<QString, QString> mLocalizedDatasets;
 
     QModelIndex findProjectIndex( const QString &projectId ) const;
     CloudProject *findProject( const QString &projectId ) const;
