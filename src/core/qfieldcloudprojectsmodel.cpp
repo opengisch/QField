@@ -2138,6 +2138,12 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
   for ( const auto project : remoteProjects )
   {
     QVariantHash projectDetails = project.toObject().toVariantHash();
+    if ( projectDetails.value( "name" ) == QStringLiteral( "localized_datasets" ) )
+    {
+      // Protected name, skip
+      continue;
+    }
+
     CloudProject *cloudProject = new CloudProject( projectDetails.value( "id" ).toString(),
                                                    projectDetails.value( "private" ).toBool(),
                                                    projectDetails.value( "owner" ).toString(),
