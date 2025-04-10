@@ -660,8 +660,11 @@ Popup {
 
   function show() {
     visible = !visible;
-    if (cloudProjectsModel.currentProjectId && (cloudConnection.hasToken || cloudConnection.hasProviderConfiguration) && cloudConnection.status === QFieldCloudConnection.Disconnected) {
-      cloudConnection.login();
+    if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
+      if (cloudProjectsModel.currentProjectId && (cloudConnection.hasToken || cloudConnection.hasProviderConfiguration)) {
+        cloudConnection.login();
+      }
+      cloudConnection.getAuthenticationProviders();
     }
     if (cloudConnection.status === QFieldCloudConnection.Connecting) {
       displayToast(qsTr('Connecting cloud'));
