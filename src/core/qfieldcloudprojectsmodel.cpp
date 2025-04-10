@@ -1805,13 +1805,13 @@ void QFieldCloudProjectsModel::projectListReceived()
   }
 }
 
-NetworkReply *QFieldCloudProjectsModel::downloadFile( const QString &projectId, const QString &fileName, bool fromPackage )
+NetworkReply *QFieldCloudProjectsModel::downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage )
 {
   QNetworkRequest request;
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::UserVerifiedRedirectPolicy );
   mCloudConnection->setAuthenticationDetails( request );
 
-  return mCloudConnection->get( request, fromPackage ? QStringLiteral( "/api/v1/packages/%1/latest/files/%2/" ).arg( projectId, fileName ) : QStringLiteral( "/api/v1/files/%1/%2/" ).arg( projectId, fileName ) );
+  return mCloudConnection->get( request, fromLatestPackage ? QStringLiteral( "/api/v1/packages/%1/latest/files/%2/" ).arg( projectId, fileName ) : QStringLiteral( "/api/v1/files/%1/%2/" ).arg( projectId, fileName ) );
 }
 
 void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId, const QString &fileKey )

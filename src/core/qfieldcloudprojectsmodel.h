@@ -487,7 +487,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void projectSetSetting( const QString &projectId, const QString &setting, const QVariant &value );
     QVariant projectSetting( const QString &projectId, const QString &setting, const QVariant &defaultValue = QVariant() );
 
-    NetworkReply *downloadFile( const QString &projectId, const QString &fileName, bool fromPackage = true );
+    NetworkReply *downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage = true );
     void projectDownloadFiles( const QString &projectId );
     void updateActiveProjectFilesToDownload( const QString &projectId );
 
