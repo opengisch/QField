@@ -481,6 +481,7 @@ Page {
           Label {
             id: fieldLabel
             width: parent.width
+            height: Name !== '' ? undefined : topPadding + bottomPadding
             text: Name || ''
             wrapMode: Text.WordWrap
             font.family: LabelOverrideFont ? LabelFont.family : Theme.tinyFont.family
