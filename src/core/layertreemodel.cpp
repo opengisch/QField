@@ -16,6 +16,7 @@
 
 #include "layertreemodel.h"
 
+#include <qgslayernotesutils.h>
 #include <qgslayertree.h>
 #include <qgslayertreemodel.h>
 #include <qgslayertreemodellegendnode.h>
@@ -998,6 +999,30 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return false;
     }
 
+    case FlatLayerTreeModel::HasNotes:
+    {
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        return QgsLayerNotesUtils::layerHasNotes( nodeLayer->layer() );
+      }
+
+      return false;
+    }
+
+    case FlatLayerTreeModel::Notes:
+    {
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        return QgsLayerNotesUtils::layerNotes( nodeLayer->layer() );
+      }
+
+      return QString();
+    }
+
     default:
       return QAbstractProxyModel::data( index, role );
   }
@@ -1178,6 +1203,8 @@ QHash<int, QByteArray> FlatLayerTreeModelBase::roleNames() const
   roleNames[FlatLayerTreeModel::FilterExpression] = "FilterExpression";
   roleNames[FlatLayerTreeModel::Credits] = "Credits";
   roleNames[FlatLayerTreeModel::SnappingEnabled] = "SnappingEnabled";
+  roleNames[FlatLayerTreeModel::HasNotes] = "HasNotes";
+  roleNames[FlatLayerTreeModel::Notes] = "Notes";
   return roleNames;
 }
 
