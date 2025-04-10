@@ -587,7 +587,7 @@ Popup {
           ScrollView {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.margins: 10
+            Layout.margins: 0
             height: parent.height
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
             ScrollBar.vertical: QfScrollBar {

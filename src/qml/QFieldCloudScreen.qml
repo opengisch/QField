@@ -128,7 +128,7 @@ Page {
       id: connectionSettings
       Layout.fillWidth: true
       Layout.fillHeight: true
-      Layout.margins: 10
+      Layout.margins: 0
       Layout.topMargin: connectionInformation.visible ? 10 : connectionInformation.childrenRect.height
       spacing: 2
       visible: !connectionInformation.visible
