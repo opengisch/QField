@@ -1691,16 +1691,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>要素集为导航目的地</translation>
     </message>
     <message>
-        <source>Update Attributes From Feature</source>
-        <translation>从要素更新属性</translation>
-    </message>
-    <message>
         <source>Process Selected Feature(s)</source>
         <translation>处理所选要素</translation>
     </message>
     <message>
         <source>Rotate Feature</source>
         <translation>旋转要素</translation>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

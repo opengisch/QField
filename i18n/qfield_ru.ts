@@ -1697,15 +1697,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Набор объектов в качестве навигационной цели</translation>
     </message>
     <message>
-        <source>Update Attributes From Feature</source>
-        <translation>Обновление атрибутов из объекта</translation>
-    </message>
-    <message>
         <source>Process Selected Feature(s)</source>
         <translation>Обработка выбранного объекта(ов)</translation>
     </message>
     <message>
         <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

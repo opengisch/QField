@@ -1695,16 +1695,16 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <translation>Objeto establecido como destino de la navegación</translation>
     </message>
     <message>
-        <source>Update Attributes From Feature</source>
-        <translation>Actualizar atributos desde objeto</translation>
-    </message>
-    <message>
         <source>Process Selected Feature(s)</source>
         <translation>Procesar objeto(s) seleccionado(s)</translation>
     </message>
     <message>
         <source>Rotate Feature</source>
         <translation>Rotar Objeto</translation>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

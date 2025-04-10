@@ -1693,16 +1693,16 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>Object ingesteld als bestemming</translation>
     </message>
     <message>
-        <source>Update Attributes From Feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Process Selected Feature(s)</source>
         <translation>Verwerk geselecteerd(e) object(en)</translation>
     </message>
     <message>
         <source>Rotate Feature</source>
         <translation>Roteer object</translation>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

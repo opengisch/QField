@@ -1696,15 +1696,15 @@ Dôvod:
         <translation>Prvok nastavený ako cieľ navigácie</translation>
     </message>
     <message>
-        <source>Update Attributes From Feature</source>
-        <translation>Aktualizovať atribúty z prvku</translation>
-    </message>
-    <message>
         <source>Process Selected Feature(s)</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

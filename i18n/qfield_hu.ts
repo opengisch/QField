@@ -655,11 +655,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to start egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült elindítani az egeniouss szervert.</translation>
     </message>
     <message>
         <source>Failed to stop egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült leállítani az egeniouss szervert.</translation>
     </message>
 </context>
 <context>
@@ -1692,16 +1692,16 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation>Az alakzat navigációs céllá tétele</translation>
     </message>
     <message>
-        <source>Update Attributes From Feature</source>
-        <translation>Az attribútumok elemből történő frissítése</translation>
-    </message>
-    <message>
         <source>Process Selected Feature(s)</source>
         <translation>Kiválasztott elem(ek) feldolgozása</translation>
     </message>
     <message>
         <source>Rotate Feature</source>
         <translation>Elemforgatás</translation>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2375,11 +2375,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Authentication provider missing</source>
-        <translation type="unfinished"/>
+        <translation>Hiányzó hitelesítési szolgáltató</translation>
     </message>
     <message>
         <source>Password missing</source>
-        <translation type="unfinished"/>
+        <translation>Jelszó hiányzik</translation>
     </message>
 </context>
 <context>
@@ -2467,11 +2467,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>vagy</translation>
     </message>
     <message>
         <source>Sign in using %1</source>
-        <translation type="unfinished"/>
+        <translation>Bejelentkezés %1-el</translation>
     </message>
 </context>
 <context>
@@ -3232,11 +3232,11 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Upload file(s) to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Fájl(ok) feltöltése WebDAV-ra</translation>
     </message>
     <message>
         <source>Push file(s) to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Fájl(ok) elküldése a QFieldCloudba</translation>
     </message>
     <message>
         <source>Please select one or more files to push to QFieldCloud.</source>
@@ -3244,11 +3244,11 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Megerősít</translation>
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Egy mentett WebDAV-elemet készül eltávolítani, folytatja?</translation>
     </message>
 </context>
 <context>
@@ -3263,7 +3263,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Positioning service stopped</source>
-        <translation type="unfinished"/>
+        <translation>Helymeghatározás szolgáltatás leállítva</translation>
     </message>
 </context>
 <context>
@@ -4021,7 +4021,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Child Menu</source>
-        <translation type="unfinished"/>
+        <translation>Almenü</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
@@ -5457,7 +5457,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Snapping tolerance set to %1</source>
-        <translation type="unfinished"/>
+        <translation>Illesztési tolerancia %1-re beállítva</translation>
     </message>
 </context>
 <context>

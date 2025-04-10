@@ -1697,15 +1697,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Update Attributes From Feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Process Selected Feature(s)</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -1691,15 +1691,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>地物は目的地として設定されました</translation>
     </message>
     <message>
-        <source>Update Attributes From Feature</source>
-        <translation>地物から属性を更新する</translation>
-    </message>
-    <message>
         <source>Process Selected Feature(s)</source>
         <translation>選択された地物を処理</translation>
     </message>
     <message>
         <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

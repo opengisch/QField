@@ -1694,16 +1694,16 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <translation>Entité sélectionnée comme destination</translation>
     </message>
     <message>
-        <source>Update Attributes From Feature</source>
-        <translation>Mettre à jour les attributs à partir de l&apos;entité</translation>
-    </message>
-    <message>
         <source>Process Selected Feature(s)</source>
         <translation>Traiter la ou les entité(s) sélectionnée(s)</translation>
     </message>
     <message>
         <source>Rotate Feature</source>
         <translation>Faire pivoter l&apos;entité</translation>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

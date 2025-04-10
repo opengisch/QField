@@ -1692,15 +1692,15 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <translation>Objekt als Navigationsziel einstellen</translation>
     </message>
     <message>
-        <source>Update Attributes From Feature</source>
-        <translation>Objektattribute aktualisieren</translation>
-    </message>
-    <message>
         <source>Process Selected Feature(s)</source>
         <translation>Verarbeite ausgewählte(s) Objekt(e)</translation>
     </message>
     <message>
         <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -1695,15 +1695,15 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <translation>Elemento definido como destino de navegação</translation>
     </message>
     <message>
-        <source>Update Attributes From Feature</source>
-        <translation>Atualizar os atributos apartir do elemento</translation>
-    </message>
-    <message>
         <source>Process Selected Feature(s)</source>
         <translation>Processar Elemento Selecionado(s)</translation>
     </message>
     <message>
         <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

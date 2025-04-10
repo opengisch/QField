@@ -1693,15 +1693,15 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <translation>Entidade establecida como o destino da navegación</translation>
     </message>
     <message>
-        <source>Update Attributes From Feature</source>
-        <translation>Actualizar Atributos Dende a Entidade</translation>
-    </message>
-    <message>
         <source>Process Selected Feature(s)</source>
         <translation>Procesar a(s) Entidade(s) Seleccionada(s)</translation>
     </message>
     <message>
         <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

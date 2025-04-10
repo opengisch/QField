@@ -1697,16 +1697,16 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <translation>Element ustawiono jako miejsce docelowe nawigacji</translation>
     </message>
     <message>
-        <source>Update Attributes From Feature</source>
-        <translation>Zaktualizuj atrybuty z elementu</translation>
-    </message>
-    <message>
         <source>Process Selected Feature(s)</source>
         <translation>Przetwarzaj wybrane elementy</translation>
     </message>
     <message>
         <source>Rotate Feature</source>
         <translation>Obróć element</translation>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

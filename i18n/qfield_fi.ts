@@ -1693,16 +1693,16 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
         <translation>Kohde asetettu navigointikohteeksi</translation>
     </message>
     <message>
-        <source>Update Attributes From Feature</source>
-        <translation>P채ivit채 atrribuutteja kohteesta</translation>
-    </message>
-    <message>
         <source>Process Selected Feature(s)</source>
         <translation>Aja prosessi valitu(i)lle kohteelle/kohteille</translation>
     </message>
     <message>
         <source>Rotate Feature</source>
         <translation>K채채nn채 kohdetta</translation>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

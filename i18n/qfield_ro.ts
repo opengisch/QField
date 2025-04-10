@@ -1697,15 +1697,15 @@ Motiv:
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Update Attributes From Feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Process Selected Feature(s)</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
         <translation type="unfinished"/>
     </message>
 </context>
