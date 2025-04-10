@@ -451,11 +451,11 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         }
 
         item->setData( "container", AttributeFormModel::ElementType );
-        item->setData( innerContainer->name(), AttributeFormModel::Name );
+        item->setData( element->showLabel() ? innerContainer->name() : QString(), AttributeFormModel::Name );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( false, AttributeFormModel::AttributeEditable );
         item->setData( false, AttributeFormModel::AttributeAllowEdit );
-        item->setData( innerContainer->name(), AttributeFormModel::GroupName );
+        item->setData( element->showLabel() ? innerContainer->name() : QString(), AttributeFormModel::GroupName );
         if ( innerContainer->backgroundColor().isValid() )
           item->setData( innerContainer->backgroundColor(), AttributeFormModel::GroupColor );
 
@@ -486,7 +486,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         QgsField field = mLayer->fields().at( fieldIndex );
         const QgsEditorWidgetSetup setup = findBest( fieldIndex );
 
-        item->setData( mLayer->attributeDisplayName( fieldIndex ), AttributeFormModel::Name );
+        item->setData( element->showLabel() ? mLayer->attributeDisplayName( fieldIndex ) : QString(), AttributeFormModel::Name );
         item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ) && setup.type() != QStringLiteral( "Binary" ), AttributeFormModel::AttributeEditable );
         item->setData( setup.type(), AttributeFormModel::EditorWidget );
         item->setData( setup.config(), AttributeFormModel::EditorWidgetConfig );
