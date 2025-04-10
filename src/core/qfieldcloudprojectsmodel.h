@@ -293,6 +293,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Sets the interval in \a minutes between which the project will auto-push changes
     Q_INVOKABLE void projectSetAutoPushIntervalMins( const QString &projectId, int minutes );
 
+    //! Configure localized data paths for cloud projects when available
+    Q_INVOKABLE void updateLocalizedDataPaths( const QString &projectPath );
+
   signals:
     void cloudConnectionChanged();
     void layerObserverChanged();

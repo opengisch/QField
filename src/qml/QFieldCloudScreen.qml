@@ -434,7 +434,7 @@ Page {
             onClicked: mouse => {
               var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
               if (item) {
-                if (item.projectLocalPath != '') {
+                if (item.projectLocalPath !== '') {
                   qfieldCloudScreen.visible = false;
                   iface.loadFile(item.projectLocalPath);
                 } else {

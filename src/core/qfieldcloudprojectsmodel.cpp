@@ -31,6 +31,7 @@
 #include <QTemporaryFile>
 #include <qgis.h>
 #include <qgsapplication.h>
+#include <qgslocalizeddatapathregistry.h>
 #include <qgsmessagelog.h>
 #include <qgsnetworkaccessmanager.h>
 #include <qgsproject.h>
@@ -2213,12 +2214,6 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
   for ( const auto project : remoteProjects )
   {
     QVariantHash projectDetails = project.toObject().toVariantHash();
-    if ( projectDetails.value( "name" ) == QStringLiteral( "localized_datasets" ) )
-    {
-      // Protected name, skip
-      mLocalizedDatasetsProjects[projectDetails.value( "owner" ).toString()] = projectDetails.value( "id" ).toString();
-      continue;
-    }
 
     CloudProject *cloudProject = new CloudProject( projectDetails.value( "id" ).toString(),
                                                    projectDetails.value( "private" ).toBool(),
@@ -2263,7 +2258,15 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
     }
 
     cloudProject->lastRefreshedAt = QDateTime::currentDateTimeUtc();
-    freshCloudProjects.push_back( cloudProject );
+
+    if ( cloudProject->name == QStringLiteral( "localized_datasets" ) )
+    {
+      mLocalizedDatasetsProjects[cloudProject->owner] = cloudProject->id;
+    }
+    else
+    {
+      freshCloudProjects.push_back( cloudProject );
+    }
   }
 
   insertProjects( freshCloudProjects );
@@ -2308,7 +2311,14 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
         QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, cloudProject->id ) );
         restoreLocalSettings( cloudProject, localPath );
 
-        userSpecificProjects.push_back( cloudProject );
+        if ( cloudProject->name == QStringLiteral( "localized_datasets" ) )
+        {
+          mLocalizedDatasetsProjects[cloudProject->owner] = cloudProject->id;
+        }
+        else
+        {
+          userSpecificProjects.push_back( cloudProject );
+        }
         Q_ASSERT( projectId == cloudProject->id );
       }
     }
@@ -2512,6 +2522,29 @@ QStringList QFieldCloudProjectsModel::projectFileNames( CloudProject *project, c
   }
 
   return prefixedFileNames;
+}
+
+void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &projectPath )
+{
+  const QString projectId = QFieldCloudUtils::getProjectId( projectPath );
+  QString localizedDataPath;
+  if ( !projectId.isEmpty() )
+  {
+    CloudProject *project = findProject( projectId );
+    if ( project && mLocalizedDatasetsProjects.contains( project->owner ) )
+    {
+      localizedDataPath = QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mLocalizedDatasetsProjects[project->owner] );
+    }
+  }
+
+  QStringList localizedDataPaths = QgsApplication::instance()->localizedDataPathRegistry()->paths();
+  localizedDataPaths.erase( std::remove_if( localizedDataPaths.begin(),
+                                            localizedDataPaths.end(),
+                                            [&localizedDataPath]( const QString &path ) { return !path.startsWith( QFieldCloudUtils::localCloudDirectory() ); } ),
+                            localizedDataPaths.end() );
+  localizedDataPaths << localizedDataPath;
+  qDebug() << localizedDataPaths;
+  QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
 }
 
 // --
