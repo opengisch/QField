@@ -1033,7 +1033,7 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
     }
 
     const QJsonArray files = payload.value( QStringLiteral( "files" ) ).toArray();
-    for ( const QJsonValue &fileValue : files )
+    for ( const QJsonValue fileValue : files )
     {
       const QJsonObject fileObject = fileValue.toObject();
       const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
@@ -1132,7 +1132,7 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
         }
 
         const QJsonArray files = QJsonDocument::fromJson( localizedDatasetsRawReply->readAll() ).array();
-        for ( const QJsonValue &fileValue : files )
+        for ( const QJsonValue fileValue : files )
         {
           const QJsonObject fileObject = fileValue.toObject();
           const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
