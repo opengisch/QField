@@ -14,6 +14,7 @@ Item {
   property bool isServerUrlEditingActive: false
   property bool isVisible: false
 
+  width: parent.width
   height: connectionSettings.childrenRect.height
 
   FontMetrics {
@@ -23,9 +24,8 @@ Item {
 
   ColumnLayout {
     id: connectionSettings
-    width: parent.width
-    Layout.minimumHeight: (logo.height + fontMetrics.height * 9) * 2
-    Layout.bottomMargin: 10
+    x: 10
+    width: parent.width - 20
     spacing: 10
 
     Image {
