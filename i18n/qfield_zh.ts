@@ -1700,7 +1700,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Update Attributes from Feature</source>
-        <translation type="unfinished"/>
+        <translation>从要素更新属性</translation>
     </message>
 </context>
 <context>
