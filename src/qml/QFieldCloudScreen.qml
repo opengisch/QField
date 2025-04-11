@@ -434,7 +434,7 @@ Page {
             onClicked: mouse => {
               var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
               if (item) {
-                if (item.projectLocalPath != '') {
+                if (item.projectLocalPath !== '') {
                   qfieldCloudScreen.visible = false;
                   iface.loadFile(item.projectLocalPath);
                 } else {
@@ -590,8 +590,14 @@ Page {
       if (table.refreshing) {
         table.refreshing = false;
       }
-      if (cloudConnection.status === QFieldCloudConnection.LoggedIn)
+      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         prepareCloudLogin();
+      } else if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
+        if (table.count === 0) {
+          projects.visible = false;
+          connectionSettings.visible = true;
+        }
+      }
     }
   }
 

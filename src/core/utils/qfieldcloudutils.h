@@ -150,7 +150,7 @@ class QFieldCloudUtils : public QObject
      */
     Q_INVOKABLE static void addPendingAttachments( const QString &projectId, const QStringList &fileNames, QFieldCloudConnection *cloudConnection = nullptr, const bool &checkSumCheck = false );
 
-    //! Adds removes a \a fileName for a given \a projectId to the pending attachments list
+    //! Removes a \a fileName for a given \a projectId to the pending attachments list
     static void removePendingAttachment( const QString &projectId, const QString &fileName );
 
   private:

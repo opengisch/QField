@@ -3666,6 +3666,7 @@ ApplicationWindow {
       navigation.clearDestinationFeature();
       projectInfo.filePath = '';
       readProjectTimer.start();
+      cloudProjectsModel.updateLocalizedDataPaths(path);
     }
 
     function onLoadProjectEnded(path, name) {
