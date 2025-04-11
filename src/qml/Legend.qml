@@ -213,7 +213,7 @@ ListView {
         Text {
           id: layerName
           width: rectangle.width - itemPadding - 46 // legend icon + right padding
-          - collapsedState.width - (layerVisibility.isVisible ? layerVisibility.width : 0) - (trackingBadge.isVisible ? trackingBadge.width + 5 : 0) - (lockedBadge.isVisible ? lockedBadge.width + 5 : 0) - (invalidBadge.isVisible ? invalidBadge.width + 5 : 0) - (snappingBadge.isVisible ? snappingBadge.width + 5 : 0)
+          - collapsedState.width - (layerVisibility.isVisible ? layerVisibility.width : 0) - badges.width
           padding: 3
           leftPadding: 0
           text: Name
@@ -232,108 +232,131 @@ ListView {
           }
         }
 
-        QfToolButton {
-          id: trackingBadge
-          property bool isVisible: InTracking ? true : false
-          visible: isVisible
-          height: 24
-          width: 24
-          padding: 4
+        RowLayout {
+          id: badges
           anchors.verticalCenter: parent.verticalCenter
-          enabled: isVisible
-          round: true
-          bgcolor: Theme.mainColor
-          icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
-          icon.color: Theme.mainTextColor
+          spacing: 4
 
-          onClicked: {
-            displayToast(qsTr('This layer is is currently tracking positions.'), 'info', qsTr('Stop'), function () {
-                if (trackingModel.layerInTracking(VectorLayerPointer)) {
-                  trackingModel.stopTracker(VectorLayerPointer);
-                  displayToast(qsTr('Track on layer %1 stopped').arg(VectorLayerPointer.name));
-                }
-              });
-          }
+          QfToolButton {
+            id: trackingBadge
+            property bool isVisible: InTracking ? true : false
+            visible: isVisible
+            height: 24
+            width: 24
+            padding: 4
+            enabled: isVisible
+            round: true
+            bgcolor: Theme.mainColor
+            icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
+            icon.color: Theme.mainTextColor
 
-          SequentialAnimation on bgcolor  {
-            running: isVisible && legend.isVisible
-            loops: Animation.Infinite
-            ColorAnimation {
-              from: Theme.mainColor
-              to: "#5a8725"
-              duration: 2000
-              easing.type: Easing.InOutQuad
+            onClicked: {
+              displayToast(qsTr('This layer is is currently tracking positions.'), 'info', qsTr('Stop'), function () {
+                  if (trackingModel.layerInTracking(VectorLayerPointer)) {
+                    trackingModel.stopTracker(VectorLayerPointer);
+                    displayToast(qsTr('Track on layer %1 stopped').arg(VectorLayerPointer.name));
+                  }
+                });
             }
-            ColorAnimation {
-              from: "#5a8725"
-              to: Theme.mainColor
-              duration: 1000
-              easing.type: Easing.InOutQuad
-            }
-          }
-        }
 
-        QfToolButton {
-          id: invalidBadge
-          property bool isVisible: Type === 'layer' && !IsValid
-          visible: isVisible
-          height: 24
-          width: 24
-          padding: 4
-          anchors.verticalCenter: parent.verticalCenter
-          enabled: isVisible
-          bgcolor: 'transparent'
-          opacity: 0.5
-          icon.source: Theme.getThemeVectorIcon('ic_error_outline_24dp')
-          icon.color: Theme.errorColor
-
-          onClicked: {
-            displayToast(qsTr('This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.'));
-          }
-        }
-
-        QfToolButton {
-          id: lockedBadge
-          property bool isVisible: ReadOnly || GeometryLocked
-          visible: isVisible
-          height: 24
-          width: 24
-          padding: 4
-          anchors.verticalCenter: parent.verticalCenter
-          enabled: isVisible
-          bgcolor: 'transparent'
-          opacity: 0.5
-
-          icon.source: Theme.getThemeVectorIcon('ic_lock_black_24dp')
-          icon.color: Theme.mainTextColor
-
-          onClicked: {
-            if (ReadOnly) {
-              displayToast(qsTr('This layer is configured as "Read-Only" which disables adding, deleting and editing features.'));
-            } else {
-              displayToast(qsTr('This layer is configured as "Lock Geometries" which disables adding and deleting features, as well as modifying the geometries of existing features.'));
+            SequentialAnimation on bgcolor  {
+              running: isVisible && legend.isVisible
+              loops: Animation.Infinite
+              ColorAnimation {
+                from: Theme.mainColor
+                to: "#5a8725"
+                duration: 2000
+                easing.type: Easing.InOutQuad
+              }
+              ColorAnimation {
+                from: "#5a8725"
+                to: Theme.mainColor
+                duration: 1000
+                easing.type: Easing.InOutQuad
+              }
             }
           }
-        }
 
-        QfToolButton {
-          id: snappingBadge
-          property bool isVisible: stateMachine.state === "digitize" && qgisProject.snappingConfig.mode === Qgis.SnappingMode.AdvancedConfiguration && Type === "layer" && LayerType === "vectorlayer" && VectorLayerPointer.geometryType() !== Qgis.GeometryType.Null && VectorLayerPointer.geometryType() !== Qgis.GeometryType.Unknown
-          visible: isVisible
-          height: 24
-          width: 24
-          padding: 4
-          anchors.verticalCenter: parent.verticalCenter
-          enabled: isVisible
-          round: true
-          bgcolor: SnappingEnabled ? Theme.mainColor : Theme.controlBackgroundColor
-          opacity: SnappingEnabled ? 1.0 : 0.5
-          icon.source: Theme.getThemeVectorIcon('ic_snapping_white_24dp')
-          icon.color: SnappingEnabled ? 'white' : Theme.mainTextColor
+          QfToolButton {
+            id: invalidBadge
+            property bool isVisible: Type === 'layer' && !IsValid
+            visible: isVisible
+            height: 24
+            width: 24
+            padding: 4
+            enabled: isVisible
+            bgcolor: 'transparent'
+            opacity: 0.5
+            icon.source: Theme.getThemeVectorIcon('ic_error_outline_24dp')
+            icon.color: Theme.errorColor
 
-          onClicked: {
-            SnappingEnabled = !SnappingEnabled;
-            projectInfo.saveLayerSnappingConfiguration(VectorLayerPointer);
+            onClicked: {
+              displayToast(qsTr('This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.'));
+            }
+          }
+
+          QfToolButton {
+            id: lockedBadge
+            property bool isVisible: ReadOnly || GeometryLocked
+            visible: isVisible
+            height: 24
+            width: 24
+            padding: 4
+            enabled: isVisible
+            bgcolor: 'transparent'
+            opacity: 0.5
+
+            icon.source: Theme.getThemeVectorIcon('ic_lock_black_24dp')
+            icon.color: Theme.mainTextColor
+
+            onClicked: {
+              if (ReadOnly) {
+                displayToast(qsTr('This layer is configured as "Read-Only" which disables adding, deleting and editing features.'));
+              } else {
+                displayToast(qsTr('This layer is configured as "Lock Geometries" which disables adding and deleting features, as well as modifying the geometries of existing features.'));
+              }
+            }
+          }
+
+          QfToolButton {
+            id: notesBadge
+            property bool isVisible: HasNotes
+            visible: isVisible
+            height: 24
+            width: 24
+            padding: 4
+            enabled: isVisible
+            bgcolor: 'transparent'
+            opacity: 0.5
+
+            icon.source: Theme.getThemeVectorIcon('ic_note_white_24dp')
+            icon.color: Theme.mainTextColor
+
+            onClicked: {
+              notesItem.title = Name;
+              notesItem.notes = Notes;
+              notesItem.open();
+            }
+          }
+
+          QfToolButton {
+            id: snappingBadge
+            property bool isVisible: stateMachine.state === "digitize" && qgisProject.snappingConfig.mode === Qgis.SnappingMode.AdvancedConfiguration && Type === "layer" && LayerType === "vectorlayer" && VectorLayerPointer.geometryType() !== Qgis.GeometryType.Null && VectorLayerPointer.geometryType() !== Qgis.GeometryType.Unknown
+            visible: isVisible
+            height: 24
+            width: 24
+            padding: 4
+            enabled: isVisible
+            round: true
+            bgcolor: SnappingEnabled ? Theme.mainColor : Theme.controlBackgroundColor
+            opacity: SnappingEnabled ? 1.0 : 0.5
+            icon.source: Theme.getThemeVectorIcon('ic_snapping_white_24dp')
+            icon.color: SnappingEnabled ? 'white' : Theme.mainTextColor
+
+            onClicked: {
+              SnappingEnabled = !SnappingEnabled;
+              projectInfo.saveLayerSnappingConfiguration(VectorLayerPointer);
+            }
           }
         }
       }
@@ -343,5 +366,9 @@ ListView {
   LayerTreeItemProperties {
     id: itemProperties
     layerTree: legend.model
+  }
+
+  NotesItem {
+    id: notesItem
   }
 }
