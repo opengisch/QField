@@ -37,11 +37,6 @@ jobs:
           echo "BUILD_TYPE=Release" >> $GITHUB_ENV
           echo "CMAKE_BUILD_DIR=C:/builddir" >> $GITHUB_ENV
 
-      - name: 🐩 Install CMake and Ninja
-        uses: lukka/get-cmake@latest
-        with:
-          cmakeVersion: 3.29.0
-
       - name: 🧽 Developer Command Prompt for Microsoft Visual C++
         uses: ilammy/msvc-dev-cmd@v1
         # with:
@@ -56,6 +51,12 @@ jobs:
             EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -DCMAKE_WIN32_EXECUTABLE=ON"
           fi
           echo "EXTRA_CMAKE_ARGS=${EXTRA_CMAKE_ARGS}" >> $GITHUB_ENV
+          choco uninstall cmake.install
+
+      - name: 🐩 Install CMake and Ninja
+        uses: lukka/get-cmake@latest
+        with:
+          cmakeVersion: 3.31.6
 
       - name: 🌱 Install dependencies and generate project files
         shell: bash

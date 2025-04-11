@@ -68,6 +68,7 @@ jobs:
       - name: 🍹 Prepare ios build env
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
+          brew uninstall cmake
           # Workaround GitHub Actions Python issues
           brew unlink python && brew link --overwrite python
           brew install automake bison flex gnu-sed s3cmd gettext autoconf-archive nasm libtool mono
@@ -82,7 +83,7 @@ jobs:
         uses: lukka/get-cmake@latest
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
-          cmakeVersion: 3.29.0
+          cmakeVersion: 3.31.6
 
       - name: 🐍 Setup Python
         uses: actions/setup-python@v5
