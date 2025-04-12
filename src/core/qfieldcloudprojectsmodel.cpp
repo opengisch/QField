@@ -437,11 +437,9 @@ void QFieldCloudProjectsModel::usernameChanged()
   mUsername = mCloudConnection->username();
 }
 
-void QFieldCloudProjectsModel::layerObserverLayerEdited( const QString &layerId )
+void QFieldCloudProjectsModel::layerObserverLayerEdited( const QString & )
 {
-  Q_UNUSED( layerId )
   QFieldCloudProject *project = findProject( mCurrentProjectId );
-
   if ( !project )
   {
     QgsMessageLog::logMessage( QStringLiteral( "Layer observer triggered `isDirtyChanged` signal incorrectly" ) );
@@ -1092,7 +1090,6 @@ void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &projectP
                                             [&localizedDataPath]( const QString &path ) { return !path.startsWith( QFieldCloudUtils::localCloudDirectory() ); } ),
                             localizedDataPaths.end() );
   localizedDataPaths << localizedDataPath;
-  qDebug() << localizedDataPaths;
   QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
 }
 

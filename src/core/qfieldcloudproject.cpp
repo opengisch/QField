@@ -560,7 +560,7 @@ void QFieldCloudProject::downloadFiles()
 
 void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
 {
-  if ( mDownloadFileTransfers.contains( fileKey ) )
+  if ( !mDownloadFileTransfers.contains( fileKey ) )
   {
     Q_ASSERT( false );
     return;
