@@ -485,10 +485,11 @@ void QFieldCloudProjectsModel::insertProjects( const QList<QFieldCloudProject *>
     {
       newProjectsCount++;
       mProjects.append( project );
-      beginInsertRows( QModelIndex(), currentCount, currentCount + newProjectsCount - 1 );
-      endInsertRows();
     }
   }
+
+  beginInsertRows( QModelIndex(), currentCount, currentCount + newProjectsCount - 1 );
+  endInsertRows();
 }
 
 void QFieldCloudProjectsModel::setupProjectConnections( QFieldCloudProject *project )
@@ -639,6 +640,7 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
     if ( cloudProject->name() == QStringLiteral( "localized_datasets" ) )
     {
       mLocalizedDatasetsProjects[cloudProject->owner()] = cloudProject->id();
+      delete cloudProject;
     }
     else
     {
@@ -684,6 +686,7 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
         if ( cloudProject->name() == QStringLiteral( "localized_datasets" ) )
         {
           mLocalizedDatasetsProjects[cloudProject->owner()] = cloudProject->id();
+          delete cloudProject;
         }
         else
         {
