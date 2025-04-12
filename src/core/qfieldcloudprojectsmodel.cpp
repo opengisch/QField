@@ -124,6 +124,7 @@ void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjec
     return;
 
   mCurrentProjectId = currentProjectId;
+  mCurrentProject = findProject( mCurrentProjectId );
 
   emit currentProjectIdChanged();
   emit currentProjectChanged();
@@ -131,7 +132,7 @@ void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjec
 
 QFieldCloudProject *QFieldCloudProjectsModel::currentProject() const
 {
-  return !mCurrentProjectId.isEmpty() ? findProject( mCurrentProjectId ) : nullptr;
+  return mCurrentProject.data();
 }
 
 QSet<QString> QFieldCloudProjectsModel::busyProjectIds() const
@@ -370,11 +371,15 @@ void QFieldCloudProjectsModel::projectListReceived()
   const int projectFetchOffset = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsFetchOffset ) ).toInt();
   if ( projectFetchOffset == 0 )
   {
+    mLocalizedDatasetsProjects.clear();
+
     beginResetModel();
     qDeleteAll( mProjects );
     mProjects.clear();
     endResetModel();
-    mLocalizedDatasetsProjects.clear();
+
+    mCurrentProject.clear();
+    emit currentProjectChanged();
   }
 
   QByteArray response = rawReply->readAll();
@@ -397,9 +402,15 @@ void QFieldCloudProjectsModel::projectListReceived()
     }
 
     // All projects fetched, refresh current project details if found
-    if ( !mCurrentProjectId.isEmpty() && findProject( mCurrentProjectId ) )
+    if ( !mCurrentProjectId.isEmpty() )
     {
-      refreshProjectModification( mCurrentProjectId );
+      mCurrentProject = findProject( mCurrentProjectId );
+      emit currentProjectChanged();
+
+      if ( mCurrentProject )
+      {
+        refreshProjectModification( mCurrentProject->id() );
+      }
     }
   }
 }
@@ -529,6 +540,12 @@ void QFieldCloudProjectsModel::setupProjectConnections( QFieldCloudProject *proj
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << PackagingStatusRole );
+  } );
+
+  connect( project, &QFieldCloudProject::downloadProgressChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << DownloadProgressRole );
   } );
 
   connect( project, &QFieldCloudProject::downloadBytesTotalChanged, this, [=] {

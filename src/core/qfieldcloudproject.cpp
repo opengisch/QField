@@ -24,6 +24,7 @@
 
 #include <QDirIterator>
 #include <QFileInfo>
+#include <QQmlEngine>
 #include <qgsmessagelog.h>
 
 #define MAX_REDIRECTS_ALLOWED 10
@@ -33,6 +34,8 @@
 QFieldCloudProject::QFieldCloudProject( const QString &id, QFieldCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher )
   : mId( id ), mCloudConnection( connection ), mGpkgFlusher( gpkgFlusher )
 {
+  QQmlEngine::setObjectOwnership( this, QQmlEngine::CppOwnership );
+
   if ( mCloudConnection )
   {
     mUsername = mCloudConnection->username();
@@ -482,7 +485,7 @@ void QFieldCloudProject::packageAndDownload()
     connect( this, &QFieldCloudProject::dataRefreshed, tempProjectRefreshParent, [=]( const ProjectRefreshReason reason, const QString &error ) {
       if ( reason != ProjectRefreshReason::Package )
       {
-        QgsLogger::critical( QStringLiteral( "Project %1: unexpected job type, expected %2 but %3 received." ).arg( mId ).arg( static_cast<int>( ProjectRefreshReason::Package ), static_cast<int>( reason ) ) );
+        QgsLogger::critical( QStringLiteral( "Project %1: unexpected job type, expected %2 but %3 received." ).arg( mId ).arg( static_cast<int>( ProjectRefreshReason::Package ) ).arg( static_cast<int>( reason ) ) );
         Q_ASSERT( 0 );
         return;
       }
@@ -1368,6 +1371,7 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
         {
           emit statusChanged();
           emit uploadFinished( false, QString() );
+
           refreshData( ProjectRefreshReason::DeltaUploaded );
         }
     }

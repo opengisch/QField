@@ -197,7 +197,10 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     QList<QFieldCloudProject *> mProjects;
     QFieldCloudConnection *mCloudConnection = nullptr;
+
     QString mCurrentProjectId;
+    QPointer<QFieldCloudProject> mCurrentProject;
+
     LayerObserver *mLayerObserver = nullptr;
     QgsGpkgFlusher *mGpkgFlusher = nullptr;
     QString mUsername;
