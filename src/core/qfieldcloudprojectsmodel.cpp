@@ -488,26 +488,26 @@ void QFieldCloudProjectsModel::setupProjectConnections( QFieldCloudProject *proj
     emit dataChanged( idx, idx, QVector<int>() << ProjectFileOutdatedRole );
   } );
 
-  connect( project, &QFieldCloudProject::downloaded, this, [=]( QString name, QString error ) {
+  connect( project, &QFieldCloudProject::downloaded, this, [=]( const QString &name, const QString &error ) {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit projectDownloaded( p->id(), name, !error.isEmpty(), error );
     emit dataChanged( idx, idx, QVector<int>() << StatusRole << PackagingStatusRole << ErrorStatusRole << ErrorStringRole );
   } );
 
-  connect( project, &QFieldCloudProject::uploadFinished, this, [=]( bool isDownloading, QString error ) {
+  connect( project, &QFieldCloudProject::uploadFinished, this, [=]( bool isDownloading, const QString &error ) {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit pushFinished( p->id(), isDownloading, !error.isEmpty(), error );
   } );
 
-  connect( project, &QFieldCloudProject::dataRefreshed, this, [=]( QFieldCloudProject::ProjectRefreshReason reason, QString error ) {
+  connect( project, &QFieldCloudProject::dataRefreshed, this, [=]( QFieldCloudProject::ProjectRefreshReason reason, const QString &error ) {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx );
   } );
 
-  connect( project, &QFieldCloudProject::jobFinished, this, [=]( QFieldCloudProject::JobType type, QString error ) {
+  connect( project, &QFieldCloudProject::jobFinished, this, [=]( QFieldCloudProject::JobType type, const QString &error ) {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx );

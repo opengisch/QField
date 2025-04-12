@@ -53,6 +53,240 @@ void QFieldCloudProject::setLocalizedDatasetsProjectId( const QString &id )
   emit localizedDatasetsProjectIdChanged();
 }
 
+void QFieldCloudProject::setIsPrivate( bool isPrivate )
+{
+  if ( mIsPrivate == isPrivate )
+    return;
+
+  mIsPrivate = isPrivate;
+  emit isPrivateChanged();
+}
+
+void QFieldCloudProject::setOwner( const QString &owner )
+{
+  if ( mOwner == owner )
+    return;
+
+  mOwner = owner;
+  emit ownerChanged();
+}
+
+void QFieldCloudProject::setName( const QString &name )
+{
+  if ( mName == name )
+    return;
+
+  mName = name;
+  emit nameChanged();
+}
+
+void QFieldCloudProject::setDescription( const QString &description )
+{
+  if ( mDescription == description )
+    return;
+
+  mDescription = description;
+  emit descriptionChanged();
+}
+
+void QFieldCloudProject::setUserRole( const QString &userRole )
+{
+  if ( mUserRole == userRole )
+    return;
+
+  mUserRole = userRole;
+  emit userRoleChanged();
+}
+
+void QFieldCloudProject::setUserRoleOrigin( const QString &userRoleOrigin )
+{
+  if ( mUserRoleOrigin == userRoleOrigin )
+    return;
+
+  mUserRoleOrigin = userRoleOrigin;
+  emit userRoleOriginChanged();
+}
+
+void QFieldCloudProject::setCanRepackage( bool canRepackage )
+{
+  if ( mCanRepackage == canRepackage )
+    return;
+
+  mCanRepackage = canRepackage;
+  emit canRepackageChanged();
+}
+
+void QFieldCloudProject::setNeedsRepackaging( bool needsRepackaging )
+{
+  if ( mNeedsRepackaging == needsRepackaging )
+    return;
+
+  mNeedsRepackaging = needsRepackaging;
+  emit needsRepackagingChanged();
+}
+
+void QFieldCloudProject::setIsOutdated( bool isOutdated )
+{
+  if ( mIsOutdated == isOutdated )
+    return;
+
+  mIsOutdated = isOutdated;
+  emit isOutdatedChanged();
+}
+
+void QFieldCloudProject::setProjectFileIsOutdated( bool projectFileIsOutdated )
+{
+  if ( mProjectFileIsOutdated == projectFileIsOutdated )
+    return;
+
+  mProjectFileIsOutdated = projectFileIsOutdated;
+  emit projectFileIsOutdatedChanged();
+}
+
+void QFieldCloudProject::setLastRefreshedAt( const QDateTime &lastRefreshedAt )
+{
+  if ( mLastRefreshedAt == lastRefreshedAt )
+    return;
+
+  mLastRefreshedAt = lastRefreshedAt;
+  emit lastRefreshedAtChanged();
+}
+
+void QFieldCloudProject::setDataLastUpdatedAt( const QDateTime &dataLastUpdatedAt )
+{
+  if ( mDataLastUpdatedAt == dataLastUpdatedAt )
+    return;
+
+  mDataLastUpdatedAt = dataLastUpdatedAt;
+  emit dataLastUpdatedAtChanged();
+}
+
+void QFieldCloudProject::setErrorStatus( ProjectErrorStatus errorStatus )
+{
+  if ( mErrorStatus == errorStatus )
+    return;
+
+  mErrorStatus = errorStatus;
+  emit errorStatusChanged();
+}
+
+void QFieldCloudProject::setCheckout( ProjectCheckouts checkout )
+{
+  if ( mCheckout == checkout )
+    return;
+
+  mCheckout = checkout;
+  emit checkoutChanged();
+}
+
+void QFieldCloudProject::setStatus( ProjectStatus status )
+{
+  if ( mStatus == status )
+    return;
+
+  mStatus = status;
+  emit statusChanged();
+}
+
+void QFieldCloudProject::setModification( ProjectModification modification )
+{
+  if ( mModification == modification )
+    return;
+
+  mModification = modification;
+  emit modificationChanged();
+}
+
+void QFieldCloudProject::setLocalPath( const QString &localPath )
+{
+  if ( mLocalPath == localPath )
+    return;
+
+  mLocalPath = localPath;
+  emit localPathChanged();
+}
+
+void QFieldCloudProject::setDeltaFileId( const QString &deltaFileId )
+{
+  if ( mDeltaFileId == deltaFileId )
+    return;
+
+  mDeltaFileId = deltaFileId;
+  emit deltaFileIdChanged();
+}
+
+void QFieldCloudProject::setDeltaFileUploadStatus( DeltaFileStatus deltaFileUploadStatus )
+{
+  if ( mDeltaFileUploadStatus == deltaFileUploadStatus )
+    return;
+
+  mDeltaFileUploadStatus = deltaFileUploadStatus;
+  emit deltaFileUploadStatusChanged();
+}
+
+void QFieldCloudProject::setDeltaFileUploadStatusString( const QString &deltaFileUploadStatusString )
+{
+  if ( mDeltaFileUploadStatusString == deltaFileUploadStatusString )
+    return;
+
+  mDeltaFileUploadStatusString = deltaFileUploadStatusString;
+  emit deltaFileUploadStatusStringChanged();
+}
+
+void QFieldCloudProject::setDeltaLayersToDownload( const QStringList &deltaLayersToDownload )
+{
+  if ( mDeltaLayersToDownload == deltaLayersToDownload )
+    return;
+
+  mDeltaLayersToDownload = deltaLayersToDownload;
+  emit deltaLayersToDownloadChanged();
+}
+
+void QFieldCloudProject::setIsPackagingActive( bool isPackagingActive )
+{
+  if ( mIsPackagingActive == isPackagingActive )
+    return;
+
+  mIsPackagingActive = isPackagingActive;
+  emit isPackagingActiveChanged();
+}
+
+void QFieldCloudProject::setIsPackagingFailed( bool isPackagingFailed )
+{
+  if ( mIsPackagingFailed == isPackagingFailed )
+    return;
+
+  mIsPackagingFailed = isPackagingFailed;
+  emit isPackagingFailedChanged();
+}
+
+void QFieldCloudProject::setPackagingStatus( PackagingStatus packagingStatus )
+{
+  if ( mPackagingStatus == packagingStatus )
+    return;
+
+  mPackagingStatus = packagingStatus;
+  emit packagingStatusChanged();
+}
+
+void QFieldCloudProject::setPackagingStatusString( const QString &packagingStatusString )
+{
+  if ( mPackagingStatusString == packagingStatusString )
+    return;
+
+  mPackagingStatusString = packagingStatusString;
+  emit packagingStatusStringChanged();
+}
+
+void QFieldCloudProject::setPackagedLayerErrors( const QStringList &packagedLayerErrors )
+{
+  if ( mPackagedLayerErrors == packagedLayerErrors )
+    return;
+
+  mPackagedLayerErrors = packagedLayerErrors;
+  emit packagedLayerErrorsChanged();
+}
+
 void QFieldCloudProject::setForceAutoPush( bool force )
 {
   if ( mForceAutoPush == force )
@@ -80,6 +314,42 @@ void QFieldCloudProject::setAutoPushIntervalMins( int minutes )
   mAutoPushIntervalMins = minutes;
   QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "autoPushIntervalMins" ), mAutoPushIntervalMins );
   emit autoPushIntervalMinsChanged();
+}
+
+void QFieldCloudProject::setLastLocalPushDeltas( const QString &lastLocalPushDeltas )
+{
+  if ( mLastLocalPushDeltas == lastLocalPushDeltas )
+    return;
+
+  mLastLocalPushDeltas = lastLocalPushDeltas;
+  emit lastLocalPushDeltasChanged();
+}
+
+void QFieldCloudProject::setLastLocalExportedAt( const QString &lastLocalExportedAt )
+{
+  if ( mLastLocalExportedAt == lastLocalExportedAt )
+    return;
+
+  mLastLocalExportedAt = lastLocalExportedAt;
+  emit lastLocalExportedAtChanged();
+}
+
+void QFieldCloudProject::setLastLocalExportId( const QString &lastLocalExportId )
+{
+  if ( mLastLocalExportId == lastLocalExportId )
+    return;
+
+  mLastLocalExportId = lastLocalExportId;
+  emit lastLocalExportIdChanged();
+}
+
+void QFieldCloudProject::setLastLocalDataLastUpdatedAt( const QDateTime &lastLocalDataLastUpdatedAt )
+{
+  if ( mLastLocalDataLastUpdatedAt == lastLocalDataLastUpdatedAt )
+    return;
+
+  mLastLocalDataLastUpdatedAt = lastLocalDataLastUpdatedAt;
+  emit lastLocalDataLastUpdatedAtChanged();
 }
 
 void QFieldCloudProject::refreshFileOutdatedStatus()
@@ -132,39 +402,29 @@ void QFieldCloudProject::packageAndDownload()
     return;
   }
 
-  mPackagingStatus = PackagingUnstartedStatus;
-  mPackagingStatusString = QString();
-  mPackagedLayerErrors.clear();
   mDownloadFileTransfers.clear();
   mDownloadFilesFinished = 0;
   mDownloadFilesFailed = 0;
   mDownloadBytesTotal = 0;
   mDownloadBytesReceived = 0;
   mDownloadProgress = 0;
-  mStatus = ProjectStatus::Downloading;
-  mErrorStatus = NoErrorStatus;
-  mModification = NoModification;
-
-  emit packagingStatusChanged();
-  emit packagingStatusStringChanged();
-  emit packagedLayerErrorsChanged();
-  emit downloadFilesFinishedChanged();
-  emit downloadFilesFailedChanged();
   emit downloadBytesTotalChanged();
   emit downloadBytesReceivedChanged();
   emit downloadProgressChanged();
-  emit statusChanged();
-  emit errorStatusChanged();
-  emit modificationChanged();
+
+  setPackagingStatus( PackagingUnstartedStatus );
+  setPackagingStatusString( QString() );
+  setPackagedLayerErrors( QStringList() );
+  setStatus( ProjectStatus::Downloading );
+  setErrorStatus( NoErrorStatus );
+  setModification( NoModification );
 
   auto repackageIfNeededAndThenDownload = [=]() {
     if ( mNeedsRepackaging )
     {
       QgsLogger::debug( QStringLiteral( "Project %1: repackaging triggered." ).arg( mId ) );
 
-      mPackagingStatus = PackagingBusyStatus;
-      emit packagingStatusChanged();
-
+      setPackagingStatus( PackagingBusyStatus );
       startJob( JobType::Package );
 
       QObject *tempProjectJobFinishedParent = new QObject( this ); // we need this to unsubscribe
@@ -192,17 +452,15 @@ void QFieldCloudProject::packageAndDownload()
 
           mJobs.take( type );
 
-          mPackagingStatus = PackagingErrorStatus;
-          mPackagingStatusString = errorString;
-          emit packagingStatusChanged();
+          setPackagingStatus( PackagingErrorStatus );
+          setPackagingStatusString( errorString );
 
           emit downloadFinished( tr( "Packaging job finished unsuccessfully for `%1`. %2" ).arg( mName ).arg( errorString ) );
           return;
         }
 
-        mPackagingStatus = PackagingFinishedStatus;
-        mPackagingStatusString = QString();
-        emit packagingStatusChanged();
+        setPackagingStatus( PackagingFinishedStatus );
+        setPackagingStatusString( QString() );
 
         download();
       } );
@@ -282,15 +540,15 @@ void QFieldCloudProject::packageAndDownload()
     const bool hasError = !error.isNull();
     if ( hasError )
     {
-      mErrorStatus = DownloadErrorStatus;
+      setErrorStatus( DownloadErrorStatus );
       QgsMessageLog::logMessage( QStringLiteral( "Downloading project `%1` finished with an error: %2" ).arg( mId ).arg( error ) );
     }
     else
     {
-      mErrorStatus = NoErrorStatus;
+      setErrorStatus( NoErrorStatus );
     }
 
-    mStatus = ProjectStatus::Idle;
+    setStatus( ProjectStatus::Idle );
 
     emit downloaded( mName, error );
   } );
@@ -529,10 +787,9 @@ void QFieldCloudProject::downloadFiles()
   // Don't call download project files, if there are no project files
   if ( mActiveFilesToDownload.isEmpty() )
   {
-    mStatus = ProjectStatus::Idle;
+    setStatus( ProjectStatus::Idle );
     mDownloadProgress = 1;
 
-    emit statusChanged();
     emit downloadProgressChanged();
 
     return;
@@ -785,15 +1042,15 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
           AppInterface::instance()->reloadProject();
         }
 
-        mStatus = ProjectStatus::Idle;
-        mErrorStatus = NoErrorStatus;
-        mCheckout = ProjectCheckout::LocalAndRemoteCheckout;
-        mLocalPath = QFieldCloudUtils::localProjectFilePath( mUsername, mId );
-        mLastLocalExportedAt = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
-        mLastLocalExportId = QUuid::createUuid().toString( QUuid::WithoutBraces );
-        mLastLocalDataLastUpdatedAt = mDataLastUpdatedAt;
-        mIsOutdated = false;
-        mProjectFileIsOutdated = false;
+        setStatus( ProjectStatus::Idle );
+        setErrorStatus( NoErrorStatus );
+        setCheckout( ProjectCheckout::LocalAndRemoteCheckout );
+        setLocalPath( QFieldCloudUtils::localProjectFilePath( mUsername, mId ) );
+        setLastLocalExportedAt( QDateTime::currentDateTimeUtc().toString( Qt::ISODate ) );
+        setLastLocalExportId( QUuid::createUuid().toString( QUuid::WithoutBraces ) );
+        setLastLocalDataLastUpdatedAt( mDataLastUpdatedAt );
+        setIsOutdated( false );
+        setProjectFileIsOutdated( false );
 
         QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastExportedAt" ), mLastExportedAt );
         QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastExportId" ), mLastExportId );
@@ -802,16 +1059,6 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
         QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalDataLastUpdatedAt" ), mLastLocalDataLastUpdatedAt );
         QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastProjectFileMd5" ), QString() );
         QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "projectFileOudated" ), false );
-
-        emit statusChanged();
-        emit errorStatusChanged();
-        emit checkoutChanged();
-        emit localPathChanged();
-        emit lastLocalExportedAtChanged();
-        emit lastLocalExportedIdChanged();
-        emit lastDataLastUpdatedAtChanged();
-        emit isOutdatedChanged();
-        emit projectFileIsOutdatedChanged();
 
         emit downloadFinished();
       }
@@ -907,7 +1154,7 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
 
   if ( shouldDownloadUpdates && deltaFileWrapper->count() == 0 )
   {
-    mStatus = ProjectStatus::Idle;
+    setStatus( ProjectStatus::Idle );
     packageAndDownload();
     return;
   }
@@ -930,16 +1177,12 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
 
   deltaFileWrapper->setIsPushing( true );
 
-  mStatus = ProjectStatus::Uploading;
-  mDeltaFileId = deltaFileWrapper->id();
-  mDeltaFileUploadStatus = DeltaLocalStatus;
-  mDeltaFileUploadStatusString = QString();
+  setStatus( ProjectStatus::Uploading );
+  setDeltaFileId( deltaFileWrapper->id() );
+  setDeltaFileUploadStatus( DeltaLocalStatus );
+  setDeltaFileUploadStatusString( QString() );
   mUploadDeltaProgress = 0.0;
 
-  emit statusChanged();
-  emit deltaFileIdChanged();
-  emit deltaFileUploadStatusChanged();
-  emit deltaFileUploadStatusStringChanged();
   emit uploadDeltaProgressChanged();
 
   refreshModification( layerObserver );
@@ -980,8 +1223,7 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
   if ( deltaFileToUpload.isEmpty() )
   {
     deltaFileWrapper->setIsPushing( false );
-    mStatus = ProjectStatus::Idle;
-    emit statusChanged();
+    setStatus( ProjectStatus::Idle );
     return;
   }
 
@@ -1007,7 +1249,7 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
     // if there is an error, cannot continue sync
     if ( deltasReply->error() != QNetworkReply::NoError )
     {
-      mDeltaFileUploadStatusString = QFieldCloudConnection::errorString( deltasReply );
+      setDeltaFileUploadStatusString( QFieldCloudConnection::errorString( deltasReply ) );
       // TODO check why exactly we failed
       // maybe the project does not exist, then create it?
       QgsMessageLog::logMessage( QStringLiteral( "Failed to upload delta file, reason:\n%1\n%2" ).arg( deltasReply->errorString(), mDeltaFileUploadStatusString ) );
@@ -1019,11 +1261,10 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
     }
 
     mUploadDeltaProgress = 1.0;
-    mDeltaFileUploadStatus = DeltaPendingStatus;
-    mDeltaLayersToDownload = layerObserver->deltaFileWrapper()->deltaLayerIds();
+    setDeltaFileUploadStatus( DeltaPendingStatus );
+    setDeltaLayersToDownload( layerObserver->deltaFileWrapper()->deltaLayerIds() );
 
     emit uploadDeltaProgressChanged();
-    emit deltaFileUploadStatusChanged();
 
     emit networkDeltaUploaded();
   } );
@@ -1042,9 +1283,11 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
     }
     else
     {
-      mStatus = ProjectStatus::Idle;
       mModification ^= LocalModification;
-      mLastLocalPushDeltas = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
+      emit modificationChanged();
+
+      setStatus( ProjectStatus::Idle );
+      setLastLocalPushDeltas( QDateTime::currentDateTimeUtc().toString( Qt::ISODate ) );
 
       QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalPushDeltas" ), mLastLocalPushDeltas );
 
@@ -1057,10 +1300,6 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
       {
         QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file after delta push. %1" ).arg( deltaFileWrapper->errorString() ) );
       }
-
-      emit statusChanged();
-      emit modificationChanged();
-      emit lastLocalPushDeltasChanged();
 
       emit uploadFinished( false );
 
@@ -1111,15 +1350,13 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
         if ( !deltaFileWrapper->toFile() )
           QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file. %1" ).arg( deltaFileWrapper->errorString() ) );
 
-        mStatus = ProjectStatus::Idle;
         mModification ^= LocalModification;
         mModification |= RemoteModification;
-        mLastLocalPushDeltas = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
+        emit modificationChanged();
+        setStatus( ProjectStatus::Idle );
+        setLastLocalPushDeltas( QDateTime::currentDateTimeUtc().toString( Qt::ISODate ) );
 
         QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalPushDeltas" ), mLastLocalPushDeltas );
-
-        emit modificationChanged();
-        emit lastLocalPushDeltasChanged();
 
         // download the updated files, so the files are for sure the same on the client and on the server
         if ( shouldDownloadUpdates )
@@ -1139,11 +1376,8 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
 
 void QFieldCloudProject::cancelUpload()
 {
-  mStatus = ProjectStatus::Idle;
-  mErrorStatus = UploadErrorStatus;
-
-  emit statusChanged();
-  emit errorStatusChanged();
+  setStatus( ProjectStatus::Idle );
+  setErrorStatus( UploadErrorStatus );
 
   emit uploadFinished( false, mDeltaFileUploadStatusString );
 
@@ -1204,7 +1438,7 @@ void QFieldCloudProject::startJob( JobType type )
 
 void QFieldCloudProject::getDeltaStatus()
 {
-  mDeltaFileUploadStatusString = QString();
+  setDeltaFileUploadStatusString( QString() );
 
   NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/%2/" ).arg( mId, mDeltaFileId ) );
   connect( deltaStatusReply, &NetworkReply::finished, this, [=]() {
@@ -1216,14 +1450,11 @@ void QFieldCloudProject::getDeltaStatus()
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      mDeltaFileUploadStatus = DeltaErrorStatus;
+      setDeltaFileUploadStatus( DeltaErrorStatus );
       // TODO this is oversimplification. e.g. 404 error is when the requested delta file id is not existant
-      mDeltaFileUploadStatusString = QFieldCloudConnection::errorString( rawReply );
+      setDeltaFileUploadStatusString( QFieldCloudConnection::errorString( rawReply ) );
 
-      emit deltaFileUploadStatusChanged();
-      emit deltaFileUploadStatusStringChanged();
       emit networkDeltaStatusChecked();
-
       return;
     }
 
@@ -1231,33 +1462,25 @@ void QFieldCloudProject::getDeltaStatus()
     DeltaListModel deltaListModel( doc );
     if ( !deltaListModel.isValid() )
     {
-      mDeltaFileUploadStatus = DeltaErrorStatus;
-      mDeltaFileUploadStatusString = deltaListModel.errorString();
+      setDeltaFileUploadStatus( DeltaErrorStatus );
+      setDeltaFileUploadStatusString( deltaListModel.errorString() );
 
-      emit deltaFileUploadStatusChanged();
-      emit deltaFileUploadStatusStringChanged();
       emit networkDeltaStatusChecked();
-
       return;
     }
 
-    mDeltaFileUploadStatusString = deltaListModel.errorString();
+    setDeltaFileUploadStatusString( QString() );
 
     if ( !deltaListModel.allHaveFinalStatus() )
     {
-      mDeltaFileUploadStatus = DeltaPendingStatus;
+      setDeltaFileUploadStatus( DeltaPendingStatus );
 
-      emit deltaFileUploadStatusChanged();
-      emit deltaFileUploadStatusStringChanged();
       emit networkDeltaStatusChecked();
-
       return;
     }
 
-    mDeltaFileUploadStatus = DeltaAppliedStatus;
+    setDeltaFileUploadStatus( DeltaAppliedStatus );
 
-    emit deltaFileUploadStatusChanged();
-    emit deltaFileUploadStatusStringChanged();
     emit networkDeltaStatusChecked();
   } );
 }
@@ -1427,29 +1650,17 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
       return;
     }
 
-    mName = projectData.value( "name" ).toString();
-    mOwner = projectData.value( "owner" ).toString();
-    mDescription = projectData.value( "description" ).toString();
-    mUserRole = projectData.value( "user_role" ).toString();
-    mUserRoleOrigin = projectData.value( "user_role_origin" ).toString();
-    mIsPrivate = projectData.value( "is_public" ).isUndefined() ? projectData.value( "private" ).toBool() : !projectData.value( "is_public" ).toBool( false );
-    mCanRepackage = projectData.value( "can_repackage" ).toBool();
-    mNeedsRepackaging = projectData.value( "needs_repackaging" ).toBool();
-    mLastRefreshedAt = QDateTime::currentDateTimeUtc();
-    mDataLastUpdatedAt = QDateTime::fromString( projectData.value( "data_last_updated_at" ).toString(), Qt::ISODate );
-    mIsOutdated = mLastLocalDataLastUpdatedAt.isValid() ? mDataLastUpdatedAt > mLastLocalDataLastUpdatedAt : false;
-
-    emit nameChanged();
-    emit ownerChanged();
-    emit descriptionChanged();
-    emit userRoleChanged();
-    emit userRoleOriginChanged();
-    emit isPrivateChanged();
-    emit canRepackageChanged();
-    emit needsRepackagingChanged();
-    emit lastRefreshedAtChanged();
-    emit dataLastUpdatedAtChanged();
-    emit isOutdatedChanged();
+    setName( projectData.value( "name" ).toString() );
+    setOwner( projectData.value( "owner" ).toString() );
+    setDescription( projectData.value( "description" ).toString() );
+    setUserRole( projectData.value( "user_role" ).toString() );
+    setUserRoleOrigin( mUserRoleOrigin = projectData.value( "user_role_origin" ).toString() );
+    setIsPrivate( projectData.value( "is_public" ).isUndefined() ? projectData.value( "private" ).toBool() : !projectData.value( "is_public" ).toBool( false ) );
+    setCanRepackage( projectData.value( "can_repackage" ).toBool() );
+    setNeedsRepackaging( projectData.value( "needs_repackaging" ).toBool() );
+    setLastRefreshedAt( QDateTime::currentDateTimeUtc() );
+    setDataLastUpdatedAt( QDateTime::fromString( projectData.value( "data_last_updated_at" ).toString(), Qt::ISODate ) );
+    setIsOutdated( mLastLocalDataLastUpdatedAt.isValid() ? mDataLastUpdatedAt > mLastLocalDataLastUpdatedAt : false );
 
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "name" ), mName );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "owner" ), mOwner );
@@ -1506,19 +1717,12 @@ void QFieldCloudProject::cancelDownload()
 
   QgsMessageLog::logMessage( QStringLiteral( "Download of project id `%1` aborted" ).arg( mId ) );
 
-  mPackagingStatus = PackagingAbortStatus;
-  mPackagingStatusString = tr( "aborted" );
-  mErrorStatus = NoErrorStatus;
-  mIsPackagingActive = false;
-  mIsPackagingFailed = true;
-  mStatus = ProjectStatus::Idle;
-
-  emit packagingStatusChanged();
-  emit packagingStatusStringChanged();
-  emit errorStatusChanged();
-  emit isPackagingActiveChanged();
-  emit isPackagingFailedChanged();
-  emit statusChanged();
+  setPackagingStatus( PackagingAbortStatus );
+  setPackagingStatusString( tr( "aborted" ) );
+  setErrorStatus( NoErrorStatus );
+  setIsPackagingActive( false );
+  setIsPackagingFailed( true );
+  setStatus( ProjectStatus::Idle );
 }
 
 void QFieldCloudProject::removeLocally()
@@ -1528,13 +1732,9 @@ void QFieldCloudProject::removeLocally()
   {
     dir.removeRecursively();
 
-    mLocalPath = QString();
-    mCheckout = RemoteCheckout;
-    mModification = NoModification;
-
-    emit localPathChanged();
-    emit checkoutChanged();
-    emit modificationChanged();
+    setLocalPath( QString() );
+    setCheckout( RemoteCheckout );
+    setModification( NoModification );
   }
 
   QSettings().remove( QStringLiteral( "QFieldCloud/projects/%1" ).arg( mId ) );
@@ -1590,7 +1790,6 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   const QString owner = QFieldCloudUtils::projectSetting( id, QStringLiteral( "owner" ) ).toString();
   const QString name = QFieldCloudUtils::projectSetting( id, QStringLiteral( "name" ) ).toString();
   const QString description = QFieldCloudUtils::projectSetting( id, QStringLiteral( "description" ) ).toString();
-  const QString updatedAt = QFieldCloudUtils::projectSetting( id, QStringLiteral( "updatedAt" ) ).toString();
   const QString userRole = QFieldCloudUtils::projectSetting( id, QStringLiteral( "userRole" ) ).toString();
   const QString userRoleOrigin = QFieldCloudUtils::projectSetting( id, QStringLiteral( "userRoleOrigin" ) ).toString();
 

@@ -173,61 +173,111 @@ class QFieldCloudProject : public QObject
     void setLocalizedDatasetsProjectId( const QString &id );
 
     bool isPrivate() const { return mIsPrivate; }
+    void setIsPrivate( bool isPrivate );
+
     QString owner() const { return mOwner; }
+    void setOwner( const QString &owner );
+
     QString name() const { return mName; }
+    void setName( const QString &name );
+
     QString description() const { return mDescription; }
+    void setDescription( const QString &description );
+
     QString userRole() const { return mUserRole; }
+    void setUserRole( const QString &userRole );
+
     QString userRoleOrigin() const { return mUserRoleOrigin; }
+    void setUserRoleOrigin( const QString &userRoleOrigin );
 
     ProjectErrorStatus errorStatus() const { return mErrorStatus; }
+    void setErrorStatus( ProjectErrorStatus errorStatus );
+
     ProjectCheckouts checkout() const { return mCheckout; }
+    void setCheckout( ProjectCheckouts checkout );
+
     ProjectStatus status() const { return mStatus; }
+    void setStatus( ProjectStatus status );
+
     QDateTime dataLastUpdatedAt() const { return mDataLastUpdatedAt; }
+    void setDataLastUpdatedAt( const QDateTime &dataLastUpdatedAt );
 
     bool canRepackage() const { return mCanRepackage; }
+    void setCanRepackage( bool canRepackage );
+
     bool needsRepackaging() const { return mNeedsRepackaging; }
+    void setNeedsRepackaging( bool needsRepackaging );
+
     bool isOutdated() const { return mIsOutdated; }
+    void setIsOutdated( bool isOudated );
+
     bool projectFileIsOutdated() const { return mProjectFileIsOutdated; }
+    void setProjectFileIsOutdated( bool projectFileIsOutdated );
 
     ProjectModifications modification() const { return mModification; }
+    void setModification( ProjectModification modification );
+
     QString localPath() const { return mLocalPath; }
+    void setLocalPath( const QString &localPath );
 
     QString deltaFileId() const { return mDeltaFileId; }
+    void setDeltaFileId( const QString &deltaFileId );
+
     DeltaFileStatus deltaFileUploadStatus() const { return mDeltaFileUploadStatus; }
+    void setDeltaFileUploadStatus( DeltaFileStatus deltaFileUploadStatus );
+
     QString deltaFileUploadStatusString() const { return mDeltaFileUploadStatusString; }
+    void setDeltaFileUploadStatusString( const QString &deltaFileUploadStatusString );
+
     QStringList deltaLayersToDownload() const { return mDeltaLayersToDownload; }
+    void setDeltaLayersToDownload( const QStringList &deltaLayersToDownload );
 
     bool isPackagingActive() const { return mIsPackagingActive; }
+    void setIsPackagingActive( bool isPackagingActive );
+
     bool isPackagingFailed() const { return mIsPackagingFailed; }
+    void setIsPackagingFailed( bool isPackagingFailed );
+
     PackagingStatus packagingStatus() const { return mPackagingStatus; }
+    void setPackagingStatus( PackagingStatus packagingStatus );
+
     QString packagingStatusString() const { return mPackagingStatusString; }
+    void setPackagingStatusString( const QString &packagingStatusString );
+
     QStringList packagedLayerErrors() const { return mPackagedLayerErrors; }
+    void setPackagedLayerErrors( const QStringList &packagedLayerErrors );
 
     bool forceAutoPush() const { return mForceAutoPush; }
     void setForceAutoPush( bool force );
+
     bool autoPushEnabled() const { return mAutoPushEnabled; }
     void setAutoPushEnabled( bool enabled );
+
     int autoPushIntervalMins() const { return mAutoPushIntervalMins; }
     void setAutoPushIntervalMins( int minutes );
 
     QString lastLocalPushDeltas() const { return mLastLocalPushDeltas; }
-    QString lastLocalExportedAt() const { return mLastLocalExportId; }
-    QString lastLocalExportId() const { return mLastLocalExportId; }
-    QDateTime lastLocalDataLastUpdatedAt() const { return mLastLocalDataLastUpdatedAt; }
-    QDateTime lastRefreshedAt() const { return mLastRefreshedAt; }
+    void setLastLocalPushDeltas( const QString &lastLocalPushDeltas );
 
-    int downloadFilesFinished() const { return mDownloadFilesFinished; }
-    int downloadFilesFailed() const { return mDownloadFilesFailed; }
+    QString lastLocalExportedAt() const { return mLastLocalExportedAt; }
+    void setLastLocalExportedAt( const QString &lastLocalExportedAt );
+
+    QString lastLocalExportId() const { return mLastLocalExportId; }
+    void setLastLocalExportId( const QString &lastLocalExportId );
+
+    QDateTime lastLocalDataLastUpdatedAt() const { return mLastLocalDataLastUpdatedAt; }
+    void setLastLocalDataLastUpdatedAt( const QDateTime &lastLocalDataLastUpdatedAt );
+
+    QDateTime lastRefreshedAt() const { return mLastRefreshedAt; }
+    void setLastRefreshedAt( const QDateTime &lastRefreshedAt );
+
     int downloadBytesTotal() const { return mDownloadBytesTotal; }
     int downloadBytesReceived() const { return mDownloadBytesReceived; }
     double downloadProgress() const { return mDownloadProgress; }
-
-
     double uploadDeltaProgress() const { return mUploadDeltaProgress; }
+
     int deltasCount() const { return mDeltasCount; }
     DeltaListModel *deltaListModel() const { return mDeltaListModel; }
-
-    // ----------
 
     void packageAndDownload();
     void cancelDownload();
@@ -240,8 +290,6 @@ class QFieldCloudProject : public QObject
     void refreshModification( LayerObserver *layerObserver );
 
     void removeLocally();
-
-    // ----------
 
     static QFieldCloudProject::JobStatus getJobStatusFromString( const QString &status );
     static QString getJobTypeAsString( QFieldCloudProject::JobType jobType );
@@ -290,15 +338,13 @@ class QFieldCloudProject : public QObject
     void autoPushIntervalMinsChanged();
 
     void lastLocalExportedAtChanged();
-    void lastLocalExportedIdChanged();
+    void lastLocalExportIdChanged();
     void lastDataLastUpdatedAtChanged();
 
     void lastLocalDataLastUpdatedAtChanged();
     void lastRefreshedAtChanged();
     void lastLocalPushDeltasChanged();
 
-    void downloadFilesFinishedChanged();
-    void downloadFilesFailedChanged();
     void downloadBytesTotalChanged();
     void downloadBytesReceivedChanged();
     void downloadProgressChanged();
@@ -307,18 +353,16 @@ class QFieldCloudProject : public QObject
 
     void deltaListModelChanged();
 
-    // ---
+    void downloadFinished( const QString &error = QString() );
+    void downloaded( const QString &name, const QString &error = QString() );
 
-    void downloadFinished( QString error = QString() );
-    void downloaded( const QString &name, QString error = QString() );
-
-    void uploadFinished( bool isDownloading, QString error = QString() );
+    void uploadFinished( bool isDownloading, const QString &error = QString() );
 
     void networkDeltaUploaded();
     void networkDeltaStatusChecked();
 
-    void dataRefreshed( ProjectRefreshReason reason, QString error = QString() );
-    void jobFinished( JobType type, QString error = QString() );
+    void dataRefreshed( ProjectRefreshReason reason, const QString &error = QString() );
+    void jobFinished( JobType type, const QString &error = QString() );
 
   private:
     void download();
@@ -389,8 +433,8 @@ class QFieldCloudProject : public QObject
     QString mUserRole;
     QString mUserRoleOrigin;
     ProjectErrorStatus mErrorStatus = ProjectErrorStatus::NoErrorStatus;
-    ProjectCheckouts mCheckout;
-    ProjectStatus mStatus;
+    ProjectCheckouts mCheckout = ProjectCheckout::LocalCheckout;
+    ProjectStatus mStatus = ProjectStatus::Idle;
     QDateTime mDataLastUpdatedAt;
     bool mCanRepackage = false;
     bool mNeedsRepackaging = false;
@@ -416,9 +460,9 @@ class QFieldCloudProject : public QObject
     int mDownloadFilesFailed = 0;
     int mDownloadBytesTotal = 0;
     int mDownloadBytesReceived = 0;
-    double mDownloadProgress = 0.0; // range from 0.0 to 1.0
-
+    double mDownloadProgress = 0.0;    // range from 0.0 to 1.0
     double mUploadDeltaProgress = 0.0; // range from 0.0 to 1.0
+
     int mDeltasCount = 0;
     DeltaListModel *mDeltaListModel = nullptr;
 
