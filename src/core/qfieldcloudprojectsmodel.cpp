@@ -14,7 +14,6 @@
  ***************************************************************************/
 
 #include "deltafilewrapper.h"
-#include "fileutils.h"
 #include "layerobserver.h"
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
@@ -46,11 +45,9 @@
 QFieldCloudProjectsModel::QFieldCloudProjectsModel()
   : mProject( QgsProject::instance() )
 {
-  loadProjects();
-
   // TODO all of these connects are a bit too much, and I guess not very precise, should be refactored!
   connect( this, &QFieldCloudProjectsModel::currentProjectIdChanged, this, [=]() {
-    CloudProject *project = findProject( mCurrentProjectId );
+    QFieldCloudProject *project = findProject( mCurrentProjectId );
 
     if ( !project )
       return;
@@ -81,20 +78,6 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
       emit currentProjectDataChanged();
     }
   } );
-
-  connect( this, &QFieldCloudProjectsModel::cloudConnectionChanged, this, [=]() {
-    if ( !mCloudConnection )
-      return;
-
-    mUsername = mCloudConnection->username();
-    if ( mCloudConnection->status() != QFieldCloudConnection::ConnectionStatus::LoggedIn )
-    {
-      loadProjects();
-    }
-    connect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, [=]() {
-      mUsername = mCloudConnection->username();
-    } );
-  } );
 }
 
 QFieldCloudConnection *QFieldCloudProjectsModel::cloudConnection() const
@@ -107,10 +90,23 @@ void QFieldCloudProjectsModel::setCloudConnection( QFieldCloudConnection *cloudC
   if ( mCloudConnection == cloudConnection )
     return;
 
-  if ( cloudConnection )
-    connect( cloudConnection, &QFieldCloudConnection::statusChanged, this, &QFieldCloudProjectsModel::connectionStatusChanged );
+  if ( mCloudConnection )
+  {
+    disconnect( mCloudConnection, &QFieldCloudConnection::statusChanged, this, &QFieldCloudProjectsModel::connectionStatusChanged );
+    disconnect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, &QFieldCloudProjectsModel::usernameChanged );
+  }
 
   mCloudConnection = cloudConnection;
+
+  if ( mCloudConnection )
+  {
+    connect( mCloudConnection, &QFieldCloudConnection::statusChanged, this, &QFieldCloudProjectsModel::connectionStatusChanged );
+    connect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, &QFieldCloudProjectsModel::usernameChanged );
+
+    mUsername = mCloudConnection->username();
+    loadProjects();
+  }
+
   emit cloudConnectionChanged();
 }
 
@@ -184,9 +180,9 @@ QSet<QString> QFieldCloudProjectsModel::busyProjectIds() const
 
   for ( const auto project : mProjects )
   {
-    if ( project->status != ProjectStatus::Idle )
+    if ( project->status() != QFieldCloudProject::ProjectStatus::Idle )
     {
-      result.insert( project->id );
+      result.insert( project->id() );
     }
   }
 
@@ -259,7 +255,7 @@ QModelIndex QFieldCloudProjectsModel::findProjectIndex( const QString &projectId
 
   for ( int i = 0; i < mProjects.count(); i++ )
   {
-    if ( mProjects.at( i )->id == projectId )
+    if ( mProjects.at( i )->id() == projectId )
     {
       return createIndex( i, 0 );
     }
@@ -270,7 +266,7 @@ QModelIndex QFieldCloudProjectsModel::findProjectIndex( const QString &projectId
   return QModelIndex();
 }
 
-QFieldCloudProjectsModel::CloudProject *QFieldCloudProjectsModel::findProject( const QString &projectId ) const
+QFieldCloudProject *QFieldCloudProjectsModel::findProject( const QString &projectId ) const
 {
   const QModelIndex index = findProjectIndex( projectId );
 
@@ -287,44 +283,33 @@ void QFieldCloudProjectsModel::removeLocalProject( const QString &projectId )
   if ( dir.exists() )
   {
     const QModelIndex projectIndex = findProjectIndex( projectId );
-
     if ( projectIndex.isValid() )
     {
-      CloudProject *project = mProjects[projectIndex.row()];
-      if ( project->status == ProjectStatus::Idle && project->checkout & RemoteCheckout )
+      QFieldCloudProject *project = mProjects[projectIndex.row()];
+      if ( project->status() == QFieldCloudProject::ProjectStatus::Idle && project->checkout() & QFieldCloudProject::RemoteCheckout )
       {
-        project->localPath = QString();
-        project->checkout = RemoteCheckout;
-        project->modification = NoModification;
+        project->removeLocally();
         emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << LocalPathRole << CheckoutRole );
       }
       else
       {
         beginRemoveRows( QModelIndex(), projectIndex.row(), projectIndex.row() );
-        mProjects.removeAt( projectIndex.row() );
+        delete mProjects.takeAt( projectIndex.row() );
         endRemoveRows();
       }
     }
-
-    dir.removeRecursively();
   }
-
-  QSettings().remove( QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId ) );
 }
 
-QFieldCloudProjectsModel::ProjectStatus QFieldCloudProjectsModel::projectStatus( const QString &projectId ) const
+QFieldCloudProject::ProjectStatus QFieldCloudProjectsModel::projectStatus( const QString &projectId ) const
 {
-  CloudProject *project = findProject( projectId );
-
-  if ( !project )
-    return QFieldCloudProjectsModel::ProjectStatus::Idle;
-
-  return project->status;
+  QFieldCloudProject *project = findProject( projectId );
+  return project ? project->status() : QFieldCloudProject::ProjectStatus::Idle;
 }
 
 bool QFieldCloudProjectsModel::canSyncProject( const QString &projectId ) const
 {
-  CloudProject *project = findProject( projectId );
+  QFieldCloudProject *project = findProject( projectId );
 
   if ( !project )
     return false;
@@ -333,7 +318,7 @@ bool QFieldCloudProjectsModel::canSyncProject( const QString &projectId ) const
   {
     return false;
   }
-  else if ( projectStatus( projectId ) == ProjectStatus::Idle )
+  else if ( projectStatus( projectId ) == QFieldCloudProject::ProjectStatus::Idle )
   {
     return true;
   }
@@ -341,39 +326,16 @@ bool QFieldCloudProjectsModel::canSyncProject( const QString &projectId ) const
   return false;
 }
 
-QFieldCloudProjectsModel::ProjectModifications QFieldCloudProjectsModel::projectModification( const QString &projectId ) const
+QFieldCloudProject::ProjectModifications QFieldCloudProjectsModel::projectModification( const QString &projectId ) const
 {
-  CloudProject *project = findProject( projectId );
+  QFieldCloudProject *project = findProject( projectId );
 
   if ( !project )
-    return NoModification;
+    return QFieldCloudProject::NoModification;
 
-  return project->modification;
+  return project->modification();
 }
 
-void QFieldCloudProjectsModel::refreshProjectModification( const QString &projectId )
-{
-  const QModelIndex projectIndex = findProjectIndex( projectId );
-  if ( !projectIndex.isValid() )
-    return;
-
-  CloudProject *project = mProjects[projectIndex.row()];
-  ProjectModifications oldModifications = project->modification;
-
-  if ( mLayerObserver->deltaFileWrapper()->count() > 0 )
-  {
-    project->modification |= LocalModification;
-  }
-  else if ( project->modification & LocalModification )
-  {
-    project->modification ^= LocalModification;
-  }
-
-  if ( oldModifications != project->modification )
-  {
-    emit dataChanged( projectIndex, projectIndex, QVector<int>() << ModificationRole << CanSyncRole );
-  }
-}
 
 void QFieldCloudProjectsModel::refreshProjectFileOutdatedStatus( const QString &projectId )
 {
@@ -381,89 +343,13 @@ void QFieldCloudProjectsModel::refreshProjectFileOutdatedStatus( const QString &
   if ( !projectIndex.isValid() )
     return;
 
-  CloudProject *project = mProjects[projectIndex.row()];
-  NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( projectId ) );
-
-  connect( reply, &NetworkReply::finished, reply, [=]() {
-    if ( !findProject( projectId ) )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1: project has been deleted while refreshing project file outdated status." ).arg( projectId ) );
-      return;
-    }
-
-    QNetworkReply *rawReply = reply->currentRawReply();
-    reply->deleteLater();
-
-    if ( rawReply->error() != QNetworkReply::NoError )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1: failed to refresh the project file outdated satus. %2" ).arg( projectId, QFieldCloudConnection::errorString( rawReply ) ) );
-      return;
-    }
-
-    const QJsonArray files = QJsonDocument::fromJson( rawReply->readAll() ).array();
-    const QString lastProjectFileMd5 = QFieldCloudUtils::projectSetting( project->id, QStringLiteral( "lastProjectFileMd5" ), QString() ).toString();
-    for ( const auto file : files )
-    {
-      QVariantHash fileDetails = file.toObject().toVariantHash();
-      const QString fileName = fileDetails.value( "name" ).toString().toLower();
-      if ( fileName.endsWith( QStringLiteral( ".qgs" ) ) || fileName.endsWith( QStringLiteral( ".qgz" ) ) )
-      {
-        if ( lastProjectFileMd5.isEmpty() )
-        {
-          // First check, store for future comparison
-          QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "lastProjectFileMd5" ), fileDetails.value( "md5sum" ).toString() );
-        }
-        else if ( lastProjectFileMd5 != fileDetails.value( "md5sum" ).toString() )
-        {
-          project->projectFileIsOutdated = true;
-          QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "projectFileOudated" ), true );
-          emit dataChanged( projectIndex, projectIndex, QVector<int>() << ProjectFileOutdatedRole );
-
-          if ( mCurrentProjectId == projectId )
-          {
-            emit currentProjectDataChanged();
-          }
-        }
-      }
-    }
-  } );
+  QFieldCloudProject *project = mProjects[projectIndex.row()];
+  project->refreshFileOutdatedStatus();
 }
 
 QString QFieldCloudProjectsModel::layerFileName( const QgsMapLayer *layer ) const
 {
   return layer->dataProvider()->dataSourceUri().split( '|' )[0];
-}
-
-QFieldCloudProjectsModel::JobStatus QFieldCloudProjectsModel::getJobStatusFromString( const QString &status ) const
-{
-  const QString statusLower = status.toLower();
-  if ( statusLower == QStringLiteral( "pending" ) )
-    return JobPendingStatus;
-  else if ( statusLower == QStringLiteral( "queued" ) )
-    return JobQueuedStatus;
-  else if ( statusLower == QStringLiteral( "started" ) )
-    return JobStartedStatus;
-  else if ( statusLower == QStringLiteral( "stopped" ) )
-    return JobStoppedStatus;
-  else if ( statusLower == QStringLiteral( "finished" ) )
-    return JobFinishedStatus;
-  //cppcheck-suppress duplicateBranch
-  else if ( statusLower == QStringLiteral( "failed" ) )
-    return JobFailedStatus;
-  else
-    // "STATUS_ERROR" or any unknown status is considered an error
-    return JobFailedStatus;
-}
-
-QString QFieldCloudProjectsModel::getJobTypeAsString( JobType jobType ) const
-{
-  switch ( jobType )
-  {
-    case JobType::Package:
-      return QStringLiteral( "package" );
-  }
-
-  return QString();
 }
 
 void QFieldCloudProjectsModel::projectCancelDownload( const QString &projectId )
@@ -475,278 +361,15 @@ void QFieldCloudProjectsModel::projectCancelDownload( const QString &projectId )
   if ( !projectIndex.isValid() )
     return;
 
-  CloudProject *project = mProjects[projectIndex.row()];
+  QFieldCloudProject *project = mProjects[projectIndex.row()];
 
   // before canceling, the project should be downloading
-  if ( project->status != ProjectStatus::Downloading )
+  if ( project->status() != QFieldCloudProject::ProjectStatus::Downloading )
     return;
 
-  const QStringList fileNames = project->downloadFileTransfers.keys();
-  for ( const QString &fileName : fileNames )
-  {
-    NetworkReply *reply = project->downloadFileTransfers[fileName].networkReply;
-
-    if ( reply )
-      reply->abort();
-
-    project->downloadFileTransfers.remove( fileName );
-  }
-
-  QgsMessageLog::logMessage( QStringLiteral( "Download of project id `%1` aborted" ).arg( projectId ) );
-
-  project->packagingStatus = PackagingAbortStatus;
-  project->errorStatus = NoErrorStatus;
-  project->isPackagingActive = false;
-  project->isPackagingFailed = true;
-  project->packagingStatusString = tr( "aborted" );
-  project->status = ProjectStatus::Idle;
+  project->cancelDownload();
 
   emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << ErrorStatusRole << PackagingStatusRole );
-}
-
-void QFieldCloudProjectsModel::projectRefreshData( const QString &projectId, const ProjectRefreshReason &refreshReason )
-{
-  if ( !mCloudConnection )
-    return;
-
-  const QModelIndex projectIndex = findProjectIndex( projectId );
-  if ( !projectIndex.isValid() )
-    return;
-
-  CloudProject *project = mProjects[projectIndex.row()];
-
-  NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/projects/%1/" ).arg( projectId ) );
-  connect( reply, &NetworkReply::finished, reply, [=]() {
-    if ( !findProject( projectId ) )
-      return;
-
-    QNetworkReply *rawReply = reply->currentRawReply();
-
-    reply->deleteLater();
-
-    if ( rawReply->error() != QNetworkReply::NoError )
-    {
-      emit projectRefreshed( projectId, refreshReason, QFieldCloudConnection::errorString( rawReply ) );
-      return;
-    }
-
-    const QJsonObject projectData = QJsonDocument::fromJson( rawReply->readAll() ).object();
-    const QString projectId = projectData.value( "id" ).toString();
-
-    if ( projectData.value( "id" ).toString() != projectId )
-      return;
-
-    QgsLogger::debug( QStringLiteral( "Project %1: data refreshed." ).arg( projectId ) );
-
-    if (
-      !projectData.value( "name" ).isString()
-      || !projectData.value( "owner" ).isString()
-      || !projectData.value( "description" ).isString()
-      || !projectData.value( "user_role" ).isString()
-      || !projectData.value( "is_public" ).isBool()
-      || !projectData.value( "can_repackage" ).isBool()
-      || !projectData.value( "needs_repackaging" ).isBool() )
-    {
-      emit projectRefreshed( projectId, refreshReason, tr( "project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)" ).arg( projectId ) );
-      return;
-    }
-
-    project->name = projectData.value( "name" ).toString();
-    project->owner = projectData.value( "owner" ).toString();
-    project->description = projectData.value( "description" ).toString();
-    project->userRole = projectData.value( "user_role" ).toString();
-    project->userRoleOrigin = projectData.value( "user_role_origin" ).toString();
-    project->isPrivate = projectData.value( "is_public" ).isUndefined() ? projectData.value( "private" ).toBool() : !projectData.value( "is_public" ).toBool( false );
-    project->canRepackage = projectData.value( "can_repackage" ).toBool();
-    project->needsRepackaging = projectData.value( "needs_repackaging" ).toBool();
-    project->lastRefreshedAt = QDateTime::currentDateTimeUtc();
-    project->dataLastUpdatedAt = QDateTime::fromString( projectData.value( "data_last_updated_at" ).toString(), Qt::ISODate );
-    project->isOutdated = project->lastLocalDataLastUpdatedAt.isValid() ? project->dataLastUpdatedAt > project->lastLocalDataLastUpdatedAt : false;
-
-    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "name" ), project->name );
-    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "owner" ), project->owner );
-    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "description" ), project->description );
-    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "userRole" ), project->userRole );
-    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "userRoleOrigin" ), project->userRoleOrigin );
-    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "isPrivate" ), project->isPrivate );
-    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "canRepackage" ), project->canRepackage );
-    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "needsRepackaging" ), project->needsRepackaging );
-
-    emit dataChanged( projectIndex, projectIndex, QVector<int>::fromList( roleNames().keys() ) );
-    emit projectRefreshed( projectId, refreshReason );
-
-    if ( mCurrentProjectId == projectId )
-    {
-      emit currentProjectDataChanged();
-    }
-  } );
-}
-
-void QFieldCloudProjectsModel::projectStartJob( const QString &projectId, const JobType jobType )
-{
-  const QModelIndex projectIndex = findProjectIndex( projectId );
-  if ( !projectIndex.isValid() )
-    return;
-
-  CloudProject *project = mProjects[projectIndex.row()];
-  project->jobs[jobType] = Job( QString(), projectId, jobType );
-
-  emit dataChanged( projectIndex, projectIndex, QVector<int>::fromList( roleNames().keys() ) );
-
-  QString jobTypeName = getJobTypeAsString( jobType );
-  QgsLogger::debug( QStringLiteral( "Project %1: creating a new `%2` job..." ).arg( projectId, jobTypeName ) );
-  NetworkReply *reply = mCloudConnection->post(
-    QStringLiteral( "/api/v1/jobs/" ),
-    QVariantMap(
-      {
-        { "project_id", projectId },
-        { "type", jobTypeName },
-      } ) );
-
-  connect( reply, &NetworkReply::finished, reply, [=]() {
-    reply->deleteLater();
-
-    if ( project->packagingStatus == PackagingAbortStatus )
-    {
-      // no need to emit why we aborted packaging, it is callers responsibility to inform the user
-      QgsLogger::debug( QStringLiteral( "Project %1: job creation finished, but project operations are aborted." ).arg( projectId ) );
-      return;
-    }
-
-    // the project has been deleted
-    if ( !findProject( projectId ) )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1: job creation finished, but the project is deleted." ).arg( projectId ) );
-      emit projectJobFinished( projectId, jobType, tr( "Getting job status, but the project is deleted." ) );
-      return;
-    }
-
-    QNetworkReply *rawReply = reply->currentRawReply();
-
-    if ( rawReply->error() != QNetworkReply::NoError )
-    {
-      QString errorString = QFieldCloudConnection::errorString( rawReply );
-      QgsLogger::debug( QStringLiteral( "Project %1: job creation failed with an error: %2" ).arg( projectId, errorString ) );
-      emit projectJobFinished( projectId, jobType, errorString );
-      return;
-    }
-
-    const QJsonObject payload = QJsonDocument::fromJson( rawReply->readAll() ).object();
-    const QString jobId = payload.value( QStringLiteral( "id" ) ).toString();
-
-    if ( jobId.isEmpty() )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1: job creation finished, but missing id key from the response payload" ).arg( projectId ) );
-      emit projectJobFinished( projectId, jobType, tr( "Job creation finished, but the server response is missing required fields: id(string)" ).arg( jobId ) );
-      return;
-    }
-
-    QgsLogger::debug( QStringLiteral( "Project %1: created job with id `%2`" ).arg( projectId ).arg( jobId ) );
-
-    project->jobs[jobType].id = jobId;
-
-    emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole );
-
-    projectGetJobStatus( projectId, jobType );
-  } );
-}
-
-
-void QFieldCloudProjectsModel::projectGetJobStatus( const QString &projectId, const JobType jobType )
-{
-  CloudProject *project = findProject( projectId );
-
-  if ( !project )
-  {
-    QgsLogger::debug( QStringLiteral( "Project %1: getting job status, but the project is deleted." ).arg( projectId ) );
-    emit projectJobFinished( projectId, jobType, tr( "Getting job status, but the project is deleted." ) );
-    return;
-  }
-
-  if ( project->packagingStatus == PackagingAbortStatus )
-  {
-    // no need to emit why we aborted packaging, it is callers responsibility to inform the user
-    QgsLogger::debug( QStringLiteral( "Project %1: getting job status, but project operations are aborted." ).arg( projectId ) );
-    return;
-  }
-
-  if ( !project->jobs.contains( jobType ) )
-  {
-    const QString jobTypeName = getJobTypeAsString( jobType );
-    QgsLogger::debug( QStringLiteral( "Project %1: getting job status, but no `%2` job triggered yet." ).arg( projectId, jobTypeName ) );
-    emit projectJobFinished( projectId, jobType, tr( "Getting job status, but no `%2` job triggered yet." ).arg( jobTypeName ) );
-    return;
-  }
-
-  QString jobId = project->jobs[jobType].id;
-  QgsLogger::debug( QStringLiteral( "Project %1, job %2: getting job status..." ).arg( projectId, jobId ) );
-  NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/jobs/%1/" ).arg( jobId ) );
-
-  connect( reply, &NetworkReply::finished, this, [=]() {
-    reply->deleteLater();
-
-    // the project has been deleted
-    if ( !findProject( projectId ) )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1, job %2: getting job status finished, but the project is deleted." ).arg( projectId, jobId ) );
-      emit projectJobFinished( projectId, jobType, tr( "Getting job status finished, but the project is deleted." ) );
-      return;
-    }
-
-    if ( project->packagingStatus == PackagingAbortStatus )
-    {
-      // no need to emit why we aborted packaging, it is callers responsibility to inform the user
-      QgsLogger::debug( QStringLiteral( "Project %1, job %2: getting job status finished, but project operations are aborted." ).arg( projectId, jobId ) );
-      return;
-    }
-
-    QNetworkReply *rawReply = reply->currentRawReply();
-
-    if ( rawReply->error() != QNetworkReply::NoError )
-    {
-      QString errorString = QFieldCloudConnection::errorString( rawReply );
-      QgsLogger::debug( QStringLiteral( "Project %1, job %2: getting job status finished with an error: %3." ).arg( projectId, jobId, errorString ) );
-      project->jobs[jobType].status = JobFailedStatus;
-      emit projectJobFinished( projectId, jobType, errorString );
-      return;
-    }
-
-    const QJsonObject payload = QJsonDocument::fromJson( rawReply->readAll() ).object();
-    const QString jobStatusString = payload.value( QStringLiteral( "status" ) ).toString();
-
-    if ( jobStatusString.isEmpty() )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1, job %2: getting job status finished, but missing status key from the response payload" ).arg( projectId, jobId ) );
-
-      project->jobs[jobType].status = JobFailedStatus;
-      emit projectJobFinished( projectId, jobType, tr( "job(%1) status response does not contain all the expected keys: status(string)" ).arg( jobId ) );
-      return;
-    }
-
-    project->jobs[jobType].status = getJobStatusFromString( jobStatusString );
-
-    QgsLogger::debug( QStringLiteral( "Project %1, job %2: getting job status finished with `%3`" ).arg( projectId, jobId, jobStatusString ) );
-
-    switch ( project->jobs[jobType].status )
-    {
-      case JobPendingStatus:
-      case JobQueuedStatus:
-      case JobStartedStatus:
-      case JobStoppedStatus:
-        // infinite retry, there should be one day, when we can get the status!
-        QTimer::singleShot( sDelayBeforeStatusRetry, [=]() {
-          projectGetJobStatus( projectId, jobType );
-        } );
-        break;
-
-      case JobFailedStatus:
-        emit projectJobFinished( projectId, jobType, tr( "Job(%1) finished with a failed status." ).arg( jobId ) );
-        return;
-      case JobFinishedStatus:
-        emit projectJobFinished( projectId, jobType );
-        return;
-    }
-  } );
 }
 
 void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &projectId )
@@ -763,591 +386,19 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
     return;
   }
 
-  CloudProject *project = mProjects[projectIndex.row()];
+  QFieldCloudProject *project = mProjects[projectIndex.row()];
 
-  if ( project->status != ProjectStatus::Idle )
+  if ( project->status() != QFieldCloudProject::ProjectStatus::Idle )
   {
     QgsLogger::debug( QStringLiteral( "Project %1: package and download cancelled, the project is currently busy." ).arg( projectId ) );
     emit warning( tr( "Project busy." ) );
     return;
   }
 
-  project->packagingStatus = PackagingUnstartedStatus;
-  project->packagingStatusString = QString();
-  project->packagedLayerErrors.clear();
-  project->downloadFileTransfers.clear();
-  project->downloadFilesFinished = 0;
-  project->downloadFilesFailed = 0;
-  project->downloadBytesTotal = 0;
-  project->downloadBytesReceived = 0;
-  project->downloadProgress = 0;
-  project->status = ProjectStatus::Downloading;
-  project->errorStatus = NoErrorStatus;
-  project->modification = NoModification;
+  project->packageAndDownload();
 
   emit dataChanged( projectIndex, projectIndex );
-
-  auto projectRepackageIfNeededAndThenDownload = [=]() {
-    if ( project->needsRepackaging )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1: repackaging triggered." ).arg( projectId ) );
-
-      project->packagingStatus = PackagingBusyStatus;
-      emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole );
-      projectStartJob( projectId, JobType::Package );
-
-      QObject *tempProjectJobFinishedParent = new QObject( this ); // we need this to unsubscribe
-      connect( this, &QFieldCloudProjectsModel::projectJobFinished, tempProjectJobFinishedParent, [=]( const QString &jobProjectId, const JobType jobType, const QString &errorString ) {
-        if ( jobProjectId != projectId )
-        {
-          QgsLogger::debug( QStringLiteral( "Project %1: packaging finished for unexpected project `%2`." ).arg( projectId, jobProjectId ) );
-          return;
-        }
-
-        if ( jobType != JobType::Package )
-        {
-          QMetaEnum me = QMetaEnum::fromType<JobType>();
-          QgsLogger::debug( QStringLiteral( "Project %1: unexpected job type, expected %2 but %3 received." ).arg( projectId, me.valueToKey( static_cast<int>( JobType::Package ) ), me.valueToKey( static_cast<int>( jobType ) ) ) );
-          Q_ASSERT( 0 );
-          return;
-        }
-
-        tempProjectJobFinishedParent->deleteLater();
-
-        // the project has been deleted
-        if ( !findProject( projectId ) )
-        {
-          QgsLogger::debug( QStringLiteral( "Project %1: packaging finished, but the project is deleted." ).arg( projectId ) );
-          return;
-        }
-
-        if ( project->packagingStatus == PackagingAbortStatus )
-        {
-          // no need to emit why we aborted packaging, whoever sets the packagingStatus is responsible to inform the user
-          QgsLogger::debug( QStringLiteral( "Project %1: packaging finished, but project operations are aborted." ).arg( projectId ) );
-          return;
-        }
-
-        if ( project->jobs[jobType].status != JobFinishedStatus )
-        {
-          QgsLogger::warning( QStringLiteral( "Project %1: packaging has an error: %2" ).arg( projectId, errorString ) );
-
-          project->jobs.take( jobType );
-
-          project->packagingStatus = PackagingErrorStatus;
-          project->packagingStatusString = errorString;
-          emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole );
-
-          emit projectDownloadFinished( projectId, tr( "Packaging job finished unsuccessfully for `%1`. %2" )
-                                                     .arg( project->name )
-                                                     .arg( errorString ) );
-          return;
-        }
-
-        project->packagingStatus = PackagingFinishedStatus;
-        project->packagingStatusString = QString();
-        emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole );
-
-        projectDownload( projectId );
-      } );
-    }
-    else
-    {
-      projectDownload( projectId );
-    }
-  };
-
-  // Check and refresh project data if needed, because it might be outdated
-  if ( !project->lastRefreshedAt.isValid()
-       || project->lastRefreshedAt.secsTo( QDateTime::currentDateTimeUtc() ) > CACHE_PROJECT_DATA_SECS )
-  {
-    QgsLogger::debug( QStringLiteral( "Project %1: refreshing data..." ).arg( projectId ) );
-
-    projectRefreshData( projectId, ProjectRefreshReason::Package );
-
-    QObject *tempProjectRefreshParent = new QObject( this ); // we need this to unsubscribe
-    connect( this, &QFieldCloudProjectsModel::projectRefreshed, tempProjectRefreshParent, [=]( const QString &refreshedProjectId, const ProjectRefreshReason refreshReason, const QString &errorString ) {
-      if ( refreshedProjectId != projectId )
-      {
-        QgsLogger::critical( QStringLiteral( "Project %1: refereshing data finished for unexpected project `%2`." ).arg( projectId, refreshedProjectId ) );
-        Q_ASSERT( 0 );
-        return;
-      }
-
-      if ( refreshReason != ProjectRefreshReason::Package )
-      {
-        QgsLogger::critical( QStringLiteral( "Project %1: unexpected job type, expected %2 but %3 received." ).arg( projectId ).arg( static_cast<int>( ProjectRefreshReason::Package ), static_cast<int>( refreshReason ) ) );
-        Q_ASSERT( 0 );
-        return;
-      }
-
-      tempProjectRefreshParent->deleteLater();
-
-      // the project has been deleted
-      if ( !findProject( projectId ) )
-      {
-        QgsLogger::debug( QStringLiteral( "Project %1: refreshing data finished, but the project is deleted." ).arg( projectId ) );
-        return;
-      }
-
-      if ( project->packagingStatus == PackagingAbortStatus )
-      {
-        // no need to emit why we aborted packaging, whoever sets the packagingStatus is responsible to inform the user
-        QgsLogger::debug( QStringLiteral( "Project %1: refreshing data finished, but project operations are aborted." ).arg( projectId ) );
-        return;
-      }
-
-      if ( !errorString.isNull() )
-      {
-        QgsLogger::debug( QStringLiteral( "Project %1: refreshing data finished with an error: %2." ).arg( projectId, errorString ) );
-        emit projectDownloadFinished( projectId, tr( "Failed to refresh the latest info for `%1`: %2" ).arg( project->name, errorString ) );
-        return;
-      }
-
-      projectRepackageIfNeededAndThenDownload();
-    } );
-  }
-  else
-  {
-    projectRepackageIfNeededAndThenDownload();
-  }
-
-  QObject *tempProjectDownloadFinishedParent = new QObject( this ); // we need this to unsubscribe
-  connect( this, &QFieldCloudProjectsModel::projectDownloadFinished, tempProjectDownloadFinishedParent, [=]( const QString &finishedProjectId, const QString &errorString ) {
-    if ( finishedProjectId != projectId )
-      return;
-
-    tempProjectDownloadFinishedParent->deleteLater();
-
-    if ( project->packagingStatus == PackagingAbortStatus )
-    {
-      // no need to emit why we aborted packaging, it is callers responsibility to inform the user
-      QgsLogger::debug( QStringLiteral( "Project %1: downloading project finished, but project operations are aborted." ).arg( projectId ) );
-      return;
-    }
-
-    // the project has been deleted
-    if ( !findProject( projectId ) )
-      return;
-
-    const QStringList fileNames = project->downloadFileTransfers.keys();
-    for ( const QString &fileNameKey : fileNames )
-    {
-      if ( project->downloadFileTransfers[fileNameKey].networkReply )
-      {
-        if ( !project->downloadFileTransfers[fileNameKey].networkReply->isFinished() )
-        {
-          project->downloadFileTransfers[fileNameKey].networkReply->abort();
-        }
-        project->downloadFileTransfers[fileNameKey].networkReply->deleteLater();
-      }
-    }
-
-    mActiveProjectFilesToDownload.clear();
-
-    const bool hasError = !errorString.isNull();
-
-    if ( hasError )
-    {
-      project->errorStatus = DownloadErrorStatus;
-      QgsMessageLog::logMessage( QStringLiteral( "Downloading project `%1` finished with an error: %2" ).arg( projectId ).arg( errorString ) );
-    }
-    else
-    {
-      project->errorStatus = NoErrorStatus;
-    }
-
-    project->status = ProjectStatus::Idle;
-
-    emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << PackagingStatusRole << ErrorStatusRole << ErrorStringRole );
-    emit projectDownloaded( projectId, project->name, hasError, errorString );
-  } );
 }
-
-void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
-{
-  QgsLogger::debug( QStringLiteral( "Project %1: downloading..." ).arg( projectId ) );
-
-  if ( !mCloudConnection )
-    return;
-
-  const QModelIndex projectIndex = findProjectIndex( projectId );
-  if ( !projectIndex.isValid() )
-  {
-    QgsLogger::debug( QStringLiteral( "Project %1: downloading project started, but the project is deleted." ).arg( projectId ) );
-    return;
-  }
-
-  CloudProject *project = mProjects[projectIndex.row()];
-
-  if ( project->packagingStatus == PackagingAbortStatus )
-  {
-    // no need to emit why we aborted packaging, it is callers responsibility to inform the user
-    QgsLogger::debug( QStringLiteral( "Project %1: downloading project started, but project operations are aborted." ).arg( projectId ) );
-    return;
-  }
-
-  QVariantMap params;
-  params.insert( "skip_metadata", "1" );
-
-  NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/packages/%1/latest/" ).arg( projectId ), params );
-
-  emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagingStatusRole << StatusRole );
-
-  connect( reply, &NetworkReply::finished, reply, [=]() {
-    if ( !findProject( projectId ) )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1: adding download file connections, but the project is deleted." ).arg( projectId ) );
-      return;
-    }
-
-    if ( project->packagingStatus == PackagingAbortStatus )
-    {
-      // no need to emit why we aborted packaging, it is callers responsibility to inform the user
-      QgsLogger::debug( QStringLiteral( "Project %1: adding download file connections, but the project is aborted." ).arg( projectId ) );
-      return;
-    }
-
-    QNetworkReply *rawReply = reply->currentRawReply();
-    reply->deleteLater();
-
-    if ( rawReply->error() != QNetworkReply::NoError )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1: failed to get latest package data. %2" ).arg( projectId, QFieldCloudConnection::errorString( rawReply ) ) );
-      emit projectDownloadFinished( projectId, tr( "Failed to get latest package data." ) );
-      return;
-    }
-
-    const QJsonObject payload = QJsonDocument::fromJson( rawReply->readAll() ).object();
-    const QString packageId = payload.value( QStringLiteral( "package_id" ) ).toString();
-    const QString packagedAt = payload.value( QStringLiteral( "packaged_at" ) ).toString();
-
-    if (
-      packageId.isNull()
-      || packagedAt.isNull()
-      || !payload.value( QStringLiteral( "files" ) ).isArray() )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1: JSON for package does not contain the expected fields: package_id(string), packaged_at(string), files(array), layers(object)" ).arg( projectId ) );
-      emit projectDownloadFinished( projectId, tr( "Latest package data response error." ) );
-      return;
-    }
-
-    const QJsonArray files = payload.value( QStringLiteral( "files" ) ).toArray();
-    for ( const QJsonValue fileValue : files )
-    {
-      const QJsonObject fileObject = fileValue.toObject();
-      const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
-      const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
-      const QString projectFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, projectId, fileName );
-      // NOTE the cloud API is giving the false impression that the file keys `md5sum` is having a MD5 or another checksum.
-      // This actually is an Object Storage (S3) implementation specific ETag.
-      const QString cloudEtag = fileObject.value( QStringLiteral( "md5sum" ) ).toString();
-      const QString localEtag = FileUtils::fileEtag( projectFileName );
-
-      if (
-        !fileObject.value( QStringLiteral( "size" ) ).isDouble()
-        || fileName.isEmpty()
-        || cloudEtag.isEmpty() )
-      {
-        QgsLogger::debug( QStringLiteral( "Project %1: package in \"files\" list does not contain the expected fields: size(int), name(string), md5sum(string)" ).arg( projectId ) );
-        emit projectDownloadFinished( projectId, tr( "Latest package data structure error." ) );
-        return;
-      }
-
-      if ( cloudEtag == localEtag )
-        continue;
-
-      project->downloadFileTransfers.insert( QStringLiteral( "%1/%2" ).arg( projectId, fileName ), FileTransfer( fileName, fileSize, projectId ) );
-      project->downloadBytesTotal += std::max( fileSize, 0 );
-    }
-
-    emit dataChanged( projectIndex, projectIndex, QVector<int>() << DownloadSizeRole );
-
-    const QJsonObject layers = payload.value( QStringLiteral( "layers" ) ).toObject();
-    QStringList localizedDatasets;
-    bool hasLayerExportErrror = false;
-    for ( const QString &layerKey : layers.keys() )
-    {
-      QJsonObject layer = layers.value( layerKey ).toObject();
-      QString layerName = layer.value( QStringLiteral( "name" ) ).toString();
-      QString layerStatus = layer.value( QStringLiteral( "error_code" ) ).toString();
-
-      if (
-        layerKey.isEmpty()
-        || layerName.isEmpty()
-        || layerStatus.isEmpty()
-        || !layer.value( QStringLiteral( "is_valid" ) ).isBool() )
-      {
-        QgsLogger::debug( QStringLiteral( "Project %1: JSON structure package in \"layers\" list does not contain the expected fields: name(string), error_code(string), is_valid(bool)" ).arg( projectId ) );
-      }
-      else
-      {
-        if ( layer.value( QStringLiteral( "is_localized" ) ).toBool() )
-        {
-          const QString localizedDataset = layer.value( "datasource" ).toString().mid( 10 );
-          if ( !localizedDataset.isEmpty() )
-          {
-            localizedDatasets << localizedDataset;
-          }
-        }
-        else if ( !layer.value( QStringLiteral( "is_valid" ) ).toBool() )
-        {
-          QString errorSummary = layer.value( QStringLiteral( "error_summary" ) ).toString() + layer.value( QStringLiteral( "provider_error_summary" ) ).toString();
-
-          project->packagedLayerErrors.append( tr( "Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4" ).arg( projectId, layerName, layerStatus, errorSummary ) );
-          QgsMessageLog::logMessage( project->packagedLayerErrors.last() );
-
-          hasLayerExportErrror = true;
-        }
-      }
-    }
-
-    if ( hasLayerExportErrror )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1: packaged files list request finished with some failed layers:\n%2" ).arg( projectId, project->packagedLayerErrors.join( QStringLiteral( "\n" ) ) ) );
-      emit dataChanged( projectIndex, projectIndex, QVector<int>() << PackagedLayerErrorsRole );
-    }
-
-    project->lastExportId = packageId;
-    project->lastExportedAt = packagedAt;
-
-    if ( !localizedDatasets.isEmpty() && mLocalizedDatasetsProjects.contains( project->owner ) )
-    {
-      NetworkReply *localizedDatasetsReply = mCloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( mLocalizedDatasetsProjects[project->owner] ) );
-      connect( localizedDatasetsReply, &NetworkReply::finished, localizedDatasetsReply, [=]() {
-        if ( !findProject( projectId ) )
-        {
-          QgsLogger::debug( QStringLiteral( "Project %1: adding download file connections, but the project is deleted." ).arg( projectId ) );
-          return;
-        }
-
-        QNetworkReply *localizedDatasetsRawReply = localizedDatasetsReply->currentRawReply();
-        localizedDatasetsReply->deleteLater();
-
-        if ( localizedDatasetsRawReply->error() != QNetworkReply::NoError )
-        {
-          QgsLogger::debug( QStringLiteral( "Project %1: failed to get latest package data. %2" ).arg( projectId, QFieldCloudConnection::errorString( rawReply ) ) );
-          emit projectDownloadFinished( projectId, tr( "Failed to get latest package data." ) );
-          return;
-        }
-
-        const QJsonArray files = QJsonDocument::fromJson( localizedDatasetsRawReply->readAll() ).array();
-        for ( const QJsonValue fileValue : files )
-        {
-          const QJsonObject fileObject = fileValue.toObject();
-          const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
-          if ( localizedDatasets.contains( fileName ) )
-          {
-            const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
-            const QString absoluteFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mLocalizedDatasetsProjects[project->owner], fileName );
-            // NOTE the cloud API is giving the false impression that the file keys `md5sum` is having a MD5 or another checksum.
-            // This actually is an Object Storage (S3) implementation specific ETag.
-            const QString cloudEtag = fileObject.value( QStringLiteral( "md5sum" ) ).toString();
-            const QString localEtag = FileUtils::fileEtag( absoluteFileName );
-
-            if (
-              !fileObject.value( QStringLiteral( "size" ) ).isDouble()
-              || fileName.isEmpty()
-              || cloudEtag.isEmpty() )
-            {
-              QgsLogger::debug( QStringLiteral( "Project %1: package in \"files\" list does not contain the expected fields: size(int), name(string), md5sum(string)" ).arg( projectId ) );
-              emit projectDownloadFinished( projectId, tr( "Latest package data structure error." ) );
-              return;
-            }
-
-            if ( cloudEtag == localEtag )
-              continue;
-
-            project->downloadFileTransfers.insert( QStringLiteral( "%1/%2" ).arg( mLocalizedDatasetsProjects[project->owner], fileName ), FileTransfer( fileName, fileSize, mLocalizedDatasetsProjects[project->owner] ) );
-            project->downloadBytesTotal += std::max( fileSize, 0 );
-          }
-        }
-
-        QgsLogger::debug( QStringLiteral( "Project %1: packaged files to download - %2 files, namely: %3" )
-                            .arg( projectId )
-                            .arg( project->downloadFileTransfers.count() )
-                            .arg( project->downloadFileTransfers.keys().join( ", " ) ) );
-
-        updateActiveProjectFilesToDownload( projectId );
-        projectDownloadFiles( projectId );
-      } );
-    }
-    else
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1: packaged files to download - %2 files, namely: %3" )
-                          .arg( projectId )
-                          .arg( project->downloadFileTransfers.count() )
-                          .arg( project->downloadFileTransfers.keys().join( ", " ) ) );
-
-      updateActiveProjectFilesToDownload( projectId );
-      projectDownloadFiles( projectId );
-    }
-  } );
-}
-
-void QFieldCloudProjectsModel::updateActiveProjectFilesToDownload( const QString &projectId )
-{
-  if ( !mCloudConnection )
-    return;
-
-  CloudProject *project = findProject( projectId );
-
-  if ( !project )
-    return;
-
-  const QStringList fileKeys = project->downloadFileTransfers.keys();
-
-  if ( fileKeys.isEmpty() )
-  {
-    mActiveProjectFilesToDownload.clear();
-    return;
-  }
-
-  for ( const QString &fileKey : fileKeys )
-  {
-    if ( project->downloadFileTransfers[fileKey].networkReply )
-    {
-      if ( project->downloadFileTransfers[fileKey].networkReply->isFinished() )
-      {
-        if ( mActiveProjectFilesToDownload.removeOne( fileKey ) )
-        {
-          // QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: removed from the list of active download files" ).arg( projectId, fileName ) );
-        }
-        continue;
-      }
-      else
-      {
-        // the request is still active
-        continue;
-      }
-    }
-
-    if ( mActiveProjectFilesToDownload.size() >= MAX_PARALLEL_REQUESTS )
-    {
-      return;
-    }
-
-    // QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: appended to the active download files list" ).arg( projectId, fileName ) );
-
-    mActiveProjectFilesToDownload.append( fileKey );
-  }
-
-  if ( mActiveProjectFilesToDownload.count() > 0 )
-  {
-    QgsLogger::debug( QStringLiteral( "Project %1: active download files list contains %2 files, namely: %3" ).arg( projectId ).arg( mActiveProjectFilesToDownload.count() ).arg( mActiveProjectFilesToDownload.join( ", " ) ) );
-  }
-  else
-  {
-    QgsLogger::debug( QStringLiteral( "Project %1: active download files list is empty" ).arg( projectId ) );
-  }
-}
-
-void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
-{
-  // calling updateActiveProjectFilesToDownload() before calling this function is mandatory
-
-  if ( !mCloudConnection )
-    return;
-
-  const QModelIndex projectIndex = findProjectIndex( projectId );
-
-  if ( !projectIndex.isValid() )
-    return;
-  CloudProject *project = findProject( projectId );
-
-  // Don't call download project files, if there are no project files
-  if ( mActiveProjectFilesToDownload.isEmpty() )
-  {
-    project->status = ProjectStatus::Idle;
-    project->downloadProgress = 1;
-
-    emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << DownloadProgressRole );
-
-    return;
-  }
-
-  QgsLogger::debug( QStringLiteral( "Project %1: active download files list before actual download: %2" ).arg( projectId, mActiveProjectFilesToDownload.join( ", " ) ) );
-
-  for ( const QString &fileKey : std::as_const( mActiveProjectFilesToDownload ) )
-  {
-    if ( project->downloadFileTransfers[fileKey].networkReply )
-    {
-      // Download is already in progress
-      continue;
-    }
-
-    NetworkReply *reply = downloadFile( project->downloadFileTransfers[fileKey].projectId, project->downloadFileTransfers[fileKey].fileName, project->downloadFileTransfers[fileKey].projectId == projectId );
-
-    QTemporaryFile *file = new QTemporaryFile( reply );
-    file->setAutoRemove( false );
-
-    if ( !file->open() )
-    {
-      project->downloadFilesFailed++;
-      emit projectDownloadFinished( projectId, tr( "Failed to open temporary file for `%1`, reason:\n%2" )
-                                                 .arg( project->downloadFileTransfers[fileKey].fileName )
-                                                 .arg( file->errorString() ) );
-      return;
-    }
-
-    project->downloadFileTransfers[fileKey].tmpFile = file->fileName();
-    project->downloadFileTransfers[fileKey].networkReply = reply;
-
-    downloadFileConnections( projectId, fileKey );
-  }
-}
-
-bool QFieldCloudProjectsModel::projectMoveDownloadedFilesToPermanentStorage( const QString &projectId )
-{
-  if ( !mCloudConnection )
-    return false;
-  CloudProject *project = findProject( projectId );
-  if ( !project )
-    return false;
-
-  bool hasError = false;
-  const QStringList fileKeys = project->downloadFileTransfers.keys();
-
-  for ( const QString &fileKey : fileKeys )
-  {
-    QFileInfo fileInfo( project->downloadFileTransfers[fileKey].fileName );
-    QFile file( project->downloadFileTransfers[fileKey].tmpFile );
-    QDir dir( QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, project->downloadFileTransfers[fileKey].projectId, fileInfo.path() ) );
-
-    if ( !hasError && !dir.exists() && !dir.mkpath( QStringLiteral( "." ) ) )
-    {
-      hasError = true;
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to create directory at `%1`" ).arg( dir.path() ) );
-    }
-
-    const QString destinationFileName( QDir::cleanPath( dir.filePath( fileInfo.fileName() ) ) );
-
-    // if the file already exists, we need to delete it first, as QT does not support overwriting
-    // NOTE: it is possible that someone creates the file in the meantime between this and the next if statement
-    if ( !hasError && QFile::exists( destinationFileName ) && !file.remove( destinationFileName ) )
-    {
-      hasError = true;
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to remove file before overwriting stored at `%1`, reason:\n%2" ).arg( destinationFileName ).arg( file.errorString() ) );
-    }
-
-    if ( !hasError && !file.copy( destinationFileName ) )
-    {
-      hasError = true;
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to write downloaded file stored at `%1`, reason:\n%2" ).arg( destinationFileName ).arg( file.errorString() ) );
-
-      if ( !QFile::remove( dir.filePath( project->downloadFileTransfers[fileKey].fileName ) ) )
-        QgsMessageLog::logMessage( QStringLiteral( "Failed to remove partly overwritten file stored at `%1`" ).arg( destinationFileName ) );
-    }
-
-    if ( !file.remove() )
-    {
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to remove temporary file `%1`" ).arg( destinationFileName ) );
-    }
-  }
-
-  return !hasError;
-}
-
 
 void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bool shouldDownloadUpdates )
 {
@@ -1356,380 +407,23 @@ void QFieldCloudProjectsModel::projectUpload( const QString &projectId, const bo
   if ( !projectIndex.isValid() )
     return;
 
-  CloudProject *project = mProjects[projectIndex.row()];
+  QFieldCloudProject *project = mProjects[projectIndex.row()];
 
-  if ( !( project->status == ProjectStatus::Idle ) )
+  if ( !( project->status() == QFieldCloudProject::ProjectStatus::Idle ) )
     return;
 
-  DeltaFileWrapper *deltaFileWrapper = mLayerObserver->deltaFileWrapper();
-
-  if ( shouldDownloadUpdates && deltaFileWrapper->count() == 0 )
-  {
-    project->status = ProjectStatus::Idle;
-    projectPackageAndDownload( projectId );
-    return;
-  }
-
-  if ( !( project->modification & LocalModification ) )
-  {
-    return;
-  }
-
-  if ( !mLayerObserver->deltaFileWrapper()->toFile() )
-  {
-    return;
-  }
-
-  if ( deltaFileWrapper->hasError() )
-  {
-    QgsMessageLog::logMessage( QStringLiteral( "The delta file has an error: %1" ).arg( deltaFileWrapper->errorString() ) );
-    return;
-  }
-
-  deltaFileWrapper->setIsPushing( true );
-
-  project->status = ProjectStatus::Uploading;
-  project->deltaFileId = deltaFileWrapper->id();
-  project->deltaFileUploadStatus = DeltaLocalStatus;
-  project->deltaFileUploadStatusString = QString();
-
-  refreshProjectModification( projectId );
-
-  emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << UploadDeltaProgressRole << UploadDeltaStatusRole << UploadDeltaStatusStringRole );
-
-  // //////////
-  // prepare attachment files to be uploaded
-  // //////////
-
-  const QFileInfo projectInfo( QFieldCloudUtils::localProjectFilePath( mUsername, projectId ) );
-  const QDir projectDir( projectInfo.absolutePath() );
-  const QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
-
-  for ( const QString &fileName : attachmentFileNames )
-  {
-    if ( fileName.isEmpty() )
-      continue;
-
-    QString absoluteFilePath = fileName;
-    QFileInfo fileInfo( fileName );
-    if ( fileInfo.isRelative() )
-    {
-      absoluteFilePath = projectDir.absoluteFilePath( fileName );
-      fileInfo = QFileInfo( absoluteFilePath );
-    }
-
-    if ( !fileInfo.exists() || !fileInfo.isFile() )
-    {
-      QgsMessageLog::logMessage( QStringLiteral( "Attachment file '%1' does not exist" ).arg( absoluteFilePath ) );
-      continue;
-    }
-
-    const long long fileSize = fileInfo.size();
-
-    // ? should we also check the checksums of the files being uploaded? they are available at deltaFile->attachmentFileNames()->values()
-    QFieldCloudUtils::addPendingAttachments( project->id, { absoluteFilePath } );
-  }
-
-  QString deltaFileToUpload = deltaFileWrapper->toFileForUpload();
-
-  if ( deltaFileToUpload.isEmpty() )
-  {
-    deltaFileWrapper->setIsPushing( false );
-    project->status = ProjectStatus::Idle;
-    emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole );
-    return;
-  }
-
-  // //////////
-  // 1) upload the deltas
-  // //////////
-  NetworkReply *deltasCloudReply = mCloudConnection->post(
-    QStringLiteral( "/api/v1/deltas/%1/" ).arg( projectId ),
-    QVariantMap(),
-    QStringList( { deltaFileToUpload } ) );
-
-  Q_ASSERT( deltasCloudReply );
-
-  connect( deltasCloudReply, &NetworkReply::uploadProgress, this, [=]( int bytesSent, int bytesTotal ) {
-    project->uploadDeltaProgress = std::clamp( ( static_cast<double>( bytesSent ) / bytesTotal ), 0., 1. );
-
-    emit dataChanged( projectIndex, projectIndex, QVector<int>() << UploadDeltaProgressRole );
-  } );
-  connect( deltasCloudReply, &NetworkReply::finished, this, [=]() {
-    QNetworkReply *deltasReply = deltasCloudReply->currentRawReply();
-    deltasCloudReply->deleteLater();
-
-    Q_ASSERT( deltasCloudReply->isFinished() );
-    Q_ASSERT( deltasReply );
-
-    // if there is an error, cannot continue sync
-    if ( deltasReply->error() != QNetworkReply::NoError )
-    {
-      project->deltaFileUploadStatusString = QFieldCloudConnection::errorString( deltasReply );
-      // TODO check why exactly we failed
-      // maybe the project does not exist, then create it?
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to upload delta file, reason:\n%1\n%2" ).arg( deltasReply->errorString(), project->deltaFileUploadStatusString ) );
-
-      mLayerObserver->deltaFileWrapper()->setIsPushing( false );
-
-      projectCancelUpload( projectId );
-      return;
-    }
-
-    project->uploadDeltaProgress = 1;
-    project->deltaFileUploadStatus = DeltaPendingStatus;
-    project->deltaLayersToDownload = mLayerObserver->deltaFileWrapper()->deltaLayerIds();
-
-    emit dataChanged( projectIndex, projectIndex, QVector<int>() << UploadDeltaProgressRole << UploadDeltaStatusRole );
-    emit networkDeltaUploaded( projectId );
-  } );
-
-
-  // //////////
-  // 2) delta successfully uploaded
-  // //////////
-  QObject *networkDeltaUploadedParent = new QObject( this ); // we need this to unsubscribe
-  connect( this, &QFieldCloudProjectsModel::networkDeltaUploaded, networkDeltaUploadedParent, [=]( const QString &uploadedProjectId ) {
-    if ( projectId != uploadedProjectId )
-      return;
-
-    delete networkDeltaUploadedParent;
-
-    if ( shouldDownloadUpdates )
-    {
-      projectGetDeltaStatus( projectId );
-    }
-    else
-    {
-      project->status = ProjectStatus::Idle;
-      project->modification ^= LocalModification;
-      project->lastLocalPushDeltas = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
-      QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalPushDeltas" ), project->lastLocalPushDeltas );
-
-      DeltaFileWrapper *deltaFileWrapper = mLayerObserver->deltaFileWrapper();
-      deltaFileWrapper->reset();
-      deltaFileWrapper->resetId();
-      deltaFileWrapper->setIsPushing( false );
-
-      if ( !deltaFileWrapper->toFile() )
-        QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file after delta push. %1" ).arg( deltaFileWrapper->errorString() ) );
-
-      emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << ModificationRole << LastLocalPushDeltasRole );
-      emit pushFinished( projectId, false, false );
-      projectRefreshData( projectId, ProjectRefreshReason::DeltaUploaded );
-    }
-  } );
-
-  // //////////
-  // 3) new delta status received. Never give up to get a successful status.
-  // //////////
-  QObject *networkDeltaStatusCheckedParent = new QObject( this ); // we need this to unsubscribe
-  connect( this, &QFieldCloudProjectsModel::networkDeltaStatusChecked, networkDeltaStatusCheckedParent, [=]( const QString &uploadedProjectId ) {
-    if ( projectId != uploadedProjectId )
-      return;
-
-    DeltaFileWrapper *deltaFileWrapper = mLayerObserver->deltaFileWrapper();
-
-    switch ( project->deltaFileUploadStatus )
-    {
-      case DeltaLocalStatus:
-        // delta file should be already sent!!!
-        Q_ASSERT( 0 );
-        [[fallthrough]];
-      case DeltaPendingStatus:
-      case DeltaBusyStatus:
-        // infinite retry, there should be one day, when we can get the status!
-        QTimer::singleShot( sDelayBeforeStatusRetry, [=]() {
-          projectGetDeltaStatus( projectId );
-        } );
-        break;
-      case DeltaErrorStatus:
-        delete networkDeltaStatusCheckedParent;
-        deltaFileWrapper->resetId();
-        deltaFileWrapper->setIsPushing( false );
-
-        if ( !deltaFileWrapper->toFile() )
-          QgsMessageLog::logMessage( QStringLiteral( "Failed update committed delta file." ) );
-
-        projectCancelUpload( projectId );
-        return;
-      case DeltaConflictStatus:
-      case DeltaNotAppliedStatus:
-      case DeltaAppliedStatus:
-        delete networkDeltaStatusCheckedParent;
-
-        deltaFileWrapper->reset();
-        deltaFileWrapper->resetId();
-        deltaFileWrapper->setIsPushing( false );
-
-        if ( !deltaFileWrapper->toFile() )
-          QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file. %1" ).arg( deltaFileWrapper->errorString() ) );
-
-        project->status = ProjectStatus::Idle;
-        project->modification ^= LocalModification;
-        project->modification |= RemoteModification;
-
-        project->lastLocalPushDeltas = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
-        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalPushDeltas" ), project->lastLocalPushDeltas );
-
-        emit dataChanged( projectIndex, projectIndex, QVector<int>() << ModificationRole << LastLocalPushDeltasRole );
-
-        // download the updated files, so the files are for sure the same on the client and on the server
-        if ( shouldDownloadUpdates )
-        {
-          emit pushFinished( projectId, true, false );
-          projectPackageAndDownload( projectId );
-        }
-        else
-        {
-          emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole );
-          emit pushFinished( projectId, false, false );
-          projectRefreshData( projectId, ProjectRefreshReason::DeltaUploaded );
-        }
-    }
-  } );
-
-
-  // this code is no longer needed, as we do not upload or download files selectively
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  //  // //////////
-  //  // 4) project downloaded, if all done, then reload the project and sync done!
-  //  // //////////
-  //  connect( this, &QFieldCloudProjectsModel::networkAllLayersDownloaded, this, [ = ]( const QString & callerProjectId )
-  //  {
-  //    if ( projectId != callerProjectId )
-  //      return;
-
-  //    // wait until all layers are downloaded
-  //    if ( project->downloadLayersFinished < project->deltaLayersToDownload.size() )
-  //      return;
-
-  //    // there are some files that failed to download
-  //    if ( project->downloadLayersFailed > 0 )
-  //    {
-  //      // TODO translate this message
-  //      project->deltaFileUploadStatusString = QStringLiteral( "Failed to retrieve some of the updated layers, but changes are committed on the server. "
-  //                            "Try to reload the project from the cloud." );
-  //      projectCancelUpload( projectId );
-
-  //      return;
-  //    }
-
-  //    QgsProject::instance()->reloadAllLayers();
-
-  //    emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole );
-  //    emit syncFinished( projectId, false );
-  //  } );
+  project->upload( mLayerObserver, shouldDownloadUpdates );
 }
+
 
 void QFieldCloudProjectsModel::refreshProjectDeltaList( const QString &projectId )
 {
   const QModelIndex projectIndex = findProjectIndex( projectId );
   if ( !projectIndex.isValid() )
     return;
-  CloudProject *project = mProjects[projectIndex.row()];
-  NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/" ).arg( project->id ) );
 
-  if ( project->deltaListModel )
-  {
-    delete project->deltaListModel;
-    project->deltaListModel = nullptr;
-    emit deltaListModelChanged();
-  }
-
-  connect( deltaStatusReply, &NetworkReply::finished, this, [=]() {
-    QNetworkReply *rawReply = deltaStatusReply->currentRawReply();
-    deltaStatusReply->deleteLater();
-
-    Q_ASSERT( deltaStatusReply->isFinished() );
-    Q_ASSERT( rawReply );
-
-    if ( rawReply->error() != QNetworkReply::NoError )
-    {
-      return;
-    }
-
-    const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
-
-    project->deltaListModel = new DeltaListModel( doc );
-
-    emit dataChanged( projectIndex, projectIndex, QVector<int>() << DeltaListRole );
-    emit deltaListModelChanged();
-  } );
-}
-
-void QFieldCloudProjectsModel::projectGetDeltaStatus( const QString &projectId )
-{
-  const QModelIndex projectIndex = findProjectIndex( projectId );
-  if ( !projectIndex.isValid() )
-    return;
-  CloudProject *project = mProjects[projectIndex.row()];
-  NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/%2/" ).arg( project->id, project->deltaFileId ) );
-
-  project->deltaFileUploadStatusString = QString();
-  connect( deltaStatusReply, &NetworkReply::finished, this, [=]() {
-    QNetworkReply *rawReply = deltaStatusReply->currentRawReply();
-    deltaStatusReply->deleteLater();
-
-    Q_ASSERT( deltaStatusReply->isFinished() );
-    Q_ASSERT( rawReply );
-
-    CloudProject *project = findProject( projectId );
-
-    if ( rawReply->error() != QNetworkReply::NoError )
-    {
-      project->deltaFileUploadStatus = DeltaErrorStatus;
-      // TODO this is oversimplification. e.g. 404 error is when the requested delta file id is not existant
-      project->deltaFileUploadStatusString = QFieldCloudConnection::errorString( rawReply );
-
-      emit dataChanged( projectIndex, projectIndex, QVector<int>() << UploadDeltaStatusRole << UploadDeltaStatusStringRole );
-      emit networkDeltaStatusChecked( projectId );
-
-      return;
-    }
-
-    const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
-    DeltaListModel deltaListModel( doc );
-    if ( !deltaListModel.isValid() )
-    {
-      project->deltaFileUploadStatus = DeltaErrorStatus;
-      project->deltaFileUploadStatusString = deltaListModel.errorString();
-      emit dataChanged( projectIndex, projectIndex, QVector<int>() << UploadDeltaStatusRole << UploadDeltaStatusStringRole );
-      emit networkDeltaStatusChecked( projectId );
-      return;
-    }
-
-    project->deltaFileUploadStatusString = QString();
-
-    if ( !deltaListModel.allHaveFinalStatus() )
-    {
-      project->deltaFileUploadStatus = DeltaPendingStatus;
-      emit dataChanged( projectIndex, projectIndex, QVector<int>() << UploadDeltaStatusRole << UploadDeltaStatusStringRole );
-      emit networkDeltaStatusChecked( projectId );
-      return;
-    }
-
-    project->deltaFileUploadStatus = DeltaAppliedStatus;
-
-    emit dataChanged( projectIndex, projectIndex, QVector<int>() << UploadDeltaStatusRole << UploadDeltaStatusStringRole );
-    emit networkDeltaStatusChecked( projectId );
-  } );
-}
-
-void QFieldCloudProjectsModel::projectCancelUpload( const QString &projectId )
-{
-  const QModelIndex projectIndex = findProjectIndex( projectId );
-  if ( !projectIndex.isValid() )
-    return;
-  CloudProject *project = mProjects[projectIndex.row()];
-
-  project->status = ProjectStatus::Idle;
-  project->errorStatus = UploadErrorStatus;
-
-  emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << ErrorStatusRole );
-  emit pushFinished( projectId, false, true, project->deltaFileUploadStatusString );
-
-  return;
+  QFieldCloudProject *project = mProjects[projectIndex.row()];
+  project->refreshDeltaList();
 }
 
 void QFieldCloudProjectsModel::connectionStatusChanged()
@@ -1737,10 +431,15 @@ void QFieldCloudProjectsModel::connectionStatusChanged()
   refreshProjectsList();
 }
 
+void QFieldCloudProjectsModel::usernameChanged()
+{
+  mUsername = mCloudConnection->username();
+}
+
 void QFieldCloudProjectsModel::layerObserverLayerEdited( const QString &layerId )
 {
   Q_UNUSED( layerId )
-  CloudProject *project = findProject( mCurrentProjectId );
+  QFieldCloudProject *project = findProject( mCurrentProjectId );
 
   if ( !project )
   {
@@ -1748,18 +447,7 @@ void QFieldCloudProjectsModel::layerObserverLayerEdited( const QString &layerId 
     return;
   }
 
-  beginResetModel();
-
-  const DeltaFileWrapper *deltaFileWrapper = mLayerObserver->deltaFileWrapper();
-
-  Q_ASSERT( deltaFileWrapper );
-
-  if ( deltaFileWrapper->count() > 0 )
-    project->modification |= LocalModification;
-  else if ( project->modification & LocalModification )
-    project->modification ^= LocalModification;
-
-  endResetModel();
+  project->refreshModification( mLayerObserver );
 }
 
 void QFieldCloudProjectsModel::projectListReceived()
@@ -1780,6 +468,7 @@ void QFieldCloudProjectsModel::projectListReceived()
   if ( projectFetchOffset == 0 )
   {
     beginResetModel();
+    qDeleteAll( mProjects );
     mProjects.clear();
     endResetModel();
     mLocalizedDatasetsProjects.clear();
@@ -1805,258 +494,14 @@ void QFieldCloudProjectsModel::projectListReceived()
   }
 }
 
-NetworkReply *QFieldCloudProjectsModel::downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage )
-{
-  QNetworkRequest request;
-  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::UserVerifiedRedirectPolicy );
-  mCloudConnection->setAuthenticationDetails( request );
-
-  return mCloudConnection->get( request, fromLatestPackage ? QStringLiteral( "/api/v1/packages/%1/latest/files/%2/" ).arg( projectId, fileName ) : QStringLiteral( "/api/v1/files/%1/%2/" ).arg( projectId, fileName ) );
-}
-
-void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId, const QString &fileKey )
+void QFieldCloudProjectsModel::refreshProjectModification( const QString &projectId )
 {
   const QModelIndex projectIndex = findProjectIndex( projectId );
-
   if ( !projectIndex.isValid() )
     return;
 
-  CloudProject *project = findProject( projectId );
-
-  if ( !project )
-  {
-    QgsLogger::debug( QStringLiteral( "Project %1: adding download file connections, but the project is deleted." ).arg( projectId ) );
-    return;
-  }
-
-  if ( !project->downloadFileTransfers.contains( fileKey ) )
-  {
-    Q_ASSERT( false );
-    return;
-  }
-
-  NetworkReply *reply = project->downloadFileTransfers[fileKey].networkReply;
-
-  if ( !reply )
-  {
-    Q_ASSERT( false );
-    return;
-  }
-
-  const QStringList fileKeys = project->downloadFileTransfers.keys();
-
-  QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: requested." ).arg( project->downloadFileTransfers[fileKey].projectId, project->downloadFileTransfers[fileKey].fileName ) );
-
-  connect( reply, &NetworkReply::redirected, reply, [=]( const QUrl &url ) {
-    if ( !findProject( projectId ) )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: redirected file download, but the project is deleted." ).arg( projectId, fileKey ) );
-      return;
-    }
-
-    QUrl oldUrl = project->downloadFileTransfers[fileKey].lastRedirectUrl;
-
-    project->downloadFileTransfers[fileKey].redirectsCount++;
-    project->downloadFileTransfers[fileKey].lastRedirectUrl = url;
-
-    if ( project->downloadFileTransfers[fileKey].redirectsCount >= MAX_REDIRECTS_ALLOWED )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: too many redirects, last two urls are `%3` and `%4`" ).arg( projectId, fileKey, oldUrl.toString(), url.toString() ) );
-      reply->abort();
-      return;
-    }
-
-    if ( oldUrl == url )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: has redirects to the same URL `%3`" ).arg( projectId, fileKey, url.toString() ) );
-      reply->abort();
-      return;
-    }
-
-    QgsLogger::debug( QStringLiteral( "Package %1, file `%2`: redirected to `%3`" ).arg( projectId, fileKey, url.toString() ) );
-
-    QNetworkRequest request;
-    project->downloadFileTransfers[fileKey].networkReply = mCloudConnection->get( request, url );
-    project->downloadFileTransfers[fileKey].networkReply->setParent( reply );
-
-    // we need to somehow finish the request, otherwise it will remain unfinished for the QFieldCloudConnection
-    reply->abort();
-
-    downloadFileConnections( projectId, fileKey );
-  } );
-
-  connect( reply, &NetworkReply::downloadProgress, reply, [=]( int bytesReceived, int bytesTotal ) {
-    QNetworkReply *rawReply = reply->currentRawReply();
-    if ( !rawReply )
-    {
-      return;
-    }
-
-    const QString temporaryFileName = project->downloadFileTransfers[fileKey].tmpFile;
-    QFile file( temporaryFileName );
-    QString errorMessageDetail;
-    QString errorMessage;
-    bool hasError = false;
-
-    if ( file.open( QIODevice::WriteOnly | QIODevice::Append ) )
-    {
-      file.write( rawReply->readAll() );
-
-      if ( file.error() != QFile::NoError )
-      {
-        hasError = true;
-        errorMessageDetail = file.errorString();
-        errorMessage = tr( "File system error. Failed to write file to temporary location `%1`." ).arg( temporaryFileName );
-      }
-
-      file.close();
-    }
-    else
-    {
-      hasError = true;
-      errorMessageDetail = file.errorString();
-      errorMessage = tr( "File system error. Failed to open file for writing on temporary `%1`." ).arg( temporaryFileName );
-    }
-
-    // check if the code above failed with error
-    if ( hasError )
-    {
-      logFailedDownload( project, fileKey, errorMessage, errorMessageDetail );
-      rawReply->abort();
-      return;
-    }
-
-    if ( !findProject( projectId ) )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: updating download progress, but the project is deleted." ).arg( projectId, fileKey ) );
-      return;
-    }
-
-    Q_UNUSED( bytesTotal )
-
-    project->downloadBytesReceived -= project->downloadFileTransfers[fileKey].bytesTransferred;
-    project->downloadBytesReceived += bytesReceived;
-    project->downloadFileTransfers[fileKey].bytesTransferred = bytesReceived;
-    project->downloadProgress = std::clamp( ( static_cast<double>( project->downloadBytesReceived ) / std::max( project->downloadBytesTotal, 1 ) ), 0., 1. );
-    emit dataChanged( projectIndex, projectIndex, QVector<int>() << DownloadProgressRole );
-  } );
-
-  connect( reply, &NetworkReply::finished, reply, [=]() {
-    if ( project->packagingStatus == PackagingAbortStatus )
-      return;
-
-    if ( !findProject( projectId ) )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: file download finished, but the project is deleted." ).arg( projectId, fileKey ) );
-      return;
-    }
-
-    QVector<int> rolesChanged;
-    QNetworkReply *rawReply = reply->currentRawReply();
-
-    Q_ASSERT( reply->isFinished() );
-    Q_ASSERT( reply );
-
-    // this is most probably the redirected request, nothing to do with this reply anymore, just ignore it
-    if ( project->downloadFileTransfers[fileKey].networkReply != reply )
-      return;
-
-    project->downloadFilesFinished++;
-
-    bool hasError = false;
-    QString errorMessageDetail;
-    QString errorMessage;
-
-    if ( rawReply->error() != QNetworkReply::NoError )
-    {
-      hasError = true;
-      errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
-      errorMessage = tr( "Network error. Failed to download file `%1`." ).arg( fileKey );
-    }
-
-    if ( !hasError )
-    {
-      project->downloadBytesReceived -= project->downloadFileTransfers[fileKey].bytesTransferred;
-      project->downloadBytesReceived += project->downloadFileTransfers[fileKey].bytesTotal;
-      project->downloadProgress = std::clamp( ( static_cast<double>( project->downloadBytesReceived ) / std::max( project->downloadBytesTotal, 1 ) ), 0., 1. );
-      emit dataChanged( projectIndex, projectIndex, QVector<int>() << DownloadProgressRole );
-    }
-
-    // check if the code above failed with error
-    if ( hasError )
-    {
-      logFailedDownload( project, fileKey, errorMessage, errorMessageDetail );
-      rawReply->abort();
-      return;
-    }
-
-    QgsLogger::debug( QStringLiteral( "Package %1, file `%2`: downloaded" ).arg( projectId, fileKey ) );
-
-    updateActiveProjectFilesToDownload( projectId );
-
-    if ( project->downloadFilesFinished == fileKeys.count() )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1: All files downloaded." ).arg( projectId ) );
-
-      Q_ASSERT( mActiveProjectFilesToDownload.size() == 0 );
-
-      if ( !hasError )
-      {
-        const bool currentProjectReloadNeeded = project->id == mCurrentProjectId;
-        QStringList gpkgFileNames;
-        if ( currentProjectReloadNeeded )
-        {
-          // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
-          gpkgFileNames = projectFileNames( project, fileKeys, true );
-          mProject->clear();
-
-          for ( const QString &fileName : gpkgFileNames )
-          {
-            mGpkgFlusher->stop( fileName );
-          }
-        }
-
-        // move the files from their temporary location to their permanent one
-        if ( !projectMoveDownloadedFilesToPermanentStorage( projectId ) )
-        {
-          emit projectDownloadFinished( projectId, tr( "Failed to copy some of the downloaded files on your device. Check your device storage." ) );
-          return;
-        }
-
-        if ( currentProjectReloadNeeded )
-        {
-          deleteGpkgShmAndWal( gpkgFileNames );
-          AppInterface::instance()->reloadProject();
-        }
-
-        project->errorStatus = NoErrorStatus;
-        project->checkout = ProjectCheckout::LocalAndRemoteCheckout;
-        project->localPath = QFieldCloudUtils::localProjectFilePath( mUsername, projectId );
-        project->lastLocalExportedAt = QDateTime::currentDateTimeUtc().toString( Qt::ISODate );
-        project->lastLocalExportId = QUuid::createUuid().toString( QUuid::WithoutBraces );
-        project->lastLocalDataLastUpdatedAt = project->dataLastUpdatedAt;
-        project->isOutdated = false;
-        project->projectFileIsOutdated = false;
-
-        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastExportedAt" ), project->lastExportedAt );
-        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastExportId" ), project->lastExportId );
-        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalExportedAt" ), project->lastLocalExportedAt );
-        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalExportId" ), project->lastLocalExportId );
-        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastLocalDataLastUpdatedAt" ), project->lastLocalDataLastUpdatedAt );
-        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "lastProjectFileMd5" ), QString() );
-        QFieldCloudUtils::setProjectSetting( projectId, QStringLiteral( "projectFileOudated" ), false );
-
-        rolesChanged << StatusRole << ProjectOutdatedRole << ProjectFileOutdatedRole << LocalPathRole << CheckoutRole << LastLocalExportedAtRole;
-
-        emit dataChanged( projectIndex, projectIndex, rolesChanged );
-        emit projectDownloadFinished( projectId );
-      }
-    }
-    else
-    {
-      projectDownloadFiles( projectId );
-    }
-  } );
+  QFieldCloudProject *project = mProjects[projectIndex.row()];
+  project->refreshModification( mLayerObserver );
 }
 
 QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
@@ -2102,8 +547,8 @@ void QFieldCloudProjectsModel::projectSetForceAutoPush( const QString &projectId
 
   if ( projectIndex.isValid() )
   {
-    CloudProject *project = mProjects[projectIndex.row()];
-    project->forceAutoPush = force;
+    QFieldCloudProject *project = mProjects[projectIndex.row()];
+    project->setForceAutoPush( force );
     emit dataChanged( projectIndex, projectIndex, QVector<int>() << ForceAutoPushRole );
   }
 }
@@ -2114,9 +559,8 @@ void QFieldCloudProjectsModel::projectSetAutoPushEnabled( const QString &project
 
   if ( projectIndex.isValid() )
   {
-    CloudProject *project = mProjects[projectIndex.row()];
-    project->autoPushEnabled = enabled;
-    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "autoPushEnabled" ), project->autoPushEnabled );
+    QFieldCloudProject *project = mProjects[projectIndex.row()];
+    project->setAutoPushEnabled( enabled );
     emit dataChanged( projectIndex, projectIndex, QVector<int>() << AutoPushEnabledRole );
   }
 }
@@ -2127,25 +571,26 @@ void QFieldCloudProjectsModel::projectSetAutoPushIntervalMins( const QString &pr
 
   if ( projectIndex.isValid() )
   {
-    CloudProject *project = mProjects[projectIndex.row()];
-    project->autoPushIntervalMins = minutes;
-    QFieldCloudUtils::setProjectSetting( project->id, QStringLiteral( "autoPushIntervalMins" ), project->autoPushIntervalMins );
+    QFieldCloudProject *project = mProjects[projectIndex.row()];
+    project->setAutoPushIntervalMins( minutes );
     emit dataChanged( projectIndex, projectIndex, QVector<int>() << AutoPushIntervalMinsRole );
   }
 }
 
-void QFieldCloudProjectsModel::insertProjects( const QList<CloudProject *> &projects )
+void QFieldCloudProjectsModel::insertProjects( const QList<QFieldCloudProject *> &projects )
 {
   int currentCount = mProjects.size();
   int newProjectsCount = 0;
-  for ( CloudProject *project : projects )
+  for ( QFieldCloudProject *project : projects )
   {
+    setupProjectConnections( project );
+
     bool found = false;
     for ( int i = 0; i < mProjects.count(); ++i )
     {
-      if ( mProjects[i]->id == project->id )
+      if ( mProjects[i]->id() == project->id() )
       {
-        if ( mProjects[i]->checkout == LocalCheckout && project->checkout != LocalCheckout )
+        if ( mProjects[i]->checkout() == QFieldCloudProject::LocalCheckout && project->checkout() != QFieldCloudProject::LocalCheckout )
         {
           delete mProjects[i];
           mProjects[i] = project;
@@ -2159,109 +604,193 @@ void QFieldCloudProjectsModel::insertProjects( const QList<CloudProject *> &proj
     {
       newProjectsCount++;
       mProjects.append( project );
+      beginInsertRows( QModelIndex(), currentCount, currentCount + newProjectsCount - 1 );
+      endInsertRows();
     }
   }
-  beginInsertRows( QModelIndex(), currentCount, currentCount + newProjectsCount - 1 );
-  endInsertRows();
 }
 
-void QFieldCloudProjectsModel::logFailedDownload( CloudProject *project, const QString &fileKey, const QString &errorMessage, const QString &errorMessageDetail )
+void QFieldCloudProjectsModel::setupProjectConnections( QFieldCloudProject *project )
 {
-  project->downloadFilesFailed++;
+  connect( project, &QFieldCloudProject::projectFileIsOutdatedChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
 
-  QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: %3 %4" ).arg( errorMessage, fileKey, errorMessage, errorMessageDetail ) );
+    emit dataChanged( idx, idx, QVector<int>() << ProjectFileOutdatedRole );
 
-  // translate the user messages
-  const QString baseMessage = tr( "Project `%1`, file `%2`: %3" ).arg( project->name, fileKey, errorMessage );
-  const QString trimmedMessage = baseMessage + QStringLiteral( " " ) + tr( "System message: " )
-                                 + ( ( errorMessageDetail.size() > 100 )
-                                       ? ( errorMessageDetail.left( 100 ) + tr( " (see more in the QField error log)…" ) )
-                                       : errorMessageDetail );
+    if ( mCurrentProjectId == p->id() )
+    {
+      emit currentProjectDataChanged();
+    }
+  } );
 
-  QgsMessageLog::logMessage( QStringLiteral( "%1\n%2" ).arg( baseMessage, errorMessageDetail ) );
+  connect( project, &QFieldCloudProject::downloaded, this, [=]( QString name, QString error ) {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
 
-  emit projectDownloadFinished( project->id, trimmedMessage );
+    emit projectDownloaded( p->id(), name, !error.isEmpty(), error );
+    emit dataChanged( idx, idx, QVector<int>() << StatusRole << PackagingStatusRole << ErrorStatusRole << ErrorStringRole );
+
+    if ( mCurrentProjectId == p->id() )
+    {
+      emit currentProjectDataChanged();
+    }
+  } );
+
+  connect( project, &QFieldCloudProject::downloadFinished, this, [=]( QString error ) {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+
+    if ( mCurrentProjectId == p->id() )
+    {
+      emit currentProjectDataChanged();
+    }
+  } );
+
+  connect( project, &QFieldCloudProject::uploadFinished, this, [=]( bool isDownloading, QString error ) {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+
+    emit pushFinished( p->id(), isDownloading, !error.isEmpty(), error );
+
+    if ( mCurrentProjectId == p->id() )
+    {
+      emit currentProjectDataChanged();
+    }
+  } );
+
+  connect( project, &QFieldCloudProject::dataRefreshed, this, [=]( QFieldCloudProject::ProjectRefreshReason reason, QString error ) {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+
+    emit dataChanged( idx, idx );
+
+    if ( mCurrentProjectId == p->id() )
+    {
+      emit currentProjectDataChanged();
+    }
+  } );
+
+  connect( project, &QFieldCloudProject::jobFinished, this, [=]( QFieldCloudProject::JobType type, QString error ) {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx );
+
+    if ( mCurrentProjectId == p->id() )
+    {
+      emit currentProjectDataChanged();
+    }
+  } );
+
+  connect( project, &QFieldCloudProject::statusChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << StatusRole );
+  } );
+
+  connect( project, &QFieldCloudProject::errorStatusChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << ErrorStatusRole );
+  } );
+
+  connect( project, &QFieldCloudProject::packagingStatusChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << PackagingStatusRole );
+  } );
+
+  connect( project, &QFieldCloudProject::downloadBytesTotalChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << DownloadSizeRole );
+  } );
+
+  connect( project, &QFieldCloudProject::packagedLayerErrorsChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << PackagedLayerErrorsRole );
+  } );
+
+  connect( project, &QFieldCloudProject::isOutdatedChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << ProjectOutdatedRole );
+  } );
+
+  connect( project, &QFieldCloudProject::projectFileIsOutdatedChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << ProjectFileOutdatedRole );
+  } );
+
+  connect( project, &QFieldCloudProject::localPathChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << LocalPathRole );
+  } );
+
+  connect( project, &QFieldCloudProject::checkoutChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << CheckoutRole );
+  } );
+
+  connect( project, &QFieldCloudProject::lastLocalExportedAtChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << LastLocalExportedAtRole );
+  } );
+
+  connect( project, &QFieldCloudProject::modificationChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << ModificationRole << CanSyncRole );
+  } );
+
+  connect( project, &QFieldCloudProject::deltaFileUploadStatusChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << UploadDeltaStatusRole );
+  } );
+
+  connect( project, &QFieldCloudProject::deltaFileUploadStatusStringChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << UploadDeltaStatusStringRole );
+  } );
+
+  connect( project, &QFieldCloudProject::uploadDeltaProgressChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << UploadDeltaStatusStringRole );
+  } );
+
+  connect( project, &QFieldCloudProject::lastLocalPushDeltasChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << LastLocalPushDeltasRole );
+  } );
+
+  connect( project, &QFieldCloudProject::deltaListModelChanged, this, [=] {
+    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    QModelIndex idx = findProjectIndex( p->id() );
+    emit dataChanged( idx, idx, QVector<int>() << DeltaListRole );
+    emit deltaListModelChanged();
+  } );
 }
 
 void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, bool skipLocalProjects )
 {
-  QgsProject *qgisProject = QgsProject::instance();
-
-  auto restoreLocalSettings = [=]( CloudProject *cloudProject, const QDir &localPath ) {
-    cloudProject->deltasCount = DeltaFileWrapper( qgisProject, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
-    cloudProject->lastExportId = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "lastExportId" ) ).toString();
-    cloudProject->lastExportedAt = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "lastExportedAt" ) ).toString();
-    cloudProject->lastLocalExportId = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "lastLocalExportId" ) ).toString();
-    cloudProject->lastLocalExportedAt = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "lastLocalExportedAt" ) ).toString();
-    cloudProject->lastLocalPushDeltas = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "lastLocalPushDeltas" ) ).toString();
-    cloudProject->lastLocalDataLastUpdatedAt = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "lastLocalDataLastUpdatedAt" ) ).toDateTime();
-    cloudProject->isOutdated = cloudProject->dataLastUpdatedAt > cloudProject->lastLocalDataLastUpdatedAt;
-    cloudProject->projectFileIsOutdated = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "projectFileOudated" ), false ).toBool();
-    cloudProject->autoPushEnabled = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "autoPushEnabled" ), false ).toBool();
-    cloudProject->autoPushIntervalMins = QFieldCloudUtils::projectSetting( cloudProject->id, QStringLiteral( "autoPushIntervalMins" ), 30 ).toInt();
-
-    // generate local export id if not present. Possible reasons for missing localExportId are:
-    // - just upgraded QField that introduced the field
-    // - the local settings were somehow deleted, but not the project itself
-    if ( cloudProject->lastLocalExportId.isEmpty() )
-    {
-      cloudProject->lastLocalExportId = QUuid::createUuid().toString( QUuid::WithoutBraces );
-      QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "lastLocalExportId" ), cloudProject->lastLocalExportId );
-    }
-  };
-
-  QList<CloudProject *> freshCloudProjects;
+  QList<QFieldCloudProject *> freshCloudProjects;
   for ( const auto project : remoteProjects )
   {
     QVariantHash projectDetails = project.toObject().toVariantHash();
+    QFieldCloudProject *cloudProject = QFieldCloudProject::fromDetails( projectDetails, mCloudConnection );
 
-    CloudProject *cloudProject = new CloudProject( projectDetails.value( "id" ).toString(),
-                                                   projectDetails.value( "private" ).toBool(),
-                                                   projectDetails.value( "owner" ).toString(),
-                                                   projectDetails.value( "name" ).toString(),
-                                                   projectDetails.value( "description" ).toString(),
-                                                   projectDetails.value( "user_role" ).toString(),
-                                                   projectDetails.value( "user_role_origin" ).toString(),
-                                                   RemoteCheckout,
-                                                   ProjectStatus::Idle,
-                                                   QDateTime::fromString( projectDetails.value( "data_last_updated_at" ).toString(), Qt::ISODate ),
-                                                   projectDetails.value( "can_repackage" ).toBool(),
-                                                   projectDetails.value( "needs_repackaging" ).toBool() );
-
-    QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "owner" ), cloudProject->owner );
-    QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "name" ), cloudProject->name );
-    QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "description" ), cloudProject->description );
-    QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "userRole" ), cloudProject->userRole );
-    QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "userRoleOrigin" ), cloudProject->userRoleOrigin );
-    QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "canRepackage" ), cloudProject->canRepackage );
-    QFieldCloudUtils::setProjectSetting( cloudProject->id, QStringLiteral( "needsRepackaging" ), cloudProject->needsRepackaging );
-
-    if ( !mUsername.isEmpty() )
+    if ( cloudProject->name() == QStringLiteral( "localized_datasets" ) )
     {
-      cloudProject->localPath = QFieldCloudUtils::localProjectFilePath( mUsername, cloudProject->id );
-      QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, cloudProject->id ) );
-      if ( localPath.exists() )
-      {
-        cloudProject->checkout = LocalAndRemoteCheckout;
-        restoreLocalSettings( cloudProject, localPath );
-      }
-    }
-
-    if ( projectDetails.contains( "localized_datasets" ) )
-    {
-      const QVariantList localizedDatasets = projectDetails.value( "localized_datasets" ).toList();
-      for ( const QVariant &localizedDataset : localizedDatasets )
-      {
-        const QVariantMap localizedDatasetDetails = localizedDataset.toMap();
-        cloudProject->localizedDatasets << localizedDatasetDetails.value( "datasource" ).toString().mid( 10 );
-      }
-    }
-
-    cloudProject->lastRefreshedAt = QDateTime::currentDateTimeUtc();
-
-    if ( cloudProject->name == QStringLiteral( "localized_datasets" ) )
-    {
-      mLocalizedDatasetsProjects[cloudProject->owner] = cloudProject->id;
+      mLocalizedDatasetsProjects[cloudProject->owner()] = cloudProject->id();
     }
     else
     {
@@ -2273,7 +802,7 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
 
   if ( !skipLocalProjects )
   {
-    QList<CloudProject *> userSpecificProjects;
+    QList<QFieldCloudProject *> userSpecificProjects;
     QDirIterator userDirs( QFieldCloudUtils::localCloudDirectory(), QDir::Dirs | QDir::NoDotAndDotDot );
     while ( userDirs.hasNext() )
     {
@@ -2290,36 +819,30 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
         projectDirs.next();
 
         const QString projectId = projectDirs.fileName();
-        CloudProject *project = findProject( projectId );
+        QFieldCloudProject *project = findProject( projectId );
         if ( project )
-          continue;
-
-        const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
-        if ( !QSettings().contains( QStringLiteral( "%1/name" ).arg( projectPrefix ) ) )
-          continue;
-
-        const QString owner = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "owner" ) ).toString();
-        const QString name = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "name" ) ).toString();
-        const QString description = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "description" ) ).toString();
-        const QString updatedAt = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "updatedAt" ) ).toString();
-        const QString userRole = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "userRole" ) ).toString();
-        const QString userRoleOrigin = QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "userRoleOrigin" ) ).toString();
-
-        CloudProject *cloudProject = new CloudProject( projectId, true, owner, name, description, userRole, userRoleOrigin, LocalCheckout, ProjectStatus::Idle, QDateTime(), false, false );
-
-        cloudProject->localPath = QFieldCloudUtils::localProjectFilePath( username, cloudProject->id );
-        QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, cloudProject->id ) );
-        restoreLocalSettings( cloudProject, localPath );
-
-        if ( cloudProject->name == QStringLiteral( "localized_datasets" ) )
         {
-          mLocalizedDatasetsProjects[cloudProject->owner] = cloudProject->id;
+          // Already covered when receiving cloud projects from the server
+          continue;
+        }
+
+        QFieldCloudProject *cloudProject = QFieldCloudProject::fromLocalSettings( projectId, mCloudConnection );
+        if ( !cloudProject )
+        {
+          // Not a previously loaded cloud project
+          continue;
+        }
+
+        if ( cloudProject->name() == QStringLiteral( "localized_datasets" ) )
+        {
+          mLocalizedDatasetsProjects[cloudProject->owner()] = cloudProject->id();
         }
         else
         {
           userSpecificProjects.push_back( cloudProject );
         }
-        Q_ASSERT( projectId == cloudProject->id );
+
+        Q_ASSERT( projectId == cloudProject->id() );
       }
     }
 
@@ -2338,79 +861,120 @@ int QFieldCloudProjectsModel::rowCount( const QModelIndex &parent ) const
 QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mProjects.size() || index.row() < 0 )
+  {
     return QVariant();
+  }
+
+  QFieldCloudProject *project = mProjects.at( index.row() );
+  if ( !project )
+  {
+    return QVariant();
+  }
 
   if ( role == Qt::DisplayRole )
   {
-    return QStringLiteral( "%1/%2" ).arg( mProjects.at( index.row() )->owner, mProjects.at( index.row() )->name );
+    return QStringLiteral( "%1/%2" ).arg( project->owner(), project->name() );
   }
 
   switch ( static_cast<ColumnRole>( role ) )
   {
     case IdRole:
-      return mProjects.at( index.row() )->id;
+      return project->id();
+
     case PrivateRole:
-      return mProjects.at( index.row() )->isPrivate;
+      return project->isPrivate();
+
     case OwnerRole:
-      return mProjects.at( index.row() )->owner;
+      return project->owner();
+
     case NameRole:
-      return mProjects.at( index.row() )->name;
+      return project->name();
+
     case DescriptionRole:
-      return mProjects.at( index.row() )->description;
+      return project->description();
+
     case ModificationRole:
-      return static_cast<int>( mProjects.at( index.row() )->modification );
+      return static_cast<int>( project->modification() );
+
     case CheckoutRole:
-      return static_cast<int>( mProjects.at( index.row() )->checkout );
+      return static_cast<int>( project->checkout() );
+
     case StatusRole:
-      return static_cast<int>( mProjects.at( index.row() )->status );
+      return static_cast<int>( project->status() );
+
     case ProjectOutdatedRole:
-      return mProjects.at( index.row() )->isOutdated;
+      return project->isOutdated();
+
     case ProjectFileOutdatedRole:
-      return mProjects.at( index.row() )->projectFileIsOutdated;
+      return project->projectFileIsOutdated();
+
     case ErrorStatusRole:
-      return static_cast<int>( mProjects.at( index.row() )->errorStatus );
+      return static_cast<int>( project->errorStatus() );
+
     case ErrorStringRole:
-      return mProjects.at( index.row() )->errorStatus == DownloadErrorStatus
-               ? mProjects.at( index.row() )->packagingStatusString
-             : mProjects.at( index.row() )->errorStatus == UploadErrorStatus
-               ? mProjects.at( index.row() )->deltaFileUploadStatusString
-               : QString();
+      if ( project->errorStatus() == QFieldCloudProject::DownloadErrorStatus )
+      {
+        return project->packagingStatusString();
+      }
+      else if ( project->errorStatus() == QFieldCloudProject::UploadErrorStatus )
+      {
+        return project->deltaFileUploadStatusString();
+      }
+      return QString();
+
     case PackagingStatusRole:
-      return mProjects.at( index.row() )->packagingStatus;
+      return project->packagingStatus();
+
     case PackagedLayerErrorsRole:
-      return QVariant( mProjects.at( index.row() )->packagedLayerErrors );
+      return QVariant( project->packagedLayerErrors() );
+
     case DownloadSizeRole:
-      return mProjects.at( index.row() )->downloadBytesTotal;
+      return project->downloadBytesTotal();
+
     case DownloadProgressRole:
-      return mProjects.at( index.row() )->downloadProgress;
+      return project->downloadProgress();
+
     case UploadDeltaProgressRole:
-      return mProjects.at( index.row() )->uploadDeltaProgress;
+      return project->uploadDeltaProgress();
+
     case UploadDeltaStatusRole:
-      return mProjects.at( index.row() )->deltaFileUploadStatus;
+      return project->deltaFileUploadStatus();
+
     case UploadDeltaStatusStringRole:
-      return mProjects.at( index.row() )->deltaFileUploadStatusString;
+      return project->deltaFileUploadStatusString();
+
     case LocalDeltasCountRole:
-      return mProjects.at( index.row() )->deltasCount;
+      return project->deltasCount();
+
     case LocalPathRole:
-      return mProjects.at( index.row() )->localPath;
+      return project->localPath();
+
     case CanSyncRole:
-      return canSyncProject( mProjects.at( index.row() )->id );
+      return canSyncProject( project->id() );
+
     case LastLocalExportedAtRole:
-      return mProjects.at( index.row() )->lastLocalExportedAt;
+      return project->lastLocalExportedAt();
+
     case LastLocalPushDeltasRole:
-      return mProjects.at( index.row() )->lastLocalPushDeltas;
+      return project->lastLocalPushDeltas();
+
     case UserRoleRole:
-      return mProjects.at( index.row() )->userRole;
+      return project->userRole();
+
     case UserRoleOriginRole:
-      return mProjects.at( index.row() )->userRoleOrigin;
+      return project->userRoleOrigin();
+
     case DeltaListRole:
-      return QVariant::fromValue<DeltaListModel *>( mProjects.at( index.row() )->deltaListModel );
+      return QVariant::fromValue<DeltaListModel *>( project->deltaListModel() );
+
     case ForceAutoPushRole:
-      return mProjects.at( index.row() )->forceAutoPush;
+      return project->forceAutoPush();
+
     case AutoPushEnabledRole:
-      return mProjects.at( index.row() )->autoPushEnabled;
+      return project->autoPushEnabled();
+
     case AutoPushIntervalMinsRole:
-      return mProjects.at( index.row() )->autoPushIntervalMins;
+      return project->autoPushIntervalMins();
   }
 
   return QVariant();
@@ -2418,7 +982,7 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
 
 bool QFieldCloudProjectsModel::revertLocalChangesFromCurrentProject()
 {
-  CloudProject *project = findProject( mCurrentProjectId );
+  QFieldCloudProject *project = findProject( mCurrentProjectId );
 
   if ( !project )
     return false;
@@ -2434,20 +998,20 @@ bool QFieldCloudProjectsModel::revertLocalChangesFromCurrentProject()
     return false;
   }
 
-  project->modification ^= LocalModification;
-
   deltaFileWrapper->reset();
   deltaFileWrapper->resetId();
 
   if ( !deltaFileWrapper->toFile() )
     return false;
 
+  project->refreshModification( mLayerObserver );
+
   return true;
 }
 
 bool QFieldCloudProjectsModel::discardLocalChangesFromCurrentProject()
 {
-  CloudProject *project = findProject( mCurrentProjectId );
+  QFieldCloudProject *project = findProject( mCurrentProjectId );
   if ( !project )
     return false;
 
@@ -2456,13 +1020,13 @@ bool QFieldCloudProjectsModel::discardLocalChangesFromCurrentProject()
   if ( !deltaFileWrapper->toFile() )
     QgsMessageLog::logMessage( QStringLiteral( "Failed to write deltas." ) );
 
-  project->modification ^= LocalModification;
-
   deltaFileWrapper->reset();
   deltaFileWrapper->resetId();
 
   if ( !deltaFileWrapper->toFile() )
     return false;
+
+  project->refreshModification( mLayerObserver );
 
   return true;
 }
@@ -2508,32 +1072,16 @@ bool QFieldCloudProjectsModel::deleteGpkgShmAndWal( const QStringList &gpkgFileN
   return isSuccess;
 }
 
-QStringList QFieldCloudProjectsModel::projectFileNames( CloudProject *project, const QStringList &fileKeys, bool filterGpkgFileNames ) const
-{
-  QStringList prefixedFileNames;
-
-  for ( const QString &fileKey : fileKeys )
-  {
-    const QString fileName = QStringLiteral( "%1/%2" ).arg( QFieldCloudUtils::localProjectFilePath( mUsername, project->downloadFileTransfers[fileKey].projectId ), project->downloadFileTransfers[fileKey].fileName );
-    if ( !filterGpkgFileNames || fileName.toLower().endsWith( QStringLiteral( ".gpkg" ) ) )
-    {
-      prefixedFileNames.append( fileName );
-    }
-  }
-
-  return prefixedFileNames;
-}
-
 void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &projectPath )
 {
   const QString projectId = QFieldCloudUtils::getProjectId( projectPath );
   QString localizedDataPath;
   if ( !projectId.isEmpty() )
   {
-    CloudProject *project = findProject( projectId );
-    if ( project && mLocalizedDatasetsProjects.contains( project->owner ) )
+    QFieldCloudProject *project = findProject( projectId );
+    if ( project && mLocalizedDatasetsProjects.contains( project->owner() ) )
     {
-      localizedDataPath = QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mLocalizedDatasetsProjects[project->owner] );
+      localizedDataPath = QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mLocalizedDatasetsProjects[project->owner()] );
     }
   }
 

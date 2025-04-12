@@ -101,6 +101,7 @@ set(QFIELD_CORE_SRCS
     projectsimageprovider.cpp
     qfieldappauthrequesthandler.cpp
     qfieldcloudconnection.cpp
+    qfieldcloudproject.cpp
     qfieldcloudprojectsmodel.cpp
     qgismobileapp.cpp
     qgsgeometrywrapper.cpp
@@ -227,6 +228,7 @@ set(QFIELD_CORE_HDRS
     projectsimageprovider.h
     qfieldappauthrequesthandler.h
     qfieldcloudconnection.h
+    qfieldcloudproject.h
     qfieldcloudprojectsmodel.h
     qgismobileapp.h
     qgsgeometrywrapper.h
