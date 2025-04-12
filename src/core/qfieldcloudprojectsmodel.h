@@ -81,10 +81,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       LastLocalPushDeltasRole,
       UserRoleRole,
       UserRoleOriginRole,
-      DeltaListRole,
-      ForceAutoPushRole,
-      AutoPushEnabledRole,
-      AutoPushIntervalMinsRole,
+      DeltaListRole
     };
 
     //! Attributes controlling fetching of projects
@@ -175,15 +172,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     //! Cancels ongoing cloud project download with \a projectId.
     Q_INVOKABLE void projectCancelDownload( const QString &projectId );
-
-    //! Forces the cloud project auto-push enabled state to be TRUE
-    Q_INVOKABLE void projectSetForceAutoPush( const QString &projectId, bool force );
-
-    //! Toggles the cloud project auto-push enabled state
-    Q_INVOKABLE void projectSetAutoPushEnabled( const QString &projectId, bool enabled );
-
-    //! Sets the interval in \a minutes between which the project will auto-push changes
-    Q_INVOKABLE void projectSetAutoPushIntervalMins( const QString &projectId, int minutes );
 
     //! Configure localized data paths for cloud projects when available
     Q_INVOKABLE void updateLocalizedDataPaths( const QString &projectPath );

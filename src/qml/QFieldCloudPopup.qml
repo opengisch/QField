@@ -483,10 +483,12 @@ Popup {
               MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                  if (!!cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.forceAutoPush) {
-                    displayToast(qsTr('The current project does not allow for auto-push to be turned off'));
-                  } else {
-                    cloudProjectsModel.projectSetAutoPushEnabled(cloudProjectsModel.currentProjectId, !autoPush.checked);
+                  if (cloudProjectsModel.currentProject) {
+                    if (!!cloudProjectsModel.currentProject.forceAutoPush) {
+                      displayToast(qsTr('The current project does not allow for auto-push to be turned off'));
+                    } else {
+                      cloudProjectsModel.currentProject.autoPushEnabled = !autoPush.checked;
+                    }
                   }
                 }
               }
@@ -502,7 +504,9 @@ Popup {
               checked: !!(cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.autoPushEnabled)
 
               onClicked: {
-                cloudProjectsModel.projectSetAutoPushEnabled(cloudProjectsModel.currentProjectId, checked);
+                if (cloudProjectsModel.currentProject) {
+                  cloudProjectsModel.currentProject.autoPushEnabled = checked;
+                }
               }
             }
 

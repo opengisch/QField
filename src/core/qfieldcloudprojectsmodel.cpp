@@ -129,16 +129,20 @@ void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjec
 {
   if ( currentProjectId != QString() )
   {
-    const bool forceAutoPush = mProject->readBoolEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPush" ), false );
-    if ( forceAutoPush )
+    QFieldCloudProject *cloudProject = findProject( currentProjectId );
+    if ( cloudProject )
     {
-      projectSetForceAutoPush( currentProjectId, true );
-      projectSetAutoPushEnabled( currentProjectId, true );
-      projectSetAutoPushIntervalMins( currentProjectId, mProject->readNumEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPushIntervalMins" ) ) );
-    }
-    else
-    {
-      projectSetForceAutoPush( currentProjectId, false );
+      const bool forceAutoPush = mProject->readBoolEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPush" ), false );
+      if ( forceAutoPush )
+      {
+        cloudProject->setForceAutoPush( true );
+        cloudProject->setAutoPushEnabled( true );
+        cloudProject->setAutoPushIntervalMins( mProject->readNumEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPushIntervalMins" ) ) );
+      }
+      else
+      {
+        cloudProject->setForceAutoPush( false );
+      }
     }
   }
 
@@ -493,47 +497,8 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[UserRoleRole] = "UserRole";
   roles[UserRoleOriginRole] = "UserRoleOrigin";
   roles[DeltaListRole] = "DeltaList";
-  roles[ForceAutoPushRole] = "ForceAutoPush";
-  roles[AutoPushEnabledRole] = "AutoPushEnabled";
-  roles[AutoPushIntervalMinsRole] = "AutoPushIntervalMins";
 
   return roles;
-}
-
-void QFieldCloudProjectsModel::projectSetForceAutoPush( const QString &projectId, bool force )
-{
-  const QModelIndex projectIndex = findProjectIndex( projectId );
-
-  if ( projectIndex.isValid() )
-  {
-    QFieldCloudProject *project = mProjects[projectIndex.row()];
-    project->setForceAutoPush( force );
-    emit dataChanged( projectIndex, projectIndex, QVector<int>() << ForceAutoPushRole );
-  }
-}
-
-void QFieldCloudProjectsModel::projectSetAutoPushEnabled( const QString &projectId, bool enabled )
-{
-  const QModelIndex projectIndex = findProjectIndex( projectId );
-
-  if ( projectIndex.isValid() )
-  {
-    QFieldCloudProject *project = mProjects[projectIndex.row()];
-    project->setAutoPushEnabled( enabled );
-    emit dataChanged( projectIndex, projectIndex, QVector<int>() << AutoPushEnabledRole );
-  }
-}
-
-void QFieldCloudProjectsModel::projectSetAutoPushIntervalMins( const QString &projectId, int minutes )
-{
-  const QModelIndex projectIndex = findProjectIndex( projectId );
-
-  if ( projectIndex.isValid() )
-  {
-    QFieldCloudProject *project = mProjects[projectIndex.row()];
-    project->setAutoPushIntervalMins( minutes );
-    emit dataChanged( projectIndex, projectIndex, QVector<int>() << AutoPushIntervalMinsRole );
-  }
 }
 
 void QFieldCloudProjectsModel::insertProjects( const QList<QFieldCloudProject *> &projects )
@@ -883,15 +848,6 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
 
     case DeltaListRole:
       return QVariant::fromValue<DeltaListModel *>( project->deltaListModel() );
-
-    case ForceAutoPushRole:
-      return project->forceAutoPush();
-
-    case AutoPushEnabledRole:
-      return project->autoPushEnabled();
-
-    case AutoPushIntervalMinsRole:
-      return project->autoPushIntervalMins();
   }
 
   return QVariant();
