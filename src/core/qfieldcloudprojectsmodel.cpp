@@ -16,7 +16,6 @@
 #include "deltafilewrapper.h"
 #include "deltalistmodel.h"
 #include "layerobserver.h"
-#include "qfield.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudprojectsmodel.h"
 #include "qfieldcloudutils.h"
@@ -37,14 +36,8 @@
 #include <qgsproject.h>
 #include <qgsproviderregistry.h>
 
-#include <appinterface.h>
-
-#define MAX_REDIRECTS_ALLOWED 10
-#define MAX_PARALLEL_REQUESTS 6
-#define CACHE_PROJECT_DATA_SECS 1
 
 QFieldCloudProjectsModel::QFieldCloudProjectsModel()
-  : mProject( QgsProject::instance() )
 {
   // TODO all of these connects are a bit too much, and I guess not very precise, should be refactored!
   connect( this, &QFieldCloudProjectsModel::currentProjectIdChanged, this, [=]() {
@@ -132,12 +125,12 @@ void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjec
     QFieldCloudProject *cloudProject = findProject( currentProjectId );
     if ( cloudProject )
     {
-      const bool forceAutoPush = mProject->readBoolEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPush" ), false );
+      const bool forceAutoPush = QgsProject::instance()->readBoolEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPush" ), false );
       if ( forceAutoPush )
       {
         cloudProject->setForceAutoPush( true );
         cloudProject->setAutoPushEnabled( true );
-        cloudProject->setAutoPushIntervalMins( mProject->readNumEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPushIntervalMins" ) ) );
+        cloudProject->setAutoPushIntervalMins( QgsProject::instance()->readNumEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPushIntervalMins" ) ) );
       }
       else
       {
@@ -173,25 +166,6 @@ QSet<QString> QFieldCloudProjectsModel::busyProjectIds() const
   }
 
   return result;
-}
-
-QVariantMap QFieldCloudProjectsModel::getProjectData( const QString &projectId ) const
-{
-  QVariantMap data;
-
-  const QModelIndex projectIndex = findProjectIndex( projectId );
-
-  if ( !projectIndex.isValid() )
-    return data;
-
-  const QHash<int, QByteArray> rn = this->roleNames();
-
-  for ( auto [key, value] : qfield::asKeyValueRange( rn ) )
-  {
-    data[value] = projectIndex.data( key );
-  }
-
-  return data;
 }
 
 void QFieldCloudProjectsModel::refreshProjectsList( bool shouldRefreshPublic, int projectFetchOffset )
@@ -286,23 +260,6 @@ void QFieldCloudProjectsModel::removeLocalProject( const QString &projectId )
     }
   }
 }
-
-QFieldCloudProject::ProjectStatus QFieldCloudProjectsModel::projectStatus( const QString &projectId ) const
-{
-  QFieldCloudProject *project = findProject( projectId );
-  return project ? project->status() : QFieldCloudProject::ProjectStatus::Idle;
-}
-
-QFieldCloudProject::ProjectModifications QFieldCloudProjectsModel::projectModification( const QString &projectId ) const
-{
-  QFieldCloudProject *project = findProject( projectId );
-
-  if ( !project )
-    return QFieldCloudProject::NoModification;
-
-  return project->modification();
-}
-
 
 void QFieldCloudProjectsModel::refreshProjectFileOutdatedStatus( const QString &projectId )
 {

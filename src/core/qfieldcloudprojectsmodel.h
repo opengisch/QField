@@ -31,7 +31,6 @@ class QNetworkRequest;
 class QFieldCloudConnection;
 class LayerObserver;
 class QgsMapLayer;
-class QgsProject;
 
 /**
  * \ingroup core
@@ -125,9 +124,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Returns a set containing the currently busy project ids.
     QSet<QString> busyProjectIds() const;
 
-    //! Returns the cloud project data for given \a projectId.
-    Q_INVOKABLE QVariantMap getProjectData( const QString &projectId ) const;
-
     //! Requests the cloud projects list from the server. If \a shouldRefreshPublic is false, it will refresh only user's project, otherwise will refresh the public projects only, starting from \a projectFetchOffset for pagination.
     Q_INVOKABLE void refreshProjectsList( bool shouldRefreshPublic = false, int projectFetchOffset = 0 );
 
@@ -145,12 +141,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     //! Discards the delta records of the current cloud project.
     Q_INVOKABLE bool discardLocalChangesFromCurrentProject();
-
-    //! Returns the cloud project status for given \a projectId.
-    Q_INVOKABLE QFieldCloudProject::ProjectStatus projectStatus( const QString &projectId ) const;
-
-    //! Returns the cloud project modification for given \a projectId.
-    Q_INVOKABLE QFieldCloudProject::ProjectModifications projectModification( const QString &projectId ) const;
 
     //! Updates the project modification for given \a projectId.
     Q_INVOKABLE void refreshProjectModification( const QString &projectId );
@@ -173,8 +163,11 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Cancels ongoing cloud project download with \a projectId.
     Q_INVOKABLE void projectCancelDownload( const QString &projectId );
 
-    //! Configure localized data paths for cloud projects when available
+    //! Configure localized data paths for cloud projects when available.
     Q_INVOKABLE void updateLocalizedDataPaths( const QString &projectPath );
+
+    //! Return the cloud project for a given \a projectId.
+    Q_INVOKABLE QFieldCloudProject *findProject( const QString &projectId ) const;
 
   signals:
     void cloudConnectionChanged();
@@ -206,14 +199,12 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QFieldCloudConnection *mCloudConnection = nullptr;
     QString mCurrentProjectId;
     LayerObserver *mLayerObserver = nullptr;
-    QgsProject *mProject = nullptr;
     QgsGpkgFlusher *mGpkgFlusher = nullptr;
     QString mUsername;
     const int mProjectsPerFetch = 250;
     QMap<QString, QString> mLocalizedDatasetsProjects;
 
     QModelIndex findProjectIndex( const QString &projectId ) const;
-    QFieldCloudProject *findProject( const QString &projectId ) const;
 
     void loadProjects( const QJsonArray &remoteProjects = QJsonArray(), bool skipLocalProjects = false );
     void insertProjects( const QList<QFieldCloudProject *> &projects );

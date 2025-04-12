@@ -42,6 +42,7 @@ class QFieldCloudProject : public QObject
 
     Q_PROPERTY( ProjectStatus status READ status NOTIFY statusChanged )
     Q_PROPERTY( PackagingStatus packagingStatus READ packagingStatus NOTIFY packagingStatusChanged )
+    Q_PROPERTY( QStringList packagedLayerErrors READ packagedLayerErrors NOTIFY packagedLayerErrorsChanged )
 
     Q_PROPERTY( int downloadBytesTotal READ downloadBytesTotal NOTIFY downloadBytesTotalChanged )
     Q_PROPERTY( int downloadBytesReceived READ downloadBytesReceived NOTIFY downloadBytesReceivedChanged )

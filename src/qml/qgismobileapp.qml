@@ -3742,9 +3742,8 @@ ApplicationWindow {
       const cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName);
       cloudProjectsModel.currentProjectId = cloudProjectId;
       cloudProjectsModel.refreshProjectModification(cloudProjectId);
-      if (cloudProjectId !== '') {
-        var cloudProjectData = cloudProjectsModel.getProjectData(cloudProjectId);
-        switch (cloudProjectData.UserRole) {
+      if (cloudProjectsModel.currentProject) {
+        switch (cloudProjectsModel.currentProject.userRole) {
         case 'reader':
           stateMachine.state = "browse";
           projectInfo.hasInsertRights = false;

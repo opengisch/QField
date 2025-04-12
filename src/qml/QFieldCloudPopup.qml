@@ -343,9 +343,9 @@ Popup {
               if (transferError.visible) {
                 transferError.detailsText = errorString;
               }
-              const projectData = cloudProjectsModel.getProjectData(projectId);
-              if (projectData.PackagedLayerErrors.length !== 0) {
-                cloudPackageLayersFeedback.packagedLayersListViewModel = projectData.PackagedLayerErrors;
+              const cloudProject = cloudProjectsModel.findProject(projectId);
+              if (cloudProject.packagedLayerErrors.length !== 0) {
+                cloudPackageLayersFeedback.packagedLayersListViewModel = cloudProject.packagedLayerErrors;
                 cloudPackageLayersFeedback.visible = true;
               }
             }
