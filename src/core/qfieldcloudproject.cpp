@@ -13,6 +13,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "appinterface.h"
 #include "deltafilewrapper.h"
 #include "deltalistmodel.h"
 #include "fileutils.h"
@@ -21,14 +22,16 @@
 #include "qfieldcloudproject.h"
 #include "qfieldcloudutils.h"
 
+#include <QDirIterator>
+#include <QFileInfo>
 #include <qgsmessagelog.h>
 
 #define MAX_REDIRECTS_ALLOWED 10
 #define MAX_PARALLEL_REQUESTS 6
 #define CACHE_PROJECT_DATA_SECS 1
 
-QFieldCloudProject::QFieldCloudProject( const QString &id, QFieldCloudConnection *connection )
-  : mId( id ), mCloudConnection( connection )
+QFieldCloudProject::QFieldCloudProject( const QString &id, QFieldCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher )
+  : mId( id ), mCloudConnection( connection ), mGpkgFlusher( gpkgFlusher )
 {
   if ( mCloudConnection )
   {
@@ -719,18 +722,27 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
 
       if ( !hasError )
       {
-        //const bool currentProjectReloadNeeded = project->id == mCurrentProjectId;
-        //QStringList gpkgFileNames;
-        //if ( currentProjectReloadNeeded )
-        //{
-        //  // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
-        //  const QStringList unprefixedGpkgFileNames = filterGpkgFileNames( fileNames );
-        //  gpkgFileNames = projectFileNames( mProject->homePath(), unprefixedGpkgFileNames );
-        //  mProject->clear();
+        QDir projectPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
+        const bool currentProjectReloadNeeded = QgsProject::instance()->homePath().startsWith( projectPath.absolutePath() );
+        QStringList gpkgFileNames;
+        if ( currentProjectReloadNeeded )
+        {
+          // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
+          QDirIterator it( projectPath.absolutePath(), { QStringLiteral( "*.gpkg" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
+          while ( it.hasNext() )
+          {
+            gpkgFileNames << it.nextFileInfo().absoluteFilePath();
+          }
 
-        //  for ( const QString &fileName : gpkgFileNames )
-        //    mGpkgFlusher->stop( fileName );
-        //}
+          QgsProject::instance()->clear();
+          if ( mGpkgFlusher )
+          {
+            for ( const QString &fileName : gpkgFileNames )
+            {
+              mGpkgFlusher->stop( fileName );
+            }
+          }
+        }
 
         // move the files from their temporary location to their permanent one
         if ( !moveDownloadedFilesToPermanentStorage() )
@@ -739,12 +751,34 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
           return;
         }
 
-        //if ( currentProjectReloadNeeded )
-        //{
-        //  deleteGpkgShmAndWal( gpkgFileNames );
-        //  AppInterface::instance()->reloadProject();
-        //}
+        if ( currentProjectReloadNeeded )
+        {
+          // Clear up Geopackage's shm and wal files
+          for ( const QString &fileName : gpkgFileNames )
+          {
+            QFile shmFile( QStringLiteral( "%1-shm" ).arg( fileName ) );
+            if ( shmFile.exists() )
+            {
+              if ( !shmFile.remove() )
+              {
+                QgsMessageLog::logMessage( QStringLiteral( "Failed to remove -shm file '%1' " ).arg( shmFile.fileName() ) );
+              }
+            }
 
+            QFile walFile( QStringLiteral( "%1-wal" ).arg( fileName ) );
+            if ( walFile.exists() )
+            {
+              if ( !walFile.remove() )
+              {
+                QgsMessageLog::logMessage( QStringLiteral( "Failed to remove -wal file '%1' " ).arg( walFile.fileName() ) );
+              }
+            }
+          }
+
+          AppInterface::instance()->reloadProject();
+        }
+
+        mStatus = ProjectStatus::Idle;
         mErrorStatus = NoErrorStatus;
         mCheckout = ProjectCheckout::LocalAndRemoteCheckout;
         mLocalPath = QFieldCloudUtils::localProjectFilePath( mUsername, mId );
@@ -762,6 +796,7 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
         QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastProjectFileMd5" ), QString() );
         QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "projectFileOudated" ), false );
 
+        emit statusChanged();
         emit errorStatusChanged();
         emit checkoutChanged();
         emit localPathChanged();
@@ -1500,9 +1535,9 @@ void QFieldCloudProject::removeLocally()
   QSettings().remove( QStringLiteral( "QFieldCloud/projects/%1" ).arg( mId ) );
 }
 
-QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details, QFieldCloudConnection *connection )
+QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details, QFieldCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher )
 {
-  QFieldCloudProject *project = new QFieldCloudProject( details.value( "id" ).toString(), connection );
+  QFieldCloudProject *project = new QFieldCloudProject( details.value( "id" ).toString(), connection, gpkgFlusher );
   project->mIsPrivate = details.value( "private" ).toBool();
   project->mOwner = details.value( "owner" ).toString();
   project->mName = details.value( "name" ).toString();
@@ -1539,7 +1574,7 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   return project;
 }
 
-QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QFieldCloudConnection *connection )
+QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QFieldCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher )
 {
   const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( id );
   if ( !QSettings().contains( QStringLiteral( "%1/name" ).arg( projectPrefix ) ) )
@@ -1554,7 +1589,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   const QString userRole = QFieldCloudUtils::projectSetting( id, QStringLiteral( "userRole" ) ).toString();
   const QString userRoleOrigin = QFieldCloudUtils::projectSetting( id, QStringLiteral( "userRoleOrigin" ) ).toString();
 
-  QFieldCloudProject *project = new QFieldCloudProject( id, connection );
+  QFieldCloudProject *project = new QFieldCloudProject( id, connection, gpkgFlusher );
   project->mIsPrivate = true;
   project->mOwner = owner;
   project->mName = name;

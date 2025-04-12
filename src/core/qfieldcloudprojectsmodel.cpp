@@ -914,37 +914,6 @@ void QFieldCloudProjectsModel::setGpkgFlusher( QgsGpkgFlusher *flusher )
   emit gpkgFlusherChanged();
 }
 
-bool QFieldCloudProjectsModel::deleteGpkgShmAndWal( const QStringList &gpkgFileNames )
-{
-  bool isSuccess = true;
-
-  for ( const QString &fileName : gpkgFileNames )
-  {
-    QFile shmFile( QStringLiteral( "%1-shm" ).arg( fileName ) );
-    if ( shmFile.exists() )
-    {
-      if ( !shmFile.remove() )
-      {
-        QgsMessageLog::logMessage( QStringLiteral( "Failed to remove -shm file '%1' " ).arg( shmFile.fileName() ) );
-        isSuccess = false;
-      }
-    }
-
-    QFile walFile( QStringLiteral( "%1-wal" ).arg( fileName ) );
-
-    if ( walFile.exists() )
-    {
-      if ( !walFile.remove() )
-      {
-        QgsMessageLog::logMessage( QStringLiteral( "Failed to remove -wal file '%1' " ).arg( walFile.fileName() ) );
-        isSuccess = false;
-      }
-    }
-  }
-
-  return isSuccess;
-}
-
 void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &projectPath )
 {
   const QString projectId = QFieldCloudUtils::getProjectId( projectPath );

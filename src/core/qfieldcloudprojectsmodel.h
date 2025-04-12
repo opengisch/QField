@@ -215,8 +215,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QModelIndex findProjectIndex( const QString &projectId ) const;
     QFieldCloudProject *findProject( const QString &projectId ) const;
 
-    bool deleteGpkgShmAndWal( const QStringList &gpkgFileNames );
-
     void loadProjects( const QJsonArray &remoteProjects = QJsonArray(), bool skipLocalProjects = false );
     void insertProjects( const QList<QFieldCloudProject *> &projects );
 };

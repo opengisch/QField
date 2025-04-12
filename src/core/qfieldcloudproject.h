@@ -24,6 +24,7 @@
 #include <QVariantMap>
 
 class DeltaListModel;
+class QgsGpkgFlusher;
 class LayerObserver;
 class QFieldCloudConnection;
 
@@ -162,7 +163,7 @@ class QFieldCloudProject : public QObject
 
     Q_ENUM( ProjectRefreshReason )
 
-    QFieldCloudProject( const QString &id = QString(), QFieldCloudConnection *connection = nullptr );
+    QFieldCloudProject( const QString &id = QString(), QFieldCloudConnection *connection = nullptr, QgsGpkgFlusher *gpkgFlusher = nullptr );
     ~QFieldCloudProject();
 
     QString id() const { return mId; }
@@ -240,8 +241,8 @@ class QFieldCloudProject : public QObject
     static QFieldCloudProject::JobStatus getJobStatusFromString( const QString &status );
     static QString getJobTypeAsString( QFieldCloudProject::JobType jobType );
 
-    static QFieldCloudProject *fromDetails( const QVariantHash &details, QFieldCloudConnection *connection );
-    static QFieldCloudProject *fromLocalSettings( const QString &id, QFieldCloudConnection *connection );
+    static QFieldCloudProject *fromDetails( const QVariantHash &details, QFieldCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher = nullptr );
+    static QFieldCloudProject *fromLocalSettings( const QString &id, QFieldCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher = nullptr );
     static void restoreLocalSettings( QFieldCloudProject *project, const QDir &localPath );
 
   signals:
@@ -430,6 +431,8 @@ class QFieldCloudProject : public QObject
 
     QFieldCloudConnection *mCloudConnection = nullptr;
     QString mUsername;
+
+    QgsGpkgFlusher *mGpkgFlusher = nullptr;
 
     static const int sDelayBeforeStatusRetry = 1000;
 };
