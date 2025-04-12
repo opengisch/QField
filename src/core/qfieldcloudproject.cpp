@@ -32,7 +32,6 @@ QFieldCloudProject::QFieldCloudProject( const QString &id, QFieldCloudConnection
 {
   if ( mCloudConnection )
   {
-    connect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, [=] { mUsername = mCloudConnection->username(); } );
     mUsername = mCloudConnection->username();
   }
 }
