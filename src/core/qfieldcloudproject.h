@@ -209,7 +209,7 @@ class QFieldCloudProject : public QObject
     void setNeedsRepackaging( bool needsRepackaging );
 
     bool isOutdated() const { return mIsOutdated; }
-    void setIsOutdated( bool isOudated );
+    void setIsOutdated( bool isOutdated );
 
     bool projectFileIsOutdated() const { return mProjectFileIsOutdated; }
     void setProjectFileIsOutdated( bool projectFileIsOutdated );
