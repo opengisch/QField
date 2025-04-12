@@ -4009,7 +4009,7 @@ ApplicationWindow {
     onWarning: message => displayToast(message)
 
     onDeltaListModelChanged: function () {
-      qfieldCloudDeltaHistory.model = cloudProjectsModel.currentProjectData.DeltaList;
+      qfieldCloudDeltaHistory.model = cloudProjectsModel.currentProject.deltaListModel;
     }
   }
 

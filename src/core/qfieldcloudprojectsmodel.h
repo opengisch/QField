@@ -40,6 +40,19 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 {
     Q_OBJECT
 
+    //! The current cloud connection.
+    Q_PROPERTY( QFieldCloudConnection *cloudConnection READ cloudConnection WRITE setCloudConnection NOTIFY cloudConnectionChanged )
+    //! The current layer observer.
+    Q_PROPERTY( LayerObserver *layerObserver READ layerObserver WRITE setLayerObserver NOTIFY layerObserverChanged )
+    //! The current geopackage flusher
+    Q_PROPERTY( QgsGpkgFlusher *gpkgFlusher READ gpkgFlusher WRITE setGpkgFlusher NOTIFY gpkgFlusherChanged )
+    //! Currently busy project ids.
+    Q_PROPERTY( QSet<QString> busyProjectIds READ busyProjectIds NOTIFY busyProjectIdsChanged )
+    //! The current cloud project id of the currently opened project (empty string for non-cloud projects).
+    Q_PROPERTY( QString currentProjectId READ currentProjectId WRITE setCurrentProjectId NOTIFY currentProjectIdChanged )
+    //! The current cloud project. (null for non-cloud projects).
+    Q_PROPERTY( QFieldCloudProject *currentProject READ currentProject NOTIFY currentProjectChanged )
+
   public:
     enum ColumnRole
     {
@@ -64,7 +77,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       UploadDeltaStatusStringRole,
       LocalDeltasCountRole,
       LocalPathRole,
-      CanSyncRole,
       LastLocalExportedAtRole,
       LastLocalPushDeltasRole,
       UserRoleRole,
@@ -86,17 +98,11 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     QFieldCloudProjectsModel();
 
-    //! Stores the current cloud connection.
-    Q_PROPERTY( QFieldCloudConnection *cloudConnection READ cloudConnection WRITE setCloudConnection NOTIFY cloudConnectionChanged )
-
     //! Returns the currently used cloud connection.
     QFieldCloudConnection *cloudConnection() const;
 
     //! Sets the cloud connection.
     void setCloudConnection( QFieldCloudConnection *cloudConnection );
-
-    //! Stores the current layer observer.
-    Q_PROPERTY( LayerObserver *layerObserver READ layerObserver WRITE setLayerObserver NOTIFY layerObserverChanged )
 
     //! Returns the currently used layer observer.
     LayerObserver *layerObserver() const;
@@ -104,32 +110,20 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Sets the layer observer.
     void setLayerObserver( LayerObserver *layerObserver );
 
-    //! Stores the cloud project id of the currently opened project. Empty string if missing.
-    Q_PROPERTY( QString currentProjectId READ currentProjectId WRITE setCurrentProjectId NOTIFY currentProjectIdChanged )
-
     //! Returns the cloud project id of the currently opened project.
     QString currentProjectId() const;
 
     //! Sets the cloud project id of the currently opened project.
     void setCurrentProjectId( const QString &currentProjectId );
 
-    //! Stores the geopackage flusher
-    Q_PROPERTY( QgsGpkgFlusher *gpkgFlusher READ gpkgFlusher WRITE setGpkgFlusher NOTIFY gpkgFlusherChanged )
+    //! Returns the cloud project of the currently oepened project or NULL for non-cloud projects.
+    QFieldCloudProject *currentProject() const;
 
     //! Returns the geopackage flusher
     QgsGpkgFlusher *gpkgFlusher() const { return mGpkgFlusher; }
 
     //! Sets the geopackage flusher
     void setGpkgFlusher( QgsGpkgFlusher *flusher );
-
-    //! Stores the cloud project data of the currently opened project. Empty map if missing.
-    Q_PROPERTY( QVariant currentProjectData READ currentProjectData NOTIFY currentProjectDataChanged )
-
-    //! Returns the cloud project data of the currently opened project.
-    QVariantMap currentProjectData() const;
-
-    //! Stores a set of the currently busy project ids.
-    Q_PROPERTY( QSet<QString> busyProjectIds READ busyProjectIds NOTIFY busyProjectIdsChanged )
 
     //! Returns a set containing the currently busy project ids.
     QSet<QString> busyProjectIds() const;
@@ -198,9 +192,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void cloudConnectionChanged();
     void layerObserverChanged();
     void currentProjectIdChanged();
-    void currentProjectDataChanged();
+    void currentProjectChanged();
     void busyProjectIdsChanged();
-    void canSyncCurrentProjectChanged();
     void gpkgFlusherChanged();
     void warning( const QString &message );
 
@@ -233,8 +226,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     QModelIndex findProjectIndex( const QString &projectId ) const;
     QFieldCloudProject *findProject( const QString &projectId ) const;
-
-    bool canSyncProject( const QString &projectId ) const;
 
     bool deleteGpkgShmAndWal( const QStringList &gpkgFileNames );
 

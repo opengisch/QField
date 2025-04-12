@@ -64,20 +64,6 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
     {
       emit busyProjectIdsChanged();
     }
-
-    if ( mCurrentProjectId.isEmpty() )
-      return;
-
-    const QModelIndex projectIndex = findProjectIndex( mCurrentProjectId );
-
-    if ( !projectIndex.isValid() )
-      return;
-
-    // current project
-    if ( topLeft.row() == projectIndex.row() )
-    {
-      emit currentProjectDataChanged();
-    }
   } );
 }
 
@@ -162,17 +148,12 @@ void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjec
   mCurrentProjectId = currentProjectId;
 
   emit currentProjectIdChanged();
-  emit currentProjectDataChanged();
+  emit currentProjectChanged();
 }
 
-QVariantMap QFieldCloudProjectsModel::currentProjectData() const
+QFieldCloudProject *QFieldCloudProjectsModel::currentProject() const
 {
-  if ( mCurrentProjectId.isEmpty() )
-  {
-    return QVariantMap();
-  }
-
-  return getProjectData( mCurrentProjectId );
+  return !mCurrentProjectId.isEmpty() ? findProject( mCurrentProjectId ) : nullptr;
 }
 
 QSet<QString> QFieldCloudProjectsModel::busyProjectIds() const
@@ -306,25 +287,6 @@ QFieldCloudProject::ProjectStatus QFieldCloudProjectsModel::projectStatus( const
 {
   QFieldCloudProject *project = findProject( projectId );
   return project ? project->status() : QFieldCloudProject::ProjectStatus::Idle;
-}
-
-bool QFieldCloudProjectsModel::canSyncProject( const QString &projectId ) const
-{
-  QFieldCloudProject *project = findProject( projectId );
-
-  if ( !project )
-    return false;
-
-  if ( mCurrentProjectId.isEmpty() )
-  {
-    return false;
-  }
-  else if ( projectStatus( projectId ) == QFieldCloudProject::ProjectStatus::Idle )
-  {
-    return true;
-  }
-
-  return false;
 }
 
 QFieldCloudProject::ProjectModifications QFieldCloudProjectsModel::projectModification( const QString &projectId ) const
@@ -487,7 +449,6 @@ void QFieldCloudProjectsModel::projectListReceived()
     // All projects fetched, refresh current project details if found
     if ( !mCurrentProjectId.isEmpty() && findProject( mCurrentProjectId ) )
     {
-      emit currentProjectDataChanged();
       refreshProjectModification( mCurrentProjectId );
     }
   }
@@ -527,7 +488,6 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[UploadDeltaStatusStringRole] = "UploadDeltaStatusString";
   roles[LocalDeltasCountRole] = "LocalDeltasCount";
   roles[LocalPathRole] = "LocalPath";
-  roles[CanSyncRole] = "CanSync";
   roles[LastLocalExportedAtRole] = "LastLocalExportedAt";
   roles[LastLocalPushDeltasRole] = "LastLocalPushDeltas";
   roles[UserRoleRole] = "UserRole";
@@ -614,71 +574,32 @@ void QFieldCloudProjectsModel::setupProjectConnections( QFieldCloudProject *proj
   connect( project, &QFieldCloudProject::projectFileIsOutdatedChanged, this, [=] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
-
     emit dataChanged( idx, idx, QVector<int>() << ProjectFileOutdatedRole );
-
-    if ( mCurrentProjectId == p->id() )
-    {
-      emit currentProjectDataChanged();
-    }
   } );
 
   connect( project, &QFieldCloudProject::downloaded, this, [=]( QString name, QString error ) {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
-
     emit projectDownloaded( p->id(), name, !error.isEmpty(), error );
     emit dataChanged( idx, idx, QVector<int>() << StatusRole << PackagingStatusRole << ErrorStatusRole << ErrorStringRole );
-
-    if ( mCurrentProjectId == p->id() )
-    {
-      emit currentProjectDataChanged();
-    }
-  } );
-
-  connect( project, &QFieldCloudProject::downloadFinished, this, [=]( QString error ) {
-    QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
-    QModelIndex idx = findProjectIndex( p->id() );
-
-    if ( mCurrentProjectId == p->id() )
-    {
-      emit currentProjectDataChanged();
-    }
   } );
 
   connect( project, &QFieldCloudProject::uploadFinished, this, [=]( bool isDownloading, QString error ) {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
-
     emit pushFinished( p->id(), isDownloading, !error.isEmpty(), error );
-
-    if ( mCurrentProjectId == p->id() )
-    {
-      emit currentProjectDataChanged();
-    }
   } );
 
   connect( project, &QFieldCloudProject::dataRefreshed, this, [=]( QFieldCloudProject::ProjectRefreshReason reason, QString error ) {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
-
     emit dataChanged( idx, idx );
-
-    if ( mCurrentProjectId == p->id() )
-    {
-      emit currentProjectDataChanged();
-    }
   } );
 
   connect( project, &QFieldCloudProject::jobFinished, this, [=]( QFieldCloudProject::JobType type, QString error ) {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx );
-
-    if ( mCurrentProjectId == p->id() )
-    {
-      emit currentProjectDataChanged();
-    }
   } );
 
   connect( project, &QFieldCloudProject::statusChanged, this, [=] {
@@ -744,7 +665,7 @@ void QFieldCloudProjectsModel::setupProjectConnections( QFieldCloudProject *proj
   connect( project, &QFieldCloudProject::modificationChanged, this, [=] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
-    emit dataChanged( idx, idx, QVector<int>() << ModificationRole << CanSyncRole );
+    emit dataChanged( idx, idx, QVector<int>() << ModificationRole );
   } );
 
   connect( project, &QFieldCloudProject::deltaFileUploadStatusChanged, this, [=] {
@@ -947,9 +868,6 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
 
     case LocalPathRole:
       return project->localPath();
-
-    case CanSyncRole:
-      return canSyncProject( project->id() );
 
     case LastLocalExportedAtRole:
       return project->lastLocalExportedAt();

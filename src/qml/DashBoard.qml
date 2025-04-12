@@ -140,24 +140,24 @@ Drawer {
             id: cloudButton
             anchors.verticalCenter: parent.verticalCenter
             iconSource: {
-              if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-                switch (cloudProjectsModel.currentProjectData.Status) {
+              if (cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudProjectsModel.currentProject) {
+                switch (cloudProjectsModel.currentProject.status) {
                 case QFieldCloudProject.Downloading:
-                  switch (cloudProjectsModel.currentProjectData.PackagingStatus) {
+                  switch (cloudProjectsModel.currentProject.packagingStatus) {
                   case QFieldCloudProject.PackagingFinishedStatus:
                     return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
                   default:
                     return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
                   }
                 case QFieldCloudProject.Uploading:
-                  switch (cloudProjectsModel.currentProjectData.UploadDeltaStatus) {
+                  switch (cloudProjectsModel.currentProject.deltaFileUploadStatus) {
                   case QFieldCloudProject.DeltaFileLocalStatus:
                     return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
                   default:
                     return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
                   }
                 case QFieldCloudProject.Idle:
-                  return cloudProjectsModel.currentProjectData.ProjectFileOutdated ? Theme.getThemeVectorIcon('ic_cloud_attention_24dp') : Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                  return cloudProjectsModel.currentProject.projectFileIsOutdated ? Theme.getThemeVectorIcon('ic_cloud_attention_24dp') : Theme.getThemeVectorIcon('ic_cloud_active_24dp');
                 default:
                   return Theme.getThemeVectorIcon('ic_cloud_white_24dp');
                 }
@@ -200,7 +200,7 @@ Drawer {
                 duration: 2000
                 target: cloudButton
               }
-              running: cloudProjectsModel.currentProjectData.Status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProjectData.Status === QFieldCloudProject.Uploading
+              running: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProject.status === QFieldCloudProject.Uploading)
               loops: Animation.Infinite
 
               onStopped: {

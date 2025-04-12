@@ -348,9 +348,9 @@ Page {
 
                       // TODO I think these should be shown as UI badges
                       switch (Status) {
-                      case QFieldCloudProject.ProjectStatus.Idle:
+                      case QFieldCloudProject.Idle:
                         break;
-                      case QFieldCloudProject.ProjectStatus.Downloading:
+                      case QFieldCloudProject.Downloading:
                         if (PackagingStatus === QFieldCloudProject.PackagingBusyStatus) {
                           status = qsTr('QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight');
                         } else {
@@ -365,7 +365,7 @@ Page {
                           }
                         }
                         break;
-                      case QFieldCloudProject.ProjectStatus.Uploading:
+                      case QFieldCloudProject.Uploading:
                         status = qsTr('Uploading…');
                         break;
                       default:

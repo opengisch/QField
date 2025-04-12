@@ -34,6 +34,32 @@ class QFieldCloudProject : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY( QString id READ id NOTIFY idChanged )
+    Q_PROPERTY( QString name READ name NOTIFY nameChanged )
+    Q_PROPERTY( QString owner READ owner NOTIFY ownerChanged )
+    Q_PROPERTY( QString description READ description NOTIFY descriptionChanged )
+
+    Q_PROPERTY( ProjectStatus status READ status NOTIFY statusChanged )
+    Q_PROPERTY( PackagingStatus packagingStatus READ packagingStatus NOTIFY packagingStatusChanged )
+
+    Q_PROPERTY( int downloadBytesTotal READ downloadBytesTotal NOTIFY downloadBytesTotalChanged )
+    Q_PROPERTY( int downloadBytesReceived READ downloadBytesReceived NOTIFY downloadBytesReceivedChanged )
+    Q_PROPERTY( double downloadProgress READ downloadProgress NOTIFY downloadProgressChanged )
+
+    Q_PROPERTY( double uploadDeltaProgress READ uploadDeltaProgress NOTIFY uploadDeltaProgressChanged )
+    Q_PROPERTY( DeltaFileStatus deltaFileUploadStatus READ deltaFileUploadStatus NOTIFY deltaFileUploadStatusChanged )
+    Q_PROPERTY( DeltaListModel *deltaListModel READ deltaListModel NOTIFY deltaListModelChanged )
+
+    Q_PROPERTY( bool forceAutoPush READ forceAutoPush NOTIFY forceAutoPushChanged )
+    Q_PROPERTY( bool autoPushEnabled READ autoPushEnabled NOTIFY autoPushEnabledChanged )
+    Q_PROPERTY( int autoPushIntervalMins READ autoPushIntervalMins NOTIFY autoPushIntervalMinsChanged )
+
+    Q_PROPERTY( QString lastLocalPushDeltas READ lastLocalPushDeltas NOTIFY lastLocalPushDeltasChanged )
+    Q_PROPERTY( QString lastLocalExportedAt READ lastLocalExportedAt NOTIFY lastLocalExportedAtChanged )
+
+    Q_PROPERTY( bool isOutdated READ isOutdated NOTIFY isOutdatedChanged )
+    Q_PROPERTY( bool projectFileIsOutdated READ projectFileIsOutdated NOTIFY projectFileIsOutdatedChanged )
+
   public:
     //! Whether the project is busy or idle.
     enum class ProjectStatus
