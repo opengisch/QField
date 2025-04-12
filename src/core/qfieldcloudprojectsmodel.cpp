@@ -120,25 +120,6 @@ QString QFieldCloudProjectsModel::currentProjectId() const
 
 void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjectId )
 {
-  if ( currentProjectId != QString() )
-  {
-    QFieldCloudProject *cloudProject = findProject( currentProjectId );
-    if ( cloudProject )
-    {
-      const bool forceAutoPush = QgsProject::instance()->readBoolEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPush" ), false );
-      if ( forceAutoPush )
-      {
-        cloudProject->setForceAutoPush( true );
-        cloudProject->setAutoPushEnabled( true );
-        cloudProject->setAutoPushIntervalMins( QgsProject::instance()->readNumEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPushIntervalMins" ) ) );
-      }
-      else
-      {
-        cloudProject->setForceAutoPush( false );
-      }
-    }
-  }
-
   if ( mCurrentProjectId == currentProjectId )
     return;
 

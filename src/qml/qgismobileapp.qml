@@ -3743,6 +3743,14 @@ ApplicationWindow {
       cloudProjectsModel.currentProjectId = cloudProjectId;
       cloudProjectsModel.refreshProjectModification(cloudProjectId);
       if (cloudProjectsModel.currentProject) {
+        const forceAutoPush = iface.readProjectBoolEntry("qfieldsync", "forceAutoPush", false);
+        if (forceAutoPush) {
+          cloudProjectsModel.currentProject.forceAutoPush = true;
+          cloudProjectsModel.currentProject.autoPushEnabled = true;
+          cloudProjectsModel.currentProject.autoPushIntervalsMins = iface.readProjectNumEntry("qfieldsync", "forceAutoPushIntervalMins", 30);
+        } else {
+          cloudProjectsModel.currentProject.forceAutoPush = false;
+        }
         switch (cloudProjectsModel.currentProject.userRole) {
         case 'reader':
           stateMachine.state = "browse";

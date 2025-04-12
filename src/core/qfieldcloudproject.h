@@ -52,7 +52,7 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( DeltaFileStatus deltaFileUploadStatus READ deltaFileUploadStatus NOTIFY deltaFileUploadStatusChanged )
     Q_PROPERTY( DeltaListModel *deltaListModel READ deltaListModel NOTIFY deltaListModelChanged )
 
-    Q_PROPERTY( bool forceAutoPush READ forceAutoPush NOTIFY forceAutoPushChanged )
+    Q_PROPERTY( bool forceAutoPush READ forceAutoPush WRITE setForceAutoPush NOTIFY forceAutoPushChanged )
     Q_PROPERTY( bool autoPushEnabled READ autoPushEnabled WRITE setAutoPushEnabled NOTIFY autoPushEnabledChanged )
     Q_PROPERTY( int autoPushIntervalMins READ autoPushIntervalMins NOTIFY autoPushIntervalMinsChanged )
 
