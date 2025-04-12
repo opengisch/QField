@@ -21,7 +21,7 @@ Popup {
       showCancelButton: false
       showApplyButton: false
 
-      busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading ? 'on' : 'off'
+      busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting || cloudProjectsModel.currentProjectData.Status === QFieldCloudProject.Uploading || cloudProjectsModel.currentProjectData.Status === QFieldCloudProject.Downloading ? 'on' : 'off'
 
       topMargin: mainWindow.sceneTopMargin
 
@@ -156,7 +156,7 @@ Popup {
                 anchors.fill: parent
 
                 onClicked: {
-                  if (cloudConnection.status !== QFieldCloudConnection.LoggedIn || cloudProjectsModel.currentProjectData.Status !== QFieldCloudProjectsModel.Idle)
+                  if (cloudConnection.status !== QFieldCloudConnection.LoggedIn || cloudProjectsModel.currentProjectData.Status !== QFieldCloudProject.Idle)
                     return;
                   if (!connectionSettings.visible) {
                     connectionSettings.visible = true;
@@ -186,15 +186,15 @@ Popup {
 
         Text {
           id: statusText
-          visible: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
+          visible: cloudProjectsModel.currentProjectData.Status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProjectData.Status === QFieldCloudProject.Uploading
           font: Theme.tipFont
           color: Theme.secondaryTextColor
           text: switch (cloudProjectsModel.currentProjectData.Status) {
-          case QFieldCloudProjectsModel.Downloading:
-            if (cloudProjectsModel.currentProjectData.PackagingStatus === QFieldCloudProjectsModel.PackagingBusyStatus) {
+          case QFieldCloudProject.Downloading:
+            if (cloudProjectsModel.currentProjectData.PackagingStatus === QFieldCloudProject.PackagingBusyStatus) {
               return qsTr('QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight');
             } else {
-              if (cloudProjectsModel.currentProjectData.PackagingStatus === QFieldCloudProjectsModel.PackagingFinishedStatus || cloudProjectsModel.currentProjectData.DownloadProgress > 0.0) {
+              if (cloudProjectsModel.currentProjectData.PackagingStatus === QFieldCloudProject.PackagingFinishedStatus || cloudProjectsModel.currentProjectData.DownloadProgress > 0.0) {
                 if (cloudProjectsModel.currentProjectData.DownloadSize > 0) {
                   return qsTr('Downloading, %1% of %2 fetched').arg(Math.round(cloudProjectsModel.currentProjectData.DownloadProgress * 100)).arg(FileUtils.representFileSize(cloudProjectsModel.currentProjectData.DownloadSize));
                 } else {
@@ -204,9 +204,9 @@ Popup {
                 return qsTr('Reaching out to QFieldCloud to download project');
               }
             }
-          case QFieldCloudProjectsModel.Uploading:
+          case QFieldCloudProject.Uploading:
             switch (cloudProjectsModel.currentProjectData.UploadDeltaStatus) {
-            case QFieldCloudProjectsModel.DeltaFileLocalStatus:
+            case QFieldCloudProject.DeltaFileLocalStatus:
               return qsTr('Uploading %1%…').arg(Math.round(cloudProjectsModel.currentProjectData.UploadDeltaProgress * 100));
             default:
               return qsTr('QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…');
@@ -231,7 +231,7 @@ Popup {
           width: 128
           height: 128
           color: 'transparent'
-          visible: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
+          visible: cloudProjectsModel.currentProjectData.Status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProjectData.Status === QFieldCloudProject.Uploading
 
           Image {
             id: statusIcon
@@ -239,16 +239,16 @@ Popup {
             fillMode: Image.PreserveAspectFit
             smooth: true
             source: switch (cloudProjectsModel.currentProjectData.Status) {
-            case QFieldCloudProjectsModel.Downloading:
+            case QFieldCloudProject.Downloading:
               switch (cloudProjectsModel.currentProjectData.PackagingStatus) {
-              case QFieldCloudProjectsModel.PackagingFinishedStatus || cloudProjectsModel.currentProjectData.DownloadProgress > 0.0:
+              case QFieldCloudProject.PackagingFinishedStatus || cloudProjectsModel.currentProjectData.DownloadProgress > 0.0:
                 return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
               default:
                 return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
               }
-            case QFieldCloudProjectsModel.Uploading:
+            case QFieldCloudProject.Uploading:
               switch (cloudProjectsModel.currentProjectData.UploadDeltaStatus) {
-              case QFieldCloudProjectsModel.DeltaFileLocalStatus:
+              case QFieldCloudProject.DeltaFileLocalStatus:
                 return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
               default:
                 return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
@@ -285,9 +285,9 @@ Popup {
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width
             height: 6
-            indeterminate: cloudProjectsModel.currentProjectData.PackagingStatus !== QFieldCloudProjectsModel.PackagingFinishedStatus && cloudProjectsModel.currentProjectData.DownloadProgress === 0.0
+            indeterminate: cloudProjectsModel.currentProjectData.PackagingStatus !== QFieldCloudProject.PackagingFinishedStatus && cloudProjectsModel.currentProjectData.DownloadProgress === 0.0
             value: cloudProjectsModel.currentProjectData.DownloadProgress ? cloudProjectsModel.currentProjectData.DownloadProgress : 0
-            visible: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.ProjectStatus.Downloading
+            visible: cloudProjectsModel.currentProjectData.Status === QFieldCloudProject.ProjectStatus.Downloading
           }
         }
 
@@ -296,7 +296,7 @@ Popup {
 
           property bool hasError: false
 
-          visible: hasError && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle && !connectionSettings.visible
+          visible: hasError && cloudProjectsModel.currentProjectData.Status === QFieldCloudProject.Idle && !connectionSettings.visible
 
           Layout.fillWidth: true
           Layout.leftMargin: 10
@@ -348,7 +348,7 @@ Popup {
           Layout.maximumWidth: 525
           Layout.alignment: Qt.AlignHCenter
           width: parent.width
-          visible: !connectionSettings.visible && cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Idle
+          visible: !connectionSettings.visible && cloudProjectsModel.currentProjectData.Status === QFieldCloudProject.Idle
           columns: 1
           columnSpacing: parent.columnSpacing
           rowSpacing: parent.rowSpacing

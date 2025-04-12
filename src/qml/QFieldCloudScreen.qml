@@ -274,9 +274,9 @@ Page {
               anchors.leftMargin: line.leftPadding
               width: line.width - 20
               height: 6
-              indeterminate: PackagingStatus !== QFieldCloudProjectsModel.PackagingFinishedStatus && DownloadProgress === 0.0
+              indeterminate: PackagingStatus !== QFieldCloudProject.PackagingFinishedStatus && DownloadProgress === 0.0
               value: DownloadProgress
-              visible: Status === QFieldCloudProjectsModel.ProjectStatus.Downloading
+              visible: Status === QFieldCloudProject.ProjectStatus.Downloading
               z: 1
             }
 
@@ -298,17 +298,17 @@ Page {
                   } else {
                     var status = '';
                     switch (Status) {
-                    case QFieldCloudProjectsModel.ProjectStatus.Downloading:
+                    case QFieldCloudProject.ProjectStatus.Downloading:
                       return Theme.getThemeVectorIcon('ic_cloud_project_download_48dp');
-                    case QFieldCloudProjectsModel.ProjectStatus.Uploading:
+                    case QFieldCloudProject.ProjectStatus.Uploading:
                       return Theme.getThemeVectorIcon('ic_cloud_project_upload_48dp');
                     default:
                       break;
                     }
                     switch (Checkout) {
-                    case QFieldCloudProjectsModel.LocalCheckout:
+                    case QFieldCloudProject.LocalCheckout:
                       return Theme.getThemeVectorIcon('ic_cloud_project_localonly_48dp');
-                    case QFieldCloudProjectsModel.RemoteCheckout:
+                    case QFieldCloudProject.RemoteCheckout:
                       return Theme.getThemeVectorIcon('ic_cloud_project_download_48dp');
                     default:
                       break;
@@ -320,7 +320,7 @@ Page {
                 sourceSize.height: 80
                 width: 40
                 height: 40
-                opacity: Status === QFieldCloudProjectsModel.ProjectStatus.Downloading ? 0.3 : 1
+                opacity: Status === QFieldCloudProject.ProjectStatus.Downloading ? 0.3 : 1
               }
               ColumnLayout {
                 id: inner
@@ -348,13 +348,13 @@ Page {
 
                       // TODO I think these should be shown as UI badges
                       switch (Status) {
-                      case QFieldCloudProjectsModel.ProjectStatus.Idle:
+                      case QFieldCloudProject.ProjectStatus.Idle:
                         break;
-                      case QFieldCloudProjectsModel.ProjectStatus.Downloading:
-                        if (PackagingStatus === QFieldCloudProjectsModel.PackagingBusyStatus) {
+                      case QFieldCloudProject.ProjectStatus.Downloading:
+                        if (PackagingStatus === QFieldCloudProject.PackagingBusyStatus) {
                           status = qsTr('QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight');
                         } else {
-                          if (PackagingStatus === QFieldCloudProjectsModel.PackagingFinishedStatus || DownloadProgress > 0.0) {
+                          if (PackagingStatus === QFieldCloudProject.PackagingFinishedStatus || DownloadProgress > 0.0) {
                             if (DownloadSize > 0) {
                               status = qsTr('Downloading, %1% of %2 fetched').arg(Math.round(DownloadProgress * 100)).arg(FileUtils.representFileSize(DownloadSize));
                             } else {
@@ -365,31 +365,31 @@ Page {
                           }
                         }
                         break;
-                      case QFieldCloudProjectsModel.ProjectStatus.Uploading:
+                      case QFieldCloudProject.ProjectStatus.Uploading:
                         status = qsTr('Uploading…');
                         break;
                       default:
                         break;
                       }
                       switch (ErrorStatus) {
-                      case QFieldCloudProjectsModel.NoErrorStatus:
+                      case QFieldCloudProject.NoErrorStatus:
                         break;
-                      case QFieldCloudProjectsModel.DownloadErrorStatus:
+                      case QFieldCloudProject.DownloadErrorStatus:
                         status = qsTr('Downloading error. ') + ErrorString;
                         break;
-                      case QFieldCloudProjectsModel.UploadErrorStatus:
+                      case QFieldCloudProject.UploadErrorStatus:
                         status = qsTr('Uploading error. ') + ErrorString;
                         break;
                       }
                       if (!status) {
                         switch (Checkout) {
-                        case QFieldCloudProjectsModel.LocalCheckout:
+                        case QFieldCloudProject.LocalCheckout:
                           status = qsTr('Available locally, missing on the cloud');
                           break;
-                        case QFieldCloudProjectsModel.RemoteCheckout:
+                        case QFieldCloudProject.RemoteCheckout:
                           status = qsTr('Available on the cloud, missing locally');
                           break;
-                        case QFieldCloudProjectsModel.LocalAndRemoteCheckout:
+                        case QFieldCloudProject.LocalAndRemoteCheckout:
                           status = qsTr('Available locally');
                           if (ProjectOutdated) {
                             status += qsTr(', updated data available on the cloud');
@@ -471,10 +471,10 @@ Page {
                 projectActions.projectOwner = item.projectOwner;
                 projectActions.projectName = item.projectName;
                 projectActions.projectLocalPath = item.projectLocalPath;
-                downloadProject.visible = item.projectLocalPath === '' && item.status !== QFieldCloudProjectsModel.ProjectStatus.Downloading;
+                downloadProject.visible = item.projectLocalPath === '' && item.status !== QFieldCloudProject.ProjectStatus.Downloading;
                 openProject.visible = item.projectLocalPath !== '';
                 removeProject.visible = item.projectLocalPath !== '';
-                cancelDownloadProject.visible = item.status === QFieldCloudProjectsModel.ProjectStatus.Downloading;
+                cancelDownloadProject.visible = item.status === QFieldCloudProject.ProjectStatus.Downloading;
                 projectActions.popup(mouse.x, mouse.y);
               }
             }

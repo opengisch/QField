@@ -14,6 +14,7 @@
  ***************************************************************************/
 
 #include "deltafilewrapper.h"
+#include "deltalistmodel.h"
 #include "layerobserver.h"
 #include "qfield.h"
 #include "qfieldcloudconnection.h"

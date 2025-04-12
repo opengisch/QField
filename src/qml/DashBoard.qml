@@ -142,21 +142,21 @@ Drawer {
             iconSource: {
               if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
                 switch (cloudProjectsModel.currentProjectData.Status) {
-                case QFieldCloudProjectsModel.Downloading:
+                case QFieldCloudProject.Downloading:
                   switch (cloudProjectsModel.currentProjectData.PackagingStatus) {
-                  case QFieldCloudProjectsModel.PackagingFinishedStatus:
+                  case QFieldCloudProject.PackagingFinishedStatus:
                     return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
                   default:
                     return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
                   }
-                case QFieldCloudProjectsModel.Uploading:
+                case QFieldCloudProject.Uploading:
                   switch (cloudProjectsModel.currentProjectData.UploadDeltaStatus) {
-                  case QFieldCloudProjectsModel.DeltaFileLocalStatus:
+                  case QFieldCloudProject.DeltaFileLocalStatus:
                     return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
                   default:
                     return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
                   }
-                case QFieldCloudProjectsModel.Idle:
+                case QFieldCloudProject.Idle:
                   return cloudProjectsModel.currentProjectData.ProjectFileOutdated ? Theme.getThemeVectorIcon('ic_cloud_attention_24dp') : Theme.getThemeVectorIcon('ic_cloud_active_24dp');
                 default:
                   return Theme.getThemeVectorIcon('ic_cloud_white_24dp');
@@ -199,7 +199,7 @@ Drawer {
                 duration: 2000
                 target: cloudButton
               }
-              running: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
+              running: cloudProjectsModel.currentProjectData.Status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProjectData.Status === QFieldCloudProject.Uploading
               loops: Animation.Infinite
 
               onStopped: {

@@ -393,66 +393,67 @@ void QFieldCloudProject::download()
     mLastExportId = packageId;
     mLastExportedAt = packagedAt;
 
-    if ( !localizedDatasets.isEmpty() && mLocalizedDatasetsProjects.contains( mOwner ) )
+    //TODO
+    if ( false ) //( !localizedDatasets.isEmpty() && mLocalizedDatasetsProjects.contains( mOwner ) )
     {
-      NetworkReply *localizedDatasetsReply = mCloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( mLocalizedDatasetsProjects[project->owner] ) );
-      connect( localizedDatasetsReply, &NetworkReply::finished, localizedDatasetsReply, [=]() {
-        QNetworkReply *localizedDatasetsRawReply = localizedDatasetsReply->currentRawReply();
-        localizedDatasetsReply->deleteLater();
+      //  NetworkReply *localizedDatasetsReply = mCloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( mLocalizedDatasetsProjects[mOwner] ) );
+      //  connect( localizedDatasetsReply, &NetworkReply::finished, localizedDatasetsReply, [=]() {
+      //    QNetworkReply *localizedDatasetsRawReply = localizedDatasetsReply->currentRawReply();
+      //    localizedDatasetsReply->deleteLater();
 
-        if ( localizedDatasetsRawReply->error() != QNetworkReply::NoError )
-        {
-          QgsLogger::debug( QStringLiteral( "Project %1: failed to get latest package data. %2" ).arg( mId, QFieldCloudConnection::errorString( rawReply ) ) );
-          emit downloadFinished( tr( "Failed to get latest package data." ) );
-          return;
-        }
+      //    if ( localizedDatasetsRawReply->error() != QNetworkReply::NoError )
+      //    {
+      //      QgsLogger::debug( QStringLiteral( "Project %1: failed to get latest package data. %2" ).arg( mId, QFieldCloudConnection::errorString( rawReply ) ) );
+      //      emit downloadFinished( tr( "Failed to get latest package data." ) );
+      //      return;
+      //    }
 
-        const QJsonArray files = QJsonDocument::fromJson( localizedDatasetsRawReply->readAll() ).array();
-        for ( const QJsonValue fileValue : files )
-        {
-          const QJsonObject fileObject = fileValue.toObject();
-          const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
-          if ( localizedDatasets.contains( fileName ) )
-          {
-            const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
-            const QString absoluteFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mLocalizedDatasetsProjects[project->owner], fileName );
-            // NOTE the cloud API is giving the false impression that the file keys `md5sum` is having a MD5 or another checksum.
-            // This actually is an Object Storage (S3) implementation specific ETag.
-            const QString cloudEtag = fileObject.value( QStringLiteral( "md5sum" ) ).toString();
-            const QString localEtag = FileUtils::fileEtag( absoluteFileName );
+      //    const QJsonArray files = QJsonDocument::fromJson( localizedDatasetsRawReply->readAll() ).array();
+      //    for ( const QJsonValue fileValue : files )
+      //    {
+      //      const QJsonObject fileObject = fileValue.toObject();
+      //      const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
+      //      if ( localizedDatasets.contains( fileName ) )
+      //      {
+      //        const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
+      //        const QString absoluteFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mLocalizedDatasetsProjects[mOwner], fileName );
+      //        // NOTE the cloud API is giving the false impression that the file keys `md5sum` is having a MD5 or another checksum.
+      //        // This actually is an Object Storage (S3) implementation specific ETag.
+      //        const QString cloudEtag = fileObject.value( QStringLiteral( "md5sum" ) ).toString();
+      //        const QString localEtag = FileUtils::fileEtag( absoluteFileName );
 
-            if (
-              !fileObject.value( QStringLiteral( "size" ) ).isDouble()
-              || fileName.isEmpty()
-              || cloudEtag.isEmpty() )
-            {
-              QgsLogger::debug( QStringLiteral( "Project %1: package in \"files\" list does not contain the expected fields: size(int), name(string), md5sum(string)" ).arg( mLocalizedDatasetsProjects[project->owner] ) );
-              emit downloadFinished( tr( "Latest package data structure error." ) );
-              return;
-            }
+      //        if (
+      //          !fileObject.value( QStringLiteral( "size" ) ).isDouble()
+      //          || fileName.isEmpty()
+      //          || cloudEtag.isEmpty() )
+      //        {
+      //          QgsLogger::debug( QStringLiteral( "Project %1: package in \"files\" list does not contain the expected fields: size(int), name(string), md5sum(string)" ).arg( mLocalizedDatasetsProjects[mOwner] ) );
+      //          emit downloadFinished( tr( "Latest package data structure error." ) );
+      //          return;
+      //        }
 
-            if ( cloudEtag == localEtag )
-              continue;
+      //        if ( cloudEtag == localEtag )
+      //          continue;
 
-            mDownloadFileTransfers.insert( QStringLiteral( "%1/%2" ).arg( mLocalizedDatasetsProjects[project->owner], fileName ), FileTransfer( fileName, fileSize, mLocalizedDatasetsProjects[project->owner] ) );
-            mDownloadBytesTotal += std::max( fileSize, 0 );
-          }
-        }
+      //        mDownloadFileTransfers.insert( QStringLiteral( "%1/%2" ).arg( mLocalizedDatasetsProjects[mOwner], fileName ), FileTransfer( fileName, fileSize, mLocalizedDatasetsProjects[mOwner] ) );
+      //        mDownloadBytesTotal += std::max( fileSize, 0 );
+      //      }
+      //    }
+      //
+      //    emit downloadBytesTotalChanged();
 
-        emit downloadBytesTotalChanged();
+      //    QgsLogger::debug( QStringLiteral( "Project %1: packaged files to download - %2 files, namely: %3" ).arg( mId ).arg( mDownloadFileTransfers.count() ).arg( mDownloadFileTransfers.keys().join( ", " ) ) );
 
-        QgsLogger::debug( QStringLiteral( "Project %1: packaged files to download - %2 files, namely: %3" ).arg( mId ).arg( mDownloadFileTransfers.count() ).arg( mDownloadFileTransfers.keys().join( ", " ) ) );
-
-        updateActiveProjectFilesToDownload();
-        projectDownloadFiles();
-      } );
+      //    updateActiveFilesToDownload();
+      //    downloadFiles();
+      //  } );
     }
     else
     {
       QgsLogger::debug( QStringLiteral( "Project %1: packaged files to download - %2 files, namely: %3" ).arg( mId ).arg( mDownloadFileTransfers.count() ).arg( mDownloadFileTransfers.keys().join( ", " ) ) );
 
-      updateActiveProjectFilesToDownload();
-      projectDownloadFiles();
+      updateActiveFilesToDownload();
+      downloadFiles();
     }
   } );
 }
