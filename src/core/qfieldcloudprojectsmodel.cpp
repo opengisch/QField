@@ -407,6 +407,14 @@ void QFieldCloudProjectsModel::projectListReceived()
   }
   else
   {
+    for ( QFieldCloudProject *project : mProjects )
+    {
+      if ( mLocalizedDatasetsProjects.contains( project->owner() ) )
+      {
+        project->setLocalizedDatasetsProjectId( mLocalizedDatasetsProjects[project->owner()] );
+      }
+    }
+
     // All projects fetched, refresh current project details if found
     if ( !mCurrentProjectId.isEmpty() && findProject( mCurrentProjectId ) )
     {

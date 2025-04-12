@@ -168,6 +168,10 @@ class QFieldCloudProject : public QObject
     ~QFieldCloudProject();
 
     QString id() const { return mId; }
+
+    QString localizedDatasetsProjectId() const { return mLocalizedDatasetsProjectId; }
+    void setLocalizedDatasetsProjectId( const QString &id );
+
     bool isPrivate() const { return mIsPrivate; }
     QString owner() const { return mOwner; }
     QString name() const { return mName; }
@@ -248,6 +252,8 @@ class QFieldCloudProject : public QObject
 
   signals:
     void idChanged();
+    void localizedDatasetsProjectIdChanged();
+
     void isPrivateChanged();
     void ownerChanged();
     void nameChanged();
@@ -374,6 +380,7 @@ class QFieldCloudProject : public QObject
     };
 
     QString mId;
+    QString mLocalizedDatasetsProjectId;
 
     bool mIsPrivate = true;
     QString mOwner;
