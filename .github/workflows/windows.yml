@@ -73,11 +73,11 @@ jobs:
           cmake -S "${SOURCE_DIR}" \
                 -G Ninja \
                 -B "${CMAKE_BUILD_DIR}" \
-                -D CMAKE_C_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/x64/bin/clang-cl.exe" \
-                -D CMAKE_CXX_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/x64/bin/clang-cl.exe" \
+                -D CMAKE_C_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/x86/bin/clang-cl.exe" \
+                -D CMAKE_CXX_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/x86/bin/clang-cl.exe" \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
-                -D VCPKG_TARGET_TRIPLET="x64-windows-static" \
-                -D VCPKG_HOST_TRIPLET="x64-windows-static" \
+                -D VCPKG_TARGET_TRIPLET="x86-windows-static" \
+                -D VCPKG_HOST_TRIPLET="x86-windows-static" \
                 -D WITH_VCPKG=ON \
                 -D WITH_SPIX=ON \
                 -D WITH_NFC=OFF \
@@ -88,7 +88,7 @@ jobs:
                 -D NUGET_USERNAME=opengisch \
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -D CMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded\$<\$<CONFIG:Debug>:Debug>" \
-                -D PKG_CONFIG_EXECUTABLE=${CMAKE_BUILD_DIR}/vcpkg_installed/x64-windows-static/tools/pkgconf/pkgconf.exe \
+                -D PKG_CONFIG_EXECUTABLE=${CMAKE_BUILD_DIR}/vcpkg_installed/x86-windows-static/tools/pkgconf/pkgconf.exe \
                 -D WITH_BLUETOOTH=ON \
                 -D VCPKG_INSTALL_OPTIONS="--x-buildtrees-root=C:/src" \
                 -D CMAKE_COMPILE_WARNING_AS_ERROR=ON \
@@ -100,7 +100,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: build-logs-x64-windows-static
+          name: build-logs-x86-windows-static
           path: |
             C:/src/**/*.log
 
@@ -115,7 +115,7 @@ jobs:
       - name: 🧫 Test
         shell: bash
         env:
-          PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-windows-static/share/proj
+          PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x86-windows-static/share/proj
         run: |
           SOURCE_DIR=$( cygpath "${{ github.workspace }}" )
           pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
@@ -127,10 +127,10 @@ jobs:
         shell: bash
         run: |
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }} -j1
-          ARTIFACT_PATHNAME=$(ls ${{ env.CMAKE_BUILD_DIR }}/QField-*-win64.* | head -n 1)
+          ARTIFACT_PATHNAME=$(ls ${{ env.CMAKE_BUILD_DIR }}/QField-*-win32.* | head -n 1)
           ARTIFACT_NAME=$(basename $ARTIFACT_PATHNAME)
           echo "ARTIFACT_PATHNAME=${ARTIFACT_PATHNAME}" >> $GITHUB_ENV
-          echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-windows-x64.exe" >> $GITHUB_ENV
+          echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-windows-x86.exe" >> $GITHUB_ENV
 
           echo "artifact_name=${ARTIFACT_NAME}" >> "$GITHUB_OUTPUT"
 
@@ -138,7 +138,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: package-logs-x64-windows-static
+          name: package-logs-x86-windows-static
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/_CPack_Packages/**/*.log
             ${{ env.CMAKE_BUILD_DIR }}/CMakeCache.txt
@@ -163,14 +163,14 @@ jobs:
         if: ${{ env.ARTIFACT_NAME != null }}
         uses: actions/upload-artifact@v4
         with:
-          name: "QField-dev-x64-windows-static-${{ env.BUILD_TYPE }}"
+          name: "QField-dev-x86-windows-static-${{ env.BUILD_TYPE }}"
           path: ${{ env.ARTIFACT_PATHNAME }}
 
       - name: 📊 Upload test report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: "test-report-x64-windows-static-${{ env.BUILD_TYPE }}"
+          name: "test-report-x86-windows-static-${{ env.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
 
       - name: 🚀 Upload release asset
@@ -233,7 +233,7 @@ jobs:
         with:
           command: update
           # See documentation here https://learn.microsoft.com/en-us/windows/apps/publish/store-submission-api#update-current-draft-submission-metadata-api
-          product-update: '{"packages":[{"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/files/${{ needs.build.outputs.artifact_name }}","languages":["en"],"architectures":["X64"],"isSilentInstall":false,"installerParameters":"/S","packageType":"exe","genericDocUrl":"https://nsis.sourceforge.io/Docs/AppendixD.html#errorlevels"}]}'
+          product-update: '{"packages":[{"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/files/${{ needs.build.outputs.artifact_name }}","languages":["en"],"architectures":["x86"],"isSilentInstall":false,"installerParameters":"/S","packageType":"exe","genericDocUrl":"https://nsis.sourceforge.io/Docs/AppendixD.html#errorlevels"}]}'
 
       - name: Publish Submission
         uses: microsoft/store-submission@v1
