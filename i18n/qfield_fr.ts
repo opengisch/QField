@@ -2382,7 +2382,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Password missing</source>
-        <translation type="unfinished"/>
+        <translation>Mot de passe manquant</translation>
     </message>
 </context>
 <context>
