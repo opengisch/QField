@@ -444,24 +444,6 @@ bool FileUtils::writeFileContent( const QString &filePath, const QByteArray &con
   QFileInfo fileInfo( filePath );
   QDir directory = fileInfo.dir();
 
-  bool isLikelyWritable = false;
-
-#ifdef Q_OS_ANDROID
-  QString appStorage = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
-  isLikelyWritable = filePath.startsWith( appStorage );
-#elif defined( Q_OS_IOS )
-  QString appStorage = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
-  isLikelyWritable = filePath.startsWith( appStorage );
-#else
-  QFileInfo dirInfo( directory.absolutePath() );
-  isLikelyWritable = dirInfo.isWritable();
-#endif
-
-  if ( !isLikelyWritable )
-  {
-    qWarning() << QStringLiteral( "Writing to %1 may fail due to platform restrictions. Use PlatformUtilities.applicationDirectory() for a safe location." ).arg( filePath );
-  }
-
   if ( !directory.exists() )
   {
     if ( !directory.mkpath( "." ) )
