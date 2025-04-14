@@ -130,17 +130,27 @@ TEST_CASE( "FileUtils" )
     file.write( testData );
     file.close();
 
+    // Test with fetchContent = false ( default )
     QVariantMap info = FileUtils::getFileInfo( filePath );
     REQUIRE( info["exists"].toBool() == true );
     REQUIRE( info["fileName"].toString() == QFileInfo( filePath ).fileName() );
     REQUIRE( info["fileSize"].toLongLong() == testData.size() );
-    REQUIRE( info["content"].toByteArray() == testData );
+    REQUIRE( info.contains( "content" ) ); // Key exists but should be empty
+    REQUIRE( info["content"].toByteArray().isEmpty() );
+
+    // Test with fetchContent = true
+    QVariantMap infoWithContent = FileUtils::getFileInfo( filePath, true );
+    REQUIRE( infoWithContent["exists"].toBool() == true );
+    REQUIRE( infoWithContent["fileName"].toString() == QFileInfo( filePath ).fileName() );
+    REQUIRE( infoWithContent["fileSize"].toLongLong() == testData.size() );
+    REQUIRE( infoWithContent["content"].toByteArray() == testData );
 
     // Test with a file outside the project directory
     QString outsidePath = QDir::tempPath() + QDir::separator() + "outside_dir" + QDir::separator() + "test.txt";
     QVariantMap restrictedInfo = FileUtils::getFileInfo( outsidePath );
     REQUIRE( restrictedInfo["exists"].toBool() == false );
     REQUIRE( restrictedInfo.contains( "error" ) );
+    REQUIRE( !restrictedInfo["error"].toString().isEmpty() );
 
     QgsProject::instance()->clear();
   }

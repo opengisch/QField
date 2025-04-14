@@ -88,13 +88,14 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
     Q_INVOKABLE static bool writeFileContent( const QString &filePath, const QByteArray &content );
 
     /**
-    * Gets detailed information about a file including content, MD5 hash and metadata.
+    * Gets detailed information about a file including MD5 hash and metadata.
+    * Optionally includes the file content when fetchContent is true.
     * This is useful for file validation, caching, and efficient file handling in QML.
     * \param filePath The path to the file
+    * \param fetchContent Whether to include the file content in the returned information (default: false)
     * \return A map containing file metadata and optionally its content
     */
-    Q_INVOKABLE static QVariantMap getFileInfo( const QString &filePath );
-
+    Q_INVOKABLE static QVariantMap getFileInfo( const QString &filePath, bool fetchContent = false );
 
     /**
      * Insures that a given image's width and height are restricted to a maximum size.

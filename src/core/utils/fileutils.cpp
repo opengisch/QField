@@ -496,14 +496,28 @@ bool FileUtils::writeFileContent( const QString &filePath, const QByteArray &con
   }
 }
 
-QVariantMap FileUtils::getFileInfo( const QString &filePath )
+QVariantMap FileUtils::getFileInfo( const QString &filePath, bool fetchContent )
 {
   QVariantMap info;
+
+  // Initialize all possible keys with empty defaults
+  info["exists"] = false;
+  info["error"] = "";
+  info["fileName"] = "";
+  info["filePath"] = "";
+  info["fileSize"] = 0;
+  info["lastModified"] = QDateTime();
+  info["suffix"] = "";
+  info["mimeType"] = "";
+  info["md5"] = "";
+  info["md5Error"] = "";
+  info["content"] = QByteArray();
+  info["readable"] = false;
+  info["readError"] = "";
 
   if ( !isWithinProjectDirectory( filePath ) )
   {
     qWarning() << QStringLiteral( "Security warning: Attempted to access file info outside project directory: %1" ).arg( filePath );
-    info["exists"] = false;
     info["error"] = QStringLiteral( "Access denied: File is outside the current project directory" );
     return info;
   }
@@ -536,18 +550,20 @@ QVariantMap FileUtils::getFileInfo( const QString &filePath )
     if ( file.open( QIODevice::ReadOnly ) )
     {
       file.close();
+      info["readable"] = true;
 
-      QByteArray content = readFileContent( filePath );
+      if ( fetchContent )
+      {
+        QByteArray content = readFileContent( filePath );
 
-      if ( !content.isEmpty() || fileInfo.size() == 0 )
-      {
-        info["content"] = content;
-        info["readable"] = true;
-      }
-      else
-      {
-        info["readable"] = false;
-        info["readError"] = QStringLiteral( "Failed to read file content" );
+        if ( !content.isEmpty() || fileInfo.size() == 0 )
+        {
+          info["content"] = content;
+        }
+        else
+        {
+          info["readError"] = QStringLiteral( "Failed to read file content" );
+        }
       }
     }
     else
@@ -560,10 +576,6 @@ QVariantMap FileUtils::getFileInfo( const QString &filePath )
         info["readError"] = info["readError"].toString() + QStringLiteral( " - This may be due to platform security restrictions" );
       }
     }
-  }
-  else
-  {
-    info["exists"] = false;
   }
 
   return info;
