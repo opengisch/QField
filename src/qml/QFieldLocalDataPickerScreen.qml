@@ -905,8 +905,8 @@ Page {
         onIsFetchingAvailablePathsChanged: {
           if (!isFetchingAvailablePaths && importWebdavDialog.visible) {
             swipeDialog.currentIndex = 1;
-            importWebdavPathInput.currentIndex = -1;
             importWebdavPathInput.model = availablePaths;
+            importWebdavPathInput.currentIndex = -1;
           }
         }
       }
@@ -1039,6 +1039,7 @@ Page {
 
     onAboutToShow: {
       swipeDialog.currentIndex = 0;
+      importWebdavDialog.standardButton(Dialog.Ok).enabled = false;
       reloadHistory();
     }
 
@@ -1266,6 +1267,12 @@ Page {
 
             property var expandedPaths: []
             property int expandedPathsClicks: 0
+
+            onCurrentIndexChanged: {
+              if (swipeDialog.currentIndex === 1) {
+                importWebdavDialog.standardButton(Dialog.Ok).enabled = currentIndex > -1;
+              }
+            }
 
             delegate: Rectangle {
               id: rectangleDialog
