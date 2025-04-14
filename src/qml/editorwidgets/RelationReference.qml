@@ -22,7 +22,7 @@ EditorWidgetBase {
     currentLayer: _rel.referencedLayer
     keyField: _rel.resolveReferencedField(field.name)
     addNull: !!config['AllowNULL'] // no, it is not a misspelled version of config['AllowNull']
-    orderByValue: !!config['OrderByValue']
+    orderByValue: true
     attributeField: field
     currentFormFeature: currentFeature
     filterExpression: config['FilterExpression'] ? config['FilterExpression'] : ""
