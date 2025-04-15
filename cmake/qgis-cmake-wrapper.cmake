@@ -128,7 +128,7 @@ if(TRUE) # Should possibly have a "static only" check
   _qgis_core_add_dependency(libzip::zip libzip)
   _qgis_core_add_dependency(ZLIB::ZLIB ZLIB)
   if(MSVC)
-    _find_and_link_library(spatialindex-64 QGIS::Core)
+    _find_and_link_library(spatialindex-32 QGIS::Core)
   else()
     _find_and_link_library(spatialindex QGIS::Core)
   endif()
