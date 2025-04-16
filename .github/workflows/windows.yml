@@ -83,6 +83,7 @@ jobs:
                 -B "${CMAKE_BUILD_DIR}" \
                 -D CMAKE_C_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/${{ matrix.tools-prefix }}bin/clang-cl.exe" \
                 -D CMAKE_CXX_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/${{ matrix.tools-prefix }}bin/clang-cl.exe" \
+                -D CMAKE_LINKER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/x64/bin/lld-link.exe" \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D VCPKG_TARGET_TRIPLET=${{ matrix.triplet }} \
                 -D VCPKG_HOST_TRIPLET="x64-windows" \
