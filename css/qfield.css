@@ -134,6 +134,11 @@ text-align: justify;
     margin-bottom:70px;
 }
 
+#support-points p {
+  text-align: justify;
+  justify-content: center;
+}
+
 .point {
   background: white;
   height: auto;
@@ -335,6 +340,14 @@ div.feature h2, div.feature p {
 
 div.feature img {
   width:150px;
+}
+
+div.explanation {
+  padding: 10px;
+  display: block;
+  text-align: center;
+  font-size: 14pt;
+  color: #212121;
 }
 
 @font-face {
