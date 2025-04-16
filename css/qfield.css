@@ -132,6 +132,11 @@ text-align: justify;
 font-size: 13pt;
 }
 
+#assistance #supportus p{
+  text-align: center;
+  font-size: 13pt;
+  }
+
 #main-points {
     margin-bottom:70px;
 }
