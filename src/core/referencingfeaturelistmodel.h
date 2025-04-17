@@ -219,7 +219,6 @@ class FeatureGatherer : public QThread
 
     void run() override
     {
-      //cppcheck-suppress knownConditionTrueFalse
       mWasCanceled = false;
 
       const bool featureIsNew = std::numeric_limits<QgsFeatureId>::min() == mFeature.id();
@@ -266,6 +265,7 @@ class FeatureGatherer : public QThread
         //test sleep(1);
         mEntries.append( ReferencingFeatureListModel::Entry( displayString, childFeature, nmDisplayString, nmFeature ) );
 
+        //cppcheck-suppress knownConditionTrueFalse
         if ( mWasCanceled )
           return;
       }

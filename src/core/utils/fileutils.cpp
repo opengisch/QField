@@ -378,6 +378,7 @@ bool FileUtils::isWithinProjectDirectory( const QString &filePath )
     QDir rebuiltDir( existingCanonical );
     for ( const QString &segment : pendingSegments )
     {
+      //cppcheck-suppress ignoredReturnValue
       rebuiltDir.cd( segment );
     }
 
