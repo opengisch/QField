@@ -174,9 +174,6 @@ jobs:
         run: |
           echo "$SIGNINGKEY" | base64 --decode > ./keystore.p12
 
-      - name: Cache .gradle
-        uses: burrunan/gradle-cache-action@v2
-
       - name: Package
         env:
           KEYNAME: qfield
