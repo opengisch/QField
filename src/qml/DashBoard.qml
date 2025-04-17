@@ -140,24 +140,24 @@ Drawer {
             id: cloudButton
             anchors.verticalCenter: parent.verticalCenter
             iconSource: {
-              if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-                switch (cloudProjectsModel.currentProjectData.Status) {
-                case QFieldCloudProjectsModel.Downloading:
-                  switch (cloudProjectsModel.currentProjectData.PackagingStatus) {
-                  case QFieldCloudProjectsModel.PackagingFinishedStatus:
+              if (cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudProjectsModel.currentProject) {
+                switch (cloudProjectsModel.currentProject.status) {
+                case QFieldCloudProject.Downloading:
+                  switch (cloudProjectsModel.currentProject.packagingStatus) {
+                  case QFieldCloudProject.PackagingFinishedStatus:
                     return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
                   default:
                     return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
                   }
-                case QFieldCloudProjectsModel.Uploading:
-                  switch (cloudProjectsModel.currentProjectData.UploadDeltaStatus) {
-                  case QFieldCloudProjectsModel.DeltaFileLocalStatus:
+                case QFieldCloudProject.Uploading:
+                  switch (cloudProjectsModel.currentProject.deltaFileUploadStatus) {
+                  case QFieldCloudProject.DeltaFileLocalStatus:
                     return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
                   default:
                     return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
                   }
-                case QFieldCloudProjectsModel.Idle:
-                  return cloudProjectsModel.currentProjectData.ProjectFileOutdated ? Theme.getThemeVectorIcon('ic_cloud_attention_24dp') : Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                case QFieldCloudProject.Idle:
+                  return cloudProjectsModel.currentProject.projectFileIsOutdated ? Theme.getThemeVectorIcon('ic_cloud_attention_24dp') : Theme.getThemeVectorIcon('ic_cloud_active_24dp');
                 default:
                   return Theme.getThemeVectorIcon('ic_cloud_white_24dp');
                 }
@@ -184,6 +184,7 @@ Drawer {
               }
               showCloudPopup();
             }
+
             bottomRightIndicatorText: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 ? cloudProjectsModel.layerObserver.deltaFileWrapper.count : cloudProjectsModel.layerObserver.deltaFileWrapper.count >= 10 ? '+' : ''
 
             SequentialAnimation {
@@ -199,7 +200,7 @@ Drawer {
                 duration: 2000
                 target: cloudButton
               }
-              running: cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Downloading || cloudProjectsModel.currentProjectData.Status === QFieldCloudProjectsModel.Uploading
+              running: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProject.status === QFieldCloudProject.Uploading)
               loops: Animation.Infinite
 
               onStopped: {

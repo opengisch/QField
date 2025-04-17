@@ -103,6 +103,7 @@
 #include "projectutils.h"
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
+#include "qfieldcloudproject.h"
 #include "qfieldcloudprojectsmodel.h"
 #include "qfieldcloudutils.h"
 #include "qfieldlocatorfilter.h"
@@ -423,9 +424,9 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<GeometryUtils::GeometryOperationResult>( "GeometryOperationResult" );
   qRegisterMetaType<QFieldCloudConnection::ConnectionStatus>( "QFieldCloudConnection::ConnectionStatus" );
   qRegisterMetaType<CloudUserInformation>( "CloudUserInformation" );
-  qRegisterMetaType<QFieldCloudProjectsModel::ProjectStatus>( "QFieldCloudProjectsModel::ProjectStatus" );
-  qRegisterMetaType<QFieldCloudProjectsModel::ProjectCheckout>( "QFieldCloudProjectsModel::ProjectCheckout" );
-  qRegisterMetaType<QFieldCloudProjectsModel::ProjectModification>( "QFieldCloudProjectsModel::ProjectModification" );
+  qRegisterMetaType<QFieldCloudProject::ProjectStatus>( "QFieldCloudProject::ProjectStatus" );
+  qRegisterMetaType<QFieldCloudProject::ProjectCheckout>( "QFieldCloudProject::ProjectCheckout" );
+  qRegisterMetaType<QFieldCloudProject::ProjectModification>( "QFieldCloudProject::ProjectModification" );
   qRegisterMetaType<Tracker::MeasureType>( "Tracker::MeasureType" );
   qRegisterMetaType<PositioningSource::ElevationCorrectionMode>( "PositioningSource::ElevationCorrectionMode" );
 
@@ -493,6 +494,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
   qmlRegisterType<LayerResolver>( "org.qfield", 1, 0, "LayerResolver" );
   qmlRegisterType<QFieldCloudConnection>( "org.qfield", 1, 0, "QFieldCloudConnection" );
+  qmlRegisterType<QFieldCloudProject>( "org.qfield", 1, 0, "QFieldCloudProject" );
   qmlRegisterType<QFieldCloudProjectsModel>( "org.qfield", 1, 0, "QFieldCloudProjectsModel" );
   qmlRegisterType<QFieldCloudProjectsFilterModel>( "org.qfield", 1, 0, "QFieldCloudProjectsFilterModel" );
   qmlRegisterType<DeltaListModel>( "org.qfield", 1, 0, "DeltaListModel" );

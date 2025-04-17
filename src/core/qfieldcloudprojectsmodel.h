@@ -16,8 +16,7 @@
 #ifndef QFIELDCLOUDPROJECTSMODEL_H
 #define QFIELDCLOUDPROJECTSMODEL_H
 
-#include "deltalistmodel.h"
-#include "networkreply.h"
+#include "qfieldcloudproject.h"
 #include "qgsgpkgflusher.h"
 
 #include <QAbstractListModel>
@@ -32,7 +31,6 @@ class QNetworkRequest;
 class QFieldCloudConnection;
 class LayerObserver;
 class QgsMapLayer;
-class QgsProject;
 
 /**
  * \ingroup core
@@ -40,6 +38,19 @@ class QgsProject;
 class QFieldCloudProjectsModel : public QAbstractListModel
 {
     Q_OBJECT
+
+    //! The current cloud connection.
+    Q_PROPERTY( QFieldCloudConnection *cloudConnection READ cloudConnection WRITE setCloudConnection NOTIFY cloudConnectionChanged )
+    //! The current layer observer.
+    Q_PROPERTY( LayerObserver *layerObserver READ layerObserver WRITE setLayerObserver NOTIFY layerObserverChanged )
+    //! The current geopackage flusher
+    Q_PROPERTY( QgsGpkgFlusher *gpkgFlusher READ gpkgFlusher WRITE setGpkgFlusher NOTIFY gpkgFlusherChanged )
+    //! Currently busy project ids.
+    Q_PROPERTY( QSet<QString> busyProjectIds READ busyProjectIds NOTIFY busyProjectIdsChanged )
+    //! The current cloud project id of the currently opened project (empty string for non-cloud projects).
+    Q_PROPERTY( QString currentProjectId READ currentProjectId WRITE setCurrentProjectId NOTIFY currentProjectIdChanged )
+    //! The current cloud project. (null for non-cloud projects).
+    Q_PROPERTY( QFieldCloudProject *currentProject READ currentProject NOTIFY currentProjectChanged )
 
   public:
     enum ColumnRole
@@ -65,116 +76,11 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       UploadDeltaStatusStringRole,
       LocalDeltasCountRole,
       LocalPathRole,
-      CanSyncRole,
       LastLocalExportedAtRole,
       LastLocalPushDeltasRole,
       UserRoleRole,
       UserRoleOriginRole,
-      DeltaListRole,
-      ForceAutoPushRole,
-      AutoPushEnabledRole,
-      AutoPushIntervalMinsRole,
-    };
-
-    Q_ENUM( ColumnRole )
-
-    //! Whether the project is busy or idle.
-    enum class ProjectStatus
-    {
-      Idle,
-      Downloading,
-      Uploading,
-    };
-
-    Q_ENUM( ProjectStatus )
-
-    //! Whether the project has experienced an error.
-    enum ProjectErrorStatus
-    {
-      NoErrorStatus,
-      DownloadErrorStatus,
-      UploadErrorStatus,
-    };
-
-    Q_ENUM( ProjectErrorStatus )
-
-    //! Whether the project has been available locally and/or remotely.
-    enum ProjectCheckout
-    {
-      RemoteCheckout = 2 << 0,
-      LocalCheckout = 2 << 1,
-      LocalAndRemoteCheckout = RemoteCheckout | LocalCheckout
-    };
-
-    Q_ENUM( ProjectCheckout )
-    Q_DECLARE_FLAGS( ProjectCheckouts, ProjectCheckout )
-    Q_FLAG( ProjectCheckouts )
-
-    //! Whether the project has no or local and/or remote modification. Indicates wheter can be synced.
-    enum ProjectModification
-    {
-      NoModification = 0,
-      LocalModification = 2 << 0,
-      RemoteModification = 2 << 1,
-      LocalAndRemoteModification = RemoteModification | LocalModification
-    };
-
-    Q_ENUM( ProjectModification )
-    Q_DECLARE_FLAGS( ProjectModifications, ProjectModification )
-    Q_FLAG( ProjectModifications )
-
-    //! The status of the running server job for applying deltas on a project.
-    enum DeltaFileStatus
-    {
-      DeltaErrorStatus,
-      DeltaLocalStatus,
-      DeltaPendingStatus,
-      DeltaBusyStatus,
-      DeltaConflictStatus,
-      DeltaNotAppliedStatus,
-      DeltaAppliedStatus,
-    };
-
-    Q_ENUM( DeltaFileStatus )
-
-    //! The status of the running server job for packaging a project.
-    enum PackagingStatus
-    {
-      PackagingUnstartedStatus,
-      PackagingErrorStatus,
-      PackagingBusyStatus,
-      PackagingFinishedStatus,
-      PackagingAbortStatus,
-    };
-
-    Q_ENUM( PackagingStatus )
-
-    //! The status of the running server job.
-    enum JobStatus
-    {
-      JobPendingStatus,
-      JobQueuedStatus,
-      JobStartedStatus,
-      JobFinishedStatus,
-      JobStoppedStatus,
-      JobFailedStatus,
-    };
-
-    Q_ENUM( JobStatus )
-
-    //! The status of the running server job.
-    enum class JobType
-    {
-      Package,
-    };
-
-    Q_ENUM( JobType )
-
-    //! The reason why projectRefreshData was called
-    enum class ProjectRefreshReason
-    {
-      Package,
-      DeltaUploaded
+      DeltaListRole
     };
 
     //! Attributes controlling fetching of projects
@@ -184,12 +90,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       ProjectsFetchOffset = QNetworkRequest::User + 2
     };
 
-    Q_ENUM( ProjectRefreshReason )
+    Q_ENUM( ColumnRole )
 
     QFieldCloudProjectsModel();
-
-    //! Stores the current cloud connection.
-    Q_PROPERTY( QFieldCloudConnection *cloudConnection READ cloudConnection WRITE setCloudConnection NOTIFY cloudConnectionChanged )
 
     //! Returns the currently used cloud connection.
     QFieldCloudConnection *cloudConnection() const;
@@ -197,17 +100,11 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Sets the cloud connection.
     void setCloudConnection( QFieldCloudConnection *cloudConnection );
 
-    //! Stores the current layer observer.
-    Q_PROPERTY( LayerObserver *layerObserver READ layerObserver WRITE setLayerObserver NOTIFY layerObserverChanged )
-
     //! Returns the currently used layer observer.
     LayerObserver *layerObserver() const;
 
     //! Sets the layer observer.
     void setLayerObserver( LayerObserver *layerObserver );
-
-    //! Stores the cloud project id of the currently opened project. Empty string if missing.
-    Q_PROPERTY( QString currentProjectId READ currentProjectId WRITE setCurrentProjectId NOTIFY currentProjectIdChanged )
 
     //! Returns the cloud project id of the currently opened project.
     QString currentProjectId() const;
@@ -215,8 +112,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Sets the cloud project id of the currently opened project.
     void setCurrentProjectId( const QString &currentProjectId );
 
-    //! Stores the geopackage flusher
-    Q_PROPERTY( QgsGpkgFlusher *gpkgFlusher READ gpkgFlusher WRITE setGpkgFlusher NOTIFY gpkgFlusherChanged )
+    //! Returns the cloud project of the currently oepened project or NULL for non-cloud projects.
+    QFieldCloudProject *currentProject() const;
 
     //! Returns the geopackage flusher
     QgsGpkgFlusher *gpkgFlusher() const { return mGpkgFlusher; }
@@ -224,20 +121,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Sets the geopackage flusher
     void setGpkgFlusher( QgsGpkgFlusher *flusher );
 
-    //! Stores the cloud project data of the currently opened project. Empty map if missing.
-    Q_PROPERTY( QVariant currentProjectData READ currentProjectData NOTIFY currentProjectDataChanged )
-
-    //! Returns the cloud project data of the currently opened project.
-    QVariantMap currentProjectData() const;
-
-    //! Stores a set of the currently busy project ids.
-    Q_PROPERTY( QSet<QString> busyProjectIds READ busyProjectIds NOTIFY busyProjectIdsChanged )
-
     //! Returns a set containing the currently busy project ids.
     QSet<QString> busyProjectIds() const;
-
-    //! Returns the cloud project data for given \a projectId.
-    Q_INVOKABLE QVariantMap getProjectData( const QString &projectId ) const;
 
     //! Requests the cloud projects list from the server. If \a shouldRefreshPublic is false, it will refresh only user's project, otherwise will refresh the public projects only, starting from \a projectFetchOffset for pagination.
     Q_INVOKABLE void refreshProjectsList( bool shouldRefreshPublic = false, int projectFetchOffset = 0 );
@@ -256,12 +141,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     //! Discards the delta records of the current cloud project.
     Q_INVOKABLE bool discardLocalChangesFromCurrentProject();
-
-    //! Returns the cloud project status for given \a projectId.
-    Q_INVOKABLE ProjectStatus projectStatus( const QString &projectId ) const;
-
-    //! Returns the cloud project modification for given \a projectId.
-    Q_INVOKABLE ProjectModifications projectModification( const QString &projectId ) const;
 
     //! Updates the project modification for given \a projectId.
     Q_INVOKABLE void refreshProjectModification( const QString &projectId );
@@ -284,234 +163,55 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Cancels ongoing cloud project download with \a projectId.
     Q_INVOKABLE void projectCancelDownload( const QString &projectId );
 
-    //! Forces the cloud project auto-push enabled state to be TRUE
-    Q_INVOKABLE void projectSetForceAutoPush( const QString &projectId, bool force );
-
-    //! Toggles the cloud project auto-push enabled state
-    Q_INVOKABLE void projectSetAutoPushEnabled( const QString &projectId, bool enabled );
-
-    //! Sets the interval in \a minutes between which the project will auto-push changes
-    Q_INVOKABLE void projectSetAutoPushIntervalMins( const QString &projectId, int minutes );
-
-    //! Configure localized data paths for cloud projects when available
+    //! Configure localized data paths for cloud projects when available.
     Q_INVOKABLE void updateLocalizedDataPaths( const QString &projectPath );
+
+    //! Return the cloud project for a given \a projectId.
+    Q_INVOKABLE QFieldCloudProject *findProject( const QString &projectId ) const;
 
   signals:
     void cloudConnectionChanged();
     void layerObserverChanged();
     void currentProjectIdChanged();
-    void currentProjectDataChanged();
+    void currentProjectChanged();
     void busyProjectIdsChanged();
-    void canSyncCurrentProjectChanged();
     void gpkgFlusherChanged();
     void warning( const QString &message );
-    void projectDownloaded( const QString &projectId, const QString &projectName, const bool hasError, const QString &errorString = QString() );
-    void projectStatusChanged( const QString &projectId, const ProjectStatus &projectStatus );
-    void projectRefreshed( const QString &projectId, const ProjectRefreshReason &refreshReason, const QString &errorString = QString() );
-    void projectJobFinished( const QString &projectId, const JobType jobType, const QString &errorString = QString() );
-    void projectDownloadFinished( const QString &projectId, const QString &errorString = QString() );
-    void deltaListModelChanged();
 
-    void networkDeltaUploaded( const QString &projectId );
-    void networkDeltaStatusChecked( const QString &projectId );
-    void networkAttachmentsUploaded( const QString &projectId );
-    void networkAllAttachmentsUploaded( const QString &projectId );
-    void networkLayerDownloaded( const QString &projectId );
-    void networkAllLayersDownloaded( const QString &projectId );
+    void projectDownloaded( const QString &projectId, const QString &projectName, const bool hasError, const QString &errorString = QString() );
     void pushFinished( const QString &projectId, bool isDownloadingProject, bool hasError, const QString &errorString = QString() );
+
+    void deltaListModelChanged();
 
   private slots:
     void connectionStatusChanged();
+    void usernameChanged();
     void projectListReceived();
 
     void layerObserverLayerEdited( const QString &layerId );
 
   private:
-    static const int sDelayBeforeStatusRetry = 1000;
-
-    struct FileTransfer
-    {
-        FileTransfer(
-          const QString &fileName,
-          const long long bytesTotal,
-          const QString &projectId )
-          : fileName( fileName ), bytesTotal( bytesTotal ), projectId( projectId ) {};
-
-        FileTransfer() = default;
-
-        QString fileName;
-        long long bytesTotal;
-        QString projectId;
-
-        QString tmpFile;
-        long long bytesTransferred = 0;
-        bool isFinished = false;
-        QPointer<NetworkReply> networkReply;
-        QNetworkReply::NetworkError error = QNetworkReply::NoError;
-        QStringList layerIds;
-        int redirectsCount = 0;
-        QUrl lastRedirectUrl;
-    };
-
-    //! Tracks the job status (status, error etc) for a particular project. For now 1 project can have only 1 job of a type.
-    struct Job
-    {
-        Job(
-          const QString &id,
-          const QString &projectId,
-          const JobType type )
-          : id( id ), projectId( projectId ), type( type ) {};
-
-        Job() = default;
-
-        QString id;
-        QString projectId;
-        JobType type;
-        JobStatus status = JobPendingStatus;
-    };
-
-    //! Tracks the cloud project information. It means it is not required CloudProject data to be already downloaded on the device.
-    struct CloudProject
-    {
-        CloudProject(
-          const QString &id,
-          bool isPrivate,
-          const QString &owner,
-          const QString &name,
-          const QString &description,
-          const QString &userRole,
-          const QString &userRoleOrigin,
-          const ProjectCheckouts &checkout,
-          const ProjectStatus &status,
-          const QDateTime &dataLastUpdatedAt,
-          bool canRepackage,
-          bool needsRepackaging )
-          : id( id )
-          , isPrivate( isPrivate )
-          , owner( owner )
-          , name( name )
-          , description( description )
-          , userRole( userRole )
-          , userRoleOrigin( userRoleOrigin )
-          , checkout( checkout )
-          , status( status )
-          , dataLastUpdatedAt( dataLastUpdatedAt )
-          , canRepackage( canRepackage )
-          , needsRepackaging( needsRepackaging )
-        {}
-
-        CloudProject() = default;
-        ~CloudProject() { delete deltaListModel; }
-
-        QString id;
-        bool isPrivate = true;
-        QString owner;
-        QString name;
-        QString description;
-        QString userRole;
-        QString userRoleOrigin;
-        ProjectErrorStatus errorStatus = ProjectErrorStatus::NoErrorStatus;
-        ProjectCheckouts checkout;
-        ProjectStatus status;
-        QDateTime dataLastUpdatedAt;
-        bool canRepackage = false;
-        bool needsRepackaging = false;
-        bool isOutdated = false;
-        bool projectFileIsOutdated = false;
-
-        ProjectModifications modification = ProjectModification::NoModification;
-        QString localPath;
-
-        QString deltaFileId;
-        DeltaFileStatus deltaFileUploadStatus = DeltaLocalStatus;
-        QString deltaFileUploadStatusString;
-        QStringList deltaLayersToDownload;
-
-        bool isPackagingActive = false;
-        bool isPackagingFailed = false;
-        PackagingStatus packagingStatus = PackagingUnstartedStatus;
-        QString packagingStatusString;
-        QStringList packagedLayerErrors;
-        QMap<QString, FileTransfer> downloadFileTransfers;
-        int downloadFilesFinished = 0;
-        int downloadFilesFailed = 0;
-        int downloadBytesTotal = 0;
-        int downloadBytesReceived = 0;
-        double downloadProgress = 0.0; // range from 0.0 to 1.0
-
-        double uploadDeltaProgress = 0.0; // range from 0.0 to 1.0
-        int deltasCount = 0;
-        DeltaListModel *deltaListModel = nullptr;
-
-        QString lastExportedAt;
-        QString lastExportId;
-        QString lastLocalExportedAt;
-        QString lastLocalExportId;
-        QString lastLocalPushDeltas;
-
-        QDateTime lastLocalDataLastUpdatedAt;
-        QDateTime lastRefreshedAt;
-
-        bool forceAutoPush = false;
-        bool autoPushEnabled = false;
-        int autoPushIntervalMins = 30;
-
-        QMap<JobType, Job> jobs;
-        QStringList localizedDatasets;
-    };
+    void setupProjectConnections( QFieldCloudProject *project );
 
     inline QString layerFileName( const QgsMapLayer *layer ) const;
 
-    QList<CloudProject *> mProjects;
+    QList<QFieldCloudProject *> mProjects;
     QFieldCloudConnection *mCloudConnection = nullptr;
+
     QString mCurrentProjectId;
+    QPointer<QFieldCloudProject> mCurrentProject;
+
     LayerObserver *mLayerObserver = nullptr;
-    QgsProject *mProject = nullptr;
     QgsGpkgFlusher *mGpkgFlusher = nullptr;
     QString mUsername;
-    QStringList mActiveProjectFilesToDownload;
     const int mProjectsPerFetch = 250;
     QMap<QString, QString> mLocalizedDatasetsProjects;
 
     QModelIndex findProjectIndex( const QString &projectId ) const;
-    CloudProject *findProject( const QString &projectId ) const;
-    void projectCancelUpload( const QString &projectId );
-    void projectGetDeltaStatus( const QString &projectId );
-    bool projectMoveDownloadedFilesToPermanentStorage( const QString &projectId );
-    void projectRefreshData( const QString &projectId, const ProjectRefreshReason &refreshReason );
-    void projectStartJob( const QString &projectId, const JobType jobType );
-    void projectGetJobStatus( const QString &projectId, const JobType jobType );
-    void projectDownload( const QString &projectId );
 
-    QString projectGetDir( const QString &projectId, const QString &setting );
-    void projectSetSetting( const QString &projectId, const QString &setting, const QVariant &value );
-    QVariant projectSetting( const QString &projectId, const QString &setting, const QVariant &defaultValue = QVariant() );
-
-    NetworkReply *downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage = true );
-    void projectDownloadFiles( const QString &projectId );
-    void updateActiveProjectFilesToDownload( const QString &projectId );
-
-    bool canSyncProject( const QString &projectId ) const;
-
-    bool deleteGpkgShmAndWal( const QStringList &gpkgFileNames );
-    QStringList projectFileNames( CloudProject *project, const QStringList &fileKeys, bool filterGpkgFileNames = false ) const;
-
-    QFieldCloudProjectsModel::JobStatus getJobStatusFromString( const QString &status ) const;
-    QString getJobTypeAsString( JobType jobType ) const;
-
-    void downloadFileConnections( const QString &projectId, const QString &fileKey );
     void loadProjects( const QJsonArray &remoteProjects = QJsonArray(), bool skipLocalProjects = false );
-    void insertProjects( const QList<CloudProject *> &projects );
-    void logFailedDownload( CloudProject *project, const QString &fileKey, const QString &errorMessage, const QString &errorMessageDetail );
+    void insertProjects( const QList<QFieldCloudProject *> &projects );
 };
-
-Q_DECLARE_METATYPE( QFieldCloudProjectsModel::ProjectStatus )
-Q_DECLARE_METATYPE( QFieldCloudProjectsModel::ProjectCheckout )
-Q_DECLARE_METATYPE( QFieldCloudProjectsModel::ProjectCheckouts )
-Q_DECLARE_OPERATORS_FOR_FLAGS( QFieldCloudProjectsModel::ProjectCheckouts )
-Q_DECLARE_METATYPE( QFieldCloudProjectsModel::ProjectModification )
-Q_DECLARE_METATYPE( QFieldCloudProjectsModel::ProjectModifications )
-Q_DECLARE_OPERATORS_FOR_FLAGS( QFieldCloudProjectsModel::ProjectModifications )
 
 /**
  * \ingroup core
