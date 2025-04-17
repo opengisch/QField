@@ -87,6 +87,7 @@ class FeatureExpressionValuesGatherer : public QThread
 
     void run() override
     {
+      //cppcheck-suppress knownConditionTrueFalse
       mWasCanceled = false;
 
       QgsFeatureIterator iterator = mSource->getFeatures( mRequest );

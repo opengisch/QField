@@ -83,7 +83,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     /**
      * Saves a list of recent \a projects.
      */
-    void saveRecentProjects( QList<QPair<QString, QString>> &projects );
+    void saveRecentProjects( const QList<QPair<QString, QString>> &projects );
 
     /**
      * Removes the project with a given \a path from the list of recent projects

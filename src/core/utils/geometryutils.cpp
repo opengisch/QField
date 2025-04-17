@@ -161,7 +161,6 @@ GeometryUtils::GeometryOperationResult GeometryUtils::addRingFromRubberband( Qgs
   QgsGeometry geometry( new QgsLineString( ring ) );
   if ( !geometry.isNull() )
   {
-    QVector<QgsGeometry::Error> errors;
     geometry = geometry.makeValid();
     if ( !geometry.isNull() )
       static_cast<QgsLineString *>( geometry.get() )->points( ring );

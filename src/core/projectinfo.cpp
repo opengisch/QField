@@ -492,13 +492,10 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
       QgsMapLayer *layer = nullptr;
       if ( isDataset )
       {
-        for ( QgsMapLayer *ml : mapLayers )
+        auto match = std::find_if( mapLayers.begin(), mapLayers.end(), [&id]( QgsMapLayer *ml ) { return ml && ml->source() == id; } );
+        if ( match != mapLayers.end() )
         {
-          if ( ml && ml->source() == id )
-          {
-            layer = ml;
-            break;
-          }
+          layer = *match;
         }
       }
       else
@@ -539,13 +536,10 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
       QgsMapLayer *layer = nullptr;
       if ( isDataset )
       {
-        for ( QgsMapLayer *ml : mapLayers )
+        auto match = std::find_if( mapLayers.begin(), mapLayers.end(), [&id]( QgsMapLayer *ml ) { return ml && ml->source() == id; } );
+        if ( match != mapLayers.end() )
         {
-          if ( ml && ml->source() == id )
-          {
-            layer = ml;
-            break;
-          }
+          layer = *match;
         }
       }
       else
@@ -609,13 +603,10 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
         QgsMapLayer *layer = nullptr;
         if ( isDataset )
         {
-          for ( QgsMapLayer *ml : mapLayers )
+          auto match = std::find_if( mapLayers.begin(), mapLayers.end(), [&id]( QgsMapLayer *ml ) { return ml && ml->source() == id; } );
+          if ( match != mapLayers.end() )
           {
-            if ( ml && ml->source() == id )
-            {
-              layer = ml;
-              break;
-            }
+            layer = *match;
           }
         }
         else

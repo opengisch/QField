@@ -649,7 +649,7 @@ QList<QPair<QString, QString>> QgisMobileapp::recentProjects()
   return projects;
 }
 
-void QgisMobileapp::saveRecentProjects( QList<QPair<QString, QString>> &projects )
+void QgisMobileapp::saveRecentProjects( const QList<QPair<QString, QString>> &projects )
 {
   QSettings settings;
   settings.remove( QStringLiteral( "/qgis/recentProjects" ) );
@@ -1268,13 +1268,10 @@ bool QgisMobileapp::print( const QString &layoutName )
   }
   else
   {
-    for ( QgsPrintLayout *layout : printLayouts )
+    auto match = std::find_if( printLayouts.begin(), printLayouts.end(), [&layoutName]( QgsPrintLayout *layout ) { return layout->name() == layoutName || layoutName.isEmpty(); } );
+    if ( match != printLayouts.end() )
     {
-      if ( layout->name() == layoutName || layoutName.isEmpty() )
-      {
-        layoutToPrint = layout;
-        break;
-      }
+      layoutToPrint = *match;
     }
   }
 
@@ -1326,13 +1323,10 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
 {
   const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
   QgsPrintLayout *layoutToPrint = nullptr;
-  for ( QgsPrintLayout *layout : printLayouts )
+  auto match = std::find_if( printLayouts.begin(), printLayouts.end(), [&layoutName]( QgsPrintLayout *layout ) { return layout->name() == layoutName; } );
+  if ( match != printLayouts.end() )
   {
-    if ( layout->name() == layoutName )
-    {
-      layoutToPrint = layout;
-      break;
-    }
+    layoutToPrint = *match;
   }
 
   if ( !layoutToPrint || !layoutToPrint->atlas() )

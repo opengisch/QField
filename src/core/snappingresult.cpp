@@ -29,7 +29,7 @@ SnappingResult::SnappingResult()
   , mVertexIndex( 0 )
 {}
 
-SnappingResult::SnappingResult( SnappingResult::Type t, QgsVectorLayer *vl, QgsFeatureId fid, double dist, const QgsPoint &pt, int vertexIndex, QgsPoint *edgePoints )
+SnappingResult::SnappingResult( SnappingResult::Type t, QgsVectorLayer *vl, QgsFeatureId fid, double dist, const QgsPoint &pt, int vertexIndex, const QgsPoint *edgePoints )
   : mType( t )
   , mDist( dist )
   , mPoint( pt )

@@ -47,7 +47,7 @@ class SnappingResult
     //! construct invalid match
     SnappingResult();
 
-    SnappingResult( Type t, QgsVectorLayer *vl, QgsFeatureId fid, double dist, const QgsPoint &pt, int vertexIndex = 0, QgsPoint *edgePoints = nullptr );
+    SnappingResult( Type t, QgsVectorLayer *vl, QgsFeatureId fid, double dist, const QgsPoint &pt, int vertexIndex = 0, const QgsPoint *edgePoints = nullptr );
 
     bool operator==( const SnappingResult &other ) const;
     bool operator!=( const SnappingResult &other ) const { return !operator==( other ); }

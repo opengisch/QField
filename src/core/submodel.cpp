@@ -111,7 +111,7 @@ void SubModel::handleModelConnection( bool disconnecting ) const
     disconnect( mModel, &QAbstractItemModel::modelReset, this, &SubModel::onModelReset );
     disconnect( mModel, &QAbstractItemModel::dataChanged, this, &SubModel::onDataChanged );
   }
-  else if ( mEnabled )
+  else
   {
     connect( mModel, &QAbstractItemModel::rowsInserted, this, &SubModel::onRowsInserted );
     connect( mModel, &QAbstractItemModel::rowsAboutToBeRemoved, this, &SubModel::onRowsAboutToBeRemoved );

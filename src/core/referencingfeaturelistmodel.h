@@ -219,6 +219,7 @@ class FeatureGatherer : public QThread
 
     void run() override
     {
+      //cppcheck-suppress knownConditionTrueFalse
       mWasCanceled = false;
 
       const bool featureIsNew = std::numeric_limits<QgsFeatureId>::min() == mFeature.id();
