@@ -31,6 +31,7 @@
 #include <QTemporaryFile>
 #include <qgis.h>
 #include <qgsapplication.h>
+#include <qgslocalizeddatapathregistry.h>
 #include <qgsmessagelog.h>
 #include <qgsnetworkaccessmanager.h>
 #include <qgsproject.h>
@@ -1008,7 +1009,6 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
     }
 
     QNetworkReply *rawReply = reply->currentRawReply();
-
     reply->deleteLater();
 
     if ( rawReply->error() != QNetworkReply::NoError )
@@ -1033,7 +1033,7 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
     }
 
     const QJsonArray files = payload.value( QStringLiteral( "files" ) ).toArray();
-    for ( const QJsonValue &fileValue : files )
+    for ( const QJsonValue fileValue : files )
     {
       const QJsonObject fileObject = fileValue.toObject();
       const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
@@ -1057,13 +1057,14 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
       if ( cloudEtag == localEtag )
         continue;
 
-      project->downloadFileTransfers.insert( fileName, FileTransfer( fileName, fileSize ) );
+      project->downloadFileTransfers.insert( QStringLiteral( "%1/%2" ).arg( projectId, fileName ), FileTransfer( fileName, fileSize, projectId ) );
       project->downloadBytesTotal += std::max( fileSize, 0 );
     }
 
     emit dataChanged( projectIndex, projectIndex, QVector<int>() << DownloadSizeRole );
 
     const QJsonObject layers = payload.value( QStringLiteral( "layers" ) ).toObject();
+    QStringList localizedDatasets;
     bool hasLayerExportErrror = false;
     for ( const QString &layerKey : layers.keys() )
     {
@@ -1081,7 +1082,15 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
       }
       else
       {
-        if ( !layer.value( QStringLiteral( "is_valid" ) ).toBool() && !layer.value( QStringLiteral( "is_localized" ) ).toBool() )
+        if ( layer.value( QStringLiteral( "is_localized" ) ).toBool() )
+        {
+          const QString localizedDataset = layer.value( "datasource" ).toString().mid( 10 );
+          if ( !localizedDataset.isEmpty() )
+          {
+            localizedDatasets << localizedDataset;
+          }
+        }
+        else if ( !layer.value( QStringLiteral( "is_valid" ) ).toBool() )
         {
           QString errorSummary = layer.value( QStringLiteral( "error_summary" ) ).toString() + layer.value( QStringLiteral( "provider_error_summary" ) ).toString();
 
@@ -1102,13 +1111,77 @@ void QFieldCloudProjectsModel::projectDownload( const QString &projectId )
     project->lastExportId = packageId;
     project->lastExportedAt = packagedAt;
 
-    QgsLogger::debug( QStringLiteral( "Project %1: packaged files to download - %2 files, namely: %3" )
-                        .arg( projectId )
-                        .arg( project->downloadFileTransfers.count() )
-                        .arg( project->downloadFileTransfers.keys().join( ", " ) ) );
+    if ( !localizedDatasets.isEmpty() && mLocalizedDatasetsProjects.contains( project->owner ) )
+    {
+      NetworkReply *localizedDatasetsReply = mCloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( mLocalizedDatasetsProjects[project->owner] ) );
+      connect( localizedDatasetsReply, &NetworkReply::finished, localizedDatasetsReply, [=]() {
+        if ( !findProject( projectId ) )
+        {
+          QgsLogger::debug( QStringLiteral( "Project %1: adding download file connections, but the project is deleted." ).arg( projectId ) );
+          return;
+        }
 
-    updateActiveProjectFilesToDownload( projectId );
-    projectDownloadFiles( projectId );
+        QNetworkReply *localizedDatasetsRawReply = localizedDatasetsReply->currentRawReply();
+        localizedDatasetsReply->deleteLater();
+
+        if ( localizedDatasetsRawReply->error() != QNetworkReply::NoError )
+        {
+          QgsLogger::debug( QStringLiteral( "Project %1: failed to get latest package data. %2" ).arg( projectId, QFieldCloudConnection::errorString( rawReply ) ) );
+          emit projectDownloadFinished( projectId, tr( "Failed to get latest package data." ) );
+          return;
+        }
+
+        const QJsonArray files = QJsonDocument::fromJson( localizedDatasetsRawReply->readAll() ).array();
+        for ( const QJsonValue fileValue : files )
+        {
+          const QJsonObject fileObject = fileValue.toObject();
+          const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
+          if ( localizedDatasets.contains( fileName ) )
+          {
+            const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
+            const QString absoluteFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mLocalizedDatasetsProjects[project->owner], fileName );
+            // NOTE the cloud API is giving the false impression that the file keys `md5sum` is having a MD5 or another checksum.
+            // This actually is an Object Storage (S3) implementation specific ETag.
+            const QString cloudEtag = fileObject.value( QStringLiteral( "md5sum" ) ).toString();
+            const QString localEtag = FileUtils::fileEtag( absoluteFileName );
+
+            if (
+              !fileObject.value( QStringLiteral( "size" ) ).isDouble()
+              || fileName.isEmpty()
+              || cloudEtag.isEmpty() )
+            {
+              QgsLogger::debug( QStringLiteral( "Project %1: package in \"files\" list does not contain the expected fields: size(int), name(string), md5sum(string)" ).arg( projectId ) );
+              emit projectDownloadFinished( projectId, tr( "Latest package data structure error." ) );
+              return;
+            }
+
+            if ( cloudEtag == localEtag )
+              continue;
+
+            project->downloadFileTransfers.insert( QStringLiteral( "%1/%2" ).arg( mLocalizedDatasetsProjects[project->owner], fileName ), FileTransfer( fileName, fileSize, mLocalizedDatasetsProjects[project->owner] ) );
+            project->downloadBytesTotal += std::max( fileSize, 0 );
+          }
+        }
+
+        QgsLogger::debug( QStringLiteral( "Project %1: packaged files to download - %2 files, namely: %3" )
+                            .arg( projectId )
+                            .arg( project->downloadFileTransfers.count() )
+                            .arg( project->downloadFileTransfers.keys().join( ", " ) ) );
+
+        updateActiveProjectFilesToDownload( projectId );
+        projectDownloadFiles( projectId );
+      } );
+    }
+    else
+    {
+      QgsLogger::debug( QStringLiteral( "Project %1: packaged files to download - %2 files, namely: %3" )
+                          .arg( projectId )
+                          .arg( project->downloadFileTransfers.count() )
+                          .arg( project->downloadFileTransfers.keys().join( ", " ) ) );
+
+      updateActiveProjectFilesToDownload( projectId );
+      projectDownloadFiles( projectId );
+    }
   } );
 }
 
@@ -1122,21 +1195,21 @@ void QFieldCloudProjectsModel::updateActiveProjectFilesToDownload( const QString
   if ( !project )
     return;
 
-  const QStringList fileNames = project->downloadFileTransfers.keys();
+  const QStringList fileKeys = project->downloadFileTransfers.keys();
 
-  if ( fileNames.isEmpty() )
+  if ( fileKeys.isEmpty() )
   {
     mActiveProjectFilesToDownload.clear();
     return;
   }
 
-  for ( const QString &fileName : fileNames )
+  for ( const QString &fileKey : fileKeys )
   {
-    if ( project->downloadFileTransfers[fileName].networkReply )
+    if ( project->downloadFileTransfers[fileKey].networkReply )
     {
-      if ( project->downloadFileTransfers[fileName].networkReply->isFinished() )
+      if ( project->downloadFileTransfers[fileKey].networkReply->isFinished() )
       {
-        if ( mActiveProjectFilesToDownload.removeOne( fileName ) )
+        if ( mActiveProjectFilesToDownload.removeOne( fileKey ) )
         {
           // QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: removed from the list of active download files" ).arg( projectId, fileName ) );
         }
@@ -1156,7 +1229,7 @@ void QFieldCloudProjectsModel::updateActiveProjectFilesToDownload( const QString
 
     // QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: appended to the active download files list" ).arg( projectId, fileName ) );
 
-    mActiveProjectFilesToDownload.append( fileName );
+    mActiveProjectFilesToDownload.append( fileKey );
   }
 
   if ( mActiveProjectFilesToDownload.count() > 0 )
@@ -1195,15 +1268,16 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
 
   QgsLogger::debug( QStringLiteral( "Project %1: active download files list before actual download: %2" ).arg( projectId, mActiveProjectFilesToDownload.join( ", " ) ) );
 
-  for ( const QString &fileName : std::as_const( mActiveProjectFilesToDownload ) )
+  for ( const QString &fileKey : std::as_const( mActiveProjectFilesToDownload ) )
   {
-    if ( project->downloadFileTransfers[fileName].networkReply )
+    if ( project->downloadFileTransfers[fileKey].networkReply )
     {
       // Download is already in progress
       continue;
     }
 
-    NetworkReply *reply = downloadFile( projectId, fileName );
+    NetworkReply *reply = downloadFile( project->downloadFileTransfers[fileKey].projectId, project->downloadFileTransfers[fileKey].fileName, project->downloadFileTransfers[fileKey].projectId == projectId );
+
     QTemporaryFile *file = new QTemporaryFile( reply );
     file->setAutoRemove( false );
 
@@ -1211,15 +1285,15 @@ void QFieldCloudProjectsModel::projectDownloadFiles( const QString &projectId )
     {
       project->downloadFilesFailed++;
       emit projectDownloadFinished( projectId, tr( "Failed to open temporary file for `%1`, reason:\n%2" )
-                                                 .arg( fileName )
+                                                 .arg( project->downloadFileTransfers[fileKey].fileName )
                                                  .arg( file->errorString() ) );
       return;
     }
 
-    project->downloadFileTransfers[fileName].tmpFile = file->fileName();
-    project->downloadFileTransfers[fileName].networkReply = reply;
+    project->downloadFileTransfers[fileKey].tmpFile = file->fileName();
+    project->downloadFileTransfers[fileKey].networkReply = reply;
 
-    downloadFileConnections( projectId, fileName );
+    downloadFileConnections( projectId, fileKey );
   }
 }
 
@@ -1232,13 +1306,13 @@ bool QFieldCloudProjectsModel::projectMoveDownloadedFilesToPermanentStorage( con
     return false;
 
   bool hasError = false;
-  const QStringList fileNames = project->downloadFileTransfers.keys();
+  const QStringList fileKeys = project->downloadFileTransfers.keys();
 
-  for ( const QString &fileName : fileNames )
+  for ( const QString &fileKey : fileKeys )
   {
-    QFileInfo fileInfo( fileName );
-    QFile file( project->downloadFileTransfers[fileName].tmpFile );
-    QDir dir( QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, projectId, fileInfo.path() ) );
+    QFileInfo fileInfo( project->downloadFileTransfers[fileKey].fileName );
+    QFile file( project->downloadFileTransfers[fileKey].tmpFile );
+    QDir dir( QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, project->downloadFileTransfers[fileKey].projectId, fileInfo.path() ) );
 
     if ( !hasError && !dir.exists() && !dir.mkpath( QStringLiteral( "." ) ) )
     {
@@ -1253,21 +1327,21 @@ bool QFieldCloudProjectsModel::projectMoveDownloadedFilesToPermanentStorage( con
     if ( !hasError && QFile::exists( destinationFileName ) && !file.remove( destinationFileName ) )
     {
       hasError = true;
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to remove file before overwriting stored at `%1`, reason:\n%2" ).arg( fileName ).arg( file.errorString() ) );
+      QgsMessageLog::logMessage( QStringLiteral( "Failed to remove file before overwriting stored at `%1`, reason:\n%2" ).arg( destinationFileName ).arg( file.errorString() ) );
     }
 
     if ( !hasError && !file.copy( destinationFileName ) )
     {
       hasError = true;
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to write downloaded file stored at `%1`, reason:\n%2" ).arg( fileName ).arg( file.errorString() ) );
+      QgsMessageLog::logMessage( QStringLiteral( "Failed to write downloaded file stored at `%1`, reason:\n%2" ).arg( destinationFileName ).arg( file.errorString() ) );
 
-      if ( !QFile::remove( dir.filePath( fileName ) ) )
-        QgsMessageLog::logMessage( QStringLiteral( "Failed to remove partly overwritten file stored at `%1`" ).arg( fileName ) );
+      if ( !QFile::remove( dir.filePath( project->downloadFileTransfers[fileKey].fileName ) ) )
+        QgsMessageLog::logMessage( QStringLiteral( "Failed to remove partly overwritten file stored at `%1`" ).arg( destinationFileName ) );
     }
 
     if ( !file.remove() )
     {
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to remove temporary file `%1`" ).arg( fileName ) );
+      QgsMessageLog::logMessage( QStringLiteral( "Failed to remove temporary file `%1`" ).arg( destinationFileName ) );
     }
   }
 
@@ -1708,6 +1782,7 @@ void QFieldCloudProjectsModel::projectListReceived()
     beginResetModel();
     mProjects.clear();
     endResetModel();
+    mLocalizedDatasetsProjects.clear();
   }
 
   QByteArray response = rawReply->readAll();
@@ -1730,16 +1805,16 @@ void QFieldCloudProjectsModel::projectListReceived()
   }
 }
 
-NetworkReply *QFieldCloudProjectsModel::downloadFile( const QString &projectId, const QString &fileName )
+NetworkReply *QFieldCloudProjectsModel::downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage )
 {
   QNetworkRequest request;
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::UserVerifiedRedirectPolicy );
   mCloudConnection->setAuthenticationDetails( request );
 
-  return mCloudConnection->get( request, QStringLiteral( "/api/v1/packages/%1/latest/files/%2/" ).arg( projectId, fileName ) );
+  return mCloudConnection->get( request, fromLatestPackage ? QStringLiteral( "/api/v1/packages/%1/latest/files/%2/" ).arg( projectId, fileName ) : QStringLiteral( "/api/v1/files/%1/%2/" ).arg( projectId, fileName ) );
 }
 
-void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId, const QString &fileName )
+void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId, const QString &fileKey )
 {
   const QModelIndex projectIndex = findProjectIndex( projectId );
 
@@ -1754,13 +1829,13 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     return;
   }
 
-  if ( !project->downloadFileTransfers.contains( fileName ) )
+  if ( !project->downloadFileTransfers.contains( fileKey ) )
   {
     Q_ASSERT( false );
     return;
   }
 
-  NetworkReply *reply = project->downloadFileTransfers[fileName].networkReply;
+  NetworkReply *reply = project->downloadFileTransfers[fileKey].networkReply;
 
   if ( !reply )
   {
@@ -1768,46 +1843,46 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     return;
   }
 
-  const QStringList fileNames = project->downloadFileTransfers.keys();
+  const QStringList fileKeys = project->downloadFileTransfers.keys();
 
-  QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: requested." ).arg( projectId, fileName ) );
+  QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: requested." ).arg( project->downloadFileTransfers[fileKey].projectId, project->downloadFileTransfers[fileKey].fileName ) );
 
   connect( reply, &NetworkReply::redirected, reply, [=]( const QUrl &url ) {
     if ( !findProject( projectId ) )
     {
-      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: redirected file download, but the project is deleted." ).arg( projectId, fileName ) );
+      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: redirected file download, but the project is deleted." ).arg( projectId, fileKey ) );
       return;
     }
 
-    QUrl oldUrl = project->downloadFileTransfers[fileName].lastRedirectUrl;
+    QUrl oldUrl = project->downloadFileTransfers[fileKey].lastRedirectUrl;
 
-    project->downloadFileTransfers[fileName].redirectsCount++;
-    project->downloadFileTransfers[fileName].lastRedirectUrl = url;
+    project->downloadFileTransfers[fileKey].redirectsCount++;
+    project->downloadFileTransfers[fileKey].lastRedirectUrl = url;
 
-    if ( project->downloadFileTransfers[fileName].redirectsCount >= MAX_REDIRECTS_ALLOWED )
+    if ( project->downloadFileTransfers[fileKey].redirectsCount >= MAX_REDIRECTS_ALLOWED )
     {
-      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: too many redirects, last two urls are `%3` and `%4`" ).arg( projectId, fileName, oldUrl.toString(), url.toString() ) );
+      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: too many redirects, last two urls are `%3` and `%4`" ).arg( projectId, fileKey, oldUrl.toString(), url.toString() ) );
       reply->abort();
       return;
     }
 
     if ( oldUrl == url )
     {
-      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: has redirects to the same URL `%3`" ).arg( projectId, fileName, url.toString() ) );
+      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: has redirects to the same URL `%3`" ).arg( projectId, fileKey, url.toString() ) );
       reply->abort();
       return;
     }
 
-    QgsLogger::debug( QStringLiteral( "Package %1, file `%2`: redirected to `%3`" ).arg( projectId, fileName, url.toString() ) );
+    QgsLogger::debug( QStringLiteral( "Package %1, file `%2`: redirected to `%3`" ).arg( projectId, fileKey, url.toString() ) );
 
     QNetworkRequest request;
-    project->downloadFileTransfers[fileName].networkReply = mCloudConnection->get( request, url );
-    project->downloadFileTransfers[fileName].networkReply->setParent( reply );
+    project->downloadFileTransfers[fileKey].networkReply = mCloudConnection->get( request, url );
+    project->downloadFileTransfers[fileKey].networkReply->setParent( reply );
 
     // we need to somehow finish the request, otherwise it will remain unfinished for the QFieldCloudConnection
     reply->abort();
 
-    downloadFileConnections( projectId, fileName );
+    downloadFileConnections( projectId, fileKey );
   } );
 
   connect( reply, &NetworkReply::downloadProgress, reply, [=]( int bytesReceived, int bytesTotal ) {
@@ -1817,7 +1892,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
       return;
     }
 
-    const QString temporaryFileName = project->downloadFileTransfers[fileName].tmpFile;
+    const QString temporaryFileName = project->downloadFileTransfers[fileKey].tmpFile;
     QFile file( temporaryFileName );
     QString errorMessageDetail;
     QString errorMessage;
@@ -1846,22 +1921,22 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     // check if the code above failed with error
     if ( hasError )
     {
-      logFailedDownload( project, fileName, errorMessage, errorMessageDetail );
+      logFailedDownload( project, fileKey, errorMessage, errorMessageDetail );
       rawReply->abort();
       return;
     }
 
     if ( !findProject( projectId ) )
     {
-      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: updating download progress, but the project is deleted." ).arg( projectId, fileName ) );
+      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: updating download progress, but the project is deleted." ).arg( projectId, fileKey ) );
       return;
     }
 
     Q_UNUSED( bytesTotal )
 
-    project->downloadBytesReceived -= project->downloadFileTransfers[fileName].bytesTransferred;
+    project->downloadBytesReceived -= project->downloadFileTransfers[fileKey].bytesTransferred;
     project->downloadBytesReceived += bytesReceived;
-    project->downloadFileTransfers[fileName].bytesTransferred = bytesReceived;
+    project->downloadFileTransfers[fileKey].bytesTransferred = bytesReceived;
     project->downloadProgress = std::clamp( ( static_cast<double>( project->downloadBytesReceived ) / std::max( project->downloadBytesTotal, 1 ) ), 0., 1. );
     emit dataChanged( projectIndex, projectIndex, QVector<int>() << DownloadProgressRole );
   } );
@@ -1872,7 +1947,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
 
     if ( !findProject( projectId ) )
     {
-      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: file download finished, but the project is deleted." ).arg( projectId, fileName ) );
+      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: file download finished, but the project is deleted." ).arg( projectId, fileKey ) );
       return;
     }
 
@@ -1883,7 +1958,7 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     Q_ASSERT( reply );
 
     // this is most probably the redirected request, nothing to do with this reply anymore, just ignore it
-    if ( project->downloadFileTransfers[fileName].networkReply != reply )
+    if ( project->downloadFileTransfers[fileKey].networkReply != reply )
       return;
 
     project->downloadFilesFinished++;
@@ -1896,13 +1971,13 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     {
       hasError = true;
       errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
-      errorMessage = tr( "Network error. Failed to download file `%1`." ).arg( fileName );
+      errorMessage = tr( "Network error. Failed to download file `%1`." ).arg( fileKey );
     }
 
     if ( !hasError )
     {
-      project->downloadBytesReceived -= project->downloadFileTransfers[fileName].bytesTransferred;
-      project->downloadBytesReceived += project->downloadFileTransfers[fileName].bytesTotal;
+      project->downloadBytesReceived -= project->downloadFileTransfers[fileKey].bytesTransferred;
+      project->downloadBytesReceived += project->downloadFileTransfers[fileKey].bytesTotal;
       project->downloadProgress = std::clamp( ( static_cast<double>( project->downloadBytesReceived ) / std::max( project->downloadBytesTotal, 1 ) ), 0., 1. );
       emit dataChanged( projectIndex, projectIndex, QVector<int>() << DownloadProgressRole );
     }
@@ -1910,16 +1985,16 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
     // check if the code above failed with error
     if ( hasError )
     {
-      logFailedDownload( project, fileName, errorMessage, errorMessageDetail );
+      logFailedDownload( project, fileKey, errorMessage, errorMessageDetail );
       rawReply->abort();
       return;
     }
 
-    QgsLogger::debug( QStringLiteral( "Package %1, file `%2`: downloaded" ).arg( projectId, fileName ) );
+    QgsLogger::debug( QStringLiteral( "Package %1, file `%2`: downloaded" ).arg( projectId, fileKey ) );
 
     updateActiveProjectFilesToDownload( projectId );
 
-    if ( project->downloadFilesFinished == fileNames.count() )
+    if ( project->downloadFilesFinished == fileKeys.count() )
     {
       QgsLogger::debug( QStringLiteral( "Project %1: All files downloaded." ).arg( projectId ) );
 
@@ -1932,12 +2007,13 @@ void QFieldCloudProjectsModel::downloadFileConnections( const QString &projectId
         if ( currentProjectReloadNeeded )
         {
           // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
-          const QStringList unprefixedGpkgFileNames = filterGpkgFileNames( fileNames );
-          gpkgFileNames = projectFileNames( mProject->homePath(), unprefixedGpkgFileNames );
+          gpkgFileNames = projectFileNames( project, fileKeys, true );
           mProject->clear();
 
           for ( const QString &fileName : gpkgFileNames )
+          {
             mGpkgFlusher->stop( fileName );
+          }
         }
 
         // move the files from their temporary location to their permanent one
@@ -2089,14 +2165,14 @@ void QFieldCloudProjectsModel::insertProjects( const QList<CloudProject *> &proj
   endInsertRows();
 }
 
-void QFieldCloudProjectsModel::logFailedDownload( CloudProject *project, const QString &fileName, const QString &errorMessage, const QString &errorMessageDetail )
+void QFieldCloudProjectsModel::logFailedDownload( CloudProject *project, const QString &fileKey, const QString &errorMessage, const QString &errorMessageDetail )
 {
   project->downloadFilesFailed++;
 
-  QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: %3 %4" ).arg( errorMessage, fileName, errorMessage, errorMessageDetail ) );
+  QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: %3 %4" ).arg( errorMessage, fileKey, errorMessage, errorMessageDetail ) );
 
   // translate the user messages
-  const QString baseMessage = tr( "Project `%1`, file `%2`: %3" ).arg( project->name, fileName, errorMessage );
+  const QString baseMessage = tr( "Project `%1`, file `%2`: %3" ).arg( project->name, fileKey, errorMessage );
   const QString trimmedMessage = baseMessage + QStringLiteral( " " ) + tr( "System message: " )
                                  + ( ( errorMessageDetail.size() > 100 )
                                        ? ( errorMessageDetail.left( 100 ) + tr( " (see more in the QField error log)…" ) )
@@ -2138,6 +2214,7 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
   for ( const auto project : remoteProjects )
   {
     QVariantHash projectDetails = project.toObject().toVariantHash();
+
     CloudProject *cloudProject = new CloudProject( projectDetails.value( "id" ).toString(),
                                                    projectDetails.value( "private" ).toBool(),
                                                    projectDetails.value( "owner" ).toString(),
@@ -2170,8 +2247,26 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
       }
     }
 
+    if ( projectDetails.contains( "localized_datasets" ) )
+    {
+      const QVariantList localizedDatasets = projectDetails.value( "localized_datasets" ).toList();
+      for ( const QVariant &localizedDataset : localizedDatasets )
+      {
+        const QVariantMap localizedDatasetDetails = localizedDataset.toMap();
+        cloudProject->localizedDatasets << localizedDatasetDetails.value( "datasource" ).toString().mid( 10 );
+      }
+    }
+
     cloudProject->lastRefreshedAt = QDateTime::currentDateTimeUtc();
-    freshCloudProjects.push_back( cloudProject );
+
+    if ( cloudProject->name == QStringLiteral( "localized_datasets" ) )
+    {
+      mLocalizedDatasetsProjects[cloudProject->owner] = cloudProject->id;
+    }
+    else
+    {
+      freshCloudProjects.push_back( cloudProject );
+    }
   }
 
   insertProjects( freshCloudProjects );
@@ -2216,7 +2311,14 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
         QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, cloudProject->id ) );
         restoreLocalSettings( cloudProject, localPath );
 
-        userSpecificProjects.push_back( cloudProject );
+        if ( cloudProject->name == QStringLiteral( "localized_datasets" ) )
+        {
+          mLocalizedDatasetsProjects[cloudProject->owner] = cloudProject->id;
+        }
+        else
+        {
+          userSpecificProjects.push_back( cloudProject );
+        }
         Q_ASSERT( projectId == cloudProject->id );
       }
     }
@@ -2406,31 +2508,43 @@ bool QFieldCloudProjectsModel::deleteGpkgShmAndWal( const QStringList &gpkgFileN
   return isSuccess;
 }
 
-QStringList QFieldCloudProjectsModel::filterGpkgFileNames( const QStringList &fileNames ) const
-{
-  QStringList gpkgFileNames;
-
-  for ( const QString &fileName : fileNames )
-  {
-    if ( fileName.endsWith( QStringLiteral( ".gpkg" ) ) )
-    {
-      gpkgFileNames.append( fileName );
-    }
-  }
-
-  return gpkgFileNames;
-}
-
-QStringList QFieldCloudProjectsModel::projectFileNames( const QString &projectPath, const QStringList &fileNames ) const
+QStringList QFieldCloudProjectsModel::projectFileNames( CloudProject *project, const QStringList &fileKeys, bool filterGpkgFileNames ) const
 {
   QStringList prefixedFileNames;
 
-  for ( const QString &fileName : fileNames )
+  for ( const QString &fileKey : fileKeys )
   {
-    prefixedFileNames.append( QStringLiteral( "%1/%2" ).arg( projectPath, fileName ) );
+    const QString fileName = QStringLiteral( "%1/%2" ).arg( QFieldCloudUtils::localProjectFilePath( mUsername, project->downloadFileTransfers[fileKey].projectId ), project->downloadFileTransfers[fileKey].fileName );
+    if ( !filterGpkgFileNames || fileName.toLower().endsWith( QStringLiteral( ".gpkg" ) ) )
+    {
+      prefixedFileNames.append( fileName );
+    }
   }
 
   return prefixedFileNames;
+}
+
+void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &projectPath )
+{
+  const QString projectId = QFieldCloudUtils::getProjectId( projectPath );
+  QString localizedDataPath;
+  if ( !projectId.isEmpty() )
+  {
+    CloudProject *project = findProject( projectId );
+    if ( project && mLocalizedDatasetsProjects.contains( project->owner ) )
+    {
+      localizedDataPath = QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mLocalizedDatasetsProjects[project->owner] );
+    }
+  }
+
+  QStringList localizedDataPaths = QgsApplication::instance()->localizedDataPathRegistry()->paths();
+  localizedDataPaths.erase( std::remove_if( localizedDataPaths.begin(),
+                                            localizedDataPaths.end(),
+                                            [&localizedDataPath]( const QString &path ) { return !path.startsWith( QFieldCloudUtils::localCloudDirectory() ); } ),
+                            localizedDataPaths.end() );
+  localizedDataPaths << localizedDataPath;
+  qDebug() << localizedDataPaths;
+  QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
 }
 
 // --
