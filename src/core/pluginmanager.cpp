@@ -276,7 +276,7 @@ QList<PluginInformation> PluginManager::availableAppPlugins() const
   std::sort( plugins.begin(), plugins.end(), []( const PluginInformation &plugin1, const PluginInformation &plugin2 ) {
     return plugin1.name().toLower() < plugin2.name().toLower();
   } );
-  return std::move( plugins );
+  return plugins;
 }
 
 void PluginManager::enableAppPlugin( const QString &uuid )

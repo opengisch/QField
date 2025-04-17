@@ -132,7 +132,9 @@ const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments()
     QFile attachmentsFile( QStringLiteral( "%1/attachments.csv" ).arg( QFieldCloudUtils::localCloudDirectory() ) );
     QFileInfo fi( attachmentsFile );
     if ( !fi.exists() || fi.size() == 0 )
-      return std::move( files );
+    {
+      return files;
+    }
 
     attachmentsFile.open( QFile::ReadWrite | QFile::Text );
     QTextStream attachmentsStream( &attachmentsFile );
@@ -149,7 +151,8 @@ const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments()
       }
     }
   }
-  return std::move( files );
+
+  return files;
 }
 
 void QFieldCloudUtils::addPendingAttachments( const QString &projectId, const QStringList &fileNames, QFieldCloudConnection *cloudConnection, const bool &checkSumCheck )

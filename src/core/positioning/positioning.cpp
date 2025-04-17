@@ -401,7 +401,7 @@ QList<GnssPositionInformation> Positioning::getBackgroundPositionInformation() c
     positionInformationList = call.returnValue().value<QList<GnssPositionInformation>>();
   }
 
-  return std::move( positionInformationList );
+  return positionInformationList;
 }
 
 PositioningSource::ElevationCorrectionMode Positioning::elevationCorrectionMode() const

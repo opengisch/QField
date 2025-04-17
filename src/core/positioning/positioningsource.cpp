@@ -180,7 +180,7 @@ QList<GnssPositionInformation> PositioningSource::getBackgroundPositionInformati
     file.close();
   }
 
-  return std::move( positionInformationList );
+  return positionInformationList;
 }
 
 void PositioningSource::setElevationCorrectionMode( ElevationCorrectionMode elevationCorrectionMode )
