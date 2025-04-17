@@ -369,11 +369,11 @@ void QFieldCloudProject::refreshFileOutdatedStatus()
       return;
     }
 
-    const QJsonArray files = QJsonDocument::fromJson( rawReply->readAll() ).array();
     const QString lastProjectFileMd5 = QFieldCloudUtils::projectSetting( mId, QStringLiteral( "lastProjectFileMd5" ), QString() ).toString();
-    for ( const auto file : files )
+    const QJsonArray files = QJsonDocument::fromJson( rawReply->readAll() ).array();
+    for ( const QJsonValue fileValue : files )
     {
-      QVariantHash fileDetails = file.toObject().toVariantHash();
+      QVariantHash fileDetails = fileValue.toObject().toVariantHash();
       const QString fileName = fileDetails.value( "name" ).toString().toLower();
       if ( fileName.endsWith( QStringLiteral( ".qgs" ) ) || fileName.endsWith( QStringLiteral( ".qgz" ) ) )
       {
