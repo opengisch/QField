@@ -160,7 +160,7 @@ const QStringList StringUtils::csvToStringList( const QString &string )
     }
   }
   values << value;
-  return std::move( values );
+  return values;
 }
 
 QString StringUtils::replaceFilenameTags( const QString &string, const QString &filename )

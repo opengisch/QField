@@ -83,7 +83,6 @@ set(QFIELD_CORE_SRCS
     localfilesmodel.cpp
     maptoscreen.cpp
     messagelogmodel.cpp
-    modelhelper.cpp
     multifeaturelistmodel.cpp
     multifeaturelistmodelbase.cpp
     navigation.cpp
@@ -210,7 +209,6 @@ set(QFIELD_CORE_HDRS
     localfilesmodel.h
     maptoscreen.h
     messagelogmodel.h
-    modelhelper.h
     multifeaturelistmodel.h
     multifeaturelistmodelbase.h
     navigation.h

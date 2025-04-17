@@ -192,7 +192,7 @@ void InternalGnssReceiver::handleSatellitesInViewUpdated( const QList<QGeoSatell
   if ( satellites.isEmpty() )
     return;
 
-  QList<QgsSatelliteInfo> satellitesInfo;
+  mSatellitesInfo.clear();
   for ( const QGeoSatelliteInfo &satellite : satellites )
   {
     QgsSatelliteInfo satelliteInfo;
@@ -205,6 +205,7 @@ void InternalGnssReceiver::handleSatellitesInViewUpdated( const QList<QGeoSatell
     satelliteInfo.id = satellite.satelliteIdentifier();
     satelliteInfo.signal = satellite.signalStrength();
     satelliteInfo.inUse = mSatellitesID.contains( satellite.satelliteIdentifier() );
+    mSatellitesInfo << satelliteInfo;
   }
 }
 

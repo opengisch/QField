@@ -110,6 +110,7 @@ class FeatureExpressionValuesGatherer : public QThread
         mEntries.append( Entry( attributes, expressionValue, feature ) );
 
         QMutexLocker locker( &mCancelMutex );
+        //cppcheck-suppress knownConditionTrueFalse
         if ( mWasCanceled )
           return;
       }

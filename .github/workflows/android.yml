@@ -174,9 +174,6 @@ jobs:
         run: |
           echo "$SIGNINGKEY" | base64 --decode > ./keystore.p12
 
-      - name: Cache .gradle
-        uses: burrunan/gradle-cache-action@v2
-
       - name: Package
         env:
           KEYNAME: qfield
@@ -221,7 +218,7 @@ jobs:
 
   deploy_to_playstore:
     name: deploy to play store
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: build
     if: ${{ ( github.event_name == 'release' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) ) }}
     steps:
@@ -266,7 +263,7 @@ jobs:
 
   comment_pr:
     name: comment (pr)
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: build
     if: ${{ github.event_name == 'pull_request' }}
     steps:
@@ -301,7 +298,7 @@ jobs:
 
   comment_commit:
     name: comment (commit)
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: build
     if: ${{ github.event_name == 'push' }}
     steps:

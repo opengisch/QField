@@ -80,13 +80,9 @@ void LayerTreeMapCanvasBridge::setCanvasLayers()
   }
 
   const QList<QgsLayerTreeLayer *> layerNodes = mRoot->findLayers();
-  int currentSpatialLayerCount = 0;
-  for ( QgsLayerTreeLayer *layerNode : layerNodes )
-  {
-    if ( layerNode->layer() && layerNode->layer()->isSpatial() )
-      currentSpatialLayerCount++;
-  }
-
+  int currentSpatialLayerCount = static_cast<int>( std::count_if( layerNodes.begin(), layerNodes.end(), []( QgsLayerTreeLayer *layerNode ) {
+    return layerNode->layer() && layerNode->layer()->isSpatial();
+  } ) );
   bool firstLayers = mAutoSetupOnFirstLayer && !mHasLayersLoaded && currentSpatialLayerCount != 0;
 
   mMapSettings->setLayers( canvasLayers );
@@ -94,13 +90,12 @@ void LayerTreeMapCanvasBridge::setCanvasLayers()
   if ( !mFirstCRS.isValid() )
   {
     // find out what is the first used CRS in case we may need to turn on OTF projections later
-    for ( QgsLayerTreeLayer *layerNode : layerNodes )
+    auto match = std::find_if( layerNodes.begin(), layerNodes.end(), []( QgsLayerTreeLayer *layerNode ) {
+      return layerNode->layer() && layerNode->layer()->crs().isValid();
+    } );
+    if ( match != layerNodes.end() )
     {
-      if ( layerNode->layer() && layerNode->layer()->crs().isValid() )
-      {
-        mFirstCRS = layerNode->layer()->crs();
-        break;
-      }
+      mFirstCRS = ( *match )->layer()->crs();
     }
   }
 

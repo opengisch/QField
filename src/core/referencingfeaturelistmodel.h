@@ -265,6 +265,7 @@ class FeatureGatherer : public QThread
         //test sleep(1);
         mEntries.append( ReferencingFeatureListModel::Entry( displayString, childFeature, nmDisplayString, nmFeature ) );
 
+        //cppcheck-suppress knownConditionTrueFalse
         if ( mWasCanceled )
           return;
       }

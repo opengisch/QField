@@ -15,7 +15,6 @@
  ***************************************************************************/
 
 #include "layertreemodel.h"
-#include "qfield.h"
 
 #include <qgslayertree.h>
 #include <qgslayertreemodel.h>
@@ -125,7 +124,7 @@ FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProj
   connect( mProject, &QgsProject::cleared, this, [=] { mFrozen--; } );
   connect( mProject, &QgsProject::readProject, this, [=] { buildMap( mLayerTreeModel ); } );
   connect( mProject, &QgsProject::layersAdded, this, &FlatLayerTreeModelBase::adjustTemporalStateFromAddedLayers );
-  connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, &FlatLayerTreeModelBase::updateMap );
+  connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, [=]( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles ) { updateMap( topLeft, bottomRight, roles ); } );
   connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, &FlatLayerTreeModelBase::removeFromMap );
   connect( mLayerTreeModel, &QAbstractItemModel::rowsInserted, this, &FlatLayerTreeModelBase::insertInMap );
 }
@@ -1045,7 +1044,7 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
         if ( QgsVectorLayer *vectorLayer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() ) )
         {
           if ( !vectorLayer->isSpatial() || !vectorLayer->labeling() )
-            break;
+            return false;
 
           vectorLayer->setLabelsEnabled( !vectorLayer->labelsEnabled() );
           vectorLayer->emitStyleChanged();
@@ -1058,7 +1057,7 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
         else if ( QgsVectorTileLayer *vectorTileLayer = qobject_cast<QgsVectorTileLayer *>( nodeLayer->layer() ) )
         {
           if ( !vectorTileLayer->labeling() )
-            break;
+            return false;
 
           vectorTileLayer->setLabelsEnabled( !vectorTileLayer->labelsEnabled() );
           vectorTileLayer->emitStyleChanged();
@@ -1235,30 +1234,19 @@ void FlatLayerTreeModelBase::updateTemporalState()
 {
   mIsTemporal = false;
   const QVector<QgsMapLayer *> mapLayers = mProject->layers<QgsMapLayer *>();
-  for ( QgsMapLayer *mapLayer : mapLayers )
+  if ( std::any_of( mapLayers.begin(), mapLayers.end(), []( QgsMapLayer *mapLayer ) { return mapLayer->temporalProperties() && mapLayer->temporalProperties()->isActive(); } ) )
   {
-    if ( mapLayer->temporalProperties() && mapLayer->temporalProperties()->isActive() )
-    {
-      mIsTemporal = true;
-      break;
-    }
+    mIsTemporal = true;
   }
   emit isTemporalChanged();
 }
 
 void FlatLayerTreeModelBase::adjustTemporalStateFromAddedLayers( const QList<QgsMapLayer *> &layers )
 {
-  if ( !mIsTemporal )
+  if ( !mIsTemporal && std::any_of( layers.begin(), layers.end(), []( QgsMapLayer *layer ) { return layer->temporalProperties() && layer->temporalProperties()->isActive(); } ) )
   {
-    for ( QgsMapLayer *layer : layers )
-    {
-      if ( layer->temporalProperties() && layer->temporalProperties()->isActive() )
-      {
-        mIsTemporal = true;
-        emit isTemporalChanged();
-        break;
-      }
-    }
+    mIsTemporal = true;
+    emit isTemporalChanged();
   }
 }
 

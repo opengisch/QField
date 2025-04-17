@@ -30,9 +30,7 @@ DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
   }
 
   const QJsonArray deltas = mJson.array();
-  QString combinedOutput;
-
-  for ( const QJsonValue &deltaJson : deltas )
+  for ( const QJsonValue deltaJson : deltas )
   {
     if ( !deltaJson.isObject() )
     {
