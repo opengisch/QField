@@ -82,7 +82,6 @@
 #include "locatormodelsuperbridge.h"
 #include "maptoscreen.h"
 #include "messagelogmodel.h"
-#include "modelhelper.h"
 #include "navigation.h"
 #include "navigationmodel.h"
 #include "nearfieldreader.h"
@@ -436,7 +435,6 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<FeatureListModelSelection>( "org.qfield", 1, 0, "FeatureListModelSelection" );
   qmlRegisterType<FeatureListExtentController>( "org.qfield", 1, 0, "FeaturelistExtentController" );
   qmlRegisterType<Geometry>( "org.qfield", 1, 0, "Geometry" );
-  qmlRegisterType<ModelHelper>( "org.qfield", 1, 0, "ModelHelper" );
   qmlRegisterType<RubberbandShape>( "org.qfield", 1, 0, "RubberbandShape" );
   qmlRegisterType<RubberbandModel>( "org.qfield", 1, 0, "RubberbandModel" );
   qmlRegisterType<ResourceSource>( "org.qfield", 1, 0, "ResourceSource" );
