@@ -15,7 +15,6 @@
  ***************************************************************************/
 
 #include "layertreemodel.h"
-#include "qfield.h"
 
 #include <qgslayertree.h>
 #include <qgslayertreemodel.h>
