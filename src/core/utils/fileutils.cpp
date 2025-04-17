@@ -26,12 +26,15 @@
 #include <QMimeDatabase>
 #include <QPainter>
 #include <QPainterPath>
+#include <QStandardPaths>
 #include <qgis.h>
 #include <qgsexiftools.h>
 #include <qgsfileutils.h>
+#include <qgsproject.h>
 #include <qgsrendercontext.h>
 #include <qgstextformat.h>
 #include <qgstextrenderer.h>
+
 
 FileUtils::FileUtils( QObject *parent )
   : QObject( parent )
@@ -317,4 +320,245 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text )
       QgsExifTools::tagImage( imagePath, key, metadata[key] );
     }
   }
+}
+
+bool FileUtils::isWithinProjectDirectory( const QString &filePath )
+{
+  // Get the project instance
+  QgsProject *project = QgsProject::instance();
+  if ( !project || project->fileName().isEmpty() )
+    return false;
+
+  QFileInfo projectFileInfo( project->fileName() );
+  if ( !projectFileInfo.exists() )
+    return false;
+
+  // Get the canonical path for the project directory
+  QString projectDirCanonical = QFileInfo( projectFileInfo.dir().absolutePath() ).canonicalFilePath();
+  if ( projectDirCanonical.isEmpty() )
+  {
+    // Fallback to absolutePath() if canonicalFilePath() is empty
+    projectDirCanonical = QFileInfo( projectFileInfo.dir().absolutePath() ).absoluteFilePath();
+    if ( projectDirCanonical.isEmpty() )
+      return false;
+  }
+
+  // Get target file info and its canonical path
+  QFileInfo targetInfo( filePath );
+  QString targetCanonical;
+
+  if ( targetInfo.exists() || targetInfo.isSymLink() )
+  {
+    targetCanonical = targetInfo.canonicalFilePath();
+    if ( targetCanonical.isEmpty() )
+    {
+      targetCanonical = targetInfo.absoluteFilePath();
+    }
+  }
+  else
+  {
+    // Walk up the directory tree until we find an existing parent
+    QDir dir = targetInfo.dir();
+    QStringList pendingSegments;
+
+    while ( !dir.exists() && dir.cdUp() )
+    {
+      pendingSegments.prepend( QFileInfo( dir.path() ).fileName() );
+    }
+
+    QString existingCanonical = QFileInfo( dir.path() ).canonicalFilePath();
+    if ( existingCanonical.isEmpty() )
+    {
+      existingCanonical = QFileInfo( dir.path() ).absoluteFilePath();
+      if ( existingCanonical.isEmpty() )
+        return false;
+    }
+
+    // Rebuild the target path from existing directories
+    QDir rebuiltDir( existingCanonical );
+    for ( const QString &segment : pendingSegments )
+    {
+      rebuiltDir.cd( segment );
+    }
+
+    targetCanonical = rebuiltDir.absoluteFilePath( targetInfo.fileName() );
+  }
+
+  // Normalize path separators
+  projectDirCanonical = QDir::fromNativeSeparators( projectDirCanonical );
+  targetCanonical = QDir::fromNativeSeparators( targetCanonical );
+
+  // Normalize paths for Windows (case-insensitive check)
+#ifdef Q_OS_WIN
+  projectDirCanonical = projectDirCanonical.toLower();
+  targetCanonical = targetCanonical.toLower();
+#endif
+
+  // Check if the target path is equal to or within the project directory
+  bool result = targetCanonical == projectDirCanonical || targetCanonical.startsWith( projectDirCanonical + "/" );
+
+  return result;
+}
+
+QByteArray FileUtils::readFileContent( const QString &filePath )
+{
+  QByteArray content;
+
+  if ( !isWithinProjectDirectory( filePath ) )
+  {
+    qWarning() << QStringLiteral( "Security warning: Attempted to read file outside project directory: %1" ).arg( filePath );
+    return QByteArray();
+  }
+
+  QFile file( filePath );
+
+  if ( file.exists() )
+  {
+    if ( file.open( QIODevice::ReadOnly ) )
+    {
+      content = file.readAll();
+      file.close();
+    }
+    else
+    {
+      qDebug() << QStringLiteral( "Failed to read file content: %1" ).arg( file.errorString() );
+    }
+  }
+  else
+  {
+    qDebug() << QStringLiteral( "File does not exist: %1" ).arg( filePath );
+  }
+
+  return content;
+}
+
+bool FileUtils::writeFileContent( const QString &filePath, const QByteArray &content )
+{
+  if ( !isWithinProjectDirectory( filePath ) )
+  {
+    qWarning() << QStringLiteral( "Security warning: Attempted to write file outside project directory: %1" ).arg( filePath );
+    return false;
+  }
+
+  QFile file( filePath );
+  QFileInfo fileInfo( filePath );
+  QDir directory = fileInfo.dir();
+
+  if ( !directory.exists() )
+  {
+    if ( !directory.mkpath( "." ) )
+    {
+      qDebug() << QStringLiteral( "Failed to create directory for file: %1. This may be due to permission restrictions." ).arg( filePath );
+      return false;
+    }
+  }
+
+  if ( file.open( QIODevice::WriteOnly ) )
+  {
+    qint64 bytesWritten = file.write( content );
+    file.close();
+
+    if ( bytesWritten != content.size() )
+    {
+      qDebug() << QStringLiteral( "Failed to write all data to file: %1" ).arg( filePath );
+      return false;
+    }
+
+    return true;
+  }
+  else
+  {
+    QString errorMsg = file.errorString();
+    if ( file.error() == QFile::PermissionsError )
+    {
+      errorMsg += QStringLiteral( " - This may be due to platform security restrictions." );
+    }
+    qDebug() << QStringLiteral( "Failed to open file for writing: %1" ).arg( errorMsg );
+    return false;
+  }
+}
+
+QVariantMap FileUtils::getFileInfo( const QString &filePath, bool fetchContent )
+{
+  QVariantMap info;
+
+  // Initialize all possible keys with empty defaults
+  info["exists"] = false;
+  info["error"] = "";
+  info["fileName"] = "";
+  info["filePath"] = "";
+  info["fileSize"] = 0;
+  info["lastModified"] = QDateTime();
+  info["suffix"] = "";
+  info["mimeType"] = "";
+  info["md5"] = "";
+  info["md5Error"] = "";
+  info["content"] = QByteArray();
+  info["readable"] = false;
+  info["readError"] = "";
+
+  if ( !isWithinProjectDirectory( filePath ) )
+  {
+    qWarning() << QStringLiteral( "Security warning: Attempted to access file info outside project directory: %1" ).arg( filePath );
+    info["error"] = QStringLiteral( "Access denied: File is outside the current project directory" );
+    return info;
+  }
+
+  QFileInfo fileInfo( filePath );
+  QFile file( filePath );
+
+  if ( fileInfo.exists() )
+  {
+    info["exists"] = true;
+    info["fileName"] = fileInfo.fileName();
+    info["filePath"] = fileInfo.absoluteFilePath();
+    info["fileSize"] = fileInfo.size();
+    info["lastModified"] = fileInfo.lastModified();
+    info["suffix"] = fileInfo.suffix();
+
+    QMimeDatabase db;
+    info["mimeType"] = db.mimeTypeForFile( filePath ).name();
+
+    QByteArray md5Hash = fileChecksum( filePath, QCryptographicHash::Md5 );
+    if ( !md5Hash.isEmpty() )
+    {
+      info["md5"] = md5Hash.toHex();
+    }
+    else
+    {
+      info["md5Error"] = QStringLiteral( "Could not calculate MD5 hash - possibly due to permission restrictions" );
+    }
+
+    if ( file.open( QIODevice::ReadOnly ) )
+    {
+      file.close();
+      info["readable"] = true;
+
+      if ( fetchContent )
+      {
+        QByteArray content = readFileContent( filePath );
+
+        if ( !content.isEmpty() || fileInfo.size() == 0 )
+        {
+          info["content"] = content;
+        }
+        else
+        {
+          info["readError"] = QStringLiteral( "Failed to read file content" );
+        }
+      }
+    }
+    else
+    {
+      info["readable"] = false;
+      info["readError"] = file.errorString();
+
+      if ( file.error() == QFile::PermissionsError )
+      {
+        info["readError"] = info["readError"].toString() + QStringLiteral( " - This may be due to platform security restrictions" );
+      }
+    }
+  }
+
+  return info;
 }
