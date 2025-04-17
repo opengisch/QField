@@ -737,7 +737,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;ID de configuration de l&apos;authentification au stockage externe est absent, assurez-vous qu&apos;il est importé dans QField</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -1703,7 +1703,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Update Attributes from Feature</source>
-        <translation type="unfinished"/>
+        <translation>Mettre à jour des attributs depuis une entité</translation>
     </message>
 </context>
 <context>
