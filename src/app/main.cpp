@@ -29,6 +29,7 @@
 #endif
 
 #include <qgsapplication.h>
+#include <qgsauthmanager.h>
 #include <qgslogger.h>
 #include <qgsprojutils.h>
 #include <qgsstyle.h>
@@ -266,6 +267,33 @@ int main( int argc, char **argv )
   app.setPkgDataPath( PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
 #endif
   app.createDatabase();
+
+#ifndef Q_OS_LINUX
+  QgsApplication::instance()->authManager()->setPasswordHelperEnabled( false );
+  if ( QgsApplication::instance()->authManager()->verifyMasterPassword( QString( "qfield" ) ) )
+  {
+    // migrating authentication database
+    QgsApplication::instance()->authManager()->setMasterPassword( QString( "qfield" ) );
+    QgsApplication::instance()->authManager()->setPasswordHelperEnabled( true );
+
+    QRandomGenerator generator = QRandomGenerator::securelySeeded();
+    QString pw;
+    pw.resize( 32 );
+    static const QString sPwChars = QStringLiteral( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-{}[]" );
+    for ( int i = 0; i < pw.size(); ++i )
+    {
+      pw[i] = sPwChars.at( generator.bounded( 0, sPwChars.length() ) );
+    }
+
+    QgsApplication::instance()->authManager()->resetMasterPasswordUsingStoredPasswordHelper( pw, false );
+  }
+
+  QgsApplication::instance()->authManager()->setPasswordHelperEnabled( true );
+  QgsApplication::instance()->authManager()->verifyStoredPasswordHelperPassword();
+#else
+  QgsApplication::instance()->authManager()->setPasswordHelperEnabled( false );
+  QgsApplication::instance()->authManager()->setMasterPassword( QString( "qfield" ) );
+#endif
 
   if ( !qfieldFontName.isEmpty() )
   {
