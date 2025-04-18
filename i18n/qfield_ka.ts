@@ -2702,6 +2702,90 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudProject</name>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation>სისტემური შეტყობინება: </translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation> (მეტი ინფორმაციისთვის იხილეთ QField შეცდომების ჟურნალი)…</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>შეწყდა</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -2733,7 +2817,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>aborted</source>
-        <translation>შეწყდა</translation>
+        <translation type="vanished">შეწყდა</translation>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
@@ -2819,11 +2903,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>System message: </source>
-        <translation>სისტემური შეტყობინება: </translation>
+        <translation type="vanished">სისტემური შეტყობინება: </translation>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
-        <translation> (მეტი ინფორმაციისთვის იხილეთ QField შეცდომების ჟურნალი)…</translation>
+        <translation type="vanished"> (მეტი ინფორმაციისთვის იხილეთ QField შეცდომების ჟურნალი)…</translation>
     </message>
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>

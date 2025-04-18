@@ -2714,71 +2714,7 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
 </context>
 <context>
-    <name>QFieldCloudProjectsModel</name>
-    <message>
-        <source>Export failed</source>
-        <translation type="vanished">Export zlyhal</translation>
-    </message>
-    <message>
-        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">Zbalená vrstva &apos;%1&apos; je neplatná: &apos;%2&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to open temporary file for &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Nepodarilo sa otvoriť dočasný súbor pre &quot;%1&quot;, dôvod:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Nepodarilo sa nahrať prílohu uloženú na &quot;%1&quot;, dôvod:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Nepodarilo sa stiahnuť súbor &quot;%1&quot;, dôvod:</translation>
-    </message>
-    <message>
-        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Nepodarilo sa zapísať stiahnutý súbor uložený na &quot;%1&quot;, dôvod fs:</translation>
-    </message>
-    <message>
-        <source>aborted</source>
-        <translation>zrušené</translation>
-    </message>
-    <message>
-        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>projekt(%1) obnovenie odozvy spúšťača neobsahuje všetky očakávané kľúče name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but the project is deleted.</source>
-        <translation>Získavanie statusu úlohy, no projekt bol vymazaný.</translation>
-    </message>
-    <message>
-        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>Vytváranie úlohy dokončené, avšak na serveri chýbajú požadované polia: id(string)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Získavanie statusu úlohy, zatiaľ nebola spustená žiadna `%2` úloha.</translation>
-    </message>
-    <message>
-        <source>Getting job status finished, but the project is deleted.</source>
-        <translation>Získavanie statusu úlohy dokončené, no projekt bol vymazaný.</translation>
-    </message>
-    <message>
-        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>Status úlohy(%1): neobsahuje všetky očakávané kľúče: status(string)</translation>
-    </message>
-    <message>
-        <source>Job(%1) finished with a failed status.</source>
-        <translation>Úloha(%1) dokončená so zlyhaným statusom.</translation>
-    </message>
-    <message>
-        <source>Project busy.</source>
-        <translation>Projekt zaneprázdnený.</translation>
-    </message>
+    <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>Proces zbalenia sa nepodaril pre `%1`. %2</translation>
@@ -2810,22 +2746,20 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
 %2</translation>
     </message>
     <message>
-        <source>Failed to upload attachment stored at `%1`, reason:
-%2</source>
-        <translation type="vanished">Nepodarilo sa nahrať prílohu uloženú v `%1`, Dôvod:
-%2</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download file `%1`.</source>
-        <translation>Chyba siete. Súbor `%1` sa nestiahol.</translation>
-    </message>
-    <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>Chyba súborového systému. Zápis súboru do dočasných súborov `%1` zlyhal.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>Chyba súborového systému. Otvorenie súboru pre zápis na dočasnom `%1`. </translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Chyba siete. Súbor `%1` sa nestiahol.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Niektoré zo stiahnutých súborov na Vašom zariadení sa nepodarilo skopírovať. Skontrolujte úložisko na Vašom zariadení.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
@@ -2840,8 +2774,159 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
         <translation>(viac informácií v protokole chýb QField)</translation>
     </message>
     <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>Vytváranie úlohy dokončené, avšak na serveri chýbajú požadované polia: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>Získavanie statusu úlohy, zatiaľ nebola spustená žiadna `%2` úloha.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>Status úlohy(%1): neobsahuje všetky očakávané kľúče: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>Úloha(%1) dokončená so zlyhaným statusom.</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>projekt(%1) obnovenie odozvy spúšťača neobsahuje všetky očakávané kľúče name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>zrušené</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldCloudProjectsModel</name>
+    <message>
+        <source>Export failed</source>
+        <translation type="vanished">Export zlyhal</translation>
+    </message>
+    <message>
+        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
+        <translation type="vanished">Zbalená vrstva &apos;%1&apos; je neplatná: &apos;%2&apos;</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Nepodarilo sa otvoriť dočasný súbor pre &quot;%1&quot;, dôvod:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Nepodarilo sa nahrať prílohu uloženú na &quot;%1&quot;, dôvod:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to download file &quot;%1&quot;, reason:</source>
+        <translation type="vanished">Nepodarilo sa stiahnuť súbor &quot;%1&quot;, dôvod:</translation>
+    </message>
+    <message>
+        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
+        <translation type="vanished">Nepodarilo sa zapísať stiahnutý súbor uložený na &quot;%1&quot;, dôvod fs:</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation type="vanished">zrušené</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="vanished">projekt(%1) obnovenie odozvy spúšťača neobsahuje všetky očakávané kľúče name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but the project is deleted.</source>
+        <translation type="vanished">Získavanie statusu úlohy, no projekt bol vymazaný.</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="vanished">Vytváranie úlohy dokončené, avšak na serveri chýbajú požadované polia: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="vanished">Získavanie statusu úlohy, zatiaľ nebola spustená žiadna `%2` úloha.</translation>
+    </message>
+    <message>
+        <source>Getting job status finished, but the project is deleted.</source>
+        <translation type="vanished">Získavanie statusu úlohy dokončené, no projekt bol vymazaný.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="vanished">Status úlohy(%1): neobsahuje všetky očakávané kľúče: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="vanished">Úloha(%1) dokončená so zlyhaným statusom.</translation>
+    </message>
+    <message>
+        <source>Project busy.</source>
+        <translation>Projekt zaneprázdnený.</translation>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="vanished">Proces zbalenia sa nepodaril pre `%1`. %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="vanished">Aktualizácia posledných informácií pre `%1`: %2 zlyhala.</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="vanished">Získanie posledných dát balíka zlyhalo.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="vanished">Posledná chyba odpovede dát balíka.</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="vanished">Posledná chyba dátovej štruktúry balíka</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="vanished">Projekt %1, Zbalená vrstva `%2` je neplatná. Chybový kód %3, chybová srpáva: %4</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation type="vanished">Nepodarilo sa otvoriť dočasný súbor pre `%1`, dôvod:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="vanished">Nepodarilo sa nahrať prílohu uloženú v `%1`, Dôvod:
+%2</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation type="vanished">Chyba siete. Súbor `%1` sa nestiahol.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation type="vanished">Chyba súborového systému. Zápis súboru do dočasných súborov `%1` zlyhal.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation type="vanished">Chyba súborového systému. Otvorenie súboru pre zápis na dočasnom `%1`. </translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation type="vanished">Projekt `%1`, file `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation type="vanished">Systémová správa:</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation type="vanished">(viac informácií v protokole chýb QField)</translation>
+    </message>
+    <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Niektoré zo stiahnutých súborov na Vašom zariadení sa nepodarilo skopírovať. Skontrolujte úložisko na Vašom zariadení.</translation>
+        <translation type="vanished">Niektoré zo stiahnutých súborov na Vašom zariadení sa nepodarilo skopírovať. Skontrolujte úložisko na Vašom zariadení.</translation>
     </message>
 </context>
 <context>

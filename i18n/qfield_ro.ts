@@ -2715,71 +2715,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
-    <name>QFieldCloudProjectsModel</name>
-    <message>
-        <source>Export failed</source>
-        <translation type="vanished">Exportare eșuată</translation>
-    </message>
-    <message>
-        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">Stratul împachetat &apos;%1&apos; nu este valid: &apos;%2&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to open temporary file for &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Nu s-a putut deschide fișierul temporar pentru &quot;%1&quot;, motiv:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Nu s-a putut încărca atașamentul stocat la &quot;%1&quot;, motivul:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished"> Nu s-a putut descărca fișierul &quot;%1&quot;, motiv:</translation>
-    </message>
-    <message>
-        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Nu s-a putut scrie fișierul descărcat stocat la &quot;%1&quot;, motiv:</translation>
-    </message>
-    <message>
-        <source>aborted</source>
-        <translation>anulat</translation>
-    </message>
-    <message>
-        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>reîmprospătarea declanșatorului project(%1) nu conține toate tastele așteptate: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but the project is deleted.</source>
-        <translation>Obținerea stării a eșuat căci proiectul este șters.</translation>
-    </message>
-    <message>
-        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>Crearea punctului de lucru a fost finalizată, dar din răspunsul serverului lipsește câmpul: id(string)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Obținem stărea punctului de lucru, dar nu a fost declanșată încă nicio operație `%2` .</translation>
-    </message>
-    <message>
-        <source>Getting job status finished, but the project is deleted.</source>
-        <translation>Finalizăm stărea punctului de lucru, dar proiectul este șters.</translation>
-    </message>
-    <message>
-        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>(%1) Răspunsul la starea punctului de lucru nu conține toate tastele așteptate: status(string)</translation>
-    </message>
-    <message>
-        <source>Job(%1) finished with a failed status.</source>
-        <translation>Job-ul(%1) încheiat, dar a eșuat.</translation>
-    </message>
-    <message>
-        <source>Project busy.</source>
-        <translation>Proiect ocupat.</translation>
-    </message>
+    <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>Procesul de împachetare a fost finalizat, dar a eșuat pentru `%1`. %2</translation>
@@ -2811,22 +2747,20 @@ While you can still view and use the project, it is strongly recommended to rese
 %2</translation>
     </message>
     <message>
-        <source>Failed to upload attachment stored at `%1`, reason:
-%2</source>
-        <translation type="vanished">Nu s-a putut încărca atașamentul stocat la `%1`, motiv:
-% 2</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download file `%1`.</source>
-        <translation>Eroare de rețea. Nu s-a putut descărca fișierul `%1`.</translation>
-    </message>
-    <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>Eroare a sistemului de fișiere. Nu s-a putut scrie fișierul în locația temporară `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>Eroare a sistemului de fișiere. Nu s-a putut deschide fișierul pentru a scrie temporar `%1`.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Eroare de rețea. Nu s-a putut descărca fișierul `%1`.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Nu s-a putut copia unele dintre fișierele descărcate de pe dispozitiv. Verificați stocarea dispozitivului.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
@@ -2841,8 +2775,159 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation> (vezi mai multe informații în jurnalul de modificări QField)…</translation>
     </message>
     <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>Crearea punctului de lucru a fost finalizată, dar din răspunsul serverului lipsește câmpul: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>Obținem stărea punctului de lucru, dar nu a fost declanșată încă nicio operație `%2` .</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>(%1) Răspunsul la starea punctului de lucru nu conține toate tastele așteptate: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>Job-ul(%1) încheiat, dar a eșuat.</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>reîmprospătarea declanșatorului project(%1) nu conține toate tastele așteptate: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>anulat</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldCloudProjectsModel</name>
+    <message>
+        <source>Export failed</source>
+        <translation type="vanished">Exportare eșuată</translation>
+    </message>
+    <message>
+        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
+        <translation type="vanished">Stratul împachetat &apos;%1&apos; nu este valid: &apos;%2&apos;</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Nu s-a putut deschide fișierul temporar pentru &quot;%1&quot;, motiv:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Nu s-a putut încărca atașamentul stocat la &quot;%1&quot;, motivul:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to download file &quot;%1&quot;, reason:</source>
+        <translation type="vanished"> Nu s-a putut descărca fișierul &quot;%1&quot;, motiv:</translation>
+    </message>
+    <message>
+        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
+        <translation type="vanished">Nu s-a putut scrie fișierul descărcat stocat la &quot;%1&quot;, motiv:</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation type="vanished">anulat</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="vanished">reîmprospătarea declanșatorului project(%1) nu conține toate tastele așteptate: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but the project is deleted.</source>
+        <translation type="vanished">Obținerea stării a eșuat căci proiectul este șters.</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="vanished">Crearea punctului de lucru a fost finalizată, dar din răspunsul serverului lipsește câmpul: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="vanished">Obținem stărea punctului de lucru, dar nu a fost declanșată încă nicio operație `%2` .</translation>
+    </message>
+    <message>
+        <source>Getting job status finished, but the project is deleted.</source>
+        <translation type="vanished">Finalizăm stărea punctului de lucru, dar proiectul este șters.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="vanished">(%1) Răspunsul la starea punctului de lucru nu conține toate tastele așteptate: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="vanished">Job-ul(%1) încheiat, dar a eșuat.</translation>
+    </message>
+    <message>
+        <source>Project busy.</source>
+        <translation>Proiect ocupat.</translation>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="vanished">Procesul de împachetare a fost finalizat, dar a eșuat pentru `%1`. %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="vanished">Nu s-au putut reîmprospăta cele mai recente informații pentru `%1`: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="vanished">Nu s-au putut obține cele mai recente date despre pachete.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="vanished">Cea mai recentă eroare de răspuns a datelor pachetului.</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="vanished">Ultima eroare de structură a datelor pachetului.</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="vanished">Proiectul %1: Stratul ambalat `%2` nu este valid. Cod de eroare %3, mesaj de eroare: %4</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation type="vanished">Nu s-a putut deschide fișierul temporar pentru`%1`, motiv
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="vanished">Nu s-a putut încărca atașamentul stocat la `%1`, motiv:
+% 2</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation type="vanished">Eroare de rețea. Nu s-a putut descărca fișierul `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation type="vanished">Eroare a sistemului de fișiere. Nu s-a putut scrie fișierul în locația temporară `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation type="vanished">Eroare a sistemului de fișiere. Nu s-a putut deschide fișierul pentru a scrie temporar `%1`.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation type="vanished">Proiect `%1`, fișier `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation type="vanished">Mesaj sistem:</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation type="vanished"> (vezi mai multe informații în jurnalul de modificări QField)…</translation>
+    </message>
+    <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Nu s-a putut copia unele dintre fișierele descărcate de pe dispozitiv. Verificați stocarea dispozitivului.</translation>
+        <translation type="vanished">Nu s-a putut copia unele dintre fișierele descărcate de pe dispozitiv. Verificați stocarea dispozitivului.</translation>
     </message>
 </context>
 <context>

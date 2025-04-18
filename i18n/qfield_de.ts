@@ -2710,70 +2710,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
 </context>
 <context>
-    <name>QFieldCloudProjectsModel</name>
-    <message>
-        <source>Export failed</source>
-        <translation type="vanished">Export fehlgeschlagen</translation>
-    </message>
-    <message>
-        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">Der gepackte Layer &apos;%1&apos; ist nicht gültig: &apos;%2&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to open temporary file for &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Temporäre Datei für &quot;%1&quot; konnte nicht geöffnet werden. Grund:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Das Hochladen des Anhangs, der unter &quot;%1&quot; gespeichert ist, ist fehlgeschlagen. Grund: %2</translation>
-    </message>
-    <message>
-        <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Dateidownload von &quot;%1&quot; gescheitert. Grund:</translation>
-    </message>
-    <message>
-        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Heruntergeladene Datei in &quot;%1&quot; konnte nicht geschrieben werden. Grund:</translation>
-    </message>
-    <message>
-        <source>aborted</source>
-        <translation>abgebrochen</translation>
-    </message>
-    <message>
-        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>Projekt(%1) Auslöser-Antwort Aktualisieren enthält nicht alle erwarteten Schlüssel: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but the project is deleted.</source>
-        <translation>Auftrags-Status erhalten, aber das Projekt wurde gelöscht.</translation>
-    </message>
-    <message>
-        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>Auftragserstellung abgeschlossen, aber in der Serverantwort fehlen erforderliche Felder: id(string)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Auftrags-Status erhalten, aber noch kein `%2`-Auftrag gestartet.</translation>
-    </message>
-    <message>
-        <source>Getting job status finished, but the project is deleted.</source>
-        <translation>Auftrags-Status *Abgeschlossen*, aber das Projekt wurde gelöscht.</translation>
-    </message>
-    <message>
-        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>Auftrag(%1)-Status-Antwort enthält nicht alle erwarteten Schlüssel: status(string)</translation>
-    </message>
-    <message>
-        <source>Job(%1) finished with a failed status.</source>
-        <translation>Auftrag(%1) wurde mit einem Fehlerstatus beendet.</translation>
-    </message>
-    <message>
-        <source>Project busy.</source>
-        <translation>Projekt arbeitet.</translation>
-    </message>
+    <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>Der Packen-Auftrag für `%1` wurde nicht erfolgreich beendet. %2</translation>
@@ -2805,21 +2742,20 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
 %2</translation>
     </message>
     <message>
-        <source>Failed to upload attachment stored at `%1`, reason:
-%2</source>
-        <translation type="vanished">Upload des in `%1` gespeicherten Anhangs fehlgeschlagen. Grund:%2</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download file `%1`.</source>
-        <translation>Netzwerkfehler. Datei `%1` konnte nicht heruntergeladen werden.</translation>
-    </message>
-    <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>Dateisystem-Fehler. Die Datei konnte nicht in den temporären Speicherort `%1` geschrieben werden.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>Dateisystem-Fehler. Die Datei konnte nicht geöffnet werden, um sie in den temporären Speicherort `%1` zu schreiben.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Netzwerkfehler. Datei `%1` konnte nicht heruntergeladen werden.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Einige der heruntergeladenen Dateien konnten nicht auf das Mobilgerät kopiert werden. Überprüfen Sie Ihren Gerätespeicher.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
@@ -2834,8 +2770,157 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
         <translation> (mehr im QField Fehler Log)…</translation>
     </message>
     <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>Auftragserstellung abgeschlossen, aber in der Serverantwort fehlen erforderliche Felder: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>Auftrags-Status erhalten, aber noch kein `%2`-Auftrag gestartet.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>Auftrag(%1)-Status-Antwort enthält nicht alle erwarteten Schlüssel: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>Auftrag(%1) wurde mit einem Fehlerstatus beendet.</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>Projekt(%1) Auslöser-Antwort Aktualisieren enthält nicht alle erwarteten Schlüssel: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>abgebrochen</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldCloudProjectsModel</name>
+    <message>
+        <source>Export failed</source>
+        <translation type="vanished">Export fehlgeschlagen</translation>
+    </message>
+    <message>
+        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
+        <translation type="vanished">Der gepackte Layer &apos;%1&apos; ist nicht gültig: &apos;%2&apos;</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Temporäre Datei für &quot;%1&quot; konnte nicht geöffnet werden. Grund:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Das Hochladen des Anhangs, der unter &quot;%1&quot; gespeichert ist, ist fehlgeschlagen. Grund: %2</translation>
+    </message>
+    <message>
+        <source>Failed to download file &quot;%1&quot;, reason:</source>
+        <translation type="vanished">Dateidownload von &quot;%1&quot; gescheitert. Grund:</translation>
+    </message>
+    <message>
+        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
+        <translation type="vanished">Heruntergeladene Datei in &quot;%1&quot; konnte nicht geschrieben werden. Grund:</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation type="vanished">abgebrochen</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="vanished">Projekt(%1) Auslöser-Antwort Aktualisieren enthält nicht alle erwarteten Schlüssel: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but the project is deleted.</source>
+        <translation type="vanished">Auftrags-Status erhalten, aber das Projekt wurde gelöscht.</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="vanished">Auftragserstellung abgeschlossen, aber in der Serverantwort fehlen erforderliche Felder: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="vanished">Auftrags-Status erhalten, aber noch kein `%2`-Auftrag gestartet.</translation>
+    </message>
+    <message>
+        <source>Getting job status finished, but the project is deleted.</source>
+        <translation type="vanished">Auftrags-Status *Abgeschlossen*, aber das Projekt wurde gelöscht.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="vanished">Auftrag(%1)-Status-Antwort enthält nicht alle erwarteten Schlüssel: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="vanished">Auftrag(%1) wurde mit einem Fehlerstatus beendet.</translation>
+    </message>
+    <message>
+        <source>Project busy.</source>
+        <translation>Projekt arbeitet.</translation>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="vanished">Der Packen-Auftrag für `%1` wurde nicht erfolgreich beendet. %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="vanished">Aktualisierung der neuesten Informationen für `%1` fehlgeschlagen: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="vanished">Fehler beim Abrufen der letzten Paket-Daten.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="vanished">Letzter Datenabruf Fehler.</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="vanished">Fehler in der Datenstruktur des letzten Pakets.</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="vanished">Projekt %1: Der Layer `%2` ist nicht gültig. Fehler Code %3, Fehler Meldung: %4</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation type="vanished">Die temporäre Datei für `%1` konnte nicht geöffnet werden. Grund:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="vanished">Upload des in `%1` gespeicherten Anhangs fehlgeschlagen. Grund:%2</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation type="vanished">Netzwerkfehler. Datei `%1` konnte nicht heruntergeladen werden.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation type="vanished">Dateisystem-Fehler. Die Datei konnte nicht in den temporären Speicherort `%1` geschrieben werden.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation type="vanished">Dateisystem-Fehler. Die Datei konnte nicht geöffnet werden, um sie in den temporären Speicherort `%1` zu schreiben.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation type="vanished">Projekt `%1`, Datei `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation type="vanished">Systemnachricht:</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation type="vanished"> (mehr im QField Fehler Log)…</translation>
+    </message>
+    <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Einige der heruntergeladenen Dateien konnten nicht auf das Mobilgerät kopiert werden. Überprüfen Sie Ihren Gerätespeicher.</translation>
+        <translation type="vanished">Einige der heruntergeladenen Dateien konnten nicht auf das Mobilgerät kopiert werden. Überprüfen Sie Ihren Gerätespeicher.</translation>
     </message>
 </context>
 <context>

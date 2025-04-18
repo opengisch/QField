@@ -2709,71 +2709,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
-    <name>QFieldCloudProjectsModel</name>
-    <message>
-        <source>Export failed</source>
-        <translation type="vanished">导出失败</translation>
-    </message>
-    <message>
-        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">打包图层 &apos;%1&apos; 无效：&apos;%2&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to open temporary file for &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">无法打开&quot;%1&quot;的临时文件，原因：
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">无法上传存储在&quot;%1&quot;的附件，原因：
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">下载文件 &quot;%1&quot; 失败，原因：</translation>
-    </message>
-    <message>
-        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">无法写入存储在 &quot;%1&quot; 的下载文件，FS 原因:</translation>
-    </message>
-    <message>
-        <source>aborted</source>
-        <translation>异常退出</translation>
-    </message>
-    <message>
-        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>工程(%1) 触发响应刷新不包含所有预期的关键字：名称(字符串)、所有者(字符串)、描述(字符串)、用户角色(字符串)、is_public(布尔)、can_repackage(布尔)、needs_repackaging(布尔)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but the project is deleted.</source>
-        <translation>正在获取作业状态，但工程已删除。</translation>
-    </message>
-    <message>
-        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>作业创建完成，但服务器响应缺少必填字段: id(string)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>正在获取作业状态，但尚未触发 `%2` 作业。</translation>
-    </message>
-    <message>
-        <source>Getting job status finished, but the project is deleted.</source>
-        <translation>获取作业状态已完成，但工程已删除。</translation>
-    </message>
-    <message>
-        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>作业(%1) 状态响应不包含所有预期关键字: status(字符串)</translation>
-    </message>
-    <message>
-        <source>Job(%1) finished with a failed status.</source>
-        <translation>作业(%1) 以失败状态完成。</translation>
-    </message>
-    <message>
-        <source>Project busy.</source>
-        <translation>工程繁忙。</translation>
-    </message>
+    <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>`%1`的打包作业未成功完成。%2</translation>
@@ -2805,22 +2741,20 @@ While you can still view and use the project, it is strongly recommended to rese
 %2</translation>
     </message>
     <message>
-        <source>Failed to upload attachment stored at `%1`, reason:
-%2</source>
-        <translation type="vanished">无法上传存储在`%1`的附件，原因：
-%2</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download file `%1`.</source>
-        <translation>网络错误，未能下载文件`%1`。</translation>
-    </message>
-    <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>文件系统错误，无法将文件写入临时单元`%1`。</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>文件系统错误，无法在临时单元`%1`上打开要写入的文件。</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>网络错误，未能下载文件`%1`。</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>无法复制设备上下载的某些文件，请检查您的存储设备。</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
@@ -2835,8 +2769,159 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation> (请查阅QField错误日志中的更多信息)…</translation>
     </message>
     <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>作业创建完成，但服务器响应缺少必填字段: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>正在获取作业状态，但尚未触发 `%2` 作业。</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>作业(%1) 状态响应不包含所有预期关键字: status(字符串)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>作业(%1) 以失败状态完成。</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>工程(%1) 触发响应刷新不包含所有预期的关键字：名称(字符串)、所有者(字符串)、描述(字符串)、用户角色(字符串)、is_public(布尔)、can_repackage(布尔)、needs_repackaging(布尔)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>异常退出</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldCloudProjectsModel</name>
+    <message>
+        <source>Export failed</source>
+        <translation type="vanished">导出失败</translation>
+    </message>
+    <message>
+        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
+        <translation type="vanished">打包图层 &apos;%1&apos; 无效：&apos;%2&apos;</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">无法打开&quot;%1&quot;的临时文件，原因：
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">无法上传存储在&quot;%1&quot;的附件，原因：
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to download file &quot;%1&quot;, reason:</source>
+        <translation type="vanished">下载文件 &quot;%1&quot; 失败，原因：</translation>
+    </message>
+    <message>
+        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
+        <translation type="vanished">无法写入存储在 &quot;%1&quot; 的下载文件，FS 原因:</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation type="vanished">异常退出</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="vanished">工程(%1) 触发响应刷新不包含所有预期的关键字：名称(字符串)、所有者(字符串)、描述(字符串)、用户角色(字符串)、is_public(布尔)、can_repackage(布尔)、needs_repackaging(布尔)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but the project is deleted.</source>
+        <translation type="vanished">正在获取作业状态，但工程已删除。</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="vanished">作业创建完成，但服务器响应缺少必填字段: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="vanished">正在获取作业状态，但尚未触发 `%2` 作业。</translation>
+    </message>
+    <message>
+        <source>Getting job status finished, but the project is deleted.</source>
+        <translation type="vanished">获取作业状态已完成，但工程已删除。</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="vanished">作业(%1) 状态响应不包含所有预期关键字: status(字符串)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="vanished">作业(%1) 以失败状态完成。</translation>
+    </message>
+    <message>
+        <source>Project busy.</source>
+        <translation>工程繁忙。</translation>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="vanished">`%1`的打包作业未成功完成。%2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="vanished">未能刷新`%1`的最新信息: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="vanished">无法获取最新包的数据。</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="vanished">最新包的数据响应错误。</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="vanished">最新包的数据结构错误。</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="vanished">工程%1: 打包图层`%2`无效。错误代码%3，错误消息: %4</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation type="vanished">无法打开`%1`的临时文件，原因：
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="vanished">无法上传存储在`%1`的附件，原因：
+%2</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation type="vanished">网络错误，未能下载文件`%1`。</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation type="vanished">文件系统错误，无法将文件写入临时单元`%1`。</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation type="vanished">文件系统错误，无法在临时单元`%1`上打开要写入的文件。</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation type="vanished">工程 `%1`, 文件 `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation type="vanished">系统信息：</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation type="vanished"> (请查阅QField错误日志中的更多信息)…</translation>
+    </message>
+    <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>无法复制设备上下载的某些文件，请检查您的存储设备。</translation>
+        <translation type="vanished">无法复制设备上下载的某些文件，请检查您的存储设备。</translation>
     </message>
 </context>
 <context>

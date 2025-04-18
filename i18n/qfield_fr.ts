@@ -2711,69 +2711,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
 </context>
 <context>
-    <name>QFieldCloudProjectsModel</name>
-    <message>
-        <source>Export failed</source>
-        <translation type="vanished">L&apos;exportation a échoué</translation>
-    </message>
-    <message>
-        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">La couche empaquetée &apos;%1&apos; n&apos;est pas valide: &apos;%2&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to open temporary file for &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Impossible d&apos;ouvrir le fichier temporaire pour &quot;%1&quot;, raison : %2</translation>
-    </message>
-    <message>
-        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Impossible de télécharger la pièce jointe stockée à &quot;%1&quot;, raison :%2</translation>
-    </message>
-    <message>
-        <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Échec du téléchargement du fichier &quot;%1&quot;, raison :</translation>
-    </message>
-    <message>
-        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Échec d&apos;enregistrement du fichier téléchargé sur &quot;%1&quot;; erreur du système de fichier:</translation>
-    </message>
-    <message>
-        <source>aborted</source>
-        <translation>avorté</translation>
-    </message>
-    <message>
-        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>Le rafraîchissement de la réponse du déclencheur du projet(%1) ne contient pas l&apos;ensemble des clés attendues: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but the project is deleted.</source>
-        <translation>Le statut de la tâche a été reçu, mais le projet a été supprimé.</translation>
-    </message>
-    <message>
-        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>La création de la tâche est terminée, mais il manque des champs requis dans la réponse du serveur: id(string)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Le statut de la tâche a été reçu, mais aucune tâche `%2` n&apos;a été déclenchée pour le moment.</translation>
-    </message>
-    <message>
-        <source>Getting job status finished, but the project is deleted.</source>
-        <translation>La tâche est marquée comme terminée, mais le projet a été supprimé.</translation>
-    </message>
-    <message>
-        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>La réponse du statut de la tâche(%1) ne contient pas l&apos;ensemble des clés attendues: status(string)</translation>
-    </message>
-    <message>
-        <source>Job(%1) finished with a failed status.</source>
-        <translation>Tâche(%1) terminée avec un état d&apos;échec.</translation>
-    </message>
-    <message>
-        <source>Project busy.</source>
-        <translation>Projet occupé.</translation>
-    </message>
+    <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>La tâche d&apos;empaquetage s&apos;est terminée sans succès pour `%1`. %2</translation>
@@ -2805,22 +2743,20 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
 %2</translation>
     </message>
     <message>
-        <source>Failed to upload attachment stored at `%1`, reason:
-%2</source>
-        <translation type="vanished">Impossible d&apos;envoyer la pièce jointe stockée à `%1`, raison:
-%2</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download file `%1`.</source>
-        <translation>Erreur de réseau. Échec de téléchargement du fichier `%1`.</translation>
-    </message>
-    <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>Erreur du système de fichier. Impossible d&apos;écrire à l&apos;emplacement temporaire `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>Erreur du système de fichier. Impossible d&apos;ouvrir le fichier en écriture à l&apos;emplacement temporaire `%1`.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Erreur de réseau. Échec de téléchargement du fichier `%1`.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Échec de la copie de certains des fichiers téléchargés sur votre appareil. Vérifier le stockage de celui-ci. </translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
@@ -2835,8 +2771,157 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation> (voir plus dans le journal des erreurs de QField)...</translation>
     </message>
     <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>La création de la tâche est terminée, mais il manque des champs requis dans la réponse du serveur: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>Le statut de la tâche a été reçu, mais aucune tâche `%2` n&apos;a été déclenchée pour le moment.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>La réponse du statut de la tâche(%1) ne contient pas l&apos;ensemble des clés attendues: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>Tâche(%1) terminée avec un état d&apos;échec.</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>Le rafraîchissement de la réponse du déclencheur du projet(%1) ne contient pas l&apos;ensemble des clés attendues: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>avorté</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldCloudProjectsModel</name>
+    <message>
+        <source>Export failed</source>
+        <translation type="vanished">L&apos;exportation a échoué</translation>
+    </message>
+    <message>
+        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
+        <translation type="vanished">La couche empaquetée &apos;%1&apos; n&apos;est pas valide: &apos;%2&apos;</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Impossible d&apos;ouvrir le fichier temporaire pour &quot;%1&quot;, raison : %2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Impossible de télécharger la pièce jointe stockée à &quot;%1&quot;, raison :%2</translation>
+    </message>
+    <message>
+        <source>Failed to download file &quot;%1&quot;, reason:</source>
+        <translation type="vanished">Échec du téléchargement du fichier &quot;%1&quot;, raison :</translation>
+    </message>
+    <message>
+        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
+        <translation type="vanished">Échec d&apos;enregistrement du fichier téléchargé sur &quot;%1&quot;; erreur du système de fichier:</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation type="vanished">avorté</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="vanished">Le rafraîchissement de la réponse du déclencheur du projet(%1) ne contient pas l&apos;ensemble des clés attendues: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but the project is deleted.</source>
+        <translation type="vanished">Le statut de la tâche a été reçu, mais le projet a été supprimé.</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="vanished">La création de la tâche est terminée, mais il manque des champs requis dans la réponse du serveur: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="vanished">Le statut de la tâche a été reçu, mais aucune tâche `%2` n&apos;a été déclenchée pour le moment.</translation>
+    </message>
+    <message>
+        <source>Getting job status finished, but the project is deleted.</source>
+        <translation type="vanished">La tâche est marquée comme terminée, mais le projet a été supprimé.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="vanished">La réponse du statut de la tâche(%1) ne contient pas l&apos;ensemble des clés attendues: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="vanished">Tâche(%1) terminée avec un état d&apos;échec.</translation>
+    </message>
+    <message>
+        <source>Project busy.</source>
+        <translation>Projet occupé.</translation>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="vanished">La tâche d&apos;empaquetage s&apos;est terminée sans succès pour `%1`. %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="vanished">Échec de rafraîchissement des dernières informations pour `%1`: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="vanished">Échec de récupération des dernières données du paquet.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="vanished">Erreur de réponse sur les dernières données du paquet.</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="vanished">Erreur de structure sur les dernières données du paquet.</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="vanished">Projet %1: La couche empaquetée `%2` n&apos;est pas valide. Code d&apos;erreur %3, message d&apos;erreur: %4</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation type="vanished">Impossible d&apos;ouvrir le fichier temporaire pour `%1`, raison :
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="vanished">Impossible d&apos;envoyer la pièce jointe stockée à `%1`, raison:
+%2</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation type="vanished">Erreur de réseau. Échec de téléchargement du fichier `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation type="vanished">Erreur du système de fichier. Impossible d&apos;écrire à l&apos;emplacement temporaire `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation type="vanished">Erreur du système de fichier. Impossible d&apos;ouvrir le fichier en écriture à l&apos;emplacement temporaire `%1`.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation type="vanished">Projet `%1`, fichier `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation type="vanished">Message système : </translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation type="vanished"> (voir plus dans le journal des erreurs de QField)...</translation>
+    </message>
+    <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Échec de la copie de certains des fichiers téléchargés sur votre appareil. Vérifier le stockage de celui-ci. </translation>
+        <translation type="vanished">Échec de la copie de certains des fichiers téléchargés sur votre appareil. Vérifier le stockage de celui-ci. </translation>
     </message>
 </context>
 <context>

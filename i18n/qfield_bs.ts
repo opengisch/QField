@@ -2712,71 +2712,7 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
     </message>
 </context>
 <context>
-    <name>QFieldCloudProjectsModel</name>
-    <message>
-        <source>Export failed</source>
-        <translation type="vanished">Eksport nije uspio</translation>
-    </message>
-    <message>
-        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">Pakovanje sloja &apos;%1&apos; nije validno: &apos;%2&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to open temporary file for &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Nije uspjelo otvaranje privremenog fajla za &quot;%1&quot;, razlog:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Nije uspjelo prebacivanje priloga pohranjenog na &quot;%1&quot;, razlog:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Nije uspjelo skidanje fajla &quot;%1&quot;, razlog:</translation>
-    </message>
-    <message>
-        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Nije uspjelo skidanje fajla pohranjenog na &quot;%1&quot;, razlog:</translation>
-    </message>
-    <message>
-        <source>aborted</source>
-        <translation>otkazano</translation>
-    </message>
-    <message>
-        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>projekat(%1) okidač je dobio odgovor koji ne sadrži sve očekivane ključeve: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but the project is deleted.</source>
-        <translation>Dobivanje statusa posla, ali je projekat izbrisan.</translation>
-    </message>
-    <message>
-        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>Završeno kreiranje posla, ali odgovor servera nema zahtjevano polje: id(string)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Dobivanje statusa posla, ali posao `%2` još nije okinuo.</translation>
-    </message>
-    <message>
-        <source>Getting job status finished, but the project is deleted.</source>
-        <translation>Dobivanje statusa posla je završeno, ali je projekat izbrisan.</translation>
-    </message>
-    <message>
-        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>odgovor na status posla(%1) ne sadrži sve očelivane ključeve: status(string)</translation>
-    </message>
-    <message>
-        <source>Job(%1) finished with a failed status.</source>
-        <translation>Posao(%1) završen sa neuspjelim statusom.</translation>
-    </message>
-    <message>
-        <source>Project busy.</source>
-        <translation>Projekat je zauzet.</translation>
-    </message>
+    <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>Pakovanje posla nije uspješno završeno za `%1`. %2</translation>
@@ -2808,22 +2744,20 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
 %2</translation>
     </message>
     <message>
-        <source>Failed to upload attachment stored at `%1`, reason:
-%2</source>
-        <translation type="vanished">Nije uspjelo dodavanje priloga u `%1`, razlog:
-%2</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download file `%1`.</source>
-        <translation>Greška u mreži. Nije uspjelo preuzimanje fajla `%1`.</translation>
-    </message>
-    <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>Greška u sistemskom fajlu. Nije uspjelo pisanje fajla u privremenu lokaciju `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>Greška u sistemskom fajlu. Nije uspjelo otvaranje fajla za pisanje na privremenoj lokaciji `%1`.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Greška u mreži. Nije uspjelo preuzimanje fajla `%1`.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Nije uspjelo kopiranje nekih od skinutih fajlova na vaš uređaj. Provjerite prostor na vašem uređaju.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
@@ -2838,8 +2772,159 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
         <translation> (pogledajte više u QField log grešaka)…</translation>
     </message>
     <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>Završeno kreiranje posla, ali odgovor servera nema zahtjevano polje: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>Dobivanje statusa posla, ali posao `%2` još nije okinuo.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>odgovor na status posla(%1) ne sadrži sve očelivane ključeve: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>Posao(%1) završen sa neuspjelim statusom.</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>projekat(%1) okidač je dobio odgovor koji ne sadrži sve očekivane ključeve: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>otkazano</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldCloudProjectsModel</name>
+    <message>
+        <source>Export failed</source>
+        <translation type="vanished">Eksport nije uspio</translation>
+    </message>
+    <message>
+        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
+        <translation type="vanished">Pakovanje sloja &apos;%1&apos; nije validno: &apos;%2&apos;</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Nije uspjelo otvaranje privremenog fajla za &quot;%1&quot;, razlog:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Nije uspjelo prebacivanje priloga pohranjenog na &quot;%1&quot;, razlog:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to download file &quot;%1&quot;, reason:</source>
+        <translation type="vanished">Nije uspjelo skidanje fajla &quot;%1&quot;, razlog:</translation>
+    </message>
+    <message>
+        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
+        <translation type="vanished">Nije uspjelo skidanje fajla pohranjenog na &quot;%1&quot;, razlog:</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation type="vanished">otkazano</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="vanished">projekat(%1) okidač je dobio odgovor koji ne sadrži sve očekivane ključeve: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but the project is deleted.</source>
+        <translation type="vanished">Dobivanje statusa posla, ali je projekat izbrisan.</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="vanished">Završeno kreiranje posla, ali odgovor servera nema zahtjevano polje: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="vanished">Dobivanje statusa posla, ali posao `%2` još nije okinuo.</translation>
+    </message>
+    <message>
+        <source>Getting job status finished, but the project is deleted.</source>
+        <translation type="vanished">Dobivanje statusa posla je završeno, ali je projekat izbrisan.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="vanished">odgovor na status posla(%1) ne sadrži sve očelivane ključeve: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="vanished">Posao(%1) završen sa neuspjelim statusom.</translation>
+    </message>
+    <message>
+        <source>Project busy.</source>
+        <translation>Projekat je zauzet.</translation>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="vanished">Pakovanje posla nije uspješno završeno za `%1`. %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="vanished">Nije uspjelo osvježavanje info za  `%1`: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="vanished">Nije uspjelo dobivanje novijih zapakovanih podataka.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="vanished">Greška u odgovoru na posljednje podatke.</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="vanished">Greška u strukturi novijih podataka.</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="vanished">Projekat %1: Zapakovan sloj `%2` nije validan. Broj greške %3, poruka greške: %4</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation type="vanished">Nije uspjelo otvaranje privremenog fajla za `%1`, razlog:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="vanished">Nije uspjelo dodavanje priloga u `%1`, razlog:
+%2</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation type="vanished">Greška u mreži. Nije uspjelo preuzimanje fajla `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation type="vanished">Greška u sistemskom fajlu. Nije uspjelo pisanje fajla u privremenu lokaciju `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation type="vanished">Greška u sistemskom fajlu. Nije uspjelo otvaranje fajla za pisanje na privremenoj lokaciji `%1`.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation type="vanished">Projekat `%1`, fajl `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation type="vanished">Sistemska poruka: </translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation type="vanished"> (pogledajte više u QField log grešaka)…</translation>
+    </message>
+    <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Nije uspjelo kopiranje nekih od skinutih fajlova na vaš uređaj. Provjerite prostor na vašem uređaju.</translation>
+        <translation type="vanished">Nije uspjelo kopiranje nekih od skinutih fajlova na vaš uređaj. Provjerite prostor na vašem uređaju.</translation>
     </message>
 </context>
 <context>

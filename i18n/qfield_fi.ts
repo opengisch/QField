@@ -2712,71 +2712,7 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
 </context>
 <context>
-    <name>QFieldCloudProjectsModel</name>
-    <message>
-        <source>Export failed</source>
-        <translation type="vanished">Vienti epäonnistui</translation>
-    </message>
-    <message>
-        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">Pakattu kerros &apos;% 1&apos; ei kelpaa: &apos;% 2&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to open temporary file for &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Väliaikaisen tiedoston &quot;%1&quot; avaaminen epäonnistui, syy:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">&quot;%1&quot; tallennetun liitteen lataaminen epäonnistui, syy:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Tiedoston lataus epäonnistui &quot;%1&quot;, syy:</translation>
-    </message>
-    <message>
-        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Ladatun tiedoston kirjoittaminen kohdassa &quot;%1&quot; epäonnistui, fs syy:</translation>
-    </message>
-    <message>
-        <source>aborted</source>
-        <translation>keskeytetty</translation>
-    </message>
-    <message>
-        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but the project is deleted.</source>
-        <translation>Haetaan työn tilaa, mutta projekti on poistettu.</translation>
-    </message>
-    <message>
-        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>Työn luonti on valmis, mutta palvelimen vastauksesta puuttuu pakolliset kentät: id(string)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Haetaan työn tilaa, mutta työtä &quot;%2&quot; ei ole vielä käynnistetty.</translation>
-    </message>
-    <message>
-        <source>Getting job status finished, but the project is deleted.</source>
-        <translation>Työn tila valmistunut, mutta projekti on poistettu.</translation>
-    </message>
-    <message>
-        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>job(%1) statusvastaus ei sisällä kaikkia odotettuja avaimia: status(string)</translation>
-    </message>
-    <message>
-        <source>Job(%1) finished with a failed status.</source>
-        <translation>Työ(%1) päättyi epäonnistuneena.</translation>
-    </message>
-    <message>
-        <source>Project busy.</source>
-        <translation>Projekti  varattu.</translation>
-    </message>
+    <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>Pakkaustyö päättyi epäonnistuneesti kohteelle &quot;%1&quot;. %2</translation>
@@ -2808,22 +2744,20 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
 epäonnistui, syy: %2</translation>
     </message>
     <message>
-        <source>Failed to upload attachment stored at `%1`, reason:
-%2</source>
-        <translation type="vanished">Osoitteeseen `%1` tallennetun liitteen lataaminen epäonnistui,
-syy: %2</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download file `%1`.</source>
-        <translation>Verkkovirhe. Tiedoston &apos;%1&apos; lataaminen epäonnistui.</translation>
-    </message>
-    <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>Tiedostojärjestelmävirhe. Tiedoston kirjoittaminen väliaikaiseen sijaintiin &apos;%1&apos; epäonnistui.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>Tiedostojärjestelmävirhe. Tiedoston avaaminen väliaikaiseen tiedostoon &apos;%1&apos; kirjoittamista varten epäonnistui.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Verkkovirhe. Tiedoston &apos;%1&apos; lataaminen epäonnistui.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Joidenkin laitteellesi ladattujen tiedostojen kopiointi epäonnistui. Tarkista laitteesi tallennusväline.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
@@ -2838,8 +2772,159 @@ syy: %2</translation>
         <translation>(lue lisää QFieldin virhelokista)...</translation>
     </message>
     <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>Työn luonti on valmis, mutta palvelimen vastauksesta puuttuu pakolliset kentät: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>Haetaan työn tilaa, mutta työtä &quot;%2&quot; ei ole vielä käynnistetty.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>job(%1) statusvastaus ei sisällä kaikkia odotettuja avaimia: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>Työ(%1) päättyi epäonnistuneena.</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>keskeytetty</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldCloudProjectsModel</name>
+    <message>
+        <source>Export failed</source>
+        <translation type="vanished">Vienti epäonnistui</translation>
+    </message>
+    <message>
+        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
+        <translation type="vanished">Pakattu kerros &apos;% 1&apos; ei kelpaa: &apos;% 2&apos;</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Väliaikaisen tiedoston &quot;%1&quot; avaaminen epäonnistui, syy:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">&quot;%1&quot; tallennetun liitteen lataaminen epäonnistui, syy:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to download file &quot;%1&quot;, reason:</source>
+        <translation type="vanished">Tiedoston lataus epäonnistui &quot;%1&quot;, syy:</translation>
+    </message>
+    <message>
+        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
+        <translation type="vanished">Ladatun tiedoston kirjoittaminen kohdassa &quot;%1&quot; epäonnistui, fs syy:</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation type="vanished">keskeytetty</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="vanished">project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but the project is deleted.</source>
+        <translation type="vanished">Haetaan työn tilaa, mutta projekti on poistettu.</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="vanished">Työn luonti on valmis, mutta palvelimen vastauksesta puuttuu pakolliset kentät: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="vanished">Haetaan työn tilaa, mutta työtä &quot;%2&quot; ei ole vielä käynnistetty.</translation>
+    </message>
+    <message>
+        <source>Getting job status finished, but the project is deleted.</source>
+        <translation type="vanished">Työn tila valmistunut, mutta projekti on poistettu.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="vanished">job(%1) statusvastaus ei sisällä kaikkia odotettuja avaimia: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="vanished">Työ(%1) päättyi epäonnistuneena.</translation>
+    </message>
+    <message>
+        <source>Project busy.</source>
+        <translation>Projekti  varattu.</translation>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="vanished">Pakkaustyö päättyi epäonnistuneesti kohteelle &quot;%1&quot;. %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="vanished">Viimeisimpien tietojen päivittäminen kohteelle &quot;%1&quot; epäonnistui: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="vanished">Uusimpien pakettitietojen hakeminen epäonnistui.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="vanished">Viimeisimmän paketin datan vastausvirhe.</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="vanished">Viimeisin paketin tietorakennevirhe.</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="vanished">Projekti %1: Pakattu taso &apos;%2&apos; ei kelpaa. Virhekoodi %3, virheilmoitus: %4</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation type="vanished">Väliaikaisen tiedoston avaaminen kohteelle `%1`,
+epäonnistui, syy: %2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="vanished">Osoitteeseen `%1` tallennetun liitteen lataaminen epäonnistui,
+syy: %2</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation type="vanished">Verkkovirhe. Tiedoston &apos;%1&apos; lataaminen epäonnistui.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation type="vanished">Tiedostojärjestelmävirhe. Tiedoston kirjoittaminen väliaikaiseen sijaintiin &apos;%1&apos; epäonnistui.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation type="vanished">Tiedostojärjestelmävirhe. Tiedoston avaaminen väliaikaiseen tiedostoon &apos;%1&apos; kirjoittamista varten epäonnistui.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation type="vanished">Projekti `%1`, tiedosto `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation type="vanished">Järjestelmän viesti:</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation type="vanished">(lue lisää QFieldin virhelokista)...</translation>
+    </message>
+    <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Joidenkin laitteellesi ladattujen tiedostojen kopiointi epäonnistui. Tarkista laitteesi tallennusväline.</translation>
+        <translation type="vanished">Joidenkin laitteellesi ladattujen tiedostojen kopiointi epäonnistui. Tarkista laitteesi tallennusväline.</translation>
     </message>
 </context>
 <context>

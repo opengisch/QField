@@ -2707,71 +2707,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
-    <name>QFieldCloudProjectsModel</name>
-    <message>
-        <source>Export failed</source>
-        <translation type="vanished">فشل التصدير</translation>
-    </message>
-    <message>
-        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">الطبقة المحزومة %1&apos; غير متاحة: &apos;%2&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to open temporary file for &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">فشل في فتح الملف المؤقت عند &quot;%1&quot;، والسبب:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">فشل في رفع الملحقات المُخزنة في  &quot;%1&quot;,  والسبب:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">فشل في تحميل الملف &quot;%1&quot;, والسبب:</translation>
-    </message>
-    <message>
-        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">فشل في كاتبة الملف المُحمل المُخزن في &quot;%1&quot;، والسبب:</translation>
-    </message>
-    <message>
-        <source>aborted</source>
-        <translation>تم الاحباط</translation>
-    </message>
-    <message>
-        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>لا يحوي تحديث الاستجابة الخاص بالمشورع (%1) على جميع المفاتيح المتوقعة: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but the project is deleted.</source>
-        <translation>جار الحصول على حالة المهمة، لكن المشروع محذوف</translation>
-    </message>
-    <message>
-        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>انتهى إنشاء المهمة، لكن تشير استجابة الخادم إلى فقدان بعض الحقول: رقم (string)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>جار الحصول على حالة المهمة، لكن لم يتم الحصول على `%2` </translation>
-    </message>
-    <message>
-        <source>Getting job status finished, but the project is deleted.</source>
-        <translation>انتهى الحصول على حالة المهمة، لكن المشروع محذوف</translation>
-    </message>
-    <message>
-        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>لا تحوي حالة استجابة (1%) كل المفاتيح المتوفعة: الحال (string)</translation>
-    </message>
-    <message>
-        <source>Job(%1) finished with a failed status.</source>
-        <translation>انتهى (1%) بوجود خطأ في الحالة</translation>
-    </message>
-    <message>
-        <source>Project busy.</source>
-        <translation>المشورع مشغول.</translation>
-    </message>
+    <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>تم التحزيم بشكل غير ناجح عند `%1`. %2</translation>
@@ -2803,22 +2739,20 @@ While you can still view and use the project, it is strongly recommended to rese
 %2</translation>
     </message>
     <message>
-        <source>Failed to upload attachment stored at `%1`, reason:
-%2</source>
-        <translation type="vanished">فشل رفع الملقحات المخزنة في `%1`، والسبب:
-%2</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download file `%1`.</source>
-        <translation>خطأ في الشبكة، فشل تحميل الملف `%1`.</translation>
-    </message>
-    <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>خطأ في ملفات النظام. فشل كتابة الملف إلى الموقع المؤقت `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>خطأ في ملفات النظام. فشل فتح الملف المؤقت في `%1`.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>خطأ في الشبكة، فشل تحميل الملف `%1`.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>فشل نسخ بعض الملفات المحملة على جهازك. تفقد ذاكرة الجهاز.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
@@ -2833,8 +2767,159 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>(مشاهدة المزيد من ملخص أخطاء QFeild) ...</translation>
     </message>
     <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>انتهى إنشاء المهمة، لكن تشير استجابة الخادم إلى فقدان بعض الحقول: رقم (string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>جار الحصول على حالة المهمة، لكن لم يتم الحصول على `%2` </translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>لا تحوي حالة استجابة (1%) كل المفاتيح المتوفعة: الحال (string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>انتهى (1%) بوجود خطأ في الحالة</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>لا يحوي تحديث الاستجابة الخاص بالمشورع (%1) على جميع المفاتيح المتوقعة: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>تم الاحباط</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldCloudProjectsModel</name>
+    <message>
+        <source>Export failed</source>
+        <translation type="vanished">فشل التصدير</translation>
+    </message>
+    <message>
+        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
+        <translation type="vanished">الطبقة المحزومة %1&apos; غير متاحة: &apos;%2&apos;</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">فشل في فتح الملف المؤقت عند &quot;%1&quot;، والسبب:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">فشل في رفع الملحقات المُخزنة في  &quot;%1&quot;,  والسبب:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to download file &quot;%1&quot;, reason:</source>
+        <translation type="vanished">فشل في تحميل الملف &quot;%1&quot;, والسبب:</translation>
+    </message>
+    <message>
+        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
+        <translation type="vanished">فشل في كاتبة الملف المُحمل المُخزن في &quot;%1&quot;، والسبب:</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation type="vanished">تم الاحباط</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="vanished">لا يحوي تحديث الاستجابة الخاص بالمشورع (%1) على جميع المفاتيح المتوقعة: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but the project is deleted.</source>
+        <translation type="vanished">جار الحصول على حالة المهمة، لكن المشروع محذوف</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="vanished">انتهى إنشاء المهمة، لكن تشير استجابة الخادم إلى فقدان بعض الحقول: رقم (string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="vanished">جار الحصول على حالة المهمة، لكن لم يتم الحصول على `%2` </translation>
+    </message>
+    <message>
+        <source>Getting job status finished, but the project is deleted.</source>
+        <translation type="vanished">انتهى الحصول على حالة المهمة، لكن المشروع محذوف</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="vanished">لا تحوي حالة استجابة (1%) كل المفاتيح المتوفعة: الحال (string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="vanished">انتهى (1%) بوجود خطأ في الحالة</translation>
+    </message>
+    <message>
+        <source>Project busy.</source>
+        <translation>المشورع مشغول.</translation>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="vanished">تم التحزيم بشكل غير ناجح عند `%1`. %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="vanished">خطأ في تحديث أخر معلومات %1`: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="vanished">خطأ في الحصول على آخر حزمة بيانات</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="vanished">خطأ في استجابة آخر حزمة بيانات</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="vanished">خطأ في بنية آخر حزمة بيانات</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="vanished">المشورع %1: تحزيم الطبقة `%2` غير صالح. رمز الخطأ %3,، رسالة الخطأ: %4</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation type="vanished">فشل فتح الملف المؤقت لـ `%1`، والسبب:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="vanished">فشل رفع الملقحات المخزنة في `%1`، والسبب:
+%2</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation type="vanished">خطأ في الشبكة، فشل تحميل الملف `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation type="vanished">خطأ في ملفات النظام. فشل كتابة الملف إلى الموقع المؤقت `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation type="vanished">خطأ في ملفات النظام. فشل فتح الملف المؤقت في `%1`.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation type="vanished">مشروع `%1`, ملف `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation type="vanished">رسالة النظام:</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation type="vanished">(مشاهدة المزيد من ملخص أخطاء QFeild) ...</translation>
+    </message>
+    <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>فشل نسخ بعض الملفات المحملة على جهازك. تفقد ذاكرة الجهاز.</translation>
+        <translation type="vanished">فشل نسخ بعض الملفات المحملة على جهازك. تفقد ذاكرة الجهاز.</translation>
     </message>
 </context>
 <context>

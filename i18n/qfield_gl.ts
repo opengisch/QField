@@ -2711,71 +2711,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
 </context>
 <context>
-    <name>QFieldCloudProjectsModel</name>
-    <message>
-        <source>Export failed</source>
-        <translation type="vanished">Non se puido exportar</translation>
-    </message>
-    <message>
-        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">A capa empaquetada &apos;%1&apos; non é válida: &apos;%2&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to open temporary file for &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Non se puido abrir o ficheiro temporal para &quot;%1&quot;, motivo:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Non se puido subir o ficheiro anexo almacenado en &quot;%1&quot;, motivo:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Non se pode descargar o ficheiro &quot;%1&quot;, motivo:</translation>
-    </message>
-    <message>
-        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Non se puido gravar o ficheiro descargado almacenado en &quot;%1&quot;, motivo:</translation>
-    </message>
-    <message>
-        <source>aborted</source>
-        <translation>cancelado</translation>
-    </message>
-    <message>
-        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>a recarga da resposta do disparador do proxecto (%1) no contén tódalas claves agardadas: name(cadea), owner(cadea), description(cadea), user_role(cadea), is_public(booleana), can_repackage(booleana), needs_repackaging(booleana)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but the project is deleted.</source>
-        <translation>Obtendo o estado do traballo, aínda que se eliminou o proxecto.</translation>
-    </message>
-    <message>
-        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>Rematada a creación do traballo, aínda que na resposta do servidor faltan campos obrigatorios: id(cadea)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Obtendo o estado do traballo, pero non se desencadeou aínda o traballo `%2`.</translation>
-    </message>
-    <message>
-        <source>Getting job status finished, but the project is deleted.</source>
-        <translation>Rematou a obtención do estado do traballo, aínda que o proxecto se eliminou.</translation>
-    </message>
-    <message>
-        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>A resposta do estado do traballo(%1) non contén tódalas claves agardadas: estado(cadea)</translation>
-    </message>
-    <message>
-        <source>Job(%1) finished with a failed status.</source>
-        <translation>Rematou o traballo(%1) cun estado erróneo.</translation>
-    </message>
-    <message>
-        <source>Project busy.</source>
-        <translation>Proxecto ocupado.</translation>
-    </message>
+    <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>O traballo de empaquetado non rematou de forma satisfactoria para `%1`. %2</translation>
@@ -2807,22 +2743,20 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
 %2</translation>
     </message>
     <message>
-        <source>Failed to upload attachment stored at `%1`, reason:
-%2</source>
-        <translation type="vanished">Non se puido subir o ficheiro anexo almacenado en  `%1`, motivo:
-%2</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download file `%1`.</source>
-        <translation>Erro de rede. Non se puido descargar o ficheiro `%1`.</translation>
-    </message>
-    <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>Erro do sistema de ficheiros. Non se puido escribir o ficheiro nunha localización temporal `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>Erro no sistema de ficheiros. Non se puido abrir o ficheiro para escritura no temporal `%1`.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Erro de rede. Non se puido descargar o ficheiro `%1`.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Non se puideron copiar algúns dos ficheiro descargados no dispositivo. Comproba o almacenamento do dispositivo.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
@@ -2837,8 +2771,159 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
         <translation>(ver máis no rexistro de erros de QField)...</translation>
     </message>
     <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>Rematada a creación do traballo, aínda que na resposta do servidor faltan campos obrigatorios: id(cadea)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>Obtendo o estado do traballo, pero non se desencadeou aínda o traballo `%2`.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>A resposta do estado do traballo(%1) non contén tódalas claves agardadas: estado(cadea)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>Rematou o traballo(%1) cun estado erróneo.</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>a recarga da resposta do disparador do proxecto (%1) no contén tódalas claves agardadas: name(cadea), owner(cadea), description(cadea), user_role(cadea), is_public(booleana), can_repackage(booleana), needs_repackaging(booleana)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>cancelado</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldCloudProjectsModel</name>
+    <message>
+        <source>Export failed</source>
+        <translation type="vanished">Non se puido exportar</translation>
+    </message>
+    <message>
+        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
+        <translation type="vanished">A capa empaquetada &apos;%1&apos; non é válida: &apos;%2&apos;</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Non se puido abrir o ficheiro temporal para &quot;%1&quot;, motivo:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Non se puido subir o ficheiro anexo almacenado en &quot;%1&quot;, motivo:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to download file &quot;%1&quot;, reason:</source>
+        <translation type="vanished">Non se pode descargar o ficheiro &quot;%1&quot;, motivo:</translation>
+    </message>
+    <message>
+        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
+        <translation type="vanished">Non se puido gravar o ficheiro descargado almacenado en &quot;%1&quot;, motivo:</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation type="vanished">cancelado</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="vanished">a recarga da resposta do disparador do proxecto (%1) no contén tódalas claves agardadas: name(cadea), owner(cadea), description(cadea), user_role(cadea), is_public(booleana), can_repackage(booleana), needs_repackaging(booleana)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but the project is deleted.</source>
+        <translation type="vanished">Obtendo o estado do traballo, aínda que se eliminou o proxecto.</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="vanished">Rematada a creación do traballo, aínda que na resposta do servidor faltan campos obrigatorios: id(cadea)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="vanished">Obtendo o estado do traballo, pero non se desencadeou aínda o traballo `%2`.</translation>
+    </message>
+    <message>
+        <source>Getting job status finished, but the project is deleted.</source>
+        <translation type="vanished">Rematou a obtención do estado do traballo, aínda que o proxecto se eliminou.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="vanished">A resposta do estado do traballo(%1) non contén tódalas claves agardadas: estado(cadea)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="vanished">Rematou o traballo(%1) cun estado erróneo.</translation>
+    </message>
+    <message>
+        <source>Project busy.</source>
+        <translation>Proxecto ocupado.</translation>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="vanished">O traballo de empaquetado non rematou de forma satisfactoria para `%1`. %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="vanished">Non se puido recargar a última información para `%1`: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="vanished">Produciuse un erro ó obter os últimos datos do paquete.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="vanished">Erro da resposta dos datos dos paquetes máis recentes.</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="vanished">Erro da estrutura dos datos do paquete máis recente.</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="vanished">Proxecto %1: Capa empaquetada `%2` non é válida. Código de erro %3, mensaxe de erro: %4</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation type="vanished">Non se puido abrir o ficheiro temporal para  `%1`, motivo:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="vanished">Non se puido subir o ficheiro anexo almacenado en  `%1`, motivo:
+%2</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation type="vanished">Erro de rede. Non se puido descargar o ficheiro `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation type="vanished">Erro do sistema de ficheiros. Non se puido escribir o ficheiro nunha localización temporal `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation type="vanished">Erro no sistema de ficheiros. Non se puido abrir o ficheiro para escritura no temporal `%1`.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation type="vanished">Proxecto `%1`, ficheiro `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation type="vanished">Mensaxe do sistema:</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation type="vanished">(ver máis no rexistro de erros de QField)...</translation>
+    </message>
+    <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Non se puideron copiar algúns dos ficheiro descargados no dispositivo. Comproba o almacenamento do dispositivo.</translation>
+        <translation type="vanished">Non se puideron copiar algúns dos ficheiro descargados no dispositivo. Comproba o almacenamento do dispositivo.</translation>
     </message>
 </context>
 <context>

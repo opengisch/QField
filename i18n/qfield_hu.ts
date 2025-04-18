@@ -2707,71 +2707,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
-    <name>QFieldCloudProjectsModel</name>
-    <message>
-        <source>Export failed</source>
-        <translation type="vanished">Sikertelen export</translation>
-    </message>
-    <message>
-        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">&apos;%1&apos;  becsomagolt réteg hibás: &apos;%2&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to open temporary file for &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Nem sikerült megnyitni a &quot;%1&quot;  ideiglenes fájlt, ok:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Nem sikerült feltölteni a &quot;%1&quot; címen tárolt mellékletet, oka:%2</translation>
-    </message>
-    <message>
-        <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Nem sikerült a &quot;%1&quot; fájlt letölteni, ok:</translation>
-    </message>
-    <message>
-        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Nem sikerült az írás a letöltött fájlba, amely a következő helyen található: &quot;%1&quot;, fs oka:</translation>
-    </message>
-    <message>
-        <source>aborted</source>
-        <translation>Megszakítva</translation>
-    </message>
-    <message>
-        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>A project(%1) frissített trigger-válasza nem tartalmazza az összes várt kulcsot:
-name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but the project is deleted.</source>
-        <translation>A munka állapotának lekérése folyamatban van, de a projekt törölve lett.</translation>
-    </message>
-    <message>
-        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>A feladat létrehozása befejeződött, de a szerver válaszából hiányoznak a kötelező mezők: id(string)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Munkaállapot lekérése folyamatban, de még nincs aktiválva a `%2` feladat.</translation>
-    </message>
-    <message>
-        <source>Getting job status finished, but the project is deleted.</source>
-        <translation>A feladat állapotának lekérdezése befejeződött, de a projekt törölve van.</translation>
-    </message>
-    <message>
-        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>Munka: (%1) állapot-lekérdezése nem tartalmazza az összes várt kulcsot: status(string)</translation>
-    </message>
-    <message>
-        <source>Job(%1) finished with a failed status.</source>
-        <translation>A feladat(%1) sikertelen állapottal fejeződött be.</translation>
-    </message>
-    <message>
-        <source>Project busy.</source>
-        <translation>A projekt foglalt.</translation>
-    </message>
+    <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>A(z) „%1” csomagolása sikertelenül fejeződött be. %2</translation>
@@ -2802,21 +2738,20 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation>Nem sikerült megnyitni a(z) `%1` ideiglenes fájlját, oka:%2 </translation>
     </message>
     <message>
-        <source>Failed to upload attachment stored at `%1`, reason:
-%2</source>
-        <translation type="vanished">Nem sikerült feltölteni a `%1` címen tárolt mellékletet, oka:%2</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download file `%1`.</source>
-        <translation>Hálózati hiba. Nem sikerült letölteni a(z) `%1` fájlt.</translation>
-    </message>
-    <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>Fájlrendszer hiba. Nem sikerült a fájlt a `%1` ideiglenes helyre írni.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>Fájlrendszer hiba. Nem sikerült megnyitni a fájlt íráshoz az ideiglenes `%1`.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Hálózati hiba. Nem sikerült letölteni a(z) `%1` fájlt.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Nem sikerült átmásolni néhány letöltött fájlt az eszközre. Ellenőrizze az eszköz tárhelyét.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
@@ -2831,8 +2766,158 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation>(többet láthat a QField hiba naplóban)...</translation>
     </message>
     <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>A feladat létrehozása befejeződött, de a szerver válaszából hiányoznak a kötelező mezők: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>Munkaállapot lekérése folyamatban, de még nincs aktiválva a `%2` feladat.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>Munka: (%1) állapot-lekérdezése nem tartalmazza az összes várt kulcsot: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>A feladat(%1) sikertelen állapottal fejeződött be.</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>A project(%1) frissített trigger-válasza nem tartalmazza az összes várt kulcsot:
+name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>Megszakítva</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldCloudProjectsModel</name>
+    <message>
+        <source>Export failed</source>
+        <translation type="vanished">Sikertelen export</translation>
+    </message>
+    <message>
+        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
+        <translation type="vanished">&apos;%1&apos;  becsomagolt réteg hibás: &apos;%2&apos;</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Nem sikerült megnyitni a &quot;%1&quot;  ideiglenes fájlt, ok:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Nem sikerült feltölteni a &quot;%1&quot; címen tárolt mellékletet, oka:%2</translation>
+    </message>
+    <message>
+        <source>Failed to download file &quot;%1&quot;, reason:</source>
+        <translation type="vanished">Nem sikerült a &quot;%1&quot; fájlt letölteni, ok:</translation>
+    </message>
+    <message>
+        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
+        <translation type="vanished">Nem sikerült az írás a letöltött fájlba, amely a következő helyen található: &quot;%1&quot;, fs oka:</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation type="vanished">Megszakítva</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="vanished">A project(%1) frissített trigger-válasza nem tartalmazza az összes várt kulcsot:
+name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but the project is deleted.</source>
+        <translation type="vanished">A munka állapotának lekérése folyamatban van, de a projekt törölve lett.</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="vanished">A feladat létrehozása befejeződött, de a szerver válaszából hiányoznak a kötelező mezők: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="vanished">Munkaállapot lekérése folyamatban, de még nincs aktiválva a `%2` feladat.</translation>
+    </message>
+    <message>
+        <source>Getting job status finished, but the project is deleted.</source>
+        <translation type="vanished">A feladat állapotának lekérdezése befejeződött, de a projekt törölve van.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="vanished">Munka: (%1) állapot-lekérdezése nem tartalmazza az összes várt kulcsot: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="vanished">A feladat(%1) sikertelen állapottal fejeződött be.</translation>
+    </message>
+    <message>
+        <source>Project busy.</source>
+        <translation>A projekt foglalt.</translation>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="vanished">A(z) „%1” csomagolása sikertelenül fejeződött be. %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="vanished">Nem sikerült frissíteni a `%1` legfrissebb adatait: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="vanished">Nem sikerült lekérni a legújabb csomagadatokat.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="vanished">Hiba a legutóbbi csomagadat megválaszolása közben.</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="vanished">Hiba a legújabb adat-csomag szerkezetében.</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="vanished">Projekt %1: A `%2&apos; csomagolt réteg érvénytelen. Hibakód %3, hibaüzenet: %4</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation type="vanished">Nem sikerült megnyitni a(z) `%1` ideiglenes fájlját, oka:%2 </translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="vanished">Nem sikerült feltölteni a `%1` címen tárolt mellékletet, oka:%2</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation type="vanished">Hálózati hiba. Nem sikerült letölteni a(z) `%1` fájlt.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation type="vanished">Fájlrendszer hiba. Nem sikerült a fájlt a `%1` ideiglenes helyre írni.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation type="vanished">Fájlrendszer hiba. Nem sikerült megnyitni a fájlt íráshoz az ideiglenes `%1`.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation type="vanished">Projekt `%1`, fájl `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation type="vanished">Rendszerüzenet:</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation type="vanished">(többet láthat a QField hiba naplóban)...</translation>
+    </message>
+    <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Nem sikerült átmásolni néhány letöltött fájlt az eszközre. Ellenőrizze az eszköz tárhelyét.</translation>
+        <translation type="vanished">Nem sikerült átmásolni néhány letöltött fájlt az eszközre. Ellenőrizze az eszköz tárhelyét.</translation>
     </message>
 </context>
 <context>

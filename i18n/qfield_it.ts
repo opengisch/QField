@@ -2713,6 +2713,92 @@ Anche se puoi ancora visualizzare e utilizzare questo progetto, è altamente rac
     </message>
 </context>
 <context>
+    <name>QFieldCloudProject</name>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation>Impacchettamento del lavoro terminato con successo per `%1`. %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation>Impossibile aggiornare le ultime informazioni per `%1`: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation>Impossibile ottenere gli ultimi pacchetti di dati.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation>Errore di risposta dei dati dell&apos;ultimo pacchetto.</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation>Errore nella struttura dei dati dell&apos;ultimo pacchetto.</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation>Progetto %1: il layer impacchettato `%2` non è valido. Codice errore %3.
+Messaggio dell&apos;errore: %4</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation>Impossibile aprire il file temporaneo per `%1`. Motivo:
+%2</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation>Errore del file system. Impossibile scrivere il file nella posizione temporanea `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation>Errore del file system. Impossibile aprire il file per la scrittura su `%1` temporaneo.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Errore di rete. Impossibile scaricare il file `%1`.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Impossibile copiare alcuni file scaricati sul tuo dispositivo. Controlla la memoria del tuo dispositivo.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation>Progetto`%1`, file `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation>Messaggio di sistema:</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation>(ulteriori dettagli nel registro degli errori di QField)...</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>Creazione del lavoro completata, ma la risposta del server manca di un campo richiesto: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>Ottengo lo stato del lavoro, ma non c&apos;è nessun lavoro &apos;%2&apos; attivato al momento.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>La risposta dello stato del lavoro(%1) non contiene tutte le chiavi richieste: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>Lavoro(%1) terminato con uno stato fallito.</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>L&apos;aggiornamento della risposta del trigger del progetto(%1) non contiene tutte le chiavi richieste: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>interrotto</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -2746,35 +2832,35 @@ $2</translation>
     </message>
     <message>
         <source>aborted</source>
-        <translation>interrotto</translation>
+        <translation type="vanished">interrotto</translation>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>L&apos;aggiornamento della risposta del trigger del progetto(%1) non contiene tutte le chiavi richieste: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+        <translation type="vanished">L&apos;aggiornamento della risposta del trigger del progetto(%1) non contiene tutte le chiavi richieste: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
     </message>
     <message>
         <source>Getting job status, but the project is deleted.</source>
-        <translation>Ottengo lo stato del lavoro, ma il progetto è stato eliminato.</translation>
+        <translation type="vanished">Ottengo lo stato del lavoro, ma il progetto è stato eliminato.</translation>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>Creazione del lavoro completata, ma la risposta del server manca di un campo richiesto: id(string)</translation>
+        <translation type="vanished">Creazione del lavoro completata, ma la risposta del server manca di un campo richiesto: id(string)</translation>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Ottengo lo stato del lavoro, ma non c&apos;è nessun lavoro &apos;%2&apos; attivato al momento.</translation>
+        <translation type="vanished">Ottengo lo stato del lavoro, ma non c&apos;è nessun lavoro &apos;%2&apos; attivato al momento.</translation>
     </message>
     <message>
         <source>Getting job status finished, but the project is deleted.</source>
-        <translation>Stato del lavoro ottenuto, ma il progetto è stato eliminato.</translation>
+        <translation type="vanished">Stato del lavoro ottenuto, ma il progetto è stato eliminato.</translation>
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>La risposta dello stato del lavoro(%1) non contiene tutte le chiavi richieste: status(string)</translation>
+        <translation type="vanished">La risposta dello stato del lavoro(%1) non contiene tutte le chiavi richieste: status(string)</translation>
     </message>
     <message>
         <source>Job(%1) finished with a failed status.</source>
-        <translation>Lavoro(%1) terminato con uno stato fallito.</translation>
+        <translation type="vanished">Lavoro(%1) terminato con uno stato fallito.</translation>
     </message>
     <message>
         <source>Project busy.</source>
@@ -2782,33 +2868,33 @@ $2</translation>
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation>Impacchettamento del lavoro terminato con successo per `%1`. %2</translation>
+        <translation type="vanished">Impacchettamento del lavoro terminato con successo per `%1`. %2</translation>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation>Impossibile aggiornare le ultime informazioni per `%1`: %2</translation>
+        <translation type="vanished">Impossibile aggiornare le ultime informazioni per `%1`: %2</translation>
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation>Impossibile ottenere gli ultimi pacchetti di dati.</translation>
+        <translation type="vanished">Impossibile ottenere gli ultimi pacchetti di dati.</translation>
     </message>
     <message>
         <source>Latest package data response error.</source>
-        <translation>Errore di risposta dei dati dell&apos;ultimo pacchetto.</translation>
+        <translation type="vanished">Errore di risposta dei dati dell&apos;ultimo pacchetto.</translation>
     </message>
     <message>
         <source>Latest package data structure error.</source>
-        <translation>Errore nella struttura dei dati dell&apos;ultimo pacchetto.</translation>
+        <translation type="vanished">Errore nella struttura dei dati dell&apos;ultimo pacchetto.</translation>
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation>Progetto %1: il layer impacchettato `%2` non è valido. Codice errore %3.
+        <translation type="vanished">Progetto %1: il layer impacchettato `%2` non è valido. Codice errore %3.
 Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation>Impossibile aprire il file temporaneo per `%1`. Motivo:
+        <translation type="vanished">Impossibile aprire il file temporaneo per `%1`. Motivo:
 %2</translation>
     </message>
     <message>
@@ -2819,31 +2905,31 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation>Errore di rete. Impossibile scaricare il file `%1`.</translation>
+        <translation type="vanished">Errore di rete. Impossibile scaricare il file `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation>Errore del file system. Impossibile scrivere il file nella posizione temporanea `%1`.</translation>
+        <translation type="vanished">Errore del file system. Impossibile scrivere il file nella posizione temporanea `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation>Errore del file system. Impossibile aprire il file per la scrittura su `%1` temporaneo.</translation>
+        <translation type="vanished">Errore del file system. Impossibile aprire il file per la scrittura su `%1` temporaneo.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation>Progetto`%1`, file `%2`: %3</translation>
+        <translation type="vanished">Progetto`%1`, file `%2`: %3</translation>
     </message>
     <message>
         <source>System message: </source>
-        <translation>Messaggio di sistema:</translation>
+        <translation type="vanished">Messaggio di sistema:</translation>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
-        <translation>(ulteriori dettagli nel registro degli errori di QField)...</translation>
+        <translation type="vanished">(ulteriori dettagli nel registro degli errori di QField)...</translation>
     </message>
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Impossibile copiare alcuni file scaricati sul tuo dispositivo. Controlla la memoria del tuo dispositivo.</translation>
+        <translation type="vanished">Impossibile copiare alcuni file scaricati sul tuo dispositivo. Controlla la memoria del tuo dispositivo.</translation>
     </message>
 </context>
 <context>

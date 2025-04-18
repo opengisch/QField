@@ -2715,71 +2715,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
-    <name>QFieldCloudProjectsModel</name>
-    <message>
-        <source>Export failed</source>
-        <translation type="vanished">Помилка єкспорту</translation>
-    </message>
-    <message>
-        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">Упакований шар &quot;%1&quot; недійсний: &quot;%2&quot;</translation>
-    </message>
-    <message>
-        <source>Failed to open temporary file for &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Не вдалося відкрити тимчасовий файл для &quot;%1&quot;, причина:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Не вдалося завантажити вкладений файл, збережений на &quot;%1&quot;, причина:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Не вдалося завантажити файл &quot;%1&quot;, причина:</translation>
-    </message>
-    <message>
-        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Не вдалося записати завантажений файл, збережений у &quot;%1&quot;, причина fs:</translation>
-    </message>
-    <message>
-        <source>aborted</source>
-        <translation>перервано</translation>
-    </message>
-    <message>
-        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Getting job status, but the project is deleted.</source>
-        <translation>Отримання статусу завдання, але проект видалено.</translation>
-    </message>
-    <message>
-        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>Створення завдання завершено, але у відповіді сервера відсутні обов’язкові поля: id(рядок)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Отримання статусу завдання, але завдання `%2` ще не запущено.</translation>
-    </message>
-    <message>
-        <source>Getting job status finished, but the project is deleted.</source>
-        <translation>Отримання статусу завдання завершено, але проект видалено.</translation>
-    </message>
-    <message>
-        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>процес(%1) відповідь статусу не містить усіх очікуваних ключів: status(рядок)</translation>
-    </message>
-    <message>
-        <source>Job(%1) finished with a failed status.</source>
-        <translation>Завдання (%1) завершено зі статусом &quot;Помилка&quot;.</translation>
-    </message>
-    <message>
-        <source>Project busy.</source>
-        <translation>Проект зайнятий.</translation>
-    </message>
+    <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>Пакувальну роботу завершено невдало для `%1`. %2</translation>
@@ -2811,22 +2747,20 @@ While you can still view and use the project, it is strongly recommended to rese
 %2</translation>
     </message>
     <message>
-        <source>Failed to upload attachment stored at `%1`, reason:
-%2</source>
-        <translation type="vanished">Не вдалося завантажити вкладений файл, який зберігається в `%1`, причина:
-%2</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download file `%1`.</source>
-        <translation>Помилка мережі. Не вдалося завантажити файл `%1`.</translation>
-    </message>
-    <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>Помилка файлової системи. Не вдалося записати файл у тимчасове розташування `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>Помилка файлової системи. Не вдалося відкрити файл для запису на тимчасовий `%1`.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Помилка мережі. Не вдалося завантажити файл `%1`.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Не вдалося скопіювати деякі завантажені файли на ваш пристрій. Перевірте пам’ять пристрою.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
@@ -2841,8 +2775,159 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>(докладніше дивіться в журналі помилок QField)…</translation>
     </message>
     <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>Створення завдання завершено, але у відповіді сервера відсутні обов’язкові поля: id(рядок)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>Отримання статусу завдання, але завдання `%2` ще не запущено.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>процес(%1) відповідь статусу не містить усіх очікуваних ключів: status(рядок)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>Завдання (%1) завершено зі статусом &quot;Помилка&quot;.</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>перервано</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldCloudProjectsModel</name>
+    <message>
+        <source>Export failed</source>
+        <translation type="vanished">Помилка єкспорту</translation>
+    </message>
+    <message>
+        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
+        <translation type="vanished">Упакований шар &quot;%1&quot; недійсний: &quot;%2&quot;</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Не вдалося відкрити тимчасовий файл для &quot;%1&quot;, причина:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Не вдалося завантажити вкладений файл, збережений на &quot;%1&quot;, причина:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to download file &quot;%1&quot;, reason:</source>
+        <translation type="vanished">Не вдалося завантажити файл &quot;%1&quot;, причина:</translation>
+    </message>
+    <message>
+        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
+        <translation type="vanished">Не вдалося записати завантажений файл, збережений у &quot;%1&quot;, причина fs:</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation type="vanished">перервано</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Getting job status, but the project is deleted.</source>
+        <translation type="vanished">Отримання статусу завдання, але проект видалено.</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="vanished">Створення завдання завершено, але у відповіді сервера відсутні обов’язкові поля: id(рядок)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="vanished">Отримання статусу завдання, але завдання `%2` ще не запущено.</translation>
+    </message>
+    <message>
+        <source>Getting job status finished, but the project is deleted.</source>
+        <translation type="vanished">Отримання статусу завдання завершено, але проект видалено.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="vanished">процес(%1) відповідь статусу не містить усіх очікуваних ключів: status(рядок)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="vanished">Завдання (%1) завершено зі статусом &quot;Помилка&quot;.</translation>
+    </message>
+    <message>
+        <source>Project busy.</source>
+        <translation>Проект зайнятий.</translation>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="vanished">Пакувальну роботу завершено невдало для `%1`. %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="vanished">Не вдалося оновити останню інформацію для `%1`: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="vanished">Не вдалося отримати останні дані пакета.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="vanished">Помилка відповіді на дані останнього пакета.</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="vanished">Остання помилка структури даних пакета.</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="vanished">Проект %1: упакований шар `%2` недійсний. Код помилки %3, повідомлення про помилку: %4</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation type="vanished">Не вдалося відкрити тимчасовий файл для `%1`, причина:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="vanished">Не вдалося завантажити вкладений файл, який зберігається в `%1`, причина:
+%2</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation type="vanished">Помилка мережі. Не вдалося завантажити файл `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation type="vanished">Помилка файлової системи. Не вдалося записати файл у тимчасове розташування `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation type="vanished">Помилка файлової системи. Не вдалося відкрити файл для запису на тимчасовий `%1`.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation type="vanished">Проект `%1`, файл `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation type="vanished">Системне повідомлення:</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation type="vanished">(докладніше дивіться в журналі помилок QField)…</translation>
+    </message>
+    <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Не вдалося скопіювати деякі завантажені файли на ваш пристрій. Перевірте пам’ять пристрою.</translation>
+        <translation type="vanished">Не вдалося скопіювати деякі завантажені файли на ваш пристрій. Перевірте пам’ять пристрою.</translation>
     </message>
 </context>
 <context>

@@ -2714,71 +2714,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
 </context>
 <context>
-    <name>QFieldCloudProjectsModel</name>
-    <message>
-        <source>Export failed</source>
-        <translation type="vanished">Export se nezdařil</translation>
-    </message>
-    <message>
-        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">Zabalená vrstva &apos;%1&apos; není platná: &apos;%2&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to open temporary file for &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Nepodařilo se otevřít dočasný soubor pro &quot;%1&quot;, důvod:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Nepodařilo se nahrát přílohu uloženou na &quot;%1&quot;, důvod:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Nepodařilo se stáhnout soubor &quot;%1&quot;, důvod:</translation>
-    </message>
-    <message>
-        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Nepodařilo se zapsat stažený soubor uložený na &quot;%1&quot;, důvod fs:</translation>
-    </message>
-    <message>
-        <source>aborted</source>
-        <translation>zrušeno</translation>
-    </message>
-    <message>
-        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>project(%1) trigger response refresh neobsahuje všechny očekávané klíče: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but the project is deleted.</source>
-        <translation>Získávání stavu úlohy, ale projekt je smazán.</translation>
-    </message>
-    <message>
-        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>Vytvoření úlohy bylo dokončeno, ale v odpovědi serveru chybí povinná pole: id(string)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Getting job status finished, but the project is deleted.</source>
-        <translation>Dokončeno získání stavu úlohy, ale projekt byl smazán.</translation>
-    </message>
-    <message>
-        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Job(%1) finished with a failed status.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project busy.</source>
-        <translation>Projekt je zaneprázdněný.</translation>
-    </message>
+    <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation type="unfinished"/>
@@ -2810,22 +2746,20 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
 %2</translation>
     </message>
     <message>
-        <source>Failed to upload attachment stored at `%1`, reason:
-%2</source>
-        <translation type="vanished">Nepodařilo se nahrát přílohu uloženou na &quot;%1&quot;, důvod:
-%2</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download file `%1`.</source>
-        <translation>Chyba sítě. Nepodařilo se stáhnout soubor `%1`.</translation>
-    </message>
-    <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>Chyba souborového systému. Nepodařilo se zapsat soubor do místa pro dočasné soubory `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>Chyba souborového systému. Nepodařilo se otevřít dočasný soubor pro zápis `%1`.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Chyba sítě. Nepodařilo se stáhnout soubor `%1`.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Nepodařilo se zkopírovat některé stažené soubory do vašeho zařízení. Zkontrolujte úložiště zařízení.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
@@ -2840,8 +2774,159 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
         <translation>(více v protokolu chyb QField)...</translation>
     </message>
     <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>Vytvoření úlohy bylo dokončeno, ale v odpovědi serveru chybí povinná pole: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>project(%1) trigger response refresh neobsahuje všechny očekávané klíče: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>zrušeno</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldCloudProjectsModel</name>
+    <message>
+        <source>Export failed</source>
+        <translation type="vanished">Export se nezdařil</translation>
+    </message>
+    <message>
+        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
+        <translation type="vanished">Zabalená vrstva &apos;%1&apos; není platná: &apos;%2&apos;</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Nepodařilo se otevřít dočasný soubor pro &quot;%1&quot;, důvod:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Nepodařilo se nahrát přílohu uloženou na &quot;%1&quot;, důvod:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to download file &quot;%1&quot;, reason:</source>
+        <translation type="vanished">Nepodařilo se stáhnout soubor &quot;%1&quot;, důvod:</translation>
+    </message>
+    <message>
+        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
+        <translation type="vanished">Nepodařilo se zapsat stažený soubor uložený na &quot;%1&quot;, důvod fs:</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation type="vanished">zrušeno</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="vanished">project(%1) trigger response refresh neobsahuje všechny očekávané klíče: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but the project is deleted.</source>
+        <translation type="vanished">Získávání stavu úlohy, ale projekt je smazán.</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="vanished">Vytvoření úlohy bylo dokončeno, ale v odpovědi serveru chybí povinná pole: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Getting job status finished, but the project is deleted.</source>
+        <translation type="vanished">Dokončeno získání stavu úlohy, ale projekt byl smazán.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project busy.</source>
+        <translation>Projekt je zaneprázdněný.</translation>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="vanished">Nepodařilo se získat nejnovější data balíčku.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation type="vanished">Nepodařilo se otevřít dočasný soubor pro &quot;%1&quot;, důvod:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="vanished">Nepodařilo se nahrát přílohu uloženou na &quot;%1&quot;, důvod:
+%2</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation type="vanished">Chyba sítě. Nepodařilo se stáhnout soubor `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation type="vanished">Chyba souborového systému. Nepodařilo se zapsat soubor do místa pro dočasné soubory `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation type="vanished">Chyba souborového systému. Nepodařilo se otevřít dočasný soubor pro zápis `%1`.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation type="vanished">Projekt `%1`, soubor `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation type="vanished">Systémová zpráva:</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation type="vanished">(více v protokolu chyb QField)...</translation>
+    </message>
+    <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Nepodařilo se zkopírovat některé stažené soubory do vašeho zařízení. Zkontrolujte úložiště zařízení.</translation>
+        <translation type="vanished">Nepodařilo se zkopírovat některé stažené soubory do vašeho zařízení. Zkontrolujte úložiště zařízení.</translation>
     </message>
 </context>
 <context>

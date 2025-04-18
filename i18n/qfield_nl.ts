@@ -2711,71 +2711,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
 </context>
 <context>
-    <name>QFieldCloudProjectsModel</name>
-    <message>
-        <source>Export failed</source>
-        <translation type="vanished">Export mislukt</translation>
-    </message>
-    <message>
-        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">Ingepakte laag &apos;%1&apos; is ongeldig: &apos;%2&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to open temporary file for &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Kan tijdelijk bestand voor &quot;%1&quot; niet openen, reden:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">Kan bijlage niet uploaden die is opgeslagen op &quot;%1&quot;, reden:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Kan bestand &quot;%1&quot; niet downloaden, reden:</translation>
-    </message>
-    <message>
-        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Kan gedownloade bestand opgeslagen op &quot;%1&quot; niet schrijven, fs reden:</translation>
-    </message>
-    <message>
-        <source>aborted</source>
-        <translation>afgebroken</translation>
-    </message>
-    <message>
-        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Getting job status, but the project is deleted.</source>
-        <translation>Taakstatus ophalen, maar het project is verwijderd.</translation>
-    </message>
-    <message>
-        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>Het maken van de taak is voltooid, maar de serverreactie mist verplichte velden: id(string)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Taakstatus ophalen, maar nog geen `%2`-taak geactiveerd.</translation>
-    </message>
-    <message>
-        <source>Getting job status finished, but the project is deleted.</source>
-        <translation>Krijg taakstatus &apos;voltooid&apos;, maar het project is verwijderd.</translation>
-    </message>
-    <message>
-        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>job(%1) statusreactie bevat niet alle verwachte sleutels: status(string)</translation>
-    </message>
-    <message>
-        <source>Job(%1) finished with a failed status.</source>
-        <translation>Taak(%1) is voltooid met een mislukte status.</translation>
-    </message>
-    <message>
-        <source>Project busy.</source>
-        <translation>Project bezig.</translation>
-    </message>
+    <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>Inpakstaak is mislukt voor `%1`. %2</translation>
@@ -2807,22 +2743,20 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
 %2</translation>
     </message>
     <message>
-        <source>Failed to upload attachment stored at `%1`, reason:
-%2</source>
-        <translation type="vanished">Kan bijlage niet uploaden die is opgeslagen op &apos;%1&apos;, reden:
-%2</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download file `%1`.</source>
-        <translation>Netwerk fout. Kan bestand `%1` niet downloaden.</translation>
-    </message>
-    <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>Bestandssysteemfout. Kan bestand niet schrijven naar tijdelijke locatie `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>Bestandssysteemfout. Kan bestand niet openen voor schrijven op tijdelijke `%1`.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Netwerk fout. Kan bestand `%1` niet downloaden.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Het is niet gelukt om enkele van de gedownloade bestanden naar uw apparaat te kopiëren. Controleer uw apparaatopslag.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
@@ -2837,8 +2771,159 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <translation>(bekijk meer in het QField-foutlogboek)…</translation>
     </message>
     <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>Het maken van de taak is voltooid, maar de serverreactie mist verplichte velden: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>Taakstatus ophalen, maar nog geen `%2`-taak geactiveerd.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>job(%1) statusreactie bevat niet alle verwachte sleutels: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>Taak(%1) is voltooid met een mislukte status.</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>afgebroken</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldCloudProjectsModel</name>
+    <message>
+        <source>Export failed</source>
+        <translation type="vanished">Export mislukt</translation>
+    </message>
+    <message>
+        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
+        <translation type="vanished">Ingepakte laag &apos;%1&apos; is ongeldig: &apos;%2&apos;</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Kan tijdelijk bestand voor &quot;%1&quot; niet openen, reden:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">Kan bijlage niet uploaden die is opgeslagen op &quot;%1&quot;, reden:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to download file &quot;%1&quot;, reason:</source>
+        <translation type="vanished">Kan bestand &quot;%1&quot; niet downloaden, reden:</translation>
+    </message>
+    <message>
+        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
+        <translation type="vanished">Kan gedownloade bestand opgeslagen op &quot;%1&quot; niet schrijven, fs reden:</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation type="vanished">afgebroken</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Getting job status, but the project is deleted.</source>
+        <translation type="vanished">Taakstatus ophalen, maar het project is verwijderd.</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="vanished">Het maken van de taak is voltooid, maar de serverreactie mist verplichte velden: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="vanished">Taakstatus ophalen, maar nog geen `%2`-taak geactiveerd.</translation>
+    </message>
+    <message>
+        <source>Getting job status finished, but the project is deleted.</source>
+        <translation type="vanished">Krijg taakstatus &apos;voltooid&apos;, maar het project is verwijderd.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="vanished">job(%1) statusreactie bevat niet alle verwachte sleutels: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="vanished">Taak(%1) is voltooid met een mislukte status.</translation>
+    </message>
+    <message>
+        <source>Project busy.</source>
+        <translation>Project bezig.</translation>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="vanished">Inpakstaak is mislukt voor `%1`. %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="vanished">Kan de laatste informatie voor `%1` niet vernieuwen: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="vanished">Kan de laatste package-gegevens niet ophalen.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="vanished">Fout in reactie op laatste package-gegevens.</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="vanished">Fout in laatste package-gegevensstructuur.</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation type="vanished">Kan tijdelijk bestand niet openen voor `%1`, reden:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="vanished">Kan bijlage niet uploaden die is opgeslagen op &apos;%1&apos;, reden:
+%2</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation type="vanished">Netwerk fout. Kan bestand `%1` niet downloaden.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation type="vanished">Bestandssysteemfout. Kan bestand niet schrijven naar tijdelijke locatie `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation type="vanished">Bestandssysteemfout. Kan bestand niet openen voor schrijven op tijdelijke `%1`.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation type="vanished">Project `%1`, bestand `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation type="vanished">Systeem bericht:</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation type="vanished">(bekijk meer in het QField-foutlogboek)…</translation>
+    </message>
+    <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Het is niet gelukt om enkele van de gedownloade bestanden naar uw apparaat te kopiëren. Controleer uw apparaatopslag.</translation>
+        <translation type="vanished">Het is niet gelukt om enkele van de gedownloade bestanden naar uw apparaat te kopiëren. Controleer uw apparaatopslag.</translation>
     </message>
 </context>
 <context>

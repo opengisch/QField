@@ -2709,71 +2709,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
-    <name>QFieldCloudProjectsModel</name>
-    <message>
-        <source>Export failed</source>
-        <translation type="vanished">エクスポートに失敗しました</translation>
-    </message>
-    <message>
-        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">パッケージされている &apos;%1&apos; は無効なレイヤです: &apos;%2&apos;</translation>
-    </message>
-    <message>
-        <source>Failed to open temporary file for &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">&quot;%1&quot; の一時ファイルを開くのに失敗しました。理由:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
-%2</source>
-        <translation type="vanished">&quot;%1&quot; に保存されている添付ファイルのアップロードに失敗しました。理由:
-%2</translation>
-    </message>
-    <message>
-        <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">&quot;%1&quot; ファイルのダウンロードに失敗しました。理由:</translation>
-    </message>
-    <message>
-        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">&quot;%1&quot; に保存されているダウンロードしたファイルの書き込みに失敗しました。理由:</translation>
-    </message>
-    <message>
-        <source>aborted</source>
-        <translation>中止されました</translation>
-    </message>
-    <message>
-        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>プロジェクト(%1) トリガーのレスポンスは、指定されたすべてのキーを含んでいません: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but the project is deleted.</source>
-        <translation>ジョブのステータスを取得していますが、プロジェクトが削除されています。</translation>
-    </message>
-    <message>
-        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>ジョブの作成は完了しましたが、サーバーの応答に必須のフィールド: id(string) がありません</translation>
-    </message>
-    <message>
-        <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>ジョブのステータスを取得していますが、 `%2` のジョブはまだ起動していません。</translation>
-    </message>
-    <message>
-        <source>Getting job status finished, but the project is deleted.</source>
-        <translation>ジョブのステータスを取得していますが、プロジェクトが削除されています。</translation>
-    </message>
-    <message>
-        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>ジョブ(%1) ステータスのレスポンスが必要なキー: status(string)をすべて含んでいません</translation>
-    </message>
-    <message>
-        <source>Job(%1) finished with a failed status.</source>
-        <translation>ジョブ (%1) は失敗した状態で終了しました。</translation>
-    </message>
-    <message>
-        <source>Project busy.</source>
-        <translation>プロジェクトがスタックしています。</translation>
-    </message>
+    <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>パッケージングジョブは `%1` のために失敗して終了しました。%2</translation>
@@ -2805,22 +2741,20 @@ While you can still view and use the project, it is strongly recommended to rese
 %2</translation>
     </message>
     <message>
-        <source>Failed to upload attachment stored at `%1`, reason:
-%2</source>
-        <translation type="vanished">%1` に保存されている添付ファイルのアップロードに失敗しました。理由:
-%2</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download file `%1`.</source>
-        <translation>ネットワークエラーです。ファイル`%1`のダウンロードに失敗しました。</translation>
-    </message>
-    <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
         <translation>ファイルシステムエラーです。一時フォルダの `%1` へのファイルの書き込みに失敗しました。</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
         <translation>ファイルシステムエラーです。一時フォルダの `%1` で書き込みのためのファイルを開くのに失敗しました。</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>ネットワークエラーです。ファイル`%1`のダウンロードに失敗しました。</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>ダウンロードしたファイルの一部をデバイスにコピーするのに失敗しました。端末のストレージを確認してください。</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
@@ -2835,8 +2769,159 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation> (QFieldのエラーログを見てください)…</translation>
     </message>
     <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>ジョブの作成は完了しましたが、サーバーの応答に必須のフィールド: id(string) がありません</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>ジョブのステータスを取得していますが、 `%2` のジョブはまだ起動していません。</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>ジョブ(%1) ステータスのレスポンスが必要なキー: status(string)をすべて含んでいません</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>ジョブ (%1) は失敗した状態で終了しました。</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>プロジェクト(%1) トリガーのレスポンスは、指定されたすべてのキーを含んでいません: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>中止されました</translation>
+    </message>
+</context>
+<context>
+    <name>QFieldCloudProjectsModel</name>
+    <message>
+        <source>Export failed</source>
+        <translation type="vanished">エクスポートに失敗しました</translation>
+    </message>
+    <message>
+        <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
+        <translation type="vanished">パッケージされている &apos;%1&apos; は無効なレイヤです: &apos;%2&apos;</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">&quot;%1&quot; の一時ファイルを開くのに失敗しました。理由:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
+%2</source>
+        <translation type="vanished">&quot;%1&quot; に保存されている添付ファイルのアップロードに失敗しました。理由:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to download file &quot;%1&quot;, reason:</source>
+        <translation type="vanished">&quot;%1&quot; ファイルのダウンロードに失敗しました。理由:</translation>
+    </message>
+    <message>
+        <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
+        <translation type="vanished">&quot;%1&quot; に保存されているダウンロードしたファイルの書き込みに失敗しました。理由:</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation type="vanished">中止されました</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="vanished">プロジェクト(%1) トリガーのレスポンスは、指定されたすべてのキーを含んでいません: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but the project is deleted.</source>
+        <translation type="vanished">ジョブのステータスを取得していますが、プロジェクトが削除されています。</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="vanished">ジョブの作成は完了しましたが、サーバーの応答に必須のフィールド: id(string) がありません</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="vanished">ジョブのステータスを取得していますが、 `%2` のジョブはまだ起動していません。</translation>
+    </message>
+    <message>
+        <source>Getting job status finished, but the project is deleted.</source>
+        <translation type="vanished">ジョブのステータスを取得していますが、プロジェクトが削除されています。</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="vanished">ジョブ(%1) ステータスのレスポンスが必要なキー: status(string)をすべて含んでいません</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="vanished">ジョブ (%1) は失敗した状態で終了しました。</translation>
+    </message>
+    <message>
+        <source>Project busy.</source>
+        <translation>プロジェクトがスタックしています。</translation>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="vanished">パッケージングジョブは `%1` のために失敗して終了しました。%2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="vanished">`%1` の最新情報の更新に失敗しました: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="vanished">最新のパッケージデータの取得に失敗しました。</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="vanished">最新のパッケージデータのレスポンスにエラーがあります。</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="vanished">最新のパッケージデータの構造にエラーがあります。</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="vanished">プロジェクト %1: パッケージ化されたレイヤ `%2` は有効ではありません。エラー・コード %3、エラー・メッセージ: %4</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation type="vanished">%1` の一時ファイルを開けませんでした。理由:
+%2</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="vanished">%1` に保存されている添付ファイルのアップロードに失敗しました。理由:
+%2</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation type="vanished">ネットワークエラーです。ファイル`%1`のダウンロードに失敗しました。</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation type="vanished">ファイルシステムエラーです。一時フォルダの `%1` へのファイルの書き込みに失敗しました。</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation type="vanished">ファイルシステムエラーです。一時フォルダの `%1` で書き込みのためのファイルを開くのに失敗しました。</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation type="vanished">プロジェクト `%1`、 ファイル `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation type="vanished">システムメッセージ: </translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation type="vanished"> (QFieldのエラーログを見てください)…</translation>
+    </message>
+    <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>ダウンロードしたファイルの一部をデバイスにコピーするのに失敗しました。端末のストレージを確認してください。</translation>
+        <translation type="vanished">ダウンロードしたファイルの一部をデバイスにコピーするのに失敗しました。端末のストレージを確認してください。</translation>
     </message>
 </context>
 <context>

@@ -2698,6 +2698,91 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudProject</name>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation>Napaka pri odpiranju začasne datoteke za `%1`, vzrok:
+%2</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Napaka omrežja. Prenos datoteke `%1` ni uspel.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Kopiranje nekaterih prenesenih datotek v napravo ni uspelo. Preveri pomnilnik naprave.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation>Projekt `%1`, datoteka `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation>Sistemsko sporočilo:</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>prekinjeno</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -2728,7 +2813,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>aborted</source>
-        <translation>prekinjeno</translation>
+        <translation type="vanished">prekinjeno</translation>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
@@ -2789,7 +2874,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation>Napaka pri odpiranju začasne datoteke za `%1`, vzrok:
+        <translation type="vanished">Napaka pri odpiranju začasne datoteke za `%1`, vzrok:
 %2</translation>
     </message>
     <message>
@@ -2799,7 +2884,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation>Napaka omrežja. Prenos datoteke `%1` ni uspel.</translation>
+        <translation type="vanished">Napaka omrežja. Prenos datoteke `%1` ni uspel.</translation>
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
@@ -2811,11 +2896,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation>Projekt `%1`, datoteka `%2`: %3</translation>
+        <translation type="vanished">Projekt `%1`, datoteka `%2`: %3</translation>
     </message>
     <message>
         <source>System message: </source>
-        <translation>Sistemsko sporočilo:</translation>
+        <translation type="vanished">Sistemsko sporočilo:</translation>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
@@ -2823,7 +2908,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Kopiranje nekaterih prenesenih datotek v napravo ni uspelo. Preveri pomnilnik naprave.</translation>
+        <translation type="vanished">Kopiranje nekaterih prenesenih datotek v napravo ni uspelo. Preveri pomnilnik naprave.</translation>
     </message>
 </context>
 <context>

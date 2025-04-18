@@ -2711,6 +2711,91 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudProject</name>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation>Неуспешно завършила задача по пакетиране за `%1`: %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation>Неуспешно обновяване на последната информация за `%1`: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation>Неуспешно обновяване на информацията за последния пакет.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation>Последния пакет отговори с грешка.</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation>Последния пакет отговори с грешка в протокола.</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation>Проект %1: Слоят `%2` от пакета е невалиден. Код на грешката %3, съобщение на грешката: %4</translation>
+    </message>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation>Неуспешно отваряне на временен файл за &quot;%1&quot;, причина:
+%2</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write file to temporary location `%1`.</source>
+        <translation>Грешка във файловата система. Неуспешно съхранение на файла на временна локация `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open file for writing on temporary `%1`.</source>
+        <translation>Грешка във файловата система. Неуспешно прочитане на файла от временна локация `%1`.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Мрежова грешка. Неуспешно изтегляне на файл `%1`.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Неуспешно копиране на някои от изтеглените файлове. Провери съхранението на данни.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation>Проект `%1`, файл `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation>Системно съобщение</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation>(виж повече в QField логовете)</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>Създаването на нова задача е успешно, но отговорът от сървъра липсва задължителни полета: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>Проверка на статуса на задачата, но задача за `%2` не е стартирана все още.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>Отговорът на запитването за статуса на задача(%1) има липсващи задължителни полета: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>Задачата(%1) приключи с неуспешен (failed) статус.</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>проект(%1), но отговорът не съдържа всички задължителни полета: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>прекратено</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -2744,35 +2829,35 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>aborted</source>
-        <translation>прекратено</translation>
+        <translation type="vanished">прекратено</translation>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>проект(%1), но отговорът не съдържа всички задължителни полета: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+        <translation type="vanished">проект(%1), но отговорът не съдържа всички задължителни полета: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
     </message>
     <message>
         <source>Getting job status, but the project is deleted.</source>
-        <translation>Проверката на статуса на задачата, но проектът вече не съществува. </translation>
+        <translation type="vanished">Проверката на статуса на задачата, но проектът вече не съществува. </translation>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>Създаването на нова задача е успешно, но отговорът от сървъра липсва задължителни полета: id(string)</translation>
+        <translation type="vanished">Създаването на нова задача е успешно, но отговорът от сървъра липсва задължителни полета: id(string)</translation>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Проверка на статуса на задачата, но задача за `%2` не е стартирана все още.</translation>
+        <translation type="vanished">Проверка на статуса на задачата, но задача за `%2` не е стартирана все още.</translation>
     </message>
     <message>
         <source>Getting job status finished, but the project is deleted.</source>
-        <translation>Проверката на статуса на задачата приключи, но проектът вече не съществува. </translation>
+        <translation type="vanished">Проверката на статуса на задачата приключи, но проектът вече не съществува. </translation>
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>Отговорът на запитването за статуса на задача(%1) има липсващи задължителни полета: status(string)</translation>
+        <translation type="vanished">Отговорът на запитването за статуса на задача(%1) има липсващи задължителни полета: status(string)</translation>
     </message>
     <message>
         <source>Job(%1) finished with a failed status.</source>
-        <translation>Задачата(%1) приключи с неуспешен (failed) статус.</translation>
+        <translation type="vanished">Задачата(%1) приключи с неуспешен (failed) статус.</translation>
     </message>
     <message>
         <source>Project busy.</source>
@@ -2780,32 +2865,32 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation>Неуспешно завършила задача по пакетиране за `%1`: %2</translation>
+        <translation type="vanished">Неуспешно завършила задача по пакетиране за `%1`: %2</translation>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation>Неуспешно обновяване на последната информация за `%1`: %2</translation>
+        <translation type="vanished">Неуспешно обновяване на последната информация за `%1`: %2</translation>
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation>Неуспешно обновяване на информацията за последния пакет.</translation>
+        <translation type="vanished">Неуспешно обновяване на информацията за последния пакет.</translation>
     </message>
     <message>
         <source>Latest package data response error.</source>
-        <translation>Последния пакет отговори с грешка.</translation>
+        <translation type="vanished">Последния пакет отговори с грешка.</translation>
     </message>
     <message>
         <source>Latest package data structure error.</source>
-        <translation>Последния пакет отговори с грешка в протокола.</translation>
+        <translation type="vanished">Последния пакет отговори с грешка в протокола.</translation>
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation>Проект %1: Слоят `%2` от пакета е невалиден. Код на грешката %3, съобщение на грешката: %4</translation>
+        <translation type="vanished">Проект %1: Слоят `%2` от пакета е невалиден. Код на грешката %3, съобщение на грешката: %4</translation>
     </message>
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation>Неуспешно отваряне на временен файл за &quot;%1&quot;, причина:
+        <translation type="vanished">Неуспешно отваряне на временен файл за &quot;%1&quot;, причина:
 %2</translation>
     </message>
     <message>
@@ -2816,31 +2901,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation>Мрежова грешка. Неуспешно изтегляне на файл `%1`.</translation>
+        <translation type="vanished">Мрежова грешка. Неуспешно изтегляне на файл `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation>Грешка във файловата система. Неуспешно съхранение на файла на временна локация `%1`.</translation>
+        <translation type="vanished">Грешка във файловата система. Неуспешно съхранение на файла на временна локация `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation>Грешка във файловата система. Неуспешно прочитане на файла от временна локация `%1`.</translation>
+        <translation type="vanished">Грешка във файловата система. Неуспешно прочитане на файла от временна локация `%1`.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation>Проект `%1`, файл `%2`: %3</translation>
+        <translation type="vanished">Проект `%1`, файл `%2`: %3</translation>
     </message>
     <message>
         <source>System message: </source>
-        <translation>Системно съобщение</translation>
+        <translation type="vanished">Системно съобщение</translation>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
-        <translation>(виж повече в QField логовете)</translation>
+        <translation type="vanished">(виж повече в QField логовете)</translation>
     </message>
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Неуспешно копиране на някои от изтеглените файлове. Провери съхранението на данни.</translation>
+        <translation type="vanished">Неуспешно копиране на някои от изтеглените файлове. Провери съхранението на данни.</translation>
     </message>
 </context>
 <context>
