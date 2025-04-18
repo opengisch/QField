@@ -79,33 +79,34 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
   GeometryUtils::GeometryOperationResult reshapeReturn = static_cast<GeometryUtils::GeometryOperationResult>( geom.reshapeGeometry( reshapeLineString ) );
   if ( reshapeReturn == GeometryUtils::GeometryOperationResult::Success )
   {
-    //avoid intersections on polygon layers
-    if ( layer->geometryType() == Qgis::GeometryType::Polygon )
+    for ( QgsMapLayer *mapLayer : QgsProject::instance()->mapLayers() )
     {
-      QList<QgsVectorLayer *> avoidIntersectionsLayers;
-      switch ( QgsProject::instance()->avoidIntersectionsMode() )
+      QgsVectorLayer *otherLayer = dynamic_cast<QgsVectorLayer *>( mapLayer );
+      if ( !otherLayer )
       {
-        case Qgis::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
-          avoidIntersectionsLayers.append( layer );
-          break;
-        case Qgis::AvoidIntersectionsMode::AvoidIntersectionsLayers:
-          avoidIntersectionsLayers = QgsProject::instance()->avoidIntersectionsLayers();
-          break;
-        case Qgis::AvoidIntersectionsMode::AllowIntersections:
-          break;
-      }
-      if ( !avoidIntersectionsLayers.isEmpty() )
-      {
-        QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
-        ignoredFeature.insert( layer, QSet<QgsFeatureId>() << fid );
-        geom.avoidIntersectionsV2( avoidIntersectionsLayers, ignoredFeature );
+        continue;
       }
 
-      if ( geom.isEmpty() ) //intersection removal might have removed the whole geometry
+      QgsRectangle bbox = geom.boundingBox();
+      QgsFeatureIterator fit = otherLayer->getFeatures( QgsFeatureRequest().setFilterRect( bbox ) );
+
+      QgsFeature otherFeature;
+      while ( fit.nextFeature( otherFeature ) )
       {
-        return GeometryUtils::GeometryOperationResult::NothingHappened;
+        QgsGeometry otherGeom = otherFeature.geometry();
+        if ( otherGeom.isNull() )
+          continue;
+
+        // Check if the current geometry intersects with the other geometry
+        if ( geom.intersects( otherGeom ) )
+        {
+          QgsLineString otherReshapeLineString( points ); // Using the same reshaping line
+          otherGeom.reshapeGeometry( otherReshapeLineString );
+          otherLayer->changeGeometry( otherFeature.id(), otherGeom );
+        }
       }
     }
+
     layer->changeGeometry( fid, geom );
 
     // Add topological points
