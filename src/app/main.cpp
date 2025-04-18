@@ -60,6 +60,8 @@ Q_IMPORT_PLUGIN( opensslPlugin )
 
 void initGraphics()
 {
+  QCoreApplication::setAttribute( Qt::AA_DisableShaderDiskCache );
+
 #ifdef WITH_SPIX
   // Set antialiasing method to vertex to get same antialiasing across environments
   qputenv( "QSG_ANTIALIASING_METHOD", "vertex" );
@@ -74,43 +76,92 @@ void initGraphics()
 #endif
 }
 
+void initAuthManager( QgsAuthManager *authManager )
+{
+  authManager->setPasswordHelperEnabled( false );
+  if ( authManager->verifyMasterPassword( QStringLiteral( "qfield" ) ) )
+  {
+    // migrating authentication database
+    authManager->setMasterPassword( QStringLiteral( "qfield" ) );
+    authManager->setPasswordHelperEnabled( true );
+
+    QRandomGenerator generator = QRandomGenerator::securelySeeded();
+    QString pw;
+    pw.resize( 32 );
+    static const QString sPwChars = QStringLiteral( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-{}[]" );
+    for ( int i = 0; i < pw.size(); ++i )
+    {
+      pw[i] = sPwChars.at( generator.bounded( 0, sPwChars.length() ) );
+    }
+
+    authManager->resetMasterPassword( pw, QStringLiteral( "qfield" ), false );
+    authManager->passwordHelperSync();
+  }
+
+  authManager->setPasswordHelperEnabled( true );
+  if ( !authManager->masterPasswordHashInDatabase() )
+  {
+    // if no master password set by user yet, just generate a new one and store it in the system keychain
+    authManager->createAndStoreRandomMasterPasswordInKeyChain();
+  }
+}
+
 int main( int argc, char **argv )
 {
+  QCoreApplication::setOrganizationName( "OPENGIS.ch" );
+  QCoreApplication::setOrganizationDomain( "opengis.ch" );
+  QCoreApplication::setApplicationName( qfield::appName );
+
+  PlatformUtilities *platformUtils = PlatformUtilities::instance();
+  platformUtils->initSystem();
+
+  // Let's make sure we have a writable path for the QGIS profile on every platform
+  const QString profilePath = platformUtils->systemLocalDataLocation( QStringLiteral( "profiles/default" ) );
+  QDir().mkdir( profilePath );
+
+  Q_INIT_RESOURCE( qml );
+
 #if defined( Q_OS_ANDROID )
   if ( argc > 1 )
   {
     if ( strcmp( argv[1], "--cloudservice" ) == 0 )
     {
-      QCoreApplication::setOrganizationName( "OPENGIS.ch" );
-      QCoreApplication::setOrganizationDomain( "opengis.ch" );
-      QCoreApplication::setApplicationName( qfield::appName );
-
       // This service only deals with background attachment uploads;
       // it will terminate once all uploads are done
-      QFieldCloudService app( argc, argv );
+      QFieldCloudService service( argc, argv );
+
+      // Workaround QgsApplication::initQgis crashing adding app fonts
+      QDir profileDir( profilePath );
+      profileDir.rename( QStringLiteral( "fonts" ), QStringLiteral( "fonts-disabled" ) );
+
+      QgsApplication::init( profilePath );
+      QgsApplication::initQgis();
+#ifdef RELATIVE_PREFIX_PATH
+      QgsApplication::setPkgDataPath( PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
+#endif
+      QgsApplication::createDatabase();
+      initAuthManager( QgsApplication::authManager() );
+
+      profileDir.rmdir( QStringLiteral( "fonts" ) );
+      profileDir.rename( QStringLiteral( "fonts-disabled" ), QStringLiteral( "fonts" ) );
+
+      service.execute();
+      service.exit( 0 );
+
       return 0;
     }
     else if ( strcmp( argv[1], "--positioningservice" ) == 0 )
     {
-      QCoreApplication::setOrganizationName( "OPENGIS.ch" );
-      QCoreApplication::setOrganizationDomain( "opengis.ch" );
-      QCoreApplication::setApplicationName( qfield::appName );
-
-      QFieldPositioningService app( argc, argv );
-      return app.exec();
+      QFieldPositioningService service( argc, argv );
+      return service.exec();
     }
   }
 #endif
-
-  QCoreApplication::setAttribute( Qt::AA_DisableShaderDiskCache );
 
   initGraphics();
 
   // Read settings, use a dummy app to get access to QSettings
   QCoreApplication *dummyApp = new QCoreApplication( argc, argv );
-  QCoreApplication::setOrganizationName( "OPENGIS.ch" );
-  QCoreApplication::setOrganizationDomain( "opengis.ch" );
-  QCoreApplication::setApplicationName( qfield::appName );
   const QSettings settings;
   const QString customLanguage = settings.value( "/customLanguage", QString() ).toString();
 
@@ -121,8 +172,6 @@ int main( int argc, char **argv )
   // Make sure everything flushes when exiting the app
   auto sentryClose = qScopeGuard( [] { sentry_wrapper::close(); } );
 #endif
-
-  Q_INIT_RESOURCE( qml );
 
   QTranslator qfieldTranslator;
   QTranslator qtTranslator;
@@ -136,15 +185,9 @@ int main( int argc, char **argv )
   dummyApp->installTranslator( &qtTranslator );
   dummyApp->installTranslator( &qfieldTranslator );
 
-  QtWebView::initialize();
-
-  PlatformUtilities *platformUtils = PlatformUtilities::instance();
-  platformUtils->initSystem();
-
-  // Let's make sure we have a writable path for the qgis_profile on every platform
-  const QString profilePath = platformUtils->systemLocalDataLocation( QStringLiteral( "/qgis_profile" ) );
-  QDir().mkdir( profilePath );
   delete dummyApp;
+
+  QtWebView::initialize();
 
   QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
 
@@ -268,32 +311,7 @@ int main( int argc, char **argv )
 #endif
   app.createDatabase();
 
-#ifndef Q_OS_LINUX
-  QgsApplication::instance()->authManager()->setPasswordHelperEnabled( false );
-  if ( QgsApplication::instance()->authManager()->verifyMasterPassword( QString( "qfield" ) ) )
-  {
-    // migrating authentication database
-    QgsApplication::instance()->authManager()->setMasterPassword( QString( "qfield" ) );
-    QgsApplication::instance()->authManager()->setPasswordHelperEnabled( true );
-
-    QRandomGenerator generator = QRandomGenerator::securelySeeded();
-    QString pw;
-    pw.resize( 32 );
-    static const QString sPwChars = QStringLiteral( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-{}[]" );
-    for ( int i = 0; i < pw.size(); ++i )
-    {
-      pw[i] = sPwChars.at( generator.bounded( 0, sPwChars.length() ) );
-    }
-
-    QgsApplication::instance()->authManager()->resetMasterPasswordUsingStoredPasswordHelper( pw, false );
-  }
-
-  QgsApplication::instance()->authManager()->setPasswordHelperEnabled( true );
-  QgsApplication::instance()->authManager()->verifyStoredPasswordHelperPassword();
-#else
-  QgsApplication::instance()->authManager()->setPasswordHelperEnabled( false );
-  QgsApplication::instance()->authManager()->setMasterPassword( QString( "qfield" ) );
-#endif
+  initAuthManager( QgsApplication::authManager() );
 
   if ( !qfieldFontName.isEmpty() )
   {
