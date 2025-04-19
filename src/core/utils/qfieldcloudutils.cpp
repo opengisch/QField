@@ -161,12 +161,12 @@ const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments( const
     const QStringList migratedUsernames = migratedAttachmentDetails.keys();
     for ( const QString &migratedUsername : migratedUsernames )
     {
-      const QStringList projectIds = migratedAttachmentDetails[migratedUsername].uniqueKeys();
-      for ( const QString &projectId : projectIds )
+      const QStringList migratedProjectIds = migratedAttachmentDetails[migratedUsername].uniqueKeys();
+      for ( const QString &migratedProjectId : migratedProjectIds )
       {
         // Play safe, create user folder
         QDir().mkpath( QStringLiteral( "%1/%2" ).arg( QFieldCloudUtils::localCloudDirectory(), migratedUsername ) );
-        addPendingAttachments( migratedUsername, projectId, migratedAttachmentDetails[migratedUsername].values( projectId ) );
+        addPendingAttachments( migratedUsername, migratedProjectId, migratedAttachmentDetails[migratedUsername].values( migratedProjectId ) );
       }
     }
 
