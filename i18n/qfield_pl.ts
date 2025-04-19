@@ -828,51 +828,51 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Cofnij utworzenie %n obiektu na warstwie %1.</numerusform><numerusform>Cofnij utworzenie %n obiektów na warstwie %1.</numerusform><numerusform>Cofnij utworzenie %n obiektów na warstwie %1.</numerusform><numerusform>Cofnij utworzenie %n obiektów na warstwie %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Cofnij utworzenie %n obiektu.</numerusform><numerusform>Cofnij utworzenie %n obiektów.</numerusform><numerusform>Cofnij utworzenie %n obiektów.</numerusform><numerusform>Cofnij utworzenie %n obiektów.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Cofnij usunięcie %n obiektu na warstwie %1.</numerusform><numerusform>Cofnij usunięcie %n obiektów na warstwie %1.</numerusform><numerusform>Cofnij usunięcie %n obiektów na warstwie %1.</numerusform><numerusform>Cofnij usunięcie %n obiektów na warstwie %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Cofnij usunięcie %n elementu.</numerusform><numerusform>Cofnij usunięcie %n elementów.</numerusform><numerusform>Cofnij usunięcie %n elementów.</numerusform><numerusform>Cofnij usunięcie %n elementów.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Cofnij modyfikacje na %n obiekcie na warstwie %1.</numerusform><numerusform>Cofnij modyfikacje na %n obiektach na warstwie %1.</numerusform><numerusform>Cofnij modyfikacje na %n obiektach na warstwie %1.</numerusform><numerusform>Cofnij modyfikacje na %n obiektach na warstwie %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Cofnij modyfikacje na %n obiekcie.</numerusform><numerusform>Cofnij modyfikacje na %n obiektach.</numerusform><numerusform>Cofnij modyfikacje na %n obiektach.</numerusform><numerusform>Cofnij modyfikacje na %n obiektach.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Ponownie utwórz %n obiekt na warstwie %1</numerusform><numerusform>Ponownie utwórz %n obiekty na warstwie %1</numerusform><numerusform>Ponownie utwórz %n obiektów na warstwie %1</numerusform><numerusform>Ponownie utwórz %n obiektów na warstwie %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Ponownie utwórz %n obiekt</numerusform><numerusform>Ponownie utwórz %n obiekty</numerusform><numerusform>Ponownie utwórz %n obiektów</numerusform><numerusform>Ponownie utwórz %n obiektów</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Ponownie usuń %n obiekt na warstwie %1</numerusform><numerusform>Ponownie usuń %n obiekty na warstwie %1</numerusform><numerusform>Ponownie usuń %n obiektów na warstwie %1</numerusform><numerusform>Ponownie usuń %n obiektów na warstwie %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Ponownie usuń %n obiekt</numerusform><numerusform>Ponownie usuń %n obiekty</numerusform><numerusform>Ponownie usuń %n obiektów</numerusform><numerusform>Ponownie usuń %n obiektów</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Ponów modyfikacje na %n obiekcie na warstwie %1</numerusform><numerusform>Ponów modyfikacje na %n obiektach na warstwie %1</numerusform><numerusform>Ponów modyfikacje na %n obiektach na warstwie %1</numerusform><numerusform>Ponów modyfikacje na %n obiektach na warstwie %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Ponów modyfikacje na %n obiekcie</numerusform><numerusform>Ponów modyfikacje na %n obiektach</numerusform><numerusform>Ponów modyfikacje na %n obiektach</numerusform><numerusform>Ponów modyfikacje na %n obiektach</numerusform></translation>
     </message>
 </context>
 <context>
