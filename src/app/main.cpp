@@ -78,6 +78,7 @@ void initGraphics()
 
 void initAuthManager( QgsAuthManager *authManager )
 {
+#ifndef Q_OS_LINUX
   authManager->setPasswordHelperEnabled( false );
   if ( authManager->verifyMasterPassword( QStringLiteral( "qfield" ) ) )
   {
@@ -104,6 +105,10 @@ void initAuthManager( QgsAuthManager *authManager )
     // if no master password set by user yet, just generate a new one and store it in the system keychain
     authManager->createAndStoreRandomMasterPasswordInKeyChain();
   }
+#else
+  authManager->setPasswordHelperEnabled( false );
+  authManager->setMasterPassword( QStringLiteral( "qfield" ) );
+#endif
 }
 
 int main( int argc, char **argv )
