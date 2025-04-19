@@ -117,13 +117,6 @@ int main( int argc, char **argv )
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
   QCoreApplication::setApplicationName( qfield::appName );
 
-  PlatformUtilities *platformUtils = PlatformUtilities::instance();
-  platformUtils->initSystem();
-
-  // Let's make sure we have a writable path for the QGIS profile on every platform
-  const QString profilePath = platformUtils->systemLocalDataLocation( QStringLiteral( "profiles/default" ) );
-  QDir().mkdir( profilePath );
-
   Q_INIT_RESOURCE( qml );
 
 #if defined( Q_OS_ANDROID )
@@ -134,6 +127,18 @@ int main( int argc, char **argv )
       // This service only deals with background attachment uploads;
       // it will terminate once all uploads are done
       QFieldCloudService service( argc, argv );
+
+      PlatformUtilities *platformUtils = PlatformUtilities::instance();
+      platformUtils->initSystem();
+
+      // Let's make sure we have a writable path for the QGIS profile on every platform
+      const QString profilePath = platformUtils->systemLocalDataLocation( QStringLiteral( "profiles/default" ) );
+      QDir().mkdir( profilePath );
+
+#ifdef RELATIVE_PREFIX_PATH
+      qputenv( "SSL_CERT_FILE", QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/cacert.pem" ).toLocal8Bit() );
+      qputenv( "GDAL_DATA", QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/gdal" ).toLocal8Bit() );
+#endif
 
       // Workaround QgsApplication::initQgis crashing adding app fonts
       QDir profileDir( profilePath );
@@ -169,6 +174,13 @@ int main( int argc, char **argv )
   QCoreApplication *dummyApp = new QCoreApplication( argc, argv );
   const QSettings settings;
   const QString customLanguage = settings.value( "/customLanguage", QString() ).toString();
+
+  PlatformUtilities *platformUtils = PlatformUtilities::instance();
+  platformUtils->initSystem();
+
+  // Let's make sure we have a writable path for the QGIS profile on every platform
+  const QString profilePath = platformUtils->systemLocalDataLocation( QStringLiteral( "profiles/default" ) );
+  QDir().mkdir( profilePath );
 
 #if WITH_SENTRY
   const bool enableSentry = settings.value( "/enableInfoCollection", true ).toBool();
