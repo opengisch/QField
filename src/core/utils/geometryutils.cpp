@@ -66,6 +66,7 @@ QgsGeometry GeometryUtils::variableWidthBufferByMFromRubberband( RubberbandModel
 
 GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
 {
+  qDebug() << "FID = " << fid;
   QgsFeature feature = layer->getFeature( fid );
   QgsGeometry geom = feature.geometry();
   if ( geom.isNull() || ( QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Line && QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Polygon ) )
@@ -73,40 +74,13 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
     return GeometryUtils::GeometryOperationResult::InvalidBaseGeometry;
   }
 
-  QgsPointSequence points = rubberBandModel->pointSequence( layer->crs(), Qgis::WkbType::Point, false );
-  QgsLineString reshapeLineString( points );
+  const QgsPointSequence points = rubberBandModel->pointSequence( layer->crs(), Qgis::WkbType::Point, false );
+  const QgsLineString reshapeLineString( points );
 
   GeometryUtils::GeometryOperationResult reshapeReturn = static_cast<GeometryUtils::GeometryOperationResult>( geom.reshapeGeometry( reshapeLineString ) );
+
   if ( reshapeReturn == GeometryUtils::GeometryOperationResult::Success )
   {
-    for ( QgsMapLayer *mapLayer : QgsProject::instance()->mapLayers() )
-    {
-      QgsVectorLayer *otherLayer = dynamic_cast<QgsVectorLayer *>( mapLayer );
-      if ( !otherLayer )
-      {
-        continue;
-      }
-
-      QgsRectangle bbox = geom.boundingBox();
-      QgsFeatureIterator fit = otherLayer->getFeatures( QgsFeatureRequest().setFilterRect( bbox ) );
-
-      QgsFeature otherFeature;
-      while ( fit.nextFeature( otherFeature ) )
-      {
-        QgsGeometry otherGeom = otherFeature.geometry();
-        if ( otherGeom.isNull() )
-          continue;
-
-        // Check if the current geometry intersects with the other geometry
-        if ( geom.intersects( otherGeom ) )
-        {
-          QgsLineString otherReshapeLineString( points ); // Using the same reshaping line
-          otherGeom.reshapeGeometry( otherReshapeLineString );
-          otherLayer->changeGeometry( otherFeature.id(), otherGeom );
-        }
-      }
-    }
-
     layer->changeGeometry( fid, geom );
 
     // Add topological points
