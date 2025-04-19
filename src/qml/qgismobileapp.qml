@@ -3972,7 +3972,7 @@ ApplicationWindow {
         displayToast(qsTr('Connecting...'));
       } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         displayToast(qsTr('Signed in'));
-        if (QFieldCloudUtils.hasPendingAttachments()) {
+        if (QFieldCloudUtils.hasPendingAttachments(cloudConnection.username)) {
           // Go ahead and upload pending attachments in the background
           platformUtilities.uploadPendingAttachments(cloudConnection);
         }
@@ -4007,7 +4007,7 @@ ApplicationWindow {
       if (!isDownloadingProject) {
         displayToast(qsTr("Changes successfully pushed to QFieldCloud"));
       }
-      if (QFieldCloudUtils.hasPendingAttachments()) {
+      if (QFieldCloudUtils.hasPendingAttachments(cloudConnection.username)) {
         // Go ahead and upload pending attachments in the background
         platformUtilities.uploadPendingAttachments(cloudConnection);
       }
