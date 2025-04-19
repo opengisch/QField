@@ -66,17 +66,19 @@ QgsGeometry GeometryUtils::variableWidthBufferByMFromRubberband( RubberbandModel
 
 GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
 {
-  QgsFeature feature = layer->getFeature( fid );
-  QgsGeometry geom = feature.geometry();
-  if ( geom.isNull() || ( QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Line && QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Polygon ) )
+  QgsFeature selectedFeature = layer->getFeature( fid );
+  QgsGeometry selectedGeometry = selectedFeature.geometry();
+  if ( selectedGeometry.isNull() || ( QgsWkbTypes::geometryType( selectedGeometry.wkbType() ) != Qgis::GeometryType::Line && QgsWkbTypes::geometryType( selectedGeometry.wkbType() ) != Qgis::GeometryType::Polygon ) )
   {
     return GeometryUtils::GeometryOperationResult::InvalidBaseGeometry;
   }
 
-  QgsPointSequence points = rubberBandModel->pointSequence( layer->crs(), Qgis::WkbType::Point, false );
-  QgsLineString reshapeLineString( points );
+  const QgsPointSequence points = rubberBandModel->pointSequence( layer->crs(), Qgis::WkbType::Point, false );
+  const QgsLineString reshapeLineString( points );
+  const QgsGeometry reshapeLineStringGeom( reshapeLineString.clone() );
 
-  GeometryUtils::GeometryOperationResult reshapeReturn = static_cast<GeometryUtils::GeometryOperationResult>( geom.reshapeGeometry( reshapeLineString ) );
+  GeometryUtils::GeometryOperationResult reshapeReturn = static_cast<GeometryUtils::GeometryOperationResult>( selectedGeometry.reshapeGeometry( reshapeLineString ) );
+
   if ( reshapeReturn == GeometryUtils::GeometryOperationResult::Success )
   {
     //avoid intersections on polygon layers
@@ -94,24 +96,57 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
         case Qgis::AvoidIntersectionsMode::AllowIntersections:
           break;
       }
-      if ( !avoidIntersectionsLayers.isEmpty() )
+      if ( !avoidIntersectionsLayers.isEmpty() && !QgsProject::instance()->topologicalEditing() )
       {
         QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
         ignoredFeature.insert( layer, QSet<QgsFeatureId>() << fid );
-        geom.avoidIntersectionsV2( avoidIntersectionsLayers, ignoredFeature );
+        selectedGeometry.avoidIntersectionsV2( avoidIntersectionsLayers, ignoredFeature );
       }
 
-      if ( geom.isEmpty() ) //intersection removal might have removed the whole geometry
+      if ( selectedGeometry.isEmpty() ) //intersection removal might have removed the whole geometry
       {
         return GeometryUtils::GeometryOperationResult::NothingHappened;
       }
     }
-    layer->changeGeometry( fid, geom );
+
+    if ( QgsProject::instance()->topologicalEditing() )
+    {
+      for ( QgsMapLayer *mapLayer : QgsProject::instance()->mapLayers() )
+      {
+        QgsVectorLayer *otherLayer = dynamic_cast<QgsVectorLayer *>( mapLayer );
+        if ( !otherLayer )
+        {
+          continue;
+        }
+
+        QgsFeatureIterator fit = otherLayer->getFeatures( QgsFeatureRequest().setFilterRect( selectedGeometry.boundingBox() ) );
+
+        QgsFeature otherFeature;
+        while ( fit.nextFeature( otherFeature ) )
+        {
+          if ( otherFeature.id() == fid )
+            continue;
+
+          QgsGeometry otherGeometry = otherFeature.geometry();
+          if ( otherGeometry.isNull() )
+            continue;
+
+          if ( selectedGeometry.intersects( reshapeLineStringGeom ) && otherGeometry.intersects( reshapeLineStringGeom ) )
+          {
+            otherGeometry.reshapeGeometry( reshapeLineString );
+            otherLayer->changeGeometry( otherFeature.id(), otherGeometry );
+            otherLayer->addTopologicalPoints( otherGeometry );
+          }
+        }
+      }
+    }
+
+    layer->changeGeometry( fid, selectedGeometry );
 
     // Add topological points
     if ( QgsProject::instance()->topologicalEditing() )
     {
-      layer->addTopologicalPoints( geom );
+      layer->addTopologicalPoints( selectedGeometry );
     }
   }
 
