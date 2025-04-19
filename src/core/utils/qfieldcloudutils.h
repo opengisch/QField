@@ -134,10 +134,10 @@ class QFieldCloudUtils : public QObject
     static const QVariant projectSetting( const QString &projectId, const QString &setting, const QVariant &defaultValue = QVariant() );
 
     //! Returns TRUE if pending attachments are detected.
-    Q_INVOKABLE static bool hasPendingAttachments();
+    Q_INVOKABLE static bool hasPendingAttachments( const QString &username );
 
     //! Returns the list of attachments that have not yet been uploaded to the cloud.
-    static const QMultiMap<QString, QString> getPendingAttachments();
+    static const QMultiMap<QString, QString> getPendingAttachments( const QString &username );
 
     /**
      * Adds an array of files and/or folders for a given cloud project to the pending upload attachments list.
@@ -148,15 +148,15 @@ class QFieldCloudUtils : public QObject
      * @param cloudConnection The cloud connection used to fetch file data.
      * @param checkSumCheck Whether to validate files by comparing checksums with the server.
      */
-    Q_INVOKABLE static void addPendingAttachments( const QString &projectId, const QStringList &fileNames, QFieldCloudConnection *cloudConnection = nullptr, const bool &checkSumCheck = false );
+    Q_INVOKABLE static void addPendingAttachments( const QString &username, const QString &projectId, const QStringList &fileNames, QFieldCloudConnection *cloudConnection = nullptr, const bool &checkSumCheck = false );
 
     //! Removes a \a fileName for a given \a projectId to the pending attachments list
-    static void removePendingAttachment( const QString &projectId, const QString &fileName );
+    static void removePendingAttachment( const QString &username, const QString &projectId, const QString &fileName );
 
   private:
     static inline const QString errorCodeOverQuota { QStringLiteral( "over_quota" ) };
 
-    static void writeToAttachmentsFile( const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck );
+    static void writeToAttachmentsFile( const QString &username, const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck );
 
     static void writeFilesFromDirectory( const QString &dirPath, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream );
 

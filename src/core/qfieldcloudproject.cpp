@@ -1214,7 +1214,7 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
     }
 
     // ? should we also check the checksums of the files being uploaded? they are available at deltaFile->attachmentFileNames()->values()
-    QFieldCloudUtils::addPendingAttachments( mId, { absoluteFilePath } );
+    QFieldCloudUtils::addPendingAttachments( mUsername, mId, { absoluteFilePath } );
   }
 
   QString deltaFileToUpload = deltaFileWrapper->toFileForUpload();

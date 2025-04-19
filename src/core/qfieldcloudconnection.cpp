@@ -784,7 +784,7 @@ int QFieldCloudConnection::uploadPendingAttachments()
   if ( mUploadPendingCount > 0 )
     return mUploadPendingCount;
 
-  QMultiMap<QString, QString> attachments = QFieldCloudUtils::getPendingAttachments();
+  QMultiMap<QString, QString> attachments = QFieldCloudUtils::getPendingAttachments( mUsername );
   if ( attachments.isEmpty() )
   {
     emit pendingAttachmentsUploadFinished();
@@ -799,7 +799,7 @@ int QFieldCloudConnection::uploadPendingAttachments()
 
 void QFieldCloudConnection::processPendingAttachments()
 {
-  QMultiMap<QString, QString> attachments = QFieldCloudUtils::getPendingAttachments();
+  QMultiMap<QString, QString> attachments = QFieldCloudUtils::getPendingAttachments( mUsername );
   mUploadPendingCount = attachments.size();
 
   QMultiMap<QString, QString>::const_iterator it = attachments.constBegin();
@@ -809,7 +809,7 @@ void QFieldCloudConnection::processPendingAttachments()
     {
       // A pending attachment has been deleted from the local device, remove
       // This can happen when for e.g. users remove a cloud project from their devices
-      QFieldCloudUtils::removePendingAttachment( it.key(), it.value() );
+      QFieldCloudUtils::removePendingAttachment( mUsername, it.key(), it.value() );
       ++it;
       continue;
     }
@@ -868,7 +868,7 @@ void QFieldCloudConnection::processPendingAttachments()
         AppInterface::instance()->sendLog( QStringLiteral( "QFieldCloud file upload HTTP code oddity!" ), QString() );
       }
 
-      QFieldCloudUtils::removePendingAttachment( projectId, fileName );
+      QFieldCloudUtils::removePendingAttachment( mUsername, projectId, fileName );
       mUploadPendingCount--;
       mUploadFailingCount = 0;
 
