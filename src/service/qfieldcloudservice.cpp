@@ -23,6 +23,10 @@
 QFieldCloudService::QFieldCloudService( int &argc, char **argv )
   : QAndroidService( argc, argv )
 {
+}
+
+void QFieldCloudService::execute()
+{
   QSettings settings;
   QEventLoop loop( this );
   QFieldCloudConnection connection;
@@ -35,8 +39,6 @@ QFieldCloudService::QFieldCloudService( int &argc, char **argv )
 
   QJniObject activity = QCoreApplication::instance()->nativeInterface<QNativeInterface::QAndroidApplication>()->context();
   activity.callMethod<void>( "stopSelf" );
-
-  exit( 0 );
 }
 
 QFieldCloudService::~QFieldCloudService()

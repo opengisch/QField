@@ -231,7 +231,7 @@ bool AppInterface::isFileExtensionSupported( const QString &filename ) const
 
 bool AppInterface::isAuthenticationConfigurationAvailable( const QString &id ) const
 {
-  QgsAuthManager *authManager = QgsApplication::instance()->authManager();
+  QgsAuthManager *authManager = QgsApplication::authManager();
   QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
   return configs.contains( id );
 }

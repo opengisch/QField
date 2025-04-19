@@ -100,7 +100,7 @@ void WebdavConnection::checkStoredPassword()
 
   if ( !mUrl.isEmpty() && !mUsername.isEmpty() )
   {
-    QgsAuthManager *authManager = QgsApplication::instance()->authManager();
+    QgsAuthManager *authManager = QgsApplication::authManager();
     QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
     for ( QgsAuthMethodConfig &config : configs )
     {
@@ -120,7 +120,7 @@ void WebdavConnection::checkStoredPassword()
 
 void WebdavConnection::applyStoredPassword()
 {
-  QgsAuthManager *authManager = QgsApplication::instance()->authManager();
+  QgsAuthManager *authManager = QgsApplication::authManager();
   QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
   if ( mStorePassword )
   {
@@ -446,7 +446,7 @@ void WebdavConnection::getWebdavItems()
 
 void WebdavConnection::forgetHistory( const QString &url, const QString &username )
 {
-  QgsAuthManager *authManager = QgsApplication::instance()->authManager();
+  QgsAuthManager *authManager = QgsApplication::authManager();
   QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
   QSettings settings;
   if ( !username.isEmpty() )
