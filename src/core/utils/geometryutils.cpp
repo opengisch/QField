@@ -77,11 +77,38 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
   const QgsLineString reshapeLineString( points );
   const QgsGeometry reshapeLineStringGeom( reshapeLineString.clone() );
 
-
   GeometryUtils::GeometryOperationResult reshapeReturn = static_cast<GeometryUtils::GeometryOperationResult>( selectedGeometry.reshapeGeometry( reshapeLineString ) );
 
   if ( reshapeReturn == GeometryUtils::GeometryOperationResult::Success )
   {
+    //avoid intersections on polygon layers
+    if ( layer->geometryType() == Qgis::GeometryType::Polygon )
+    {
+      QList<QgsVectorLayer *> avoidIntersectionsLayers;
+      switch ( QgsProject::instance()->avoidIntersectionsMode() )
+      {
+        case Qgis::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
+          avoidIntersectionsLayers.append( layer );
+          break;
+        case Qgis::AvoidIntersectionsMode::AvoidIntersectionsLayers:
+          avoidIntersectionsLayers = QgsProject::instance()->avoidIntersectionsLayers();
+          break;
+        case Qgis::AvoidIntersectionsMode::AllowIntersections:
+          break;
+      }
+      if ( !avoidIntersectionsLayers.isEmpty() && !QgsProject::instance()->topologicalEditing() )
+      {
+        QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
+        ignoredFeature.insert( layer, QSet<QgsFeatureId>() << fid );
+        selectedGeometry.avoidIntersectionsV2( avoidIntersectionsLayers, ignoredFeature );
+      }
+
+      if ( selectedGeometry.isEmpty() ) //intersection removal might have removed the whole geometry
+      {
+        return GeometryUtils::GeometryOperationResult::NothingHappened;
+      }
+    }
+
     if ( QgsProject::instance()->topologicalEditing() )
     {
       for ( QgsMapLayer *mapLayer : QgsProject::instance()->mapLayers() )
@@ -113,7 +140,6 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
         }
       }
     }
-
 
     layer->changeGeometry( fid, selectedGeometry );
 
