@@ -151,6 +151,10 @@ if(MSVC)
   add_definitions(-DNOMINMAX)
   add_definitions(-D_CRT_NONSTDC_NO_DEPRECATE)
 
+  # Windows 7 Compatibility
+  set(CMAKE_SYSTEM_VERSION 7.0)
+  add_definitions(-D_WIN32_WINNT=0x0601)
+
   # Generate pdb files
   add_compile_options("$<$<NOT:$<CONFIG:Debug>>:/Zi>")
   add_link_options("$<$<NOT:$<CONFIG:Debug>>:/DEBUG>")
