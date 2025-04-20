@@ -79,6 +79,16 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
 
   GeometryUtils::GeometryOperationResult reshapeReturn = static_cast<GeometryUtils::GeometryOperationResult>( selectedGeometry.reshapeGeometry( reshapeLineString ) );
 
+  /* Implementation logic:
+   * - When both avoid intersection and topological editing is off, no other feature geometries are changed
+   * - When avoid intersection is on and topological editing is off, the targeted feature will avoid
+   *   overlapping other feature geometries
+   * - When avoid intersection is off and topological editing is on, other features on the target layer
+   *   will be reshaped when overlapping the reshape line
+   * - When both avoid intersection and topological editing are on, the targeted feature will avoid overlapping
+   *   other features geometries except those from the target layer which will be reshaped when overlapping
+   *   the reshape line
+   */
   if ( reshapeReturn == GeometryUtils::GeometryOperationResult::Success )
   {
     //avoid intersections on polygon layers
@@ -96,14 +106,21 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
         case Qgis::AvoidIntersectionsMode::AllowIntersections:
           break;
       }
-      if ( !avoidIntersectionsLayers.isEmpty() && !QgsProject::instance()->topologicalEditing() )
+
+      if ( QgsProject::instance()->topologicalEditing() )
+      {
+        // Since we're allowing reshaping in our logic when topological editing is on, remove the layer as it'll never overlap
+        avoidIntersectionsLayers.removeAll( layer );
+      }
+
+      if ( !avoidIntersectionsLayers.isEmpty() )
       {
         QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
         ignoredFeature.insert( layer, QSet<QgsFeatureId>() << fid );
         selectedGeometry.avoidIntersectionsV2( avoidIntersectionsLayers, ignoredFeature );
       }
 
-      if ( selectedGeometry.isEmpty() ) //intersection removal might have removed the whole geometry
+      if ( selectedGeometry.isEmpty() ) // Intersection removal might have removed the whole geometry
       {
         return GeometryUtils::GeometryOperationResult::NothingHappened;
       }
@@ -111,32 +128,23 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
 
     if ( QgsProject::instance()->topologicalEditing() )
     {
-      for ( QgsMapLayer *mapLayer : QgsProject::instance()->mapLayers() )
+      QgsFeatureIterator fit = layer->getFeatures( QgsFeatureRequest().setFilterRect( selectedGeometry.boundingBox() ) );
+      QgsFeature otherFeature;
+      while ( fit.nextFeature( otherFeature ) )
       {
-        QgsVectorLayer *otherLayer = dynamic_cast<QgsVectorLayer *>( mapLayer );
-        if ( !otherLayer )
-        {
+        if ( otherFeature.id() == fid )
           continue;
-        }
 
-        QgsFeatureIterator fit = otherLayer->getFeatures( QgsFeatureRequest().setFilterRect( selectedGeometry.boundingBox() ) );
+        QgsGeometry otherGeometry = otherFeature.geometry();
+        if ( otherGeometry.isNull() )
+          continue;
 
-        QgsFeature otherFeature;
-        while ( fit.nextFeature( otherFeature ) )
+        if ( selectedGeometry.intersects( reshapeLineStringGeom ) && otherGeometry.intersects( reshapeLineStringGeom ) )
         {
-          if ( otherFeature.id() == fid )
-            continue;
-
-          QgsGeometry otherGeometry = otherFeature.geometry();
-          if ( otherGeometry.isNull() )
-            continue;
-
-          if ( selectedGeometry.intersects( reshapeLineStringGeom ) && otherGeometry.intersects( reshapeLineStringGeom ) )
-          {
-            otherGeometry.reshapeGeometry( reshapeLineString );
-            otherLayer->changeGeometry( otherFeature.id(), otherGeometry );
-            otherLayer->addTopologicalPoints( otherGeometry );
-          }
+          otherGeometry.reshapeGeometry( reshapeLineString );
+          layer->changeGeometry( otherFeature.id(), otherGeometry );
+          // Add topological points
+          layer->addTopologicalPoints( otherGeometry );
         }
       }
     }
