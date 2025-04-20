@@ -1754,6 +1754,7 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   project->mDataLastUpdatedAt = QDateTime::fromString( details.value( "data_last_updated_at" ).toString(), Qt::ISODate );
   project->mCanRepackage = details.value( "can_repackage" ).toBool();
   project->mNeedsRepackaging = details.value( "needs_repackaging" ).toBool();
+  project->mLocalizedDatasetsProjectId = details.value( "localized_datasets_project_id" ).toString();
 
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "owner" ), project->owner() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "name" ), project->name() );
@@ -1762,6 +1763,7 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "userRoleOrigin" ), project->userRoleOrigin() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "canRepackage" ), project->canRepackage() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "needsRepackaging" ), project->needsRepackaging() );
+  QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "localizedDatasetsProjectId" ), project->localizedDatasetsProjectId() );
 
   QString username = connection ? connection->username() : QString();
   if ( !username.isEmpty() )
@@ -1792,6 +1794,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   const QString description = QFieldCloudUtils::projectSetting( id, QStringLiteral( "description" ) ).toString();
   const QString userRole = QFieldCloudUtils::projectSetting( id, QStringLiteral( "userRole" ) ).toString();
   const QString userRoleOrigin = QFieldCloudUtils::projectSetting( id, QStringLiteral( "userRoleOrigin" ) ).toString();
+  const QString localizedDatasetsProjectId = QFieldCloudUtils::projectSetting( id, QStringLiteral( "localizedDatasetsProjectId" ) ).toString();
 
   QFieldCloudProject *project = new QFieldCloudProject( id, connection, gpkgFlusher );
   project->mIsPrivate = true;
@@ -1805,6 +1808,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   project->mDataLastUpdatedAt = QDateTime();
   project->mCanRepackage = false;
   project->mNeedsRepackaging = false;
+  project->mLocalizedDatasetsProjectId = localizedDatasetsProjectId;
 
   QString username = connection ? connection->username() : QString();
   if ( !username.isEmpty() )

@@ -371,8 +371,6 @@ void QFieldCloudProjectsModel::projectListReceived()
   const int projectFetchOffset = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsFetchOffset ) ).toInt();
   if ( projectFetchOffset == 0 )
   {
-    mLocalizedDatasetsProjects.clear();
-
     beginResetModel();
     qDeleteAll( mProjects );
     mProjects.clear();
@@ -393,14 +391,6 @@ void QFieldCloudProjectsModel::projectListReceived()
   }
   else
   {
-    for ( QFieldCloudProject *project : mProjects )
-    {
-      if ( mLocalizedDatasetsProjects.contains( project->owner() ) )
-      {
-        project->setLocalizedDatasetsProjectId( mLocalizedDatasetsProjects[project->owner()] );
-      }
-    }
-
     // All projects fetched, refresh current project details if found
     if ( !mCurrentProjectId.isEmpty() )
     {
@@ -639,7 +629,6 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
 
     if ( cloudProject->name() == QStringLiteral( "localized_datasets" ) )
     {
-      mLocalizedDatasetsProjects[cloudProject->owner()] = cloudProject->id();
       delete cloudProject;
     }
     else
@@ -685,7 +674,6 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
 
         if ( cloudProject->name() == QStringLiteral( "localized_datasets" ) )
         {
-          mLocalizedDatasetsProjects[cloudProject->owner()] = cloudProject->id();
           delete cloudProject;
         }
         else
@@ -887,9 +875,9 @@ void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &projectP
   if ( !projectId.isEmpty() )
   {
     QFieldCloudProject *project = findProject( projectId );
-    if ( project && mLocalizedDatasetsProjects.contains( project->owner() ) )
+    if ( project && !project->localizedDatasetsProjectId().isEmpty() )
     {
-      localizedDataPath = QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mLocalizedDatasetsProjects[project->owner()] );
+      localizedDataPath = QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, project->localizedDatasetsProjectId() );
     }
   }
 
