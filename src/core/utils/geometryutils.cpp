@@ -66,17 +66,29 @@ QgsGeometry GeometryUtils::variableWidthBufferByMFromRubberband( RubberbandModel
 
 GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
 {
-  QgsFeature feature = layer->getFeature( fid );
-  QgsGeometry geom = feature.geometry();
-  if ( geom.isNull() || ( QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Line && QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Polygon ) )
+  QgsFeature selectedFeature = layer->getFeature( fid );
+  QgsGeometry selectedGeometry = selectedFeature.geometry();
+  if ( selectedGeometry.isNull() || ( QgsWkbTypes::geometryType( selectedGeometry.wkbType() ) != Qgis::GeometryType::Line && QgsWkbTypes::geometryType( selectedGeometry.wkbType() ) != Qgis::GeometryType::Polygon ) )
   {
     return GeometryUtils::GeometryOperationResult::InvalidBaseGeometry;
   }
 
-  QgsPointSequence points = rubberBandModel->pointSequence( layer->crs(), Qgis::WkbType::Point, false );
-  QgsLineString reshapeLineString( points );
+  const QgsPointSequence points = rubberBandModel->pointSequence( layer->crs(), Qgis::WkbType::Point, false );
+  const QgsLineString reshapeLineString( points );
+  const QgsGeometry reshapeLineStringGeom( reshapeLineString.clone() );
 
-  GeometryUtils::GeometryOperationResult reshapeReturn = static_cast<GeometryUtils::GeometryOperationResult>( geom.reshapeGeometry( reshapeLineString ) );
+  GeometryUtils::GeometryOperationResult reshapeReturn = static_cast<GeometryUtils::GeometryOperationResult>( selectedGeometry.reshapeGeometry( reshapeLineString ) );
+
+  /* Implementation logic:
+   * - When both avoid intersection and topological editing is off, no other feature geometries are changed
+   * - When avoid intersection is on and topological editing is off, the targeted feature will avoid
+   *   overlapping other feature geometries
+   * - When avoid intersection is off and topological editing is on, other features on the target layer
+   *   will be reshaped when overlapping the reshape line
+   * - When both avoid intersection and topological editing are on, the targeted feature will avoid overlapping
+   *   other features geometries except those from the target layer which will be reshaped when overlapping
+   *   the reshape line
+   */
   if ( reshapeReturn == GeometryUtils::GeometryOperationResult::Success )
   {
     //avoid intersections on polygon layers
@@ -94,24 +106,55 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
         case Qgis::AvoidIntersectionsMode::AllowIntersections:
           break;
       }
+
+      if ( QgsProject::instance()->topologicalEditing() )
+      {
+        // Since we're allowing reshaping in our logic when topological editing is on, remove the layer as it'll never overlap
+        avoidIntersectionsLayers.removeAll( layer );
+      }
+
       if ( !avoidIntersectionsLayers.isEmpty() )
       {
         QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
         ignoredFeature.insert( layer, QSet<QgsFeatureId>() << fid );
-        geom.avoidIntersectionsV2( avoidIntersectionsLayers, ignoredFeature );
+        selectedGeometry.avoidIntersectionsV2( avoidIntersectionsLayers, ignoredFeature );
       }
 
-      if ( geom.isEmpty() ) //intersection removal might have removed the whole geometry
+      if ( selectedGeometry.isEmpty() ) // Intersection removal might have removed the whole geometry
       {
         return GeometryUtils::GeometryOperationResult::NothingHappened;
       }
     }
-    layer->changeGeometry( fid, geom );
+
+    if ( QgsProject::instance()->topologicalEditing() )
+    {
+      QgsFeatureIterator fit = layer->getFeatures( QgsFeatureRequest().setFilterRect( selectedGeometry.boundingBox() ) );
+      QgsFeature otherFeature;
+      while ( fit.nextFeature( otherFeature ) )
+      {
+        if ( otherFeature.id() == fid )
+          continue;
+
+        QgsGeometry otherGeometry = otherFeature.geometry();
+        if ( otherGeometry.isNull() )
+          continue;
+
+        if ( selectedGeometry.intersects( reshapeLineStringGeom ) && otherGeometry.intersects( reshapeLineStringGeom ) )
+        {
+          otherGeometry.reshapeGeometry( reshapeLineString );
+          layer->changeGeometry( otherFeature.id(), otherGeometry );
+          // Add topological points
+          layer->addTopologicalPoints( otherGeometry );
+        }
+      }
+    }
+
+    layer->changeGeometry( fid, selectedGeometry );
 
     // Add topological points
     if ( QgsProject::instance()->topologicalEditing() )
     {
-      layer->addTopologicalPoints( geom );
+      layer->addTopologicalPoints( selectedGeometry );
     }
   }
 
