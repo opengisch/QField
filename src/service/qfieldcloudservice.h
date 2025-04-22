@@ -28,6 +28,8 @@ class QFIELD_SERVICE_EXPORT QFieldCloudService : public QAndroidService
   public:
     QFieldCloudService( int &argc, char **argv );
     ~QFieldCloudService() override;
+
+    void execute();
 };
 
 #endif // QFIELDCLOUDSERVICE_H

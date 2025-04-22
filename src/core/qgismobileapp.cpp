@@ -291,8 +291,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   if ( !dataDirs.isEmpty() )
   {
-    QgsApplication::instance()->authManager()->setPasswordHelperEnabled( false );
-    QgsApplication::instance()->authManager()->setMasterPassword( QString( "qfield" ) );
     // import authentication method configurations
     for ( const QString &dataDir : dataDirs )
     {
@@ -302,7 +300,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
         const QStringList configurations = configurationsDir.entryList( QStringList() << QStringLiteral( "*.xml" ) << QStringLiteral( "*.XML" ), QDir::Files );
         for ( const QString &configuration : configurations )
         {
-          QgsApplication::instance()->authManager()->importAuthenticationConfigsFromXml( configurationsDir.absoluteFilePath( configuration ), QString(), true );
+          QgsApplication::authManager()->importAuthenticationConfigsFromXml( configurationsDir.absoluteFilePath( configuration ), QString(), true );
         }
       }
     }

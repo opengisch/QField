@@ -58,7 +58,7 @@ QFieldCloudConnection::QFieldCloudConnection()
   if ( QgsApplication::authManager()->availableAuthMethodConfigs().contains( mTokenConfigId ) )
   {
     QgsAuthMethodConfig config;
-    QgsApplication::instance()->authManager()->loadAuthenticationConfig( mTokenConfigId, config, true );
+    QgsApplication::authManager()->loadAuthenticationConfig( mTokenConfigId, config, true );
     mToken = config.config( "qfieldcloud-token" ).toLatin1();
   }
   else
@@ -323,7 +323,7 @@ void QFieldCloudConnection::login( const QString &password )
 
       if ( !mProvider.isEmpty() && !mProviderConfigId.isEmpty() )
       {
-        QgsApplication::instance()->authManager()->removeAuthenticationConfig( mProviderConfigId );
+        QgsApplication::authManager()->removeAuthenticationConfig( mProviderConfigId );
         mProviderConfigId.clear();
         QSettings().remove( "/QFieldCloud/providerConfigId" );
         emit providerConfigurationChanged();
@@ -391,7 +391,7 @@ void QFieldCloudConnection::logout()
 
   if ( !mProviderConfigId.isEmpty() )
   {
-    QgsApplication::instance()->authManager()->removeAuthenticationConfig( mProviderConfigId );
+    QgsApplication::authManager()->removeAuthenticationConfig( mProviderConfigId );
     mProviderConfigId.clear();
     QSettings().remove( "/QFieldCloud/providerConfigId" );
     emit providerConfigurationChanged();
@@ -566,7 +566,7 @@ void QFieldCloudConnection::setToken( const QByteArray &token )
     QgsAuthMethodConfig config;
     if ( QgsApplication::authManager()->availableAuthMethodConfigs().contains( mTokenConfigId ) )
     {
-      QgsApplication::instance()->authManager()->loadAuthenticationConfig( mProviderConfigId, config, true );
+      QgsApplication::authManager()->loadAuthenticationConfig( mProviderConfigId, config, true );
     }
     else
     {
@@ -574,14 +574,14 @@ void QFieldCloudConnection::setToken( const QByteArray &token )
       config.setMethod( "Basic" );
     }
     config.setConfig( "qfieldcloud-token", mToken );
-    QgsApplication::instance()->authManager()->storeAuthenticationConfig( config, true );
+    QgsApplication::authManager()->storeAuthenticationConfig( config, true );
     QSettings().setValue( "/QFieldCloud/tokenConfigId", config.id() );
   }
   else
   {
     if ( !mTokenConfigId.isEmpty() )
     {
-      QgsApplication::instance()->authManager()->removeAuthenticationConfig( mTokenConfigId );
+      QgsApplication::authManager()->removeAuthenticationConfig( mTokenConfigId );
       mTokenConfigId.clear();
       QSettings().remove( "/QFieldCloud/tokenConfigId" );
     }
@@ -599,7 +599,7 @@ void QFieldCloudConnection::invalidateToken()
 
   if ( !mTokenConfigId.isEmpty() )
   {
-    QgsApplication::instance()->authManager()->removeAuthenticationConfig( mTokenConfigId );
+    QgsApplication::authManager()->removeAuthenticationConfig( mTokenConfigId );
     mTokenConfigId.clear();
     QSettings().remove( "/QFieldCloud/tokenConfigId" );
   }
@@ -665,7 +665,7 @@ void QFieldCloudConnection::setAuthenticationDetails( QNetworkRequest &request )
       config.setMethod( "OAuth2" );
       config.setConfig( "oauth2config", json.toJson() );
       config.setConfig( "qfieldcloud-sso-id", providerId );
-      QgsApplication::instance()->authManager()->storeAuthenticationConfig( config, true );
+      QgsApplication::authManager()->storeAuthenticationConfig( config, true );
 
       mProviderConfigId = config.id();
       QSettings().setValue( QStringLiteral( "/QFieldCloud/providerConfigId" ), mProviderConfigId );
@@ -674,11 +674,11 @@ void QFieldCloudConnection::setAuthenticationDetails( QNetworkRequest &request )
     else
     {
       QgsAuthMethodConfig config;
-      QgsApplication::instance()->authManager()->loadAuthenticationConfig( mProviderConfigId, config, true );
+      QgsApplication::authManager()->loadAuthenticationConfig( mProviderConfigId, config, true );
       providerId = config.config( "qfieldcloud-sso-id" );
     }
 
-    QgsApplication::instance()->authManager()->updateNetworkRequest( request, mProviderConfigId );
+    QgsApplication::authManager()->updateNetworkRequest( request, mProviderConfigId );
     request.setRawHeader( "X-QFC-IDP-ID", providerId.toLatin1() );
 
     const QList<QNetworkCookie> cookies = QgsNetworkAccessManager::instance()->cookieJar()->cookiesForUrl( mUrl );
