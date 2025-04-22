@@ -414,7 +414,6 @@ div.explanation {
   background-color: #80cc28;
   color: white !important;
   text-align: center;
-  /* font-weight: bold; */
   border-radius: 32px;
   transition: background-color 0.3s ease, color 0.3s ease;
   /* font-family: "bio-sans" sans-serif; */
