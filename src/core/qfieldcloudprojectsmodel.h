@@ -205,7 +205,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QgsGpkgFlusher *mGpkgFlusher = nullptr;
     QString mUsername;
     const int mProjectsPerFetch = 250;
-    QMap<QString, QString> mLocalizedDatasetsProjects;
 
     QModelIndex findProjectIndex( const QString &projectId ) const;
 
