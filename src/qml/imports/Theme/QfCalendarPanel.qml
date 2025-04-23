@@ -9,7 +9,7 @@ QfDialog {
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
 
   parent: mainWindow.contentItem
-  width: verticalView || showTimePicker ? mainWindow.width / 3 * 2.5 : 500
+  width: verticalView && !showDatePicker ? Math.min(400, mainWindow.width / 3 * 2.5) : verticalView || showTimePicker ? mainWindow.width / 3 * 2.5 : 500
   height: verticalView && !showDatePicker ? 250 : mainWindow.height / 1.2
   clip: true
   z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
