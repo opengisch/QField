@@ -3,20 +3,16 @@ import QtQuick.Dialogs
 import QtQuick.Layouts
 import QtQuick.Controls.Material
 
-Dialog {
+QfDialog {
   id: calendarPopup
-  modal: true
   focus: true
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
-  standardButtons: Dialog.Ok | Dialog.Cancel
 
   parent: mainWindow.contentItem
-  x: (mainWindow.width - width) / 2
-  y: (mainWindow.height - height) / 2
   width: verticalView || showTimePicker ? mainWindow.width / 3 * 2.5 : 500
   height: verticalView && !showDatePicker ? 250 : mainWindow.height / 1.2
   clip: true
-  z: 10000
+  z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
 
   property bool showTimePicker: true
   property bool showDatePicker: true
