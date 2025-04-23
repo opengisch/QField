@@ -144,9 +144,9 @@ Dialog {
   function selectDate() {
     var newDate = calendarPopup.selectedDate;
     if (calendarPanel.isDateTime) {
-      newDate.setHours(hoursSpinBox.value);
-      newDate.setMinutes(minutesSpinBox.value);
-      newDate.setSeconds(secondsSpinBox.value);
+      newDate.setHours(timePicker.hours);
+      newDate.setMinutes(timePicker.minutes);
+      newDate.setSeconds(timePicker.seconds);
     }
     dateTimePicked(newDate);
     calendarPanel.close();

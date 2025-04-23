@@ -215,7 +215,7 @@ EditorWidgetBase {
   QfCalendarPanel {
     id: calendarPanel
     isDateTime: !main.fieldIsDate
-    onDateTimePicked: {
+    onDateTimePicked: date => {
       if (main.isDateTimeType) {
         valueChangeRequested(date, date === undefined);
       } else {
