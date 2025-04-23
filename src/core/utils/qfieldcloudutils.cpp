@@ -127,6 +127,7 @@ const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments( const
   // Migration for QField < 3.6
   if ( QFileInfo::exists( QStringLiteral( "%1/attachments.csv" ).arg( QFieldCloudUtils::localCloudDirectory() ) ) )
   {
+    // Step 1: Load the already existing legacy `attachments.csv` file contents in the memory.
     QMultiMap<QString, QString> migrationFiles;
     QFile migrationFile( QStringLiteral( "%1/attachments.csv" ).arg( QFieldCloudUtils::localCloudDirectory() ) );
     migrationFile.open( QFile::ReadWrite | QFile::Text );
@@ -141,8 +142,9 @@ const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments( const
       }
     }
 
-
+    // Step 2: Group the attachments list by username, which is extracted from the path of the queued files to upload.
     QMap<QString, QMultiMap<QString, QString>> migratedAttachmentDetails;
+    // Extract the username by capturing the child folder name to the parent local cloud directory using / or \ as folder separators
     QRegularExpression re( QStringLiteral( "%1[\\/\\\\]([^\\/\\\\]+)[\\/\\\\]" ).arg( QRegularExpression::escape( QFieldCloudUtils::localCloudDirectory() ) ) );
     const QStringList projectIds = migrationFiles.uniqueKeys();
     for ( const QString &projectId : projectIds )
@@ -158,13 +160,14 @@ const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments( const
       }
     }
 
+    // Step 3: Create an `attachments.csv` file for each username.
     const QStringList migratedUsernames = migratedAttachmentDetails.keys();
     for ( const QString &migratedUsername : migratedUsernames )
     {
       const QStringList migratedProjectIds = migratedAttachmentDetails[migratedUsername].uniqueKeys();
       for ( const QString &migratedProjectId : migratedProjectIds )
       {
-        // Play safe, create user folder
+        // Play safe, create the user folder
         QDir().mkpath( QStringLiteral( "%1/%2" ).arg( QFieldCloudUtils::localCloudDirectory(), migratedUsername ) );
         addPendingAttachments( migratedUsername, migratedProjectId, migratedAttachmentDetails[migratedUsername].values( migratedProjectId ) );
       }
@@ -180,10 +183,11 @@ const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments( const
     return files;
   }
 
-  QLockFile attachmentsLock( QStringLiteral( "%1/%2/attachments.lock" ).arg( QFieldCloudUtils::localCloudDirectory(), username ) );
+  const QString localCloudUSerDirectory = QLatin1String( "%1/%2/" ).arg( QFieldCloudUtils::localCloudDirectory(), username );
+  QLockFile attachmentsLock( QStringLiteral( "%1/attachments.lock" ).arg( localCloudUSerDirectory ) );
   if ( attachmentsLock.tryLock( 10000 ) )
   {
-    QFile attachmentsFile( QStringLiteral( "%1/%2/attachments.csv" ).arg( QFieldCloudUtils::localCloudDirectory(), username ) );
+    QFile attachmentsFile( QStringLiteral( "%1/attachments.csv" ).arg( localCloudUSerDirectory ) );
     QFileInfo fi( attachmentsFile );
     if ( !fi.exists() || fi.size() == 0 )
     {
@@ -213,6 +217,13 @@ void QFieldCloudUtils::addPendingAttachments( const QString &username, const QSt
 {
   if ( username.isEmpty() || projectId.isEmpty() )
   {
+    Q_ASSERT( false );
+    return;
+  }
+
+  if ( !QFileInfo::exists( QStringLiteral( "%1/%2" ).arg( QFieldCloudUtils::localCloudDirectory(), username ) ) )
+  {
+    Q_ASSERT( false );
     return;
   }
 
@@ -254,10 +265,11 @@ void QFieldCloudUtils::addPendingAttachments( const QString &username, const QSt
 
 void QFieldCloudUtils::writeToAttachmentsFile( const QString &username, const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck )
 {
-  QLockFile attachmentsLock( QStringLiteral( "%1/%2/attachments.lock" ).arg( QFieldCloudUtils::localCloudDirectory(), username ) );
+  const QString localCloudUSerDirectory = QLatin1String( "%1/%2/" ).arg( QFieldCloudUtils::localCloudDirectory(), username );
+  QLockFile attachmentsLock( QStringLiteral( "%1/attachments.lock" ).arg( localCloudUSerDirectory ) );
   if ( attachmentsLock.tryLock( 10000 ) )
   {
-    QFile attachmentsFile( QStringLiteral( "%1/%2/attachments.csv" ).arg( QFieldCloudUtils::localCloudDirectory(), username ) );
+    QFile attachmentsFile( QStringLiteral( "%1/attachments.csv" ).arg( localCloudUSerDirectory ) );
     attachmentsFile.open( QFile::Append | QFile::Text );
     QTextStream attachmentsStream( &attachmentsFile );
 
@@ -320,12 +332,13 @@ void QFieldCloudUtils::writeFileDetails( const QString &fileName, const QString 
 
 void QFieldCloudUtils::removePendingAttachment( const QString &username, const QString &projectId, const QString &fileName )
 {
-  QLockFile attachmentsLock( QStringLiteral( "%1/%2/attachments.lock" ).arg( QFieldCloudUtils::localCloudDirectory(), username ) );
+  const QString localCloudUSerDirectory = QLatin1String( "%1/%2/" ).arg( QFieldCloudUtils::localCloudDirectory(), username );
+  QLockFile attachmentsLock( QStringLiteral( "%1/attachments.lock" ).arg( localCloudUSerDirectory ) );
   if ( attachmentsLock.tryLock( 10000 ) )
   {
     const QString lineToRemove = StringUtils::stringListToCsv( QStringList() << projectId << fileName );
     QString output;
-    QFile attachmentsFile( QStringLiteral( "%1/%2/attachments.csv" ).arg( QFieldCloudUtils::localCloudDirectory(), username ) );
+    QFile attachmentsFile( QStringLiteral( "%1/attachments.csv" ).arg( localCloudUSerDirectory ) );
     attachmentsFile.open( QFile::ReadWrite | QFile::Text );
     QTextStream attachmentsStream( &attachmentsFile );
     while ( !attachmentsStream.atEnd() )
