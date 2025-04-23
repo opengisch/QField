@@ -13,19 +13,20 @@ Dialog {
   parent: mainWindow.contentItem
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
-  width: __verticalView || isDateTime ? mainWindow.width / 3 * 2.5 : 500
-  height: mainWindow.height / 1.2
+  width: verticalView || showTimePicker ? mainWindow.width / 3 * 2.5 : 500
+  height: verticalView && !showDatePicker ? 250 : mainWindow.height / 1.2
   clip: true
   z: 10000
 
-  property bool __verticalView: mainWindow.width < 500
-  property bool isDateTime: true
+  property bool showTimePicker: true
+  property bool showDatePicker: true
+  property bool verticalView: mainWindow.width < 500 || (showTimePicker && !showDatePicker)
   property date selectedDate: new Date()
 
   signal dateTimePicked(var date)
 
   function setFittingLayout() {
-    if (__verticalView) {
+    if (verticalView) {
       vericalLayout.visible = true;
       horizontalLayout.visible = false;
     } else {
@@ -51,7 +52,7 @@ Dialog {
   Text {
     id: result
     font.pixelSize: 32
-    text: (__verticalView ? rowView + " " : columnView + "\n") + (isDateTime ? Qt.formatTime(new Date(1970, 1, 1, timePicker.hours, timePicker.minutes, timePicker.seconds), "hh:mm:ss") : "")
+    text: (showDatePicker ? (verticalView ? rowView + " " : columnView + "\n") : "") + (showTimePicker ? Qt.formatTime(new Date(1970, 1, 1, timePicker.hours, timePicker.minutes, timePicker.seconds), "hh:mm:ss") : "")
     Layout.preferredHeight: 40
     verticalAlignment: Text.AlignVCenter
 
@@ -77,8 +78,8 @@ Dialog {
   TimePickerItem {
     id: timePicker
     width: calendarItem.width
-    verticalView: !calendarPopup.__verticalView
-    Layout.preferredWidth: calendarPopup.__verticalView ? 350 : 150
+    __verticalView: !calendarPopup.verticalView
+    Layout.preferredWidth: calendarPopup.verticalView ? 350 : 150
     Layout.preferredHeight: 40
   }
 
@@ -96,7 +97,7 @@ Dialog {
     ColumnLayout {
       id: verticalContent
       width: parent.width
-      spacing: 20
+      spacing: showDatePicker ? 20 : 40
 
       LayoutItemProxy {
         target: result
@@ -104,11 +105,12 @@ Dialog {
 
       LayoutItemProxy {
         target: calendarItem
+        visible: showDatePicker
       }
 
       LayoutItemProxy {
         target: timePicker
-        visible: isDateTime
+        visible: showTimePicker
       }
     }
   }
@@ -133,17 +135,21 @@ Dialog {
       }
       LayoutItemProxy {
         target: calendarItem
+        visible: showDatePicker
       }
       LayoutItemProxy {
         target: timePicker
-        visible: isDateTime
+        visible: showTimePicker
       }
     }
   }
 
   function selectDate() {
-    var newDate = calendarPopup.selectedDate;
-    if (calendarPanel.isDateTime) {
+    var newDate = new Date();
+    if (calendarPanel.showDatePicker) {
+      newDate = calendarPopup.selectedDate;
+    }
+    if (calendarPanel.showTimePicker) {
       newDate.setHours(timePicker.hours);
       newDate.setMinutes(timePicker.minutes);
       newDate.setSeconds(timePicker.seconds);

@@ -6,9 +6,10 @@ GridLayout {
   property alias hours: hoursSpinBox.value
   property alias minutes: minutesSpinBox.value
   property alias seconds: secondsSpinBox.value
-  property bool verticalView: false
 
-  columns: verticalView ? 1 : 3
+  property bool __verticalView: false
+
+  columns: __verticalView ? 1 : 3
 
   Label {
     text: qsTr("Hours")
@@ -22,8 +23,8 @@ GridLayout {
     font: Theme.strongTipFont
     Layout.fillWidth: true
     horizontalAlignment: Text.AlignHCenter
-    Layout.column: verticalView ? 0 : 1
-    Layout.row: verticalView ? 2 : 0
+    Layout.column: __verticalView ? 0 : 1
+    Layout.row: __verticalView ? 2 : 0
   }
 
   Label {
@@ -31,8 +32,8 @@ GridLayout {
     font: Theme.strongTipFont
     Layout.fillWidth: true
     horizontalAlignment: Text.AlignHCenter
-    Layout.column: verticalView ? 0 : 2
-    Layout.row: verticalView ? 4 : 0
+    Layout.column: __verticalView ? 0 : 2
+    Layout.row: __verticalView ? 4 : 0
   }
 
   SpinBox {
@@ -57,8 +58,8 @@ GridLayout {
     inputMethodHints: Qt.ImhTime
     font: Theme.tipFont
     Layout.fillWidth: true
-    Layout.column: verticalView ? 0 : 1
-    Layout.row: verticalView ? 3 : 1
+    Layout.column: __verticalView ? 0 : 1
+    Layout.row: __verticalView ? 3 : 1
   }
 
   SpinBox {
@@ -70,7 +71,7 @@ GridLayout {
     inputMethodHints: Qt.ImhTime
     font: Theme.tipFont
     Layout.fillWidth: true
-    Layout.column: verticalView ? 0 : 2
-    Layout.row: verticalView ? 5 : 1
+    Layout.column: __verticalView ? 0 : 2
+    Layout.row: __verticalView ? 5 : 1
   }
 }
