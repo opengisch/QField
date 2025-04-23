@@ -16,7 +16,7 @@ QfDialog {
 
   property bool showTimePicker: true
   property bool showDatePicker: true
-  property bool verticalView: mainWindow.width < 500 || (showTimePicker && !showDatePicker)
+  property bool verticalView: (mainWindow.width < 500 || mainWindow.screenIsPortrait) || (showTimePicker && !showDatePicker)
   property date selectedDate: new Date()
 
   signal dateTimePicked(var date)
