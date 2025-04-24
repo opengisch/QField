@@ -203,6 +203,7 @@ Page {
         left: parent.left
         right: parent.right
         leftMargin: 12
+        rightMargin: 12
       }
 
       Label {
@@ -220,7 +221,6 @@ Page {
 
       Text {
         id: textContent
-        width: parent.width
         text: containerCode
         wrapMode: Text.WordWrap
         font: Theme.defaultFont
@@ -229,6 +229,7 @@ Page {
           right: parent.right
           top: textLabel.bottom
         }
+        bottomPadding: 10
         opacity: textLabel.opacity
         color: Theme.mainTextColor
         linkColor: Theme.mainColor
