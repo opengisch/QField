@@ -35,6 +35,9 @@
 #include <qgstextformat.h>
 #include <qgstextrenderer.h>
 
+#include <filesystem>
+
+namespace fs = std::filesystem;
 
 FileUtils::FileUtils( QObject *parent )
   : QObject( parent )
@@ -80,6 +83,101 @@ bool FileUtils::fileExists( const QString &filePath )
 QString FileUtils::representFileSize( qint64 bytes )
 {
   return QgsFileUtils::representFileSize( bytes );
+}
+
+QString FileUtils::sanitizeFilePath( const QString &filePath, const QString &replacement )
+{
+  QString sanitized = filePath;
+
+  // replace multiple slashes
+  sanitized.replace( QRegularExpression( "/+" ), QLatin1String( "/" ) );
+  sanitized.replace( QRegularExpression( "\\+" ), QLatin1String( "\\" ) );
+  // replace windows dives path with UNIX style path
+  sanitized.replace( QRegularExpression( "^([a-zA-Z]):\\\\" ), QLatin1String( "/\\1/" ) );
+  // replace windows slashes to UNIX slashes
+  sanitized.replace( QLatin1String( "\\" ), QLatin1String( "/" ) );
+
+  QStringList filePathParts;
+  const QFileInfo fi( sanitized );
+  const fs::path path = fi.filesystemFilePath();
+
+  for ( const auto &partRaw : path )
+  {
+    const QString part = QString::fromUtf8( partRaw.u8string() );
+
+    // we should not escape when the path starts with relative path single or double dot
+    if ( part == QLatin1String( "." ) || part == QLatin1String( ".." ) )
+    {
+      filePathParts.append( part );
+    }
+    // we should not escape when the passed filePath is absolute path. However, `filesystemFilePath()` will return the first slash as a part.
+    // In that case we add an empty string to the filePathParts, so we prevent double slash at the start of the string.
+    else if ( part == QLatin1String( "/" ) )
+    {
+      filePathParts.append( QString() );
+    }
+    // in any other case we should escape all the characters in the string
+    else
+    {
+      filePathParts.append( sanitizeFilePathPart( part, replacement ) );
+    }
+  }
+
+
+  // we always convert to UNIX style paths
+  sanitized = filePathParts.join( "/" );
+
+  // if the resulting string is longer than max length, return empty string
+  if ( sanitized.length() > FILENAME_MAX_CHAR_LENGTH )
+  {
+    return QString();
+  }
+
+  return sanitized;
+}
+
+QString FileUtils::sanitizeFilePathPart( const QString &filePathPart, const QString &replacement )
+{
+  QString sanitizedPart = filePathPart;
+
+  sanitizedPart = sanitizedPart.trimmed();
+
+  // Search for Windows invalid chars to be replaced
+  const QRegularExpression invalidChars( QLatin1String( "([<>:\"/\\|\?*\\\\])" ) );
+  sanitizedPart.replace( invalidChars, replacement );
+
+  QFileInfo fi( sanitizedPart );
+
+  // Avoid reserved filenames on Windows (CON, PRN, AUX, NUL, COM1-COM9, LPT1-LPT9)
+  const QRegularExpression invalidWordsRegEx( QLatin1String( "^(COM[0-9]|CON|LPT[0-9]|NUL|PRN|AUX|com[0-9]|con|lpt[0-9]|nul|prn|aux)$" ) );
+  const QRegularExpressionMatch invalidWordsMatch = invalidWordsRegEx.match( fi.completeBaseName() );
+
+  if ( invalidWordsMatch.hasMatch() )
+  {
+    const QString invalidWordReplacement = QStringLiteral( "_" ).append( invalidWordsMatch.capturedTexts().first() );
+    const QString suffix = fi.suffix();
+
+    if ( suffix.isEmpty() )
+    {
+      sanitizedPart = invalidWordReplacement;
+    }
+    else
+    {
+      sanitizedPart = QStringLiteral( "%1.%2" ).arg( invalidWordReplacement, suffix );
+    }
+  }
+
+  // Linux does not accept null char
+  sanitizedPart.replace( QString( QChar( 0 ) ), replacement );
+
+  // File paths shouldn't end with space or dot on Windows
+  if ( sanitizedPart.endsWith( '.' ) )
+  {
+    sanitizedPart.chop( 1 );
+    sanitizedPart.append( replacement );
+  }
+
+  return sanitizedPart;
 }
 
 bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback, bool wipeDestFolder )
