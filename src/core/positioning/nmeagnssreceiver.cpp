@@ -66,7 +66,7 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
                                                               info.satellitesUsed, info.status,
                                                               info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
                                                               0, QStringLiteral( "nmea" ),
-                                                              mImuPosition.valid );
+                                                              mImuPosition.valid, mImuPosition.roll, mImuPosition.pitch, mImuPosition.heading, mImuPosition.steering );
     }
     else
     {

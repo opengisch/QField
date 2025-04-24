@@ -84,8 +84,16 @@ class GnssPositionInformation
     Q_PROPERTY( int averagedCount READ averagedCount )
     Q_PROPERTY( QString sourceName READ sourceName )
     Q_PROPERTY( bool imuCorrection READ imuCorrection )
+    Q_PROPERTY( double imuRoll READ imuRoll )
+    Q_PROPERTY( bool imuRollValid READ imuRollValid )
+    Q_PROPERTY( double imuPitch READ imuPitch )
+    Q_PROPERTY( bool imuPitchValid READ imuPitchValid )
+    Q_PROPERTY( double imuHeading READ imuHeading )
+    Q_PROPERTY( bool imuHeadingValid READ imuHeadingValid )
+    Q_PROPERTY( double imuSteering READ imuSteering )
+    Q_PROPERTY( bool imuSteeringValid READ imuSteeringValid )
     Q_PROPERTY( double orientation READ orientation )
-    Q_PROPERTY( double orientationValid READ orientationValid )
+    Q_PROPERTY( bool orientationValid READ orientationValid )
 
   public:
     /**
