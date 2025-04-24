@@ -107,7 +107,9 @@ class GnssPositionInformation
                              double hacc = std::numeric_limits<double>::quiet_NaN(), double vacc = std::numeric_limits<double>::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
                              QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), const QList<int> &satPrn = QList<int>(), bool satInfoComplete = false,
                              double verticalSpeed = std::numeric_limits<double>::quiet_NaN(), double magneticVariation = std::numeric_limits<double>::quiet_NaN(), int averagedCount = 0, const QString &sourceName = QString(),
-                             bool imuCorrection = false, double orientation = std::numeric_limits<double>::quiet_NaN() );
+                             bool imuCorrection = false, double imuRoll = std::numeric_limits<double>::quiet_NaN(), double imuPitch = std::numeric_limits<double>::quiet_NaN(),
+                             double imuHeading = std::numeric_limits<double>::quiet_NaN(), double imuSteering = std::numeric_limits<double>::quiet_NaN(),
+                             double orientation = std::numeric_limits<double>::quiet_NaN() );
 
     bool operator==( const GnssPositionInformation &other ) const;
     bool operator!=( const GnssPositionInformation &other ) const { return !operator==( other ); }
@@ -201,7 +203,6 @@ class GnssPositionInformation
     double hacc() const { return mHacc; }
     bool haccValid() const { return !std::isnan( mHacc ); }
 
-
     /**
      * Vertical accuracy in meters
      * VRMS
@@ -292,10 +293,38 @@ class GnssPositionInformation
     int averagedCount() const { return mAveragedCount; }
 
     /**
-     * Returns whether the IMU correction is active
+     * Returns TRUE when IMU correction is active
      */
     void setImuCorrection( bool imuCorrection ) { mImuCorrection = imuCorrection; }
     bool imuCorrection() const { return mImuCorrection; }
+
+    /**
+     * IMU roll
+     */
+    void setImuRoll( double roll ) { mImuRoll = roll; }
+    double imuRoll() const { return mImuRoll; }
+    bool imuRollValid() const { return !std::isnan( mImuRoll ); }
+
+    /**
+     * IMU pitch
+     */
+    void setImuPitch( double pitch ) { mImuPitch = pitch; }
+    double imuPitch() const { return mImuPitch; }
+    bool imuPitchValid() const { return !std::isnan( mImuPitch ); }
+
+    /**
+     * IMU heading
+     */
+    void setImuHeading( double heading ) { mImuHeading = heading; }
+    double imuHeading() const { return mImuHeading; }
+    bool imuHeadingValid() const { return !std::isnan( mImuHeading ); }
+
+    /**
+     * IMU steering
+     */
+    void setImuSteering( double steering ) { mImuSteering = steering; }
+    double imuSteering() const { return mImuSteering; }
+    bool imuSteeringValid() const { return !std::isnan( mImuSteering ); }
 
     /**
      * Orientation (in degrees)
@@ -330,6 +359,10 @@ class GnssPositionInformation
     int mAveragedCount = 0;
     QString mSourceName;
     bool mImuCorrection;
+    double mImuRoll = std::numeric_limits<double>::quiet_NaN();
+    double mImuPitch = std::numeric_limits<double>::quiet_NaN();
+    double mImuHeading = std::numeric_limits<double>::quiet_NaN();
+    double mImuSteering = std::numeric_limits<double>::quiet_NaN();
     double mOrientation = std::numeric_limits<double>::quiet_NaN();
 
     friend QDataStream &operator<<( QDataStream &stream, const GnssPositionInformation &position );

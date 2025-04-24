@@ -26,7 +26,7 @@ GnssPositionInformation::GnssPositionInformation( double latitude, double longit
                                                   const QList<QgsSatelliteInfo> &satellitesInView, double pdop, double hdop, double vdop, double hacc, double vacc,
                                                   QDateTime utcDateTime, QChar fixMode, int fixType, int quality, int satellitesUsed, QChar status, const QList<int> &satPrn,
                                                   bool satInfoComplete, double verticalSpeed, double magneticVariation, int averagedCount, const QString &sourceName,
-                                                  bool imuCorrection, double orientation )
+                                                  bool imuCorrection, double imuRoll, double imuPitch, double imuHeading, double imuSteering, double orientation )
   : mLatitude( latitude )
   , mLongitude( longitude )
   , mElevation( elevation )
@@ -52,6 +52,10 @@ GnssPositionInformation::GnssPositionInformation( double latitude, double longit
   , mAveragedCount( averagedCount )
   , mSourceName( sourceName )
   , mImuCorrection( imuCorrection )
+  , mImuRoll( imuRoll )
+  , mImuPitch( imuPitch )
+  , mImuHeading( imuHeading )
+  , mImuSteering( imuSteering )
   , mOrientation( orientation )
 {
 }
@@ -79,6 +83,10 @@ bool GnssPositionInformation::operator==( const GnssPositionInformation &other )
          mMagneticVariation == other.mMagneticVariation &&
          mSourceName == other.mSourceName &&
          mImuCorrection== other.mImuCorrection &&
+         mImuRoll == other.mImuRoll &&
+         mImuPitch == other.mImuPitch &&
+         mImuHeading == other.mImuHeading &&
+         mImuSteering == other.mImuSteering &&
          mOrientation == other.mOrientation;
   // clang-format on
 }
@@ -188,7 +196,8 @@ QDataStream &operator<<( QDataStream &stream, const GnssPositionInformation &pos
                 << position.mFixMode << position.mFixType << position.mQuality
                 << position.mSatellitesUsed << position.mStatus << position.mSatPrn << position.mSatInfoComplete
                 << position.mVerticalSpeed << position.mMagneticVariation << position.mSourceName
-                << position.mAveragedCount << position.mImuCorrection << position.mOrientation;
+                << position.mAveragedCount << position.mImuCorrection << position.mImuRoll << position.mImuPitch << position.mImuHeading << position.mImuSteering
+                << position.mOrientation;
 }
 
 //cppcheck-suppress constParameter
@@ -200,7 +209,8 @@ QDataStream &operator>>( QDataStream &stream, GnssPositionInformation &position 
          >> position.mFixMode >> position.mFixType >> position.mQuality
          >> position.mSatellitesUsed >> position.mStatus >> position.mSatPrn >> position.mSatInfoComplete
          >> position.mVerticalSpeed >> position.mMagneticVariation >> position.mSourceName
-         >> position.mAveragedCount >> position.mImuCorrection >> position.mOrientation;
+         >> position.mAveragedCount >> position.mImuCorrection >> position.mImuRoll >> position.mImuPitch >> position.mImuHeading >> position.mImuSteering
+         >> position.mOrientation;
 }
 
 QDataStream &operator<<( QDataStream &stream, const QgsSatelliteInfo &satelliteInfo )
