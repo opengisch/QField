@@ -107,7 +107,7 @@ QfDialog {
 
     ColumnLayout {
       id: verticalContent
-      width: parent.width
+      width: vericalLayout.width
       spacing: 30
 
       LayoutItemProxy {
