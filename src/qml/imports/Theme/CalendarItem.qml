@@ -6,8 +6,6 @@ import Theme
 
 Item {
   id: calendarItem
-  width: 350
-  height: childrenRect.height
 
   property date initialDate
 
