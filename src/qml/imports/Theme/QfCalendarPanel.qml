@@ -9,14 +9,24 @@ QfDialog {
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
 
   parent: mainWindow.contentItem
-  width: verticalView && !showDatePicker ? Math.min(400, mainWindow.width - 32) : verticalView || showTimePicker ? mainWindow.width - 32 : 500
-  height: verticalView && !showDatePicker ? 380 : mainWindow.height - 32
+  width: {
+    if (verticalView)
+      return Math.min(400, mainWindow.width / 3 * 2.5);
+    else
+      return Math.min(horizontalContent.width + 60, mainWindow.width / 3 * 2.5);
+  }
+  height: {
+    if (verticalView)
+      return Math.min(verticalContent.height + 100, mainWindow.height / 1.2);
+    else
+      return Math.min(Math.max(calendarItem.height, timePicker.height) + 100, mainWindow.height / 1.2);
+  }
   clip: true
   z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
 
   property bool showTimePicker: true
   property bool showDatePicker: true
-  property bool verticalView: (mainWindow.width < 600 || mainWindow.screenIsPortrait) || (showTimePicker && !showDatePicker)
+  property bool verticalView: (mainWindow.width < 800 || mainWindow.screenIsPortrait) || !showDatePicker
   property date selectedDate: new Date()
 
   signal dateTimePicked(var date)
@@ -49,11 +59,11 @@ QfDialog {
     id: result
     font.pixelSize: 32
     text: (showDatePicker ? (verticalView ? rowView + " " : columnView + "\n") : "") + (showTimePicker ? Qt.formatTime(new Date(1970, 1, 1, timePicker.hours, timePicker.minutes, timePicker.seconds), "hh:mm:ss") : "")
-    verticalAlignment: Text.AlignVCenter
+    verticalAlignment: Text.AlignTop
     clip: true
     wrapMode: Text.WordWrap
     Layout.fillWidth: true
-    width: parent.width
+    Layout.fillHeight: true
     readonly property var monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     readonly property string rowView: selectedDate.getDate() + " " + monthNames[selectedDate.getMonth()] + " " + selectedDate.getFullYear()
     readonly property string columnView: selectedDate.getDate() + "\n" + monthNames[selectedDate.getMonth()] + "\n" + selectedDate.getFullYear()
@@ -62,8 +72,9 @@ QfDialog {
   CalendarItem {
     id: calendarItem
     Layout.preferredHeight: childrenRect.height
-    Layout.preferredWidth: Math.min(250, calendarPopup.width - 48)
+    Layout.preferredWidth: Math.min(250, calendarPopup.width)
     initialDate: selectedDate
+    compactMode: !calendarPopup.verticalView
     onDateClicked: date => {
       if (selectedDate.getFullYear() !== date.getFullYear() || selectedDate.getMonth() !== date.getMonth() || selectedDate.getDate() !== date.getDate()) {
         selectedDate = date;
@@ -78,8 +89,7 @@ QfDialog {
     __verticalView: !calendarPopup.verticalView || calendarPopup.width < 400
     Layout.preferredWidth: Math.min(__verticalView ? 150 : 350, (calendarPopup.width - 20))
     Layout.minimumHeight: Math.min(__verticalView ? 120 : 40, (calendarPopup.height - 20))
-    Layout.alignment: Qt.AlignHCenter
-    anchors.horizontalCenter: parent.horizontalCenter
+    Layout.alignment: Qt.AlignTop
   }
 
   Flickable {
@@ -98,7 +108,7 @@ QfDialog {
     ColumnLayout {
       id: verticalContent
       width: parent.width
-      spacing: showDatePicker ? 20 : 40
+      spacing: 30
 
       LayoutItemProxy {
         target: result
@@ -107,13 +117,13 @@ QfDialog {
       LayoutItemProxy {
         target: calendarItem
         visible: showDatePicker
+        Layout.alignment: Qt.AlignHCenter
       }
 
       LayoutItemProxy {
         target: timePicker
         visible: showTimePicker
         Layout.alignment: Qt.AlignHCenter
-        anchors.horizontalCenter: parent.horizontalCenter
       }
     }
   }
@@ -128,10 +138,12 @@ QfDialog {
     }
     ScrollBar.vertical: QfScrollBar {
     }
+    clip: true
 
     RowLayout {
       id: horizontalContent
-      height: calendarItem.height
+      height: Math.max(calendarItem.childrenRect.height, timePicker.height)
+      spacing: 30
 
       LayoutItemProxy {
         target: result

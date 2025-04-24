@@ -8,6 +8,7 @@ Item {
   id: calendarItem
 
   property date initialDate
+  property bool compactMode: false
 
   property alias month: calendar.month
   property alias year: calendar.year
@@ -184,6 +185,7 @@ Item {
       Layout.columnSpan: 3
       Layout.fillWidth: true
       Layout.preferredHeight: 40 * 6
+      Layout.maximumHeight: compactMode ? 30 * 6 : 40 * 6
 
       delegate: Rectangle {
         property bool isSelectedDate: initialDate.getFullYear() === model.date.getFullYear() && initialDate.getMonth() === model.date.getMonth() && initialDate.getDate() === model.date.getDate()
