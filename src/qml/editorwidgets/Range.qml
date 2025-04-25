@@ -7,10 +7,11 @@ EditorWidgetBase {
   id: rangeItem
   enabled: isEnabled
 
+  property bool isDouble: LayerUtils.fieldType(field) === 'double'
   property string widgetStyle: config["Style"] ? config["Style"] : "TextField"
   property int precision: config["Precision"] ? config["Precision"] : 1
-  property real min: config["Min"] !== undefined ? config["Min"] : -Infinity
-  property real max: config["Max"] !== undefined ? config["Max"] : Infinity
+  property real min: config["Min"] !== undefined ? config["Min"] : isDouble ? -Infinity : -2147483647
+  property real max: config["Max"] !== undefined ? config["Max"] : isDouble ? Infinity : 2147483647
   property real step: config["Step"] !== undefined ? config["Step"] : 1
   property string suffix: config["Suffix"] ? config["Suffix"] : ""
 
@@ -37,7 +38,7 @@ EditorWidgetBase {
       text: value !== undefined ? value : ''
 
       validator: {
-        if (LayerUtils.fieldType(field) === 'double') {
+        if (isDouble) {
           doubleValidator;
         } else {
           intValidator;
