@@ -560,7 +560,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         QgsAttributeEditorQmlElement *qmlElement = static_cast<QgsAttributeEditorQmlElement *>( element );
 
         item->setData( "qml", AttributeFormModel::ElementType );
-        item->setData( qmlElement->name(), AttributeFormModel::Name );
+        item->setData( element->showLabel() ? qmlElement->name() : QString(), AttributeFormModel::Name );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( false, AttributeFormModel::AttributeEditable );
         item->setData( false, AttributeFormModel::AttributeAllowEdit );
@@ -581,7 +581,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         QgsAttributeEditorHtmlElement *htmlElement = static_cast<QgsAttributeEditorHtmlElement *>( element );
 
         item->setData( "html", AttributeFormModel::ElementType );
-        item->setData( htmlElement->name(), AttributeFormModel::Name );
+        item->setData( element->showLabel() ? htmlElement->name() : QString(), AttributeFormModel::Name );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( false, AttributeFormModel::AttributeEditable );
         item->setData( false, AttributeFormModel::AttributeAllowEdit );
@@ -598,7 +598,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         QgsAttributeEditorTextElement *textElement = static_cast<QgsAttributeEditorTextElement *>( element );
 
         item->setData( "text", AttributeFormModel::ElementType );
-        item->setData( textElement->name(), AttributeFormModel::Name );
+        item->setData( element->showLabel() ? textElement->name() : QString(), AttributeFormModel::Name );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( false, AttributeFormModel::AttributeEditable );
         item->setData( false, AttributeFormModel::AttributeAllowEdit );
