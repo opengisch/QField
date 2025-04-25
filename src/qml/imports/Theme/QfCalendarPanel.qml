@@ -64,12 +64,12 @@ QfDialog {
     wrapMode: Text.WordWrap
     Layout.fillWidth: true
     Layout.fillHeight: true
-    readonly property var monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    readonly property var monthNames: [qsTr("January"), qsTr("February"), qsTr("March"), qsTr("April"), qsTr("May"), qsTr("June"), qsTr("July"), qsTr("August"), qsTr("September"), qsTr("October"), qsTr("November"), qsTr("December")]
     readonly property string rowView: selectedDate.getDate() + " " + monthNames[selectedDate.getMonth()] + " " + selectedDate.getFullYear()
     readonly property string columnView: selectedDate.getDate() + "\n" + monthNames[selectedDate.getMonth()] + "\n" + selectedDate.getFullYear()
   }
 
-  CalendarItem {
+  QfCalendarItem {
     id: calendarItem
     Layout.preferredHeight: childrenRect.height
     Layout.preferredWidth: Math.min(250, calendarPopup.width)
@@ -84,11 +84,11 @@ QfDialog {
     }
   }
 
-  TimePickerItem {
+  QfTimeItem {
     id: timePicker
     __verticalView: !calendarPopup.verticalView || calendarPopup.width < 400
     Layout.preferredWidth: Math.min(__verticalView ? 150 : 350, (calendarPopup.width - 20))
-    Layout.minimumHeight: Math.min(__verticalView ? 120 : 40, (calendarPopup.height - 20))
+    Layout.minimumHeight: Math.min(contentHeight, (calendarPopup.height - 20))
     Layout.alignment: Qt.AlignTop
   }
 
