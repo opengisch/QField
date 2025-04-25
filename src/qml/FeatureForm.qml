@@ -208,6 +208,7 @@ Page {
       Label {
         id: textLabel
         width: parent.width
+        height: containerName !== '' ? undefined : topPadding + bottomPadding
         text: containerName
         wrapMode: Text.WordWrap
         font.pointSize: Theme.tinyFont.pointSize
@@ -253,6 +254,7 @@ Page {
       Label {
         id: qmlLabel
         width: parent.width
+        height: containerName !== '' ? undefined : topPadding + bottomPadding
         text: containerName
         wrapMode: Text.WordWrap
         font.pointSize: Theme.tinyFont.pointSize
@@ -299,6 +301,7 @@ Page {
       Label {
         id: htmlLabel
         width: parent.width
+        height: containerName !== '' ? undefined : topPadding + bottomPadding
         text: containerName
         wrapMode: Text.WordWrap
         font.pointSize: Theme.tinyFont.pointSize
