@@ -141,7 +141,7 @@ QSet<QString> QFieldCloudProjectsModel::busyProjectIds() const
 
   for ( const auto project : mProjects )
   {
-    if ( project->status() != QFieldCloudProject::ProjectStatus::Idle )
+    if ( project->status() != QFieldCloudProject::ProjectStatus::Idle && project->status() != QFieldCloudProject::ProjectStatus::Failing )
     {
       result.insert( project->id() );
     }
@@ -228,7 +228,7 @@ void QFieldCloudProjectsModel::removeLocalProject( const QString &projectId )
     if ( projectIndex.isValid() )
     {
       QFieldCloudProject *project = mProjects[projectIndex.row()];
-      if ( project->status() == QFieldCloudProject::ProjectStatus::Idle && project->checkout() & QFieldCloudProject::RemoteCheckout )
+      if ( ( project->status() == QFieldCloudProject::ProjectStatus::Idle || project->status() == QFieldCloudProject::ProjectStatus::Failing ) && project->checkout() & QFieldCloudProject::RemoteCheckout )
       {
         project->removeLocally();
         emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << LocalPathRole << CheckoutRole );
@@ -293,6 +293,13 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
   }
 
   QFieldCloudProject *project = mProjects[projectIndex.row()];
+
+  if ( project->status() == QFieldCloudProject::ProjectStatus::Failing )
+  {
+    QgsLogger::debug( QStringLiteral( "Project %1: The project is invalid." ).arg( projectId ) );
+    emit warning( tr( "Project invalid." ) );
+    return;
+  }
 
   if ( project->status() != QFieldCloudProject::ProjectStatus::Idle )
   {
@@ -970,10 +977,13 @@ bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QMo
   const QString name = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::NameRole ).toString();
   const QString description = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::DescriptionRole ).toString();
   const QString owner = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::OwnerRole ).toString();
+  const int status = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::StatusRole ).toInt();
 
-  bool matchesTextFilter = mTextFilter.isEmpty() || name.contains( mTextFilter, Qt::CaseInsensitive ) || description.contains( mTextFilter, Qt::CaseInsensitive ) || owner.contains( mTextFilter, Qt::CaseInsensitive );
+  const bool matchesTextFilter = mTextFilter.isEmpty() || name.contains( mTextFilter, Qt::CaseInsensitive ) || description.contains( mTextFilter, Qt::CaseInsensitive ) || owner.contains( mTextFilter, Qt::CaseInsensitive );
 
-  return matchesProjectType && matchesTextFilter;
+  const bool validProjectsFilter = mShowInValidProjects || status != static_cast<int>( QFieldCloudProject::ProjectStatus::Failing );
+
+  return matchesProjectType && matchesTextFilter && validProjectsFilter;
 }
 
 void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
@@ -987,4 +997,18 @@ void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
 QString QFieldCloudProjectsFilterModel::textFilter() const
 {
   return mTextFilter;
+}
+
+void QFieldCloudProjectsFilterModel::setShowInValidProjects( const bool showInValidProjects )
+{
+  if ( mShowInValidProjects == showInValidProjects )
+    return;
+  mShowInValidProjects = showInValidProjects;
+  invalidateFilter();
+}
+
+
+bool QFieldCloudProjectsFilterModel::showInValidProjects() const
+{
+  return mShowInValidProjects;
 }

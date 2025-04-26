@@ -21,6 +21,7 @@ Page {
     showBackButton: true
     showApplyButton: false
     showCancelButton: false
+    showMenuButton: cloudConnection.status == QFieldCloudConnection.LoggedIn
 
     busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting || cloudConnection.state === QFieldCloudConnection.Busy ? 'on' : 'off' || cloudProjectsModel.busyProjectIds.length > 0
     busyIndicatorValue: busyIndicatorState === 'on' ? 0 : 1
@@ -28,6 +29,8 @@ Page {
     topMargin: mainWindow.sceneTopMargin
 
     onFinished: parent.finished()
+
+    onOpenMenu: options.open()
   }
 
   ColumnLayout {
@@ -206,6 +209,7 @@ Page {
             filter: filterBar.currentIndex === 0 ? QFieldCloudProjectsFilterModel.PrivateProjects : QFieldCloudProjectsFilterModel.PublicProjects
             showLocalOnly: cloudConnection.status !== QFieldCloudConnection.LoggedIn
             textFilter: searchBar.searchTerm
+            showInValidProjects: settings ? settings.valueBool("/QField/showInvalidProjects", false) : false
             onFilterChanged: {
               if (cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
                 refreshProjectsList(filter === QFieldCloudProjectsFilterModel.PublicProjects);
@@ -302,6 +306,8 @@ Page {
                       return Theme.getThemeVectorIcon('ic_cloud_project_download_48dp');
                     case QFieldCloudProject.ProjectStatus.Uploading:
                       return Theme.getThemeVectorIcon('ic_cloud_project_upload_48dp');
+                    case QFieldCloudProject.ProjectStatus.Failing:
+                      return Theme.getThemeVectorIcon('ic_cloud_project_failed_48dp');
                     default:
                       break;
                     }
@@ -579,6 +585,39 @@ Page {
         onClicked: {
           refreshProjectsList(filterBar.currentIndex !== 0);
         }
+      }
+    }
+  }
+
+  QfMenu {
+    id: options
+    x: parent.width - width - 8
+
+    MenuItem {
+      text: qsTr('Show invalid projects')
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+      checkable: true
+      checked: settings ? settings.valueBool("/QField/showInvalidProjects", false) : false
+      onTriggered: {
+        settings.setValue("/QField/showInvalidProjects", checked);
+        table.model.showInValidProjects = checked;
+      }
+    }
+
+    MenuSeparator {
+    }
+
+    MenuItem {
+      text: qsTr('Sign out')
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+      icon.source: Theme.getThemeVectorIcon('ic_logout_24dp')
+      onTriggered: {
+        cloudConnection.logout();
+        finished();
       }
     }
   }
