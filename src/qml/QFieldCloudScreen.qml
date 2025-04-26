@@ -877,6 +877,7 @@ Page {
 
   function prepareCloudLogin() {
     if (visible) {
+      projectsSwipeView.currentIndex = 1;
       if (cloudConnection.status == QFieldCloudConnection.Disconnected) {
         if (cloudConnection.hasToken || cloudConnection.hasProviderConfiguration) {
           cloudConnection.login();
