@@ -88,7 +88,7 @@ class IdentifyTool : public QObject
     double searchRadiusMU() const;
 
     QgsRectangle toLayerCoordinates( QgsMapLayer *layer, const QgsRectangle &rect ) const;
-    QgsPointXY toLayerCoordinates( QgsMapLayer *layer, const QgsPointXY &rect ) const;
+    QgsPointXY toLayerCoordinates( QgsMapLayer *layer, const QgsPointXY &point ) const;
 
     double mSearchRadiusMm;
 

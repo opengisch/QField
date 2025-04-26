@@ -98,14 +98,14 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
         {
           mSelectedFeatures.append( item );
         }
-        else if ( mSelectedFeatures.size() > 1 && mSelectedFeatures.contains( item ) )
-        {
-          const qsizetype row = mFeatures.indexOf( item );
-          mSelectedFeatures.removeAll( item );
+      }
+      else if ( mSelectedFeatures.size() > 1 && mSelectedFeatures.contains( item ) )
+      {
+        const qsizetype row = mFeatures.indexOf( item );
+        mSelectedFeatures.removeAll( item );
 
-          QModelIndex index = createIndex( row, 0 );
-          emit dataChanged( index, index, QVector<int>() << MultiFeatureListModel::FeatureSelectedRole );
-        }
+        QModelIndex index = createIndex( row, 0 );
+        emit dataChanged( index, index, QVector<int>() << MultiFeatureListModel::FeatureSelectedRole );
       }
     }
     if ( QgsRasterLayer *layer = qobject_cast<QgsRasterLayer *>( result.layer ) )
