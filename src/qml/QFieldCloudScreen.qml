@@ -28,8 +28,18 @@ Page {
 
     topMargin: mainWindow.sceneTopMargin
 
-    onFinished: parent.finished()
-
+    onFinished: {
+      if (connectionSettings.visible) {
+        connectionSettings.visible = false;
+        projectsSwipeView.visible = true;
+      } else if (projectsSwipeView.currentIndex === 1) {
+        projectDetails.cloudProject = undefined;
+        projectsSwipeView.currentIndex = 0;
+      } else {
+        parent.finished();
+      }
+    }
+    
     onOpenMenu: qfieldCloudScreenOption.open()
   }
 
@@ -639,7 +649,7 @@ Page {
 
             RowLayout {
               Layout.fillWidth: true
-              spacing: 5
+              spacing: 10
 
               Rectangle {
                 id: projectDetailsThumbnailRect
@@ -827,17 +837,6 @@ Page {
             projectDetails.cloudProject = undefined;
           }
         }
-
-        QfButton {
-          id: returnToProjectsListBtn
-          Layout.fillWidth: true
-          Layout.bottomMargin: mainWindow.sceneBottomMargin
-          text: qsTr("Return to projects list")
-          onClicked: {
-            projectsSwipeView.currentIndex = 0;
-            projectDetails.cloudProject = undefined;
-          }
-        }
       }
     }
   }
@@ -918,7 +917,6 @@ Page {
 
   function prepareCloudLogin() {
     if (visible) {
-      projectsSwipeView.currentIndex = 0;
       if (cloudConnection.status == QFieldCloudConnection.Disconnected) {
         if (cloudConnection.hasToken || cloudConnection.hasProviderConfiguration) {
           cloudConnection.login();
@@ -947,7 +945,7 @@ Page {
   Keys.onReleased: event => {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
       event.accepted = true;
-      finished();
+      header.onFinished();
     }
   }
 }
