@@ -24,6 +24,7 @@
 
 class QgsMapLayer;
 class QgsQuickMapSettings;
+class QgsRasterLayer;
 class QgsVectorLayer;
 class MultiFeatureListModel;
 
@@ -77,6 +78,7 @@ class IdentifyTool : public QObject
     void identify( const QPointF &point ) const;
 
     QList<IdentifyResult> identifyVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const;
+    QList<IdentifyResult> identifyRasterLayer( QgsRasterLayer *layer, const QgsPointXY &point ) const;
 
   private:
     QgsQuickMapSettings *mMapSettings = nullptr;
@@ -86,6 +88,7 @@ class IdentifyTool : public QObject
     double searchRadiusMU() const;
 
     QgsRectangle toLayerCoordinates( QgsMapLayer *layer, const QgsRectangle &rect ) const;
+    QgsPointXY toLayerCoordinates( QgsMapLayer *layer, const QgsPointXY &rect ) const;
 
     double mSearchRadiusMm;
 

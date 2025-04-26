@@ -143,13 +143,15 @@ class MultiFeatureListModelBase : public QAbstractItemModel
     void geometryChanged( QgsFeatureId fid, const QgsGeometry &geometry );
 
   private:
-    inline QPair<QgsVectorLayer *, QgsFeature> *toFeature( const QModelIndex &index ) const
+    inline QPair<QgsMapLayer *, QgsFeature> *toFeature( const QModelIndex &index ) const
     {
-      return static_cast<QPair<QgsVectorLayer *, QgsFeature> *>( index.internalPointer() );
+      return static_cast<QPair<QgsMapLayer *, QgsFeature> *>( index.internalPointer() );
     }
 
-    QList<QPair<QgsVectorLayer *, QgsFeature>> mFeatures;
-    QList<QPair<QgsVectorLayer *, QgsFeature>> mSelectedFeatures;
+    QList<QPair<QgsMapLayer *, QgsFeature>> mFeatures;
+    QList<QPair<QgsMapLayer *, QgsFeature>> mSelectedFeatures;
+
+    QMap<QgsMapLayer *, QgsVectorLayer *> mRepresentationalLayers;
 };
 
 #endif // MULTIFEATURELISTMODELBASE_H

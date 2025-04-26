@@ -23,8 +23,10 @@
 #include <qgscoordinatereferencesystem.h>
 #include <qgsgeometry.h>
 #include <qgsgeometrycollection.h>
+#include <qgsmemoryproviderutils.h>
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
+#include <qgsrasterlayer.h>
 #include <qgsrelationmanager.h>
 #include <qgsvectordataprovider.h>
 #include <qgsvectorlayer.h>
@@ -64,7 +66,7 @@ void MultiFeatureListModelBase::setFeatures( const QMap<QgsVectorLayer *, QgsFea
     QgsFeatureIterator fit = vl->getFeatures( request );
     while ( fit.nextFeature( feat ) )
     {
-      mFeatures.append( QPair<QgsVectorLayer *, QgsFeature>( vl, feat ) );
+      mFeatures.append( QPair<QgsMapLayer *, QgsFeature>( vl, feat ) );
       connect( vl, &QgsVectorLayer::destroyed, this, &MultiFeatureListModelBase::layerDeleted, Qt::UniqueConnection );
       connect( vl, &QgsVectorLayer::featureDeleted, this, &MultiFeatureListModelBase::featureDeleted, Qt::UniqueConnection );
       connect( vl, &QgsVectorLayer::attributeValueChanged, this, &MultiFeatureListModelBase::attributeValueChanged, Qt::UniqueConnection );
@@ -81,28 +83,46 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
 
   for ( const IdentifyTool::IdentifyResult &result : results )
   {
-    QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( result.layer );
-    QPair<QgsVectorLayer *, QgsFeature> item( layer, result.feature );
-    if ( !mFeatures.contains( item ) )
+    if ( QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( result.layer ) )
     {
-      mFeatures.append( item );
-      connect( layer, &QObject::destroyed, this, &MultiFeatureListModelBase::layerDeleted, Qt::UniqueConnection );
-      connect( layer, &QgsVectorLayer::featureDeleted, this, &MultiFeatureListModelBase::featureDeleted, Qt::UniqueConnection );
-      connect( layer, &QgsVectorLayer::attributeValueChanged, this, &MultiFeatureListModelBase::attributeValueChanged, Qt::UniqueConnection );
-      connect( layer, &QgsVectorLayer::geometryChanged, this, &MultiFeatureListModelBase::geometryChanged, Qt::UniqueConnection );
-
-      if ( !mSelectedFeatures.isEmpty() )
+      QPair<QgsMapLayer *, QgsFeature> item( layer, result.feature );
+      if ( !mFeatures.contains( item ) )
       {
-        mSelectedFeatures.append( item );
+        mFeatures.append( item );
+        connect( layer, &QObject::destroyed, this, &MultiFeatureListModelBase::layerDeleted, Qt::UniqueConnection );
+        connect( layer, &QgsVectorLayer::featureDeleted, this, &MultiFeatureListModelBase::featureDeleted, Qt::UniqueConnection );
+        connect( layer, &QgsVectorLayer::attributeValueChanged, this, &MultiFeatureListModelBase::attributeValueChanged, Qt::UniqueConnection );
+        connect( layer, &QgsVectorLayer::geometryChanged, this, &MultiFeatureListModelBase::geometryChanged, Qt::UniqueConnection );
+
+        if ( !mSelectedFeatures.isEmpty() )
+        {
+          mSelectedFeatures.append( item );
+        }
+        else if ( mSelectedFeatures.size() > 1 && mSelectedFeatures.contains( item ) )
+        {
+          const qsizetype row = mFeatures.indexOf( item );
+          mSelectedFeatures.removeAll( item );
+
+          QModelIndex index = createIndex( row, 0 );
+          emit dataChanged( index, index, QVector<int>() << MultiFeatureListModel::FeatureSelectedRole );
+        }
       }
     }
-    else if ( mSelectedFeatures.size() > 1 && mSelectedFeatures.contains( item ) )
+    if ( QgsRasterLayer *layer = qobject_cast<QgsRasterLayer *>( result.layer ) )
     {
-      const qsizetype row = mFeatures.indexOf( item );
-      mSelectedFeatures.removeAll( item );
+      QgsVectorLayer *representationalLayer;
+      if ( !mRepresentationalLayers.contains( layer ) )
+      {
+        representationalLayer = QgsMemoryProviderUtils::createMemoryLayer( layer->name(), result.feature.fields() );
+        representationalLayer->setReadOnly( true );
+        mRepresentationalLayers[layer] = representationalLayer;
+      }
 
-      QModelIndex index = createIndex( row, 0 );
-      emit dataChanged( index, index, QVector<int>() << MultiFeatureListModel::FeatureSelectedRole );
+      QPair<QgsMapLayer *, QgsFeature> item( representationalLayer, result.feature );
+      if ( !mFeatures.contains( item ) )
+      {
+        mFeatures.append( item );
+      }
     }
   }
   endInsertRows();
@@ -121,14 +141,32 @@ void MultiFeatureListModelBase::clear( const bool keepSelected )
 
   beginResetModel();
   mFeatures.clear();
-  if ( keepSelected )
+
+  if ( keepSelected && !mSelectedFeatures.isEmpty() )
   {
     mFeatures = mSelectedFeatures;
+
+    // Selected features only ever contain one layer, clear all non-matching representational layers
+    const QList<QgsMapLayer *> keys = mRepresentationalLayers.keys();
+    for ( QgsMapLayer *key : keys )
+    {
+      if ( mRepresentationalLayers.value( key ) != mSelectedFeatures[0].first )
+      {
+        delete mRepresentationalLayers.take( key );
+      }
+    }
   }
   else
   {
     mSelectedFeatures.clear();
+
+    for ( QgsVectorLayer *representationalLayer : mRepresentationalLayers.values() )
+    {
+      delete representationalLayer;
+    }
+    mRepresentationalLayers.clear();
   }
+
   endResetModel();
 }
 
@@ -163,7 +201,7 @@ void MultiFeatureListModelBase::toggleSelectedItem( int item )
 QList<QgsFeature> MultiFeatureListModelBase::selectedFeatures() const
 {
   QList<QgsFeature> features;
-  for ( const QPair<QgsVectorLayer *, QgsFeature> &pair : mSelectedFeatures )
+  for ( const QPair<QgsMapLayer *, QgsFeature> &pair : mSelectedFeatures )
   {
     features << pair.second;
   }
@@ -172,7 +210,7 @@ QList<QgsFeature> MultiFeatureListModelBase::selectedFeatures() const
 
 QgsVectorLayer *MultiFeatureListModelBase::selectedLayer() const
 {
-  return mSelectedFeatures.size() > 0 ? mSelectedFeatures[0].first : nullptr;
+  return mSelectedFeatures.size() > 0 ? qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first ) : nullptr;
 }
 
 QHash<int, QByteArray> MultiFeatureListModelBase::roleNames() const
@@ -201,7 +239,7 @@ QModelIndex MultiFeatureListModelBase::index( int row, int column, const QModelI
   if ( row < 0 || row >= mFeatures.size() || column != 0 )
     return QModelIndex();
 
-  return createIndex( row, column, const_cast<QPair<QgsVectorLayer *, QgsFeature> *>( &mFeatures.at( row ) ) );
+  return createIndex( row, column, const_cast<QPair<QgsMapLayer *, QgsFeature> *>( &mFeatures.at( row ) ) );
 }
 
 QModelIndex MultiFeatureListModelBase::parent( const QModelIndex &child ) const
@@ -226,9 +264,11 @@ int MultiFeatureListModelBase::columnCount( const QModelIndex &parent ) const
 
 QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) const
 {
-  QPair<QgsVectorLayer *, QgsFeature> *feature = toFeature( index );
+  QPair<QgsMapLayer *, QgsFeature> *feature = toFeature( index );
   if ( !feature )
     return QVariant();
+
+  QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( feature->first );
 
   switch ( role )
   {
@@ -252,14 +292,14 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
     case Qt::DisplayRole:
     case MultiFeatureListModel::FeatureNameRole:
     {
-      return FeatureUtils::displayName( feature->first, feature->second );
+      return vlayer ? FeatureUtils::displayName( vlayer, feature->second ) : "xxx";
     }
 
     case MultiFeatureListModel::LayerNameRole:
       return feature->first->name();
 
     case MultiFeatureListModel::LayerRole:
-      return QVariant::fromValue<QgsVectorLayer *>( feature->first );
+      return QVariant::fromValue<QgsMapLayer *>( feature->first );
 
     case MultiFeatureListModel::GeometryRole:
       return QVariant::fromValue<QgsGeometry>( feature->second.geometry() );
@@ -268,14 +308,22 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       return QVariant::fromValue<QgsCoordinateReferenceSystem>( feature->first->crs() );
 
     case MultiFeatureListModel::DeleteFeatureRole:
-      return !feature->first->readOnly()
-             && ( feature->first->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures )
-             && !feature->first->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+      if ( vlayer )
+      {
+        return !vlayer->readOnly()
+               && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures )
+               && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+      }
+      return false;
 
     case MultiFeatureListModel::EditGeometryRole:
-      return !feature->first->readOnly()
-             && ( feature->first->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries )
-             && !feature->first->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+      if ( vlayer )
+      {
+        return !vlayer->readOnly()
+               && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries )
+               && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+      }
+      return false;
   }
 
   return QVariant();
@@ -287,7 +335,7 @@ bool MultiFeatureListModelBase::removeRows( int row, int count, const QModelInde
     return true;
 
   int i = 0;
-  QMutableListIterator<QPair<QgsVectorLayer *, QgsFeature>> it( mFeatures );
+  QMutableListIterator<QPair<QgsMapLayer *, QgsFeature>> it( mFeatures );
   while ( i < row )
   {
     it.next();
@@ -324,8 +372,8 @@ bool MultiFeatureListModelBase::canEditAttributesSelection() const
   if ( mSelectedFeatures.isEmpty() )
     return false;
 
-  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
-  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeAttributeValues );
+  QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
+  return vlayer ? !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeAttributeValues ) : false;
 }
 
 bool MultiFeatureListModelBase::canMergeSelection() const
@@ -333,7 +381,7 @@ bool MultiFeatureListModelBase::canMergeSelection() const
   if ( mSelectedFeatures.isEmpty() )
     return false;
 
-  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
   return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
@@ -342,8 +390,8 @@ bool MultiFeatureListModelBase::canDeleteSelection() const
   if ( mSelectedFeatures.isEmpty() )
     return false;
 
-  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
-  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+  QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
+  return vlayer ? !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() : false;
 }
 
 bool MultiFeatureListModelBase::canDuplicateSelection() const
@@ -351,8 +399,8 @@ bool MultiFeatureListModelBase::canDuplicateSelection() const
   if ( mSelectedFeatures.isEmpty() )
     return false;
 
-  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
-  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::AddFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+  QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
+  return vlayer ? !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::AddFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() : false;
 }
 
 bool MultiFeatureListModelBase::canMoveSelection() const
@@ -360,7 +408,7 @@ bool MultiFeatureListModelBase::canMoveSelection() const
   if ( mSelectedFeatures.isEmpty() )
     return false;
 
-  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
   if ( !vlayer || vlayer->readOnly() || !( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() )
     return false;
 
@@ -371,7 +419,7 @@ bool MultiFeatureListModelBase::canMoveSelection() const
     if ( !geometryLockedExpression.isEmpty() )
     {
       QgsExpressionContext expressionContext = vlayer->createExpressionContext();
-      for ( const QPair<QgsVectorLayer *, QgsFeature> &selectedFeature : std::as_const( mSelectedFeatures ) )
+      for ( const QPair<QgsMapLayer *, QgsFeature> &selectedFeature : std::as_const( mSelectedFeatures ) )
       {
         expressionContext.setFeature( selectedFeature.second );
         QgsExpression expression( geometryLockedExpression );
@@ -392,7 +440,7 @@ bool MultiFeatureListModelBase::canRotateSelection() const
   if ( mSelectedFeatures.isEmpty() )
     return false;
 
-  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
   if ( !vlayer || vlayer->readOnly() || !( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() )
     return false;
 
@@ -403,7 +451,7 @@ bool MultiFeatureListModelBase::canRotateSelection() const
     if ( !geometryLockedExpression.isEmpty() )
     {
       QgsExpressionContext expressionContext = vlayer->createExpressionContext();
-      for ( const QPair<QgsVectorLayer *, QgsFeature> &selectedFeature : std::as_const( mSelectedFeatures ) )
+      for ( const QPair<QgsMapLayer *, QgsFeature> &selectedFeature : std::as_const( mSelectedFeatures ) )
       {
         expressionContext.setFeature( selectedFeature.second );
         QgsExpression expression( geometryLockedExpression );
@@ -424,7 +472,7 @@ bool MultiFeatureListModelBase::canProcessSelection() const
   if ( mSelectedFeatures.isEmpty() )
     return false;
 
-  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
   if ( !vlayer || vlayer->readOnly() || !( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() )
     return false;
 
@@ -435,7 +483,7 @@ bool MultiFeatureListModelBase::canProcessSelection() const
     if ( !geometryLockedExpression.isEmpty() )
     {
       QgsExpressionContext expressionContext = vlayer->createExpressionContext();
-      for ( const QPair<QgsVectorLayer *, QgsFeature> &selectedFeature : std::as_const( mSelectedFeatures ) )
+      for ( const QPair<QgsMapLayer *, QgsFeature> &selectedFeature : std::as_const( mSelectedFeatures ) )
       {
         expressionContext.setFeature( selectedFeature.second );
         QgsExpression expression( geometryLockedExpression );
@@ -457,8 +505,7 @@ bool MultiFeatureListModelBase::mergeSelection()
     return false;
 
   QgsVectorLayer *vlayer = selectedLayer();
-
-  QList<QPair<QgsVectorLayer *, QgsFeature>> selectedFeatures = mSelectedFeatures;
+  QList<QPair<QgsMapLayer *, QgsFeature>> selectedFeatures = mSelectedFeatures;
   bool isSuccess = true;
   QgsGeometry combinedGeometry;
   for ( const auto &pair : selectedFeatures )
@@ -507,7 +554,7 @@ bool MultiFeatureListModelBase::mergeSelection()
       selectedFeatures.removeFirst();
       for ( const auto &pair : std::as_const( selectedFeatures ) )
       {
-        isSuccess = deleteFeature( pair.first, pair.second.id(), true );
+        isSuccess = deleteFeature( vlayer, pair.second.id(), true );
         if ( !isSuccess )
         {
           break;
@@ -550,11 +597,11 @@ bool MultiFeatureListModelBase::deleteSelection()
     return false;
   }
 
-  const QList<QPair<QgsVectorLayer *, QgsFeature>> selectedFeatures = mSelectedFeatures;
+  const QList<QPair<QgsMapLayer *, QgsFeature>> selectedFeatures = mSelectedFeatures;
   bool isSuccess = false;
   for ( const auto &pair : selectedFeatures )
   {
-    isSuccess = deleteFeature( pair.first, pair.second.id(), true );
+    isSuccess = deleteFeature( vlayer, pair.second.id(), true );
     if ( !isSuccess )
       break;
   }
@@ -579,8 +626,8 @@ bool MultiFeatureListModelBase::duplicateFeature( QgsVectorLayer *layer, const Q
   QgsFeature duplicatedFeature = LayerUtils::duplicateFeature( layer, feature );
   if ( feature.isValid() )
   {
-    QList<QPair<QgsVectorLayer *, QgsFeature>> duplicatedFeatures;
-    duplicatedFeatures << QPair<QgsVectorLayer *, QgsFeature>( layer, duplicatedFeature );
+    QList<QPair<QgsMapLayer *, QgsFeature>> duplicatedFeatures;
+    duplicatedFeatures << QPair<QgsMapLayer *, QgsFeature>( layer, duplicatedFeature );
 
     beginResetModel();
     mFeatures = duplicatedFeatures;
@@ -600,8 +647,8 @@ bool MultiFeatureListModelBase::duplicateSelection()
 
   QgsVectorLayer *vlayer = selectedLayer();
 
-  const QList<QPair<QgsVectorLayer *, QgsFeature>> selectedFeatures = mSelectedFeatures;
-  QList<QPair<QgsVectorLayer *, QgsFeature>> duplicatedFeatures;
+  const QList<QPair<QgsMapLayer *, QgsFeature>> selectedFeatures = mSelectedFeatures;
+  QList<QPair<QgsMapLayer *, QgsFeature>> duplicatedFeatures;
   bool isSuccess = false;
   for ( const auto &pair : selectedFeatures )
   {
@@ -629,7 +676,7 @@ bool MultiFeatureListModelBase::moveSelection( const double x, const double y )
   if ( !canMoveSelection() )
     return false;
 
-  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  QgsVectorLayer *vlayer = selectedLayer();
   if ( !vlayer->startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
@@ -670,7 +717,7 @@ bool MultiFeatureListModelBase::rotateSelection( const double angle )
   if ( !canRotateSelection() )
     return false;
 
-  QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
+  QgsVectorLayer *vlayer = selectedLayer();
   if ( !vlayer->startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );

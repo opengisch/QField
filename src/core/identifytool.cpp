@@ -18,7 +18,10 @@
 #include "qgsquickmapsettings.h"
 
 #include <qgsexpressioncontextutils.h>
+#include <qgsfeaturestore.h>
 #include <qgsproject.h>
+#include <qgsrasteridentifyresult.h>
+#include <qgsrasterlayer.h>
 #include <qgsrenderer.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayertemporalproperties.h>
@@ -65,10 +68,14 @@ void IdentifyTool::identify( const QPointF &point ) const
     if ( !layer->flags().testFlag( QgsMapLayer::Identifiable ) )
       continue;
 
-    QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer );
-    if ( vl )
+    if ( QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer ) )
     {
       QList<IdentifyResult> results = identifyVectorLayer( vl, mapPoint );
+      mModel->appendFeatures( results );
+    }
+    else if ( QgsRasterLayer *rl = qobject_cast<QgsRasterLayer *>( layer ) )
+    {
+      QList<IdentifyResult> results = identifyRasterLayer( rl, mapPoint );
       mModel->appendFeatures( results );
     }
   }
@@ -174,6 +181,115 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVector
   return results;
 }
 
+QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyRasterLayer( QgsRasterLayer *layer, const QgsPointXY &point ) const
+{
+  QList<IdentifyTool::IdentifyResult> results;
+
+  std::unique_ptr<QgsRasterDataProvider> dataProvider( layer->dataProvider()->clone() );
+  const Qgis::RasterInterfaceCapabilities capabilities = dataProvider->capabilities();
+
+  if ( !( capabilities & Qgis::RasterInterfaceCapability::Identify ) )
+    return results;
+
+  if ( !( capabilities & Qgis::RasterInterfaceCapability::IdentifyFeature ) )
+    return results;
+
+  QgsPointXY pointInLayerCoordinates = toLayerCoordinates( layer, point );
+  const double searchRadius = searchRadiusMU();
+  const double mapUnitsPerPixel = mMapSettings->mapSettings().mapUnitsPerPixel();
+  QgsRasterIdentifyResult identifyResult;
+  // We can only use current map canvas context (extent, width, height) if layer is not reprojected,
+  if ( dataProvider->crs() != mMapSettings->mapSettings().destinationCrs() )
+  {
+    // To get some reasonable response for point/line WMS vector layers we must
+    // use a context with approximately a resolution in layer CRS units
+    // corresponding to current map canvas resolution (for examplei UMN Mapserver
+    // in msWMSFeatureInfo() -> msQueryByRect() is using requested pixel
+    // + TOLERANCE (layer param) for feature selection)
+    QgsRectangle r;
+    r.setXMinimum( point.x() - mapUnitsPerPixel / 2. );
+    r.setXMaximum( point.x() + mapUnitsPerPixel / 2. );
+    r.setYMaximum( point.y() + mapUnitsPerPixel / 2. );
+    r.setYMinimum( point.y() - mapUnitsPerPixel / 2. );
+    r = toLayerCoordinates( layer, r ); // will be a bit larger
+    // Mapserver (6.0.3, for example) does not work with 1x1 pixel box
+    // but that is fixed (the rect is enlarged) in the WMS provider
+
+    identifyResult = dataProvider->identify( pointInLayerCoordinates, Qgis::RasterIdentifyFormat::Feature, r, 1, 1 );
+  }
+  else
+  {
+    // It would be nice to use the same extent and size which was used for drawing,
+    // so that WCS can use cache from last draw, unfortunately QgsRasterLayer::draw()
+    // is doing some tricks with extent and size to align raster to output which
+    // would be difficult to replicate here.
+    // Note: cutting the extent may result in slightly different x and y resolutions
+    // and thus shifted point calculated back in QGIS WMS (using average resolution)
+    //viewExtent = dprovider->extent().intersect( &viewExtent );
+
+    // Width and height are calculated from not projected extent and we hope that
+    // are similar to source width and height used to reproject layer for drawing.
+    // TODO: may be very dangerous, because it may result in different resolutions
+    // in source CRS, and WMS server (QGIS server) calcs wrong coor using average resolution.
+    const QgsRectangle extent = mMapSettings->mapSettings().extent();
+    int width = static_cast<int>( std::round( extent.width() / mapUnitsPerPixel ) );
+    int height = static_cast<int>( std::round( extent.height() / mapUnitsPerPixel ) );
+
+    identifyResult = dataProvider->identify( point, Qgis::RasterIdentifyFormat::Feature, extent, width, height );
+  }
+
+  QMap<int, QVariant> identifyResults = identifyResult.results();
+  for ( auto it = identifyResults.constBegin(); it != identifyResults.constEnd(); ++it )
+  {
+    QVariant result = it.value();
+    if ( result.userType() == QMetaType::Type::Bool && !result.toBool() )
+    {
+      // sublayer not visible or not queryable
+      continue;
+    }
+
+    if ( result.userType() == QMetaType::Type::QString )
+    {
+      // error
+      // TODO: better error reporting
+      QString label = layer->subLayers().value( it.key() );
+      qDebug() << label << result.toString();
+      continue;
+    }
+
+    // list of feature stores for a single sublayer
+    const QgsFeatureStoreList featureStoreList = result.value<QgsFeatureStoreList>();
+
+    for ( const QgsFeatureStore &featureStore : featureStoreList )
+    {
+      const QgsFeatureList storeFeatures = featureStore.features();
+      for ( const QgsFeature &feature : storeFeatures )
+      {
+        // WMS sublayer and feature type, a sublayer may contain multiple feature types.
+        // Sublayer name may be the same as layer name and feature type name
+        // may be the same as sublayer. We try to avoid duplicities in label.
+        QString sublayer = featureStore.params().value( QStringLiteral( "sublayer" ) ).toString();
+        QString featureType = featureStore.params().value( QStringLiteral( "featureType" ) ).toString();
+        // Strip UMN MapServer '_feature'
+        featureType.remove( QStringLiteral( "_feature" ) );
+        QStringList labels;
+        if ( sublayer.compare( layer->name(), Qt::CaseInsensitive ) != 0 )
+        {
+          labels << sublayer;
+        }
+        if ( featureType.compare( sublayer, Qt::CaseInsensitive ) != 0 || labels.isEmpty() )
+        {
+          labels << featureType;
+        }
+
+        results.append( IdentifyResult( layer, feature ) );
+      }
+    }
+  }
+
+  return results;
+}
+
 MultiFeatureListModel *IdentifyTool::model() const
 {
   return mModel;
@@ -209,6 +325,11 @@ double IdentifyTool::searchRadiusMU() const
 QgsRectangle IdentifyTool::toLayerCoordinates( QgsMapLayer *layer, const QgsRectangle &rect ) const
 {
   return mMapSettings->mapSettings().mapToLayerCoordinates( layer, rect );
+}
+
+QgsPointXY IdentifyTool::toLayerCoordinates( QgsMapLayer *layer, const QgsPointXY &point ) const
+{
+  return mMapSettings->mapSettings().mapToLayerCoordinates( layer, point );
 }
 
 double IdentifyTool::searchRadiusMm() const
