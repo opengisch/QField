@@ -633,6 +633,7 @@ Page {
                 fillMode: Image.PreserveAspectFit
                 smooth: true
                 source: projectDetails.cloudProject != undefined ? cloudConnection.url + "/api/v1/files/thumbnails/" + projectDetails.cloudProject.id + "/" : ""
+                visible: source !== "" && status === Image.Ready
                 width: 48
                 height: 48
                 sourceSize.width: width * screen.devicePixelRatio
@@ -641,19 +642,13 @@ Page {
                 layer.effect: QfOpacityMask {
                   maskSource: cloudAvatarMask
                 }
-
-                onStatusChanged: {
-                  // In case the avatar URL fails to load or the image is corrupted, revert to our lovely Nyuki
-                  if (status == Image.Error) {
-                    source = 'qrc:/images/qfieldcloud_logo.svg';
-                  }
-                }
               }
 
               Text {
                 id: projectDetailsName
                 Layout.fillWidth: true
-                font: Theme.titleFont
+                font.pointSize: Theme.titleFont.pointSize * 1.25
+                font.bold: true
                 color: Theme.mainTextColor
 
                 text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.name : ""
@@ -711,7 +706,25 @@ Page {
               font: Theme.defaultFont
               color: Theme.secondaryTextColor
 
-              //text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject. : ""
+              text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.createdAt : ""
+            }
+
+            Text {
+              id: projectDetailsUpdateDateLabel
+              Layout.fillWidth: true
+              font: Theme.strongFont
+              color: Theme.mainTextColor
+
+              text: qsTr("Latest update date")
+            }
+
+            Text {
+              id: projectDetailsUpdateDate
+              Layout.fillWidth: true
+              font: Theme.defaultFont
+              color: Theme.secondaryTextColor
+
+              text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.updatedAt : ""
             }
           }
         }
