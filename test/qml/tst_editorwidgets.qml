@@ -147,10 +147,14 @@ TestCase {
     range.value = 3;
     compare(range.widgetStyle, "TextField");
     compare(range.precision, 1);
-    compare(range.min, -Infinity);
-    compare(range.max, Infinity);
     compare(range.step, 1);
     compare(range.suffix, "");
+    range.isDouble = false;
+    compare(range.min, -2147483647);
+    compare(range.max, 2147483647);
+    range.isDouble = true;
+    compare(range.min, -Infinity);
+    compare(range.max, Infinity);
 
     // Row
     // compare(sliderRow.visible, true) // ERROR ? should work but not working!
