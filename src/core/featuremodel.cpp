@@ -405,13 +405,17 @@ void FeatureModel::updateGeometryLocked()
 {
   bool geometryLocked = mGeometryLockedByDefault;
 
-  if ( mLayer && !mGeometryLockedExpression.isEmpty() )
+  if ( mLayer )
   {
-    QgsExpressionContext expressionContext = createExpressionContext();
-    expressionContext.setFeature( mFeature );
-    QgsExpression expression( mGeometryLockedExpression );
-    expression.prepare( &expressionContext );
-    geometryLocked = expression.evaluate( &expressionContext ).toBool();
+    geometryLocked = geometryLocked || mLayer->readOnly();
+    if ( !mLayer->readOnly() && !mGeometryLockedExpression.isEmpty() )
+    {
+      QgsExpressionContext expressionContext = createExpressionContext();
+      expressionContext.setFeature( mFeature );
+      QgsExpression expression( mGeometryLockedExpression );
+      expression.prepare( &expressionContext );
+      geometryLocked = expression.evaluate( &expressionContext ).toBool();
+    }
   }
 
   if ( mGeometryLocked != geometryLocked )

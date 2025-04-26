@@ -642,7 +642,7 @@ Rectangle {
         iconSource: Theme.getThemeVectorIcon("ic_paste_black_24dp")
         iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
         bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
-        enabled: clipboardManager && clipboardManager.holdsFeature
+        enabled: clipboardManager && clipboardManager.holdsFeature && featureForm.model.featureModel.currentLayer && !featureForm.model.featureModel.currentLayer.readOnly
 
         onClicked: {
           var feature = clipboardManager.pasteFeatureFromClipboard();
@@ -719,6 +719,7 @@ Rectangle {
     MenuSeparator {
       visible: moveFeatureBtn.visible || duplicateFeatureBtn.visible || deleteFeatureBtn.visible
       width: parent.width
+      height: visible ? undefined : 0
     }
 
     MenuItem {
@@ -739,7 +740,7 @@ Rectangle {
       id: duplicateFeatureBtn
       text: qsTr('Duplicate Feature')
       icon.source: Theme.getThemeVectorIcon("ic_duplicate_black_24dp")
-      enabled: (projectInfo.insertRights && (!selection.focusedLayer || !selection.focusedLayer.customProperty("QFieldSync/is_geometry_locked", false)))
+      enabled: (projectInfo.insertRights && (!selection.focusedLayer || !selection.focusedLayer.readOnly))
       visible: enabled
 
       font: Theme.defaultFont
@@ -768,7 +769,7 @@ Rectangle {
       id: transferFeatureAttributesBtn
       text: qsTr('Update Attributes from Feature')
       icon.source: Theme.getThemeVectorIcon("ic_transfer_into_black_24dp")
-      enabled: (projectInfo.insertRights && (!selection.focusedLayer || !selection.focusedLayer.customProperty("QFieldSync/is_geometry_locked", false)))
+      enabled: (projectInfo.insertRights && (!selection.focusedLayer || !featureForm.model.featureModel.geometryLocked))
       visible: enabled
 
       font: Theme.defaultFont
@@ -782,7 +783,7 @@ Rectangle {
       id: deleteFeatureBtn
       text: qsTr('Delete Feature')
       icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
-      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !selection.focusedLayer.customProperty("QFieldSync/is_geometry_locked", false)))
+      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryLocked))
       visible: enabled
 
       font: Theme.defaultFont
