@@ -617,6 +617,12 @@ Page {
 
         property var cloudProject: undefined
 
+        onCloudProjectChanged: {
+          if (cloudProject != undefined) {
+            cloudProject.downloadThumbnail();
+          }
+        }
+
         ScrollView {
           Layout.fillWidth: true
           Layout.fillHeight: true
@@ -639,7 +645,7 @@ Page {
                 id: projectDetailsThumbnail
                 fillMode: Image.PreserveAspectFit
                 smooth: true
-                source: projectDetails.cloudProject != undefined ? cloudConnection.url + "/api/v1/files/thumbnails/" + projectDetails.cloudProject.id + "/" : ""
+                source: projectDetails.cloudProject != undefined && projectDetails.cloudProject.thumbnailPath !== "" ? 'file://' + projectDetails.cloudProject.thumbnailPath : ""
                 visible: source !== "" && status === Image.Ready
                 width: 48
                 height: 48

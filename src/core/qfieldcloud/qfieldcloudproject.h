@@ -40,6 +40,7 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( QString owner READ owner NOTIFY ownerChanged )
     Q_PROPERTY( QString description READ description NOTIFY descriptionChanged )
     Q_PROPERTY( QString localPath READ localPath NOTIFY localPathChanged )
+    Q_PROPERTY( QString thumbnailPath READ thumbnailPath NOTIFY thumbnailPathChanged )
 
     Q_PROPERTY( QDateTime createdAt READ createdAt NOTIFY createdAtChanged )
     Q_PROPERTY( QDateTime updatedAt READ updatedAt NOTIFY updatedAtChanged )
@@ -290,6 +291,10 @@ class QFieldCloudProject : public QObject
     int deltasCount() const { return mDeltasCount; }
     DeltaListModel *deltaListModel() const { return mDeltaListModel; }
 
+    QString thumbnailPath() const { return mThumbnailPath; }
+    void setThumbnailPath( const QString &thumbnailPath );
+    Q_INVOKABLE void downloadThumbnail();
+
     void packageAndDownload();
     void cancelDownload();
 
@@ -366,6 +371,8 @@ class QFieldCloudProject : public QObject
     void uploadDeltaProgressChanged();
 
     void deltaListModelChanged();
+
+    void thumbnailPathChanged();
 
     void downloadFinished( const QString &error = QString() );
     void downloaded( const QString &name, const QString &error = QString() );
@@ -482,6 +489,8 @@ class QFieldCloudProject : public QObject
 
     int mDeltasCount = 0;
     DeltaListModel *mDeltaListModel = nullptr;
+
+    QString mThumbnailPath;
 
     QString mLastExportedAt;
     QString mLastExportId;

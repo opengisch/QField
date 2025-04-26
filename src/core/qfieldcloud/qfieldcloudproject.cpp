@@ -373,6 +373,15 @@ void QFieldCloudProject::setLastLocalDataLastUpdatedAt( const QDateTime &lastLoc
   emit lastLocalDataLastUpdatedAtChanged();
 }
 
+void QFieldCloudProject::setThumbnailPath( const QString &thumbnailPath )
+{
+  if ( mThumbnailPath == thumbnailPath )
+    return;
+
+  mThumbnailPath = thumbnailPath;
+  emit thumbnailPathChanged();
+}
+
 void QFieldCloudProject::refreshFileOutdatedStatus()
 {
   NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( mId ) );
@@ -408,6 +417,36 @@ void QFieldCloudProject::refreshFileOutdatedStatus()
         }
       }
     }
+  } );
+}
+
+void QFieldCloudProject::downloadThumbnail()
+{
+  QgsLogger::debug( QStringLiteral( "Project %1: thumbnail download initiated." ).arg( mId ) );
+
+  if ( !mCloudConnection )
+    return;
+
+  QNetworkRequest request;
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  mCloudConnection->setAuthenticationDetails( request );
+
+  NetworkReply *reply = mCloudConnection->get( request, QStringLiteral( "/api/v1/files/thumbnails/%1/" ).arg( mId ) );
+  connect( reply, &NetworkReply::finished, reply, [=]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+
+    Q_ASSERT( reply->isFinished() );
+    Q_ASSERT( reply );
+
+    if ( rawReply->error() == QNetworkReply::NoError )
+    {
+      QTemporaryFile file( QString( "%1/XXXXXX.%2" ).arg( QDir::tempPath(), QStringLiteral( "PNG" ) ) );
+      file.setAutoRemove( false );
+      file.open();
+      file.write( rawReply->readAll() );
+      file.close();
+      setThumbnailPath( file.fileName() );
+    };
   } );
 }
 
