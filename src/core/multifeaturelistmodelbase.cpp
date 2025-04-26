@@ -113,7 +113,7 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
       QgsVectorLayer *representationalLayer;
       if ( !mRepresentationalLayers.contains( layer ) )
       {
-        representationalLayer = QgsMemoryProviderUtils::createMemoryLayer( layer->name(), result.feature.fields() );
+        representationalLayer = QgsMemoryProviderUtils::createMemoryLayer( layer->name(), result.feature.fields(), result.feature.geometry().wkbType(), layer->crs() );
         representationalLayer->setReadOnly( true );
         mRepresentationalLayers[layer] = representationalLayer;
       }
