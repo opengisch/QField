@@ -169,6 +169,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Return the cloud project for a given \a projectId.
     Q_INVOKABLE QFieldCloudProject *findProject( const QString &projectId ) const;
 
+    //! Fetches a cloud project for a given \a projectId and appends it to the model.
+    Q_INVOKABLE void appendProject( const QString &projectId );
+
   signals:
     void cloudConnectionChanged();
     void layerObserverChanged();
@@ -178,6 +181,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void gpkgFlusherChanged();
     void warning( const QString &message );
 
+    void projectAppended( const QString &projectId );
     void projectDownloaded( const QString &projectId, const QString &projectName, const bool hasError, const QString &errorString = QString() );
     void pushFinished( const QString &projectId, bool isDownloadingProject, bool hasError, const QString &errorString = QString() );
 
@@ -187,6 +191,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void connectionStatusChanged();
     void usernameChanged();
     void projectListReceived();
+    void projectReceived();
 
     void layerObserverLayerEdited( const QString &layerId );
 

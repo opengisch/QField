@@ -218,6 +218,28 @@ QFieldCloudProject *QFieldCloudProjectsModel::findProject( const QString &projec
   return nullptr;
 }
 
+void QFieldCloudProjectsModel::appendProject( const QString &projectId )
+{
+  if ( !mCloudConnection )
+    return;
+
+  const QModelIndex index = findProjectIndex( projectId );
+  if ( index.isValid() )
+  {
+    emit projectAppended( projectId );
+    return;
+  }
+
+  const QString url = QStringLiteral( "/api/v1/projects/%1/" ).arg( projectId );
+  QNetworkRequest request( url );
+  request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  mCloudConnection->setAuthenticationDetails( request );
+
+  NetworkReply *reply = mCloudConnection->get( request, url );
+  connect( reply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectReceived );
+}
+
 void QFieldCloudProjectsModel::removeLocalProject( const QString &projectId )
 {
   QDir dir( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, projectId ) );
@@ -352,6 +374,31 @@ void QFieldCloudProjectsModel::layerObserverLayerEdited( const QString & )
   }
 
   project->refreshModification( mLayerObserver );
+}
+
+void QFieldCloudProjectsModel::projectReceived()
+{
+  NetworkReply *reply = qobject_cast<NetworkReply *>( sender() );
+  QNetworkReply *rawReply = reply->currentRawReply();
+
+  Q_ASSERT( rawReply );
+
+  if ( rawReply->error() != QNetworkReply::NoError )
+  {
+    emit warning( QFieldCloudConnection::errorString( rawReply ) );
+    return;
+  }
+
+  QByteArray response = rawReply->readAll();
+  QJsonDocument doc = QJsonDocument::fromJson( response );
+  QVariantHash projectDetails = doc.object().toVariantHash();
+
+  QFieldCloudProject *cloudProject = QFieldCloudProject::fromDetails( projectDetails, mCloudConnection );
+  if ( cloudProject )
+  {
+    insertProjects( QList<QFieldCloudProject *>() << cloudProject );
+    emit projectAppended( cloudProject->id() );
+  }
 }
 
 void QFieldCloudProjectsModel::projectListReceived()

@@ -39,6 +39,7 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( QString name READ name NOTIFY nameChanged )
     Q_PROPERTY( QString owner READ owner NOTIFY ownerChanged )
     Q_PROPERTY( QString description READ description NOTIFY descriptionChanged )
+    Q_PROPERTY( QString localPath READ localPath NOTIFY localPathChanged )
 
     Q_PROPERTY( ProjectStatus status READ status NOTIFY statusChanged )
     Q_PROPERTY( PackagingStatus packagingStatus READ packagingStatus NOTIFY packagingStatusChanged )
