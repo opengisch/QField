@@ -657,7 +657,7 @@ Page {
                 font.pointSize: Theme.titleFont.pointSize * 1.25
                 font.bold: true
                 color: Theme.mainTextColor
-                wrapMode: Text.WordWrap
+                wrapMode: Text.Wrap
 
                 text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.name : ""
               }
