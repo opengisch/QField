@@ -411,7 +411,7 @@ Page {
                           }
                         }
                         var localChanges = (LocalDeltasCount > 0) ? qsTr('Has changes. ') : '';
-                        var str = '%1 (%2%3)'.arg(Description).arg(localChanges).arg(status);
+                        var str = '%2%3'.arg(localChanges).arg(status);
                         return str.trim();
                       }
                     }
@@ -620,12 +620,19 @@ Page {
         ScrollView {
           Layout.fillWidth: true
           Layout.fillHeight: true
+          contentWidth: width
+          contentHeight: projectDetailsLayout.height
+          ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+          ScrollBar.vertical: QfScrollBar {
+          }
 
           ColumnLayout {
-            anchors.fill: parent
+            id: projectDetailsLayout
+            width: parent.width - 10
             spacing: 10
 
             RowLayout {
+              Layout.fillWidth: true
               spacing: 5
 
               Image {
@@ -650,6 +657,7 @@ Page {
                 font.pointSize: Theme.titleFont.pointSize * 1.25
                 font.bold: true
                 color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
 
                 text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.name : ""
               }
@@ -669,8 +677,14 @@ Page {
               Layout.fillWidth: true
               font: Theme.defaultFont
               color: Theme.secondaryTextColor
+              wrapMode: Text.WordWrap
+              textFormat: Text.MarkdownText
 
-              text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.description : ""
+              text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.description.trim() : ""
+
+              onLinkActivated: link => {
+                Qt.openUrlExternally(link);
+              }
             }
 
             Text {
@@ -687,6 +701,7 @@ Page {
               Layout.fillWidth: true
               font: Theme.defaultFont
               color: Theme.secondaryTextColor
+              wrapMode: Text.WordWrap
 
               text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.owner : ""
             }
@@ -705,6 +720,7 @@ Page {
               Layout.fillWidth: true
               font: Theme.defaultFont
               color: Theme.secondaryTextColor
+              wrapMode: Text.WordWrap
 
               text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.createdAt : ""
             }
@@ -723,8 +739,13 @@ Page {
               Layout.fillWidth: true
               font: Theme.defaultFont
               color: Theme.secondaryTextColor
+              wrapMode: Text.WordWrap
 
               text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.updatedAt : ""
+            }
+
+            Item {
+              Layout.fillHeight: true
             }
           }
         }
