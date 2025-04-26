@@ -162,6 +162,10 @@ TestCase {
     wait(2500);
     compare(positioning.positionInformation.qualityDescription, "Float RTK + IMU");
     compare(positioning.positionInformation.imuCorrection, true);
+    compare(positioning.positionInformation.imuRollValid, true);
+    compare(positioning.positionInformation.imuPitchValid, true);
+    compare(positioning.positionInformation.imuHeadingValid, true);
+    compare(positioning.positionInformation.imuSteeringValid, true);
   }
 
   function test_07_happyMonch2IMU() {
@@ -174,6 +178,10 @@ TestCase {
     wait(2500);
     compare(positioning.positionInformation.qualityDescription, "Fixed RTK + IMU");
     compare(positioning.positionInformation.imuCorrection, true);
+    compare(positioning.positionInformation.imuRollValid, true);
+    compare(positioning.positionInformation.imuPitchValid, true);
+    compare(positioning.positionInformation.imuHeadingValid, true);
+    compare(positioning.positionInformation.imuSteeringValid, true);
 
     // Expected values for positioningInformations
     const expectedPositioningInformationsValues = [{

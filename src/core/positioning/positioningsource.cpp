@@ -311,6 +311,10 @@ void PositioningSource::lastGnssPositionInformationChanged( const GnssPositionIn
                                                      lastGnssPositionInformation.averagedCount(),
                                                      lastGnssPositionInformation.sourceName(),
                                                      lastGnssPositionInformation.imuCorrection(),
+                                                     lastGnssPositionInformation.imuRoll(),
+                                                     lastGnssPositionInformation.imuPitch(),
+                                                     lastGnssPositionInformation.imuHeading(),
+                                                     lastGnssPositionInformation.imuSteering(),
                                                      mOrientation );
 
   if ( mAveragedPosition )
