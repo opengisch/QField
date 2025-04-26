@@ -15,7 +15,8 @@
 
 #include "networkmanager.h"
 #include "networkreply.h"
-#include "qgsnetworkaccessmanager.h"
+
+#include <qgsnetworkaccessmanager.h>
 
 
 NetworkReply *NetworkManager::get( const QNetworkRequest &request )
