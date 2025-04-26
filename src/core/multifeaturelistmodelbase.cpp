@@ -111,9 +111,9 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
     if ( QgsRasterLayer *layer = qobject_cast<QgsRasterLayer *>( result.layer ) )
     {
       QgsVectorLayer *representationalLayer;
-      if ( !mRepresentationalLayers.contains( layer ) )
+      if ( !mRepresentationalLayers.contains( layer ) || mRepresentationalLayers.value( layer )->name() != result.representationalLayerName )
       {
-        representationalLayer = QgsMemoryProviderUtils::createMemoryLayer( layer->name(), result.feature.fields(), result.feature.geometry().wkbType(), layer->crs() );
+        representationalLayer = QgsMemoryProviderUtils::createMemoryLayer( result.representationalLayerName, result.feature.fields(), result.feature.geometry().wkbType(), layer->crs() );
         representationalLayer->setReadOnly( true );
         mRepresentationalLayers[layer] = representationalLayer;
       }

@@ -194,8 +194,7 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyRasterLayer( QgsRaster
   if ( !( capabilities & Qgis::RasterInterfaceCapability::IdentifyFeature ) )
     return results;
 
-  QgsPointXY pointInLayerCoordinates = toLayerCoordinates( layer, point );
-  const double searchRadius = searchRadiusMU();
+  const QgsPointXY pointInLayerCoordinates = toLayerCoordinates( layer, point );
   const double mapUnitsPerPixel = mMapSettings->mapSettings().mapUnitsPerPixel();
   QgsRasterIdentifyResult identifyResult;
   // We can only use current map canvas context (extent, width, height) if layer is not reprojected,
@@ -232,8 +231,8 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyRasterLayer( QgsRaster
     // TODO: may be very dangerous, because it may result in different resolutions
     // in source CRS, and WMS server (QGIS server) calcs wrong coor using average resolution.
     const QgsRectangle extent = mMapSettings->mapSettings().extent();
-    int width = static_cast<int>( std::round( extent.width() / mapUnitsPerPixel ) );
-    int height = static_cast<int>( std::round( extent.height() / mapUnitsPerPixel ) );
+    const int width = static_cast<int>( std::round( extent.width() / mapUnitsPerPixel ) );
+    const int height = static_cast<int>( std::round( extent.height() / mapUnitsPerPixel ) );
 
     identifyResult = dataProvider->identify( point, Qgis::RasterIdentifyFormat::Feature, extent, width, height );
   }
@@ -241,7 +240,7 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyRasterLayer( QgsRaster
   QMap<int, QVariant> identifyResults = identifyResult.results();
   for ( auto it = identifyResults.constBegin(); it != identifyResults.constEnd(); ++it )
   {
-    QVariant result = it.value();
+    const QVariant &result = it.value();
     if ( result.userType() == QMetaType::Type::Bool && !result.toBool() )
     {
       // sublayer not visible or not queryable
@@ -272,17 +271,19 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyRasterLayer( QgsRaster
         QString featureType = featureStore.params().value( QStringLiteral( "featureType" ) ).toString();
         // Strip UMN MapServer '_feature'
         featureType.remove( QStringLiteral( "_feature" ) );
+
         QStringList labels;
-        if ( sublayer.compare( layer->name(), Qt::CaseInsensitive ) != 0 )
+        if ( sublayer.compare( layer->name(), Qt::CaseInsensitive ) != 0 && sublayer.compare( QStringLiteral( "Null" ), Qt::CaseInsensitive ) != 0 )
         {
           labels << sublayer;
         }
-        if ( featureType.compare( sublayer, Qt::CaseInsensitive ) != 0 || labels.isEmpty() )
+        if ( ( featureType.compare( sublayer, Qt::CaseInsensitive ) != 0 || labels.isEmpty() ) && featureType.compare( QStringLiteral( "Null" ), Qt::CaseInsensitive ) != 0 )
         {
           labels << featureType;
         }
 
-        results.append( IdentifyResult( layer, feature ) );
+
+        results.append( IdentifyResult( layer, feature, !labels.isEmpty() ? QStringLiteral( "%1 - %2" ).arg( labels.join( QStringLiteral( " - " ) ) ) : layer->name() ) );
       }
     }
   }
