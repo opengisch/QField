@@ -25,7 +25,7 @@ EditorWidgetBase {
     wrapMode: Text.Wrap
     textFormat: (config['IsMultiline'] === true && config['UseHtml']) || StringUtils.hasLinks(value) ? TextEdit.RichText : TextEdit.AutoText
 
-    text: value == null ? '' : config['IsMultiline'] === true ? config['UseHtml'] === true ? value : StringUtils.insertLinks(value) : StringUtils.insertLinks(value).replace('\n', '')
+    text: value == null ? '' : config['IsMultiline'] === true ? config['UseHtml'] === true ? value : StringUtils.insertLinks(value) : StringUtils.insertLinks(value).replace(/\n/g, '')
 
     onLinkActivated: link => {
       Qt.openUrlExternally(link);
