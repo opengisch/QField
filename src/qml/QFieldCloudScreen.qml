@@ -759,7 +759,20 @@ Page {
         QfButton {
           id: downloadProjectBtn
           Layout.fillWidth: true
-          text: qsTr("Download project")
+          text: {
+            if (projectDetails.cloudProject != undefined && projectDetails.cloudProject.status === QFieldCloudProject.ProjectStatus.Downloading) {
+              if (projectDetails.cloudProject.packagingStatus === QFieldCloudProject.PackagingBusyStatus) {
+                return qsTr("QFieldCloud is packaging project, hold tight");
+              } else {
+                if (projectDetails.cloudProject.downloadProgress > 0) {
+                  return qsTr("Downloading project") + " (%1%)".arg(Math.round(projectDetails.cloudProject.downloadProgress * 100));
+                } else {
+                  return qsTr("Downloading project");
+                }
+              }
+            }
+            return qsTr("Download project");
+          }
           visible: projectDetails.cloudProject != undefined && projectDetails.cloudProject.localPath === ""
           enabled: projectDetails.cloudProject != undefined && projectDetails.cloudProject.status !== QFieldCloudProject.ProjectStatus.Downloading
 
@@ -877,7 +890,7 @@ Page {
 
   function prepareCloudLogin() {
     if (visible) {
-      projectsSwipeView.currentIndex = 1;
+      projectsSwipeView.currentIndex = 0;
       if (cloudConnection.status == QFieldCloudConnection.Disconnected) {
         if (cloudConnection.hasToken || cloudConnection.hasProviderConfiguration) {
           cloudConnection.login();
