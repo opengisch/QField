@@ -166,7 +166,6 @@ void MultiFeatureListModelBase::clear( const bool keepSelected )
     }
     mRepresentationalLayers.clear();
   }
-
   endResetModel();
 }
 
@@ -269,6 +268,8 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
     return QVariant();
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( feature->first );
+  if ( !vlayer )
+    return QVariant();
 
   switch ( role )
   {
