@@ -42,6 +42,11 @@ set(QFIELD_CORE_SRCS
     processing/processingalgorithm.cpp
     processing/processingalgorithmparametersmodel.cpp
     processing/processingalgorithmsmodel.cpp
+    qfieldcloud/networkmanager.cpp
+    qfieldcloud/networkreply.cpp
+    qfieldcloud/qfieldcloudconnection.cpp
+    qfieldcloud/qfieldcloudproject.cpp
+    qfieldcloud/qfieldcloudprojectsmodel.cpp
     appcoordinateoperationhandlers.cpp
     appexpressioncontextscopesgenerator.cpp
     appinterface.cpp
@@ -88,8 +93,6 @@ set(QFIELD_CORE_SRCS
     navigation.cpp
     navigationmodel.cpp
     nearfieldreader.cpp
-    networkmanager.cpp
-    networkreply.cpp
     orderedrelationmodel.cpp
     parametizedimage.cpp
     peliasgeocoder.cpp
@@ -100,9 +103,6 @@ set(QFIELD_CORE_SRCS
     projectsource.cpp
     projectsimageprovider.cpp
     qfieldappauthrequesthandler.cpp
-    qfieldcloudconnection.cpp
-    qfieldcloudproject.cpp
-    qfieldcloudprojectsmodel.cpp
     qgismobileapp.cpp
     qgsgeometrywrapper.cpp
     qgsgpkgflusher.cpp
@@ -168,6 +168,11 @@ set(QFIELD_CORE_HDRS
     processing/processingalgorithm.h
     processing/processingalgorithmparametersmodel.h
     processing/processingalgorithmsmodel.h
+    qfieldcloud/networkmanager.h
+    qfieldcloud/networkreply.h
+    qfieldcloud/qfieldcloudconnection.h
+    qfieldcloud/qfieldcloudproject.h
+    qfieldcloud/qfieldcloudprojectsmodel.h
     appcoordinateoperationhandlers.h
     appexpressioncontextscopesgenerator.h
     appinterface.h
@@ -215,8 +220,6 @@ set(QFIELD_CORE_HDRS
     navigation.h
     navigationmodel.h
     nearfieldreader.h
-    networkmanager.h
-    networkreply.h
     orderedrelationmodel.h
     parametizedimage.h
     peliasgeocoder.h
@@ -227,9 +230,6 @@ set(QFIELD_CORE_HDRS
     projectsource.h
     projectsimageprovider.h
     qfieldappauthrequesthandler.h
-    qfieldcloudconnection.h
-    qfieldcloudproject.h
-    qfieldcloudprojectsmodel.h
     qgismobileapp.h
     qgsgeometrywrapper.h
     qgsgpkgflusher.h
@@ -332,7 +332,8 @@ target_include_directories(
          ${CMAKE_SOURCE_DIR}/src/core/qgsquick
          ${CMAKE_SOURCE_DIR}/src/core/utils
          ${CMAKE_SOURCE_DIR}/src/core/positioning
-         ${CMAKE_SOURCE_DIR}/src/core/processing)
+         ${CMAKE_SOURCE_DIR}/src/core/processing
+         ${CMAKE_SOURCE_DIR}/src/core/qfieldcloud)
 if(ANDROID)
   string(REPLACE "_" "_1" APP_PACKAGE_JNI_NAME "${APP_PACKAGE_NAME}")
   configure_file(platforms/android/qfield_android.h.in
