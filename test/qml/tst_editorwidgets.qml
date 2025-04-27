@@ -25,6 +25,7 @@ TestCase {
     property var mainWindow: mainWindowItem
     property real value: default_value
     property var config: undefined
+    property var field: undefined
     property bool isEnabled: true
 
     readonly property real default_value: 999
@@ -146,13 +147,15 @@ TestCase {
     };
     range.value = 3;
     compare(range.widgetStyle, "TextField");
-    compare(range.precision, 1);
+    compare(range.precision, 2);
     compare(range.step, 1);
     compare(range.suffix, "");
     range.isDouble = false;
+    compare(range.precision, 0);
     compare(range.min, -2147483647);
     compare(range.max, 2147483647);
     range.isDouble = true;
+    compare(range.precision, 2);
     compare(range.min, -Infinity);
     compare(range.max, Infinity);
 
@@ -161,7 +164,7 @@ TestCase {
     compare(textField.text, "3");
     range.config = {
       "Style": "Slider",
-      "Precision": 2,
+      "Precision": 4,
       "Min": -10,
       "Max": 10,
       "Step": 10,
@@ -169,13 +172,13 @@ TestCase {
     };
     range.value = 4;
     compare(range.widgetStyle, "Slider");
-    compare(range.precision, 2);
+    compare(range.precision, 4);
     compare(range.min, -10);
     compare(range.max, 10);
     compare(range.step, 10);
     compare(range.suffix, "DEFAULT_SUFFIX");
     compare(sliderRow.visible, false);
-    compare(valueLabel.text, range.min + ".00DEFAULT_SUFFIX"); // NOTE: using `range.min` because of `rangeItem.parent.value`
+    compare(valueLabel.text, range.min + ".0000DEFAULT_SUFFIX"); // NOTE: using `range.min` because of `rangeItem.parent.value`
     compare(slider.value, range.min); // NOTE: using `range.min` because of `rangeItem.parent.value`
   }
 
