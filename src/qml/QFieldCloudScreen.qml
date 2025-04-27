@@ -739,6 +739,47 @@ Page {
                   text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.updatedAt : ""
                 }
               }
+
+              ColumnLayout {
+                Layout.topMargin: 20
+                Layout.bottomMargin: 20
+                Layout.preferredWidth: projectDetailsCodeContainer.desiredWidth
+                Layout.alignment: Qt.AlignHCenter
+                spacing: 5
+
+                Rectangle {
+                  id: projectDetailsCodeContainer
+
+                  property int desiredWidth: Math.min(mainWindow.width - 40, 250)
+                  Layout.preferredWidth: desiredWidth
+                  Layout.preferredHeight: desiredWidth
+
+                  color: "transparent"
+                  radius: 4
+                  border.width: 1
+                  border.color: Theme.mainTextColor
+
+                  Image {
+                    anchors.fill: parent
+                    fillMode: Image.PreserveAspectFit
+
+                    sourceSize.width: projectDetailsCodeContainer.desiredWidth * Screen.devicePixelRatio
+                    sourceSize.height: projectDetailsCodeContainer.desiredWidth * Screen.devicePixelRatio
+                    source: projectDetails.cloudProject != undefined ? "image://barcode/?text=qfieldcloud?project=" + projectDetails.cloudProject.id + "&color=%2380cc28" : ""
+                  }
+                }
+
+                Text {
+                  id: projectDetailsCodeLabel
+                  Layout.preferredWidth: projectDetailsCodeContainer.desiredWidth - 20
+                  font: Theme.tinyFont
+                  color: Theme.secondaryTextColor
+                  wrapMode: Text.WordWrap
+                  horizontalAlignment: Text.AlignHCenter
+
+                  text: qsTr("This QR code can be scanned for users with the appropriate access to download and open this project")
+                }
+              }
             }
           }
         }
