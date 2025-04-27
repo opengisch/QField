@@ -283,7 +283,7 @@ Page {
               property int status: Status
 
               width: parent ? parent.width : undefined
-              height: line.height + 6
+              height: line.height
               color: "transparent"
 
               ProgressBar {
@@ -301,16 +301,16 @@ Page {
 
               Row {
                 id: line
-                Layout.fillWidth: true
+                width: parent.width
                 leftPadding: 6
-                rightPadding: 10
+                rightPadding: 6
                 topPadding: 4
                 bottomPadding: 8
-                spacing: 0
+                spacing: 2
 
                 Image {
                   id: type
-                  anchors.verticalCenter: inner.verticalCenter
+                  anchors.verticalCenter: line.verticalCenter
                   source: {
                     if (cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
                       return Theme.getThemeVectorIcon('ic_cloud_project_localonly_48dp');
@@ -343,11 +343,14 @@ Page {
                   height: 40
                   opacity: Status === QFieldCloudProject.ProjectStatus.Downloading ? 0.3 : 1
                 }
+
                 ColumnLayout {
                   id: inner
-                  width: rectangle.width - type.width - 10
+                  width: rectangle.width - type.width - menuButton.width - 16
+
                   Text {
                     id: projectTitle
+                    Layout.fillWidth: true
                     topPadding: 5
                     leftPadding: 3
                     text: Name
@@ -355,11 +358,11 @@ Page {
                     font.underline: true
                     color: Theme.mainColor
                     opacity: rectangle.isPressed ? 0.8 : 1
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
                   }
                   Text {
                     id: projectNote
+                    Layout.fillWidth: true
                     leftPadding: 3
                     text: {
                       if (cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
@@ -430,7 +433,33 @@ Page {
                     font.italic: true
                     color: Theme.secondaryTextColor
                     wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
+                  }
+                }
+
+                QfToolButton {
+                  id: menuButton
+                  round: true
+                  opacity: 0.5
+                  width: 48
+                  height: 48
+
+                  anchors.verticalCenter: line.verticalCenter
+
+                  bgcolor: "transparent"
+                  iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+                  iconColor: Theme.mainTextColor
+
+                  onClicked: mouse => {
+                    let gc = mapToItem(qfieldCloudScreen, 0, 0);
+                    projectActions.projectId = Id;
+                    projectActions.projectOwner = Owner;
+                    projectActions.projectName = Name;
+                    projectActions.projectLocalPath = LocalPath;
+                    downloadProject.visible = LocalPath === '' && Status !== QFieldCloudProject.ProjectStatus.Downloading;
+                    openProject.visible = LocalPath !== '';
+                    removeProject.visible = LocalPath !== '';
+                    cancelDownloadProject.visible = Status === QFieldCloudProject.ProjectStatus.Downloading;
+                    projectActions.popup(gc.x + width - projectActions.width, gc.y - height);
                   }
                 }
               }
@@ -452,6 +481,7 @@ Page {
               property Item pressedItem
               propagateComposedEvents: false
               anchors.fill: parent
+              anchors.rightMargin: 48
               onClicked: mouse => {
                 var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
                 if (item) {
@@ -502,116 +532,10 @@ Page {
           }
         }
 
-        QfMenu {
-          id: projectActions
-
-          property string projectId: ''
-          property string projectOwner: ''
-          property string projectName: ''
-          property string projectLocalPath: ''
-
-          title: qsTr('Project Actions')
-
-          topMargin: mainWindow.sceneTopMargin
-          bottomMargin: mainWindow.sceneBottomMargin
-
-          MenuItem {
-            id: viewProjectDetails
-
-            font: Theme.defaultFont
-            width: parent.width
-            height: visible ? 48 : 0
-            leftPadding: Theme.menuItemLeftPadding
-
-            text: qsTr("View Project Details")
-            onTriggered: {
-              projectDetails.cloudProject = cloudProjectsModel.findProject(projectActions.projectId);
-              projectsSwipeView.currentIndex = 1;
-            }
-          }
-
-          MenuSeparator {
-            width: parent.width
-          }
-
-          MenuItem {
-            id: downloadProject
-
-            font: Theme.defaultFont
-            width: parent.width
-            height: visible ? 48 : 0
-            leftPadding: Theme.menuItemLeftPadding
-
-            text: qsTr("Download Project")
-            onTriggered: {
-              cloudProjectsModel.projectPackageAndDownload(projectActions.projectId);
-            }
-          }
-
-          MenuItem {
-            id: openProject
-
-            font: Theme.defaultFont
-            width: parent.width
-            height: visible ? 48 : 0
-            leftPadding: Theme.menuItemLeftPadding
-
-            text: qsTr("Open Project")
-            onTriggered: {
-              if (projectActions.projectLocalPath != '') {
-                qfieldCloudScreen.visible = false;
-                iface.loadFile(projectActions.projectLocalPath);
-              }
-            }
-          }
-
-          MenuItem {
-            id: removeProject
-
-            font: Theme.defaultFont
-            width: parent.width
-            height: visible ? 48 : 0
-            leftPadding: Theme.menuItemLeftPadding
-
-            text: qsTr("Remove Stored Project")
-            onTriggered: {
-              cloudProjectsModel.removeLocalProject(projectActions.projectId);
-              iface.removeRecentProject(projectActions.projectLocalPath);
-              welcomeScreen.model.reloadModel();
-              if (projectActions.projectLocalPath === qgisProject.fileName) {
-                iface.clearProject();
-              }
-            }
-          }
-
-          MenuItem {
-            id: cancelDownloadProject
-            font: Theme.defaultFont
-            width: parent.width
-            height: visible ? 48 : 0
-            leftPadding: Theme.menuItemLeftPadding
-            text: qsTr("Cancel Project Download")
-            onTriggered: {
-              cloudProjectsModel.projectCancelDownload(projectActions.projectId);
-            }
-          }
-        }
-
-        Text {
-          id: projectsTips
-          Layout.alignment: Qt.AlignLeft
-          Layout.fillWidth: true
-          Layout.topMargin: 5
-          Layout.bottomMargin: 5
-          text: qsTr("Press and hold over a cloud project for a menu of additional actions.")
-          font: Theme.tipFont
-          color: Theme.secondaryTextColor
-          wrapMode: Text.WordWrap
-        }
-
         QfButton {
           id: refreshProjectsListBtn
           Layout.fillWidth: true
+          Layout.topMargin: 5
           Layout.bottomMargin: mainWindow.sceneBottomMargin
           text: qsTr("Refresh projects list")
           enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
@@ -869,6 +793,7 @@ Page {
     }
 
     MenuSeparator {
+      width: parent.width
     }
 
     MenuItem {
@@ -881,6 +806,101 @@ Page {
       onTriggered: {
         settings.setValue("/QField/showInvalidProjects", checked);
         table.model.showInValidProjects = checked;
+      }
+    }
+  }
+
+  QfMenu {
+    id: projectActions
+
+    property string projectId: ''
+    property string projectOwner: ''
+    property string projectName: ''
+    property string projectLocalPath: ''
+
+    title: qsTr('Project Actions')
+
+    topMargin: mainWindow.sceneTopMargin
+    bottomMargin: mainWindow.sceneBottomMargin
+
+    MenuItem {
+      id: viewProjectDetails
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+
+      text: qsTr("View Project Details")
+      onTriggered: {
+        projectDetails.cloudProject = cloudProjectsModel.findProject(projectActions.projectId);
+        projectsSwipeView.currentIndex = 1;
+      }
+    }
+
+    MenuSeparator {
+      width: parent.width
+    }
+
+    MenuItem {
+      id: downloadProject
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+
+      text: qsTr("Download Project")
+      onTriggered: {
+        cloudProjectsModel.projectPackageAndDownload(projectActions.projectId);
+      }
+    }
+
+    MenuItem {
+      id: openProject
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+
+      text: qsTr("Open Project")
+      onTriggered: {
+        if (projectActions.projectLocalPath != '') {
+          qfieldCloudScreen.visible = false;
+          iface.loadFile(projectActions.projectLocalPath);
+        }
+      }
+    }
+
+    MenuItem {
+      id: removeProject
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+
+      text: qsTr("Remove Stored Project")
+      onTriggered: {
+        cloudProjectsModel.removeLocalProject(projectActions.projectId);
+        iface.removeRecentProject(projectActions.projectLocalPath);
+        welcomeScreen.model.reloadModel();
+        if (projectActions.projectLocalPath === qgisProject.fileName) {
+          iface.clearProject();
+        }
+      }
+    }
+
+    MenuItem {
+      id: cancelDownloadProject
+      font: Theme.defaultFont
+      width: parent.width
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+      text: qsTr("Cancel Project Download")
+      onTriggered: {
+        cloudProjectsModel.projectCancelDownload(projectActions.projectId);
       }
     }
   }
