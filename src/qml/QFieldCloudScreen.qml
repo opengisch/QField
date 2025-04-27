@@ -217,7 +217,6 @@ Page {
             id: table
 
             property bool overshootRefresh: false
-            property bool refreshing: false
 
             model: QFieldCloudProjectsFilterModel {
               projectsModel: cloudProjectsModel
@@ -468,8 +467,8 @@ Page {
             Label {
               anchors.fill: parent
               anchors.margins: 20
-              visible: parent.count == 0 && filterBar.currentIndex === 0
-              text: table.refreshing ? qsTr("Refreshing projects list") : qsTr("No cloud projects found. To get started, %1read the documentation%2.").arg("<a href=\"https://docs.qfield.org/get-started/tutorials/get-started-qfc/\">").arg("</a>")
+              visible: cloudConnection.status === QFieldCloudConnection.LoggedIn && parent.count === 0 && filterBar.currentIndex === 0
+              text: cloudProjectsModel.isRefreshing ? qsTr("Refreshing projects list") : qsTr("No cloud projects found. To get started, %1read the documentation%2.").arg("<a href=\"https://docs.qfield.org/get-started/tutorials/get-started-qfc/\">").arg("</a>")
               font: Theme.defaultFont
               wrapMode: Text.WordWrap
               horizontalAlignment: Text.AlignHCenter
@@ -946,9 +945,6 @@ Page {
     target: cloudConnection
 
     function onStatusChanged() {
-      if (table.refreshing) {
-        table.refreshing = false;
-      }
       if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         prepareCloudLogin();
       } else if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
@@ -973,7 +969,6 @@ Page {
     if (cloudConnection.state !== QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
       return;
     }
-    table.refreshing = true;
     cloudProjectsModel.refreshProjectsList(shouldRefreshPublic);
     displayToast(qsTr("Refreshing projects list"));
   }

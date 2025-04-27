@@ -45,8 +45,12 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     Q_PROPERTY( LayerObserver *layerObserver READ layerObserver WRITE setLayerObserver NOTIFY layerObserverChanged )
     //! The current geopackage flusher
     Q_PROPERTY( QgsGpkgFlusher *gpkgFlusher READ gpkgFlusher WRITE setGpkgFlusher NOTIFY gpkgFlusherChanged )
+
+    //! Returns TRUE whether the model is being refreshed
+    Q_PROPERTY( bool isRefreshing READ isRefreshing NOTIFY isRefreshingChanged )
     //! Currently busy project ids.
     Q_PROPERTY( QSet<QString> busyProjectIds READ busyProjectIds NOTIFY busyProjectIdsChanged )
+
     //! The current cloud project id of the currently opened project (empty string for non-cloud projects).
     Q_PROPERTY( QString currentProjectId READ currentProjectId WRITE setCurrentProjectId NOTIFY currentProjectIdChanged )
     //! The current cloud project. (null for non-cloud projects).
@@ -105,6 +109,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     //! Sets the layer observer.
     void setLayerObserver( LayerObserver *layerObserver );
+
+    //! Returns TRUE whether the model is being refreshed
+    bool isRefreshing() const { return mIsRefreshing; }
 
     //! Returns the cloud project id of the currently opened project.
     QString currentProjectId() const;
@@ -175,6 +182,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
   signals:
     void cloudConnectionChanged();
     void layerObserverChanged();
+    void isRefreshingChanged();
     void currentProjectIdChanged();
     void currentProjectChanged();
     void busyProjectIdsChanged();
@@ -198,10 +206,17 @@ class QFieldCloudProjectsModel : public QAbstractListModel
   private:
     void setupProjectConnections( QFieldCloudProject *project );
 
+    QModelIndex findProjectIndex( const QString &projectId ) const;
+
+    void loadProjects( const QJsonArray &remoteProjects = QJsonArray(), bool skipLocalProjects = false );
+    void insertProjects( const QList<QFieldCloudProject *> &projects );
+
     inline QString layerFileName( const QgsMapLayer *layer ) const;
 
     QList<QFieldCloudProject *> mProjects;
     QFieldCloudConnection *mCloudConnection = nullptr;
+
+    bool mIsRefreshing = false;
 
     QString mCurrentProjectId;
     QPointer<QFieldCloudProject> mCurrentProject;
@@ -210,11 +225,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QgsGpkgFlusher *mGpkgFlusher = nullptr;
     QString mUsername;
     const int mProjectsPerFetch = 250;
-
-    QModelIndex findProjectIndex( const QString &projectId ) const;
-
-    void loadProjects( const QJsonArray &remoteProjects = QJsonArray(), bool skipLocalProjects = false );
-    void insertProjects( const QList<QFieldCloudProject *> &projects );
 };
 
 /**

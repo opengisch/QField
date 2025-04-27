@@ -169,10 +169,12 @@ void QFieldCloudProjectsModel::refreshProjectsList( bool shouldRefreshPublic, in
       request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::RefreshPublicProjects ), shouldRefreshPublic );
       request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsFetchOffset ), projectFetchOffset );
 
+      mIsRefreshing = true;
+      emit isRefreshingChanged();
+
       mCloudConnection->setAuthenticationDetails( request );
       NetworkReply *reply = mCloudConnection->get( request, url, params );
       connect( reply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectListReceived );
-
       break;
     }
     case QFieldCloudConnection::ConnectionStatus::Disconnected:
@@ -410,6 +412,9 @@ void QFieldCloudProjectsModel::projectListReceived()
 
   if ( rawReply->error() != QNetworkReply::NoError )
   {
+    mIsRefreshing = false;
+    emit isRefreshingChanged();
+
     emit warning( QFieldCloudConnection::errorString( rawReply ) );
     return;
   }
@@ -449,6 +454,9 @@ void QFieldCloudProjectsModel::projectListReceived()
         refreshProjectModification( mCurrentProject->id() );
       }
     }
+
+    mIsRefreshing = false;
+    emit isRefreshingChanged();
   }
 }
 
