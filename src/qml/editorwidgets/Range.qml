@@ -7,9 +7,9 @@ EditorWidgetBase {
   id: rangeItem
   enabled: isEnabled
 
-  property bool isDouble: LayerUtils.fieldType(field) === 'double'
+  property bool isDouble: field === undefined || (LayerUtils.fieldType(field) !== 'int' && LayerUtils.fieldType(field) !== 'qlonglong')
   property string widgetStyle: config["Style"] ? config["Style"] : "TextField"
-  property int precision: config["Precision"] ? config["Precision"] : 1
+  property int precision: config["Precision"] ? config["Precision"] : isDouble ? 2 : 0
   property real min: config["Min"] !== undefined ? config["Min"] : isDouble ? -Infinity : -2147483647
   property real max: config["Max"] !== undefined ? config["Max"] : isDouble ? Infinity : 2147483647
   property real step: config["Step"] !== undefined ? config["Step"] : 1
@@ -60,8 +60,8 @@ EditorWidgetBase {
       }
 
       onTextChanged: {
-        if (text == '' || !isNaN(parseFloat(text))) {
-          valueChangeRequested(text, text == '');
+        if (text === '' || !isNaN(parseFloat(text))) {
+          valueChangeRequested(text, text === '');
         }
       }
     }
@@ -137,13 +137,13 @@ EditorWidgetBase {
     property bool increase: true
 
     onTriggered: {
-      var hitBoundary = false;
+      let hitBoundary = false;
       if (increase) {
         increaseValue();
-        hitBoundary = textField.text == rangeItem.max;
+        hitBoundary = textField.text === rangeItem.max;
       } else {
         decreaseValue();
-        hitBoundary = textField.text == rangeItem.min;
+        hitBoundary = textField.text === rangeItem.min;
       }
       if (!hitBoundary) {
         if (interval > 50)
@@ -155,10 +155,10 @@ EditorWidgetBase {
   }
 
   function decreaseValue() {
-    var currentValue = Number.parseFloat(textField.text);
-    var newValue;
+    const currentValue = Number.parseFloat(textField.text);
+    let newValue;
     if (!isNaN(currentValue)) {
-      newValue = currentValue - rangeItem.step;
+      newValue = roundValue(currentValue - rangeItem.step, rangeItem.precision);
       valueChangeRequested(Math.max(rangeItem.min, newValue), false);
     } else {
       newValue = 0;
@@ -167,15 +167,20 @@ EditorWidgetBase {
   }
 
   function increaseValue() {
-    var currentValue = Number.parseFloat(textField.text);
-    var newValue;
+    const currentValue = Number.parseFloat(textField.text);
+    let newValue;
     if (!isNaN(currentValue)) {
-      newValue = currentValue + rangeItem.step;
+      newValue = roundValue(currentValue + rangeItem.step, rangeItem.precision);
       valueChangeRequested(Math.min(rangeItem.max, newValue), false);
     } else {
       newValue = 0;
       valueChangeRequested(newValue, false);
     }
+  }
+
+  function roundValue(value, precision) {
+    const multiplier = Math.pow(10, precision || 0);
+    return Math.round(value * multiplier) / multiplier;
   }
 
   Row {
