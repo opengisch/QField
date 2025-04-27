@@ -54,6 +54,7 @@ set(QFIELD_CORE_SRCS
     attributeformmodelbase.cpp
     audiorecorder.cpp
     barcodedecoder.cpp
+    barcodeimageprovider.cpp
     badlayerhandler.cpp
     bookmarkmodel.cpp
     clipboardmanager.cpp
@@ -180,6 +181,7 @@ set(QFIELD_CORE_HDRS
     attributeformmodelbase.h
     audiorecorder.h
     barcodedecoder.h
+    barcodeimageprovider.h
     badlayerhandler.h
     bookmarkmodel.h
     clipboardmanager.h
