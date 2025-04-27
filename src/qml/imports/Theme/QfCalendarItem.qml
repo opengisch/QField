@@ -21,7 +21,7 @@ Item {
       mouse.accepted = true;
     }
     onWheel: wheel => {
-      wheel.accepted = true;
+      wheel.accepted = false;
     }
   }
 
