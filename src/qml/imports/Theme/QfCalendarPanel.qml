@@ -63,7 +63,7 @@ QfDialog {
     clip: true
     wrapMode: Text.WordWrap
     Layout.fillWidth: true
-    Layout.fillHeight: true
+    color: Theme.mainTextColor
     readonly property var monthNames: [qsTr("January"), qsTr("February"), qsTr("March"), qsTr("April"), qsTr("May"), qsTr("June"), qsTr("July"), qsTr("August"), qsTr("September"), qsTr("October"), qsTr("November"), qsTr("December")]
     readonly property string rowView: selectedDate.getDate() + " " + monthNames[selectedDate.getMonth()] + " " + selectedDate.getFullYear()
     readonly property string columnView: selectedDate.getDate() + "\n" + monthNames[selectedDate.getMonth()] + "\n" + selectedDate.getFullYear()
@@ -108,7 +108,7 @@ QfDialog {
     ColumnLayout {
       id: verticalContent
       width: vericalLayout.width
-      spacing: 30
+      spacing: 8
 
       LayoutItemProxy {
         target: result
@@ -147,6 +147,7 @@ QfDialog {
 
       LayoutItemProxy {
         target: result
+        Layout.fillHeight: true
       }
       LayoutItemProxy {
         target: calendarItem
