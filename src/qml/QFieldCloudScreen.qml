@@ -532,15 +532,34 @@ Page {
           }
         }
 
-        QfButton {
-          id: refreshProjectsListBtn
+        RowLayout {
           Layout.fillWidth: true
           Layout.topMargin: 5
           Layout.bottomMargin: mainWindow.sceneBottomMargin
-          text: qsTr("Refresh projects list")
-          enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
-          onClicked: {
-            refreshProjectsList(filterBar.currentIndex !== 0);
+
+          QfButton {
+            id: refreshProjectsListBtn
+            Layout.fillWidth: true
+            text: qsTr("Refresh projects list")
+            enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
+            onClicked: {
+              refreshProjectsList(filterBar.currentIndex !== 0);
+            }
+          }
+
+          QfToolButton {
+            id: scanProjectBtn
+            enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
+            visible: enabled
+
+            bgcolor: "transparent"
+            iconSource: Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
+            iconColor: Theme.mainTextColor
+
+            onClicked: {
+              codeReaderConnection.enabled = true;
+              codeReader.open();
+            }
           }
         }
       }
@@ -906,6 +925,24 @@ Page {
   }
 
   Connections {
+    id: codeReaderConnection
+    target: codeReader
+    enabled: false
+
+    function onDecoded(string) {
+      const results = string.match(/qfieldcloud\?project\=([^&]+)/);
+      if (results) {
+        codeReader.close();
+        cloudProjectsModel.appendProject(results[1]);
+      }
+    }
+
+    function onAboutToHide() {
+      codeReaderConnection.enabled = false;
+    }
+  }
+
+  Connections {
     target: cloudConnection
 
     function onStatusChanged() {
@@ -928,7 +965,6 @@ Page {
 
     function onProjectAppended(projectId) {
       projectDetails.cloudProject = cloudProjectsModel.findProject(projectId);
-      console.log(projectDetails.cloudProject);
       projectsSwipeView.currentIndex = 1;
     }
   }
