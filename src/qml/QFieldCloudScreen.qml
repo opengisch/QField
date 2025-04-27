@@ -45,8 +45,7 @@ Page {
 
   ColumnLayout {
     anchors.fill: parent
-    Layout.fillWidth: true
-    Layout.fillHeight: true
+    anchors.bottomMargin: mainWindow.sceneBottomMargin
     spacing: 2
 
     RowLayout {
@@ -534,7 +533,6 @@ Page {
         RowLayout {
           Layout.fillWidth: true
           Layout.topMargin: 5
-          Layout.bottomMargin: mainWindow.sceneBottomMargin
 
           QfButton {
             id: refreshProjectsListBtn
