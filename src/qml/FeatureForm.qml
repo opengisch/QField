@@ -606,7 +606,7 @@ Page {
               function onValueChangeRequested(value, isNull) {
                 //do not compare AttributeValue and value with strict comparison operators
                 if ((AttributeValue != value || (AttributeValue !== undefined && isNull)) && !(AttributeValue === undefined && isNull)) {
-                  var oldValue = AttributeValue;
+                  let oldValue = AttributeValue;
                   AttributeValue = isNull ? undefined : value;
                   valueChanged(Field, oldValue, AttributeValue);
                   if (!AttributeAllowEdit && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel) {
