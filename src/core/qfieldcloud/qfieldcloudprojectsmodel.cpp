@@ -294,13 +294,6 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
 
   QFieldCloudProject *project = mProjects[projectIndex.row()];
 
-  if ( project->status() == QFieldCloudProject::ProjectStatus::Failing )
-  {
-    QgsLogger::debug( QStringLiteral( "Project %1: The project is invalid." ).arg( projectId ) );
-    emit warning( tr( "Project invalid." ) );
-    return;
-  }
-
   if ( project->status() != QFieldCloudProject::ProjectStatus::Idle )
   {
     QgsLogger::debug( QStringLiteral( "Project %1: package and download cancelled, the project is currently busy." ).arg( projectId ) );
