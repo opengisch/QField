@@ -633,162 +633,169 @@ Page {
           }
         }
 
-        ScrollView {
+        ColumnLayout {
+          id: projectDetailsLayout
           Layout.fillWidth: true
           Layout.fillHeight: true
-          contentWidth: width
-          contentHeight: projectDetailsLayout.height
-          ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-          ScrollBar.vertical: QfScrollBar {
-          }
+          spacing: 10
 
-          ColumnLayout {
-            id: projectDetailsLayout
-            width: parent.width - 10
+          RowLayout {
+            Layout.fillWidth: true
             spacing: 10
 
-            RowLayout {
-              Layout.fillWidth: true
-              spacing: 10
+            Rectangle {
+              id: projectDetailsThumbnailRect
+              width: 48
+              height: 48
+              border.color: Theme.mainBackgroundColor
+              border.width: 1
+              radius: width / 2
+              clip: true
 
-              Rectangle {
-                id: projectDetailsThumbnailRect
+              Image {
+                id: projectDetailsThumbnail
+                anchors.fill: parent
+                anchors.margins: 1
+                fillMode: Image.PreserveAspectFit
+                smooth: true
+                source: projectDetails.cloudProject != undefined && projectDetails.cloudProject.thumbnailPath !== "" ? 'file://' + projectDetails.cloudProject.thumbnailPath : ""
+                visible: source !== "" && status === Image.Ready
                 width: 48
                 height: 48
-                border.color: Theme.mainBackgroundColor
-                border.width: 1
-                radius: width / 2
-                clip: true
+                sourceSize.width: width * screen.devicePixelRatio
+                sourceSize.height: height * screen.devicePixelRatio
+                layer.enabled: true
+                layer.effect: QfOpacityMask {
+                  maskSource: roundMask
+                }
+              }
+            }
 
-                Image {
-                  id: projectDetailsThumbnail
-                  anchors.fill: parent
-                  anchors.margins: 1
-                  fillMode: Image.PreserveAspectFit
-                  smooth: true
-                  source: projectDetails.cloudProject != undefined && projectDetails.cloudProject.thumbnailPath !== "" ? 'file://' + projectDetails.cloudProject.thumbnailPath : ""
-                  visible: source !== "" && status === Image.Ready
-                  width: 48
-                  height: 48
-                  sourceSize.width: width * screen.devicePixelRatio
-                  sourceSize.height: height * screen.devicePixelRatio
-                  layer.enabled: true
-                  layer.effect: QfOpacityMask {
-                    maskSource: roundMask
+            Text {
+              id: projectDetailsName
+              Layout.fillWidth: true
+              font.pointSize: Theme.titleFont.pointSize * 1.25
+              font.bold: true
+              color: Theme.mainTextColor
+              wrapMode: Text.Wrap
+
+              text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.name : ""
+            }
+          }
+
+          ScrollView {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            contentWidth: width
+            contentHeight: projectDetailsBodyLayout.height
+            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+            ScrollBar.vertical: QfScrollBar {
+            }
+
+            ColumnLayout {
+              id: projectDetailsBodyLayout
+              width: parent.width - 10
+              spacing: 10
+
+              ColumnLayout {
+                Layout.fillWidth: true
+                spacing: 5
+
+                Text {
+                  id: projectDetailsDescriptionLabel
+                  Layout.fillWidth: true
+                  font: Theme.strongFont
+                  color: Theme.mainTextColor
+
+                  text: qsTr("Description")
+                }
+
+                Text {
+                  id: projectDetailsDescription
+                  Layout.fillWidth: true
+                  font: Theme.defaultFont
+                  color: Theme.secondaryTextColor
+                  wrapMode: Text.WordWrap
+                  textFormat: Text.MarkdownText
+
+                  text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.description.trim() : ""
+
+                  onLinkActivated: link => {
+                    Qt.openUrlExternally(link);
                   }
                 }
               }
 
-              Text {
-                id: projectDetailsName
+              ColumnLayout {
                 Layout.fillWidth: true
-                font.pointSize: Theme.titleFont.pointSize * 1.25
-                font.bold: true
-                color: Theme.mainTextColor
-                wrapMode: Text.Wrap
+                spacing: 5
 
-                text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.name : ""
-              }
-            }
+                Text {
+                  id: projectDetailsOwnerLabel
+                  Layout.fillWidth: true
+                  font: Theme.strongFont
+                  color: Theme.mainTextColor
 
-            ColumnLayout {
-              Layout.fillWidth: true
-              spacing: 5
+                  text: qsTr("Owner")
+                }
 
-              Text {
-                id: projectDetailsDescriptionLabel
-                Layout.fillWidth: true
-                font: Theme.strongFont
-                color: Theme.mainTextColor
+                Text {
+                  id: projectDetailsOwner
+                  Layout.fillWidth: true
+                  font: Theme.defaultFont
+                  color: Theme.secondaryTextColor
+                  wrapMode: Text.WordWrap
 
-                text: qsTr("Description")
-              }
-
-              Text {
-                id: projectDetailsDescription
-                Layout.fillWidth: true
-                font: Theme.defaultFont
-                color: Theme.secondaryTextColor
-                wrapMode: Text.WordWrap
-                textFormat: Text.MarkdownText
-
-                text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.description.trim() : ""
-
-                onLinkActivated: link => {
-                  Qt.openUrlExternally(link);
+                  text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.owner : ""
                 }
               }
-            }
 
-            ColumnLayout {
-              Layout.fillWidth: true
-              spacing: 5
-
-              Text {
-                id: projectDetailsOwnerLabel
+              ColumnLayout {
                 Layout.fillWidth: true
-                font: Theme.strongFont
-                color: Theme.mainTextColor
+                spacing: 5
 
-                text: qsTr("Owner")
+                Text {
+                  id: projectDetailsCreationDateLabel
+                  Layout.fillWidth: true
+                  font: Theme.strongFont
+                  color: Theme.mainTextColor
+
+                  text: qsTr("Creation date")
+                }
+
+                Text {
+                  id: projectDetailsCreationDate
+                  Layout.fillWidth: true
+                  font: Theme.defaultFont
+                  color: Theme.secondaryTextColor
+                  wrapMode: Text.WordWrap
+
+                  text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.createdAt : ""
+                }
               }
 
-              Text {
-                id: projectDetailsOwner
+              ColumnLayout {
                 Layout.fillWidth: true
-                font: Theme.defaultFont
-                color: Theme.secondaryTextColor
-                wrapMode: Text.WordWrap
+                spacing: 5
 
-                text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.owner : ""
-              }
-            }
+                Text {
+                  id: projectDetailsUpdateDateLabel
+                  Layout.fillWidth: true
+                  font: Theme.strongFont
+                  color: Theme.mainTextColor
 
-            ColumnLayout {
-              Layout.fillWidth: true
-              spacing: 5
+                  text: qsTr("Latest update date")
+                }
 
-              Text {
-                id: projectDetailsCreationDateLabel
-                Layout.fillWidth: true
-                font: Theme.strongFont
-                color: Theme.mainTextColor
+                Text {
+                  id: projectDetailsUpdateDate
+                  Layout.fillWidth: true
+                  font: Theme.defaultFont
+                  color: Theme.secondaryTextColor
+                  wrapMode: Text.WordWrap
 
-                text: qsTr("Creation date")
-              }
-
-              Text {
-                id: projectDetailsCreationDate
-                Layout.fillWidth: true
-                font: Theme.defaultFont
-                color: Theme.secondaryTextColor
-                wrapMode: Text.WordWrap
-
-                text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.createdAt : ""
-              }
-            }
-
-            ColumnLayout {
-              Layout.fillWidth: true
-              spacing: 5
-
-              Text {
-                id: projectDetailsUpdateDateLabel
-                Layout.fillWidth: true
-                font: Theme.strongFont
-                color: Theme.mainTextColor
-
-                text: qsTr("Latest update date")
-              }
-
-              Text {
-                id: projectDetailsUpdateDate
-                Layout.fillWidth: true
-                font: Theme.defaultFont
-                color: Theme.secondaryTextColor
-                wrapMode: Text.WordWrap
-
-                text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.updatedAt : ""
+                  text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.updatedAt : ""
+                }
               }
             }
           }
