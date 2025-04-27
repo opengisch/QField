@@ -42,6 +42,9 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( QString localPath READ localPath NOTIFY localPathChanged )
     Q_PROPERTY( QString thumbnailPath READ thumbnailPath NOTIFY thumbnailPathChanged )
 
+    Q_PROPERTY( QString userRole READ userRole NOTIFY userRoleChanged )
+    Q_PROPERTY( QString userRoleOrigin READ userRoleOrigin NOTIFY userRoleOriginChanged )
+
     Q_PROPERTY( QDateTime createdAt READ createdAt NOTIFY createdAtChanged )
     Q_PROPERTY( QDateTime updatedAt READ updatedAt NOTIFY updatedAtChanged )
 
