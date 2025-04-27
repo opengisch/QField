@@ -313,7 +313,7 @@ Page {
                   anchors.verticalCenter: inner.verticalCenter
                   source: {
                     if (cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
-                      return Theme.getThemeVectorIcon('ic_cloud_project_offline_48dp');
+                      return Theme.getThemeVectorIcon('ic_cloud_project_localonly_48dp');
                     } else {
                       var status = '';
                       switch (Status) {
@@ -363,7 +363,7 @@ Page {
                     leftPadding: 3
                     text: {
                       if (cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
-                        return qsTr('(Available locally)');
+                        return qsTr('Available locally');
                       } else {
                         var status = '';
 
@@ -405,10 +405,10 @@ Page {
                         if (!status) {
                           switch (Checkout) {
                           case QFieldCloudProject.LocalCheckout:
-                            status = qsTr('Available locally, missing on the cloud');
+                            status = UserRoleOrigin === "public" ? qsTr('Available locally') : qsTr('Available locally, missing on the cloud');
                             break;
                           case QFieldCloudProject.RemoteCheckout:
-                            status = qsTr('Available on the cloud, missing locally');
+                            status = qsTr('Available on the cloud');
                             break;
                           case QFieldCloudProject.LocalAndRemoteCheckout:
                             status = qsTr('Available locally');
@@ -420,8 +420,8 @@ Page {
                             break;
                           }
                         }
-                        var localChanges = (LocalDeltasCount > 0) ? qsTr('Has changes. ') : '';
-                        var str = '%2%3'.arg(localChanges).arg(status);
+                        var localChanges = (LocalDeltasCount > 0) ? qsTr(', has changes locally') : '';
+                        var str = status + localChanges;
                         return str.trim();
                       }
                     }
