@@ -3610,7 +3610,7 @@ ApplicationWindow {
       const details = iface.getActionDetails(action);
       if (details.type === "local") {
         if (details.import !== undefined) {
-          iface.importUrl(details.import);
+          iface.importUrl(details.import, true);
         }
       }
     }
@@ -3647,8 +3647,14 @@ ApplicationWindow {
     function onImportEnded(path) {
       busyOverlay.state = "hidden";
       if (path !== '') {
-        qfieldLocalDataPickerScreen.model.currentPath = path;
-        qfieldLocalDataPickerScreen.visible = true;
+        if (FileUtils.fileExists(path)) {
+          // A project or dataset path is provided, load it
+          iface.loadFile(path);
+        } else {
+          // A directory path is provided, display it
+          qfieldLocalDataPickerScreen.model.currentPath = path;
+          qfieldLocalDataPickerScreen.visible = true;
+        }
         welcomeScreen.visible = false;
       } else {
         displayToast(qsTr('Import URL failed'));

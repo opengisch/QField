@@ -43,7 +43,7 @@ class AppInterface : public QObject
       Q_ASSERT( false );
     }
 
-    Q_INVOKABLE void importUrl( const QString &url );
+    Q_INVOKABLE void importUrl( const QString &url, bool loadOnImport = false );
 
     Q_INVOKABLE bool hasProjectOnLaunch() const;
     Q_INVOKABLE bool loadFile( const QString &path, const QString &name = QString() );

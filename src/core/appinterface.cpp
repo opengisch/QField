@@ -303,7 +303,7 @@ void AppInterface::clearProject() const
   mApp->clearProject();
 }
 
-void AppInterface::importUrl( const QString &url )
+void AppInterface::importUrl( const QString &url, bool loadOnImport )
 {
   QString sanitizedUrl = url.trimmed();
   if ( sanitizedUrl.isEmpty() )
@@ -397,8 +397,16 @@ void AppInterface::importUrl( const QString &url )
 
             if ( QgsZipUtils::unzip( filePath, zipDirectory, zipFiles, false ) )
             {
+              // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
+              QDirIterator it( zipDirectory, { QStringLiteral( "*.qgs" ), QStringLiteral( "*.qgz" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
+              QStringList projectFilePaths;
+              while ( it.hasNext() )
+              {
+                projectFilePaths << it.nextFileInfo().absoluteFilePath();
+              }
+
               // Project archive successfully imported
-              emit importEnded( zipDirectory );
+              emit importEnded( loadOnImport && projectFilePaths.size() == 1 ? projectFilePaths.at( 0 ) : zipDirectory );
               return;
             }
             else
@@ -414,7 +422,9 @@ void AppInterface::importUrl( const QString &url )
         }
 
         // Dataset successfully imported
-        emit importEnded( QFileInfo( filePath ).absolutePath() );
+        QFileInfo fi( filePath );
+        emit importEnded( loadOnImport ? fi.absoluteFilePath() : fi.isFile() ? fi.absolutePath()
+                                                                             : fi.absoluteFilePath() );
         return;
       }
     }
