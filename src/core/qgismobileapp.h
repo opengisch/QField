@@ -42,6 +42,7 @@
 
 class AppInterface;
 class AppMissingGridHandler;
+class BarcodeImageProvider;
 class QgsOfflineEditing;
 class QgsQuickMapCanvasMap;
 class LayerTreeMapCanvasBridge;
@@ -227,6 +228,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     LegendImageProvider *mLegendImageProvider = nullptr;
     LocalFilesImageProvider *mLocalFilesImageProvider = nullptr;
     ProjectsImageProvider *mProjectsImageProvider = nullptr;
+    BarcodeImageProvider *mBarcodeImageProvider = nullptr;
 
     QgsProject *mProject = nullptr;
     QString mProjectFilePath;

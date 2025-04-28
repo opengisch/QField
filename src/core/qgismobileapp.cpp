@@ -43,6 +43,7 @@
 #include "audiorecorder.h"
 #include "badlayerhandler.h"
 #include "barcodedecoder.h"
+#include "barcodeimageprovider.h"
 #include "changelogcontents.h"
 #include "coordinatereferencesystemutils.h"
 #include "deltafilewrapper.h"
@@ -278,6 +279,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mLocalFilesImageProvider = new LocalFilesImageProvider();
   mProjectsImageProvider = new ProjectsImageProvider();
+  mBarcodeImageProvider = new BarcodeImageProvider();
 
   mBookmarkModel = new BookmarkModel( QgsApplication::bookmarkManager(), mProject->bookmarkManager(), this );
   mDrawingTemplateModel = new DrawingTemplateModel( this );
@@ -590,6 +592,7 @@ void QgisMobileapp::registerGlobalVariables()
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
   addImageProvider( QLatin1String( "localfiles" ), mLocalFilesImageProvider );
   addImageProvider( QLatin1String( "projects" ), mProjectsImageProvider );
+  addImageProvider( QLatin1String( "barcode" ), mBarcodeImageProvider );
 }
 
 
