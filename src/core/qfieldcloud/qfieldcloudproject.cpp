@@ -1794,8 +1794,9 @@ void QFieldCloudProject::removeLocally()
     dir.removeRecursively();
 
     setLocalPath( QString() );
-    setCheckout( RemoteCheckout );
     setModification( NoModification );
+    mCheckout = mCheckout & ~LocalCheckout;
+    emit checkoutChanged();
   }
 
   QSettings().remove( QStringLiteral( "QFieldCloud/projects/%1" ).arg( mId ) );

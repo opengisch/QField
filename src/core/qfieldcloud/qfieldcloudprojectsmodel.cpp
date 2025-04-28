@@ -252,9 +252,10 @@ void QFieldCloudProjectsModel::removeLocalProject( const QString &projectId )
     if ( projectIndex.isValid() )
     {
       QFieldCloudProject *project = mProjects[projectIndex.row()];
+      project->removeLocally();
+
       if ( ( project->status() == QFieldCloudProject::ProjectStatus::Idle || project->status() == QFieldCloudProject::ProjectStatus::Failing ) && project->checkout() & QFieldCloudProject::RemoteCheckout )
       {
-        project->removeLocally();
         emit dataChanged( projectIndex, projectIndex, QVector<int>() << StatusRole << LocalPathRole << CheckoutRole );
       }
       else
