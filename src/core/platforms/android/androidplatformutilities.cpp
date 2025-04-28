@@ -143,6 +143,25 @@ void AndroidPlatformUtilities::loadQgsProject() const
   }
 }
 
+bool AndroidPlatformUtilities::hasQfAction() const
+{
+  return !getIntentExtra( "QF_ACTION" ).isEmpty();
+}
+
+void AndroidPlatformUtilities::executeQfAction() const
+{
+  if ( mActivity.isValid() && hasQfAction() )
+  {
+    runOnAndroidMainThread( [] {
+      auto activity = qtAndroidContext();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( "processQFieldIntent" );
+      }
+    } );
+  }
+}
+
 QStringList AndroidPlatformUtilities::appDataDirs() const
 {
   const QString dataDirs = getIntentExtra( "QFIELD_APP_DATA_DIRS" );
@@ -817,6 +836,17 @@ JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, 
     const char *pathStr = env->GetStringUTFChars( path, NULL );
     AppInterface::instance()->loadFile( QString( pathStr ) );
     env->ReleaseStringUTFChars( path, pathStr );
+  }
+  return;
+}
+
+JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, executeAction )( JNIEnv *env, jobject obj, jstring action )
+{
+  if ( AppInterface::instance() )
+  {
+    const char *actionStr = env->GetStringUTFChars( action, NULL );
+    AppInterface::instance()->executeAction( QString( actionStr ) );
+    env->ReleaseStringUTFChars( action, actionStr );
   }
   return;
 }

@@ -63,6 +63,8 @@ class AppInterface : public QObject
 
     Q_INVOKABLE QVariantMap availableLanguages() const;
 
+    Q_INVOKABLE QVariantMap getActionDetails( const QString &action ) const;
+
     Q_INVOKABLE bool isFileExtensionSupported( const QString &filename ) const;
 
     /**
@@ -184,6 +186,9 @@ class AppInterface : public QObject
 
     //! Requests QField to open its local data picker screen to show the \a path content.
     void openPath( const QString &path );
+
+    //! Requests QField to execute a given \a action.
+    void executeAction( const QString &action );
 
     //! Emitted when a volume key is pressed while QField is set to handle those keys.
     void volumeKeyDown( int volumeKeyCode );

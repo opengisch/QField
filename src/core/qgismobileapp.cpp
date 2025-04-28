@@ -670,7 +670,11 @@ void QgisMobileapp::onAfterFirstRendering()
   if ( mFirstRenderingFlag )
   {
     mPluginManager->restoreAppPlugins();
-    if ( PlatformUtilities::instance()->hasQgsProject() )
+    if ( PlatformUtilities::instance()->hasQfAction() )
+    {
+      PlatformUtilities::instance()->executeQfAction();
+    }
+    else if ( PlatformUtilities::instance()->hasQgsProject() )
     {
       PlatformUtilities::instance()->loadQgsProject();
     }

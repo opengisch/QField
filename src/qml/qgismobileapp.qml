@@ -3606,6 +3606,15 @@ ApplicationWindow {
   Connections {
     target: iface
 
+    function onExecuteAction(action) {
+      const details = iface.getActionDetails(action);
+      if (details.type === "local") {
+        if (details.import !== undefined) {
+          iface.importUrl(details.import);
+        }
+      }
+    }
+
     function onVolumeKeyUp(volumeKeyCode) {
       if (stateMachine.state === 'browse' || !mapCanvasMap.isEnabled) {
         return;
