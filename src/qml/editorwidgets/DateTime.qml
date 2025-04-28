@@ -30,7 +30,10 @@ EditorWidgetBase {
   enabled: isEnabled
 
   property bool isDateTimeType: field.isDateOrTime
+  property bool fieldIsDateTime: LayerUtils.fieldType(field) === 'QDateTime'
   property bool fieldIsDate: LayerUtils.fieldType(field) === 'QDate'
+  property bool fieldIsString: LayerUtils.fieldType(field) === 'QString'
+
   property var currentValue: {
     const formattedDate = formatDateTime(value);
     label.text = formattedDate;
@@ -59,6 +62,9 @@ EditorWidgetBase {
         }
       } else {
         const date = Date.fromLocaleString(Qt.locale(), value, config['field_format']);
+        if (date.toString() === "Invalid Date") {
+          return Qt.formatDateTime(value, displayFormat);
+        }
         return Qt.formatDateTime(date, displayFormat);
       }
     }
@@ -127,6 +133,9 @@ EditorWidgetBase {
           var usedDate = new Date();
           if (value !== undefined && value != '') {
             usedDate = value;
+          }
+          if (!(usedDate instanceof Date)) {
+            usedDate = Date.fromLocaleString(Qt.locale(), label.text, config['display_format']);
           }
           todayButton.forceActiveFocus();
           calendarPanel.selectedDate = usedDate;
@@ -214,8 +223,11 @@ EditorWidgetBase {
 
   QfCalendarPanel {
     id: calendarPanel
-    isDateTime: !main.fieldIsDate
-    onDateTimePicked: {
+    showTimePicker: main.fieldIsDateTime || (main.fieldIsString && config['field_format_overwrite'] && config['field_format'].includes("HH:mm")) || (main.fieldIsString && !config['field_format_overwrite'])
+
+    showDatePicker: main.fieldIsDate || main.fieldIsDateTime || (main.fieldIsString && config['field_format_overwrite'] && (config['field_format'].includes("yyyy-MM") || config['field_format'].includes("yyyy.MM"))) || (main.fieldIsString && !config['field_format_overwrite'])
+
+    onDateTimePicked: date => {
       if (main.isDateTimeType) {
         valueChangeRequested(date, date === undefined);
       } else {

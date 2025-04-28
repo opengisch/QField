@@ -50,6 +50,7 @@ ApplicationWindow {
   property bool sceneBorderless: false
   property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
   property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]
+  readonly property bool screenIsPortrait: (Screen.primaryOrientation === Qt.PortraitOrientation || Screen.primaryOrientation === Qt.InvertedPortraitOrientation)
 
   onSceneLoadedChanged: {
     // This requires the scene to be fully loaded not to crash due to possibility of
@@ -59,16 +60,15 @@ ApplicationWindow {
     }
   }
 
+  onScreenIsPortraitChanged: {
+    refreshSceneMargins.start();
+  }
+
   Timer {
     id: refreshSceneMargins
     running: false
     repeat: false
     interval: 50
-
-    readonly property bool screenIsPortrait: (Screen.primaryOrientation === Qt.PortraitOrientation || Screen.primaryOrientation === Qt.InvertedPortraitOrientation)
-    onScreenIsPortraitChanged: {
-      start();
-    }
 
     onTriggered: {
       mainWindow.sceneTopMargin = platformUtilities.sceneMargins(mainWindow)["top"];

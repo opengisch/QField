@@ -160,8 +160,6 @@ Popup {
 
     property string temporalField: ''
 
-    isDateTime: true
-
     onDateTimePicked: date => {
       if (temporalField == 'begin') {
         mapCanvas.mapSettings.temporalBegin = date;

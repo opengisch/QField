@@ -128,5 +128,7 @@
         <file>imports/Theme/QfSearchBar.qml</file>
         <file>imports/Theme/QfDialog.qml</file>
         <file>imports/Theme/QfMenu.qml</file>
+        <file>imports/Theme/QfTimeItem.qml</file>
+        <file>imports/Theme/QfCalendarItem.qml</file>
     </qresource>
 </RCC>
