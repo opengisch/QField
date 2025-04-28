@@ -106,6 +106,7 @@ QtObject {
   property color bookmarkOrange: "orange"
   property color bookmarkRed: "#c0392b"
   property color bookmarkBlue: "#64b5f6"
+  property color qfieldcloudBlue: "#4a6fae"
 
   property color vertexColor: "#FF0000"
   property color vertexColorSemiOpaque: "#40FF0000"
