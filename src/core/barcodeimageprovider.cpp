@@ -40,8 +40,8 @@ QImage BarcodeImageProvider::requestImage( const QString &id, QSize *size, const
     return QImage();
   }
 
-  const int width = requestedSize.width() > 0 ? requestedSize.width() : 255;
-  const int height = requestedSize.height() > 0 ? requestedSize.height() : 255;
+  const int width = requestedSize.width() > 0 ? requestedSize.width() : DEFAULT_BARCODE_SIZE;
+  const int height = requestedSize.height() > 0 ? requestedSize.height() : DEFAULT_BARCODE_SIZE;
 
   ZXing::MultiFormatWriter writer( ZXing::BarcodeFormat::QRCode );
   ZXing::BitMatrix matrix = writer.encode( text.toStdString(), width, height );
@@ -50,25 +50,24 @@ QImage BarcodeImageProvider::requestImage( const QString &id, QSize *size, const
   QImage barcodeImage( bitmap.data(), bitmap.width(), bitmap.height(), bitmap.width(), QImage::Format::Format_Grayscale8 );
   barcodeImage.convertTo( QImage::Format::Format_ARGB32 );
 
-  QRgb white = qRgba( 255, 255, 255, 255 );
-  QRgb black = qRgba( 0, 0, 0, 255 );
+  const QRgb white = qRgba( 255, 255, 255, 255 );
+  const QRgb black = qRgba( 0, 0, 0, 255 );
 
-  QRgb transparent = qRgba( 255, 255, 255, 0 );
-  QRgb color = foregroundColor.isValid() ? foregroundColor.rgba() : qRgba( 0, 0, 0, 255 );
+  const QRgb transparent = qRgba( 255, 255, 255, 0 );
+  const QRgb color = foregroundColor.isValid() ? foregroundColor.rgba() : qRgba( 0, 0, 0, 255 );
 
   for ( int y = 0; y < barcodeImage.height(); ++y )
   {
-    QRgb *s = reinterpret_cast<QRgb *>( barcodeImage.scanLine( y ) );
-
-    for ( int x = 0; x < barcodeImage.width(); ++x, ++s )
+    QRgb *pixel = reinterpret_cast<QRgb *>( barcodeImage.scanLine( y ) );
+    for ( int x = 0; x < barcodeImage.width(); ++x, ++pixel )
     {
-      if ( *s == white )
+      if ( *pixel == white )
       {
-        *s = transparent;
+        *pixel = transparent;
       }
-      else if ( *s == black )
+      else if ( *pixel == black )
       {
-        *s = color;
+        *pixel = color;
       }
     }
   }

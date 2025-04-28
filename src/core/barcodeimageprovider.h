@@ -18,6 +18,8 @@
 
 #include <QQuickImageProvider>
 
+#define DEFAULT_BARCODE_SIZE 255
+
 /**
  * \ingroup core
  */
