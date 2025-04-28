@@ -226,17 +226,25 @@ QVariantMap AppInterface::availableLanguages() const
 QVariantMap AppInterface::getActionDetails( const QString &action ) const
 {
   QVariantMap details;
-
   if ( action.trimmed().isEmpty() )
     return details;
 
   QUrl actionUrl( action );
-  if ( actionUrl.scheme().toLower() != QStringLiteral( "qfield" ) )
+  if ( actionUrl.scheme().toLower() == QStringLiteral( "qfield" ) )
+  {
+    // deal with qfield:// URLs
+    details["type"] = actionUrl.authority();
+  }
+  else if ( actionUrl.authority() == QStringLiteral( "qfield.org" ) && actionUrl.path().startsWith( "/action/" ) )
+  {
+    // deal with https://qfield.org/action/ URLs
+    details["type"] = actionUrl.path().mid( 8 );
+  }
+  else
   {
     return details;
   }
 
-  details["type"] = actionUrl.authority();
   if ( !actionUrl.query().isEmpty() )
   {
     const QList<std::pair<QString, QString>> queryItems = QUrlQuery( actionUrl ).queryItems( QUrl::FullyDecoded );

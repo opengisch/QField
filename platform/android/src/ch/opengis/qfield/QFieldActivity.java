@@ -167,6 +167,13 @@ public class QFieldActivity extends QtActivity {
             if (scheme.equals("qfield")) {
                 qfieldIntent = intent;
                 processQFieldIntent();
+            } else if (scheme.equals("https")) {
+                Uri uri = intent.getData();
+                String host = uri.getHost();
+                if (host.equals("qfield.org")) {
+                    qfieldIntent = intent;
+                    processQFieldIntent();
+                }
             } else {
                 projectIntent = intent;
                 processProjectIntent();
@@ -571,6 +578,13 @@ public class QFieldActivity extends QtActivity {
             if (scheme.equals("qfield")) {
                 qfieldIntent = sourceIntent;
                 intent.putExtra("QF_ACTION", "trigger_load");
+            } else if (scheme.equals("https")) {
+                Uri uri = sourceIntent.getData();
+                String host = uri.getHost();
+                if (host.equals("qfield.org")) {
+                    qfieldIntent = sourceIntent;
+                    intent.putExtra("QF_ACTION", "trigger_load");
+                }
             } else {
                 projectIntent = sourceIntent;
                 intent.putExtra("QGS_PROJECT", "trigger_load");
