@@ -16,6 +16,7 @@ Page {
   property alias showScaleBar: registry.showScaleBar
   property alias fullScreenIdentifyView: registry.fullScreenIdentifyView
   property alias locatorKeepScale: registry.locatorKeepScale
+  property alias autoOpenFormSingleIdentify: registry.autoOpenFormSingleIdentify
   property alias numericalDigitizingInformation: registry.numericalDigitizingInformation
   property alias showBookmarks: registry.showBookmarks
   property alias nativeCamera2: registry.nativeCamera2
@@ -51,6 +52,7 @@ Page {
     property bool showScaleBar: true
     property bool fullScreenIdentifyView: false
     property bool locatorKeepScale: false
+    property bool autoOpenFormSingleIdentify: false
     property bool numericalDigitizingInformation: false
     property bool showBookmarks: true
     property bool nativeCamera2: false
@@ -162,6 +164,12 @@ Page {
       title: qsTr("Fixed scale navigation")
       description: qsTr("When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.")
       settingAlias: "locatorKeepScale"
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr("Automatically open form for single feature identification")
+      description: qsTr("When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.")
+      settingAlias: "autoOpenFormSingleIdentify"
       isVisible: true
     }
   }

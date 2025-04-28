@@ -71,6 +71,7 @@ class IdentifyTool : public QObject
     void searchRadiusMmChanged();
     void modelChanged();
     void deactivatedChanged();
+    void identifyFinished() const;
 
   public slots:
     void identify( const QPointF &point ) const;

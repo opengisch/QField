@@ -72,6 +72,8 @@ void IdentifyTool::identify( const QPointF &point ) const
       mModel->appendFeatures( results );
     }
   }
+
+  emit identifyFinished();
 }
 
 QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const
