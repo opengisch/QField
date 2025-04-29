@@ -21,7 +21,7 @@ Page {
     showBackButton: true
     showApplyButton: false
     showCancelButton: false
-    showMenuButton: cloudConnection.status == QFieldCloudConnection.LoggedIn
+    showMenuButton: true
 
     busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting || cloudConnection.state === QFieldCloudConnection.Busy ? 'on' : 'off' || cloudProjectsModel.busyProjectIds.length > 0
     busyIndicatorValue: busyIndicatorState === 'on' ? 0 : 1
@@ -30,7 +30,7 @@ Page {
 
     onFinished: parent.finished()
 
-    onOpenMenu: options.open()
+    onOpenMenu: qfieldCloudScreenOption.open()
   }
 
   ColumnLayout {
@@ -590,8 +590,27 @@ Page {
   }
 
   QfMenu {
-    id: options
+    id: qfieldCloudScreenOption
     x: parent.width - width - 8
+
+    MenuItem {
+      text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr('Sign out') : qsTr('Sign in')
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+      icon.source: cloudConnection.status == QFieldCloudConnection.LoggedIn ? Theme.getThemeVectorIcon('ic_logout_24dp') : Theme.getThemeVectorIcon('ic_login_24dp')
+      enabled: cloudConnection.state != QFieldCloudConnection.Busy
+      onTriggered: {
+        if (cloudConnection.status == QFieldCloudConnection.LoggedIn) {
+          cloudConnection.logout();
+        } else {
+          prepareCloudLogin();
+        }
+      }
+    }
+
+    MenuSeparator {
+    }
 
     MenuItem {
       text: qsTr('Show invalid projects')
@@ -603,21 +622,6 @@ Page {
       onTriggered: {
         settings.setValue("/QField/showInvalidProjects", checked);
         table.model.showInValidProjects = checked;
-      }
-    }
-
-    MenuSeparator {
-    }
-
-    MenuItem {
-      text: qsTr('Sign out')
-      font: Theme.defaultFont
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      icon.source: Theme.getThemeVectorIcon('ic_logout_24dp')
-      onTriggered: {
-        cloudConnection.logout();
-        finished();
       }
     }
   }
