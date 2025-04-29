@@ -3904,19 +3904,67 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
-        <translation>Stunden</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Minutes</source>
-        <translation>Minuten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Seconds</source>
-        <translation>Sekunden</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>OK</source>
-        <translation>Ok</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>January</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>February</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>March</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>April</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>May</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>June</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>July</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>August</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>September</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>October</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>November</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>December</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3931,6 +3979,21 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>Search</source>
         <translation>Suche</translation>
+    </message>
+</context>
+<context>
+    <name>QfTimeItem</name>
+    <message>
+        <source>Hours</source>
+        <translation>Stunden</translation>
+    </message>
+    <message>
+        <source>Minutes</source>
+        <translation>Minuten</translation>
+    </message>
+    <message>
+        <source>Seconds</source>
+        <translation>Sekunden</translation>
     </message>
 </context>
 <context>

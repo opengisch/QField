@@ -3905,19 +3905,67 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
-        <translation>时</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Minutes</source>
-        <translation>分</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Seconds</source>
-        <translation>秒</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>OK</source>
-        <translation>确定</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>January</source>
+        <translation>一月</translation>
+    </message>
+    <message>
+        <source>February</source>
+        <translation>二月</translation>
+    </message>
+    <message>
+        <source>March</source>
+        <translation>三月</translation>
+    </message>
+    <message>
+        <source>April</source>
+        <translation>四月</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation>五月</translation>
+    </message>
+    <message>
+        <source>June</source>
+        <translation>六月</translation>
+    </message>
+    <message>
+        <source>July</source>
+        <translation>七月</translation>
+    </message>
+    <message>
+        <source>August</source>
+        <translation>八月</translation>
+    </message>
+    <message>
+        <source>September</source>
+        <translation>九月</translation>
+    </message>
+    <message>
+        <source>October</source>
+        <translation>十月</translation>
+    </message>
+    <message>
+        <source>November</source>
+        <translation>十一月</translation>
+    </message>
+    <message>
+        <source>December</source>
+        <translation>十二月</translation>
     </message>
 </context>
 <context>
@@ -3932,6 +3980,21 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Search</source>
         <translation>搜索</translation>
+    </message>
+</context>
+<context>
+    <name>QfTimeItem</name>
+    <message>
+        <source>Hours</source>
+        <translation>时</translation>
+    </message>
+    <message>
+        <source>Minutes</source>
+        <translation>分</translation>
+    </message>
+    <message>
+        <source>Seconds</source>
+        <translation>秒</translation>
     </message>
 </context>
 <context>

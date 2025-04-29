@@ -3905,19 +3905,67 @@ Cancel to make a minimal device scan instead.</translation>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
-        <translation>Hours</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Minutes</source>
-        <translation>Minutes</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Seconds</source>
-        <translation>Seconds</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>January</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>February</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>March</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>April</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>May</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>June</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>July</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>August</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>September</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>October</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>November</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>December</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3932,6 +3980,21 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <source>Search</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfTimeItem</name>
+    <message>
+        <source>Hours</source>
+        <translation>Hours</translation>
+    </message>
+    <message>
+        <source>Minutes</source>
+        <translation>Minutes</translation>
+    </message>
+    <message>
+        <source>Seconds</source>
+        <translation>Seconds</translation>
     </message>
 </context>
 <context>

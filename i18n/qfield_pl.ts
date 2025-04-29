@@ -3911,19 +3911,67 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
-        <translation>Godzin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Minutes</source>
-        <translation>Minut</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Seconds</source>
-        <translation>Sekund</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>January</source>
+        <translation>styczeń</translation>
+    </message>
+    <message>
+        <source>February</source>
+        <translation>luty</translation>
+    </message>
+    <message>
+        <source>March</source>
+        <translation>marzec</translation>
+    </message>
+    <message>
+        <source>April</source>
+        <translation>kwiecień</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation>maj</translation>
+    </message>
+    <message>
+        <source>June</source>
+        <translation>czerwiec</translation>
+    </message>
+    <message>
+        <source>July</source>
+        <translation>lipiec</translation>
+    </message>
+    <message>
+        <source>August</source>
+        <translation>sierpień</translation>
+    </message>
+    <message>
+        <source>September</source>
+        <translation>wrzesień</translation>
+    </message>
+    <message>
+        <source>October</source>
+        <translation>październik</translation>
+    </message>
+    <message>
+        <source>November</source>
+        <translation>listopad</translation>
+    </message>
+    <message>
+        <source>December</source>
+        <translation>grudzień</translation>
     </message>
 </context>
 <context>
@@ -3938,6 +3986,21 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Search</source>
         <translation>Szukaj</translation>
+    </message>
+</context>
+<context>
+    <name>QfTimeItem</name>
+    <message>
+        <source>Hours</source>
+        <translation>Godzin</translation>
+    </message>
+    <message>
+        <source>Minutes</source>
+        <translation>Minut</translation>
+    </message>
+    <message>
+        <source>Seconds</source>
+        <translation>Sekund</translation>
     </message>
 </context>
 <context>
