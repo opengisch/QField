@@ -791,6 +791,13 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       model: isMenuRequest ? canvasMenuFeatureListModel : featureForm.model
       searchRadiusMm: 3
+
+      onIdentifyFinished: {
+        if (qfieldSettings.autoOpenFormSingleIdentify && !isMenuRequest && featureForm.model.count === 1) {
+          featureForm.selection.focusedItem = 0;
+          featureForm.state = "FeatureForm";
+        }
+      }
     }
 
     /** A rubberband for measuring **/
