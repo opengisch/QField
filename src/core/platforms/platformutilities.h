@@ -107,6 +107,18 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     virtual void loadQgsProject() const;
 
     /**
+     * Returns the current action string
+     * \see loadQfAction
+     */
+    virtual bool hasQfAction() const;
+
+    /**
+     * Loads the action provided during launch.
+     * \see hasQfAction
+     */
+    virtual void executeQfAction() const;
+
+    /**
      * \returns a list of data directories where user data is searched.
      *          User data are pg_service.conf, authentication config, grids, ...
      */

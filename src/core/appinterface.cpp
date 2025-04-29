@@ -28,6 +28,7 @@
 #include <QImageReader>
 #include <QQuickItem>
 #include <QTemporaryFile>
+#include <QUrlQuery>
 #include <qgsapplication.h>
 #include <qgsauthmanager.h>
 #include <qgsmessagelog.h>
@@ -222,6 +223,40 @@ QVariantMap AppInterface::availableLanguages() const
   return languages;
 }
 
+QVariantMap AppInterface::getActionDetails( const QString &action ) const
+{
+  QVariantMap details;
+  if ( action.trimmed().isEmpty() )
+    return details;
+
+  QUrl actionUrl( action );
+  if ( actionUrl.scheme().toLower() == QStringLiteral( "qfield" ) )
+  {
+    // deal with qfield:// URLs
+    details["type"] = actionUrl.authority();
+  }
+  else if ( actionUrl.authority() == QStringLiteral( "qfield.org" ) && actionUrl.path().startsWith( "/action/" ) )
+  {
+    // deal with https://qfield.org/action/ URLs
+    details["type"] = actionUrl.path().mid( 8 );
+  }
+  else
+  {
+    return details;
+  }
+
+  if ( !actionUrl.query().isEmpty() )
+  {
+    const QList<std::pair<QString, QString>> queryItems = QUrlQuery( actionUrl ).queryItems( QUrl::FullyDecoded );
+    for ( const std::pair<QString, QString> &queryItem : queryItems )
+    {
+      details[queryItem.first] = queryItem.second;
+    }
+  }
+
+  return details;
+}
+
 bool AppInterface::isFileExtensionSupported( const QString &filename ) const
 {
   const QFileInfo fi( filename );
@@ -276,7 +311,7 @@ void AppInterface::clearProject() const
   mApp->clearProject();
 }
 
-void AppInterface::importUrl( const QString &url )
+void AppInterface::importUrl( const QString &url, bool loadOnImport )
 {
   QString sanitizedUrl = url.trimmed();
   if ( sanitizedUrl.isEmpty() )
@@ -370,8 +405,16 @@ void AppInterface::importUrl( const QString &url )
 
             if ( QgsZipUtils::unzip( filePath, zipDirectory, zipFiles, false ) )
             {
+              // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
+              QDirIterator it( zipDirectory, { QStringLiteral( "*.qgs" ), QStringLiteral( "*.qgz" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
+              QStringList projectFilePaths;
+              while ( it.hasNext() )
+              {
+                projectFilePaths << it.nextFileInfo().absoluteFilePath();
+              }
+
               // Project archive successfully imported
-              emit importEnded( zipDirectory );
+              emit importEnded( loadOnImport && projectFilePaths.size() == 1 ? projectFilePaths.at( 0 ) : zipDirectory );
               return;
             }
             else
@@ -387,7 +430,9 @@ void AppInterface::importUrl( const QString &url )
         }
 
         // Dataset successfully imported
-        emit importEnded( QFileInfo( filePath ).absolutePath() );
+        QFileInfo fi( filePath );
+        emit importEnded( loadOnImport ? fi.absoluteFilePath() : fi.isFile() ? fi.absolutePath()
+                                                                             : fi.absoluteFilePath() );
         return;
       }
     }

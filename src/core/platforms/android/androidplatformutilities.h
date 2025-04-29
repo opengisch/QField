@@ -35,6 +35,9 @@ class AndroidPlatformUtilities : public PlatformUtilities
     bool hasQgsProject() const override;
     void loadQgsProject() const override;
 
+    bool hasQfAction() const override;
+    void executeQfAction() const override;
+
     QStringList appDataDirs() const override;
     QString applicationDirectory() const override;
     QStringList additionalApplicationDirectories() const override;

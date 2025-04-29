@@ -37,8 +37,18 @@ class QFIELD_CORE_EXPORT UrlUtils : public QObject
      */
     static Q_INVOKABLE bool isRelativeOrFileUrl( const QString &url );
 
-    //! Returns a URL from a \a string with logic to handle local paths
-    static Q_INVOKABLE QUrl fromString( const QString &string );
+    //! Returns a URL from a \a url with logic to handle local paths
+    static Q_INVOKABLE QUrl fromString( const QString &url );
+
+    /**
+     * Returns a \a detail from an \a url. The possible components are:
+     * - "scheme", e.g. https
+     * - "authority", e.g. qfield.org
+     * - "path", e.g. /my/home.html
+     * - "fileName", e.g. file.zip
+     * - "query", e.g. param=true&other_parem=0
+     */
+    static Q_INVOKABLE QString urlDetail( const QString &url, const QString &detail );
 };
 
 #endif // URLUTILS_H

@@ -118,6 +118,7 @@ public class QFieldActivity extends QtActivity {
 
     public static native void openProject(String url);
     public static native void openPath(String path);
+    public static native void executeAction(String action);
 
     public static native void volumeKeyDown(int volumeKeyCode);
     public static native void volumeKeyUp(int volumeKeyCode);
@@ -127,6 +128,7 @@ public class QFieldActivity extends QtActivity {
     public static native void resourceCanceled(String message);
 
     private Intent projectIntent;
+    private Intent qfieldIntent;
 
     private float originalBrightness;
     private boolean handleVolumeKeys = false;
@@ -161,8 +163,21 @@ public class QFieldActivity extends QtActivity {
 
         if (intent.getAction() == Intent.ACTION_VIEW ||
             intent.getAction() == Intent.ACTION_SEND) {
-            projectIntent = intent;
-            processProjectIntent();
+            String scheme = intent.getScheme();
+            if (scheme.equals("qfield")) {
+                qfieldIntent = intent;
+                processQFieldIntent();
+            } else if (scheme.equals("https")) {
+                Uri uri = intent.getData();
+                String host = uri.getHost();
+                if (host.equals("qfield.org")) {
+                    qfieldIntent = intent;
+                    processQFieldIntent();
+                }
+            } else {
+                projectIntent = intent;
+                processProjectIntent();
+            }
         }
     }
 
@@ -206,6 +221,11 @@ public class QFieldActivity extends QtActivity {
         Vibrator v = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
         v.vibrate(VibrationEffect.createOneShot(
             milliseconds, VibrationEffect.DEFAULT_AMPLITUDE));
+    }
+
+    private void processQFieldIntent() {
+        String data = qfieldIntent.getDataString();
+        executeAction(data);
     }
 
     private void processProjectIntent() {
@@ -554,8 +574,21 @@ public class QFieldActivity extends QtActivity {
         Intent sourceIntent = getIntent();
         if (sourceIntent.getAction() == Intent.ACTION_VIEW ||
             sourceIntent.getAction() == Intent.ACTION_SEND) {
-            projectIntent = sourceIntent;
-            intent.putExtra("QGS_PROJECT", "trigger_load");
+            String scheme = sourceIntent.getScheme();
+            if (scheme.equals("qfield")) {
+                qfieldIntent = sourceIntent;
+                intent.putExtra("QF_ACTION", "trigger_load");
+            } else if (scheme.equals("https")) {
+                Uri uri = sourceIntent.getData();
+                String host = uri.getHost();
+                if (host.equals("qfield.org")) {
+                    qfieldIntent = sourceIntent;
+                    intent.putExtra("QF_ACTION", "trigger_load");
+                }
+            } else {
+                projectIntent = sourceIntent;
+                intent.putExtra("QGS_PROJECT", "trigger_load");
+            }
         }
 
         setIntent(intent);

@@ -156,6 +156,16 @@ void PlatformUtilities::loadQgsProject() const
   }
 }
 
+bool PlatformUtilities::hasQfAction() const
+{
+  return false;
+}
+
+void PlatformUtilities::executeQfAction() const
+{
+  return;
+}
+
 QStringList PlatformUtilities::appDataDirs() const
 {
   return QStringList() << QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField Documents/QField/" );
