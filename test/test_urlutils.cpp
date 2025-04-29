@@ -51,4 +51,15 @@ TEST_CASE( "UrlUtils" )
     // a URL string (e.g. http(s)) will be handled as such
     REQUIRE( UrlUtils::fromString( QStringLiteral( "https://www.opengis.ch/" ) ).toString() == QStringLiteral( "https://www.opengis.ch/" ) );
   }
+
+  SECTION( "urlDetail" )
+  {
+    const QString url( "https://sub.qfield.org/latest/project.zip?date=now&check=1" );
+
+    REQUIRE( UrlUtils::urlDetail( url, "scheme" ) == QStringLiteral( "https" ) );
+    REQUIRE( UrlUtils::urlDetail( url, "authority" ) == QStringLiteral( "sub.qfield.org" ) );
+    REQUIRE( UrlUtils::urlDetail( url, "path" ) == QStringLiteral( "/latest/project.zip" ) );
+    REQUIRE( UrlUtils::urlDetail( url, "filename" ) == QStringLiteral( "project.zip" ) );
+    REQUIRE( UrlUtils::urlDetail( url, "query" ) == QStringLiteral( "date=now&check=1" ) );
+  }
 }

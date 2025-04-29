@@ -1,9 +1,9 @@
 /***************************************************************************
-                        test_urlutils.h
+                        test_appinterface.h
                         --------------------
-  begin                : Jun 2020
-  copyright            : (C) 2020 by Ivan Ivanov
-  email                : ivan@opengis.ch
+  begin                : April 2025
+  copyright            : (C) 2025 by Mathieu Pellerin
+  email                : mathieu@opengis.ch
 ***************************************************************************/
 
 /***************************************************************************
