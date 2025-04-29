@@ -1750,7 +1750,7 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   project->mUserRole = details.value( "user_role" ).toString();
   project->mUserRoleOrigin = details.value( "user_role_origin" ).toString();
   project->mCheckout = RemoteCheckout;
-  project->mStatus = ProjectStatus::Idle;
+  project->mStatus = details.value( "status" ).toString() == "failed" ? ProjectStatus::Failing : ProjectStatus::Idle;
   project->mDataLastUpdatedAt = QDateTime::fromString( details.value( "data_last_updated_at" ).toString(), Qt::ISODate );
   project->mCanRepackage = details.value( "can_repackage" ).toBool();
   project->mNeedsRepackaging = details.value( "needs_repackaging" ).toBool();
@@ -1792,6 +1792,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   const QString owner = QFieldCloudUtils::projectSetting( id, QStringLiteral( "owner" ) ).toString();
   const QString name = QFieldCloudUtils::projectSetting( id, QStringLiteral( "name" ) ).toString();
   const QString description = QFieldCloudUtils::projectSetting( id, QStringLiteral( "description" ) ).toString();
+  const QString status = QFieldCloudUtils::projectSetting( id, QStringLiteral( "status" ) ).toString();
   const QString userRole = QFieldCloudUtils::projectSetting( id, QStringLiteral( "userRole" ) ).toString();
   const QString userRoleOrigin = QFieldCloudUtils::projectSetting( id, QStringLiteral( "userRoleOrigin" ) ).toString();
   const QString localizedDatasetsProjectId = QFieldCloudUtils::projectSetting( id, QStringLiteral( "localizedDatasetsProjectId" ) ).toString();
@@ -1804,7 +1805,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   project->mUserRole = userRole;
   project->mUserRoleOrigin = userRoleOrigin;
   project->mCheckout = LocalCheckout;
-  project->mStatus = ProjectStatus::Idle;
+  project->mStatus = status == "failed" ? ProjectStatus::Failing : ProjectStatus::Idle;
   project->mDataLastUpdatedAt = QDateTime();
   project->mCanRepackage = false;
   project->mNeedsRepackaging = false;

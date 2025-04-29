@@ -223,6 +223,7 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     Q_PROPERTY( ProjectsFilter filter READ filter WRITE setFilter NOTIFY filterChanged )
     Q_PROPERTY( bool showLocalOnly READ showLocalOnly WRITE setShowLocalOnly NOTIFY showLocalOnlyChanged )
     Q_PROPERTY( QString textFilter READ textFilter WRITE setTextFilter NOTIFY textFilterChanged )
+    Q_PROPERTY( bool showInValidProjects READ showInValidProjects WRITE setShowInValidProjects NOTIFY showInValidProjectsChanged )
 
   public:
     enum ProjectsFilter
@@ -276,12 +277,31 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
      */
     QString textFilter() const;
 
+    /**
+     * Sets whether to include projects that are considered invalid (i.e., failing status)
+     * in the filtered list of cloud projects.
+     *
+     * @param showInValidProjects If true, invalid (failing) projects will be shown;
+     * otherwise, they will be filtered out.
+     */
+    void setShowInValidProjects( const bool showInValidProjects );
+
+    /**
+     * Returns whether invalid (failing) projects are currently included
+     * in the filtered list of cloud projects.
+     *
+     * @return True if invalid projects are shown; false otherwise.
+     */
+    bool showInValidProjects() const;
+
+
   signals:
 
     void projectsModelChanged();
     void filterChanged();
     void showLocalOnlyChanged();
     void textFilterChanged();
+    void showInValidProjectsChanged();
 
   protected:
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
@@ -290,6 +310,7 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     QFieldCloudProjectsModel *mSourceModel = nullptr;
     ProjectsFilter mFilter = PrivateProjects;
     bool mShowLocalOnly = false;
+    bool mShowInValidProjects = false;
     QString mTextFilter;
 };
 

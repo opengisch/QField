@@ -69,6 +69,7 @@ class QFieldCloudProject : public QObject
       Idle,
       Downloading,
       Uploading,
+      Failing
     };
 
     Q_ENUM( ProjectStatus )
