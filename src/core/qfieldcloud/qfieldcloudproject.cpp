@@ -440,7 +440,24 @@ void QFieldCloudProject::downloadThumbnail()
 
     if ( rawReply->error() == QNetworkReply::NoError )
     {
-      QTemporaryFile file( QString( "%1/XXXXXX.%2" ).arg( QDir::tempPath(), QStringLiteral( "PNG" ) ) );
+      QString imageExtension( "PNG" );
+      const QString contentType = rawReply->header( QNetworkRequest::ContentTypeHeader ).toString();
+      if ( !contentType.isEmpty() )
+      {
+        if ( contentType.contains( QStringLiteral( "image/png" ) ) )
+        {
+          imageExtension = QStringLiteral( "PNG" );
+        }
+        else if ( contentType.contains( QStringLiteral( "image/jpg" ) ) || contentType.contains( QStringLiteral( "image/jpeg" ) ) )
+        {
+          imageExtension = QStringLiteral( "JPG" );
+        }
+        else if ( contentType.contains( QStringLiteral( "image/webp" ) ) )
+        {
+          imageExtension = QStringLiteral( "WEBP" );
+        }
+      }
+      QTemporaryFile file( QString( "%1/XXXXXX.%2" ).arg( QDir::tempPath(), imageExtension ) );
       file.setAutoRemove( false );
       file.open();
       file.write( rawReply->readAll() );
