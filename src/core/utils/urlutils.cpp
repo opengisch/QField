@@ -34,12 +34,38 @@ bool UrlUtils::isRelativeOrFileUrl( const QString &url )
   return QUrl( url ).isRelative();
 }
 
-QUrl UrlUtils::fromString( const QString &string )
+QUrl UrlUtils::fromString( const QString &url )
 {
-  if ( QFileInfo::exists( string ) )
+  if ( QFileInfo::exists( url ) )
   {
-    return QUrl::fromLocalFile( string );
+    return QUrl::fromLocalFile( url );
   }
 
-  return QUrl( string );
+  return QUrl( url );
+}
+
+QString UrlUtils::urlDetail( const QString &url, const QString &detail )
+{
+  QUrl urlInterface( url );
+  if ( detail.compare( QStringLiteral( "scheme" ), Qt::CaseInsensitive ) == 0 )
+  {
+    return urlInterface.scheme();
+  }
+  else if ( detail.compare( QStringLiteral( "authority" ), Qt::CaseInsensitive ) == 0 )
+  {
+    return urlInterface.authority();
+  }
+  else if ( detail.compare( QStringLiteral( "path" ), Qt::CaseInsensitive ) == 0 )
+  {
+    return urlInterface.path();
+  }
+  else if ( detail.compare( QStringLiteral( "filename" ), Qt::CaseInsensitive ) == 0 )
+  {
+    return urlInterface.fileName();
+  }
+  else if ( detail.compare( QStringLiteral( "query" ), Qt::CaseInsensitive ) == 0 )
+  {
+    return urlInterface.query();
+  }
+  return QString();
 }

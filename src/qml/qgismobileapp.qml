@@ -3610,7 +3610,8 @@ ApplicationWindow {
       const details = iface.getActionDetails(action);
       if (details.type === "local") {
         if (details.import !== undefined) {
-          iface.importUrl(details.import, true);
+          importPermissionDialog.url = details.import;
+          importPermissionDialog.open();
         }
       }
     }
@@ -4277,13 +4278,53 @@ ApplicationWindow {
   }
 
   QfDialog {
+    id: importPermissionDialog
+    parent: mainWindow.contentItem
+    z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
+
+    width: Math.min(mainWindow.width - Theme.popupScreenEdgeMargin * 2, 400)
+
+    property string url: ""
+    property string serverName: ""
+    property string fileName: ""
+
+    onAboutToShow: {
+      serverName = UrlUtils.urlDetail(url, "authority");
+      fileName = UrlUtils.urlDetail(url, "filename");
+      if (fileName === "") {
+        fileName = UrlUtils.urlDetail(url, "path");
+      }
+    }
+
+    title: qsTr("Import Confirmation")
+
+    Column {
+      width: parent.width
+
+      Label {
+        width: parent.width
+        wrapMode: Text.WordWrap
+        text: qsTr("Do you want to import <b>%1</b> from <b>%2</b> into QField?").arg(importPermissionDialog.fileName).arg(importPermissionDialog.serverName)
+      }
+    }
+
+    onAccepted: {
+      iface.importUrl(importPermissionDialog.url, true);
+    }
+
+    standardButtons: Dialog.Yes | Dialog.No
+  }
+
+  QfDialog {
     id: pluginPermissionDialog
     parent: mainWindow.contentItem
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
 
+    width: Math.min(mainWindow.width - Theme.popupScreenEdgeMargin * 2, 400)
+
     property alias permanent: permanentCheckBox.checked
 
-    title: ''
+    title: qsTr("Plugin Permission")
 
     Column {
       Label {
