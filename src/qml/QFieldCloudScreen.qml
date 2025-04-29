@@ -39,7 +39,7 @@ Page {
         parent.finished();
       }
     }
-    
+
     onOpenMenu: qfieldCloudScreenOption.open()
   }
 
