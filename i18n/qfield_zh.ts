@@ -3058,6 +3058,18 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Search for project</source>
         <translation>搜索工程</translation>
     </message>
+    <message>
+        <source>Sign out</source>
+        <translation>注销</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>登录</translation>
+    </message>
+    <message>
+        <source>Show invalid projects</source>
+        <translation>显示无效工程</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -3794,6 +3806,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
         <translation>如果勾选，将渲染可见地图画布范围之外的周边区域，以便平滑缩放和平移</translation>
+    </message>
+    <message>
+        <source>Automatically open form for single feature identification</source>
+        <translation>自动打开表单进行单个要素识别</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>启用后，如果只识别了一个要素，要素表单将自动打开，并跳过要素列表。</translation>
     </message>
 </context>
 <context>
@@ -5608,6 +5628,18 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Snapping tolerance set to %1</source>
         <translation>捕捉容差设置为%1</translation>
+    </message>
+    <message>
+        <source>Import Confirmation</source>
+        <translation>确认导入</translation>
+    </message>
+    <message>
+        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
+        <translation>您想将 &lt;b&gt;%1&lt;/b&gt; 从 &lt;b&gt;%2&lt;/b&gt; 导入QField吗？</translation>
+    </message>
+    <message>
+        <source>Plugin Permission</source>
+        <translation>插件权限</translation>
     </message>
 </context>
 <context>

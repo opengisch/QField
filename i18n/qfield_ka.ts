@@ -3048,6 +3048,18 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Search for project</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Sign out</source>
+        <translation>გასვლა</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>ანგარიშში შესვლა</translation>
+    </message>
+    <message>
+        <source>Show invalid projects</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -3783,6 +3795,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically open form for single feature identification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5597,6 +5617,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Snapping tolerance set to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import Confirmation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Plugin Permission</source>
         <translation type="unfinished"/>
     </message>
 </context>

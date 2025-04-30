@@ -3064,6 +3064,18 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>Search for project</source>
         <translation>Wyszukaj projekt</translation>
     </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Wyloguj się</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Zaloguj się</translation>
+    </message>
+    <message>
+        <source>Show invalid projects</source>
+        <translation>Pokaż nieprawidłowe projekty</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -3800,6 +3812,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
         <translation>Jeśli opcja ta jest włączona, obszary znajdujące się poza widocznym obszarem mapy będą częściowo renderowane, aby umożliwić podgląd podczas powiększania i przesuwania.</translation>
+    </message>
+    <message>
+        <source>Automatically open form for single feature identification</source>
+        <translation>Automatycznie otwórz formularz dla jednego zidentyfikowanego obiektu </translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>Po włączeniu tej opcji formularz obiektu otworzy się automatycznie, jeśli zidentyfikowany zostanie tylko jeden obiekt, z pominięciem listy obiektów.</translation>
     </message>
 </context>
 <context>
@@ -5614,6 +5634,18 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Snapping tolerance set to %1</source>
         <translation>Tolerancja przyciągania ustawiona na %1</translation>
+    </message>
+    <message>
+        <source>Import Confirmation</source>
+        <translation>Potwierdzenie importu</translation>
+    </message>
+    <message>
+        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
+        <translation>Czy chcesz zaimportować &lt;b&gt;%1&lt;/b&gt; z &lt;b&gt;%2&lt;/b&gt; do QField?</translation>
+    </message>
+    <message>
+        <source>Plugin Permission</source>
+        <translation>Zezwolenie na wtyczkę</translation>
     </message>
 </context>
 <context>
