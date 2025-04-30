@@ -108,6 +108,7 @@
 #include "qfieldcloudprojectsmodel.h"
 #include "qfieldcloudutils.h"
 #include "qfieldlocatorfilter.h"
+#include "qfieldurlhandler.h"
 #include "qgismobileapp.h"
 #include "qgsgeometrywrapper.h"
 #include "qgsproviderregistry.h"
@@ -136,6 +137,7 @@
 #include "webdavconnection.h"
 
 #include <QDateTime>
+#include <QDesktopServices>
 #include <QFileInfo>
 #include <QFontDatabase>
 #include <QPalette>
@@ -211,6 +213,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   palette.setColor( QPalette::Link, QColor( 128, 204, 40 ) );
   palette.setColor( QPalette::LinkVisited, QColor( 128, 204, 40 ) );
   app->setPalette( palette );
+
+  mUrlHandler.reset( new QFieldUrlHandler( mIface, this ) );
+  QDesktopServices::setUrlHandler( QStringLiteral( "qfield" ), mUrlHandler.get(), "handleUrl" );
 
   mMessageLogModel = new MessageLogModel( this );
 

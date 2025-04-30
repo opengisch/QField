@@ -124,5 +124,14 @@
         <string>URL</string>
     </array>
 
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>qfield</string>
+            </array>
+        </dict>
+    </array>
 </dict>
 </plist>
