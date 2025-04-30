@@ -45,8 +45,12 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     Q_PROPERTY( LayerObserver *layerObserver READ layerObserver WRITE setLayerObserver NOTIFY layerObserverChanged )
     //! The current geopackage flusher
     Q_PROPERTY( QgsGpkgFlusher *gpkgFlusher READ gpkgFlusher WRITE setGpkgFlusher NOTIFY gpkgFlusherChanged )
+
+    //! Returns TRUE whether the model is being refreshed
+    Q_PROPERTY( bool isRefreshing READ isRefreshing NOTIFY isRefreshingChanged )
     //! Currently busy project ids.
     Q_PROPERTY( QSet<QString> busyProjectIds READ busyProjectIds NOTIFY busyProjectIdsChanged )
+
     //! The current cloud project id of the currently opened project (empty string for non-cloud projects).
     Q_PROPERTY( QString currentProjectId READ currentProjectId WRITE setCurrentProjectId NOTIFY currentProjectIdChanged )
     //! The current cloud project. (null for non-cloud projects).
@@ -86,8 +90,10 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Attributes controlling fetching of projects
     enum class ProjectsRequestAttribute
     {
-      RefreshPublicProjects = QNetworkRequest::User + 1,
-      ProjectsFetchOffset = QNetworkRequest::User + 2
+      FetchPublicProjects = QNetworkRequest::User + 1,
+      ProjectsFetchOffset = QNetworkRequest::User + 2,
+      ResetModel = QNetworkRequest::User + 3,
+      ProjectId = QNetworkRequest::User + 4
     };
 
     Q_ENUM( ColumnRole )
@@ -105,6 +111,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     //! Sets the layer observer.
     void setLayerObserver( LayerObserver *layerObserver );
+
+    //! Returns TRUE whether the model is being refreshed
+    bool isRefreshing() const { return mIsRefreshing; }
 
     //! Returns the cloud project id of the currently opened project.
     QString currentProjectId() const;
@@ -124,8 +133,13 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Returns a set containing the currently busy project ids.
     QSet<QString> busyProjectIds() const;
 
-    //! Requests the cloud projects list from the server. If \a shouldRefreshPublic is false, it will refresh only user's project, otherwise will refresh the public projects only, starting from \a projectFetchOffset for pagination.
-    Q_INVOKABLE void refreshProjectsList( bool shouldRefreshPublic = false, int projectFetchOffset = 0 );
+    /**
+     * Requests the cloud projects list from the server.
+     * \param shouldResetModel set to TRUE to reset the model
+     * \param shouldFetchPublic set to TRUE to refresh public projects
+     * \param projectFetchOffset offset for pagination
+     */
+    Q_INVOKABLE void refreshProjectsList( bool shouldResetModel = true, bool shouldFetchPublic = false, int projectFetchOffset = 0 );
 
     //! Pushes all local deltas for given \a projectId. If \a shouldDownloadUpdates is true, also calls `downloadProject`.
     Q_INVOKABLE void projectUpload( const QString &projectId, const bool shouldDownloadUpdates );
@@ -169,17 +183,22 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Return the cloud project for a given \a projectId.
     Q_INVOKABLE QFieldCloudProject *findProject( const QString &projectId ) const;
 
+    //! Fetches a cloud project for a given \a projectId and appends it to the model.
+    Q_INVOKABLE void appendProject( const QString &projectId );
+
   signals:
     void cloudConnectionChanged();
     void layerObserverChanged();
+    void isRefreshingChanged();
     void currentProjectIdChanged();
     void currentProjectChanged();
     void busyProjectIdsChanged();
     void gpkgFlusherChanged();
     void warning( const QString &message );
 
-    void projectDownloaded( const QString &projectId, const QString &projectName, const bool hasError, const QString &errorString = QString() );
-    void pushFinished( const QString &projectId, bool isDownloadingProject, bool hasError, const QString &errorString = QString() );
+    void projectAppended( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
+    void projectDownloaded( const QString &projectId, const QString &projectName, const bool hasError = false, const QString &errorString = QString() );
+    void pushFinished( const QString &projectId, bool isDownloadingProject, bool hasError = false, const QString &errorString = QString() );
 
     void deltaListModelChanged();
 
@@ -187,16 +206,24 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void connectionStatusChanged();
     void usernameChanged();
     void projectListReceived();
+    void projectReceived();
 
     void layerObserverLayerEdited( const QString &layerId );
 
   private:
     void setupProjectConnections( QFieldCloudProject *project );
 
+    QModelIndex findProjectIndex( const QString &projectId ) const;
+
+    void loadProjects( const QJsonArray &remoteProjects = QJsonArray(), bool skipLocalProjects = false );
+    void insertProjects( const QList<QFieldCloudProject *> &projects );
+
     inline QString layerFileName( const QgsMapLayer *layer ) const;
 
     QList<QFieldCloudProject *> mProjects;
     QFieldCloudConnection *mCloudConnection = nullptr;
+
+    bool mIsRefreshing = false;
 
     QString mCurrentProjectId;
     QPointer<QFieldCloudProject> mCurrentProject;
@@ -205,11 +232,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QgsGpkgFlusher *mGpkgFlusher = nullptr;
     QString mUsername;
     const int mProjectsPerFetch = 250;
-
-    QModelIndex findProjectIndex( const QString &projectId ) const;
-
-    void loadProjects( const QJsonArray &remoteProjects = QJsonArray(), bool skipLocalProjects = false );
-    void insertProjects( const QList<QFieldCloudProject *> &projects );
 };
 
 /**

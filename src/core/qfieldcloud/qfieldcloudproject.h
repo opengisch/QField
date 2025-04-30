@@ -39,6 +39,14 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( QString name READ name NOTIFY nameChanged )
     Q_PROPERTY( QString owner READ owner NOTIFY ownerChanged )
     Q_PROPERTY( QString description READ description NOTIFY descriptionChanged )
+    Q_PROPERTY( QString localPath READ localPath NOTIFY localPathChanged )
+    Q_PROPERTY( QString thumbnailPath READ thumbnailPath NOTIFY thumbnailPathChanged )
+
+    Q_PROPERTY( QString userRole READ userRole NOTIFY userRoleChanged )
+    Q_PROPERTY( QString userRoleOrigin READ userRoleOrigin NOTIFY userRoleOriginChanged )
+
+    Q_PROPERTY( QDateTime createdAt READ createdAt NOTIFY createdAtChanged )
+    Q_PROPERTY( QDateTime updatedAt READ updatedAt NOTIFY updatedAtChanged )
 
     Q_PROPERTY( ProjectStatus status READ status NOTIFY statusChanged )
     Q_PROPERTY( PackagingStatus packagingStatus READ packagingStatus NOTIFY packagingStatusChanged )
@@ -200,6 +208,12 @@ class QFieldCloudProject : public QObject
     ProjectStatus status() const { return mStatus; }
     void setStatus( ProjectStatus status );
 
+    QDateTime createdAt() const { return mCreatedAt; }
+    void setCreatedAt( const QDateTime &createdAt );
+
+    QDateTime updatedAt() const { return mUpdatedAt; }
+    void setUpdatedAt( const QDateTime &updatedAt );
+
     QDateTime dataLastUpdatedAt() const { return mDataLastUpdatedAt; }
     void setDataLastUpdatedAt( const QDateTime &dataLastUpdatedAt );
 
@@ -280,6 +294,10 @@ class QFieldCloudProject : public QObject
     int deltasCount() const { return mDeltasCount; }
     DeltaListModel *deltaListModel() const { return mDeltaListModel; }
 
+    QString thumbnailPath() const { return mThumbnailPath; }
+    void setThumbnailPath( const QString &thumbnailPath );
+    Q_INVOKABLE void downloadThumbnail();
+
     void packageAndDownload();
     void cancelDownload();
 
@@ -313,6 +331,9 @@ class QFieldCloudProject : public QObject
     void errorStatusChanged();
     void checkoutChanged();
     void statusChanged();
+
+    void createdAtChanged();
+    void updatedAtChanged();
     void dataLastUpdatedAtChanged();
 
     void canRepackageChanged();
@@ -353,6 +374,8 @@ class QFieldCloudProject : public QObject
     void uploadDeltaProgressChanged();
 
     void deltaListModelChanged();
+
+    void thumbnailPathChanged();
 
     void downloadFinished( const QString &error = QString() );
     void downloaded( const QString &name, const QString &error = QString() );
@@ -433,9 +456,12 @@ class QFieldCloudProject : public QObject
     QString mDescription;
     QString mUserRole;
     QString mUserRoleOrigin;
+
     ProjectErrorStatus mErrorStatus = ProjectErrorStatus::NoErrorStatus;
     ProjectCheckouts mCheckout = ProjectCheckout::LocalCheckout;
     ProjectStatus mStatus = ProjectStatus::Idle;
+    QDateTime mCreatedAt;
+    QDateTime mUpdatedAt;
     QDateTime mDataLastUpdatedAt;
     bool mCanRepackage = false;
     bool mNeedsRepackaging = false;
@@ -466,6 +492,8 @@ class QFieldCloudProject : public QObject
 
     int mDeltasCount = 0;
     DeltaListModel *mDeltaListModel = nullptr;
+
+    QString mThumbnailPath;
 
     QString mLastExportedAt;
     QString mLastExportId;

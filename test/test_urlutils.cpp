@@ -62,4 +62,41 @@ TEST_CASE( "UrlUtils" )
     REQUIRE( UrlUtils::urlDetail( url, "filename" ) == QStringLiteral( "project.zip" ) );
     REQUIRE( UrlUtils::urlDetail( url, "query" ) == QStringLiteral( "date=now&check=1" ) );
   }
+
+  SECTION( "getActionDetails" )
+  {
+    QVariantMap details = UrlUtils::getActionDetails( "https://qfield.org/action/local?import=https://my.website.com/project.zip" );
+    REQUIRE( details["type"] == QStringLiteral( "local" ) );
+    REQUIRE( details["import"] == QStringLiteral( "https://my.website.com/project.zip" ) );
+
+    details = UrlUtils::getActionDetails( "https://qfield.org/action/local?import=https%3A%2F%2Fmy.website.com%2Fproject.zip" );
+    REQUIRE( details["type"] == QStringLiteral( "local" ) );
+    REQUIRE( details["import"] == QStringLiteral( "https://my.website.com/project.zip" ) );
+
+    details = UrlUtils::getActionDetails( "qfield://local?import=https://my.website.com/project.zip" );
+    REQUIRE( details["type"] == QStringLiteral( "local" ) );
+    REQUIRE( details["import"] == QStringLiteral( "https://my.website.com/project.zip" ) );
+
+    details = UrlUtils::getActionDetails( "qfield://local?import=https%3A%2F%2Fmy.website.com%2Fproject.zip" );
+    REQUIRE( details["type"] == QStringLiteral( "local" ) );
+    REQUIRE( details["import"] == QStringLiteral( "https://my.website.com/project.zip" ) );
+  }
+
+  SECTION( "createActionUrl" )
+  {
+    QVariantMap details;
+    details["project"] = QStringLiteral( "123-456-789" );
+
+    QString url = UrlUtils::createActionUrl( "qfield", "cloud", details );
+    REQUIRE( url == QStringLiteral( "qfield://cloud?project=123-456-789" ) );
+    url = UrlUtils::createActionUrl( "https", "cloud", details );
+    REQUIRE( url == QStringLiteral( "https://qfield.org/action/cloud?project=123-456-789" ) );
+
+    details.clear();
+    details["import"] = QStringLiteral( "https://my.website.com/folder/project.zip?param=1" );
+    url = UrlUtils::createActionUrl( "qfield", "local", details );
+    REQUIRE( url == QStringLiteral( "qfield://local?import=https://my.website.com/folder/project.zip?param%3D1" ) );
+    url = UrlUtils::createActionUrl( "https", "local", details );
+    REQUIRE( url == QStringLiteral( "https://qfield.org/action/local?import=https://my.website.com/folder/project.zip?param%3D1" ) );
+  }
 }

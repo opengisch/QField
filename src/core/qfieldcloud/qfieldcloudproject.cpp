@@ -155,6 +155,24 @@ void QFieldCloudProject::setLastRefreshedAt( const QDateTime &lastRefreshedAt )
   emit lastRefreshedAtChanged();
 }
 
+void QFieldCloudProject::setCreatedAt( const QDateTime &createdAt )
+{
+  if ( mCreatedAt == createdAt )
+    return;
+
+  mCreatedAt = createdAt;
+  emit createdAtChanged();
+}
+
+void QFieldCloudProject::setUpdatedAt( const QDateTime &updatedAt )
+{
+  if ( mUpdatedAt == updatedAt )
+    return;
+
+  mUpdatedAt = updatedAt;
+  emit updatedAtChanged();
+}
+
 void QFieldCloudProject::setDataLastUpdatedAt( const QDateTime &dataLastUpdatedAt )
 {
   if ( mDataLastUpdatedAt == dataLastUpdatedAt )
@@ -355,6 +373,15 @@ void QFieldCloudProject::setLastLocalDataLastUpdatedAt( const QDateTime &lastLoc
   emit lastLocalDataLastUpdatedAtChanged();
 }
 
+void QFieldCloudProject::setThumbnailPath( const QString &thumbnailPath )
+{
+  if ( mThumbnailPath == thumbnailPath )
+    return;
+
+  mThumbnailPath = thumbnailPath;
+  emit thumbnailPathChanged();
+}
+
 void QFieldCloudProject::refreshFileOutdatedStatus()
 {
   NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( mId ) );
@@ -390,6 +417,53 @@ void QFieldCloudProject::refreshFileOutdatedStatus()
         }
       }
     }
+  } );
+}
+
+void QFieldCloudProject::downloadThumbnail()
+{
+  QgsLogger::debug( QStringLiteral( "Project %1: thumbnail download initiated." ).arg( mId ) );
+
+  if ( !mCloudConnection )
+    return;
+
+  QNetworkRequest request;
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  mCloudConnection->setAuthenticationDetails( request );
+
+  NetworkReply *reply = mCloudConnection->get( request, QStringLiteral( "/api/v1/files/thumbnails/%1/" ).arg( mId ) );
+  connect( reply, &NetworkReply::finished, reply, [=]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+
+    Q_ASSERT( reply->isFinished() );
+    Q_ASSERT( rawReply );
+
+    if ( rawReply->error() == QNetworkReply::NoError )
+    {
+      QString imageExtension( "PNG" );
+      const QString contentType = rawReply->header( QNetworkRequest::ContentTypeHeader ).toString();
+      if ( !contentType.isEmpty() )
+      {
+        if ( contentType.contains( QStringLiteral( "image/png" ) ) )
+        {
+          imageExtension = QStringLiteral( "PNG" );
+        }
+        else if ( contentType.contains( QStringLiteral( "image/jpg" ) ) || contentType.contains( QStringLiteral( "image/jpeg" ) ) )
+        {
+          imageExtension = QStringLiteral( "JPG" );
+        }
+        else if ( contentType.contains( QStringLiteral( "image/webp" ) ) )
+        {
+          imageExtension = QStringLiteral( "WEBP" );
+        }
+      }
+      QTemporaryFile file( QString( "%1/XXXXXX.%2" ).arg( QDir::tempPath(), imageExtension ) );
+      file.setAutoRemove( false );
+      file.open();
+      file.write( rawReply->readAll() );
+      file.close();
+      setThumbnailPath( file.fileName() );
+    };
   } );
 }
 
@@ -939,7 +1013,7 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
     QNetworkReply *rawReply = reply->currentRawReply();
 
     Q_ASSERT( reply->isFinished() );
-    Q_ASSERT( reply );
+    Q_ASSERT( rawReply );
 
     // this is most probably the redirected request, nothing to do with this reply anymore, just ignore it
     if ( mDownloadFileTransfers[fileKey].networkReply != reply )
@@ -1655,6 +1729,8 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
     setDescription( projectData.value( "description" ).toString() );
     setUserRole( projectData.value( "user_role" ).toString() );
     setUserRoleOrigin( mUserRoleOrigin = projectData.value( "user_role_origin" ).toString() );
+    setCreatedAt( QDateTime::fromString( projectData.value( "created_at" ).toString(), Qt::ISODate ) );
+    setUpdatedAt( QDateTime::fromString( projectData.value( "updated_at" ).toString(), Qt::ISODate ) );
     setIsPrivate( projectData.value( "is_public" ).isUndefined() ? projectData.value( "private" ).toBool() : !projectData.value( "is_public" ).toBool( false ) );
     setCanRepackage( projectData.value( "can_repackage" ).toBool() );
     setNeedsRepackaging( projectData.value( "needs_repackaging" ).toBool() );
@@ -1667,6 +1743,8 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "description" ), mDescription );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "userRole" ), mUserRole );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "userRoleOrigin" ), mUserRoleOrigin );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "createdAt" ), mCreatedAt.toString( Qt::DateFormat::ISODate ) );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "updatedAt" ), mUpdatedAt.toString( Qt::DateFormat::ISODate ) );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "isPrivate" ), mIsPrivate );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "canRepackage" ), mCanRepackage );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "needsRepackaging" ), mNeedsRepackaging );
@@ -1733,8 +1811,9 @@ void QFieldCloudProject::removeLocally()
     dir.removeRecursively();
 
     setLocalPath( QString() );
-    setCheckout( RemoteCheckout );
     setModification( NoModification );
+    mCheckout = mCheckout & ~LocalCheckout;
+    emit checkoutChanged();
   }
 
   QSettings().remove( QStringLiteral( "QFieldCloud/projects/%1" ).arg( mId ) );
@@ -1751,6 +1830,8 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   project->mUserRoleOrigin = details.value( "user_role_origin" ).toString();
   project->mCheckout = RemoteCheckout;
   project->mStatus = details.value( "status" ).toString() == "failed" ? ProjectStatus::Failing : ProjectStatus::Idle;
+  project->mCreatedAt = QDateTime::fromString( details.value( "created_at" ).toString(), Qt::ISODate );
+  project->mUpdatedAt = QDateTime::fromString( details.value( "updated_at" ).toString(), Qt::ISODate );
   project->mDataLastUpdatedAt = QDateTime::fromString( details.value( "data_last_updated_at" ).toString(), Qt::ISODate );
   project->mCanRepackage = details.value( "can_repackage" ).toBool();
   project->mNeedsRepackaging = details.value( "needs_repackaging" ).toBool();
@@ -1761,6 +1842,8 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "description" ), project->description() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "userRole" ), project->userRole() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "userRoleOrigin" ), project->userRoleOrigin() );
+  QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "createdAt" ), project->createdAt().toString( Qt::DateFormat::ISODate ) );
+  QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "updatedAt" ), project->updatedAt().toString( Qt::DateFormat::ISODate ) );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "canRepackage" ), project->canRepackage() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "needsRepackaging" ), project->needsRepackaging() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "localizedDatasetsProjectId" ), project->localizedDatasetsProjectId() );
@@ -1795,6 +1878,8 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   const QString status = QFieldCloudUtils::projectSetting( id, QStringLiteral( "status" ) ).toString();
   const QString userRole = QFieldCloudUtils::projectSetting( id, QStringLiteral( "userRole" ) ).toString();
   const QString userRoleOrigin = QFieldCloudUtils::projectSetting( id, QStringLiteral( "userRoleOrigin" ) ).toString();
+  const QDateTime createdAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( "createdAt" ) ).toString(), Qt::DateFormat::ISODate );
+  const QDateTime updatedAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( "updatedAt" ) ).toString(), Qt::DateFormat::ISODate );
   const QString localizedDatasetsProjectId = QFieldCloudUtils::projectSetting( id, QStringLiteral( "localizedDatasetsProjectId" ) ).toString();
 
   QFieldCloudProject *project = new QFieldCloudProject( id, connection, gpkgFlusher );
@@ -1806,6 +1891,8 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   project->mUserRoleOrigin = userRoleOrigin;
   project->mCheckout = LocalCheckout;
   project->mStatus = status == "failed" ? ProjectStatus::Failing : ProjectStatus::Idle;
+  project->mCreatedAt = createdAt;
+  project->mUpdatedAt = updatedAt;
   project->mDataLastUpdatedAt = QDateTime();
   project->mCanRepackage = false;
   project->mNeedsRepackaging = false;

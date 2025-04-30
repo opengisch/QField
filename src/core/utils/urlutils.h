@@ -49,6 +49,20 @@ class QFIELD_CORE_EXPORT UrlUtils : public QObject
      * - "query", e.g. param=true&other_parem=0
      */
     static Q_INVOKABLE QString urlDetail( const QString &url, const QString &detail );
+
+    /**
+     * Returns QField action details extracted from a compatible \a url.
+     */
+    static Q_INVOKABLE QVariantMap getActionDetails( const QString &url );
+
+    /**
+     * Returns a QField action url string.
+     * \param scheme the action scheme, a qfield value will return a "qfield://" scheme an https value
+     * will return an "https://qfield.org" scheme and domain name
+     * \param type the action type (local or cloud)
+     * \param details the action details transformed into URL query parameters
+     */
+    static Q_INVOKABLE QString createActionUrl( const QString &scheme, const QString &type, const QVariantMap &details );
 };
 
 #endif // URLUTILS_H

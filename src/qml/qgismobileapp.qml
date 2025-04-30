@@ -3597,9 +3597,7 @@ ApplicationWindow {
   }
 
   function displayToast(message, type, action_text, action_function) {
-    //toastMessage.text = message
-    if (!welcomeScreen.visible)
-      toast.show(message, type, action_text, action_function);
+    toast.show(message, type, action_text, action_function);
   }
 
   Timer {
@@ -3614,11 +3612,16 @@ ApplicationWindow {
     target: iface
 
     function onExecuteAction(action) {
-      const details = iface.getActionDetails(action);
-      if (details.type === "local") {
-        if (details.import !== undefined) {
-          importPermissionDialog.url = details.import;
-          importPermissionDialog.open();
+      const details = UrlUtils.getActionDetails(action);
+      if (details.type === "local" && details.import !== undefined && details.import !== "") {
+        importPermissionDialog.url = details.import;
+        importPermissionDialog.open();
+      } else if (details.type === "cloud" && details.project !== undefined && details.project !== "") {
+        qfieldCloudScreen.requestedProjectDetails = details.project;
+        if (!qfieldCloudScreen.visible) {
+          qfieldCloudScreen.visible = true;
+        } else {
+          qfieldCloudScreen.prepareCloudScreen();
         }
       }
     }

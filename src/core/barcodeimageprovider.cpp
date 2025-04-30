@@ -32,7 +32,7 @@ QImage BarcodeImageProvider::requestImage( const QString &id, QSize *size, const
 {
   // the id is passed on as an encoded URL string which needs decoding
   const QUrlQuery urlQuery = QUrlQuery( QUrl( id.toUtf8() ) );
-  const QString text = urlQuery.queryItemValue( QStringLiteral( "text" ) );
+  const QString text = urlQuery.queryItemValue( QStringLiteral( "text" ), QUrl::FullyDecoded );
   const QColor foregroundColor = QColor( urlQuery.queryItemValue( QStringLiteral( "color" ) ) );
 
   if ( text.isEmpty() )
