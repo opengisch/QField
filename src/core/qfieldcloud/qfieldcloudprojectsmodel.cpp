@@ -237,6 +237,7 @@ void QFieldCloudProjectsModel::appendProject( const QString &projectId )
   QNetworkRequest request( url );
   request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  request.setAttribute( static_cast<QNetworkRequest::Attribute>( QFieldCloudProjectsModel::ProjectsRequestAttribute::ProjectId ), projectId );
   mCloudConnection->setAuthenticationDetails( request );
 
   NetworkReply *reply = mCloudConnection->get( request, url );
@@ -387,9 +388,10 @@ void QFieldCloudProjectsModel::projectReceived()
 
   Q_ASSERT( rawReply );
 
+  const QString projectId = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectId ) ).toString();
   if ( rawReply->error() != QNetworkReply::NoError )
   {
-    emit warning( QFieldCloudConnection::errorString( rawReply ) );
+    emit projectAppended( projectId, true, QFieldCloudConnection::errorString( rawReply ) );
     return;
   }
 

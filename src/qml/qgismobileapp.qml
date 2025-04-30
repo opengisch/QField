@@ -3597,9 +3597,7 @@ ApplicationWindow {
   }
 
   function displayToast(message, type, action_text, action_function) {
-    //toastMessage.text = message
-    if (!welcomeScreen.visible)
-      toast.show(message, type, action_text, action_function);
+    toast.show(message, type, action_text, action_function);
   }
 
   Timer {
@@ -3623,7 +3621,7 @@ ApplicationWindow {
         if (!qfieldCloudScreen.visible) {
           qfieldCloudScreen.visible = true;
         } else {
-          qfieldCloudScreen.prepareCloudLogin();
+          qfieldCloudScreen.prepareCloudScreen();
         }
       }
     }

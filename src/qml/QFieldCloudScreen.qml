@@ -849,7 +849,7 @@ Page {
         if (cloudConnection.status == QFieldCloudConnection.LoggedIn) {
           cloudConnection.logout();
         } else {
-          prepareCloudLogin();
+          prepareCloudScreen();
         }
       }
     }
@@ -977,7 +977,7 @@ Page {
       if (results.type !== undefined && results.type === "cloud" && results.project !== undefined && results.project !== "") {
         codeReader.close();
         let cloudProject = cloudProjectsModel.findProject(requestedProjectDetails);
-        if (cloudProject !== undefined) {
+        if (cloudProject) {
           projectDetails.cloudProject = cloudProjectsModel.findProject(projectId);
           projectsSwipeView.currentIndex = 1;
         } else {
@@ -996,7 +996,7 @@ Page {
 
     function onStatusChanged() {
       if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-        prepareCloudLogin();
+        prepareCloudScreen();
       } else if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
         if (table.count === 0) {
           projectsSwipeView.visible = false;
@@ -1009,10 +1009,14 @@ Page {
   Connections {
     target: cloudProjectsModel
 
-    function onProjectAppended(projectId) {
+    function onProjectAppended(projectId, hasError, errorString) {
       requestedProjectDetails = "";
-      projectDetails.cloudProject = cloudProjectsModel.findProject(projectId);
-      projectsSwipeView.currentIndex = 1;
+      if (hasError) {
+        displayToast(qsTr("QFieldCloud project details fetching failed"));
+      } else {
+        projectDetails.cloudProject = cloudProjectsModel.findProject(projectId);
+        projectsSwipeView.currentIndex = 1;
+      }
     }
   }
 
@@ -1024,7 +1028,7 @@ Page {
     displayToast(qsTr("Refreshing projects list"));
   }
 
-  function prepareCloudLogin() {
+  function prepareCloudScreen() {
     if (visible) {
       if (cloudConnection.status == QFieldCloudConnection.Disconnected) {
         if (cloudConnection.hasToken || cloudConnection.hasProviderConfiguration) {
@@ -1048,7 +1052,7 @@ Page {
         connectionSettings.visible = false;
         if (requestedProjectDetails != "") {
           let cloudProject = cloudProjectsModel.findProject(requestedProjectDetails);
-          if (cloudProject !== undefined) {
+          if (cloudProject) {
             requestedProjectDetails = "";
             projectDetails.cloudProject = cloudProject;
             projectsSwipeView.currentIndex = 1;
@@ -1061,11 +1065,11 @@ Page {
   }
 
   Component.onCompleted: {
-    prepareCloudLogin();
+    prepareCloudScreen();
   }
 
   onVisibleChanged: {
-    prepareCloudLogin();
+    prepareCloudScreen();
   }
 
   Keys.onReleased: event => {

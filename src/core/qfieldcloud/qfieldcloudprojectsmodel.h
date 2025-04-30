@@ -92,7 +92,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     {
       FetchPublicProjects = QNetworkRequest::User + 1,
       ProjectsFetchOffset = QNetworkRequest::User + 2,
-      ResetModel = QNetworkRequest::User + 3
+      ResetModel = QNetworkRequest::User + 3,
+      ProjectId = QNetworkRequest::User + 4
     };
 
     Q_ENUM( ColumnRole )
@@ -195,9 +196,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void gpkgFlusherChanged();
     void warning( const QString &message );
 
-    void projectAppended( const QString &projectId );
-    void projectDownloaded( const QString &projectId, const QString &projectName, const bool hasError, const QString &errorString = QString() );
-    void pushFinished( const QString &projectId, bool isDownloadingProject, bool hasError, const QString &errorString = QString() );
+    void projectAppended( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
+    void projectDownloaded( const QString &projectId, const QString &projectName, const bool hasError = false, const QString &errorString = QString() );
+    void pushFinished( const QString &projectId, bool isDownloadingProject, bool hasError = false, const QString &errorString = QString() );
 
     void deltaListModelChanged();
 
