@@ -81,12 +81,13 @@ QVariantMap UrlUtils::getActionDetails( const QString &url )
   QUrl actionUrl( url );
   if ( actionUrl.scheme().toLower() == QStringLiteral( "qfield" ) )
   {
-    // deal with qfield:// URLs
+    // deal with qfield://<type>?parameters URLs
     details["type"] = actionUrl.authority();
   }
   else if ( actionUrl.authority() == QStringLiteral( "qfield.org" ) && actionUrl.path().startsWith( "/action/" ) )
   {
-    // deal with https://qfield.org/action/ URLs
+    // deal with https://qfield.org/action/<type>?parameters URLs
+    // the type matches everything that follows the beginning of the path (i.e./action/)
     details["type"] = actionUrl.path().mid( 8 );
   }
   else

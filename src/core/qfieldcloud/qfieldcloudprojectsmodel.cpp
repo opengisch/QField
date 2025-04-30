@@ -529,7 +529,7 @@ void QFieldCloudProjectsModel::insertProjects( const QList<QFieldCloudProject *>
           mProjects[i]->setDescription( project->description() );
           mProjects[i]->setUserRole( project->userRole() );
           mProjects[i]->setUserRoleOrigin( project->userRoleOrigin() );
-          mProjects[i]->setCreatedAt( project->updatedAt() );
+          mProjects[i]->setCreatedAt( project->createdAt() );
           mProjects[i]->setUpdatedAt( project->updatedAt() );
           mProjects[i]->setCanRepackage( project->canRepackage() );
           mProjects[i]->setNeedsRepackaging( project->needsRepackaging() );

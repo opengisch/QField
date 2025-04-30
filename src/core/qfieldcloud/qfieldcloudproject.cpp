@@ -436,7 +436,7 @@ void QFieldCloudProject::downloadThumbnail()
     QNetworkReply *rawReply = reply->currentRawReply();
 
     Q_ASSERT( reply->isFinished() );
-    Q_ASSERT( reply );
+    Q_ASSERT( rawReply );
 
     if ( rawReply->error() == QNetworkReply::NoError )
     {
@@ -1013,7 +1013,7 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
     QNetworkReply *rawReply = reply->currentRawReply();
 
     Q_ASSERT( reply->isFinished() );
-    Q_ASSERT( reply );
+    Q_ASSERT( rawReply );
 
     // this is most probably the redirected request, nothing to do with this reply anymore, just ignore it
     if ( mDownloadFileTransfers[fileKey].networkReply != reply )
