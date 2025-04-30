@@ -19,6 +19,7 @@
 
 #include <QFileInfo>
 #include <QUrl>
+#include <QUrlQuery>
 
 UrlUtils::UrlUtils( QObject *parent )
   : QObject( parent )
@@ -68,4 +69,64 @@ QString UrlUtils::urlDetail( const QString &url, const QString &detail )
     return urlInterface.query();
   }
   return QString();
+}
+
+
+QVariantMap UrlUtils::getActionDetails( const QString &url )
+{
+  QVariantMap details;
+  if ( url.trimmed().isEmpty() )
+    return details;
+
+  QUrl actionUrl( url );
+  if ( actionUrl.scheme().toLower() == QStringLiteral( "qfield" ) )
+  {
+    // deal with qfield:// URLs
+    details["type"] = actionUrl.authority();
+  }
+  else if ( actionUrl.authority() == QStringLiteral( "qfield.org" ) && actionUrl.path().startsWith( "/action/" ) )
+  {
+    // deal with https://qfield.org/action/ URLs
+    details["type"] = actionUrl.path().mid( 8 );
+  }
+  else
+  {
+    return details;
+  }
+
+  if ( !actionUrl.query().isEmpty() )
+  {
+    const QList<std::pair<QString, QString>> queryItems = QUrlQuery( actionUrl ).queryItems( QUrl::FullyDecoded );
+    for ( const std::pair<QString, QString> &queryItem : queryItems )
+    {
+      details[queryItem.first] = queryItem.second;
+    }
+  }
+
+  return details;
+}
+
+QString UrlUtils::createActionUrl( const QString &scheme, const QString &type, const QVariantMap &details )
+{
+  QUrl url;
+  if ( scheme == QStringLiteral( "qfield" ) )
+  {
+    url.setScheme( scheme );
+    url.setAuthority( type );
+  }
+  else if ( scheme == QStringLiteral( "https" ) )
+  {
+    url.setScheme( scheme );
+    url.setAuthority( QStringLiteral( "qfield.org" ) );
+    url.setPath( QStringLiteral( "/action/%1" ).arg( type ) );
+  }
+
+  QUrlQuery query;
+  for ( const QString &key : details.keys() )
+  {
+    query.addQueryItem( key, details.value( key ).toString() );
+  }
+  url.setQuery( query );
+
+  return url.toString();
 }

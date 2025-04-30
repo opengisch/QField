@@ -63,8 +63,6 @@ class AppInterface : public QObject
 
     Q_INVOKABLE QVariantMap availableLanguages() const;
 
-    Q_INVOKABLE QVariantMap getActionDetails( const QString &action ) const;
-
     Q_INVOKABLE bool isFileExtensionSupported( const QString &filename ) const;
 
     /**

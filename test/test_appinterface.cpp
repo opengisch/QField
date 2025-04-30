@@ -22,23 +22,4 @@
 TEST_CASE( "AppInterface" )
 {
   AppInterface iface( nullptr );
-
-  SECTION( "getActionDetails" )
-  {
-    QVariantMap details = iface.getActionDetails( "https://qfield.org/action/local?import=https://my.website.com/project.zip" );
-    REQUIRE( details["type"] == QStringLiteral( "local" ) );
-    REQUIRE( details["import"] == QStringLiteral( "https://my.website.com/project.zip" ) );
-
-    details = iface.getActionDetails( "https://qfield.org/action/local?import=https%3A%2F%2Fmy.website.com%2Fproject.zip" );
-    REQUIRE( details["type"] == QStringLiteral( "local" ) );
-    REQUIRE( details["import"] == QStringLiteral( "https://my.website.com/project.zip" ) );
-
-    details = iface.getActionDetails( "qfield://local?import=https://my.website.com/project.zip" );
-    REQUIRE( details["type"] == QStringLiteral( "local" ) );
-    REQUIRE( details["import"] == QStringLiteral( "https://my.website.com/project.zip" ) );
-
-    details = iface.getActionDetails( "qfield://local?import=https%3A%2F%2Fmy.website.com%2Fproject.zip" );
-    REQUIRE( details["type"] == QStringLiteral( "local" ) );
-    REQUIRE( details["import"] == QStringLiteral( "https://my.website.com/project.zip" ) );
-  }
 }

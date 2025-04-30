@@ -763,7 +763,9 @@ Page {
 
                     sourceSize.width: projectDetailsCodeContainer.desiredWidth * Screen.devicePixelRatio
                     sourceSize.height: projectDetailsCodeContainer.desiredWidth * Screen.devicePixelRatio
-                    source: projectDetails.cloudProject != undefined ? "image://barcode/?text=qfieldcloud?project=" + projectDetails.cloudProject.id + "&color=%2380cc28" : ""
+                    source: projectDetails.cloudProject != undefined ? "image://barcode/?text=" + encodeURIComponent(UrlUtils.createActionUrl("qfield", "cloud", {
+                          "project": projectDetails.cloudProject.id
+                        })) + "&color=%2380cc28" : ""
                   }
                 }
 
@@ -968,10 +970,12 @@ Page {
     enabled: false
 
     function onDecoded(string) {
-      const results = string.match(/qfieldcloud\?project\=([^&]+)/);
-      if (results) {
+      const results = UrlUtils.getActionDetails(string);
+      console.log(string);
+      console.log(results.type);
+      if (results.type !== undefined && results.type === "cloud" && results.project !== undefined && results.project !== "") {
         codeReader.close();
-        cloudProjectsModel.appendProject(results[1]);
+        cloudProjectsModel.appendProject(results.project);
       }
     }
 

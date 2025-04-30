@@ -3614,7 +3614,7 @@ ApplicationWindow {
     target: iface
 
     function onExecuteAction(action) {
-      const details = iface.getActionDetails(action);
+      const details = UrlUtils.getActionDetails(action);
       if (details.type === "local") {
         if (details.import !== undefined) {
           importPermissionDialog.url = details.import;

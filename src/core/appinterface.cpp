@@ -28,7 +28,6 @@
 #include <QImageReader>
 #include <QQuickItem>
 #include <QTemporaryFile>
-#include <QUrlQuery>
 #include <qgsapplication.h>
 #include <qgsauthmanager.h>
 #include <qgsmessagelog.h>
@@ -221,40 +220,6 @@ QVariantMap AppInterface::availableLanguages() const
     }
   }
   return languages;
-}
-
-QVariantMap AppInterface::getActionDetails( const QString &action ) const
-{
-  QVariantMap details;
-  if ( action.trimmed().isEmpty() )
-    return details;
-
-  QUrl actionUrl( action );
-  if ( actionUrl.scheme().toLower() == QStringLiteral( "qfield" ) )
-  {
-    // deal with qfield:// URLs
-    details["type"] = actionUrl.authority();
-  }
-  else if ( actionUrl.authority() == QStringLiteral( "qfield.org" ) && actionUrl.path().startsWith( "/action/" ) )
-  {
-    // deal with https://qfield.org/action/ URLs
-    details["type"] = actionUrl.path().mid( 8 );
-  }
-  else
-  {
-    return details;
-  }
-
-  if ( !actionUrl.query().isEmpty() )
-  {
-    const QList<std::pair<QString, QString>> queryItems = QUrlQuery( actionUrl ).queryItems( QUrl::FullyDecoded );
-    for ( const std::pair<QString, QString> &queryItem : queryItems )
-    {
-      details[queryItem.first] = queryItem.second;
-    }
-  }
-
-  return details;
 }
 
 bool AppInterface::isFileExtensionSupported( const QString &filename ) const
