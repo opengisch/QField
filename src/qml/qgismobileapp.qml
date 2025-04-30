@@ -3615,10 +3615,15 @@ ApplicationWindow {
 
     function onExecuteAction(action) {
       const details = UrlUtils.getActionDetails(action);
-      if (details.type === "local") {
-        if (details.import !== undefined) {
-          importPermissionDialog.url = details.import;
-          importPermissionDialog.open();
+      if (details.type === "local" && details.import !== undefined && details.import !== "") {
+        importPermissionDialog.url = details.import;
+        importPermissionDialog.open();
+      } else if (details.type === "cloud" && details.project !== undefined && details.project !== "") {
+        qfieldCloudScreen.requestedProjectDetails = details.project;
+        if (!qfieldCloudScreen.visible) {
+          qfieldCloudScreen.visible = true;
+        } else {
+          qfieldCloudScreen.prepareCloudLogin();
         }
       }
     }

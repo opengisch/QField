@@ -150,13 +150,13 @@ QSet<QString> QFieldCloudProjectsModel::busyProjectIds() const
   return result;
 }
 
-void QFieldCloudProjectsModel::refreshProjectsList( bool shouldRefreshPublic, int projectFetchOffset )
+void QFieldCloudProjectsModel::refreshProjectsList( bool shouldResetModel, bool shouldFetchPublic, int projectFetchOffset )
 {
   switch ( mCloudConnection->status() )
   {
     case QFieldCloudConnection::ConnectionStatus::LoggedIn:
     {
-      QString url = shouldRefreshPublic ? QStringLiteral( "/api/v1/projects/public/" ) : QStringLiteral( "/api/v1/projects/" );
+      QString url = shouldFetchPublic ? QStringLiteral( "/api/v1/projects/public/" ) : QStringLiteral( "/api/v1/projects/" );
 
       QVariantMap params;
       params["limit"] = QString::number( mProjectsPerFetch );
@@ -166,7 +166,8 @@ void QFieldCloudProjectsModel::refreshProjectsList( bool shouldRefreshPublic, in
       request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
       request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
 
-      request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::RefreshPublicProjects ), shouldRefreshPublic );
+      request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ResetModel ), shouldResetModel );
+      request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::FetchPublicProjects ), shouldFetchPublic );
       request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsFetchOffset ), projectFetchOffset );
 
       mIsRefreshing = true;
@@ -359,7 +360,7 @@ void QFieldCloudProjectsModel::refreshProjectDeltaList( const QString &projectId
 
 void QFieldCloudProjectsModel::connectionStatusChanged()
 {
-  refreshProjectsList();
+  refreshProjectsList( false );
 }
 
 void QFieldCloudProjectsModel::usernameChanged()
@@ -420,9 +421,10 @@ void QFieldCloudProjectsModel::projectListReceived()
     return;
   }
 
-  const bool isPublic = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::RefreshPublicProjects ) ).toBool();
+  const bool resetModel = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ResetModel ) ).toBool();
+  const bool fetchPublic = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::FetchPublicProjects ) ).toBool();
   const int projectFetchOffset = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsFetchOffset ) ).toInt();
-  if ( projectFetchOffset == 0 )
+  if ( resetModel && projectFetchOffset == 0 )
   {
     beginResetModel();
     qDeleteAll( mProjects );
@@ -440,7 +442,7 @@ void QFieldCloudProjectsModel::projectListReceived()
   loadProjects( projects, projectFetchOffset > 0 );
   if ( projects.size() > 0 )
   {
-    refreshProjectsList( isPublic, projectFetchOffset + mProjectsPerFetch );
+    refreshProjectsList( resetModel, fetchPublic, projectFetchOffset + mProjectsPerFetch );
   }
   else
   {
@@ -519,9 +521,21 @@ void QFieldCloudProjectsModel::insertProjects( const QList<QFieldCloudProject *>
       {
         if ( mProjects[i]->checkout() == QFieldCloudProject::LocalCheckout && project->checkout() != QFieldCloudProject::LocalCheckout )
         {
-          delete mProjects[i];
-          mProjects[i] = project;
+          mProjects[i]->setCheckout( QFieldCloudProject::LocalAndRemoteCheckout );
+          mProjects[i]->setOwner( project->owner() );
+          mProjects[i]->setName( project->name() );
+          mProjects[i]->setDescription( project->description() );
+          mProjects[i]->setUserRole( project->userRole() );
+          mProjects[i]->setUserRoleOrigin( project->userRoleOrigin() );
+          mProjects[i]->setCreatedAt( project->updatedAt() );
+          mProjects[i]->setUpdatedAt( project->updatedAt() );
+          mProjects[i]->setCanRepackage( project->canRepackage() );
+          mProjects[i]->setNeedsRepackaging( project->needsRepackaging() );
+          mProjects[i]->setLocalizedDatasetsProjectId( project->localizedDatasetsProjectId() );
+          mProjects[i]->setDataLastUpdatedAt( project->dataLastUpdatedAt() );
           emit dataChanged( index( i, 0 ), index( i, 0 ) );
+
+          delete project;
         }
         found = true;
         break;

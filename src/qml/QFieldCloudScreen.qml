@@ -14,6 +14,7 @@ Page {
   signal finished
 
   property LayerObserver layerObserver
+  property string requestedProjectDetails: ""
 
   header: QfPageHeader {
     title: qsTr("QFieldCloud Projects")
@@ -225,7 +226,7 @@ Page {
               textFilter: searchBar.searchTerm
               onFilterChanged: {
                 if (cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
-                  refreshProjectsList(filter === QFieldCloudProjectsFilterModel.PublicProjects);
+                  refreshProjectsList(false, filter === QFieldCloudProjectsFilterModel.PublicProjects);
                 }
               }
             }
@@ -260,7 +261,7 @@ Page {
 
             onMovingChanged: {
               if (!moving && overshootRefresh && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
-                refreshProjectsList(filterBar.currentIndex !== 0);
+                refreshProjectsList(false, filterBar.currentIndex !== 0);
               }
               overshootRefresh = false;
             }
@@ -540,7 +541,7 @@ Page {
             text: qsTr("Refresh projects list")
             enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
             onClicked: {
-              refreshProjectsList(filterBar.currentIndex !== 0);
+              refreshProjectsList(true, filterBar.currentIndex !== 0);
             }
           }
 
@@ -570,6 +571,8 @@ Page {
         onCloudProjectChanged: {
           if (cloudProject != undefined) {
             cloudProject.downloadThumbnail();
+          } else {
+            projectsSwipeView.currentIndex = 0;
           }
         }
 
@@ -971,11 +974,15 @@ Page {
 
     function onDecoded(string) {
       const results = UrlUtils.getActionDetails(string);
-      console.log(string);
-      console.log(results.type);
       if (results.type !== undefined && results.type === "cloud" && results.project !== undefined && results.project !== "") {
         codeReader.close();
-        cloudProjectsModel.appendProject(results.project);
+        let cloudProject = cloudProjectsModel.findProject(requestedProjectDetails);
+        if (cloudProject !== undefined) {
+          projectDetails.cloudProject = cloudProjectsModel.findProject(projectId);
+          projectsSwipeView.currentIndex = 1;
+        } else {
+          cloudProjectsModel.appendProject(results.project);
+        }
       }
     }
 
@@ -1003,16 +1010,17 @@ Page {
     target: cloudProjectsModel
 
     function onProjectAppended(projectId) {
+      requestedProjectDetails = "";
       projectDetails.cloudProject = cloudProjectsModel.findProject(projectId);
       projectsSwipeView.currentIndex = 1;
     }
   }
 
-  function refreshProjectsList(shouldRefreshPublic) {
+  function refreshProjectsList(shouldResetModel, shouldFetchPublic) {
     if (cloudConnection.state !== QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
       return;
     }
-    cloudProjectsModel.refreshProjectsList(shouldRefreshPublic);
+    cloudProjectsModel.refreshProjectsList(shouldResetModel, shouldFetchPublic);
     displayToast(qsTr("Refreshing projects list"));
   }
 
@@ -1021,8 +1029,15 @@ Page {
       if (cloudConnection.status == QFieldCloudConnection.Disconnected) {
         if (cloudConnection.hasToken || cloudConnection.hasProviderConfiguration) {
           cloudConnection.login();
-          projectsSwipeView.visible = true;
-          connectionSettings.visible = false;
+          if (requestedProjectDetails != "") {
+            // Project details requested, jump on the login screen then project details
+            projectsSwipeView.visible = false;
+            connectionSettings.visible = true;
+          } else {
+            // Show projects list while we are logging in
+            projectsSwipeView.visible = true;
+            connectionSettings.visible = false;
+          }
         } else {
           projectsSwipeView.visible = false;
           connectionSettings.visible = true;
@@ -1031,6 +1046,16 @@ Page {
       } else {
         projectsSwipeView.visible = true;
         connectionSettings.visible = false;
+        if (requestedProjectDetails != "") {
+          let cloudProject = cloudProjectsModel.findProject(requestedProjectDetails);
+          if (cloudProject !== undefined) {
+            requestedProjectDetails = "";
+            projectDetails.cloudProject = cloudProject;
+            projectsSwipeView.currentIndex = 1;
+          } else {
+            cloudProjectsModel.appendProject(requestedProjectDetails);
+          }
+        }
       }
     }
   }

@@ -90,8 +90,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Attributes controlling fetching of projects
     enum class ProjectsRequestAttribute
     {
-      RefreshPublicProjects = QNetworkRequest::User + 1,
-      ProjectsFetchOffset = QNetworkRequest::User + 2
+      FetchPublicProjects = QNetworkRequest::User + 1,
+      ProjectsFetchOffset = QNetworkRequest::User + 2,
+      ResetModel = QNetworkRequest::User + 3
     };
 
     Q_ENUM( ColumnRole )
@@ -131,8 +132,13 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Returns a set containing the currently busy project ids.
     QSet<QString> busyProjectIds() const;
 
-    //! Requests the cloud projects list from the server. If \a shouldRefreshPublic is false, it will refresh only user's project, otherwise will refresh the public projects only, starting from \a projectFetchOffset for pagination.
-    Q_INVOKABLE void refreshProjectsList( bool shouldRefreshPublic = false, int projectFetchOffset = 0 );
+    /**
+     * Requests the cloud projects list from the server.
+     * \param shouldResetModel set to TRUE to reset the model
+     * \param shouldFetchPublic set to TRUE to refresh public projects
+     * \param projectFetchOffset offset for pagination
+     */
+    Q_INVOKABLE void refreshProjectsList( bool shouldResetModel = true, bool shouldFetchPublic = false, int projectFetchOffset = 0 );
 
     //! Pushes all local deltas for given \a projectId. If \a shouldDownloadUpdates is true, also calls `downloadProject`.
     Q_INVOKABLE void projectUpload( const QString &projectId, const bool shouldDownloadUpdates );
