@@ -164,20 +164,28 @@ EditorWidgetBase {
   }
 
   function getResourceFilePath() {
-    var evaluatedFilepath = expressionEvaluator.evaluate();
-    var filepath = evaluatedFilepath;
-    if (FileUtils.fileSuffix(evaluatedFilepath) === '') {
-      // we need an extension for media types (image, audio, video), fallback to hardcoded values
+    const evaluatedFilepath = expressionEvaluator.evaluate();
+    let filepath = FileUtils.sanitizeFilePath(evaluatedFilepath);
+
+    // assume that lack of file suffix means problem with the filepath evaluation, so last resort to fallback filepaths.
+    // the fallback filepaths are assumed to be always correct and are not passed through `FileUtils.sanitizeFilePath`.
+    if (FileUtils.fileSuffix(filepath) === '') {
+      // the `nosStr` stores the current datetime as single numeric string, e.g. 20250101234589
+      const nowStr = (new Date()).toISOString().replace(/[^0-9]/g, '');
+
+      // we need an extension for media types (image, audio, video), fallback to hardcoded values, the `{extension} and `{filename} are placeholders that should be replaced by the caller. See `StringUtils::replaceFilenameTags()`.
       if (documentViewer == document_IMAGE) {
-        filepath = 'DCIM/JPEG_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.{extension}';
+        filepath = `DCIM/JPEG_${nowStr}.{extension}`;
       } else if (documentViewer == document_AUDIO) {
-        filepath = 'audio/AUDIO_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.{extension}';
+        filepath = `audio/AUDIO_${nowStr}.{extension}`;
       } else if (documentViewer == document_VIDEO) {
-        filepath = 'video/VIDEO_' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '.{extension}';
+        filepath = `video/VIDEO_${nowStr}.{extension}`;
       } else {
-        filepath = 'files/' + (new Date()).toISOString().replace(/[^0-9]/g, '') + '_{filename}';
+        filepath = `files/${nowStr}_{filename}`;
       }
     }
+
+    // while `FileUtils.sanitizeFilePath` should have fixed the slashes, we redo it just in case the fallback filepaths are wrong. Note that `QFile` always expects UNIX style slashes.
     filepath = filepath.replace('\\', '/');
     return filepath;
   }
@@ -380,9 +388,7 @@ EditorWidgetBase {
       enabled: false
 
       function onFinished(path) {
-        var filepath = getResourceFilePath();
-        filepath = filepath.replace('{filename}', FileUtils.fileName(path));
-        filepath = filepath.replace('{extension}', FileUtils.fileSuffix(path));
+        const filepath = StringUtils.replaceFilenameTags(getResourceFilePath(), path);
         platformUtilities.renameFile(path, prefixToRelativePath + filepath);
 
         // In order to insure an edited image gets refreshed in the feature form, reset the source
@@ -573,10 +579,8 @@ EditorWidgetBase {
         open();
       }
 
-      onFinished: {
-        var filepath = getResourceFilePath();
-        filepath = filepath.replace('{filename}', FileUtils.fileName(path));
-        filepath = filepath.replace('{extension}', FileUtils.fileSuffix(path));
+      onFinished: path => {
+        const filepath = StringUtils.replaceFilenameTags(getResourceFilePath(), path);
         platformUtilities.renameFile(path, prefixToRelativePath + filepath);
         valueChangeRequested(filepath, false);
         close();
@@ -610,12 +614,10 @@ EditorWidgetBase {
       }
 
       onFinished: path => {
-        var filepath = getResourceFilePath();
-        filepath = filepath.replace('{filename}', FileUtils.fileName(path));
-        filepath = filepath.replace('{extension}', FileUtils.fileSuffix(path));
+        const filepath = StringUtils.replaceFilenameTags(getResourceFilePath(), path);
         platformUtilities.renameFile(path, prefixToRelativePath + filepath);
         if (!cameraLoader.isVideo) {
-          var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
+          const maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
           if (maximumWidhtHeight > 0) {
             FileUtils.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight);
           }

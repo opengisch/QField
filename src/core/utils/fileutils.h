@@ -24,6 +24,8 @@
 #include <QVariantMap>
 #include <qgsfeedback.h>
 
+#define FILENAME_MAX_CHAR_LENGTH 255
+
 class GnssPositionInformation;
 
 /**
@@ -49,6 +51,10 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
     Q_INVOKABLE static QString fileSuffix( const QString &filePath );
     //! Returns a human-friendly size from bytes
     Q_INVOKABLE static QString representFileSize( qint64 bytes );
+    //! Tries to convert the given \a filePath with path to a cross OS valid file name with path
+    Q_INVOKABLE static QString sanitizeFilePath( const QString &filePath, const QString &replacement = QLatin1String( "_" ) );
+    //! Tries to convert the given \a filePathPart to a cross OS valid file name part
+    Q_INVOKABLE static QString sanitizeFilePathPart( const QString &filePathPart, const QString &replacement = QLatin1String( "_" ) );
     //! Returns the absolute path of the folder containing the \a filePath.
     Q_INVOKABLE static QString absolutePath( const QString &filePath );
 
