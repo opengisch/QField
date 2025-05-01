@@ -2952,7 +2952,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>(Available locally)</source>
-        <translation>（本地可用）</translation>
+        <translation type="vanished">（本地可用）</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
@@ -2980,7 +2980,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
-        <translation>云端可用，本地缺失</translation>
+        <translation type="vanished">云端可用，本地缺失</translation>
     </message>
     <message>
         <source>Available locally</source>
@@ -2988,7 +2988,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Has changes. </source>
-        <translation>有修改。</translation>
+        <translation type="vanished">有修改。</translation>
     </message>
     <message>
         <source>Downloading project %1</source>
@@ -3012,7 +3012,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation>按住云工程可查看其他操作的菜单。</translation>
+        <translation type="vanished">按住云工程可查看其他操作的菜单。</translation>
     </message>
     <message>
         <source>Refresh projects list</source>
@@ -3069,6 +3069,58 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Show invalid projects</source>
         <translation>显示无效工程</translation>
+    </message>
+    <message>
+        <source>Available on the cloud</source>
+        <translation>可在云端使用</translation>
+    </message>
+    <message>
+        <source>, has changes locally</source>
+        <translation>, 在本地有更改</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>描述</translation>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>所有者</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>创建日期</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>最后更新日期</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>可以扫描此二维码，便于具有适合访问权限的用户下载并打开此工程</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud正在打包工程</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>正在下载工程</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>下载工程</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>打开工程</translation>
+    </message>
+    <message>
+        <source>View Project Details</source>
+        <translation>查看工程详细信息</translation>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>QFieldCloud工程详细信息获取失败</translation>
     </message>
 </context>
 <context>

@@ -2957,7 +2957,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>(Available locally)</source>
-        <translation>(K dispozici lokálně)</translation>
+        <translation type="vanished">(K dispozici lokálně)</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
@@ -2985,7 +2985,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
-        <translation>K dispozici v cloudu, chybí lokálně</translation>
+        <translation type="vanished">K dispozici v cloudu, chybí lokálně</translation>
     </message>
     <message>
         <source>Available locally</source>
@@ -2993,7 +2993,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Has changes. </source>
-        <translation>Došlo ke změnám.</translation>
+        <translation type="vanished">Došlo ke změnám.</translation>
     </message>
     <message>
         <source>Downloading project %1</source>
@@ -3017,7 +3017,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation>Stisknutím a podržením tlačítka nad projektem cloud se zobrazí nabídka dalších akcí.</translation>
+        <translation type="vanished">Stisknutím a podržením tlačítka nad projektem cloud se zobrazí nabídka dalších akcí.</translation>
     </message>
     <message>
         <source>Refresh projects list</source>
@@ -3073,6 +3073,58 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Show invalid projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available on the cloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>, has changes locally</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Otevřít projekt</translation>
+    </message>
+    <message>
+        <source>View Project Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
         <translation type="unfinished"/>
     </message>
 </context>

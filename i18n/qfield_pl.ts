@@ -2958,7 +2958,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>(Available locally)</source>
-        <translation>(Dostępny lokalnie)</translation>
+        <translation type="vanished">(Dostępny lokalnie)</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
@@ -2986,7 +2986,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
-        <translation>Dostępny w chmurze, brak lokalnie</translation>
+        <translation type="vanished">Dostępny w chmurze, brak lokalnie</translation>
     </message>
     <message>
         <source>Available locally</source>
@@ -2994,7 +2994,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Has changes. </source>
-        <translation>Zawiera zmiany.</translation>
+        <translation type="vanished">Zawiera zmiany.</translation>
     </message>
     <message>
         <source>Downloading project %1</source>
@@ -3018,7 +3018,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation>Naciśnij i przytrzymaj projekt w chmurze, aby wyświetlić menu dodatkowych działań.</translation>
+        <translation type="vanished">Naciśnij i przytrzymaj projekt w chmurze, aby wyświetlić menu dodatkowych działań.</translation>
     </message>
     <message>
         <source>Refresh projects list</source>
@@ -3075,6 +3075,58 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Show invalid projects</source>
         <translation>Pokaż nieprawidłowe projekty</translation>
+    </message>
+    <message>
+        <source>Available on the cloud</source>
+        <translation>Dostępne w chmurze</translation>
+    </message>
+    <message>
+        <source>, has changes locally</source>
+        <translation>, posiada zmiany lokalnie</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Opis</translation>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>Właściciel</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>Data utworzenia</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>Data ostatniej aktualizacji</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>Ten kod QR może zostać zeskanowany przez użytkowników z odpowiednimi prawami dostępu, aby pobrać i otworzyć ten projekt</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud  pakuje projekt, proszę czekać</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>Pobieranie projektu</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>Pobierz projekt</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Otwórz projekt</translation>
+    </message>
+    <message>
+        <source>View Project Details</source>
+        <translation>Zobacz szczegóły projektu</translation>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>Pobieranie szczegółów projektu QFieldCloud nie powiodło się</translation>
     </message>
 </context>
 <context>

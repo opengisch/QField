@@ -2960,7 +2960,7 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>(Available locally)</source>
-        <translation>(Disponibile in locale)</translation>
+        <translation type="vanished">(Disponibile in locale)</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
@@ -2988,7 +2988,7 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
-        <translation>Disponibile in cloud, assente in locale</translation>
+        <translation type="vanished">Disponibile in cloud, assente in locale</translation>
     </message>
     <message>
         <source>Available locally</source>
@@ -2996,7 +2996,7 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Has changes. </source>
-        <translation>Ha dei cambiamenti.</translation>
+        <translation type="vanished">Ha dei cambiamenti.</translation>
     </message>
     <message>
         <source>Downloading project %1</source>
@@ -3020,7 +3020,7 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation>Tieni premuto su un progetto cloud per visualizzare un menu delle azioni aggiuntive.</translation>
+        <translation type="vanished">Tieni premuto su un progetto cloud per visualizzare un menu delle azioni aggiuntive.</translation>
     </message>
     <message>
         <source>Refresh projects list</source>
@@ -3076,6 +3076,58 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Show invalid projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available on the cloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>, has changes locally</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Apri progetto</translation>
+    </message>
+    <message>
+        <source>View Project Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
         <translation type="unfinished"/>
     </message>
 </context>
