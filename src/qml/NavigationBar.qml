@@ -303,7 +303,7 @@ Rectangle {
 
     property bool readOnly: false
 
-    visible: stateMachine.state === "digitize" && !selection.focusedGeometry.isNull && !featureForm.model.featureModel.geometryLocked && (projectInfo.editRights || editButton.isCreatedCloudFeature) && toolBar.state == "Navigation" && !readOnly && projectInfo.editRights
+    visible: stateMachine.state === "digitize" && !selection.focusedGeometry.isNull && !featureForm.model.featureModel.geometryLocked && (projectInfo.editRights || editButton.isCreatedCloudFeature) && toolBar.state == "Navigation" && editButton.supportsEditing && projectInfo.editRights
 
     anchors.right: editButton.left
     anchors.top: parent.top
