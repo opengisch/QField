@@ -333,7 +333,7 @@ bool MultiFeatureListModelBase::canMergeSelection() const
     return false;
 
   QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
-  return !vlayer->readOnly() && QgsWkbTypes::isMultiType( vlayer->wkbType() ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+  return !vlayer->readOnly() && ( QgsWkbTypes::isMultiType( vlayer->wkbType() ) || QgsWkbTypes::isSingleType( vlayer->wkbType() ) ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
 bool MultiFeatureListModelBase::canDeleteSelection() const
@@ -480,6 +480,11 @@ bool MultiFeatureListModelBase::mergeSelection()
     }
   }
 
+  if ( combinedGeometry.wkbType() != vlayer->wkbType() )
+  {
+    isSuccess = false;
+  }
+
   if ( isSuccess )
   {
     if ( !vlayer->startEditing() )
@@ -509,17 +514,15 @@ bool MultiFeatureListModelBase::mergeSelection()
     {
       // commit changes
       isSuccess = vlayer->commitChanges();
+      mSelectedFeatures.clear();
+      emit selectedCountChanged();
     }
-
-    if ( !isSuccess )
+    else
     {
       if ( !vlayer->rollBack() )
         QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
     }
   }
-
-  mSelectedFeatures.clear();
-  emit selectedCountChanged();
 
   return isSuccess;
 }
