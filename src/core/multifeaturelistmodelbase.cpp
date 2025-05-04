@@ -22,6 +22,7 @@
 
 #include <qgscoordinatereferencesystem.h>
 #include <qgsgeometry.h>
+#include <qgsgeometrycollection.h>
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
 #include <qgsrelationmanager.h>
@@ -480,9 +481,13 @@ bool MultiFeatureListModelBase::mergeSelection()
     }
   }
 
-  if ( combinedGeometry.wkbType() != vlayer->wkbType() )
+  if ( !QgsWkbTypes::isMultiType( vlayer->wkbType() ) )
   {
-    isSuccess = false;
+    const QgsGeometryCollection *c = qgsgeometry_cast<const QgsGeometryCollection *>( combinedGeometry.constGet() );
+    if ( ( c && c->partCount() > 1 ) || !combinedGeometry.convertToSingleType() )
+    {
+      isSuccess = false;
+    }
   }
 
   if ( isSuccess )
