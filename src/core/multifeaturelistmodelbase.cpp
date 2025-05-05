@@ -520,6 +520,7 @@ bool MultiFeatureListModelBase::mergeSelection()
       // commit changes
       isSuccess = vlayer->commitChanges();
       mSelectedFeatures.clear();
+      emit dataChanged( index( 0, 0 ), index( rowCount( QModelIndex() ) - 1, 0 ), QVector<int>() << MultiFeatureListModel::FeatureSelectedRole );
       emit selectedCountChanged();
     }
     else
