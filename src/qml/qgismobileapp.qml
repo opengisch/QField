@@ -455,7 +455,7 @@ ApplicationWindow {
         if (active) {
           if (centroid.position !== Qt.point(0, 0)) {
             coordinateLocator.sourceLocation = centroid.position;
-            if (!geometryEditorsToolbar.canvasClicked(centroid.position)) {
+            if (!geometryEditorsToolbar.canvasClicked(centroid.position, "stylus")) {
               digitizingToolbar.addVertex();
             }
           }
