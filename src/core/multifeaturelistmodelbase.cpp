@@ -483,8 +483,8 @@ bool MultiFeatureListModelBase::mergeSelection()
 
   if ( !QgsWkbTypes::isMultiType( vlayer->wkbType() ) )
   {
-    const QgsGeometryCollection *c = qgsgeometry_cast<const QgsGeometryCollection *>( combinedGeometry.constGet() );
-    if ( ( c && c->partCount() > 1 ) || !combinedGeometry.convertToSingleType() )
+    const QgsGeometryCollection *geometryCollection = qgsgeometry_cast<const QgsGeometryCollection *>( combinedGeometry.constGet() );
+    if ( ( geometryCollection && geometryCollection->partCount() > 1 ) || !combinedGeometry.convertToSingleType() )
     {
       isSuccess = false;
     }
