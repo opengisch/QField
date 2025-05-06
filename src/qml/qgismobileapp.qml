@@ -432,7 +432,7 @@ ApplicationWindow {
     DragHandler {
       id: freehandHandler
       property bool isDigitizing: false
-      enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen && (!featureForm.visible || digitizingToolbar.geometryRequested)
+      enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen && ((!featureForm.visible && digitizingToolbar.digitizingAllowed) || digitizingToolbar.geometryRequested)
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
       dragThreshold: 0
@@ -674,7 +674,7 @@ ApplicationWindow {
             }
             return;
           }
-          if ((stateMachine.state === "digitize" && digitizingFeature.currentLayer) || stateMachine.state === "measure") {
+          if ((stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) || stateMachine.state === "measure") {
             if (!positionLocked && (!featureForm.visible || digitizingToolbar.geometryRequested)) {
               if (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Point || Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Null) {
                 digitizingToolbar.confirm();
@@ -700,7 +700,7 @@ ApplicationWindow {
           }
           return;
         }
-        if (qfieldSettings.fingerTapDigitizing && ((stateMachine.state === "digitize" && digitizingFeature.currentLayer) || stateMachine.state === "measure")) {
+        if (qfieldSettings.fingerTapDigitizing && ((stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) || stateMachine.state === "measure")) {
           if (!positionLocked && (!featureForm.visible || digitizingToolbar.geometryRequested)) {
             coordinateLocator.sourceLocation = point;
           }
@@ -720,7 +720,7 @@ ApplicationWindow {
           if (geometryEditorsToolbar.canvasLongPressed(point, type)) {
             return;
           }
-          if (stateMachine.state === "digitize" && dashBoard.activeLayer) {
+          if (stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) {
             // the sourceLocation test checks if a (stylus) hover is active
             if ((Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Line && currentRubberband.model.vertexCount >= 2) || (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Polygon && currentRubberband.model.vertexCount >= 2)) {
               digitizingToolbar.addVertex();
@@ -2275,9 +2275,10 @@ ApplicationWindow {
       DigitizingToolbar {
         id: digitizingToolbar
 
-        stateVisible: !screenLocker.enabled && (!positioningSettings.geofencingPreventDigitizingDuringAlert || !geofencer.isAlerting) && ((stateMachine.state === "digitize" && dashBoard.activeLayer && !dashBoard.activeLayer.readOnly &&
-            // unfortunately there is no way to call QVariant::toBool in QML so the value is a string
-            dashBoard.activeLayer.customProperty('QFieldSync/is_geometry_locked') !== 'true' && !geometryEditorsToolbar.stateVisible && !moveFeaturesToolbar.stateVisible && !rotateFeaturesToolbar.stateVisible && (projectInfo.editRights || projectInfo.insertRights)) || stateMachine.state === 'measure' || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
+        // unfortunately there is no way to call QVariant::toBool in QML so the is_geometry_locked value must be a string
+        property bool digitizingAllowed: dashBoard.activeLayer && !dashBoard.activeLayer.readOnly && dashBoard.activeLayer.customProperty('QFieldSync/is_geometry_locked') !== 'true' && (projectInfo.editRights || projectInfo.insertRights)
+
+        stateVisible: !screenLocker.enabled && (!positioningSettings.geofencingPreventDigitizingDuringAlert || !geofencer.isAlerting) && ((stateMachine.state === "digitize" && digitizingAllowed && !geometryEditorsToolbar.stateVisible && !moveFeaturesToolbar.stateVisible && !rotateFeaturesToolbar.stateVisible) || stateMachine.state === 'measure' || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
         rubberbandModel: currentRubberband ? currentRubberband.model : null
         mapSettings: mapCanvas.mapSettings
         showConfirmButton: stateMachine.state === "digitize"
