@@ -334,7 +334,7 @@ bool MultiFeatureListModelBase::canMergeSelection() const
     return false;
 
   QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
-  return !vlayer->readOnly() && ( QgsWkbTypes::isMultiType( vlayer->wkbType() ) || QgsWkbTypes::isSingleType( vlayer->wkbType() ) ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
 bool MultiFeatureListModelBase::canDeleteSelection() const
