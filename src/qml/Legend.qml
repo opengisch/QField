@@ -44,8 +44,6 @@ ListView {
       onClicked: mouse => {
         if (!allowActiveLayerChange)
           return;
-        if (ReadOnly || GeometryLocked)
-          return;
         if (VectorLayerPointer && VectorLayerPointer.isValid) {
           activeLayer = VectorLayerPointer;
           projectInfo.activeLayer = VectorLayerPointer;
