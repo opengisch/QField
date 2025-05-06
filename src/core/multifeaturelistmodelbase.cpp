@@ -22,6 +22,7 @@
 
 #include <qgscoordinatereferencesystem.h>
 #include <qgsgeometry.h>
+#include <qgsgeometrycollection.h>
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
 #include <qgsrelationmanager.h>
@@ -333,7 +334,7 @@ bool MultiFeatureListModelBase::canMergeSelection() const
     return false;
 
   QgsVectorLayer *vlayer = mSelectedFeatures[0].first;
-  return !vlayer->readOnly() && QgsWkbTypes::isMultiType( vlayer->wkbType() ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+  return !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
 }
 
 bool MultiFeatureListModelBase::canDeleteSelection() const
@@ -480,6 +481,15 @@ bool MultiFeatureListModelBase::mergeSelection()
     }
   }
 
+  if ( !QgsWkbTypes::isMultiType( vlayer->wkbType() ) )
+  {
+    const QgsGeometryCollection *geometryCollection = qgsgeometry_cast<const QgsGeometryCollection *>( combinedGeometry.constGet() );
+    if ( ( geometryCollection && geometryCollection->partCount() > 1 ) || !combinedGeometry.convertToSingleType() )
+    {
+      isSuccess = false;
+    }
+  }
+
   if ( isSuccess )
   {
     if ( !vlayer->startEditing() )
@@ -509,17 +519,16 @@ bool MultiFeatureListModelBase::mergeSelection()
     {
       // commit changes
       isSuccess = vlayer->commitChanges();
+      mSelectedFeatures.clear();
+      emit dataChanged( index( 0, 0 ), index( rowCount( QModelIndex() ) - 1, 0 ), QVector<int>() << MultiFeatureListModel::FeatureSelectedRole );
+      emit selectedCountChanged();
     }
-
-    if ( !isSuccess )
+    else
     {
       if ( !vlayer->rollBack() )
         QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
     }
   }
-
-  mSelectedFeatures.clear();
-  emit selectedCountChanged();
 
   return isSuccess;
 }
