@@ -655,11 +655,11 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Failed to start egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo iniciar el servidor egeniouss.</translation>
     </message>
     <message>
         <source>Failed to stop egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo detener el servidor egeniouss.</translation>
     </message>
 </context>
 <context>
@@ -738,7 +738,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation type="unfinished"/>
+        <translation>Falta el ID de la configuración de autenticación del almacenamiento externo. Por favor, asegúrese de que se importa a QField.</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -840,39 +840,39 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Deshacer borrado de un objeto.</numerusform><numerusform>Deshacer borrado de %n objetos.</numerusform><numerusform>Deshacer borrado de %n objetos.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Deshacer borrado de un objeto en la capa %1.</numerusform><numerusform>Deshacer borrado de %n objetos en la capa %1.</numerusform><numerusform>Deshacer borrado de %n objeto(s) en la capa %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Deshacer modificaciones de un objeto.</numerusform><numerusform>Deshacer modificaciones de %n objetos.</numerusform><numerusform>Deshacer modificaciones de %n objeto(s).</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Rehacer creación de un objeto en la capa %1</numerusform><numerusform>Rehacer creación de %n objetos en la capa %1</numerusform><numerusform>Rehacer creación de %n objeto(s) en la capa %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Rehacer creación de un objeto</numerusform><numerusform>Rehacer creación de %n objetos</numerusform><numerusform>Rehacer creación de %n objeto(s)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Rehacer borrado de un objeto en la capa %1</numerusform><numerusform>Rehacer borrado de %n objetos en la capa %1</numerusform><numerusform>Rehacer borrado de %n objeto(s) en la capa %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Rehacer borrado de un objeto</numerusform><numerusform>Rehacer borrado de %n objetos</numerusform><numerusform>Rehacer borrado de %n objeto(s)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Rehacer modificaciones de un objeto en la capa %1</numerusform><numerusform>Rehacer modificaciones de %n objetos en la capa %1</numerusform><numerusform>Rehacer modificaciones de %n objeto(s) en la capa %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Rehacer modificaciones de un objeto</numerusform><numerusform>Rehacer modificaciones de %n objetos</numerusform><numerusform>Rehacer modificaciones de %n objeto(s)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -1704,7 +1704,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Update Attributes from Feature</source>
-        <translation type="unfinished"/>
+        <translation>Actualizar atributos desde objeto</translation>
     </message>
 </context>
 <context>
@@ -1864,11 +1864,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>The dataset will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>El conjunto de datos será eliminado, ¿continuar con la eliminación?</translation>
     </message>
     <message>
         <source>The project folder will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>La carpeta del proyecto será eliminada, ¿continuar con la eliminación?</translation>
     </message>
 </context>
 <context>
@@ -2067,7 +2067,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Connection type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de conexión</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2075,11 +2075,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source> (leave empty to auto-fill)</source>
-        <translation type="unfinished"/>
+        <translation>(dejar vacío para autocompletar)</translation>
     </message>
     <message>
         <source>Connection details</source>
-        <translation type="unfinished"/>
+        <translation>Detalles de la conexión</translation>
     </message>
 </context>
 <context>
@@ -2379,11 +2379,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Authentication provider missing</source>
-        <translation type="unfinished"/>
+        <translation>Falta el proveedor de autenticación</translation>
     </message>
     <message>
         <source>Password missing</source>
-        <translation type="unfinished"/>
+        <translation>Falta la contraseña</translation>
     </message>
 </context>
 <context>
@@ -2471,11 +2471,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>o</translation>
     </message>
     <message>
         <source>Sign in using %1</source>
-        <translation type="unfinished"/>
+        <translation>Identificarse usando %1</translation>
     </message>
 </context>
 <context>
@@ -3070,47 +3070,47 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Show invalid projects</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar proyectos no válidos</translation>
     </message>
     <message>
         <source>Available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>Disponible en la nube</translation>
     </message>
     <message>
         <source>, has changes locally</source>
-        <translation type="unfinished"/>
+        <translation>, tiene cambios localmente</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Descripción</translation>
     </message>
     <message>
         <source>Owner</source>
-        <translation type="unfinished"/>
+        <translation>Propietario</translation>
     </message>
     <message>
         <source>Creation date</source>
-        <translation type="unfinished"/>
+        <translation>Fecha de creación</translation>
     </message>
     <message>
         <source>Latest update date</source>
-        <translation type="unfinished"/>
+        <translation>Fecha de la última actualización</translation>
     </message>
     <message>
         <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation type="unfinished"/>
+        <translation>Este código QR puede ser escaneado por usuarios con el acceso apropiado para descargar y abrir este proyecto</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud está empaquetando el proyecto, esté atento</translation>
     </message>
     <message>
         <source>Downloading project</source>
-        <translation type="unfinished"/>
+        <translation>Descargando proyecto</translation>
     </message>
     <message>
         <source>Download project</source>
-        <translation type="unfinished"/>
+        <translation>Descargar proyecto</translation>
     </message>
     <message>
         <source>Open project</source>
@@ -3118,11 +3118,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>View Project Details</source>
-        <translation type="unfinished"/>
+        <translation>Ver detalles del proyecto</translation>
     </message>
     <message>
         <source>QFieldCloud project details fetching failed</source>
-        <translation type="unfinished"/>
+        <translation>Falló la obtención de detalles del proyecto de QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3363,47 +3363,47 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>User and password</source>
-        <translation type="unfinished"/>
+        <translation>Usuario y contraseña</translation>
     </message>
     <message>
         <source>leave empty to use remembered</source>
-        <translation type="unfinished"/>
+        <translation>dejar vacío para usar la guardada</translation>
     </message>
     <message>
         <source>(root folder)</source>
-        <translation type="unfinished"/>
+        <translation>(carpeta raíz)</translation>
     </message>
     <message>
         <source>Refreshing remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Refrescando carpetas remotas</translation>
     </message>
     <message>
         <source>Refresh remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Refrescar carpetas remotas</translation>
     </message>
     <message>
         <source>Imported and available locally</source>
-        <translation type="unfinished"/>
+        <translation>Importado y disponible localmente</translation>
     </message>
     <message>
         <source>Upload file(s) to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Subir archivo(s) a WebDAV</translation>
     </message>
     <message>
         <source>Push file(s) to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Enviar archivo(s) a QFieldCloud</translation>
     </message>
     <message>
         <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, seleccione uno o más archivos para subir a QFieldCloud.</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Va a eliminar un elemento de WebDAV guardado, ¿continuar?</translation>
     </message>
 </context>
 <context>
@@ -3418,7 +3418,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Positioning service stopped</source>
-        <translation type="unfinished"/>
+        <translation>Servicio de posicionamiento detenido</translation>
     </message>
 </context>
 <context>
@@ -3855,19 +3855,19 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Render preview content around visible map canvas</source>
-        <translation type="unfinished"/>
+        <translation>Representar contenido previsto alrededor del lienzo visible del mapa</translation>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
-        <translation type="unfinished"/>
+        <translation>Si se activa, el área justo fuera de la extensión del lienzo visible del mapa se representará parcialmente para permitir la visualización al hacer zoom o desplazar</translation>
     </message>
     <message>
         <source>Automatically open form for single feature identification</source>
-        <translation type="unfinished"/>
+        <translation>Abrir formulario automáticamente para la identificación de objetos únicos</translation>
     </message>
     <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation type="unfinished"/>
+        <translation>Cuando está activado, el formulario de objetos se abrirá automáticamente si solo se identifica un objeto, omitiendo la lista de objetos.</translation>
     </message>
 </context>
 <context>
@@ -3995,51 +3995,51 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>January</source>
-        <translation type="unfinished"/>
+        <translation>Enero</translation>
     </message>
     <message>
         <source>February</source>
-        <translation type="unfinished"/>
+        <translation>Febrero</translation>
     </message>
     <message>
         <source>March</source>
-        <translation type="unfinished"/>
+        <translation>Marzo</translation>
     </message>
     <message>
         <source>April</source>
-        <translation type="unfinished"/>
+        <translation>Abril</translation>
     </message>
     <message>
         <source>May</source>
-        <translation type="unfinished"/>
+        <translation>Mayo</translation>
     </message>
     <message>
         <source>June</source>
-        <translation type="unfinished"/>
+        <translation>Junio</translation>
     </message>
     <message>
         <source>July</source>
-        <translation type="unfinished"/>
+        <translation>Julio</translation>
     </message>
     <message>
         <source>August</source>
-        <translation type="unfinished"/>
+        <translation>Agosto</translation>
     </message>
     <message>
         <source>September</source>
-        <translation type="unfinished"/>
+        <translation>Septiembre</translation>
     </message>
     <message>
         <source>October</source>
-        <translation type="unfinished"/>
+        <translation>Octubre</translation>
     </message>
     <message>
         <source>November</source>
-        <translation type="unfinished"/>
+        <translation>Noviembre</translation>
     </message>
     <message>
         <source>December</source>
-        <translation type="unfinished"/>
+        <translation>Diciembre</translation>
     </message>
 </context>
 <context>
@@ -4107,7 +4107,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Map printed on %1 using QField</source>
-        <translation type="unfinished"/>
+        <translation>Mapa impreso en %1 usando QField</translation>
     </message>
 </context>
 <context>
@@ -4225,7 +4225,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Unlink Feature</source>
-        <translation type="unfinished"/>
+        <translation>Desenlazar objeto</translation>
     </message>
     <message>
         <source>Delete Feature</source>
@@ -4245,7 +4245,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Child Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menú hijo</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
@@ -4375,11 +4375,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>Dirección IP</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Puerto</translation>
     </message>
 </context>
 <context>
@@ -4756,11 +4756,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Dirección</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Puerto</translation>
     </message>
 </context>
 <context>
@@ -5657,19 +5657,19 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Snapping to every</source>
-        <translation type="unfinished"/>
+        <translation>Autoajustando a todo</translation>
     </message>
     <message>
         <source>%1°</source>
-        <translation type="unfinished"/>
+        <translation>%1°</translation>
     </message>
     <message>
         <source>Snapping tolerance</source>
-        <translation type="unfinished"/>
+        <translation>Tolerancia de autoajuste</translation>
     </message>
     <message>
         <source>Narrow</source>
-        <translation type="unfinished"/>
+        <translation>Estrecho</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -5681,19 +5681,19 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Snapping tolerance set to %1</source>
-        <translation type="unfinished"/>
+        <translation>Tolerancia de autoajuste establecida a %1</translation>
     </message>
     <message>
         <source>Import Confirmation</source>
-        <translation type="unfinished"/>
+        <translation>Confirmación de importación</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation type="unfinished"/>
+        <translation>¿Quiere importar &lt;b&gt;%1&lt;/b&gt; de&lt;b&gt;%2&lt;/b&gt; a QField?</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
-        <translation type="unfinished"/>
+        <translation>Permiso de complemento</translation>
     </message>
 </context>
 <context>
