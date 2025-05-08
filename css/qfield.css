@@ -298,7 +298,9 @@ font-size: 13pt;
 }
 
 #about {
-  background-color: #f2f2f2;
+  background-color: #21212103;
+  background-size: 100%;
+  background-repeat: no-repeat;
   height: auto;
   margin: 0 auto 0px auto;
   width: 100%;
