@@ -18,6 +18,10 @@ font-weight: 300;
   font-size: 12pt;
 }
 
+#navbar ul {
+  float: right;
+}
+
 #navbar .open>a, #navbar .open>a:hover, #navbar .open>a:focus {
   background-color:rgba(0, 0, 0, 0.2);
 }
