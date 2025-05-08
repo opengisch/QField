@@ -423,3 +423,12 @@ div.explanation {
   border-radius: 32px;
   text-decoration: none !important;
 }
+
+/* When menu is collapsed */
+@media (max-width: 767px) {
+  .support-button {
+    width: 100%;
+    max-width: none;
+    border-radius: 0;
+  }
+}
