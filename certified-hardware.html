@@ -1,7 +1,10 @@
 <!doctype html>
 <html class="no-js" lang="en">
+<link rel="stylesheet" href="https://use.typekit.net/wgk7hpe.css">
+
 
 <head>
+  <link rel="stylesheet" href="https://use.typekit.net/cbd7kad.css">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-24350287-3"></script>
   <script>
@@ -22,7 +25,6 @@
   <link href="css/qfield.css?ver=3" rel="stylesheet" media="screen">
   <script src="js/jquery-1.11.0.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-
 </head>
 
 <body>
@@ -39,30 +41,29 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="./"><img src="images/qfield-logo.svg"> QFIELD </a>
+      <a class="navbar-brand" href="./"><img src="images/qfield_for_qgis.png" style="width:auto; height:52px; margin-top:8px;" alt="QField Logo"></a>
     </div>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="nav navbar-nav">
-
-        <li><a href="https://www.opengis.ch/category/qfield/highlights/" target="_blank"
-            title="Highlights">Highlights</a></li>
-        <li><a href="https://docs.qfield.org/get-started/support/" target="_blank" title="Get support">Get support</a></li>
-        <li><a href="https://docs.qfield.org/get-started/sponsor/" target="_blank" title="Donate to QField">Donate</a></li>
+        <li><a href="/index.html#main-points" title="Highlights">HIGHLIGHTS</a></li>
+        <li class="dropdown">
+        <li><a href="/assistance.html" title="Get assistance">GET ASSISTANCE</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-            aria-expanded="false">Resources<span class="caret"></span></a>
+            aria-expanded="false">RESOURCES<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="https://docs.qfield.org/success-stories/" target="_blank" title="success stories">success stories</a></li>
+            <li><a href="https://docs.qfield.org/success-stories/" target="_blank" title="Success stories">Success stories</a></li>
             <li><a href="https://docs.qfield.org" target="_blank" title="Documentation">Documentation</a></li>
             <li><a href="https://www.opengis.ch/category/qfield/" target="_blank" title="Blog">Blog</a></li>
             <li><a href="/partner.html" title="Partner programs">Partner programs</a></li>
             <li><a href="/sdgs.html" title="Sustainable development goals">Sustainable development goals</a></li>
-            <li><a href="https://docs.qfield.org/get-started/contribute/" target="_blank" title="Contribute to QField">Contribute</a>
-            </li>
-            <li><a href="https://github.com/opengisch/qfield" target="_blank"title="Source code">Source code</a></li>
+            <li><a href="https://docs.qfield.org/get-started/contribute/" title="Contribute to QField">Contribute</a></li>
+            <li><a href="https://github.com/opengisch/qfield" target="_blank" title="Source code">Source code</a></li>
+            <li><a href="https://www.opengis.ch/newsletter" target="_blank" title="newsletter">Newsletter</a></li>
           </ul>
         </li>
-        <li><a href="https://opengis.ch/#contact" target="_blank" title="Contact Us">Contact Us</a></li>
+        <li><a href="https://opengis.ch/#contact" target="_blank" title="Contact us">CONTACT US</a></li>
+        <li class="support-button"><a href="/support.html" title="Support us">♥ SUPPORT US</a></li>
       </ul>
     </div>
   </div>
@@ -82,7 +83,7 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
-      <div class="item active" style="background-image:url('images/bg/forest.jpg');">
+      <div class="item active" style="background-image:url('images/bg/elec.jpg');">
         <div class="carousel-caption">
           <div>
             <h3>Hold the power of QGIS in your hand, for free</h3>
@@ -110,7 +111,7 @@
         </div>
       </div>
 
-      <div class="item" style="background-image:url('images/bg/elec.jpg');">
+      <div class="item" style="background-image:url('images/bg/wine.jpg');">
         <div class="carousel-caption">
           <div>
             <h3>Live update your assets data directly on-site</h3>
@@ -138,7 +139,7 @@
         </div>
       </div>
 
-      <div class="item" style="background-image:url('images/bg/wine.jpg');">
+      <div class="item" style="background-image:url('images/bg/forest.jpg');">
         <div class="carousel-caption">
           <div>
             <h3>Leverage the power of open source in the field</h3>
@@ -162,11 +163,6 @@
       <span class="glyphicon glyphicon-chevron-right"></span>
       <span class="sr-only">Next</span>
     </a>
-
-    <a href="https://www.opengis.ch/2022/11/03/best-of-swiss-enterprise-app-award-for-qfield/" target="_blank"
-      style="display:block; position:absolute; top: 20px; right: 25px; width:140px;"><img src="images/bosa2022gold.png"
-        alt="Best of Swiss Enterprise App-Award 2022" style="filter: drop-shadow(4px 4px 8px #000000)"
-        width="140px"></a>
   </div>
 
   <!-- Section #1: claim -->
@@ -280,24 +276,35 @@
   </section>
 
   <!-- Section #3: fine lines -->
-
   <section id="about" data-speed="2" data-type="background">
     <div class="container">
       <div class="page-header">
-        <h1>About QField</small></h1>
+        <h1>About QField</h1>
       </div>
       <div class="row-fluid">
         <div class="span4">
-          <p>QField is the leading professional fieldwork app used in enterprise settings for efficient geospatial data collection and management. As a Digital Public Good, QField not only excels in enterprise and professional applications but also contributes significantly to advancing at least six of the <a href="/sdgs.html">United Nations Sustainable Development Goals (SDGs)</a>, promoting a more sustainable and equitable future.</p>
+          <p>QField is the leading professional fieldwork app used in enterprise settings for efficient geospatial data
+            collection and management. As a Digital Public Good, QField not only excels in enterprise and professional
+            applications but also contributes significantly to advancing at least six of the <a href="/sdgs.html">United
+              Nations Sustainable Development Goals (SDGs)</a>, promoting a more sustainable and equitable future.</p>
+        <div>
+          <h2> Stay in the loop</h2>
+          <p><a href="https://opengis.ch/newsletter" target="_blank">Subscribe to our newsletter</a> and stay up to date on the latest and greatest!
+        </div>
+        <div>
           <h2>Opensource</h2>
           <p>QField is <a class="reference external" href="https://github.com/opengisch/QField">released</a> under the
-            GNU Public License (GPL) Version 2 or above.
-            Developing QField under this license means that you can inspect and modify
-            the source code and guarantees that you will always have access to a QGIS
-            based field data collection app that is free of cost and can be freely
-            modified.</p>
-
-        </div><!-- /.span4 -->
+          GNU Public License (GPL) Version 2 or above.
+          Developing QField under this license means that you can inspect and modify
+          the source code and guarantees that you will always have access to a QGIS
+          based field data collection app that is free of cost and can be freely
+          modified.</p>
+        </div>
+        <div class="span4">
+          <h2>Privacy</h2>
+          <p>View the QField <a href="privacy_policy.html">Privacy Policy</a> to learn what information is collected, used and how we protect this.
+          </p>
+        </div>
         <div class="span4">
           <h2>Credits</h2>
           <p>QField, QFieldCloud and QFieldSync are developped by <a href="https://www.opengis.ch/">OPENGIS.ch</a>.
@@ -305,12 +312,12 @@
             <a href="https://www.opengis.ch/custom-development/">development</a>, <a
               href="https://www.opengis.ch/qfield-training/">training</a> and <a
               href="https://www.opengis.ch/qgis-support/">support</a> for open source software including QField,
-            QGIS and PostGIS.
-          </p>
-        </div><!-- /.span4 -->
+            QGIS and PostGIS.</p>
+        </div>
       </div>
     </div>
-      <div class="social-links">
+
+    <div class="social-links">
       <a href="https://fosstodon.org/@qfield" target="_blank" rel="me noopener noreferrer">
         <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Mastodon_Logotype_%28Simple%29.svg" alt="Mastodon" width="32" height="32">
       </a>

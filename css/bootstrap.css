@@ -5,7 +5,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: sans-serif;
+  font-family: "bio-sans" sans-serif !important;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -1082,7 +1082,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "bio-sans", sans-serif
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
@@ -3604,7 +3604,7 @@ tbody.collapse.in {
   min-width: 160px;
   padding: 5px 0;
   margin: 2px 0 0;
-  font-size: 14px;
+  font-size: 16pt;
   text-align: left;
   list-style: none;
   background-color: #fff;
@@ -3629,7 +3629,7 @@ tbody.collapse.in {
   display: block;
   padding: 3px 20px;
   clear: both;
-  font-weight: 400;
+  font-weight: lighter;
   line-height: 1.42857143;
   color: #333333;
   white-space: nowrap;
@@ -3678,7 +3678,7 @@ tbody.collapse.in {
 .dropdown-header {
   display: block;
   padding: 3px 20px;
-  font-size: 12px;
+  font-size: 16pt;
   line-height: 1.42857143;
   color: #777777;
   white-space: nowrap;
@@ -6069,7 +6069,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "bio-sans", sans-serif
   font-style: normal;
   font-weight: 400;
   line-height: 1.42857143;
@@ -6187,7 +6187,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "bio-sans", sans-serif
   font-style: normal;
   font-weight: 400;
   line-height: 1.42857143;
