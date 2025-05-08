@@ -40,7 +40,7 @@ div.navbar li a {
   display:table-cell;
   height:100px;
   vertical-align:middle;
-  font-weight:lighter;
+  font-weight: normal;
 }
 }
 
