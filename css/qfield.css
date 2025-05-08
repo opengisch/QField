@@ -298,13 +298,13 @@ font-size: 13pt;
 }
 
 #about {
-  background-color: #212121;
+  background-color: #f2f2f2;
   height: auto;
   margin: 0 auto 0px auto;
   width: 100%;
   position: relative;
   padding: 100px 0;
-  color: #fff;
+  color: #212121;
 }
 
 #about a, #about a:visited, #about a:focus {
