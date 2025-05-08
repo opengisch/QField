@@ -23,7 +23,7 @@ Item {
     enabled: tracker.isActive
 
     function onPositionInformationChanged() {
-      featureModel.positionInformation = positionSource.positionInformation;
+      featureModel.appExpressionContextScopesGenerator.positionInformation = positionSource.positionInformation;
       tracker.processPositionInformation(positionSource.positionInformation, positionSource.projectedPosition);
     }
   }
