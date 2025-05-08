@@ -4,8 +4,9 @@
 
 body {
   padding-top: 120px;
-  /* background-color: #f4f4f4; */
   font-family: "bio-sans", sans-serif;
+  font-size: 13pt;
+font-weight: 300;
 }
 
 #navbar {
@@ -14,6 +15,7 @@ body {
   background-color: white;
   border:0;
   font-family:"bio-sans";
+  font-size: 12pt;
 }
 
 #navbar .open>a, #navbar .open>a:hover, #navbar .open>a:focus {
@@ -357,13 +359,6 @@ div.explanation {
   color: #212121;
 }
 
-@font-face {
-  font-family:"bio-sans";
-      src: url('../fonts/TruenoLight.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* sdgs page */
 .sdg {
   background-color: white;
@@ -416,7 +411,6 @@ div.explanation {
   text-align: center;
   border-radius: 32px;
   transition: background-color 0.3s ease, color 0.3s ease;
-  /* font-family: "bio-sans" sans-serif; */
 }
 
 .support-button a:hover {
@@ -424,5 +418,4 @@ div.explanation {
   border: 0.5px solid #80cc28 !important;
   border-radius: 32px;
   text-decoration: none !important;
-  /* font-family: "bio-sans" sans-serif; */
 }
