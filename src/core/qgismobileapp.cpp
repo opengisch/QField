@@ -1202,9 +1202,8 @@ void QgisMobileapp::readProjectFile()
   }
 
   ProjectInfo::restoreSettings( mProjectFilePath, mProject, mMapCanvas, mFlatLayerTree );
-  mTrackingModel->createProjectTrackers( mProject );
-
   emit loadProjectEnded( mProjectFilePath, mProjectFileName );
+  mTrackingModel->createProjectTrackers( mProject );
 
   connect( mMapCanvas, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgisMobileapp::onMapCanvasRefreshed );
 
