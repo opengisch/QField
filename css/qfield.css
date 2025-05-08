@@ -180,8 +180,8 @@ font-size: 13pt;
 }
 
 #customers .customer-logos img {
-  width: 6em;
-  height: 6em;
+  width: 5em;
+  height: 5em;
   object-fit: contain;
   padding: 1.5em;
   transition: all 0.2s linear, padding 0.5s ease-in-out;

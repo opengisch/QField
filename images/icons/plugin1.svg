@@ -7,7 +7,7 @@
         stroke: #7ac943;
         stroke-linecap: round;
         stroke-linejoin: round;
-        stroke-width: 20px;
+        stroke-width: .5px;
       }
     </style>
   </defs>
