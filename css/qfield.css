@@ -413,15 +413,17 @@ div.explanation {
   margin-left: 10px;
   padding: 5px 10px 5px 10px !important;
   background-color: #80cc28;
-  color: white !important;
+  border: 0.5px solid #80cc28 !important;
+  color: #ffffff !important;
   text-align: center;
   border-radius: 32px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .support-button a:hover {
-  color: #80cc28 !important;
+  background-color: #ffffff;
   border: 0.5px solid #80cc28 !important;
+  color: #80cc28 !important;
   border-radius: 32px;
   text-decoration: none !important;
 }
