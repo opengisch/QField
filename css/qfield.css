@@ -166,8 +166,16 @@ font-size: 13pt;
 }
 
 #customers {
-  background-color: #ddd;
+  background-color: #f2f2f2;
+  background-image: url('../images/bg/footer.jpg');
+  background-size: cover !important;
   padding: 3em 0;
+}
+
+#about {
+  background-color: #f2f2f2;
+  background-image: url('../images/bg/footer.jpg');
+  background-size: cover !important;
 }
 
 #customers>h2 {
