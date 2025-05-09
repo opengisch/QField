@@ -166,8 +166,16 @@ font-size: 13pt;
 }
 
 #customers {
-  background-color: #ddd;
+  background-color: #f2f2f2;
+  background-image: url('../images/bg/footer.jpg');
+  background-size: cover !important;
   padding: 3em 0;
+}
+
+#about {
+  background-color: #f2f2f2;
+  background-image: url('../images/bg/footer.jpg');
+  background-size: cover !important;
 }
 
 #customers>h2 {
@@ -413,17 +421,31 @@ div.explanation {
   margin-left: 10px;
   padding: 5px 10px 5px 10px !important;
   background-color: #80cc28;
-  color: white !important;
+  border: 0.5px solid #80cc28 !important;
+  color: #ffffff !important;
   text-align: center;
   border-radius: 32px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .support-button a:hover {
-  color: #80cc28 !important;
+  background-color: #ffffff;
   border: 0.5px solid #80cc28 !important;
+  color: #80cc28 !important;
   border-radius: 32px;
   text-decoration: none !important;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    width: 784px !important;
+  }
+  .navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
 }
 
 /* When menu is collapsed */
@@ -432,5 +454,22 @@ div.explanation {
     width: 100%;
     max-width: none;
     border-radius: 0;
+  }
+  .support-button a {
+    margin-right: 10px;
+  }
+  #navbar ul {
+    float: none;
+  }
+}
+
+@media (min-width: 570px) and (max-width: 767px) {
+  .col-qf-4 {
+    width: 33.33333333%;
+    float:left;
+  }
+  .col-qf-6 {
+    width: 50%;
+    float:left;
   }
 }
