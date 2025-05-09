@@ -452,3 +452,14 @@ div.explanation {
     float: none;
   }
 }
+
+@media (min-width: 570px) and (max-width: 767px) {
+  .col-qf-4 {
+    width: 33.33333333%;
+    float:left;
+  }
+  .col-qf-6 {
+    width: 50%;
+    float:left;
+  }
+}
