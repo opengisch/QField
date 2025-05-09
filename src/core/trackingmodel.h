@@ -83,14 +83,32 @@ class TrackingModel : public QAbstractItemModel
      */
     Q_INVOKABLE void requestTrackingSetup( QgsVectorLayer *layer, bool skipSettings = false );
 
+    Q_INVOKABLE void trackingSetupDone();
+
   signals:
 
     void layerInTrackingChanged( QgsVectorLayer *layer, bool tracking );
-
     void trackingSetupRequested( QModelIndex trackerIndex, bool skipSettings );
 
   private:
+    struct TrackerRequest
+    {
+        TrackerRequest()
+        {}
+
+        TrackerRequest( QgsVectorLayer *layer, bool skipSettings )
+          : layer( layer )
+          , skipSettings( layer )
+        {
+        }
+
+        QPointer<QgsVectorLayer> layer = nullptr;
+        bool skipSettings = false;
+    };
+
     QList<Tracker *> mTrackers;
+    QList<TrackerRequest> mRequestedTrackers;
+
     QList<Tracker *>::const_iterator trackerIterator( QgsVectorLayer *layer )
     {
       return std::find_if( mTrackers.constBegin(), mTrackers.constEnd(), [layer]( const Tracker *tracker ) { return tracker->vectorLayer() == layer; } );

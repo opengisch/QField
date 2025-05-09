@@ -244,9 +244,29 @@ void TrackingModel::createProjectTrackers( QgsProject *project )
 
 void TrackingModel::requestTrackingSetup( QgsVectorLayer *layer, bool skipSettings )
 {
-  Tracker *tracker = trackerForLayer( layer );
-  if ( tracker )
+  mRequestedTrackers << TrackerRequest( layer, skipSettings );
+  if ( mRequestedTrackers.size() == 1 )
   {
-    emit trackingSetupRequested( index( mTrackers.indexOf( tracker ), 0 ), skipSettings );
+    Tracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
+    if ( tracker )
+    {
+      emit trackingSetupRequested( index( mTrackers.indexOf( tracker ), 0 ), mRequestedTrackers.first().skipSettings );
+    }
+  }
+}
+
+void TrackingModel::trackingSetupDone()
+{
+  if ( !mRequestedTrackers.isEmpty() )
+  {
+    mRequestedTrackers.removeFirst();
+    if ( !mRequestedTrackers.isEmpty() )
+    {
+      Tracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
+      if ( tracker )
+      {
+        emit trackingSetupRequested( index( mTrackers.indexOf( tracker ), 0 ), mRequestedTrackers.first().skipSettings );
+      }
+    }
   }
 }
