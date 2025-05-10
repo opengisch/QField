@@ -217,7 +217,7 @@ void TrackingModel::createProjectTrackers( QgsProject *project )
         const bool sensorDataRequirementActive = layer->customProperty( "QFieldSync/tracking_sensor_data_requirement_active", false ).toBool();
         const bool allRequirementsActive = layer->customProperty( "QFieldSync/tracking_all_requirements_active", false ).toBool();
         const bool erroneousDistanceSafeguardActive = layer->customProperty( "QFieldSync/tracking_erroneous_distance_safeguard_active", false ).toBool();
-        const bool erroneousDistanceSafeguardMaximumMeters = layer->customProperty( "QFieldSync/tracking_erroneous_distance_safeguard_maximum_meters", 250 ).toInt();
+        const int erroneousDistanceSafeguardMaximumMeters = layer->customProperty( "QFieldSync/tracking_erroneous_distance_safeguard_maximum_meters", 250 ).toInt();
         const int measurementType = layer->customProperty( "QFieldSync/tracking_measurement_type", false ).toInt();
 
         Tracker *tracker = new Tracker( vl );
@@ -244,9 +244,29 @@ void TrackingModel::createProjectTrackers( QgsProject *project )
 
 void TrackingModel::requestTrackingSetup( QgsVectorLayer *layer, bool skipSettings )
 {
-  Tracker *tracker = trackerForLayer( layer );
-  if ( tracker )
+  mRequestedTrackers << TrackerRequest( layer, skipSettings );
+  if ( mRequestedTrackers.size() == 1 )
   {
-    emit trackingSetupRequested( index( mTrackers.indexOf( tracker ), 0 ), skipSettings );
+    Tracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
+    if ( tracker )
+    {
+      emit trackingSetupRequested( index( mTrackers.indexOf( tracker ), 0 ), mRequestedTrackers.first().skipSettings );
+    }
+  }
+}
+
+void TrackingModel::trackingSetupDone()
+{
+  if ( !mRequestedTrackers.isEmpty() )
+  {
+    mRequestedTrackers.removeFirst();
+    if ( !mRequestedTrackers.isEmpty() )
+    {
+      Tracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
+      if ( tracker )
+      {
+        emit trackingSetupRequested( index( mTrackers.indexOf( tracker ), 0 ), mRequestedTrackers.first().skipSettings );
+      }
+    }
   }
 }

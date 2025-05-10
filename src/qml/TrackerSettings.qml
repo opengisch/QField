@@ -43,6 +43,7 @@ Popup {
             projectInfo.saveTracker(featureModel.currentLayer);
           }
           tracker = undefined;
+          trackingModel.trackingSetupDone();
         }
       }
     }
@@ -586,6 +587,7 @@ Popup {
           }
           tracker = undefined;
           trackerSettings.close();
+          trackingModel.trackingSetupDone();
         }
 
         onCancelled: {
@@ -595,6 +597,7 @@ Popup {
           trackingModel.stopTracker(tracker.vectorLayer);
           tracker = undefined;
           trackerSettings.close();
+          trackingModel.trackingSetupDone();
         }
       }
     }
