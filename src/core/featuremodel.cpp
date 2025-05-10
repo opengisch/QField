@@ -345,7 +345,7 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
     case AttributeValue:
     {
       QVariant val( value );
-      QgsField fld = mLayer ? mLayer->fields().at( index.row() ) : mFeature.fields().at( index.row() );
+      const QgsField field = mLayer ? mLayer->fields().at( index.row() ) : mFeature.fields().at( index.row() );
 
       // Objects and arrays coming from the QML realm are QJSValue objects, convert to QVariant
       if ( val.canConvert<QJSValue>() )
@@ -353,9 +353,9 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
         val = val.value<QJSValue>().toVariant();
       }
 
-      if ( !fld.convertCompatible( val ) )
+      if ( !field.convertCompatible( val ) )
       {
-        QgsMessageLog::logMessage( tr( "Value \"%1\" %4 could not be converted to a compatible value for field %2(%3)." ).arg( value.toString(), fld.name(), fld.typeName(), value.isNull() ? "NULL" : "NOT NULL" ) );
+        QgsMessageLog::logMessage( tr( "Value \"%1\" %4 could not be converted to a compatible value for field %2(%3)." ).arg( value.toString(), field.name(), field.typeName(), value.isNull() ? "NULL" : "NOT NULL" ) );
         return false;
       }
 
