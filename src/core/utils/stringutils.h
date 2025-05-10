@@ -63,7 +63,7 @@ class QFIELD_CORE_EXPORT StringUtils : public QObject
      * Returns a string in which QField-specific filename tags have been replaced with their
      * values.
      */
-    static QString replaceFilenameTags( const QString &string, const QString &filename );
+    static Q_INVOKABLE QString replaceFilenameTags( const QString &string, const QString &filename );
 };
 
 #endif // STRINGUTILS_H
