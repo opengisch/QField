@@ -712,6 +712,6 @@ Popup {
 
   function resetCurrentProject() {
     cloudProjectsModel.discardLocalChangesFromCurrentProject(cloudProjectsModel.currentProjectId);
-    cloudProjectsModel.downloadProject(cloudProjectsModel.currentProjectId, true);
+    cloudProjectsModel.projectPackageAndDownload(cloudProjectsModel.currentProjectId);
   }
 }
