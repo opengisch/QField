@@ -24,6 +24,7 @@
 
 class QgsMapLayer;
 class QgsQuickMapSettings;
+class QgsRasterLayer;
 class QgsVectorLayer;
 class MultiFeatureListModel;
 
@@ -42,13 +43,15 @@ class IdentifyTool : public QObject
   public:
     struct IdentifyResult
     {
-        IdentifyResult( QgsMapLayer *layer, const QgsFeature &feature )
+        IdentifyResult( QgsMapLayer *layer, const QgsFeature &feature, const QString &representationalLayerName = QString() )
           : layer( layer )
           , feature( feature )
+          , representationalLayerName( representationalLayerName )
         {}
 
         QgsMapLayer *layer;
         QgsFeature feature;
+        QString representationalLayerName;
     };
 
   public:
@@ -77,6 +80,7 @@ class IdentifyTool : public QObject
     void identify( const QPointF &point ) const;
 
     QList<IdentifyResult> identifyVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const;
+    QList<IdentifyResult> identifyRasterLayer( QgsRasterLayer *layer, const QgsPointXY &point ) const;
 
   private:
     QgsQuickMapSettings *mMapSettings = nullptr;
@@ -86,6 +90,7 @@ class IdentifyTool : public QObject
     double searchRadiusMU() const;
 
     QgsRectangle toLayerCoordinates( QgsMapLayer *layer, const QgsRectangle &rect ) const;
+    QgsPointXY toLayerCoordinates( QgsMapLayer *layer, const QgsPointXY &point ) const;
 
     double mSearchRadiusMm;
 

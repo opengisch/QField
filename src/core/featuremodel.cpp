@@ -307,13 +307,13 @@ QVariant FeatureModel::data( const QModelIndex &index, int role ) const
   switch ( role )
   {
     case AttributeName:
-      return mLayer->attributeDisplayName( index.row() );
+      return mLayer ? mLayer->attributeDisplayName( index.row() ) : mFeature.fields().at( index.row() ).name();
 
     case AttributeValue:
       return mFeature.attribute( index.row() );
 
     case Field:
-      return mLayer->fields().at( index.row() );
+      return mLayer ? mLayer->fields().at( index.row() ) : mFeature.fields().at( index.row() );
 
     case RememberAttribute:
       return sRememberings->value( mLayer ).rememberedAttributes.at( index.row() );
@@ -345,7 +345,7 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
     case AttributeValue:
     {
       QVariant val( value );
-      QgsField fld = mLayer->fields().at( index.row() );
+      const QgsField field = mLayer ? mLayer->fields().at( index.row() ) : mFeature.fields().at( index.row() );
 
       // Objects and arrays coming from the QML realm are QJSValue objects, convert to QVariant
       if ( val.canConvert<QJSValue>() )
@@ -353,9 +353,9 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
         val = val.value<QJSValue>().toVariant();
       }
 
-      if ( !fld.convertCompatible( val ) )
+      if ( !field.convertCompatible( val ) )
       {
-        QgsMessageLog::logMessage( tr( "Value \"%1\" %4 could not be converted to a compatible value for field %2(%3)." ).arg( value.toString(), fld.name(), fld.typeName(), value.isNull() ? "NULL" : "NOT NULL" ) );
+        QgsMessageLog::logMessage( tr( "Value \"%1\" %4 could not be converted to a compatible value for field %2(%3)." ).arg( value.toString(), field.name(), field.typeName(), value.isNull() ? "NULL" : "NOT NULL" ) );
         return false;
       }
 
@@ -372,15 +372,18 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
 
     case RememberAttribute:
     {
-      QMutex *mutex = sMutex;
-      QMutexLocker locker( mutex );
-      ( *sRememberings )[mLayer].rememberedAttributes[index.row()] = value.toBool();
+      if ( mLayer )
+      {
+        QMutex *mutex = sMutex;
+        QMutexLocker locker( mutex );
+        ( *sRememberings )[mLayer].rememberedAttributes[index.row()] = value.toBool();
 
-      QgsEditFormConfig config = mLayer->editFormConfig();
-      config.setReuseLastValue( index.row(), value.toBool() );
-      mLayer->setEditFormConfig( config );
+        QgsEditFormConfig config = mLayer->editFormConfig();
+        config.setReuseLastValue( index.row(), value.toBool() );
+        mLayer->setEditFormConfig( config );
 
-      emit dataChanged( index, index, QVector<int>() << role );
+        emit dataChanged( index, index, QVector<int>() << role );
+      }
       break;
     }
 
@@ -402,13 +405,17 @@ void FeatureModel::updateGeometryLocked()
 {
   bool geometryLocked = mGeometryLockedByDefault;
 
-  if ( mLayer && !mGeometryLockedExpression.isEmpty() )
+  if ( mLayer )
   {
-    QgsExpressionContext expressionContext = createExpressionContext();
-    expressionContext.setFeature( mFeature );
-    QgsExpression expression( mGeometryLockedExpression );
-    expression.prepare( &expressionContext );
-    geometryLocked = expression.evaluate( &expressionContext ).toBool();
+    geometryLocked = geometryLocked || mLayer->readOnly();
+    if ( !mLayer->readOnly() && !mGeometryLockedExpression.isEmpty() )
+    {
+      QgsExpressionContext expressionContext = createExpressionContext();
+      expressionContext.setFeature( mFeature );
+      QgsExpression expression( mGeometryLockedExpression );
+      expression.prepare( &expressionContext );
+      geometryLocked = expression.evaluate( &expressionContext ).toBool();
+    }
   }
 
   if ( mGeometryLocked != geometryLocked )
