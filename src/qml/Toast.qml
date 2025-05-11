@@ -10,6 +10,7 @@ Popup {
 
   property string type: 'info'
   property int edgeSpacing: 52
+  property bool animationEnabled: false
   property real virtualKeyboardHeight: {
     const top = Qt.inputMethod.keyboardRectangle.top / Screen.devicePixelRatio;
     if (top > 0) {
@@ -30,14 +31,14 @@ Popup {
   closePolicy: Popup.NoAutoClose
 
   opacity: 0
+
   Behavior on opacity  {
     NumberAnimation {
       duration: 250
     }
   }
 
-  background: Rectangle {
-    color: "transparent"
+  background: Item {
   }
 
   Rectangle {
@@ -49,6 +50,31 @@ Popup {
 
     color: "#66212121"
     radius: 4
+
+    ProgressBar {
+      id: animationProgressBar
+      padding: 2
+      anchors.fill: parent
+      visible: animationEnabled
+      z: toastRow.z - 1
+      value: animationTimer.position / toastTimer.interval
+
+      background: Item {
+        anchors.fill: parent
+      }
+
+      contentItem: Item {
+        anchors.fill: parent
+
+        Rectangle {
+          width: animationProgressBar.visualPosition * parent.width
+          height: parent.height
+          radius: 2
+          color: "#8080cc28"
+          visible: !animationProgressBar.indeterminate
+        }
+      }
+    }
 
     Row {
       id: toastRow
@@ -116,6 +142,31 @@ Popup {
   }
 
   Timer {
+    id: animationTimer
+    interval: 50
+    repeat: animationEnabled
+
+    property real position: 0
+    property var stopAct: undefined
+
+    onTriggered: {
+      position += interval;
+      if (animationProgressBar.value === 1) {
+        animationTimer.stop();
+        reset();
+        if (stopAct !== undefined) {
+          stopAct();
+        }
+        animationEnabled = false;
+      }
+    }
+
+    function reset() {
+      position = 0;
+    }
+  }
+
+  Timer {
     id: toastTimer
     interval: 3000
     onTriggered: {
@@ -127,12 +178,22 @@ Popup {
     if (opacity == 0) {
       toastContent.visible = false;
       toast.close();
+      animationTimer.reset();
+      animationEnabled = false;
     }
   }
 
-  function show(text, type, action_text, action_function) {
+  function show(text, type, action_text, action_function, stop_function, is_animation_enabled) {
     toastMessage.text = text;
     toast.type = type || 'info';
+    if (is_animation_enabled !== undefined) {
+      toast.animationEnabled = is_animation_enabled;
+    } else {
+      toast.animationEnabled = false;
+    }
+    if (stop_function !== undefined) {
+      animationTimer.stopAct = stop_function;
+    }
     if (action_text !== undefined && action_function !== undefined) {
       toastAction.text = action_text;
       toastAction.act = action_function;
@@ -146,5 +207,9 @@ Popup {
     toast.open();
     toast.opacity = 1;
     toastTimer.restart();
+    if (toast.animationEnabled) {
+      animationTimer.reset();
+      animationTimer.restart();
+    }
   }
 }

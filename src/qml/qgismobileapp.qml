@@ -764,6 +764,13 @@ ApplicationWindow {
       }
 
       onAboutToWheelZoom: {
+        if (gnssButton.followActive) {
+          mapCanvasMap.unfreeze('follow');
+          gnssButton.followActive = false;
+          gnssButton.followOrientationActive = false;
+          mapSettingsConnections.autoReFollowLocation = true;
+          displayToast(qsTr('Follow location again'), 'info', qsTr('Stop'), mapSettingsConnections.cancelAutoFollowLocation, mapSettingsConnections.followLocation, true);
+        }
         if (gnssButton.followActive)
           gnssButton.followActiveSkipExtentChanged = true;
       }
@@ -2236,7 +2243,36 @@ ApplicationWindow {
       }
 
       Connections {
+        id: mapSettingsConnections
         target: mapCanvas.mapSettings
+
+        property bool autoReFollowLocation: false
+
+        function cancelAutoFollowLocation() {
+          toast.close();
+          mapSettingsConnections.autoReFollowLocation = false;
+        }
+
+        function followLocation() {
+          if (mapSettingsConnections.autoReFollowLocation) {
+            gnssButton.followActive = true;
+            mapCanvasMap.freeze('follow');
+            if (positionSource.projectedPosition.x) {
+              if (!positionSource.active) {
+                positioningSettings.positioningActivated = true;
+              } else {
+                gnssButton.followLocation(true);
+              }
+            } else {
+              if (positionSource.valid) {
+                if (positionSource.active) {
+                } else {
+                  positioningSettings.positioningActivated = true;
+                }
+              }
+            }
+          }
+        }
 
         function onExtentChanged() {
           if (gnssButton.followActive) {
@@ -2246,8 +2282,11 @@ ApplicationWindow {
               mapCanvasMap.unfreeze('follow');
               gnssButton.followActive = false;
               gnssButton.followOrientationActive = false;
-              displayToast(qsTr("Canvas stopped following location"));
+              mapSettingsConnections.autoReFollowLocation = true;
+              displayToast(qsTr('Follow location again'), 'info', qsTr('Stop'), mapSettingsConnections.cancelAutoFollowLocation, mapSettingsConnections.followLocation, true);
             }
+          } else if (mapSettingsConnections.autoReFollowLocation) {
+            displayToast(qsTr('Follow location again'), 'info', qsTr('Stop'), mapSettingsConnections.cancelAutoFollowLocation, mapSettingsConnections.followLocation, true);
           }
         }
 
@@ -3597,8 +3636,8 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
-  function displayToast(message, type, action_text, action_function) {
-    toast.show(message, type, action_text, action_function);
+  function displayToast(message, type, action_text, action_function, stop_function, is_animation_enabled) {
+    toast.show(message, type, action_text, action_function, stop_function, is_animation_enabled);
   }
 
   Timer {
