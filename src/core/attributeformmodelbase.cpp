@@ -59,6 +59,7 @@ AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
       }
     }
     sSupportedEditorWidgets->append( QStringLiteral( "RelationEditor" ) );
+    sSupportedEditorWidgets->append( QStringLiteral( "Hidden" ) );
   }
 }
 
