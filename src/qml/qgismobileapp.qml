@@ -769,7 +769,7 @@ ApplicationWindow {
           gnssButton.followActive = false;
           gnssButton.followOrientationActive = false;
           mapSettingsConnections.autoReFollowLocation = true;
-          displayToast(qsTr('Follow location again'), 'info', qsTr('Stop'), mapSettingsConnections.cancelAutoFollowLocation, mapSettingsConnections.followLocation, true);
+          displayToast(qsTr('Follow location again'), 'info', qsTr('Unlock'), mapSettingsConnections.cancelAutoFollowLocation, mapSettingsConnections.followLocation, true);
         }
         if (gnssButton.followActive)
           gnssButton.followActiveSkipExtentChanged = true;
@@ -2283,10 +2283,10 @@ ApplicationWindow {
               gnssButton.followActive = false;
               gnssButton.followOrientationActive = false;
               mapSettingsConnections.autoReFollowLocation = true;
-              displayToast(qsTr('Follow location again'), 'info', qsTr('Stop'), mapSettingsConnections.cancelAutoFollowLocation, mapSettingsConnections.followLocation, true);
+              displayToast(qsTr('Follow location again'), 'info', qsTr('Unlock'), mapSettingsConnections.cancelAutoFollowLocation, mapSettingsConnections.followLocation, true);
             }
           } else if (mapSettingsConnections.autoReFollowLocation) {
-            displayToast(qsTr('Follow location again'), 'info', qsTr('Stop'), mapSettingsConnections.cancelAutoFollowLocation, mapSettingsConnections.followLocation, true);
+            displayToast(qsTr('Follow location again'), 'info', qsTr('Unlock'), mapSettingsConnections.cancelAutoFollowLocation, mapSettingsConnections.followLocation, true);
           }
         }
 
