@@ -472,7 +472,7 @@ Page {
         Item {
           id: fieldContainer
 
-          property bool isVisible: Type === 'field' || Type === 'relation'
+          property bool isVisible: (Type === 'field' && EditorWidget !== "Hidden") || Type === 'relation'
 
           visible: isVisible
           height: isVisible ? childrenRect.height : 0
@@ -563,7 +563,7 @@ Page {
               property var currentLayer: form.model.featureModel.currentLayer
               property bool autoSave: qfieldSettings.autoSave
 
-              active: widget !== 'Hidden'
+              active: widget !== undefined && widget !== "Hidden"
               source: {
                 if (widget === 'RelationEditor') {
                   return 'editorwidgets/relationeditors/' + (RelationEditorWidget || 'relation_editor') + '.qml';
@@ -594,7 +594,7 @@ Page {
 
               function onValueChanged(field, oldValue, newValue) {
                 // it may not be implemented
-                if (attributeEditorLoader.item.siblingValueChanged) {
+                if (attributeEditorLoader.item && attributeEditorLoader.item.siblingValueChanged) {
                   attributeEditorLoader.item.siblingValueChanged(field, form.model.featureModel.feature);
                 }
               }
