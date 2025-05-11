@@ -179,7 +179,7 @@
     <name>Binary</name>
     <message>
         <source>(Blob)</source>
-        <translation type="unfinished"/>
+        <translation>(Blob)</translation>
     </message>
 </context>
 <context>
@@ -623,19 +623,19 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Received data is too short to process</source>
-        <translation type="unfinished"/>
+        <translation>Os datos recibidos son demasiado escasos para procesalos</translation>
     </message>
     <message>
         <source>Invalid start byte</source>
-        <translation type="unfinished"/>
+        <translation>Byte de inicio non válido</translation>
     </message>
     <message>
         <source>Received data is too short to contain the payload</source>
-        <translation type="unfinished"/>
+        <translation>Os datos recibidos son demasiado escasos para conter a carga útil</translation>
     </message>
     <message>
         <source>Failed to parse JSON</source>
-        <translation type="unfinished"/>
+        <translation>Non se puido analizar o JSON</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -651,15 +651,15 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Erro do receptor TCP (%1)</translation>
     </message>
     <message>
         <source>Failed to start egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>Non se puido iniciar o servidor egeniouss.</translation>
     </message>
     <message>
         <source>Failed to stop egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>Non se puido parar o servidor egeniouss.</translation>
     </message>
 </context>
 <context>
@@ -738,7 +738,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation type="unfinished"/>
+        <translation>Falta a ID de configuración da autenticación do almacenamento externo, por favor, asegúrate que se importou a QField</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -828,51 +828,51 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Desfacer a creación de %n entidade na capa %1.</numerusform><numerusform>Desfacer a creación de %n entidades na capa %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Desfacer a creación de %n entidade.</numerusform><numerusform>Desfacer a creación de %n entidades.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Desfacer a eliminación de %n entidade na capa %1.</numerusform><numerusform>Desfacer a eliminación de %n entidades na capa %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Desfacer a eliminación de %n entidade.</numerusform><numerusform>Desfacer a eliminación de %n entidades.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Desfacer a modificación de %n entidade na capa %1.</numerusform><numerusform>Desfacer modificacións de %n entidades na capa %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Desfacer a modificación de %n entidade.</numerusform><numerusform>Desfacer modificacións de %n entidades.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refacer a creación de %n entidade na capa %1.</numerusform><numerusform>Refacer a creación de %n entidades na capa %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refacer a creación de %n entidade.</numerusform><numerusform>Refacer a creación de %n entidades.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refacer a eliminación de %n entidade na capa %1.</numerusform><numerusform>Refacer a eliminación de %n entidades na capa %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refacer a eliminación de %n entidade.</numerusform><numerusform>Refacer a eliminación de %n entidades.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refacer a modificación de %n entidade na capa %1.    </numerusform><numerusform>Refacer modificacións de %n entidades na capa %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Refacer a modificación de %n entidade.</numerusform><numerusform>Refacer modificacións de %n entidades.</numerusform></translation>
     </message>
 </context>
 <context>
@@ -1393,7 +1393,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
-        <translation type="unfinished"/>
+        <translation>Esta capa está actualmente tazando posicións.</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -2061,7 +2061,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Egeniouss</source>
-        <translation type="unfinished"/>
+        <translation>Egeniouss</translation>
     </message>
     <message>
         <source>Connection type</source>
@@ -2124,11 +2124,11 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>ortho.</source>
-        <translation type="unfinished"/>
+        <translation>orto.</translation>
     </message>
     <message>
         <source>ant.</source>
-        <translation type="unfinished"/>
+        <translation>ant.</translation>
     </message>
 </context>
 <context>
@@ -3383,7 +3383,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Imported and available locally</source>
-        <translation type="unfinished"/>
+        <translation>Importado e dispoñible localmente</translation>
     </message>
     <message>
         <source>Upload file(s) to WebDAV</source>
@@ -4422,7 +4422,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Erro do receptor TCP (%1)</translation>
     </message>
 </context>
 <context>
@@ -5621,7 +5621,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Cancel algorithm operation</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar a operación do algoritmo</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
@@ -5629,7 +5629,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Desbloquear a pantalla para pechar o proxecto e a aplicación</translation>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
@@ -5681,7 +5681,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Snapping tolerance set to %1</source>
-        <translation type="unfinished"/>
+        <translation>Tolerancia do axuste establecida a %1</translation>
     </message>
     <message>
         <source>Import Confirmation</source>
@@ -5689,7 +5689,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation type="unfinished"/>
+        <translation>Queres importar &lt;b&gt;%1&lt;/b&gt; dende &lt;b&gt;%2&lt;/b&gt; a QField?</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
