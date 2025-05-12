@@ -34,7 +34,9 @@ TestCase {
   EditorWidgets.DateTime {
     id: dateTime
     property var mainWindow: mainWindowItem
-    fieldIsDate: false // to simulate LayerUtils.fieldType( field ) != 'QDate'
+    fieldIsDateTime: false
+    fieldIsDate: false
+    fieldIsString: false
     property string value: "2022-01-01"
     property var config: undefined
     property var field: undefined
