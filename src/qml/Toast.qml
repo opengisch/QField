@@ -177,7 +177,7 @@ Popup {
   }
 
   onOpacityChanged: {
-    if (opacity == 0) {
+    if (opacity === 0) {
       toastContent.visible = false;
       toast.close();
       animationTimer.reset();
@@ -186,6 +186,18 @@ Popup {
   }
 
   function show(text, type, action_text, action_function, timeout_feedback, timeout_function) {
+    if (toastTimer.running) {
+      if (toastMessage.text === text) {
+        animationTimer.reset();
+        animationTimer.restart();
+        toastTimer.restart();
+        return;
+      } else {
+        if (animationTimer.stopAct !== undefined) {
+          animationTimer.stopAct();
+        }
+      }
+    }
     toastMessage.text = text;
     toast.type = type || 'info';
     if (timeout_feedback !== undefined) {
