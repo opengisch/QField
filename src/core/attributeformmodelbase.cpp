@@ -356,6 +356,16 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
     {
       item->setData( false, AttributeFormModel::AttributeEditable );
     }
+    if ( mAliasExpressions.contains( item ) )
+    {
+      QgsExpression exp( mAliasExpressions[item] );
+      exp.prepare( &mExpressionContext );
+      QVariant result = exp.evaluate( &mExpressionContext );
+      if ( result.isValid() )
+      {
+        item->setData( result, AttributeFormModel::Name );
+      }
+    }
   }
   else if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "qml" ) || item->data( AttributeFormModel::ElementType ) == QStringLiteral( "html" ) )
   {
@@ -484,7 +494,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         if ( fieldIndex < 0 || fieldIndex >= mLayer->fields().size() )
           continue;
 
-        QgsField field = mLayer->fields().at( fieldIndex );
+        const QgsField field = mLayer->fields().at( fieldIndex );
         const QgsEditorWidgetSetup setup = findBest( fieldIndex );
 
         item->setData( element->showLabel() ? mLayer->attributeDisplayName( fieldIndex ) : QString(), AttributeFormModel::Name );
@@ -516,6 +526,12 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         }
 
         item->setData( descriptions.join( ", " ), AttributeFormModel::ConstraintDescription );
+
+        const QgsProperty property { mLayer->editFormConfig().dataDefinedFieldProperties( field.name() ).property( QgsEditFormConfig::DataDefinedProperty::Alias ) };
+        if ( property.isActive() )
+        {
+          mAliasExpressions.insert( item, property.asExpression() );
+        }
 
         updateAttributeValue( item );
 
@@ -678,6 +694,7 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
     }
   }
 
+  updateAliases( fieldName );
   updateEditorWidgetCodes( fieldName );
 }
 
@@ -702,6 +719,29 @@ bool AttributeFormModelBase::codeRequiresUpdate( const QString &fieldName, const
   }
 
   return mEditorWidgetCodesRequirements[code].referencedColumns.contains( fieldName ) || mEditorWidgetCodesRequirements[code].referencedColumns.contains( QgsFeatureRequest::ALL_ATTRIBUTES ) || mEditorWidgetCodesRequirements[code].formScope;
+}
+
+void AttributeFormModelBase::updateAliases( const QString &fieldName )
+{
+  QMap<QStandardItem *, QString>::ConstIterator aliasExpressionsIterator( mAliasExpressions.constBegin() );
+  for ( ; aliasExpressionsIterator != mAliasExpressions.constEnd(); aliasExpressionsIterator++ )
+  {
+    QStandardItem *item = aliasExpressionsIterator.key();
+    if ( !item )
+    {
+      continue;
+    }
+    QgsExpression exp( aliasExpressionsIterator.value() );
+    exp.referencedColumns().contains( fieldName );
+    {
+      exp.prepare( &mExpressionContext );
+      QVariant result = exp.evaluate( &mExpressionContext );
+      if ( result.isValid() )
+      {
+        item->setData( result, AttributeFormModel::Name );
+      }
+    }
+  }
 }
 
 void AttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName )

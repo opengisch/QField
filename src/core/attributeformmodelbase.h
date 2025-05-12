@@ -107,6 +107,9 @@ class AttributeFormModelBase : public QStandardItemModel
     //! Update QML, HTML, and text widget code.
     void updateEditorWidgetCodes( const QString &fieldName );
 
+    //! Update expression-driven alias value.
+    void updateAliases( const QString &fieldName );
+
     //! Check if the given \a code requires update.
     bool codeRequiresUpdate( const QString &fieldName, const QString &code, const QRegularExpression &regEx );
 
@@ -138,6 +141,7 @@ class AttributeFormModelBase : public QStandardItemModel
     typedef QPair<QgsExpression, QStandardItem *> VisibilityExpression;
     QList<VisibilityExpression> mVisibilityExpressions;
     QMap<QStandardItem *, int> mFields;
+    QMap<QStandardItem *, QString> mAliasExpressions;
     QMap<QStandardItem *, QString> mEditorWidgetCodes;
     QMap<QString, CodeRequirements> mEditorWidgetCodesRequirements;
 
