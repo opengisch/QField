@@ -2300,7 +2300,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Details stamping enabled</source>
-        <translation type="unfinished"/>
+        <translation>Activado o rexistro dos detalles</translation>
     </message>
     <message>
         <source>Latitude</source>
@@ -2324,7 +2324,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Details stamping disabled</source>
-        <translation type="unfinished"/>
+        <translation>Desactivado o rexistro dos detalles</translation>
     </message>
 </context>
 <context>
@@ -2675,15 +2675,15 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Este proxecto ten un ficheiro de proxecto actualizado na nube, aconséllase sincronizar.</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>Este proxecto ten datos actualizados na nube, deberías sincronizar.</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud está empaquetando os últimos datos para ti. Isto pode levar algún tempo, por favor, aguante firme</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
@@ -2703,11 +2703,11 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>O proxecto actual non permite apagar o envío automatizado</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Almacenar proxectos en QFieldCloud ofrece unha sincronización fluída, edición sen conexión e xestión de equipos. &lt;br&gt;&lt;br&gt;</translation>
     </message>
 </context>
 <context>
@@ -3038,7 +3038,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud está empaquetando os últimos datos para ti. Isto pode levar algún tempo, por favor, aguante firme</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
@@ -3054,7 +3054,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Non se atoparon proxectos na nube. Para comezar, %1le a documentación%2.</translation>
     </message>
     <message>
         <source>Search for project</source>
@@ -3098,11 +3098,11 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation type="unfinished"/>
+        <translation>Este código QR pode ser escaneado por usuarios co adecuado acceso a descarga e apertura deste proxecto</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud está a empaquetar o proxecto, aguante firme</translation>
     </message>
     <message>
         <source>Downloading project</source>
@@ -3122,7 +3122,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>QFieldCloud project details fetching failed</source>
-        <translation type="unfinished"/>
+        <translation>Erro na actualización dos detalles do proxecto de QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3323,15 +3323,15 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>Estás a piques de subir contido modificado a &lt;b&gt;%1&lt;/b&gt; utilizando o usuario &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Esta operación rescribirá os datos almacenados remotamente, asegúrate de que isto é o que queres facer.</translation>
     </message>
     <message>
         <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>Estás a piques de descargar contido modificado dende &lt;b&gt;%1&lt;/b&gt; utilizando o usuario &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Esta operación rescribirá os datos almacenados localmente, asegúrate de que isto é o que queres facer.</translation>
     </message>
     <message>
         <source>Password (leave empty to use remembered)</source>
-        <translation type="unfinished"/>
+        <translation>Contrasinal (deixar en branco para utilizar a que está en memoria)</translation>
     </message>
     <message>
         <source>Password</source>
@@ -3343,7 +3343,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation type="unfinished"/>
+        <translation>Teclea abaixo os detalles WebDAV para importar un directorio remoto:</translation>
     </message>
     <message>
         <source>WebDAV server URL</source>
@@ -3367,7 +3367,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>leave empty to use remembered</source>
-        <translation type="unfinished"/>
+        <translation>deixar en branco para utilizar a que está en memoria</translation>
     </message>
     <message>
         <source>(root folder)</source>
@@ -3387,15 +3387,15 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Upload file(s) to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Subir ficheiro(s) a WebDAV</translation>
     </message>
     <message>
         <source>Push file(s) to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Eviar ficheiro(s) a QFieldCloud</translation>
     </message>
     <message>
         <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, seleccione un ou máis ficheiros par enviar a QFieldCloud.</translation>
     </message>
     <message>
         <source>Confirm</source>
@@ -3403,7 +3403,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Estás a piques de eliminar un elemento WebDAV gardado, continuar?</translation>
     </message>
 </context>
 <context>
@@ -3414,7 +3414,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
-        <translation type="unfinished"/>
+        <translation>Latitude %1 | Lonxitude %2 | Altitude %3 m | Velocidade %4 m/s | Direción %5°</translation>
     </message>
     <message>
         <source>Positioning service stopped</source>
@@ -3787,15 +3787,15 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
-        <translation type="unfinished"/>
+        <translation>Permitir toque de dedo na vista do mapa para engadir vértices</translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation type="unfinished"/>
+        <translation>Cando se activa, dar un toque cun dedo na vista do mapa engadirá un vértice na posición pulsada.</translation>
     </message>
     <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation type="unfinished"/>
+        <translation>Cando se activa, o rato actuará coma se fose un dedo. Cando se desactiva, o rato comportarase coma un punteiro.</translation>
     </message>
     <message>
         <source>Map Canvas</source>
@@ -3839,42 +3839,42 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Bad accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Marxe de precisión mala [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>Marxe de precisión excelente [m]</translation>
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>Forzar a esixencia da precisión</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>Cando o indicador de precisión se activa, sitúase un indicativo no botón da localización e ponse &lt;span %1&gt;vermello&lt;/span&gt; se o valor da precisión é peor que &lt;i&gt;malo&lt;/i&gt;, &lt;span %2&gt;amarelo&lt;/span&gt; se non chega a ser &lt;i&gt;excelente&lt;/i&gt;, ou &lt;span %3&gt;verde&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Ademais, pode activarse un modo de restrición da precisión, que restrinxe a adición de vértices cando se bloquea o cursor de coordenadas a posicións cun valor de precisión máis alto que un limiar malo.</translation>
     </message>
     <message>
         <source>Render preview content around visible map canvas</source>
-        <translation type="unfinished"/>
+        <translation>Representar unha vista preliminar do contido arredor da vista do mapa visible</translation>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
-        <translation type="unfinished"/>
+        <translation>De activarse, as áreas xusto fóra da extensión da vista do mapa visible renderizarase parcialmente para permitir a vista preliminar cando se fai zoom ou no desprazamento</translation>
     </message>
     <message>
         <source>Automatically open form for single feature identification</source>
-        <translation type="unfinished"/>
+        <translation>Abrir formulario automaticamente para a identificación dunha única entidade</translation>
     </message>
     <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation type="unfinished"/>
+        <translation>Cando se activa, o formulario da entidade abrirase automaticamente se só se identifica unha única entidade, saltando a lista de entidades.</translation>
     </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
     <message>
         <source>Select drawing template</source>
-        <translation type="unfinished"/>
+        <translation>Seleccionar o modelo do debuxo</translation>
     </message>
 </context>
 <context>
@@ -4107,7 +4107,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Map printed on %1 using QField</source>
-        <translation type="unfinished"/>
+        <translation>Mapa impreso en %1 utilizando QField</translation>
     </message>
 </context>
 <context>
@@ -4245,7 +4245,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Child Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menú Aniñado</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
@@ -4850,11 +4850,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>WebdavConnection</name>
     <message>
         <source>Failed to download file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Non se pode descargar o ficheiro %1 debido a un erro de rede (%2)</translation>
     </message>
     <message>
         <source>Failed to upload file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Non se pode subir o ficheiro %1 debido a un erro de rede (%2)</translation>
     </message>
 </context>
 <context>
@@ -4965,7 +4965,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation type="unfinished"/>
+        <translation>Xenial! Encantaríanos que premeses o botón de abaixo e deixaras un comentario.</translation>
     </message>
     <message>
         <source>Return to map</source>
@@ -5569,19 +5569,19 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>A posición traspasou en &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Position outside areas after leaving ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Situar áreas exteriores despois de deixar &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Position entered into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>A posición adentrouse en ‘%1’</translation>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>A posición saiuse de ‘%1’</translation>
     </message>
     <message>
         <source>Enable Map Rotation</source>
@@ -5593,7 +5593,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation type="unfinished"/>
+        <translation>Este botón abre o panel de control. Co panel de control podes iteractuar coa lenda e co tema do mapa ou comezar a dixitalizar activando o modo edición. Unha pulsación prolongada do botón dáche inmediato acceso o botón principal.</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -5601,7 +5601,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
+        <translation>Este botón activa o sistema de posicionamento. Cando se activa, un marcador da posición aparecerá na parte de arriba do mapa. Unha pulsación prolongada do botón abrirá o menú do posicionamento onde se poden explorar funcionalidades adicionais.</translation>
     </message>
     <message>
         <source>Search</source>
@@ -5617,7 +5617,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
-        <translation type="unfinished"/>
+        <translation>Ademais do xesto de beliscar, estes botón axudanche rapidamente a facer zoom ou alonxar.</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
@@ -5625,7 +5625,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Estás a punto de descartar a operación do algoritmo en curso, continuar?</translation>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
@@ -5633,7 +5633,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
-        <translation type="unfinished"/>
+        <translation>Modo sen borde activado, utiliza as esquinas superior esquerda e inferior dereita para mover e cambiar o tamaño da xanela</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
@@ -5653,7 +5653,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
-        <translation type="unfinished"/>
+        <translation>Repetición das posicións capturadas, agarda</translation>
     </message>
     <message>
         <source>Snapping to every</source>
