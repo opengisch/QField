@@ -152,8 +152,8 @@ TestCase {
     compare(range.suffix, "");
     range.isDouble = false;
     compare(range.precision, 0);
-    compare(range.min, -2147483647);
-    compare(range.max, 2147483647);
+    compare(range.min, -Infinity);
+    compare(range.max, Infinity);
     range.isDouble = true;
     compare(range.precision, 2);
     compare(range.min, -Infinity);

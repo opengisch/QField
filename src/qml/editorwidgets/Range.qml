@@ -10,8 +10,8 @@ EditorWidgetBase {
   property bool isDouble: field === undefined || (LayerUtils.fieldType(field) !== 'int' && LayerUtils.fieldType(field) !== 'qlonglong')
   property string widgetStyle: config["Style"] ? config["Style"] : "TextField"
   property int precision: config["Precision"] ? config["Precision"] : isDouble ? 2 : 0
-  property real min: config["Min"] !== undefined ? config["Min"] : isDouble ? -Infinity : -2147483647
-  property real max: config["Max"] !== undefined ? config["Max"] : isDouble ? Infinity : 2147483647
+  property real min: config["Min"] !== undefined ? config["Min"] : -Infinity
+  property real max: config["Max"] !== undefined ? config["Max"] : Infinity
   property real step: config["Step"] !== undefined ? config["Step"] : 1
   property string suffix: config["Suffix"] ? config["Suffix"] : ""
 
@@ -37,13 +37,7 @@ EditorWidgetBase {
 
       text: value !== undefined ? value : ''
 
-      validator: {
-        if (isDouble) {
-          doubleValidator;
-        } else {
-          intValidator;
-        }
-      }
+      validator: doubleValidator
 
       inputMethodHints: Qt.ImhFormattedNumbersOnly
 
@@ -251,5 +245,6 @@ EditorWidgetBase {
 
     bottom: rangeItem.min
     top: rangeItem.max
+    decimals: isDouble ? -1 : 0
   }
 }
