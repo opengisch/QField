@@ -10,7 +10,7 @@ Popup {
 
   property string type: 'info'
   property int edgeSpacing: 52
-  property bool animationEnabled: false
+  property bool timeoutFeedback: false
   property real virtualKeyboardHeight: {
     const top = Qt.inputMethod.keyboardRectangle.top / Screen.devicePixelRatio;
     if (top > 0) {
@@ -55,7 +55,7 @@ Popup {
       id: animationProgressBar
       padding: 2
       anchors.fill: parent
-      visible: animationEnabled
+      visible: timeoutFeedback
       z: toastRow.z - 1
       value: animationTimer.position / toastTimer.interval
 
@@ -70,7 +70,7 @@ Popup {
           width: animationProgressBar.visualPosition * parent.width
           height: parent.height
           radius: 2
-          color: "#8080cc28"
+          color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.5)
           visible: !animationProgressBar.indeterminate
         }
       }
@@ -123,6 +123,8 @@ Popup {
           if (act !== undefined) {
             act();
           }
+          toast.close();
+          animationTimer.stopAct = undefined;
         }
       }
     }
@@ -144,7 +146,7 @@ Popup {
   Timer {
     id: animationTimer
     interval: 50
-    repeat: animationEnabled
+    repeat: timeoutFeedback
 
     property real position: 0
     property var stopAct: undefined
@@ -157,7 +159,7 @@ Popup {
         if (stopAct !== undefined) {
           stopAct();
         }
-        animationEnabled = false;
+        timeoutFeedback = false;
       }
     }
 
@@ -179,20 +181,20 @@ Popup {
       toastContent.visible = false;
       toast.close();
       animationTimer.reset();
-      animationEnabled = false;
+      timeoutFeedback = false;
     }
   }
 
-  function show(text, type, action_text, action_function, stop_function, is_animation_enabled) {
+  function show(text, type, action_text, action_function, timeout_feedback, timeout_function) {
     toastMessage.text = text;
     toast.type = type || 'info';
-    if (is_animation_enabled !== undefined) {
-      toast.animationEnabled = is_animation_enabled;
+    if (timeout_feedback !== undefined) {
+      toast.timeoutFeedback = timeout_feedback;
     } else {
-      toast.animationEnabled = false;
+      toast.timeoutFeedback = false;
     }
-    if (stop_function !== undefined) {
-      animationTimer.stopAct = stop_function;
+    if (timeout_function !== undefined) {
+      animationTimer.stopAct = timeout_function;
     }
     if (action_text !== undefined && action_function !== undefined) {
       toastAction.text = action_text;
@@ -207,7 +209,7 @@ Popup {
     toast.open();
     toast.opacity = 1;
     toastTimer.restart();
-    if (toast.animationEnabled) {
+    if (toast.timeoutFeedback) {
       animationTimer.reset();
       animationTimer.restart();
     }
