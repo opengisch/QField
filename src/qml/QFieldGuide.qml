@@ -325,11 +325,16 @@ Popup {
 
     x: {
       if (internalObject.target[0]) {
-        return internalObject.pos.x + internalObject.target[0].width / 2 + (hintPanel.dir ? -8 : 8);
+        return internalObject.pos.x + internalObject.target[0].width / 2 - pointerToItem.width / 2;
       }
       return 0;
     }
-    y: hintPanel.dir ? hintPanel.y + hintPanel.height : hintPanel.y
+    y: {
+      if (internalObject.target[0]) {
+        return internalObject.pos.y + (hintPanel.dir ? -(height + 4) : internalObject.target[0].height + 4);
+      }
+      return 0;
+    }
 
     ShapePath {
       fillColor: Theme.mainBackgroundColor
