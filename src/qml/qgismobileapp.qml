@@ -763,11 +763,6 @@ ApplicationWindow {
         }
       }
 
-      onAboutToWheelZoom: {
-        if (gnssButton.followActive)
-          gnssButton.followActiveSkipExtentChanged = true;
-      }
-
       GridRenderer {
         id: gridDecoration
         mapSettings: mapCanvas.mapSettings
@@ -2099,7 +2094,11 @@ ApplicationWindow {
         / deactivation of the above followOrientationActive mode.
         */
         property bool followActiveSkipRotationChanged: false
-
+        /*
+        / Used to have hard lock on positions
+        / when we are in locked mode, and user pans the map, it will be true and after 5 seconds it will relock on position.
+        */
+        property bool autoRefollow: false
         states: [
           State {
             name: "Off"
@@ -2246,8 +2245,11 @@ ApplicationWindow {
               mapCanvasMap.unfreeze('follow');
               gnssButton.followActive = false;
               gnssButton.followOrientationActive = false;
-              displayToast(qsTr("Canvas stopped following location"));
+              gnssButton.autoRefollow = true;
+              showAutoLockToast();
             }
+          } else if (gnssButton.autoRefollow) {
+            showAutoLockToast();
           }
         }
 
@@ -3597,8 +3599,31 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
-  function displayToast(message, type, action_text, action_function) {
-    toast.show(message, type, action_text, action_function);
+  function showAutoLockToast() {
+    displayToast(qsTr('Follow location again'), 'info', qsTr('Unlock'), () => {
+        gnssButton.autoRefollow = false;
+      }, true, () => {
+        gnssButton.followActive = true;
+        mapCanvasMap.freeze('follow');
+        if (positionSource.projectedPosition.x) {
+          if (!positionSource.active) {
+            positioningSettings.positioningActivated = true;
+          } else {
+            gnssButton.followLocation(true);
+          }
+        } else {
+          if (positionSource.valid) {
+            if (positionSource.active) {
+            } else {
+              positioningSettings.positioningActivated = true;
+            }
+          }
+        }
+      });
+  }
+
+  function displayToast(message, type, action_text, action_function, stop_function, is_animation_enabled) {
+    toast.show(message, type, action_text, action_function, stop_function, is_animation_enabled);
   }
 
   Timer {

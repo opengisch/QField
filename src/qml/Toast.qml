@@ -10,6 +10,7 @@ Popup {
 
   property string type: 'info'
   property int edgeSpacing: 52
+  property bool timeoutFeedback: false
   property real virtualKeyboardHeight: {
     const top = Qt.inputMethod.keyboardRectangle.top / Screen.devicePixelRatio;
     if (top > 0) {
@@ -30,14 +31,14 @@ Popup {
   closePolicy: Popup.NoAutoClose
 
   opacity: 0
+
   Behavior on opacity  {
     NumberAnimation {
       duration: 250
     }
   }
 
-  background: Rectangle {
-    color: "transparent"
+  background: Item {
   }
 
   Rectangle {
@@ -49,6 +50,31 @@ Popup {
 
     color: "#66212121"
     radius: 4
+
+    ProgressBar {
+      id: animationProgressBar
+      padding: 2
+      anchors.fill: parent
+      visible: timeoutFeedback
+      z: toastRow.z - 1
+      value: animationTimer.position / toastTimer.interval
+
+      background: Item {
+        anchors.fill: parent
+      }
+
+      contentItem: Item {
+        anchors.fill: parent
+
+        Rectangle {
+          width: animationProgressBar.visualPosition * parent.width
+          height: parent.height
+          radius: 2
+          color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.5)
+          visible: !animationProgressBar.indeterminate
+        }
+      }
+    }
 
     Row {
       id: toastRow
@@ -97,6 +123,8 @@ Popup {
           if (act !== undefined) {
             act();
           }
+          toast.close();
+          animationTimer.timeoutAct = undefined;
         }
       }
     }
@@ -116,6 +144,31 @@ Popup {
   }
 
   Timer {
+    id: animationTimer
+    interval: 50
+    repeat: timeoutFeedback
+
+    property real position: 0
+    property var timeoutAct: undefined
+
+    onTriggered: {
+      position += interval;
+      if (animationProgressBar.value === 1) {
+        animationTimer.stop();
+        reset();
+        if (timeoutAct !== undefined) {
+          timeoutAct();
+        }
+        timeoutFeedback = false;
+      }
+    }
+
+    function reset() {
+      position = 0;
+    }
+  }
+
+  Timer {
     id: toastTimer
     interval: 3000
     onTriggered: {
@@ -124,15 +177,37 @@ Popup {
   }
 
   onOpacityChanged: {
-    if (opacity == 0) {
+    if (opacity === 0) {
       toastContent.visible = false;
       toast.close();
+      animationTimer.reset();
+      timeoutFeedback = false;
     }
   }
 
-  function show(text, type, action_text, action_function) {
+  function show(text, type, action_text, action_function, timeout_feedback, timeout_function) {
+    if (toastTimer.running) {
+      if (toastMessage.text === text) {
+        animationTimer.reset();
+        animationTimer.restart();
+        toastTimer.restart();
+        return;
+      } else {
+        if (animationTimer.timeoutAct !== undefined) {
+          animationTimer.timeoutAct();
+        }
+      }
+    }
     toastMessage.text = text;
     toast.type = type || 'info';
+    if (timeout_feedback !== undefined) {
+      toast.timeoutFeedback = timeout_feedback;
+    } else {
+      toast.timeoutFeedback = false;
+    }
+    if (timeout_function !== undefined) {
+      animationTimer.timeoutAct = timeout_function;
+    }
     if (action_text !== undefined && action_function !== undefined) {
       toastAction.text = action_text;
       toastAction.act = action_function;
@@ -146,5 +221,9 @@ Popup {
     toast.open();
     toast.opacity = 1;
     toastTimer.restart();
+    if (toast.timeoutFeedback) {
+      animationTimer.reset();
+      animationTimer.restart();
+    }
   }
 }
