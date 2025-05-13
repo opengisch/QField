@@ -124,7 +124,7 @@ Popup {
             act();
           }
           toast.close();
-          animationTimer.stopAct = undefined;
+          animationTimer.timeoutAct = undefined;
         }
       }
     }
@@ -149,15 +149,15 @@ Popup {
     repeat: timeoutFeedback
 
     property real position: 0
-    property var stopAct: undefined
+    property var timeoutAct: undefined
 
     onTriggered: {
       position += interval;
       if (animationProgressBar.value === 1) {
         animationTimer.stop();
         reset();
-        if (stopAct !== undefined) {
-          stopAct();
+        if (timeoutAct !== undefined) {
+          timeoutAct();
         }
         timeoutFeedback = false;
       }
@@ -193,8 +193,8 @@ Popup {
         toastTimer.restart();
         return;
       } else {
-        if (animationTimer.stopAct !== undefined) {
-          animationTimer.stopAct();
+        if (animationTimer.timeoutAct !== undefined) {
+          animationTimer.timeoutAct();
         }
       }
     }
@@ -206,7 +206,7 @@ Popup {
       toast.timeoutFeedback = false;
     }
     if (timeout_function !== undefined) {
-      animationTimer.stopAct = timeout_function;
+      animationTimer.timeoutAct = timeout_function;
     }
     if (action_text !== undefined && action_function !== undefined) {
       toastAction.text = action_text;
