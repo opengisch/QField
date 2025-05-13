@@ -167,9 +167,16 @@ QString StringUtils::replaceFilenameTags( const QString &string, const QString &
 {
   // IMPORTANT: an equivalent Java function QFieldUtils on Android needs to be kept synchronized
   QString replacedString = string;
+
   QFileInfo fi( filename );
+  QString completeSuffix = fi.completeSuffix();
+  if ( completeSuffix == QStringLiteral( "mp4a" ) )
+  {
+    completeSuffix = QStringLiteral( "m4a" );
+  }
   replacedString.replace( QStringLiteral( "{filename}" ), fi.fileName() );
-  replacedString.replace( QStringLiteral( "{extension}" ), fi.completeSuffix() );
+  replacedString.replace( QStringLiteral( "{extension}" ), completeSuffix );
+
   return replacedString;
 }
 
