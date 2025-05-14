@@ -5169,7 +5169,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>A vista do mapa detivo o seguimento da localización</translation>
+        <translation type="vanished">A vista do mapa detivo o seguimento da localización</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -5694,6 +5694,14 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Plugin Permission</source>
         <translation>Permiso do Plugin</translation>
+    </message>
+    <message>
+        <source>Follow location again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

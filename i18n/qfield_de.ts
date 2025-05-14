@@ -5166,7 +5166,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>Kartenausschnitt folgt nicht mehr dem aktuellen Standort</translation>
+        <translation type="vanished">Kartenausschnitt folgt nicht mehr dem aktuellen Standort</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -5690,6 +5690,14 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Plugin Permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
 </context>

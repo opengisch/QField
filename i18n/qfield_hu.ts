@@ -5165,7 +5165,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>A térkép befejezte a pozíció követést</translation>
+        <translation type="vanished">A térkép befejezte a pozíció követést</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -5689,6 +5689,14 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Plugin Permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
 </context>

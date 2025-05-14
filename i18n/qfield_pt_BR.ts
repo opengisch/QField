@@ -5160,7 +5160,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>A tela parou de seguir a localização</translation>
+        <translation type="vanished">A tela parou de seguir a localização</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -5684,6 +5684,14 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
 </context>

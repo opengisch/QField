@@ -5169,7 +5169,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>El lienzo dejó de seguir la localización</translation>
+        <translation type="vanished">El lienzo dejó de seguir la localización</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -5694,6 +5694,14 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Plugin Permission</source>
         <translation>Permiso de complemento</translation>
+    </message>
+    <message>
+        <source>Follow location again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

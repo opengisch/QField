@@ -5167,7 +5167,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>地図上で現在の位置情報を追尾するのを停止しました</translation>
+        <translation type="vanished">地図上で現在の位置情報を追尾するのを停止しました</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -5691,6 +5691,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Plugin Permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -5167,7 +5167,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>Okvir je prestao pratiti lokaciju</translation>
+        <translation type="vanished">Okvir je prestao pratiti lokaciju</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -5691,6 +5691,14 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
 </context>

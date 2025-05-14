@@ -5169,7 +5169,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>Kanvas je prestao pratiti lokaciju</translation>
+        <translation type="vanished">Kanvas je prestao pratiti lokaciju</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -5693,6 +5693,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Plugin Permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
 </context>

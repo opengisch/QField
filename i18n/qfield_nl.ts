@@ -5169,7 +5169,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>Canvas is gestopt met het volgen van de locatie</translation>
+        <translation type="vanished">Canvas is gestopt met het volgen van de locatie</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -5693,6 +5693,14 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Plugin Permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
 </context>

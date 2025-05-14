@@ -5175,7 +5175,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>Il canvas non segue più la posizione</translation>
+        <translation type="vanished">Il canvas non segue più la posizione</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -5699,6 +5699,14 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
 </context>

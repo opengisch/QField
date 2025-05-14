@@ -5173,7 +5173,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>Widok mapy nie podąża za lokalizacją</translation>
+        <translation type="vanished">Widok mapy nie podąża za lokalizacją</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -5698,6 +5698,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Plugin Permission</source>
         <translation>Zezwolenie na wtyczkę</translation>
+    </message>
+    <message>
+        <source>Follow location again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

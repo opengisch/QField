@@ -5173,7 +5173,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>Canvasul nu mai urmărește locația</translation>
+        <translation type="vanished">Canvasul nu mai urmărește locația</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -5697,6 +5697,14 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
 </context>

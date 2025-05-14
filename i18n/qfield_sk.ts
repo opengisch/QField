@@ -5172,7 +5172,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>Mapové okno prestalo nasledovať polohu</translation>
+        <translation type="vanished">Mapové okno prestalo nasledovať polohu</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -5696,6 +5696,14 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
 </context>

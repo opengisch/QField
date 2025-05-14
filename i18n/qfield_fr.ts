@@ -5168,7 +5168,7 @@ Essayez les exemples de projets répertoriés ci-dessous.</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation>Le canevas de la carte a arrêté de suivre la localisation</translation>
+        <translation type="vanished">Le canevas de la carte a arrêté de suivre la localisation</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -5694,6 +5694,14 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
 </context>
