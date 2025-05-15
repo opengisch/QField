@@ -655,11 +655,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Failed to start egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>egeniouss-palvelimen käynnistys epäonnistui.</translation>
     </message>
     <message>
         <source>Failed to stop egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>egeniouss-palvelimen pysäyttäminen epäonnistui.</translation>
     </message>
 </context>
 <context>
@@ -738,7 +738,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation type="unfinished"/>
+        <translation>Ulkoisen tallennuslaitteen todennusmääritys ID puuttuu. Varmista, että se on tuotu QFieldiin.</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -828,27 +828,27 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Kumoa %n kohteen luonti tasolle %1.</numerusform><numerusform>Kumoa %n kohteen luonti tasolle %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Kumoa %n kohteen luonti.</numerusform><numerusform>Kumoa %n kohteen luonti.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Kumoa %n kohteen poisto tasolle %1.</numerusform><numerusform>Kumoa %n kohteen poisto tasolle %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Kumoa %n kohteen poisto.</numerusform><numerusform>Kumoa %n kohteen poisto.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Kumoa %n kohteen muokkaukset tasolle %1.</numerusform><numerusform>Kumoa %n kohteen muokkaukset tasolle %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Kumoa %n kohteen muokkaukset</numerusform><numerusform>Kumoa %n kohteen muokkaukset</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s) on layer %1</source>
@@ -2381,7 +2381,7 @@ syy: %2</translation>
     </message>
     <message>
         <source>Password missing</source>
-        <translation type="unfinished"/>
+        <translation>Salasana puuttuu</translation>
     </message>
 </context>
 <context>
@@ -2469,7 +2469,7 @@ syy: %2</translation>
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>tai</translation>
     </message>
     <message>
         <source>Sign in using %1</source>
@@ -3084,19 +3084,19 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Kuvaus</translation>
     </message>
     <message>
         <source>Owner</source>
-        <translation type="unfinished"/>
+        <translation>Omistaja</translation>
     </message>
     <message>
         <source>Creation date</source>
-        <translation type="unfinished"/>
+        <translation>Luontipäivä</translation>
     </message>
     <message>
         <source>Latest update date</source>
-        <translation type="unfinished"/>
+        <translation>Viimeisin päivitys</translation>
     </message>
     <message>
         <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
@@ -3997,51 +3997,51 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>January</source>
-        <translation type="unfinished"/>
+        <translation>Tammikuu</translation>
     </message>
     <message>
         <source>February</source>
-        <translation type="unfinished"/>
+        <translation>Helmikuu</translation>
     </message>
     <message>
         <source>March</source>
-        <translation type="unfinished"/>
+        <translation>Maaliskuu</translation>
     </message>
     <message>
         <source>April</source>
-        <translation type="unfinished"/>
+        <translation>Huhtikuu</translation>
     </message>
     <message>
         <source>May</source>
-        <translation type="unfinished"/>
+        <translation>Toukokuu</translation>
     </message>
     <message>
         <source>June</source>
-        <translation type="unfinished"/>
+        <translation>Kesäkuu</translation>
     </message>
     <message>
         <source>July</source>
-        <translation type="unfinished"/>
+        <translation>Heinäkuu</translation>
     </message>
     <message>
         <source>August</source>
-        <translation type="unfinished"/>
+        <translation>Elokuu</translation>
     </message>
     <message>
         <source>September</source>
-        <translation type="unfinished"/>
+        <translation>Syyskuu</translation>
     </message>
     <message>
         <source>October</source>
-        <translation type="unfinished"/>
+        <translation>Lokakuu</translation>
     </message>
     <message>
         <source>November</source>
-        <translation type="unfinished"/>
+        <translation>Marraskuu</translation>
     </message>
     <message>
         <source>December</source>
-        <translation type="unfinished"/>
+        <translation>Joulukuu</translation>
     </message>
 </context>
 <context>
@@ -4109,7 +4109,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Map printed on %1 using QField</source>
-        <translation type="unfinished"/>
+        <translation>Kartta tulostettu kohteeseen %1 käyttäen QFieldiä</translation>
     </message>
 </context>
 <context>
@@ -4211,7 +4211,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>RelationEditorBase</name>
     <message>
         <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Varmista, että rajoitukset täyttyvät</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -4227,7 +4227,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Unlink Feature</source>
-        <translation type="unfinished"/>
+        <translation>Poista kohteiden linkitys</translation>
     </message>
     <message>
         <source>Delete Feature</source>
@@ -4247,7 +4247,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Child Menu</source>
-        <translation type="unfinished"/>
+        <translation>Alikohteiden valikko</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
@@ -4377,11 +4377,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP osoite</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Portti</translation>
     </message>
 </context>
 <context>
@@ -4758,11 +4758,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Osoite</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Portti</translation>
     </message>
 </context>
 <context>
@@ -5655,23 +5655,23 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
-        <translation type="unfinished"/>
+        <translation>Ladataan kerättyjjä sijainteja, odota hetki</translation>
     </message>
     <message>
         <source>Snapping to every</source>
-        <translation type="unfinished"/>
+        <translation>Tarttuminen jokaiseen</translation>
     </message>
     <message>
         <source>%1°</source>
-        <translation type="unfinished"/>
+        <translation>%1°</translation>
     </message>
     <message>
         <source>Snapping tolerance</source>
-        <translation type="unfinished"/>
+        <translation>Tarttumistoleranssi</translation>
     </message>
     <message>
         <source>Narrow</source>
-        <translation type="unfinished"/>
+        <translation>Pieni</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -5683,27 +5683,27 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Snapping tolerance set to %1</source>
-        <translation type="unfinished"/>
+        <translation>Tarttumistoleranssi on asetettu %1</translation>
     </message>
     <message>
         <source>Import Confirmation</source>
-        <translation type="unfinished"/>
+        <translation>Tuonnin vahvistus</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation type="unfinished"/>
+        <translation>Haluatko tuoda &lt;b&gt;%1&lt;/b&gt; kohdetta &lt;b&gt;%2&lt;/b&gt; QFieldiin?</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
-        <translation type="unfinished"/>
+        <translation>Lisäosan käyttöoikeus</translation>
     </message>
     <message>
         <source>Follow location again</source>
-        <translation type="unfinished"/>
+        <translation>Jatka sijainnin seuraamsita</translation>
     </message>
     <message>
         <source>Unlock</source>
-        <translation type="unfinished"/>
+        <translation>Aukaise</translation>
     </message>
 </context>
 <context>

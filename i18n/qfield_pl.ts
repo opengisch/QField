@@ -5701,11 +5701,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Follow location again</source>
-        <translation type="unfinished"/>
+        <translation>Ponownie podążaj za lokalizacją</translation>
     </message>
     <message>
         <source>Unlock</source>
-        <translation type="unfinished"/>
+        <translation>Odblokuj</translation>
     </message>
 </context>
 <context>

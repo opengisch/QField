@@ -5695,11 +5695,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Follow location again</source>
-        <translation type="unfinished"/>
+        <translation>再次跟踪位置</translation>
     </message>
     <message>
         <source>Unlock</source>
-        <translation type="unfinished"/>
+        <translation>解锁</translation>
     </message>
 </context>
 <context>
