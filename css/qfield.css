@@ -97,6 +97,13 @@ footer.footer {
   background-color: #80cc28;
 }
 
+/* body:not(:has(#maincarousel)) {
+  background-image: url('../images/transparent-curves-bg.svg');
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: 30%;
+} */
+
 #maincarousel {
   position:relative;
   margin-top:-20px;
@@ -133,6 +140,34 @@ footer.footer {
   margin-top:4px;
 }
 
+/* smaller carousel*/
+
+#smallcarousel {
+  position:relative;
+  margin-top:-20px;
+  margin-bottom:20px;
+  height:280px;
+}
+
+.small-carousel-caption {
+  bottom:30px;
+  text-align: left;
+}
+
+.small-carousel-caption > div {
+  float:right;
+  padding:20px;
+  border-radius:20px;
+  background-color:rgba(33,33,33,0.66);
+  color: #ffffff;
+  font-size:24px;
+}
+
+.small-carousel-caption h3 {
+  margin-top:4px;
+}
+
+/*main poinst*/
 #main-points p, #customers p, #testimonials p{
 text-align: justify;
 font-size: 13pt;
