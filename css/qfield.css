@@ -140,31 +140,15 @@ footer.footer {
   margin-top:4px;
 }
 
-/* smaller carousel*/
-
-#smallcarousel {
-  position:relative;
-  margin-top:-20px;
-  margin-bottom:20px;
-  height:280px;
+/* smaller version */
+#maincarousel.small-carousel {
+  height: 280px;
 }
 
-.small-carousel-caption {
-  bottom:30px;
-  text-align: left;
-}
-
-.small-carousel-caption > div {
-  float:right;
-  padding:20px;
-  border-radius:20px;
-  background-color:rgba(33,33,33,0.66);
-  color: #ffffff;
-  font-size:24px;
-}
-
-.small-carousel-caption h3 {
-  margin-top:4px;
+#maincarousel.small-carousel .carousel-caption {
+  bottom: auto;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /*main poinst*/
