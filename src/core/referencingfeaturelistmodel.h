@@ -16,16 +16,15 @@
 #ifndef REFERENCINGFEATURELISTMODEL_H
 #define REFERENCINGFEATURELISTMODEL_H
 
-#include "attributeformmodel.h"
-#include "qgsvectorlayer.h"
-
 #include <QAbstractItemModel>
 #include <QPair>
+#include <QThread>
+#include <qgsvectorlayer.h>
+#include <qgsvectorlayerfeatureiterator.h>
 
 //used for gatherer
 #include "qfield_core_export.h"
 
-#include <QThread>
 
 class QgsVectorLayer;
 class FeatureGatherer;
@@ -210,59 +209,66 @@ class FeatureGatherer : public QThread
     Q_OBJECT
 
   public:
-    FeatureGatherer( QgsFeature &feature, QgsRelation relation, QgsRelation nmRelation = QgsRelation() )
-      : mFeature( feature )
-      , mRelation( relation )
-      , mNmRelation( nmRelation )
+    FeatureGatherer( QgsFeature feature, QgsRelation &relation, const QgsRelation &nmRelation = QgsRelation() )
     {
+      mReferencingSource.reset( new QgsVectorLayerFeatureSource( relation.referencingLayer() ) );
+
+      const bool featureIsNew = std::numeric_limits<QgsFeatureId>::min() == feature.id();
+      if ( featureIsNew )
+      {
+        const auto fieldPairs = relation.fieldPairs();
+        for ( QgsRelation::FieldPair fieldPair : fieldPairs )
+        {
+          {
+            if ( relation.referencedLayer() && relation.referencedLayer()->dataProvider() )
+            {
+              if ( !relation.referencedLayer()->dataProvider()->defaultValueClause( feature.fieldNameIndex( fieldPair.second ) ).isEmpty() )
+              {
+                feature.setAttribute( fieldPair.second, QVariant() );
+              }
+            }
+          }
+        }
+      }
+      mRequest = relation.getRelatedFeaturesRequest( feature );
+
+      mContext = relation.referencingLayer()->createExpressionContext();
+      mDisplayExpression = relation.referencingLayer()->displayExpression();
+      if ( nmRelation.isValid() )
+      {
+        mNmReferencingFields = nmRelation.referencingLayer()->fields();
+        mNmReferencedSource.reset( new QgsVectorLayerFeatureSource( nmRelation.referencedLayer() ) );
+        mNmFieldPairs = nmRelation.fieldPairs();
+        mNmContext = nmRelation.referencedLayer()->createExpressionContext();
+        mNmDisplayExpression = nmRelation.referencedLayer()->displayExpression();
+      }
     }
 
     void run() override
     {
       mWasCanceled = false;
 
-      const bool featureIsNew = std::numeric_limits<QgsFeatureId>::min() == mFeature.id();
-      if ( featureIsNew )
-      {
-        const auto fieldPairs = mRelation.fieldPairs();
-        for ( QgsRelation::FieldPair fieldPair : fieldPairs )
-        {
-          {
-            if ( mRelation.referencedLayer() && mRelation.referencedLayer()->dataProvider() )
-            {
-              if ( !mRelation.referencedLayer()->dataProvider()->defaultValueClause( mFeature.fieldNameIndex( fieldPair.second ) ).isEmpty() )
-              {
-                mFeature.setAttribute( fieldPair.second, QVariant() );
-              }
-            }
-          }
-        }
-      }
 
-      QgsFeatureIterator relatedFeaturesIt = mRelation.getRelatedFeatures( mFeature );
-      QgsExpressionContext context = mRelation.referencingLayer()->createExpressionContext();
-      QgsExpression expression( mRelation.referencingLayer()->displayExpression() );
+      QgsFeatureIterator relatedFeaturesIt = mReferencingSource->getFeatures( mRequest );
+      QgsExpression expression( mDisplayExpression );
 
       QgsFeature childFeature;
       QString displayString;
       while ( relatedFeaturesIt.nextFeature( childFeature ) )
       {
-        context.setFeature( childFeature );
-        displayString = expression.evaluate( &context ).toString();
+        mContext.setFeature( childFeature );
+        displayString = expression.evaluate( &mContext ).toString();
 
         QgsFeature nmFeature;
         QString nmDisplayString;
-        if ( mNmRelation.isValid() )
+        if ( !mNmDisplayExpression.isEmpty() )
         {
-          QgsExpressionContext nmContext = mNmRelation.referencedLayer()->createExpressionContext();
-          QgsExpression nmExpression( mNmRelation.referencedLayer()->displayExpression() );
-
-          nmFeature = mNmRelation.getReferencedFeature( childFeature );
-          nmContext.setFeature( nmFeature );
-          nmDisplayString = nmExpression.evaluate( &nmContext ).toString();
+          QgsExpression nmExpression( mNmDisplayExpression );
+          ( void ) mNmReferencedSource->getFeatures( getNmReferencedFeatureRequest( childFeature.attributes() ) ).nextFeature( nmFeature );
+          mNmContext.setFeature( nmFeature );
+          nmDisplayString = nmExpression.evaluate( &mNmContext ).toString();
         }
 
-        //test sleep(1);
         mEntries.append( ReferencingFeatureListModel::Entry( displayString, childFeature, nmDisplayString, nmFeature ) );
 
         //cppcheck-suppress knownConditionTrueFalse
@@ -294,13 +300,44 @@ class FeatureGatherer : public QThread
     void collectedValues();
 
   private:
+    QgsFeatureRequest getNmReferencedFeatureRequest( const QgsAttributes &attributes )
+    {
+      // Taken from QgsRelation::getReferencedFeatureRequest, needed to safely run off the main thread
+      QStringList conditions;
+
+      for ( const QgsRelation::FieldPair &pair : std::as_const( mNmFieldPairs ) )
+      {
+        int referencedIdx = mNmReferencedSource->fields().lookupField( pair.referencedField() );
+        int referencingIdx = mNmReferencingFields.lookupField( pair.referencingField() );
+        if ( referencedIdx >= 0 )
+        {
+          QMetaType::Type fieldType = mNmReferencedSource->fields().at( referencedIdx ).type();
+          conditions << QgsExpression::createFieldEqualityExpression( pair.referencedField(), attributes.at( referencingIdx ), fieldType );
+        }
+        else
+        {
+          conditions << QgsExpression::createFieldEqualityExpression( pair.referencedField(), attributes.at( referencingIdx ) );
+        }
+      }
+
+      QgsFeatureRequest request;
+      request.setFilterExpression( conditions.join( QLatin1String( " AND " ) ) );
+      return request;
+    }
+
     QList<ReferencingFeatureListModel::Entry> mEntries;
 
-    QgsFeature mFeature;
-    QgsRelation mRelation;
-    QgsRelation mNmRelation;
-
+    std::unique_ptr<QgsVectorLayerFeatureSource> mReferencingSource;
     QgsFeatureRequest mRequest;
+    QgsExpressionContext mContext;
+    QString mDisplayExpression;
+
+    QgsFields mNmReferencingFields;
+    std::unique_ptr<QgsVectorLayerFeatureSource> mNmReferencedSource;
+    QList<QgsRelation::FieldPair> mNmFieldPairs;
+    QgsExpressionContext mNmContext;
+    QString mNmDisplayExpression;
+
     bool mWasCanceled = false;
 };
 
