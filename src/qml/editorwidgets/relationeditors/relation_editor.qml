@@ -18,13 +18,13 @@ RelationEditorBase {
     //if cardinality is not set, the nmRelationId is empty
     id: relationEditorModel
     currentRelationId: relationId
-    currentNmRelationId: nmRelationId
+    currentNmRelationId: nmRelationId ? nmRelationId : ""
     feature: currentFeature
 
     property int featureFocus: -1
     onModelUpdated: {
       if (featureFocus > -1) {
-        referencingFeatureListView.currentIndex = relationEditorModel.getFeatureIdRow(featureFocus);
+        listView.currentIndex = relationEditorModel.getFeatureIdRow(featureFocus);
         featureFocus = -1;
       }
     }
