@@ -852,38 +852,38 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Tee uudelleen %n kohteen luonti tasolle %1</numerusform><numerusform>Tee uudelleen %n kohteen luonti tasolle %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Tee uudelleen %n kohteen luonti</numerusform><numerusform>Tee uudelleen %n kohteen luonti</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Tee uudelleen %n kohteen poisto tasolta %1</numerusform><numerusform>Tee uudelleen %n kohteen poisto tasolta %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Tee uudelleen %n kohteen poisto</numerusform><numerusform>Tee uudelleen %n kohteen poisto</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Tee uudelleen %n kohteen muutokset tasolla %1</numerusform><numerusform>Tee uudelleen %n kohteen muutokset tasolla %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Tee uudelleen %n kohteen muutokset</numerusform><numerusform>Tee uudelleen %n kohteen muutokset</numerusform></translation>
     </message>
 </context>
 <context>
     <name>FeatureListForm</name>
     <message>
         <source>Stop tracking this feature to edit attributes</source>
-        <translation>Lopeta tämän kohteen jäljitys muokataksesi attribuutteja</translation>
+        <translation>Lopeta tämän kohteen sijainnin nauhoitus muokataksesi attribuutteja</translation>
     </message>
     <message>
         <source>Stop tracking this feature to edit geometry</source>
-        <translation>Lopeta tämän kohteen jäljitys muokataksesi geometriatietoja</translation>
+        <translation>Lopeta tämän kohteen sijainnin nauhoitus muokataksesi geometriatietoja</translation>
     </message>
     <message>
         <source>Changes saved</source>
@@ -899,11 +899,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to delete those</source>
-        <translation>Joukkoa kohteita jäljitetään, lopeta jäljitys poistaaksesi ne</translation>
+        <translation>Joukko kohteita nauhoitetaan, lopeta nauhoitus poistaaksesi ne</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to merge those</source>
-        <translation>Joukkoa kohteita jäljitetään, lopeta jäljitys yhdistääksesi ne</translation>
+        <translation>Joukko kohteita nauhoitetaan, lopeta nauhoitus yhdistääksesi ne</translation>
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
@@ -1245,11 +1245,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation>Lopeta jäljitys</translation>
+        <translation>Lopeta nauhoitus</translation>
     </message>
     <message>
         <source>Setup tracking</source>
-        <translation>Aseta seuranta</translation>
+        <translation>Aseta nauhoitus</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
@@ -1393,7 +1393,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
-        <translation type="unfinished"/>
+        <translation>Tämä taso parhaillaan nauhoittaa sijaineja</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -1702,7 +1702,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Update Attributes from Feature</source>
-        <translation type="unfinished"/>
+        <translation>Päivitä ominaisuustiedot kohteesta</translation>
     </message>
 </context>
 <context>
@@ -1862,11 +1862,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>The dataset will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>Aineisto poistetaan, haluatko jatkaa?</translation>
     </message>
     <message>
         <source>The project folder will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>Projektikansio poistetaan, haluatko jatkaa?</translation>
     </message>
 </context>
 <context>
@@ -2065,7 +2065,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Connection type</source>
-        <translation type="unfinished"/>
+        <translation>Yhteystyyppi</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2073,11 +2073,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source> (leave empty to auto-fill)</source>
-        <translation type="unfinished"/>
+        <translation>(jätä tyhjäksi automaattista täyttöä varten)</translation>
     </message>
     <message>
         <source>Connection details</source>
-        <translation type="unfinished"/>
+        <translation>Yhteyden tiedot</translation>
     </message>
 </context>
 <context>
@@ -2254,11 +2254,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>at host</source>
-        <translation type="unfinished"/>
+        <translation>isäntäkoneessa (at host)</translation>
     </message>
     <message>
         <source>at service</source>
-        <translation type="unfinished"/>
+        <translation>palvelussa (at service)</translation>
     </message>
 </context>
 <context>
@@ -2377,7 +2377,7 @@ syy: %2</translation>
     </message>
     <message>
         <source>Authentication provider missing</source>
-        <translation type="unfinished"/>
+        <translation>Tunnistautumispalveluntarjoaja puuttuu</translation>
     </message>
     <message>
         <source>Password missing</source>
@@ -2473,7 +2473,7 @@ syy: %2</translation>
     </message>
     <message>
         <source>Sign in using %1</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu sisään käyttämällä %1</translation>
     </message>
 </context>
 <context>
@@ -3072,15 +3072,15 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Show invalid projects</source>
-        <translation type="unfinished"/>
+        <translation>Näytä virheelliset projektit</translation>
     </message>
     <message>
         <source>Available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>Saatavilla pilvi-palvelussa</translation>
     </message>
     <message>
         <source>, has changes locally</source>
-        <translation type="unfinished"/>
+        <translation>, lokaaleja muutoksia</translation>
     </message>
     <message>
         <source>Description</source>
@@ -3100,19 +3100,19 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjät, joilla on tarvittavat käyttöoikeudet, voivat skannata tämän QR-koodin ladatakseen ja avatakseen tämän projektin.</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud pakkaa projektia, odota hetki</translation>
     </message>
     <message>
         <source>Downloading project</source>
-        <translation type="unfinished"/>
+        <translation>Ladataan projektia</translation>
     </message>
     <message>
         <source>Download project</source>
-        <translation type="unfinished"/>
+        <translation>Lataa projekti</translation>
     </message>
     <message>
         <source>Open project</source>
@@ -3120,11 +3120,11 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>View Project Details</source>
-        <translation type="unfinished"/>
+        <translation>Näytä projektin tiedot</translation>
     </message>
     <message>
         <source>QFieldCloud project details fetching failed</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud-projektin tietojen hakeminen epäonnistui</translation>
     </message>
 </context>
 <context>
@@ -3273,63 +3273,63 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Push to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Vie QFieldCloudiin</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV server</source>
-        <translation type="unfinished"/>
+        <translation>Lähetä kansio WebDAV-palvelimelle</translation>
     </message>
     <message>
         <source>Download folder from WebDAV server</source>
-        <translation type="unfinished"/>
+        <translation>Lataa kansio webDAV-palvelimelta</translation>
     </message>
     <message>
         <source>Remove folder</source>
-        <translation type="unfinished"/>
+        <translation>Poista kansio</translation>
     </message>
     <message>
         <source>Import WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Tuo WebDAV-kansiosta</translation>
     </message>
     <message>
         <source>Upload project to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Lähetä projekti WebDAV-palvelimelle</translation>
     </message>
     <message>
         <source>Download project from WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Lataa projekti WebDAV-palvelimelta</translation>
     </message>
     <message>
         <source>Importing WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Tuodaan WebDAV-kansiota</translation>
     </message>
     <message>
         <source>Downloading WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Ladataan WebDAV-kansiota</translation>
     </message>
     <message>
         <source>Uploading WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Lähetetään WebDAV-kansioon</translation>
     </message>
     <message>
         <source>WebDAV error: </source>
-        <translation type="unfinished"/>
+        <translation>WebDAV virhe:</translation>
     </message>
     <message>
         <source>WebDAV upload</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV-lähetys</translation>
     </message>
     <message>
         <source>WebDAV download</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV-lataus</translation>
     </message>
     <message>
         <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>Olet lähettämässä muokattua sisältöä kohteeseen &lt;b&gt;%1 &lt;/b&gt;käyttämällä käyttäjän &lt;b&gt;%2&lt;/b&gt;. &lt;br&gt;&lt;br&gt;. Tämä toiminto korvaa etätallennetun datan, varmista, että haluat tehdä näin.</translation>
     </message>
     <message>
         <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>Olet lataamassa muokattua sisältöä kohteesta &lt;b&gt;%1 &lt;/b&gt;käyttämällä käyttäjän &lt;b&gt;%2&lt;/b&gt;. &lt;br&gt;&lt;br&gt;. Tämä toiminto korvaa lokaalin datan, varmista, että haluat tehdä näin.</translation>
     </message>
     <message>
         <source>Password (leave empty to use remembered)</source>
@@ -3345,7 +3345,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation type="unfinished"/>
+        <translation>Kirjoita alla olevat WebDAV-tiedot tuodaksesi etäkansion:</translation>
     </message>
     <message>
         <source>WebDAV server URL</source>
@@ -3365,47 +3365,47 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>User and password</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjä ja salasana</translation>
     </message>
     <message>
         <source>leave empty to use remembered</source>
-        <translation type="unfinished"/>
+        <translation>jätä tyhjäksi käyttääksesi muistissa olevaa</translation>
     </message>
     <message>
         <source>(root folder)</source>
-        <translation type="unfinished"/>
+        <translation>(juuri hakemisto)</translation>
     </message>
     <message>
         <source>Refreshing remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Päivitetään etäkansioita</translation>
     </message>
     <message>
         <source>Refresh remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Päivitä etäkansiot</translation>
     </message>
     <message>
         <source>Imported and available locally</source>
-        <translation type="unfinished"/>
+        <translation>Tuotu ja saatavilla lokaalisti</translation>
     </message>
     <message>
         <source>Upload file(s) to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Lähetä tiedosto(t) WebDAV-palvelimelle</translation>
     </message>
     <message>
         <source>Push file(s) to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Vie tiedosto(t) QFieldCloudiin</translation>
     </message>
     <message>
         <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Valitse yksi tai useampi tiedosto viedäksesi ne QFieldCloudiin</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Vahvista</translation>
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Olet poistamassa tallennettua WebDAV-kohdetta, haluatko jatkaa?</translation>
     </message>
 </context>
 <context>
@@ -3420,7 +3420,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Positioning service stopped</source>
-        <translation type="unfinished"/>
+        <translation>Sijaintipalvelu pysähtyi</translation>
     </message>
 </context>
 <context>
@@ -3857,19 +3857,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Render preview content around visible map canvas</source>
-        <translation type="unfinished"/>
+        <translation>Piirrä esikatselu näkyvän kartan ympärille</translation>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
-        <translation type="unfinished"/>
+        <translation>Jos käytössä, näkyvän karttapohjan ulkopuolella olevat alueet piirretään osittain, jotta esikatselu on mahdollista zoomauksen ja panoroinnin aikana.</translation>
     </message>
     <message>
         <source>Automatically open form for single feature identification</source>
-        <translation type="unfinished"/>
+        <translation>Avaa lomake automaattisesti yksittäisen kohteen tunnistamisen yhteydessä</translation>
     </message>
     <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation type="unfinished"/>
+        <translation>Kun tämä on käytössä, kohdelomake avautuu automaattisesti. Jos tunnistetaan vain yksi kohde, kohdeluettelo ohitetaan.</translation>
     </message>
 </context>
 <context>
@@ -4529,7 +4529,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation>Kulunut aika (sekunteja jäljityksen aloittamisesta)</translation>
+        <translation>Kulunut aika (sekunteja nauhoituksen aloittamisesta)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -4565,11 +4565,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation>Aktivoi mittaustoiminto varmistamalla, että jäljitysistunnossa käytetyllä vektori tason geometriatyypillä on M-ulottuvuus.</translation>
+        <translation>Aktivoi mittaustoiminto varmistamalla, että nauhoitusistunnossa käytetyllä vektori tason geometriatyypillä on M-ulottuvuus.</translation>
     </message>
     <message>
         <source>Start tracking</source>
-        <translation>Aloita jäljitys</translation>
+        <translation>Aloita nauhoitus</translation>
     </message>
     <message>
         <source>Track on layer %1 started</source>
@@ -4616,7 +4616,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Start tracking</source>
-        <translation type="vanished">Aloita jäljitys</translation>
+        <translation type="vanished">Aloita nauhoitus</translation>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
@@ -4632,7 +4632,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="vanished">Kulunut aika (sekunteja jäljityksen aloittamisesta)</translation>
+        <translation type="vanished">Kulunut aika (sekunteja nauhoituksen aloittamisesta)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -4668,7 +4668,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="vanished">Aktivoi mittaustoiminto varmistamalla, että jäljitysistunnossa käytetyllä vektori tason geometriatyypillä on M-ulottuvuus.</translation>
+        <translation type="vanished">Aktivoi mittaustoiminto varmistamalla, että nauhoitusistunnossa käytetyllä vektori tason geometriatyypillä on M-ulottuvuus.</translation>
     </message>
 </context>
 <context>
