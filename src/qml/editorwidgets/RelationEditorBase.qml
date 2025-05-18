@@ -26,7 +26,7 @@ EditorWidgetBase {
   }
 
   // because no additional addEntry item on readOnly (isEnabled false)
-  height: listView.contentHeight + (isEnabled ? addEntry.height : 0) + 10
+  height: listView.height + (isEnabled ? addEntry.height : 0) + 10
   enabled: true
 
   Rectangle {
@@ -40,7 +40,7 @@ EditorWidgetBase {
     ListView {
       id: listView
       width: parent.width
-      height: !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * itemHeight, listView.count * itemHeight) + (listView.count > maximumVisibleItems ? itemHeight / 2 : 0) : listView.count * itemHeight
+      height: !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * itemHeight, contentHeight) : contentHeight
       focus: true
       clip: true
       highlightRangeMode: ListView.ApplyRange
