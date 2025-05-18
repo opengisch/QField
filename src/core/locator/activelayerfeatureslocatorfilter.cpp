@@ -343,103 +343,96 @@ void ActiveLayerFeaturesLocatorFilter::triggerResultFromAction( const QgsLocator
       if ( !layer )
         return;
 
+      const bool geometryless = layer->geometryType() == Qgis::GeometryType::Null || layer->geometryType() == Qgis::GeometryType::Unknown;
       QgsFeature feature;
       QgsFeatureRequest featureRequest = QgsFeatureRequest().setFilterFid( fid );
 
-      switch ( actionId )
+      if ( actionId == OpenForm || geometryless )
       {
-        case OpenForm:
+        QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
+        requests.insert( layer, featureRequest );
+        mLocatorBridge->featureListController()->model()->setFeatures( requests );
+        mLocatorBridge->featureListController()->selection()->setFocusedItem( 0 );
+        mLocatorBridge->featureListController()->requestFeatureFormState();
+      }
+      else if ( actionId == Navigation )
+      {
+        if ( !mLocatorBridge->navigation() )
+          return;
+
+        QgsFeatureIterator it = layer->getFeatures( featureRequest );
+        it.nextFeature( feature );
+        if ( feature.hasGeometry() )
         {
-          QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
-          requests.insert( layer, featureRequest );
-          mLocatorBridge->featureListController()->model()->setFeatures( requests );
-          mLocatorBridge->featureListController()->selection()->setFocusedItem( 0 );
-          mLocatorBridge->featureListController()->requestFeatureFormState();
-          break;
+          mLocatorBridge->navigation()->setDestinationFeature( feature, layer );
         }
-
-        case Navigation:
+        else
         {
-          if ( !mLocatorBridge->navigation() )
-            return;
-
-          QgsFeatureIterator it = layer->getFeatures( featureRequest );
-          it.nextFeature( feature );
-          if ( feature.hasGeometry() )
-          {
-            mLocatorBridge->navigation()->setDestinationFeature( feature, layer );
-          }
-          else
-          {
-            mLocatorBridge->emitMessage( tr( "Feature has no geometry" ) );
-          }
-          break;
+          mLocatorBridge->emitMessage( tr( "Feature has no geometry" ) );
         }
-
-        case Normal:
+      }
+      else if ( actionId == Normal )
+      {
+        QgsFeatureIterator it = layer->getFeatures( featureRequest.setNoAttributes() );
+        it.nextFeature( feature );
+        const QgsGeometry geom = feature.geometry();
+        if ( geom.isNull() || geom.constGet()->isEmpty() )
         {
-          QgsFeatureIterator it = layer->getFeatures( featureRequest.setNoAttributes() );
-          it.nextFeature( feature );
-          const QgsGeometry geom = feature.geometry();
-          if ( geom.isNull() || geom.constGet()->isEmpty() )
-          {
-            mLocatorBridge->emitMessage( tr( "Feature has no geometry" ) );
-            return;
-          }
-          QgsRectangle r = mLocatorBridge->mapSettings()->mapSettings().layerExtentToOutputExtent( layer, geom.boundingBox() );
+          mLocatorBridge->emitMessage( tr( "Feature has no geometry" ) );
+          return;
+        }
+        QgsRectangle r = mLocatorBridge->mapSettings()->mapSettings().layerExtentToOutputExtent( layer, geom.boundingBox() );
 
-          // zoom in if point cannot be distinguished from others
-          // code taken from QgsMapCanvas::zoomToSelected
-          if ( !mLocatorBridge->keepScale() )
+        // zoom in if point cannot be distinguished from others
+        // code taken from QgsMapCanvas::zoomToSelected
+        if ( !mLocatorBridge->keepScale() )
+        {
+          if ( layer->geometryType() == Qgis::GeometryType::Point && r.isEmpty() )
           {
-            if ( layer->geometryType() == Qgis::GeometryType::Point && r.isEmpty() )
+            int scaleFactor = 5;
+            const QgsPointXY center = mLocatorBridge->mapSettings()->mapSettings().mapToLayerCoordinates( layer, r.center() );
+            const QgsRectangle extentRect = mLocatorBridge->mapSettings()->mapSettings().mapToLayerCoordinates( layer, mLocatorBridge->mapSettings()->visibleExtent() ).scaled( 1.0 / scaleFactor, &center );
+            const QgsFeatureRequest pointRequest = QgsFeatureRequest().setFilterRect( extentRect ).setLimit( 1000 ).setNoAttributes();
+            QgsFeatureIterator fit = layer->getFeatures( pointRequest );
+            QgsFeature pointFeature;
+            QgsPointXY closestPoint;
+            double closestSquaredDistance = pow( extentRect.width() + extentRect.height(), 2.0 );
+            bool pointFound = false;
+            while ( fit.nextFeature( pointFeature ) )
             {
-              int scaleFactor = 5;
-              const QgsPointXY center = mLocatorBridge->mapSettings()->mapSettings().mapToLayerCoordinates( layer, r.center() );
-              const QgsRectangle extentRect = mLocatorBridge->mapSettings()->mapSettings().mapToLayerCoordinates( layer, mLocatorBridge->mapSettings()->visibleExtent() ).scaled( 1.0 / scaleFactor, &center );
-              const QgsFeatureRequest pointRequest = QgsFeatureRequest().setFilterRect( extentRect ).setLimit( 1000 ).setNoAttributes();
-              QgsFeatureIterator fit = layer->getFeatures( pointRequest );
-              QgsFeature pointFeature;
-              QgsPointXY closestPoint;
-              double closestSquaredDistance = pow( extentRect.width() + extentRect.height(), 2.0 );
-              bool pointFound = false;
-              while ( fit.nextFeature( pointFeature ) )
-              {
-                QgsPointXY point = pointFeature.geometry().asPoint();
-                double sqrDist = point.sqrDist( center );
-                if ( sqrDist > closestSquaredDistance || sqrDist < 4 * std::numeric_limits<double>::epsilon() )
-                  continue;
-                pointFound = true;
-                closestPoint = point;
-                closestSquaredDistance = sqrDist;
-              }
-              if ( pointFound )
-              {
-                // combine selected point with closest point and scale this rect
-                r.combineExtentWith( mLocatorBridge->mapSettings()->mapSettings().layerToMapCoordinates( layer, closestPoint ) );
-                const QgsPointXY rCenter = r.center();
-                r.scale( scaleFactor, &rCenter );
-              }
+              QgsPointXY point = pointFeature.geometry().asPoint();
+              double sqrDist = point.sqrDist( center );
+              if ( sqrDist > closestSquaredDistance || sqrDist < 4 * std::numeric_limits<double>::epsilon() )
+                continue;
+              pointFound = true;
+              closestPoint = point;
+              closestSquaredDistance = sqrDist;
             }
-            else if ( !r.isEmpty() )
+            if ( pointFound )
             {
-              r.scale( 1.25 );
+              // combine selected point with closest point and scale this rect
+              r.combineExtentWith( mLocatorBridge->mapSettings()->mapSettings().layerToMapCoordinates( layer, closestPoint ) );
+              const QgsPointXY rCenter = r.center();
+              r.scale( scaleFactor, &rCenter );
             }
           }
-
-          if ( r.isEmpty() || mLocatorBridge->keepScale() )
+          else if ( !r.isEmpty() )
           {
-            mLocatorBridge->mapSettings()->setCenter( QgsPoint( r.center() ), true );
+            r.scale( 1.25 );
           }
-          else
-          {
-            mLocatorBridge->mapSettings()->setExtent( r, true );
-          }
-
-          mLocatorBridge->geometryHighlighter()->setProperty( "qgsGeometry", geom );
-          mLocatorBridge->geometryHighlighter()->setProperty( "crs", layer->crs() );
-          break;
         }
+
+        if ( r.isEmpty() || mLocatorBridge->keepScale() )
+        {
+          mLocatorBridge->mapSettings()->setCenter( QgsPoint( r.center() ), true );
+        }
+        else
+        {
+          mLocatorBridge->mapSettings()->setExtent( r, true );
+        }
+
+        mLocatorBridge->geometryHighlighter()->setProperty( "qgsGeometry", geom );
+        mLocatorBridge->geometryHighlighter()->setProperty( "crs", layer->crs() );
       }
       break;
     }
