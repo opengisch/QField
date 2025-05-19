@@ -641,7 +641,7 @@ ApplicationWindow {
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
 
       rightMargin: featureForm.x > 0 ? featureForm.width : 0
-      bottomMargin: informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0
+      bottomMargin: Math.max(informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0, featureForm.y > 0 ? featureForm.height : 0)
 
       anchors.fill: parent
 

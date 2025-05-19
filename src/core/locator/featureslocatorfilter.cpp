@@ -157,10 +157,11 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
   if ( !layer )
     return;
 
+  const bool geometryless = layer->geometryType() == Qgis::GeometryType::Null || layer->geometryType() == Qgis::GeometryType::Unknown;
   QgsFeature feature;
   QgsFeatureRequest featureRequest = QgsFeatureRequest().setFilterFid( fid );
 
-  if ( actionId == OpenForm )
+  if ( actionId == OpenForm || geometryless )
   {
     QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
     requests.insert( layer, featureRequest );

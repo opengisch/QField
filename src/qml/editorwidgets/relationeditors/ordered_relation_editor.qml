@@ -222,7 +222,6 @@ RelationEditorBase {
             bgcolor: 'transparent'
 
             onClicked: {
-              //var gc = mapToItem(mainWindow, 0, 0);
               childMenu.entryReferencingFeature = model.referencingFeature;
               childMenu.entryDisplayString = model.displayString;
               childMenu.entryNmReferencedFeature = nmRelationId ? model.model.nmReferencedFeature : undefined;

@@ -63,9 +63,13 @@ RelationEditorBase {
 
         onClicked: {
           if (relationEditorModel.relation.referencingLayer !== undefined) {
-            geometryHighlighter.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry;
-            geometryHighlighter.geometryWrapper.crs = relationEditorModel.relation.referencingLayer.crs;
-            mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings, relationEditorModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature);
+            if (relationEditorModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null && relationEditorModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Unknown) {
+              geometryHighlighter.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry;
+              geometryHighlighter.geometryWrapper.crs = relationEditorModel.relation.referencingLayer.crs;
+              mapCanvas.mapSettings.setExtent(FeatureUtils.extent(mapCanvas.mapSettings, relationEditorModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature), true);
+            } else {
+              viewButton.onClicked();
+            }
           }
         }
       }
