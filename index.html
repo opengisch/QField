@@ -1,415 +1,843 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en">
+  <head>
+    <link rel="stylesheet" href="https://use.typekit.net/cbd7kad.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-24350287-3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-24350287-3");
+    </script>
 
-<head>
-  <link rel="stylesheet" href="https://use.typekit.net/cbd7kad.css">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-24350287-3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'UA-24350287-3');
-  </script>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes"
+    />
+    <title>QField - Efficient field work built for QGIS</title>
+    <meta
+      name="description"
+      content="QField - Efficient field work built for QGIS"
+    />
+    <meta name="author" content="OPENGIS.ch" />
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes">
-  <title>QField - Efficient field work built for QGIS</title>
-  <meta name="description" content="QField - Efficient field work built for QGIS">
-  <meta name="author" content="OPENGIS.ch">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="css/qfield.css?ver=4" rel="stylesheet" media="screen" />
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/qfield.js"></script>
+  </head>
 
-  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-  <link href="css/qfield.css?ver=4" rel="stylesheet" media="screen">
-  <script src="js/jquery-1.11.0.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/qfield.js"></script>
-</head>
-
-<body>
-  <!-- Section #0: navigation -->
-  <nav id="navbar" class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarNav"
-          aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="./"><img src="images/qfield_for_qgis.png" style="width:auto; height:52px; margin-top:8px;" alt="QField Logo"></a>
+  <body>
+    <!-- Section #0: navigation -->
+    <nav id="navbar" class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./"
+            ><img
+              src="images/qfield_for_qgis.png"
+              style="width: auto; height: 52px; margin-top: 8px"
+              alt="QField Logo"
+          /></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/index.html#highlights" title="Highlights">HIGHLIGHTS</a>
+            </li>
+            <li class="dropdown"></li>
+            <li>
+              <a href="/assistance.html" title="Get assistance"
+                >GET ASSISTANCE</a
+              >
+            </li>
+            <li class="dropdown">
+              <a
+                href="#"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >RESOURCES<span class="caret"></span
+              ></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    href="https://docs.qfield.org/success-stories/"
+                    target="_blank"
+                    title="Success stories"
+                    >Success stories</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://docs.qfield.org"
+                    target="_blank"
+                    title="Documentation"
+                    >Documentation</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.opengis.ch/category/qfield/"
+                    target="_blank"
+                    title="Blog"
+                    >Blog</a
+                  >
+                </li>
+                <li>
+                  <a href="/partner.html" title="Partner programs"
+                    >Partner programs</a
+                  >
+                </li>
+                <li>
+                  <a href="/sdgs.html" title="Sustainable development goals"
+                    >Sustainable development goals</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://docs.qfield.org/get-started/contribute/"
+                    title="Contribute to QField"
+                    >Contribute</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/opengisch/qfield"
+                    target="_blank"
+                    title="Source code"
+                    >Source code</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.opengis.ch/newsletter"
+                    target="_blank"
+                    title="newsletter"
+                    >Newsletter</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                href="https://opengis.ch/#contact"
+                target="_blank"
+                title="Contact us"
+                >CONTACT US</a
+              >
+            </li>
+            <li class="support-button">
+              <a href="/support.html" title="Support us">♥ SUPPORT US</a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="nav navbar-nav">
-          <li><a href="/index.html#highlights" title="Highlights">HIGHLIGHTS</a></li>
-          <li class="dropdown">
-          <li><a href="/assistance.html" title="Get assistance">GET ASSISTANCE</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-              aria-expanded="false">RESOURCES<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="https://docs.qfield.org/success-stories/" target="_blank" title="Success stories">Success stories</a></li>
-              <li><a href="https://docs.qfield.org" target="_blank" title="Documentation">Documentation</a></li>
-              <li><a href="https://www.opengis.ch/category/qfield/" target="_blank" title="Blog">Blog</a></li>
-              <li><a href="/partner.html" title="Partner programs">Partner programs</a></li>
-              <li><a href="/sdgs.html" title="Sustainable development goals">Sustainable development goals</a></li>
-              <li><a href="https://docs.qfield.org/get-started/contribute/" title="Contribute to QField">Contribute</a></li>
-              <li><a href="https://github.com/opengisch/qfield" target="_blank" title="Source code">Source code</a></li>
-              <li><a href="https://www.opengis.ch/newsletter" target="_blank" title="newsletter">Newsletter</a></li>
-            </ul>
-          </li>
-          <li><a href="https://opengis.ch/#contact" target="_blank" title="Contact us">CONTACT US</a></li>
-          <li class="support-button">
-            <a href="/support.html" title="Support us">♥ SUPPORT US</a></li>
-        </ul>
+    </nav>
+
+    <!-- Section #1: carousel -->
+    <div
+      id="maincarousel"
+      class="carousel slide"
+      data-ride="carousel"
+      data-interval="5000"
+    >
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#maincarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#maincarousel" data-slide-to="1"></li>
+        <li data-target="#maincarousel" data-slide-to="2"></li>
+        <li data-target="#maincarousel" data-slide-to="3"></li>
+        <li data-target="#maincarousel" data-slide-to="4"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div
+          class="item active"
+          style="
+            background-image: url('images/bg/elec.jpg');
+            background-position: center bottom 70%;
+          "
+        >
+          <div class="carousel-caption">
+            <div>
+              <h3>Hold the power of QGIS in your hand, for free</h3>
+              <p style="text-align: right">
+                <a class="reference external" href="https://qfield.org/get"
+                  ><img
+                    alt="Get QField on the play store"
+                    src="images/play_store.png"
+                    style="padding-top: 10px" />
+                  <img
+                    alt="Get QField on the app store"
+                    src="images/app_store.png"
+                    style="padding-top: 10px" />
+                  <img
+                    alt="Get QField for Windows"
+                    src="images/download_windows.png"
+                    style="padding-top: 10px"
+                /></a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url('images/bg/team.jpg')">
+          <div class="carousel-caption">
+            <div>
+              <h3>Allow efficient decision making where it matters most</h3>
+              <p style="text-align: right">
+                <a class="reference external" href="https://qfield.org/get"
+                  ><img
+                    alt="Get QField on the play store"
+                    src="images/play_store.png"
+                    style="padding-top: 10px" />
+                  <img
+                    alt="Get QField on the app store"
+                    src="images/app_store.png"
+                    style="padding-top: 10px" />
+                  <img
+                    alt="Get QField for Windows"
+                    src="images/download_windows.png"
+                    style="padding-top: 10px"
+                /></a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url('images/bg/wine.jpg')">
+          <div class="carousel-caption">
+            <div>
+              <h3>Live update your assets data directly on-site</h3>
+              <p style="text-align: right">
+                <a class="reference external" href="https://qfield.org/get"
+                  ><img
+                    alt="Get QField on the play store"
+                    src="images/play_store.png"
+                    style="padding-top: 10px" />
+                  <img
+                    alt="Get QField on the app store"
+                    src="images/app_store.png"
+                    style="padding-top: 10px" />
+                  <img
+                    alt="Get QField for Windows"
+                    src="images/download_windows.png"
+                    style="padding-top: 10px"
+                /></a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url('images/bg/waste.jpg')">
+          <div class="carousel-caption">
+            <div>
+              <h3>Extend your geo-data infrastructure seamlessly</h3>
+              <p style="text-align: right">
+                <a class="reference external" href="https://qfield.org/get"
+                  ><img
+                    alt="Get QField on the play store"
+                    src="images/play_store.png"
+                    style="padding-top: 10px" />
+                  <img
+                    alt="Get QField on the app store"
+                    src="images/app_store.png"
+                    style="padding-top: 10px" />
+                  <img
+                    alt="Get QField for Windows"
+                    src="images/download_windows.png"
+                    style="padding-top: 10px"
+                /></a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url('images/bg/forest.jpg')">
+          <div class="carousel-caption">
+            <div>
+              <h3>Leverage the power of open-source in the field</h3>
+              <p style="text-align: right">
+                <a class="reference external" href="https://qfield.org/get"
+                  ><img
+                    alt="Get QField on the play store"
+                    src="images/play_store.png"
+                    style="padding-top: 10px" />
+                  <img
+                    alt="Get QField on the app store"
+                    src="images/app_store.png"
+                    style="padding-top: 10px" />
+                  <img
+                    alt="Get QField for Windows"
+                    src="images/download_windows.png"
+                    style="padding-top: 10px"
+                /></a>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#maincarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#maincarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
-  </nav>
 
-  <!-- Section #1: carousel -->
-  <div id="maincarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#maincarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#maincarousel" data-slide-to="1"></li>
-      <li data-target="#maincarousel" data-slide-to="2"></li>
-      <li data-target="#maincarousel" data-slide-to="3"></li>
-      <li data-target="#maincarousel" data-slide-to="4"></li>
-    </ol>
+    <!-- Section #2: claim -->
+    <section class="section-spacing text-center" style="margin-bottom: 25px">
+      <h2>The most powerful and efficient way to manage your data on-the-go</h2>
+    </section>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active" style="background-image:url('images/bg/elec.jpg'); background-position: center bottom 70%;">
-        <div class="carousel-caption">
-          <div>
-            <h3>Hold the power of QGIS in your hand, for free</h3>
-            <p style="text-align:right;">
-              <a class="reference external" href="https://qfield.org/get"><img alt="Get QField on the play store"
-                  src="images/play_store.png" style="padding-top:10px"> <img alt="Get QField on the app store"
-                  src="images/app_store.png" style="padding-top:10px"> <img alt="Get QField for Windows"
-                  src="images/download_windows.png" style="padding-top:10px"></a>
+    <!-- Section #3: main points -->
+    <section id="highlights" class="section-spacing text-center">
+      <div class="container" style="max-width: 1140px">
+        <div class="row">
+          <div class="col-12">
+            <p style="text-align: center; margin-bottom: 22px">
+              QField is the professional fieldwork app for geospatial data
+              collection: fast, reliable, and open-source. With a mobile-first
+              design that keeps your focus on the map and your data, QField
+              boosts productivity and takes your geographic and surveying
+              projects seamlessly into the field.
             </p>
           </div>
         </div>
-      </div>
-
-      <div class="item" style="background-image:url('images/bg/team.jpg');">
-        <div class="carousel-caption">
-          <div>
-            <h3>Allow efficient decision making where it matters most</h3>
-            <p style="text-align:right;">
-              <a class="reference external" href="https://qfield.org/get"><img alt="Get QField on the play store"
-                  src="images/play_store.png" style="padding-top:10px"> <img alt="Get QField on the app store"
-                  src="images/app_store.png" style="padding-top:10px"> <img alt="Get QField for Windows"
-                  src="images/download_windows.png" style="padding-top:10px"></a>
-            </p>
+        <div class="row">
+          <!-- First row of features -->
+          <div class="col-qf-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="feature">
+              <img
+                src="images/icons/map-pin2.svg"
+                alt="Smart Maps"
+                style="width: 25%"
+              />
+              <h3>Smart maps</h3>
+              <p style="text-align: center">
+                High precision location, tracking, geofencing, and full QGIS
+                symbology, just like on desktop.
+              </p>
+            </div>
+          </div>
+          <div class="col-qf-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="feature">
+              <img
+                src="images/icons/files.png"
+                alt="Powerful Forms"
+                style="width: 22%"
+              />
+              <h3>Powerful Forms</h3>
+              <p style="text-align: center">
+                Create rich survey forms with constraints, logic, defaults, and
+                validations — all in QGIS.
+              </p>
+            </div>
+          </div>
+          <div class="col-qf-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="feature">
+              <img
+                src="images/icons/camera1.svg"
+                alt="Capture Everything"
+                style="width: 25%; margin: 14px"
+              />
+              <h3>Capture everything</h3>
+              <p style="text-align: center">
+                Photos, videos, audio, QR code scanning, and NFC — fully
+                integrated.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Second row of features -->
+          <div class="col-qf-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="feature">
+              <img
+                src="images/icons/synchronize-qfc.svg"
+                alt="Seamless Sync & Format Support"
+                style="width: 25%"
+              />
+              <h3>
+                Seamless sync<br />
+                & format support
+              </h3>
+              <p style="text-align: center">
+                Sync projects and data in real time with
+                <a
+                  href="https://qfield.cloud"
+                  target="_blank"
+                  style="color: #4a6fae; font-weight: bold"
+                  >QFieldCloud</a
+                >
+                and work with GeoPackages, KML, GPX, georeferenced PDFs, and
+                more.
+              </p>
+            </div>
+          </div>
+          <div class="col-qf-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="feature">
+              <img
+                src="images/icons/path.svg"
+                alt="Editing & Processing Tools"
+                style="width: 25%; margin-bottom: 11px"
+              />
+              <h3>
+                Editing <br />
+                & processing tools
+              </h3>
+              <p style="text-align: center">
+                Snap, reshape, freehand draw, edit vertices, and run field-based
+                geometry operations.
+              </p>
+            </div>
+          </div>
+          <div class="col-qf-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="feature">
+              <img
+                src="images/icons/plugin1.svg"
+                alt="Plugin Support"
+                style="width: 25%; margin-bottom: 3px"
+              />
+              <h3>
+                Plugin<br />
+                support
+              </h3>
+              <p style="text-align: center">
+                Extend QField with custom QML/JavaScript<br />tools and
+                workflows.
+              </p>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="item" style="background-image:url('images/bg/wine.jpg');">
-        <div class="carousel-caption">
-          <div>
-            <h3>Live update your assets data directly on-site</h3>
-            <p style="text-align:right;">
-              <a class="reference external" href="https://qfield.org/get"><img alt="Get QField on the play store"
-                  src="images/play_store.png" style="padding-top:10px"> <img alt="Get QField on the app store"
-                  src="images/app_store.png" style="padding-top:10px"> <img alt="Get QField for Windows"
-                  src="images/download_windows.png" style="padding-top:10px"></a>
-            </p>
-          </div>
-        </div>
-      </div>
+    <section class="section-spacing text-center" style="margin-bottom: 70px">
+      <h2>Be smart. Think spatial. Work with QField.</h2>
+    </section>
 
-      <div class="item" style="background-image:url('images/bg/waste.jpg');">
-        <div class="carousel-caption">
-          <div>
-            <h3>Extend your geo-data infrastructure seamlessly</h3>
-            <p style="text-align:right;">
-              <a class="reference external" href="https://qfield.org/get"><img alt="Get QField on the play store"
-                  src="images/play_store.png" style="padding-top:10px"> <img alt="Get QField on the app store"
-                  src="images/app_store.png" style="padding-top:10px"> <img alt="Get QField for Windows"
-                  src="images/download_windows.png" style="padding-top:10px"></a>
-            </p>
-          </div>
-        </div>
-      </div>
+    <!-- Section #4: customers -->
+    <section id="customers" class="section-spacing">
+      <h2 class="text-center">QField Success Stories</h2>
+      <div class="customers-container container">
+        <div class="customer">
+          <div class="customer-info col-lg-6">
+            <div class="customer-logos">
+              <img
+                class="customer-active"
+                title="German Archaeological Institute"
+                alt="Customer Logo: German Archaeological Institute"
+                src="images/customer/kgr.png"
+              />
+              <img
+                title="DB Fahrwegdienste GmbH"
+                alt="Customer Logo: DB Fahrwegdienste GmbH"
+                src="images/customer/db.svg"
+              />
+              <img
+                title="National Land Survey of Finland"
+                alt="Customer Logo: National Land Survey of Finland"
+                src="images/customer/nls.svg"
+              />
+              <img
+                title="UN Open GIS Initiative"
+                alt="Customer Logo: UN Open GIS Initiative"
+                src="images/customer/un.svg"
+              />
+              <!--<img title="Sevenson Environmental Services" alt="Customer Logo: Sevenson Environmental Services" src="images/customer/sevenson.svg" />-->
+              <img
+                title="Ministry of Agriculture & Food, Forests and Fisheries of Tonga"
+                alt="Customer Logo: Ministry of Agriculture & Food, Forests and Fisheries of Tonga"
+                src="images/customer/maff.png"
+              />
+            </div>
 
-      <div class="item" style="background-image:url('images/bg/forest.jpg');">
-        <div class="carousel-caption">
-          <div>
-            <h3>Leverage the power of open-source in the field</h3>
-            <p style="text-align:right;">
-              <a class="reference external" href="https://qfield.org/get"><img alt="Get QField on the play store"
-                  src="images/play_store.png" style="padding-top:10px"> <img alt="Get QField on the app store"
-                  src="images/app_store.png" style="padding-top:10px"> <img alt="Get QField for Windows"
-                  src="images/download_windows.png" style="padding-top:10px"></a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+            <div
+              title="German Archaeological Institute"
+              class="customer-card customer-active"
+            >
+              <h3>German Archaeological Institute</h3>
+              <p>
+                The KulturGutRetter project (Cultural Heritage Response Unit)
+                has successfully completed its
+                <a
+                  href="https://www.kulturgutretter.org/en/kulturgutretter-field-test-successfully-completed/"
+                  target="_blank"
+                  >latest field tests</a
+                >, demonstrating the effectiveness of its innovative approach to
+                the emergency rescue of cultural heritage.<br />
+                Utilizing cutting-edge data acquisition and management
+                techniques, Kulturgutretter is leading the way in preserving
+                invaluable cultural treasures and to safeguard heritage for
+                future generations.
+              </p>
+            </div>
+            <div title="DB Fahrwegdienste GmbH" class="customer-card">
+              <h3>DB Fahrwegdienste</h3>
+              <p>
+                <span>&laquo;</span>
+                With QField, we at DB Fahrwegdienste have found a simple and
+                cost-effective way to allow our forestry employees to collect
+                data in the field. By working closely with the developers at
+                OPENGIS.ch, we've tailored QField to precisely address our
+                users' evolving needs. Staying true to the open-source
+                philosophy, all new features are integrated into new versions,
+                avoiding the creation of isolated solutions.
+                <span>&raquo;</span>
+              </p>
+              <cite>Katrin Willms - Leiterin Geoinformationssysteme</cite>
+            </div>
+            <div title="National Land Survey of Finland" class="customer-card">
+              <h3>National Land Survey of Finland</h3>
+              <p>
+                <span>&laquo;</span>
+                The National Land Survey of Finland (NLS) is revolutionizing its
+                topographic data management system with a new infrastructure
+                entirely based on open-source components. As part of this
+                transformation, NLS is integrating QField and QFieldCloud to
+                meet their specific field mapping requirements. This integration
+                enables NLS operators to efficiently manage large quantities of
+                data while working offline in the field. With QField, NLS
+                ensures precise and reliable data collection in various
+                environments, enhancing the overall efficiency and accuracy of
+                their topographic surveys.
+                <span>&raquo;</span>
+              </p>
+            </div>
+            <div title="UN Open GIS Initiative" class="customer-card">
+              <h3>UN Open GIS Initiative</h3>
+              <p>
+                <span>&laquo;</span>
+                QField has been spotlighted by the UN OpenGIS initiative as a
+                crucial part of their hybrid GIS system. This recognition
+                underscores QField's superior capabilities in supporting
+                multiple
+                <a href="/sdgs.html"
+                  >United Nations Sustainable Development Goals (SDGs)</a
+                >
+                and revolutionizing geospatial data collection.
+                <span>&raquo;</span>
+              </p>
+            </div>
 
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#maincarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#maincarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-
-  <!-- Section #2: claim -->
-  <section class="section-spacing text-center" style="margin-bottom: 25px;">
-    <h2>The most powerful and efficient way to manage your data on-the-go</h2>
-  </section>
-
-
-<!-- Section #3: main points -->
-<section id="highlights" class="section-spacing text-center">
-  <div class="container" style="max-width:1140px;">
-    <div class="row">
-      <div class="col-12">
-        <p style="text-align: center; margin-bottom: 22px;">QField is the professional fieldwork app for geospatial data collection: fast, reliable, and open-source.
-          With a mobile-first design that keeps your focus on the map and your data, QField boosts productivity and takes your geographic and surveying projects seamlessly into the field.
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <!-- First row of features -->
-      <div class="col-qf-4 col-sm-4 col-md-4 col-lg-4">
-        <div class="feature">
-          <img src="images/icons/map-pin2.svg" alt="Smart Maps" style="width: 25%;">
-          <h3>Smart maps</h3>
-          <p style="text-align: center">High precision location, tracking, geofencing, and full QGIS symbology, just like on desktop.</p>
-        </div>
-      </div>
-      <div class="col-qf-4 col-sm-4 col-md-4 col-lg-4">
-        <div class="feature">
-          <img src="images/icons/files.png" alt="Powerful Forms" style="width: 22%;">
-          <h3>Powerful Forms</h3>
-          <p style="text-align: center">Create rich survey forms with constraints, logic, defaults, and validations — all in QGIS.</p>
-        </div>
-      </div>
-      <div class="col-qf-4 col-sm-4 col-md-4 col-lg-4">
-        <div class="feature">
-          <img src="images/icons/camera1.svg" alt="Capture Everything" style="width: 25%; margin: 14px;">
-          <h3>Capture everything</h3>
-          <p style="text-align: center">Photos, videos, audio, QR code scanning, and NFC — fully integrated.</p>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <!-- Second row of features -->
-      <div class="col-qf-4 col-sm-4 col-md-4 col-lg-4">
-        <div class="feature">
-          <img src="images/icons/synchronize-qfc.svg" alt="Seamless Sync & Format Support" style="width: 25%">
-          <h3>Seamless sync<br> & format support</h3>
-          <p style="text-align: center">Sync projects and data in real time with <a href="https://qfield.cloud" target="_blank" style="color: #4a6fae; font-weight:bold;">QFieldCloud</a> and work with GeoPackages, KML, GPX, georeferenced PDFs, and more.</p>
-        </div>
-
-      </div>
-      <div class="col-qf-4 col-sm-4 col-md-4 col-lg-4">
-        <div class="feature">
-          <img src="images/icons/path.svg" alt="Editing & Processing Tools" style="width: 25%; margin-bottom: 11px;">
-          <h3>Editing <br> & processing tools</h3>
-          <p style="text-align: center">Snap, reshape, freehand draw, edit vertices, and run field-based geometry operations.</p>
-        </div>
-      </div>
-      <div class="col-qf-4 col-sm-4 col-md-4 col-lg-4">
-        <div class="feature">
-          <img src="images/icons/plugin1.svg" alt="Plugin Support" style="width: 25%; margin-bottom: 3px;">
-          <h3>Plugin<br> support</h3>
-          <p style="text-align: center">Extend QField with custom QML/JavaScript<br>tools and workflows.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <section class="section-spacing text-center" style="margin-bottom: 70px;">
-    <h2>Be smart. Think spatial. Work with QField.</h2>
-  </section>
-
-  <!-- Section #4: customers -->
-  <section id="customers" class="section-spacing">
-    <h2 class="text-center">QField Success Stories</h2>
-    <div class="customers-container container">
-      <div class="customer">
-        <div class="customer-info col-lg-6">
-          <div class="customer-logos">
-            <img class="customer-active" title="German Archaeological Institute" alt="Customer Logo: German Archaeological Institute" src="images/customer/kgr.png" />
-            <img title="DB Fahrwegdienste GmbH" alt="Customer Logo: DB Fahrwegdienste GmbH" src="images/customer/db.svg" />
-            <img title="National Land Survey of Finland" alt="Customer Logo: National Land Survey of Finland" src="images/customer/nls.svg" />
-            <img title="UN Open GIS Initiative" alt="Customer Logo: UN Open GIS Initiative" src="images/customer/un.svg" />
-            <!--<img title="Sevenson Environmental Services" alt="Customer Logo: Sevenson Environmental Services" src="images/customer/sevenson.svg" />-->
-            <img title="Ministry of Agriculture & Food, Forests and Fisheries of Tonga" alt="Customer Logo: Ministry of Agriculture & Food, Forests and Fisheries of Tonga" src="images/customer/maff.png" />
+            <div
+              title="Ministry of Agriculture & Food, Forests and Fisheries of Tonga"
+              class="customer-card"
+            >
+              <h3>
+                Ministry of Agriculture & Food, Forests and Fisheries of Tonga
+              </h3>
+              <p>
+                In January 2022 the Hunga Tonga-Hunga Ha’apai submarine volcano
+                erupted. Ash clouds from the eruption and the subsequent tsunami
+                damaged croplands on the Tongatapu and Ha’apai island groups.
+                The internet cable to Tonga was severed during the eruption. In
+                particular, QField was used to generate maps of where fields had
+                been cleared and re-ploughed using government support.
+              </p>
+            </div>
           </div>
 
-          <div title="German Archaeological Institute" class="customer-card customer-active">
-            <h3>German Archaeological Institute</h3>
-            <p>
-              The KulturGutRetter project (Cultural Heritage Response Unit) has successfully completed its <a href="https://www.kulturgutretter.org/en/kulturgutretter-field-test-successfully-completed/" target="_blank">latest field tests</a>, demonstrating the effectiveness of its innovative approach to the emergency rescue of cultural heritage.<br/> Utilizing cutting-edge data acquisition and management techniques, Kulturgutretter is leading the way in preserving invaluable cultural treasures and to safeguard heritage for future generations.
-            </p>
+          <div
+            title="German Archaeological Institute"
+            class="customer-image customer-active col-lg-6"
+          >
+            <img
+              src="images/customer/dainst_img.jpg"
+              alt="Customer Image: DAI, Eva Götting"
+            />
+            <a
+              href="https://www.kulturgutretter.org/en/data-acquisition-and-data-management-for-the-emergency-rescue-of-cultural-heritage/"
+              target="_blank"
+              class="btn"
+              >Read success story&nbsp;&raquo;</a
+            >
           </div>
-          <div title="DB Fahrwegdienste GmbH" class="customer-card">
-            <h3>DB Fahrwegdienste</h3>
-            <p>
-              <span>&laquo;</span>
-              With QField, we at DB Fahrwegdienste have found a simple and cost-effective way to allow our forestry employees to collect data in the field. By working closely with the developers at OPENGIS.ch, we've tailored QField to precisely address our users' evolving needs. Staying true to the open-source philosophy, all new features are integrated into new versions, avoiding the creation of isolated solutions.
-              <span>&raquo;</span>
-            </p>
-            <cite>Katrin Willms - Leiterin Geoinformationssysteme</cite>
+          <div title="DB Fahrwegdienste GmbH" class="customer-image col-lg-6">
+            <img
+              src="images/customer/db_img.jpg"
+              alt="Customer Image: DB Fahrwegdienste GmbH"
+            />
+            <!--<a href="https://docs.qfield.org/success-stories/geologic-mapping/" target="_blank" class="btn">Read success story&nbsp;&raquo;</a>-->
           </div>
-          <div title="National Land Survey of Finland" class="customer-card">
-            <h3>National Land Survey of Finland</h3>
-            <p>
-              <span>&laquo;</span>
-              The National Land Survey of Finland (NLS) is revolutionizing its topographic data management system with a new infrastructure entirely based on open-source components. As part of this transformation, NLS is integrating QField and QFieldCloud to meet their specific field mapping requirements. This integration enables NLS operators to efficiently manage large quantities of data while working offline in the field.
-
-With QField, NLS ensures precise and reliable data collection in various environments, enhancing the overall efficiency and accuracy of their topographic surveys.
-              <span>&raquo;</span>
-            </p>
+          <div
+            title="National Land Survey of Finland"
+            class="customer-image col-lg-6"
+          >
+            <img
+              src="images/customer/nls_img.png"
+              alt="Customer Image: National Land Survey of Finland"
+            />
+            <a
+              href="https://talks.osgeo.org/foss4g-europe-2024/talk/DFPXV9/"
+              target="_blank"
+              class="btn"
+              >Learn more&nbsp;&raquo;</a
+            >
           </div>
-          <div title="UN Open GIS Initiative" class="customer-card">
-            <h3>UN Open GIS Initiative</h3>
-            <p>
-              <span>&laquo;</span>
-              QField has been spotlighted by the UN OpenGIS initiative as a crucial part of their hybrid GIS system. This recognition underscores QField's superior capabilities in supporting multiple <a href="/sdgs.html">United
-                Nations Sustainable Development Goals (SDGs)</a> and revolutionizing geospatial data collection.
-              <span>&raquo;</span>
-            </p>
+          <div title="UN Open GIS Initiative" class="customer-image col-lg-6">
+            <img
+              src="images/customer/un_img.jpg"
+              alt="Customer Image: UN Open GIS Initiative"
+            />
+            <a
+              href="https://isprs-archives.copernicus.org/articles/XLIII-B4-2021/183/2021/"
+              target="_blank"
+              class="btn"
+              >Read paper&nbsp;&raquo;</a
+            >
+          </div>
+          <div
+            title="Ministry of Agriculture & Food, Forests and Fisheries of Tonga"
+            class="customer-image col-lg-6"
+          >
+            <img
+              src="images/customer/maff_img.jpg"
+              alt="Customer Image: Ministry of Agriculture & Food, Forests and Fisheries of Tonga"
+            />
+            <a
+              href="https://livelihoods-and-landscapes.com/examples/hunga-haapai/hunga-haapai.html"
+              target="_blank"
+              class="btn"
+              >Read success story&nbsp;&raquo;</a
+            >
           </div>
 
-          <div title="Ministry of Agriculture & Food, Forests and Fisheries of Tonga" class="customer-card">
-            <h3>Ministry of Agriculture & Food, Forests and Fisheries of Tonga</h3>
-            <p>
-              In January 2022 the Hunga Tonga-Hunga Ha’apai submarine volcano erupted. Ash clouds from the eruption and the subsequent tsunami damaged croplands on the Tongatapu and Ha’apai island groups. The internet cable to Tonga was severed during the eruption. In particular, QField was used to generate maps of where fields had been cleared and re-ploughed using government support.
-            </p>
-          </div>
+          <br style="clear: both" />
         </div>
+      </div>
+    </section>
 
-        <div title="German Archaeological Institute" class="customer-image customer-active col-lg-6">
-          <img src="images/customer/dainst_img.jpg" alt="Customer Image: DAI, Eva Götting">
-          <a href="https://www.kulturgutretter.org/en/data-acquisition-and-data-management-for-the-emergency-rescue-of-cultural-heritage/" target="_blank" class="btn">Read success story&nbsp;&raquo;</a>
-        </div>
-        <div title="DB Fahrwegdienste GmbH" class="customer-image col-lg-6">
-          <img src="images/customer/db_img.jpg" alt="Customer Image: DB Fahrwegdienste GmbH">
-          <!--<a href="https://docs.qfield.org/success-stories/geologic-mapping/" target="_blank" class="btn">Read success story&nbsp;&raquo;</a>-->
-        </div>
-        <div title="National Land Survey of Finland" class="customer-image col-lg-6">
-          <img src="images/customer/nls_img.png" alt="Customer Image: National Land Survey of Finland">
-          <a href="https://talks.osgeo.org/foss4g-europe-2024/talk/DFPXV9/" target="_blank" class="btn">Learn more&nbsp;&raquo;</a>
-        </div>
-        <div title="UN Open GIS Initiative" class="customer-image col-lg-6">
-          <img src="images/customer/un_img.jpg" alt="Customer Image: UN Open GIS Initiative">
-          <a href="https://isprs-archives.copernicus.org/articles/XLIII-B4-2021/183/2021/" target="_blank" class="btn">Read paper&nbsp;&raquo;</a>
-        </div>
-        <div title="Ministry of Agriculture & Food, Forests and Fisheries of Tonga" class="customer-image col-lg-6">
-          <img src="images/customer/maff_img.jpg" alt="Customer Image: Ministry of Agriculture & Food, Forests and Fisheries of Tonga">
-          <a href="https://livelihoods-and-landscapes.com/examples/hunga-haapai/hunga-haapai.html" target="_blank" class="btn">Read success story&nbsp;&raquo;</a>
-        </div>
-
-        <br style="clear:both;">
-      </div>
-    </div>
-  </section>
-
-  <!-- Section #5: testimonial -->
-  <section id="testimonials" class="section-spacing">
-    <h2 class="text-center">QField Testimonials</h2>
-    <div class="testimonials-container container">
-      <div class="testimonial col-lg-6">
-        <p class="font-italic">
-          Collaborating with Tonga's Ministry of Agriculture, Food, and Forests, we developed a farm monitoring workflow for Pacific Island agricultural landscapes with QField as the primary data collection tool and using QFieldCloud to support large team collaborative surveys. This workflow has been used to survey over 10,000 farms across Tonga for applications ranging from national scale crop surveys to targeted disaster response.
-          We used the QFieldCloud API to build custom applications that enable data collected with QField to be used in automated reporting tasks and be quickly accessible to support decision makers.
-        </p>
-        <cite>John Duncan - The University of Western Australia</cite>
-      </div>
-      <div class="testimonial col-lg-6">
-        <p class="font-italic">
-          The National Land Survey of Finland is preparing to start collecting their topographic database by open-source solutions in 2025. Since field work is an integral part of making sure certain object classes are precise and on the right place, we needed to integrate field work solution for our topographic data management system. QField provided to be an answer for our needs, and we have been able to acquire solutions for our operators’ typical workflows.  For example, being able to orthogonalize building polygons and having tools to undo modifications.
-          Also, we have received essential support to integrate Qfield for our system. Working with OPENGIS.ch has been easy, beneficial and their consultancy has helped us a lot!
-        </p>
-        <cite>Olli Rantanen - National Land Survey of Finland</cite>
-      </div>
-      <div class="testimonial col-lg-6">
-        <p class="font-italic">
-          Mobile data acquisition with QField opens up new possibilities for all researchers at the German Archaeological Institute to easily and precisely document cultural heritage and excavation results. Thanks to the excellent and uncomplicated cooperation with the developers of OPENGIS.ch, we were able to carry out several further developments for QField, which also benefit areas outside the archaeological community in the spirit of open-source.
-        </p>
-        <cite>Eva Götting-Martin - German Archaeological Institute</cite>
-      </div>
-      <div class="testimonial col-lg-6">
-        <p class="font-italic">
-          The Ministry of Agriculture, Food, and Forests in the Kingdom of Tonga has been using QField since 2020 for surveys and data collection. It’s transformed a process of paper-based surveys and manual data entry to digital capture of key geospatial farm management information. It’s been used for national scale crop surveys in 2020-2021 and focused applications such as an impact assessment to the agricultural sector after the Hunga Tonga Hunga Ha’apai eruption. The crop survey data captured before the eruption was used to generate early estimates of crop loss; QField’s offline capabilities meant cropland damage mapping could be undertaken while the country was offline when the undersea cables were severed; and, QField was used to survey community leaders for estimates of loss of agricultural produce and infrastructure.
-        </p>
-        <cite>
-          Ahi Saipaia - Ministry of Agriculture, Food, and Forests of Tonga</cite>
-        <hr class="hidden-lg">
-      </div>
-
-      <hr style="border-color: #444; width: 50%; margin-bottom: 0" class="visible-xs" />
-  </div>
-  </section>
-
-  <!-- Section #6: fine lines -->
-  <section id="about" data-speed="2" data-type="background">
-    <div class="container">
-      <div class="page-header">
-        <h1>About QField</h1>
-      </div>
-      <div class="row-fluid">
-        <div class="span4">
-          <p>QField is the leading professional fieldwork app used in enterprise settings for efficient geospatial data
-            collection and management. As a Digital Public Good, QField not only excels in enterprise and professional
-            applications but also contributes significantly to advancing at least six of the <a href="/sdgs.html">United
-              Nations Sustainable Development Goals (SDGs)</a>, promoting a more sustainable and equitable future.</p>
-        <div>
-          <h2> Stay in the loop</h2>
-          <p><a href="https://opengis.ch/newsletter" target="_blank">Subscribe to our newsletter</a> and stay up to date on the latest and greatest!
-        </div>
-        <div>
-          <h2>Open-source</h2>
-          <p>QField is <a class="reference external" href="https://github.com/opengisch/QField">released</a> under the
-          GNU Public License (GPL) Version 2 or above.
-          Developing QField under this license means that you can inspect and modify
-          the source code and guarantees that you will always have access to a QGIS
-          based field data collection app that is free of cost and can be freely
-          modified.</p>
-        </div>
-        <div class="span4">
-          <h2>Privacy</h2>
-          <p>View the QField <a href="privacy_policy.html">Privacy Policy</a> to learn what information is collected, used and how we protect this.
+    <!-- Section #5: testimonial -->
+    <section id="testimonials" class="section-spacing">
+      <h2 class="text-center">QField Testimonials</h2>
+      <div class="testimonials-container container">
+        <div class="testimonial col-lg-6">
+          <p class="font-italic">
+            Collaborating with Tonga's Ministry of Agriculture, Food, and
+            Forests, we developed a farm monitoring workflow for Pacific Island
+            agricultural landscapes with QField as the primary data collection
+            tool and using QFieldCloud to support large team collaborative
+            surveys. This workflow has been used to survey over 10,000 farms
+            across Tonga for applications ranging from national scale crop
+            surveys to targeted disaster response. We used the QFieldCloud API
+            to build custom applications that enable data collected with QField
+            to be used in automated reporting tasks and be quickly accessible to
+            support decision makers.
           </p>
+          <cite>John Duncan - The University of Western Australia</cite>
         </div>
-        <div class="span4">
-          <h2>Credits</h2>
-          <p>QField, QFieldCloud and QFieldSync are developped by <a href="https://www.opengis.ch/">OPENGIS.ch</a>.
-            OPENGIS.ch offers <a href="https://www.opengis.ch/training-consulting/">consulting</a>,
-            <a href="https://www.opengis.ch/custom-development/">development</a>, <a
-              href="https://www.opengis.ch/qfield-training/">training</a> and <a
-              href="https://www.opengis.ch/qgis-support/">support</a> for open-source software including QField,
-            QGIS and PostGIS.</p>
+        <div class="testimonial col-lg-6">
+          <p class="font-italic">
+            The National Land Survey of Finland is preparing to start collecting
+            their topographic database by open-source solutions in 2025. Since
+            field work is an integral part of making sure certain object classes
+            are precise and on the right place, we needed to integrate field
+            work solution for our topographic data management system. QField
+            provided to be an answer for our needs, and we have been able to
+            acquire solutions for our operators’ typical workflows. For example,
+            being able to orthogonalize building polygons and having tools to
+            undo modifications. Also, we have received essential support to
+            integrate Qfield for our system. Working with OPENGIS.ch has been
+            easy, beneficial and their consultancy has helped us a lot!
+          </p>
+          <cite>Olli Rantanen - National Land Survey of Finland</cite>
+        </div>
+        <div class="testimonial col-lg-6">
+          <p class="font-italic">
+            Mobile data acquisition with QField opens up new possibilities for
+            all researchers at the German Archaeological Institute to easily and
+            precisely document cultural heritage and excavation results. Thanks
+            to the excellent and uncomplicated cooperation with the developers
+            of OPENGIS.ch, we were able to carry out several further
+            developments for QField, which also benefit areas outside the
+            archaeological community in the spirit of open-source.
+          </p>
+          <cite>Eva Götting-Martin - German Archaeological Institute</cite>
+        </div>
+        <div class="testimonial col-lg-6">
+          <p class="font-italic">
+            The Ministry of Agriculture, Food, and Forests in the Kingdom of
+            Tonga has been using QField since 2020 for surveys and data
+            collection. It’s transformed a process of paper-based surveys and
+            manual data entry to digital capture of key geospatial farm
+            management information. It’s been used for national scale crop
+            surveys in 2020-2021 and focused applications such as an impact
+            assessment to the agricultural sector after the Hunga Tonga Hunga
+            Ha’apai eruption. The crop survey data captured before the eruption
+            was used to generate early estimates of crop loss; QField’s offline
+            capabilities meant cropland damage mapping could be undertaken while
+            the country was offline when the undersea cables were severed; and,
+            QField was used to survey community leaders for estimates of loss of
+            agricultural produce and infrastructure.
+          </p>
+          <cite>
+            Ahi Saipaia - Ministry of Agriculture, Food, and Forests of
+            Tonga</cite
+          >
+          <hr class="hidden-lg" />
+        </div>
+
+        <hr
+          style="border-color: #444; width: 50%; margin-bottom: 0"
+          class="visible-xs"
+        />
+      </div>
+    </section>
+
+    <!-- Section #6: fine lines -->
+    <section id="about" data-speed="2" data-type="background">
+      <div class="container">
+        <div class="page-header">
+          <h1>About QField</h1>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">
+            <p>
+              QField is the leading professional fieldwork app used in
+              enterprise settings for efficient geospatial data collection and
+              management. As a Digital Public Good, QField not only excels in
+              enterprise and professional applications but also contributes
+              significantly to advancing at least six of the
+              <a href="/sdgs.html"
+                >United Nations Sustainable Development Goals (SDGs)</a
+              >, promoting a more sustainable and equitable future.
+            </p>
+            <div>
+              <h2>Stay in the loop</h2>
+              <p>
+                <a href="https://opengis.ch/newsletter" target="_blank"
+                  >Subscribe to our newsletter</a
+                >
+                and stay up to date on the latest and greatest!
+              </p>
+            </div>
+
+            <div>
+              <h2>Open-source</h2>
+              <p>
+                QField is
+                <a
+                  class="reference external"
+                  href="https://github.com/opengisch/QField"
+                  >released</a
+                >
+                under the GNU Public License (GPL) Version 2 or above.
+                Developing QField under this license means that you can inspect
+                and modify the source code and guarantees that you will always
+                have access to a QGIS based field data collection app that is
+                free of cost and can be freely modified.
+              </p>
+            </div>
+            <div class="span4">
+              <h2>Privacy</h2>
+              <p>
+                View the QField
+                <a href="privacy_policy.html">Privacy Policy</a> to learn what
+                information is collected, used and how we protect this.
+              </p>
+            </div>
+            <div class="span4">
+              <h2>Credits</h2>
+              <p>
+                QField, QFieldCloud and QFieldSync are developped by
+                <a href="https://www.opengis.ch/">OPENGIS.ch</a>. OPENGIS.ch
+                offers
+                <a href="https://www.opengis.ch/training-consulting/"
+                  >consulting</a
+                >,
+                <a href="https://www.opengis.ch/custom-development/"
+                  >development</a
+                >,
+                <a href="https://www.opengis.ch/qfield-training/">training</a>
+                and
+                <a href="https://www.opengis.ch/qgis-support/">support</a> for
+                open-source software including QField, QGIS and PostGIS.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a
+            href="https://fosstodon.org/@qfield"
+            target="_blank"
+            rel="me noopener noreferrer"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/4/48/Mastodon_Logotype_%28Simple%29.svg"
+              alt="Mastodon"
+              width="32"
+              height="32"
+            />
+          </a>
+          <a
+            href="https://bsky.app/profile/qfield.bsky.social"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Bluesky_Logo.svg"
+              alt="Bluesky"
+              width="32"
+              height="32"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/qfield"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="linkedin-icon"
+              src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"
+              alt="LinkedIn"
+              width="32"
+              height="32"
+            />
+          </a>
+          <a
+            href="https://github.com/opengisch/QField/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg"
+              alt="Github"
+              width="32"
+              height="32"
+            />
+          </a>
         </div>
       </div>
-    </div>
-
-    <div class="social-links">
-      <a href="https://fosstodon.org/@qfield" target="_blank" rel="me noopener noreferrer">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Mastodon_Logotype_%28Simple%29.svg" alt="Mastodon" width="32" height="32">
-      </a>
-      <a href="https://bsky.app/profile/qfield.bsky.social" target="_blank" rel="noopener noreferrer">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Bluesky_Logo.svg" alt="Bluesky" width="32" height="32">
-      </a>
-      <a href="https://www.linkedin.com/company/qfield" target="_blank" rel="noopener noreferrer">
-        <img class="linkedin-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="32" height="32">
-      </a>
-      <a href="https://github.com/opengisch/QField/" target="_blank" rel="noopener noreferrer">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" alt="Github" width="32" height="32">
-      </a>
-    </div>
-</section>
-</body>
+    </section>
+  </body>
 </html>
