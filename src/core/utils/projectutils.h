@@ -41,7 +41,12 @@ class ProjectUtils : public QObject
      * Returns the transaction mode for a given \a project.
      * \note To be removed when QField updates to QGIS 3.38.
      */
-    Q_INVOKABLE Qgis::TransactionMode transactionMode( QgsProject *project = nullptr );
+    Q_INVOKABLE static Qgis::TransactionMode transactionMode( QgsProject *project = nullptr );
+
+    /**
+     * Returns the \a project title.
+     */
+    Q_INVOKABLE static QString title( QgsProject *project = nullptr );
 };
 
 #endif // PROJECTUTILS_H

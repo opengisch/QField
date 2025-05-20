@@ -45,3 +45,11 @@ Qgis::TransactionMode ProjectUtils::transactionMode( QgsProject *project )
 
   return project->transactionMode();
 }
+
+QString ProjectUtils::title( QgsProject *project )
+{
+  if ( !project )
+    return QString();
+
+  return project->title();
+}
