@@ -36,7 +36,7 @@ Drawer {
     }
   }
 
-  interactive: overlayFeatureForm.model.constraintsHardValid || qfieldSettings.autoSave ? true : false
+  interactive: false
   dragMargin: 0
 
   /**
