@@ -10,6 +10,9 @@ import org.qfield
 Drawer {
   id: overlayFeatureFormDrawer
 
+  property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
+  property bool isVertical: parent.width < parent.height || parent.width < 300
+
   property alias featureModel: attributeFormModel.featureModel
   property alias state: overlayFeatureForm.state
   property alias featureForm: overlayFeatureForm
@@ -22,14 +25,14 @@ Drawer {
   focus: visible
 
   width: {
-    if (qfieldSettings.fullScreenIdentifyView || parent.width < parent.height || parent.width < 300) {
+    if (overlayFeatureFormDrawer.fullScreenView || parent.width < parent.height || parent.width < 300) {
       parent.width;
     } else {
       Math.min(Math.max(200, parent.width / 2.25), parent.width);
     }
   }
   height: {
-    if (qfieldSettings.fullScreenIdentifyView || parent.width > parent.height) {
+    if (overlayFeatureFormDrawer.fullScreenView || parent.width > parent.height) {
       parent.height;
     } else {
       Math.min(Math.max(200, parent.height / 2), parent.height);
@@ -76,7 +79,7 @@ Drawer {
     anchors.fill: parent
     visible: true
 
-    topMargin: overlayFeatureFormDrawer.y == 0 ? mainWindow.sceneTopMargin : 0.0
+    topMargin: overlayFeatureFormDrawer.y === 0 ? mainWindow.sceneTopMargin : 0.0
     bottomMargin: mainWindow.sceneBottomMargin
 
     property bool isSaved: false
@@ -116,6 +119,26 @@ Drawer {
       }
       digitizingToolbar.digitizingLogger.clearCoordinates();
       resetTabs();
+    }
+
+    onToolbarSwiped: direction => {
+      if (isVertical) {
+        if (direction === 'up') {
+          overlayFeatureFormDrawer.fullScreenView = true;
+        } else if (direction === 'down') {
+          if (overlayFeatureFormDrawer.fullScreenView) {
+            fullScreenView = false;
+          }
+        }
+      } else {
+        if (direction === 'left') {
+          overlayFeatureFormDrawer.fullScreenView = true;
+        } else if (direction === 'right') {
+          if (overlayFeatureFormDrawer.fullScreenView) {
+            fullScreenView = false;
+          }
+        }
+      }
     }
 
     Keys.onReleased: event => {
