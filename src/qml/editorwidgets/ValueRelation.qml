@@ -82,6 +82,7 @@ EditorWidgetBase {
       model: listModel
       focus: true
       clip: true
+      boundsBehavior: Flickable.StopAtBounds
 
       section.property: listModel.groupField != "" ? "groupFieldValue" : ""
       section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
