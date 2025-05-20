@@ -149,11 +149,14 @@ void ExpressionContextUtils::setLayerVariables( QgsMapLayer *layer, const QVaria
   QStringList variableNames;
   QStringList variableValues;
 
-  QVariantMap::const_iterator it = variables.constBegin();
-  while ( ++it != variables.constEnd() )
+  if ( !variables.isEmpty() )
   {
-    variableNames << it.key();
-    variableValues << it.value().toString();
+    QVariantMap::const_iterator it = variables.constBegin();
+    while ( ++it != variables.constEnd() )
+    {
+      variableNames << it.key();
+      variableValues << it.value().toString();
+    }
   }
 
   layer->setCustomProperty( QStringLiteral( "variableNames" ), variableNames );
