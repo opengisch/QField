@@ -356,9 +356,9 @@ void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
     const bool isTemporal = mProject->readNumEntry( QStringLiteral( "TemporalControllerWidget" ), QStringLiteral( "/NavigationMode" ), 0 ) != 0;
     const QString startString = QgsProject::instance()->readEntry( QStringLiteral( "TemporalControllerWidget" ), QStringLiteral( "/StartDateTime" ) );
     const QString endString = QgsProject::instance()->readEntry( QStringLiteral( "TemporalControllerWidget" ), QStringLiteral( "/EndDateTime" ) );
-    mMapSettings.setIsTemporal( isTemporal );
     mMapSettings.setTemporalRange( QgsDateTimeRange( QDateTime::fromString( startString, Qt::ISODateWithMs ),
                                                      QDateTime::fromString( endString, Qt::ISODateWithMs ) ) );
+    mMapSettings.setIsTemporal( isTemporal );
   }
 
   QDomNodeList nodes = doc.elementsByTagName( "mapcanvas" );
