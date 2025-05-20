@@ -34,6 +34,92 @@
     <link href="css/qfield.css?ver=3" rel="stylesheet" media="screen" />
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <style>
+      /* ...existing code... */
+
+/* Partner cards - fixed height */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-sm-6.col-md-4 {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.panel.panel-default {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-body {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-body p {
+  flex-grow: 1;
+}
+
+.panel-footer {
+  margin-top: auto;
+}
+
+/* Center filter bubbles */
+#region-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto 30px;
+  padding: 0;
+  float: none;
+  text-align: center;
+}
+
+.section-spacing .nav-pills {
+  float: none;
+  display: inline-flex;
+}
+
+.nav-pills > li {
+  float: none;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.partner-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  object-fit: contain;
+  vertical-align: middle;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.panel-title {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  #region-filters {
+    max-width: 90%;
+  }
+
+  .nav-pills > li {
+    margin: 0 3px 10px;
+  }
+
+  .nav-pills li a {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+    </style>
   </head>
 
   <body>
@@ -198,6 +284,97 @@
         </div>
       </div>
     </section>
+    <section class="section-spacing">
+      <ul class="nav nav-pills text-center" id="region-filters">
+        <li class="active"><a href="#" data-region="world">🌍 World</a></li>
+        <li><a href="#" data-region="europe">Europe</a></li>
+        <li><a href="#" data-region="north-america">North America</a></li>
+        <li><a href="#" data-region="australia">Australia</a></li>
+        <li><a href="#" data-region="africa">Africa</a></li>
+      </ul>
+      <div class="row">
+       <!-- Partner: Oslandia -->
+        <div class="col-sm-6 col-md-4">
+          <div class="panel panel-default" data-region="europe">
+            <div class="panel-body">
+              <div class="clearfix">
+                <span class="label label-default pull-right">🇫🇷 France</span>
+              </div>
+              <h4 class="panel-title">
+                <img
+                  src="https://oslandia.com/wp-content/uploads/2019/11/oslandia_logo_v2_164x154.png"
+                  alt="Oslandia"
+                  class="partner-logo"
+                />
+                Oslandia
+              </h4>
+              <p>
+                Oslandia is a French company specialized in open source GIS solutions. 
+                They provide expertise in QGIS, PostGIS, and QField for data collection workflows 
+                with comprehensive training and implementation services.
+              </p>
+            </div>
+            <div class="panel-footer clearfix">
+              <a href="https://oslandia.com/" class="btn btn-success pull-left" target="_blank">Visit Website</a>
+              <a href="#" class="pull-right">Learn More →</a>
+            </div>
+          </div>
+        </div>
+        <!-- Partner: Astun -->
+        <div class="col-sm-6 col-md-4">
+          <div class="panel panel-default" data-region="europe">
+            <div class="panel-body">
+              <div class="clearfix">
+                <span class="label label-default pull-right">🇬🇧 United Kingdom</span>
+              </div>
+              <h4 class="panel-title">
+                <img
+                  src="https://www.astuntechnology.com/wp-content/uploads/2020/10/Astun-Red-Logo-1-1920x565.png"
+                  alt="Astun Technology"
+                  class="partner-logo"
+                />
+                Astun Technology
+              </h4>
+              <p>
+                Meet our partner – one of the most recognizable companies
+                creating, utilizing, and supporting open-source GIS
+                technologies.
+              </p>
+            </div>
+            <div class="panel-footer clearfix">
+              <a href="#" class="btn btn-success pull-left">Visit Website</a>
+              <a href="#" class="pull-right">Learn More →</a>
+            </div>
+          </div>
+        </div>
+<!-- Partner: Test -->
+        <div class="col-sm-6 col-md-4">
+          <div class="panel panel-default" data-region="africa">
+            <div class="panel-body">
+              <div class="clearfix">
+                <span class="label label-default pull-right">🇿🇦 South Africa</span>
+              </div>
+              <h4 class="panel-title">
+                <img
+                  src="images/partners/test-logo.png"
+                  alt="Test"
+                  class="partner-logo"
+                />
+                TEST (Pty) Ltd
+              </h4>
+              <p>
+                TEST is a South Africa-based Free and Open Source GIS (FOSS
+                GIS) service provider.
+              </p>
+            </div>
+            <div class="panel-footer clearfix">
+              <a href="#" class="btn btn-success pull-left">Visit Website</a>
+              <a href="#" class="pull-right">Learn More →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Section #3: fine lines -->
     <section id="about" data-speed="2" data-type="background">
@@ -313,5 +490,19 @@
         </div>
       </div>
     </section>
+    <script lang="javascript">
+        $('#region-filters a').click(function(e) {
+        e.preventDefault();
+        $('#region-filters li').removeClass('active');
+        $(this).parent().addClass('active');
+
+        var region = $(this).data('region');
+
+        $('.panel').each(function() {
+          var matches = region === 'world' || $(this).data('region') === region;
+          $(this).closest('.col-sm-6').toggle(matches);
+        });
+      });
+    </script>
   </body>
 </html>
