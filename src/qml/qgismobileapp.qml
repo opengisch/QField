@@ -4358,15 +4358,17 @@ ApplicationWindow {
 
     width: Math.min(mainWindow.width - Theme.popupScreenEdgeMargin * 2, 400)
 
+    property string pluginName: ""
+    property bool isProjectPlugin: false
     property alias permanent: permanentCheckBox.checked
 
-    title: qsTr("Plugin Permission")
+    title: pluginPermissionDialog.isProjectPlugin ? pluginName : qsTr("Plugin Permission")
 
     Column {
       Label {
         width: parent.width
         wrapMode: Text.WordWrap
-        text: qsTr("Do you grant permission to activate `%1`?").arg(pluginPermissionDialog.title)
+        text: pluginPermissionDialog.isProjectPlugin ? qsTr("Do you grant permission to activate the project plugin?") : qsTr("Do you grant permission to activate `%1`?").arg(pluginPermissionDialog.pluginName)
       }
 
       CheckBox {
@@ -4418,8 +4420,9 @@ ApplicationWindow {
   Connections {
     target: pluginManager
 
-    function onPluginPermissionRequested(pluginName) {
-      pluginPermissionDialog.title = pluginName;
+    function onPluginPermissionRequested(pluginName, isProjectPlugin) {
+      pluginPermissionDialog.pluginName = isProjectPlugin ? ProjectUtils.title(qgisProject) : pluginName;
+      pluginPermissionDialog.isProjectPlugin = isProjectPlugin;
       pluginPermissionDialog.open();
     }
   }

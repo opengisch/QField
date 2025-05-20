@@ -84,7 +84,7 @@ class PluginManager : public QObject
     explicit PluginManager( QQmlEngine *engine );
     ~PluginManager() override = default;
 
-    void loadPlugin( const QString &pluginPath, const QString &pluginName, bool skipPermissionCheck = false );
+    void loadPlugin( const QString &pluginPath, const QString &pluginName, bool skipPermissionCheck = false, bool isProjectPlugin = false );
     void unloadPlugin( const QString &pluginPath );
 
     void unloadPlugins();
@@ -112,7 +112,7 @@ class PluginManager : public QObject
     static QString findProjectPlugin( const QString &projectPath );
 
   signals:
-    void pluginPermissionRequested( const QString &pluginName );
+    void pluginPermissionRequested( const QString &pluginName, bool isProjectPlugin );
 
     void availableAppPluginsChanged();
     void appPluginEnabled( const QString &uuid );

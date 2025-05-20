@@ -36,7 +36,7 @@ PluginManager::PluginManager( QQmlEngine *engine )
   refreshAppPlugins();
 }
 
-void PluginManager::loadPlugin( const QString &pluginPath, const QString &pluginName, bool skipPermissionCheck )
+void PluginManager::loadPlugin( const QString &pluginPath, const QString &pluginName, bool skipPermissionCheck, bool isProjectPlugin )
 {
   QSettings settings;
   QString pluginKey = pluginPath;
@@ -56,7 +56,7 @@ void PluginManager::loadPlugin( const QString &pluginPath, const QString &plugin
     else
     {
       mPermissionRequestPluginPath = pluginPath;
-      emit pluginPermissionRequested( pluginName );
+      emit pluginPermissionRequested( pluginName, isProjectPlugin );
       return;
     }
   }
