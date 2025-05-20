@@ -306,6 +306,7 @@ EditorWidgetBase {
           model: listModel
           width: parent.width
           height: searchFeaturePopup.height - searchBar.height - 50
+          boundsBehavior: Flickable.StopAtBounds
           clip: true
           ScrollBar.vertical: QfScrollBar {
           }

@@ -43,6 +43,7 @@ EditorWidgetBase {
       height: !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * itemHeight, contentHeight) : contentHeight
       focus: true
       clip: true
+      boundsBehavior: Flickable.StopAtBounds
       highlightRangeMode: ListView.ApplyRange
       ScrollBar.vertical: QfScrollBar {
       }
