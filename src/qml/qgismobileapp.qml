@@ -4362,13 +4362,13 @@ ApplicationWindow {
     property bool isProjectPlugin: false
     property alias permanent: permanentCheckBox.checked
 
-    title: pluginPermissionDialog.isProjectPlugin ? pluginName : qsTr("Plugin Permission")
+    title: pluginPermissionDialog.isProjectPlugin ? pluginName + qsTr(" Project Plugin") : qsTr("Plugin Permission")
 
     Column {
       Label {
         width: parent.width
         wrapMode: Text.WordWrap
-        text: pluginPermissionDialog.isProjectPlugin ? qsTr("Do you grant permission to activate the project plugin?") : qsTr("Do you grant permission to activate `%1`?").arg(pluginPermissionDialog.pluginName)
+        text: pluginPermissionDialog.isProjectPlugin ? qsTr("Do you grant permission to activate the plugin?") : qsTr("Do you grant permission to activate `%1`?").arg(pluginPermissionDialog.pluginName)
       }
 
       CheckBox {
