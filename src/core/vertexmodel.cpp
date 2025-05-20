@@ -75,6 +75,7 @@ void VertexModel::setGeometry( const QgsGeometry &geometry )
 {
   beginResetModel();
   mVerticesDeleted.clear();
+  mVerticesAdded.clear();
   mOriginalGeometry = geometry;
   mGeometryType = geometry.type();
   mGeometryWkbType = geometry.wkbType();
@@ -487,6 +488,7 @@ void VertexModel::clear()
   setEditingMode( NoEditing );
   mVertices.clear();
   mVerticesDeleted.clear();
+  mVerticesAdded.clear();
   updateCanRemoveVertex();
   updateCanAddVertex();
   emit vertexCountChanged();
@@ -856,6 +858,22 @@ QVector<QPair<QgsPoint, QgsPoint>> VertexModel::verticesMoved() const
       vertices << qMakePair( vertex.originalPoint, vertex.point );
   }
   return vertices;
+}
+
+QVector<QgsPoint> VertexModel::verticesAdded()
+{
+  qDebug() << "------------- " << mHistory.size() << " -------------";
+  for( const VertexChange& vertexChange: mHistory) {
+    qDebug() << vertexChange.index;
+    qDebug() << vertexChange.type;
+
+    // if(x.type == VertexAddition) { // why VertexMove!
+      mVerticesAdded << vertexChange.vertex.point;  // Make sure to pass an argument
+    // }
+  }
+  qDebug() << "--------------------------";
+
+  return mVerticesAdded;
 }
 
 QList<VertexModel::Vertex> VertexModel::vertices() const

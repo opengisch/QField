@@ -1055,6 +1055,7 @@ void FeatureModel::applyVertexModelTopography()
 
   const QVector<QPair<QgsPoint, QgsPoint>> pointsMoved = mVertexModel->verticesMoved();
   const QVector<QgsPoint> pointsDeleted = mVertexModel->verticesDeleted();
+  const QVector<QgsPoint> pointsAdded = mVertexModel->verticesAdded();
 
   const QVector<QgsVectorLayer *> vectorLayers = mProject ? mProject->layers<QgsVectorLayer *>() : QVector<QgsVectorLayer *>() << mLayer;
   for ( auto vectorLayer : vectorLayers )
@@ -1086,6 +1087,15 @@ void FeatureModel::applyVertexModelTopography()
       {
         vectorLayer->deleteVertex( filter.matches.at( i ).featureId(), filter.matches.at( i ).vertexIndex() );
       }
+    }
+
+    qDebug() << __FUNCTION__ << __LINE__ << vectorLayer->id();
+
+    for (const QgsPoint& point : pointsAdded)
+    {
+      qDebug() << "[p] => " << point.toQPointF();
+      int result = vectorLayer->addTopologicalPoints(point);
+      qDebug() << "[resultm] => " << result;
     }
 
     vectorLayer->addTopologicalPoints( mFeature.geometry() );
