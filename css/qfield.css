@@ -16,6 +16,8 @@ font-weight: 300;
   border:0;
   font-family:"bio-sans";
   font-size: 12pt;
+  border-bottom: 1px solid rgba(128, 204, 40, 0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.01);
 }
 
 #navbar ul {
@@ -30,8 +32,9 @@ div.navbar li a {
   padding: 10px !important;
 }
 
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+.navbar-default .navbar-collase, .navbar-default .navbar-form {
   background-color:white;
+  border-bottom: 2px solid rgba(128, 204, 40);
 }
 
 @media (min-width: 768px) {
