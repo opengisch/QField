@@ -154,6 +154,20 @@ Drawer {
     }
   }
 
+  Behavior on width  {
+    PropertyAnimation {
+      duration: parent.width > parent.height ? 250 : 0
+      easing.type: Easing.OutQuart
+    }
+  }
+
+  Behavior on height  {
+    PropertyAnimation {
+      duration: parent.width < parent.height ? 250 : 0
+      easing.type: Easing.OutQuart
+    }
+  }
+
   Component.onCompleted: {
     if (Material.roundedScale) {
       Material.roundedScale = Material.NotRounded;
