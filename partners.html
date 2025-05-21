@@ -316,7 +316,7 @@
             </div>
             <div class="panel-footer clearfix">
               <a href="https://oslandia.com/en/" class="btn btn-success pull-left" target="_blank">Visit Website</a>
-              <a href="#" class="pull-right">Learn More →</a>
+              <a href="#" class="pull-right" data-toggle="modal" data-target="#oslandiaModal">Learn More →</a>
             </div>
           </div>
         </div>
@@ -343,7 +343,7 @@
             </div>
             <div class="panel-footer clearfix">
               <a href="https://www.astuntechnology.com/" class="btn btn-success pull-left" target="_blank">Visit Website</a>
-              <a href="#" class="pull-right">Learn More →</a>
+              <a href="#" class="pull-right" data-toggle="modal" data-target="#astunModal">Learn More →</a>
             </div>
           </div>
         </div>
@@ -369,7 +369,7 @@
             </div>
             <div class="panel-footer clearfix">
               <a href="#" class="btn btn-success pull-left">Visit Website</a>
-              <a href="#" class="pull-right">Learn More →</a>
+              <a href="#" class="pull-right" data-toggle="modal" data-target="#testModal">Learn More →</a>
             </div>
           </div>
         </div>
@@ -490,6 +490,96 @@
         </div>
       </div>
     </section>
+    <!-- Partner Modal Dialogs -->
+<!-- Oslandia Modal -->
+<div class="modal fade" id="oslandiaModal" tabindex="-1" role="dialog" aria-labelledby="oslandiaModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="oslandiaModalLabel">
+          <img src="https://oslandia.com/wp-content/uploads/2019/11/oslandia_logo_v2_164x154.png" alt="Oslandia" class="partner-logo" style="width: 30px; height: 30px;"> 
+          Oslandia
+        </h4>
+      </div>
+      <div class="modal-body">
+        <p><strong>Location:</strong> 🇫🇷 France</p>
+        <p><strong>Services:</strong></p>
+        <ul>
+          <li>QField implementation and workflow setup</li>
+          <li>Custom development and integration</li>
+          <li>Training and workshop services</li>
+          <li>Technical support and maintenance</li>
+        </ul>
+        <p><strong>Expertise:</strong> Oslandia specializes in open-source GIS solutions, with particular focus on QGIS, PostGIS, and 3D/web mapping. They offer comprehensive QField implementation services including data structure design, form creation, and field workflow optimization.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a href="https://oslandia.com/en/" class="btn btn-success" target="_blank">Visit Website</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Astun Modal -->
+<div class="modal fade" id="astunModal" tabindex="-1" role="dialog" aria-labelledby="astunModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="astunModalLabel">
+          <img src="https://www.astuntechnology.com/wp-content/uploads/2020/10/Astun-Red-Logo-1-1920x565.png" alt="Astun Technology" class="partner-logo" style="width: 30px; height: 30px;"> 
+          Astun Technology
+        </h4>
+      </div>
+      <div class="modal-body">
+        <p><strong>Location:</strong> 🇬🇧 United Kingdom</p>
+        <p><strong>Services:</strong></p>
+        <ul>
+          <li>QField implementation and training</li>
+          <li>Enterprise GIS solutions</li>
+          <li>Data collection workflow design</li>
+          <li>Technical support and consulting</li>
+        </ul>
+        <p><strong>Expertise:</strong> Astun Technology is one of the UK's leading providers of open source geospatial solutions. Their team offers expertise in QGIS, cloud hosting, and mobile data collection workflows, making them an ideal partner for organizations looking to implement QField in enterprise settings.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a href="https://www.astuntechnology.com/" class="btn btn-success" target="_blank">Visit Website</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Test Modal -->
+<div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="testModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="testModalLabel">
+          <img src="images/partners/test-logo.png" alt="Test" class="partner-logo" style="width: 30px; height: 30px;"> 
+          TEST (Pty) Ltd
+        </h4>
+      </div>
+      <div class="modal-body">
+        <p><strong>Location:</strong> 🇿🇦 South Africa</p>
+        <p><strong>Services:</strong></p>
+        <ul>
+          <li>QField implementation for African markets</li>
+          <li>Local support and training</li>
+          <li>Custom development services</li>
+          <li>Consulting for conservation and resource management</li>
+        </ul>
+        <p><strong>Expertise:</strong> TEST is a South African-based company specializing in free and open-source GIS solutions. With deep experience in the African context, they provide tailored QField implementations for conservation, agriculture, and urban planning projects throughout the region.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a href="#" class="btn btn-success">Visit Website</a>
+      </div>
+    </div>
+  </div>
+</div>
     <script lang="javascript">
         $('#region-filters a').click(function(e) {
         e.preventDefault();
