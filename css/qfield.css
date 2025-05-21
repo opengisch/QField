@@ -439,6 +439,8 @@ div.explanation {
   filter: invert(18%) sepia(7%) saturate(749%) hue-rotate(172deg) brightness(96%) contrast(90%);
 }
 
+/* button design*/
+
 .support-button a {
   margin-left: 10px;
   padding: 5px 10px 5px 10px !important;
@@ -456,6 +458,29 @@ div.explanation {
   color: #80cc28 !important;
   border-radius: 32px;
   text-decoration: none !important;
+}
+
+.get-started-button a {
+  margin-left: 10px;
+  padding: 5px 10px 5px 10px !important;
+  background-color: white;
+  border: 0.5px solid #80cc28 !important;
+  color: #80cc28 !important;
+  text-align: center;
+  border-radius: 32px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none !important;
+}
+
+.get-started-button a:hover {
+  background-color: #80cc28 !important;
+  border: 0.5px solid #80cc28 !important;
+  color: #ffffff !important;
+  border-radius: 32px;
+}
+
+.navbar-nav li.get-started-button a:hover {
+  color: #ffffff !important;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
