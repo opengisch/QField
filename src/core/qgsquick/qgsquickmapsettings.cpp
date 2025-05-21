@@ -142,8 +142,14 @@ void QgsQuickMapSettings::setCenter( const QgsPoint &center, bool handleMargins 
   QgsRectangle e = mMapSettings.extent();
   if ( handleMargins )
   {
-    const double xAdjustment = mRightMargin * devicePixelRatio() * mMapSettings.mapUnitsPerPixel() / 2;
-    const double yAdjustment = mBottomMargin * devicePixelRatio() * mMapSettings.mapUnitsPerPixel() / 2;
+    // Calculate base margin adjustments (split in half for centering)
+    const double baseXAdjustment = mRightMargin * devicePixelRatio() * mMapSettings.mapUnitsPerPixel() / 2;
+    const double baseYAdjustment = mBottomMargin * devicePixelRatio() * mMapSettings.mapUnitsPerPixel() / 2;
+
+    // Adjust margins based on rotation
+    const double rotationRadians = mMapSettings.rotation() * M_PI / 180.0;
+    const double xAdjustment = baseXAdjustment * cos(rotationRadians) - baseYAdjustment * sin(rotationRadians);
+    const double yAdjustment = baseXAdjustment * sin(rotationRadians) + baseYAdjustment * cos(rotationRadians);
 
     e.setXMinimum( e.xMinimum() + delta.x() - xAdjustment );
     e.setXMaximum( e.xMaximum() + delta.x() - xAdjustment );
