@@ -5706,6 +5706,14 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source> Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you grant permission to activate the plugin?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
