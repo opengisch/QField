@@ -148,8 +148,8 @@ void QgsQuickMapSettings::setCenter( const QgsPoint &center, bool handleMargins 
 
     // Adjust margins based on rotation
     const double rotationRadians = mMapSettings.rotation() * M_PI / 180.0;
-    const double xAdjustment = baseXAdjustment * cos(rotationRadians) - baseYAdjustment * sin(rotationRadians);
-    const double yAdjustment = baseXAdjustment * sin(rotationRadians) + baseYAdjustment * cos(rotationRadians);
+    const double xAdjustment = baseXAdjustment * cos( rotationRadians ) - baseYAdjustment * sin( rotationRadians );
+    const double yAdjustment = baseXAdjustment * sin( rotationRadians ) + baseYAdjustment * cos( rotationRadians );
 
     e.setXMinimum( e.xMinimum() + delta.x() - xAdjustment );
     e.setXMaximum( e.xMaximum() + delta.x() - xAdjustment );
