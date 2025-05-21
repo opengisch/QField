@@ -152,7 +152,7 @@ QfVisibilityFadingRow {
     visible: featureModel && (featureModel.vertexModel.canAddVertex || featureModel.vertexModel.editingMode === VertexModel.AddVertex)
     bgcolor: enabled && featureModel && featureModel.vertexModel.canPreviousVertex ? Theme.toolButtonBackgroundColor : Theme.toolButtonBackgroundSemiOpaqueColor
     iconSource: Theme.getThemeVectorIcon("ic_chevron_left_white_24dp")
-    iconColor: enabled && featureModel && featureModel.vertexModel.canNextVertex ? Theme.toolButtonColor : Theme.toolButtonBackgroundSemiOpaqueColor
+    iconColor: enabled && featureModel && featureModel.vertexModel.canPreviousVertex ? Theme.toolButtonColor : Theme.toolButtonBackgroundSemiOpaqueColor
 
     onClicked: {
       if (vertexEditorToolbar.currentVertexModified) {
