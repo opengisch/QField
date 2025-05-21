@@ -32,10 +32,16 @@ div.navbar li a {
   padding: 10px !important;
 }
 
-.navbar-default .navbar-collase, .navbar-default .navbar-form {
+#navbarNav.in {
+  background-color:white;
+}
+
+.navbar-default .navbar-form {
   background-color:white;
   border-bottom: 2px solid rgba(128, 204, 40);
 }
+
+
 
 @media (min-width: 768px) {
 .navbar-nav {
