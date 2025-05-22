@@ -41,8 +41,6 @@ div.navbar li a {
   border-bottom: 2px solid rgba(128, 204, 40);
 }
 
-
-
 @media (min-width: 768px) {
 .navbar-nav {
   height:100px;
@@ -137,16 +135,72 @@ footer.footer {
 }
 
 .carousel-caption > div {
-  float:right;
-  padding:20px;
+  float:left;
   border-radius:20px;
-  background-color:rgba(33,33,33,0.66);
   color: #ffffff;
   font-size:24px;
 }
 
 .carousel-caption h3 {
   margin-top:4px;
+}
+
+/* mainpage carousel buttons */
+.get-qf-button a {
+  font-family:"bio-sans";
+  font-weight: normal;
+  font-size: 15pt;
+  padding: 5px 15px;
+  background-color: #ffffff;
+  border: 3px solid #80cc28;
+  color: #80cc28;
+  text-align: center;
+  border-radius: 32px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+  text-shadow: none !important;
+}
+
+.get-qf-button a:hover {
+  background-color: #80cc28;
+  color: white;
+  border: 3px solid #80cc28;
+}
+
+.carousel-caption .carousel-title {
+  font-family:"bio-sans";
+  font-size: 55px;
+  font-weight: 600;
+  color: #525251;
+  margin-bottom: 40px;
+  text-shadow: none;
+}
+
+.carousel-caption.custom-caption {
+  bottom: 34%;
+}
+
+.qfc-button a {
+  font-family:"bio-sans";
+  font-weight: normal;
+  font-size: 15pt;
+  padding: 5px 15px;
+  background-color: #ffffff;
+  border: 3px solid #4a6fae;
+  color: #4a6fae;
+  text-align: center;
+  border-radius: 32px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+  text-shadow: none !important;
+}
+
+.qfc-button a:hover {
+  background-color: #4a6fae;
+  color: white;
+  border: 3px solid #4a6fae;
 }
 
 /* smaller version */
@@ -508,4 +562,57 @@ div.explanation {
   max-width: 150px;
   object-fit: contain;
   margin: 40px;
+}
+
+/* industries carousel */
+.industries-carousel-section {
+  background: #fff;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.industries-carousel-wrapper {
+  max-width: 1140px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.industries-carousel-track {
+  display: flex;
+  width: max-content;
+  animation: industries-scroll 30s linear infinite;
+}
+
+.industries-carousel-slide {
+  display: flex;
+}
+
+.industries-carousel-slide .item {
+  flex: 0 0 auto;
+  width: 300px;
+  text-align: left;
+  margin-right: 50px;
+}
+
+.industries-carousel-slide .item img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.industries-carousel-slide .item p {
+  margin-top: 10px;
+  font-size: 15pt;
+  font-weight: 500;
+}
+
+@keyframes industries-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-30%);
+  }
 }
