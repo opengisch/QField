@@ -501,3 +501,11 @@ div.explanation {
     float:left;
   }
 }
+
+/* clients logos */
+.client-logo {
+  max-height: 60px;
+  max-width: 150px;
+  object-fit: contain;
+  margin: 40px;
+}
