@@ -1068,11 +1068,24 @@ void FeatureModel::applyVertexModelTopography()
       vectorLayer->startEditing();
     }
 
+    for ( const QgsPoint &point : pointsAdded )
+    {
+      qDebug() << "NEWWWW => " << point.toQPointF();
+      int result = vectorLayer->addTopologicalPoints( point );
+    }
+
+    if ( vectorLayer != mLayer )
+    {
+      vectorLayer->commitChanges( false );
+    }
+
     QgsPointLocator loc( vectorLayer );
+    qDebug() << pointsMoved.size();
     for ( const auto &point : pointsMoved )
     {
+      qDebug() << "MOVEEEDDDD => " << point.first.toQPointF();
       MatchCollectingFilter filter;
-      loc.nearestVertex( point.first, 0, &filter );
+      loc.nearestVertex( point.first, 10, &filter );
       for ( int i = 0; i < filter.matches.size(); i++ )
       {
         vectorLayer->moveVertex( point.second, filter.matches.at( i ).featureId(), filter.matches.at( i ).vertexIndex() );
@@ -1087,15 +1100,6 @@ void FeatureModel::applyVertexModelTopography()
       {
         vectorLayer->deleteVertex( filter.matches.at( i ).featureId(), filter.matches.at( i ).vertexIndex() );
       }
-    }
-
-    qDebug() << __FUNCTION__ << __LINE__ << vectorLayer->id();
-
-    for (const QgsPoint& point : pointsAdded)
-    {
-      qDebug() << "[p] => " << point.toQPointF();
-      int result = vectorLayer->addTopologicalPoints(point);
-      qDebug() << "[resultm] => " << result;
     }
 
     vectorLayer->addTopologicalPoints( mFeature.geometry() );

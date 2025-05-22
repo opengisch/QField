@@ -621,12 +621,9 @@ void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double thres
       if ( autoInsert )
       {
         // makes a new vertex as an existing vertex
-        beginResetModel();
-        mVertices[closestRow].type = ExistingVertex;
+        setEditingMode( AddVertex );
         setCurrentVertex( closestRow );
-        createCandidates();
-        setEditingMode( EditVertex );
-        endResetModel();
+        setCurrentPoint( mVertices[closestRow].point );
       }
       else
       {
@@ -721,6 +718,7 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
     // we move a candidate, make it an existing vertex
     Q_ASSERT( vertex.type != ExistingVertex );
     vertex.type = ExistingVertex;
+    vertex.originalPoint = vertex.point;
     setEditingMode( EditVertex );
   }
   else
@@ -862,18 +860,19 @@ QVector<QPair<QgsPoint, QgsPoint>> VertexModel::verticesMoved() const
 
 QVector<QgsPoint> VertexModel::verticesAdded()
 {
-  qDebug() << "------------- " << mHistory.size() << " -------------";
-  for( const VertexChange& vertexChange: mHistory) {
+  QVector<QgsPoint> vertices;
+  for ( const VertexChange &vertexChange : mHistory )
+  {
     qDebug() << vertexChange.index;
     qDebug() << vertexChange.type;
 
-    // if(x.type == VertexAddition) { // why VertexMove!
-      mVerticesAdded << vertexChange.vertex.point;  // Make sure to pass an argument
-    // }
+    if ( vertexChange.type == VertexAddition )
+    {
+      vertices << vertexChange.vertex.point;
+    }
   }
-  qDebug() << "--------------------------";
 
-  return mVerticesAdded;
+  return vertices;
 }
 
 QList<VertexModel::Vertex> VertexModel::vertices() const
