@@ -5709,11 +5709,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source> Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Wtyczka projektu</translation>
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
-        <translation type="unfinished"/>
+        <translation>Czy zezwalasz na aktywację wtyczki?</translation>
     </message>
 </context>
 <context>

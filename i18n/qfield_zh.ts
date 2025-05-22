@@ -5703,11 +5703,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source> Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>工程插件</translation>
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
-        <translation type="unfinished"/>
+        <translation>您是否授权激活该插件？</translation>
     </message>
 </context>
 <context>
