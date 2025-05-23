@@ -157,7 +157,7 @@ public class QFieldPositioningService extends QtService {
         Notification notification = builder.build();
 
         try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 startForeground(NOTIFICATION_ID, notification,
                                 ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION);
             } else {
