@@ -1213,7 +1213,7 @@ ApplicationWindow {
       anchors.left: parent.left
       anchors.leftMargin: 56
       anchors.bottom: parent.bottom
-      anchors.bottomMargin: 56
+      anchors.bottomMargin: parent.height > 400 || stateMachine.state !== "browse" ? 56 : 6
 
       width: parent.width - anchors.leftMargin * 2
       height: visible ? Math.min(copyrightDecoration.height, 48) : 0
