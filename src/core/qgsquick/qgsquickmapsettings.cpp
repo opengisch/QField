@@ -140,7 +140,7 @@ void QgsQuickMapSettings::setCenter( const QgsPoint &center, bool handleMargins 
 
   const QgsVector delta = QgsPointXY( center ) - mMapSettings.extent().center();
   QgsRectangle e = mMapSettings.extent();
-  if ( handleMargins )
+  if ( handleMargins && ( !qgsDoubleNear( mRightMargin, 0.0 ) || !qgsDoubleNear( mBottomMargin, 0.0 ) ) )
   {
     // Calculate base margin adjustments (split in half for centering)
     const double baseXAdjustment = mRightMargin * devicePixelRatio() * mMapSettings.mapUnitsPerPixel() / 2;
