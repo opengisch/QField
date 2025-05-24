@@ -211,7 +211,7 @@ ListView {
         Text {
           id: layerName
           width: rectangle.width - itemPadding - 46 // legend icon + right padding
-          - collapsedState.width - (layerVisibility.isVisible ? layerVisibility.width : 0) - badges.width
+          - collapsedState.width - (layerVisibility.isVisible ? layerVisibility.width : -5) - badges.width
           padding: 3
           leftPadding: 0
           text: Name
