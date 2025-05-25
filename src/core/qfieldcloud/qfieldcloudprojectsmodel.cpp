@@ -700,7 +700,7 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
     QVariantHash projectDetails = project.toObject().toVariantHash();
     QFieldCloudProject *cloudProject = QFieldCloudProject::fromDetails( projectDetails, mCloudConnection );
 
-    if ( cloudProject->name() == QStringLiteral( "localized_datasets" ) )
+    if ( cloudProject->isSharedDatasetsProject() )
     {
       delete cloudProject;
     }
@@ -745,7 +745,7 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
           continue;
         }
 
-        if ( cloudProject->name() == QStringLiteral( "localized_datasets" ) )
+        if ( cloudProject->isSharedDatasetsProject() )
         {
           delete cloudProject;
         }
