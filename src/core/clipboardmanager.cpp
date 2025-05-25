@@ -28,7 +28,6 @@ ClipboardManager::ClipboardManager( QObject *parent )
   , mClipboard( QApplication::clipboard() )
 {
   connect( QApplication::clipboard(), &QClipboard::dataChanged, this, &ClipboardManager::dataChanged );
-  dataChanged();
 }
 
 void ClipboardManager::dataChanged()
