@@ -178,8 +178,11 @@ class QFieldCloudProject : public QObject
 
     QString id() const { return mId; }
 
-    QString localizedDatasetsProjectId() const { return mLocalizedDatasetsProjectId; }
-    void setLocalizedDatasetsProjectId( const QString &id );
+    QString sharedDatasetsProjectId() const { return mSharedDatasetsProjectId; }
+    void setSharedDatasetsProjectId( const QString &id );
+
+    bool isSharedDatasetsProject() const { return mIsSharedDatasetsProject; }
+    void setIsSharedDatasetsProject( bool isSharedDatasetsProject );
 
     bool isPrivate() const { return mIsPrivate; }
     void setIsPrivate( bool isPrivate );
@@ -319,7 +322,9 @@ class QFieldCloudProject : public QObject
 
   signals:
     void idChanged();
-    void localizedDatasetsProjectIdChanged();
+
+    void sharedDatasetsProjectIdChanged();
+    void isSharedDatasetsProjectChanged();
 
     void isPrivateChanged();
     void ownerChanged();
@@ -448,7 +453,8 @@ class QFieldCloudProject : public QObject
     };
 
     QString mId;
-    QString mLocalizedDatasetsProjectId;
+    QString mSharedDatasetsProjectId;
+    bool mIsSharedDatasetsProject;
 
     bool mIsPrivate = true;
     QString mOwner;

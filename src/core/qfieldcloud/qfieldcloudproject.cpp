@@ -47,13 +47,22 @@ QFieldCloudProject::~QFieldCloudProject()
   delete mDeltaListModel;
 }
 
-void QFieldCloudProject::setLocalizedDatasetsProjectId( const QString &id )
+void QFieldCloudProject::setSharedDatasetsProjectId( const QString &id )
 {
-  if ( mLocalizedDatasetsProjectId == id )
+  if ( mSharedDatasetsProjectId == id )
     return;
 
-  mLocalizedDatasetsProjectId = id;
-  emit localizedDatasetsProjectIdChanged();
+  mSharedDatasetsProjectId = id;
+  emit sharedDatasetsProjectIdChanged();
+}
+
+void QFieldCloudProject::setIsSharedDatasetsProject( bool isSharedDatasetsProject )
+{
+  if ( mIsSharedDatasetsProject == isSharedDatasetsProject )
+    return;
+
+  mIsSharedDatasetsProject = isSharedDatasetsProject;
+  emit isSharedDatasetsProjectChanged();
 }
 
 void QFieldCloudProject::setIsPrivate( bool isPrivate )
@@ -739,9 +748,9 @@ void QFieldCloudProject::download()
     mLastExportId = packageId;
     mLastExportedAt = packagedAt;
 
-    if ( !localizedDatasets.isEmpty() && !mLocalizedDatasetsProjectId.isEmpty() )
+    if ( !localizedDatasets.isEmpty() && !mSharedDatasetsProjectId.isEmpty() )
     {
-      NetworkReply *localizedDatasetsReply = mCloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( mLocalizedDatasetsProjectId ) );
+      NetworkReply *localizedDatasetsReply = mCloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( mSharedDatasetsProjectId ) );
       connect( localizedDatasetsReply, &NetworkReply::finished, localizedDatasetsReply, [=]() {
         QNetworkReply *localizedDatasetsRawReply = localizedDatasetsReply->currentRawReply();
         localizedDatasetsReply->deleteLater();
@@ -761,7 +770,7 @@ void QFieldCloudProject::download()
           if ( localizedDatasets.contains( fileName ) )
           {
             const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
-            const QString absoluteFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mLocalizedDatasetsProjectId, fileName );
+            const QString absoluteFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mSharedDatasetsProjectId, fileName );
             // NOTE the cloud API is giving the false impression that the file keys `md5sum` is having a MD5 or another checksum.
             // This actually is an Object Storage (S3) implementation specific ETag.
             const QString cloudEtag = fileObject.value( QStringLiteral( "md5sum" ) ).toString();
@@ -772,7 +781,7 @@ void QFieldCloudProject::download()
               || fileName.isEmpty()
               || cloudEtag.isEmpty() )
             {
-              QgsLogger::debug( QStringLiteral( "Project %1: package in \"files\" list does not contain the expected fields: size(int), name(string), md5sum(string)" ).arg( mLocalizedDatasetsProjectId ) );
+              QgsLogger::debug( QStringLiteral( "Project %1: package in \"files\" list does not contain the expected fields: size(int), name(string), md5sum(string)" ).arg( mSharedDatasetsProjectId ) );
               emit downloadFinished( tr( "Latest package data structure error." ) );
               return;
             }
@@ -780,7 +789,7 @@ void QFieldCloudProject::download()
             if ( cloudEtag == localEtag )
               continue;
 
-            mDownloadFileTransfers.insert( QStringLiteral( "%1/%2" ).arg( mLocalizedDatasetsProjectId, fileName ), FileTransfer( fileName, fileSize, mLocalizedDatasetsProjectId ) );
+            mDownloadFileTransfers.insert( QStringLiteral( "%1/%2" ).arg( mSharedDatasetsProjectId, fileName ), FileTransfer( fileName, fileSize, mSharedDatasetsProjectId ) );
             mDownloadBytesTotal += std::max( fileSize, 0 );
           }
         }
@@ -1835,7 +1844,8 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   project->mDataLastUpdatedAt = QDateTime::fromString( details.value( "data_last_updated_at" ).toString(), Qt::ISODate );
   project->mCanRepackage = details.value( "can_repackage" ).toBool();
   project->mNeedsRepackaging = details.value( "needs_repackaging" ).toBool();
-  project->mLocalizedDatasetsProjectId = details.value( "localized_datasets_project_id" ).toString();
+  project->mSharedDatasetsProjectId = details.value( "shared_datasets_project_id" ).toString();
+  project->mIsSharedDatasetsProject = details.value( "is_shared_datasets_project" ).toBool();
 
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "owner" ), project->owner() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "name" ), project->name() );
@@ -1846,7 +1856,8 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "updatedAt" ), project->updatedAt().toString( Qt::DateFormat::ISODate ) );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "canRepackage" ), project->canRepackage() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "needsRepackaging" ), project->needsRepackaging() );
-  QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "localizedDatasetsProjectId" ), project->localizedDatasetsProjectId() );
+  QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "sharedDatasetsProjectId" ), project->sharedDatasetsProjectId() );
+  QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isSharedDatasetsProject" ), project->isSharedDatasetsProject() );
 
   QString username = connection ? connection->username() : QString();
   if ( !username.isEmpty() )
@@ -1880,7 +1891,8 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   const QString userRoleOrigin = QFieldCloudUtils::projectSetting( id, QStringLiteral( "userRoleOrigin" ) ).toString();
   const QDateTime createdAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( "createdAt" ) ).toString(), Qt::DateFormat::ISODate );
   const QDateTime updatedAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( "updatedAt" ) ).toString(), Qt::DateFormat::ISODate );
-  const QString localizedDatasetsProjectId = QFieldCloudUtils::projectSetting( id, QStringLiteral( "localizedDatasetsProjectId" ) ).toString();
+  const QString sharedDatasetsProjectId = QFieldCloudUtils::projectSetting( id, QStringLiteral( "sharedDatasetsProjectId" ) ).toString();
+  bool isSharedDatasetsProject = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isSharedDatasetsProject" ) ).toBool();
 
   QFieldCloudProject *project = new QFieldCloudProject( id, connection, gpkgFlusher );
   project->mIsPrivate = true;
@@ -1896,7 +1908,8 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   project->mDataLastUpdatedAt = QDateTime();
   project->mCanRepackage = false;
   project->mNeedsRepackaging = false;
-  project->mLocalizedDatasetsProjectId = localizedDatasetsProjectId;
+  project->mSharedDatasetsProjectId = sharedDatasetsProjectId;
+  project->mIsSharedDatasetsProject = isSharedDatasetsProject;
 
   QString username = connection ? connection->username() : QString();
   if ( !username.isEmpty() )
