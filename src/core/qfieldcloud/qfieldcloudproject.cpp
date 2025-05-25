@@ -705,7 +705,7 @@ void QFieldCloudProject::download()
     emit downloadBytesTotalChanged();
 
     const QJsonObject layers = payload.value( QStringLiteral( "layers" ) ).toObject();
-    QStringList localizedDatasets;
+    QStringList localizedDatasetsFileNames;
     bool hasLayerExportErrror = false;
     for ( const QString &layerKey : layers.keys() )
     {
@@ -721,10 +721,10 @@ void QFieldCloudProject::download()
       {
         if ( layer.value( QStringLiteral( "is_localized" ) ).toBool() )
         {
-          const QString localizedDataset = layer.value( "datasource" ).toString().mid( 10 );
-          if ( !localizedDataset.isEmpty() )
+          const QString localizedDatasetFileName = layer.value( "filename" ).toString();
+          if ( !localizedDatasetFileName.isEmpty() )
           {
-            localizedDatasets << localizedDataset;
+            localizedDatasetsFileNames << localizedDatasetFileName;
           }
         }
         else if ( !layer.value( QStringLiteral( "is_valid" ) ).toBool() )
@@ -748,7 +748,7 @@ void QFieldCloudProject::download()
     mLastExportId = packageId;
     mLastExportedAt = packagedAt;
 
-    if ( !localizedDatasets.isEmpty() && !mSharedDatasetsProjectId.isEmpty() )
+    if ( !localizedDatasetsFileNames.isEmpty() && !mSharedDatasetsProjectId.isEmpty() )
     {
       NetworkReply *localizedDatasetsReply = mCloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( mSharedDatasetsProjectId ) );
       connect( localizedDatasetsReply, &NetworkReply::finished, localizedDatasetsReply, [=]() {
@@ -767,7 +767,7 @@ void QFieldCloudProject::download()
         {
           const QJsonObject fileObject = fileValue.toObject();
           const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
-          if ( localizedDatasets.contains( fileName ) )
+          if ( localizedDatasetsFileNames.contains( fileName ) )
           {
             const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
             const QString absoluteFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mSharedDatasetsProjectId, fileName );
