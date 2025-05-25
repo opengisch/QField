@@ -3600,7 +3600,7 @@ ApplicationWindow {
   }
 
   function showAutoLockToast() {
-    displayToast(qsTr('Follow location again'), 'info', qsTr('Unlock'), () => {
+    displayToast(qsTr('Follow location paused'), 'info', qsTr('Unlock'), () => {
         gnssButton.autoRefollow = false;
       }, true, () => {
         gnssButton.followActive = true;

@@ -10,6 +10,8 @@ Popup {
 
   property string type: 'info'
   property int edgeSpacing: 52
+  property var act: undefined
+  property var timeoutAct: undefined
   property bool timeoutFeedback: false
   property real virtualKeyboardHeight: {
     const top = Qt.inputMethod.keyboardRectangle.top / Screen.devicePixelRatio;
@@ -30,15 +32,15 @@ Popup {
   padding: 0
   closePolicy: Popup.NoAutoClose
 
-  opacity: 0
-
-  Behavior on opacity  {
-    NumberAnimation {
-      duration: 250
-    }
+  background: Item {
   }
 
-  background: Item {
+  onClosed: {
+    toastTimer.stop();
+    animationTimer.stop();
+    animationTimer.reset();
+    toast.timeoutAct = undefined;
+    timeoutFeedback = false;
   }
 
   Rectangle {
@@ -50,6 +52,19 @@ Popup {
 
     color: "#66212121"
     radius: 4
+    opacity: 0
+
+    Behavior on opacity  {
+      NumberAnimation {
+        duration: 250
+      }
+    }
+
+    onOpacityChanged: {
+      if (opacity === 0.0) {
+        toast.close();
+      }
+    }
 
     ProgressBar {
       id: animationProgressBar
@@ -109,8 +124,6 @@ Popup {
       QfButton {
         id: toastAction
 
-        property var act: undefined
-
         visible: text != ''
         height: toastMessage.height
 
@@ -120,11 +133,11 @@ Popup {
         font.pointSize: Theme.tipFont.pointSize
 
         onClicked: {
-          if (act !== undefined) {
-            act();
+          if (toast.act !== undefined) {
+            toast.act();
           }
           toast.close();
-          animationTimer.timeoutAct = undefined;
+          toastContent.opacity = 0;
         }
       }
     }
@@ -133,8 +146,11 @@ Popup {
   MouseArea {
     anchors.fill: parent
     onPressed: {
+      if (toast.timeoutAct !== undefined) {
+        toast.timeoutAct();
+      }
       toast.close();
-      toast.opacity = 0;
+      toastContent.opacity = 0;
     }
   }
 
@@ -146,20 +162,14 @@ Popup {
   Timer {
     id: animationTimer
     interval: 50
-    repeat: timeoutFeedback
+    repeat: true
 
     property real position: 0
-    property var timeoutAct: undefined
 
     onTriggered: {
       position += interval;
       if (animationProgressBar.value === 1) {
         animationTimer.stop();
-        reset();
-        if (timeoutAct !== undefined) {
-          timeoutAct();
-        }
-        timeoutFeedback = false;
       }
     }
 
@@ -171,30 +181,27 @@ Popup {
   Timer {
     id: toastTimer
     interval: 3000
+    repeat: false
     onTriggered: {
-      toast.opacity = 0;
-    }
-  }
-
-  onOpacityChanged: {
-    if (opacity === 0) {
-      toastContent.visible = false;
-      toast.close();
-      animationTimer.reset();
-      timeoutFeedback = false;
+      if (toast.timeoutAct !== undefined) {
+        toast.timeoutAct();
+      }
+      toastContent.opacity = 0;
     }
   }
 
   function show(text, type, action_text, action_function, timeout_feedback, timeout_function) {
     if (toastTimer.running) {
       if (toastMessage.text === text) {
-        animationTimer.reset();
-        animationTimer.restart();
+        if (animationTimer.running) {
+          animationTimer.reset();
+          animationTimer.restart();
+        }
         toastTimer.restart();
         return;
       } else {
-        if (animationTimer.timeoutAct !== undefined) {
-          animationTimer.timeoutAct();
+        if (toast.timeoutAct !== undefined) {
+          toast.timeoutAct();
         }
       }
     }
@@ -206,20 +213,21 @@ Popup {
       toast.timeoutFeedback = false;
     }
     if (timeout_function !== undefined) {
-      animationTimer.timeoutAct = timeout_function;
+      toast.timeoutAct = timeout_function;
+    } else {
+      toast.timeoutAct = undefined;
     }
     if (action_text !== undefined && action_function !== undefined) {
       toastAction.text = action_text;
-      toastAction.act = action_function;
+      toast.act = action_function;
       toastTimer.interval = 5000;
     } else {
       toastAction.text = '';
-      toastAction.act = undefined;
+      toast.act = undefined;
       toastTimer.interval = 3000;
     }
-    toastContent.visible = true;
+    toastContent.opacity = 1;
     toast.open();
-    toast.opacity = 1;
     toastTimer.restart();
     if (toast.timeoutFeedback) {
       animationTimer.reset();
