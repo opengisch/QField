@@ -78,6 +78,7 @@ class ClipboardManager : public QObject
     bool mHoldsFeature = false;
     bool mHasNativeFeature = false;
     QgsFeature mNativeFeature;
+    QString mHtmlFeature;
 };
 
 #endif // PROJECTINFO_H
