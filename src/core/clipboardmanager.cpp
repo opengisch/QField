@@ -28,7 +28,6 @@ ClipboardManager::ClipboardManager( QObject *parent )
   , mClipboard( QApplication::clipboard() )
 {
   connect( QApplication::clipboard(), &QClipboard::dataChanged, this, &ClipboardManager::dataChanged );
-  dataChanged();
 }
 
 void ClipboardManager::dataChanged()
@@ -39,11 +38,21 @@ void ClipboardManager::dataChanged()
     return;
   }
 
+  const QMimeData *mimeData = mClipboard->mimeData();
+  if ( mimeData->hasHtml() && !mHtmlFeature.isEmpty() && mimeData->html() == mHtmlFeature )
+  {
+    // On Android, data changed can be triggered multiple times, yet the content
+    // stays the same, assume this is what is happening here.
+    return;
+  }
+
+  mHoldsFeature = false;
   mHasNativeFeature = false;
   mNativeFeature = QgsFeature();
+  mHtmlFeature.clear();
 
   bool holdsFeature = false;
-  const QMimeData *mimeData = mClipboard->mimeData();
+
   if ( mimeData->hasHtml() )
   {
     QDomDocument doc;
@@ -100,13 +109,14 @@ void ClipboardManager::copyFeatureToClipboard( const QgsFeature &feature, bool i
 <!DOCTYPE html>
 <html>
  <head>
-  <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"/>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
  </head>
  <body>
-  <table border=\"1\" qfield=\"1\"><tr>%1</tr></table>
+  <table border="1" qfield="1"><tr>%1</tr></table>
  </body>
 </html>)""" )
                        .arg( htmlLines.join( QStringLiteral( "</tr><tr>" ) ) ) );
+  mHtmlFeature = mimeData->html();
 
   mSkipDataChanged = true;
   mClipboard->setMimeData( mimeData );
