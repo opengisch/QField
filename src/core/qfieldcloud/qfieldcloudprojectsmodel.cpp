@@ -479,7 +479,8 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
 {
   QHash<int, QByteArray> roles;
   roles[IdRole] = "Id";
-  roles[PrivateRole] = "Private";
+  roles[PublicRole] = "Public";
+  roles[FeaturedRole] = "Featured";
   roles[OwnerRole] = "Owner";
   roles[NameRole] = "Name";
   roles[DescriptionRole] = "Description";
@@ -524,6 +525,8 @@ void QFieldCloudProjectsModel::insertProjects( const QList<QFieldCloudProject *>
         if ( mProjects[i]->checkout() == QFieldCloudProject::LocalCheckout && project->checkout() != QFieldCloudProject::LocalCheckout )
         {
           mProjects[i]->setCheckout( QFieldCloudProject::LocalAndRemoteCheckout );
+          mProjects[i]->setIsPublic( project->isPublic() );
+          mProjects[i]->setIsFeatured( project->isFeatured() );
           mProjects[i]->setOwner( project->owner() );
           mProjects[i]->setName( project->name() );
           mProjects[i]->setDescription( project->description() );
@@ -793,8 +796,11 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
     case IdRole:
       return project->id();
 
-    case PrivateRole:
-      return project->isPrivate();
+    case PublicRole:
+      return project->isPublic();
+
+    case FeaturedRole:
+      return project->isFeatured();
 
     case OwnerRole:
       return project->owner();
@@ -957,7 +963,7 @@ void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &projectP
   QStringList localizedDataPaths = QgsApplication::instance()->localizedDataPathRegistry()->paths();
   localizedDataPaths.erase( std::remove_if( localizedDataPaths.begin(),
                                             localizedDataPaths.end(),
-                                            [&localizedDataPath]( const QString &path ) { return !path.startsWith( QFieldCloudUtils::localCloudDirectory() ); } ),
+                                            [&localizedDataPath]( const QString &path ) { return path.startsWith( QFieldCloudUtils::localCloudDirectory() ); } ),
                             localizedDataPaths.end() );
   localizedDataPaths << localizedDataPath;
   QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
@@ -968,6 +974,8 @@ void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &projectP
 QFieldCloudProjectsFilterModel::QFieldCloudProjectsFilterModel( QObject *parent )
   : QSortFilterProxyModel( parent )
 {
+  setDynamicSortFilter( true );
+  setSortLocaleAware( true );
   sort( 0 );
 }
 
@@ -1019,6 +1027,35 @@ bool QFieldCloudProjectsFilterModel::showLocalOnly() const
   return mShowLocalOnly;
 }
 
+bool QFieldCloudProjectsFilterModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const
+{
+  if ( !mSourceModel )
+    return true;
+
+  if ( mShowFeaturedOnTop )
+  {
+    const bool isFeaturedLeft = mSourceModel->data( sourceLeft, QFieldCloudProjectsModel::FeaturedRole ).toBool();
+    const bool isFeaturedRight = mSourceModel->data( sourceRight, QFieldCloudProjectsModel::FeaturedRole ).toBool();
+    if ( isFeaturedLeft != isFeaturedRight )
+    {
+      return isFeaturedLeft;
+    }
+  }
+
+  QString left = mSourceModel->data( sourceLeft, QFieldCloudProjectsModel::OwnerRole ).toString();
+  QString right = mSourceModel->data( sourceRight, QFieldCloudProjectsModel::OwnerRole ).toString();
+  int compare = QString::localeAwareCompare( left, right );
+  if ( compare != 0 )
+  {
+    return compare < 0;
+  }
+
+  left = mSourceModel->data( sourceLeft, QFieldCloudProjectsModel::NameRole ).toString();
+  right = mSourceModel->data( sourceRight, QFieldCloudProjectsModel::NameRole ).toString();
+  compare = QString::localeAwareCompare( left, right );
+  return compare < 0;
+}
+
 bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
   const QModelIndex currentRowIndex = mSourceModel->index( source_row, 0, source_parent );
@@ -1065,10 +1102,11 @@ QString QFieldCloudProjectsFilterModel::textFilter() const
   return mTextFilter;
 }
 
-void QFieldCloudProjectsFilterModel::setShowInValidProjects( const bool showInValidProjects )
+void QFieldCloudProjectsFilterModel::setShowInValidProjects( bool showInValidProjects )
 {
   if ( mShowInValidProjects == showInValidProjects )
     return;
+
   mShowInValidProjects = showInValidProjects;
   invalidateFilter();
 }
@@ -1077,4 +1115,20 @@ void QFieldCloudProjectsFilterModel::setShowInValidProjects( const bool showInVa
 bool QFieldCloudProjectsFilterModel::showInValidProjects() const
 {
   return mShowInValidProjects;
+}
+
+void QFieldCloudProjectsFilterModel::setShowFeaturedOnTop( bool showFeaturedOnTop )
+{
+  if ( mShowFeaturedOnTop == showFeaturedOnTop )
+    return;
+
+  mShowFeaturedOnTop = showFeaturedOnTop;
+  emit showFeaturedOnTopChanged();
+
+  sort( 0 );
+}
+
+bool QFieldCloudProjectsFilterModel::showFeaturedOnTop() const
+{
+  return mShowFeaturedOnTop;
 }
