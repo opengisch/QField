@@ -968,6 +968,8 @@ void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &projectP
 QFieldCloudProjectsFilterModel::QFieldCloudProjectsFilterModel( QObject *parent )
   : QSortFilterProxyModel( parent )
 {
+  setDynamicSortFilter( true );
+  setSortLocaleAware( true );
   sort( 0 );
 }
 
@@ -1017,6 +1019,25 @@ void QFieldCloudProjectsFilterModel::setShowLocalOnly( bool showLocalOnly )
 bool QFieldCloudProjectsFilterModel::showLocalOnly() const
 {
   return mShowLocalOnly;
+}
+
+bool QFieldCloudProjectsFilterModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const
+{
+  if ( !mSourceModel )
+    return true;
+
+  QString left = mSourceModel->data( sourceLeft, QFieldCloudProjectsModel::OwnerRole ).toString();
+  QString right = mSourceModel->data( sourceRight, QFieldCloudProjectsModel::OwnerRole ).toString();
+  int compare = QString::localeAwareCompare( left, right );
+  if ( compare != 0 )
+  {
+    return compare < 0;
+  }
+
+  left = mSourceModel->data( sourceLeft, QFieldCloudProjectsModel::NameRole ).toString();
+  right = mSourceModel->data( sourceRight, QFieldCloudProjectsModel::NameRole ).toString();
+  compare = QString::localeAwareCompare( left, right );
+  return compare < 0;
 }
 
 bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const

@@ -326,6 +326,7 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     void showInValidProjectsChanged();
 
   protected:
+    bool lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const override;
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
 
   private:
