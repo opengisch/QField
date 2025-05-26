@@ -342,6 +342,21 @@ Page {
                   width: 40
                   height: 40
                   opacity: Status === QFieldCloudProject.ProjectStatus.Downloading ? 0.3 : 1
+
+                  QfToolButton {
+                    anchors.top: parent.top
+                    anchors.topMargin: -3
+                    anchors.left: parent.left
+                    anchors.leftMargin: -2
+                    width: 24
+                    height: 24
+                    padding: 2
+                    iconSource: Theme.getThemeVectorIcon('ic_star_filled_white_24dp')
+                    iconColor: Theme.mainColor
+                    enabled: false
+                    bgcolor: Theme.controlBackgroundColor
+                    visible: Featured
+                  }
                 }
 
                 ColumnLayout {
