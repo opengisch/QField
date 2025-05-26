@@ -223,6 +223,7 @@ Page {
               filter: filterBar.currentIndex === 0 ? QFieldCloudProjectsFilterModel.PrivateProjects : QFieldCloudProjectsFilterModel.PublicProjects
               showLocalOnly: cloudConnection.status !== QFieldCloudConnection.LoggedIn
               showInValidProjects: settings ? settings.valueBool("/QField/showInvalidProjects", false) : false
+              showFeaturedOnTop: filterBar.currentIndex === 1
               textFilter: searchBar.searchTerm
               onFilterChanged: {
                 if (cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
