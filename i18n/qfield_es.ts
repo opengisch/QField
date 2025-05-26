@@ -5696,10 +5696,6 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <translation>Permiso de complemento</translation>
     </message>
     <message>
-        <source>Follow location again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
@@ -5709,6 +5705,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location paused</source>
         <translation type="unfinished"/>
     </message>
 </context>

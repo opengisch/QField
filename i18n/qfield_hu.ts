@@ -5692,10 +5692,6 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Follow location again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
@@ -5705,6 +5701,10 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location paused</source>
         <translation type="unfinished"/>
     </message>
 </context>

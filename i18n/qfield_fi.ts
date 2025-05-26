@@ -5698,10 +5698,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <translation>Lisäosan käyttöoikeus</translation>
     </message>
     <message>
-        <source>Follow location again</source>
-        <translation>Jatka sijainnin seuraamsita</translation>
-    </message>
-    <message>
         <source>Unlock</source>
         <translation>Aukaise</translation>
     </message>
@@ -5711,6 +5707,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location paused</source>
         <translation type="unfinished"/>
     </message>
 </context>

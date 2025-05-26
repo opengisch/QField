@@ -5696,10 +5696,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Follow location again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
@@ -5709,6 +5705,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location paused</source>
         <translation type="unfinished"/>
     </message>
 </context>

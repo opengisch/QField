@@ -5696,10 +5696,6 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <translation>Permiso do Plugin</translation>
     </message>
     <message>
-        <source>Follow location again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
@@ -5709,6 +5705,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location paused</source>
         <translation type="unfinished"/>
     </message>
 </context>

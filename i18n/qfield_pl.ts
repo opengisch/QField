@@ -5700,10 +5700,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Zezwolenie na wtyczkę</translation>
     </message>
     <message>
-        <source>Follow location again</source>
-        <translation>Ponownie podążaj za lokalizacją</translation>
-    </message>
-    <message>
         <source>Unlock</source>
         <translation>Odblokuj</translation>
     </message>
@@ -5714,6 +5710,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
         <translation>Czy zezwalasz na aktywację wtyczki?</translation>
+    </message>
+    <message>
+        <source>Follow location paused</source>
+        <translation>Wstrzymano śledzenie lokalizacji</translation>
     </message>
 </context>
 <context>

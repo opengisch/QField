@@ -5694,10 +5694,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>插件权限</translation>
     </message>
     <message>
-        <source>Follow location again</source>
-        <translation>再次跟踪位置</translation>
-    </message>
-    <message>
         <source>Unlock</source>
         <translation>解锁</translation>
     </message>
@@ -5708,6 +5704,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
         <translation>您是否授权激活该插件？</translation>
+    </message>
+    <message>
+        <source>Follow location paused</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

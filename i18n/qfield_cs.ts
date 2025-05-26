@@ -5699,10 +5699,6 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Follow location again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
@@ -5712,6 +5708,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location paused</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -5697,10 +5697,6 @@ fermer le projet et quitter l&apos;application</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Follow location again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Unlock</source>
         <translation type="unfinished"/>
     </message>
@@ -5710,6 +5706,10 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow location paused</source>
         <translation type="unfinished"/>
     </message>
 </context>

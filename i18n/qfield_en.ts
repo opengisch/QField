@@ -5767,10 +5767,6 @@ Cancel to make a minimal device scan instead.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Follow location again</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Unlock</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5780,6 +5776,10 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follow location paused</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
