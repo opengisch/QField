@@ -355,6 +355,7 @@ Page {
                     iconColor: Theme.mainColor
                     enabled: false
                     bgcolor: Theme.controlBackgroundColor
+                    round: true
                     visible: Featured
                   }
                 }
