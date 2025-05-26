@@ -132,6 +132,16 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
      */
     Q_INVOKABLE static QString fileEtag( const QString &fileName, int partSize = 8 * 1024 * 1024 );
 
+    /**
+     * Unzip a zip file in an output directory.
+     * \param zip The zip filename
+     * \param dir The output directory
+     * \param files The absolute path of unzipped files
+     * \param checkConsistency Perform additional stricter consistency checks on the archive, and error if they fail (since QGIS 3.30)
+     * \returns FALSE if the zip filename does not exist, the output directory does not exist or is not writable.
+     */
+    static bool unzip( const QString &zipFilename, const QString &dir, QStringList &files, bool checkConsistency );
+
   private:
     static int copyRecursivelyPrepare( const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString>> &mapping );
 };
