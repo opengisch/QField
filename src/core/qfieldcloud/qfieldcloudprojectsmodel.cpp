@@ -963,7 +963,7 @@ void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &projectP
   QStringList localizedDataPaths = QgsApplication::instance()->localizedDataPathRegistry()->paths();
   localizedDataPaths.erase( std::remove_if( localizedDataPaths.begin(),
                                             localizedDataPaths.end(),
-                                            [&localizedDataPath]( const QString &path ) { return !path.startsWith( QFieldCloudUtils::localCloudDirectory() ); } ),
+                                            [&localizedDataPath]( const QString &path ) { return path.startsWith( QFieldCloudUtils::localCloudDirectory() ); } ),
                             localizedDataPaths.end() );
   localizedDataPaths << localizedDataPath;
   QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
