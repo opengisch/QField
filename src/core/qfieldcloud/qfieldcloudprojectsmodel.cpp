@@ -533,7 +533,8 @@ void QFieldCloudProjectsModel::insertProjects( const QList<QFieldCloudProject *>
           mProjects[i]->setUpdatedAt( project->updatedAt() );
           mProjects[i]->setCanRepackage( project->canRepackage() );
           mProjects[i]->setNeedsRepackaging( project->needsRepackaging() );
-          mProjects[i]->setLocalizedDatasetsProjectId( project->localizedDatasetsProjectId() );
+          mProjects[i]->setSharedDatasetsProjectId( project->sharedDatasetsProjectId() );
+          mProjects[i]->setIsSharedDatasetsProject( project->isSharedDatasetsProject() );
           mProjects[i]->setDataLastUpdatedAt( project->dataLastUpdatedAt() );
           emit dataChanged( index( i, 0 ), index( i, 0 ) );
 
@@ -699,7 +700,7 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
     QVariantHash projectDetails = project.toObject().toVariantHash();
     QFieldCloudProject *cloudProject = QFieldCloudProject::fromDetails( projectDetails, mCloudConnection );
 
-    if ( cloudProject->name() == QStringLiteral( "localized_datasets" ) )
+    if ( cloudProject->isSharedDatasetsProject() )
     {
       delete cloudProject;
     }
@@ -744,7 +745,7 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
           continue;
         }
 
-        if ( cloudProject->name() == QStringLiteral( "localized_datasets" ) )
+        if ( cloudProject->isSharedDatasetsProject() )
         {
           delete cloudProject;
         }
@@ -947,9 +948,9 @@ void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &projectP
   if ( !projectId.isEmpty() )
   {
     QFieldCloudProject *project = findProject( projectId );
-    if ( project && !project->localizedDatasetsProjectId().isEmpty() )
+    if ( project && !project->sharedDatasetsProjectId().isEmpty() )
     {
-      localizedDataPath = QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, project->localizedDatasetsProjectId() );
+      localizedDataPath = QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, project->sharedDatasetsProjectId() );
     }
   }
 
