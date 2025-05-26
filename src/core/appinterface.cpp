@@ -16,6 +16,7 @@
  ***************************************************************************/
 
 #include "appinterface.h"
+#include "fileutils.h"
 #include "platformutilities.h"
 #include "qfield.h"
 #include "qgismobileapp.h"
@@ -368,7 +369,7 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
             }
             QDir( zipDirectory ).mkpath( "." );
 
-            if ( QgsZipUtils::unzip( filePath, zipDirectory, zipFiles, false ) )
+            if ( FileUtils::unzip( filePath, zipDirectory, zipFiles, false ) )
             {
               // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
               QDirIterator it( zipDirectory, { QStringLiteral( "*.qgs" ), QStringLiteral( "*.qgz" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
