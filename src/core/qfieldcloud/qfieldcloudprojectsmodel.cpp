@@ -480,6 +480,7 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   QHash<int, QByteArray> roles;
   roles[IdRole] = "Id";
   roles[PublicRole] = "Public";
+  roles[FeaturedRole] = "Featured";
   roles[OwnerRole] = "Owner";
   roles[NameRole] = "Name";
   roles[DescriptionRole] = "Description";
@@ -524,6 +525,8 @@ void QFieldCloudProjectsModel::insertProjects( const QList<QFieldCloudProject *>
         if ( mProjects[i]->checkout() == QFieldCloudProject::LocalCheckout && project->checkout() != QFieldCloudProject::LocalCheckout )
         {
           mProjects[i]->setCheckout( QFieldCloudProject::LocalAndRemoteCheckout );
+          mProjects[i]->setIsPublic( project->isPublic() );
+          mProjects[i]->setIsFeatured( project->isFeatured() );
           mProjects[i]->setOwner( project->owner() );
           mProjects[i]->setName( project->name() );
           mProjects[i]->setDescription( project->description() );
@@ -1029,6 +1032,16 @@ bool QFieldCloudProjectsFilterModel::lessThan( const QModelIndex &sourceLeft, co
   if ( !mSourceModel )
     return true;
 
+  if ( mShowFeaturedOnTop )
+  {
+    const bool isFeaturedLeft = mSourceModel->data( sourceLeft, QFieldCloudProjectsModel::FeaturedRole ).toBool();
+    const bool isFeaturedRight = mSourceModel->data( sourceRight, QFieldCloudProjectsModel::FeaturedRole ).toBool();
+    if ( isFeaturedLeft != isFeaturedRight )
+    {
+      return isFeaturedLeft;
+    }
+  }
+
   QString left = mSourceModel->data( sourceLeft, QFieldCloudProjectsModel::OwnerRole ).toString();
   QString right = mSourceModel->data( sourceRight, QFieldCloudProjectsModel::OwnerRole ).toString();
   int compare = QString::localeAwareCompare( left, right );
@@ -1089,10 +1102,11 @@ QString QFieldCloudProjectsFilterModel::textFilter() const
   return mTextFilter;
 }
 
-void QFieldCloudProjectsFilterModel::setShowInValidProjects( const bool showInValidProjects )
+void QFieldCloudProjectsFilterModel::setShowInValidProjects( bool showInValidProjects )
 {
   if ( mShowInValidProjects == showInValidProjects )
     return;
+
   mShowInValidProjects = showInValidProjects;
   invalidateFilter();
 }
@@ -1101,4 +1115,20 @@ void QFieldCloudProjectsFilterModel::setShowInValidProjects( const bool showInVa
 bool QFieldCloudProjectsFilterModel::showInValidProjects() const
 {
   return mShowInValidProjects;
+}
+
+void QFieldCloudProjectsFilterModel::setShowFeaturedOnTop( bool showFeaturedOnTop )
+{
+  if ( mShowFeaturedOnTop == showFeaturedOnTop )
+    return;
+
+  mShowFeaturedOnTop = showFeaturedOnTop;
+  emit showFeaturedOnTopChanged();
+
+  sort( 0 );
+}
+
+bool QFieldCloudProjectsFilterModel::showFeaturedOnTop() const
+{
+  return mShowFeaturedOnTop;
 }
