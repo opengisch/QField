@@ -65,13 +65,22 @@ void QFieldCloudProject::setIsSharedDatasetsProject( bool isSharedDatasetsProjec
   emit isSharedDatasetsProjectChanged();
 }
 
-void QFieldCloudProject::setIsPrivate( bool isPrivate )
+void QFieldCloudProject::setIsPublic( bool isPublic )
 {
-  if ( mIsPrivate == isPrivate )
+  if ( mIsPublic == isPublic )
     return;
 
-  mIsPrivate = isPrivate;
-  emit isPrivateChanged();
+  mIsPublic = isPublic;
+  emit isPublicChanged();
+}
+
+void QFieldCloudProject::setIsFeatured( bool isFeatured )
+{
+  if ( mIsFeatured == isFeatured )
+    return;
+
+  mIsFeatured = isFeatured;
+  emit isFeaturedChanged();
 }
 
 void QFieldCloudProject::setOwner( const QString &owner )
@@ -1740,7 +1749,8 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
     setUserRoleOrigin( mUserRoleOrigin = projectData.value( "user_role_origin" ).toString() );
     setCreatedAt( QDateTime::fromString( projectData.value( "created_at" ).toString(), Qt::ISODate ) );
     setUpdatedAt( QDateTime::fromString( projectData.value( "updated_at" ).toString(), Qt::ISODate ) );
-    setIsPrivate( projectData.value( "is_public" ).isUndefined() ? projectData.value( "private" ).toBool() : !projectData.value( "is_public" ).toBool( false ) );
+    setIsPublic( projectData.value( "is_public" ).toBool() );
+    setIsFeatured( projectData.value( "is_featured" ).toBool() );
     setCanRepackage( projectData.value( "can_repackage" ).toBool() );
     setNeedsRepackaging( projectData.value( "needs_repackaging" ).toBool() );
     setLastRefreshedAt( QDateTime::currentDateTimeUtc() );
@@ -1754,7 +1764,8 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "userRoleOrigin" ), mUserRoleOrigin );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "createdAt" ), mCreatedAt.toString( Qt::DateFormat::ISODate ) );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "updatedAt" ), mUpdatedAt.toString( Qt::DateFormat::ISODate ) );
-    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "isPrivate" ), mIsPrivate );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "isPublic" ), mIsPublic );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "isFeatured" ), mIsFeatured );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "canRepackage" ), mCanRepackage );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "needsRepackaging" ), mNeedsRepackaging );
 
@@ -1831,7 +1842,8 @@ void QFieldCloudProject::removeLocally()
 QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details, QFieldCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher )
 {
   QFieldCloudProject *project = new QFieldCloudProject( details.value( "id" ).toString(), connection, gpkgFlusher );
-  project->mIsPrivate = details.value( "private" ).toBool();
+  project->mIsPublic = details.value( "is_public" ).toBool();
+  project->mIsFeatured = details.value( "is_featured" ).toBool();
   project->mOwner = details.value( "owner" ).toString();
   project->mName = details.value( "name" ).toString();
   project->mDescription = details.value( "description" ).toString();
@@ -1858,6 +1870,8 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "needsRepackaging" ), project->needsRepackaging() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "sharedDatasetsProjectId" ), project->sharedDatasetsProjectId() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isSharedDatasetsProject" ), project->isSharedDatasetsProject() );
+  QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isPublic" ), project->isPublic() );
+  QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isFeatured" ), project->isFeatured() );
 
   QString username = connection ? connection->username() : QString();
   if ( !username.isEmpty() )
@@ -1883,6 +1897,8 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
     return nullptr;
   }
 
+  const bool isPublic = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isPublic" ) ).toBool();
+  const bool isFeatured = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isFeatured" ) ).toBool();
   const QString owner = QFieldCloudUtils::projectSetting( id, QStringLiteral( "owner" ) ).toString();
   const QString name = QFieldCloudUtils::projectSetting( id, QStringLiteral( "name" ) ).toString();
   const QString description = QFieldCloudUtils::projectSetting( id, QStringLiteral( "description" ) ).toString();
@@ -1892,10 +1908,11 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   const QDateTime createdAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( "createdAt" ) ).toString(), Qt::DateFormat::ISODate );
   const QDateTime updatedAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( "updatedAt" ) ).toString(), Qt::DateFormat::ISODate );
   const QString sharedDatasetsProjectId = QFieldCloudUtils::projectSetting( id, QStringLiteral( "sharedDatasetsProjectId" ) ).toString();
-  bool isSharedDatasetsProject = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isSharedDatasetsProject" ) ).toBool();
+  const bool isSharedDatasetsProject = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isSharedDatasetsProject" ) ).toBool();
 
   QFieldCloudProject *project = new QFieldCloudProject( id, connection, gpkgFlusher );
-  project->mIsPrivate = true;
+  project->mIsPublic = isPublic;
+  project->mIsFeatured = isFeatured;
   project->mOwner = owner;
   project->mName = name;
   project->mDescription = description;

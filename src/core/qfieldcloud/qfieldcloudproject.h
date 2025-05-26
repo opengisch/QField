@@ -67,6 +67,8 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( QString lastLocalPushDeltas READ lastLocalPushDeltas NOTIFY lastLocalPushDeltasChanged )
     Q_PROPERTY( QString lastLocalExportedAt READ lastLocalExportedAt NOTIFY lastLocalExportedAtChanged )
 
+    Q_PROPERTY( bool isPublic READ isPublic NOTIFY isPublicChanged )
+    Q_PROPERTY( bool isFeatured READ isFeatured NOTIFY isFeaturedChanged )
     Q_PROPERTY( bool isOutdated READ isOutdated NOTIFY isOutdatedChanged )
     Q_PROPERTY( bool projectFileIsOutdated READ projectFileIsOutdated NOTIFY projectFileIsOutdatedChanged )
 
@@ -184,8 +186,11 @@ class QFieldCloudProject : public QObject
     bool isSharedDatasetsProject() const { return mIsSharedDatasetsProject; }
     void setIsSharedDatasetsProject( bool isSharedDatasetsProject );
 
-    bool isPrivate() const { return mIsPrivate; }
-    void setIsPrivate( bool isPrivate );
+    bool isPublic() const { return mIsPublic; }
+    void setIsPublic( bool isPublic );
+
+    bool isFeatured() const { return mIsFeatured; }
+    void setIsFeatured( bool isFeatured );
 
     QString owner() const { return mOwner; }
     void setOwner( const QString &owner );
@@ -326,7 +331,8 @@ class QFieldCloudProject : public QObject
     void sharedDatasetsProjectIdChanged();
     void isSharedDatasetsProjectChanged();
 
-    void isPrivateChanged();
+    void isPublicChanged();
+    void isFeaturedChanged();
     void ownerChanged();
     void nameChanged();
     void descriptionChanged();
@@ -456,7 +462,9 @@ class QFieldCloudProject : public QObject
     QString mSharedDatasetsProjectId;
     bool mIsSharedDatasetsProject;
 
-    bool mIsPrivate = true;
+    bool mIsPublic = false;
+    bool mIsFeatured = false;
+
     QString mOwner;
     QString mName;
     QString mDescription;

@@ -61,7 +61,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     {
       IdRole = Qt::UserRole + 1,
       OwnerRole,
-      PrivateRole,
+      PublicRole,
+      FeaturedRole,
       NameRole,
       DescriptionRole,
       ModificationRole,

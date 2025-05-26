@@ -479,7 +479,7 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
 {
   QHash<int, QByteArray> roles;
   roles[IdRole] = "Id";
-  roles[PrivateRole] = "Private";
+  roles[PublicRole] = "Public";
   roles[OwnerRole] = "Owner";
   roles[NameRole] = "Name";
   roles[DescriptionRole] = "Description";
@@ -793,8 +793,11 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
     case IdRole:
       return project->id();
 
-    case PrivateRole:
-      return project->isPrivate();
+    case PublicRole:
+      return project->isPublic();
+
+    case FeaturedRole:
+      return project->isFeatured();
 
     case OwnerRole:
       return project->owner();
