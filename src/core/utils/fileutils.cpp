@@ -16,6 +16,7 @@
 
 #include "fileutils.h"
 #include "gnsspositioninformation.h"
+#include "qgsmessagelog.h"
 
 #include <QDebug>
 #include <QDir>
@@ -36,6 +37,8 @@
 #include <qgstextrenderer.h>
 
 #include <filesystem>
+#include <zip.h>
+#include <zlib.h>
 
 namespace fs = std::filesystem;
 
@@ -660,4 +663,113 @@ QVariantMap FileUtils::getFileInfo( const QString &filePath, bool fetchContent )
   }
 
   return info;
+}
+
+bool FileUtils::unzip( const QString &zipFilename, const QString &dir, QStringList &files, bool checkConsistency )
+{
+  files.clear();
+
+  if ( !QFileInfo::exists( zipFilename ) )
+  {
+    QgsMessageLog::logMessage( QObject::tr( "Error zip file does not exist: '%1'" ).arg( zipFilename ) );
+    return false;
+  }
+  else if ( zipFilename.isEmpty() )
+  {
+    QgsMessageLog::logMessage( QObject::tr( "Error zip filename is empty" ) );
+    return false;
+  }
+  else if ( !QDir( dir ).exists( dir ) )
+  {
+    QgsMessageLog::logMessage( QObject::tr( "Error output dir does not exist: '%1'" ).arg( dir ) );
+    return false;
+  }
+  else if ( !QFileInfo( dir ).isDir() )
+  {
+    QgsMessageLog::logMessage( QObject::tr( "Error output dir is not a directory: '%1'" ).arg( dir ) );
+    return false;
+  }
+  else if ( !QFileInfo( dir ).isWritable() )
+  {
+    QgsMessageLog::logMessage( QObject::tr( "Error output dir is not writable: '%1'" ).arg( dir ) );
+    return false;
+  }
+
+  int rc = 0;
+  const QByteArray fileNamePtr = zipFilename.toUtf8();
+  struct zip *z = zip_open( fileNamePtr.constData(), checkConsistency ? ZIP_CHECKCONS : 0, &rc );
+
+  if ( rc == ZIP_ER_OK && z )
+  {
+    const int count = zip_get_num_entries( z, ZIP_FL_UNCHANGED );
+    if ( count != -1 )
+    {
+      struct zip_stat stat;
+
+      for ( int i = 0; i < count; i++ )
+      {
+        zip_stat_index( z, i, 0, &stat );
+        const size_t len = stat.size;
+
+        struct zip_file *file = zip_fopen_index( z, i, 0 );
+        const std::unique_ptr<char[]> buf( new char[len] );
+        if ( zip_fread( file, buf.get(), len ) != -1 )
+        {
+          const QString fileName( stat.name );
+          if ( fileName.endsWith( "/" ) )
+          {
+            continue;
+          }
+
+          const QFileInfo newFile( QDir( dir ), fileName );
+
+          if ( !QString( QDir::cleanPath( newFile.absolutePath() ) + QStringLiteral( "/" ) ).startsWith( QDir( dir ).absolutePath() + QStringLiteral( "/" ) ) )
+          {
+            QgsMessageLog::logMessage( QObject::tr( "Skipped file %1 outside of the directory %2" ).arg( newFile.absoluteFilePath(), QDir( dir ).absolutePath() ) );
+            continue;
+          }
+
+          // Create path for a new file if it does not exist.
+          if ( !newFile.absoluteDir().exists() )
+          {
+            if ( !QDir( dir ).mkpath( newFile.absolutePath() ) )
+              QgsMessageLog::logMessage( QObject::tr( "Failed to create a subdirectory %1/%2" ).arg( dir ).arg( fileName ) );
+          }
+
+          QFile outFile( newFile.absoluteFilePath() );
+          if ( !outFile.open( QIODevice::WriteOnly | QIODevice::Truncate ) )
+          {
+            QgsMessageLog::logMessage( QObject::tr( "Could not write to %1" ).arg( newFile.absoluteFilePath() ) );
+          }
+          else
+          {
+            outFile.write( buf.get(), len );
+          }
+          zip_fclose( file );
+          files.append( newFile.absoluteFilePath() );
+        }
+        else
+        {
+          zip_fclose( file );
+          QgsMessageLog::logMessage( QObject::tr( "Error reading file: '%1'" ).arg( zip_strerror( z ) ) );
+          return false;
+        }
+      }
+    }
+    else
+    {
+      zip_close( z );
+      QgsMessageLog::logMessage( QObject::tr( "Error getting files: '%1'" ).arg( zip_strerror( z ) ) );
+      return false;
+    }
+
+    zip_close( z );
+  }
+  else
+  {
+    QgsMessageLog::logMessage( QObject::tr( "Error opening zip archive: '%1' (Error code: %2)" ).arg( z ? zip_strerror( z ) : zipFilename ).arg( rc ) );
+    return false;
+  }
+
+  return true;
 }
