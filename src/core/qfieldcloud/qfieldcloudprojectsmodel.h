@@ -61,7 +61,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     {
       IdRole = Qt::UserRole + 1,
       OwnerRole,
-      PrivateRole,
+      PublicRole,
+      FeaturedRole,
       NameRole,
       DescriptionRole,
       ModificationRole,
@@ -246,6 +247,7 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     Q_PROPERTY( bool showLocalOnly READ showLocalOnly WRITE setShowLocalOnly NOTIFY showLocalOnlyChanged )
     Q_PROPERTY( QString textFilter READ textFilter WRITE setTextFilter NOTIFY textFilterChanged )
     Q_PROPERTY( bool showInValidProjects READ showInValidProjects WRITE setShowInValidProjects NOTIFY showInValidProjectsChanged )
+    Q_PROPERTY( bool showFeaturedOnTop READ showFeaturedOnTop WRITE setShowFeaturedOnTop NOTIFY showFeaturedOnTopChanged )
 
   public:
     enum ProjectsFilter
@@ -306,16 +308,23 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
      * @param showInValidProjects If true, invalid (failing) projects will be shown;
      * otherwise, they will be filtered out.
      */
-    void setShowInValidProjects( const bool showInValidProjects );
+    void setShowInValidProjects( bool showInValidProjects );
 
     /**
-     * Returns whether invalid (failing) projects are currently included
+     * Returns TRUE if invalid (failing) projects are currently included
      * in the filtered list of cloud projects.
-     *
-     * @return True if invalid projects are shown; false otherwise.
      */
     bool showInValidProjects() const;
 
+    /**
+     * Sets whether featured projects will be shown on top of the list.
+     */
+    void setShowFeaturedOnTop( bool showFeaturedOnTop );
+
+    /**
+     * Returns TRUE if featured projects will be shown on top of the list.
+     */
+    bool showFeaturedOnTop() const;
 
   signals:
 
@@ -324,8 +333,10 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     void showLocalOnlyChanged();
     void textFilterChanged();
     void showInValidProjectsChanged();
+    void showFeaturedOnTopChanged();
 
   protected:
+    bool lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const override;
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
 
   private:
@@ -333,6 +344,7 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     ProjectsFilter mFilter = PrivateProjects;
     bool mShowLocalOnly = false;
     bool mShowInValidProjects = false;
+    bool mShowFeaturedOnTop = false;
     QString mTextFilter;
 };
 

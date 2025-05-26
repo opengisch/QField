@@ -184,6 +184,8 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVector
 QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyRasterLayer( QgsRasterLayer *layer, const QgsPointXY &point ) const
 {
   QList<IdentifyTool::IdentifyResult> results;
+  if ( !layer->dataProvider() || !layer->isValid() )
+    return results;
 
   std::unique_ptr<QgsRasterDataProvider> dataProvider( layer->dataProvider()->clone() );
   const Qgis::RasterInterfaceCapabilities capabilities = dataProvider->capabilities();
@@ -252,7 +254,6 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyRasterLayer( QgsRaster
       // error
       // TODO: better error reporting
       QString label = layer->subLayers().value( it.key() );
-      qDebug() << label << result.toString();
       continue;
     }
 
