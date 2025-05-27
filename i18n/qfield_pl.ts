@@ -3971,6 +3971,50 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>centroid</source>
         <translation>centroid</translation>
     </message>
+    <message>
+        <source>Error zip file does not exist: &apos;%1&apos;</source>
+        <translation>Błąd, plik zip nie istnieje: &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Error zip filename is empty</source>
+        <translation>Błąd, nazwa pliku zip jest pusta</translation>
+    </message>
+    <message>
+        <source>Error output dir does not exist: &apos;%1&apos;</source>
+        <translation>Błąd, katalog wyjściowy nie istnieje: &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not a directory: &apos;%1&apos;</source>
+        <translation>Błąd, katalog wyjściowy nie jest katalogiem: &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not writable: &apos;%1&apos;</source>
+        <translation>Błąd, nie można zapisać w katalogu wyjściowym: &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Skipped file %1 outside of the directory %2</source>
+        <translation>Pominięto plik %1 poza katalogiem %2</translation>
+    </message>
+    <message>
+        <source>Failed to create a subdirectory %1/%2</source>
+        <translation>Nie udało się utworzyć podkatalogu %1/%2</translation>
+    </message>
+    <message>
+        <source>Could not write to %1</source>
+        <translation>Nie można zapisać do %1</translation>
+    </message>
+    <message>
+        <source>Error reading file: &apos;%1&apos;</source>
+        <translation>Błąd odczytu pliku: &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Error getting files: &apos;%1&apos;</source>
+        <translation>Błąd pobierania plików: &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation>Błąd otwierania archiwum zip: &quot;%1&quot; (kod błędu: %2)</translation>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>

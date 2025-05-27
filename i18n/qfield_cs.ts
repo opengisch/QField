@@ -3970,6 +3970,50 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>centroid</source>
         <translation>centroid</translation>
     </message>
+    <message>
+        <source>Error zip file does not exist: &apos;%1&apos;</source>
+        <translation>Chyba - soubor zip neexistuje: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error zip filename is empty</source>
+        <translation>Chyba - prázdný název souboru zip</translation>
+    </message>
+    <message>
+        <source>Error output dir does not exist: &apos;%1&apos;</source>
+        <translation>Chyba - výstupní složka neexistuje: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not a directory: &apos;%1&apos;</source>
+        <translation>Chyba - výstupní složka není složka: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not writable: &apos;%1&apos;</source>
+        <translation>Chyba - do výstupní složky nelze zapisovat: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Skipped file %1 outside of the directory %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create a subdirectory %1/%2</source>
+        <translation>Nepodařilo se vytvořit podsložku %1/%2</translation>
+    </message>
+    <message>
+        <source>Could not write to %1</source>
+        <translation>Nezdařil se zápis do %1</translation>
+    </message>
+    <message>
+        <source>Error reading file: &apos;%1&apos;</source>
+        <translation>Chyba čtení souboru: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error getting files: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation>Chyba otevírání archivu zip: &apos;%1&apos; (kód chyby: %2)</translation>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>

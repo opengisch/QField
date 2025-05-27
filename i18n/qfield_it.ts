@@ -3973,6 +3973,50 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>centroid</source>
         <translation>centroide</translation>
     </message>
+    <message>
+        <source>Error zip file does not exist: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error zip filename is empty</source>
+        <translation>Errore il nome del file zip è vuoto</translation>
+    </message>
+    <message>
+        <source>Error output dir does not exist: &apos;%1&apos;</source>
+        <translation>Errore: la directory di output non esiste: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not a directory: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error output dir is not writable: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Skipped file %1 outside of the directory %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create a subdirectory %1/%2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not write to %1</source>
+        <translation>Impossibile scrivere su %1</translation>
+    </message>
+    <message>
+        <source>Error reading file: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error getting files: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>

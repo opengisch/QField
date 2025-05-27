@@ -3965,6 +3965,50 @@ Cancel to make a minimal device scan instead.</source>
         <source>centroid</source>
         <translation>重心</translation>
     </message>
+    <message>
+        <source>Error zip file does not exist: &apos;%1&apos;</source>
+        <translation>エラー zip ファイルが存在しません: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error zip filename is empty</source>
+        <translation>エラー zip ファイル名が空です</translation>
+    </message>
+    <message>
+        <source>Error output dir does not exist: &apos;%1&apos;</source>
+        <translation>エラー出力ディレクトリが存在しません: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not a directory: &apos;%1&apos;</source>
+        <translation>エラー出力先はディレクトリではありません: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not writable: &apos;%1&apos;</source>
+        <translation>エラー出力ディレクトリが書き込み可能でありません: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Skipped file %1 outside of the directory %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create a subdirectory %1/%2</source>
+        <translation>サブディレクトリ %1/%2 の作成に失敗しました</translation>
+    </message>
+    <message>
+        <source>Could not write to %1</source>
+        <translation>%1 に書き込みできませんでした。</translation>
+    </message>
+    <message>
+        <source>Error reading file: &apos;%1&apos;</source>
+        <translation>ファイル読み込みエラー: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error getting files: &apos;%1&apos;</source>
+        <translation>ファイル取得エラー: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation>ZIPアーカイブがエラーで開けませんでした: &apos;%1&apos; (エラーコード: %2)</translation>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>

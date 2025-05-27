@@ -3967,6 +3967,50 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>centroid</source>
         <translation>centroïde</translation>
     </message>
+    <message>
+        <source>Error zip file does not exist: &apos;%1&apos;</source>
+        <translation>Fout zip bestand bestaat niet: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error zip filename is empty</source>
+        <translation>Fout zip bestandsnaam is leeg</translation>
+    </message>
+    <message>
+        <source>Error output dir does not exist: &apos;%1&apos;</source>
+        <translation>Fout output dir bestaat niet: &apos;%1&apos; </translation>
+    </message>
+    <message>
+        <source>Error output dir is not a directory: &apos;%1&apos;</source>
+        <translation> Fout output dir is geen folder: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not writable: &apos;%1&apos;</source>
+        <translation>Fout output dir is niet bewerkbaar: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Skipped file %1 outside of the directory %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create a subdirectory %1/%2</source>
+        <translation>Maken van submap %1/%2 mislukt</translation>
+    </message>
+    <message>
+        <source>Could not write to %1</source>
+        <translation>Kan niet schrijven naar %1</translation>
+    </message>
+    <message>
+        <source>Error reading file: &apos;%1&apos;</source>
+        <translation>Fout bij lezen van bestand: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error getting files: &apos;%1&apos;</source>
+        <translation>Fout bij ophalen bestanden : &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation>Fout bij openen zip archief: &apos;%1&apos; (Error code: %2)</translation>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>

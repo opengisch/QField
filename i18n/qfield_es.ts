@@ -3967,6 +3967,50 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <source>centroid</source>
         <translation>centroide</translation>
     </message>
+    <message>
+        <source>Error zip file does not exist: &apos;%1&apos;</source>
+        <translation>Error el archivo zip no existe: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error zip filename is empty</source>
+        <translation>Error el nombre del archivo zip está vacío</translation>
+    </message>
+    <message>
+        <source>Error output dir does not exist: &apos;%1&apos;</source>
+        <translation>Error el directorio de salida no existe: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not a directory: &apos;%1&apos;</source>
+        <translation>Error el directorio de salida no es un directorio: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not writable: &apos;%1&apos;</source>
+        <translation>No se puede escribir en el directorio de salida de error: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Skipped file %1 outside of the directory %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create a subdirectory %1/%2</source>
+        <translation>Error al crear un subdirectorio %1/%2</translation>
+    </message>
+    <message>
+        <source>Could not write to %1</source>
+        <translation>No se pudo escribir en %1</translation>
+    </message>
+    <message>
+        <source>Error reading file: &apos;%1&apos;</source>
+        <translation>Error al leer el archivo: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error getting files: &apos;%1&apos;</source>
+        <translation>Error al obtener archivos: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation>Error al abrir el archivo zip: &apos;%1&apos; (Código de error: %2)</translation>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>

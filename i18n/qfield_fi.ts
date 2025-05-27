@@ -3969,6 +3969,50 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>centroid</source>
         <translation>keskiö</translation>
     </message>
+    <message>
+        <source>Error zip file does not exist: &apos;%1&apos;</source>
+        <translation>Virhe, ZIP-tiedostoa ei ole olemassa: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error zip filename is empty</source>
+        <translation>Virhe, ZIP-tiedoston tiedostonimi on tyhjä.</translation>
+    </message>
+    <message>
+        <source>Error output dir does not exist: &apos;%1&apos;</source>
+        <translation>Virhe, tulostiedoston dir-kohdehakemistoa ei ole olemassa:  &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not a directory: &apos;%1&apos;</source>
+        <translation>Virhe, tulostiedoston dir-kohdehakemisto ei ole kohteessa:  &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not writable: &apos;%1&apos;</source>
+        <translation>Virhe, tulostiedoston dir-kohdehakemistoon ei voida tallentaa: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Skipped file %1 outside of the directory %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create a subdirectory %1/%2</source>
+        <translation>Alihakemiston luonti epäonnistui %1/%2</translation>
+    </message>
+    <message>
+        <source>Could not write to %1</source>
+        <translation>Ei voitu tallentaa kohteeseen %1</translation>
+    </message>
+    <message>
+        <source>Error reading file: &apos;%1&apos;</source>
+        <translation>Virhe luettaessa tiedostoa: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error getting files: &apos;%1&apos;</source>
+        <translation>Virhe haettaessa tiedostoa: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation>Virhe avattaessa ZIP-pakkausta: &apos;%1&apos; (Virhe koodi: %2)</translation>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>

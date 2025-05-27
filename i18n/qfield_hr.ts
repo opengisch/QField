@@ -3965,6 +3965,50 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <source>centroid</source>
         <translation>centroid</translation>
     </message>
+    <message>
+        <source>Error zip file does not exist: &apos;%1&apos;</source>
+        <translation>Greška - zip datoteka ne postoji: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error zip filename is empty</source>
+        <translation>Greška - naziv zip datoteke je prazan</translation>
+    </message>
+    <message>
+        <source>Error output dir does not exist: &apos;%1&apos;</source>
+        <translation>Greška - izlazna mapa ne postoji: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not a directory: &apos;%1&apos;</source>
+        <translation>Greška - izlazna mapa nije direktorij: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not writable: &apos;%1&apos;</source>
+        <translation>Greška - nije moguće pisati u izlaznu mapu: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Skipped file %1 outside of the directory %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create a subdirectory %1/%2</source>
+        <translation>Nije uspjelo stvaranje podmape %1/%2</translation>
+    </message>
+    <message>
+        <source>Could not write to %1</source>
+        <translation>Nije moguće pisati na %1</translation>
+    </message>
+    <message>
+        <source>Error reading file: &apos;%1&apos;</source>
+        <translation>Greška prilikom čitanja datoteke: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error getting files: &apos;%1&apos;</source>
+        <translation>Greška pri dohvaćanju datoteka: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation>Greška - otvaranje zip arhiva: &apos;%1&apos; (Kôd greške: %2)</translation>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>

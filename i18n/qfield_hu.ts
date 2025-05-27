@@ -3963,6 +3963,50 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <source>centroid</source>
         <translation>centrális</translation>
     </message>
+    <message>
+        <source>Error zip file does not exist: &apos;%1&apos;</source>
+        <translation>Hiba a zip fájl nem létezik: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error zip filename is empty</source>
+        <translation>Hiba a zip fájl név üres</translation>
+    </message>
+    <message>
+        <source>Error output dir does not exist: &apos;%1&apos;</source>
+        <translation>Hiba output könyvtár nem létezik: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not a directory: &apos;%1&apos;</source>
+        <translation>Hiba az output könyvtár nem könyvtár: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not writable: &apos;%1&apos;</source>
+        <translation>Hiba output könyvtár nem írható: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Skipped file %1 outside of the directory %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create a subdirectory %1/%2</source>
+        <translation>Sikertelen alkönyvtár létrehozás: %1%2</translation>
+    </message>
+    <message>
+        <source>Could not write to %1</source>
+        <translation>Nem lehet ide írni %1</translation>
+    </message>
+    <message>
+        <source>Error reading file: &apos;%1&apos;</source>
+        <translation>Hiba a fájl olvasása közben: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error getting files: &apos;%1&apos;</source>
+        <translation>Hiba a fájlok beszerzése során: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation>Hiba a zip archive megnyitása során: &apos;%1&apos; (Hibakód: %2)</translation>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>

@@ -3969,6 +3969,50 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>centroid</source>
         <translation>centróide</translation>
     </message>
+    <message>
+        <source>Error zip file does not exist: &apos;%1&apos;</source>
+        <translation>Erro ficheiro de zip não existe: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error zip filename is empty</source>
+        <translation>Erro o nome do ficheiro de zip, está vazio</translation>
+    </message>
+    <message>
+        <source>Error output dir does not exist: &apos;%1&apos;</source>
+        <translation>Erro pasta de saída não existe: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not a directory: &apos;%1&apos;</source>
+        <translation>Erro a pasta de saída não é uma pasta válida: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not writable: &apos;%1&apos;</source>
+        <translation>Erro pasta de saída não é permitida a gravação: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Skipped file %1 outside of the directory %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create a subdirectory %1/%2</source>
+        <translation>Falha ao criar uma subpasta %1/%2</translation>
+    </message>
+    <message>
+        <source>Could not write to %1</source>
+        <translation>Não foi possível escrever para %1</translation>
+    </message>
+    <message>
+        <source>Error reading file: &apos;%1&apos;</source>
+        <translation>Erro ao ler ficheiro: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error getting files: &apos;%1&apos;</source>
+        <translation>Erro ao obter ficheiros: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation>Erro ao abrir ficheiro zip: &apos;%1&apos; (Error code: %2)</translation>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>

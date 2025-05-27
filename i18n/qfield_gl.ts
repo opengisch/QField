@@ -3967,6 +3967,50 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>centroid</source>
         <translation>centroide</translation>
     </message>
+    <message>
+        <source>Error zip file does not exist: &apos;%1&apos;</source>
+        <translation>O ficheiro comprimido de erros non existe: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error zip filename is empty</source>
+        <translation>O nome de ficheiro comprimido de erros está baleiro</translation>
+    </message>
+    <message>
+        <source>Error output dir does not exist: &apos;%1&apos;</source>
+        <translation>O directorio de saída de erros non  existe: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not a directory: &apos;%1&apos;</source>
+        <translation>O directorio de saída de erros non é un directorio: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error output dir is not writable: &apos;%1&apos;</source>
+        <translation>Non se pode escribir no directorio de saída de erros: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Skipped file %1 outside of the directory %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create a subdirectory %1/%2</source>
+        <translation>Non se puido crear un subdirectorio %1/%2</translation>
+    </message>
+    <message>
+        <source>Could not write to %1</source>
+        <translation>Non se puido escribir en %1</translation>
+    </message>
+    <message>
+        <source>Error reading file: &apos;%1&apos;</source>
+        <translation>Erro lendo o ficheiro : &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error getting files: &apos;%1&apos;</source>
+        <translation>Erro obtendo os ficheiros: &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
+        <translation>Erro ó abrir os ficheiros comprimidos: &apos;%1&apos; (Código de erro: %2)</translation>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>
