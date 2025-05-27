@@ -600,6 +600,17 @@ div.explanation {
   margin: 40px;
 }
 
+#client-logo a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+#client-logo a:hover img {
+  opacity: 0.9;
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
 /* industries carousel */
 .industries-carousel-section {
   background: #fff;
