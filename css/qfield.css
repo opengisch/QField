@@ -676,3 +676,11 @@ div.explanation {
 .nav-pills a {
     border-radius: 12px !important;
 }
+
+/* hardware page button */
+.btn-primary {
+  background-color: #80cc28;
+  border: none;
+  border-radius: 12px;
+  margin-top: 15px;
+}
