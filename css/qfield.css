@@ -38,7 +38,7 @@ div.navbar li a {
 
 .navbar-default .navbar-form {
   background-color:white;
-  border-bottom: 2px solid rgba(128, 204, 40);
+  border-bottom: 2px solid var(--qfield-color);
 }
 
 @media (min-width: 768px) {
@@ -60,16 +60,16 @@ div.navbar li a {
 }
 
 .navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li>a {
-  color: #80cc28;
+  color: var(--qfield-color);
 }
 
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
-  color: #80cc28 !important;
+  color: var(--qfield-color) !important;
   text-decoration:underline;
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
-  color: #80cc28 !important;
+  color: var(--qfield-color) !important;
 }
 
 span.menuselection {
@@ -86,7 +86,7 @@ span.shadow-background {
 .navbar-brand {
   height: 100%;
   overflow: hidden;
-  color: #80cc28 !important;
+  color: var(--qfield-color) !important;
   font-size:25px;
 }
 
@@ -101,7 +101,7 @@ footer.footer {
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #80cc28;
+  background-color: var(--qfield-color);
 }
 
 /* body:not(:has(#maincarousel)) {
@@ -152,8 +152,8 @@ footer.footer {
   font-size: 15pt;
   padding: 5px 15px;
   background-color: #ffffff;
-  border: 3px solid #80cc28;
-  color: #80cc28;
+  border: 3px solid var(--qfield-color);
+  color: var(--qfield-color);
   text-align: center;
   border-radius: 32px;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -163,9 +163,9 @@ footer.footer {
 }
 
 .get-qf-button a:hover {
-  background-color: #80cc28;
+  background-color: var(--qfield-color);
   color: white;
-  border: 3px solid #80cc28;
+  border: 3px solid var(--qfield-color);
 }
 
 .carousel-caption .carousel-title {
@@ -411,29 +411,6 @@ font-size: 13pt;
 .media-object { width: 64px; height: 64px; padding-bottom: 30px }
 
 
-/* CORNER RIBBON STYLING */
-
-.corner-ribbon{
-  width: 400px;
-  color: #fff;
-  position: fixed;
-  text-align: center;
-  top: 40px;
-  line-height: 40px;
-  z-index: 100000;
-  background-color: #4c6dac;
-}
-.corner-ribbon a{
-  color: #fff;
-}
-.corner-ribbon.right{
-  right: -100px;
-  left: auto;
-  -ms-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
 div.feature {
   padding: 3rem 1.5rem;
   height: 100%;
@@ -502,8 +479,8 @@ div.explanation {
 .support-button a {
   margin-left: 10px;
   padding: 5px 10px 5px 10px !important;
-  background-color: #80cc28;
-  border: 0.5px solid #80cc28 !important;
+  background-color: var(--qfield-color);
+  border: 0.5px solid var(--qfield-color) !important;
   color: #ffffff !important;
   text-align: center;
   border-radius: 32px;
@@ -512,8 +489,8 @@ div.explanation {
 
 .support-button a:hover {
   background-color: #ffffff;
-  border: 0.5px solid #80cc28 !important;
-  color: #80cc28 !important;
+  border: 0.5px solid var(--qfield-color) !important;
+  color: var(--qfield-color) !important;
   border-radius: 32px;
   text-decoration: none !important;
 }
