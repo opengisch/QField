@@ -521,7 +521,12 @@ div.explanation {
 }
 
 #partner img {
-  margin: 10px;
+  margin: 12px;
+  width: 60%;
+}
+
+#partner a {
+  color: #80cc28;
 }
 
 .social-links {
@@ -606,7 +611,6 @@ div.explanation {
 }
 
 #client-logo a:hover img {
-  opacity: 0.9;
   transform: scale(1.02);
   transition: all 0.3s ease;
 }
