@@ -799,7 +799,6 @@ void QgisMobileapp::readProjectFile()
   if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) )
   {
     mProject->read( mProjectFilePath, Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
-    mProject->writeEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
     projectLoaded = true;
   }
   else if ( suffix == QStringLiteral( "gpkg" ) )
@@ -812,7 +811,6 @@ void QgisMobileapp::readProjectFile()
       {
         QgsGeoPackageProjectUri projectUri { true, mProjectFilePath, projectNames.at( 0 ) };
         mProject->read( QgsGeoPackageProjectStorage::encodeUri( projectUri ), Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
-        mProject->writeEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
         projectLoaded = true;
       }
     }
@@ -820,6 +818,14 @@ void QgisMobileapp::readProjectFile()
 
   if ( projectLoaded )
   {
+    mProject->writeEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
+    if ( !QFileInfo::exists( mProject->homePath() ) )
+    {
+      // When a custom home path is not available, revert to the project file path
+      QFileInfo projectFileInfo( mProjectFilePath );
+      mProject->setPresetHomePath( projectFileInfo.absolutePath() );
+    }
+
     if ( !mProject->error().isEmpty() )
     {
       QgsMessageLog::logMessage( mProject->error() );
