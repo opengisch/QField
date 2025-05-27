@@ -169,7 +169,7 @@ EditorWidgetBase {
 
     // assume that lack of file suffix means problem with the filepath evaluation, so last resort to fallback filepaths.
     // the fallback filepaths are assumed to be always correct and are not passed through `FileUtils.sanitizeFilePath`.
-    if (FileUtils.fileSuffix(filepath) === '') {
+    if (FileUtils.fileSuffix(filepath) === '' && !filepath.endsWith("{extension}") && !filepath.endsWith("{filename}")) {
       // the `nosStr` stores the current datetime as single numeric string, e.g. 20250101234589
       const nowStr = (new Date()).toISOString().replace(/[^0-9]/g, '');
 
