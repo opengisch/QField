@@ -684,3 +684,8 @@ div.explanation {
   border-radius: 12px;
   margin-top: 15px;
 }
+
+/* hardware page tabs*/
+.nav-tabs a {
+  color: rgba(128, 128, 128, 0.8);
+}
