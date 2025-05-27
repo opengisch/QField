@@ -164,6 +164,7 @@ public class QFieldPositioningService extends QtService {
         } catch (SecurityException e) {
             Log.v("QFieldPositioningService",
                   "Missing permission to launch the positioning service");
+            stopSelf();
             return START_NOT_STICKY;
         }
 
