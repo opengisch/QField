@@ -164,17 +164,15 @@ public class QFieldActivity extends QtActivity {
         if (intent.getAction() == Intent.ACTION_VIEW ||
             intent.getAction() == Intent.ACTION_SEND) {
             String scheme = intent.getScheme();
-            if (scheme != null) {
-                if (scheme.equals("qfield")) {
+            if (scheme != null && scheme.equals("qfield")) {
+                qfieldIntent = intent;
+                processQFieldIntent();
+            } else if (scheme != null && scheme.equals("https")) {
+                Uri uri = intent.getData();
+                String host = uri.getHost();
+                if (host.equals("qfield.org")) {
                     qfieldIntent = intent;
                     processQFieldIntent();
-                } else if (scheme.equals("https")) {
-                    Uri uri = intent.getData();
-                    String host = uri.getHost();
-                    if (host.equals("qfield.org")) {
-                        qfieldIntent = intent;
-                        processQFieldIntent();
-                    }
                 }
             } else {
                 projectIntent = intent;
@@ -577,17 +575,15 @@ public class QFieldActivity extends QtActivity {
         if (sourceIntent.getAction() == Intent.ACTION_VIEW ||
             sourceIntent.getAction() == Intent.ACTION_SEND) {
             String scheme = sourceIntent.getScheme();
-            if (scheme != null) {
-                if (scheme.equals("qfield")) {
+            if (scheme != null && scheme.equals("qfield")) {
+                qfieldIntent = sourceIntent;
+                intent.putExtra("QF_ACTION", "trigger_load");
+            } else if (scheme != null && scheme.equals("https")) {
+                Uri uri = sourceIntent.getData();
+                String host = uri.getHost();
+                if (host.equals("qfield.org")) {
                     qfieldIntent = sourceIntent;
                     intent.putExtra("QF_ACTION", "trigger_load");
-                } else if (scheme.equals("https")) {
-                    Uri uri = sourceIntent.getData();
-                    String host = uri.getHost();
-                    if (host.equals("qfield.org")) {
-                        qfieldIntent = sourceIntent;
-                        intent.putExtra("QF_ACTION", "trigger_load");
-                    }
                 }
             } else {
                 projectIntent = sourceIntent;
