@@ -603,3 +603,7 @@ div.explanation {
   background-color: #ffffff;
   color: var(--qfield-color); 
 }
+
+a.green-link {
+  color: var(--qfield-color);
+}
