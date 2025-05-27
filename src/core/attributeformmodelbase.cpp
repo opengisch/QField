@@ -182,6 +182,8 @@ void AttributeFormModelBase::resetModel()
 
   mVisibilityExpressions.clear();
   mFields.clear();
+  mAliasExpressions.clear();
+  mReadOnlyExpressions.clear();
   mEditorWidgetCodes.clear();
   mEditorWidgetCodesRequirements.clear();
 

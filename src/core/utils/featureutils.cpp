@@ -38,6 +38,9 @@ QgsFeature FeatureUtils::createBlankFeature( const QgsFields &fields, const QgsG
 
 QgsFeature FeatureUtils::createFeature( QgsVectorLayer *layer, const QgsGeometry &geometry, const GnssPositionInformation &positionInformation, const CloudUserInformation &cloudUserInformation )
 {
+  if ( !layer )
+    return QgsFeature();
+
   QgsFeature feature;
   QgsAttributeMap attributes;
   QgsExpressionContext context = layer->createExpressionContext();
