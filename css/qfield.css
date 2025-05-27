@@ -667,3 +667,12 @@ div.explanation {
     transform: translateX(-30%);
   }
 }
+
+/*partner page*/
+.btn-success {
+  background-color: #80cc28;
+}
+
+.nav-pills a {
+    border-radius: 12px !important;
+}
