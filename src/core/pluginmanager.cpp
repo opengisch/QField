@@ -340,8 +340,8 @@ bool PluginManager::isAppPluginConfigurable( const QString &uuid ) const
 {
   if ( mAvailableAppPlugins.contains( uuid ) && mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path() ) )
   {
-    const char *normalizedSignature = QMetaObject::normalizedSignature( "configure()" );
-    const int idx = mLoadedPlugins[mAvailableAppPlugins[uuid].path()]->metaObject()->indexOfSlot( normalizedSignature );
+    QByteArray normalizedSignature = QMetaObject::normalizedSignature( "configure()" );
+    const int idx = mLoadedPlugins[mAvailableAppPlugins[uuid].path()]->metaObject()->indexOfSlot( normalizedSignature.constData() );
     return idx >= 0;
   }
 
@@ -521,8 +521,8 @@ void PluginManager::callPluginMethod( const QString &uuid, const QString &method
 
   const QPointer<QObject> object = mLoadedPlugins[pluginPath];
 
-  const char *normalizedSignature = QMetaObject::normalizedSignature( ( methodName + "()" ).toStdString().c_str() );
-  const int methodIndex = object->metaObject()->indexOfSlot( normalizedSignature );
+  QByteArray normalizedSignature = QMetaObject::normalizedSignature( ( methodName + "()" ).toStdString().c_str() );
+  const int methodIndex = object->metaObject()->indexOfSlot( normalizedSignature.constData() );
 
   if ( methodIndex != -1 )
   {
