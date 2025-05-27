@@ -593,3 +593,13 @@ div.explanation {
     transform: translateX(-30%);
   }
 }
+
+.btn-primary {
+  background-color: var(--qfield-color);
+  border-color: var(--qfield-color) !important; 
+}
+
+.btn-primary:hover {
+  background-color: #ffffff;
+  color: var(--qfield-color); 
+}
