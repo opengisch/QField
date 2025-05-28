@@ -3987,7 +3987,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Skipped file %1 outside of the directory %2</source>
-        <translation type="unfinished"/>
+        <translation>跳过目录 %2 外的文件 %1</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
@@ -5751,7 +5751,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Follow location paused</source>
-        <translation type="unfinished"/>
+        <translation>跟踪位置已暂停</translation>
     </message>
 </context>
 <context>
