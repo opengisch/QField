@@ -98,7 +98,7 @@ class TrackingModel : public QAbstractItemModel
 
         TrackerRequest( QgsVectorLayer *layer, bool skipSettings )
           : layer( layer )
-          , skipSettings( layer )
+          , skipSettings( skipSettings )
         {
         }
 
