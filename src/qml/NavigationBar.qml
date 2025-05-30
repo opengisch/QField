@@ -61,6 +61,7 @@ Rectangle {
   signal multiProcessingClicked
 
   signal processingRunClicked
+  signal processFeatureClicked
 
   anchors.top: parent.top
   anchors.left: parent.left
@@ -212,7 +213,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: toolBar.state != "Edit" && !toolBar.multiSelection
+    visible: enabled
     width: visible ? 48 : 0
     height: 48
     clip: true
@@ -220,7 +221,7 @@ Rectangle {
     iconSource: toolBar.state == "Navigation" ? Theme.getThemeVectorIcon("ic_chevron_left_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
     iconColor: Theme.mainOverlayColor
 
-    enabled: toolBar.state != "Edit" && !toolBar.multiSelection
+    enabled: toolBar.state != "Edit" && !toolBar.multiSelection && toolBar.state !== "ProcessingLaunch" && toolBar.state != "ProcessingAlgorithmsList"
 
     onClicked: {
       if (toolBar.model && (selection.focusedItem > 0)) {
@@ -417,7 +418,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: (toolBar.state == "Processing" || toolBar.state == "ProcessingLaunch" || toolBar.state == "Indication") && toolBar.multiSelection && toolBar.model
+    visible: (toolBar.state == "Processing" || toolBar.state == "ProcessingLaunch" || toolBar.state == "Indication") && (toolBar.multiSelection) && toolBar.model  || ( toolBar.state === "ProcessingLaunch" )
     width: visible ? 48 : 0
     height: 48
     clip: true
@@ -425,7 +426,7 @@ Rectangle {
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
     iconColor: Theme.mainOverlayColor
 
-    enabled: (toolBar.multiSelection && toolBar.model)
+    enabled: (toolBar.multiSelection && toolBar.model) || toolBar.state === "ProcessingLaunch"
 
     onClicked: toggleMultiSelection()
 
@@ -791,6 +792,19 @@ Rectangle {
       leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: deleteClicked()
+    }
+
+    MenuItem {
+      id: processFeatureButton
+      text: qsTr('Process Feature')
+      icon.source: Theme.getThemeVectorIcon("ic_processing_black_24dp")
+      enabled: projectInfo.editRights
+
+      font: Theme.defaultFont
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: processFeatureClicked();
     }
   }
 

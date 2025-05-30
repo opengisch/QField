@@ -788,9 +788,12 @@ ApplicationWindow {
       searchRadiusMm: 3
 
       onIdentifyFinished: {
-        if (qfieldSettings.autoOpenFormSingleIdentify && !isMenuRequest && featureForm.model.count === 1) {
-          featureForm.selection.focusedItem = 0;
-          featureForm.state = "FeatureForm";
+        if (!featureForm.multiSelection) {
+          if (qfieldSettings.autoOpenFormSingleIdentify && !isMenuRequest && featureForm.model.count === 1) {
+            featureForm.selection.focusedItem = 0;
+            featureForm.state = "FeatureForm";
+            featureForm.singleFeatureIdentified = true;
+          }
         }
       }
     }
