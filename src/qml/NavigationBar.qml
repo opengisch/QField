@@ -724,6 +724,20 @@ Rectangle {
     }
 
     MenuItem {
+      id: processFeatureButton
+      text: qsTr('Process Feature')
+      icon.source: Theme.getThemeVectorIcon("ic_processing_black_24dp")
+      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryLocked))
+      visible: enabled
+
+      font: Theme.defaultFont
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: processingFeatureClicked()
+    }
+
+    MenuItem {
       id: moveFeatureBtn
       text: qsTr('Move Feature')
       icon.source: Theme.getThemeVectorIcon("ic_move_white_24dp")
@@ -792,19 +806,6 @@ Rectangle {
       leftPadding: Theme.menuItemLeftPadding
 
       onTriggered: deleteClicked()
-    }
-
-    MenuItem {
-      id: processFeatureButton
-      text: qsTr('Process Feature')
-      icon.source: Theme.getThemeVectorIcon("ic_processing_black_24dp")
-      enabled: projectInfo.editRights
-
-      font: Theme.defaultFont
-      height: visible ? 48 : 0
-      leftPadding: Theme.menuItemLeftPadding
-
-      onTriggered: processingFeatureClicked()
     }
   }
 
