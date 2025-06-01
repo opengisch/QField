@@ -1053,6 +1053,7 @@ void FeatureModel::applyVertexModelTopography()
   if ( !mVertexModel )
     return;
 
+  const QVector<QgsPoint> pointsAdded = mVertexModel->verticesAdded();
   const QVector<QPair<QgsPoint, QgsPoint>> pointsMoved = mVertexModel->verticesMoved();
   const QVector<QgsPoint> pointsDeleted = mVertexModel->verticesDeleted();
 
@@ -1065,6 +1066,11 @@ void FeatureModel::applyVertexModelTopography()
     if ( vectorLayer != mLayer )
     {
       vectorLayer->startEditing();
+    }
+
+    for ( const auto &point : pointsAdded )
+    {
+      vectorLayer->addTopologicalPoints( point );
     }
 
     QgsPointLocator loc( vectorLayer );
