@@ -240,6 +240,9 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     //! For a polygon, if ringId is not given the current ring will be returned
     QVector<QgsPoint> flatVertices( int ringId = -1 ) const;
 
+    //! Returns a list of added vertices not found in linked geometry
+    QVector<QgsPoint> verticesAdded() const;
+
     //! Returns a list of moved vertices found in linked geometry
     QVector<QPair<QgsPoint, QgsPoint>> verticesMoved() const;
 

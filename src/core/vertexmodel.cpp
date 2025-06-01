@@ -618,10 +618,13 @@ void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double thres
     {
       if ( autoInsert )
       {
+        setCurrentVertex( closestRow );
+        addToHistory( VertexAddition );
+
         // makes a new vertex as an existing vertex
         beginResetModel();
         mVertices[closestRow].type = ExistingVertex;
-        setCurrentVertex( closestRow );
+        mVertices[closestRow].originalPoint = mVertices[closestRow].point;
         createCandidates();
         setEditingMode( EditVertex );
         endResetModel();
@@ -839,6 +842,19 @@ QVector<QgsPoint> VertexModel::flatVertices( int ringId ) const
   if ( mGeometryType == Qgis::GeometryType::Polygon )
   {
     vertices << vertices.constFirst();
+  }
+  return vertices;
+}
+
+QVector<QgsPoint> VertexModel::verticesAdded() const
+{
+  QVector<QgsPoint> vertices;
+  for ( int i = 0; i <= mHistoryIndex; i++ )
+  {
+    if ( mHistory[i].type == VertexAddition )
+    {
+      vertices << mHistory[i].vertex.point;
+    }
   }
   return vertices;
 }
