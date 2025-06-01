@@ -61,7 +61,7 @@ Rectangle {
   signal multiProcessingClicked
 
   signal processingRunClicked
-  signal processFeatureClicked
+  signal processingFeatureClicked
 
   anchors.top: parent.top
   anchors.left: parent.left
@@ -221,7 +221,7 @@ Rectangle {
     iconSource: toolBar.state == "Navigation" ? Theme.getThemeVectorIcon("ic_chevron_left_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
     iconColor: Theme.mainOverlayColor
 
-    enabled: toolBar.state != "Edit" && !toolBar.multiSelection && toolBar.state !== "ProcessingLaunch" && toolBar.state != "ProcessingAlgorithmsList"
+    enabled: toolBar.state != "Edit" && !toolBar.multiSelection
 
     onClicked: {
       if (toolBar.model && (selection.focusedItem > 0)) {
@@ -418,7 +418,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: (toolBar.state == "Processing" || toolBar.state == "ProcessingLaunch" || toolBar.state == "Indication") && (toolBar.multiSelection) && toolBar.model  || ( toolBar.state === "ProcessingLaunch" )
+    visible: toolBar.multiSelection && toolBar.model && (toolBar.state === "Processing" || toolBar.state === "ProcessingLaunch" || toolBar.state === "Indication")
     width: visible ? 48 : 0
     height: 48
     clip: true
@@ -426,7 +426,7 @@ Rectangle {
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
     iconColor: Theme.mainOverlayColor
 
-    enabled: (toolBar.multiSelection && toolBar.model) || toolBar.state === "ProcessingLaunch"
+    enabled: (toolBar.multiSelection && toolBar.model)
 
     onClicked: toggleMultiSelection()
 
@@ -804,7 +804,7 @@ Rectangle {
       height: visible ? 48 : 0
       leftPadding: Theme.menuItemLeftPadding
 
-      onTriggered: processFeatureClicked();
+      onTriggered: processingFeatureClicked()
     }
   }
 

@@ -46,7 +46,6 @@ Rectangle {
   property bool allowDelete
 
   property bool multiSelection: false
-  property bool singleFeatureIdentified: false
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
   property bool isVertical: parent.width < parent.height || parent.width < 300
 
@@ -135,10 +134,6 @@ Rectangle {
             featureForm.confirm();
           }
           featureListToolBar.title = qsTr('Features');
-
-          if (featureFormList.selection.focusedItem !== -1 ) {
-            featureFormList.multiSelection = true;
-          }
         }
       }
     },
@@ -160,14 +155,6 @@ Rectangle {
       PropertyChanges {
         target: featureForm
         state: "ReadOnly"
-      }
-      StateChangeScript {
-        script: {
-          if (featureFormList.selection.focusedItem !== -1 && featureFormList.selection.model.selectedFeatures[0] != null) {
-            featureFormList.selection.model.toggleSelectedItem(0);
-            featureFormList.multiSelection = false;
-          }
-        }
       }
     },
     /* Shows an editable form for the currently selected feature */
@@ -231,10 +218,6 @@ Rectangle {
       }
       StateChangeScript {
         script: {
-          if (featureFormList.selection.focusedItem !== -1 && featureFormList.selection.model.selectedFeatures[0] == null) {
-            featureFormList.selection.model.toggleSelectedItem(0);
-          }
-
           featureListToolBar.title = processingAlgorithmForm.algorithmDisplayName;
           featureListToolBar.title = processingAlgorithmForm.algorithmDisplayName;
         }
@@ -361,7 +344,6 @@ Rectangle {
             featureFormList.state = "FeatureForm";
             featureFormList.selection.focusedItem = index;
             featureFormList.multiSelection = false;
-            singleFeatureIdentified = false;
           }
           featureForm.model.applyFeatureModel();
         }
@@ -371,7 +353,6 @@ Rectangle {
           featureFormList.selection.focusedItem = index;
           featureFormList.selection.toggleSelectedItem(index);
           featureFormList.multiSelection = true;
-          singleFeatureIdentified = false
         }
       }
 
@@ -612,18 +593,8 @@ Rectangle {
     }
 
     onToggleMultiSelection: {
-      const isProcessingForm = featureFormList.state === "ProcessingAlgorithmForm";
-      const hasFocusedItem = featureFormList.selection.focusedItem !== -1 && featureFormList.selection.model.selectedFeatures[0] != null;
-
-      // Handle single feature identified during processing
-      if (singleFeatureIdentified && isProcessingForm) {
-        featureFormList.state = "FeatureForm";
-        singleFeatureIdentified = false;
-        return;
-      }
-
       featureFormList.selection.focusedItem = -1;
-      if (featureFormList.multiSelection || hasFocusedItem) {
+      if (featureFormList.multiSelection) {
         if (featureFormList.state == "ProcessingAlgorithmsList" || featureFormList.state == "ProcessingAlgorithmForm") {
           featureFormList.state = "FeatureList";
         }
@@ -663,17 +634,20 @@ Rectangle {
 
     onProcessingRunClicked: {
       processingAlgorithm.run();
-      if (singleFeatureIdentified) {
-        featureFormList.state = "FeatureForm";
-      } else if (globalFeaturesList.model.count > 0) {
+      if (globalFeaturesList.model.count > 0) {
         featureFormList.state = "FeatureList";
       } else {
         featureFormList.state = "Hidden";
       }
     }
 
-    onProcessFeatureClicked: {
-      featureFormList.state = "ProcessingAlgorithmsList";
+    onProcessingFeatureClicked: {
+      if (featureFormList.selection.focusedItem !== -1) {
+        featureFormList.state = "FeatureList";
+        featureFormList.multiSelection = true;
+        featureFormList.selection.model.toggleSelectedItem(featureFormList.selection.focusedItem);
+        featureFormList.state = "ProcessingAlgorithmsList";
+      }
     }
 
     CoordinateTransformer {
