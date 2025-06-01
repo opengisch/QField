@@ -124,24 +124,37 @@ Item {
           }
         }
 
-        MouseArea {
-          anchors.fill: bookmark
-          onClicked: {
-            displayToast(qsTr('Bookmark: %1').arg(bookmarkRenderer.bookmarkName));
-          }
-          onDoubleClicked: {
-            bookmarkModel.setExtentFromBookmark(bookmarkModel.index(bookmarkRenderer.bookmarkIndex, 0));
-          }
-          onPressAndHold: {
-            if (bookmarkRenderer.bookmarkUser) {
-              bookmarkProperties.bookmarkId = bookmarkRenderer.bookmarkId;
-              bookmarkProperties.bookmarkName = bookmarkRenderer.bookmarkName;
-              bookmarkProperties.bookmarkGroup = bookmarkRenderer.bookmarkGroup;
-              bookmarkProperties.open();
-            } else {
-              displayToast(qsTr('Project bookmarks cannot be edited'));
-            }
-          }
+        Component.onCompleted: {
+          // Register bookmark handler
+          mapCanvasPointHandler.registerHandler("bookmark_" + bookmarkRenderer.bookmarkId, (point, type, interactionType) => {
+              if (mapCanvasMap.pointInItem(point, bookmark)) {
+                if (interactionType === "clicked") {
+                  displayToast(qsTr('Bookmark: %1').arg(bookmarkRenderer.bookmarkName));
+                  return true;
+                }
+                if (interactionType === "pressedAndHold") {
+                  if (bookmarkRenderer.bookmarkUser) {
+                    bookmarkProperties.bookmarkId = bookmarkRenderer.bookmarkId;
+                    bookmarkProperties.bookmarkName = bookmarkRenderer.bookmarkName;
+                    bookmarkProperties.bookmarkGroup = bookmarkRenderer.bookmarkGroup;
+                    bookmarkProperties.open();
+                  } else {
+                    displayToast(qsTr('Project bookmarks cannot be edited'));
+                  }
+                  return true;
+                }
+                if (interactionType === "doubleTapped") {
+                  bookmarkModel.setExtentFromBookmark(bookmarkModel.index(bookmarkRenderer.bookmarkIndex, 0));
+                  return true;
+                }
+              }
+              return false;
+            });
+        }
+
+        Component.onDestruction: {
+          // Deregister bookmark handler
+          mapCanvasPointHandler.deregisterHandler("bookmark_" + bookmarkRenderer.bookmarkId);
         }
       }
     }

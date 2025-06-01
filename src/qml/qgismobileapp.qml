@@ -662,6 +662,10 @@ ApplicationWindow {
           return;
         }
         if (type === "stylus") {
+          // Check if any registered handlers want to handle this click
+          if (mapCanvasPointHandler.canvasClicked(point, type)) {
+            return;
+          }
           if (pointInItem(point, digitizingToolbar) || pointInItem(point, zoomToolbar) || pointInItem(point, mainToolbar) || pointInItem(point, mainMenuBar) || pointInItem(point, geometryEditorsToolbar) || pointInItem(point, locationToolbar) || pointInItem(point, digitizingToolbarContainer) || pointInItem(point, locatorItem)) {
             return;
           }
@@ -1026,6 +1030,10 @@ ApplicationWindow {
       algorithm: featureForm.algorithm
       mapSettings: mapCanvas.mapSettings
     }
+  }
+
+  MapCanvasPointHandler {
+    id: mapCanvasPointHandler
   }
 
   Geofencer {
