@@ -61,6 +61,7 @@ Rectangle {
   signal multiProcessingClicked
 
   signal processingRunClicked
+  signal processingFeatureClicked
 
   anchors.top: parent.top
   anchors.left: parent.left
@@ -212,7 +213,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: toolBar.state != "Edit" && !toolBar.multiSelection
+    visible: enabled
     width: visible ? 48 : 0
     height: 48
     clip: true
@@ -417,7 +418,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: (toolBar.state == "Processing" || toolBar.state == "ProcessingLaunch" || toolBar.state == "Indication") && toolBar.multiSelection && toolBar.model
+    visible: toolBar.multiSelection && toolBar.model && (toolBar.state === "Processing" || toolBar.state === "ProcessingLaunch" || toolBar.state === "Indication")
     width: visible ? 48 : 0
     height: 48
     clip: true
@@ -720,6 +721,20 @@ Rectangle {
       visible: moveFeatureBtn.visible || duplicateFeatureBtn.visible || deleteFeatureBtn.visible
       width: parent.width
       height: visible ? undefined : 0
+    }
+
+    MenuItem {
+      id: processFeatureButton
+      text: qsTr('Process Feature')
+      icon.source: Theme.getThemeVectorIcon("ic_processing_black_24dp")
+      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryLocked))
+      visible: enabled
+
+      font: Theme.defaultFont
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: processingFeatureClicked()
     }
 
     MenuItem {

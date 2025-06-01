@@ -641,6 +641,15 @@ Rectangle {
       }
     }
 
+    onProcessingFeatureClicked: {
+      if (featureFormList.selection.focusedItem !== -1) {
+        featureFormList.state = "FeatureList";
+        featureFormList.multiSelection = true;
+        featureFormList.selection.model.toggleSelectedItem(featureFormList.selection.focusedItem);
+        featureFormList.state = "ProcessingAlgorithmsList";
+      }
+    }
+
     CoordinateTransformer {
       id: moveFeaturesTransformer
       sourceCrs: mapCanvas.mapSettings.destinationCrs
