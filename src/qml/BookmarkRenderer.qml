@@ -143,7 +143,7 @@ Item {
                   }
                   return true;
                 }
-                if (interactionType === "doubleTapped") {
+                if (interactionType === "doubleClicked") {
                   bookmarkModel.setExtentFromBookmark(bookmarkModel.index(bookmarkRenderer.bookmarkIndex, 0));
                   return true;
                 }

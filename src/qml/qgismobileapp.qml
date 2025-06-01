@@ -651,6 +651,10 @@ ApplicationWindow {
       }
 
       onClicked: (point, type) => {
+        // Check if any registered handlers want to handle this click
+        if (mapCanvasPointHandler.canvasClicked(point, type)) {
+          return;
+        }
         if (type === "stylus" && (overlayFeatureFormDrawer.opened || (featureForm.visible && pointInItem(point, featureForm)))) {
           return;
         }
@@ -662,10 +666,6 @@ ApplicationWindow {
           return;
         }
         if (type === "stylus") {
-          // Check if any registered handlers want to handle this click
-          if (mapCanvasPointHandler.canvasClicked(point, type)) {
-            return;
-          }
           if (pointInItem(point, digitizingToolbar) || pointInItem(point, zoomToolbar) || pointInItem(point, mainToolbar) || pointInItem(point, mainMenuBar) || pointInItem(point, geometryEditorsToolbar) || pointInItem(point, locationToolbar) || pointInItem(point, digitizingToolbarContainer) || pointInItem(point, locatorItem)) {
             return;
           }
@@ -715,6 +715,10 @@ ApplicationWindow {
       }
 
       onLongPressed: (point, type) => {
+        // Check if any registered handlers want to handle this press and hold
+        if (mapCanvasPointHandler.canvasPressAndHold(point, type)) {
+          return;
+        }
         if (type === "stylus") {
           if (overlayFeatureFormDrawer.opened || (featureForm.visible && pointInItem(point, featureForm))) {
             return;
@@ -764,6 +768,13 @@ ApplicationWindow {
           // The user has released the long press. We can re-enable the default close behavior for the feature form.
           // The next press will be intentional to close the form.
           overlayFeatureFormDrawer.closePolicy = Popup.CloseOnEscape | Popup.CloseOnPressOutside;
+        }
+      }
+
+      onDoubleClicked: (point, type) => {
+        // Check if any registered handlers want to handle this double click
+        if (mapCanvasPointHandler.canvasDoubleClicked(point, type)) {
+          return;
         }
       }
 

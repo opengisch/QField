@@ -28,9 +28,24 @@ Item {
 
   // Process a canvas click
   function canvasClicked(point, type) {
-    // Check if any registered handler wants to handle this click
+    return processInteraction(point, type, "clicked");
+  }
+
+  // Process a canvas double tap
+  function canvasDoubleClicked(point, type) {
+    return processInteraction(point, type, "doubleClicked");
+  }
+
+  // Process a canvas press and hold
+  function canvasPressAndHold(point, type) {
+    return processInteraction(point, type, "pressedAndHold");
+  }
+
+  // Helper function to process any type of interaction
+  function processInteraction(point, type, interactionType) {
+    // Check if any registered handler wants to handle this interaction
     for (var name in handlers) {
-      if (handlers[name](point, type)) {
+      if (handlers[name](point, type, interactionType)) {
         return true;
       }
     }
