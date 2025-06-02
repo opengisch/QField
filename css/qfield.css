@@ -586,7 +586,7 @@ div.explanation {
   width: 300px;
   text-align: left;
   margin-right: 50px;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .industries-carousel-slide .item img {
