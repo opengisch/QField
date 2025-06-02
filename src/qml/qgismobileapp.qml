@@ -652,7 +652,7 @@ ApplicationWindow {
 
       onClicked: (point, type) => {
         // Check if any registered handlers want to handle this click
-        if (mapCanvasPointHandler.canvasClicked(point, type)) {
+        if (pointHandler.clicked(point, type)) {
           return;
         }
         if (type === "stylus" && (overlayFeatureFormDrawer.opened || (featureForm.visible && pointInItem(point, featureForm)))) {
@@ -716,7 +716,7 @@ ApplicationWindow {
 
       onLongPressed: (point, type) => {
         // Check if any registered handlers want to handle this press and hold
-        if (mapCanvasPointHandler.canvasPressAndHold(point, type)) {
+        if (pointHandler.pressAndHold(point, type)) {
           return;
         }
         if (type === "stylus") {
@@ -773,14 +773,21 @@ ApplicationWindow {
 
       onDoubleClicked: (point, type) => {
         // Check if any registered handlers want to handle this double click
-        if (mapCanvasPointHandler.canvasDoubleClicked(point, type)) {
+        if (pointHandler.doubleClicked(point, type)) {
           return;
+        }
+        if (type === "touch") {
+          mapCanvasWrapper.zoom(Qt.point(point.x, point.y), 0.8);
         }
       }
 
       GridRenderer {
         id: gridDecoration
         mapSettings: mapCanvas.mapSettings
+      }
+
+      MapCanvasPointHandler {
+        id: pointHandler
       }
     }
 
@@ -1041,10 +1048,6 @@ ApplicationWindow {
       algorithm: featureForm.algorithm
       mapSettings: mapCanvas.mapSettings
     }
-  }
-
-  MapCanvasPointHandler {
-    id: mapCanvasPointHandler
   }
 
   Geofencer {

@@ -126,7 +126,7 @@ Item {
 
         Component.onCompleted: {
           // Register bookmark handler
-          mapCanvasPointHandler.registerHandler("bookmark_" + bookmarkRenderer.bookmarkId, (point, type, interactionType) => {
+          pointHandler.registerHandler("bookmark_" + bookmarkRenderer.bookmarkId, (point, type, interactionType) => {
               if (mapCanvasMap.pointInItem(point, bookmark)) {
                 if (interactionType === "clicked") {
                   displayToast(qsTr('Bookmark: %1').arg(bookmarkRenderer.bookmarkName));
@@ -154,7 +154,7 @@ Item {
 
         Component.onDestruction: {
           // Deregister bookmark handler
-          mapCanvasPointHandler.deregisterHandler("bookmark_" + bookmarkRenderer.bookmarkId);
+          pointHandler.deregisterHandler("bookmark_" + bookmarkRenderer.bookmarkId);
         }
       }
     }
