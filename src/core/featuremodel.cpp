@@ -869,7 +869,29 @@ bool FeatureModel::create()
     if ( mLayer->addFeature( mFeature ) )
     {
       if ( mProject && mProject->topologicalEditing() )
-        mLayer->addTopologicalPoints( mFeature.geometry() );
+      {
+        const QVector<QgsVectorLayer *> vectorLayers = mProject->layers<QgsVectorLayer *>();
+        for ( QgsVectorLayer *vectorLayer : vectorLayers )
+        {
+          if ( vectorLayer->readOnly() )
+            continue;
+
+          if ( vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() )
+            continue;
+
+          if ( vectorLayer != mLayer )
+          {
+            vectorLayer->startEditing();
+          }
+
+          vectorLayer->addTopologicalPoints( mFeature.geometry() );
+
+          if ( vectorLayer != mLayer )
+          {
+            vectorLayer->commitChanges( true );
+          }
+        }
+      }
 
       if ( commit() )
       {
@@ -1057,9 +1079,12 @@ void FeatureModel::applyVertexModelTopography()
   const QVector<QgsPoint> pointsDeleted = mVertexModel->verticesDeleted();
 
   const QVector<QgsVectorLayer *> vectorLayers = mProject ? mProject->layers<QgsVectorLayer *>() : QVector<QgsVectorLayer *>() << mLayer;
-  for ( auto vectorLayer : vectorLayers )
+  for ( QgsVectorLayer *vectorLayer : vectorLayers )
   {
     if ( vectorLayer->readOnly() )
+      continue;
+
+    if ( vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() )
       continue;
 
     if ( vectorLayer != mLayer )
