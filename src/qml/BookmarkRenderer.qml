@@ -131,8 +131,7 @@ Item {
                 if (interactionType === "clicked") {
                   displayToast(qsTr('Bookmark: %1').arg(bookmarkRenderer.bookmarkName));
                   return true;
-                }
-                if (interactionType === "pressedAndHold") {
+                } else if (interactionType === "pressedAndHold") {
                   if (bookmarkRenderer.bookmarkUser) {
                     bookmarkProperties.bookmarkId = bookmarkRenderer.bookmarkId;
                     bookmarkProperties.bookmarkName = bookmarkRenderer.bookmarkName;
@@ -142,8 +141,7 @@ Item {
                     displayToast(qsTr('Project bookmarks cannot be edited'));
                   }
                   return true;
-                }
-                if (interactionType === "doubleClicked") {
+                } else if (interactionType === "doubleClicked") {
                   bookmarkModel.setExtentFromBookmark(bookmarkModel.index(bookmarkRenderer.bookmarkIndex, 0));
                   return true;
                 }
