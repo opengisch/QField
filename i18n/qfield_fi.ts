@@ -1704,6 +1704,10 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
         <source>Update Attributes from Feature</source>
         <translation>P채ivit채 ominaisuustiedot kohteesta</translation>
     </message>
+    <message>
+        <source>Process Feature</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

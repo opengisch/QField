@@ -1763,6 +1763,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Update Attributes from Feature</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Process Feature</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

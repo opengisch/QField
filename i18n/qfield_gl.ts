@@ -1704,6 +1704,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <source>Update Attributes from Feature</source>
         <translation>Actualizar Atributos Dende a Entidade</translation>
     </message>
+    <message>
+        <source>Process Feature</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

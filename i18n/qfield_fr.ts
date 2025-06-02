@@ -1705,6 +1705,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>Update Attributes from Feature</source>
         <translation>Mettre à jour des attributs depuis une entité</translation>
     </message>
+    <message>
+        <source>Process Feature</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

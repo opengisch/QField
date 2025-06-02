@@ -1707,6 +1707,10 @@ Dôvod:
         <source>Update Attributes from Feature</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Process Feature</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

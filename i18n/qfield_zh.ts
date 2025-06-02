@@ -1702,6 +1702,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Update Attributes from Feature</source>
         <translation>从要素更新属性</translation>
     </message>
+    <message>
+        <source>Process Feature</source>
+        <translation>处理要素</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

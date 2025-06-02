@@ -1708,6 +1708,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Update Attributes from Feature</source>
         <translation>Zaktualizuj atrybuty z elementu</translation>
     </message>
+    <message>
+        <source>Process Feature</source>
+        <translation>Przetwarzaj obiekt</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

@@ -1705,6 +1705,10 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
         <source>Update Attributes from Feature</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Process Feature</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
