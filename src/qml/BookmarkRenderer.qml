@@ -127,7 +127,7 @@ Item {
         Component.onCompleted: {
           // Register bookmark handler
           pointHandler.registerHandler("bookmark_" + bookmarkRenderer.bookmarkId, (point, type, interactionType) => {
-              if (mapCanvasMap.pointInItem(point, bookmark)) {
+              if (pointHandler.pointInItem(point, bookmark)) {
                 if (interactionType === "clicked") {
                   displayToast(qsTr('Bookmark: %1').arg(bookmarkRenderer.bookmarkName));
                   return true;

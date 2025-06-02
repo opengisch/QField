@@ -645,17 +645,12 @@ ApplicationWindow {
 
       anchors.fill: parent
 
-      function pointInItem(point, item) {
-        var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
-        return point.x >= itemCoordinates.x && point.x <= itemCoordinates.x + item.width && point.y >= itemCoordinates.y && point.y <= itemCoordinates.y + item.height;
-      }
-
       onClicked: (point, type) => {
         // Check if any registered handlers want to handle this click
         if (pointHandler.clicked(point, type)) {
           return;
         }
-        if (type === "stylus" && (overlayFeatureFormDrawer.opened || (featureForm.visible && pointInItem(point, featureForm)))) {
+        if (type === "stylus" && (overlayFeatureFormDrawer.opened || (featureForm.visible && pointHandler.pointInItem(point, featureForm)))) {
           return;
         }
         if (!digitizingToolbar.geometryRequested && featureForm.state == "FeatureFormEdit") {
@@ -666,7 +661,7 @@ ApplicationWindow {
           return;
         }
         if (type === "stylus") {
-          if (pointInItem(point, digitizingToolbar) || pointInItem(point, zoomToolbar) || pointInItem(point, mainToolbar) || pointInItem(point, mainMenuBar) || pointInItem(point, geometryEditorsToolbar) || pointInItem(point, locationToolbar) || pointInItem(point, digitizingToolbarContainer) || pointInItem(point, locatorItem)) {
+          if (pointHandler.pointInItem(point, digitizingToolbar) || pointHandler.pointInItem(point, zoomToolbar) || pointHandler.pointInItem(point, mainToolbar) || pointHandler.pointInItem(point, mainMenuBar) || pointHandler.pointInItem(point, geometryEditorsToolbar) || pointHandler.pointInItem(point, locationToolbar) || pointHandler.pointInItem(point, digitizingToolbarContainer) || pointHandler.pointInItem(point, locatorItem)) {
             return;
           }
 
@@ -720,7 +715,7 @@ ApplicationWindow {
           return;
         }
         if (type === "stylus") {
-          if (overlayFeatureFormDrawer.opened || (featureForm.visible && pointInItem(point, featureForm))) {
+          if (overlayFeatureFormDrawer.opened || (featureForm.visible && pointHandler.pointInItem(point, featureForm))) {
             return;
           }
 
