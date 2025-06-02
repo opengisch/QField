@@ -27,17 +27,17 @@ Item {
   }
 
   // Process a canvas click
-  function canvasClicked(point, type) {
+  function clicked(point, type) {
     return processInteraction(point, type, "clicked");
   }
 
   // Process a canvas double tap
-  function canvasDoubleClicked(point, type) {
+  function doubleClicked(point, type) {
     return processInteraction(point, type, "doubleClicked");
   }
 
   // Process a canvas press and hold
-  function canvasPressAndHold(point, type) {
+  function pressAndHold(point, type) {
     return processInteraction(point, type, "pressedAndHold");
   }
 
