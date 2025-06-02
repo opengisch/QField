@@ -919,6 +919,7 @@ ApplicationWindow {
     /** A coordinate locator for digitizing **/
     CoordinateLocator {
       id: coordinateLocator
+      objectName: "coordinateLocator"
       anchors.fill: parent
       anchors.bottomMargin: informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0
       visible: stateMachine.state === "digitize" || stateMachine.state === 'measure'
