@@ -788,7 +788,7 @@ ApplicationWindow {
       searchRadiusMm: 3
 
       onIdentifyFinished: {
-        if (qfieldSettings.autoOpenFormSingleIdentify && !isMenuRequest && featureForm.model.count === 1) {
+        if (qfieldSettings.autoOpenFormSingleIdentify && !isMenuRequest && !featureForm.multiSelection && featureForm.model.count === 1) {
           featureForm.selection.focusedItem = 0;
           featureForm.state = "FeatureForm";
         }
