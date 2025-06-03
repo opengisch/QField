@@ -61,6 +61,9 @@ Item {
   //! Emitted when a zoom action is about to occur, allowing for pre-zoom adjustments
   signal aboutToWheelZoom
 
+  //! This signal is emitted on a double tap
+  signal doubleClicked(var point, var type)
+
   /**
    * Freezes the map canvas refreshes.
    *
@@ -222,6 +225,7 @@ Item {
 
     onTriggered: {
       mainTapHandler.doublePressed = false;
+      mapArea.clicked(tapPoint, "touch");
       confirmedClicked(tapPoint);
     }
   }
@@ -262,7 +266,7 @@ Item {
           timer.tapPoint = Qt.point(eventPoint.position.x, eventPoint.position.y);
           timer.restart();
         } else {
-          mapCanvasWrapper.zoom(Qt.point(eventPoint.position.x, eventPoint.position.y), 0.8);
+          mapArea.doubleClicked(point.position, "touch");
         }
       }
     }
