@@ -155,6 +155,7 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
       result.userData = data;
 #endif
       result.score = 0.9;
+      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set navigation point" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
       emit resultFetched( result );
     }
 
@@ -190,6 +191,7 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
       result.userData = data;
 #endif
       result.score = 1.0;
+      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set navigation point" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
       emit resultFetched( result );
     }
   }
