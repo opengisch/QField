@@ -48,6 +48,10 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
     void nmeaSentenceReceived( const QString &substring );
 
   private:
+    void processSlantStatusSentence( const QString &sentence );
+    void processSlantApSentence( const QString &sentence );
+
+  private:
     void handleStartLogging() override;
     void handleStopLogging() override;
 
@@ -81,6 +85,7 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
         double gyroY = std::numeric_limits<double>::quiet_NaN();
         double gyroZ = std::numeric_limits<double>::quiet_NaN();
         double steeringZ = std::numeric_limits<double>::quiet_NaN();
+        bool slantActive = false;
     };
     ImuPosition mImuPosition;
 };

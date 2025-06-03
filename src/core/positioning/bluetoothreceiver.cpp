@@ -23,6 +23,7 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   , mAddress( address )
   , mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
   , mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) )
+  , mVendorHelper( mSocket )
 {
   connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::setSocketState );
 #if QT_VERSION < QT_VERSION_CHECK( 6, 0, 0 )

@@ -98,6 +98,14 @@ void NmeaGnssReceiver::nmeaSentenceReceived( const QString &substring )
   {
     processImuSentence( substring );
   }
+  else if ( substring.startsWith( "$SLANTSTATUS" ) )
+  {
+    processSlantStatusSentence( substring );
+  }
+  else if ( substring.startsWith( "$SLANTAP" ) )
+  {
+    processSlantApSentence( substring );
+  }
 }
 
 void NmeaGnssReceiver::handleStartLogging()
@@ -193,4 +201,34 @@ void NmeaGnssReceiver::processImuSentence( const QString &sentence )
   mImuPosition.steeringZ = parameters[18].toDouble();
 
   mImuPosition.valid = true;
+}
+
+void NmeaGnssReceiver::processSlantStatusSentence( const QString &sentence )
+{
+  const QString sentenceWithoutChecksum = sentence.split( '*' ).first();
+  QStringList parameters = sentenceWithoutChecksum.split( ',' );
+  if ( parameters.size() < 2 )
+    return;
+
+  mImuPosition.slantActive = parameters[1].toInt() == 1;
+}
+
+void NmeaGnssReceiver::processSlantApSentence( const QString &sentence )
+{
+  const QString sentenceWithoutChecksum = sentence.split( '*' ).first();
+  QStringList parameters = sentenceWithoutChecksum.split( ',' );
+  if ( parameters.size() < 4 )
+    return;
+
+  bool latOk, lonOk, altOk;
+  double lat = parameters[1].toDouble( &latOk );
+  double lon = parameters[2].toDouble( &lonOk );
+  double alt = parameters[3].toDouble( &altOk );
+  if ( latOk && lonOk && altOk )
+  {
+    mImuPosition.latitude = lat;
+    mImuPosition.longitude = lon;
+    mImuPosition.altitude = alt;
+    mImuPosition.valid = mImuPosition.slantActive;
+  }
 }

@@ -93,5 +93,6 @@
         <file>QFieldCloudPackageLayersFeedback.qml</file>
         <file>QFieldLocalDataPickerScreen.qml</file>
         <file>imports/Theme/QfSlider.qml</file>
+        <file>ImuCalibrationPanel.qml</file>
     </qresource>
 </RCC>

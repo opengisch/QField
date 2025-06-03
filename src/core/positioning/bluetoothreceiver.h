@@ -17,6 +17,7 @@
 #define BLUETOOTHRECEIVER_H
 
 #include "nmeagnssreceiver.h"
+#include "vendorcommandhelper.h"
 
 #include <QObject>
 #include <QtBluetooth/QBluetoothLocalDevice>
@@ -33,6 +34,17 @@ class BluetoothReceiver : public NmeaGnssReceiver
   public:
     explicit BluetoothReceiver( const QString &address = QString(), QObject *parent = nullptr );
     ~BluetoothReceiver() override;
+
+    Q_INVOKABLE bool sendVendorCommand( const QString &command ) { return mVendorHelper.sendCommand( command ); }
+    Q_INVOKABLE bool configImuToAntOffset( double x, double y, double z,
+                                           double stdx, double stdy, double stdz ) { return mVendorHelper.configImuToAntOffset( x, y, z, stdx, stdy, stdz ); }
+    Q_INVOKABLE bool configInsSlantMeas() { return mVendorHelper.configInsSlantMeas(); }
+    Q_INVOKABLE bool configInsDisable() { return mVendorHelper.configInsDisable(); }
+    Q_INVOKABLE bool configInsReset() { return mVendorHelper.configInsReset(); }
+    Q_INVOKABLE bool configAntennaDeltaHen( double len ) { return mVendorHelper.configAntennaDeltaHen( len ); }
+    Q_INVOKABLE bool eraseImuParam() { return mVendorHelper.eraseImuParam(); }
+    Q_INVOKABLE bool configInsReliability( int level ) { return mVendorHelper.configInsReliability( level ); }
+    Q_INVOKABLE bool saveConfig() { return mVendorHelper.saveConfig(); }
 
   private slots:
     /**
@@ -60,6 +72,7 @@ class BluetoothReceiver : public NmeaGnssReceiver
 
     std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
     QBluetoothSocket *mSocket = nullptr;
+    VendorCommandHelper mVendorHelper;
 
     bool mPoweringOn = false;
     bool mDisconnecting = false;

@@ -222,9 +222,11 @@ endif()
 
 if(WITH_BLUETOOTH)
   list(APPEND QFIELD_CORE_SRCS positioning/bluetoothdevicemodel.cpp
-       positioning/bluetoothreceiver.cpp)
+       positioning/bluetoothreceiver.cpp
+       positioning/vendorcommandhelper.cpp)
   list(APPEND QFIELD_CORE_HDRS positioning/bluetoothdevicemodel.h
-       positioning/bluetoothreceiver.h)
+       positioning/bluetoothreceiver.h
+       positioning/vendorcommandhelper.h)
 endif()
 
 if(WITH_SERIALPORT)
