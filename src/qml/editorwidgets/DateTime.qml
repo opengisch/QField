@@ -32,6 +32,7 @@ EditorWidgetBase {
   property bool isDateTimeType: field.isDateOrTime
   property bool fieldIsDateTime: LayerUtils.fieldType(field) === 'QDateTime'
   property bool fieldIsDate: LayerUtils.fieldType(field) === 'QDate'
+  property bool fieldIsTime: LayerUtils.fieldType(field) === 'QTime'
   property bool fieldIsString: LayerUtils.fieldType(field) === 'QString'
 
   property var currentValue: {
@@ -45,7 +46,16 @@ EditorWidgetBase {
     if (value == null || value === '') {
       return qsTr('(no date)');
     } else {
-      const displayFormat = config['display_format'] == null ? 'yyyy-MM-dd' : config['display_format'];
+      let displayFormat = config['display_format'];
+      if (displayFormat === undefined || displayFormat === "") {
+        if (main.fieldIsDateTime) {
+          displayFormat = "yyyy-MM-dd HH:mm:ss";
+        } else if (main.fieldIsTime) {
+          displayFormat = "HH:mm:ss";
+        } else {
+          displayFormat = "yyyy-MM-dd";
+        }
+      }
       if (main.isDateTimeType) {
         // if the field is a QDate, the automatic conversion to JS date [1]
         // leads to the creation of date time object with the time zone.
@@ -223,8 +233,7 @@ EditorWidgetBase {
 
   QfCalendarPanel {
     id: calendarPanel
-    showTimePicker: main.fieldIsDateTime || (main.fieldIsString && config['field_format_overwrite'] && config['field_format'].includes("HH:mm")) || (main.fieldIsString && !config['field_format_overwrite'])
-
+    showTimePicker: main.fieldIsDateTime || main.fieldIsTime || (main.fieldIsString && config['field_format_overwrite'] && config['field_format'].includes("HH:mm")) || (main.fieldIsString && !config['field_format_overwrite'])
     showDatePicker: main.fieldIsDate || main.fieldIsDateTime || (main.fieldIsString && config['field_format_overwrite'] && (config['field_format'].includes("yyyy-MM") || config['field_format'].includes("yyyy.MM"))) || (main.fieldIsString && !config['field_format_overwrite'])
 
     onDateTimePicked: date => {
