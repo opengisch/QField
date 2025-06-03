@@ -4,7 +4,7 @@ Item {
   id: root
 
   function pointInItem(point, item) {
-    var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
+    const itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
     return point.x >= itemCoordinates.x && point.x <= itemCoordinates.x + item.width && point.y >= itemCoordinates.y && point.y <= itemCoordinates.y + item.height;
   }
 

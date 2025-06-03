@@ -508,20 +508,15 @@ ApplicationWindow {
       property bool hasBeenHovered: false
       property bool skipHover: false
 
-      function pointInItem(point, item) {
-        var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
-        return point.position.x >= itemCoordinates.x && point.position.x <= itemCoordinates.x + item.width && point.position.y >= itemCoordinates.y && point.position.y <= itemCoordinates.y + item.height;
-      }
-
       onPointChanged: {
         if (skipHover || !mapCanvasMap.hovered) {
           return;
         }
 
         // when hovering various toolbars, reset coordinate locator position for nicer UX
-        if (!freehandHandler.active && (pointInItem(point, digitizingToolbar) || pointInItem(point, elevationProfileButton))) {
+        if (!freehandHandler.active && (pointHandler.pointInItem(point, digitizingToolbar) || pointHandler.pointInItem(point, elevationProfileButton))) {
           coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen(digitizingToolbar.rubberbandModel.lastCoordinate);
-        } else if (!freehandHandler.active && pointInItem(point, geometryEditorsToolbar)) {
+        } else if (!freehandHandler.active && pointHandler.pointInItem(point, geometryEditorsToolbar)) {
           coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen(geometryEditorsToolbar.editorRubberbandModel.lastCoordinate);
         } else if (!freehandHandler.active) {
           // after a click, it seems that the position is sent once at 0,0 => weird)
