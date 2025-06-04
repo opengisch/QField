@@ -134,6 +134,7 @@ RelationEditorBase {
             width: 48
             height: 48
             fillMode: Image.PreserveAspectFit
+            mipmap: true
             visible: !!ImagePath
           }
 
