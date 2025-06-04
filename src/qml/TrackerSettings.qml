@@ -86,6 +86,7 @@ Popup {
       showBackButton: true
 
       onBack: {
+        trackingModel.trackingSetupDone();
         if (tracker != undefined) {
           trackingModel.stopTracker(tracker.vectorLayer);
         }
