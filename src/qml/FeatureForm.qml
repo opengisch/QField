@@ -641,7 +641,7 @@ Page {
               top: constraintDescriptionLabel.bottom
             }
 
-            visible: attributeEditorLoader.isEnabled && attributeEditorLoader.item.hasMenu
+            visible: attributeEditorLoader.isEnabled && attributeEditorLoader.item && attributeEditorLoader.item.hasMenu
             enabled: visible
             width: visible ? 48 : 0
 
