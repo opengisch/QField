@@ -465,6 +465,7 @@ div.explanation {
   gap: 16px;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
 }
 
 .linkedin-icon {
