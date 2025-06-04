@@ -353,41 +353,30 @@ font-size: 13pt;
   border-color: #fff;
 }
 
-#testimonials {
-  padding: 3em 0;
+/* all success stories button */
+.all-success-stories-button a {
+  margin-left: 10px;
+  padding: 5px 10px 5px 10px !important;
+  background-color: #f2f2f2;
+  border: 0.5px solid #525251 !important;
+  color: #525251 !important;
+  text-align: center;
+  border-radius: 32px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 12pt;
+  margin-bottom: 20px;
+  margin-top: 70px;
 }
 
-#testimonials>h2 {
-  margin-top: 0;
-  margin-bottom: 1em;
+.all-success-stories-button a:hover {
+  background-color: #525251;
+  border: 0.5px solid #525251 !important;
+  color: white !important;
+  border-radius: 32px;
+  text-decoration: none !important;
 }
 
-#testimonials .testimonials-container {
-  max-width:1140px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-#testimonials .testimonial {
-  padding-bottom: 2em;
-}
-
-#testimonials .testimonial hr {
-  border-color: #212121;
-  width: 50%;
-  margin-bottom: 0;
-}
-
-#testimonials .stars {
-  color: #212121;
-}
-#testimonials cite, #customers cite {
-  font-size: 0.8em;
-  float: right;
-}
-
+/* about */
 #about {
   background-color: #21212105;
   background-size: 100%;
@@ -482,6 +471,7 @@ div.explanation {
   filter: invert(18%) sepia(7%) saturate(749%) hue-rotate(172deg) brightness(96%) contrast(90%);
 }
 
+/* support us button */
 .support-button a {
   margin-left: 10px;
   padding: 5px 10px 5px 10px !important;
@@ -491,6 +481,7 @@ div.explanation {
   text-align: center;
   border-radius: 32px;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 12pt;
 }
 
 .support-button a:hover {
@@ -560,54 +551,107 @@ div.explanation {
 /* industries carousel */
 .industries-carousel-section {
   background: #fff;
-  overflow: hidden;
   padding: 40px 0;
 }
 
 .industries-carousel-wrapper {
   max-width: 1140px;
   margin: 0 auto;
-  overflow: hidden;
-  position: relative;
+  padding: 0 20px;
 }
 
-.industries-carousel-track {
-  display: flex;
-  width: max-content;
-  animation: industries-scroll 30s linear infinite;
+.industries-rows {
+  display: grid;
+  gap: 30px;
 }
 
-.industries-carousel-slide {
-  display: flex;
+.industries-row-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.industries-row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .industries-carousel-slide .item {
-  flex: 0 0 auto;
-  width: 300px;
-  text-align: left;
-  margin-right: 50px;
-  font-weight: normal;
+  position: relative;
+  height: 350px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.industries-carousel-slide .item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .industries-carousel-slide .item img {
   width: 100%;
-  height: 350px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  transition: transform 0.3s ease;
 }
 
-.industries-carousel-slide .item p {
-  margin-top: 10px;
+.industries-carousel-slide .item:hover img {
+  transform: scale(1.05);
+}
+
+.industry-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(144, 88, 88, 0.3), rgba(0, 0, 0, 0.6));
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.industry-title {
   font-size: 15pt;
   font-weight: 500;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.3;
+  text-align: left;
 }
 
-@keyframes industries-scroll {
-  0% {
-    transform: translateX(0);
+/* Remove animation keyframes - no longer needed */
+/* @keyframes industries-scroll { ... } */
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .industries-row-4 {
+    grid-template-columns: repeat(2, 1fr);
   }
-  100% {
-    transform: translateX(-30%);
+  .industries-row-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .industries-row-4,
+  .industries-row-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .industries-carousel-slide .item {
+    height: 280px;
+  }
+
+  .industry-title {
+    font-size: 14pt;
+  }
+
+  .industries-carousel-wrapper {
+    padding: 0 15px;
   }
 }
 
