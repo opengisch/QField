@@ -73,9 +73,13 @@ RelationEditorBase {
 
       onClicked: {
         if (orderedRelationModel.relation.referencingLayer !== undefined) {
-          geometryHighlighter.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry;
-          geometryHighlighter.geometryWrapper.crs = orderedRelationModel.relation.referencingLayer.crs;
-          mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings, orderedRelationModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature);
+          if (orderedRelationModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null && orderedRelationModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Unknown) {
+            geometryHighlighter.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry;
+            geometryHighlighter.geometryWrapper.crs = orderedRelationModel.relation.referencingLayer.crs;
+            mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings, orderedRelationModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature);
+          } else {
+            viewButton.onClicked();
+          }
         }
       }
 
@@ -139,6 +143,7 @@ RelationEditorBase {
             width: parent.width - (featureImage.visible ? featureImage.width : 0) - viewButton.width - moveDownButton.width - moveUpButton.width - menuButton.width
             topPadding: 5
             bottomPadding: 5
+            leftPadding: featureImage.visible ? 5 : 0
             font: Theme.defaultFont
             color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
             elide: Text.ElideRight
