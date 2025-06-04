@@ -251,9 +251,9 @@ footer.footer {
     height: 150px;
   }
 
-  /* .phone-image {
+  .phone-image {
     max-height: 130px;
-  } */
+  }
 
   .carousel-caption.custom-caption {
     padding: 15px;
