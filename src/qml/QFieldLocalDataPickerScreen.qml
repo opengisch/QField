@@ -237,7 +237,7 @@ Page {
                 font.pointSize: Theme.defaultFont.pointSize
                 font.underline: itemMenuLoadable
                 color: itemMenuLoadable ? Theme.mainColor : Theme.mainTextColor
-                wrapMode: Text.WordWrap
+                wrapMode: Text.Wrap
               }
               Text {
                 id: itemInfo
