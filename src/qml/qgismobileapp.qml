@@ -508,20 +508,15 @@ ApplicationWindow {
       property bool hasBeenHovered: false
       property bool skipHover: false
 
-      function pointInItem(point, item) {
-        var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
-        return point.position.x >= itemCoordinates.x && point.position.x <= itemCoordinates.x + item.width && point.position.y >= itemCoordinates.y && point.position.y <= itemCoordinates.y + item.height;
-      }
-
       onPointChanged: {
         if (skipHover || !mapCanvasMap.hovered) {
           return;
         }
 
         // when hovering various toolbars, reset coordinate locator position for nicer UX
-        if (!freehandHandler.active && (pointInItem(point, digitizingToolbar) || pointInItem(point, elevationProfileButton))) {
+        if (!freehandHandler.active && (pointHandler.pointInItem(point, digitizingToolbar) || pointHandler.pointInItem(point, elevationProfileButton))) {
           coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen(digitizingToolbar.rubberbandModel.lastCoordinate);
-        } else if (!freehandHandler.active && pointInItem(point, geometryEditorsToolbar)) {
+        } else if (!freehandHandler.active && pointHandler.pointInItem(point, geometryEditorsToolbar)) {
           coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen(geometryEditorsToolbar.editorRubberbandModel.lastCoordinate);
         } else if (!freehandHandler.active) {
           // after a click, it seems that the position is sent once at 0,0 => weird)
@@ -645,13 +640,12 @@ ApplicationWindow {
 
       anchors.fill: parent
 
-      function pointInItem(point, item) {
-        var itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
-        return point.x >= itemCoordinates.x && point.x <= itemCoordinates.x + item.width && point.y >= itemCoordinates.y && point.y <= itemCoordinates.y + item.height;
-      }
-
       onClicked: (point, type) => {
-        if (type === "stylus" && (overlayFeatureFormDrawer.opened || (featureForm.visible && pointInItem(point, featureForm)))) {
+        // Check if any registered handlers want to handle this click
+        if (pointHandler.clicked(point, type)) {
+          return;
+        }
+        if (type === "stylus" && (overlayFeatureFormDrawer.opened || (featureForm.visible && pointHandler.pointInItem(point, featureForm)))) {
           return;
         }
         if (!digitizingToolbar.geometryRequested && featureForm.state == "FeatureFormEdit") {
@@ -662,7 +656,7 @@ ApplicationWindow {
           return;
         }
         if (type === "stylus") {
-          if (pointInItem(point, digitizingToolbar) || pointInItem(point, zoomToolbar) || pointInItem(point, mainToolbar) || pointInItem(point, mainMenuBar) || pointInItem(point, geometryEditorsToolbar) || pointInItem(point, locationToolbar) || pointInItem(point, digitizingToolbarContainer) || pointInItem(point, locatorItem)) {
+          if (pointHandler.pointInItem(point, digitizingToolbar) || pointHandler.pointInItem(point, zoomToolbar) || pointHandler.pointInItem(point, mainToolbar) || pointHandler.pointInItem(point, mainMenuBar) || pointHandler.pointInItem(point, geometryEditorsToolbar) || pointHandler.pointInItem(point, locationToolbar) || pointHandler.pointInItem(point, digitizingToolbarContainer) || pointHandler.pointInItem(point, locatorItem)) {
             return;
           }
 
@@ -711,8 +705,12 @@ ApplicationWindow {
       }
 
       onLongPressed: (point, type) => {
+        // Check if any registered handlers want to handle this press and hold
+        if (pointHandler.pressAndHold(point, type)) {
+          return;
+        }
         if (type === "stylus") {
-          if (overlayFeatureFormDrawer.opened || (featureForm.visible && pointInItem(point, featureForm))) {
+          if (overlayFeatureFormDrawer.opened || (featureForm.visible && pointHandler.pointInItem(point, featureForm))) {
             return;
           }
 
@@ -763,9 +761,23 @@ ApplicationWindow {
         }
       }
 
+      onDoubleClicked: (point, type) => {
+        // Check if any registered handlers want to handle this double click
+        if (pointHandler.doubleClicked(point, type)) {
+          return;
+        }
+        if (type === "touch") {
+          mapCanvasWrapper.zoom(Qt.point(point.x, point.y), 0.8);
+        }
+      }
+
       GridRenderer {
         id: gridDecoration
         mapSettings: mapCanvas.mapSettings
+      }
+
+      MapCanvasPointHandler {
+        id: pointHandler
       }
     }
 
