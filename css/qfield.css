@@ -279,47 +279,6 @@ footer.footer {
   object-fit: contain;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  #maincarousel {
-    height: 450px;
-    margin-bottom: 50px;
-  }
-
-  .carousel-inner > .item {
-    height: 100%;
-  }
-
-  .phone-container {
-    position: relative;
-    width: 100%;
-    height: 200px;
-    margin-top: 20px;
-  }
-
-  .phone-image {
-    max-height: 180px;
-  }
-
-  .carousel-caption.custom-caption {
-    position: relative;
-    width: 100%;
-    bottom: auto;
-    left: auto;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .carousel-caption .carousel-title {
-    font-size: 35px;
-    margin-bottom: 20px;
-  }
-
-  .carousel-background {
-    height: 60%;
-  }
-}
-
 @media (max-width: 480px) {
   #maincarousel {
     height: 400px;
@@ -349,8 +308,8 @@ footer.footer {
   }
 }
 
-/* smaller version */
-/* #maincarousel.small-carousel {
+/* smaller version
+#maincarousel.small-carousel {
   height: 280px;
 }
 
