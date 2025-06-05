@@ -341,6 +341,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     QTimer mPreviewTimer;
     QMetaObject::Connection mPreviewTimerConnection;
     QMap<int, QImage> mPreviewImages;
+    bool mInititalizedNode = false;
 
     QQuickWindow *mWindow = nullptr;
 };

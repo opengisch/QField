@@ -469,16 +469,9 @@ bool QgsQuickMapCanvasMap::isRendering() const
 
 QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::UpdatePaintNodeData * )
 {
-  if ( mDirty )
-  {
-    delete oldNode;
-    oldNode = nullptr;
-    mDirty = false;
-  }
-
   if ( mImage.isNull() )
   {
-    return nullptr;
+    return oldNode;
   }
 
   QRectF rect( boundingRect() );
@@ -499,7 +492,7 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
     }
   }
 
-  QSGSimpleTextureNode *node = static_cast<QSGSimpleTextureNode *>( oldNode );
+  QSGSimpleTextureNode *node = mInititalizedNode ? static_cast<QSGSimpleTextureNode *>( oldNode ) : nullptr;
   bool setChildRects = !node;
   if ( !node )
   {
@@ -508,19 +501,62 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
     QSGTexture *texture = window()->createTextureFromImage( mImage );
     node->setTexture( texture );
     node->setOwnsTexture( true );
-    node->setRect( rect );
 
-    for ( auto [number, previewImage] : mPreviewImages.asKeyValueRange() )
+    for ( int i = 0; i < 8; i++ )
     {
+      const int previewKey = i >= 4 ? i + 1 : i;
+
       QSGSimpleTextureNode *childNode = new QSGSimpleTextureNode();
       childNode->setFiltering( QSGTexture::Linear );
-      texture = window()->createTextureFromImage( previewImage );
-      childNode->setTexture( texture );
-      childNode->setOwnsTexture( true );
+      if ( mPreviewImages.contains( previewKey ) )
+      {
+        childNode->setTexture( window()->createTextureFromImage( mPreviewImages[previewKey] ) );
+        childNode->setOwnsTexture( true );
+      }
+      else
+      {
+        QImage img( QSize( 1, 1 ), QImage::Format_ARGB32 );
+        img.fill( Qt::transparent );
+        childNode->setTexture( window()->createTextureFromImage( img ) );
+        childNode->setOwnsTexture( true );
+      }
       node->appendChildNode( childNode );
     }
+    mInititalizedNode = true;
   }
-  else if ( node->rect() != rect )
+  else if ( mDirty )
+  {
+    QSGTexture *texture = window()->createTextureFromImage( mImage );
+    node->setTexture( texture );
+    node->setOwnsTexture( true );
+
+    for ( int i = 0; i < 8; i++ )
+    {
+      const int previewKey = i >= 4 ? i + 1 : i;
+
+      QSGSimpleTextureNode *childNode = dynamic_cast<QSGSimpleTextureNode *>( node->childAtIndex( i ) );
+      if ( childNode && mPreviewImages.contains( previewKey ) )
+      {
+        if ( childNode->texture()->textureSize().width() == 1 )
+        {
+          childNode->setTexture( window()->createTextureFromImage( mPreviewImages[previewKey] ) );
+          childNode->setOwnsTexture( true );
+        }
+      }
+      else
+      {
+        if ( childNode->texture()->textureSize().width() != 1 )
+        {
+          QImage img( QSize( 1, 1 ), QImage::Format_ARGB32 );
+          img.fill( Qt::transparent );
+          childNode->setTexture( window()->createTextureFromImage( img ) );
+          childNode->setOwnsTexture( true );
+        }
+      }
+    }
+  }
+
+  if ( node->rect() != rect )
   {
     node->setRect( rect );
     setChildRects = true;
@@ -528,29 +564,28 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
 
   if ( setChildRects )
   {
-    const QList<int> numbers = mPreviewImages.keys();
     for ( int i = 0; i < node->childCount(); i++ )
     {
-      const int number = numbers[i];
+      const int previewKey = i >= 4 ? i + 1 : i;
       QRectF childRect( rect );
       // Adjust left/right
-      if ( number == 0 || number == 3 || number == 6 )
+      if ( previewKey == 0 || previewKey == 3 || previewKey == 6 )
       {
         childRect.setLeft( rect.left() - rect.width() );
         childRect.setRight( rect.right() - rect.width() );
       }
-      else if ( number == 2 || number == 5 || number == 8 )
+      else if ( previewKey == 2 || previewKey == 5 || previewKey == 8 )
       {
         childRect.setLeft( rect.left() + rect.width() );
         childRect.setRight( rect.right() + rect.width() );
       }
       //Adjust top/bottom
-      if ( number < 3 )
+      if ( previewKey < 3 )
       {
         childRect.setTop( rect.top() - rect.height() );
         childRect.setBottom( rect.bottom() - rect.height() );
       }
-      else if ( number > 5 )
+      else if ( previewKey > 5 )
       {
         childRect.setTop( rect.top() + rect.height() );
         childRect.setBottom( rect.bottom() + rect.height() );
