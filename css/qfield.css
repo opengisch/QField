@@ -354,12 +354,12 @@ font-size: 13pt;
 }
 
 /* all success stories button */
-.all-success-stories-button a {
+.success-stories-button a {
   margin-left: 10px;
   padding: 5px 10px 5px 10px !important;
-  background-color: #f2f2f2;
-  border: 0.5px solid #525251 !important;
-  color: #525251 !important;
+  background-color: var(--qfield-color);
+  border: 0.5px solid var(--qfield-color) !important;
+  color: white !important;
   text-align: center;
   border-radius: 32px;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -368,7 +368,7 @@ font-size: 13pt;
   margin-top: 70px;
 }
 
-.all-success-stories-button a:hover {
+.success-stories-button a:hover {
   background-color: #525251;
   border: 0.5px solid #525251 !important;
   color: white !important;
@@ -619,15 +619,18 @@ div.explanation {
   font-size: 15pt;
   font-weight: 500;
   color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  line-height: 1.3;
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.industry-sub {
+  font-size: 12pt;
+  font-weight: lighter;
+  color: var(--qfield-color);
   text-align: left;
 }
 
-/* Remove animation keyframes - no longer needed */
-/* @keyframes industries-scroll { ... } */
-
-/* Responsive Design */
+/* industries responsive design */
 @media (max-width: 1024px) {
   .industries-row-4 {
     grid-template-columns: repeat(2, 1fr);
@@ -662,7 +665,7 @@ div.explanation {
 }
 
 .nav-pills a {
-    border-radius: 12px !important;
+  border-radius: 12px !important;
 }
 
 /* hardware page button */
