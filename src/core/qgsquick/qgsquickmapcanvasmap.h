@@ -320,6 +320,8 @@ class QgsQuickMapCanvasMap : public QQuickItem
     std::unique_ptr<QgsMapRendererCache> mCache;
     QgsLabelingResults *mLabelingResults = nullptr;
     QImage mImage;
+    QgsRectangle mImageExtent;
+    double mImageRotation = 0.0;
     QgsMapSettings mImageMapSettings;
     QTimer mRefreshTimer;
     bool mDirty = false;

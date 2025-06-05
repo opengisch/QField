@@ -169,7 +169,8 @@ void QgsQuickMapCanvasMap::renderJobUpdated()
   if ( !mJob )
     return;
 
-  mImageMapSettings = mJob->mapSettings();
+  mImageExtent = mJob->mapSettings().extent();
+  mImageRotation = mJob->mapSettings().rotation();
   mPreviewImages.clear();
   mDirty = true;
   // Temporarily freeze the canvas, we only need to reset the geometry but not trigger a repaint
@@ -198,6 +199,8 @@ void QgsQuickMapCanvasMap::renderJobFinished()
   mLabelingResults = mJob->takeLabelingResults();
 
   mImage = mJob->renderedImage();
+  mImageExtent = mJob->mapSettings().extent();
+  mImageRotation = mJob->mapSettings().rotation();
   mImageMapSettings = mJob->mapSettings();
   mPreviewImages.clear();
 
@@ -317,22 +320,21 @@ void QgsQuickMapCanvasMap::onTemporalStateChanged()
 }
 void QgsQuickMapCanvasMap::updateTransform( bool skipSmooth )
 {
-  const QgsRectangle imageExtent = mImageMapSettings.extent();
   const QgsRectangle newExtent = mMapSettings->mapSettings().extent();
-  const QgsPointXY center = imageExtent.center();
+  const QgsPointXY center = mImageExtent.center();
   const QgsPointXY pixelPt = mMapSettings->coordinateToScreen( QgsPoint( center.x(), center.y() ) );
 
   if ( mSmooth && !skipSmooth )
   {
-    setProperty( "scale", static_cast<double>( imageExtent.width() ) / newExtent.width() );
-    setProperty( "rotation", mMapSettings->mapSettings().rotation() - mImageMapSettings.rotation() );
+    setProperty( "scale", static_cast<double>( mImageExtent.width() ) / newExtent.width() );
+    setProperty( "rotation", mMapSettings->mapSettings().rotation() - mImageRotation );
     setProperty( "x", pixelPt.x() - static_cast<qreal>( mMapSettings->outputSize().width() ) / mMapSettings->devicePixelRatio() / 2 );
     setProperty( "y", pixelPt.y() - static_cast<qreal>( mMapSettings->outputSize().height() ) / mMapSettings->devicePixelRatio() / 2 );
   }
   else
   {
-    setScale( static_cast<double>( imageExtent.width() ) / newExtent.width() );
-    setRotation( mMapSettings->mapSettings().rotation() - mImageMapSettings.rotation() );
+    setScale( static_cast<double>( mImageExtent.width() ) / newExtent.width() );
+    setRotation( mMapSettings->mapSettings().rotation() - mImageRotation );
     setX( pixelPt.x() - static_cast<qreal>( mMapSettings->outputSize().width() ) / mMapSettings->devicePixelRatio() / 2 );
     setY( pixelPt.y() - static_cast<qreal>( mMapSettings->outputSize().height() ) / mMapSettings->devicePixelRatio() / 2 );
   }
