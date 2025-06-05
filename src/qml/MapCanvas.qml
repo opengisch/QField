@@ -78,6 +78,9 @@ Item {
   function freeze(id) {
     mapCanvasWrapper.__freezecount[id] = true;
     mapCanvasWrapper.freeze = true;
+    if (id !== 'follow') {
+      mapCanvasWrapper.stopRendering();
+    }
   }
 
   function unfreeze(id) {
