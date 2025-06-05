@@ -1213,7 +1213,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Set navigation point</translation>
+        <translation>Set navigation point</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>

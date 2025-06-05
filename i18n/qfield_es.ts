@@ -1156,7 +1156,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Establecer punto de navegación</translation>
+        <translation>Establecer punto de navegación</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -1708,7 +1708,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Process Feature</source>
-        <translation type="unfinished"/>
+        <translation>Procesar objeto</translation>
     </message>
 </context>
 <context>
@@ -3993,7 +3993,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Skipped file %1 outside of the directory %2</source>
-        <translation type="unfinished"/>
+        <translation>Archivo %1 fuera del directorio %2 omitido</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
@@ -5745,11 +5745,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Unlock</source>
-        <translation type="unfinished"/>
+        <translation>Desbloquear</translation>
     </message>
     <message>
         <source> Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Complemento de proyecto</translation>
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
