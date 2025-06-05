@@ -369,9 +369,9 @@ font-size: 13pt;
 }
 
 .success-stories-button a:hover {
-  background-color: #525251;
-  border: 0.5px solid #525251 !important;
-  color: white !important;
+  background-color: transparent;
+  border: 0.5px solid var(--qfield-color) !important;
+  color: var(--qfield-color) !important;
   border-radius: 32px;
   text-decoration: none !important;
 }
@@ -659,7 +659,7 @@ div.explanation {
 }
 
 /*partner page*/
-.btn-success {
+.success-button {
   background-color: #80cc28;
 }
 
