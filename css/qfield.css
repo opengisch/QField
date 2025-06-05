@@ -587,11 +587,6 @@ div.explanation {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.industries-carousel-slide .item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
 .industries-carousel-slide .item img {
   width: 100%;
   height: 100%;
@@ -616,7 +611,7 @@ div.explanation {
 }
 
 .industry-title {
-  font-size: 15pt;
+  font-size: 12pt;
   font-weight: 500;
   color: white;
   text-align: left;
