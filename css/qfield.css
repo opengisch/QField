@@ -631,7 +631,7 @@ div.explanation {
 
 .industries-rows {
   display: grid;
-  gap: 30px;
+  gap: 20px;
 }
 
 .industries-row-4 {
@@ -648,7 +648,8 @@ div.explanation {
 
 .industries-carousel-slide .item {
   position: relative;
-  height: 350px;
+  height: 250px;
+  width: 200;
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
