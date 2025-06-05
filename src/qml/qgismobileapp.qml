@@ -324,6 +324,7 @@ ApplicationWindow {
 
     deviceId: positioningSettings.positioningDevice
 
+    property bool jumpToPosition: false
     property bool currentness: false
     property alias destinationCrs: positionSource.coordinateTransformer.destinationCrs
     property real bearingTrueNorth: 0.0
@@ -342,6 +343,10 @@ ApplicationWindow {
 
     onPositionInformationChanged: {
       if (active) {
+        if (jumpToPosition && positionSource.projectedPosition.x) {
+          jumpToPosition = false;
+          mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+        }
         bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
           gnssButton.followLocation(false);
@@ -2142,22 +2147,19 @@ ApplicationWindow {
             followOrientation();
             displayToast(qsTr("Canvas follows location and compass orientation"));
           } else {
-            followActive = true;
-            mapCanvasMap.freeze('follow');
-            if (positionSource.projectedPosition.x) {
-              if (!positionSource.active) {
-                positioningSettings.positioningActivated = true;
-              } else {
+            if (!positionSource.active) {
+              positionSource.jumpToPosition = true;
+              positioningSettings.positioningActivated = true;
+            } else {
+              if (positionSource.projectedPosition.x) {
+                mapCanvasMap.freeze('follow');
+                followActive = true;
                 followLocation(true);
                 displayToast(qsTr("Canvas follows location"));
-              }
-            } else {
-              if (positionSource.valid) {
-                if (positionSource.active) {
-                  displayToast(qsTr("Waiting for location"));
-                } else {
-                  positioningSettings.positioningActivated = true;
-                }
+              } else {
+                displayToast(qsTr("Waiting for location"));
+                mapCanvasMap.freeze('follow');
+                followActive = true;
               }
             }
           }
@@ -3619,21 +3621,10 @@ ApplicationWindow {
     displayToast(qsTr('Follow location paused'), 'info', qsTr('Unlock'), () => {
         gnssButton.autoRefollow = false;
       }, true, () => {
-        gnssButton.followActive = true;
-        mapCanvasMap.freeze('follow');
-        if (positionSource.projectedPosition.x) {
-          if (!positionSource.active) {
-            positioningSettings.positioningActivated = true;
-          } else {
-            gnssButton.followLocation(true);
-          }
-        } else {
-          if (positionSource.valid) {
-            if (positionSource.active) {
-            } else {
-              positioningSettings.positioningActivated = true;
-            }
-          }
+        if (positionSource.active) {
+          gnssButton.followActive = true;
+          mapCanvasMap.freeze('follow');
+          gnssButton.followLocation(true);
         }
       });
   }
