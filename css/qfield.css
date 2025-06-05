@@ -532,21 +532,89 @@ div.explanation {
 }
 
 /* clients logos */
+.client-logos {
+    padding: 25px 15px;
+    text-align: center;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.logos-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+    align-items: center;
+    gap: 30px;
+}
+
 .client-logo {
-  /* max-height: 60px; */
-  /* max-width: 150px; */
-  object-fit: contain;
-  margin-left: 50px;
+    max-height: 50px;
+    max-width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-#client-logo a {
-  text-decoration: none;
-  display: inline-block;
+/* individual logo sizes */
+.logo-kgr { max-height: 45px; max-width: auto; }
+.logo-db { max-height: 40px; max-width: auto; }
+.logo-nls { max-height: 50px; max-width: auto; }
+.logo-un { max-height: 65px; max-width: auto; }
+.logo-maff { max-height: 60px; max-width: auto; }
+.logo-zurich { max-height: 40px; max-width: auto; }
+
+.logo-link {
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px;
 }
 
-#client-logo a:hover img {
-  transform: scale(1.02);
-  transition: all 0.3s ease;
+.logo-link:hover .client-logo {
+    transform: scale(1.02);
+}
+
+/* tablet */
+@media (max-width: 768px) {
+    .logos-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on tablet */
+        gap: 25px;
+    }
+}
+
+/* mobile */
+@media (max-width: 640px) {
+    .client-logos {
+        padding: 20px 10px;
+    }
+
+    .logos-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+        gap: 15px;
+    }
+/*
+    .client-logo {
+        max-height: 35px;
+        max-width: auto;
+    } */
+
+    /* individual mobile sizes */
+    .logo-kgr { max-height: 35px; max-width: auto; }
+    .logo-db { max-height: 32px; max-width: auto; }
+    .logo-nls { max-height: 45px; max-width: auto; }
+    .logo-un { max-height: 80px; max-width: auto; }
+    .logo-maff { max-height: 60px; max-width: auto; }
+    .logo-zurich { max-height: 35px; max-width: auto; }
+
+    .logo-link {
+        padding: 10px;
+    }
+}
+
+/* smaller mobile */
+@media (max-width: 480px) {
+    .logos-container {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        gap: 15px;
+    }
 }
 
 /* industries carousel */
@@ -641,11 +709,11 @@ div.explanation {
   }
 
   .industries-carousel-slide .item {
-    height: 280px;
+    height: 150px;
   }
 
   .industry-title {
-    font-size: 14pt;
+    font-size: 12pt;
   }
 
   .industries-carousel-wrapper {
