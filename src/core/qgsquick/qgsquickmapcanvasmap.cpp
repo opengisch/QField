@@ -166,12 +166,16 @@ void QgsQuickMapCanvasMap::refreshMap()
 
 void QgsQuickMapCanvasMap::renderJobUpdated()
 {
-  if ( !mJob || mFreeze )
+  if ( !mJob )
     return;
 
   mImage = mJob->renderedImage();
   mImageMapSettings = mJob->mapSettings();
   mPreviewImages.clear();
+
+  if ( mFreeze )
+    return;
+
   mDirty = true;
   // Temporarily freeze the canvas, we only need to reset the geometry but not trigger a repaint
   bool freeze = mFreeze;
@@ -534,8 +538,8 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
     {
       const int previewKey = i >= 4 ? i + 1 : i;
 
-      QSGSimpleTextureNode *childNode = dynamic_cast<QSGSimpleTextureNode *>( node->childAtIndex( i ) );
-      if ( childNode && mPreviewImages.contains( previewKey ) )
+      QSGSimpleTextureNode *childNode = static_cast<QSGSimpleTextureNode *>( node->childAtIndex( i ) );
+      if ( mPreviewImages.contains( previewKey ) )
       {
         if ( childNode->texture()->textureSize().width() == 1 )
         {
