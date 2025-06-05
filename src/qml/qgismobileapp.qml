@@ -398,6 +398,9 @@ ApplicationWindow {
           displayToast(qsTr("Activating positioning service"));
           positionSource.active = true;
         } else {
+          gnssButton.followActive = false;
+          gnssButton.followOrientationActive = false;
+          gnssButton.autoRefollow = false;
           positionSource.active = false;
         }
       }
