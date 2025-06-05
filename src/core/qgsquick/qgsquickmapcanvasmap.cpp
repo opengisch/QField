@@ -169,7 +169,6 @@ void QgsQuickMapCanvasMap::renderJobUpdated()
   if ( !mJob )
     return;
 
-  mImage = mJob->renderedImage();
   mImageMapSettings = mJob->mapSettings();
   mPreviewImages.clear();
   mDirty = true;
@@ -505,7 +504,7 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
   {
     node = new QSGSimpleTextureNode();
     node->setFiltering( QSGTexture::Linear );
-    QSGTexture *texture = window()->createTextureFromImage( mImage );
+    QSGTexture *texture = window()->createTextureFromImage( mJob && mJob->isActive() ? mJob->renderedImage() : mImage );
     node->setTexture( texture );
     node->setOwnsTexture( true );
     node->setRect( rect );
