@@ -166,7 +166,7 @@ void QgsQuickMapCanvasMap::refreshMap()
 
 void QgsQuickMapCanvasMap::renderJobUpdated()
 {
-  if ( !mJob )
+  if ( !mJob || mFreeze )
     return;
 
   mImage = mJob->renderedImage();
