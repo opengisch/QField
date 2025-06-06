@@ -50,11 +50,6 @@ Popup {
     } else if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
       microphonePermission.request();
     }
-    if (recorder.mediaFormat.supportedAudioCodecs(MediaFormat.Encode).indexOf(MediaFormat.AudioCodec.AAC) >= 0 && recorder.mediaFormat.supportedVideoCodecs(MediaFormat.Encode).indexOf(MediaFormat.VideoCodec.H264) >= 0) {
-      recorder.mediaFormat.audioCodec = MediaFormat.AudioCodec.AAC;
-      recorder.mediaFormat.videoCodec = MediaFormat.VideoCodec.H264;
-      recorder.mediaFormat.fileFormat = MediaFormat.MPEG4;
-    }
   }
 
   Component.onCompleted: {
