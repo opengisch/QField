@@ -50,9 +50,6 @@ Popup {
     } else if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
       microphonePermission.request();
     }
-    recorder.mediaFormat.audioCodec = MediaFormat.AudioCodec.AAC;
-    recorder.mediaFormat.videoCodec = MediaFormat.VideoCodec.H264;
-    recorder.mediaFormat.fileFormat = MediaFormat.MPEG4;
   }
 
   Component.onCompleted: {

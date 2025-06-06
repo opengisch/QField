@@ -37,8 +37,10 @@ Popup {
     if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
       microphonePermission.request();
     }
-    recorder.mediaFormat.audioCodec = MediaFormat.AudioCodec.AAC;
-    recorder.mediaFormat.fileFormat = MediaFormat.Mpeg4Audio;
+    if (recorder.mediaFormat.supportedAudioCodecs(MediaFormat.Encode).indexOf(MediaFormat.AudioCodec.AAC) >= 0) {
+      recorder.mediaFormat.audioCodec = MediaFormat.AudioCodec.AAC;
+      recorder.mediaFormat.fileFormat = MediaFormat.Mpeg4Audio;
+    }
   }
 
   QfMicrophonePermission {
