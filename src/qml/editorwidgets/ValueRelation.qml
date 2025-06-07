@@ -9,7 +9,7 @@ import ".."
 EditorWidgetBase {
   id: valueRelation
 
-  height: Number(config['AllowMulti']) !== 1 ? valueRelationCombobox.height : valueRelationList.height
+  height: Number(config['AllowMulti']) !== 1 ? valueRelationCombobox.height : valueRelationListComponent.height
   enabled: true
 
   LayerResolver {
@@ -56,18 +56,27 @@ EditorWidgetBase {
     relation: undefined
   }
 
-  Rectangle {
-    id: valueRelationList
+  FeatureCheckListProxyModel {
+    id: featureCheckListProxyModel
+    sourceModel: listModel
+    filterString: searchBar.searchTerm
+  }
 
-    property int itemHeight: 32
-
+  Column {
+    id: valueRelationListComponent
+    width: parent.width
     visible: Number(config['AllowMulti']) === 1
     width: parent.width
     height: Math.min(8 * itemHeight, valueGridView.implicitHeight + 2)
+    spacing: 2
 
-    color: Theme.mainBackgroundColor
-    border.color: Theme.controlBorderColor
-    border.width: 1
+    QfSearchBar {
+      id: searchBar
+      width: parent.width
+      height: 40
+      enabled: isEnabled
+      visible: enabled
+    }
 
     Flickable {
       anchors.fill: parent
