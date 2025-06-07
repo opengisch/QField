@@ -36,6 +36,7 @@ EditorWidgetBase {
     orderByValue: config['OrderByValue'] ? config['OrderByValue'] : ""
     appExpressionContextScopesGenerator: appScopesGenerator
     filterExpression: config['FilterExpression'] ? config['FilterExpression'] : ""
+    searchTerm: searchBar.searchTerm
 
     // passing "" instead of undefined, so the model is cleared on adding new features
     // attributeValue has to be the last property set to make sure its given value is handled properly (e.g. allow multiple)
@@ -59,7 +60,15 @@ EditorWidgetBase {
   FeatureCheckListProxyModel {
     id: featureCheckListProxyModel
     sourceModel: listModel
-    filterString: searchBar.searchTerm
+  }
+
+  Item {
+    // dummy item to control isEnabled changes
+    enabled: isEnabled
+    onEnabledChanged: {
+      // Display checked items at the top in reading mode.
+      featureCheckListProxyModel.sortCheckedFirst(!enabled);
+    }
   }
 
   Column {
@@ -74,8 +83,8 @@ EditorWidgetBase {
       id: searchBar
       width: parent.width
       height: 40
-      enabled: isEnabled
       visible: enabled
+      enabled: isEnabled
     }
 
     Flickable {
