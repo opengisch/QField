@@ -22,11 +22,24 @@
 class FeatureCheckListProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    Q_PROPERTY( QString searchTerm READ searchTerm WRITE setSearchTerm NOTIFY searchTermChanged )
 
   public:
     explicit FeatureCheckListProxyModel( QObject *parent = nullptr );
 
+    QString searchTerm() const;
+    void setSearchTerm( const QString &searchTerm );
+
     Q_INVOKABLE void sortCheckedFirst( const bool enabled );
+
+  signals:
+    void searchTermChanged();
+
+  protected:
+    bool filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const override;
+
+  private:
+    QString mSearchTerm;
 };
 
 #endif // FEATURECHECKLISTPROXYMODEL_H

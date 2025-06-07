@@ -21,8 +21,36 @@
 FeatureCheckListProxyModel::FeatureCheckListProxyModel( QObject *parent )
   : QSortFilterProxyModel( parent )
 {
+  setFilterCaseSensitivity( Qt::CaseInsensitive );
+  setFilterRole( Qt::DisplayRole );
   setSortRole( Qt::UserRole + 100 );
   setDynamicSortFilter( false );
+}
+
+QString FeatureCheckListProxyModel::searchTerm() const
+{
+  return mSearchTerm;
+}
+
+void FeatureCheckListProxyModel::setSearchTerm( const QString &searchTerm )
+{
+  if ( mSearchTerm != searchTerm )
+  {
+    mSearchTerm = searchTerm;
+    emit searchTermChanged();
+    invalidateFilter();
+  }
+}
+
+bool FeatureCheckListProxyModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
+{
+  if ( mSearchTerm.isEmpty() )
+    return true;
+
+  const QModelIndex idx = sourceModel()->index( sourceRow, 0, sourceParent );
+  const QVariant displayData = sourceModel()->data( idx, Qt::DisplayRole );
+
+  return displayData.toString().contains( mSearchTerm, Qt::CaseInsensitive );
 }
 
 void FeatureCheckListProxyModel::sortCheckedFirst( const bool enabled )
