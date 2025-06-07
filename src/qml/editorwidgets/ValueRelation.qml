@@ -9,7 +9,7 @@ import ".."
 EditorWidgetBase {
   id: valueRelation
 
-  height: Number(config['AllowMulti']) !== 1 ? valueRelationCombobox.height : valueRelationList.height
+  height: (Number(config['AllowMulti']) !== 1 ? valueRelationCombobox.height : valueRelationListComponent.height) + 4
   enabled: true
 
   LayerResolver {
@@ -56,118 +56,150 @@ EditorWidgetBase {
     relation: undefined
   }
 
-  Rectangle {
-    id: valueRelationList
+  FeatureCheckListProxyModel {
+    id: featureCheckListProxyModel
+    sourceModel: listModel
+    searchTerm: searchBar.searchTerm
+  }
 
-    property int itemHeight: 32
+  Item {
+    // dummy item to control isEnabled changes
+    enabled: isEnabled
+    onEnabledChanged: {
+      // Display checked items at the top in reading mode.
+      featureCheckListProxyModel.sortCheckedFirst(!enabled);
+    }
+  }
 
-    visible: Number(config['AllowMulti']) === 1
+  Column {
+    id: valueRelationListComponent
     width: parent.width
-    height: Math.min(8 * valueRelationList.itemHeight, valueListView.contentHeight)
+    anchors.top: parent.top
+    anchors.topMargin: 4
+    visible: Number(config['AllowMulti']) === 1
+    spacing: 4
 
-    color: Theme.mainBackgroundColor
-    border.color: Theme.controlBorderColor
-    border.width: 1
+    QfSearchBar {
+      id: searchBar
+      width: parent.width
+      height: 40
+      visible: enabled
+      enabled: isEnabled
+    }
 
-    ListView {
-      id: valueListView
+    Rectangle {
+      id: valueRelationList
 
-      property int storedIndex
+      property int itemHeight: 32
 
-      onModelChanged: currentIndex = storedIndex
-      onCurrentIndexChanged: storedIndex = currentIndex
+      visible: Number(config['AllowMulti']) === 1
+      width: parent.width
+      height: Math.min(8 * valueRelationList.itemHeight, valueListView.contentHeight)
 
-      anchors.fill: parent
-      anchors.margins: 1
-      model: listModel
-      focus: true
-      clip: true
-      boundsBehavior: Flickable.StopAtBounds
+      color: Theme.mainBackgroundColor
+      border.color: Theme.controlBorderColor
+      border.width: 1
 
-      section.property: listModel.groupField != "" ? "groupFieldValue" : ""
-      section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
-      section.delegate: Rectangle {
-        width: parent.width
-        height: listModel.groupField != "" ? listModel.displayGroupName ? 30 : 5 : 0
-        color: Theme.controlBorderColor
+      ListView {
+        id: valueListView
 
-        Text {
-          anchors {
-            horizontalCenter: parent.horizontalCenter
-            verticalCenter: parent.verticalCenter
-          }
-          font.bold: true
-          font.pointSize: Theme.resultFont.pointSize
-          color: Theme.mainTextColor
-          text: section
-          visible: listModel.displayGroupName
-        }
-      }
+        property int storedIndex
 
-      delegate: Item {
-        id: listItem
-        anchors {
-          left: parent ? parent.left : undefined
-          right: parent ? parent.right : undefined
-        }
-        height: Math.max(valueRelationList.itemHeight, valueText.height)
+        onModelChanged: currentIndex = storedIndex
+        onCurrentIndexChanged: storedIndex = currentIndex
 
+        anchors.fill: parent
+        anchors.margins: 1
+        model: featureCheckListProxyModel
         focus: true
+        clip: true
+        boundsBehavior: Flickable.StopAtBounds
 
-        Rectangle {
-          id: checkBoxRow
+        section.property: listModel.groupField != "" ? "groupFieldValue" : ""
+        section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
+        section.delegate: Rectangle {
           width: parent.width
-          height: listItem.height
-          color: Theme.mainBackgroundColor
-
-          CheckDelegate {
-            id: checkBox
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.left
-            width: valueRelationList.itemHeight
-            height: valueRelationList.itemHeight
-            enabled: isEnabled
-
-            checked: model.checked
-
-            indicator.height: 16
-            indicator.width: 16
-            indicator.implicitHeight: 24
-            indicator.implicitWidth: 24
-          }
+          height: listModel.groupField != "" ? listModel.displayGroupName ? 30 : 5 : 0
+          color: Theme.controlBorderColor
 
           Text {
-            id: valueText
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.right: parent.right
-            anchors.left: checkBox.right
-            anchors.leftMargin: 4
-            width: parent.width - checkBox.width
-            topPadding: 4
-            bottomPadding: 4
-            font: Theme.defaultFont
-            color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
-            text: model.displayString
-            wrapMode: Text.WordWrap
+            anchors {
+              horizontalCenter: parent.horizontalCenter
+              verticalCenter: parent.verticalCenter
+            }
+            font.bold: true
+            font.pointSize: Theme.resultFont.pointSize
+            color: Theme.mainTextColor
+            text: section
+            visible: listModel.displayGroupName
           }
         }
 
-        MouseArea {
-          anchors.fill: parent
+        delegate: Item {
+          id: listItem
+          anchors {
+            left: parent ? parent.left : undefined
+            right: parent ? parent.right : undefined
+          }
+          height: Math.max(valueRelationList.itemHeight, valueText.height)
 
-          onClicked: {
-            if (isEnabled) {
-              model.checked = !model.checked;
+          focus: true
+
+          Rectangle {
+            id: checkBoxRow
+            width: parent.width
+            height: listItem.height
+            color: Theme.mainBackgroundColor
+
+            CheckDelegate {
+              id: checkBox
+              anchors.verticalCenter: parent.verticalCenter
+              anchors.left: parent.left
+              width: valueRelationList.itemHeight
+              height: valueRelationList.itemHeight
+              enabled: isEnabled
+
+              checked: model.checked
+
+              indicator.height: 16
+              indicator.width: 16
+              indicator.implicitHeight: 24
+              indicator.implicitWidth: 24
+            }
+
+            Text {
+              id: valueText
+              anchors.verticalCenter: parent.verticalCenter
+              anchors.right: parent.right
+              anchors.left: checkBox.right
+              anchors.leftMargin: 4
+              width: parent.width - checkBox.width
+              topPadding: 4
+              bottomPadding: 4
+              font: Theme.defaultFont
+              color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
+              text: model.displayString
+              wrapMode: Text.WordWrap
             }
           }
-        }
 
-        Rectangle {
-          id: bottomLine
-          anchors.bottom: parent.bottom
-          height: 1
-          color: Theme.controlBackgroundAlternateColor
-          width: parent.width
+          MouseArea {
+            anchors.fill: parent
+
+            onClicked: {
+              if (isEnabled) {
+                model.checked = !model.checked;
+              }
+            }
+          }
+
+          Rectangle {
+            id: bottomLine
+            anchors.bottom: parent.bottom
+            height: 1
+            color: Theme.controlBackgroundAlternateColor
+            width: parent.width
+          }
         }
       }
     }
