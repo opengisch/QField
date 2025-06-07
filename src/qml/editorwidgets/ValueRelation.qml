@@ -96,30 +96,32 @@ EditorWidgetBase {
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.minimumHeight: Math.max(valueText.height, valueRelationList.itemHeight) + (header.visible ? header.height : 0)
-
-            property string groupFieldVal: groupFieldValue ? groupFieldValue : ""
-            property bool rowContainsHeader: false
-            property alias headerItem: header
-
             focus: true
 
-            Component.onCompleted: {
-              // Check if any item in the current row has a visible header item.
-              // If found, mark the current listItem's row as containing a header.
+            property string groupFieldVal: groupFieldValue ? groupFieldValue : ""
+            property alias headerItem: header
+
+            // Check if any item in the current row has a visible header item.
+            // If found, mark the current listItem's row as containing a header.
+            property bool rowContainsHeader: {
               const row = Math.floor(index / valueGridView.columns);
               const start = row * valueGridView.columns;
-              const end = Math.min(start + valueGridView.columns, repeater.count - 1);
+              const end = Math.min(start + valueGridView.columns, repeater.count);
               for (let i = start; i < end; ++i) {
-                if (repeater.itemAt(i) && repeater.itemAt(i).headerItem.visible) {
-                  listItem.rowContainsHeader = true;
-                  break;
+                const item = repeater.itemAt(i);
+                if (item && item.headerItem.visible) {
+                  return true;
                 }
               }
+              return false;
             }
 
             Rectangle {
               id: header
-              visible: listModel.groupField && groupFieldValue !== "" && (index === 0 || (index > 0 ? groupFieldValue !== repeater.itemAt(index - 1).groupFieldVal : false))
+
+              property bool isVisible: listModel.groupField && groupFieldValue !== "" && (index === 0 || (index > 0 ? groupFieldValue !== repeater.itemAt(index - 1).groupFieldVal : false))
+
+              visible: isVisible
               width: parent.width
               height: visible ? groupFieldValueText.height + 2 : 0
               color: Theme.controlBorderColor
