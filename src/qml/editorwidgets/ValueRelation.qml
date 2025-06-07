@@ -9,7 +9,7 @@ import ".."
 EditorWidgetBase {
   id: valueRelation
 
-  height: Number(config['AllowMulti']) !== 1 ? valueRelationCombobox.height : valueRelationListComponent.height
+  height: (Number(config['AllowMulti']) !== 1 ? valueRelationCombobox.height : valueRelationListComponent.height) + 4
   enabled: true
 
   LayerResolver {
@@ -74,8 +74,10 @@ EditorWidgetBase {
   Column {
     id: valueRelationListComponent
     width: parent.width
+    anchors.top: parent.top
+    anchors.topMargin: 4
     visible: Number(config['AllowMulti']) === 1
-    spacing: 2
+    spacing: 4
 
     QfSearchBar {
       id: searchBar
