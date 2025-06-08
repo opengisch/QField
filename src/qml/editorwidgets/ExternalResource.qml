@@ -80,14 +80,20 @@ EditorWidgetBase {
       const isHttp = value.startsWith('http://') || value.startsWith('https://');
       var fullValue = isHttp ? value : prefixToRelativePath + value;
       const fullValueExists = FileUtils.fileExists(fullValue);
-      if (!fullValueExists && externalStorage.type != "") {
+      if (!fullValueExists) {
         prepareValue("");
-        if (config["StorageAuthConfigId"] !== "" && !iface.isAuthenticationConfigurationAvailable(config["StorageAuthConfigId"])) {
-          mainWindow.displayToast(qsTr("The external storage's authentication configuration ID is missing, please insure it is imported into QField"), "error", qsTr("Learn more"), function () {
-              Qt.openUrlExternally('https://docs.qfield.org/how-to/authentication/');
-            });
-        } else {
-          externalStorage.fetch(value, config["StorageAuthConfigId"]);
+        if (externalStorage.type != "") {
+          if (config["StorageAuthConfigId"] !== "" && !iface.isAuthenticationConfigurationAvailable(config["StorageAuthConfigId"])) {
+            mainWindow.displayToast(qsTr("The external storage's authentication configuration ID is missing, please insure it is imported into QField"), "error", qsTr("Learn more"), function () {
+                Qt.openUrlExternally('https://docs.qfield.org/how-to/authentication/');
+              });
+          } else {
+            externalStorage.fetch(value, config["StorageAuthConfigId"]);
+          }
+        } else if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.attachmentsOnDemandEnabled) {
+          cloudProjectConnection.target = cloudProjectsModel.currentProject;
+          cloudProjectConnection.downloadAttachmentFileName = value;
+          cloudProjectsModel.currentProject.downloadAttachment(value);
         }
       } else {
         prepareValue(fullValue);
@@ -664,6 +670,30 @@ EditorWidgetBase {
     function onStatusReceived(statusText) {
       if (statusText !== "") {
         displayToast(qsTr("Cannot handle this file type"), 'error');
+      }
+    }
+  }
+
+  QtObject {
+    id: dummyTarget
+  }
+
+  Connections {
+    id: cloudProjectConnection
+    ignoreUnknownSignals: true
+    target: dummyTarget
+
+    property string downloadAttachmentFileName: ""
+
+    function onDownloadAttachmentFinished(fileName, errorString) {
+      if (downloadAttachmentFileName === fileName) {
+        if (errorString !== "") {
+          displayToast(qsTr("QFieldCloud on-demand attachment error: ") + errorString, 'error');
+          return;
+        } else {
+          prepareValue(prefixToRelativePath + fileName);
+        }
+        cloudProjectConnection.target = dummyTarget;
       }
     }
   }
