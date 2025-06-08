@@ -5701,7 +5701,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
-        <translation type="unfinished"/>
+        <translation>Repitiendo las posiciones recopiladas, espera.</translation>
     </message>
     <message>
         <source>Snapping to every</source>
@@ -5753,11 +5753,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
-        <translation type="unfinished"/>
+        <translation>¿Concede permiso para activar el complemento?</translation>
     </message>
     <message>
         <source>Follow location paused</source>
-        <translation type="unfinished"/>
+        <translation>Seguir ubicación pausada</translation>
     </message>
 </context>
 <context>
