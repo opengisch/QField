@@ -423,6 +423,7 @@ class QFieldCloudProject : public QObject
 
     NetworkReply *downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage = true, bool autoRedirect = false );
     void downloadFileConnections( const QString &fileKey );
+    void downloadAttachmentConnections( const QString &fileKey );
 
     bool moveDownloadedFilesToPermanentStorage();
     void logFailedDownload( const QString &fileKey, const QString &errorMessage, const QString &errorMessageDetail );
@@ -446,7 +447,6 @@ class QFieldCloudProject : public QObject
         bool isFinished = false;
         QPointer<NetworkReply> networkReply;
         QNetworkReply::NetworkError error = QNetworkReply::NoError;
-        QStringList layerIds;
         int redirectsCount = 0;
         QUrl lastRedirectUrl;
     };
@@ -533,6 +533,7 @@ class QFieldCloudProject : public QObject
     int mAutoPushIntervalMins = 30;
 
     bool mAttachmentsOnDemandEnabled = true;
+    QMap<QString, FileTransfer> mAttachmentsFileTransfers;
 
     QMap<JobType, Job> mJobs;
 
