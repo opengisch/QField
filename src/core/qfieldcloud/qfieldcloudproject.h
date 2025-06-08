@@ -64,6 +64,8 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( bool autoPushEnabled READ autoPushEnabled WRITE setAutoPushEnabled NOTIFY autoPushEnabledChanged )
     Q_PROPERTY( int autoPushIntervalMins READ autoPushIntervalMins NOTIFY autoPushIntervalMinsChanged )
 
+    Q_PROPERTY( bool attachmentsOnDemandEnabled READ attachmentsOnDemandEnabled WRITE setAttachmentsOnDemandEnabled NOTIFY attachmentsOnDemandEnabledChanged )
+
     Q_PROPERTY( QString lastLocalPushDeltas READ lastLocalPushDeltas NOTIFY lastLocalPushDeltasChanged )
     Q_PROPERTY( QString lastLocalExportedAt READ lastLocalExportedAt NOTIFY lastLocalExportedAtChanged )
 
@@ -279,6 +281,9 @@ class QFieldCloudProject : public QObject
     int autoPushIntervalMins() const { return mAutoPushIntervalMins; }
     void setAutoPushIntervalMins( int minutes );
 
+    bool attachmentsOnDemandEnabled() const { return mAttachmentsOnDemandEnabled; }
+    void setAttachmentsOnDemandEnabled( bool enabled );
+
     QString lastLocalPushDeltas() const { return mLastLocalPushDeltas; }
     void setLastLocalPushDeltas( const QString &lastLocalPushDeltas );
 
@@ -369,6 +374,8 @@ class QFieldCloudProject : public QObject
     void forceAutoPushChanged();
     void autoPushEnabledChanged();
     void autoPushIntervalMinsChanged();
+
+    void attachmentsOnDemandEnabledChanged();
 
     void lastLocalExportedAtChanged();
     void lastLocalExportIdChanged();
@@ -521,6 +528,8 @@ class QFieldCloudProject : public QObject
     bool mForceAutoPush = false;
     bool mAutoPushEnabled = false;
     int mAutoPushIntervalMins = 30;
+
+    bool mAttachmentsOnDemandEnabled = true;
 
     QMap<JobType, Job> mJobs;
 
