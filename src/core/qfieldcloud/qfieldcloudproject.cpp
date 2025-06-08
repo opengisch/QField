@@ -788,8 +788,6 @@ void QFieldCloudProject::download()
     for ( const QJsonValue fileValue : files )
     {
       const QJsonObject fileObject = fileValue.toObject();
-      if ( mAttachmentsOnDemandEnabled && fileObject.value( QStringLiteral( "is_attachment" ) ).toBool() )
-        continue;
 
       const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
       const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
@@ -806,8 +804,21 @@ void QFieldCloudProject::download()
         return;
       }
 
-      if ( cloudEtag == localEtag )
+
+      if ( mAttachmentsOnDemandEnabled && fileObject.value( QStringLiteral( "is_attachment" ) ).toBool() )
+      {
+        if ( !localEtag.isEmpty() && cloudEtag != localEtag )
+        {
+          // The cloud attachment has changed, remove locally to trigger a new download locally
+          QFile::remove( projectFileName );
+        }
         continue;
+      }
+
+      if ( cloudEtag == localEtag )
+      {
+        continue;
+      }
 
       mDownloadFileTransfers.insert( QStringLiteral( "%1/%2" ).arg( mId, fileName ), FileTransfer( fileName, fileSize, mId ) );
       mDownloadBytesTotal += std::max( fileSize, 0 );
