@@ -309,7 +309,9 @@ class QFieldCloudProject : public QObject
 
     QString thumbnailPath() const { return mThumbnailPath; }
     void setThumbnailPath( const QString &thumbnailPath );
+
     Q_INVOKABLE void downloadThumbnail();
+    Q_INVOKABLE void downloadAttachment( const QString &fileName );
 
     void packageAndDownload();
     void cancelDownload();
@@ -395,6 +397,7 @@ class QFieldCloudProject : public QObject
 
     void thumbnailPathChanged();
 
+    void downloadAttachmentFinished( const QString &fileName, const QString &error = QString() );
     void downloadFinished( const QString &error = QString() );
     void downloaded( const QString &name, const QString &error = QString() );
 
@@ -418,7 +421,7 @@ class QFieldCloudProject : public QObject
 
     void refreshData( ProjectRefreshReason reason );
 
-    NetworkReply *downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage = true );
+    NetworkReply *downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage = true, bool autoRedirect = false );
     void downloadFileConnections( const QString &fileKey );
 
     bool moveDownloadedFilesToPermanentStorage();
