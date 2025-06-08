@@ -75,17 +75,13 @@ Popup {
             textFormat: Text.MarkdownText
             wrapMode: Text.WordWrap
 
-            function makeImagesResponsive(markdown) {
-              return markdown.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width:100%; height:auto;" />');
-            }
-
             text: {
               switch (changelogContents.status) {
               case ChangelogContents.IdleStatus:
               case ChangelogContents.LoadingStatus:
                 return '';
               case ChangelogContents.SuccessStatus:
-                return makeImagesResponsive(changelogContents.markdown);
+                return changelogContents.markdown;
               case ChangelogContents.ErrorStatus:
                 return qsTr('Error while fetching changelog, try again later.');
               }
