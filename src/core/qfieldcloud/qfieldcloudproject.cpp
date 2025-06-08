@@ -355,6 +355,15 @@ void QFieldCloudProject::setAutoPushIntervalMins( int minutes )
   emit autoPushIntervalMinsChanged();
 }
 
+void QFieldCloudProject::setAttachmentsOnDemandEnabled( bool enabled )
+{
+  if ( mAttachmentsOnDemandEnabled == enabled )
+    return;
+
+  mAttachmentsOnDemandEnabled = enabled;
+  emit attachmentsOnDemandEnabledChanged();
+}
+
 void QFieldCloudProject::setLastLocalPushDeltas( const QString &lastLocalPushDeltas )
 {
   if ( mLastLocalPushDeltas == lastLocalPushDeltas )
@@ -689,6 +698,9 @@ void QFieldCloudProject::download()
     for ( const QJsonValue fileValue : files )
     {
       const QJsonObject fileObject = fileValue.toObject();
+      if ( mAttachmentsOnDemandEnabled && fileObject.value( QStringLiteral( "is_attachment" ) ).toBool() )
+        continue;
+
       const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
       const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
       const QString projectFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId, fileName );
