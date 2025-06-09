@@ -86,6 +86,13 @@
     <key>CSResourcesFileMapped</key>
     <true/>
 
+    <!-- External GNSS through non-HTTPS TCP -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+
     <!-- Copyright -->
     <key>NSHumanReadableCopyright</key>
     <string>${MACOSX_BUNDLE_COPYRIGHT}</string>
