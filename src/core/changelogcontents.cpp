@@ -111,6 +111,9 @@ void ChangelogContents::request()
     changelog = changelog.replace( regexpAllTitles, QStringLiteral( "\n###\n##\\1\n\n\n" ) );
     changelog = "Up to release **" + versionNumbersOnly + "**" + changelog;
 
+    const QRegularExpression imageMdSyntax( QStringLiteral( "!\\[([^\\]]*)\\]\\(([^)]+)\\)" ) );
+    changelog = changelog.replace( imageMdSyntax, QStringLiteral( "<img src=\"\\2\" alt=\"\\1\" style=\"max-width:100%; height:auto;\" />" ) );
+
 #if defined( Q_OS_ANDROID )
     const QString platformName = QLatin1String( "android" );
 #elif defined( Q_OS_IOS )
