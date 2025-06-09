@@ -11,7 +11,7 @@ import Theme
 Item {
   id: relationCombobox
 
-  property FeatureCheckListModel featureListModel
+  property FeatureCheckListProxyModel featureListModel
 
   property bool useCompleter: false
   property bool useSearch: false
