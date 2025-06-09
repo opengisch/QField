@@ -355,13 +355,13 @@ void QFieldCloudProject::setAutoPushIntervalMins( int minutes )
   emit autoPushIntervalMinsChanged();
 }
 
-void QFieldCloudProject::setAttachmentsOnDemandEnabled( bool enabled )
+void QFieldCloudProject::setIsAttachmentDownloadOnDemand( bool isAttachmentDownloadOnDemand )
 {
-  if ( mAttachmentsOnDemandEnabled == enabled )
+  if ( mIsAttachmentDownloadOnDemand == isAttachmentDownloadOnDemand )
     return;
 
-  mAttachmentsOnDemandEnabled = enabled;
-  emit attachmentsOnDemandEnabledChanged();
+  mIsAttachmentDownloadOnDemand = isAttachmentDownloadOnDemand;
+  emit isAttachmentDownloadOnDemandChanged();
 }
 
 void QFieldCloudProject::setLastLocalPushDeltas( const QString &lastLocalPushDeltas )
@@ -843,7 +843,7 @@ void QFieldCloudProject::download()
       }
 
 
-      if ( mAttachmentsOnDemandEnabled && fileObject.value( QStringLiteral( "is_attachment" ) ).toBool() )
+      if ( mIsAttachmentDownloadOnDemand && fileObject.value( QStringLiteral( "is_attachment" ) ).toBool() )
       {
         if ( !localEtag.isEmpty() && cloudEtag != localEtag )
         {
@@ -1916,6 +1916,7 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
     setUpdatedAt( QDateTime::fromString( projectData.value( "updated_at" ).toString(), Qt::ISODate ) );
     setIsPublic( projectData.value( "is_public" ).toBool() );
     setIsFeatured( projectData.value( "is_featured" ).toBool() );
+    setIsAttachmentDownloadOnDemand( projectData.value( "is_attachment_download_on_demand" ).toBool() );
     setCanRepackage( projectData.value( "can_repackage" ).toBool() );
     setNeedsRepackaging( projectData.value( "needs_repackaging" ).toBool() );
     setLastRefreshedAt( QDateTime::currentDateTimeUtc() );
@@ -1931,6 +1932,7 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "updatedAt" ), mUpdatedAt.toString( Qt::DateFormat::ISODate ) );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "isPublic" ), mIsPublic );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "isFeatured" ), mIsFeatured );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "isAttachmentDownloadOnDemand" ), mIsAttachmentDownloadOnDemand );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "canRepackage" ), mCanRepackage );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "needsRepackaging" ), mNeedsRepackaging );
 
@@ -2023,6 +2025,7 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   project->mNeedsRepackaging = details.value( "needs_repackaging" ).toBool();
   project->mSharedDatasetsProjectId = details.value( "shared_datasets_project_id" ).toString();
   project->mIsSharedDatasetsProject = details.value( "is_shared_datasets_project" ).toBool();
+  project->mIsAttachmentDownloadOnDemand = details.value( "is_attachment_download_on_demand" ).toBool();
 
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "owner" ), project->owner() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "name" ), project->name() );
@@ -2035,6 +2038,7 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "needsRepackaging" ), project->needsRepackaging() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "sharedDatasetsProjectId" ), project->sharedDatasetsProjectId() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isSharedDatasetsProject" ), project->isSharedDatasetsProject() );
+  QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isAttachmentDownloadOnDemand" ), project->isAttachmentDownloadOnDemand() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isPublic" ), project->isPublic() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isFeatured" ), project->isFeatured() );
 
@@ -2074,6 +2078,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   const QDateTime updatedAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( "updatedAt" ) ).toString(), Qt::DateFormat::ISODate );
   const QString sharedDatasetsProjectId = QFieldCloudUtils::projectSetting( id, QStringLiteral( "sharedDatasetsProjectId" ) ).toString();
   const bool isSharedDatasetsProject = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isSharedDatasetsProject" ) ).toBool();
+  const bool isAttachmentDownloadOnDemand = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isAttachmentDownloadOnDemand" ) ).toBool();
 
   QFieldCloudProject *project = new QFieldCloudProject( id, connection, gpkgFlusher );
   project->mIsPublic = isPublic;
@@ -2092,6 +2097,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   project->mNeedsRepackaging = false;
   project->mSharedDatasetsProjectId = sharedDatasetsProjectId;
   project->mIsSharedDatasetsProject = isSharedDatasetsProject;
+  project->mIsAttachmentDownloadOnDemand = isAttachmentDownloadOnDemand;
 
   QString username = connection ? connection->username() : QString();
   if ( !username.isEmpty() )

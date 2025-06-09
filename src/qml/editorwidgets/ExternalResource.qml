@@ -91,7 +91,7 @@ EditorWidgetBase {
             externalStorage.fetch(value, config["StorageAuthConfigId"]);
             fetchingIndicator.running = true;
           }
-        } else if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.attachmentsOnDemandEnabled) {
+        } else if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.isAttachmentDownloadOnDemand) {
           cloudProjectConnection.target = cloudProjectsModel.currentProject;
           cloudProjectConnection.downloadAttachmentFileName = value;
           cloudProjectsModel.currentProject.downloadAttachment(value);
