@@ -755,12 +755,15 @@ div.explanation {
 .ss-card {
   position: relative;
   background: url('your-background-image.jpg') center/cover no-repeat;
-  height: 300px; /* adjust as needed */
+  height: 250px;
+  width: auto;
+  /* color: #525251; */
   color: white;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .ss-card h1 {
@@ -778,6 +781,8 @@ div.explanation {
 }
 
 .ss-card-content {
+  position: relative;
+  z-index: 2;
   width: 100%;
   padding: 1rem;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 60%);
@@ -809,22 +814,26 @@ div.explanation {
   font-weight: bold;
   margin: 0;
 }
-/*
-.ss-card-content:hover {
-  transform: scale(1.01);
-  background-color:rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  filter: grayscale(0%);
-} */
 
 .ss-card-wrapper {
   transition: transform 0.3s ease;
   display: block;
-  border-radius: 10px; /* match .ss-card if needed */
+  border-radius: 10px;
 }
 
 .ss-card-wrapper:hover {
   transform: scale(1.02);
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Wave overlay styles */
+.ss-wave-img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
 }
