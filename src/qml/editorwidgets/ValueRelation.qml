@@ -50,12 +50,12 @@ EditorWidgetBase {
     id: featureCheckListProxyModel
     sourceModel: listModel
     searchTerm: searchBar.searchTerm
-    // sortCheckedFirst: !isEnabled
+    sortCheckedFirst: !isEnabled
   }
 
   RelationCombobox {
     id: valueRelationCombobox
-    featureListModel: featureCheckListProxyModel
+    featureListModel: listModel
 
     useCompleter: !!config['UseCompleter']
     enabled: isEnabled
@@ -77,6 +77,11 @@ EditorWidgetBase {
       height: 40
       visible: enabled
       enabled: isEnabled
+      onEnabledChanged: {
+        if (!enabled) {
+          clear();
+        }
+      }
     }
 
     Rectangle {
@@ -112,7 +117,7 @@ EditorWidgetBase {
 
           Repeater {
             id: repeater
-            model: listModel
+            model: featureCheckListProxyModel
 
             delegate: Item {
               id: listItem

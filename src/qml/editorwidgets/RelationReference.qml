@@ -38,14 +38,9 @@ EditorWidgetBase {
     }
   }
 
-  FeatureCheckListProxyModel {
-    id: filteredModel
-    sourceModel: listModel
-  }
-
   RelationCombobox {
     id: relationReference
-    featureListModel: filteredModel
+    featureListModel: listModel
     anchors {
       left: parent.left
       right: parent.right

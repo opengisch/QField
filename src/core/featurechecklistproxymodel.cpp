@@ -10,20 +10,18 @@
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
  *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.
+ *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
 
+#include "featurechecklistmodel.h"
 #include "featurechecklistproxymodel.h"
 
-#include <QAbstractItemModel>
-
 FeatureCheckListProxyModel::FeatureCheckListProxyModel( QObject *parent )
-  : QSortFilterProxyModel( parent )
+  : QSortFilterProxyModel( parent ), mSearchTerm( "" ), mSortCheckedFirst( false )
 {
   setFilterCaseSensitivity( Qt::CaseInsensitive );
   setFilterRole( Qt::DisplayRole );
-  setSortRole( Qt::UserRole + 100 );
   setDynamicSortFilter( false );
 }
 
@@ -39,6 +37,24 @@ void FeatureCheckListProxyModel::setSearchTerm( const QString &searchTerm )
     mSearchTerm = searchTerm;
     emit searchTermChanged();
     invalidateFilter();
+
+    sort( 0 );
+  }
+}
+
+bool FeatureCheckListProxyModel::sortCheckedFirst() const
+{
+  return mSortCheckedFirst;
+}
+
+void FeatureCheckListProxyModel::setSortCheckedFirst( bool enabled )
+{
+  if ( mSortCheckedFirst != enabled )
+  {
+    mSortCheckedFirst = enabled;
+    emit sortCheckedFirstChanged();
+
+    sort( 0 );
   }
 }
 
@@ -47,20 +63,40 @@ bool FeatureCheckListProxyModel::filterAcceptsRow( int sourceRow, const QModelIn
   if ( mSearchTerm.isEmpty() )
     return true;
 
-  const QModelIndex idx = sourceModel()->index( sourceRow, 0, sourceParent );
-  const QVariant displayData = sourceModel()->data( idx, Qt::DisplayRole );
-
-  return displayData.toString().contains( mSearchTerm, Qt::CaseInsensitive );
+  const QModelIndex index = sourceModel()->index( sourceRow, 0, sourceParent );
+  const QVariant data = sourceModel()->data( index, Qt::DisplayRole );
+  return data.toString().contains( mSearchTerm, Qt::CaseInsensitive );
 }
 
-void FeatureCheckListProxyModel::sortCheckedFirst( const bool enabled )
+bool FeatureCheckListProxyModel::lessThan( const QModelIndex &left, const QModelIndex &right ) const
 {
-  if ( enabled )
+  if ( ( mSearchTerm.isEmpty() && mSortCheckedFirst ) )
   {
-    sort( 0, Qt::DescendingOrder );
+    const bool leftItemSelected = sourceModel()->data( left, FeatureCheckListModel::CheckedRole ).toBool();
+    const bool rightItemSelected = sourceModel()->data( right, FeatureCheckListModel::CheckedRole ).toBool();
+
+    if ( rightItemSelected && !leftItemSelected )
+      return false;
+
+    if ( !rightItemSelected && leftItemSelected )
+      return true;
   }
-  else
+
+  const QString leftDisplay = sourceModel()->data( left, Qt::DisplayRole ).toString().toLower();
+  const QString rightDisplay = sourceModel()->data( right, Qt::DisplayRole ).toString().toLower();
+
+  if ( !mSearchTerm.isEmpty() )
   {
-    sort( -1 );
+    const bool leftStartsWithSearchTerm = leftDisplay.startsWith( mSearchTerm.toLower() );
+    const bool rightStartsWithSearchTerm = rightDisplay.startsWith( mSearchTerm.toLower() );
+
+    if ( leftStartsWithSearchTerm && !rightStartsWithSearchTerm )
+      return false;
+
+    if ( !leftStartsWithSearchTerm && rightStartsWithSearchTerm )
+      return true;
   }
+
+  // Alphabetically
+  return leftDisplay < rightDisplay;
 }
