@@ -764,6 +764,8 @@ div.explanation {
   display: flex;
   align-items: flex-end;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  color: white !important;
+  text-decoration: none !important;
 }
 
 .ss-card h1 {
