@@ -46,29 +46,21 @@ EditorWidgetBase {
     }
   }
 
+  FeatureCheckListProxyModel {
+    id: featureCheckListProxyModel
+    sourceModel: listModel
+    searchTerm: searchBar.searchTerm
+    // sortCheckedFirst: !isEnabled
+  }
+
   RelationCombobox {
     id: valueRelationCombobox
-    featureListModel: listModel
+    featureListModel: featureCheckListProxyModel
 
     useCompleter: !!config['UseCompleter']
     enabled: isEnabled
     visible: Number(config['AllowMulti']) !== 1
     relation: undefined
-  }
-
-  FeatureCheckListProxyModel {
-    id: featureCheckListProxyModel
-    sourceModel: listModel
-    searchTerm: searchBar.searchTerm
-  }
-
-  Item {
-    // dummy item to control isEnabled changes
-    enabled: isEnabled
-    onEnabledChanged: {
-      // Display checked items at the top in reading mode.
-      featureCheckListProxyModel.sortCheckedFirst(!enabled);
-    }
   }
 
   Column {
@@ -87,137 +79,151 @@ EditorWidgetBase {
       enabled: isEnabled
     }
 
-    Flickable {
-      anchors.fill: parent
-      anchors.margins: 1
-      contentHeight: valueGridView.height
-      contentWidth: parent.width - 2
-      boundsBehavior: Flickable.StopAtBounds
-      clip: true
+    Rectangle {
+      id: valueRelationList
 
-      GridLayout {
-        id: valueGridView
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: parent.top
-        focus: true
-        columns: config['NofColumns'] ? config['NofColumns'] : 1
-        columnSpacing: 1
-        rowSpacing: 0
+      property int itemHeight: 32
 
-        Repeater {
-          id: repeater
-          model: listModel
+      visible: Number(config['AllowMulti']) === 1
+      width: parent.width
+      height: Math.min(8 * itemHeight, valueGridView.implicitHeight + 2)
 
-          delegate: Item {
-            id: listItem
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.minimumHeight: Math.max(valueText.height, valueRelationList.itemHeight) + (header.visible ? header.height : 0)
-            focus: true
+      color: Theme.mainBackgroundColor
+      border.color: Theme.controlBorderColor
+      border.width: 1
 
-            property string groupFieldVal: groupFieldValue ? groupFieldValue : ""
-            property alias headerItem: header
+      Flickable {
+        anchors.fill: parent
+        anchors.margins: 1
+        contentHeight: valueGridView.height
+        contentWidth: parent.width - 2
+        boundsBehavior: Flickable.StopAtBounds
+        clip: true
 
-            // Check if any item in the current row has a visible header item.
-            // If found, mark the current listItem's row as containing a header.
-            property bool rowContainsHeader: {
-              const row = Math.floor(index / valueGridView.columns);
-              const start = row * valueGridView.columns;
-              const end = Math.min(start + valueGridView.columns, repeater.count);
-              for (let i = start; i < end; ++i) {
-                const item = repeater.itemAt(i);
-                if (item && item.headerItem.visible) {
-                  return true;
+        GridLayout {
+          id: valueGridView
+          anchors.left: parent.left
+          anchors.right: parent.right
+          anchors.top: parent.top
+          focus: true
+          columns: config['NofColumns'] ? config['NofColumns'] : 1
+          columnSpacing: 1
+          rowSpacing: 0
+
+          Repeater {
+            id: repeater
+            model: listModel
+
+            delegate: Item {
+              id: listItem
+              Layout.fillWidth: true
+              Layout.fillHeight: true
+              Layout.minimumHeight: Math.max(valueText.height, valueRelationList.itemHeight) + (header.visible ? header.height : 0)
+              focus: true
+
+              property string groupFieldVal: groupFieldValue ? groupFieldValue : ""
+              property alias headerItem: header
+
+              // Check if any item in the current row has a visible header item.
+              // If found, mark the current listItem's row as containing a header.
+              property bool rowContainsHeader: {
+                const row = Math.floor(index / valueGridView.columns);
+                const start = row * valueGridView.columns;
+                const end = Math.min(start + valueGridView.columns, repeater.count);
+                for (let i = start; i < end; ++i) {
+                  const item = repeater.itemAt(i);
+                  if (item && item.headerItem.visible) {
+                    return true;
+                  }
+                }
+                return false;
+              }
+
+              Rectangle {
+                id: header
+
+                property bool isVisible: listModel.groupField && groupFieldValue !== "" && (index === 0 || (index > 0 ? groupFieldValue !== repeater.itemAt(index - 1).groupFieldVal : false))
+
+                visible: isVisible
+                width: parent.width
+                height: visible ? groupFieldValueText.height + 2 : 0
+                color: Theme.controlBorderColor
+                border.color: Theme.controlBorderColor
+                border.width: 1
+                clip: true
+
+                Text {
+                  id: groupFieldValueText
+                  width: parent.width
+                  text: groupFieldValue ? groupFieldValue : ""
+                  font.bold: true
+                  font.pointSize: Theme.resultFont.pointSize
+                  color: Theme.mainTextColor
+                  horizontalAlignment: Text.AlignHCenter
+                  anchors.verticalCenter: parent.verticalCenter
+                  wrapMode: Text.WordWrap
+                  elide: Text.ElideRight
+                  visible: listModel.displayGroupName
                 }
               }
-              return false;
-            }
 
-            Rectangle {
-              id: header
-
-              property bool isVisible: listModel.groupField && groupFieldValue !== "" && (index === 0 || (index > 0 ? groupFieldValue !== repeater.itemAt(index - 1).groupFieldVal : false))
-
-              visible: isVisible
-              width: parent.width
-              height: visible ? groupFieldValueText.height + 2 : 0
-              color: Theme.controlBorderColor
-              border.color: Theme.controlBorderColor
-              border.width: 1
-              clip: true
-
-              Text {
-                id: groupFieldValueText
+              Rectangle {
+                id: checkBoxRow
                 width: parent.width
-                text: groupFieldValue ? groupFieldValue : ""
-                font.bold: true
-                font.pointSize: Theme.resultFont.pointSize
-                color: Theme.mainTextColor
-                horizontalAlignment: Text.AlignHCenter
-                anchors.verticalCenter: parent.verticalCenter
-                wrapMode: Text.WordWrap
-                elide: Text.ElideRight
-                visible: listModel.displayGroupName
+                anchors.top: header.bottom
+                anchors.topMargin: !header.visible && rowContainsHeader ? groupFieldValueText.height + 2 : 0
+                anchors.bottom: parent.bottom
+                color: Theme.mainBackgroundColor
+
+                CheckDelegate {
+                  id: checkBox
+                  anchors.verticalCenter: parent.verticalCenter
+                  anchors.left: parent.left
+                  width: valueRelationList.itemHeight
+                  height: valueRelationList.itemHeight
+                  enabled: isEnabled
+
+                  checked: model.checked
+
+                  indicator.height: 16
+                  indicator.width: 16
+                  indicator.implicitHeight: 24
+                  indicator.implicitWidth: 24
+                }
+
+                Text {
+                  id: valueText
+                  anchors.verticalCenter: parent.verticalCenter
+                  anchors.right: parent.right
+                  anchors.left: checkBox.right
+                  anchors.leftMargin: 4
+                  width: parent.width - checkBox.width
+                  topPadding: 4
+                  bottomPadding: 4
+                  font: Theme.defaultFont
+                  color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
+                  text: model.displayString
+                  wrapMode: Text.WordWrap
+                  elide: Text.ElideRight
+                }
               }
-            }
 
-            Rectangle {
-              id: checkBoxRow
-              width: parent.width
-              anchors.top: header.bottom
-              anchors.topMargin: !header.visible && rowContainsHeader ? groupFieldValueText.height + 2 : 0
-              anchors.bottom: parent.bottom
-              color: Theme.mainBackgroundColor
-
-              CheckDelegate {
-                id: checkBox
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: parent.left
-                width: valueRelationList.itemHeight
-                height: valueRelationList.itemHeight
+              MouseArea {
+                anchors.fill: parent
                 enabled: isEnabled
 
-                checked: model.checked
-
-                indicator.height: 16
-                indicator.width: 16
-                indicator.implicitHeight: 24
-                indicator.implicitWidth: 24
+                onClicked: {
+                  model.checked = !model.checked;
+                }
               }
 
-              Text {
-                id: valueText
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.right: parent.right
-                anchors.left: checkBox.right
-                anchors.leftMargin: 4
-                width: parent.width - checkBox.width
-                topPadding: 4
-                bottomPadding: 4
-                font: Theme.defaultFont
-                color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
-                text: model.displayString
-                wrapMode: Text.WordWrap
-                elide: Text.ElideRight
+              Rectangle {
+                id: bottomLine
+                anchors.bottom: parent.bottom
+                height: 1
+                color: Theme.controlBackgroundAlternateColor
+                width: parent.width
               }
-            }
-
-            MouseArea {
-              anchors.fill: parent
-              enabled: isEnabled
-
-              onClicked: {
-                model.checked = !model.checked;
-              }
-            }
-
-            Rectangle {
-              id: bottomLine
-              anchors.bottom: parent.bottom
-              height: 1
-              color: Theme.controlBackgroundAlternateColor
-              width: parent.width
             }
           }
         }
