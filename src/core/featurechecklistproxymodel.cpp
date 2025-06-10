@@ -90,13 +90,29 @@ bool FeatureCheckListProxyModel::lessThan( const QModelIndex &left, const QModel
     const bool leftStartsWithSearchTerm = leftDisplay.startsWith( mSearchTerm.toLower() );
     const bool rightStartsWithSearchTerm = rightDisplay.startsWith( mSearchTerm.toLower() );
 
-    if ( leftStartsWithSearchTerm && !rightStartsWithSearchTerm )
+    if ( rightStartsWithSearchTerm && !leftStartsWithSearchTerm )
       return false;
 
-    if ( !leftStartsWithSearchTerm && rightStartsWithSearchTerm )
+    if ( !rightStartsWithSearchTerm && leftStartsWithSearchTerm )
       return true;
+
+    const double leftFuzzyScore = calcFuzzyScore( leftDisplay, mSearchTerm.toLower() );
+    const double rightFuzzyScore = calcFuzzyScore( rightDisplay, mSearchTerm.toLower() );
+
+    if ( leftFuzzyScore != rightFuzzyScore )
+    {
+      return leftFuzzyScore > leftFuzzyScore;
+    }
   }
 
   // Alphabetically
   return leftDisplay < rightDisplay;
 }
+
+bool FeatureCheckListProxyModel::calcFuzzyScore( const QString &displayString, const QString &searchTerm ) const
+{
+  double fuzzyScore = 0;
+  fuzzyScore = StringUtils::fuzzyMatch( displayString, searchTerm ) ? 0.5 : 0;
+  fuzzyScore += QgsStringUtils::fuzzyScore( displayString, searchTerm ) * 0.5;
+  return fuzzyScore;
+};

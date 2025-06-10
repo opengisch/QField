@@ -57,9 +57,13 @@ class FeatureCheckListProxyModel : public QSortFilterProxyModel
 
     /**
      * Compares two items for sorting.
-     * If mSortCheckedFirst checked, checked items are ordered before unchecked.
-     * When search term filtering is active, items starting with the search term are prioritized.
-     * Otherwise, items are sorted alphabetically.
+     * Items are ordered based on:
+     *   - Whether checked items are sorted first (if enabled).
+     *   - Whether display strings start with the search term (if a search term is active).
+     *   - Fuzzy matching score with the search term (higher score means a closer match).
+     *   - Alphabetical order (if all other criteria are equal).
+     *
+     * The function prioritizes these criteria in the order listed.
      */
     bool lessThan( const QModelIndex &left, const QModelIndex &right ) const override;
 
@@ -69,6 +73,11 @@ class FeatureCheckListProxyModel : public QSortFilterProxyModel
     void sortCheckedFirstChanged();
 
   private:
+    /**
+     * Calculates a fuzzy matching score between a display string and a search term.
+     */
+    bool calcFuzzyScore( const QString &displayString, const QString &searchTerm ) const;
+
     QString mSearchTerm;
     bool mSortCheckedFirst;
 };
