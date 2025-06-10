@@ -842,6 +842,10 @@ void QFieldCloudProject::download()
         return;
       }
 
+      if ( !localEtag.isEmpty() && cloudEtag == localEtag )
+      {
+        continue;
+      }
 
       if ( mIsAttachmentDownloadOnDemand && fileObject.value( QStringLiteral( "is_attachment" ) ).toBool() )
       {
@@ -850,11 +854,6 @@ void QFieldCloudProject::download()
           // The cloud attachment has changed, remove locally to trigger a new download locally
           QFile::remove( projectFileName );
         }
-        continue;
-      }
-
-      if ( cloudEtag == localEtag )
-      {
         continue;
       }
 
