@@ -767,3 +767,99 @@ div.explanation {
 .nav-tabs a {
   color: rgba(128, 128, 128, 0.8);
 }
+
+/* success stories cards */
+.ss-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.ss-card {
+  position: relative;
+  background: url('your-background-image.jpg') center/cover no-repeat;
+  height: 250px;
+  width: auto;
+  /* color: #525251; */
+  color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.ss-card h1 {
+  font-size: 14pt;
+}
+
+.ss-card h2 {
+  font-size: 10pt;
+  font-weight: lighter;
+  margin-top: 5px;
+}
+
+.ss-card p {
+  font-size: 9pt;
+}
+
+.ss-card-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 60%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ss-card-industry {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: normal;
+  opacity: 0.85;
+}
+
+.ss-card-footer {
+  align-self: flex-start;
+}
+
+.ss-client-name {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.ss-card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.ss-card-wrapper {
+  transition: transform 0.3s ease;
+  display: block;
+  border-radius: 10px;
+}
+
+.ss-card-wrapper:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Wave overlay styles */
+.ss-wave-img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+}
