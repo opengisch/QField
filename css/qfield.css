@@ -146,6 +146,46 @@ footer.footer {
   margin-top:4px;
 }
 
+/* carousel content */
+
+.carousel-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.phone-image {
+  position: absolute;
+  top: 21%;
+  right: 12%;
+  max-height: 90%;
+  max-width: 40%;
+  object-fit: contain;
+  z-index: 1;
+}
+/* responsive design for carousel */
+
+@media (max-width: 768px) {
+  .phone-image {
+    max-width: 60%;
+    right: 2%;
+  }
+
+  .carousel-caption.custom-caption {
+    bottom: 25%;
+    padding: 0 10px;
+  }
+
+  .carousel-caption .carousel-title {
+    font-size: 12px;
+  }
+
+  .qf-button a, .qfc-button a {
+    font-size: 11pt;
+    padding: 5px 10px;
+  }
+}
+
 /* mainpage carousel buttons */
 .qf-button a {
   font-family:"bio-sans";
@@ -202,17 +242,6 @@ footer.footer {
   background-color: #4a6fae;
   color: white;
   border: 3px solid #4a6fae;
-}
-
-/* smaller version */
-#maincarousel.small-carousel {
-  height: 280px;
-}
-
-#maincarousel.small-carousel .carousel-caption {
-  bottom: auto;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 /*main poinst*/
