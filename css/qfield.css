@@ -863,3 +863,33 @@ div.explanation {
   pointer-events: none;
   z-index: 1;
 }
+
+/* success story individual page */
+
+#success-story-title h4 {
+  font-weight: 300;
+}
+
+#success-story h4 {
+  font-size: 14pt;
+  font-weight: bolder;
+  margin-top: 10px;
+}
+
+#success-story h3 {
+  font-size: 15pt;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+#success-story img {
+  width: 80%;
+  height: auto;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+#success-story p {
+text-align: left;
+margin-bottom: 22px;
+}
