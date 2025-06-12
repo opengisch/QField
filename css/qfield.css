@@ -41,6 +41,7 @@ div.navbar li a {
   border-bottom: 2px solid var(--qfield-color);
 }
 
+/* responsive */
 @media (min-width: 768px) {
 .navbar-nav {
   height:100px;
@@ -104,13 +105,7 @@ footer.footer {
   background-color: var(--qfield-color);
 }
 
-/* body:not(:has(#maincarousel)) {
-  background-image: url('../images/transparent-curves-bg.svg');
-  background-position: top right;
-  background-repeat: no-repeat;
-  background-size: 30%;
-} */
-
+/* carousel */
 #maincarousel {
   position:relative;
   margin-top:-20px;
