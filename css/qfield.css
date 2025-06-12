@@ -887,9 +887,15 @@ div.explanation {
   height: auto;
   margin-bottom: 10px;
   margin-top: 20px;
+  border-radius: 10px;
 }
 
 #success-story p {
 text-align: left;
 margin-bottom: 22px;
+}
+
+#success-story a {
+  color: var(--qfield-color);
+  font-weight: bolder;
 }
