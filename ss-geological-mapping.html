@@ -1,0 +1,235 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <link rel="stylesheet" href="https://use.typekit.net/cbd7kad.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-24350287-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-24350287-3');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes">
+  <title>QField - Efficient field work built for QGIS</title>
+  <meta name="description" content="QField - Efficient field work built for QGIS">
+  <meta name="author" content="OPENGIS.ch">
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="css/qfield.css?ver=4" rel="stylesheet" media="screen">
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/qfield.js"></script>
+</head>
+
+  <body>
+    <!-- Section #0: navigation -->
+    <nav id="navbar" class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarNav"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./"><img src="images/qfield_for_qgis.png"
+              style="width: auto; height: 52px; margin-top: 8px" alt="QField Logo" /></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/index.html#highlights" title="Highlights">HIGHLIGHTS</a>
+            </li>
+            <li class="dropdown"></li>
+            <li>
+              <a href="/assistance.html" title="Get assistance">GET ASSISTANCE</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                aria-expanded="false">RESOURCES<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="https://docs.qfield.org/success-stories/" target="_blank" title="Success stories">Success
+                    stories</a>
+                </li>
+                <li>
+                  <a href="https://community.qfield.org/" target="_blank" title="Community">Community</a>
+                </li>
+                <li>
+                  <a href="https://docs.qfield.org" target="_blank" title="Documentation">Documentation</a>
+                </li>
+                <li>
+                  <a href="https://docs.qfield.org/get-started/contribute/" target="_blank"
+                    title="Contribute to QField">Contribute</a>
+                </li>
+                <li>
+                  <a href="https://github.com/opengisch/qfield" target="_blank" title="Source code">Source code</a>
+                </li>
+                <li>
+                  <a href="/partner.html" title="Partner programs">Partner programs</a>
+                </li>
+                <li>
+                  <a href="/sdgs.html" title="Sustainable development goals">Sustainable development goals</a>
+                </li>
+                <li>
+                  <a href="https://www.opengis.ch/category/qfield/" target="_blank" title="Blog">Blog</a>
+                </li>
+                <li>
+                  <a href="https://www.opengis.ch/newsletter" target="_blank" title="newsletter">Newsletter</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="https://opengis.ch/#contact" target="_blank" title="Contact us">CONTACT US</a>
+            </li>
+            <li>
+              <a href="https://docs.qfield.org/get-started/" target="_blank" title="Get started"><i
+                  class="fas fa-rocket"></i> GET STARTED</a>
+            </li>
+            <li class="support-button">
+              <a href="/support-us.html" title="Support us">♥ SUPPORT US</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<!-- Section: title -->
+    <section id="success-story-title" class="section-spacing text-center" style="margin-bottom: 20px">
+      <h1>Geological Mapping with <span style="color: var(--qfield-color);"> QField</span></h1>
+      <h4>By Rohanna Gibson, Structural Geologist, <i>Terrane Geoscience</i></h4>
+    </section>
+
+  <!-- Section: main points -->
+  <section id="success-story" class="section-spacing text-left">
+    <div class="container" style="max-width: 1140px">
+      <h3>Goal</h3>
+      <p>
+        To collect new data on bedrock geology and view existing geoscience data in the field. Geologic mapping is
+        completed using paper maps and/or digital devices for data collection. The goal is to improve the geologic mapping
+        workflow by entering data directly in the field, create quality data with consistent terms, and reference existing
+        geoscience data in the field.
+      </p>
+
+      <h3>Project preparation</h3>
+      <p>
+        Prior to starting in QField, a geologic mapping geopackage was designed to collect vector data including point
+        station, structure, photo, and sample layers as well as line and polygon layers for contacts, faults, alteration,
+        and
+        geology. Attribute fields are customized for ease of data entry and data quality assurance using value maps,
+        defaults
+        (value or expression), and constraints within the Attributes Form. For example, the structural layer includes:
+      </p>
+
+      <h4>Coordinates</h4>
+      <p>
+        Fields with default value x and y coordinates from GPS data
+      </p>
+
+      <h4>Structure type</h4>
+      <p>
+        Value map (drop down list) with structural features (e.g., bedding, cleavage, lineation), set with a "not null"
+        constraint
+      </p>
+
+      <h4>Azimuth and dip</h4>
+      <p>Integers with range set from 0-360 and 0-90, respectively</p>
+
+      <h4>Date</h4>
+      <p>Default value current date and time when feature created</p>
+
+      <img src="/images/ss/geologic_structure_list.png" alt="Geologic mapping photo"/>
+      <p> <i>Figure 1: Structure list</i></p>
+
+      <p>
+        Symbology and labels are customized for each layer, including embedded SVG symbols for structural features that are
+        rotated with the azimuth field.
+
+        In addition to field data, base maps and historic data are compiled into geopackages for reference. Base maps include
+        vector topographic data and raster orthophotos. Raster geophysical data and vector geochemical data are included if
+        available, as well as historic geologic mapping. Map themes are designed to quickly toggle between geologic mapping,
+        geophysics, and geochemistry views.
+      </p>
+
+    </div>
+  </section>
+
+  <section id="success-story" class="section-spacing text-left">
+    <div class="container" style="max-width: 1140px">
+      <h2>Data collection</h2>
+      <p>Field data collection includes adding point data for map stations, structures, photos, and samples. Polygons and
+        lines are drawn freehand with a stylus or adding vertices manually.</p>
+        <p>Location and direction of travel are displayed using internal device GPS (or external GPS device linked via
+        Bluetooth), historic vector and raster layers can be viewed relative to location. Current and historic vector layers can be
+        searched and viewed in QField.</p>
+        <p>Field data are synchronized in QGIS followed by a short data clean up and verification process. The QGIS project
+        is then exported back to QField for additional data collection.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section #3: fine lines -->
+  <section id="about" data-speed="2" data-type="background">
+    <div class="container">
+      <div class="page-header">
+        <h1>About QField</h1>
+      </div>
+      <div class="row-fluid">
+        <div class="span4">
+          <p>QField is the leading professional fieldwork app used in enterprise settings for efficient geospatial data
+            collection and management. As a Digital Public Good, QField not only excels in enterprise and professional
+            applications but also contributes significantly to advancing at least six of the <a href="/sdgs.html">United
+              Nations Sustainable Development Goals (SDGs)</a>, promoting a more sustainable and equitable future.</p>
+        <div>
+          <h2> Stay in the loop</h2>
+          <p><a href="https://opengis.ch/newsletter" target="_blank">Subscribe to our newsletter</a> and stay up to date on the latest and greatest!
+        </div>
+        <div>
+          <h2>Open-source</h2>
+          <p>QField is <a class="reference external" href="https://github.com/opengisch/QField" target="_blank">released</a> under the
+          GNU Public License (GPL) Version 2 or above.
+          Developing QField under this license means that you can inspect and modify
+          the source code and guarantees that you will always have access to a QGIS
+          based field data collection app that is free of cost and can be freely
+          modified.</p>
+        </div>
+        <div class="span4">
+          <h2>Privacy</h2>
+          <p>View the QField <a href="privacy_policy.html">Privacy Policy</a> to learn what information is collected, used and how we protect this.
+          </p>
+        </div>
+        <div class="span4">
+          <h2>Credits</h2>
+          <p>QField, QFieldCloud and QFieldSync are developped by <a href="https://www.opengis.ch/">OPENGIS.ch</a>.
+            OPENGIS.ch offers <a href="https://www.opengis.ch/training-consulting/">consulting</a>,
+            <a href="https://www.opengis.ch/custom-development/">development</a>, <a
+              href="https://www.opengis.ch/qfield-training/">training</a> and <a
+              href="https://www.opengis.ch/qgis-support/">support</a> for open-source software including QField,
+            QGIS and PostGIS.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="social-links">
+      <a href="https://fosstodon.org/@qfield" target="_blank" rel="me noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Mastodon_Logotype_%28Simple%29.svg" alt="Mastodon" width="32" height="32">
+      </a>
+      <a href="https://bsky.app/profile/qfield.org" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Bluesky_Logo.svg" alt="Bluesky" width="32" height="32">
+      </a>
+      <a href="https://www.linkedin.com/company/qfield" target="_blank" rel="noopener noreferrer">
+        <img class="linkedin-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="32" height="32">
+      </a>
+      <a href="https://github.com/opengisch/QField/" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" alt="Github" width="32" height="32">
+      </a>
+    </div>
+    </div>
+</section>
+</body>
+</html>
