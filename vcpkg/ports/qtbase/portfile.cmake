@@ -418,7 +418,7 @@ foreach(_config debug release)
     endforeach()
 endforeach()
 
-if(VCPKG_CROSSCOMPILING AND NOT CMAKE_HOST_WIN32)
+if(VCPKG_CROSSCOMPILING AND NOT CMAKE_HOST_WIN32 AND NOT VCPKG_TARGET_IS_OSX)
     foreach(name IN ITEMS qmake qmake6 qtpaths qtpaths6)
         vcpkg_replace_string("${CURRENT_PACKAGES_DIR}/tools/Qt6/bin/${name}" "${CURRENT_HOST_INSTALLED_DIR}/" "\"\$script_dir_path\"/../../../../${HOST_TRIPLET}/")
     endforeach()
