@@ -101,7 +101,7 @@ bool FeatureCheckListProxyModel::lessThan( const QModelIndex &left, const QModel
 
     if ( leftFuzzyScore != rightFuzzyScore )
     {
-      return leftFuzzyScore > leftFuzzyScore;
+      return leftFuzzyScore > rightFuzzyScore;
     }
   }
 
@@ -109,7 +109,7 @@ bool FeatureCheckListProxyModel::lessThan( const QModelIndex &left, const QModel
   return leftDisplay < rightDisplay;
 }
 
-bool FeatureCheckListProxyModel::calcFuzzyScore( const QString &displayString, const QString &searchTerm ) const
+double FeatureCheckListProxyModel::calcFuzzyScore( const QString &displayString, const QString &searchTerm ) const
 {
   double fuzzyScore = 0;
   fuzzyScore = StringUtils::fuzzyMatch( displayString, searchTerm ) ? 0.5 : 0;

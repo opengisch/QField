@@ -76,7 +76,7 @@ class FeatureCheckListProxyModel : public QSortFilterProxyModel
     /**
      * Calculates a fuzzy matching score between a display string and a search term.
      */
-    bool calcFuzzyScore( const QString &displayString, const QString &searchTerm ) const;
+    double calcFuzzyScore( const QString &displayString, const QString &searchTerm ) const;
 
     QString mSearchTerm;
     bool mSortCheckedFirst;
