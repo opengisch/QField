@@ -1154,7 +1154,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Navigationspunkt setzen</translation>
+        <translation>Navigationspunkt setzen</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -2558,7 +2558,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation><numerusform>Es gibt %n lokale Änderung</numerusform><numerusform>Es gibt %n lokale Änderung(en).</numerusform></translation>
+        <translation><numerusform>Es gibt %n lokale Änderung</numerusform><numerusform>Es gibt %n lokale Änderungen.</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>

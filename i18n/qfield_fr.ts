@@ -1155,7 +1155,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Définir le point de navigation</translation>
+        <translation>Définir le point de navigation</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -3072,47 +3072,47 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Show invalid projects</source>
-        <translation type="unfinished"/>
+        <translation>Afficher les projets non valides</translation>
     </message>
     <message>
         <source>Available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>Disponible sur le cloud</translation>
     </message>
     <message>
         <source>, has changes locally</source>
-        <translation type="unfinished"/>
+        <translation>, a changé localement</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Description</translation>
     </message>
     <message>
         <source>Owner</source>
-        <translation type="unfinished"/>
+        <translation>Propriétaire</translation>
     </message>
     <message>
         <source>Creation date</source>
-        <translation type="unfinished"/>
+        <translation>Date de création</translation>
     </message>
     <message>
         <source>Latest update date</source>
-        <translation type="unfinished"/>
+        <translation>Date de la dernière mise à jour</translation>
     </message>
     <message>
         <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation type="unfinished"/>
+        <translation>Ce QR code peut être scanné par les utilisateurs disposant des accès nécessaires pour télécharger et ouvrir ce projet</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud est en train d&apos;empaqueter le projet, veuillez patienter</translation>
     </message>
     <message>
         <source>Downloading project</source>
-        <translation type="unfinished"/>
+        <translation>Téléchargement du projet</translation>
     </message>
     <message>
         <source>Download project</source>
-        <translation type="unfinished"/>
+        <translation>Télécharger le projet</translation>
     </message>
     <message>
         <source>Open project</source>
@@ -3120,11 +3120,11 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>View Project Details</source>
-        <translation type="unfinished"/>
+        <translation>Consulter les détails du projet</translation>
     </message>
     <message>
         <source>QFieldCloud project details fetching failed</source>
-        <translation type="unfinished"/>
+        <translation>Échec de la récupération des détails du projet QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3864,11 +3864,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Automatically open form for single feature identification</source>
-        <translation type="unfinished"/>
+        <translation>Ouverture automatique d&apos;un formulaire pour l&apos;identification d&apos;une seule entité</translation>
     </message>
     <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation type="unfinished"/>
+        <translation>Lorsque cette option est activée, le formulaire d&apos;entité s&apos;ouvre automatiquement si une entité est identifiée, outrepassant la liste d&apos;entité.</translation>
     </message>
 </context>
 <context>
@@ -4040,51 +4040,51 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>January</source>
-        <translation type="unfinished"/>
+        <translation>Janvier</translation>
     </message>
     <message>
         <source>February</source>
-        <translation type="unfinished"/>
+        <translation>Février</translation>
     </message>
     <message>
         <source>March</source>
-        <translation type="unfinished"/>
+        <translation>Mars</translation>
     </message>
     <message>
         <source>April</source>
-        <translation type="unfinished"/>
+        <translation>Avril</translation>
     </message>
     <message>
         <source>May</source>
-        <translation type="unfinished"/>
+        <translation>Mai</translation>
     </message>
     <message>
         <source>June</source>
-        <translation type="unfinished"/>
+        <translation>Juin</translation>
     </message>
     <message>
         <source>July</source>
-        <translation type="unfinished"/>
+        <translation>Juillet</translation>
     </message>
     <message>
         <source>August</source>
-        <translation type="unfinished"/>
+        <translation>Août</translation>
     </message>
     <message>
         <source>September</source>
-        <translation type="unfinished"/>
+        <translation>Septembre</translation>
     </message>
     <message>
         <source>October</source>
-        <translation type="unfinished"/>
+        <translation>Octobre</translation>
     </message>
     <message>
         <source>November</source>
-        <translation type="unfinished"/>
+        <translation>Novembre</translation>
     </message>
     <message>
         <source>December</source>
-        <translation type="unfinished"/>
+        <translation>Décembre</translation>
     </message>
 </context>
 <context>
@@ -5734,31 +5734,31 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Import Confirmation</source>
-        <translation type="unfinished"/>
+        <translation>Confirmation d&apos;importation</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation type="unfinished"/>
+        <translation>Souhaitez-vous importer &lt;b&gt;%1&lt;/b&gt; depuis &lt;b&gt;%2&lt;/b&gt; dans QField ?</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
-        <translation type="unfinished"/>
+        <translation>Permission du plugin</translation>
     </message>
     <message>
         <source>Unlock</source>
-        <translation type="unfinished"/>
+        <translation>Déverrouiller</translation>
     </message>
     <message>
         <source> Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Plugin du projet</translation>
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
-        <translation type="unfinished"/>
+        <translation>Accordez vous la permission d&apos;activer le plugin</translation>
     </message>
     <message>
         <source>Follow location paused</source>
-        <translation type="unfinished"/>
+        <translation>Suivi de la localisation en pause</translation>
     </message>
 </context>
 <context>
