@@ -151,7 +151,7 @@ class MultiFeatureListModelBase : public QAbstractItemModel
     QList<QPair<QgsMapLayer *, QgsFeature>> mFeatures;
     QList<QPair<QgsMapLayer *, QgsFeature>> mSelectedFeatures;
 
-    QMap<QgsMapLayer *, QgsVectorLayer *> mRepresentationalLayers;
+    QMap<QString, QgsVectorLayer *> mRepresentationalLayers;
 };
 
 #endif // MULTIFEATURELISTMODELBASE_H
