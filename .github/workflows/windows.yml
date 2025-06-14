@@ -92,9 +92,9 @@ jobs:
                 -D WITH_BLUETOOTH=ON \
                 -D VCPKG_INSTALL_OPTIONS="--x-buildtrees-root=C:/src" \
                 -D CMAKE_COMPILE_WARNING_AS_ERROR=ON \
+                -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
+                -D SENTRY_ENV="${APP_ENV}" \
                 ${EXTRA_CMAKE_ARGS}
-#                -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
-#                -D SENTRY_ENV="${APP_ENV}" \
 
       - name: 📑 Upload dep build logs
         uses: actions/upload-artifact@v4

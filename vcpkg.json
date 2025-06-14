@@ -14,6 +14,10 @@
   "dependencies": [
     "catch2",
     {
+      "name": "crashpad",
+      "platform": "linux | windows"
+    },
+    {
       "name": "ffmpeg",
       "default-features": false,
       "features": [
