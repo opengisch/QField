@@ -55,8 +55,15 @@
     <string name="storage_information_message">Ако си използвал QFIeld 1.x и се чудиш защо твоите проекти и данни са изчезнали, отдели малко време и да прочетеш документацията относно управление на паметта. Бърза връзка към документацията е налична в менюто на заглавната лента. </string>
     <string name="storage_information_view">Покажи ми документацията</string>
     <string name="storage_information_dismiss">Ще прочета по-късно</string>
-    <string name="import_project_wait">Моля изчакайте докато QField импортира проекта</string>
-    <string name="import_dataset_wait">Моля изчакайте докато QField импортира данните</string>
+    <string name="import_project_wait">Моля, изчакай докато QField импортира проекта</string>
+    <string name="import_dataset_wait">Моля, изчакай докато QField импортира данните</string>
+    <string name="update_project_wait">Моля, изчакай докато QField обнови проекта</string>
     <string name="upload_pending_attachments">Качване на прикачени файлове към QFieldCloud</string>
+    <string name="operation_unsupported">Неподдържана операция</string>
+    <string name="import_operation_unsupported">Твоето устройство не поддържа тази импортираща операция.</string>
+    <string name="export_operation_unsupported">Твоето устройство не поддържа тази експортираща операция.</string>
+    <string name="processing_message">Обработка…</string>
     <string name="positioning_title">Позициониране</string>
-    </resources>
+    <string name="positioning_running">Позициониране в ход</string>
+    <string name="copy_to_clipboard">Копирай в крипборд</string>
+</resources>
