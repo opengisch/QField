@@ -30,6 +30,7 @@
 #include <qgsrelationmanager.h>
 #include <qgsvectordataprovider.h>
 #include <qgsvectorlayer.h>
+#include <qgsvectortilelayer.h>
 
 MultiFeatureListModelBase::MultiFeatureListModelBase( QObject *parent )
   : QAbstractItemModel( parent )
@@ -108,7 +109,7 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
         emit dataChanged( index, index, QVector<int>() << MultiFeatureListModel::FeatureSelectedRole );
       }
     }
-    if ( QgsRasterLayer *layer = qobject_cast<QgsRasterLayer *>( result.layer ) )
+    else if ( QgsRasterLayer *layer = qobject_cast<QgsRasterLayer *>( result.layer ) )
     {
       QgsVectorLayer *representationalLayer;
       if ( !mRepresentationalLayers.contains( layer ) || mRepresentationalLayers.value( layer )->name() != result.representationalLayerName )
@@ -116,6 +117,37 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
         representationalLayer = QgsMemoryProviderUtils::createMemoryLayer( result.representationalLayerName, result.feature.fields(), result.feature.geometry().wkbType(), layer->crs() );
         representationalLayer->setReadOnly( true );
         mRepresentationalLayers[layer] = representationalLayer;
+      }
+      else
+      {
+        representationalLayer = mRepresentationalLayers[layer];
+      }
+
+      QPair<QgsMapLayer *, QgsFeature> item( representationalLayer, result.feature );
+      if ( !mFeatures.contains( item ) )
+      {
+        mFeatures.append( item );
+      }
+    }
+    else if ( QgsVectorTileLayer *layer = qobject_cast<QgsVectorTileLayer *>( result.layer ) )
+    {
+      QgsVectorLayer *representationalLayer;
+      if ( !mRepresentationalLayers.contains( layer ) || mRepresentationalLayers.value( layer )->name() != result.representationalLayerName )
+      {
+        representationalLayer = QgsMemoryProviderUtils::createMemoryLayer( result.representationalLayerName, result.feature.fields(), result.feature.geometry().wkbType(), layer->crs() );
+        representationalLayer->setReadOnly( true );
+
+        const int nameIndex = result.feature.fields().lookupField( QStringLiteral( "name" ) );
+        if ( nameIndex >= 0 )
+        {
+          representationalLayer->setDisplayExpression( result.feature.fields().at( nameIndex ).name() );
+        }
+
+        mRepresentationalLayers[layer] = representationalLayer;
+      }
+      else
+      {
+        representationalLayer = mRepresentationalLayers[layer];
       }
 
       QPair<QgsMapLayer *, QgsFeature> item( representationalLayer, result.feature );
