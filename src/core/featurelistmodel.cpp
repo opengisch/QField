@@ -321,20 +321,7 @@ void FeatureListModel::gatherFeatureList()
                                  ? QgsExpression::quotedColumnRef( mDisplayValueField )
                                  : QStringLiteral( " ( %1 ) " ).arg( mCurrentLayer->displayExpression() );
 
-  QString searchTermExpression;
-  if ( !mSearchTerm.isEmpty() )
-  {
-    QString escapedSearchTerm = QgsExpression::quotedValue( mSearchTerm ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
-    searchTermExpression = QStringLiteral( " %1 ILIKE '%%2%' " ).arg( fieldDisplayString, escapedSearchTerm );
-
-    const QStringList searchTermParts = escapedSearchTerm.split( QRegularExpression( QStringLiteral( "\\s+" ) ), Qt::SkipEmptyParts );
-    for ( const QString &searchTermPart : searchTermParts )
-    {
-      searchTermExpression += QStringLiteral( " OR %1 ILIKE '%%2%' " ).arg( fieldDisplayString, searchTermPart );
-    }
-  }
-
-  if ( !mSearchTerm.isEmpty() || !mFilterExpression.isEmpty() )
+  if ( !mFilterExpression.isEmpty() )
   {
     QgsExpressionContext filterContext = QgsExpressionContext( QgsExpressionContextUtils::globalProjectLayerScopes( mCurrentLayer ) );
 
@@ -351,18 +338,7 @@ void FeatureListModel::gatherFeatureList()
       filterContext.appendScope( QgsExpressionContextUtils::formScope( mCurrentFormFeature ) );
 
     request.setExpressionContext( filterContext );
-    if ( mFilterExpression.isEmpty() )
-    {
-      request.setFilterExpression( QStringLiteral( " (%1) " ).arg( searchTermExpression ) );
-    }
-    else if ( mSearchTerm.isEmpty() )
-    {
-      request.setFilterExpression( mFilterExpression );
-    }
-    else
-    {
-      request.setFilterExpression( QStringLiteral( " (%1) AND (%2) " ).arg( mFilterExpression, searchTermExpression ) );
-    }
+    request.setFilterExpression( mFilterExpression );
   }
 
   cleanupGatherer();
@@ -390,21 +366,9 @@ void FeatureListModel::processFeatureList()
 
   for ( const FeatureExpressionValuesGatherer::Entry &gatheredEntry : gatheredEntries )
   {
-    Entry entry;
-
-    entry = Entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.identifierFields.at( 1 ), gatheredEntry.featureId );
-
-    if ( !mSearchTerm.isEmpty() )
-    {
-      entry.calcFuzzyScore( mSearchTerm );
-
-      if ( entry.fuzzyScore == 0 )
-        continue;
-    }
-    entries.append( entry );
+    entries.append( Entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.identifierFields.at( 1 ), gatheredEntry.featureId ) );
   }
-
-  if ( mOrderByValue || !mGroupField.isEmpty() || !mSearchTerm.isEmpty() )
+  if ( mOrderByValue || !mGroupField.isEmpty() )
   {
     std::sort( entries.begin(), entries.end(), [=]( const Entry &entry1, const Entry &entry2 ) {
       if ( entry1.key.isNull() && !entry2.key.isNull() )
@@ -415,30 +379,9 @@ void FeatureListModel::processFeatureList()
 
       if ( !mGroupField.isEmpty() && entry1.group != entry2.group )
         return entry1.group < entry2.group;
-
-      if ( !mSearchTerm.isEmpty() )
-      {
-        const bool entry1StartsWithSearchTerm = entry1.displayString.toLower().startsWith( mSearchTerm.toLower() );
-        const bool entry2StartsWithSearchTerm = entry2.displayString.toLower().startsWith( mSearchTerm.toLower() );
-        if ( entry1StartsWithSearchTerm && !entry2StartsWithSearchTerm )
-          return true;
-
-        if ( !entry1StartsWithSearchTerm && entry2StartsWithSearchTerm )
-          return false;
-      }
-
       return entry1.displayString.toLower() < entry2.displayString.toLower();
     } );
   }
-  else if ( !mSearchTerm.isEmpty() )
-  {
-    std::sort( entries.begin(), entries.end(), []( const Entry &entry1, const Entry &entry2 ) {
-      return entry1.fuzzyScore == entry2.fuzzyScore
-               ? entry1.displayString.toLower() < entry2.displayString.toLower()
-               : entry1.fuzzyScore > entry2.fuzzyScore;
-    } );
-  }
-
   beginResetModel();
   mEntries = entries;
   endResetModel();
@@ -493,21 +436,6 @@ void FeatureListModel::setFilterExpression( const QString &filterExpression )
   mFilterExpression = filterExpression;
   reloadLayer();
   emit filterExpressionChanged();
-}
-
-QString FeatureListModel::searchTerm() const
-{
-  return mSearchTerm;
-}
-
-void FeatureListModel::setSearchTerm( const QString &searchTerm )
-{
-  if ( mSearchTerm == searchTerm )
-    return;
-
-  mSearchTerm = searchTerm;
-  reloadLayer();
-  emit searchTermChanged();
 }
 
 QgsFeature FeatureListModel::currentFormFeature() const

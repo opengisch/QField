@@ -81,11 +81,6 @@ class FeatureListModel : public QAbstractItemModel
     Q_PROPERTY( QString filterExpression READ filterExpression WRITE setFilterExpression NOTIFY filterExpressionChanged )
 
     /**
-     * Search term to filter features with. Empty string if no search is applied.
-     */
-    Q_PROPERTY( QString searchTerm READ searchTerm WRITE setSearchTerm NOTIFY searchTermChanged )
-
-    /**
      * The current form feature, used to evaluate expressions such as `current_value('attr1')`
      */
     Q_PROPERTY( QgsFeature currentFormFeature READ currentFormFeature WRITE setCurrentFormFeature NOTIFY currentFormFeatureChanged )
@@ -185,16 +180,6 @@ class FeatureListModel : public QAbstractItemModel
     void setFilterExpression( const QString &filterExpression );
 
     /**
-     * Search term to filter features with. Empty string if no search is applied.
-     */
-    QString searchTerm() const;
-
-    /**
-     * Sets a search term to filter features with. Empty string if no search is applied.
-     */
-    void setSearchTerm( const QString &searchTerm );
-
-    /**
      * The current form feature, used to evaluate expressions such as `current_value('attr1')`
      */
     QgsFeature currentFormFeature() const;
@@ -223,7 +208,6 @@ class FeatureListModel : public QAbstractItemModel
     void orderByValueChanged();
     void addNullChanged();
     void filterExpressionChanged();
-    void searchTermChanged();
     void currentFormFeatureChanged();
     void appExpressionContextScopesGeneratorChanged();
 
@@ -252,12 +236,6 @@ class FeatureListModel : public QAbstractItemModel
         {}
 
         Entry() = default;
-
-        void calcFuzzyScore( const QString &searchTerm )
-        {
-          fuzzyScore = StringUtils::fuzzyMatch( displayString, searchTerm ) ? 0.5 : 0;
-          fuzzyScore += QgsStringUtils::fuzzyScore( displayString, searchTerm ) * 0.5;
-        }
 
         QString displayString;
         QVariant key;
@@ -289,7 +267,6 @@ class FeatureListModel : public QAbstractItemModel
     bool mOrderByValue = false;
     bool mAddNull = false;
     QString mFilterExpression;
-    QString mSearchTerm;
     QgsFeature mCurrentFormFeature;
     QPointer<AppExpressionContextScopesGenerator> mAppExpressionContextScopesGenerator;
 
