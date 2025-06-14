@@ -112,15 +112,16 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
     else if ( QgsRasterLayer *layer = qobject_cast<QgsRasterLayer *>( result.layer ) )
     {
       QgsVectorLayer *representationalLayer;
-      if ( !mRepresentationalLayers.contains( layer ) || mRepresentationalLayers.value( layer )->name() != result.representationalLayerName )
+      const QString representativeLayerKey = QStringLiteral( "%1:%2" ).arg( layer->id(), result.representationalLayerName );
+      if ( !mRepresentationalLayers.contains( representativeLayerKey ) )
       {
         representationalLayer = QgsMemoryProviderUtils::createMemoryLayer( result.representationalLayerName, result.feature.fields(), result.feature.geometry().wkbType(), layer->crs() );
         representationalLayer->setReadOnly( true );
-        mRepresentationalLayers[layer] = representationalLayer;
+        mRepresentationalLayers[representativeLayerKey] = representationalLayer;
       }
       else
       {
-        representationalLayer = mRepresentationalLayers[layer];
+        representationalLayer = mRepresentationalLayers[representativeLayerKey];
       }
 
       QPair<QgsMapLayer *, QgsFeature> item( representationalLayer, result.feature );
@@ -132,7 +133,8 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
     else if ( QgsVectorTileLayer *layer = qobject_cast<QgsVectorTileLayer *>( result.layer ) )
     {
       QgsVectorLayer *representationalLayer;
-      if ( !mRepresentationalLayers.contains( layer ) || mRepresentationalLayers.value( layer )->name() != result.representationalLayerName )
+      const QString representativeLayerKey = QStringLiteral( "%1:%2" ).arg( layer->id(), result.representationalLayerName );
+      if ( !mRepresentationalLayers.contains( representativeLayerKey ) )
       {
         representationalLayer = QgsMemoryProviderUtils::createMemoryLayer( result.representationalLayerName, result.feature.fields(), result.feature.geometry().wkbType(), layer->crs() );
         representationalLayer->setReadOnly( true );
@@ -143,11 +145,11 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
           representationalLayer->setDisplayExpression( result.feature.fields().at( nameIndex ).name() );
         }
 
-        mRepresentationalLayers[layer] = representationalLayer;
+        mRepresentationalLayers[representativeLayerKey] = representationalLayer;
       }
       else
       {
-        representationalLayer = mRepresentationalLayers[layer];
+        representationalLayer = mRepresentationalLayers[representativeLayerKey];
       }
 
       QPair<QgsMapLayer *, QgsFeature> item( representationalLayer, result.feature );
@@ -179,8 +181,8 @@ void MultiFeatureListModelBase::clear( const bool keepSelected )
     mFeatures = mSelectedFeatures;
 
     // Selected features only ever contain one layer, clear all non-matching representational layers
-    const QList<QgsMapLayer *> keys = mRepresentationalLayers.keys();
-    for ( QgsMapLayer *key : keys )
+    const QStringList keys = mRepresentationalLayers.keys();
+    for ( const QString &key : keys )
     {
       if ( mRepresentationalLayers.value( key ) != mSelectedFeatures[0].first )
       {
