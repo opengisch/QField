@@ -355,6 +355,15 @@ void QFieldCloudProject::setAutoPushIntervalMins( int minutes )
   emit autoPushIntervalMinsChanged();
 }
 
+void QFieldCloudProject::setIsAttachmentDownloadOnDemand( bool isAttachmentDownloadOnDemand )
+{
+  if ( mIsAttachmentDownloadOnDemand == isAttachmentDownloadOnDemand )
+    return;
+
+  mIsAttachmentDownloadOnDemand = isAttachmentDownloadOnDemand;
+  emit isAttachmentDownloadOnDemandChanged();
+}
+
 void QFieldCloudProject::setLastLocalPushDeltas( const QString &lastLocalPushDeltas )
 {
   if ( mLastLocalPushDeltas == lastLocalPushDeltas )
@@ -482,6 +491,134 @@ void QFieldCloudProject::downloadThumbnail()
       file.close();
       setThumbnailPath( file.fileName() );
     };
+  } );
+}
+
+void QFieldCloudProject::downloadAttachment( const QString &fileName )
+{
+  if ( !mAttachmentsFileTransfers.contains( fileName ) )
+  {
+    mAttachmentsFileTransfers.insert( fileName, FileTransfer( fileName, 0, mId ) );
+
+    NetworkReply *reply = downloadFile( mId, fileName, true, true );
+    QTemporaryFile *file = new QTemporaryFile( reply );
+    file->setAutoRemove( false );
+    if ( !file->open() )
+    {
+      emit downloadAttachmentFinished( fileName, tr( "Failed to open temporary file for `%1`, reason:\n%2" ).arg( fileName ).arg( file->errorString() ) );
+      return;
+    }
+
+    mAttachmentsFileTransfers[fileName].tmpFile = file->fileName();
+    mAttachmentsFileTransfers[fileName].networkReply = reply;
+    downloadAttachmentConnections( fileName );
+  }
+}
+
+void QFieldCloudProject::downloadAttachmentConnections( const QString &fileKey )
+{
+  if ( !mAttachmentsFileTransfers.contains( fileKey ) )
+  {
+    Q_ASSERT( false );
+    return;
+  }
+
+  NetworkReply *reply = mAttachmentsFileTransfers[fileKey].networkReply;
+  if ( !reply )
+  {
+    Q_ASSERT( false );
+    return;
+  }
+
+  connect( reply, &NetworkReply::downloadProgress, reply, [=]( int bytesReceived, int bytesTotal ) {
+    QNetworkReply *rawReply = reply->currentRawReply();
+    if ( !rawReply )
+    {
+      return;
+    }
+
+    QString errorMessage;
+    bool hasError = false;
+
+    QFile file( mAttachmentsFileTransfers[fileKey].tmpFile );
+    if ( file.open( QIODevice::WriteOnly | QIODevice::Append ) )
+    {
+      file.write( rawReply->readAll() );
+      if ( file.error() != QFile::NoError )
+      {
+        hasError = true;
+        errorMessage = tr( "File system error. Failed to write attachment to temporary location `%1`." ).arg( mAttachmentsFileTransfers[fileKey].tmpFile );
+      }
+
+      file.close();
+    }
+    else
+    {
+      hasError = true;
+      errorMessage = tr( "File system error. Failed to open attachment for writing on temporary `%1`." ).arg( mAttachmentsFileTransfers[fileKey].tmpFile );
+    }
+
+    if ( hasError )
+    {
+      rawReply->abort();
+      emit downloadAttachmentFinished( fileKey, errorMessage );
+      return;
+    }
+  } );
+
+  connect( reply, &NetworkReply::finished, reply, [=]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+    Q_ASSERT( reply->isFinished() );
+    Q_ASSERT( rawReply );
+
+    QString errorMessage;
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      errorMessage = tr( "Network error. Failed to download attachment `%1`." ).arg( mAttachmentsFileTransfers[fileKey].fileName );
+      rawReply->abort();
+      emit downloadAttachmentFinished( fileKey, errorMessage );
+      return;
+    }
+
+    QFileInfo fileInfo( mAttachmentsFileTransfers[fileKey].fileName );
+    QDir dir( QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mAttachmentsFileTransfers[fileKey].projectId, fileInfo.path() ) );
+
+    if ( !dir.exists() && !dir.mkpath( QStringLiteral( "." ) ) )
+    {
+      errorMessage = QStringLiteral( "Failed to create attachment directory at `%1`" ).arg( dir.path() );
+      rawReply->abort();
+      emit downloadAttachmentFinished( mAttachmentsFileTransfers[fileKey].fileName, errorMessage );
+      return;
+    }
+
+    QFile file( mAttachmentsFileTransfers[fileKey].tmpFile );
+    const QString destinationFileName( QDir::cleanPath( dir.filePath( fileInfo.fileName() ) ) );
+
+    // if the file already exists, we need to delete it first, as QT does not support overwriting
+    // NOTE: it is possible that someone creates the file in the meantime between this and the next if statement
+    if ( QFile::exists( destinationFileName ) && !file.remove( destinationFileName ) )
+    {
+      errorMessage = QStringLiteral( "Failed to remove pre-existing attachment before overwriting stored at `%1`, reason:\n%2" ).arg( destinationFileName ).arg( file.errorString() );
+      rawReply->abort();
+      emit downloadAttachmentFinished( mAttachmentsFileTransfers[fileKey].fileName, errorMessage );
+      return;
+    }
+
+    if ( !file.copy( destinationFileName ) )
+    {
+      errorMessage = QStringLiteral( "Failed to write downloaded attachment stored at `%1`, reason:\n%2" ).arg( destinationFileName ).arg( file.errorString() );
+      rawReply->abort();
+      emit downloadAttachmentFinished( mAttachmentsFileTransfers[fileKey].fileName, errorMessage );
+      return;
+    }
+
+    if ( !file.remove() )
+    {
+      QgsMessageLog::logMessage( QStringLiteral( "Failed to remove temporary attachment `%1`" ).arg( destinationFileName ) );
+    }
+
+    emit downloadAttachmentFinished( mAttachmentsFileTransfers[fileKey].fileName );
   } );
 }
 
@@ -689,6 +826,7 @@ void QFieldCloudProject::download()
     for ( const QJsonValue fileValue : files )
     {
       const QJsonObject fileObject = fileValue.toObject();
+
       const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
       const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
       const QString projectFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId, fileName );
@@ -704,8 +842,20 @@ void QFieldCloudProject::download()
         return;
       }
 
-      if ( cloudEtag == localEtag )
+      if ( !localEtag.isEmpty() && cloudEtag == localEtag )
+      {
         continue;
+      }
+
+      if ( mIsAttachmentDownloadOnDemand && fileObject.value( QStringLiteral( "is_attachment" ) ).toBool() )
+      {
+        if ( !localEtag.isEmpty() && cloudEtag != localEtag )
+        {
+          // The cloud attachment has changed, remove locally to trigger a new download locally
+          QFile::remove( projectFileName );
+        }
+        continue;
+      }
 
       mDownloadFileTransfers.insert( QStringLiteral( "%1/%2" ).arg( mId, fileName ), FileTransfer( fileName, fileSize, mId ) );
       mDownloadBytesTotal += std::max( fileSize, 0 );
@@ -1168,10 +1318,18 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
   } );
 }
 
-NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage )
+NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage, bool autoRedirect )
 {
   QNetworkRequest request;
-  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::UserVerifiedRedirectPolicy );
+  if ( autoRedirect )
+  {
+    request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  }
+  else
+  {
+    request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::UserVerifiedRedirectPolicy );
+  }
+
   mCloudConnection->setAuthenticationDetails( request );
 
   return mCloudConnection->get( request, fromLatestPackage ? QStringLiteral( "/api/v1/packages/%1/latest/files/%2/" ).arg( projectId, fileName ) : QStringLiteral( "/api/v1/files/%1/%2/" ).arg( projectId, fileName ) );
@@ -1757,6 +1915,7 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
     setUpdatedAt( QDateTime::fromString( projectData.value( "updated_at" ).toString(), Qt::ISODate ) );
     setIsPublic( projectData.value( "is_public" ).toBool() );
     setIsFeatured( projectData.value( "is_featured" ).toBool() );
+    setIsAttachmentDownloadOnDemand( projectData.value( "is_attachment_download_on_demand" ).toBool() );
     setCanRepackage( projectData.value( "can_repackage" ).toBool() );
     setNeedsRepackaging( projectData.value( "needs_repackaging" ).toBool() );
     setLastRefreshedAt( QDateTime::currentDateTimeUtc() );
@@ -1772,6 +1931,7 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "updatedAt" ), mUpdatedAt.toString( Qt::DateFormat::ISODate ) );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "isPublic" ), mIsPublic );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "isFeatured" ), mIsFeatured );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "isAttachmentDownloadOnDemand" ), mIsAttachmentDownloadOnDemand );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "canRepackage" ), mCanRepackage );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "needsRepackaging" ), mNeedsRepackaging );
 
@@ -1864,6 +2024,7 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   project->mNeedsRepackaging = details.value( "needs_repackaging" ).toBool();
   project->mSharedDatasetsProjectId = details.value( "shared_datasets_project_id" ).toString();
   project->mIsSharedDatasetsProject = details.value( "is_shared_datasets_project" ).toBool();
+  project->mIsAttachmentDownloadOnDemand = details.value( "is_attachment_download_on_demand" ).toBool();
 
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "owner" ), project->owner() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "name" ), project->name() );
@@ -1876,6 +2037,7 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "needsRepackaging" ), project->needsRepackaging() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "sharedDatasetsProjectId" ), project->sharedDatasetsProjectId() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isSharedDatasetsProject" ), project->isSharedDatasetsProject() );
+  QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isAttachmentDownloadOnDemand" ), project->isAttachmentDownloadOnDemand() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isPublic" ), project->isPublic() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isFeatured" ), project->isFeatured() );
 
@@ -1915,6 +2077,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   const QDateTime updatedAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( "updatedAt" ) ).toString(), Qt::DateFormat::ISODate );
   const QString sharedDatasetsProjectId = QFieldCloudUtils::projectSetting( id, QStringLiteral( "sharedDatasetsProjectId" ) ).toString();
   const bool isSharedDatasetsProject = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isSharedDatasetsProject" ) ).toBool();
+  const bool isAttachmentDownloadOnDemand = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isAttachmentDownloadOnDemand" ) ).toBool();
 
   QFieldCloudProject *project = new QFieldCloudProject( id, connection, gpkgFlusher );
   project->mIsPublic = isPublic;
@@ -1933,6 +2096,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   project->mNeedsRepackaging = false;
   project->mSharedDatasetsProjectId = sharedDatasetsProjectId;
   project->mIsSharedDatasetsProject = isSharedDatasetsProject;
+  project->mIsAttachmentDownloadOnDemand = isAttachmentDownloadOnDemand;
 
   QString username = connection ? connection->username() : QString();
   if ( !username.isEmpty() )
