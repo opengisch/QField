@@ -56,6 +56,7 @@
 #include "expressionvariablemodel.h"
 #include "externalstorage.h"
 #include "featurechecklistmodel.h"
+#include "featurechecklistproxymodel.h"
 #include "featurehistory.h"
 #include "featurelistextentcontroller.h"
 #include "featurelistmodel.h"
@@ -478,6 +479,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<ReferencingFeatureListModel>( "org.qfield", 1, 0, "ReferencingFeatureListModel" );
   qmlRegisterType<OrderedRelationModel>( "org.qfield", 1, 0, "OrderedRelationModel" );
   qmlRegisterType<FeatureCheckListModel>( "org.qfield", 1, 0, "FeatureCheckListModel" );
+  qmlRegisterType<FeatureCheckListProxyModel>( "org.qfield", 1, 0, "FeatureCheckListProxyModel" );
   qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
   qmlRegisterType<ExpressionEvaluator>( "org.qfield", 1, 0, "ExpressionEvaluator" );
 #ifdef WITH_BLUETOOTH
