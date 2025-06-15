@@ -24,6 +24,13 @@ Drawer {
   property alias allowActiveLayerChange: legend.allowActiveLayerChange
   property alias activeLayer: legend.activeLayer
   property alias layerTree: legend.model
+
+  property alias measurementBtn: measurementButton
+  property alias printItemBtn: printItemButton
+  property alias cloudBtn: cloudButton
+  property alias projectFolderBtn: projectFolderButton
+  property alias modeSwitchBtn: modeSwitch
+
   property MapSettings mapSettings
 
   property color mainColor: Theme.mainColor

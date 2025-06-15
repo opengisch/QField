@@ -5,6 +5,8 @@ import QtQuick.Window
 import QtQuick.Controls.Material
 import Theme
 
+// CheckBox : don't show guide next time??
+
 /**
  * \ingroup qml
  */
@@ -60,7 +62,19 @@ Popup {
     property var step: steps[index]
     property var target: {
       if (steps[index]) {
-        return steps[index].target();
+        if (steps[index].type === "information") {
+          return steps[index].target();
+        } else if (steps[index].type === "action") {
+          let objectAfterAction = undefined;
+          if (index + 1 < steps.length) {
+            objectAfterAction = steps[index + 1].target();
+          } else {
+            objectAfterAction = steps[index].target();
+          }
+          steps[index].forwardAction();
+          delayedPainter.restart();
+          return objectAfterAction;
+        }
       }
       return undefined;
     }
@@ -132,6 +146,10 @@ Popup {
       ctx.arcTo(rect.x, rect.y, rect.x + r, rect.y, r);
       ctx.closePath();
       ctx.fill();
+    }
+
+    MouseArea {
+      anchors.fill: parent
     }
   }
 
@@ -294,7 +312,11 @@ Popup {
         rightMargin: 15
       }
       onClicked: {
-        guide.index -= 1;
+        if (steps[index - 1].type === "action") {
+          steps[index - 1].backwardAction();
+        } else {
+          guide.index -= 1;
+        }
       }
     }
 

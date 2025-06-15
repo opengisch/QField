@@ -4438,23 +4438,65 @@ ApplicationWindow {
     id: mapCanvasTour
     baseRoot: mainWindow
     objectName: 'mapCanvasTour'
+    z: dashBoard.z + 1
 
     steps: [{
+        "type": "information",
         "title": qsTr("Dashboard"),
         "description": qsTr("This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu."),
         "target": () => [menuButton]
       }, {
+        "type": "information",
         "title": qsTr("Positioning"),
         "description": qsTr("This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored."),
         "target": () => [gnssButton]
       }, {
+        "type": "information",
         "title": qsTr("Search"),
         "description": qsTr("The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more."),
         "target": () => [locatorItem]
       }, {
+        "type": "information",
         "title": qsTr("Zoom"),
         "description": qsTr("In addition to the pinch gesture, these buttons help you quickly zoom in and out."),
         "target": () => [zoomToolbar]
+      }, {
+        "type": "action",
+        "title": qsTr(""),
+        "description": qsTr(""),
+        "forwardAction": () => {
+          dashBoard.open();
+          mapCanvasTour.index = mapCanvasTour.index + 1;
+        },
+        "backwardAction": () => {
+          dashBoard.close();
+          mapCanvasTour.index = mapCanvasTour.index - 2;
+        }
+      }, {
+        "type": "information",
+        "title": qsTr("Measurement"),
+        "description": qsTr("we will need some good text for it :)"),
+        "target": () => [dashBoard.measurementBtn]
+      }, {
+        "type": "information",
+        "title": qsTr("Print"),
+        "description": qsTr("we will need some good text for it :)"),
+        "target": () => [dashBoard.printItemBtn]
+      }, {
+        "type": "information",
+        "title": qsTr("Cloud"),
+        "description": qsTr("we will need some good text for it :)"),
+        "target": () => [dashBoard.cloudBtn]
+      }, {
+        "type": "information",
+        "title": qsTr("Project folder"),
+        "description": qsTr("we will need some good text for it :)"),
+        "target": () => [dashBoard.projectFolderBtn]
+      }, {
+        "type": "information",
+        "title": qsTr("Mode"),
+        "description": qsTr("we will need some good text for it :)"),
+        "target": () => [dashBoard.modeSwitchBtn]
       }]
 
     function startOnFreshRun() {
