@@ -122,6 +122,7 @@
         <file>QFieldLocalDataPickerScreen.qml</file>
         <file>QFieldSketcher.qml</file>
         <file>PluginManagerSettings.qml</file>
+        <file>PluginItem.qml</file>
         <file>InformationDrawer.qml</file>
         <file>QFieldGuide.qml</file>
         <file>imports/Theme/QfProgrerssRing.qml</file>
