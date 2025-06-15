@@ -2667,8 +2667,6 @@ ApplicationWindow {
             if (featureHistory.undo()) {
               displayToast(msg);
             }
-            dashBoard.close();
-            mainMenu.close();
           }
         }
       }
@@ -2705,8 +2703,6 @@ ApplicationWindow {
             if (featureHistory.redo()) {
               displayToast(msg);
             }
-            dashBoard.close();
-            mainMenu.close();
           }
         }
       }
