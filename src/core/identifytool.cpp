@@ -25,6 +25,10 @@
 #include <qgsrenderer.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayertemporalproperties.h>
+#include <qgsvectortilelayer.h>
+#include <qgsvectortileloader.h>
+#include <qgsvectortilemvtdecoder.h>
+#include <qgsvectortileutils.h>
 
 IdentifyTool::IdentifyTool( QObject *parent )
   : QObject( parent )
@@ -76,6 +80,11 @@ void IdentifyTool::identify( const QPointF &point ) const
     else if ( QgsRasterLayer *rl = qobject_cast<QgsRasterLayer *>( layer ) )
     {
       QList<IdentifyResult> results = identifyRasterLayer( rl, mapPoint );
+      mModel->appendFeatures( results );
+    }
+    else if ( QgsVectorTileLayer *vtl = qobject_cast<QgsVectorTileLayer *>( layer ) )
+    {
+      QList<IdentifyResult> results = identifyVectorTileLayer( vtl, mapPoint );
       mModel->appendFeatures( results );
     }
   }
@@ -287,6 +296,91 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyRasterLayer( QgsRaster
         results.append( IdentifyResult( layer, feature, !labels.isEmpty() ? QStringLiteral( "%1 - %2" ).arg( labels.join( QStringLiteral( " - " ) ) ) : layer->name() ) );
       }
     }
+  }
+
+  return results;
+}
+
+QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorTileLayer( QgsVectorTileLayer *layer, const QgsPointXY &point ) const
+{
+  QList<IdentifyTool::IdentifyResult> results;
+  if ( !layer || !layer->isSpatial() )
+    return results;
+
+  if ( !layer->isInScaleRange( mMapSettings->mapSettings().scale() ) )
+  {
+    return results;
+  }
+
+  QMap<QString, QString> commonDerivedAttributes;
+  int featureCount = 0;
+
+  try
+  {
+    // create the search rectangle
+    double searchRadius = searchRadiusMU();
+
+    QgsRectangle r;
+    r.setXMinimum( point.x() - searchRadius );
+    r.setXMaximum( point.x() + searchRadius );
+    r.setYMinimum( point.y() - searchRadius );
+    r.setYMaximum( point.y() + searchRadius );
+    r = toLayerCoordinates( layer, r );
+
+    const double tileScale = layer->tileMatrixSet().calculateTileScaleForMap(
+      mMapSettings->mapSettings().scale(),
+      mMapSettings->mapSettings().destinationCrs(),
+      mMapSettings->mapSettings().extent(),
+      mMapSettings->outputSize(),
+      mMapSettings->outputDpi() );
+
+    const int tileZoom = layer->tileMatrixSet().scaleToZoomLevel( tileScale );
+    const QgsTileMatrix tileMatrix = layer->tileMatrixSet().tileMatrix( tileZoom );
+    const QgsTileRange tileRange = tileMatrix.tileRangeFromExtent( r );
+
+    const QVector<QgsTileXYZ> tiles = layer->tileMatrixSet().tilesInRange( tileRange, tileZoom );
+    for ( const QgsTileXYZ &tileID : tiles )
+    {
+      const QgsVectorTileRawData data = layer->getRawTile( tileID );
+      if ( data.data.isEmpty() )
+        continue; // failed to get data
+
+      QgsVectorTileMVTDecoder decoder( layer->tileMatrixSet() );
+      if ( !decoder.decode( data ) )
+        continue; // failed to decode
+
+      QMap<QString, QgsFields> perLayerFields;
+      const QStringList layerNames = decoder.layers();
+      for ( const QString &layerName : layerNames )
+      {
+        QSet<QString> fieldNames = qgis::listToSet( decoder.layerFieldNames( layerName ) );
+        perLayerFields[layerName] = QgsVectorTileUtils::makeQgisFields( fieldNames );
+      }
+
+      const QgsVectorTileFeatures features = decoder.layerFeatures( perLayerFields, QgsCoordinateTransform() );
+      const QStringList featuresLayerNames = features.keys();
+      for ( const QString &layerName : featuresLayerNames )
+      {
+        const QgsFields fFields = perLayerFields[layerName];
+        const QVector<QgsFeature> &layerFeatures = features[layerName];
+        for ( const QgsFeature &f : layerFeatures )
+        {
+          if ( f.fields().isEmpty() )
+            continue;
+
+          if ( f.geometry().intersects( r ) )
+          {
+            results.append( IdentifyResult( layer, f, QStringLiteral( "%1 - %2" ).arg( layer->name(), layerName ) ) );
+          }
+        }
+      }
+    }
+  }
+  catch ( QgsCsException &cse )
+  {
+    Q_UNUSED( cse )
+    // catch exception for 'invalid' point and proceed with no features found
+    QgsDebugError( QStringLiteral( "Caught CRS exception %1" ).arg( cse.what() ) );
   }
 
   return results;
