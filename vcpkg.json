@@ -15,7 +15,7 @@
     "catch2",
     {
       "name": "crashpad",
-      "platform": "linux | windows"
+      "platform": "windows"
     },
     {
       "name": "ffmpeg",

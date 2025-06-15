@@ -80,9 +80,9 @@ jobs:
                 -D CMAKE_INSTALL_PREFIX=/usr \
                 -D CMAKE_EXPORT_COMPILE_COMMANDS=ON \
                 -D CMAKE_COMPILE_WARNING_AS_ERROR=ON \
-                -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
-                -D SENTRY_ENV="${APP_ENV}" \
                 -D LINUXDEPLOY_EXECUTABLE=${{ env.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage
+                # -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
+                # -D SENTRY_ENV="${APP_ENV}" \
 
       - name: 📑 Upload dep build logs
         uses: actions/upload-artifact@v4
@@ -174,14 +174,14 @@ jobs:
           asset_name: ${{ env.ARTIFACT_NAME }}
           overwrite: true
 
-      - name: 📮 Upload debug symbols
-        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_ORG_SLUG: opengisch
-          SENTRY_PROJECT_SLUG: qfield
-        run: |
-          bundle exec fastlane run sentry_debug_files_upload path:build
+      # - name: 📮 Upload debug symbols
+      #   if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
+      #   env:
+      #     SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      #     SENTRY_ORG_SLUG: opengisch
+      #     SENTRY_PROJECT_SLUG: qfield
+      #   run: |
+      #     bundle exec fastlane run sentry_debug_files_upload path:build
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
