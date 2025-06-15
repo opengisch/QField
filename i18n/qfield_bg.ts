@@ -2228,7 +2228,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Помощ</translation>
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
@@ -2236,7 +2236,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Algorithm description</source>
-        <translation type="unfinished"/>
+        <translation>Описание на алгоритъма</translation>
     </message>
 </context>
 <context>
@@ -2247,29 +2247,29 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>All Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Всички алгоритми</translation>
     </message>
 </context>
 <context>
     <name>QFieldAppAuthRequestHandler</name>
     <message>
         <source>Please enter credentials for database</source>
-        <translation type="unfinished"/>
+        <translation>Моля, въведи данни за базата данни</translation>
     </message>
     <message>
         <source>at host</source>
-        <translation type="unfinished"/>
+        <translation>хост</translation>
     </message>
     <message>
         <source>at service</source>
-        <translation type="unfinished"/>
+        <translation>услуга</translation>
     </message>
 </context>
 <context>
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
-        <translation type="unfinished"/>
+        <translation>Запис на аудио</translation>
     </message>
 </context>
 <context>
@@ -2292,11 +2292,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>front</source>
-        <translation type="unfinished"/>
+        <translation>отпред</translation>
     </message>
     <message>
         <source>back</source>
-        <translation type="unfinished"/>
+        <translation>тзад</translation>
     </message>
     <message>
         <source>Image geotagging requires positioning to be turned on</source>
@@ -3040,7 +3040,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>, updated data available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>, обновени данни са налични в облака</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
@@ -3060,7 +3060,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Няма открити проекти на облака. Като за начало, %1прочети документацията%2.</translation>
     </message>
     <message>
         <source>Search for project</source>
@@ -3785,7 +3785,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>Използвай бутоните за силата на звука за цифроване на обекти</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
@@ -3793,15 +3793,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
-        <translation type="unfinished"/>
+        <translation>Разреши добавяне на нови възли чрез натискане на картата</translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation type="unfinished"/>
+        <translation>Когато е разрешено, при натискане на картата с пръст ще се добавят нови възли в геометрията на докоснатата локация.</translation>
     </message>
     <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation type="unfinished"/>
+        <translation>Когато е включено, мишката ще се държи като пръст. Когато е изключено, мишката ще се държи като писалка.</translation>
     </message>
     <message>
         <source>Map Canvas</source>
@@ -5707,15 +5707,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Snapping to every</source>
-        <translation type="unfinished"/>
+        <translation>Залепване към всеки</translation>
     </message>
     <message>
         <source>%1°</source>
-        <translation type="unfinished"/>
+        <translation>%1°</translation>
     </message>
     <message>
         <source>Snapping tolerance</source>
-        <translation type="unfinished"/>
+        <translation>Толеранс на залепянето</translation>
     </message>
     <message>
         <source>Narrow</source>
@@ -5731,15 +5731,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Snapping tolerance set to %1</source>
-        <translation type="unfinished"/>
+        <translation>Толерансът на залепянето е %1</translation>
     </message>
     <message>
         <source>Import Confirmation</source>
-        <translation type="unfinished"/>
+        <translation>Импортирай конфигурация</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation type="unfinished"/>
+        <translation>Искаш ли да импортираш &lt;b&gt;%1&lt;/b&gt; от &lt;b&gt;%2&lt;/b&gt; в QField?</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
