@@ -14,10 +14,6 @@
   "dependencies": [
     "catch2",
     {
-      "name": "crashpad",
-      "platform": "windows"
-    },
-    {
       "name": "ffmpeg",
       "default-features": false,
       "features": [
@@ -111,7 +107,13 @@
     },
     {
       "name": "sentry-native",
-      "platform": "!android & !ios & !osx"
+      "default-features": false,
+      "features": [
+        "backend",
+        "breakpad",
+        "transport"
+      ],
+      "platform": "windows | linux"
     },
     "spix-qt6",
     {

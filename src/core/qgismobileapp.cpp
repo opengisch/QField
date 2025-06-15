@@ -217,7 +217,6 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mUrlHandler.reset( new QFieldUrlHandler( mIface, this ) );
   QDesktopServices::setUrlHandler( QStringLiteral( "qfield" ), mUrlHandler.get(), "handleUrl" );
 
-  mMessageLogModel->clear();
   mMessageLogModel = new MessageLogModel( this );
 
   QSettings settings;
