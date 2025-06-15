@@ -258,6 +258,20 @@ if(WITH_VCPKG)
     COMMAND ${CMAKE_COMMAND} -E rm -- "${SHARE_DIR}/qgis/resources/data/world_map.gpkg"
     COMMAND ${CMAKE_COMMAND} -E rm -R -- "${SHARE_DIR}/qgis/resources/cpt-city-qgis-min"
   )
+
+
+  if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+    add_custom_command(TARGET deploy
+                       POST_BUILD
+                       COMMAND ${CMAKE_COMMAND} -E copy "${VCPKG_BASE_DIR}/tools/crashpad/crashpad_handler" "${CMAKE_BINARY_DIR}/output/bin"
+    )
+  elseif(${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+    add_custom_command(TARGET deploy
+                       POST_BUILD
+                       COMMAND ${CMAKE_COMMAND} -E copy "${VCPKG_BASE_DIR}/tools/crashpad_handler.exe" "${CMAKE_BINARY_DIR}/output/bin"
+    )
+  endif()
+
   set(PROJ_DATA_PATH "${VCPKG_BASE_DIR}/share/proj")
 
   if(NOT EXISTS "${PROJ_DATA_PATH}/proj.db")
@@ -272,6 +286,11 @@ if(WITH_VCPKG)
   install(DIRECTORY "${PROJ_DATA_PATH}/" DESTINATION "${CMAKE_INSTALL_DATADIR}/proj/")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/gdal/" DESTINATION "${CMAKE_INSTALL_DATADIR}/gdal")
   install(FILES "${CMAKE_BINARY_DIR}/cacert.pem" DESTINATION ${CMAKE_INSTALL_DATADIR}/)
+  if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+    install(FILES "${VCPKG_BASE_DIR}/tools/crashpad/crashpad_handler" DESTINATION "${CMAKE_INSTALL_BINDIR}")
+  elseif(${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+    install(FILES "${VCPKG_BASE_DIR}/tools/crashpad_handler.exe" DESTINATION "${CMAKE_INSTALL_BINDIR}")
+  endif()
 
   add_dependencies(qfield deploy)
 endif()
