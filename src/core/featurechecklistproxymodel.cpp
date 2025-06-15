@@ -76,10 +76,13 @@ bool FeatureCheckListProxyModel::lessThan( const QModelIndex &left, const QModel
     const bool rightItemSelected = sourceModel()->data( right, FeatureCheckListModel::CheckedRole ).toBool();
 
     if ( rightItemSelected && !leftItemSelected )
+    {
       return false;
-
-    if ( !rightItemSelected && leftItemSelected )
+    }
+    else if ( !rightItemSelected && leftItemSelected )
+    {
       return true;
+    }
   }
 
   const QString leftDisplay = sourceModel()->data( left, Qt::DisplayRole ).toString().toLower();
@@ -91,11 +94,13 @@ bool FeatureCheckListProxyModel::lessThan( const QModelIndex &left, const QModel
     const bool rightStartsWithSearchTerm = rightDisplay.startsWith( mSearchTerm.toLower() );
 
     if ( rightStartsWithSearchTerm && !leftStartsWithSearchTerm )
+    {
       return false;
-
-    if ( !rightStartsWithSearchTerm && leftStartsWithSearchTerm )
+    }
+    else if ( !rightStartsWithSearchTerm && leftStartsWithSearchTerm )
+    {
       return true;
-
+    }
     const double leftFuzzyScore = calcFuzzyScore( leftDisplay, mSearchTerm.toLower() );
     const double rightFuzzyScore = calcFuzzyScore( rightDisplay, mSearchTerm.toLower() );
 

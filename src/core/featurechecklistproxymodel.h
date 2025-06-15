@@ -19,6 +19,19 @@
 
 #include <QSortFilterProxyModel>
 
+/**
+ * A proxy model for filtering and sorting feature checklist items.
+ *
+ * This model enhances a source model (typically a FeatureCheckListModel) by allowing:
+ * - Text-based filtering using a search term.
+ * - Optional sorting that prioritizes checked items.
+ * - Fuzzy and prefix-based matching for search refinement.
+ *
+ * Used in UI contexts where users interact with large lists of features and need
+ * to quickly find and sort items by name or selection state.
+ *
+ * \ingroup core
+ */
 class FeatureCheckListProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
