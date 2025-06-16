@@ -259,7 +259,6 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: debug-symbols
-          path: symbols
 
       - name: upload symbols
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
@@ -267,4 +266,4 @@ jobs:
           SENTRY_ORG_SLUG: opengisch
           SENTRY_PROJECT_SLUG: qfield
         run: |
-          bundle exec fastlane run sentry_debug_files_upload path:symbols
+          bundle exec fastlane run sentry_debug_files_upload path:.
