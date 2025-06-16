@@ -186,7 +186,6 @@ jobs:
           overwrite: true
 
       - name: 💎 Setup ruby
-        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2' # Not needed with a .ruby-version file
@@ -203,7 +202,6 @@ jobs:
           bundle exec fastlane windows upload_s3 exe:${{ env.ARTIFACT_PATHNAME }}
 
       - name: 📮 Upload debug symbols
-        #if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v') && env.ARTIFACT_NAME != null
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         env:
           SENTRY_ORG_SLUG: opengisch
