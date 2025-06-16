@@ -203,11 +203,10 @@ jobs:
 
       - name: 📮 Upload debug symbols
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
-        env:
-          SENTRY_ORG_SLUG: opengisch
-          SENTRY_PROJECT_SLUG: qfield
-        run: |
-          bundle exec fastlane run sentry_debug_files_upload path:${{ env.CMAKE_BUILD_DIR }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-symbols
+          path: ${{ env.CMAKE_BUILD_DIR }}/**/*.pdb
 
   deploy:
     name: deploy (ms store)
@@ -240,3 +239,32 @@ jobs:
         uses: microsoft/store-submission@v1
         with:
           command: publish
+
+  upload-debug-symbols:
+    name: upload debug symbols
+    runs-on: ubuntu-latest
+
+    needs: build
+
+    steps:
+      - name: 🐣 Checkout
+        uses: actions/checkout@v4
+
+      - name: 💎 Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: debug-symbols
+          path: symbols
+
+      - name: upload symbols
+        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
+        env:
+          SENTRY_ORG_SLUG: opengisch
+          SENTRY_PROJECT_SLUG: qfield
+        run: |
+          bundle exec fastlane run sentry_debug_files_upload path:symbols
