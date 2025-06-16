@@ -66,7 +66,7 @@ EditorWidgetBase {
         Text {
           visible: isEnabled
           color: Theme.secondaryTextColor
-          text: isEnabled && !constraintsHardValid ? qsTr('Ensure contraints are met') : ''
+          text: isEnabled && !constraintsHardValid ? qsTr('Ensure constraints are met') : ''
           anchors {
             leftMargin: 10
             left: parent.left
