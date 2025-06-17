@@ -101,10 +101,6 @@ Item {
         anchors.right: parent.right
         height: childrenRect.height
 
-        onSearchTermChanged: {
-          featureListModel.searchTerm = searchTerm;
-        }
-
         onReturnPressed: {
           if (featureListModel.rowCount() === 1) {
             resultsList.itemAtIndex(0).performClick();
@@ -113,23 +109,30 @@ Item {
         }
       }
 
+      FeatureCheckListProxyModel {
+        id: featureCheckListProxyModel
+        sourceModel: featureListModel
+        searchTerm: searchBar.searchTerm
+        sortCheckedFirst: !isEnabled
+      }
+
       ListView {
         id: resultsList
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: searchBar.bottom
-        model: featureListModel
+        model: featureCheckListProxyModel
         width: parent.width
         height: searchFeaturePopup.height - searchBar.height - 50
         clip: true
         ScrollBar.vertical: QfScrollBar {
         }
-        section.property: featureListModel.groupField != "" ? "groupFieldValue" : ""
+        section.property: featureCheckListProxyModel.groupField != "" ? "groupFieldValue" : ""
         section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
         section.delegate: Component {
           Rectangle {
             width: parent.width
-            height: featureListModel.displayGroupName ? 30 : 5
+            height: featureCheckListProxyModel.displayGroupName ? 30 : 5
             color: Theme.controlBackgroundAlternateColor
 
             Text {
@@ -141,7 +144,7 @@ Item {
               font.pointSize: Theme.resultFont.pointSize
               color: Theme.mainTextColor
               text: section
-              visible: featureListModel.displayGroupName
+              visible: featureCheckListProxyModel.displayGroupName
             }
           }
         }
@@ -150,7 +153,7 @@ Item {
           id: rectangle
 
           property int idx: index
-          property string itemText: StringUtils.highlightText(displayString, featureListModel.searchTerm, Theme.mainTextColor)
+          property string itemText: StringUtils.highlightText(displayString, featureCheckListProxyModel.searchTerm, Theme.mainTextColor)
 
           anchors.margins: 10
           width: parent ? parent.width : undefined
@@ -199,7 +202,7 @@ Item {
               font.weight: model.checked ? Font.DemiBold : Font.Normal
               elide: Text.ElideRight
               wrapMode: Text.WordWrap
-              color: featureListModel.searchTerm != '' ? Theme.secondaryTextColor : Theme.mainTextColor
+              color: featureCheckListProxyModel.searchTerm != '' ? Theme.secondaryTextColor : Theme.mainTextColor
               textFormat: Text.RichText
               text: itemText
             }
