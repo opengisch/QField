@@ -506,6 +506,7 @@ void QFieldCloudProject::downloadAttachment( const QString &fileName )
     if ( !file->open() )
     {
       emit downloadAttachmentFinished( fileName, tr( "Failed to open temporary file for `%1`, reason:\n%2" ).arg( fileName ).arg( file->errorString() ) );
+      mAttachmentsFileTransfers.remove( fileName );
       return;
     }
 
@@ -562,6 +563,7 @@ void QFieldCloudProject::downloadAttachmentConnections( const QString &fileKey )
     {
       rawReply->abort();
       emit downloadAttachmentFinished( fileKey, errorMessage );
+      mAttachmentsFileTransfers.remove( fileKey );
       return;
     }
   } );
@@ -578,6 +580,7 @@ void QFieldCloudProject::downloadAttachmentConnections( const QString &fileKey )
       errorMessage = tr( "Network error. Failed to download attachment `%1`." ).arg( mAttachmentsFileTransfers[fileKey].fileName );
       rawReply->abort();
       emit downloadAttachmentFinished( fileKey, errorMessage );
+      mAttachmentsFileTransfers.remove( fileKey );
       return;
     }
 
@@ -589,6 +592,7 @@ void QFieldCloudProject::downloadAttachmentConnections( const QString &fileKey )
       errorMessage = QStringLiteral( "Failed to create attachment directory at `%1`" ).arg( dir.path() );
       rawReply->abort();
       emit downloadAttachmentFinished( mAttachmentsFileTransfers[fileKey].fileName, errorMessage );
+      mAttachmentsFileTransfers.remove( fileKey );
       return;
     }
 
@@ -602,6 +606,7 @@ void QFieldCloudProject::downloadAttachmentConnections( const QString &fileKey )
       errorMessage = QStringLiteral( "Failed to remove pre-existing attachment before overwriting stored at `%1`, reason:\n%2" ).arg( destinationFileName ).arg( file.errorString() );
       rawReply->abort();
       emit downloadAttachmentFinished( mAttachmentsFileTransfers[fileKey].fileName, errorMessage );
+      mAttachmentsFileTransfers.remove( fileKey );
       return;
     }
 
@@ -610,6 +615,7 @@ void QFieldCloudProject::downloadAttachmentConnections( const QString &fileKey )
       errorMessage = QStringLiteral( "Failed to write downloaded attachment stored at `%1`, reason:\n%2" ).arg( destinationFileName ).arg( file.errorString() );
       rawReply->abort();
       emit downloadAttachmentFinished( mAttachmentsFileTransfers[fileKey].fileName, errorMessage );
+      mAttachmentsFileTransfers.remove( fileKey );
       return;
     }
 
@@ -619,6 +625,7 @@ void QFieldCloudProject::downloadAttachmentConnections( const QString &fileKey )
     }
 
     emit downloadAttachmentFinished( mAttachmentsFileTransfers[fileKey].fileName );
+    mAttachmentsFileTransfers.remove( fileKey );
   } );
 }
 
