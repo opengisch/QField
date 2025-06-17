@@ -1,0 +1,234 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <link rel="stylesheet" href="https://use.typekit.net/cbd7kad.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-24350287-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-24350287-3');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes">
+  <title>QField - Efficient field work built for QGIS</title>
+  <meta name="description" content="QField - Efficient field work built for QGIS">
+  <meta name="author" content="OPENGIS.ch">
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="css/qfield.css?ver=4" rel="stylesheet" media="screen">
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/qfield.js"></script>
+</head>
+
+  <body>
+    <!-- Section #0: navigation -->
+    <nav id="navbar" class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarNav"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./"><img src="images/qfield_for_qgis.png"
+              style="width: auto; height: 52px; margin-top: 8px" alt="QField Logo" /></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/index.html#highlights" title="Highlights">HIGHLIGHTS</a>
+            </li>
+            <li class="dropdown"></li>
+            <li>
+              <a href="/assistance.html" title="Get assistance">GET ASSISTANCE</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                aria-expanded="false">RESOURCES<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="https://docs.qfield.org/success-stories/" target="_blank" title="Success stories">Success
+                    stories</a>
+                </li>
+                <li>
+                  <a href="https://community.qfield.org/" target="_blank" title="Community">Community</a>
+                </li>
+                <li>
+                  <a href="https://docs.qfield.org" target="_blank" title="Documentation">Documentation</a>
+                </li>
+                <li>
+                  <a href="https://docs.qfield.org/get-started/contribute/" target="_blank"
+                    title="Contribute to QField">Contribute</a>
+                </li>
+                <li>
+                  <a href="https://github.com/opengisch/qfield" target="_blank" title="Source code">Source code</a>
+                </li>
+                <li>
+                  <a href="/partner.html" title="Partner programs">Partner programs</a>
+                </li>
+                <li>
+                  <a href="/sdgs.html" title="Sustainable development goals">Sustainable development goals</a>
+                </li>
+                <li>
+                  <a href="https://www.opengis.ch/category/qfield/" target="_blank" title="Blog">Blog</a>
+                </li>
+                <li>
+                  <a href="https://www.opengis.ch/newsletter" target="_blank" title="newsletter">Newsletter</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="https://opengis.ch/#contact" target="_blank" title="Contact us">CONTACT US</a>
+            </li>
+            <li>
+              <a href="https://docs.qfield.org/get-started/" target="_blank" title="Get started"><i
+                  class="fas fa-rocket"></i> GET STARTED</a>
+            </li>
+            <li class="support-button">
+              <a href="/support-us.html" title="Support us">♥ SUPPORT US</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<!-- Section: title -->
+    <section id="success-story-title" class="section-spacing text-center" style="margin-bottom: 20px">
+      <h1>Ground Truth Data Collection Using QField <span style="color: var(--qfield-color);"> for LULC Mapping</span> in
+        Fiji</h1>
+      <h4>By Kevin Davies, School of Geosciences, The University of Sydney</h4>
+    </section>
+
+    <!-- Section: success story content -->
+    <section id="success-story" class="section-spacing text-left">
+      <div class="container" style="max-width: 1140px">
+        <h3>Purpose</h3>
+        <p>
+          Communities in Fiji rely on landscape resources for agricultural and forestry-related activities. Accurate mapping
+          and
+          monitoring patterns of land use and land cover (LULC) over time at an appropriate scale is important for informing
+          landscape management, policies, and climate-smart sustainable development.
+
+          Fiji's Ministry of Forestry is collaboratively developing an approach with the Universities of Sydney (USYD),
+          Western
+          Australia (UWA) and the South Pacific (USP) to produce an inter-annual LULC map using Sentinel-2 satellite data,
+          and
+          freely available geospatial tools. QFIeld is being used for collecting ground truth data in the landscape for
+          training
+          and validation of the LULC map.
+        </p>
+
+        <h3>Workflow</h3>
+        <p>
+          – The LULC ground truth collection form was designed in QGIS.<br>
+          – A set of predefined ground truth plot locations were generated based on a stratification of satellite data
+          within
+          the study area.<br>
+          – The form, predefined plots, and appropriate offline background layers were packaged in QGIS and then loaded onto
+          each of the tablets used by the field team (Figure 1).<br>
+          – A team member navigated to a predefined plot in QField and created a ground truth point at the location and
+          labelled
+          the point with the most appropriate pre-defined LULC class (Figure 2).<br>
+          – Data collected from all tablets was combined into one ground truth data collection in QGIS.<br>
+          – Image interpretation using the OpenForis platform will be used to increase the number of ground truth plots.<br>
+          – The final ground truth collection will be imported into Google Earth Engine to produce the LULC map and
+          calculate
+          the map accuracy.<br>
+        </p>
+
+        <img src="/images/ss/use_study_fiji1.png" style="width: 450px;" alt="Predefined Ground Truth Plots" />
+        <p> <i>Figure 1: Predefined Ground Truth Plots</i></p>
+        <img src="/images/ss/use_study_fiji2.png" style="width: 450px;" alt="Capturing land cover class" />
+        <p> <i>Figure 2: Capturing land cover class</i></p>
+
+        <h4>Preliminary Results and Future Work</h4>
+        <p>
+          An example of a preliminary land cover map is shown in Figure 3. An important objective from our work is to
+          transfer skills and build capacity with local stakeholders to continue to update the LULC map on an annual basis
+          as well as to expand the map to include other communities, catchments and forestry areas across Fiji. This
+          capacity building will include iterative stakeholder consultation, online training materials, field and classroom
+          training workshops, and collaborative fieldwork. </p>
+
+        <img src="/images/ss/use_study_fiji3.png" style="width: 500px;" alt="Preliminary land cover map for the Ba region, Viti Levu, Fiji" />
+        <p> <i>Figure 3: Preliminary land cover map for the Ba region, Viti Levu, Fiji</i></p>
+
+        <h4>Acknowledgment</h4>
+        <p>
+          We would like to thank the field team from the Fiji Ministry of Forestry especially Viliame Tupua and Renata Varea
+          (USP). The project was funded by the Australian Centre for International Agricultural Research (ACIAR;
+          ASEM/2016/101).
+        </p>
+
+        <img src="/images/ss/use_study_fiji4.jpg" style="width: 700px;" alt="The Fiji Forestry/USP field team" />
+        <p> <i>The Fiji Forestry/USP field team is about to collect ground truth data with QField.</i></p>
+      </div>
+    </section>
+
+
+  <!-- Section #3: fine lines -->
+  <section id="about" data-speed="2" data-type="background">
+    <div class="container">
+      <div class="page-header">
+        <h1>About QField</h1>
+      </div>
+      <div class="row-fluid">
+        <div class="span4">
+          <p>QField is the leading professional fieldwork app used in enterprise settings for efficient geospatial data
+            collection and management. As a Digital Public Good, QField not only excels in enterprise and professional
+            applications but also contributes significantly to advancing at least six of the <a href="/sdgs.html">United
+              Nations Sustainable Development Goals (SDGs)</a>, promoting a more sustainable and equitable future.</p>
+        <div>
+          <h2> Stay in the loop</h2>
+          <p><a href="https://opengis.ch/newsletter" target="_blank">Subscribe to our newsletter</a> and stay up to date on the latest and greatest!
+        </div>
+        <div>
+          <h2>Open-source</h2>
+          <p>QField is <a class="reference external" href="https://github.com/opengisch/QField" target="_blank">released</a> under the
+          GNU Public License (GPL) Version 2 or above.
+          Developing QField under this license means that you can inspect and modify
+          the source code and guarantees that you will always have access to a QGIS
+          based field data collection app that is free of cost and can be freely
+          modified.</p>
+        </div>
+        <div class="span4">
+          <h2>Privacy</h2>
+          <p>View the QField <a href="privacy_policy.html">Privacy Policy</a> to learn what information is collected, used and how we protect this.
+          </p>
+        </div>
+        <div class="span4">
+          <h2>Credits</h2>
+          <p>QField, QFieldCloud and QFieldSync are developped by <a href="https://www.opengis.ch/">OPENGIS.ch</a>.
+            OPENGIS.ch offers <a href="https://www.opengis.ch/training-consulting/">consulting</a>,
+            <a href="https://www.opengis.ch/custom-development/">development</a>,
+            <a href="https://www.opengis.ch/qfield-training/">training</a> and
+            <a href="https://www.opengis.ch/qgis-support/">support</a> for open-source software including QField,
+            QGIS and PostGIS.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="social-links">
+      <a href="https://fosstodon.org/@qfield" target="_blank" rel="me noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Mastodon_Logotype_%28Simple%29.svg" alt="Mastodon" width="32" height="32">
+      </a>
+      <a href="https://bsky.app/profile/qfield.org" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Bluesky_Logo.svg" alt="Bluesky" width="32" height="32">
+      </a>
+      <a href="https://www.linkedin.com/company/qfield" target="_blank" rel="noopener noreferrer">
+        <img class="linkedin-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="32" height="32">
+      </a>
+      <a href="https://github.com/opengisch/QField/" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" alt="Github" width="32" height="32">
+      </a>
+    </div>
+    </div>
+</section>
+</body>
+</html>
