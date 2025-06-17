@@ -41,6 +41,7 @@ div.navbar li a {
   border-bottom: 2px solid var(--qfield-color);
 }
 
+/* responsive */
 @media (min-width: 768px) {
 .navbar-nav {
   height:100px;
@@ -104,13 +105,7 @@ footer.footer {
   background-color: var(--qfield-color);
 }
 
-/* body:not(:has(#maincarousel)) {
-  background-image: url('../images/transparent-curves-bg.svg');
-  background-position: top right;
-  background-repeat: no-repeat;
-  background-size: 30%;
-} */
-
+/* carousel */
 #maincarousel {
   position:relative;
   margin-top:-20px;
@@ -144,6 +139,46 @@ footer.footer {
 
 .carousel-caption h3 {
   margin-top:4px;
+}
+
+/* carousel content */
+
+.carousel-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.phone-image {
+  position: absolute;
+  top: 21%;
+  right: 12%;
+  max-height: 90%;
+  max-width: 40%;
+  object-fit: contain;
+  z-index: 1;
+}
+/* responsive design for carousel */
+
+@media (max-width: 768px) {
+  .phone-image {
+    max-width: 60%;
+    right: 2%;
+  }
+
+  .carousel-caption.custom-caption {
+    bottom: 25%;
+    padding: 0 10px;
+  }
+
+  .carousel-caption .carousel-title {
+    font-size: 12px;
+  }
+
+  .qf-button a, .qfc-button a {
+    font-size: 11pt;
+    padding: 5px 10px;
+  }
 }
 
 /* mainpage carousel buttons */
@@ -202,17 +237,6 @@ footer.footer {
   background-color: #4a6fae;
   color: white;
   border: 3px solid #4a6fae;
-}
-
-/* smaller version */
-#maincarousel.small-carousel {
-  height: 280px;
-}
-
-#maincarousel.small-carousel .carousel-caption {
-  bottom: auto;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 /*main poinst*/
@@ -353,41 +377,30 @@ font-size: 13pt;
   border-color: #fff;
 }
 
-#testimonials {
-  padding: 3em 0;
+/* all success stories button */
+.success-stories-button a {
+  margin-left: 10px;
+  padding: 5px 10px 5px 10px !important;
+  background-color: var(--qfield-color);
+  border: 0.5px solid var(--qfield-color) !important;
+  color: white !important;
+  text-align: center;
+  border-radius: 32px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 12pt;
+  margin-bottom: 20px;
+  margin-top: 70px;
 }
 
-#testimonials>h2 {
-  margin-top: 0;
-  margin-bottom: 1em;
+.success-stories-button a:hover {
+  background-color: transparent;
+  border: 0.5px solid var(--qfield-color) !important;
+  color: var(--qfield-color) !important;
+  border-radius: 32px;
+  text-decoration: none !important;
 }
 
-#testimonials .testimonials-container {
-  max-width:1140px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-#testimonials .testimonial {
-  padding-bottom: 2em;
-}
-
-#testimonials .testimonial hr {
-  border-color: #212121;
-  width: 50%;
-  margin-bottom: 0;
-}
-
-#testimonials .stars {
-  color: #212121;
-}
-#testimonials cite, #customers cite {
-  font-size: 0.8em;
-  float: right;
-}
-
+/* about */
 #about {
   background-color: #21212105;
   background-size: 100%;
@@ -476,12 +489,14 @@ div.explanation {
   gap: 16px;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
 }
 
 .linkedin-icon {
   filter: invert(18%) sepia(7%) saturate(749%) hue-rotate(172deg) brightness(96%) contrast(90%);
 }
 
+/* support us button */
 .support-button a {
   margin-left: 10px;
   padding: 5px 10px 5px 10px !important;
@@ -491,6 +506,7 @@ div.explanation {
   text-align: center;
   border-radius: 32px;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 12pt;
 }
 
 .support-button a:hover {
@@ -540,84 +556,203 @@ div.explanation {
 }
 
 /* clients logos */
+.client-logos {
+    padding: 25px 15px;
+    text-align: center;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.logos-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+    align-items: center;
+    gap: 30px;
+}
+
 .client-logo {
-  max-height: 60px;
-  max-width: 150px;
-  object-fit: contain;
-  margin: 40px;
+    max-height: 50px;
+    max-width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-#client-logo a {
-  text-decoration: none;
-  display: inline-block;
+/* individual logo sizes */
+.logo-kgr { max-height: 45px; max-width: auto; }
+.logo-db { max-height: 40px; max-width: auto; }
+.logo-nls { max-height: 50px; max-width: auto; }
+.logo-un { max-height: 65px; max-width: auto; }
+.logo-maff { max-height: 60px; max-width: auto; }
+.logo-zurich { max-height: 40px; max-width: auto; }
+
+.logo-link {
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px;
 }
 
-#client-logo a:hover img {
-  transform: scale(1.02);
-  transition: all 0.3s ease;
+.logo-link:hover .client-logo {
+    transform: scale(1.02);
+}
+
+/* tablet */
+@media (max-width: 768px) {
+    .logos-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on tablet */
+        gap: 25px;
+    }
+}
+
+/* mobile */
+@media (max-width: 640px) {
+    .client-logos {
+        padding: 20px 10px;
+    }
+
+    .logos-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+        gap: 15px;
+    }
+/*
+    .client-logo {
+        max-height: 35px;
+        max-width: auto;
+    } */
+
+    /* individual mobile sizes */
+    .logo-kgr { max-height: 35px; max-width: auto; }
+    .logo-db { max-height: 32px; max-width: auto; }
+    .logo-nls { max-height: 45px; max-width: auto; }
+    .logo-un { max-height: 80px; max-width: auto; }
+    .logo-maff { max-height: 60px; max-width: auto; }
+    .logo-zurich { max-height: 35px; max-width: auto; }
+
+    .logo-link {
+        padding: 10px;
+    }
+}
+
+/* smaller mobile */
+@media (max-width: 480px) {
+    .logos-container {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        gap: 15px;
+    }
 }
 
 /* industries carousel */
 .industries-carousel-section {
   background: #fff;
-  overflow: hidden;
   padding: 40px 0;
 }
 
 .industries-carousel-wrapper {
   max-width: 1140px;
   margin: 0 auto;
-  overflow: hidden;
-  position: relative;
+  padding: 0 20px;
 }
 
-.industries-carousel-track {
-  display: flex;
-  width: max-content;
-  animation: industries-scroll 30s linear infinite;
+.industries-rows {
+  display: grid;
+  gap: 20px;
 }
 
-.industries-carousel-slide {
-  display: flex;
+.industries-row-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.industries-row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .industries-carousel-slide .item {
-  flex: 0 0 auto;
-  width: 300px;
-  text-align: left;
-  margin-right: 50px;
-  font-weight: normal;
+  position: relative;
+  height: 250px;
+  width: 200;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .industries-carousel-slide .item img {
   width: 100%;
-  height: 350px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  transition: transform 0.3s ease;
 }
 
-.industries-carousel-slide .item p {
-  margin-top: 10px;
-  font-size: 15pt;
+.industries-carousel-slide .item:hover img {
+  transform: scale(1.05);
+}
+
+.industry-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(144, 88, 88, 0.3), rgba(0, 0, 0, 0.6));
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.industry-title {
+  font-size: 12pt;
   font-weight: 500;
+  color: white;
+  text-align: left;
 }
 
-@keyframes industries-scroll {
-  0% {
-    transform: translateX(0);
+.industry-sub {
+  font-size: 12pt;
+  font-weight: lighter;
+  color: var(--qfield-color);
+  text-align: left;
+}
+
+/* industries responsive design */
+@media (max-width: 1024px) {
+  .industries-row-4 {
+    grid-template-columns: repeat(2, 1fr);
   }
-  100% {
-    transform: translateX(-30%);
+  .industries-row-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .industries-row-4,
+  .industries-row-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .industries-carousel-slide .item {
+    height: 150px;
+  }
+
+  .industry-title {
+    font-size: 12pt;
+  }
+
+  .industries-carousel-wrapper {
+    padding: 0 15px;
   }
 }
 
 /*partner page*/
-.btn-success {
+.success-button {
   background-color: #80cc28;
 }
 
 .nav-pills a {
-    border-radius: 12px !important;
+  border-radius: 12px !important;
 }
 
 /* hardware page button */
