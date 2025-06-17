@@ -879,7 +879,7 @@ div.explanation {
   font-size: 12pt;
   font-weight: 300;
   margin-top: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 #success-story h4 {
@@ -899,7 +899,7 @@ div.explanation {
   height: auto;
   margin-bottom: 10px;
   margin-top: 15px;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 #success-story p {
@@ -913,3 +913,14 @@ div.explanation {
   color: var(--qfield-color);
   font-weight: bolder;
 }
+
+/* html .md-typeset .footnote-ref {
+    outline-offset: .1rem;
+}
+.md-typeset .footnote-ref {
+    font-size: .75em;
+    font-weight: 700;
+}
+.md-typeset a, .md-typeset a:before {
+    transition: color 125ms;
+} */
