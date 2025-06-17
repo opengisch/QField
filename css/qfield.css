@@ -875,6 +875,13 @@ div.explanation {
   margin-top: 5px;
 }
 
+#success-story h5 {
+  font-size: 12pt;
+  font-weight: 300;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
 #success-story h4 {
   font-size: 14pt;
   font-weight: bolder;
@@ -884,7 +891,7 @@ div.explanation {
 #success-story h3 {
   font-size: 15pt;
   font-weight: 600;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 #success-story img {
@@ -896,8 +903,10 @@ div.explanation {
 }
 
 #success-story p {
-text-align: left;
-margin-bottom: 22px;
+  font-size: 18px;
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 #success-story a {
