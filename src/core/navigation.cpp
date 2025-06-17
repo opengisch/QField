@@ -292,6 +292,7 @@ void Navigation::updateDetails()
     mVerticalDistance = std::numeric_limits<double>::quiet_NaN();
   }
   mBearing = mDa.bearing( mLocation, destinationPoint ) * 180 / M_PI;
+  mBearing = std::fmod( mBearing + 360.0, 360.0 );
 
   emit detailsChanged();
 
