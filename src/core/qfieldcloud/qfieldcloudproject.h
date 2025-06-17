@@ -64,6 +64,8 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( bool autoPushEnabled READ autoPushEnabled WRITE setAutoPushEnabled NOTIFY autoPushEnabledChanged )
     Q_PROPERTY( int autoPushIntervalMins READ autoPushIntervalMins NOTIFY autoPushIntervalMinsChanged )
 
+    Q_PROPERTY( bool attachmentsOnDemandEnabled READ attachmentsOnDemandEnabled WRITE setAttachmentsOnDemandEnabled NOTIFY attachmentsOnDemandEnabledChanged )
+
     Q_PROPERTY( QString lastLocalPushDeltas READ lastLocalPushDeltas NOTIFY lastLocalPushDeltasChanged )
     Q_PROPERTY( QString lastLocalExportedAt READ lastLocalExportedAt NOTIFY lastLocalExportedAtChanged )
 
@@ -279,6 +281,9 @@ class QFieldCloudProject : public QObject
     int autoPushIntervalMins() const { return mAutoPushIntervalMins; }
     void setAutoPushIntervalMins( int minutes );
 
+    bool attachmentsOnDemandEnabled() const { return mAttachmentsOnDemandEnabled; }
+    void setAttachmentsOnDemandEnabled( bool enabled );
+
     QString lastLocalPushDeltas() const { return mLastLocalPushDeltas; }
     void setLastLocalPushDeltas( const QString &lastLocalPushDeltas );
 
@@ -304,7 +309,9 @@ class QFieldCloudProject : public QObject
 
     QString thumbnailPath() const { return mThumbnailPath; }
     void setThumbnailPath( const QString &thumbnailPath );
+
     Q_INVOKABLE void downloadThumbnail();
+    Q_INVOKABLE void downloadAttachment( const QString &fileName );
 
     void packageAndDownload();
     void cancelDownload();
@@ -370,6 +377,8 @@ class QFieldCloudProject : public QObject
     void autoPushEnabledChanged();
     void autoPushIntervalMinsChanged();
 
+    void attachmentsOnDemandEnabledChanged();
+
     void lastLocalExportedAtChanged();
     void lastLocalExportIdChanged();
     void lastDataLastUpdatedAtChanged();
@@ -388,6 +397,7 @@ class QFieldCloudProject : public QObject
 
     void thumbnailPathChanged();
 
+    void downloadAttachmentFinished( const QString &fileName, const QString &error = QString() );
     void downloadFinished( const QString &error = QString() );
     void downloaded( const QString &name, const QString &error = QString() );
 
@@ -411,8 +421,9 @@ class QFieldCloudProject : public QObject
 
     void refreshData( ProjectRefreshReason reason );
 
-    NetworkReply *downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage = true );
+    NetworkReply *downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage = true, bool autoRedirect = false );
     void downloadFileConnections( const QString &fileKey );
+    void downloadAttachmentConnections( const QString &fileKey );
 
     bool moveDownloadedFilesToPermanentStorage();
     void logFailedDownload( const QString &fileKey, const QString &errorMessage, const QString &errorMessageDetail );
@@ -436,7 +447,6 @@ class QFieldCloudProject : public QObject
         bool isFinished = false;
         QPointer<NetworkReply> networkReply;
         QNetworkReply::NetworkError error = QNetworkReply::NoError;
-        QStringList layerIds;
         int redirectsCount = 0;
         QUrl lastRedirectUrl;
     };
@@ -521,6 +531,9 @@ class QFieldCloudProject : public QObject
     bool mForceAutoPush = false;
     bool mAutoPushEnabled = false;
     int mAutoPushIntervalMins = 30;
+
+    bool mAttachmentsOnDemandEnabled = true;
+    QMap<QString, FileTransfer> mAttachmentsFileTransfers;
 
     QMap<JobType, Job> mJobs;
 

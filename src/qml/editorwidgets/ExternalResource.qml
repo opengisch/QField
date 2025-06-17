@@ -80,14 +80,22 @@ EditorWidgetBase {
       const isHttp = value.startsWith('http://') || value.startsWith('https://');
       var fullValue = isHttp ? value : prefixToRelativePath + value;
       const fullValueExists = FileUtils.fileExists(fullValue);
-      if (!fullValueExists && externalStorage.type != "") {
+      if (!fullValueExists) {
         prepareValue("");
-        if (config["StorageAuthConfigId"] !== "" && !iface.isAuthenticationConfigurationAvailable(config["StorageAuthConfigId"])) {
-          mainWindow.displayToast(qsTr("The external storage's authentication configuration ID is missing, please insure it is imported into QField"), "error", qsTr("Learn more"), function () {
-              Qt.openUrlExternally('https://docs.qfield.org/how-to/authentication/');
-            });
-        } else {
-          externalStorage.fetch(value, config["StorageAuthConfigId"]);
+        if (externalStorage.type != "") {
+          if (config["StorageAuthConfigId"] !== "" && !iface.isAuthenticationConfigurationAvailable(config["StorageAuthConfigId"])) {
+            mainWindow.displayToast(qsTr("The external storage's authentication configuration ID is missing, please insure it is imported into QField"), "error", qsTr("Learn more"), function () {
+                Qt.openUrlExternally('https://docs.qfield.org/how-to/authentication/');
+              });
+          } else {
+            externalStorage.fetch(value, config["StorageAuthConfigId"]);
+            fetchingIndicator.running = true;
+          }
+        } else if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.attachmentsOnDemandEnabled) {
+          cloudProjectConnection.target = cloudProjectsModel.currentProject;
+          cloudProjectConnection.downloadAttachmentFileName = value;
+          cloudProjectsModel.currentProject.downloadAttachment(value);
+          fetchingIndicator.running = true;
         }
       } else {
         prepareValue(fullValue);
@@ -135,10 +143,12 @@ EditorWidgetBase {
     type: config["StorageType"] !== undefined ? config["StorageType"] : ""
 
     onFetchedContentChanged: {
+      fetchingIndicator.running = false;
       prepareValue(fetchedContent);
     }
 
     onLastErrorChanged: {
+      fetchingIndicator.running = false;
       mainWindow.displayToast(lastError, "error");
     }
   }
@@ -193,25 +203,28 @@ EditorWidgetBase {
   Label {
     id: linkField
 
+    property bool hasValue: currentValue !== undefined && currentValue != ""
+    property bool isVisible: hasValue && !isImage && !isAudio && !isVideo && !fetchingIndicator.running
+
     topPadding: 10
     bottomPadding: 10
     height: fontMetrics.height + 30
-
-    property bool hasValue: false
-    visible: hasValue && !isImage && !isAudio && !isVideo
+    visible: isVisible
 
     anchors.left: parent.left
     anchors.right: cameraButton.left
     color: FileUtils.fileExists(prefixToRelativePath + value) ? Theme.mainColor : 'gray'
 
     text: {
-      var fieldValue = prefixToRelativePath + currentValue;
-      if (UrlUtils.isRelativeOrFileUrl(fieldValue)) {
-        fieldValue = config.FullUrl ? fieldValue : FileUtils.fileName(fieldValue);
+      let fieldValue = qsTr('No Value');
+      if (hasValue) {
+        fieldValue = prefixToRelativePath + currentValue;
+        if (UrlUtils.isRelativeOrFileUrl(fieldValue)) {
+          fieldValue = config.FullUrl ? fieldValue : FileUtils.fileName(fieldValue);
+        }
+        fieldValue = StringUtils.insertLinks(fieldValue);
       }
-      fieldValue = StringUtils.insertLinks(fieldValue);
-      hasValue = currentValue !== undefined && !!fieldValue;
-      return hasValue ? fieldValue : qsTr('No Value');
+      return fieldValue;
     }
 
     font.pointSize: Theme.defaultFont.pointSize
@@ -252,10 +265,20 @@ EditorWidgetBase {
     id: mediaFrame
     width: parent.width - fileButton.width - cameraButton.width - cameraVideoButton.width - microphoneButton.width - (isEnabled ? 5 : 0)
     height: 48
-    visible: !linkField.visible
+    visible: !linkField.isVisible
     color: isEnabled ? Theme.controlBackgroundAlternateColor : "transparent"
     radius: 2
     clip: true
+
+    BusyIndicator {
+      id: fetchingIndicator
+      anchors.centerIn: parent
+      anchors.margins: 5
+      width: parent.height
+      height: parent.height
+      running: false
+      visible: running
+    }
 
     Image {
       id: image
@@ -664,6 +687,29 @@ EditorWidgetBase {
     function onStatusReceived(statusText) {
       if (statusText !== "") {
         displayToast(qsTr("Cannot handle this file type"), 'error');
+      }
+    }
+  }
+
+  QtObject {
+    id: dummyTarget
+  }
+  Connections {
+    id: cloudProjectConnection
+    ignoreUnknownSignals: true
+    target: dummyTarget
+
+    property string downloadAttachmentFileName: ""
+
+    function onDownloadAttachmentFinished(fileName, errorString) {
+      if (downloadAttachmentFileName === fileName) {
+        if (errorString !== "") {
+          displayToast(qsTr("QFieldCloud on-demand attachment error: ") + errorString, 'error');
+        } else {
+          prepareValue(prefixToRelativePath + fileName);
+        }
+        cloudProjectConnection.target = dummyTarget;
+        fetchingIndicator.running = false;
       }
     }
   }

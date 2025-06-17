@@ -355,6 +355,15 @@ void QFieldCloudProject::setAutoPushIntervalMins( int minutes )
   emit autoPushIntervalMinsChanged();
 }
 
+void QFieldCloudProject::setAttachmentsOnDemandEnabled( bool enabled )
+{
+  if ( mAttachmentsOnDemandEnabled == enabled )
+    return;
+
+  mAttachmentsOnDemandEnabled = enabled;
+  emit attachmentsOnDemandEnabledChanged();
+}
+
 void QFieldCloudProject::setLastLocalPushDeltas( const QString &lastLocalPushDeltas )
 {
   if ( mLastLocalPushDeltas == lastLocalPushDeltas )
@@ -482,6 +491,141 @@ void QFieldCloudProject::downloadThumbnail()
       file.close();
       setThumbnailPath( file.fileName() );
     };
+  } );
+}
+
+void QFieldCloudProject::downloadAttachment( const QString &fileName )
+{
+  if ( !mAttachmentsFileTransfers.contains( fileName ) )
+  {
+    mAttachmentsFileTransfers.insert( fileName, FileTransfer( fileName, 0, mId ) );
+
+    NetworkReply *reply = downloadFile( mId, fileName, true, true );
+    QTemporaryFile *file = new QTemporaryFile( reply );
+    file->setAutoRemove( false );
+    if ( !file->open() )
+    {
+      emit downloadAttachmentFinished( fileName, tr( "Failed to open temporary file for `%1`, reason:\n%2" ).arg( fileName ).arg( file->errorString() ) );
+      mAttachmentsFileTransfers.remove( fileName );
+      return;
+    }
+
+    mAttachmentsFileTransfers[fileName].tmpFile = file->fileName();
+    mAttachmentsFileTransfers[fileName].networkReply = reply;
+    downloadAttachmentConnections( fileName );
+  }
+}
+
+void QFieldCloudProject::downloadAttachmentConnections( const QString &fileKey )
+{
+  if ( !mAttachmentsFileTransfers.contains( fileKey ) )
+  {
+    Q_ASSERT( false );
+    return;
+  }
+
+  NetworkReply *reply = mAttachmentsFileTransfers[fileKey].networkReply;
+  if ( !reply )
+  {
+    Q_ASSERT( false );
+    return;
+  }
+
+  connect( reply, &NetworkReply::downloadProgress, reply, [=]( int bytesReceived, int bytesTotal ) {
+    QNetworkReply *rawReply = reply->currentRawReply();
+    if ( !rawReply )
+    {
+      return;
+    }
+
+    QString errorMessage;
+    bool hasError = false;
+
+    QFile file( mAttachmentsFileTransfers[fileKey].tmpFile );
+    if ( file.open( QIODevice::WriteOnly | QIODevice::Append ) )
+    {
+      file.write( rawReply->readAll() );
+      if ( file.error() != QFile::NoError )
+      {
+        hasError = true;
+        errorMessage = tr( "File system error. Failed to write attachment to temporary location `%1`." ).arg( mAttachmentsFileTransfers[fileKey].tmpFile );
+      }
+
+      file.close();
+    }
+    else
+    {
+      hasError = true;
+      errorMessage = tr( "File system error. Failed to open attachment for writing on temporary `%1`." ).arg( mAttachmentsFileTransfers[fileKey].tmpFile );
+    }
+
+    if ( hasError )
+    {
+      rawReply->abort();
+      emit downloadAttachmentFinished( fileKey, errorMessage );
+      mAttachmentsFileTransfers.remove( fileKey );
+      return;
+    }
+  } );
+
+  connect( reply, &NetworkReply::finished, reply, [=]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+    Q_ASSERT( reply->isFinished() );
+    Q_ASSERT( rawReply );
+
+    QString errorMessage;
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      errorMessage = tr( "Network error. Failed to download attachment `%1`." ).arg( mAttachmentsFileTransfers[fileKey].fileName );
+      rawReply->abort();
+      emit downloadAttachmentFinished( fileKey, errorMessage );
+      mAttachmentsFileTransfers.remove( fileKey );
+      return;
+    }
+
+    QFileInfo fileInfo( mAttachmentsFileTransfers[fileKey].fileName );
+    QDir dir( QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mAttachmentsFileTransfers[fileKey].projectId, fileInfo.path() ) );
+
+    if ( !dir.exists() && !dir.mkpath( QStringLiteral( "." ) ) )
+    {
+      errorMessage = QStringLiteral( "Failed to create attachment directory at `%1`" ).arg( dir.path() );
+      rawReply->abort();
+      emit downloadAttachmentFinished( mAttachmentsFileTransfers[fileKey].fileName, errorMessage );
+      mAttachmentsFileTransfers.remove( fileKey );
+      return;
+    }
+
+    QFile file( mAttachmentsFileTransfers[fileKey].tmpFile );
+    const QString destinationFileName( QDir::cleanPath( dir.filePath( fileInfo.fileName() ) ) );
+
+    // if the file already exists, we need to delete it first, as QT does not support overwriting
+    // NOTE: it is possible that someone creates the file in the meantime between this and the next if statement
+    if ( QFile::exists( destinationFileName ) && !file.remove( destinationFileName ) )
+    {
+      errorMessage = QStringLiteral( "Failed to remove pre-existing attachment before overwriting stored at `%1`, reason:\n%2" ).arg( destinationFileName ).arg( file.errorString() );
+      rawReply->abort();
+      emit downloadAttachmentFinished( mAttachmentsFileTransfers[fileKey].fileName, errorMessage );
+      mAttachmentsFileTransfers.remove( fileKey );
+      return;
+    }
+
+    if ( !file.copy( destinationFileName ) )
+    {
+      errorMessage = QStringLiteral( "Failed to write downloaded attachment stored at `%1`, reason:\n%2" ).arg( destinationFileName ).arg( file.errorString() );
+      rawReply->abort();
+      emit downloadAttachmentFinished( mAttachmentsFileTransfers[fileKey].fileName, errorMessage );
+      mAttachmentsFileTransfers.remove( fileKey );
+      return;
+    }
+
+    if ( !file.remove() )
+    {
+      QgsMessageLog::logMessage( QStringLiteral( "Failed to remove temporary attachment `%1`" ).arg( destinationFileName ) );
+    }
+
+    emit downloadAttachmentFinished( mAttachmentsFileTransfers[fileKey].fileName );
+    mAttachmentsFileTransfers.remove( fileKey );
   } );
 }
 
@@ -689,6 +833,7 @@ void QFieldCloudProject::download()
     for ( const QJsonValue fileValue : files )
     {
       const QJsonObject fileObject = fileValue.toObject();
+
       const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
       const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
       const QString projectFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId, fileName );
@@ -704,8 +849,21 @@ void QFieldCloudProject::download()
         return;
       }
 
-      if ( cloudEtag == localEtag )
+
+      if ( mAttachmentsOnDemandEnabled && fileObject.value( QStringLiteral( "is_attachment" ) ).toBool() )
+      {
+        if ( !localEtag.isEmpty() && cloudEtag != localEtag )
+        {
+          // The cloud attachment has changed, remove locally to trigger a new download locally
+          QFile::remove( projectFileName );
+        }
         continue;
+      }
+
+      if ( cloudEtag == localEtag )
+      {
+        continue;
+      }
 
       mDownloadFileTransfers.insert( QStringLiteral( "%1/%2" ).arg( mId, fileName ), FileTransfer( fileName, fileSize, mId ) );
       mDownloadBytesTotal += std::max( fileSize, 0 );
@@ -1168,10 +1326,18 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
   } );
 }
 
-NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage )
+NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage, bool autoRedirect )
 {
   QNetworkRequest request;
-  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::UserVerifiedRedirectPolicy );
+  if ( autoRedirect )
+  {
+    request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  }
+  else
+  {
+    request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::UserVerifiedRedirectPolicy );
+  }
+
   mCloudConnection->setAuthenticationDetails( request );
 
   return mCloudConnection->get( request, fromLatestPackage ? QStringLiteral( "/api/v1/packages/%1/latest/files/%2/" ).arg( projectId, fileName ) : QStringLiteral( "/api/v1/files/%1/%2/" ).arg( projectId, fileName ) );
