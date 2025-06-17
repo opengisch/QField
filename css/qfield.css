@@ -865,9 +865,14 @@ div.explanation {
 }
 
 /* success story individual page */
-
 #success-story-title h4 {
   font-weight: 300;
+}
+
+#success-story-title h5 {
+  font-size: 11pt;
+  font-weight: lighter;
+  margin-top: 5px;
 }
 
 #success-story h4 {
