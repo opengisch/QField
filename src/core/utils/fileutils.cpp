@@ -94,7 +94,7 @@ QString FileUtils::sanitizeFilePath( const QString &filePath, const QString &rep
 
   // replace multiple slashes
   sanitized.replace( QRegularExpression( "/+" ), QLatin1String( "/" ) );
-  sanitized.replace( QRegularExpression( "\\+" ), QLatin1String( "\\" ) );
+  sanitized.replace( QRegularExpression( "[\\\\]+" ), QLatin1String( "\\" ) );
   // replace windows dives path with UNIX style path
   sanitized.replace( QRegularExpression( "^([a-zA-Z]):\\\\" ), QLatin1String( "/\\1/" ) );
   // replace windows slashes to UNIX slashes

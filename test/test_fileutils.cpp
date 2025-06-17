@@ -178,7 +178,9 @@ TEST_CASE( "FileUtils" )
     REQUIRE( FileUtils::sanitizeFilePath( QStringLiteral( " file" ) ) == QStringLiteral( "file" ) );
     REQUIRE( FileUtils::sanitizeFilePath( QStringLiteral( " file " ) ) == QStringLiteral( "file" ) );
     REQUIRE( FileUtils::sanitizeFilePath( QStringLiteral( "path / to / file " ) ) == QStringLiteral( "path/to/file" ) );
+    // single slash is enough
     REQUIRE( FileUtils::sanitizeFilePath( QStringLiteral( "//path////to///filename.txt" ) ) == QStringLiteral( "/path/to/filename.txt" ) );
+    REQUIRE( FileUtils::sanitizeFilePath( QStringLiteral( "\\\\\\path\\\\to\\filename.txt" ) ) == QStringLiteral( "/path/to/filename.txt" ) );
     // allow whitespace whitin the name
     REQUIRE( FileUtils::sanitizeFilePath( QStringLiteral( "path  to / file " ) ) == QStringLiteral( "path  to/file" ) );
     REQUIRE( FileUtils::sanitizeFilePath( QStringLiteral( "path  to file " ) ) == QStringLiteral( "path  to file" ) );
@@ -219,6 +221,9 @@ TEST_CASE( "FileUtils" )
     REQUIRE( FileUtils::sanitizeFilePath( QStringLiteral( "x" ).repeated( FILENAME_MAX_CHAR_LENGTH ) ) == QStringLiteral( "x" ).repeated( FILENAME_MAX_CHAR_LENGTH ) );
     REQUIRE( FileUtils::sanitizeFilePath( QStringLiteral( "x" ).repeated( FILENAME_MAX_CHAR_LENGTH + 1 ) ).isEmpty() );
     REQUIRE( FileUtils::sanitizeFilePath( QStringLiteral( "x" ).repeated( FILENAME_MAX_CHAR_LENGTH - 3 ).append( QStringLiteral( "/NUL" ) ) ).isEmpty() );
+    // preserve the plus sign (#6334)
+    REQUIRE( FileUtils::sanitizeFilePath( QStringLiteral( "path+to/file+name.txt" ) ) == QStringLiteral( "path+to/file+name.txt" ) );
+    REQUIRE( FileUtils::sanitizeFilePath( QStringLiteral( "file/+name.txt" ) ) == QStringLiteral( "file/+name.txt" ) );
   }
 
 
@@ -269,6 +274,9 @@ TEST_CASE( "FileUtils" )
     REQUIRE( FileUtils::sanitizeFilePathPart( QStringLiteral( "com0.txt" ) ) == QStringLiteral( "_com0.txt" ) );
     REQUIRE( FileUtils::sanitizeFilePathPart( QStringLiteral( "lpt0.txt" ) ) == QStringLiteral( "_lpt0.txt" ) );
     REQUIRE( FileUtils::sanitizeFilePathPart( QStringLiteral( "prn.txt" ) ) == QStringLiteral( "_prn.txt" ) );
+    // preserve the plus sign (#6334)
+    REQUIRE( FileUtils::sanitizeFilePathPart( QStringLiteral( "file+name.txt" ) ) == QStringLiteral( "file+name.txt" ) );
+    REQUIRE( FileUtils::sanitizeFilePathPart( QStringLiteral( "file/+name.txt" ) ) == QStringLiteral( "file_+name.txt" ) );
   }
 
 
