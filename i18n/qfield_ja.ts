@@ -1152,7 +1152,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">ナビゲーションポイントを設定</translation>
+        <translation>ナビゲーションポイントを設定</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -4254,10 +4254,6 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>子地物を追加できません：親地物がすべての制約を満たし、保存できることを確認してください</translation>
     </message>
@@ -4316,6 +4312,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>地図帳の地物がPDFに印刷され、プロジェクトフォルダに保存されました。</translation>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

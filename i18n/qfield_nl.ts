@@ -1154,7 +1154,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Navigatiepunt instellen</translation>
+        <translation>Navigatiepunt instellen</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -4256,10 +4256,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation type="unfinished"/>
     </message>
@@ -4317,6 +4313,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
         <translation type="unfinished"/>
     </message>
 </context>

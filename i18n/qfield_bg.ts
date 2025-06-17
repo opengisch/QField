@@ -1505,15 +1505,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Search Bar Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки на търсачката</translation>
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Когато е изключено, филтърът може да бъде приложен при изписване на %1 в началото в търсачката.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
+        <translation>Разреши търсене по %1 по подразбиране</translation>
     </message>
 </context>
 <context>
@@ -1678,23 +1678,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Feature attributes copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Атрибутите на обекта са копирани в клипборда</translation>
     </message>
     <message>
         <source>Feature attributes updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Атрибутите на обекта са копирани от клипборда</translation>
     </message>
     <message>
         <source>No feature attributes were updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Нито един атрибут не беше обновен от клипборда</translation>
     </message>
     <message>
         <source>Feature set as navigation destination</source>
-        <translation type="unfinished"/>
+        <translation>Обектът е избран като дестинация на навигацията</translation>
     </message>
     <message>
         <source>Process Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Обработи избраните обекти</translation>
     </message>
     <message>
         <source>Rotate Feature</source>
@@ -1702,11 +1702,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Update Attributes from Feature</source>
-        <translation type="unfinished"/>
+        <translation>Промени атрибутите от друг обект</translation>
     </message>
     <message>
         <source>Process Feature</source>
-        <translation type="unfinished"/>
+        <translation>Обработи обект</translation>
     </message>
 </context>
 <context>
@@ -1826,7 +1826,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешен запис на файла</translation>
     </message>
     <message>
         <source>Select Image File</source>
@@ -2029,47 +2029,47 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройка на позициониращото устройство</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Име:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Остави празно, за да се попълни автоматично</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Вид на връзката:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bluetooth</translation>
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>UDP (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Serial port (NMEA)</translation>
     </message>
     <message>
         <source>Egeniouss</source>
-        <translation type="unfinished"/>
+        <translation>Egeniouss</translation>
     </message>
     <message>
         <source>Connection type</source>
-        <translation type="unfinished"/>
+        <translation>Вид на връзката</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2077,11 +2077,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source> (leave empty to auto-fill)</source>
-        <translation type="unfinished"/>
+        <translation>(остави празно, за да се попълни автоматично)</translation>
     </message>
     <message>
         <source>Connection details</source>
-        <translation type="unfinished"/>
+        <translation>Детайни на връзката</translation>
     </message>
 </context>
 <context>
@@ -2220,11 +2220,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>ProcessingAlgorithmForm</name>
     <message>
         <source>General Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Общи параметри</translation>
     </message>
     <message>
         <source>Advanced Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Разширени параметри</translation>
     </message>
     <message>
         <source>Help</source>
@@ -2232,7 +2232,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
-        <translation type="unfinished"/>
+        <translation>Няма общи параметри за този параметър</translation>
     </message>
     <message>
         <source>Algorithm description</source>
@@ -2276,19 +2276,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Включено геомаркиране</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Изключено геомаркиране</translation>
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>Включена мрежа</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>Изключена мрежа</translation>
     </message>
     <message>
         <source>front</source>
@@ -2296,15 +2296,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>back</source>
-        <translation>тзад</translation>
+        <translation>отзад</translation>
     </message>
     <message>
         <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
+        <translation>Геомаркиране на снимки изисква позиционирането да е включено</translation>
     </message>
     <message>
         <source>Details stamping enabled</source>
-        <translation type="unfinished"/>
+        <translation>Включено подпечатване с детайли</translation>
     </message>
     <message>
         <source>Latitude</source>
@@ -2328,7 +2328,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Details stamping disabled</source>
-        <translation type="unfinished"/>
+        <translation>Изключено подпечатване с детайли</translation>
     </message>
 </context>
 <context>
@@ -3036,7 +3036,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Действия с проекта</translation>
     </message>
     <message>
         <source>, updated data available on the cloud</source>
@@ -3253,7 +3253,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Действия с проекта</translation>
     </message>
     <message>
         <source>Update project from ZIP</source>
@@ -3424,7 +3424,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Positioning service stopped</source>
-        <translation type="unfinished"/>
+        <translation>Услугата за позициониране е изключена</translation>
     </message>
 </context>
 <context>
@@ -4258,10 +4258,6 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation type="unfinished"/>
     </message>
@@ -4320,6 +4316,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Обектите от атласа бяха успешно принтирани и съхранени в директорията на проекта</translation>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5679,11 +5679,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Отключи екрана, за да затвориш проекта и приложението</translation>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
-        <translation type="unfinished"/>
+        <translation>Активиран режим без рамка, използвай горния ляв и долния десен ъгъл, за да местиш и преоразмериш прозореца</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>

@@ -4253,10 +4253,6 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Kann kein Kind-Objekt anlegen: Es muss sichergestellt sein, dass das Eltern-Objekt alle Einschränkungen erfüllt und gespeichert werden kann.</translation>
     </message>
@@ -4315,6 +4311,10 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Atlas erfolgreich gedruckt - das Ergebnis wurde in deinem Projektordner abgelegt</translation>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

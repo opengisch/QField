@@ -4253,10 +4253,6 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation>Assurez-vous que les contraintes soient respectées</translation>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Impossible d&apos;ajouter une entité-enfant : vérifier que l&apos;entité-parent respecte toutes les contraintes et peut être sauvegardée</translation>
     </message>
@@ -4315,6 +4311,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Élément(s) Atlas imprimé(s) avec succès et placé(s) dans votre dossier de projet</translation>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

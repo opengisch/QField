@@ -1156,7 +1156,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Imposta punto di navigazione</translation>
+        <translation>Imposta punto di navigazione</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -4262,10 +4262,6 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation type="unfinished"/>
     </message>
@@ -4324,6 +4320,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Elementi Atlante stampati correttamente e inseriti nella tua cartella di progetto</translation>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

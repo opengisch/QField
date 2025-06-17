@@ -1154,7 +1154,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Aseta navigointipisteeksi</translation>
+        <translation>Aseta navigointipisteeksi</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -4258,10 +4258,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation>Varmista, että rajoitukset täyttyvät</translation>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Lapsikohdetta ei voi lisätä: varmista, että ylätason kohde täyttää kaikki rajoitukset ja että se voidaan tallentaa</translation>
     </message>
@@ -4320,6 +4316,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Atlas kohde(kohteet) tulostettu onnistuneesti ja sijoitettu projektihakemistoon</translation>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

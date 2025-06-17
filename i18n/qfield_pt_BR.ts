@@ -1150,7 +1150,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Definir ponto de navegação</translation>
+        <translation>Definir ponto de navegação</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -4247,10 +4247,6 @@ Cancele para fazer uma verificação mínima.</translation>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation type="unfinished"/>
     </message>
@@ -4308,6 +4304,10 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -1156,7 +1156,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Definir ponto de navegação</translation>
+        <translation>Definir ponto de navegação</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -4258,10 +4258,6 @@ Cancele para fazer uma verificação mínima.</translation>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Não é possível adicionar o elemento filho: certifique-se de que o elemento pai cumpre todas as restrições e pode ser guardado</translation>
     </message>
@@ -4320,6 +4316,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Elemento(s) do Atlas foram imprimidos com sucesso e guardados na sua pasta do projeto</translation>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

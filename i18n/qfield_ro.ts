@@ -1158,7 +1158,7 @@ Motiv:
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Seteză punct de navigare</translation>
+        <translation>Seteză punct de navigare</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -4260,10 +4260,6 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation type="unfinished"/>
     </message>
@@ -4321,6 +4317,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -1155,7 +1155,7 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Postavi navigacijsku tačku</translation>
+        <translation>Postavi navigacijsku tačku</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -4256,10 +4256,6 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation type="unfinished"/>
     </message>
@@ -4317,6 +4313,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
         <translation type="unfinished"/>
     </message>
 </context>

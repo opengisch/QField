@@ -1156,7 +1156,7 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Nastaviť prejazdný bod</translation>
+        <translation>Nastaviť prejazdný bod</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -4259,10 +4259,6 @@ Zrušiť a spraviť minimálny sken.</translation>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Nie je možné pridať podradenú funkciu: uistite sa, že nadradená funkcia spĺňa všetky obmedzenia a je možné ju uložiť</translation>
     </message>
@@ -4321,6 +4317,10 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Prvky Atlasu úspešne vytlačené a umiestnené do projektového priečinka</translation>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

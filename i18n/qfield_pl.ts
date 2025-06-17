@@ -1158,7 +1158,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Ustaw punkt nawigacji</translation>
+        <translation>Ustaw punkt nawigacji</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -4260,10 +4260,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation>Upewnij się, że ograniczenia są spełnione</translation>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Nie można dodać elementu potomnego: upewnij się, że element nadrzędny spełnia wszystkie ograniczenia i może zostać zapisany</translation>
     </message>
@@ -4322,6 +4318,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Element(y) atlasu zostały pomyślnie wydrukowane i umieszczone w twoim katalogu projektu.</translation>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -4256,10 +4256,6 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation>Asegurar que se cumplan las restricciones</translation>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>No se puede añadir el objeto hijo: no es seguro que el objeto padre cumpla todas las restricciones y se pueda guardar</translation>
     </message>
@@ -4318,6 +4314,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>La entidad(es) del Atlas se imprimieron correctamente y se colocaron en la carpeta de su proyecto</translation>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

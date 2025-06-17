@@ -1153,7 +1153,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Állítsa be a navigációs pontot.</translation>
+        <translation>Állítsa be a navigációs pontot.</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -4252,10 +4252,6 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Gyermek elem nem létrehozható: győződjön meg, hogy a szülő elem minden megszorítása teljesül és menthető</translation>
     </message>
@@ -4314,6 +4310,10 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Az atlasz elem(ek) nyomtatása és a projekt könyvtáradba helyezése sikeres volt</translation>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

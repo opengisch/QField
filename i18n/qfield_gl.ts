@@ -1154,7 +1154,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Establecer punto de navegación</translation>
+        <translation>Establecer punto de navegación</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -4256,10 +4256,6 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation>Garante que as restricións se cumpran</translation>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Non se pode engadir unha entidade aniñada: asegúrate de que a entidade principal cumpre con tódalas restricións e que se poida gardar</translation>
     </message>
@@ -4318,6 +4314,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Imprimíronse con éxito as entidade(s) do Atlas e situáronse no directorio do proxecto</translation>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

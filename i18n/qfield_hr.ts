@@ -1156,7 +1156,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation type="vanished">Postavi navigacijsku točku</translation>
+        <translation>Postavi navigacijsku točku</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -4254,10 +4254,6 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Ensure contraints are met</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation type="unfinished"/>
     </message>
@@ -4316,6 +4312,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Stavka(e) Atlasa su uspješno ispisane i spremljene u direktorij projekta</translation>
+    </message>
+    <message>
+        <source>Ensure constraints are met</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
