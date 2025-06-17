@@ -1,0 +1,360 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <link rel="stylesheet" href="https://use.typekit.net/cbd7kad.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-24350287-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-24350287-3');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes">
+  <title>QField - Efficient field work built for QGIS</title>
+  <meta name="description" content="QField - Efficient field work built for QGIS">
+  <meta name="author" content="OPENGIS.ch">
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="css/qfield.css?ver=4" rel="stylesheet" media="screen">
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/qfield.js"></script>
+</head>
+
+  <body>
+    <!-- Section #0: navigation -->
+    <nav id="navbar" class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarNav"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./"><img src="images/qfield_for_qgis.png"
+              style="width: auto; height: 52px; margin-top: 8px" alt="QField Logo" /></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/index.html#highlights" title="Highlights">HIGHLIGHTS</a>
+            </li>
+            <li class="dropdown"></li>
+            <li>
+              <a href="/assistance.html" title="Get assistance">GET ASSISTANCE</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                aria-expanded="false">RESOURCES<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="https://docs.qfield.org/success-stories/" target="_blank" title="Success stories">Success
+                    stories</a>
+                </li>
+                <li>
+                  <a href="https://community.qfield.org/" target="_blank" title="Community">Community</a>
+                </li>
+                <li>
+                  <a href="https://docs.qfield.org" target="_blank" title="Documentation">Documentation</a>
+                </li>
+                <li>
+                  <a href="https://docs.qfield.org/get-started/contribute/" target="_blank"
+                    title="Contribute to QField">Contribute</a>
+                </li>
+                <li>
+                  <a href="https://github.com/opengisch/qfield" target="_blank" title="Source code">Source code</a>
+                </li>
+                <li>
+                  <a href="/partner.html" title="Partner programs">Partner programs</a>
+                </li>
+                <li>
+                  <a href="/sdgs.html" title="Sustainable development goals">Sustainable development goals</a>
+                </li>
+                <li>
+                  <a href="https://www.opengis.ch/category/qfield/" target="_blank" title="Blog">Blog</a>
+                </li>
+                <li>
+                  <a href="https://www.opengis.ch/newsletter" target="_blank" title="newsletter">Newsletter</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="https://opengis.ch/#contact" target="_blank" title="Contact us">CONTACT US</a>
+            </li>
+            <li>
+              <a href="https://docs.qfield.org/get-started/" target="_blank" title="Get started"><i
+                  class="fas fa-rocket"></i> GET STARTED</a>
+            </li>
+            <li class="support-button">
+              <a href="/support-us.html" title="Support us">♥ SUPPORT US</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<!-- success story title -->
+<section id="success-story-title" class="section-spacing text-center">
+  <div class="container" style="margin-bottom: 20px; max-width: 1140px;">
+    <h1>Heritage Impact Assessment using <span style="color: var(--qfield-color);">QField</h1></span>
+    <h4>By Roberto Montagnetti
+      <sup id="fnref:1">
+        <a class="footnote-ref" href="#fn:1">1</a>
+      </sup>
+      and Giuseppe Guarino
+      <sup id="fnref:2">
+        <a class="footnote-ref" href="#fn:2">2</a>
+      </sup>
+    </h4>
+    <h4 style="margin-top: 20px;"><b>From QGIS to QField and Vice Versa: How the New Android Application <br>Is
+        Facilitating the Work of the
+        Archaeologist in the Field</b></h4>
+    <h5 style="margin-top: 30px; color: gray;">
+      † Presented at the ArcheoFOSS XIII Workshop—Open Software, Hardware, Processes, Data and Formats in Archaeological
+      Research, Padova, Italy, 20–22 February 2019.
+    </h5>
+    <h5 style="margin-top: 15px; color: gray;">
+      <b>Abstract:</b> The aim of this paper is to highlight the main benefits of using the QField app in archae-
+      ological jobs. In particular this article provides examples to use QField in open area excavation, Archaeological
+      survey and impact assessment (HIA) projects.<br>
+    </h5>
+    <h5 style="margin-top: 15px; color: gray;">
+      <b>Keywords:</b> QField; archeology; VIARCH; HIA; QGIS
+    </h5>
+    <hr>
+  </div>
+</section>
+
+<!-- success story content -->
+<section id="success-story" class="section-spacing text-left">
+  <div class="container" style="max-width: 1140px">
+    <h3>Introduction</h3>
+    <p>
+      The aim of this paper is to highlight the main benefits of using the QField app. An App that can be installed on
+      an Android device for all archaeologists working in the field.
+    </p>
+    <p>
+      The main feature of this new application will allow the archaeologist to upload to his/her smartphone or tablet
+      the .qgs project of the excavation based on the general information concerning the site that is already available
+      to you. At this point, it is possible to implement the collection of data directly on site, maintaining constant
+      updates to your system, thus allowing you to review the project throughout the excavation process.
+    </p>
+    <h4>
+      The “pocket-GIS” with QField is finally a reality!
+    </h4>
+    <p>
+      Working with QField in the field allows us to significantly reduce registration and computerisation time of
+      inputting data into the database system, eliminating the digiti- sation of field registers and all related
+      paperwork. The advantage of entrusting all of the information to the main GIS platform of the project (master),
+      which is stored inside the PC, means this leaves only the task of checking the collected data, along with the
+      bonus of in-depth topographical and geospatial analysis.
+    </p>
+    <p>
+      In this article, we will show a practical example of integrated use of QGIS and QField, which relates to an open
+      area excavation.
+    </p>
+    <p>
+      The intervention methodology proposed in this article was constructed by the per- sonal experience of the authors;
+      this specifically refers to open area excavation works in commercial archaeology projects.
+    </p>
+
+    <h3>Main features of QField</h3>
+    <p>
+      QField is an Android app that can be downloaded from Google Play. This application, although it presents itself
+      with a very simple interface, is rich in functions such as:
+    </p>
+    <p>
+      –Tools for digitalisation in the field;<br>
+      – Geometry and attribute editing;<br>
+      – GPS;<br>
+      – Possibility to upload custom base maps;<br>
+      – Integration of smartphone/tablet’s camera;<br>
+      – Many other functions.<br>
+    </p>
+    <p>
+      QField can be considered a “mobile” extension for QGIS. In fact, it allows us to view and manage a GIS project
+      created with QGIS on an Android smartphone or tablet. Permitting the user to keep all set themes, labels and
+      styles that are in the original project (Figure 1).
+    </p>
+
+
+    <img src="/images/ss/heritage_impact_figure1.png" style="width: 450px; display: block;" alt="figure 1" />
+    <h5><i>Figure 1 - An example of the same Survey GIS platform project in QGIS (below) and in QField (above). Image by
+        Giuseppe Guarino 2019.</i></h5>
+
+    <p>
+      Furthermore, similar to QGIS, we can query each layer within QField by obtaining the respective information
+      contained in its attribute table (however, there are also other GIS applications for mobile such as ArcGis, LiPAD,
+      Bentley Map Mobile, GVSig Mobile, Geopaparazzi and others).
+
+      In order to work with a QGIS project within QField, the first step is to configure the properties of that project
+      created in QGIS as “save relative paths”.
+
+      You will need to create a folder “folder_name” on your desktop and save in this path the .qgs file that you want
+      to transfer to the smartphone or tablet; similarly, in the same folder, you have to enter all the data (vectors,
+      raster and database) that make up this .QGIS project.
+
+      These data can also be divided into further subfolders.
+
+      Finally, you need to copy the entire folder ‘folder_name’ to the tablet, following two possible paths:
+
+      In the internal memory: Android > data > ch.opengis.QField > files > share;
+      In the external SD: Android > data > ch.opengis.QField > files.
+
+    </p>
+    <h3>Working with QField in an Archaeological Survey and Archaeological Risk Assessment Projects</h3>
+    <p>
+      Until recently, paper maps were the only way of recording archaeological features and the fields’ visibility in an
+      archaeological survey work. Such data were digitised into a CAD or GIS software creating the individual site
+      sheets separately on a simple digital document afterwards.
+
+      Today, QField, thanks to its compatibility with QGIS, allows you to skip the transition from paper to digital or
+      from different software, reducing time and costs.
+
+      The archaeological survey (for a comprehensive account of methods of the Archaeological survey, see Cambi,
+      Terrenato 1994, pp. 117–143, and Renfrew, Bahn 2016 [1,2]) must be preceded by the construction of a GIS platform
+      that takes into consideration both the data acquired during the field survey phase and the bibliographic ones. For
+      this reason, it will be necessary to work on two tables: one is spatial, which is useful in the field, and the
+      other is alphanumeric. Both will be joined in a single spatial table, useful for consultation on the GIS desktop.
+      This process is possible through the use of a relational geo-database such as SpatiaLite and PostGIS or,
+      alternatively, through the creation of a join between the tables and the geometries.
+
+      However, the big advantage of using a geo-database is the ability to create queries capable of merging information
+      from two or more tables into a single table (view) (for more in-depth information on the use of GIS and
+      Geodatabases in archaeology, see Fronza, Nardini, Valenti 2009 [3]).
+
+      This process further speeds up field work by minimising the data to be stored during archaeological survey.
+
+      The data collected in the field during the survey will be recorded and digitised through three different layers
+      (point, line and polygon). The attribute tables connected to the three layers record the following information:
+      Project Name (String), Municipality (String), Location (String), Feature Number (Integer), Place Name (String),
+      Location (String), Date (Date), Site Definition (String), Visibility (String) and Photos (String).
+
+      The attribute values, “Project name” and “Feature Number”, between the two tables must be Unique Constraint in
+      order to identify only one unique “Project name” and only one “Feature Number”.
+
+      The GIS platform must also have base maps such as Google Satellite, Open Street Map, Orthophotos and so on. In
+      this case, we used the following maps: Carta Tecnica Regionale (1:10.000), Open Street Map e Google Satellite. To
+      make these maps lighter, we created first overviews (pyramids) in QGIS.
+
+      The positioning of the archaeological features identified can be recorded through the GPS internal device.
+      However, for a greater accuracy, QField can be connected to a GNSS antenna.
+
+      In archaeological consultancy and archaeological risk assessment jobs, it is recommended to upload into the GIS
+      project an infrastructure layer containing the infrastructure’s geometric information, measurements and others,
+      besides a buffer of itself.
+
+      After setting the basics of our project on QGIS, we need to export the project through the use of the QField Sync
+      plugin within QField. Alternatively, we can carry this out by simply copying the folder containing the project
+      file with the * .QGIS extension, the database and the rasters (or the geopackage containing our rasters: IGM,
+      Basemap and so on) into our smartphone or tablet.
+
+      By default, QField creates a folder where you can save projects (Android/data/ ch.opengis.QField/files), but it is
+      always better to store them on an external SSD, since if you were to uninstall QField from your device, all the
+      folders and files contained in them will be removed running the risk of deleting the data.
+
+      After we set up the bases of the GIS project in QGIS, we need to export it into QField through a suitable plug-in
+      called QField-Sync.
+
+      However, we can perform that task even by simply transferring (copy and paste) the QGIS project and the related
+      dataset to our Android device. The QGIS project must be saved as .QGIS.
+    </p>
+
+<!-- replace!!! -->
+
+
+
+<!-- smaller subtitles/listing-->
+    <h4></h4>
+    <p>
+      text
+    </p>
+<!-- -->
+
+        <div>
+          <hr>
+          <h3>References</h3>
+          <ol>
+            <li id="fn:1">
+              <h5 style="margin-bottom: 0px">Cambi, F.; Terrenato, N. Introduzione All’archeologia dei Paesaggi; Carocci Editore: Roma, Italy, 1994; pp. 117–143.<a
+                  class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a><a
+                  class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">↩</a></h5>
+            </li>
+            <li id="fn:2">
+              <h5 style="margin-bottom: 0px">Renfrew, C.; Bahn, P. Archaeology, Theories, Methods, and Practice. Archaeol. J. 2016, 148, 329–330.<a
+                  class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></h5>
+            </li>
+            <li id="fn:3">
+              <h5 style="margin-bottom: 0px">Fronza, V.; Nardini, A.; Valenti, M. Informatica e Archeologia Medievale: L’esperienza Senese; All’insegna del Giglio: Firenze, Italy, 2009.<a class="footnote-backref"
+                  href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></h5>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+  <!-- Section #3: fine lines -->
+  <section id="about" data-speed="2" data-type="background">
+    <div class="container">
+      <div class="page-header">
+        <h1>About QField</h1>
+      </div>
+      <div class="row-fluid">
+        <div class="span4">
+          <p>QField is the leading professional fieldwork app used in enterprise settings for efficient geospatial data
+            collection and management. As a Digital Public Good, QField not only excels in enterprise and professional
+            applications but also contributes significantly to advancing at least six of the <a href="/sdgs.html">United
+              Nations Sustainable Development Goals (SDGs)</a>, promoting a more sustainable and equitable future.</p>
+        <div>
+          <h2> Stay in the loop</h2>
+          <p><a href="https://opengis.ch/newsletter" target="_blank">Subscribe to our newsletter</a> and stay up to date on the latest and greatest!
+        </div>
+        <div>
+          <h2>Open-source</h2>
+          <p>QField is <a class="reference external" href="https://github.com/opengisch/QField" target="_blank">released</a> under the
+          GNU Public License (GPL) Version 2 or above.
+          Developing QField under this license means that you can inspect and modify
+          the source code and guarantees that you will always have access to a QGIS
+          based field data collection app that is free of cost and can be freely
+          modified.</p>
+        </div>
+        <div class="span4">
+          <h2>Privacy</h2>
+          <p>View the QField <a href="privacy_policy.html">Privacy Policy</a> to learn what information is collected, used and how we protect this.
+          </p>
+        </div>
+        <div class="span4">
+          <h2>Credits</h2>
+          <p>QField, QFieldCloud and QFieldSync are developped by <a href="https://www.opengis.ch/">OPENGIS.ch</a>.
+            OPENGIS.ch offers <a href="https://www.opengis.ch/training-consulting/">consulting</a>,
+            <a href="https://www.opengis.ch/custom-development/">development</a>,
+            <a href="https://www.opengis.ch/qfield-training/">training</a> and
+            <a href="https://www.opengis.ch/qgis-support/">support</a> for open-source software including QField,
+            QGIS and PostGIS.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="social-links">
+      <a href="https://fosstodon.org/@qfield" target="_blank" rel="me noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Mastodon_Logotype_%28Simple%29.svg" alt="Mastodon" width="32" height="32">
+      </a>
+      <a href="https://bsky.app/profile/qfield.org" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Bluesky_Logo.svg" alt="Bluesky" width="32" height="32">
+      </a>
+      <a href="https://www.linkedin.com/company/qfield" target="_blank" rel="noopener noreferrer">
+        <img class="linkedin-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="32" height="32">
+      </a>
+      <a href="https://github.com/opengisch/QField/" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" alt="Github" width="32" height="32">
+      </a>
+    </div>
+    </div>
+</section>
+</body>
+</html>
