@@ -774,6 +774,7 @@ div.explanation {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 15px;
   padding: 20px;
+  opacity: 0.9;
 }
 
 .ss-card {
@@ -819,10 +820,13 @@ div.explanation {
 }
 
 .ss-card-industry {
-  font-size: 0.9rem;
+  font-size: 10pt !important;
   text-transform: uppercase;
   font-weight: normal;
   opacity: 0.85;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  margin-top: 8px;
 }
 
 .ss-card-footer {
@@ -830,15 +834,15 @@ div.explanation {
 }
 
 .ss-client-name {
-  font-size: 1rem;
+  font-size: 10pt !important;
   font-weight: 500;
-  margin-bottom: 0.2rem;
-}
+  }
 
 .ss-card-title {
-  font-size: 1.25rem;
+  font-size: 12pt !important;
   font-weight: bold;
-  margin: 0;
+  margin-bottom: 8px;
+  margin-left: 8px;
 }
 
 .ss-card-wrapper {
@@ -851,17 +855,6 @@ div.explanation {
   transform: scale(1.02);
   cursor: pointer;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-}
-
-/* Wave overlay styles */
-.ss-wave-img {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  pointer-events: none;
-  z-index: 1;
 }
 
 /* success story individual page */
