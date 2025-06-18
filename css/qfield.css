@@ -782,7 +782,6 @@ div.explanation {
   background: url('your-background-image.jpg') center/cover no-repeat;
   height: 250px;
   width: auto;
-  /* color: #525251; */
   color: white;
   border-radius: 10px;
   overflow: hidden;
@@ -820,13 +819,17 @@ div.explanation {
 }
 
 .ss-card-industry {
-  font-size: 10pt !important;
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 10pt;
   text-transform: uppercase;
   font-weight: normal;
-  opacity: 0.85;
-  margin-bottom: 8px;
-  margin-left: 8px;
-  margin-top: 8px;
+  opacity: 0.8;
+  margin: 8px 0;
+  color: white;
+  background-color: rgba(33, 33, 33, 0.2);
+  border-radius: 12px;
+  padding: 2px 8px;
 }
 
 .ss-card-footer {
@@ -849,6 +852,8 @@ div.explanation {
   transition: transform 0.3s ease;
   display: block;
   border-radius: 10px;
+  width: 100%;
+  max-width: 250px;
 }
 
 .ss-card-wrapper:hover {
@@ -857,7 +862,22 @@ div.explanation {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* success story individual page */
+/*filter buttons */
+  .filter-btn {
+    font-weight: bolder;
+    padding: 4px 4px 4px 4px;
+    margin: 3px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+  }
+
+  .filter-btn:hover {
+    color: var(--qfield-color);
+  }
+
+
+/* success story individual pages */
 #success-story-title h4 {
   font-weight: 300;
 }
