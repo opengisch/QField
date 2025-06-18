@@ -30,6 +30,7 @@
 #include <qgsproject.h>
 #include <qgsrelationmanager.h>
 #include <qgsvectorlayer.h>
+#include <qgsvectorlayereditutils.h>
 #include <qgsvectorlayerutils.h>
 
 typedef QMap<QgsVectorLayer *, FeatureModel::RememberValues> Rememberings;
@@ -868,8 +869,14 @@ bool FeatureModel::create()
 
     if ( mLayer->addFeature( mFeature ) )
     {
-      if ( mProject && mProject->topologicalEditing() )
+      if ( mProject && mProject->topologicalEditing() && !mFeature.geometry().isEmpty() )
       {
+        const double searchRadius = mLayer ? QgsVectorLayerEditUtils::getTopologicalSearchRadius( mLayer ) : 0.0;
+        QgsRectangle bbox = mFeature.geometry().boundingBox();
+        bbox.grow( searchRadius );
+
+        QgsFeature dummyFeature;
+        const QgsFeatureRequest request = QgsFeatureRequest().setNoAttributes().setFlags( Qgis::FeatureRequestFlag::NoGeometry ).setLimit( 1 ).setFilterRect( bbox );
         const QVector<QgsVectorLayer *> vectorLayers = mProject->layers<QgsVectorLayer *>();
         for ( QgsVectorLayer *vectorLayer : vectorLayers )
         {
@@ -881,6 +888,9 @@ bool FeatureModel::create()
 
           if ( vectorLayer != mLayer )
           {
+            if ( !vectorLayer->getFeatures( request ).nextFeature( dummyFeature ) )
+              continue;
+
             vectorLayer->startEditing();
           }
 
@@ -1079,6 +1089,29 @@ void FeatureModel::applyVertexModelTopography()
   const QVector<QPair<QgsPoint, QgsPoint>> pointsMoved = mVertexModel->verticesMoved();
   const QVector<QgsPoint> pointsDeleted = mVertexModel->verticesDeleted();
 
+  QgsRectangle bbox;
+  const double searchRadius = mLayer ? QgsVectorLayerEditUtils::getTopologicalSearchRadius( mLayer ) : 0.0;
+  for ( const auto &point : pointsAdded )
+  {
+    QgsRectangle pointBbox = point.boundingBox();
+    pointBbox.grow( searchRadius );
+    bbox.combineExtentWith( pointBbox );
+  }
+  for ( const auto &point : pointsMoved )
+  {
+    QgsRectangle pointBbox = point.first.boundingBox();
+    pointBbox.grow( searchRadius );
+    bbox.combineExtentWith( pointBbox );
+  }
+  for ( const auto &point : pointsDeleted )
+  {
+    QgsRectangle pointBbox = point.boundingBox();
+    pointBbox.grow( searchRadius );
+    bbox.combineExtentWith( pointBbox );
+  }
+
+  QgsFeature dummyFeature;
+  const QgsFeatureRequest request = QgsFeatureRequest().setNoAttributes().setFlags( Qgis::FeatureRequestFlag::NoGeometry ).setLimit( 1 ).setFilterRect( bbox );
   const QVector<QgsVectorLayer *> vectorLayers = mProject ? mProject->layers<QgsVectorLayer *>() : QVector<QgsVectorLayer *>() << mLayer;
   for ( QgsVectorLayer *vectorLayer : vectorLayers )
   {
@@ -1090,6 +1123,9 @@ void FeatureModel::applyVertexModelTopography()
 
     if ( vectorLayer != mLayer )
     {
+      if ( !vectorLayer->getFeatures( request ).nextFeature( dummyFeature ) )
+        continue;
+
       vectorLayer->startEditing();
     }
 
