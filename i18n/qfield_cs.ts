@@ -744,6 +744,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>Learn more</source>
         <translation>Více informací</translation>
     </message>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2800,6 +2804,18 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     <message>
         <source>aborted</source>
         <translation>zrušeno</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write attachment to temporary location `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error. Failed to download attachment `%1`.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

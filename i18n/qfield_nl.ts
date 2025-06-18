@@ -744,6 +744,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Learn more</source>
         <translation>Meer info</translation>
     </message>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2797,6 +2801,18 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <source>aborted</source>
         <translation>afgebroken</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write attachment to temporary location `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error. Failed to download attachment `%1`.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

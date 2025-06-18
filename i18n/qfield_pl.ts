@@ -744,6 +744,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Learn more</source>
         <translation>Dowiedz się więcej</translation>
     </message>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation>Błąd załącznika na żądanie QFieldCloud: </translation>
+    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2802,6 +2806,18 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>aborted</source>
         <translation>anulowano</translation>
     </message>
+    <message>
+        <source>File system error. Failed to write attachment to temporary location `%1`.</source>
+        <translation>Błąd systemu plików. Nie udało się zapisać załącznika w tymczasowej lokalizacji `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
+        <translation>Błąd systemu plików. Nie udało się otworzyć załącznika do zapisu na tymczasowym pliku `%1`.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download attachment `%1`.</source>
+        <translation>Błąd sieci. Nie udało się pobrać załącznika `%1`.</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
@@ -4321,7 +4337,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Ensure constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Upewnij się, że ograniczenia są spełnione</translation>
     </message>
 </context>
 <context>

@@ -744,6 +744,10 @@ Zrušiť a spraviť minimálny sken.</translation>
         <source>Learn more</source>
         <translation>Viac informácií</translation>
     </message>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2800,6 +2804,18 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     <message>
         <source>aborted</source>
         <translation>zrušené</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write attachment to temporary location `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error. Failed to download attachment `%1`.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

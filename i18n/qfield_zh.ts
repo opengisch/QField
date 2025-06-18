@@ -744,6 +744,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Learn more</source>
         <translation>点击了解更多信息</translation>
     </message>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation>QFieldCloud按需附件错误: </translation>
+    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2746,7 +2750,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation>文件系统错误，无法将文件写入临时单元`%1`。</translation>
+        <translation>文件系统错误，无法将文件写入临时位置 `%1`。</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
@@ -2795,6 +2799,18 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>aborted</source>
         <translation>异常退出</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write attachment to temporary location `%1`.</source>
+        <translation>文件系统错误。无法将附件写入临时位置 `%1`。</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
+        <translation>文件系统错误。无法打开附件并在临时 `%1` 上进行写入。</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download attachment `%1`.</source>
+        <translation>网络错误。下载附件 `%1` 失败。</translation>
     </message>
 </context>
 <context>
@@ -2905,7 +2921,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation type="vanished">文件系统错误，无法将文件写入临时单元`%1`。</translation>
+        <translation type="vanished">文件系统错误，无法将文件写入临时位置 `%1`。</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
@@ -4315,7 +4331,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Ensure constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>确保满足约束条件</translation>
     </message>
 </context>
 <context>
