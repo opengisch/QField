@@ -1459,9 +1459,14 @@ ApplicationWindow {
         height: 36
 
         onClicked: {
-          if (gnssButton.followActive)
+          if (gnssButton.followActive) {
             gnssButton.followActiveSkipExtentChanged = true;
+          }
           mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + mapCanvas.width / 2, mapCanvas.y + mapCanvas.height / 2));
+          if (gnssButton.followActive) {
+            // Trigger a mao redraw
+            gnssButton.followLocation(true);
+          }
         }
       }
       QfToolButton {
@@ -1477,9 +1482,14 @@ ApplicationWindow {
         height: 36
 
         onClicked: {
-          if (gnssButton.followActive)
+          if (gnssButton.followActive) {
             gnssButton.followActiveSkipExtentChanged = true;
+          }
           mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + mapCanvas.width / 2, mapCanvas.y + mapCanvas.height / 2));
+          if (gnssButton.followActive) {
+            // Trigger a mao redraw
+            gnssButton.followLocation(true);
+          }
         }
       }
     }
@@ -2174,19 +2184,17 @@ ApplicationWindow {
         property int followLocationScreenFraction: settings ? settings.value("/QField/Positioning/FollowScreenFraction", 5) : 5
 
         function followLocation(forceRecenter) {
-          let triggerRecenter = false;
           if (navigation.isActive && navigationButton.followIncludeDestination) {
             if (mapCanvas.mapSettings.scale > followLocationMinScale) {
               gnssButton.followActiveSkipExtentChanged = true;
               const points = [positionSource.projectedPosition, navigation.destination];
               mapCanvas.mapSettings.setExtentFromPoints(points, followLocationMinScale, true);
-              triggerRecenter = Math.abs(Math.abs(mapCanvasMap.mapCanvasWrapper.scale) - 1) > 0.25;
             }
           } else {
             gnssButton.followActiveSkipExtentChanged = true;
             mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
-            triggerRecenter = Math.abs(mapCanvasMap.mapCanvasWrapper.x) > mainWindow.width - followLocationMinMargin || Math.abs(mapCanvasMap.mapCanvasWrapper.y) > mainWindow.height - followLocationMinMargin;
           }
+          const triggerRecenter = Math.abs(Math.abs(mapCanvasMap.mapCanvasWrapper.scale) - 1) > 0.25 || Math.abs(mapCanvasMap.mapCanvasWrapper.x) > (mainWindow.width - followLocationMinMargin) || Math.abs(mapCanvasMap.mapCanvasWrapper.y) > (mainWindow.height - followLocationMinMargin);
           if (triggerRecenter || forceRecenter) {
             if (positionSource.positionInformation.directionValid) {
               // Prioritize preview quadrants based on movement direction
