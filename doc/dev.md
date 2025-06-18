@@ -294,3 +294,38 @@ The commands below are using `apt`, so they are written for Debian based systems
    - Select the newly created kit with a Debug configuration, pointing to the `build-x64-linux` directory.
 
 You are now ready to develop and run the project using Qt Creator!
+
+## Dev Container
+
+
+QField provides a devcontainer configuration that helps you get started with development quickly. The devcontainer is based on Ubuntu 22.04 and includes all necessary dependencies.
+
+### Prerequisites
+
+- Podman or Docker installed on your system
+- CLion or Visual Studio Code with the "Dev Containers" extension
+
+### Using with CLion
+
+1. Open the QField project in your CLion
+2. The IDE should detect the devcontainer configuration and prompt you to use it
+3. Click "Reopen in Container" and wait for the environment to be ready
+
+### Using with VS Code
+
+1. Open the QField folder in VS Code
+2. When prompted, click "Reopen in Container" or run the "Remote-Containers: Reopen in Container" command
+3. Wait for the container to build and initialize
+
+
+### Building in the Container
+
+Once inside the container, you can follow the regular [vcpkg build instructions](#using-vcpkg) or use automated tools provided by the IDE. Pre-commit is shipped with the devcontainer, you just have to initialize it for the repo with `pre-commit install`.
+
+### GUI Support
+
+If you got xcb errors when starting the built QField, you can enable GUI support by running this command on your **host** system:
+
+```sh
+xhost +local:
+```

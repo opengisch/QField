@@ -1,0 +1,61 @@
+// This Dev Container is based on linux build github action
+{
+  "name": "QField-Development",
+  "image": "ubuntu:22.04",
+
+  // IDE configuration
+  "customizations" : {
+    "jetbrains" : {
+      "backend" : "IntelliJ",
+      "settings" : {},
+      "plugins": []
+    },
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools",
+        "twxs.cmake",
+        "ms-vscode.cpptools-extension-pack"
+      ],
+      "settings": {
+        "cmake.configureOnOpen": true,
+        "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+        "editor.formatOnSave": true,
+        "files.trimTrailingWhitespace": true,
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "cmake.buildDirectory": "${workspaceFolder}/build"
+      }
+    }
+  },
+
+  "features": {
+    "ghcr.io/devcontainers-extra/features/pre-commit:2": {}
+  },
+
+  // X11 display configuration for GUI support
+  "mounts": [
+    {
+      "source": "/tmp/.X11-unix",
+      "target": "/tmp/.X11-unix",
+      "type": "bind"
+    },
+    {
+      "source": "${env:XAUTHORITY}",
+      "target": "/root/.Xauthority",
+      "type": "bind"
+    }
+  ],
+
+  "containerEnv": {
+    "DISPLAY": "${env:DISPLAY}",
+    "QT_X11_NO_MITSHM": "1"
+  },
+
+  // Network configuration
+  "runArgs": [
+    "--net=host"
+  ],
+
+
+  "onCreateCommand": "apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y git curl wget zip bison gperf flex libtool libxcb-cursor-dev autopoint '^libxcb.*-dev' libx11-xcb-dev libegl1-mesa libegl1-mesa-dev libgl1-mesa-dev libglu1-mesa-dev mesa-common-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev libxrandr-dev libxxf86vm-dev autoconf-archive libgstreamer-gl1.0-0 libgstreamer-plugins-base1.0-0 libfuse2 libpulse-dev libcups2-dev nasm python3-tk python3-jinja2",
+}
