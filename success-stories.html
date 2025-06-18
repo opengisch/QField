@@ -144,7 +144,7 @@
           <div class="ss-card-content">
             <span class="ss-card-industry">Ecology</span>
             <div class="ss-card-footer">
-              <h1 class="ss-card-title">Improving efficiencies in ecological surveying</h1>
+              <h1 class="ss-card-title">Improving efficiencies<br> in ecological surveying</h1>
             </div>
           </div>
         </a>
@@ -216,7 +216,7 @@
           <div class="ss-card-content">
             <span class="ss-card-industry">Water Management</span>
             <div class="ss-card-footer">
-              <h1 class="ss-card-title">Data collection of rural water supply systems</h1>
+              <h1 class="ss-card-title">Data collection of rural<br> water supply systems</h1>
             </div>
           </div>
         </a>
@@ -313,6 +313,37 @@
 <script>
   const filterButtons = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('.ss-card-wrapper');
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialFilter = urlParams.get('filter');
+
+    if (initialFilter) {
+      applyFilter(initialFilter);
+    }
+
+    // Add listener for manual filter button clicks
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        applyFilter(filter);
+      });
+    });
+  });
+
+  function applyFilter(filter) {
+    filterButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-filter') === filter);
+    });
+
+    cards.forEach(card => {
+      if (filter === 'all' || card.classList.contains(filter)) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
 
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
