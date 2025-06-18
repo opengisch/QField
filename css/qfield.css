@@ -887,6 +887,10 @@ div.explanation {
     color: var(--qfield-color);
   }
 
+  .filter-btn.active {
+    background-color: white;
+    color: var(--qfield-color);
+  }
 
 /* success story individual pages */
 #success-story-title h4 {
