@@ -229,7 +229,7 @@ void QgsQuickMapCanvasMap::renderJobFinished()
   {
     mDeferredRefreshPending = false;
     mSilentRefresh = true;
-    refresh();
+    refresh( true );
   }
   else if ( mPreviewJobsEnabled )
   {
@@ -242,24 +242,21 @@ void QgsQuickMapCanvasMap::layerRepaintRequested( bool deferred )
   if ( mMapSettings->outputSize().isNull() )
     return; // the map image size has not been set yet
 
-  if ( !mFreeze )
+  if ( deferred || mForceDeferredLayersRepaint || mFreeze )
   {
-    if ( deferred || mForceDeferredLayersRepaint )
+    if ( !mJob && !mRefreshTimer.isActive() )
     {
-      if ( !mJob && !mRefreshTimer.isActive() )
-      {
-        mSilentRefresh = true;
-        refresh();
-      }
-      else
-      {
-        mDeferredRefreshPending = true;
-      }
+      mSilentRefresh = true;
+      refresh( true );
     }
     else
     {
-      refresh();
+      mDeferredRefreshPending = true;
     }
+  }
+  else
+  {
+    refresh();
   }
 }
 
