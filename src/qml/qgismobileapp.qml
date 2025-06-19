@@ -643,8 +643,8 @@ ApplicationWindow {
       forceDeferredLayersRepaint: trackings.count > 0
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
 
-      rightMargin: featureForm.x > 0 ? featureForm.width : 0
-      bottomMargin: Math.max(informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0, featureForm.y > 0 ? featureForm.height : 0)
+      rightMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? featureForm.x > 0 ? featureForm.width : 0 : 0
+      bottomMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? Math.max(informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0, featureForm.y > 0 ? featureForm.height : 0) : 0
 
       anchors.fill: parent
 
@@ -941,7 +941,7 @@ ApplicationWindow {
       id: coordinateLocator
       objectName: "coordinateLocator"
       anchors.fill: parent
-      anchors.bottomMargin: informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0
+      anchors.bottomMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0 : 0
       visible: stateMachine.state === "digitize" || stateMachine.state === 'measure'
       highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
@@ -2297,6 +2297,7 @@ ApplicationWindow {
           if (gnssButton.followActive && gnssButton.followOrientationActive) {
             if (gnssButton.followActiveSkipRotationChanged) {
               gnssButton.followActiveSkipRotationChanged = false;
+              return;
             }
           }
           if (gnssButton.followActive) {
