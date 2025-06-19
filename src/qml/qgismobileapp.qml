@@ -2206,7 +2206,7 @@ ApplicationWindow {
             gnssButton.followActiveSkipExtentChanged = true;
             mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
           }
-          const triggerRecenter = Math.abs(Math.abs(mapCanvasMap.mapCanvasWrapper.scale) - 1) > 0.25 || Math.abs(mapCanvasMap.mapCanvasWrapper.x) > (mainWindow.width - followLocationMinMargin) || Math.abs(mapCanvasMap.mapCanvasWrapper.y) > (mainWindow.height - followLocationMinMargin);
+          const triggerRecenter = Math.abs(Math.abs(mapCanvasMap.mapCanvasWrapper.scale) - 1) > 0.25 || Math.abs(mapCanvasMap.mapCanvasWrapper.x) > (mainWindow.width / 2) || Math.abs(mapCanvasMap.mapCanvasWrapper.y) > (mainWindow.height / 2);
           if (triggerRecenter || forceRecenter) {
             if (positionSource.positionInformation.directionValid) {
               // Prioritize preview quadrants based on movement direction
