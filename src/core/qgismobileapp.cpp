@@ -189,6 +189,7 @@
 #include <qgsrasterlayer.h>
 #include <qgsrasterresamplefilter.h>
 #include <qgsrelationmanager.h>
+#include <qgssettingsregistrycore.h>
 #include <qgssinglesymbolrenderer.h>
 #include <qgssnappingutils.h>
 #include <qgstemporalutils.h>
@@ -208,6 +209,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   , mFirstRenderingFlag( true )
   , mApp( app )
 {
+  // Set QGIS-specific core settings
+  QgsSettingsRegistryCore::settingsEnableWMSTilePrefetching->setValue( true );
+
   // Set a nicer default hyperlink color to be used in QML Text items
   QPalette palette = app->palette();
   palette.setColor( QPalette::Link, QColor( 128, 204, 40 ) );
