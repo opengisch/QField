@@ -355,7 +355,7 @@ ApplicationWindow {
     }
 
     onOrientationChanged: {
-      if (active && gnssButton.followOrientationActive) {
+      if (active && gnssButton.followActive) {
         gnssButton.followOrientation();
       }
     }
@@ -1337,7 +1337,7 @@ ApplicationWindow {
     QfToolButton {
       id: compassArrow
       rotation: mapCanvas.mapSettings.rotation
-      visible: rotation != 0
+      visible: rotation !== 0
       anchors.left: parent.left
       anchors.bottom: parent.bottom
       anchors.leftMargin: 4
@@ -1402,7 +1402,12 @@ ApplicationWindow {
         }
       }
 
-      onClicked: mapCanvas.mapSettings.rotation = 0
+      onClicked: {
+        if (gnssButton.followActive && gnssButton.followOrientationActive) {
+          gnssButton.onClicked();
+        }
+        mapCanvas.mapSettings.rotation = 0;
+      }
     }
 
     ScaleBar {
@@ -2153,9 +2158,16 @@ ApplicationWindow {
 
         onClicked: {
           if (followActive) {
-            followOrientationActive = true;
-            followOrientation();
-            displayToast(qsTr("Canvas follows location and compass orientation"));
+            if (qfieldSettings.enableMapRotation) {
+              if (!followOrientationActive) {
+                followOrientationActive = true;
+                followOrientation();
+                displayToast(qsTr("Canvas follows location and compass orientation"));
+              } else {
+                followOrientationActive = false;
+                displayToast(qsTr("Canvas follows location"));
+              }
+            }
           } else {
             if (!positionSource.active) {
               positionSource.jumpToPosition = true;
@@ -2231,9 +2243,11 @@ ApplicationWindow {
 
         function followOrientation() {
           if (!isNaN(positionSource.orientation) && Math.abs(-positionSource.orientation - mapCanvas.mapSettings.rotation) >= 2) {
-            gnssButton.followActiveSkipRotationChanged = true;
-            mapCanvas.mapSettings.rotation = -positionSource.orientation;
-            const triggerRefresh = Math.abs(mapCanvasMap.mapCanvasWrapper.rotation) > 33.3;
+            if (gnssButton.followOrientationActive) {
+              gnssButton.followActiveSkipRotationChanged = true;
+              mapCanvas.mapSettings.rotation = -positionSource.orientation;
+            }
+            const triggerRefresh = Math.abs(mapCanvasMap.mapCanvasWrapper.rotation) > 22.5;
             if (triggerRefresh) {
               mapCanvasMap.refresh(true);
             }
@@ -2280,12 +2294,25 @@ ApplicationWindow {
         }
 
         function onRotationChanged() {
-          if (gnssButton.followOrientationActive) {
+          if (gnssButton.followActive && gnssButton.followOrientationActive) {
             if (gnssButton.followActiveSkipRotationChanged) {
               gnssButton.followActiveSkipRotationChanged = false;
-            } else {
-              gnssButton.followOrientationActive = false;
             }
+          }
+          if (gnssButton.followActive) {
+            mapCanvasMap.unfreeze('follow');
+            gnssButton.followActive = false;
+            gnssButton.followOrientationActive = false;
+            gnssButton.autoRefollow = true;
+            showAutoLockToast();
+          } else if (gnssButton.autoRefollow) {
+            showAutoLockToast();
+          }
+        }
+
+        function onOutputSizeChanged() {
+          if (gnssButton.followActive) {
+            mapCanvasMap.refresh(true);
           }
         }
       }
