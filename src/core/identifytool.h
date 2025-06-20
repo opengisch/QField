@@ -26,6 +26,7 @@ class QgsMapLayer;
 class QgsQuickMapSettings;
 class QgsRasterLayer;
 class QgsVectorLayer;
+class QgsVectorTileLayer;
 class MultiFeatureListModel;
 
 /**
@@ -81,6 +82,7 @@ class IdentifyTool : public QObject
 
     QList<IdentifyResult> identifyVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const;
     QList<IdentifyResult> identifyRasterLayer( QgsRasterLayer *layer, const QgsPointXY &point ) const;
+    QList<IdentifyResult> identifyVectorTileLayer( QgsVectorTileLayer *layer, const QgsPointXY &point ) const;
 
   private:
     QgsQuickMapSettings *mMapSettings = nullptr;
