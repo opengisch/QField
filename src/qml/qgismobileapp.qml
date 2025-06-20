@@ -522,9 +522,9 @@ ApplicationWindow {
         }
 
         // when hovering various toolbars, reset coordinate locator position for nicer UX
-        if (!freehandHandler.active && (pointHandler.pointInItem(point, digitizingToolbar) || pointHandler.pointInItem(point, elevationProfileButton))) {
+        if (!freehandHandler.active && (pointHandler.pointInItem(point.position, digitizingToolbar) || pointHandler.pointInItem(point.position, elevationProfileButton))) {
           coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen(digitizingToolbar.rubberbandModel.lastCoordinate);
-        } else if (!freehandHandler.active && pointHandler.pointInItem(point, geometryEditorsToolbar)) {
+        } else if (!freehandHandler.active && pointHandler.pointInItem(point.position, geometryEditorsToolbar)) {
           coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen(geometryEditorsToolbar.editorRubberbandModel.lastCoordinate);
         } else if (!freehandHandler.active) {
           // after a click, it seems that the position is sent once at 0,0 => weird)
