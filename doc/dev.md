@@ -297,7 +297,6 @@ You are now ready to develop and run the project using Qt Creator!
 
 ## Dev Container
 
-
 QField provides a devcontainer configuration that helps you get started with development quickly. The devcontainer is based on Ubuntu 22.04 and includes all necessary dependencies.
 
 ### Prerequisites
@@ -316,7 +315,6 @@ QField provides a devcontainer configuration that helps you get started with dev
 1. Open the QField folder in VS Code
 2. When prompted, click "Reopen in Container" or run the "Remote-Containers: Reopen in Container" command
 3. Wait for the container to build and initialize
-
 
 ### Building in the Container
 
