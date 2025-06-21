@@ -2210,7 +2210,7 @@ ApplicationWindow {
           if (triggerRecenter || forceRecenter) {
             if (positionSource.positionInformation.directionValid) {
               // Prioritize preview quadrants based on movement direction
-              const direction = positionSource.positionInformation.direction;
+              const direction = (positionSource.positionInformation.direction + (mapCanvas.mapSettings.rotation + 360)) % 360;
               if (direction >= 337.5 || direction < 22.5) {
                 // moving ~north
                 mapCanvasMap.previewJobsQuadrants = [1, 2, 0, 5, 3, 8, 6, 7];
