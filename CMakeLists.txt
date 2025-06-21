@@ -258,6 +258,7 @@ if(WITH_VCPKG)
     COMMAND ${CMAKE_COMMAND} -E rm -- "${SHARE_DIR}/qgis/resources/data/world_map.gpkg"
     COMMAND ${CMAKE_COMMAND} -E rm -R -- "${SHARE_DIR}/qgis/resources/cpt-city-qgis-min"
   )
+
   set(PROJ_DATA_PATH "${VCPKG_BASE_DIR}/share/proj")
 
   if(NOT EXISTS "${PROJ_DATA_PATH}/proj.db")

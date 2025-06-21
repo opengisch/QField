@@ -107,7 +107,13 @@
     },
     {
       "name": "sentry-native",
-      "platform": "!android & !ios & !osx"
+      "default-features": false,
+      "features": [
+        "backend",
+        "breakpad",
+        "transport"
+      ],
+      "platform": "windows | linux"
     },
     "spix-qt6",
     {
