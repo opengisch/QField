@@ -201,6 +201,10 @@ jobs:
         run: |
           bundle exec fastlane windows upload_s3 exe:${{ env.ARTIFACT_PATHNAME }}
 
+      - name: 📮 find debug symbols
+        run: |
+          find . -name '*.pdb'
+
       - name: 📮 Upload debug symbols
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         uses: actions/upload-artifact@v4
