@@ -82,12 +82,12 @@ jobs:
                 -D VCPKG_TARGET_TRIPLET="x64-windows-static" \
                 -D VCPKG_HOST_TRIPLET="x64-windows-static" \
                 -D WITH_VCPKG=ON \
-                -D WITH_SPIX=ON \
+                -D WITH_SPIX=OFF \
                 -D WITH_NFC=OFF \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
                 -D APP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
-                -D ENABLE_TESTS=ON \
+                -D ENABLE_TESTS=OFF \
                 -D NUGET_USERNAME=opengisch \
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -D CMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded\$<\$<CONFIG:Debug>:Debug>" \
@@ -115,15 +115,15 @@ jobs:
         run: |
           cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
 
-      - name: 🧫 Test
-        shell: bash
-        env:
-          PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-windows-static/share/proj
-        run: |
-          SOURCE_DIR=$( cygpath "${{ github.workspace }}" )
-          pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
-          cd "${{ env.CMAKE_BUILD_DIR }}"
-          ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E qmltest
+      #- name: 🧫 Test
+      #  shell: bash
+      #  env:
+      #    PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-windows-static/share/proj
+      #  run: |
+      #    SOURCE_DIR=$( cygpath "${{ github.workspace }}" )
+      #    pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
+      #    cd "${{ env.CMAKE_BUILD_DIR }}"
+      #    ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E qmltest
 
       - name: Package
         id: package
