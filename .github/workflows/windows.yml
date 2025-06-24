@@ -200,6 +200,9 @@ jobs:
           S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY}}
         run: |
           bundle exec fastlane windows upload_s3 exe:${{ env.ARTIFACT_PATHNAME }}
+
+      - name: debug
+        run: |
           find ${{ env.CMAKE_BUILD_DIR }} -name '*.pdb'
 
       - name: 📮 Upload debug symbols
