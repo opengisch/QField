@@ -201,7 +201,7 @@ jobs:
         run: |
           bundle exec fastlane windows upload_s3 exe:${{ env.ARTIFACT_PATHNAME }}
 
-      - name: upload symbols
+      - name: 📮 Upload debug symbols
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         env:
           SENTRY_ORG_SLUG: opengisch
