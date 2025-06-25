@@ -87,7 +87,7 @@ jobs:
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
                 -D APP_PACKAGE_NAME="${APP_PACKAGE_NAME}" \
-                -D ENABLE_TESTS=OFF \
+                -D ENABLE_TESTS=ON \
                 -D NUGET_USERNAME=opengisch \
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -D CMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded\$<\$<CONFIG:Debug>:Debug>" \
@@ -115,15 +115,15 @@ jobs:
         run: |
           cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
 
-      #- name: 🧫 Test
-      #  shell: bash
-      #  env:
-      #    PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-windows-static/share/proj
-      #  run: |
-      #    SOURCE_DIR=$( cygpath "${{ github.workspace }}" )
-      #    pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
-      #    cd "${{ env.CMAKE_BUILD_DIR }}"
-      #    ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E qmltest
+      - name: 🧫 Test
+        shell: bash
+        env:
+          PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/x64-windows-static/share/proj
+        run: |
+          SOURCE_DIR=$( cygpath "${{ github.workspace }}" )
+          pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
+          cd "${{ env.CMAKE_BUILD_DIR }}"
+          ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E qmltest
 
       - name: Package
         id: package
@@ -201,16 +201,13 @@ jobs:
         run: |
           bundle exec fastlane windows upload_s3 exe:${{ env.ARTIFACT_PATHNAME }}
 
-      - name: debug
-        run: |
-          find ${{ env.CMAKE_BUILD_DIR }} -name '*.pdb'
-
-      - name: 📮 Upload debug symbols
+      - name: upload symbols
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: debug-symbols
-          path: ${{ env.CMAKE_BUILD_DIR }}/**/*.pdb
+        env:
+          SENTRY_ORG_SLUG: opengisch
+          SENTRY_PROJECT_SLUG: qfield
+        run: |
+          bundle exec fastlane run sentry_debug_files_upload path:${{ env.CMAKE_BUILD_DIR }}/output/bin/qfield.pdb
 
   deploy:
     name: deploy (ms store)
@@ -243,31 +240,3 @@ jobs:
         uses: microsoft/store-submission@v1
         with:
           command: publish
-
-  upload-debug-symbols:
-    name: upload debug symbols (windows)
-    runs-on: ubuntu-latest
-
-    needs: build
-
-    steps:
-      - name: 🐣 Checkout
-        uses: actions/checkout@v4
-
-      - name: 💎 Setup ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.2' # Not needed with a .ruby-version file
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-
-      - uses: actions/download-artifact@v4
-        with:
-          name: debug-symbols
-
-      - name: upload symbols
-        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
-        env:
-          SENTRY_ORG_SLUG: opengisch
-          SENTRY_PROJECT_SLUG: qfield
-        run: |
-          bundle exec fastlane run sentry_debug_files_upload path:.
