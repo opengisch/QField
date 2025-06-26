@@ -322,12 +322,12 @@ Popup {
           id: lockText
 
           property var padlockIcon: Theme.getThemeVectorIcon('ic_lock_black_24dp')
-          property var padlockSize: fontMetrics.height - 5
+          property real padlockSize: fontMetrics.height - 5
 
           property bool isReadOnly: index !== undefined && layerTree.data(index, FlatLayerTreeModel.ReadOnly)
-          property bool isGeometryLocked: index !== undefined && layerTree.data(index, FlatLayerTreeModel.GeometryLocked)
+          property bool isFeatureAdditionLocked: index !== undefined && layerTree.data(index, FlatLayerTreeModel.FeatureAdditionLocked)
 
-          visible: isReadOnly || isGeometryLocked
+          visible: isReadOnly || isFeatureAdditionLocked
           Layout.fillWidth: true
           topPadding: 5
 

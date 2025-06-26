@@ -295,7 +295,7 @@ ListView {
 
           QfToolButton {
             id: lockedBadge
-            property bool isVisible: ReadOnly || GeometryLocked
+            property bool isVisible: ReadOnly || FeatureAdditionLocked
             visible: isVisible
             height: 24
             width: 24

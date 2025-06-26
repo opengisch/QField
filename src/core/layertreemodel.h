@@ -135,7 +135,7 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
       Trackable,
       InTracking,
       ReadOnly,
-      GeometryLocked,
+      FeatureAdditionLocked,
       TreeLevel,
       LayerType,
       IsValid,
