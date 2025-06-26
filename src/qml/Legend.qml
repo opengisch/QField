@@ -311,7 +311,7 @@ ListView {
               if (ReadOnly) {
                 displayToast(qsTr('This layer is configured as "Read-Only" which disables adding, deleting and editing features.'));
               } else {
-                displayToast(qsTr('This layer is configured as "Lock Geometries" which disables adding and deleting features, as well as modifying the geometries of existing features.'));
+                displayToast(qsTr('The permissions configuration of this layer disables feature addition.'));
               }
             }
           }

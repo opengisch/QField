@@ -766,7 +766,55 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
         if ( layer )
         {
-          return ( layer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool() || ( layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() && !layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() ) );
+          return ( ( layer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool() && !layer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked_expression_active" ), false ).toBool() ) || ( layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() && !layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() ) );
+        }
+      }
+
+      return false;
+    }
+
+    case FlatLayerTreeModel::AttributeEditingLocked:
+    {
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        if ( QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() ) )
+        {
+          return layer->customProperty( QStringLiteral( "QFieldSync/is_attribute_editing_locked" ), false ).toBool() && !layer->customProperty( QStringLiteral( "QFieldSync/is_attribute_editing_locked_expression_active" ), false ).toBool();
+        }
+      }
+
+      return false;
+    }
+
+    case FlatLayerTreeModel::GeometryEditingLocked:
+    {
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        if ( QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() ) )
+        {
+          return ( ( layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() && !layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ), false ).toBool() ) || ( layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() && !layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() ) );
+        }
+      }
+
+      return false;
+    }
+
+    case FlatLayerTreeModel::FeatureDeletionLocked:
+    {
+      QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
+
+      if ( QgsLayerTree::isLayer( node ) )
+      {
+        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+        if ( QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() ) )
+        {
+          return ( ( layer->customProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked" ), false ).toBool() && !layer->customProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked_expression_active" ), false ).toBool() ) || ( layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() && !layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() ) );
         }
       }
 
@@ -1189,6 +1237,9 @@ QHash<int, QByteArray> FlatLayerTreeModelBase::roleNames() const
   roleNames[FlatLayerTreeModel::InTracking] = "InTracking";
   roleNames[FlatLayerTreeModel::ReadOnly] = "ReadOnly";
   roleNames[FlatLayerTreeModel::FeatureAdditionLocked] = "FeatureAdditionLocked";
+  roleNames[FlatLayerTreeModel::AttributeEditingLocked] = "AttributeEditingLocked";
+  roleNames[FlatLayerTreeModel::GeometryEditingLocked] = "GeometryEditingLocked";
+  roleNames[FlatLayerTreeModel::FeatureDeletionLocked] = "FeatureDeletionLocked";
   roleNames[FlatLayerTreeModel::TreeLevel] = "TreeLevel";
   roleNames[FlatLayerTreeModel::LayerType] = "LayerType";
   roleNames[FlatLayerTreeModel::IsValid] = "IsValid";
