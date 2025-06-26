@@ -755,7 +755,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return false;
     }
 
-    case FlatLayerTreeModel::GeometryLocked:
+    case FlatLayerTreeModel::FeatureAdditionLocked:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
 
@@ -766,7 +766,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
         if ( layer )
         {
-          return ( layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() && !layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() );
+          return ( layer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool() || ( layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() && !layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() ) );
         }
       }
 
@@ -1188,7 +1188,7 @@ QHash<int, QByteArray> FlatLayerTreeModelBase::roleNames() const
   roleNames[FlatLayerTreeModel::Name] = "Name";
   roleNames[FlatLayerTreeModel::InTracking] = "InTracking";
   roleNames[FlatLayerTreeModel::ReadOnly] = "ReadOnly";
-  roleNames[FlatLayerTreeModel::GeometryLocked] = "GeometryLocked";
+  roleNames[FlatLayerTreeModel::FeatureAdditionLocked] = "FeatureAdditionLocked";
   roleNames[FlatLayerTreeModel::TreeLevel] = "TreeLevel";
   roleNames[FlatLayerTreeModel::LayerType] = "LayerType";
   roleNames[FlatLayerTreeModel::IsValid] = "IsValid";

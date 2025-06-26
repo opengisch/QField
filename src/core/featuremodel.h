@@ -44,7 +44,9 @@ class FeatureModel : public QAbstractListModel
     //! the vertex model is used to highlight vertices on the map
     Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
     Q_PROPERTY( Geometry *geometry MEMBER mGeometry NOTIFY geometryChanged )
-    Q_PROPERTY( bool geometryLocked READ geometryLocked NOTIFY geometryLockedChanged )
+    Q_PROPERTY( bool attributeEditingLocked READ attributeEditingLocked NOTIFY attributeEditingLockedChanged )
+    Q_PROPERTY( bool geometryEditingLocked READ geometryEditingLocked NOTIFY geometryEditingLockedChanged )
+    Q_PROPERTY( bool featureDeletionLocked READ featureDeletionLocked NOTIFY featureDeletionLockedChanged )
     Q_PROPERTY( QgsVectorLayer *currentLayer READ layer WRITE setCurrentLayer NOTIFY currentLayerChanged )
     Q_PROPERTY( AppExpressionContextScopesGenerator *appExpressionContextScopesGenerator READ appExpressionContextScopesGenerator WRITE setAppExpressionContextScopesGenerator NOTIFY appExpressionContextScopesGeneratorChanged )
     Q_PROPERTY( SnappingResult topSnappingResult READ topSnappingResult WRITE setTopSnappingResult NOTIFY topSnappingResultChanged )
@@ -146,7 +148,9 @@ class FeatureModel : public QAbstractListModel
     //! \copydoc vertexModel
     void setVertexModel( VertexModel *model );
 
-    bool geometryLocked() const { return mGeometryLocked; }
+    bool attributeEditingLocked() const { return mAttributeEditingLocked; }
+    bool geometryEditingLocked() const { return mGeometryEditingLocked; }
+    bool featureDeletionLocked() const { return mFeatureDeletionLocked; }
 
     QHash<int, QByteArray> roleNames() const override;
     int rowCount( const QModelIndex &parent ) const override;
@@ -288,7 +292,9 @@ class FeatureModel : public QAbstractListModel
     void linkedRelationOrderingFieldChanged();
     void vertexModelChanged();
     void geometryChanged();
-    void geometryLockedChanged();
+    void attributeEditingLockedChanged();
+    void geometryEditingLockedChanged();
+    void featureDeletionLockedChanged();
     void currentLayerChanged();
     void appExpressionContextScopesGeneratorChanged();
     void topSnappingResultChanged();
@@ -302,14 +308,19 @@ class FeatureModel : public QAbstractListModel
     bool startEditing();
     void setLinkedFeatureValues();
     void updateDefaultValues();
-    void updateGeometryLocked();
+    void updatePermissions();
 
-    // The current feature geometry locked state
-    bool mGeometryLocked = false;
-    // The vector layer locked geometry setting
-    bool mGeometryLockedByDefault = false;
-    // The vector layer locked geometry expression
-    QString mGeometryLockedExpression;
+    // The current feature locked states
+    bool mAttributeEditingLocked = false;
+    bool mGeometryEditingLocked = false;
+    bool mFeatureDeletionLocked = false;
+
+    bool mAttributeEditingLockedByDefault = false;
+    QString mAttributeEditingLockedExpression;
+    bool mGeometryEditingLockedByDefault = false;
+    QString mGeometryEditingLockedExpression;
+    bool mFeatureDeletionLockedByDefault = false;
+    QString mFeatureDeletionLockedExpression;
 
     ModelModes mModelMode = SingleFeatureModel;
     QPointer<QgsVectorLayer> mLayer;

@@ -71,7 +71,7 @@ void FeatureModel::setFeature( const QgsFeature &feature )
   emit featureChanged();
   endResetModel();
 
-  updateGeometryLocked();
+  updatePermissions();
 }
 
 void FeatureModel::setFeatures( const QList<QgsFeature> &features )
@@ -147,23 +147,65 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
       }
     }
 
-    mGeometryLockedByDefault = mLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
-    const bool geometryLockedExpressionActive = mLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool();
-    if ( geometryLockedExpressionActive )
+    if ( mLayer->customPropertyKeys().contains( QStringLiteral( "is_geometry_locked" ) ) )
     {
-      mGeometryLockedExpression = mLayer->customProperty( QStringLiteral( "QFieldSync/geometry_locked_expression" ), QString() ).toString().trimmed();
+      // Compatibility with old QFieldSync versions prior to geometry lock being broken down into individual permissions
+      const bool isLocked = mLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+      const bool isLockedExpressionActive = mLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool();
+      const QString lockedExpression = isLockedExpressionActive ? mLayer->customProperty( QStringLiteral( "QFieldSync/geometry_locked_expression" ), false ).toString().trimmed() : QString();
+
+      mAttributeEditingLockedByDefault = false;
+      mAttributeEditingLockedExpression.clear();
+      mGeometryEditingLockedByDefault = isLocked;
+      mGeometryEditingLockedExpression = lockedExpression;
+      mFeatureDeletionLockedByDefault = isLocked;
+      mFeatureDeletionLockedExpression = lockedExpression;
     }
     else
     {
-      mGeometryLockedExpression.clear();
+      mAttributeEditingLockedByDefault = mLayer->customProperty( QStringLiteral( "QFieldSync/is_attribute_edting_locked" ), false ).toBool();
+      const bool attributeEditingLockedExpressionActive = mLayer->customProperty( QStringLiteral( "QFieldSync/is_attribute_editing_locked_expression_active" ), false ).toBool();
+      if ( attributeEditingLockedExpressionActive )
+      {
+        mAttributeEditingLockedExpression = mLayer->customProperty( QStringLiteral( "QFieldSync/attribute_editing_locked_expression" ), QString() ).toString().trimmed();
+      }
+      else
+      {
+        mAttributeEditingLockedExpression.clear();
+      }
+      mGeometryEditingLockedByDefault = mLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_edting_locked" ), false ).toBool();
+      const bool geometryEditingLockedExpressionActive = mLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ), false ).toBool();
+      if ( geometryEditingLockedExpressionActive )
+      {
+        mGeometryEditingLockedExpression = mLayer->customProperty( QStringLiteral( "QFieldSync/geometry_editing_locked_expression" ), QString() ).toString().trimmed();
+      }
+      else
+      {
+        mGeometryEditingLockedExpression.clear();
+      }
+      mFeatureDeletionLockedByDefault = mLayer->customProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked" ), false ).toBool();
+      const bool featureDeletionLockedExpressionActive = mLayer->customProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked_expression_active" ), false ).toBool();
+      if ( featureDeletionLockedExpressionActive )
+      {
+        mFeatureDeletionLockedExpression = mLayer->customProperty( QStringLiteral( "QFieldSync/feature_deletion_locked_expression" ), QString() ).toString().trimmed();
+      }
+      else
+      {
+        mFeatureDeletionLockedExpression.clear();
+      }
     }
   }
   else
   {
-    mGeometryLockedByDefault = false;
-    mGeometryLockedExpression.clear();
+    mAttributeEditingLockedByDefault = false;
+    mAttributeEditingLockedExpression.clear();
+    mGeometryEditingLockedByDefault = false;
+    mGeometryEditingLockedExpression.clear();
+    mFeatureDeletionLockedByDefault = false;
+    mFeatureDeletionLockedExpression.clear();
   }
-  updateGeometryLocked();
+
+  updatePermissions();
   emit currentLayerChanged();
 }
 
@@ -366,7 +408,7 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
         emit dataChanged( index, index, QVector<int>() << role );
         // emit a feature changed signal so the attribute form's currentFeature has up-to-date values
         emit featureChanged();
-        updateGeometryLocked();
+        updatePermissions();
       }
       return success;
     }
@@ -402,27 +444,55 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
   return false;
 }
 
-void FeatureModel::updateGeometryLocked()
+void FeatureModel::updatePermissions()
 {
-  bool geometryLocked = mGeometryLockedByDefault;
+  const bool readOnly = mLayer ? mLayer->readOnly() : false;
+  bool attributeEditingLocked = mAttributeEditingLockedByDefault || readOnly;
+  bool geometryEditingLocked = mGeometryEditingLockedByDefault || readOnly;
+  bool featureDeletionLocked = mFeatureDeletionLockedByDefault || readOnly;
 
-  if ( mLayer )
+  if ( mLayer && !mLayer->readOnly() )
   {
-    geometryLocked = geometryLocked || mLayer->readOnly();
-    if ( !mLayer->readOnly() && !mGeometryLockedExpression.isEmpty() )
+    if ( !mAttributeEditingLockedExpression.isEmpty() || !mGeometryEditingLockedExpression.isEmpty() || !mFeatureDeletionLockedExpression.isEmpty() )
     {
       QgsExpressionContext expressionContext = createExpressionContext();
       expressionContext.setFeature( mFeature );
-      QgsExpression expression( mGeometryLockedExpression );
-      expression.prepare( &expressionContext );
-      geometryLocked = expression.evaluate( &expressionContext ).toBool();
+
+      if ( !mAttributeEditingLockedExpression.isEmpty() )
+      {
+        QgsExpression expression( mAttributeEditingLockedExpression );
+        expression.prepare( &expressionContext );
+        attributeEditingLocked = expression.evaluate( &expressionContext ).toBool();
+      }
+      if ( !mGeometryEditingLockedExpression.isEmpty() )
+      {
+        QgsExpression expression( mGeometryEditingLockedExpression );
+        expression.prepare( &expressionContext );
+        geometryEditingLocked = expression.evaluate( &expressionContext ).toBool();
+      }
+      if ( !mFeatureDeletionLockedExpression.isEmpty() )
+      {
+        QgsExpression expression( mFeatureDeletionLockedExpression );
+        expression.prepare( &expressionContext );
+        featureDeletionLocked = expression.evaluate( &expressionContext ).toBool();
+      }
     }
   }
 
-  if ( mGeometryLocked != geometryLocked )
+  if ( mAttributeEditingLocked != attributeEditingLocked )
   {
-    mGeometryLocked = geometryLocked;
-    emit geometryLockedChanged();
+    mAttributeEditingLocked = attributeEditingLocked;
+    emit attributeEditingLockedChanged();
+  }
+  if ( mGeometryEditingLocked != geometryEditingLocked )
+  {
+    mGeometryEditingLocked = geometryEditingLocked;
+    emit geometryEditingLockedChanged();
+  }
+  if ( mFeatureDeletionLocked != featureDeletionLocked )
+  {
+    mFeatureDeletionLocked = featureDeletionLocked;
+    emit featureDeletionLockedChanged();
   }
 }
 
@@ -883,7 +953,7 @@ bool FeatureModel::create()
           if ( vectorLayer->readOnly() )
             continue;
 
-          if ( vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() )
+          if ( vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ), false ).toBool() )
             continue;
 
           if ( vectorLayer != mLayer )
@@ -1118,7 +1188,7 @@ void FeatureModel::applyVertexModelTopography()
     if ( vectorLayer->readOnly() )
       continue;
 
-    if ( vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() )
+    if ( vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ), false ).toBool() )
       continue;
 
     if ( vectorLayer != mLayer )
