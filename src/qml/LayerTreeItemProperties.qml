@@ -326,26 +326,39 @@ Popup {
 
           property bool isReadOnly: index !== undefined && layerTree.data(index, FlatLayerTreeModel.ReadOnly)
           property bool isFeatureAdditionLocked: index !== undefined && layerTree.data(index, FlatLayerTreeModel.FeatureAdditionLocked)
+          property bool isAttributeEditingLocked: index !== undefined && layerTree.data(index, FlatLayerTreeModel.AttributeEditingLocked)
+          property bool isGeometryEditingLocked: index !== undefined && layerTree.data(index, FlatLayerTreeModel.GeometryEditingLocked)
+          property bool isFeatureDeletionLocked: index !== undefined && layerTree.data(index, FlatLayerTreeModel.FeatureDeletionLocked)
 
-          visible: isReadOnly || isFeatureAdditionLocked
+          visible: isReadOnly || isFeatureAdditionLocked || isAttributeEditingLocked || isGeometryEditingLocked || isFeatureDeletionLocked
           Layout.fillWidth: true
           topPadding: 5
 
           wrapMode: Text.WordWrap
           textFormat: Text.RichText
-          text: isReadOnly ? qsTr('Read-only layer') : qsTr('Geometry-locked layer')
+          text: {
+            if (isReadOnly) {
+              return qsTr('Read-only layer');
+            } else if (isFeatureAdditionLocked || isAttributeEditingLocked || isGeometryEditingLocked || isFeatureDeletionLocked) {
+              let locks = [];
+              if (isFeatureAdditionLocked) {
+                locks.push(qsTr('feature addition'));
+              }
+              if (isAttributeEditingLocked) {
+                locks.push(qsTr('attribute editing'));
+              }
+              if (isGeometryEditingLocked) {
+                locks.push(qsTr('geometry editing'));
+              }
+              if (isFeatureDeletionLocked) {
+                locks.push(qsTr('feature deletion'));
+              }
+              return qsTr('Disabled layer permissions: %1').arg(locks.join(', '));
+            }
+            return '';
+          }
           font: Theme.tipFont
           color: Theme.secondaryTextColor
-
-          MouseArea {
-            anchors.fill: parent
-            onClicked: {
-              if (lockText.isReadOnly)
-                displayToast(qsTr('This layer is configured as "Read-Only" which disables adding, deleting and editing features.'));
-              else
-                displayToast(qsTr('This layer is configured as "Lock Geometries" which disables adding and deleting features, as well as modifying the geometries of existing features.'));
-            }
-          }
         }
 
         Text {
