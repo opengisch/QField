@@ -163,7 +163,7 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
     }
     else
     {
-      mAttributeEditingLockedByDefault = mLayer->customProperty( QStringLiteral( "QFieldSync/is_attribute_edting_locked" ), false ).toBool();
+      mAttributeEditingLockedByDefault = mLayer->customProperty( QStringLiteral( "QFieldSync/is_attribute_editing_locked" ), false ).toBool();
       const bool attributeEditingLockedExpressionActive = mLayer->customProperty( QStringLiteral( "QFieldSync/is_attribute_editing_locked_expression_active" ), false ).toBool();
       if ( attributeEditingLockedExpressionActive )
       {
@@ -173,7 +173,7 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
       {
         mAttributeEditingLockedExpression.clear();
       }
-      mGeometryEditingLockedByDefault = mLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_edting_locked" ), false ).toBool();
+      mGeometryEditingLockedByDefault = mLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool();
       const bool geometryEditingLockedExpressionActive = mLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ), false ).toBool();
       if ( geometryEditingLockedExpressionActive )
       {
