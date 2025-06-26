@@ -48,8 +48,9 @@ Drawer {
   clip: true
 
   onActiveLayerChanged: {
-    if (activeLayer && activeLayer.readOnly && stateMachine.state === "digitize")
-      displayToast(qsTr("The layer %1 is read-only.").arg(activeLayer.name));
+    if (activeLayer && activeLayer.readOnly && stateMachine.state === "digitize") {
+      displayToast(qsTr("The layer %1 is read only.").arg(activeLayer.name));
+    }
   }
 
   Connections {

@@ -2331,8 +2331,7 @@ ApplicationWindow {
       DigitizingToolbar {
         id: digitizingToolbar
 
-        // unfortunately there is no way to call QVariant::toBool in QML so the is_geometry_locked / is_feature_addition_locked value must be a string
-        property bool digitizingAllowed: dashBoard.activeLayer && !dashBoard.activeLayer.readOnly && dashBoard.activeLayer.customProperty('QFieldSync/is_geometry_locked') !== 'true' && dashBoard.activeLayer.customProperty('QFieldSync/is_feature_addition_locked') !== 'true' && (projectInfo.editRights || projectInfo.insertRights)
+        property bool digitizingAllowed: dashBoard.activeLayer && !dashBoard.activeLayer.readOnly && !LayerUtils.isFeatureAdditionLocked(dashBoard.activeLayer) && (projectInfo.editRights || projectInfo.insertRights)
 
         stateVisible: !screenLocker.enabled && (!positioningSettings.geofencingPreventDigitizingDuringAlert || !geofencer.isAlerting) && ((stateMachine.state === "digitize" && digitizingAllowed && !geometryEditorsToolbar.stateVisible && !moveFeaturesToolbar.stateVisible && !rotateFeaturesToolbar.stateVisible) || stateMachine.state === 'measure' || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
         rubberbandModel: currentRubberband ? currentRubberband.model : null

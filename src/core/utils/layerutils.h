@@ -110,6 +110,11 @@ class LayerUtils : public QObject
     static Q_INVOKABLE bool isAtlasCoverageLayer( QgsVectorLayer *layer );
 
     /**
+     * Returns TRUE if the \a layer permission state prevents feature addition.
+     */
+    static Q_INVOKABLE bool isFeatureAdditionLocked( QgsMapLayer *layer );
+
+    /**
      * Selects features in a layer
      * This method is required since QML cannot perform the conversion of a feature ID to a QgsFeatureId
      * \param layer the vector layer
