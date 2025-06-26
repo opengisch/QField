@@ -347,7 +347,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: toolBar.state === "Navigation" && supportsEditing && !featureForm.model.featureModel.attributeEditingLocked(projectInfo.editRights || isCreatedCloudFeature)
+    visible: toolBar.state === "Navigation" && supportsEditing && !featureForm.model.featureModel.attributeEditingLocked && (projectInfo.editRights || isCreatedCloudFeature)
     width: visible ? 48 : 0
     height: 48
     clip: true
