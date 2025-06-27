@@ -410,7 +410,12 @@ bool MultiFeatureListModelBase::canEditAttributesSelection() const
     return false;
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
-  return vlayer ? !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeAttributeValues ) : false;
+  if ( !vlayer )
+    return false;
+
+  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_attribute_editing_locked" ), false ).toBool();
+  const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeAttributeValues;
+  return !isLocked && isCapable;
 }
 
 bool MultiFeatureListModelBase::canMergeSelection() const
@@ -419,7 +424,12 @@ bool MultiFeatureListModelBase::canMergeSelection() const
     return false;
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
-  return vlayer ? !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked" ), false ).toBool() : false;
+  if ( !vlayer )
+    return false;
+
+  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked" ), false ).toBool();
+  const bool isCapable = ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries );
+  return !isLocked && isCapable;
 }
 
 bool MultiFeatureListModelBase::canDeleteSelection() const
@@ -428,7 +438,12 @@ bool MultiFeatureListModelBase::canDeleteSelection() const
     return false;
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
-  return vlayer ? !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked" ), false ).toBool() : false;
+  if ( !vlayer )
+    return false;
+
+  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked" ), false ).toBool();
+  const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures;
+  return !isLocked && isCapable;
 }
 
 bool MultiFeatureListModelBase::canDuplicateSelection() const
@@ -437,7 +452,12 @@ bool MultiFeatureListModelBase::canDuplicateSelection() const
     return false;
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
-  return vlayer ? !vlayer->readOnly() && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::AddFeatures ) && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() && !vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool() : false;
+  if ( !vlayer )
+    return false;
+
+  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool();
+  const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::AddFeatures;
+  return !isLocked && isCapable;
 }
 
 bool MultiFeatureListModelBase::canMoveSelection() const
@@ -446,11 +466,19 @@ bool MultiFeatureListModelBase::canMoveSelection() const
     return false;
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
-  if ( !vlayer || vlayer->readOnly() || !( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() )
+  if ( !vlayer )
+    return false;
+
+  const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries;
+  if ( !isCapable )
     return false;
 
   const bool isDeprecadedGeometryLock = vlayer->customPropertyKeys().contains( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ) );
-  const bool geometryEditingLockedExpressionActive = vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ) : QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ), false ).toBool();
+  const bool geometryEditingLockedExpressionActive = vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ) : QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool();
+  const bool geometryEditingLocked = vlayer->readOnly() || vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/is_geometry_editing_locked" ) : QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+  if ( geometryEditingLocked && !geometryEditingLockedExpressionActive )
+    return false;
+
   if ( geometryEditingLockedExpressionActive )
   {
     const QString geometryEditingLockedExpression = vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/geometry_editing_locked_expression" ) : QStringLiteral( "QFieldSync/geometry_locked_expression" ), QString() ).toString().trimmed();
@@ -462,7 +490,7 @@ bool MultiFeatureListModelBase::canMoveSelection() const
         expressionContext.setFeature( selectedFeature.second );
         QgsExpression expression( geometryEditingLockedExpression );
         expression.prepare( &expressionContext );
-        if ( !expression.evaluate( &expressionContext ).toBool() )
+        if ( expression.evaluate( &expressionContext ).toBool() )
         {
           return false;
         }
@@ -479,11 +507,19 @@ bool MultiFeatureListModelBase::canRotateSelection() const
     return false;
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
-  if ( !vlayer || vlayer->readOnly() || !( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() )
+  if ( !vlayer )
+    return false;
+
+  const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries;
+  if ( !isCapable )
     return false;
 
   const bool isDeprecadedGeometryLock = vlayer->customPropertyKeys().contains( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ) );
-  const bool geometryEditingLockedExpressionActive = vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ) : QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ), false ).toBool();
+  const bool geometryEditingLockedExpressionActive = vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ) : QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool();
+  const bool geometryEditingLocked = vlayer->readOnly() || vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/is_geometry_editing_locked" ) : QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+  if ( geometryEditingLocked && !geometryEditingLockedExpressionActive )
+    return false;
+
   if ( geometryEditingLockedExpressionActive )
   {
     const QString geometryEditingLockedExpression = vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/geometry_editing_locked_expression" ) : QStringLiteral( "QFieldSync/geometry_locked_expression" ), QString() ).toString().trimmed();
@@ -495,7 +531,7 @@ bool MultiFeatureListModelBase::canRotateSelection() const
         expressionContext.setFeature( selectedFeature.second );
         QgsExpression expression( geometryEditingLockedExpression );
         expression.prepare( &expressionContext );
-        if ( !expression.evaluate( &expressionContext ).toBool() )
+        if ( expression.evaluate( &expressionContext ).toBool() )
         {
           return false;
         }
@@ -512,11 +548,19 @@ bool MultiFeatureListModelBase::canProcessSelection() const
     return false;
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
-  if ( !vlayer || vlayer->readOnly() || !( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries ) || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() )
+  if ( !vlayer )
+    return false;
+
+  const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries;
+  if ( !isCapable )
     return false;
 
   const bool isDeprecadedGeometryLock = vlayer->customPropertyKeys().contains( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ) );
-  const bool geometryEditingLockedExpressionActive = vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ) : QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ), false ).toBool();
+  const bool geometryEditingLockedExpressionActive = vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ) : QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool();
+  const bool geometryEditingLocked = vlayer->readOnly() || vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/is_geometry_editing_locked" ) : QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
+  if ( geometryEditingLocked && !geometryEditingLockedExpressionActive )
+    return false;
+
   if ( geometryEditingLockedExpressionActive )
   {
     const QString geometryEditingLockedExpression = vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/geometry_editing_locked_expression" ) : QStringLiteral( "QFieldSync/geometry_locked_expression" ), QString() ).toString().trimmed();
@@ -528,7 +572,7 @@ bool MultiFeatureListModelBase::canProcessSelection() const
         expressionContext.setFeature( selectedFeature.second );
         QgsExpression expression( geometryEditingLockedExpression );
         expression.prepare( &expressionContext );
-        if ( !expression.evaluate( &expressionContext ).toBool() )
+        if ( expression.evaluate( &expressionContext ).toBool() )
         {
           return false;
         }
