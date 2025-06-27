@@ -722,7 +722,6 @@ Page {
       return;
     }
     if (!save()) {
-      displayToast(qsTr('Unable to save changes'), 'error');
       featureCreated = false;
       return;
     }
@@ -737,14 +736,24 @@ Page {
     }
     aboutToSave();
     master.ignoreChanges = true;
-    var isSuccess = false;
+    let isSuccess = false;
+    let errorPushed = false;
     if (form.state === 'Add' && !featureCreated) {
-      isSuccess = model.create();
-      featureCreated = isSuccess;
+      if (!model.featureModel.featureAdditionLocked) {
+        isSuccess = model.create();
+        featureCreated = isSuccess;
+      } else {
+        isSuccess = false;
+        errorPushed = true;
+        displayToast(qsTr('Feature addition disabled'), 'warning');
+      }
     } else {
       isSuccess = model.save();
     }
     master.ignoreChanges = false;
+    if (!isSuccess && !errorPushed) {
+      displayToast(qsTr('Unable to save changes'), 'error');
+    }
     return isSuccess;
   }
 
@@ -772,7 +781,7 @@ Page {
     visible: form.state === 'Add'
     objectName: "toolbar"
     background: Rectangle {
-      color: !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : Theme.mainColor
+      color: model.featureModel.featureAdditionLocked || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : Theme.mainColor
     }
 
     RowLayout {

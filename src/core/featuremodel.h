@@ -44,6 +44,7 @@ class FeatureModel : public QAbstractListModel
     //! the vertex model is used to highlight vertices on the map
     Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
     Q_PROPERTY( Geometry *geometry MEMBER mGeometry NOTIFY geometryChanged )
+    Q_PROPERTY( bool featureAdditionLocked READ featureAdditionLocked NOTIFY featureAdditionLockedChanged )
     Q_PROPERTY( bool attributeEditingLocked READ attributeEditingLocked NOTIFY attributeEditingLockedChanged )
     Q_PROPERTY( bool geometryEditingLocked READ geometryEditingLocked NOTIFY geometryEditingLockedChanged )
     Q_PROPERTY( bool featureDeletionLocked READ featureDeletionLocked NOTIFY featureDeletionLockedChanged )
@@ -148,6 +149,7 @@ class FeatureModel : public QAbstractListModel
     //! \copydoc vertexModel
     void setVertexModel( VertexModel *model );
 
+    bool featureAdditionLocked() const { return mFeatureAdditionLocked; }
     bool attributeEditingLocked() const { return mAttributeEditingLocked; }
     bool geometryEditingLocked() const { return mGeometryEditingLocked; }
     bool featureDeletionLocked() const { return mFeatureDeletionLocked; }
@@ -292,6 +294,7 @@ class FeatureModel : public QAbstractListModel
     void linkedRelationOrderingFieldChanged();
     void vertexModelChanged();
     void geometryChanged();
+    void featureAdditionLockedChanged();
     void attributeEditingLockedChanged();
     void geometryEditingLockedChanged();
     void featureDeletionLockedChanged();
@@ -311,10 +314,13 @@ class FeatureModel : public QAbstractListModel
     void updatePermissions();
 
     // The current feature locked states
+    bool mFeatureAdditionLocked = false;
     bool mAttributeEditingLocked = false;
     bool mGeometryEditingLocked = false;
     bool mFeatureDeletionLocked = false;
 
+    bool mFeatureAdditionLockedByDefault = false;
+    QString mFeatureAdditionLockedExpression;
     bool mAttributeEditingLockedByDefault = false;
     QString mAttributeEditingLockedExpression;
     bool mGeometryEditingLockedByDefault = false;

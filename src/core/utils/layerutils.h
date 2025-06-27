@@ -22,6 +22,7 @@
 #include <qgstextformat.h>
 #include <qgsvectorlayer.h>
 
+class FeatureModel;
 class QgsVectorLayer;
 class QgsRasterLayer;
 class QgsSymbol;
