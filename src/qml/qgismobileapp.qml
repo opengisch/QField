@@ -2385,7 +2385,7 @@ ApplicationWindow {
                 overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry;
                 overlayFeatureFormDrawer.featureModel.applyGeometry();
                 overlayFeatureFormDrawer.featureModel.resetAttributes();
-                if (overlayFeatureFormDrawer.featureForm.model.constraintsHardValid) {
+                if (overlayFeatureFormDrawer.featureForm.model.constraintsHardValid && !overlayFeatureFormDrawer.featureForm.featureAdditionLocked) {
                   // when the constrainst are fulfilled
                   // indirect action, no need to check for success and display a toast, the log is enough
                   overlayFeatureFormDrawer.featureForm.featureCreated = overlayFeatureFormDrawer.featureForm.create();
@@ -2457,12 +2457,16 @@ ApplicationWindow {
               overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry;
               overlayFeatureFormDrawer.featureModel.applyGeometry();
               overlayFeatureFormDrawer.featureModel.resetAttributes();
-              if (!overlayFeatureFormDrawer.featureModel.create()) {
-                displayToast(qsTr("Failed to create feature!"), 'error');
+              if (!overlayFeatureFormDrawer.featureForm.featureAdditionLocked) {
+                if (!overlayFeatureFormDrawer.featureModel.create()) {
+                  displayToast(qsTr("Failed to create feature"), 'error');
+                }
+              } else {
+                displayToast(qsTr("Failed to create feature due to feature addition permission disabled"), 'warning');
               }
             } else {
               if (!overlayFeatureFormDrawer.featureModel.save()) {
-                displayToast(qsTr("Failed to save feature!"), 'error');
+                displayToast(qsTr("Failed to save feature"), 'error');
               }
             }
             digitizingRubberband.model.reset();

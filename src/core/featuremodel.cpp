@@ -154,6 +154,8 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
       const bool isLockedExpressionActive = mLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool();
       const QString lockedExpression = isLockedExpressionActive ? mLayer->customProperty( QStringLiteral( "QFieldSync/geometry_locked_expression" ), false ).toString().trimmed() : QString();
 
+      mFeatureAdditionLockedByDefault = isLocked;
+      mFeatureAdditionLockedExpression = lockedExpression;
       mAttributeEditingLockedByDefault = false;
       mAttributeEditingLockedExpression.clear();
       mGeometryEditingLockedByDefault = isLocked;
@@ -163,6 +165,16 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
     }
     else
     {
+      mFeatureAdditionLockedByDefault = mLayer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool();
+      const bool featureAdditionLockedExpressionActive = mLayer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked_expression_active" ), false ).toBool();
+      if ( featureAdditionLockedExpressionActive )
+      {
+        mFeatureAdditionLockedExpression = mLayer->customProperty( QStringLiteral( "QFieldSync/feature_addition_locked_expression" ), QString() ).toString().trimmed();
+      }
+      else
+      {
+        mFeatureAdditionLockedExpression.clear();
+      }
       mAttributeEditingLockedByDefault = mLayer->customProperty( QStringLiteral( "QFieldSync/is_attribute_editing_locked" ), false ).toBool();
       const bool attributeEditingLockedExpressionActive = mLayer->customProperty( QStringLiteral( "QFieldSync/is_attribute_editing_locked_expression_active" ), false ).toBool();
       if ( attributeEditingLockedExpressionActive )
@@ -197,6 +209,8 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
   }
   else
   {
+    mFeatureAdditionLockedByDefault = false;
+    mFeatureAdditionLockedExpression.clear();
     mAttributeEditingLockedByDefault = false;
     mAttributeEditingLockedExpression.clear();
     mGeometryEditingLockedByDefault = false;
@@ -447,17 +461,25 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
 void FeatureModel::updatePermissions()
 {
   const bool readOnly = mLayer ? mLayer->readOnly() : false;
+
+  bool featureAdditionLocked = mFeatureAdditionLockedByDefault || readOnly;
   bool attributeEditingLocked = mAttributeEditingLockedByDefault || readOnly;
   bool geometryEditingLocked = mGeometryEditingLockedByDefault || readOnly;
   bool featureDeletionLocked = mFeatureDeletionLockedByDefault || readOnly;
 
   if ( mLayer && !mLayer->readOnly() )
   {
-    if ( !mAttributeEditingLockedExpression.isEmpty() || !mGeometryEditingLockedExpression.isEmpty() || !mFeatureDeletionLockedExpression.isEmpty() )
+    if ( !mFeatureAdditionLockedExpression.isEmpty() || !mAttributeEditingLockedExpression.isEmpty() || !mGeometryEditingLockedExpression.isEmpty() || !mFeatureDeletionLockedExpression.isEmpty() )
     {
       QgsExpressionContext expressionContext = createExpressionContext();
       expressionContext.setFeature( mFeature );
 
+      if ( !mFeatureAdditionLockedExpression.isEmpty() )
+      {
+        QgsExpression expression( mFeatureAdditionLockedExpression );
+        expression.prepare( &expressionContext );
+        featureAdditionLocked = expression.evaluate( &expressionContext ).toBool();
+      }
       if ( !mAttributeEditingLockedExpression.isEmpty() )
       {
         QgsExpression expression( mAttributeEditingLockedExpression );
@@ -479,6 +501,11 @@ void FeatureModel::updatePermissions()
     }
   }
 
+  if ( mFeatureAdditionLocked != featureAdditionLocked )
+  {
+    mFeatureAdditionLocked = featureAdditionLocked;
+    emit featureAdditionLockedChanged();
+  }
   if ( mAttributeEditingLocked != attributeEditingLocked )
   {
     mAttributeEditingLocked = attributeEditingLocked;
@@ -750,8 +777,9 @@ void FeatureModel::resetAttributes( bool partialReset )
   QgsExpressionContext expressionContext = createExpressionContext();
   expressionContext.setFeature( mFeature );
   mFeature = QgsVectorLayerUtils::createFeature( mLayer, mFeature.geometry(), mFeature.attributes().toMap(), &expressionContext );
-
   endResetModel();
+
+  updatePermissions();
 }
 
 bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
@@ -884,7 +912,7 @@ void FeatureModel::setBatchMode( bool batchMode )
 }
 bool FeatureModel::create()
 {
-  if ( !mLayer )
+  if ( !mLayer || mFeatureAdditionLocked )
     return false;
 
   bool isSuccess = true;
