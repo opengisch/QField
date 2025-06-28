@@ -99,8 +99,8 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
     if ( !std::isnan( pi.direction() ) )
       direction = !std::isnan( direction ) ? direction + pi.direction() : pi.direction();
     pdop += pi.pdop();
-    hdop += pi.pdop();
-    vdop += pi.pdop();
+    hdop += pi.hdop();
+    vdop += pi.vdop();
     if ( !std::isnan( pi.hacc() ) )
       hacc = !std::isnan( hacc ) ? hacc + pi.hacc() : pi.hacc();
     if ( !std::isnan( pi.vacc() ) )
