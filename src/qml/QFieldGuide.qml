@@ -39,8 +39,13 @@ Popup {
   }
   onIndexChanged: {
     canvas.requestPaint();
-    if (index == 1)
+    if (index == 1) {
       enablePanelAnimation = true;
+    }
+    if (steps[index] && steps[index].type === "action") {
+      steps[index].forwardAction();
+      delayedPainter.restart();
+    }
   }
 
   function blockGuide() {
@@ -71,8 +76,6 @@ Popup {
           } else {
             objectAfterAction = steps[index].target();
           }
-          steps[index].forwardAction();
-          delayedPainter.restart();
           return objectAfterAction;
         }
       }
