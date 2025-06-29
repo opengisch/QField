@@ -83,6 +83,9 @@
     <key>NFCReaderUsageDescription</key>
     <string>NFC access needed to read text from tags.</string>
 
+    <key>NSLocalNetworkUsageDescription</key>
+    <string>Local network access needed to connect to an external GNSS via NMEA streams.</string>
+
     <key>CSResourcesFileMapped</key>
     <true/>
 
