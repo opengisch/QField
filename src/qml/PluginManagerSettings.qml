@@ -69,121 +69,43 @@ Popup {
         model: ListModel {
         }
 
-        delegate: Rectangle {
-          id: rectangle
-          width: parent ? parent.width : 10
-          height: inner.height + 10
-          color: "transparent"
+        delegate: PluginItem {
+          icon: Icon !== '' ? UrlUtils.fromString(Icon) : ''
+          name: Name
+          itemEnabled: Enabled
+          itemConfigurable: Configurable
 
-          GridLayout {
-            id: inner
-            width: parent.width
-            anchors.leftMargin: 20
-            anchors.rightMargin: 20
+          onAuthorDetailsClicked: {
+            authorDetails.authorName = Author;
+            authorDetails.authorHomepage = Homepage;
+            authorDetails.open();
+          }
 
-            columns: 3
-            columnSpacing: 0
-            rowSpacing: 2
+          onUninstallConfirmationClicked: {
+            uninstallConfirmation.pluginName = Name;
+            uninstallConfirmation.pluginUuid = Uuid;
+            uninstallConfirmation.open();
+          }
 
-            RowLayout {
-              Layout.fillWidth: true
-
-              Image {
-                Layout.preferredWidth: 24
-                Layout.preferredHeight: 24
-
-                source: Icon !== '' ? UrlUtils.fromString(Icon) : ''
-                fillMode: Image.PreserveAspectFit
-                mipmap: true
-              }
-
-              Label {
-                Layout.fillWidth: true
-                text: Name
-                font: Theme.defaultFont
-                color: Theme.mainTextColor
-                wrapMode: Text.WordWrap
-
-                MouseArea {
-                  anchors.fill: parent
-                  onClicked: {
-                    if (!Enabled) {
-                      pluginManager.enableAppPlugin(Uuid);
-                    } else {
-                      pluginManager.disableAppPlugin(Uuid);
-                    }
-                  }
-                }
-              }
+          onToggleEnabledPlugin: checked => {
+            Enabled = checked == true;
+            if (Enabled) {
+              pluginManager.enableAppPlugin(Uuid);
+            } else {
+              pluginManager.disableAppPlugin(Uuid);
             }
+          }
 
-            QfToolButton {
-              id: configureEnabledPlugin
-              Layout.preferredWidth: enabled ? 48 : 0
-              enabled: Configurable
-
-              iconSource: Theme.getThemeVectorIcon("ic_tune_white_24dp")
-              iconColor: Theme.mainTextColor
-
-              onClicked: {
-                pluginManager.configureAppPlugin(Uuid);
-              }
+          onPluginNameClicked: {
+            if (!Enabled) {
+              pluginManager.enableAppPlugin(Uuid);
+            } else {
+              pluginManager.disableAppPlugin(Uuid);
             }
+          }
 
-            QfSwitch {
-              id: toggleEnabledPlugin
-              Layout.preferredWidth: implicitContentWidth
-              checked: Enabled
-
-              onClicked: {
-                Enabled = checked == true;
-                if (Enabled) {
-                  pluginManager.enableAppPlugin(Uuid);
-                } else {
-                  pluginManager.disableAppPlugin(Uuid);
-                }
-              }
-            }
-
-            ColumnLayout {
-              Layout.columnSpan: 2
-              Layout.fillWidth: true
-
-              Label {
-                Layout.fillWidth: true
-                text: qsTr('Authored by %1%2%3').arg('<a href="details">').arg(Author).arg(' ⚠</a>')
-                font: Theme.tipFont
-                color: Theme.secondaryTextColor
-                wrapMode: Text.WordWrap
-                onLinkActivated: link => {
-                  authorDetails.authorName = Author;
-                  authorDetails.authorHomepage = Homepage;
-                  authorDetails.open();
-                }
-              }
-
-              Label {
-                Layout.fillWidth: true
-                text: Description
-                font: Theme.tipFont
-                color: Theme.secondaryTextColor
-                wrapMode: Text.WordWrap
-              }
-
-              Label {
-                Layout.fillWidth: true
-                text: "<a href='delete'>" + (Version != "" ? qsTr("Uninstall version %1").arg(Version) : qsTr("Uninstall plugin")) + "</a>"
-                font: Theme.tipFont
-                color: Theme.secondaryTextColor
-                wrapMode: Text.WordWrap
-
-                onLinkActivated: link => {
-                  uninstallConfirmation.pluginName = Name;
-                  uninstallConfirmation.pluginUuid = Uuid;
-                  uninstallConfirmation.open();
-                }
-              }
-            }
+          onConfigClicked: {
+            pluginManager.configureAppPlugin(Uuid);
           }
         }
       }
