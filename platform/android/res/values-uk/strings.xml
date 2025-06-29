@@ -57,5 +57,13 @@
     <string name="storage_information_dismiss">Я прочитаю пізніше</string>
     <string name="import_project_wait">Зачекайте, поки QField імпортує проект</string>
     <string name="import_dataset_wait">Зачекайте, поки QField імпортує набор(и) даних</string>
+    <string name="update_project_wait">Будь ласка, зачекайте, поки QField оновлює локальний проект.</string>
+    <string name="upload_pending_attachments">Зараз завантажуються вкладення до QFieldCloud</string>
+    <string name="operation_unsupported">Операція не підтримується</string>
+    <string name="import_operation_unsupported">Ваш пристрій не підтримує цю операцію імпорту.</string>
+    <string name="export_operation_unsupported">Ваш пристрій не підтримує цю операцію експорту.</string>
+    <string name="processing_message">Обробка…</string>
     <string name="positioning_title">Позиціювання</string>
-    </resources>
+    <string name="positioning_running">Послуга позиціонування працює</string>
+    <string name="copy_to_clipboard">Скопіювати в буфер обміну</string>
+</resources>

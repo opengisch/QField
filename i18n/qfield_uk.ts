@@ -53,7 +53,7 @@
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Обмежити пошук полем &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Open form</source>
@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>Особливості активного шару</translation>
     </message>
 </context>
 <context>
@@ -161,7 +161,7 @@
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
+        <translation>Ви можете переглянути сторінку документації %1Portable Project%2 для отримання додаткової допомоги.</translation>
     </message>
 </context>
 <context>
@@ -244,11 +244,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Виберіть пристрій Bluetooth зі списку нижче:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation type="unfinished"/>
+        <translation>Назва пристрою Bluetooth:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -256,19 +256,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation type="unfinished"/>
+        <translation>Адреса пристрою Bluetooth:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation type="unfinished"/>
+        <translation>Сканувати сусідні пристрої</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="unfinished"/>
+        <translation>Не виявлено жодних пристроїв Bluetooth, виконайте сканування, щоб знайти пристрої поблизу.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Помилка сканування: %1</translation>
     </message>
 </context>
 <context>
@@ -279,7 +279,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>Дозвіл на використання Bluetooth відхилено</translation>
     </message>
 </context>
 <context>
@@ -462,7 +462,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>НУЛЬ</translation>
     </message>
 </context>
 <context>
@@ -3434,7 +3434,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldPositioningService</name>
     <message>
         <source>Positioning service running</source>
-        <translation type="unfinished"/>
+        <translation>Послуга позиціонування працює</translation>
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
