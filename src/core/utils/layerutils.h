@@ -22,6 +22,7 @@
 #include <qgstextformat.h>
 #include <qgsvectorlayer.h>
 
+class FeatureModel;
 class QgsVectorLayer;
 class QgsRasterLayer;
 class QgsSymbol;
@@ -108,6 +109,11 @@ class LayerUtils : public QObject
     * \param layer the vector layer to check against print layouts
     */
     static Q_INVOKABLE bool isAtlasCoverageLayer( QgsVectorLayer *layer );
+
+    /**
+     * Returns TRUE if the \a layer permission state prevents feature addition.
+     */
+    static Q_INVOKABLE bool isFeatureAdditionLocked( QgsMapLayer *layer );
 
     /**
      * Selects features in a layer

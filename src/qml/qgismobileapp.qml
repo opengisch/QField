@@ -2331,8 +2331,7 @@ ApplicationWindow {
       DigitizingToolbar {
         id: digitizingToolbar
 
-        // unfortunately there is no way to call QVariant::toBool in QML so the is_geometry_locked value must be a string
-        property bool digitizingAllowed: dashBoard.activeLayer && !dashBoard.activeLayer.readOnly && dashBoard.activeLayer.customProperty('QFieldSync/is_geometry_locked') !== 'true' && (projectInfo.editRights || projectInfo.insertRights)
+        property bool digitizingAllowed: dashBoard.activeLayer && !dashBoard.activeLayer.readOnly && !LayerUtils.isFeatureAdditionLocked(dashBoard.activeLayer) && (projectInfo.editRights || projectInfo.insertRights)
 
         stateVisible: !screenLocker.enabled && (!positioningSettings.geofencingPreventDigitizingDuringAlert || !geofencer.isAlerting) && ((stateMachine.state === "digitize" && digitizingAllowed && !geometryEditorsToolbar.stateVisible && !moveFeaturesToolbar.stateVisible && !rotateFeaturesToolbar.stateVisible) || stateMachine.state === 'measure' || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
         rubberbandModel: currentRubberband ? currentRubberband.model : null
@@ -2386,7 +2385,7 @@ ApplicationWindow {
                 overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry;
                 overlayFeatureFormDrawer.featureModel.applyGeometry();
                 overlayFeatureFormDrawer.featureModel.resetAttributes();
-                if (overlayFeatureFormDrawer.featureForm.model.constraintsHardValid) {
+                if (overlayFeatureFormDrawer.featureForm.model.constraintsHardValid && !overlayFeatureFormDrawer.featureForm.featureAdditionLocked) {
                   // when the constrainst are fulfilled
                   // indirect action, no need to check for success and display a toast, the log is enough
                   overlayFeatureFormDrawer.featureForm.featureCreated = overlayFeatureFormDrawer.featureForm.create();
@@ -2458,12 +2457,16 @@ ApplicationWindow {
               overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry;
               overlayFeatureFormDrawer.featureModel.applyGeometry();
               overlayFeatureFormDrawer.featureModel.resetAttributes();
-              if (!overlayFeatureFormDrawer.featureModel.create()) {
-                displayToast(qsTr("Failed to create feature!"), 'error');
+              if (!overlayFeatureFormDrawer.featureForm.featureAdditionLocked) {
+                if (!overlayFeatureFormDrawer.featureModel.create()) {
+                  displayToast(qsTr("Failed to create feature"), 'error');
+                }
+              } else {
+                displayToast(qsTr("Failed to create feature due to feature addition permission disabled"), 'warning');
               }
             } else {
               if (!overlayFeatureFormDrawer.featureModel.save()) {
-                displayToast(qsTr("Failed to save feature!"), 'error');
+                displayToast(qsTr("Failed to save feature"), 'error');
               }
             }
             digitizingRubberband.model.reset();
@@ -2628,12 +2631,12 @@ ApplicationWindow {
       for (var i = 0; i < layerTree.rowCount(); i++) {
         var index = layerTree.index(i, 0);
         if (firstEditableLayer === null) {
-          if (layerTree.data(index, FlatLayerTreeModel.Type) === 'layer' && layerTree.data(index, FlatLayerTreeModel.ReadOnly) === false && layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === false) {
+          if (layerTree.data(index, FlatLayerTreeModel.Type) === 'layer' && layerTree.data(index, FlatLayerTreeModel.ReadOnly) === false && layerTree.data(index, FlatLayerTreeModel.FeatureAdditionLocked) === false) {
             firstEditableLayer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
           }
         }
         if (activeLayer != null && activeLayer === layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)) {
-          if (layerTree.data(index, FlatLayerTreeModel.ReadOnly) === true || layerTree.data(index, FlatLayerTreeModel.GeometryLocked) === true) {
+          if (layerTree.data(index, FlatLayerTreeModel.ReadOnly) === true || layerTree.data(index, FlatLayerTreeModel.FeatureAdditionLocked) === true) {
             activeLayerLocked = true;
           } else {
             break;
