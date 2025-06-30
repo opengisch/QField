@@ -212,7 +212,7 @@ void QFieldCloudConnection::getAuthenticationProviders()
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
   NetworkReply *reply = get( request, "/api/v1/auth/providers/" );
 
-  connect( reply, &NetworkReply::finished, this, [=]() {
+  connect( reply, &NetworkReply::finished, this, [this, reply]() {
     QNetworkReply *rawReply = reply->currentRawReply();
 
     Q_ASSERT( reply->isFinished() );
@@ -272,7 +272,7 @@ void QFieldCloudConnection::login( const QString &password )
                                                                              } ) );
 
   // Handle login redirect as an error state
-  connect( reply, &NetworkReply::redirected, this, [=]() {
+  connect( reply, &NetworkReply::redirected, this, [this, reply]() {
     QNetworkReply *rawReply = reply->currentRawReply();
     reply->deleteLater();
     rawReply->deleteLater();
@@ -283,7 +283,7 @@ void QFieldCloudConnection::login( const QString &password )
     return;
   } );
 
-  connect( reply, &NetworkReply::finished, this, [=]() {
+  connect( reply, &NetworkReply::finished, this, [this, reply, loginUsingToken]() {
     QNetworkReply *rawReply = reply->currentRawReply();
 
     Q_ASSERT( reply->isFinished() );
@@ -464,7 +464,7 @@ NetworkReply *QFieldCloudConnection::post( const QString &endpoint, const QVaria
 
   mPendingRequests++;
   setState( ConnectionState::Busy );
-  connect( reply, &NetworkReply::finished, this, [=]() {
+  connect( reply, &NetworkReply::finished, this, [this, reply]() {
     QNetworkReply *rawReply = reply->currentRawReply();
     if ( --mPendingRequests == 0 )
     {
@@ -525,7 +525,7 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &
 
   mPendingRequests++;
   setState( ConnectionState::Busy );
-  connect( reply, &NetworkReply::finished, this, [=]() {
+  connect( reply, &NetworkReply::finished, this, [this, reply]() {
     QNetworkReply *rawReply = reply->currentRawReply();
     if ( --mPendingRequests == 0 )
     {
@@ -544,7 +544,7 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &
   } );
 
   // assume all redirect will never emit "redirected"
-  connect( reply, &NetworkReply::redirected, this, [=]() {
+  connect( reply, &NetworkReply::redirected, this, [this]() {
     if ( --mPendingRequests == 0 )
     {
       setState( ConnectionState::Idle );
@@ -821,7 +821,7 @@ void QFieldCloudConnection::processPendingAttachments()
 
     QString projectId = it.key();
     QString fileName = it.value();
-    connect( attachmentCloudReply, &NetworkReply::finished, this, [=]() {
+    connect( attachmentCloudReply, &NetworkReply::finished, this, [this, attachmentCloudReply, fileName, projectId]() {
       QNetworkReply *attachmentReply = attachmentCloudReply->currentRawReply();
       attachmentCloudReply->deleteLater();
 
@@ -844,7 +844,7 @@ void QFieldCloudConnection::processPendingAttachments()
           if ( mUploadFailingCount < 5 )
           {
             // Retry the last attachment to upload after a brief delay
-            QTimer::singleShot( std::pow( 5, mUploadFailingCount ) * 1000, this, [=] { processPendingAttachments(); } );
+            QTimer::singleShot( std::pow( 5, mUploadFailingCount ) * 1000, this, [this] { processPendingAttachments(); } );
           }
           else
           {

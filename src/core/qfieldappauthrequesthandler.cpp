@@ -82,7 +82,7 @@ bool QFieldAppAuthRequestHandler::handleLayerLogins()
   if ( !getFirstUnhandledRealm().isEmpty() )
   {
     showLogin();
-    connect( this, &QFieldAppAuthRequestHandler::loginDialogClosed, [=]( const QString &realm, bool canceled ) {
+    connect( this, &QFieldAppAuthRequestHandler::loginDialogClosed, [this]( const QString &realm, bool canceled ) {
       if ( canceled )
       {
         //realm not successful handled - but canceled

@@ -107,8 +107,8 @@ void LocatorModelSuperBridge::setMapSettings( QgsQuickMapSettings *mapSettings )
   updateCanvasExtent( mMapSettings->extent() );
   updateCanvasCrs( mMapSettings->destinationCrs() );
 
-  connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, [=]() { updateCanvasExtent( mMapSettings->visibleExtent() ); } );
-  connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, [=]() { updateCanvasCrs( mMapSettings->destinationCrs() ); } );
+  connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, [this]() { updateCanvasExtent( mMapSettings->visibleExtent() ); } );
+  connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, [this]() { updateCanvasCrs( mMapSettings->destinationCrs() ); } );
 
   emit mapSettingsChanged();
 }

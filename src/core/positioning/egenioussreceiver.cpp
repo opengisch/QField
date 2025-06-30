@@ -45,7 +45,7 @@ void EgenioussReceiver::handleConnectDevice()
 {
   QNetworkRequest request( QString( "http://%1:%2/app/start" ).arg( mAddress.toString() ).arg( mPort ) );
   QNetworkReply *reply = QgsNetworkAccessManager::instance()->get( request );
-  connect( reply, &QNetworkReply::finished, this, [=]() {
+  connect( reply, &QNetworkReply::finished, this, [this, reply]() {
     if ( reply->error() != QNetworkReply::NoError )
     {
       handleErrorMessage( QString( "HTTP request failed: %1" ).arg( reply->errorString() ) );
@@ -70,7 +70,7 @@ void EgenioussReceiver::handleDisconnectDevice()
 {
   QNetworkRequest request( QString( "http://%1:%2/app/stop" ).arg( mAddress.toString() ).arg( mPort ) );
   QNetworkReply *reply = QgsNetworkAccessManager::instance()->get( request );
-  connect( reply, &QNetworkReply::finished, this, [=]() {
+  connect( reply, &QNetworkReply::finished, this, [this, reply]() {
     if ( reply->error() != QNetworkReply::NoError )
     {
       handleErrorMessage( QString( "HTTP request failed: %1" ).arg( reply->errorString() ) );

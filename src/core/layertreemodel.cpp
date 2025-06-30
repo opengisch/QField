@@ -121,11 +121,11 @@ FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProj
   mLayerTreeModel = new QgsLayerTreeModel( layerTree, this );
   mLayerTreeModel->setFlag( QgsLayerTreeModel::ShowLegendAsTree, true );
   QAbstractProxyModel::setSourceModel( mLayerTreeModel );
-  connect( mProject, &QgsProject::aboutToBeCleared, this, [=] { mFrozen++; clearMap(); } );
-  connect( mProject, &QgsProject::cleared, this, [=] { mFrozen--; } );
-  connect( mProject, &QgsProject::readProject, this, [=] { buildMap( mLayerTreeModel ); } );
+  connect( mProject, &QgsProject::aboutToBeCleared, this, [this] { mFrozen++; clearMap(); } );
+  connect( mProject, &QgsProject::cleared, this, [this] { mFrozen--; } );
+  connect( mProject, &QgsProject::readProject, this, [this] { buildMap( mLayerTreeModel ); } );
   connect( mProject, &QgsProject::layersAdded, this, &FlatLayerTreeModelBase::adjustTemporalStateFromAddedLayers );
-  connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, [=]( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles ) { updateMap( topLeft, bottomRight, roles ); } );
+  connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, [this]( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles ) { updateMap( topLeft, bottomRight, roles ); } );
   connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, &FlatLayerTreeModelBase::removeFromMap );
   connect( mLayerTreeModel, &QAbstractItemModel::rowsInserted, this, &FlatLayerTreeModelBase::insertInMap );
 }

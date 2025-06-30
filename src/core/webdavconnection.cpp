@@ -370,14 +370,14 @@ void WebdavConnection::getWebdavItems()
     temporaryFile->setFileTemplate( QStringLiteral( "%1%2.XXXXXXXXXXXX" ).arg( mProcessLocalPath, itemPath.mid( mProcessRemotePath.size() ) ) );
     temporaryFile->open();
 
-    connect( reply, &QNetworkReply::downloadProgress, this, [=]( int bytesReceived, int bytesTotal ) {
+    connect( reply, &QNetworkReply::downloadProgress, this, [this, reply, temporaryFile]( int bytesReceived, int bytesTotal ) {
       mCurrentBytesProcessed = bytesReceived;
       emit progressChanged();
 
       temporaryFile->write( reply->readAll() );
     } );
 
-    connect( reply, &QNetworkReply::finished, this, [=]() {
+    connect( reply, &QNetworkReply::finished, this, [this, reply, temporaryFile, itemPath, itemLastModified]() {
       mBytesProcessed += mCurrentBytesProcessed;
       mCurrentBytesProcessed = 0;
       if ( reply->error() == QNetworkReply::NoError )
@@ -580,7 +580,7 @@ void WebdavConnection::putLocalItems()
 
     QNetworkReply *reply = mWebdavConnection.mkdir( dirPath );
 
-    connect( reply, &QNetworkReply::finished, this, [=]() {
+    connect( reply, &QNetworkReply::finished, this, [this, reply, dirPath]() {
       mBytesProcessed += mCurrentBytesProcessed;
       mCurrentBytesProcessed = 0;
       emit progressChanged();
@@ -603,12 +603,12 @@ void WebdavConnection::putLocalItems()
     QNetworkReply *reply = mWebdavConnection.put( remoteItemPath, file );
     file->setParent( reply );
 
-    connect( reply, &QNetworkReply::uploadProgress, this, [=]( int bytesSent, int bytesTotal ) {
+    connect( reply, &QNetworkReply::uploadProgress, this, [this, reply]( int bytesSent, int bytesTotal ) {
       mCurrentBytesProcessed = bytesSent;
       emit progressChanged();
     } );
 
-    connect( reply, &QNetworkReply::finished, this, [=]() {
+    connect( reply, &QNetworkReply::finished, this, [this, reply, remoteItemPath]() {
       mBytesProcessed += mCurrentBytesProcessed;
       mCurrentBytesProcessed = 0;
       emit progressChanged();

@@ -147,7 +147,7 @@ void BarcodeDecoder::decodeVideoFrame( const QVideoFrame &frame )
   }
 
   mDecodingThread = new BarcodeDecoderThread( this, image );
-  connect( mDecodingThread, &QThread::finished, this, [=] {
+  connect( mDecodingThread, &QThread::finished, this, [this] {
     mDecodingThread->deleteLater();
     mDecodingThread = nullptr;
   } );

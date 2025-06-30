@@ -413,7 +413,7 @@ void QFieldCloudProject::refreshFileOutdatedStatus()
 {
   NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( mId ) );
 
-  connect( reply, &NetworkReply::finished, reply, [=]() {
+  connect( reply, &NetworkReply::finished, reply, [this, reply]() {
     QNetworkReply *rawReply = reply->currentRawReply();
     reply->deleteLater();
 
@@ -459,7 +459,7 @@ void QFieldCloudProject::downloadThumbnail()
   mCloudConnection->setAuthenticationDetails( request );
 
   NetworkReply *reply = mCloudConnection->get( request, QStringLiteral( "/api/v1/files/thumbnails/%1/" ).arg( mId ) );
-  connect( reply, &NetworkReply::finished, reply, [=]() {
+  connect( reply, &NetworkReply::finished, reply, [this, reply]() {
     QNetworkReply *rawReply = reply->currentRawReply();
 
     Q_ASSERT( reply->isFinished() );
@@ -531,7 +531,7 @@ void QFieldCloudProject::downloadAttachmentConnections( const QString &fileKey )
     return;
   }
 
-  connect( reply, &NetworkReply::downloadProgress, reply, [=]( int bytesReceived, int bytesTotal ) {
+  connect( reply, &NetworkReply::downloadProgress, reply, [this, reply, fileKey]( int bytesReceived, int bytesTotal ) {
     QNetworkReply *rawReply = reply->currentRawReply();
     if ( !rawReply )
     {
@@ -568,7 +568,7 @@ void QFieldCloudProject::downloadAttachmentConnections( const QString &fileKey )
     }
   } );
 
-  connect( reply, &NetworkReply::finished, reply, [=]() {
+  connect( reply, &NetworkReply::finished, reply, [this, reply, fileKey]() {
     QNetworkReply *rawReply = reply->currentRawReply();
     Q_ASSERT( reply->isFinished() );
     Q_ASSERT( rawReply );
@@ -658,7 +658,7 @@ void QFieldCloudProject::packageAndDownload()
   setErrorStatus( NoErrorStatus );
   setModification( NoModification );
 
-  auto repackageIfNeededAndThenDownload = [=]() {
+  auto repackageIfNeededAndThenDownload = [this]() {
     if ( mNeedsRepackaging )
     {
       QgsLogger::debug( QStringLiteral( "Project %1: repackaging triggered." ).arg( mId ) );
@@ -667,7 +667,7 @@ void QFieldCloudProject::packageAndDownload()
       startJob( JobType::Package );
 
       QObject *tempProjectJobFinishedParent = new QObject( this ); // we need this to unsubscribe
-      connect( this, &QFieldCloudProject::jobFinished, tempProjectJobFinishedParent, [=]( const JobType type, const QString &errorString ) {
+      connect( this, &QFieldCloudProject::jobFinished, tempProjectJobFinishedParent, [this, tempProjectJobFinishedParent]( const JobType type, const QString &errorString ) {
         if ( type != JobType::Package )
         {
           QMetaEnum me = QMetaEnum::fromType<JobType>();
@@ -718,7 +718,7 @@ void QFieldCloudProject::packageAndDownload()
     refreshData( ProjectRefreshReason::Package );
 
     QObject *tempProjectRefreshParent = new QObject( this ); // we need this to unsubscribe
-    connect( this, &QFieldCloudProject::dataRefreshed, tempProjectRefreshParent, [=]( const ProjectRefreshReason reason, const QString &error ) {
+    connect( this, &QFieldCloudProject::dataRefreshed, tempProjectRefreshParent, [this, tempProjectRefreshParent, &repackageIfNeededAndThenDownload]( const ProjectRefreshReason reason, const QString &error ) {
       if ( reason != ProjectRefreshReason::Package )
       {
         QgsLogger::critical( QStringLiteral( "Project %1: unexpected job type, expected %2 but %3 received." ).arg( mId ).arg( static_cast<int>( ProjectRefreshReason::Package ) ).arg( static_cast<int>( reason ) ) );
@@ -751,7 +751,7 @@ void QFieldCloudProject::packageAndDownload()
   }
 
   QObject *tempProjectDownloadFinishedParent = new QObject( this ); // we need this to unsubscribe
-  connect( this, &QFieldCloudProject::downloadFinished, tempProjectDownloadFinishedParent, [=]( const QString &error ) {
+  connect( this, &QFieldCloudProject::downloadFinished, tempProjectDownloadFinishedParent, [this, tempProjectDownloadFinishedParent]( const QString &error ) {
     tempProjectDownloadFinishedParent->deleteLater();
 
     if ( mPackagingStatus == PackagingAbortStatus )
@@ -799,7 +799,7 @@ void QFieldCloudProject::download()
   params.insert( "skip_metadata", "1" );
   NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/packages/%1/latest/" ).arg( mId ), params );
 
-  connect( reply, &NetworkReply::finished, reply, [=]() {
+  connect( reply, &NetworkReply::finished, reply, [this, reply]() {
     reply->deleteLater();
 
     if ( mPackagingStatus == PackagingAbortStatus )
@@ -918,7 +918,7 @@ void QFieldCloudProject::download()
     if ( !localizedDatasetsFileNames.isEmpty() && !mSharedDatasetsProjectId.isEmpty() )
     {
       NetworkReply *localizedDatasetsReply = mCloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( mSharedDatasetsProjectId ) );
-      connect( localizedDatasetsReply, &NetworkReply::finished, localizedDatasetsReply, [=]() {
+      connect( localizedDatasetsReply, &NetworkReply::finished, localizedDatasetsReply, [this, localizedDatasetsReply, localizedDatasetsFileNames]() {
         QNetworkReply *localizedDatasetsRawReply = localizedDatasetsReply->currentRawReply();
         localizedDatasetsReply->deleteLater();
 
@@ -965,7 +965,7 @@ void QFieldCloudProject::download()
         }
         else
         {
-          QgsLogger::debug( QStringLiteral( "Project %1: failed to get latest shared datasets data. %2" ).arg( mId, QFieldCloudConnection::errorString( rawReply ) ) );
+          QgsLogger::debug( QStringLiteral( "Project %1: failed to get latest shared datasets data. %2" ).arg( mId, QFieldCloudConnection::errorString( localizedDatasetsRawReply ) ) );
           emit downloadFinished( tr( "Failed to get latest package data." ) );
           return;
         }
@@ -1102,7 +1102,7 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
 
   QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: requested." ).arg( mDownloadFileTransfers[fileKey].projectId, mDownloadFileTransfers[fileKey].fileName ) );
 
-  connect( reply, &NetworkReply::redirected, reply, [=]( const QUrl &url ) {
+  connect( reply, &NetworkReply::redirected, reply, [this, reply, fileKey]( const QUrl &url ) {
     QUrl oldUrl = mDownloadFileTransfers[fileKey].lastRedirectUrl;
 
     mDownloadFileTransfers[fileKey].redirectsCount++;
@@ -1134,7 +1134,7 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
     downloadFileConnections( fileKey );
   } );
 
-  connect( reply, &NetworkReply::downloadProgress, reply, [=]( int bytesReceived, int bytesTotal ) {
+  connect( reply, &NetworkReply::downloadProgress, reply, [this, reply, fileKey]( int bytesReceived, int bytesTotal ) {
     QNetworkReply *rawReply = reply->currentRawReply();
     if ( !rawReply )
     {
@@ -1186,7 +1186,7 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
     emit downloadProgressChanged();
   } );
 
-  connect( reply, &NetworkReply::finished, reply, [=]() {
+  connect( reply, &NetworkReply::finished, reply, [this, reply, fileKey, fileKeys]() {
     if ( mPackagingStatus == PackagingAbortStatus )
     {
       return;
@@ -1497,12 +1497,12 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
 
   Q_ASSERT( deltasCloudReply );
 
-  connect( deltasCloudReply, &NetworkReply::uploadProgress, this, [=]( int bytesSent, int bytesTotal ) {
+  connect( deltasCloudReply, &NetworkReply::uploadProgress, this, [this]( int bytesSent, int bytesTotal ) {
     mUploadDeltaProgress = std::clamp( ( static_cast<double>( bytesSent ) / bytesTotal ), 0., 1. );
     emit uploadDeltaProgressChanged();
   } );
 
-  connect( deltasCloudReply, &NetworkReply::finished, this, [=]() {
+  connect( deltasCloudReply, &NetworkReply::finished, this, [this, deltasCloudReply, layerObserver]() {
     QNetworkReply *deltasReply = deltasCloudReply->currentRawReply();
     deltasCloudReply->deleteLater();
 
@@ -1537,7 +1537,7 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
   // 2) delta successfully uploaded
   // //////////
   QObject *networkDeltaUploadedParent = new QObject( this ); // we need this to unsubscribe
-  connect( this, &QFieldCloudProject::networkDeltaUploaded, networkDeltaUploadedParent, [=]() {
+  connect( this, &QFieldCloudProject::networkDeltaUploaded, networkDeltaUploadedParent, [this, networkDeltaUploadedParent, layerObserver, shouldDownloadUpdates]() {
     delete networkDeltaUploadedParent;
 
     if ( shouldDownloadUpdates )
@@ -1574,7 +1574,7 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
   // 3) new delta status received. Never give up to get a successful status.
   // //////////
   QObject *networkDeltaStatusCheckedParent = new QObject( this ); // we need this to unsubscribe
-  connect( this, &QFieldCloudProject::networkDeltaStatusChecked, networkDeltaStatusCheckedParent, [=]() {
+  connect( this, &QFieldCloudProject::networkDeltaStatusChecked, networkDeltaStatusCheckedParent, [this, networkDeltaStatusCheckedParent, layerObserver, shouldDownloadUpdates]() {
     DeltaFileWrapper *deltaFileWrapper = layerObserver->deltaFileWrapper();
 
     switch ( mDeltaFileUploadStatus )
@@ -1587,7 +1587,7 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
       case DeltaPendingStatus:
       case DeltaBusyStatus:
         // infinite retry, there should be one day, when we can get the status!
-        QTimer::singleShot( sDelayBeforeStatusRetry, [=]() { getDeltaStatus(); } );
+        QTimer::singleShot( sDelayBeforeStatusRetry, [this]() { getDeltaStatus(); } );
         break;
 
       case DeltaErrorStatus:
@@ -1662,7 +1662,7 @@ void QFieldCloudProject::startJob( JobType type )
                                                     { "type", jobTypeName },
                                                   } ) );
 
-  connect( reply, &NetworkReply::finished, reply, [=]() {
+  connect( reply, &NetworkReply::finished, reply, [this, reply, type]() {
     reply->deleteLater();
 
     if ( mPackagingStatus == PackagingAbortStatus )
@@ -1705,7 +1705,7 @@ void QFieldCloudProject::getDeltaStatus()
   setDeltaFileUploadStatusString( QString() );
 
   NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/%2/" ).arg( mId, mDeltaFileId ) );
-  connect( deltaStatusReply, &NetworkReply::finished, this, [=]() {
+  connect( deltaStatusReply, &NetworkReply::finished, this, [this, deltaStatusReply]() {
     QNetworkReply *rawReply = deltaStatusReply->currentRawReply();
     deltaStatusReply->deleteLater();
 
@@ -1770,7 +1770,7 @@ void QFieldCloudProject::getJobStatus( const JobType type )
   QgsLogger::debug( QStringLiteral( "Project %1, job %2: getting job status..." ).arg( mId, jobId ) );
   NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/jobs/%1/" ).arg( jobId ) );
 
-  connect( reply, &NetworkReply::finished, this, [=]() {
+  connect( reply, &NetworkReply::finished, this, [this, reply, type, jobId]() {
     reply->deleteLater();
 
     if ( mPackagingStatus == PackagingAbortStatus )
@@ -1814,7 +1814,7 @@ void QFieldCloudProject::getJobStatus( const JobType type )
       case JobStartedStatus:
       case JobStoppedStatus:
         // infinite retry, there should be one day, when we can get the status!
-        QTimer::singleShot( sDelayBeforeStatusRetry, [=]() {
+        QTimer::singleShot( sDelayBeforeStatusRetry, [this, type]() {
           getJobStatus( type );
         } );
         break;
@@ -1883,7 +1883,7 @@ void QFieldCloudProject::refreshModification( LayerObserver *layerObserver )
 void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
 {
   NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/projects/%1/" ).arg( mId ) );
-  connect( reply, &NetworkReply::finished, reply, [=]() {
+  connect( reply, &NetworkReply::finished, reply, [this, reply, reason]() {
     QNetworkReply *rawReply = reply->currentRawReply();
 
     reply->deleteLater();
@@ -1955,7 +1955,7 @@ void QFieldCloudProject::refreshDeltaList()
   }
 
   NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/" ).arg( mId ) );
-  connect( deltaStatusReply, &NetworkReply::finished, this, [=]() {
+  connect( deltaStatusReply, &NetworkReply::finished, this, [this, deltaStatusReply]() {
     QNetworkReply *rawReply = deltaStatusReply->currentRawReply();
     deltaStatusReply->deleteLater();
 

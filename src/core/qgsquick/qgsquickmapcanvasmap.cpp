@@ -39,7 +39,7 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap( QQuickItem *parent )
   , mCache( std::make_unique<QgsMapRendererCache>() )
 {
   connect( this, &QQuickItem::windowChanged, this, &QgsQuickMapCanvasMap::onWindowChanged );
-  connect( &mRefreshTimer, &QTimer::timeout, this, [=] { refreshMap(); } );
+  connect( &mRefreshTimer, &QTimer::timeout, this, [this] { refreshMap(); } );
   connect( &mMapUpdateTimer, &QTimer::timeout, this, &QgsQuickMapCanvasMap::renderJobUpdated );
 
   connect( mMapSettings.get(), &QgsQuickMapSettings::extentChanged, this, &QgsQuickMapCanvasMap::onExtentChanged );
@@ -843,7 +843,7 @@ void QgsQuickMapCanvasMap::schedulePreviewJob( int number )
   mPreviewTimer.setSingleShot( true );
   mPreviewTimer.setInterval( PREVIEW_JOB_DELAY_MS );
   disconnect( mPreviewTimerConnection );
-  mPreviewTimerConnection = connect( &mPreviewTimer, &QTimer::timeout, this, [=]() {
+  mPreviewTimerConnection = connect( &mPreviewTimer, &QTimer::timeout, this, [this, number]() {
     startPreviewJob( number );
   } );
   mPreviewTimer.start();

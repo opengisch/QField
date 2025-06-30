@@ -231,7 +231,7 @@ bool OrderedRelationModel::beforeDeleteFeature( QgsVectorLayer *referencingLayer
 
 void OrderedRelationModel::sortEntries()
 {
-  std::sort( mEntries.begin(), mEntries.end(), [=]( const Entry &e1, const Entry &e2 ) {
+  std::sort( mEntries.begin(), mEntries.end(), [this]( const Entry &e1, const Entry &e2 ) {
     return e1.referencingFeature.attribute( mOrderingField ).toInt() < e2.referencingFeature.attribute( mOrderingField ).toInt();
   } );
 }

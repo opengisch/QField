@@ -370,7 +370,7 @@ void FeatureListModel::processFeatureList()
   }
   if ( mOrderByValue || !mGroupField.isEmpty() )
   {
-    std::sort( entries.begin(), entries.end(), [=]( const Entry &entry1, const Entry &entry2 ) {
+    std::sort( entries.begin(), entries.end(), [this]( const Entry &entry1, const Entry &entry2 ) {
       if ( entry1.key.isNull() && !entry2.key.isNull() )
         return true;
 

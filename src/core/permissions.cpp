@@ -37,7 +37,7 @@ Qt::PermissionStatus CameraPermission::status()
 
 void CameraPermission::request()
 {
-  PlatformUtilities::instance()->requestCameraPermission( [=]( Qt::PermissionStatus status ) {
+  PlatformUtilities::instance()->requestCameraPermission( [this]( Qt::PermissionStatus status ) {
     if ( mStatus != status )
     {
       mStatus = status;
@@ -65,7 +65,7 @@ Qt::PermissionStatus MicrophonePermission::status()
 
 void MicrophonePermission::request()
 {
-  PlatformUtilities::instance()->requestMicrophonePermission( [=]( Qt::PermissionStatus status ) {
+  PlatformUtilities::instance()->requestMicrophonePermission( [this]( Qt::PermissionStatus status ) {
     if ( mStatus != status )
     {
       mStatus = status;

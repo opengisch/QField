@@ -326,7 +326,7 @@ void ActiveLayerFeaturesLocatorFilter::triggerResultFromAction( const QgsLocator
   {
     case ResultType::FieldRestriction:
     {
-      QTimer::singleShot( 100, [=] { emit mLocatorBridge->requestSearchTextChange( data.value( "search_text" ).toString() ); } );
+      QTimer::singleShot( 100, [this, data] { emit mLocatorBridge->requestSearchTextChange( data.value( "search_text" ).toString() ); } );
       break;
     }
 
