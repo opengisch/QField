@@ -211,7 +211,7 @@ bool ProcessingAlgorithm::run( bool previewMode )
         }
         else
         {
-          auto updateOriginalFeature = [=]( const QgsFeature &outputFeature ) {
+          auto updateOriginalFeature = [this, feature]( const QgsFeature &outputFeature ) {
             QgsGeometry outputGeometry = outputFeature.geometry();
             if ( !outputGeometry.equals( feature.geometry() ) )
             {

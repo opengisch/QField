@@ -38,7 +38,7 @@ Navigation::Navigation()
   mProximitySound.setSource( QUrl( QStringLiteral( "qrc:/sounds/proximity_alarm.wav" ) ) );
   mProximityAlarmTimer.setInterval( 250 );
   mProximityAlarmTimer.setSingleShot( false );
-  connect( &mProximityAlarmTimer, &QTimer::timeout, this, [=] {
+  connect( &mProximityAlarmTimer, &QTimer::timeout, this, [this] {
     if ( QDateTime::currentMSecsSinceEpoch() > mLastProximityAlarm + mProximityAlarmInterval )
     {
       mProximitySound.play();

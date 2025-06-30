@@ -22,7 +22,7 @@ ScreenDimmer::ScreenDimmer( QgsApplication *app )
   : QObject( app )
 {
   app->installEventFilter( this );
-  connect( app, &QGuiApplication::applicationStateChanged, this, [=]() { setSuspend( app->applicationState() != Qt::ApplicationActive ); } );
+  connect( app, &QGuiApplication::applicationStateChanged, this, [this, app]() { setSuspend( app->applicationState() != Qt::ApplicationActive ); } );
 
   mTimer.setSingleShot( true );
   mTimer.setInterval( mTimeoutSeconds * 1000 );

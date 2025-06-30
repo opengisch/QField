@@ -502,7 +502,7 @@ Qt::PermissionStatus PlatformUtilities::checkCameraPermission() const
 void PlatformUtilities::requestCameraPermission( std::function<void( Qt::PermissionStatus )> func )
 {
   QCameraPermission cameraPermission;
-  qApp->requestPermission( cameraPermission, [=]( const QPermission &permission ) { func( permission.status() ); } );
+  qApp->requestPermission( cameraPermission, [this, func]( const QPermission &permission ) { func( permission.status() ); } );
 }
 
 Qt::PermissionStatus PlatformUtilities::checkMicrophonePermission() const
@@ -514,5 +514,5 @@ Qt::PermissionStatus PlatformUtilities::checkMicrophonePermission() const
 void PlatformUtilities::requestMicrophonePermission( std::function<void( Qt::PermissionStatus )> func )
 {
   QMicrophonePermission microphonePermission;
-  qApp->requestPermission( microphonePermission, [=]( const QPermission &permission ) { func( permission.status() ); } );
+  qApp->requestPermission( microphonePermission, [this, func]( const QPermission &permission ) { func( permission.status() ); } );
 }

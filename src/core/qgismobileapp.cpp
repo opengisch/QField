@@ -347,7 +347,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   // Set GDAL option to fix loading of datasets within ZIP containers
   CPLSetConfigOption( "CPL_ZIP_ENCODING", "UTF-8" );
 
-  connect( QgsApplication::instance(), &QGuiApplication::applicationStateChanged, this, [=]( Qt::ApplicationState state ) {
+  connect( QgsApplication::instance(), &QGuiApplication::applicationStateChanged, this, []( Qt::ApplicationState state ) {
     switch ( state )
     {
       case Qt::ApplicationSuspended:

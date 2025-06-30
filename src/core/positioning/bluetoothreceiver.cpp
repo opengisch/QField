@@ -27,7 +27,7 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   , mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) )
 {
   connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleError );
-  connect( mSocket, &QBluetoothSocket::stateChanged, this, [=]( QBluetoothSocket::SocketState state ) {
+  connect( mSocket, &QBluetoothSocket::stateChanged, this, [this]( QBluetoothSocket::SocketState state ) {
     QAbstractSocket::SocketState currentState;
     switch ( state )
     {
@@ -59,7 +59,7 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   } );
 
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished );
-  connect( mLocalDevice.get(), &QBluetoothLocalDevice::errorOccurred, this, [=]( QBluetoothLocalDevice::Error error ) {
+  connect( mLocalDevice.get(), &QBluetoothLocalDevice::errorOccurred, this, [this]( QBluetoothLocalDevice::Error error ) {
     if ( error != QBluetoothLocalDevice::NoError )
     {
       mLastError = QStringLiteral( "Local device returned an error (%1) for %2" ).arg( QMetaEnum::fromType<QBluetoothLocalDevice::Error>().valueToKey( error ), mAddress );
@@ -69,7 +69,7 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
     }
   } );
 
-  connect( mLocalDevice.get(), &QBluetoothLocalDevice::hostModeStateChanged, this, [=]() {
+  connect( mLocalDevice.get(), &QBluetoothLocalDevice::hostModeStateChanged, this, [this]() {
     if ( mPoweringOn )
     {
       qInfo() << QStringLiteral( "BluetoothReceiver: Local device powered on" );

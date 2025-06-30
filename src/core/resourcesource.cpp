@@ -30,7 +30,7 @@ ResourceSource::ResourceSource( QObject *parent, const QString &prefix, const QS
   if ( mResourceFilePath.startsWith( mPrefix ) )
     mResourceFilePath = mResourceFilePath.remove( mPrefix );
 
-  QTimer::singleShot( 0, this, [=]() {
+  QTimer::singleShot( 0, this, [this]() {
     emit resourceReceived( mResourceFilePath );
   } );
 }

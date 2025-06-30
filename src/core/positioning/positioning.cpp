@@ -156,7 +156,7 @@ void Positioning::setActive( bool active )
 
       if ( permissionStatus == Qt::PermissionStatus::Undetermined )
       {
-        qApp->requestPermission( locationPermission, this, [=]( const QPermission &permission ) {
+        qApp->requestPermission( locationPermission, this, [this]( const QPermission &permission ) {
           if ( permission.status() == Qt::PermissionStatus::Granted )
           {
             mInternalPermissionChecked = true;
@@ -195,7 +195,7 @@ void Positioning::setActive( bool active )
         Qt::PermissionStatus permissionStatus = qApp->checkPermission( bluetoothPermission );
         if ( permissionStatus == Qt::PermissionStatus::Undetermined )
         {
-          qApp->requestPermission( bluetoothPermission, this, [=]( const QPermission &permission ) {
+          qApp->requestPermission( bluetoothPermission, this, [this]( const QPermission &permission ) {
             if ( permission.status() == Qt::PermissionStatus::Granted )
             {
               mBluetoothPermissionChecked = true;
