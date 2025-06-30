@@ -4473,7 +4473,6 @@ ApplicationWindow {
     id: mapCanvasTour
     baseRoot: mainWindow
     objectName: 'mapCanvasTour'
-    z: dashBoard.z + 1
 
     steps: [{
         "type": "information",
@@ -4495,19 +4494,25 @@ ApplicationWindow {
         "title": qsTr("Zoom"),
         "description": qsTr("In addition to the pinch gesture, these buttons help you quickly zoom in and out."),
         "target": () => [zoomToolbar]
-      }, {
-        "type": "action",
-        "title": qsTr(""),
-        "description": qsTr(""),
-        "forwardAction": () => {
-          dashBoard.open();
-          mapCanvasTour.index = mapCanvasTour.index + 1;
-        },
-        "backwardAction": () => {
-          dashBoard.close();
-          mapCanvasTour.index = mapCanvasTour.index - 2;
-        }
-      }, {
+      }]
+
+    function startOnFreshRun() {
+      const startupGuide = settings.valueBool("/QField/showMapCanvasGuide", true);
+      if (startupGuide) {
+        runTour();
+      }
+      settings.setValue("/QField/showMapCanvasGuide", false);
+    }
+  }
+
+  QFieldGuide {
+    id: dashboardTour
+    baseRoot: mainWindow
+    objectName: 'dashboardTour'
+    z: dashBoard.z + 1
+    index: -1
+
+    steps: [{
         "type": "information",
         "title": qsTr("Measurement"),
         "description": qsTr("Toggle the measurement tool to calculate distances and areas on the map. Use this tool to measure the length of lines or the area of polygons by clicking on the map."),
@@ -4534,17 +4539,13 @@ ApplicationWindow {
         "target": () => [iface.findItemByObjectName('ModeSwitch')]
       }]
 
-    function startOnFreshRun() {
-      const startupGuide = settings.valueBool("/QField/showMapCanvasGuide", true);
-      if (startupGuide) {
-        runTour();
-      }
-      settings.setValue("/QField/showMapCanvasGuide", false);
-    }
-
-    onGuideFinished: {
-      if (dashBoard.opened) {
-        dashBoard.close();
+    Connections {
+      target: dashBoard
+      enabled: settings ? settings.valueBool("/QField/showDashboardGuide", true) : false
+      function onOpened() {
+        dashboardTour.index = 0;
+        dashboardTour.runTour();
+        settings.setValue("/QField/showDashboardGuide", false);
       }
     }
   }
@@ -4555,6 +4556,7 @@ ApplicationWindow {
     function blockGuides() {
       mapCanvasTour.blockGuide();
       settings.setValue("/QField/showMapCanvasGuide", false);
+      settings.setValue("/QField/dashboardTour", false);
     }
   }
 

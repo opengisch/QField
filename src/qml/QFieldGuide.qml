@@ -189,13 +189,13 @@ Popup {
     }
 
     x: {
-      if (internalObject.target[0]) {
+      if (internalObject.target && internalObject.target[0]) {
         return Math.min(Math.max(8, internalObject.pos.x + internalObject.target[0].width / 2 - width / 2), guide.width - width - 10);
       }
       return 0;
     }
     y: {
-      if (internalObject.target[0]) {
+      if (internalObject.target && internalObject.target[0]) {
         var ty = internalObject.pos.y + internalObject.target[0].height + guide.targetMargins + 15;
         if ((ty + height) >= guide.height) {
           return internalObject.pos.y - height - guide.targetMargins - 8;
@@ -262,8 +262,8 @@ Popup {
 
     AnimatedImage {
       id: animatedHint
-      visible: internalObject.step.animatedGuide !== undefined
-      source: visible ? internalObject.step.animatedGuide : ""
+      visible: internalObject.step ? internalObject.step.animatedGuide !== undefined : false
+      source: visible ? internalObject.step ? internalObject.step.animatedGuide : "" : ""
       anchors {
         bottom: parent.bottom
         left: parent.left
@@ -350,13 +350,13 @@ Popup {
     visible: panelXAnimation.running || panelYAnimation.running ? 0 : 1
 
     x: {
-      if (internalObject.target[0]) {
+      if (internalObject.target && internalObject.target[0]) {
         return internalObject.pos.x + internalObject.target[0].width / 2 - pointerToItem.width / 2;
       }
       return 0;
     }
     y: {
-      if (internalObject.target[0]) {
+      if (internalObject.target && internalObject.target[0]) {
         return internalObject.pos.y + (hintPanel.dir ? -(height + 4) : internalObject.target[0].height + 4);
       }
       return 0;
