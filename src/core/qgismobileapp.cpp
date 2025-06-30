@@ -91,6 +91,7 @@
 #include "parametizedimage.h"
 #include "permissions.h"
 #include "platformutilities.h"
+#include "pluginsmodel.h"
 #include "positioning.h"
 #include "positioningdevicemodel.h"
 #include "positioninginformationmodel.h"
@@ -528,6 +529,8 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
   qRegisterMetaType<GnssPositionDetails>( "GnssPositionDetails" );
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
+
+  qmlRegisterType<PluginsModel>( "org.qfield", 1, 0, "PluginsModel" );
 
   qmlRegisterType<ProcessingAlgorithm>( "org.qfield", 1, 0, "ProcessingAlgorithm" );
   qmlRegisterType<ProcessingAlgorithmParametersModel>( "org.qfield", 1, 0, "ProcessingAlgorithmParametersModel" );

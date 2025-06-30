@@ -7,7 +7,6 @@ import Theme
  * \ingroup qml
  */
 Rectangle {
-  width: parent ? parent.width : 10
   height: pluginItemContent.height + 10
   color: "transparent"
 
@@ -25,7 +24,8 @@ Rectangle {
 
   GridLayout {
     id: pluginItemContent
-    width: parent.width
+    anchors.left: parent.left
+    anchors.right: parent.right
     anchors.leftMargin: 20
     anchors.rightMargin: 20
 

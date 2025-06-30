@@ -49,7 +49,7 @@ Popup {
         Layout.fillWidth: true
         Layout.fillHeight: true
         Layout.margins: 20
-        visible: pluginsList.model.count === 0
+        visible: pluginsList.count === 0
 
         text: qsTr('No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.').arg('<a href="https://docs.qfield.org/how-to/plugins/">').arg('</a>')
         font: Theme.defaultFont
@@ -63,13 +63,16 @@ Popup {
         id: pluginsList
         Layout.fillWidth: true
         Layout.fillHeight: true
-        visible: model.count > 0
+        visible: count > 0
         clip: true
 
-        model: ListModel {
+        model: PluginsModel {
+          id: pluginsModel
+          manager: pluginManager
         }
 
         delegate: PluginItem {
+          width: parent ? parent.width : 10
           icon: Icon !== '' ? UrlUtils.fromString(Icon) : ''
           name: Name
           itemEnabled: Enabled
@@ -88,7 +91,7 @@ Popup {
           }
 
           onToggleEnabledPlugin: checked => {
-            Enabled = checked == true;
+            Enabled = checked;
             if (Enabled) {
               pluginManager.enableAppPlugin(Uuid);
             } else {
@@ -289,47 +292,15 @@ Popup {
     }
 
     function onAppPluginEnabled(uuid) {
-      for (let i = 0; i < pluginsList.model.count; i++) {
-        if (pluginsList.model.get(i).Uuid === uuid) {
-          pluginsList.model.get(i).Enabled = true;
-          pluginsList.model.get(i).Configurable = pluginManager.isAppPluginConfigurable(uuid);
-        }
-      }
+      pluginsModel.updatePluginEnabledStateByUuid(uuid, true, pluginManager.isAppPluginConfigurable(uuid));
     }
 
     function onAppPluginDisabled(uuid) {
-      for (let i = 0; i < pluginsList.model.count; i++) {
-        if (pluginsList.model.get(i).Uuid === uuid) {
-          pluginsList.model.get(i).Enabled = false;
-          pluginsList.model.get(i).Configurable = false;
-        }
-      }
+      pluginsModel.updatePluginEnabledStateByUuid(uuid, false, false);
     }
 
     function onAvailableAppPluginsChanged() {
-      refreshAppPluginsList();
+      pluginsModel.refreshAppPluginsList();
     }
-  }
-
-  function refreshAppPluginsList() {
-    pluginsList.model.clear();
-    for (const plugin of pluginManager.availableAppPlugins) {
-      const isEnabled = pluginManager.isAppPluginEnabled(plugin.uuid);
-      pluginsList.model.append({
-          "Uuid": plugin.uuid,
-          "Enabled": isEnabled,
-          "Configurable": isEnabled && pluginManager.isAppPluginConfigurable(plugin.uuid),
-          "Name": plugin.name,
-          "Description": plugin.description,
-          "Author": plugin.author,
-          "Homepage": plugin.homepage,
-          "Icon": plugin.icon,
-          "Version": plugin.version
-        });
-    }
-  }
-
-  Component.onCompleted: {
-    refreshAppPluginsList();
   }
 }

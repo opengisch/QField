@@ -24,49 +24,30 @@
 /**
  * \ingroup core
  */
-class PluginInformation
+struct PluginInformation
 {
-    Q_GADGET
+    QString uuid;
+    bool enabled;
+    bool configurable;
+    QString name;
+    QString description;
+    QString author;
+    QString homepage;
+    QString icon;
+    QString version;
+    QString path;
 
-    Q_PROPERTY( QString uuid READ uuid )
-    Q_PROPERTY( QString name READ name )
-    Q_PROPERTY( QString description READ description )
-    Q_PROPERTY( QString author READ author )
-    Q_PROPERTY( QString homepage READ homepage )
-    Q_PROPERTY( QString icon READ icon )
-    Q_PROPERTY( QString version READ version )
-
-  public:
     PluginInformation( const QString &uuid = QString(), const QString &name = QString(), const QString &description = QString(), const QString &author = QString(), const QString &homepage = QString(), const QString &icon = QString(), const QString &version = QString(), const QString &path = QString() )
-      : mUuid( uuid )
-      , mName( name )
-      , mDescription( description )
-      , mAuthor( author )
-      , mHomepage( homepage )
-      , mIcon( icon )
-      , mVersion( version )
-      , mPath( path )
+      : uuid( uuid )
+      , name( name )
+      , description( description )
+      , author( author )
+      , homepage( homepage )
+      , icon( icon )
+      , version( version )
+      , path( path )
     {}
     ~PluginInformation() = default;
-
-    QString uuid() const { return mUuid; }
-    QString name() const { return mName; }
-    QString description() const { return mDescription; }
-    QString author() const { return mAuthor; }
-    QString homepage() const { return mHomepage; }
-    QString icon() const { return mIcon; }
-    QString version() const { return mVersion; }
-    QString path() const { return mPath; }
-
-  private:
-    QString mUuid;
-    QString mName;
-    QString mDescription;
-    QString mAuthor;
-    QString mHomepage;
-    QString mIcon;
-    QString mVersion;
-    QString mPath;
 };
 
 Q_DECLARE_METATYPE( PluginInformation )
