@@ -233,7 +233,7 @@ void QFieldCloudUtils::addPendingAttachments( const QString &username, const QSt
     params.insert( "skip_metadata", 1 );
     NetworkReply *reply = cloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( projectId ), params );
 
-    connect( reply, &NetworkReply::finished, reply, [=]() {
+    connect( reply, &NetworkReply::finished, reply, [reply, username, projectId, fileNames, checkSumCheck]() {
       QNetworkReply *rawReply = reply->currentRawReply();
       reply->deleteLater();
 
@@ -254,7 +254,7 @@ void QFieldCloudUtils::addPendingAttachments( const QString &username, const QSt
         fileChecksumMap.insert( fileName, cloudEtag );
       }
 
-      writeToAttachmentsFile( username, projectId, fileNames, &fileChecksumMap, checkSumCheck );
+      QFieldCloudUtils::writeToAttachmentsFile( username, projectId, fileNames, &fileChecksumMap, checkSumCheck );
     } );
   }
   else

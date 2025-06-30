@@ -25,7 +25,7 @@ TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *paren
   , mSocket( new QTcpSocket() )
 {
   connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &TcpReceiver::handleError );
-  connect( mSocket, &QTcpSocket::stateChanged, this, [=]( QAbstractSocket::SocketState state ) {
+  connect( mSocket, &QTcpSocket::stateChanged, this, [this]( QAbstractSocket::SocketState state ) {
     setSocketState( state );
     if ( state == QAbstractSocket::SocketState::UnconnectedState && mReconnectOnDisconnect )
     {
@@ -33,7 +33,7 @@ TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *paren
     }
   } );
 
-  connect( mSocket, &QAbstractSocket::connected, this, [=] {
+  connect( mSocket, &QAbstractSocket::connected, this, [this] {
     // This line enables gpsd's NMEA through TCP
     mSocket->write( QStringLiteral( "?WATCH={\"enable\":true,\"nmea\":true,\"raw\":true};" ).toUtf8() );
   } );

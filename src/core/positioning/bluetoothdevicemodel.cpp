@@ -34,17 +34,17 @@ void BluetoothDeviceModel::initiateDiscoveryAgent()
   mServiceDiscoveryAgent = std::make_unique<QBluetoothServiceDiscoveryAgent>();
 
   connect( mServiceDiscoveryAgent.get(), &QBluetoothServiceDiscoveryAgent::serviceDiscovered, this, &BluetoothDeviceModel::serviceDiscovered );
-  connect( mServiceDiscoveryAgent.get(), qOverload<QBluetoothServiceDiscoveryAgent::Error>( &QBluetoothServiceDiscoveryAgent::errorOccurred ), this, [=]( QBluetoothServiceDiscoveryAgent::Error error ) {
+  connect( mServiceDiscoveryAgent.get(), qOverload<QBluetoothServiceDiscoveryAgent::Error>( &QBluetoothServiceDiscoveryAgent::errorOccurred ), this, [this]( QBluetoothServiceDiscoveryAgent::Error error ) {
     if ( error != QBluetoothServiceDiscoveryAgent::NoError )
     {
       setLastError( mServiceDiscoveryAgent->errorString() );
       setScanningStatus( Failed );
     }
   } );
-  connect( mServiceDiscoveryAgent.get(), &QBluetoothServiceDiscoveryAgent::finished, [=]() {
+  connect( mServiceDiscoveryAgent.get(), &QBluetoothServiceDiscoveryAgent::finished, [this]() {
     setScanningStatus( mServiceDiscoveryAgent->error() == QBluetoothServiceDiscoveryAgent::NoError ? Succeeded : Failed );
   } );
-  connect( mServiceDiscoveryAgent.get(), &QBluetoothServiceDiscoveryAgent::canceled, [=]() {
+  connect( mServiceDiscoveryAgent.get(), &QBluetoothServiceDiscoveryAgent::canceled, [this]() {
     setScanningStatus( Canceled );
   } );
 }
@@ -58,7 +58,7 @@ void BluetoothDeviceModel::startServiceDiscovery( const bool fullDiscovery )
     Qt::PermissionStatus permissionStatus = qApp->checkPermission( bluetoothPermission );
     if ( permissionStatus == Qt::PermissionStatus::Undetermined )
     {
-      qApp->requestPermission( bluetoothPermission, this, [=]( const QPermission &permission ) {
+      qApp->requestPermission( bluetoothPermission, this, [this, fullDiscovery]( const QPermission &permission ) {
         if ( permission.status() == Qt::PermissionStatus::Granted )
         {
           mPermissionChecked = true;

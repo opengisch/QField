@@ -38,7 +38,7 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
 #endif
 
   connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &UdpReceiver::handleError );
-  connect( mSocket, &QUdpSocket::stateChanged, this, [=]( QAbstractSocket::SocketState state ) {
+  connect( mSocket, &QUdpSocket::stateChanged, this, [this]( QAbstractSocket::SocketState state ) {
     setSocketState( state );
     if ( state == QAbstractSocket::SocketState::UnconnectedState && mReconnectOnDisconnect )
     {
@@ -46,7 +46,7 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
     }
   } );
 
-  connect( mSocket, &QUdpSocket::readyRead, this, [=]() {
+  connect( mSocket, &QUdpSocket::readyRead, this, [this]() {
     QByteArray datagram;
     while ( mSocket->hasPendingDatagrams() )
     {

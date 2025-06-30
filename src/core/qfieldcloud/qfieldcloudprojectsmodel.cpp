@@ -40,7 +40,7 @@
 QFieldCloudProjectsModel::QFieldCloudProjectsModel()
 {
   // TODO all of these connects are a bit too much, and I guess not very precise, should be refactored!
-  connect( this, &QFieldCloudProjectsModel::currentProjectIdChanged, this, [=]() {
+  connect( this, &QFieldCloudProjectsModel::currentProjectIdChanged, this, [this]() {
     QFieldCloudProject *project = findProject( mCurrentProjectId );
 
     if ( !project )
@@ -49,7 +49,7 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
     refreshProjectModification( mCurrentProjectId );
   } );
 
-  connect( this, &QFieldCloudProjectsModel::dataChanged, this, [=]( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles ) {
+  connect( this, &QFieldCloudProjectsModel::dataChanged, this, [this]( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles ) {
     Q_UNUSED( bottomRight )
     Q_UNUSED( roles )
 
@@ -106,7 +106,7 @@ void QFieldCloudProjectsModel::setLayerObserver( LayerObserver *layerObserver )
     return;
 
   connect( layerObserver, &LayerObserver::layerEdited, this, &QFieldCloudProjectsModel::layerObserverLayerEdited );
-  connect( layerObserver->deltaFileWrapper(), &DeltaFileWrapper::countChanged, this, [=]() {
+  connect( layerObserver->deltaFileWrapper(), &DeltaFileWrapper::countChanged, this, [this]() {
     refreshProjectModification( mCurrentProjectId );
   } );
 
@@ -560,134 +560,134 @@ void QFieldCloudProjectsModel::insertProjects( const QList<QFieldCloudProject *>
 
 void QFieldCloudProjectsModel::setupProjectConnections( QFieldCloudProject *project )
 {
-  connect( project, &QFieldCloudProject::projectFileIsOutdatedChanged, this, [=] {
+  connect( project, &QFieldCloudProject::projectFileIsOutdatedChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << ProjectFileOutdatedRole );
   } );
 
-  connect( project, &QFieldCloudProject::downloaded, this, [=]( const QString &name, const QString &error ) {
+  connect( project, &QFieldCloudProject::downloaded, this, [this]( const QString &name, const QString &error ) {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit projectDownloaded( p->id(), name, !error.isEmpty(), error );
     emit dataChanged( idx, idx, QVector<int>() << StatusRole << PackagingStatusRole << ErrorStatusRole << ErrorStringRole );
   } );
 
-  connect( project, &QFieldCloudProject::uploadFinished, this, [=]( bool isDownloading, const QString &error ) {
+  connect( project, &QFieldCloudProject::uploadFinished, this, [this]( bool isDownloading, const QString &error ) {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit pushFinished( p->id(), isDownloading, !error.isEmpty(), error );
   } );
 
-  connect( project, &QFieldCloudProject::dataRefreshed, this, [=]( QFieldCloudProject::ProjectRefreshReason reason, const QString &error ) {
+  connect( project, &QFieldCloudProject::dataRefreshed, this, [this]( QFieldCloudProject::ProjectRefreshReason reason, const QString &error ) {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx );
   } );
 
-  connect( project, &QFieldCloudProject::jobFinished, this, [=]( QFieldCloudProject::JobType type, const QString &error ) {
+  connect( project, &QFieldCloudProject::jobFinished, this, [this]( QFieldCloudProject::JobType type, const QString &error ) {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx );
   } );
 
-  connect( project, &QFieldCloudProject::statusChanged, this, [=] {
+  connect( project, &QFieldCloudProject::statusChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << StatusRole );
   } );
 
-  connect( project, &QFieldCloudProject::errorStatusChanged, this, [=] {
+  connect( project, &QFieldCloudProject::errorStatusChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << ErrorStatusRole );
   } );
 
-  connect( project, &QFieldCloudProject::packagingStatusChanged, this, [=] {
+  connect( project, &QFieldCloudProject::packagingStatusChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << PackagingStatusRole );
   } );
 
-  connect( project, &QFieldCloudProject::downloadProgressChanged, this, [=] {
+  connect( project, &QFieldCloudProject::downloadProgressChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << DownloadProgressRole );
   } );
 
-  connect( project, &QFieldCloudProject::downloadBytesTotalChanged, this, [=] {
+  connect( project, &QFieldCloudProject::downloadBytesTotalChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << DownloadSizeRole );
   } );
 
-  connect( project, &QFieldCloudProject::packagedLayerErrorsChanged, this, [=] {
+  connect( project, &QFieldCloudProject::packagedLayerErrorsChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << PackagedLayerErrorsRole );
   } );
 
-  connect( project, &QFieldCloudProject::isOutdatedChanged, this, [=] {
+  connect( project, &QFieldCloudProject::isOutdatedChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << ProjectOutdatedRole );
   } );
 
-  connect( project, &QFieldCloudProject::projectFileIsOutdatedChanged, this, [=] {
+  connect( project, &QFieldCloudProject::projectFileIsOutdatedChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << ProjectFileOutdatedRole );
   } );
 
-  connect( project, &QFieldCloudProject::localPathChanged, this, [=] {
+  connect( project, &QFieldCloudProject::localPathChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << LocalPathRole );
   } );
 
-  connect( project, &QFieldCloudProject::checkoutChanged, this, [=] {
+  connect( project, &QFieldCloudProject::checkoutChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << CheckoutRole );
   } );
 
-  connect( project, &QFieldCloudProject::lastLocalExportedAtChanged, this, [=] {
+  connect( project, &QFieldCloudProject::lastLocalExportedAtChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << LastLocalExportedAtRole );
   } );
 
-  connect( project, &QFieldCloudProject::modificationChanged, this, [=] {
+  connect( project, &QFieldCloudProject::modificationChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << ModificationRole );
   } );
 
-  connect( project, &QFieldCloudProject::deltaFileUploadStatusChanged, this, [=] {
+  connect( project, &QFieldCloudProject::deltaFileUploadStatusChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << UploadDeltaStatusRole );
   } );
 
-  connect( project, &QFieldCloudProject::deltaFileUploadStatusStringChanged, this, [=] {
+  connect( project, &QFieldCloudProject::deltaFileUploadStatusStringChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << UploadDeltaStatusStringRole );
   } );
 
-  connect( project, &QFieldCloudProject::uploadDeltaProgressChanged, this, [=] {
+  connect( project, &QFieldCloudProject::uploadDeltaProgressChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << UploadDeltaStatusStringRole );
   } );
 
-  connect( project, &QFieldCloudProject::lastLocalPushDeltasChanged, this, [=] {
+  connect( project, &QFieldCloudProject::lastLocalPushDeltasChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << LastLocalPushDeltasRole );
   } );
 
-  connect( project, &QFieldCloudProject::deltaListModelChanged, this, [=] {
+  connect( project, &QFieldCloudProject::deltaListModelChanged, this, [this] {
     QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << DeltaListRole );

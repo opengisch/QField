@@ -106,7 +106,7 @@ QString FileUtils::sanitizeFilePath( const QString &filePath, const QString &rep
 
   for ( const auto &partRaw : path )
   {
-    const QString part = QString::fromUtf8( partRaw.u8string() );
+    const QString part = QString::fromUtf8( partRaw.string() );
 
     // we should not escape when the path starts with relative path single or double dot
     if ( part == QLatin1String( "." ) || part == QLatin1String( ".." ) )
