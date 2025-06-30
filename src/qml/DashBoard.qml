@@ -48,8 +48,8 @@ Drawer {
   clip: true
 
   onActiveLayerChanged: {
-    if (activeLayer && activeLayer.readOnly && stateMachine.state == "digitize")
-      displayToast(qsTr("The layer %1 is read only.").arg(activeLayer.name));
+    if (activeLayer && activeLayer.readOnly && stateMachine.state === "digitize")
+      displayToast(qsTr("The layer %1 is read-only.").arg(activeLayer.name));
   }
 
   Connections {
@@ -400,7 +400,6 @@ Drawer {
 
       Switch {
         id: modeSwitch
-        visible: projectInfo.insertRights
         width: 56 + 36
         height: 48
         anchors.right: parent.right
@@ -440,7 +439,7 @@ Drawer {
             width: 36
             height: 36
             radius: 4
-            color: Theme.mainColor
+            color: projectInfo.insertRights ? Theme.mainColor : Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGray
             border.color: Theme.mainOverlayColor
             Image {
               width: 28
@@ -459,7 +458,14 @@ Drawer {
           }
         }
 
-        onClicked: mainWindow.toggleDigitizeMode()
+        onClicked: {
+          if (projectInfo.insertRights) {
+            mainWindow.toggleDigitizeMode();
+          } else {
+            checked = false;
+            displayToast(qsTr("The project is read-only."));
+          }
+        }
       }
     }
   }
