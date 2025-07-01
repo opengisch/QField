@@ -27,12 +27,16 @@
 #include <QSettings>
 #include <qgsmessagelog.h>
 #include <qgsnetworkaccessmanager.h>
+#include <qjsonarray.h>
+#include <qjsondocument.h>
+#include <qjsonobject.h>
 
 PluginManager::PluginManager( QQmlEngine *engine )
   : QObject( engine )
   , mEngine( engine )
 {
   connect( mEngine, &QQmlEngine::warnings, this, &PluginManager::handleWarnings );
+  fetchPublicPlugins();
   refreshAppPlugins();
 }
 
@@ -238,6 +242,8 @@ void PluginManager::refreshAppPlugins()
         QString homepage;
         QString icon;
         QString version;
+        const bool locallyAvailable = true;
+        const bool publiclyAvailable = isAppPluginPublicalyAvailable( name ); // we shouldn't use name! / we need a public uuid
 
         const QString metadataPath = QStringLiteral( "%1/metadata.txt" ).arg( candidate.absoluteFilePath() );
         if ( QFileInfo::exists( metadataPath ) )
@@ -262,7 +268,9 @@ void PluginManager::refreshAppPlugins()
           }
           version = metadata.value( "version" ).toString();
         }
-        mAvailableAppPlugins.insert( candidate.fileName(), PluginInformation( candidate.fileName(), name, description, author, homepage, icon, version, path ) );
+
+        PluginInformation plugin( candidate.fileName(), name, description, author, homepage, icon, version, path, locallyAvailable, publiclyAvailable );
+        mAvailableAppPlugins.insert( candidate.fileName(), plugin );
       }
     }
   }
@@ -277,6 +285,11 @@ QList<PluginInformation> PluginManager::availableAppPlugins() const
     return plugin1.name.toLower() < plugin2.name.toLower();
   } );
   return plugins;
+}
+
+QList<PluginInformation> PluginManager::publicPlugins() const
+{
+  return mPublicPlugins;
 }
 
 void PluginManager::enableAppPlugin( const QString &uuid )
@@ -345,6 +358,92 @@ bool PluginManager::isAppPluginConfigurable( const QString &uuid ) const
     return idx >= 0;
   }
 
+  return false;
+}
+
+void PluginManager::fetchPublicPlugins()
+{
+  QString jsonString = R"(
+    [
+      {
+        "name": "OSRM Routing",
+        "description": "Provides routing visualization within QField",
+        "icon": "https://raw.githubusercontent.com/opengisch/qfield-osrm/refs/heads/main/icon.svg",
+        "version": "1.0",
+        "download": "https://github.com/opengisch/qfield-osrm/releases/download/v1.0/qfield-osrm-routing.zip",
+        "minimum_version": "3.6.0",
+        "homepage": "https://github.com/opengisch/qfield-osrm",
+        "author": "OPENGIS.ch"
+      },
+      {
+        "name": "OpenStreetMap Nominatim Search",
+        "description": "Integrates OpenStreetMap Nominatim results into the search bar through the osm prefix",
+        "icon": "https://raw.githubusercontent.com/opengisch/qfield-nominatim-locator/refs/heads/main/icon.svg",
+        "version": "1.3",
+        "download": "https://github.com/opengisch/qfield-nominatim-locator/releases/download/v1.3/qfield-nominatim-locator-v1.3.zip",
+        "minimum_version": "3.6.0",
+        "homepage": "https://github.com/opengisch/qfield-nominatim-locator",
+        "author": "OPENGIS.ch"
+      }
+    ])";
+
+  QJsonParseError parseError;
+  QJsonDocument jsonDoc = QJsonDocument::fromJson( jsonString.toUtf8(), &parseError );
+
+  if ( parseError.error != QJsonParseError::NoError )
+  {
+    qWarning() << "JSON parse error:" << parseError.errorString();
+    return;
+  }
+
+  if ( !jsonDoc.isArray() )
+  {
+    qWarning() << "Expected a JSON array!";
+    return;
+  }
+
+  const QJsonArray jsonArray = jsonDoc.array();
+  for ( const QJsonValue &value : jsonArray )
+  {
+    if ( !value.isObject() )
+      continue;
+
+    const QJsonObject obj = value.toObject();
+
+    PluginInformation info;
+    info.name = obj.value( "name" ).toString();
+    info.description = obj.value( "description" ).toString();
+    info.author = obj.value( "author" ).toString();
+    info.homepage = obj.value( "homepage" ).toString();
+    info.icon = obj.value( "icon" ).toString();
+    info.version = obj.value( "version" ).toString();
+    info.path = obj.value( "download" ).toString();
+
+    info.uuid = info.name; // "WE_NEED_SECURE_UUID";
+
+    info.publiclyAvailable = true;
+
+    mPublicPlugins.append( info );
+  }
+}
+
+bool PluginManager::isAppPluginLocallyAvailable( const QString &name ) const
+{
+  for ( const PluginInformation &plugin : mAvailableAppPlugins )
+  {
+    if ( plugin.name == name )
+      return true;
+  }
+  return false;
+}
+
+bool PluginManager::isAppPluginPublicalyAvailable( const QString &name ) const
+{
+  for ( const PluginInformation &plugin : mPublicPlugins )
+  {
+    if ( plugin.name == name )
+      return true;
+  }
   return false;
 }
 

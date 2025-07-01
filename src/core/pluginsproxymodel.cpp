@@ -14,9 +14,66 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "pluginsmodel.h"
 #include "pluginsproxymodel.h"
 
 PluginsProxyModel::PluginsProxyModel( QObject *parent )
   : QSortFilterProxyModel( parent )
 {
+  setFilterCaseSensitivity( Qt::CaseInsensitive );
+  setFilterRole( PluginsModel::PluginRoles::NameRole );
+}
+
+QString PluginsProxyModel::searchTerm() const
+{
+  return mSearchTerm;
+}
+
+void PluginsProxyModel::setSearchTerm( const QString &searchTerm )
+{
+  if ( mSearchTerm != searchTerm )
+  {
+    mSearchTerm = searchTerm;
+    emit searchTermChanged();
+    invalidateFilter();
+  }
+}
+
+bool PluginsProxyModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
+{
+  bool matchesPluginType = false;
+  const QModelIndex currentRowIndex = sourceModel()->index( sourceRow, 0, sourceParent );
+
+  switch ( mFilter )
+  {
+    case LocalPlugins:
+      matchesPluginType = sourceModel()->data( currentRowIndex, PluginsModel::LocallyAvailableRole ).toBool();
+      break;
+    case PublicPlugins:
+      matchesPluginType = sourceModel()->data( currentRowIndex, PluginsModel::PubliclyAvailableRole ).toBool();
+      break;
+  }
+
+  const QModelIndex index = sourceModel()->index( sourceRow, 0, sourceParent );
+  const QVariant data = sourceModel()->data( index, PluginsModel::PluginRoles::NameRole );
+  const bool matchesTextFilter = mSearchTerm.isEmpty() || data.toString().contains( mSearchTerm, Qt::CaseInsensitive );
+
+  return matchesTextFilter && matchesPluginType;
+}
+
+
+void PluginsProxyModel::setFilter( PluginFilter filter )
+{
+  if ( mFilter == filter )
+    return;
+
+  mFilter = filter;
+  invalidateFilter();
+
+  emit filterChanged();
+}
+
+PluginsProxyModel::PluginFilter PluginsProxyModel::filter() const
+{
+  return mFilter;
 }

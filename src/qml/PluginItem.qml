@@ -26,8 +26,6 @@ Rectangle {
     id: pluginItemContent
     anchors.left: parent.left
     anchors.right: parent.right
-    anchors.leftMargin: 20
-    anchors.rightMargin: 20
 
     columns: 3
     columnSpacing: 0
@@ -77,9 +75,23 @@ Rectangle {
     QfSwitch {
       Layout.preferredWidth: implicitContentWidth
       checked: itemEnabled
+      visible: LocallyAvailable
 
       onClicked: {
         toggleEnabledPlugin(checked);
+      }
+    }
+
+    QfButton {
+      Layout.preferredHeight: 50
+      Layout.preferredWidth: 50
+      visible: !LocallyAvailable
+      icon.source: Theme.getThemeVectorIcon('ic_cloud_download_24dp')
+      color: "transparent"
+
+      onClicked:
+      // download plugin!
+      {
       }
     }
 

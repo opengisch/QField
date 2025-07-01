@@ -41,34 +41,51 @@ Popup {
     }
 
     ColumnLayout {
+      id: pluginsLayout
       spacing: 4
       width: parent.width
       height: parent.height
 
-      Label {
+      QfTabBar {
+        id: filterBar
+        model: [qsTr("Local Plugins"), qsTr("Public Plugins")]
         Layout.fillWidth: true
-        Layout.fillHeight: true
-        Layout.margins: 20
-        visible: pluginsList.count === 0
+        Layout.preferredHeight: defaultHeight
+        delegate: TabButton {
+          text: modelData
+          height: filterBar.defaultHeight
+          width: pluginsLayout.width / filterBar.count
+          font: Theme.defaultFont
+          onClicked: {
+            filterBar.currentIndex = index;
+          }
+        }
+      }
 
-        text: qsTr('No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.').arg('<a href="https://docs.qfield.org/how-to/plugins/">').arg('</a>')
-        font: Theme.defaultFont
-        wrapMode: Text.WordWrap
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        onLinkActivated: link => Qt.openUrlExternally(link)
+      PluginsModel {
+        id: pluginsModel
+        manager: pluginManager
+      }
+
+      QfSearchBar {
+        id: searchBar
+        visible: filterBar.currentIndex === 1
+        Layout.fillWidth: true
+        Layout.preferredHeight: 41
+        placeHolderText: qsTr("Search for plugin")
       }
 
       ListView {
         id: pluginsList
         Layout.fillWidth: true
         Layout.fillHeight: true
-        visible: count > 0
+        visible: count > 0 || filterBar.currentIndex === 1
         clip: true
 
-        model: PluginsModel {
-          id: pluginsModel
-          manager: pluginManager
+        model: PluginsProxyModel {
+          sourceModel: pluginsModel
+          searchTerm: filterBar.currentIndex === 1 ? searchBar.searchTerm : ""
+          filter: filterBar.currentIndex === 0 ? PluginsProxyModel.LocalPlugins : PluginsProxyModel.PublicPlugins
         }
 
         delegate: PluginItem {
@@ -113,9 +130,24 @@ Popup {
         }
       }
 
+      Label {
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        Layout.margins: 20
+        visible: pluginsList.count === 0 && filterBar.currentIndex === 0
+
+        text: qsTr('No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.').arg('<a href="https://docs.qfield.org/how-to/plugins/">').arg('</a>')
+        font: Theme.defaultFont
+        wrapMode: Text.WordWrap
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        onLinkActivated: link => Qt.openUrlExternally(link)
+      }
+
       QfButton {
         id: installFromUrlButton
         Layout.fillWidth: true
+        visible: filterBar.currentIndex === 0
         dropdown: true
 
         text: qsTr("Install plugin from URL")

@@ -54,6 +54,10 @@ QVariant PluginsModel::data( const QModelIndex &index, int role ) const
       return plugin.icon;
     case VersionRole:
       return plugin.version;
+    case LocallyAvailableRole:
+      return plugin.locallyAvailable;
+    case PubliclyAvailableRole:
+      return plugin.publiclyAvailable;
     default:
       return QVariant();
   }
@@ -70,7 +74,9 @@ QHash<int, QByteArray> PluginsModel::roleNames() const
     { AuthorRole, "Author" },
     { HomepageRole, "Homepage" },
     { IconRole, "Icon" },
-    { VersionRole, "Version" } };
+    { VersionRole, "Version" },
+    { LocallyAvailableRole, "LocallyAvailable" },
+    { PubliclyAvailableRole, "PubliclyAvailable" } };
 }
 
 void PluginsModel::setPlugins( const QList<PluginInformation> &plugins )
@@ -106,13 +112,32 @@ void PluginsModel::clear()
 void PluginsModel::refreshAppPluginsList()
 {
   QList<PluginInformation> pluginEntries;
-  for ( auto &plugin : mManager->availableAppPlugins() )
+
+  auto isDuplicate = [&]( const QString &name ) {
+    for ( PluginInformation &storedPlugin : pluginEntries )
+    {
+      if ( storedPlugin.name == name )
+      { // we should check on uuid!
+        return true;
+      }
+    }
+    return false;
+  };
+
+  for ( PluginInformation &plugin : mManager->availableAppPlugins() + mManager->publicPlugins() )
   {
+    if ( isDuplicate( plugin.name ) )
+    {
+      continue;
+    }
+
     PluginInformation entry;
     entry.uuid = plugin.uuid;
     entry.name = plugin.name;
     entry.enabled = mManager->isAppPluginEnabled( plugin.uuid );
     entry.configurable = mManager->isAppPluginConfigurable( plugin.uuid );
+    entry.locallyAvailable = mManager->isAppPluginLocallyAvailable( plugin.name );
+    entry.publiclyAvailable = mManager->isAppPluginPublicalyAvailable( plugin.name );
     entry.description = plugin.description;
     entry.author = plugin.author;
     entry.homepage = plugin.homepage;
@@ -120,6 +145,7 @@ void PluginsModel::refreshAppPluginsList()
     entry.version = plugin.version;
     pluginEntries.append( entry );
   }
+
   setPlugins( pluginEntries );
 }
 

@@ -39,8 +39,11 @@ class PluginsModel : public QAbstractListModel
       AuthorRole,
       HomepageRole,
       IconRole,
-      VersionRole
+      VersionRole,
+      LocallyAvailableRole,
+      PubliclyAvailableRole
     };
+    Q_ENUM( PluginRoles )
 
     explicit PluginsModel( QObject *parent = nullptr );
 
