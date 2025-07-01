@@ -1420,12 +1420,15 @@ Page {
                   }
                   return false;
                 }
-                property bool isImported: {
+                property string importedPath: {
                   if (importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText] !== undefined && importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"][importWebdavUserInput.editText] !== undefined) {
-                    return importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"][importWebdavUserInput.editText]["importPaths"].indexOf(modelData) >= 0;
+                    if (importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"][importWebdavUserInput.editText]["importPaths"][modelData] !== undefined) {
+                      return importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"][importWebdavUserInput.editText]["importPaths"][modelData];
+                    }
                   }
-                  return false;
+                  return "";
                 }
+                property bool isImported: importedPath != ""
 
                 Item {
                   id: expandSpacing
@@ -1475,7 +1478,7 @@ Page {
                     elide: Text.ElideRight
                     wrapMode: Text.WordWrap
                     color: Theme.secondaryTextColor
-                    text: qsTr("Imported and available locally")
+                    text: qsTr("Available locally in ‘%1’").arg(lineDialog.importedPath)
                   }
                 }
               }
