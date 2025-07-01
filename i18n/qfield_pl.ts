@@ -498,7 +498,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>Warstwa %1 jest tylko do odczytu.</translation>
+        <translation type="vanished">Warstwa %1 jest tylko do odczytu.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,6 +506,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Project Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The layer %1 is read-only.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
         <translation type="unfinished"/>
     </message>
 </context>

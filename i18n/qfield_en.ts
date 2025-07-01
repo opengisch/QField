@@ -503,7 +503,7 @@ Cancel to make a minimal device scan instead.</translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>The layer %1 is read only.</translation>
+        <translation type="vanished">The layer %1 is read only.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -512,6 +512,14 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <source>Project Folder</source>
         <translation type="obsolete">Project Folder</translation>
+    </message>
+    <message>
+        <source>The layer %1 is read-only.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

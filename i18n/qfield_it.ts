@@ -498,7 +498,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>Il layer %1 è di sola lettura.</translation>
+        <translation type="vanished">Il layer %1 è di sola lettura.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,6 +506,14 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Project Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The layer %1 is read-only.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
         <translation type="unfinished"/>
     </message>
 </context>

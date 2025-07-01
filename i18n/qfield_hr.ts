@@ -498,7 +498,7 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>Sloj %1 je u konfiguraciji &quot;Samo za čitanje&quot;</translation>
+        <translation type="vanished">Sloj %1 je u konfiguraciji &quot;Samo za čitanje&quot;</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,6 +506,14 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Project Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The layer %1 is read-only.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
         <translation type="unfinished"/>
     </message>
 </context>

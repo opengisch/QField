@@ -499,7 +499,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>Stratul %1 poate fi doar citit.</translation>
+        <translation type="vanished">Stratul %1 poate fi doar citit.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -507,6 +507,14 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Project Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The layer %1 is read-only.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
         <translation type="unfinished"/>
     </message>
 </context>

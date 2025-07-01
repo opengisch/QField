@@ -498,7 +498,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>Слой %1 неизменяемый</translation>
+        <translation type="vanished">Слой %1 неизменяемый</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,6 +506,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The layer %1 is read-only.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -498,7 +498,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>Vrstva %1 je pouze ke čtení.</translation>
+        <translation type="vanished">Vrstva %1 je pouze ke čtení.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,6 +506,14 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Project Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The layer %1 is read-only.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
         <translation type="unfinished"/>
     </message>
 </context>

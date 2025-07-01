@@ -498,7 +498,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>A capa %1 é de só lectura.</translation>
+        <translation type="vanished">A capa %1 é de só lectura.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,6 +506,14 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Project Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The layer %1 is read-only.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
         <translation type="unfinished"/>
     </message>
 </context>
