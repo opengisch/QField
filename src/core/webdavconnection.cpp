@@ -643,18 +643,27 @@ void WebdavConnection::putLocalItems()
   }
 }
 
-void WebdavConnection::importPath( const QString &remotePath, const QString &localPath )
+void WebdavConnection::importPath( const QString &remotePath, const QString &localPath, QString localFolder )
 {
   if ( mUrl.isEmpty() || mUsername.isEmpty() || ( mPassword.isEmpty() && mStoredPassword.isEmpty() ) )
     return;
 
   setupConnection();
 
-  QString localFolder = QStringLiteral( "%1 - %2 - %3" ).arg( mWebdavConnection.hostname(), mWebdavConnection.username(), remotePath );
+  if ( localFolder.isEmpty() )
+  {
+    localFolder = QStringLiteral( "%1 - %2" ).arg( remotePath, mWebdavConnection.username() );
+  }
   localFolder.replace( QRegularExpression( "[\\\\\\/\\<\\>\\:\\|\\?\\*\\\"]" ), QString( "_" ) );
 
   QDir localDir( localPath );
-  localDir.mkpath( localFolder );
+  QString localFolderCheck = localFolder;
+  int folderSuffix = 0;
+  while ( localDir.exists( localFolderCheck ) )
+  {
+    localFolderCheck = QStringLiteral( "%1 - %2" ).arg( localFolder, QString::number( ++folderSuffix ) );
+  }
+  localFolder = localFolderCheck;
 
   mProcessRemotePath = remotePath;
   mProcessLocalPath = QDir::cleanPath( localPath + QDir::separator() + localFolder ) + QDir::separator();
