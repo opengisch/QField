@@ -304,7 +304,7 @@ Rectangle {
 
     property bool readOnly: false
 
-    visible: stateMachine.state === "digitize" && !selection.focusedGeometry.isNull && !featureForm.model.featureModel.geometryLocked && (projectInfo.editRights || editButton.isCreatedCloudFeature) && toolBar.state == "Navigation" && editButton.supportsEditing && projectInfo.editRights
+    visible: stateMachine.state === "digitize" && !selection.focusedGeometry.isNull && !featureForm.model.featureModel.geometryEditingLocked && (projectInfo.editRights || editButton.isCreatedCloudFeature) && toolBar.state == "Navigation" && editButton.supportsEditing && projectInfo.editRights
 
     anchors.right: editButton.left
     anchors.top: parent.top
@@ -347,7 +347,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: toolBar.state == "Navigation" && supportsEditing && (projectInfo.editRights || isCreatedCloudFeature)
+    visible: toolBar.state === "Navigation" && supportsEditing && !featureForm.model.featureModel.attributeEditingLocked && (projectInfo.editRights || isCreatedCloudFeature)
     width: visible ? 48 : 0
     height: 48
     clip: true
@@ -372,7 +372,7 @@ Rectangle {
         editButton.supportsEditing = selection.focusedLayer && selection.focusedLayer.supportsEditing;
       }
       function onFocusedFeatureChanged() {
-        if (QFieldCloudUtils.getProjectId(qgisProject.fileName) != '') {
+        if (QFieldCloudUtils.getProjectId(qgisProject.fileName) !== '') {
           editButton.isCreatedCloudFeature = cloudProjectsModel.layerObserver.deltaFileWrapper.isCreatedFeature(selection.focusedLayer, selection.focusedFeature);
         } else {
           editButton.isCreatedCloudFeature = false;
@@ -727,7 +727,7 @@ Rectangle {
       id: processFeatureButton
       text: qsTr('Process Feature')
       icon.source: Theme.getThemeVectorIcon("ic_processing_black_24dp")
-      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryLocked))
+      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryEditingLocked))
       visible: enabled
 
       font: Theme.defaultFont
@@ -741,7 +741,7 @@ Rectangle {
       id: moveFeatureBtn
       text: qsTr('Move Feature')
       icon.source: Theme.getThemeVectorIcon("ic_move_white_24dp")
-      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryLocked))
+      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryEditingLocked))
       visible: enabled
 
       font: Theme.defaultFont
@@ -770,7 +770,7 @@ Rectangle {
       text: qsTr('Rotate Feature')
       icon.source: Theme.getThemeVectorIcon("ic_rotate_white_24dp")
       // allow only rotation for line or polygon or multipoint
-      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryLocked)) && (selection.focusedLayer !== null && (selection.focusedLayer.geometryType() === 0 || selection.focusedLayer.geometryType() === 1 || selection.focusedLayer.geometryType() === 2))
+      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryEditingLocked)) && (selection.focusedLayer !== null && (selection.focusedLayer.geometryType() === 0 || selection.focusedLayer.geometryType() === 1 || selection.focusedLayer.geometryType() === 2))
       visible: enabled
 
       font: Theme.defaultFont
@@ -784,7 +784,7 @@ Rectangle {
       id: transferFeatureAttributesBtn
       text: qsTr('Update Attributes from Feature')
       icon.source: Theme.getThemeVectorIcon("ic_transfer_into_black_24dp")
-      enabled: (projectInfo.insertRights && (!selection.focusedLayer || !featureForm.model.featureModel.geometryLocked))
+      enabled: (projectInfo.insertRights && (!selection.focusedLayer || !featureForm.model.featureModel.attributeEditingLocked))
       visible: enabled
 
       font: Theme.defaultFont
@@ -798,7 +798,7 @@ Rectangle {
       id: deleteFeatureBtn
       text: qsTr('Delete Feature')
       icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
-      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryLocked))
+      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.featureDeletionLocked))
       visible: enabled
 
       font: Theme.defaultFont

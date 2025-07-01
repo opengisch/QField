@@ -184,10 +184,16 @@ bool LayerUtils::isAtlasCoverageLayer( QgsVectorLayer *layer )
   return false;
 }
 
+bool LayerUtils::isFeatureAdditionLocked( QgsMapLayer *layer )
+{
+  return layer ? ( ( layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() && !layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() ) || ( layer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool() && !layer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool() ) ) : false;
+}
+
 void LayerUtils::selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, Qgis::SelectBehavior behavior )
 {
   if ( !layer )
     return;
+
   QgsFeatureIds qgsFids;
   for ( const int &fid : fids )
     qgsFids << fid;
