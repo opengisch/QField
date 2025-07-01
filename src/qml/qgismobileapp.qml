@@ -4514,29 +4514,29 @@ ApplicationWindow {
 
     steps: [{
         "type": "information",
+        "title": qsTr("Digitizing toggle"),
+        "description": qsTr("Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries."),
+        "target": () => [iface.findItemByObjectName('ModeSwitch')]
+      }, {
+        "type": "information",
         "title": qsTr("Measurement"),
-        "description": qsTr("Toggle the measurement tool to calculate distances and areas on the map. Use this tool to measure the length of lines or the area of polygons by clicking on the map."),
+        "description": qsTr("Toggle the measurement tool to calculate distances and areas on the map."),
         "target": () => [iface.findItemByObjectName('MeasurementButton')]
       }, {
         "type": "information",
         "title": qsTr("Print"),
-        "description": qsTr("Access print layouts and export options for the current project. Create professional maps and reports with custom layouts, legends, and scale bars."),
+        "description": qsTr("Export the map canvas to PDF using configured project print and atlas layouts."),
         "target": () => [iface.findItemByObjectName('PrintItemButton')]
       }, {
         "type": "information",
-        "title": qsTr("Cloud"),
-        "description": qsTr("Manage QField Cloud synchronization. Upload and download project data, collaborate with team members, and keep your field data synchronized across devices."),
+        "title": qsTr("QFieldCloud"),
+        "description": qsTr("Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened."),
         "target": () => [iface.findItemByObjectName('CloudButton')]
       }, {
         "type": "information",
         "title": qsTr("Project folder"),
-        "description": qsTr("Open the project folder to access project files, data sources, and related documents. Useful for managing project resources and understanding data structure."),
+        "description": qsTr("Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts."),
         "target": () => [iface.findItemByObjectName('ProjectFolderButton')]
-      }, {
-        "type": "information",
-        "title": qsTr("Mode"),
-        "description": qsTr("Switch between browse and digitize modes. Browse mode allows you to view and navigate the map, while digitize mode enables you to create and edit features."),
-        "target": () => [iface.findItemByObjectName('ModeSwitch')]
       }]
 
     Connections {
@@ -4556,7 +4556,7 @@ ApplicationWindow {
     function blockGuides() {
       mapCanvasTour.blockGuide();
       settings.setValue("/QField/showMapCanvasGuide", false);
-      settings.setValue("/QField/dashboardTour", false);
+      settings.setValue("/QField/showDashBoardGuide", false);
     }
   }
 
