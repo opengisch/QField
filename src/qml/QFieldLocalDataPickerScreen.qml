@@ -1520,7 +1520,7 @@ Page {
 
         Label {
           width: parent.width
-          text: qsTr("Imported folder name:")
+          text: qsTr("Imported folder name")
           wrapMode: Text.WordWrap
           font: Theme.defaultFont
           color: Theme.secondaryTextColor
