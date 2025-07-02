@@ -498,7 +498,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">A camada %1 é somente de leitura.</translation>
+        <translation>A camada %1 é somente de leitura.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -814,6 +810,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
         <translation>O último valor inserido neste campo não será reutilizado ao criar novas feições</translation>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1317,11 +1317,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Essa camada está configurada como &quot;Somente leitura&quot;, que desativa a adição, exclusão e edição de elementos.</translation>
+        <translation type="vanished">Essa camada está configurada como &quot;Somente leitura&quot;, que desativa a adição, exclusão e edição de elementos.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Essa camada é configurada como &quot;Bloquear Geometrias&quot;, que desativa a adição e exclusão de recursos, além de modificações nas geometrias dos elementos existentes.</translation>
+        <translation type="vanished">Essa camada é configurada como &quot;Bloquear Geometrias&quot;, que desativa a adição e exclusão de recursos, além de modificações nas geometrias dos elementos existentes.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1336,7 +1336,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1397,7 +1413,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Essa camada é configurada como &quot;Bloquear Geometrias&quot;, que desativa a adição e exclusão de recursos, além de modificações nas geometrias dos elementos existentes.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1410,6 +1426,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Trilha na camada %1 parada</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5236,11 +5256,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Falha ao criar o elemento!</translation>
+        <translation type="vanished">Falha ao criar o elemento!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Falha ao salvar o elemento!</translation>
+        <translation type="vanished">Falha ao salvar o elemento!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5772,6 +5792,18 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

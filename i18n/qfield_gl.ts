@@ -498,7 +498,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">A capa %1 é de só lectura.</translation>
+        <translation>A capa %1 é de só lectura.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -814,6 +810,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
         <translation>O último valor introducido para este campo non será reutilizado cando se creen novas entidades</translation>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1321,11 +1321,11 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Esta capa está configurada coma de &quot;Só Lectura&quot;, o cal desactiva o engadido, eliminación e edición de entidades.</translation>
+        <translation type="vanished">Esta capa está configurada coma de &quot;Só Lectura&quot;, o cal desactiva o engadido, eliminación e edición de entidades.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Esta capa está configurada coma de &quot;Xeometrías Bloqueadas&quot;, o cal desactiva o engadido e a eliminación de entidades, así como a modificación das xeometrías existentes.</translation>
+        <translation type="vanished">Esta capa está configurada coma de &quot;Xeometrías Bloqueadas&quot;, o cal desactiva o engadido e a eliminación de entidades, así como a modificación das xeometrías existentes.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1340,8 +1340,24 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <translation>Capa de só lectura</translation>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
-        <translation>Capa de xeometría bloqueada</translation>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1401,7 +1417,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Esta capa está configurada coma de &quot;Xeometrías Bloqueadas&quot;, o cal desactiva o engadido e a eliminación de entidades, así como a modificación das xeometrías existentes.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1414,6 +1430,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Detívose o seguimento na capa %1</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5245,11 +5265,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Non se puido crear a entidade!</translation>
+        <translation type="vanished">Non se puido crear a entidade!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Non se puido gardar a entidade!</translation>
+        <translation type="vanished">Non se puido gardar a entidade!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5781,6 +5801,18 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

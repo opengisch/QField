@@ -497,7 +497,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">Sloj %1 je samo za branje</translation>
+        <translation>Sloj %1 je samo za branje</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -505,10 +505,6 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -812,6 +808,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1315,7 +1315,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Ta sloj je konfiguriran &quot;samo za branje&quot;, kar onemogoča dodajanje, brisanje in urejanje objektov.</translation>
+        <translation type="vanished">Ta sloj je konfiguriran &quot;samo za branje&quot;, kar onemogoča dodajanje, brisanje in urejanje objektov.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
@@ -1334,7 +1334,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Sloj samo za branje</translation>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1405,6 +1421,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Sledenje na sloju %1 je zaustavljeno</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5229,11 +5249,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Objekta ni mogoče ustvariti!</translation>
+        <translation type="vanished">Objekta ni mogoče ustvariti!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Objekta ni mogoče shraniti!</translation>
+        <translation type="vanished">Objekta ni mogoče shraniti!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5765,6 +5785,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

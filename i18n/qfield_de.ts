@@ -498,7 +498,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">Der Layer %1 ist nur lesbar.</translation>
+        <translation>Der Layer %1 ist nur lesbar.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -814,6 +810,10 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
         <translation>Der letzte von dir eingegebene Wert wird beim Erzeugen eines neuen Objekts nichtmehr wiederverwendet werden.</translation>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1321,11 +1321,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Dieser Layer ist als &quot;nicht bearbeitbar&quot; konfiguriert, was das Hinzufügen, Löschen und Editieren von Objekten verhindert</translation>
+        <translation type="vanished">Dieser Layer ist als &quot;nicht bearbeitbar&quot; konfiguriert, was das Hinzufügen, Löschen und Editieren von Objekten verhindert</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Bei diesem Layer ist das Bearbeiten von Geometrien gesperrt. Dies verhindert sowohl das Hinzufügen und Löschen von Objekten, als auch das Bearbeiten der Geometrien von bestehenden Objekten</translation>
+        <translation type="vanished">Bei diesem Layer ist das Bearbeiten von Geometrien gesperrt. Dies verhindert sowohl das Hinzufügen und Löschen von Objekten, als auch das Bearbeiten der Geometrien von bestehenden Objekten</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1340,8 +1340,24 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <translation>Schreibgeschützter Layer</translation>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
-        <translation>Schreibgeschütze Layergeometrien</translation>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1400,7 +1416,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Bei diesem Layer ist das Bearbeiten von Geometrien gesperrt. Dies verhindert sowohl das Hinzufügen und Löschen von Objekten, als auch das Bearbeiten der Geometrien von bestehenden Objekten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1413,6 +1429,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Tracking in Layer %1 deaktiviert</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5242,11 +5262,11 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Objekt konnte nicht erstellt werden!</translation>
+        <translation type="vanished">Objekt konnte nicht erstellt werden!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Objekt konnte nicht gespeichert werden!</translation>
+        <translation type="vanished">Objekt konnte nicht gespeichert werden!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5778,6 +5798,18 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

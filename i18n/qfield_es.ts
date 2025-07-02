@@ -498,7 +498,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">La capa %1 es sólo de lectura.</translation>
+        <translation>La capa %1 es sólo de lectura.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -814,6 +810,10 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
         <translation>No se volverá a usar el último valor introducido en este campo al crear nuevos objetos</translation>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1323,11 +1323,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Esta capa está configurada como &quot;solo lectura&quot;, lo que deshabilita añadir, borrar y editar objetos.</translation>
+        <translation type="vanished">Esta capa está configurada como &quot;solo lectura&quot;, lo que deshabilita añadir, borrar y editar objetos.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Esta capa está configurada como &quot;bloquear geometrías&quot;, lo que deshabilita añadir y borrar objetos, así como modificar las geometrías de los objetos existentes.</translation>
+        <translation type="vanished">Esta capa está configurada como &quot;bloquear geometrías&quot;, lo que deshabilita añadir y borrar objetos, así como modificar las geometrías de los objetos existentes.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1342,8 +1342,24 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <translation>Capa de solo lectura</translation>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
-        <translation>Capa de geometría bloqueada</translation>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1403,7 +1419,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Esta capa está configurada como &quot;bloquear geometrías&quot;, lo que deshabilita añadir y borrar objetos, así como modificar las geometrías de los objetos existentes.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1416,6 +1432,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Seguimiento de la capa %1 detenido</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5245,11 +5265,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>¡No se pudo crear el objeto!</translation>
+        <translation type="vanished">¡No se pudo crear el objeto!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>¡No se pudo guardar el objeto!</translation>
+        <translation type="vanished">¡No se pudo guardar el objeto!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5782,6 +5802,18 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Follow location paused</source>
         <translation>Seguir ubicación pausada</translation>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

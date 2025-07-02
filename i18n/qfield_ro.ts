@@ -499,7 +499,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">Stratul %1 poate fi doar citit.</translation>
+        <translation>Stratul %1 poate fi doar citit.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -507,10 +507,6 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -814,6 +810,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1325,11 +1325,11 @@ Motiv:
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Acest strat este configurat ca &quot;Read-Only&quot; ceea ce dezactivează adăugarea, ștergerea și editarea elementelor.</translation>
+        <translation type="vanished">Acest strat este configurat ca &quot;Read-Only&quot; ceea ce dezactivează adăugarea, ștergerea și editarea elementelor.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Acest strat este configurat drept &quot;Geometri blocate&quot; fapt care dezactivează adăugarea și ștergerea elementelor, precum și modificarea geometriilor aferente elementelor existente.</translation>
+        <translation type="vanished">Acest strat este configurat drept &quot;Geometri blocate&quot; fapt care dezactivează adăugarea și ștergerea elementelor, precum și modificarea geometriilor aferente elementelor existente.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1344,7 +1344,23 @@ Motiv:
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1405,7 +1421,7 @@ Motiv:
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Acest strat este configurat drept &quot;Geometri blocate&quot; fapt care dezactivează adăugarea și ștergerea elementelor, precum și modificarea geometriilor aferente elementelor existente.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1418,6 +1434,10 @@ Motiv:
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Urmărirea stratului %1 s-a oprit</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5249,11 +5269,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Creara elementului a eșuat!</translation>
+        <translation type="vanished">Creara elementului a eșuat!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Salvarea elementului a eșuat!</translation>
+        <translation type="vanished">Salvarea elementului a eșuat!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5785,6 +5805,18 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

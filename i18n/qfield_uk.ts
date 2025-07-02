@@ -498,7 +498,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">Шар %1 доступний лише для читання.</translation>
+        <translation>Шар %1 доступний лише для читання.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -813,6 +809,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1325,11 +1325,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Цей шар налаштовано як «Тільки для читання», що вимикає додавання, видалення та редагування функцій.</translation>
+        <translation type="vanished">Цей шар налаштовано як «Тільки для читання», що вимикає додавання, видалення та редагування функцій.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Цей шар налаштовано як «Заблокувати геометрії», що вимикає додавання та видалення об’єктів, а також зміну геометрії наявних об’єктів.</translation>
+        <translation type="vanished">Цей шар налаштовано як «Заблокувати геометрії», що вимикає додавання та видалення об’єктів, а також зміну геометрії наявних об’єктів.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1344,7 +1344,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1405,7 +1421,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Цей шар налаштовано як «Заблокувати геометрії», що вимикає додавання та видалення об’єктів, а також зміну геометрії наявних об’єктів.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1418,6 +1434,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Трек шару %1 зупинено</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5249,11 +5269,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Не вдалось створити об&apos;єкт!</translation>
+        <translation type="vanished">Не вдалось створити об&apos;єкт!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Не вдалося зберегти об&apos;єкт!</translation>
+        <translation type="vanished">Не вдалося зберегти об&apos;єкт!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5785,6 +5805,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -498,7 +498,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">レイヤー %1 は読み取り専用です。</translation>
+        <translation>レイヤー %1 は読み取り専用です。</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -814,6 +810,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
         <translation>このフィールドに最後に入力された値は、新しい地物を作成する際には再利用されません。</translation>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1319,11 +1319,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>このレイヤは「読取専用」と設定されているため、地物の追加、削除、編集は行えません。</translation>
+        <translation type="vanished">このレイヤは「読取専用」と設定されているため、地物の追加、削除、編集は行えません。</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>このレイヤーは、地物の追加と削除、および既存のフィーチャのジオメトリの変更を無効にする「ジオメトリのロック」が設定されています。</translation>
+        <translation type="vanished">このレイヤーは、地物の追加と削除、および既存のフィーチャのジオメトリの変更を無効にする「ジオメトリのロック」が設定されています。</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1338,8 +1338,24 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>読み取り専用レイヤ</translation>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
-        <translation>ジオメトリロックされたレイヤ</translation>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1399,7 +1415,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>このレイヤーは、地物の追加と削除、および既存のフィーチャのジオメトリの変更を無効にする「ジオメトリのロック」が設定されています。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1412,6 +1428,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>レイヤ %1 の追跡を停止しました</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5243,11 +5263,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>地物を作成できませんでした!</translation>
+        <translation type="vanished">地物を作成できませんでした!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>地物を保存できませんでした!</translation>
+        <translation type="vanished">地物を保存できませんでした!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5779,6 +5799,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

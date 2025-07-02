@@ -498,7 +498,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">Vrstva %1 je pouze ke čtení.</translation>
+        <translation>Vrstva %1 je pouze ke čtení.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -813,6 +809,10 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1325,11 +1325,11 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Tato vrstva je nakonfigurována jako „pouze pro čtení“, která zakazuje přidávání, mazání a úpravy funkcí.</translation>
+        <translation type="vanished">Tato vrstva je nakonfigurována jako „pouze pro čtení“, která zakazuje přidávání, mazání a úpravy funkcí.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Tato vrstva je nakonfigurována jako „Uzamknout geometrii“, která zakazuje přidávání a mazání prvků, jakož i úpravu geometrie existujících prvků.</translation>
+        <translation type="vanished">Tato vrstva je nakonfigurována jako „Uzamknout geometrii“, která zakazuje přidávání a mazání prvků, jakož i úpravu geometrie existujících prvků.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1344,8 +1344,24 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <translation>Vrstva pouze pro čtení</translation>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
-        <translation>Vrstva s uzamčenou geometrií</translation>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1405,7 +1421,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Tato vrstva je nakonfigurována jako „Uzamknout geometrii“, která zakazuje přidávání a mazání prvků, jakož i úpravu geometrie existujících prvků.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1418,6 +1434,10 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Trasa na vrstvě %1 se zastavila</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5248,11 +5268,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Nepodařilo se vytvořit prvek!</translation>
+        <translation type="vanished">Nepodařilo se vytvořit prvek!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Nepodařilo se uložit prvek!</translation>
+        <translation type="vanished">Nepodařilo se uložit prvek!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5784,6 +5804,18 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

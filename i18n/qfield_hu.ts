@@ -498,7 +498,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">A %1 réteg csak olvasható.</translation>
+        <translation>A %1 réteg csak olvasható.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -814,6 +810,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
         <translation>A mezőben utoljára megadott érték nem kerül újrahasználatra új elem létrehozásakor</translation>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1320,11 +1320,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Ezt a réteget csak olvashatónak konfigurálták, mely tiltja az elemek hozzáadását, törlését és szerkesztését.</translation>
+        <translation type="vanished">Ezt a réteget csak olvashatónak konfigurálták, mely tiltja az elemek hozzáadását, törlését és szerkesztését.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Ezt  réteget zárolt geometriával konfigurálták, mely tiltja az elemek hozzáadását, törlését és szerkesztését valamint a létező elemek geometriájának módosítását.</translation>
+        <translation type="vanished">Ezt  réteget zárolt geometriával konfigurálták, mely tiltja az elemek hozzáadását, törlését és szerkesztését valamint a létező elemek geometriájának módosítását.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1339,8 +1339,24 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation>Csak olvasható réteg</translation>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
-        <translation>Rögzített geometriájú réteg</translation>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1400,7 +1416,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Ezt  réteget zárolt geometriával konfigurálták, mely tiltja az elemek hozzáadását, törlését és szerkesztését valamint a létező elemek geometriájának módosítását.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1413,6 +1429,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>%1 rétegen a követés leállt</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5241,11 +5261,11 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Nem sikerült az elemet létrehozni!</translation>
+        <translation type="vanished">Nem sikerült az elemet létrehozni!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Nem sikerült az elemet menteni!</translation>
+        <translation type="vanished">Nem sikerült az elemet menteni!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5777,6 +5797,18 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

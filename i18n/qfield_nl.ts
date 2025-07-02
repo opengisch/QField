@@ -498,7 +498,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">De laag is %1 alleen-lezen</translation>
+        <translation>De laag is %1 alleen-lezen</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -814,6 +810,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
         <translation>De laatst ingevoerde waarde voor dit veld wordt niet hergebruikt bij het maken van een nieuw objecten</translation>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1321,11 +1321,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Deze laag is geconfigureerd als &quot;Alleen-lezen&quot;, wat het toevoegen, verwijderen en bewerken van objecten uitschakelt.</translation>
+        <translation type="vanished">Deze laag is geconfigureerd als &quot;Alleen-lezen&quot;, wat het toevoegen, verwijderen en bewerken van objecten uitschakelt.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Deze laag is geconfigureerd als &quot;Geometrieën vergrendelen&quot;, wat het toevoegen en verwijderen van objecten uitschakelt, evenals het wijzigen van de geometrieën van bestaande objecten.</translation>
+        <translation type="vanished">Deze laag is geconfigureerd als &quot;Geometrieën vergrendelen&quot;, wat het toevoegen en verwijderen van objecten uitschakelt, evenals het wijzigen van de geometrieën van bestaande objecten.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1340,7 +1340,23 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>Alleen-lezen laag</translation>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1401,7 +1417,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Deze laag is geconfigureerd als &quot;Geometrieën vergrendelen&quot;, wat het toevoegen en verwijderen van objecten uitschakelt, evenals het wijzigen van de geometrieën van bestaande objecten.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1414,6 +1430,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Volgen op laag %1 gestopt</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5245,11 +5265,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Kan object niet creëren!</translation>
+        <translation type="vanished">Kan object niet creëren!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Kan object niet opslaan!</translation>
+        <translation type="vanished">Kan object niet opslaan!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5781,6 +5801,18 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

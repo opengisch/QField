@@ -498,7 +498,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">图层 %1 为只读状态。</translation>
+        <translation>图层 %1 为只读状态。</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -814,6 +810,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
         <translation>创建新要素时，不会重复使用此字段最后输入的值</translation>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1319,11 +1319,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>该图层已设置为“只读”，禁用添加、删除和编辑要素。</translation>
+        <translation type="vanished">该图层已设置为“只读”，禁用添加、删除和编辑要素。</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>该图层被配置为“锁定几何图形”，禁用添加和删除要素以及修改现有要素的几何图形。</translation>
+        <translation type="vanished">该图层被配置为“锁定几何图形”，禁用添加和删除要素以及修改现有要素的几何图形。</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1338,8 +1338,24 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>只读图层</translation>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
-        <translation>几何图形锁定图层</translation>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1399,7 +1415,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>该图层被配置为“锁定几何图形”，禁用添加和删除要素以及修改现有要素的几何图形。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1412,6 +1428,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>在图层 %1 上的追踪已停止</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5243,11 +5263,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>创建要素失败！</translation>
+        <translation type="vanished">创建要素失败！</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>保存要素失败！</translation>
+        <translation type="vanished">保存要素失败！</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5780,6 +5800,18 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Follow location paused</source>
         <translation>跟踪位置已暂停</translation>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -498,7 +498,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">%1 레이어는 읽기 전용입니다.</translation>
+        <translation>%1 레이어는 읽기 전용입니다.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -813,6 +809,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1319,11 +1319,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</translation>
+        <translation type="vanished">This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</translation>
+        <translation type="vanished">This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1338,7 +1338,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1399,7 +1415,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1412,6 +1428,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Track on layer %1 stopped</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5243,11 +5263,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>대상을 생성하는데 실패하였습니다!</translation>
+        <translation type="vanished">대상을 생성하는데 실패하였습니다!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>대상을 저장하는데 실패하였습니다!</translation>
+        <translation type="vanished">대상을 저장하는데 실패하였습니다!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5779,6 +5799,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

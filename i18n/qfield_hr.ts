@@ -498,7 +498,7 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">Sloj %1 je u konfiguraciji &quot;Samo za čitanje&quot;</translation>
+        <translation>Sloj %1 je u konfiguraciji &quot;Samo za čitanje&quot;</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -813,6 +809,10 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1323,11 +1323,11 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Sloj je konfiguriran &apos;&apos;Samo za čitanje&apos;&apos; što onemogućava dodavanje, brisanje i uređivanje elemenata.</translation>
+        <translation type="vanished">Sloj je konfiguriran &apos;&apos;Samo za čitanje&apos;&apos; što onemogućava dodavanje, brisanje i uređivanje elemenata.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Sloj je konfiguriran kao &quot;Zaključana Geometrija&quot; što onemogućava dodavanje i brisanje elemenata, kao i mijenjanje geometrije postojećih elemenata.</translation>
+        <translation type="vanished">Sloj je konfiguriran kao &quot;Zaključana Geometrija&quot; što onemogućava dodavanje i brisanje elemenata, kao i mijenjanje geometrije postojećih elemenata.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1342,8 +1342,24 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <translation>Sloj u konfiguraciji &quot;Samo za čitanje&quot;</translation>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
-        <translation>Sloj sa zaključanom geometrijom</translation>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1403,7 +1419,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Sloj je konfiguriran kao &quot;Zaključana geometrija&quot; što onemogućava dodavanje i brisanje elemenata, kao i mijenjanje geometrije postojećih elemenata.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1416,6 +1432,10 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Praćenje na sloju %1 zaustavljeno</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5243,11 +5263,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Neuspješno stvaranje elementa!</translation>
+        <translation type="vanished">Neuspješno stvaranje elementa!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Neuspjelo spremanje elementa!</translation>
+        <translation type="vanished">Neuspjelo spremanje elementa!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5779,6 +5799,18 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

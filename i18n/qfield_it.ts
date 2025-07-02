@@ -498,7 +498,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">Il layer %1 è di sola lettura.</translation>
+        <translation>Il layer %1 è di sola lettura.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -814,6 +810,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
         <translation>L&apos;ultimo valore inserito per questo campo non sarà riutilizzato quando si creano nuovi elementi</translation>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1323,11 +1323,11 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Questo layer è configurato come &quot;Sola-Lettura&quot; che disabilita l&apos;aggiunta, l&apos;eliminazione e la modifica degli elementi.</translation>
+        <translation type="vanished">Questo layer è configurato come &quot;Sola-Lettura&quot; che disabilita l&apos;aggiunta, l&apos;eliminazione e la modifica degli elementi.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Questo layer è configurato come &quot;Geometrie Bloccate&quot; che disabilita l&apos;aggiunta e l&apos;eliminazione degli elementi, nonché la modifica delle geometrie degli elementi esistenti.</translation>
+        <translation type="vanished">Questo layer è configurato come &quot;Geometrie Bloccate&quot; che disabilita l&apos;aggiunta e l&apos;eliminazione degli elementi, nonché la modifica delle geometrie degli elementi esistenti.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1342,8 +1342,24 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <translation>Layer in sola lettura</translation>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
-        <translation>Layer con geometria bloccata</translation>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1403,7 +1419,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Questo layer è configurato come &quot;Geometrie Bloccate&quot; che disabilita l&apos;aggiunta e l&apos;eliminazione degli elementi, nonché la modifica delle geometrie degli elementi esistenti.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1416,6 +1432,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Tracking sul layer %1 interrotto</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5251,11 +5271,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Impossibile creare elemento!</translation>
+        <translation type="vanished">Impossibile creare elemento!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Impossibile salvare elemento!</translation>
+        <translation type="vanished">Impossibile salvare elemento!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5787,6 +5807,18 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

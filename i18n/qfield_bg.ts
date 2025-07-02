@@ -498,7 +498,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">Слоят %1 е достъпен само за четене.</translation>
+        <translation>Слоят %1 е достъпен само за четене.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -813,6 +809,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1321,11 +1321,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Слоят е маркиран само за четене (&quot;Read-Only&quot;), поради което добавянето, изтриването и промяната на обекти е невъзможно.</translation>
+        <translation type="vanished">Слоят е маркиран само за четене (&quot;Read-Only&quot;), поради което добавянето, изтриването и промяната на обекти е невъзможно.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Слоят е маркиран със заключена геометрия (&quot;Lock Geometries&quot;), поради което добавянето и изтриването на обекти, както и промяната на геометрията на съществуващи обекти, е невъзможно.</translation>
+        <translation type="vanished">Слоят е маркиран със заключена геометрия (&quot;Lock Geometries&quot;), поради което добавянето и изтриването на обекти, както и промяната на геометрията на съществуващи обекти, е невъзможно.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1340,8 +1340,24 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Слой само за четене</translation>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
-        <translation>Слой със заключена геометрия</translation>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1401,7 +1417,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Слоят е маркиран със заключена геометрия (&quot;Lock Geometries&quot;), поради което добавянето и изтриването на обекти, както и промяната на геометрията на съществуващи обекти, е невъзможно.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1414,6 +1430,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Проследяването на слой %1 e прекъснато</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5247,11 +5267,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Неуспешно създаване на обект!</translation>
+        <translation type="vanished">Неуспешно създаване на обект!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Неуспешен запис на обект!</translation>
+        <translation type="vanished">Неуспешен запис на обект!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5784,6 +5804,18 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Follow location paused</source>
         <translation>Следването на локацията е паузирано</translation>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

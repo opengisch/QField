@@ -497,7 +497,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">La couche %1 est en lecture seule.</translation>
+        <translation>La couche %1 est en lecture seule.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -505,10 +505,6 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -813,6 +809,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
         <translation>La dernière valeur saisie pour ce champ ne sera pas réutilisée lors de la création de nouvelles entités</translation>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1322,11 +1322,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Cette couche est configurée en &quot;lecture seule&quot;, ce qui désactive l&apos;ajout, la suppression et l&apos;édition d&apos;entités.</translation>
+        <translation type="vanished">Cette couche est configurée en &quot;lecture seule&quot;, ce qui désactive l&apos;ajout, la suppression et l&apos;édition d&apos;entités.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Cette couche est configurée en &quot;géométries verrouillées&quot;, ce qui désactive l&apos;ajout, la suppression et l&apos;édition d&apos;entités ainsi que la modification des géométries des entités existantes.</translation>
+        <translation type="vanished">Cette couche est configurée en &quot;géométries verrouillées&quot;, ce qui désactive l&apos;ajout, la suppression et l&apos;édition d&apos;entités ainsi que la modification des géométries des entités existantes.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1341,8 +1341,24 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <translation>Couche en lecture seule</translation>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
-        <translation>Calque à géométrie verrouillée</translation>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1402,7 +1418,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Cette couche est configurée en &quot;géométries verrouillées&quot;, ce qui désactive l&apos;ajout, la suppression et l&apos;édition d&apos;entités ainsi que la modification des géométries des entités existantes.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1415,6 +1431,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Suivi de la couche %1 arrêté</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5244,11 +5264,11 @@ Essayez les exemples de projets répertoriés ci-dessous.</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Échec de la création de l&apos;entité !</translation>
+        <translation type="vanished">Échec de la création de l&apos;entité !</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Échec de l&apos;enregistrement de l&apos;entité !</translation>
+        <translation type="vanished">Échec de l&apos;enregistrement de l&apos;entité !</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5783,6 +5803,18 @@ fermer le projet et quitter l&apos;application</translation>
     <message>
         <source>Follow location paused</source>
         <translation>Suivi de la localisation en pause</translation>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -498,7 +498,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">Hladina %1 je iba na čítanie.</translation>
+        <translation>Hladina %1 je iba na čítanie.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -814,6 +810,10 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
         <translation>Posledná hodnota pre toto pole nebude použitá pri tvorbe nových prvkov</translation>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1323,11 +1323,11 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Táto vrstva je iba na čítanie, nemožno pridávať, zmazať ani editovať prvky.</translation>
+        <translation type="vanished">Táto vrstva je iba na čítanie, nemožno pridávať, zmazať ani editovať prvky.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Táto vrstva má zamknuté geometrie, nemožno pridávať ani zmazať prvky, ako aj modifikovať geometrie existujúcich prvkov.</translation>
+        <translation type="vanished">Táto vrstva má zamknuté geometrie, nemožno pridávať ani zmazať prvky, ako aj modifikovať geometrie existujúcich prvkov.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1342,8 +1342,24 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
         <translation>Vrstva iba na čítanie</translation>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
-        <translation>Vrstva má zamknuté geometrie</translation>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1404,7 +1420,7 @@ Dôvod:
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Táto vrstva má zamknuté geometrie, nemožno pridávať ani zmazať prvky, ako aj modifikovať geometrie existujúcich prvkov.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1417,6 +1433,10 @@ Dôvod:
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Trasovanie na hladine %1 zastavené</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5248,11 +5268,11 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Vytvorenie prvku zlyhalo!</translation>
+        <translation type="vanished">Vytvorenie prvku zlyhalo!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Uloženie prvku zlyhalo!</translation>
+        <translation type="vanished">Uloženie prvku zlyhalo!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5784,6 +5804,18 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

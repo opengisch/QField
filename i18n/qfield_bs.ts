@@ -497,7 +497,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">Sloj %1 je samo za čitanje.</translation>
+        <translation>Sloj %1 je samo za čitanje.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -505,10 +505,6 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -812,6 +808,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1322,11 +1322,11 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Ovaj sloj je konfigurisan kao &quot;Samo za čitanje&quot; što onemogućava dodavnje, brisanje i editovanje objekata.</translation>
+        <translation type="vanished">Ovaj sloj je konfigurisan kao &quot;Samo za čitanje&quot; što onemogućava dodavnje, brisanje i editovanje objekata.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Sloj je konfigurisan kao &quot;Zaključaj geometriju&quot; što onemogućava dodavanje i brisanje objekata, kao i mijenjanje geometrije postojećih objekata.</translation>
+        <translation type="vanished">Sloj je konfigurisan kao &quot;Zaključaj geometriju&quot; što onemogućava dodavanje i brisanje objekata, kao i mijenjanje geometrije postojećih objekata.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1341,7 +1341,23 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1402,7 +1418,7 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Sloj je konfigurisan kao &quot;Zaključaj geometriju&quot; što onemogućava dodavanje i brisanje objekata, kao i mijenjanje geometrije postojećih objekata.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1415,6 +1431,10 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Praćenje na sloju %1 zaustavljeno</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5245,11 +5265,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Nije uspjelo kreiranje objekta!</translation>
+        <translation type="vanished">Nije uspjelo kreiranje objekta!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Nije uspjelo snimanje objekta!</translation>
+        <translation type="vanished">Nije uspjelo snimanje objekta!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5781,6 +5801,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

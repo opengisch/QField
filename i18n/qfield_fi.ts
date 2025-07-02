@@ -498,7 +498,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">Taso %1 on ainoastaan luettavissa.</translation>
+        <translation>Taso %1 on ainoastaan luettavissa.</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -814,6 +810,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
         <translation>Tähän kenttään viimeksi syötettyä arvoa ei käytetä uudelleen luotaessa uusia kohteita</translation>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1321,11 +1321,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Taso on konfiguroitu &quot;vain-luku&quot;-muotoon, mikä estää kohteiden lisäyksen, poistamisen ja muokkauksen.</translation>
+        <translation type="vanished">Taso on konfiguroitu &quot;vain-luku&quot;-muotoon, mikä estää kohteiden lisäyksen, poistamisen ja muokkauksen.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Tämä taso on konfiguroitu &quot;lukittu-geometria&quot;-muotoon, mikä estää kohteiden lisäyksen, poistamisen ja olemassa olevien kohteiden geometrioiden muokkauksen.</translation>
+        <translation type="vanished">Tämä taso on konfiguroitu &quot;lukittu-geometria&quot;-muotoon, mikä estää kohteiden lisäyksen, poistamisen ja olemassa olevien kohteiden geometrioiden muokkauksen.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1340,8 +1340,24 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <translation>Ainoastaan luettava taso</translation>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
-        <translation>Geometriat-lukittu taso</translation>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1401,7 +1417,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Tämä taso on konfiguroitu &quot;lukittu-geometria&quot;-muotoon, mikä estää kohteiden lisäyksen, poistamisen ja olemassa olevien kohteiden geometrioiden muokkauksen.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1414,6 +1430,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Jäljitys %1 tasolla keskeytetty</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5247,11 +5267,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Kohteen luonti epäonnistui!</translation>
+        <translation type="vanished">Kohteen luonti epäonnistui!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Kohteen tallennus epäonnistui!</translation>
+        <translation type="vanished">Kohteen tallennus epäonnistui!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5783,6 +5803,18 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>

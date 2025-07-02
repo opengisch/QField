@@ -498,7 +498,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation type="vanished">Слой %1 неизменяемый</translation>
+        <translation>Слой %1 неизменяемый</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -506,10 +506,6 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The layer %1 is read-only.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -814,6 +810,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
         <translation>Последнее введенное значение для этого поля не будет повторно использоваться при создании новых </translation>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1325,11 +1325,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Этот слой настроен как «Только для чтения», что запрещает добавление, удаление и редактирование объектов.</translation>
+        <translation type="vanished">Этот слой настроен как «Только для чтения», что запрещает добавление, удаление и редактирование объектов.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Этот слой настроен как «Неизменяемая геометрия», что запрещает добавление и удаление объектов, а также изменение геометрии существующих объектов.</translation>
+        <translation type="vanished">Этот слой настроен как «Неизменяемая геометрия», что запрещает добавление и удаление объектов, а также изменение геометрии существующих объектов.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
@@ -1344,8 +1344,24 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Неизменяемый слой</translation>
     </message>
     <message>
-        <source>Geometry-locked layer</source>
-        <translation>Слой с неизменяемой геометрией</translation>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1405,7 +1421,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation>Этот слой настроен как «Заблокированная геометрия», что запрещает добавление и удаление объектов, а также изменение геометрии существующих объектов.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
@@ -1418,6 +1434,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Track on layer %1 stopped</source>
         <translation>Запись трека на слое %1 остановлена</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5247,11 +5267,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation>Не удалось создать объект!</translation>
+        <translation type="vanished">Не удалось создать объект!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Не удалось сохранить объект!</translation>
+        <translation type="vanished">Не удалось сохранить объект!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -5783,6 +5803,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Follow location paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
         <translation type="unfinished"/>
     </message>
 </context>
