@@ -112,6 +112,7 @@ Drawer {
 
           QfToolButton {
             id: measurementButton
+            objectName: "MeasurementButton"
             anchors.verticalCenter: parent.verticalCenter
             round: true
             iconSource: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
@@ -125,6 +126,7 @@ Drawer {
 
           QfToolButton {
             id: printItemButton
+            objectName: "PrintItemButton"
             anchors.verticalCenter: parent.verticalCenter
             round: true
             iconSource: Theme.getThemeVectorIcon("ic_print_black_24dp")
@@ -138,6 +140,7 @@ Drawer {
 
           QfToolButton {
             id: cloudButton
+            objectName: "CloudButton"
             anchors.verticalCenter: parent.verticalCenter
             iconSource: {
               if (cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudProjectsModel.currentProject) {
@@ -211,6 +214,7 @@ Drawer {
 
           QfToolButton {
             id: projectFolderButton
+            objectName: "ProjectFolderButton"
             anchors.verticalCenter: parent.verticalCenter
             font: Theme.defaultFont
             iconSource: Theme.getThemeVectorIcon("ic_project_folder_black_24dp")
@@ -400,6 +404,7 @@ Drawer {
 
       Switch {
         id: modeSwitch
+        objectName: "ModeSwitch"
         width: 56 + 36
         height: 48
         anchors.right: parent.right
