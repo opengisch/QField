@@ -20,6 +20,8 @@ Popup {
   property string nextText: qsTr("Next")
   property string previousText: qsTr("Previous")
 
+  signal guideFinished
+
   padding: 0
   parent: Overlay.overlay
   width: internalObject.parentWidth
@@ -37,8 +39,13 @@ Popup {
   }
   onIndexChanged: {
     canvas.requestPaint();
-    if (index == 1)
+    if (index == 1) {
       enablePanelAnimation = true;
+    }
+    if (steps[index] && steps[index].type === "action") {
+      steps[index].forwardAction();
+      delayedPainter.restart();
+    }
   }
 
   function blockGuide() {
@@ -60,7 +67,17 @@ Popup {
     property var step: steps[index]
     property var target: {
       if (steps[index]) {
-        return steps[index].target();
+        if (steps[index].type === "information") {
+          return steps[index].target();
+        } else if (steps[index].type === "action") {
+          let objectAfterAction = undefined;
+          if (index + 1 < steps.length) {
+            objectAfterAction = steps[index + 1].target();
+          } else {
+            objectAfterAction = steps[index].target();
+          }
+          return objectAfterAction;
+        }
       }
       return undefined;
     }
@@ -133,6 +150,10 @@ Popup {
       ctx.closePath();
       ctx.fill();
     }
+
+    MouseArea {
+      anchors.fill: parent
+    }
   }
 
   Rectangle {
@@ -168,13 +189,13 @@ Popup {
     }
 
     x: {
-      if (internalObject.target[0]) {
+      if (internalObject.target && internalObject.target[0]) {
         return Math.min(Math.max(8, internalObject.pos.x + internalObject.target[0].width / 2 - width / 2), guide.width - width - 10);
       }
       return 0;
     }
     y: {
-      if (internalObject.target[0]) {
+      if (internalObject.target && internalObject.target[0]) {
         var ty = internalObject.pos.y + internalObject.target[0].height + guide.targetMargins + 15;
         if ((ty + height) >= guide.height) {
           return internalObject.pos.y - height - guide.targetMargins - 8;
@@ -241,8 +262,8 @@ Popup {
 
     AnimatedImage {
       id: animatedHint
-      visible: internalObject.step.animatedGuide !== undefined
-      source: visible ? internalObject.step.animatedGuide : ""
+      visible: internalObject.step ? internalObject.step.animatedGuide !== undefined : false
+      source: visible ? internalObject.step ? internalObject.step.animatedGuide : "" : ""
       anchors {
         bottom: parent.bottom
         left: parent.left
@@ -272,6 +293,7 @@ Popup {
       onClicked: {
         if (isLast) {
           guide.close();
+          guideFinished();
         } else {
           guide.index = guide.index + 1;
         }
@@ -294,7 +316,11 @@ Popup {
         rightMargin: 15
       }
       onClicked: {
-        guide.index -= 1;
+        if (steps[index - 1].type === "action") {
+          steps[index - 1].backwardAction();
+        } else {
+          guide.index -= 1;
+        }
       }
     }
 
@@ -324,13 +350,13 @@ Popup {
     visible: panelXAnimation.running || panelYAnimation.running ? 0 : 1
 
     x: {
-      if (internalObject.target[0]) {
+      if (internalObject.target && internalObject.target[0]) {
         return internalObject.pos.x + internalObject.target[0].width / 2 - pointerToItem.width / 2;
       }
       return 0;
     }
     y: {
-      if (internalObject.target[0]) {
+      if (internalObject.target && internalObject.target[0]) {
         return internalObject.pos.y + (hintPanel.dir ? -(height + 4) : internalObject.target[0].height + 4);
       }
       return 0;

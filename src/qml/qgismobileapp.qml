@@ -4472,18 +4472,22 @@ ApplicationWindow {
     objectName: 'mapCanvasTour'
 
     steps: [{
+        "type": "information",
         "title": qsTr("Dashboard"),
         "description": qsTr("This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu."),
         "target": () => [menuButton]
       }, {
+        "type": "information",
         "title": qsTr("Positioning"),
         "description": qsTr("This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored."),
         "target": () => [gnssButton]
       }, {
+        "type": "information",
         "title": qsTr("Search"),
         "description": qsTr("The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more."),
         "target": () => [locatorItem]
       }, {
+        "type": "information",
         "title": qsTr("Zoom"),
         "description": qsTr("In addition to the pinch gesture, these buttons help you quickly zoom in and out."),
         "target": () => [zoomToolbar]
@@ -4498,12 +4502,58 @@ ApplicationWindow {
     }
   }
 
+  QFieldGuide {
+    id: dashboardTour
+    baseRoot: mainWindow
+    objectName: 'dashboardTour'
+    z: dashBoard.z + 1
+    index: -1
+
+    steps: [{
+        "type": "information",
+        "title": qsTr("Digitizing toggle"),
+        "description": qsTr("Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries."),
+        "target": () => [iface.findItemByObjectName('ModeSwitch')]
+      }, {
+        "type": "information",
+        "title": qsTr("Measurement"),
+        "description": qsTr("Toggle the measurement tool to calculate distances and areas on the map."),
+        "target": () => [iface.findItemByObjectName('MeasurementButton')]
+      }, {
+        "type": "information",
+        "title": qsTr("Print"),
+        "description": qsTr("Export the map canvas to PDF using configured project print and atlas layouts."),
+        "target": () => [iface.findItemByObjectName('PrintItemButton')]
+      }, {
+        "type": "information",
+        "title": qsTr("QFieldCloud"),
+        "description": qsTr("Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened."),
+        "target": () => [iface.findItemByObjectName('CloudButton')]
+      }, {
+        "type": "information",
+        "title": qsTr("Project folder"),
+        "description": qsTr("Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts."),
+        "target": () => [iface.findItemByObjectName('ProjectFolderButton')]
+      }]
+
+    Connections {
+      target: dashBoard
+      enabled: settings ? settings.valueBool("/QField/showDashboardGuide", true) : false
+      function onOpened() {
+        dashboardTour.index = 0;
+        dashboardTour.runTour();
+        settings.setValue("/QField/showDashboardGuide", false);
+      }
+    }
+  }
+
   Item {
     objectName: 'toursController'
 
     function blockGuides() {
       mapCanvasTour.blockGuide();
       settings.setValue("/QField/showMapCanvasGuide", false);
+      settings.setValue("/QField/showDashBoardGuide", false);
     }
   }
 
