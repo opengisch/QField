@@ -1,5 +1,5 @@
 /***************************************************************************
- pluginsproxymodel.h - PluginsProxyModel
+ pluginproxymodel.h - PluginProxyModel
 
  ---------------------
  begin                : June 2025
@@ -14,15 +14,15 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef PLUGINSPROXYMODEL_H
-#define PLUGINSPROXYMODEL_H
+#ifndef PLUGINPROXYMODEL_H
+#define PLUGINPROXYMODEL_H
 
 #include <QSortFilterProxyModel>
 
 /**
  * \ingroup core
  */
-class PluginsProxyModel : public QSortFilterProxyModel
+class PluginProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY( QString searchTerm READ searchTerm WRITE setSearchTerm NOTIFY searchTermChanged )
@@ -36,7 +36,7 @@ class PluginsProxyModel : public QSortFilterProxyModel
     };
     Q_ENUM( PluginFilter )
 
-    explicit PluginsProxyModel( QObject *parent = nullptr );
+    explicit PluginProxyModel( QObject *parent = nullptr );
 
     /**
      * Returns the current search term used to filter items.
@@ -70,6 +70,6 @@ class PluginsProxyModel : public QSortFilterProxyModel
     PluginFilter mFilter = LocalPlugins;
 };
 
-Q_DECLARE_METATYPE( PluginsProxyModel::PluginFilter )
+Q_DECLARE_METATYPE( PluginProxyModel::PluginFilter )
 
-#endif // PLUGINSPROXYMODEL_H
+#endif // PLUGINPROXYMODEL_H

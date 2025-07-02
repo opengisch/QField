@@ -29,7 +29,7 @@ struct PluginInformation
     bool enabled;
     bool configurable;
     bool locallyAvailable;
-    bool publiclyAvailable;
+    bool remotelyAvailable;
     QString name;
     QString description;
     QString author;
@@ -38,7 +38,7 @@ struct PluginInformation
     QString version;
     QString path;
 
-    PluginInformation( const QString &uuid = QString(), const QString &name = QString(), const QString &description = QString(), const QString &author = QString(), const QString &homepage = QString(), const QString &icon = QString(), const QString &version = QString(), const QString &path = QString(), const bool locallyAvailable = false, const bool publiclyAvailable = false )
+    PluginInformation( const QString &uuid = QString(), const QString &name = QString(), const QString &description = QString(), const QString &author = QString(), const QString &homepage = QString(), const QString &icon = QString(), const QString &version = QString(), const QString &path = QString(), const bool locallyAvailable = false, const bool remotelyAvailable = false )
       : uuid( uuid )
       , name( name )
       , description( description )
@@ -48,7 +48,7 @@ struct PluginInformation
       , version( version )
       , path( path )
       , locallyAvailable( locallyAvailable )
-      , publiclyAvailable( publiclyAvailable )
+      , remotelyAvailable( remotelyAvailable )
     {}
     ~PluginInformation() = default;
 };
@@ -63,7 +63,7 @@ class PluginManager : public QObject
     Q_OBJECT
 
     Q_PROPERTY( QList<PluginInformation> availableAppPlugins READ availableAppPlugins NOTIFY availableAppPluginsChanged )
-    Q_PROPERTY( QList<PluginInformation> publicPlugins READ publicPlugins NOTIFY publicPluginsChanged )
+    Q_PROPERTY( QList<PluginInformation> remotePlugins READ remotePlugins NOTIFY remotePluginsChanged )
 
   public:
     explicit PluginManager( QQmlEngine *engine );
@@ -80,7 +80,7 @@ class PluginManager : public QObject
     Q_INVOKABLE void clearPluginPermissions();
 
     QList<PluginInformation> availableAppPlugins() const;
-    QList<PluginInformation> publicPlugins() const;
+    QList<PluginInformation> remotePlugins() const;
 
     Q_INVOKABLE void enableAppPlugin( const QString &uuid );
     Q_INVOKABLE void disableAppPlugin( const QString &uuid );
@@ -89,9 +89,9 @@ class PluginManager : public QObject
     Q_INVOKABLE bool isAppPluginEnabled( const QString &uuid ) const;
     Q_INVOKABLE bool isAppPluginConfigurable( const QString &uuid ) const;
 
-    bool isAppPluginLocallyAvailable( const QString &name ) const;   // we must use uuid instead of name!
-    bool isAppPluginPublicalyAvailable( const QString &name ) const; // we must use uuid instead of name!
-    void fetchPublicPlugins();
+    bool isAppPluginLocallyAvailable( const QString &name ) const;  // we must use uuid instead of name!
+    bool isAppPluginRemotelyAvailable( const QString &name ) const; // we must use uuid instead of name!
+    void fetchRemotePlugins();
     void refreshAppPlugins();
     void restoreAppPlugins();
 
@@ -104,7 +104,7 @@ class PluginManager : public QObject
     void pluginPermissionRequested( const QString &pluginName, bool isProjectPlugin );
 
     void availableAppPluginsChanged();
-    void publicPluginsChanged();
+    void remotePluginsChanged();
     void appPluginEnabled( const QString &uuid );
     void appPluginDisabled( const QString &uuid );
 
@@ -125,7 +125,7 @@ class PluginManager : public QObject
 
     QMap<QString, PluginInformation> mAvailableAppPlugins;
 
-    QList<PluginInformation> mPublicPlugins;
+    QList<PluginInformation> mRemotePlugins;
 };
 
 #endif // PLUGINMANAGER_H

@@ -48,7 +48,7 @@ Popup {
 
       QfTabBar {
         id: filterBar
-        model: [qsTr("Local Plugins"), qsTr("Public Plugins")]
+        model: [qsTr("Local Plugins"), qsTr("Available plugins")]
         Layout.fillWidth: true
         Layout.preferredHeight: defaultHeight
         delegate: TabButton {
@@ -62,8 +62,8 @@ Popup {
         }
       }
 
-      PluginsModel {
-        id: pluginsModel
+      PluginModel {
+        id: pluginModel
         manager: pluginManager
       }
 
@@ -82,10 +82,10 @@ Popup {
         visible: count > 0 || filterBar.currentIndex === 1
         clip: true
 
-        model: PluginsProxyModel {
-          sourceModel: pluginsModel
+        model: PluginProxyModel {
+          sourceModel: pluginModel
           searchTerm: filterBar.currentIndex === 1 ? searchBar.searchTerm : ""
-          filter: filterBar.currentIndex === 0 ? PluginsProxyModel.LocalPlugins : PluginsProxyModel.PublicPlugins
+          filter: filterBar.currentIndex === 0 ? PluginProxyModel.LocalPlugins : PluginProxyModel.PublicPlugins
         }
 
         delegate: PluginItem {
@@ -324,15 +324,15 @@ Popup {
     }
 
     function onAppPluginEnabled(uuid) {
-      pluginsModel.updatePluginEnabledStateByUuid(uuid, true, pluginManager.isAppPluginConfigurable(uuid));
+      pluginModel.updatePluginEnabledStateByUuid(uuid, true, pluginManager.isAppPluginConfigurable(uuid));
     }
 
     function onAppPluginDisabled(uuid) {
-      pluginsModel.updatePluginEnabledStateByUuid(uuid, false, false);
+      pluginModel.updatePluginEnabledStateByUuid(uuid, false, false);
     }
 
     function onAvailableAppPluginsChanged() {
-      pluginsModel.refreshAppPluginsList();
+      pluginModel.refreshAppPluginsList();
     }
   }
 }

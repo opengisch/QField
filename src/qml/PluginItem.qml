@@ -75,7 +75,7 @@ Rectangle {
     QfSwitch {
       Layout.preferredWidth: implicitContentWidth
       checked: itemEnabled
-      visible: LocallyAvailable
+      visible: InstalledLocallyRole
 
       onClicked: {
         toggleEnabledPlugin(checked);
@@ -85,7 +85,7 @@ Rectangle {
     QfButton {
       Layout.preferredHeight: 50
       Layout.preferredWidth: 50
-      visible: !LocallyAvailable
+      visible: !InstalledLocallyRole
       icon.source: Theme.getThemeVectorIcon('ic_cloud_download_24dp')
       color: "transparent"
 

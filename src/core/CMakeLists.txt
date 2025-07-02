@@ -99,8 +99,8 @@ set(QFIELD_CORE_SRCS
     parametizedimage.cpp
     peliasgeocoder.cpp
     pluginmanager.cpp
-    pluginsmodel.cpp
-    pluginsproxymodel.cpp
+    pluginmodel.cpp
+    pluginproxymodel.cpp
     resourcesource.cpp
     printlayoutlistmodel.cpp
     projectinfo.cpp
@@ -231,8 +231,8 @@ set(QFIELD_CORE_HDRS
     parametizedimage.h
     peliasgeocoder.h
     pluginmanager.h
-    pluginsmodel.h
-    pluginsproxymodel.h
+    pluginmodel.h
+    pluginproxymodel.h
     resourcesource.h
     printlayoutlistmodel.h
     projectinfo.h

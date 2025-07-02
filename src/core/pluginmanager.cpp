@@ -36,7 +36,7 @@ PluginManager::PluginManager( QQmlEngine *engine )
   , mEngine( engine )
 {
   connect( mEngine, &QQmlEngine::warnings, this, &PluginManager::handleWarnings );
-  fetchPublicPlugins();
+  fetchRemotePlugins();
   refreshAppPlugins();
 }
 
@@ -243,7 +243,7 @@ void PluginManager::refreshAppPlugins()
         QString icon;
         QString version;
         const bool locallyAvailable = true;
-        const bool publiclyAvailable = isAppPluginPublicalyAvailable( name ); // we shouldn't use name! / we need a public uuid
+        const bool remotelyAvailable = isAppPluginRemotelyAvailable( name ); // we shouldn't use name! / we need a public uuid
 
         const QString metadataPath = QStringLiteral( "%1/metadata.txt" ).arg( candidate.absoluteFilePath() );
         if ( QFileInfo::exists( metadataPath ) )
@@ -269,7 +269,7 @@ void PluginManager::refreshAppPlugins()
           version = metadata.value( "version" ).toString();
         }
 
-        PluginInformation plugin( candidate.fileName(), name, description, author, homepage, icon, version, path, locallyAvailable, publiclyAvailable );
+        PluginInformation plugin( candidate.fileName(), name, description, author, homepage, icon, version, path, locallyAvailable, remotelyAvailable );
         mAvailableAppPlugins.insert( candidate.fileName(), plugin );
       }
     }
@@ -287,9 +287,9 @@ QList<PluginInformation> PluginManager::availableAppPlugins() const
   return plugins;
 }
 
-QList<PluginInformation> PluginManager::publicPlugins() const
+QList<PluginInformation> PluginManager::remotePlugins() const
 {
-  return mPublicPlugins;
+  return mRemotePlugins;
 }
 
 void PluginManager::enableAppPlugin( const QString &uuid )
@@ -361,7 +361,7 @@ bool PluginManager::isAppPluginConfigurable( const QString &uuid ) const
   return false;
 }
 
-void PluginManager::fetchPublicPlugins()
+void PluginManager::fetchRemotePlugins()
 {
   QString jsonString = R"(
     [
@@ -403,7 +403,7 @@ void PluginManager::fetchPublicPlugins()
   }
 
   const QJsonArray jsonArray = jsonDoc.array();
-  for ( const QJsonValue &value : jsonArray )
+  for ( const QJsonValueConstRef &value : jsonArray )
   {
     if ( !value.isObject() )
       continue;
@@ -421,9 +421,9 @@ void PluginManager::fetchPublicPlugins()
 
     info.uuid = info.name; // "WE_NEED_SECURE_UUID";
 
-    info.publiclyAvailable = true;
+    info.remotelyAvailable = true;
 
-    mPublicPlugins.append( info );
+    mRemotePlugins.append( info );
   }
 }
 
@@ -437,9 +437,9 @@ bool PluginManager::isAppPluginLocallyAvailable( const QString &name ) const
   return false;
 }
 
-bool PluginManager::isAppPluginPublicalyAvailable( const QString &name ) const
+bool PluginManager::isAppPluginRemotelyAvailable( const QString &name ) const
 {
-  for ( const PluginInformation &plugin : mPublicPlugins )
+  for ( const PluginInformation &plugin : mRemotePlugins )
   {
     if ( plugin.name == name )
       return true;

@@ -1,5 +1,5 @@
 /***************************************************************************
- pluginsmodel.h - PluginsModel
+ pluginmodel.h - PluginModel
 
  ---------------------
  begin                : June 2025
@@ -14,15 +14,15 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef PLUGINSMODEL_H
-#define PLUGINSMODEL_H
+#ifndef PLUGINMODEL_H
+#define PLUGINMODEL_H
 
 #include "pluginmanager.h"
 
 #include <QAbstractListModel>
 
 
-class PluginsModel : public QAbstractListModel
+class PluginModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -40,12 +40,12 @@ class PluginsModel : public QAbstractListModel
       HomepageRole,
       IconRole,
       VersionRole,
-      LocallyAvailableRole,
-      PubliclyAvailableRole
+      InstalledLocallyRole,
+      AvailableRemotelyRole
     };
     Q_ENUM( PluginRoles )
 
-    explicit PluginsModel( QObject *parent = nullptr );
+    explicit PluginModel( QObject *parent = nullptr );
 
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
     QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
@@ -69,4 +69,4 @@ class PluginsModel : public QAbstractListModel
     PluginManager *mManager = nullptr;
 };
 
-#endif // PLUGINSMODEL_H
+#endif // PLUGINMODEL_H

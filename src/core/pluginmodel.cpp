@@ -1,5 +1,5 @@
 /***************************************************************************
- pluginsmodel.cpp - PluginsModel
+ pluginmodel.cpp - PluginModel
 
  ---------------------
  begin                : June 2025
@@ -14,20 +14,20 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "pluginsmodel.h"
+#include "pluginmodel.h"
 
-PluginsModel::PluginsModel( QObject *parent )
+PluginModel::PluginModel( QObject *parent )
   : QAbstractListModel( parent )
 {
 }
 
-int PluginsModel::rowCount( const QModelIndex &parent ) const
+int PluginModel::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent );
   return mPlugins.count();
 }
 
-QVariant PluginsModel::data( const QModelIndex &index, int role ) const
+QVariant PluginModel::data( const QModelIndex &index, int role ) const
 {
   if ( !index.isValid() || index.row() >= mPlugins.count() )
     return QVariant();
@@ -54,16 +54,16 @@ QVariant PluginsModel::data( const QModelIndex &index, int role ) const
       return plugin.icon;
     case VersionRole:
       return plugin.version;
-    case LocallyAvailableRole:
+    case InstalledLocallyRole:
       return plugin.locallyAvailable;
-    case PubliclyAvailableRole:
-      return plugin.publiclyAvailable;
+    case AvailableRemotelyRole:
+      return plugin.remotelyAvailable;
     default:
       return QVariant();
   }
 }
 
-QHash<int, QByteArray> PluginsModel::roleNames() const
+QHash<int, QByteArray> PluginModel::roleNames() const
 {
   return {
     { UuidRole, "Uuid" },
@@ -75,23 +75,23 @@ QHash<int, QByteArray> PluginsModel::roleNames() const
     { HomepageRole, "Homepage" },
     { IconRole, "Icon" },
     { VersionRole, "Version" },
-    { LocallyAvailableRole, "LocallyAvailable" },
-    { PubliclyAvailableRole, "PubliclyAvailable" } };
+    { InstalledLocallyRole, "InstalledLocallyRole" },
+    { AvailableRemotelyRole, "AvailableRemotelyRole" } };
 }
 
-void PluginsModel::setPlugins( const QList<PluginInformation> &plugins )
+void PluginModel::setPlugins( const QList<PluginInformation> &plugins )
 {
   beginResetModel();
   mPlugins = plugins;
   endResetModel();
 }
 
-PluginManager *PluginsModel::manager() const
+PluginManager *PluginModel::manager() const
 {
   return mManager;
 }
 
-void PluginsModel::setManager( PluginManager *newManager )
+void PluginModel::setManager( PluginManager *newManager )
 {
   if ( mManager == newManager )
     return;
@@ -102,14 +102,14 @@ void PluginsModel::setManager( PluginManager *newManager )
   emit managerChanged();
 }
 
-void PluginsModel::clear()
+void PluginModel::clear()
 {
   beginResetModel();
   setPlugins( {} );
   endResetModel();
 }
 
-void PluginsModel::refreshAppPluginsList()
+void PluginModel::refreshAppPluginsList()
 {
   QList<PluginInformation> pluginEntries;
 
@@ -124,7 +124,7 @@ void PluginsModel::refreshAppPluginsList()
     return false;
   };
 
-  for ( PluginInformation &plugin : mManager->availableAppPlugins() + mManager->publicPlugins() )
+  for ( PluginInformation &plugin : mManager->availableAppPlugins() + mManager->remotePlugins() )
   {
     if ( isDuplicate( plugin.name ) )
     {
@@ -137,7 +137,7 @@ void PluginsModel::refreshAppPluginsList()
     entry.enabled = mManager->isAppPluginEnabled( plugin.uuid );
     entry.configurable = mManager->isAppPluginConfigurable( plugin.uuid );
     entry.locallyAvailable = mManager->isAppPluginLocallyAvailable( plugin.name );
-    entry.publiclyAvailable = mManager->isAppPluginPublicalyAvailable( plugin.name );
+    entry.remotelyAvailable = mManager->isAppPluginRemotelyAvailable( plugin.name );
     entry.description = plugin.description;
     entry.author = plugin.author;
     entry.homepage = plugin.homepage;
@@ -149,7 +149,7 @@ void PluginsModel::refreshAppPluginsList()
   setPlugins( pluginEntries );
 }
 
-bool PluginsModel::setData( const QModelIndex &index, const QVariant &value, int role )
+bool PluginModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   if ( !index.isValid() || index.row() >= mPlugins.size() )
     return false;
@@ -171,7 +171,7 @@ bool PluginsModel::setData( const QModelIndex &index, const QVariant &value, int
   }
 }
 
-void PluginsModel::updatePluginEnabledStateByUuid( const QString &uuid, bool enabled, bool configurable )
+void PluginModel::updatePluginEnabledStateByUuid( const QString &uuid, bool enabled, bool configurable )
 {
   for ( int i = 0; i < mPlugins.size(); ++i )
   {

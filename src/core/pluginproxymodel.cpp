@@ -1,5 +1,5 @@
 /***************************************************************************
- pluginsproxymodel.cpp - PluginsProxyModel
+ pluginproxymodel.cpp - PluginProxyModel
 
  ---------------------
  begin                : June 2025
@@ -14,22 +14,22 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "pluginsmodel.h"
-#include "pluginsproxymodel.h"
+#include "pluginmodel.h"
+#include "pluginproxymodel.h"
 
-PluginsProxyModel::PluginsProxyModel( QObject *parent )
+PluginProxyModel::PluginProxyModel( QObject *parent )
   : QSortFilterProxyModel( parent )
 {
   setFilterCaseSensitivity( Qt::CaseInsensitive );
-  setFilterRole( PluginsModel::PluginRoles::NameRole );
+  setFilterRole( PluginModel::PluginRoles::NameRole );
 }
 
-QString PluginsProxyModel::searchTerm() const
+QString PluginProxyModel::searchTerm() const
 {
   return mSearchTerm;
 }
 
-void PluginsProxyModel::setSearchTerm( const QString &searchTerm )
+void PluginProxyModel::setSearchTerm( const QString &searchTerm )
 {
   if ( mSearchTerm != searchTerm )
   {
@@ -39,7 +39,7 @@ void PluginsProxyModel::setSearchTerm( const QString &searchTerm )
   }
 }
 
-bool PluginsProxyModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
+bool PluginProxyModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
 {
   bool matchesPluginType = false;
   const QModelIndex currentRowIndex = sourceModel()->index( sourceRow, 0, sourceParent );
@@ -47,22 +47,22 @@ bool PluginsProxyModel::filterAcceptsRow( int sourceRow, const QModelIndex &sour
   switch ( mFilter )
   {
     case LocalPlugins:
-      matchesPluginType = sourceModel()->data( currentRowIndex, PluginsModel::LocallyAvailableRole ).toBool();
+      matchesPluginType = sourceModel()->data( currentRowIndex, PluginModel::InstalledLocallyRole ).toBool();
       break;
     case PublicPlugins:
-      matchesPluginType = sourceModel()->data( currentRowIndex, PluginsModel::PubliclyAvailableRole ).toBool();
+      matchesPluginType = sourceModel()->data( currentRowIndex, PluginModel::AvailableRemotelyRole ).toBool();
       break;
   }
 
   const QModelIndex index = sourceModel()->index( sourceRow, 0, sourceParent );
-  const QVariant data = sourceModel()->data( index, PluginsModel::PluginRoles::NameRole );
+  const QVariant data = sourceModel()->data( index, PluginModel::PluginRoles::NameRole );
   const bool matchesTextFilter = mSearchTerm.isEmpty() || data.toString().contains( mSearchTerm, Qt::CaseInsensitive );
 
   return matchesTextFilter && matchesPluginType;
 }
 
 
-void PluginsProxyModel::setFilter( PluginFilter filter )
+void PluginProxyModel::setFilter( PluginFilter filter )
 {
   if ( mFilter == filter )
     return;
@@ -73,7 +73,7 @@ void PluginsProxyModel::setFilter( PluginFilter filter )
   emit filterChanged();
 }
 
-PluginsProxyModel::PluginFilter PluginsProxyModel::filter() const
+PluginProxyModel::PluginFilter PluginProxyModel::filter() const
 {
   return mFilter;
 }
