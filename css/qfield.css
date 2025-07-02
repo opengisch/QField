@@ -413,7 +413,7 @@ font-size: 13pt;
   color: #212121;
 }
 
-#about a, #about a:visited, #about a:focus {
+#about a, #about a:visited, #about a:focus, span.green {
   color:var(--qfield-color);
 }
 
@@ -748,8 +748,7 @@ div.explanation {
 
 /*partner page*/
 .success-button {
-  background-color: #80cc28;
-}
+  background-color: var(--qfield-color);}
 
 .nav-pills a {
   border-radius: 12px !important;
