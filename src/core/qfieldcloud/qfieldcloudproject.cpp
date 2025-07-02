@@ -718,7 +718,7 @@ void QFieldCloudProject::packageAndDownload()
     refreshData( ProjectRefreshReason::Package );
 
     QObject *tempProjectRefreshParent = new QObject( this ); // we need this to unsubscribe
-    connect( this, &QFieldCloudProject::dataRefreshed, tempProjectRefreshParent, [this, tempProjectRefreshParent, &repackageIfNeededAndThenDownload]( const ProjectRefreshReason reason, const QString &error ) {
+    connect( this, &QFieldCloudProject::dataRefreshed, tempProjectRefreshParent, [this, tempProjectRefreshParent, repackageIfNeededAndThenDownload]( const ProjectRefreshReason reason, const QString &error ) {
       if ( reason != ProjectRefreshReason::Package )
       {
         QgsLogger::critical( QStringLiteral( "Project %1: unexpected job type, expected %2 but %3 received." ).arg( mId ).arg( static_cast<int>( ProjectRefreshReason::Package ) ).arg( static_cast<int>( reason ) ) );
