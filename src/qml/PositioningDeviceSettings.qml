@@ -85,6 +85,12 @@ Popup {
     positioningSettings.onEgenioussEnabledChanged.connect(handleEgenioussChange);
   }
 
+  onAboutToHide: {
+    if (positioningDeviceItem.item && positioningDeviceItem.item.close !== undefined) {
+      positioningDeviceItem.item.close();
+    }
+  }
+
   Page {
     id: page
     width: parent.width
@@ -103,6 +109,11 @@ Popup {
       }
 
       onApply: {
+        // To be on the safe side, call close now to insure no process that could interfere
+        // with device connectivity is running priort o applying its configuration
+        if (positioningDeviceItem.item && positioningDeviceItem.item.close !== undefined) {
+          positioningDeviceItem.item.close();
+        }
         popup.apply();
         popup.close();
       }
