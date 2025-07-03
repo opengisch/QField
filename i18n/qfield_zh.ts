@@ -510,7 +510,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The project is read-only.</source>
-        <translation type="unfinished"/>
+        <translation>该工程为只读。</translation>
     </message>
 </context>
 <context>
@@ -813,7 +813,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Feature addition disabled</source>
-        <translation type="unfinished"/>
+        <translation>要素添加已禁用</translation>
     </message>
 </context>
 <context>
@@ -1339,23 +1339,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>feature addition</source>
-        <translation type="unfinished"/>
+        <translation>要素添加</translation>
     </message>
     <message>
         <source>attribute editing</source>
-        <translation type="unfinished"/>
+        <translation>属性编辑</translation>
     </message>
     <message>
         <source>geometry editing</source>
-        <translation type="unfinished"/>
+        <translation>几何图形编辑</translation>
     </message>
     <message>
         <source>feature deletion</source>
-        <translation type="unfinished"/>
+        <translation>要素删除</translation>
     </message>
     <message>
         <source>Disabled layer permissions: %1</source>
-        <translation type="unfinished"/>
+        <translation>禁用图层权限: %1</translation>
     </message>
 </context>
 <context>
@@ -1431,7 +1431,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation type="unfinished"/>
+        <translation>该图层的权限配置禁用要素添加。</translation>
     </message>
 </context>
 <context>
@@ -5635,7 +5635,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation>要素复制不可用</translation>
+        <translation>要素再制不可用</translation>
     </message>
     <message>
         <source>Importing %1</source>
@@ -5803,15 +5803,51 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to create feature</source>
-        <translation type="unfinished"/>
+        <translation>创建要素失败</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation type="unfinished"/>
+        <translation>由于要素添加权限已禁用，创建要素失败</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
-        <translation type="unfinished"/>
+        <translation>保存要素失败</translation>
+    </message>
+    <message>
+        <source>Digitizing toggle</source>
+        <translation>数字化切换</translation>
+    </message>
+    <message>
+        <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
+        <translation>在浏览和数字化模式之间切换。浏览模式侧重于提供查看地图及其要素的最佳体验，而数字化模式使您能够创建要素和编辑几何图形。</translation>
+    </message>
+    <message>
+        <source>Measurement</source>
+        <translation>测量</translation>
+    </message>
+    <message>
+        <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
+        <translation>切换测量工具计算地图的距离和面积。</translation>
+    </message>
+    <message>
+        <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
+        <translation>使用已配置的工程打印和地图集布局将地图画布导出为PDF。</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
+        <translation>打开云工程时，向QFieldCloud推送、同步或从QFieldCloud还原更改。</translation>
+    </message>
+    <message>
+        <source>Project folder</source>
+        <translation>工程文件夹</translation>
+    </message>
+    <message>
+        <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
+        <translation>打开工程文件夹访问工程文件、数据源和相关文档。可用于管理工程资源、手动将数据上传到QFieldCloud以及共享数据集、附件与布局。</translation>
     </message>
 </context>
 <context>
