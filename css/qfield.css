@@ -391,7 +391,7 @@ font-size: 13pt;
   color: #212121;
 }
 
-#about a, #about a:visited, #about a:focus, span.green {
+#about a, #about a:visited, #about a:focus, span.green, .green{
   color:var(--qfield-color);
 }
 
