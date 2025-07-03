@@ -45,7 +45,8 @@ class BluetoothDeviceModel : public QAbstractListModel
     //! The status telling the result of the scanning
     enum ScanningStatus
     {
-      Scanning,
+      FastScanning,
+      FullScanning,
       Succeeded,
       Failed,
       Canceled,
@@ -55,6 +56,7 @@ class BluetoothDeviceModel : public QAbstractListModel
 
 
     explicit BluetoothDeviceModel( QObject *parent = nullptr );
+    ~BluetoothDeviceModel();
 
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
 
@@ -71,10 +73,15 @@ class BluetoothDeviceModel : public QAbstractListModel
     Q_INVOKABLE int addDevice( const QString &name, const QString &address );
 
     /**
-     * Starts a scan to discovery nearby Bluetooth devices
-     * \param fullDiscovery set to TRUE to trigger a more expensive scan
+     * Starts a scan to discover nearby Bluetooth devices, sequentially
+     * going through a fast scan then a full, deeper scan for devices.
      */
-    Q_INVOKABLE void startServiceDiscovery( const bool fullDiscovery );
+    Q_INVOKABLE void startServiceDiscovery();
+
+    /**
+     * Stops any ongoing scan to discover nearby Bluetooth devices.
+     */
+    Q_INVOKABLE void stopServiceDiscovery();
 
     /**
      * Returns the row index for a given Bluetooth device address

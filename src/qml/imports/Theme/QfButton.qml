@@ -79,6 +79,7 @@ Button {
 
       width: 1.5
       height: parent.height - 16
+      opacity: button.enabled ? 1 : 0.25
 
       color: button.color
     }
@@ -89,7 +90,7 @@ Button {
       implicitWidth: 40
       implicitHeight: 40
       visible: true
-      opacity: 1
+      opacity: button.enabled ? 1 : 0.25
 
       onPaint: {
         var ctx = getContext("2d");
