@@ -151,34 +151,12 @@ footer.footer {
 
 .phone-image {
   position: absolute;
-  top: 21%;
+  bottom: -14%;
   right: 12%;
   max-height: 90%;
   max-width: 40%;
   object-fit: contain;
   z-index: 1;
-}
-/* responsive design for carousel */
-
-@media (max-width: 768px) {
-  .phone-image {
-    max-width: 60%;
-    right: 2%;
-  }
-
-  .carousel-caption.custom-caption {
-    bottom: 25%;
-    padding: 0 10px;
-  }
-
-  .carousel-caption .carousel-title {
-    font-size: 12px;
-  }
-
-  .qf-button a, .qfc-button a {
-    font-size: 11pt;
-    padding: 5px 10px;
-  }
 }
 
 /* mainpage carousel buttons */
@@ -210,7 +188,7 @@ footer.footer {
   font-weight: 600;
   color: #525251;
   margin-bottom: 40px;
-  text-shadow: none;
+  text-shadow: -1px -1px 2px #fff, 1px -1px 2px #fff, -1px 1px 2px #fff, 1px 1px 2px #fff;
 }
 
 .carousel-caption.custom-caption {
@@ -515,6 +493,32 @@ div.explanation {
   color: var(--qfield-color) !important;
   border-radius: 32px;
   text-decoration: none !important;
+}
+
+/* responsive design for carousel */
+@media (max-width: 768px) {
+  #maincarousel {
+    height:500px;
+  }
+  
+  .phone-image {
+    max-width: 58%;
+    right: 2%;
+  }
+
+  .carousel-caption.custom-caption {
+    bottom: 25%;
+    padding: 0 10px;
+  }
+
+  .carousel-caption .carousel-title {
+    font-size: 44px;
+  }
+
+  .qf-button a, .qfc-button a {
+    font-size: 11pt;
+    padding: 5px 10px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
