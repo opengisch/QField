@@ -480,7 +480,7 @@ Rectangle {
 
     onBackClicked: {
       featureFormList.focus = true;
-      if (featureFormList.state != "FeatureList") {
+      if (featureFormList.state !== "FeatureList") {
         featureFormList.state = "FeatureList";
       } else {
         featureFormList.state = "Hidden";
@@ -488,6 +488,7 @@ Rectangle {
     }
 
     onStatusIndicatorClicked: {
+      featureFormList.selection.focusedItem = -1;
       featureFormList.state = "FeatureList";
     }
 
@@ -499,7 +500,7 @@ Rectangle {
           if (fullScreenView) {
             fullScreenView = false;
           } else {
-            if (featureFormList.state != 'FeatureFormEdit') {
+            if (featureFormList.state !== 'FeatureFormEdit') {
               featureFormList.state = 'Hidden';
             }
           }
