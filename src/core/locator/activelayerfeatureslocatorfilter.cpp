@@ -351,6 +351,7 @@ void ActiveLayerFeaturesLocatorFilter::triggerResultFromAction( const QgsLocator
       {
         QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
         requests.insert( layer, featureRequest );
+        mLocatorBridge->featureListController()->selection()->setFocusedItem( -1 );
         mLocatorBridge->featureListController()->model()->setFeatures( requests );
         mLocatorBridge->featureListController()->selection()->setFocusedItem( 0 );
         mLocatorBridge->featureListController()->requestFeatureFormState();
