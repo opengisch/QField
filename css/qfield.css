@@ -500,7 +500,7 @@ div.explanation {
   #maincarousel {
     height:500px;
   }
-  
+
   .phone-image {
     max-width: 58%;
     right: 2%;
@@ -896,6 +896,35 @@ div.explanation {
   }
 
 /* success story individual pages */
+
+/* back to all posts*/
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #212121;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: "bio-sans", sans-serif;
+  margin-bottom: 20px;
+}
+
+.back-button:hover {
+  color: var(--qfield-color);
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1140px;
+}
+
+.centered {
+  text-align: center;
+}
+
 #success-story-title h4 {
   font-weight: 300;
 }
