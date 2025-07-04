@@ -770,7 +770,18 @@ Rectangle {
       text: qsTr('Rotate Feature')
       icon.source: Theme.getThemeVectorIcon("ic_rotate_white_24dp")
       // allow only rotation for line or polygon or multipoint
-      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryEditingLocked)) && (selection.focusedLayer !== null && (selection.focusedLayer.geometryType() === 0 || selection.focusedLayer.geometryType() === 1 || selection.focusedLayer.geometryType() === 2))
+      property bool isGeometryCompatible: {
+        const vl = selection.focusedLayer;
+        if (vl !== null) {
+          if (vl.geometryType() === Qgis.GeometryType.Line || vl.geometryType() === Qgis.GeometryType.Polygon) {
+            return true;
+          } else if (vl.geometryType() === Qgis.GeometryType.Point && vl.wkbType() !== Qgis.WkbType.Point && vl.wkbType() !== Qgis.WkbType.PointZ && vl.wkbType() !== Qgis.WkbType.PointM && vl.wkbType() !== Qgis.WkbType.PointZM && vl.wkbType() !== Qgis.WkbType.Point25D) {
+            return true;
+          }
+        }
+        return false;
+      }
+      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryEditingLocked)) && isGeometryCompatible
       visible: enabled
 
       font: Theme.defaultFont
