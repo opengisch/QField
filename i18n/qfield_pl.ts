@@ -510,7 +510,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>The project is read-only.</source>
-        <translation type="unfinished"/>
+        <translation>Projekt jest tylko do odczytu.</translation>
     </message>
 </context>
 <context>
@@ -813,7 +813,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Feature addition disabled</source>
-        <translation type="unfinished"/>
+        <translation>Dodawanie obiektów wyłączone</translation>
     </message>
 </context>
 <context>
@@ -1345,23 +1345,23 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>feature addition</source>
-        <translation type="unfinished"/>
+        <translation>dodawanie obiektów</translation>
     </message>
     <message>
         <source>attribute editing</source>
-        <translation type="unfinished"/>
+        <translation>edycja atrybutów</translation>
     </message>
     <message>
         <source>geometry editing</source>
-        <translation type="unfinished"/>
+        <translation>edycja geometrii</translation>
     </message>
     <message>
         <source>feature deletion</source>
-        <translation type="unfinished"/>
+        <translation>usuwanie obiektów</translation>
     </message>
     <message>
         <source>Disabled layer permissions: %1</source>
-        <translation type="unfinished"/>
+        <translation>Wyłączone uprawnienia warstwy: %1</translation>
     </message>
 </context>
 <context>
@@ -1437,7 +1437,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation type="unfinished"/>
+        <translation>Konfiguracja uprawnień tej warstwy wyłącza dodawanie obiektów.</translation>
     </message>
 </context>
 <context>
@@ -5809,35 +5809,35 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Failed to create feature</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się utworzyć obiektu</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się utworzyć obiektu z powodu wyłączonych uprawnień dodawania obiektów </translation>
     </message>
     <message>
         <source>Failed to save feature</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się zapisać obiektu</translation>
     </message>
     <message>
         <source>Digitizing toggle</source>
-        <translation type="unfinished"/>
+        <translation>Przełącznik digitalizacji</translation>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation type="unfinished"/>
+        <translation>Przełączaj się między trybami przeglądania i digitalizacji. Tryb przeglądania umożliwia wygodne przeglądanie mapy i jej obiektów, podczas gdy tryb digitalizacji umożliwia tworzenie obiektów i edytowanie geometrii.</translation>
     </message>
     <message>
         <source>Measurement</source>
-        <translation type="unfinished"/>
+        <translation>Pomiar</translation>
     </message>
     <message>
         <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Przełącz narzędzie pomiarowe, aby obliczyć odległości i obszary na mapie.</translation>
     </message>
     <message>
         <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
-        <translation type="unfinished"/>
+        <translation>Eksportuj mapę do pliku PDF przy użyciu skonfigurowanych w projekcie układów wydruku i atlasów.</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -5845,15 +5845,15 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Prześlij zmiany, synchronizuj lub przywracaj zmiany do i z QFieldCloud po otwarciu projektu zdalnego.</translation>
     </message>
     <message>
         <source>Project folder</source>
-        <translation type="unfinished"/>
+        <translation>Folder projektu</translation>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation type="unfinished"/>
+        <translation>Otwórz folder projektu, aby uzyskać dostęp do plików projektu, źródeł danych i powiązanych dokumentów. Przydatne do zarządzania zasobami projektu, ręcznego przesyłania danych do QFieldCloud oraz udostępniania zestawów danych, załączników i widoków.</translation>
     </message>
 </context>
 <context>
