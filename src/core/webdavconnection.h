@@ -144,8 +144,9 @@ class WebdavConnection : public QObject
      * Imports a remote path into a local path stored on the device.
      * \a remotePath the remote path on the WebDAV endpoint.
      * \a localPath the local path
+     * \a localFolder the local folder name containing the imported remote path content
      */
-    Q_INVOKABLE void importPath( const QString &remotePath, const QString &localPath );
+    Q_INVOKABLE void importPath( const QString &remotePath, const QString &localPath, QString localFolder = QString() );
 
     /**
      * Download new and modified files from an imported remote path.

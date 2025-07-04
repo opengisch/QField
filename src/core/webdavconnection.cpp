@@ -503,8 +503,9 @@ void WebdavConnection::forgetHistory( const QString &url, const QString &usernam
 QVariantMap WebdavConnection::importHistory()
 {
   // Collect imported folders
-  QMap<QString, QStringList> importedFolders;
-  QDirIterator it( QStringLiteral( "%1/Imported Projects/" ).arg( PlatformUtilities::instance()->applicationDirectory() ), { QStringLiteral( "qfield_webdav_configuration.json" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
+  QMap<QString, QVariantMap> importedFolders;
+  QDir importedProjectsDir( QStringLiteral( "%1/Imported Projects/" ).arg( PlatformUtilities::instance()->applicationDirectory() ), { QStringLiteral( "qfield_webdav_configuration.json" ) } );
+  QDirIterator it( importedProjectsDir.absolutePath(), QDir::Filter::Files, QDirIterator::Subdirectories );
   while ( it.hasNext() )
   {
     QFile webdavConfigurationFile( it.next() );
@@ -513,7 +514,8 @@ QVariantMap WebdavConnection::importHistory()
     if ( !jsonDocument.isEmpty() )
     {
       QVariantMap webdavConfiguration = jsonDocument.toVariant().toMap();
-      importedFolders[QStringLiteral( "%1 - %2" ).arg( webdavConfiguration["url"].toString(), webdavConfiguration["username"].toString() )] << webdavConfiguration["remote_path"].toString();
+      const QString importedFolderKey = QStringLiteral( "%1 - %2" ).arg( webdavConfiguration["url"].toString(), webdavConfiguration["username"].toString() );
+      importedFolders[importedFolderKey][webdavConfiguration["remote_path"].toString()] = importedProjectsDir.relativeFilePath( it.fileInfo().path() );
     }
   }
 
@@ -545,7 +547,7 @@ QVariantMap WebdavConnection::importHistory()
 
       QVariantMap details;
       details["lastImportPath"] = settings.value( "lastImportPath" ).toString();
-      details["importPaths"] = importedFolders.contains( QStringLiteral( "%1 - %2" ).arg( decodedUrl, decodedUser ) ) ? importedFolders[QStringLiteral( "%1 - %2" ).arg( decodedUrl, decodedUser )] : QStringList();
+      details["importPaths"] = importedFolders.contains( QStringLiteral( "%1 - %2" ).arg( decodedUrl, decodedUser ) ) ? importedFolders[QStringLiteral( "%1 - %2" ).arg( decodedUrl, decodedUser )] : QVariantMap();
       usersDetails[decodedUser] = details;
 
       if ( lastUserImportTime < settings.value( "lastImportTime" ).toDateTime() )
@@ -641,18 +643,27 @@ void WebdavConnection::putLocalItems()
   }
 }
 
-void WebdavConnection::importPath( const QString &remotePath, const QString &localPath )
+void WebdavConnection::importPath( const QString &remotePath, const QString &localPath, QString localFolder )
 {
   if ( mUrl.isEmpty() || mUsername.isEmpty() || ( mPassword.isEmpty() && mStoredPassword.isEmpty() ) )
     return;
 
   setupConnection();
 
-  QString localFolder = QStringLiteral( "%1 - %2 - %3" ).arg( mWebdavConnection.hostname(), mWebdavConnection.username(), remotePath );
+  if ( localFolder.isEmpty() )
+  {
+    localFolder = QStringLiteral( "%1 - %2" ).arg( remotePath, mWebdavConnection.username() );
+  }
   localFolder.replace( QRegularExpression( "[\\\\\\/\\<\\>\\:\\|\\?\\*\\\"]" ), QString( "_" ) );
 
   QDir localDir( localPath );
-  localDir.mkpath( localFolder );
+  QString localFolderCheck = localFolder;
+  int folderSuffix = 0;
+  while ( localDir.exists( localFolderCheck ) )
+  {
+    localFolderCheck = QStringLiteral( "%1 - %2" ).arg( localFolder, QString::number( ++folderSuffix ) );
+  }
+  localFolder = localFolderCheck;
 
   mProcessRemotePath = remotePath;
   mProcessLocalPath = QDir::cleanPath( localPath + QDir::separator() + localFolder ) + QDir::separator();

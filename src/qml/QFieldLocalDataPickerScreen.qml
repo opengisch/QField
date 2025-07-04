@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.Material.impl
 import QtQuick.Layouts
 import QtQml.Models
 import org.qfield
@@ -1314,22 +1315,52 @@ Page {
         width: swipeDialog.width
         spacing: 10
 
-        Label {
-          width: parent.width
-          visible: importWebdavPathInput.visible
-          text: qsTr("Select the remote folder to import:")
-          wrapMode: Text.WordWrap
-          font: Theme.defaultFont
-          color: Theme.mainTextColor
+        Row {
+          spacing: 5
+
+          Label {
+            anchors.verticalCenter: importWebdavRefetchFoldersButton.verticalCenter
+            width: parent.parent.width - importWebdavRefetchFoldersButton.width - parent.spacing
+            text: qsTr("Select the remote folder to import:")
+            wrapMode: Text.WordWrap
+            font: Theme.defaultFont
+            color: Theme.mainTextColor
+          }
+
+          QfToolButton {
+            id: importWebdavRefetchFoldersButton
+            enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+            visible: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+            iconSource: Theme.getThemeVectorIcon("refresh_24dp")
+            iconColor: Theme.mainTextColor
+            bgcolor: "transparent"
+            width: 36
+            height: 36
+            padding: 0
+
+            onClicked: {
+              importWebdavPathInput.currentIndex = -1;
+              webdavConnectionLoader.item.fetchAvailablePaths();
+            }
+          }
+
+          BusyIndicator {
+            id: importWebdavRefreshFoldersIndicator
+            anchors.verticalCenter: importWebdavRefetchFoldersButton.verticalCenter
+            width: importWebdavRefetchFoldersButton.width
+            height: importWebdavRefetchFoldersButton.width
+            visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
+            running: visible
+          }
         }
 
-        Rectangle {
+        MaterialTextContainer {
           id: importWebdavPathContainer
           width: parent.width
           height: 340
-          color: Theme.controlBackgroundColor
-          border.color: Theme.controlBorderColor
-          border.width: 1
+          outlineColor: importWebdavPathInput.Material.hintTextColor
+          focusedOutlineColor: importWebdavPathInput.Material.accentColor
+          controlHasActiveFocus: importWebdavPathInput.activeFocus
 
           ListView {
             id: importWebdavPathInput
@@ -1352,11 +1383,10 @@ Page {
 
             delegate: Rectangle {
               id: rectangleDialog
-
-              anchors.margins: 10
               width: parent ? parent.width : undefined
               height: lineDialog.isVisible ? lineDialog.height + 20 : 0
-              color: importWebdavPathInput.currentIndex == index ? Theme.mainColor : Theme.mainBackgroundColor
+              color: importWebdavPathInput.currentIndex == index ? Theme.mainColor : "transparent"
+              radius: 4
               clip: true
 
               Row {
@@ -1390,13 +1420,15 @@ Page {
                   }
                   return false;
                 }
-                property bool isImported: {
+                property string importedPath: {
                   if (importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText] !== undefined && importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"][importWebdavUserInput.editText] !== undefined) {
-                    console.log(importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"][importWebdavUserInput.editText]["importPaths"]);
-                    return importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"][importWebdavUserInput.editText]["importPaths"].indexOf(modelData) >= 0;
+                    if (importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"][importWebdavUserInput.editText]["importPaths"][modelData] !== undefined) {
+                      return importWebdavDialog.importHistory["urls"][importWebdavUrlInput.editText]["users"][importWebdavUserInput.editText]["importPaths"][modelData];
+                    }
                   }
-                  return false;
+                  return "";
                 }
+                property bool isImported: importedPath != ""
 
                 Item {
                   id: expandSpacing
@@ -1435,7 +1467,7 @@ Page {
                     elide: Text.ElideRight
                     wrapMode: Text.WordWrap
                     color: !lineDialog.isImported ? Theme.mainTextColor : Theme.secondaryTextColor
-                    text: lineDialog.label !== "" ? lineDialog.label : qsTr("(root folder)")
+                    text: lineDialog.label !== "" ? lineDialog.label : "(" + qsTr("root folder") + ")"
                   }
                   Text {
                     id: noteTextDialog
@@ -1446,18 +1478,22 @@ Page {
                     elide: Text.ElideRight
                     wrapMode: Text.WordWrap
                     color: Theme.secondaryTextColor
-                    text: qsTr("Imported and available locally")
+                    text: qsTr("Available locally in ‘%1’").arg(lineDialog.importedPath)
                   }
                 }
               }
 
               /* bottom border */
               Rectangle {
-                anchors.bottom: parent.bottom
+                anchors {
+                  bottom: parent.bottom
+                  left: parent.left
+                  leftMargin: 2
+                }
+                visible: lineDialog.isVisible && importWebdavPathInput.currentIndex != index
                 height: 1
                 color: Theme.controlBorderColor
-                width: parent.width
-                visible: lineDialog.isVisible
+                width: parent.width - anchors.leftMargin * 2
               }
 
               MouseArea {
@@ -1466,6 +1502,7 @@ Page {
                 anchors.rightMargin: 48
                 onClicked: mouse => {
                   importWebdavPathInput.currentIndex = index;
+                  importWebdavImportedFolderName.text = (lineDialog.label !== "" ? lineDialog.label : qsTr("root folder")) + " - " + webdavConnectionLoader.item.username;
                 }
                 onDoubleClicked: mouse => {
                   const index = importWebdavPathInput.expandedPaths.indexOf(modelData);
@@ -1481,29 +1518,18 @@ Page {
           }
         }
 
-        Row {
-          spacing: 5
+        Label {
+          width: parent.width
+          text: qsTr("Imported folder name")
+          wrapMode: Text.WordWrap
+          font: Theme.defaultFont
+          color: Theme.secondaryTextColor
+        }
 
-          QfButton {
-            id: importWebdavRefetchFoldersButton
-            width: parent.parent.width - (importWebdavRefreshFoldersIndicator.visible ? importWebdavRefreshFoldersIndicator.width : 0)
-            enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-            text: !enabled ? qsTr("Refreshing remote folders") : qsTr("Refresh remote folders")
-
-            onClicked: {
-              importWebdavPathInput.currentIndex = -1;
-              webdavConnectionLoader.item.fetchAvailablePaths();
-            }
-          }
-
-          BusyIndicator {
-            id: importWebdavRefreshFoldersIndicator
-            anchors.verticalCenter: importWebdavRefetchFoldersButton.verticalCenter
-            width: 48
-            height: 48
-            visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
-            running: visible
-          }
+        TextField {
+          id: importWebdavImportedFolderName
+          enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
+          width: parent.width
         }
       }
     }
@@ -1514,7 +1540,7 @@ Page {
         webdavConnectionLoader.item.username = importWebdavUserInput.editText;
         webdavConnectionLoader.item.password = importWebdavPasswordInput.text;
         webdavConnectionLoader.item.storePassword = importWebdavStorePasswordCheck.checked;
-        webdavConnectionLoader.item.importPath(importWebdavPathInput.model[importWebdavPathInput.currentIndex], platformUtilities.applicationDirectory() + "/Imported Projects/");
+        webdavConnectionLoader.item.importPath(importWebdavPathInput.model[importWebdavPathInput.currentIndex], platformUtilities.applicationDirectory() + "/Imported Projects/", importWebdavImportedFolderName.text);
       }
     }
   }
