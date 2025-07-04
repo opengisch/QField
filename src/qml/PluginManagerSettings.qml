@@ -58,6 +58,8 @@ Popup {
           font: Theme.defaultFont
           onClicked: {
             filterBar.currentIndex = index;
+            if (index == 1)
+              pluginModel.fetchRemotePlugins();
           }
         }
       }
@@ -329,10 +331,6 @@ Popup {
 
     function onAppPluginDisabled(uuid) {
       pluginModel.updatePluginEnabledStateByUuid(uuid, false, false);
-    }
-
-    function onAvailableAppPluginsChanged() {
-      pluginModel.refreshAppPluginsList();
     }
   }
 }

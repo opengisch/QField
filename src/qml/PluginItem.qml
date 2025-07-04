@@ -83,10 +83,10 @@ Rectangle {
     }
 
     QfButton {
-      Layout.preferredHeight: 50
-      Layout.preferredWidth: 50
+      Layout.preferredHeight: 40
+      Layout.preferredWidth: 40
       visible: !InstalledLocallyRole
-      icon.source: Theme.getThemeVectorIcon('ic_cloud_download_24dp')
+      icon.source: Theme.getThemeVectorIcon('ic_download_white_24dp')
       color: "transparent"
 
       onClicked:

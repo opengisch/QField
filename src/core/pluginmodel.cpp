@@ -16,6 +16,10 @@
 
 #include "pluginmodel.h"
 
+#include <qjsonarray.h>
+#include <qjsondocument.h>
+#include <qjsonobject.h>
+
 PluginModel::PluginModel( QObject *parent )
   : QAbstractListModel( parent )
 {
@@ -96,9 +100,7 @@ void PluginModel::setManager( PluginManager *newManager )
   if ( mManager == newManager )
     return;
   mManager = newManager;
-
-  refreshAppPluginsList();
-
+  setLocalAppPlugins();
   emit managerChanged();
 }
 
@@ -109,35 +111,19 @@ void PluginModel::clear()
   endResetModel();
 }
 
-void PluginModel::refreshAppPluginsList()
+void PluginModel::setLocalAppPlugins()
 {
   QList<PluginInformation> pluginEntries;
 
-  auto isDuplicate = [&]( const QString &name ) {
-    for ( PluginInformation &storedPlugin : pluginEntries )
-    {
-      if ( storedPlugin.name == name )
-      { // we should check on uuid!
-        return true;
-      }
-    }
-    return false;
-  };
-
-  for ( PluginInformation &plugin : mManager->availableAppPlugins() + mManager->remotePlugins() )
+  for ( const PluginInformation &plugin : mManager->availableAppPlugins() )
   {
-    if ( isDuplicate( plugin.name ) )
-    {
-      continue;
-    }
-
     PluginInformation entry;
     entry.uuid = plugin.uuid;
     entry.name = plugin.name;
     entry.enabled = mManager->isAppPluginEnabled( plugin.uuid );
     entry.configurable = mManager->isAppPluginConfigurable( plugin.uuid );
-    entry.locallyAvailable = mManager->isAppPluginLocallyAvailable( plugin.name );
-    entry.remotelyAvailable = mManager->isAppPluginRemotelyAvailable( plugin.name );
+    entry.locallyAvailable = true;
+    entry.remotelyAvailable = false;
     entry.description = plugin.description;
     entry.author = plugin.author;
     entry.homepage = plugin.homepage;
@@ -166,6 +152,14 @@ bool PluginModel::setData( const QModelIndex &index, const QVariant &value, int 
       plugin.configurable = value.toBool();
       emit dataChanged( index, index, { ConfigurableRole } );
       return true;
+    case InstalledLocallyRole:
+      plugin.locallyAvailable = value.toBool();
+      emit dataChanged( index, index, { InstalledLocallyRole } );
+      return true;
+    case AvailableRemotelyRole:
+      plugin.remotelyAvailable = value.toBool();
+      emit dataChanged( index, index, { AvailableRemotelyRole } );
+      return true;
     default:
       return false;
   }
@@ -183,4 +177,104 @@ void PluginModel::updatePluginEnabledStateByUuid( const QString &uuid, bool enab
       break;
     }
   }
+}
+
+void PluginModel::fetchRemotePlugins()
+{
+  QList<PluginInformation> mRemotePlugins = {};
+
+  QString jsonString = R"(
+    [
+      {
+        "name": "OSRM Routing",
+        "description": "Provides routing visualization within QField",
+        "icon": "https://raw.githubusercontent.com/opengisch/qfield-osrm/refs/heads/main/icon.svg",
+        "version": "1.0",
+        "download": "https://github.com/opengisch/qfield-osrm/releases/download/v1.0/qfield-osrm-routing.zip",
+        "minimum_version": "3.6.0",
+        "homepage": "https://github.com/opengisch/qfield-osrm",
+        "author": "OPENGIS.ch"
+      },
+      {
+        "name": "OpenStreetMap Nominatim Search",
+        "description": "Integrates OpenStreetMap Nominatim results into the search bar through the osm prefix",
+        "icon": "https://raw.githubusercontent.com/opengisch/qfield-nominatim-locator/refs/heads/main/icon.svg",
+        "version": "1.3",
+        "download": "https://github.com/opengisch/qfield-nominatim-locator/releases/download/v1.3/qfield-nominatim-locator-v1.3.zip",
+        "minimum_version": "3.6.0",
+        "homepage": "https://github.com/opengisch/qfield-nominatim-locator",
+        "author": "OPENGIS.ch"
+      }
+    ])";
+
+  QJsonParseError parseError;
+  QJsonDocument jsonDoc = QJsonDocument::fromJson( jsonString.toUtf8(), &parseError );
+
+  if ( parseError.error != QJsonParseError::NoError )
+  {
+    qWarning() << "JSON parse error:" << parseError.errorString();
+    return;
+  }
+
+  if ( !jsonDoc.isArray() )
+  {
+    qWarning() << "Expected a JSON array!";
+    return;
+  }
+
+  const QJsonArray jsonArray = jsonDoc.array();
+  for ( const QJsonValueConstRef &value : jsonArray )
+  {
+    if ( !value.isObject() )
+      continue;
+
+    const QJsonObject obj = value.toObject();
+
+    PluginInformation info;
+    info.name = obj.value( "name" ).toString();
+    info.description = obj.value( "description" ).toString();
+    info.author = obj.value( "author" ).toString();
+    info.homepage = obj.value( "homepage" ).toString();
+    info.icon = obj.value( "icon" ).toString();
+    info.version = obj.value( "version" ).toString();
+    info.path = obj.value( "download" ).toString();
+    info.uuid = info.name; // "WE_NEED_SECURE_UUID";
+    info.remotelyAvailable = true;
+    info.locallyAvailable = false;
+    mRemotePlugins.append( info );
+  }
+
+  QList<PluginInformation> pluginEntries = mPlugins;
+
+  for ( const PluginInformation &plugin : mRemotePlugins )
+  {
+    bool locallyExists = false;
+    for ( int i = 0; i < mPlugins.size(); ++i )
+    {
+      if ( pluginEntries[i].name == plugin.name )
+      {
+        pluginEntries[i].remotelyAvailable = true;
+        locallyExists = true;
+        break;
+      }
+    }
+    if ( !locallyExists )
+    {
+      PluginInformation entry;
+      entry.uuid = plugin.uuid;
+      entry.name = plugin.name;
+      entry.enabled = mManager->isAppPluginEnabled( plugin.uuid );
+      entry.configurable = mManager->isAppPluginConfigurable( plugin.uuid );
+      entry.locallyAvailable = false;
+      entry.remotelyAvailable = true;
+      entry.description = plugin.description;
+      entry.author = plugin.author;
+      entry.homepage = plugin.homepage;
+      entry.icon = plugin.icon;
+      entry.version = plugin.version;
+      pluginEntries.append( entry );
+    }
+  }
+
+  setPlugins( pluginEntries );
 }

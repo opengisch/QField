@@ -58,8 +58,9 @@ class PluginModel : public QAbstractListModel
     void setManager( PluginManager *newManager );
 
     Q_INVOKABLE void clear();
-    Q_INVOKABLE void refreshAppPluginsList();
+    Q_INVOKABLE void setLocalAppPlugins();
     Q_INVOKABLE void updatePluginEnabledStateByUuid( const QString &uuid, bool enabled, bool configurable );
+    Q_INVOKABLE void fetchRemotePlugins();
 
   signals:
     void managerChanged();

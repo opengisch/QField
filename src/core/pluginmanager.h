@@ -63,7 +63,6 @@ class PluginManager : public QObject
     Q_OBJECT
 
     Q_PROPERTY( QList<PluginInformation> availableAppPlugins READ availableAppPlugins NOTIFY availableAppPluginsChanged )
-    Q_PROPERTY( QList<PluginInformation> remotePlugins READ remotePlugins NOTIFY remotePluginsChanged )
 
   public:
     explicit PluginManager( QQmlEngine *engine );
@@ -80,7 +79,6 @@ class PluginManager : public QObject
     Q_INVOKABLE void clearPluginPermissions();
 
     QList<PluginInformation> availableAppPlugins() const;
-    QList<PluginInformation> remotePlugins() const;
 
     Q_INVOKABLE void enableAppPlugin( const QString &uuid );
     Q_INVOKABLE void disableAppPlugin( const QString &uuid );
@@ -89,9 +87,6 @@ class PluginManager : public QObject
     Q_INVOKABLE bool isAppPluginEnabled( const QString &uuid ) const;
     Q_INVOKABLE bool isAppPluginConfigurable( const QString &uuid ) const;
 
-    bool isAppPluginLocallyAvailable( const QString &name ) const;  // we must use uuid instead of name!
-    bool isAppPluginRemotelyAvailable( const QString &name ) const; // we must use uuid instead of name!
-    void fetchRemotePlugins();
     void refreshAppPlugins();
     void restoreAppPlugins();
 
@@ -104,7 +99,6 @@ class PluginManager : public QObject
     void pluginPermissionRequested( const QString &pluginName, bool isProjectPlugin );
 
     void availableAppPluginsChanged();
-    void remotePluginsChanged();
     void appPluginEnabled( const QString &uuid );
     void appPluginDisabled( const QString &uuid );
 
@@ -124,8 +118,6 @@ class PluginManager : public QObject
     QString mPermissionRequestPluginPath;
 
     QMap<QString, PluginInformation> mAvailableAppPlugins;
-
-    QList<PluginInformation> mRemotePlugins;
 };
 
 #endif // PLUGINMANAGER_H
