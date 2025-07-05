@@ -371,6 +371,7 @@ Drawer {
 
       Legend {
         id: legend
+        objectName: "Legend"
         isVisible: position > 0
         anchors.fill: parent
         bottomMargin: bottomRow.height + 4
