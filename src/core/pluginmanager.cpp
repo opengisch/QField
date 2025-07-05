@@ -211,7 +211,7 @@ void PluginManager::restoreAppPlugins()
       const QString uuid = settings.value( QStringLiteral( "%1/uuid" ).arg( pluginKey ) ).toString();
       if ( mAvailableAppPlugins.contains( uuid ) )
       {
-        loadPlugin( mAvailableAppPlugins[uuid].path(), mAvailableAppPlugins[uuid].name() );
+        loadPlugin( mAvailableAppPlugins[uuid].path, mAvailableAppPlugins[uuid].name );
       }
     }
   }
@@ -238,6 +238,8 @@ void PluginManager::refreshAppPlugins()
         QString homepage;
         QString icon;
         QString version;
+        const bool locallyAvailable = true;
+        const bool remotelyAvailable = false;
 
         const QString metadataPath = QStringLiteral( "%1/metadata.txt" ).arg( candidate.absoluteFilePath() );
         if ( QFileInfo::exists( metadataPath ) )
@@ -262,7 +264,9 @@ void PluginManager::refreshAppPlugins()
           }
           version = metadata.value( "version" ).toString();
         }
-        mAvailableAppPlugins.insert( candidate.fileName(), PluginInformation( candidate.fileName(), name, description, author, homepage, icon, version, path ) );
+
+        PluginInformation plugin( candidate.fileName(), name, description, author, homepage, icon, version, path, locallyAvailable, remotelyAvailable );
+        mAvailableAppPlugins.insert( candidate.fileName(), plugin );
       }
     }
   }
@@ -274,7 +278,7 @@ QList<PluginInformation> PluginManager::availableAppPlugins() const
 {
   QList<PluginInformation> plugins = mAvailableAppPlugins.values();
   std::sort( plugins.begin(), plugins.end(), []( const PluginInformation &plugin1, const PluginInformation &plugin2 ) {
-    return plugin1.name().toLower() < plugin2.name().toLower();
+    return plugin1.name.toLower() < plugin2.name.toLower();
   } );
   return plugins;
 }
@@ -283,7 +287,7 @@ void PluginManager::enableAppPlugin( const QString &uuid )
 {
   if ( mAvailableAppPlugins.contains( uuid ) )
   {
-    const QString pluginPath = mAvailableAppPlugins[uuid].path();
+    const QString pluginPath = mAvailableAppPlugins[uuid].path;
     if ( !mLoadedPlugins.contains( pluginPath ) )
     {
       QSettings settings;
@@ -297,7 +301,7 @@ void PluginManager::enableAppPlugin( const QString &uuid )
       }
       settings.endGroup();
 
-      loadPlugin( pluginPath, mAvailableAppPlugins[uuid].name() );
+      loadPlugin( pluginPath, mAvailableAppPlugins[uuid].name );
 
       if ( mLoadedPlugins.contains( pluginPath ) )
       {
@@ -312,16 +316,16 @@ void PluginManager::disableAppPlugin( const QString &uuid )
   callPluginMethod( uuid, "appWideDisabled" );
   if ( mAvailableAppPlugins.contains( uuid ) )
   {
-    if ( mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path() ) )
+    if ( mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path ) )
     {
       QSettings settings;
-      QString pluginKey = mAvailableAppPlugins[uuid].path();
+      QString pluginKey = mAvailableAppPlugins[uuid].path;
       pluginKey.replace( QChar( '/' ), QChar( '_' ) );
       settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
       settings.setValue( QStringLiteral( "userEnabled" ), false );
       settings.endGroup();
 
-      unloadPlugin( mAvailableAppPlugins[uuid].path() );
+      unloadPlugin( mAvailableAppPlugins[uuid].path );
     }
   }
 }
@@ -333,15 +337,15 @@ void PluginManager::configureAppPlugin( const QString &uuid )
 
 bool PluginManager::isAppPluginEnabled( const QString &uuid ) const
 {
-  return mAvailableAppPlugins.contains( uuid ) && mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path() );
+  return mAvailableAppPlugins.contains( uuid ) && mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path );
 }
 
 bool PluginManager::isAppPluginConfigurable( const QString &uuid ) const
 {
-  if ( mAvailableAppPlugins.contains( uuid ) && mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path() ) )
+  if ( mAvailableAppPlugins.contains( uuid ) && mLoadedPlugins.contains( mAvailableAppPlugins[uuid].path ) )
   {
     QByteArray normalizedSignature = QMetaObject::normalizedSignature( "configure()" );
-    const int idx = mLoadedPlugins[mAvailableAppPlugins[uuid].path()]->metaObject()->indexOfSlot( normalizedSignature.constData() );
+    const int idx = mLoadedPlugins[mAvailableAppPlugins[uuid].path]->metaObject()->indexOfSlot( normalizedSignature.constData() );
     return idx >= 0;
   }
 
@@ -479,7 +483,7 @@ void PluginManager::uninstall( const QString &uuid )
   {
     disableAppPlugin( uuid );
 
-    QFileInfo fi( mAvailableAppPlugins[uuid].path() );
+    QFileInfo fi( mAvailableAppPlugins[uuid].path );
     fi.absoluteDir().removeRecursively();
 
     refreshAppPlugins();
@@ -513,7 +517,7 @@ void PluginManager::callPluginMethod( const QString &uuid, const QString &method
     return;
   }
 
-  const QString pluginPath = mAvailableAppPlugins[uuid].path();
+  const QString pluginPath = mAvailableAppPlugins[uuid].path;
   if ( !mLoadedPlugins.contains( pluginPath ) )
   {
     return;
