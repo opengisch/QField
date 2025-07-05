@@ -214,12 +214,12 @@
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation>フルサービス検出をする</translation>
+        <translation type="vanished">フルサービス検出をする</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>デバイスのフルスキャンには時間がかかる場合があります。本当に実行しますか？
+        <translation type="vanished">デバイスのフルスキャンには時間がかかる場合があります。本当に実行しますか？
 キャンセルして代わりにミニマムなデバイススキャンを行います。</translation>
     </message>
     <message>
@@ -264,11 +264,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation>近くにあるBluetoothデバイスが検出されませんでした。</translation>
+        <translation type="vanished">近くにあるBluetoothデバイスが検出されませんでした。</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
         <translation>スキャンエラー: %1</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deeper scanning for paired devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3416,22 +3424,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>(root folder)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refreshing remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refresh remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Imported and available locally</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Upload file(s) to WebDAV</source>
         <translation type="unfinished"/>
     </message>
@@ -3449,6 +3441,18 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported folder name</source>
         <translation type="unfinished"/>
     </message>
 </context>

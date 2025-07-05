@@ -214,12 +214,12 @@
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation>Tee täydellinen palveluhaku</translation>
+        <translation type="vanished">Tee täydellinen palveluhaku</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>Täydellinen laiteskannaus voi viedä enemmän aikaa. Haluatko jatkaa?
+        <translation type="vanished">Täydellinen laiteskannaus voi viedä enemmän aikaa. Haluatko jatkaa?
 Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
@@ -264,11 +264,19 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation>Bluetooth laitteita ei löydetty, skannaa löytääksesi läheiset laitteet.</translation>
+        <translation type="vanished">Bluetooth laitteita ei löydetty, skannaa löytääksesi läheiset laitteet.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
         <translation>Skannnausvirhe: %1</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deeper scanning for paired devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3420,22 +3428,6 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
         <translation>jätä tyhjäksi käyttääksesi muistissa olevaa</translation>
     </message>
     <message>
-        <source>(root folder)</source>
-        <translation>(juuri hakemisto)</translation>
-    </message>
-    <message>
-        <source>Refreshing remote folders</source>
-        <translation>Päivitetään etäkansioita</translation>
-    </message>
-    <message>
-        <source>Refresh remote folders</source>
-        <translation>Päivitä etäkansiot</translation>
-    </message>
-    <message>
-        <source>Imported and available locally</source>
-        <translation>Tuotu ja saatavilla lokaalisti</translation>
-    </message>
-    <message>
         <source>Upload file(s) to WebDAV</source>
         <translation>Lähetä tiedosto(t) WebDAV-palvelimelle</translation>
     </message>
@@ -3454,6 +3446,18 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
         <translation>Olet poistamassa tallennettua WebDAV-kohdetta, haluatko jatkaa?</translation>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -214,12 +214,12 @@
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation>Maak een full-service ontdekking</translation>
+        <translation type="vanished">Maak een full-service ontdekking</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>Een volledige apparaatscan kan langer duren. Wil je het echt doen?
+        <translation type="vanished">Een volledige apparaatscan kan langer duren. Wil je het echt doen?
 Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translation>
     </message>
     <message>
@@ -264,11 +264,19 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation>Geen Bluetooth apparaten gevonden, scan om apparaten te vinden.</translation>
+        <translation type="vanished">Geen Bluetooth apparaten gevonden, scan om apparaten te vinden.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
         <translation>Fout bij het scannen: %1</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deeper scanning for paired devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3418,22 +3426,6 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <translation>leeg laten om de onthouden gegevens te gebruiken</translation>
     </message>
     <message>
-        <source>(root folder)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refreshing remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refresh remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Imported and available locally</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Upload file(s) to WebDAV</source>
         <translation type="unfinished"/>
     </message>
@@ -3451,6 +3443,18 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported folder name</source>
         <translation type="unfinished"/>
     </message>
 </context>

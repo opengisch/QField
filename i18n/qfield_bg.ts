@@ -214,12 +214,12 @@
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation>Пълно търсене на устройства</translation>
+        <translation type="vanished">Пълно търсене на устройства</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>Пълното търсене на устройства може да отнеме известно време. Наистина ли желаете да направите пълно търсене?
+        <translation type="vanished">Пълното търсене на устройства може да отнеме известно време. Наистина ли желаете да направите пълно търсене?
 Откажи за бързо търсене.</translation>
     </message>
     <message>
@@ -264,11 +264,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation>Няма открити Bluetooth устройства, потърси устройства наблизо.</translation>
+        <translation type="vanished">Няма открити Bluetooth устройства, потърси устройства наблизо.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
         <translation>Грешка при търсене: %1</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deeper scanning for paired devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3420,22 +3428,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>остави празно, за да се запази</translation>
     </message>
     <message>
-        <source>(root folder)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refreshing remote folders</source>
-        <translation>Обновяване на отдалечените директории</translation>
-    </message>
-    <message>
-        <source>Refresh remote folders</source>
-        <translation>Обнови отдалечените директории</translation>
-    </message>
-    <message>
-        <source>Imported and available locally</source>
-        <translation>Импортирана и налична локално</translation>
-    </message>
-    <message>
         <source>Upload file(s) to WebDAV</source>
         <translation>Качи файловете на WebDAV сървъра</translation>
     </message>
@@ -3454,6 +3446,18 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
         <translation>На път си да премахнеш запазен обект в WebDAV сървъра, сигурен ли си?</translation>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

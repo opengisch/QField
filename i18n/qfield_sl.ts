@@ -269,6 +269,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>Scanning error: %1</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deeper scanning for paired devices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
@@ -3403,22 +3411,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>(root folder)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refreshing remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refresh remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Imported and available locally</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Upload file(s) to WebDAV</source>
         <translation type="unfinished"/>
     </message>
@@ -3436,6 +3428,18 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported folder name</source>
         <translation type="unfinished"/>
     </message>
 </context>

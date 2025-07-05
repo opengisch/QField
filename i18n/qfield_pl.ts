@@ -214,12 +214,12 @@
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation>Wykonaj pełne skanowanie urządzeń</translation>
+        <translation type="vanished">Wykonaj pełne skanowanie urządzeń</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>Pełne skanowanie urządzeń może potrwać dłużej. Czy naprawdę chcesz je wykonać?
+        <translation type="vanished">Pełne skanowanie urządzeń może potrwać dłużej. Czy naprawdę chcesz je wykonać?
 Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
@@ -264,11 +264,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation>Brak wykrytych urządzeń Bluetooth, skanowanie w celu wykrycia pobliskich urządzeń.</translation>
+        <translation type="vanished">Brak wykrytych urządzeń Bluetooth, skanowanie w celu wykrycia pobliskich urządzeń.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
         <translation>Błąd skanowania: %1</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation>Nie wykryto żadnych urządzeń Bluetooth.</translation>
+    </message>
+    <message>
+        <source>Deeper scanning for paired devices</source>
+        <translation>Głębsze skanowanie sparowanych urządzeń</translation>
     </message>
 </context>
 <context>
@@ -3422,22 +3430,6 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>pozostaw puste, aby użyć zapamiętanego</translation>
     </message>
     <message>
-        <source>(root folder)</source>
-        <translation>(folder główny)</translation>
-    </message>
-    <message>
-        <source>Refreshing remote folders</source>
-        <translation>Odświeżanie folderów zdalnych</translation>
-    </message>
-    <message>
-        <source>Refresh remote folders</source>
-        <translation>Odśwież zdalne foldery</translation>
-    </message>
-    <message>
-        <source>Imported and available locally</source>
-        <translation>Zaimportowane i dostępne lokalnie</translation>
-    </message>
-    <message>
         <source>Upload file(s) to WebDAV</source>
         <translation>Prześlij plik(i) do WebDAV</translation>
     </message>
@@ -3456,6 +3448,18 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
         <translation>Zamierzasz usunąć zapisany element WebDAV, czy kontynuować?</translation>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation>folder główny</translation>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation>Dostępne lokalnie w &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation>Nazwa importowanego folderu</translation>
     </message>
 </context>
 <context>

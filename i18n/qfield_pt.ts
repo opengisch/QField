@@ -214,12 +214,12 @@
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation>Fazer uma descoberta completa do serviço</translation>
+        <translation type="vanished">Fazer uma descoberta completa do serviço</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>Uma verificação completa do dispositivo pode demorar. Quer realmente fazer isso?
+        <translation type="vanished">Uma verificação completa do dispositivo pode demorar. Quer realmente fazer isso?
 Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
@@ -264,11 +264,19 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation>Sem dispositivos Bluetooth detetados, procure para obter dispositivos próximos.</translation>
+        <translation type="vanished">Sem dispositivos Bluetooth detetados, procure para obter dispositivos próximos.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
         <translation>Erro de verificação: %1</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deeper scanning for paired devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3420,22 +3428,6 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>(root folder)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refreshing remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refresh remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Imported and available locally</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Upload file(s) to WebDAV</source>
         <translation type="unfinished"/>
     </message>
@@ -3453,6 +3445,18 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported folder name</source>
         <translation type="unfinished"/>
     </message>
 </context>

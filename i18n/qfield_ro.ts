@@ -215,12 +215,12 @@ Vă rugăm să le examinați și să reconfigurați proiectul QGIS.</translation
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation>Faceți o descoperire completă a serviciilor</translation>
+        <translation type="vanished">Faceți o descoperire completă a serviciilor</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>O scanare completă a dispozitivului poate dura mai mult. Chiar doriți să o efectuați?
+        <translation type="vanished">O scanare completă a dispozitivului poate dura mai mult. Chiar doriți să o efectuați?
 Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
@@ -265,10 +265,18 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation>Nu au fost detectate dispozitive Bluetooth, scanați pentru a popula cu dispozitivele din apropiere.</translation>
+        <translation type="vanished">Nu au fost detectate dispozitive Bluetooth, scanați pentru a popula cu dispozitivele din apropiere.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deeper scanning for paired devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3422,22 +3430,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>(root folder)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refreshing remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refresh remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Imported and available locally</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Upload file(s) to WebDAV</source>
         <translation type="unfinished"/>
     </message>
@@ -3455,6 +3447,18 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported folder name</source>
         <translation type="unfinished"/>
     </message>
 </context>

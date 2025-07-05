@@ -214,12 +214,12 @@
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation>进行全方位服务探索</translation>
+        <translation type="vanished">进行全方位服务探索</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>全方位设备扫描可能需要更长时间，您真的想这样做吗？
+        <translation type="vanished">全方位设备扫描可能需要更长时间，您真的想这样做吗？
 取消，进行最少设备扫描。</translation>
     </message>
     <message>
@@ -264,11 +264,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation>未检测到蓝牙设备，请移至附近的设备。</translation>
+        <translation type="vanished">未检测到蓝牙设备，请移至附近的设备。</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
         <translation>扫描错误: %1</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation>未检测到蓝牙设备。</translation>
+    </message>
+    <message>
+        <source>Deeper scanning for paired devices</source>
+        <translation>对配对设备进行深度扫描</translation>
     </message>
 </context>
 <context>
@@ -3416,22 +3424,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>留空供记忆使用</translation>
     </message>
     <message>
-        <source>(root folder)</source>
-        <translation>(根文件夹)</translation>
-    </message>
-    <message>
-        <source>Refreshing remote folders</source>
-        <translation>正在刷新远程文件夹</translation>
-    </message>
-    <message>
-        <source>Refresh remote folders</source>
-        <translation>刷新远程文件夹</translation>
-    </message>
-    <message>
-        <source>Imported and available locally</source>
-        <translation>已导入并本地可用</translation>
-    </message>
-    <message>
         <source>Upload file(s) to WebDAV</source>
         <translation>将文件上传到WebDAV</translation>
     </message>
@@ -3450,6 +3442,18 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
         <translation>将移除已保存的WebDAV项，是否继续？</translation>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation>根文件夹</translation>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation>‘%1’ 本地可用</translation>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation>已导入文件夹名称</translation>
     </message>
 </context>
 <context>

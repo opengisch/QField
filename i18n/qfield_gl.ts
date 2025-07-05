@@ -214,12 +214,12 @@
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation>Levar a cabo unha descuberta do servizo completo</translation>
+        <translation type="vanished">Levar a cabo unha descuberta do servizo completo</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>Unha exploración completa do equipo pode levar algún tempo. Queres continuar?
+        <translation type="vanished">Unha exploración completa do equipo pode levar algún tempo. Queres continuar?
 Cancela para facer, porén, unha exploración mínima do dispositivo.</translation>
     </message>
     <message>
@@ -264,11 +264,19 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation>Non se detectaron dispositivos Bluetooth, explorar para introducir dispositivos próximos.</translation>
+        <translation type="vanished">Non se detectaron dispositivos Bluetooth, explorar para introducir dispositivos próximos.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
         <translation>Erro de escaneado: %1</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deeper scanning for paired devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3418,22 +3426,6 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
         <translation>deixar en branco para utilizar a que está en memoria</translation>
     </message>
     <message>
-        <source>(root folder)</source>
-        <translation>(directorio raíz)</translation>
-    </message>
-    <message>
-        <source>Refreshing remote folders</source>
-        <translation>Recargando os directorios remotos</translation>
-    </message>
-    <message>
-        <source>Refresh remote folders</source>
-        <translation>Recargar os directorios remotos</translation>
-    </message>
-    <message>
-        <source>Imported and available locally</source>
-        <translation>Importado e dispoñible localmente</translation>
-    </message>
-    <message>
         <source>Upload file(s) to WebDAV</source>
         <translation>Subir ficheiro(s) a WebDAV</translation>
     </message>
@@ -3452,6 +3444,18 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
         <translation>Estás a piques de eliminar un elemento WebDAV gardado, continuar?</translation>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

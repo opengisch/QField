@@ -214,12 +214,12 @@
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation>Teljes körű szolgáltatás felfedezés</translation>
+        <translation type="vanished">Teljes körű szolgáltatás felfedezés</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>Egy teljes keresés tovább tarthat.Valóban ezt akarja?
+        <translation type="vanished">Egy teljes keresés tovább tarthat.Valóban ezt akarja?
  Szakítsa meg a minimális eszközkereséshez.</translation>
     </message>
     <message>
@@ -264,11 +264,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation>Bluetotth eszközt nem észleltem, keress a közeli eszközök listázásáért</translation>
+        <translation type="vanished">Bluetotth eszközt nem észleltem, keress a közeli eszközök listázásáért</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
         <translation>Szkennelési hiba: %1</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deeper scanning for paired devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3412,22 +3420,6 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>(root folder)</source>
-        <translation>(gyökér mappa)</translation>
-    </message>
-    <message>
-        <source>Refreshing remote folders</source>
-        <translation>Távoli mappák frissítése</translation>
-    </message>
-    <message>
-        <source>Refresh remote folders</source>
-        <translation>Távoli mappák frissítése</translation>
-    </message>
-    <message>
-        <source>Imported and available locally</source>
-        <translation>Importálva és elérhető helyben</translation>
-    </message>
-    <message>
         <source>Upload file(s) to WebDAV</source>
         <translation>Fájl(ok) feltöltése WebDAV-ra</translation>
     </message>
@@ -3446,6 +3438,18 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
         <translation>Egy mentett WebDAV-elemet készül eltávolítani, folytatja?</translation>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -214,12 +214,12 @@
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation>Spustit úplné vyhledání služeb</translation>
+        <translation type="vanished">Spustit úplné vyhledání služeb</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>Plné skenování zařízení může trvat déle. Opravdu to chcete?
+        <translation type="vanished">Plné skenování zařízení může trvat déle. Opravdu to chcete?
 Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
@@ -264,11 +264,19 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation>Nenalezena žádná Bluetooth zařízení, zvolte Skenovat pro naplnění seznamu zařízení nablízku.</translation>
+        <translation type="vanished">Nenalezena žádná Bluetooth zařízení, zvolte Skenovat pro naplnění seznamu zařízení nablízku.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
         <translation>Skenovací chyba: %1</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deeper scanning for paired devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3421,22 +3429,6 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>(root folder)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refreshing remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refresh remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Imported and available locally</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Upload file(s) to WebDAV</source>
         <translation type="unfinished"/>
     </message>
@@ -3454,6 +3446,18 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported folder name</source>
         <translation type="unfinished"/>
     </message>
 </context>

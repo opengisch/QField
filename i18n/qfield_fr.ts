@@ -214,12 +214,12 @@
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation>Faire une découverte complète du service</translation>
+        <translation type="vanished">Faire une découverte complète du service</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation>L&apos;analyse complète de l&apos;appareil peut prendre plus de temps. Souhaitez-vous poursuivre ? Annuler pour réaliser une analyse minimale à la place.</translation>
+        <translation type="vanished">L&apos;analyse complète de l&apos;appareil peut prendre plus de temps. Souhaitez-vous poursuivre ? Annuler pour réaliser une analyse minimale à la place.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
@@ -263,11 +263,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation>Aucun appareil Bluetooth détecté, scannez pour afficher les appareils à proximité.</translation>
+        <translation type="vanished">Aucun appareil Bluetooth détecté, scannez pour afficher les appareils à proximité.</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
         <translation>Erreur d&apos;analyse : %1</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deeper scanning for paired devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3416,22 +3424,6 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation>Laisser vide pour utiliser l&apos;enregistré</translation>
     </message>
     <message>
-        <source>(root folder)</source>
-        <translation>(dossier racine)</translation>
-    </message>
-    <message>
-        <source>Refreshing remote folders</source>
-        <translation>Mise à jour des dossiers du cloud</translation>
-    </message>
-    <message>
-        <source>Refresh remote folders</source>
-        <translation>Mettre à jour les dossiers du cloud</translation>
-    </message>
-    <message>
-        <source>Imported and available locally</source>
-        <translation>Importé et disponible localement</translation>
-    </message>
-    <message>
         <source>Upload file(s) to WebDAV</source>
         <translation>Envoyer des fichiers vers WebDAV</translation>
     </message>
@@ -3450,6 +3442,18 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
         <translation>Vous êtes sur le point de supprimé un objet WebDAV enregistré, continuer ?</translation>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
