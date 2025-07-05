@@ -85,7 +85,7 @@ QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLa
       geom.transform( transf );
 
       QgsRectangle extent;
-      if ( geom.type() == Qgis::GeometryType::Point )
+      if ( geom.type() == Qgis::GeometryType::Point && geom.constGet()->partCount() == 1 )
       {
         extent = mapSettings->extent();
         QgsVector delta = QgsPointXY( geom.asPoint() ) - extent.center();
