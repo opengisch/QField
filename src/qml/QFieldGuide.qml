@@ -198,7 +198,11 @@ Popup {
       if (internalObject.target && internalObject.target[0]) {
         var ty = internalObject.pos.y + internalObject.target[0].height + guide.targetMargins + 15;
         if ((ty + height) >= guide.height) {
-          return internalObject.pos.y - height - guide.targetMargins - 8;
+          if (internalObject.pos.y - height - guide.targetMargins - 8 >= 0) {
+            return internalObject.pos.y - height - guide.targetMargins - 8;
+          } else {
+            return ty - height - 28 - mainWindow.sceneBottomMargin;
+          }
         }
         return ty - 8;
       }

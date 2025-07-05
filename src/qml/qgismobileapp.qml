@@ -4519,6 +4519,11 @@ ApplicationWindow {
         "target": () => [iface.findItemByObjectName('ModeSwitch')]
       }, {
         "type": "information",
+        "title": qsTr("Legend"),
+        "description": qsTr("The legend shows map layers and allows you to toggle visibility and opacity properties by <b>long-pressing on a layer to open a properties popup</b>. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers."),
+        "target": () => [iface.findItemByObjectName('Legend')]
+      }, {
+        "type": "information",
         "title": qsTr("Measurement"),
         "description": qsTr("Toggle the measurement tool to calculate distances and areas on the map."),
         "target": () => [iface.findItemByObjectName('MeasurementButton')]
