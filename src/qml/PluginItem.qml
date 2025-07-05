@@ -15,12 +15,14 @@ Rectangle {
 
   property bool itemEnabled
   property bool itemConfigurable
+  property bool itemDownloading: false
 
   signal authorDetailsClicked
   signal uninstallConfirmationClicked
   signal toggleEnabledPlugin(bool checked)
   signal pluginNameClicked
   signal configClicked
+  signal downloadClicked
 
   GridLayout {
     id: pluginItemContent
@@ -75,23 +77,27 @@ Rectangle {
     QfSwitch {
       Layout.preferredWidth: implicitContentWidth
       checked: itemEnabled
-      visible: InstalledLocallyRole
+      visible: InstalledLocally
 
       onClicked: {
         toggleEnabledPlugin(checked);
       }
     }
 
+    BusyIndicator {
+      id: busyIndicator
+      running: itemDownloading
+      visible: !InstalledLocally && itemDownloading
+    }
+
     QfButton {
       Layout.preferredHeight: 40
       Layout.preferredWidth: 40
-      visible: !InstalledLocallyRole
+      visible: !InstalledLocally && !itemDownloading
       icon.source: Theme.getThemeVectorIcon('ic_download_white_24dp')
       color: "transparent"
-
-      onClicked:
-      // download plugin!
-      {
+      onClicked: {
+        downloadClicked();
       }
     }
 
@@ -124,7 +130,7 @@ Rectangle {
         font: Theme.tipFont
         color: Theme.secondaryTextColor
         wrapMode: Text.WordWrap
-        visible: InstalledLocallyRole
+        visible: InstalledLocally
 
         onLinkActivated: link => {
           uninstallConfirmationClicked();

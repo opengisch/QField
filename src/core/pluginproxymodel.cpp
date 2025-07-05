@@ -46,10 +46,10 @@ bool PluginProxyModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourc
 
   switch ( mFilter )
   {
-    case LocalPlugins:
+    case LocalPlugin:
       matchesPluginType = sourceModel()->data( currentRowIndex, PluginModel::InstalledLocallyRole ).toBool();
       break;
-    case PublicPlugins:
+    case RemotePlugin:
       matchesPluginType = sourceModel()->data( currentRowIndex, PluginModel::AvailableRemotelyRole ).toBool();
       break;
   }

@@ -19,6 +19,7 @@
 
 
 #include <QAbstractListModel>
+#include <QFileInfo>
 
 class PluginManager;
 class PluginInformation;
@@ -41,7 +42,8 @@ class PluginModel : public QAbstractListModel
       IconRole,
       VersionRole,
       InstalledLocallyRole,
-      AvailableRemotelyRole
+      AvailableRemotelyRole,
+      DownloadLinkRole
     };
     Q_ENUM( PluginRoles )
 
@@ -96,10 +98,17 @@ class PluginModel : public QAbstractListModel
     PluginInformation plugin( const QString &uuid ) const;
 
     /**
-     * Loads the plugins available locally and updates the model.
+     * Loads local plugins, replacing the model contents entirely.
+     * Any previously loaded plugins (remote or local) will be cleared.
      */
     void loadLocalPlugins();
 
+    /**
+     * Refreshes local plugins incrementally by scanning plugin directories.
+     * Updates existing model items in-place, adds newly detected plugins,
+     * and removes entries that no longer exist locally (unless still available remotely).
+     */
+    void refreshLocalPlugins();
     /**
      * Clears the list of plugins in the model.
      */
@@ -119,6 +128,22 @@ class PluginModel : public QAbstractListModel
      * Returns true if the model is currently fetching remote plugins.
      */
     bool loading() const;
+
+  private:
+    /**
+     * Scans the app data directories for plugins, reading metadata and preparing PluginInformation objects.
+     *
+     * @return A list of PluginInformation objects representing all plugins found locally.
+     */
+    QList<PluginInformation> scanLocalPluginDirectories();
+
+    /**
+     * Reads the metadata (from metadata.txt) and prepares a PluginInformation for a given plugin directory.
+     *
+     * @param pluginDir The QFileInfo representing the plugin directory.
+     * @return The filled PluginInformation structure.
+     */
+    PluginInformation readPluginMetadata( const QFileInfo &pluginDir );
 
   signals:
     void loadingChanged();

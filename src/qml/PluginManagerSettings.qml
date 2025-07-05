@@ -79,10 +79,12 @@ Popup {
         visible: count > 0 || filterBar.currentIndex === 1
         clip: true
 
+        property real downloadingIndex: -1
+
         model: PluginProxyModel {
           sourceModel: pluginManager.pluginModel
           searchTerm: filterBar.currentIndex === 1 ? searchBar.searchTerm : ""
-          filter: filterBar.currentIndex === 0 ? PluginProxyModel.LocalPlugins : PluginProxyModel.PublicPlugins
+          filter: filterBar.currentIndex === 0 ? PluginProxyModel.LocalPlugin : PluginProxyModel.RemotePlugin
         }
 
         delegate: PluginItem {
@@ -91,6 +93,7 @@ Popup {
           name: Name
           itemEnabled: Enabled
           itemConfigurable: Configurable
+          itemDownloading: pluginsList.downloadingIndex == index
 
           onAuthorDetailsClicked: {
             authorDetails.authorName = Author;
@@ -123,6 +126,11 @@ Popup {
 
           onConfigClicked: {
             pluginManager.configureAppPlugin(Uuid);
+          }
+
+          onDownloadClicked: {
+            pluginsList.downloadingIndex = index;
+            pluginManager.installFromUrl(DownloadLink);
           }
         }
       }
@@ -342,6 +350,7 @@ Popup {
       } else {
         displayToast(qsTr('Plugin installation failed: ' + error, 'error'));
       }
+      pluginsList.downloadingIndex = -1;
     }
 
     function onAppPluginEnabled(uuid) {

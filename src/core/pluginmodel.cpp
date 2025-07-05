@@ -20,7 +20,6 @@
 #include "qgsnetworkaccessmanager.h"
 
 #include <QDir>
-#include <QFileInfo>
 #include <QSettings>
 #include <qjsonarray.h>
 #include <qjsondocument.h>
@@ -68,6 +67,8 @@ QVariant PluginModel::data( const QModelIndex &index, int role ) const
       return plugin.locallyAvailable;
     case AvailableRemotelyRole:
       return plugin.remotelyAvailable;
+    case DownloadLinkRole:
+      return plugin.downloadLink;
     default:
       return QVariant();
   }
@@ -85,8 +86,9 @@ QHash<int, QByteArray> PluginModel::roleNames() const
     { HomepageRole, "Homepage" },
     { IconRole, "Icon" },
     { VersionRole, "Version" },
-    { InstalledLocallyRole, "InstalledLocallyRole" },
-    { AvailableRemotelyRole, "AvailableRemotelyRole" } };
+    { InstalledLocallyRole, "InstalledLocally" },
+    { AvailableRemotelyRole, "AvailableRemotely" },
+    { DownloadLinkRole, "DownloadLink" } };
 }
 
 void PluginModel::setPlugins( const QList<PluginInformation> &plugins )
@@ -218,8 +220,8 @@ void PluginModel::fetchRemotePlugins()
       info.homepage = obj.value( "homepage" ).toString();
       info.icon = obj.value( "icon" ).toString();
       info.version = obj.value( "version" ).toString();
-      info.path = obj.value( "download" ).toString();
       info.uuid = obj.value( "key" ).toString();
+      info.downloadLink = obj.value( "download" ).toString();
       info.remotelyAvailable = true;
       info.locallyAvailable = false;
 
@@ -237,6 +239,7 @@ void PluginModel::fetchRemotePlugins()
         if ( local.uuid == remote.uuid )
         {
           local.remotelyAvailable = true;
+          local.icon = remote.icon;
           existsLocally = true;
           break;
         }
@@ -254,7 +257,7 @@ void PluginModel::fetchRemotePlugins()
   } );
 }
 
-void PluginModel::loadLocalPlugins()
+QList<PluginInformation> PluginModel::scanLocalPluginDirectories()
 {
   QList<PluginInformation> plugins;
 
@@ -268,41 +271,112 @@ void PluginModel::loadLocalPlugins()
       const QString path = QStringLiteral( "%1/main.qml" ).arg( candidate.absoluteFilePath() );
       if ( QFileInfo::exists( path ) )
       {
-        QString name = candidate.fileName();
-        QString description, author, homepage, icon, version;
-
-        const QString metadataPath = QStringLiteral( "%1/metadata.txt" ).arg( candidate.absoluteFilePath() );
-        if ( QFileInfo::exists( metadataPath ) )
-        {
-          QSettings metadata( metadataPath, QSettings::IniFormat );
-          name = metadata.value( "name", candidate.fileName() ).toString();
-          description = metadata.value( "description" ).toString();
-          author = metadata.value( "author" ).toString();
-          homepage = metadata.value( "homepage" ).toString();
-          if ( !homepage.isEmpty() )
-          {
-            QUrl url( homepage );
-            if ( !url.scheme().startsWith( "http" ) )
-              homepage.clear();
-          }
-          if ( !metadata.value( "icon" ).toString().isEmpty() )
-            icon = QStringLiteral( "%1/%2" ).arg( candidate.absoluteFilePath(), metadata.value( "icon" ).toString() );
-          version = metadata.value( "version" ).toString();
-        }
-
-        PluginInformation plugin( candidate.fileName(), name, description, author, homepage, icon, version, path, true, false );
-        plugin.enabled = mManager->isAppPluginEnabled( plugin.uuid );
-        plugin.configurable = mManager->isAppPluginConfigurable( plugin.uuid );
+        PluginInformation plugin = readPluginMetadata( candidate );
         plugins.append( plugin );
       }
     }
   }
 
-  std::sort( plugins.begin(), plugins.end(), []( const PluginInformation &plugin1, const PluginInformation &plugin2 ) {
-    return plugin1.name.toLower() < plugin2.name.toLower();
+  return plugins;
+}
+void PluginModel::loadLocalPlugins()
+{
+  QList<PluginInformation> plugins = scanLocalPluginDirectories();
+
+  std::sort( plugins.begin(), plugins.end(), []( const PluginInformation &p1, const PluginInformation &p2 ) {
+    return p1.name.toLower() < p2.name.toLower();
   } );
 
   setPlugins( plugins );
+}
+
+void PluginModel::refreshLocalPlugins()
+{
+  const QList<PluginInformation> localPluginsList = scanLocalPluginDirectories();
+
+  QHash<QString, PluginInformation> foundLocalPlugins;
+  for ( const PluginInformation &plugin : localPluginsList )
+  {
+    foundLocalPlugins.insert( plugin.uuid, plugin );
+  }
+
+  for ( int i = 0; i < mPlugins.size(); )
+  {
+    const QString &uuid = mPlugins[i].uuid;
+    if ( foundLocalPlugins.contains( uuid ) )
+    {
+      const PluginInformation &local = foundLocalPlugins[uuid];
+      mPlugins[i].name = local.name;
+      mPlugins[i].description = local.description;
+      mPlugins[i].author = local.author;
+      mPlugins[i].homepage = local.homepage;
+      mPlugins[i].version = local.version;
+      mPlugins[i].path = local.path;
+      mPlugins[i].locallyAvailable = true;
+      mPlugins[i].enabled = local.enabled;
+      mPlugins[i].configurable = local.configurable;
+
+      emit dataChanged( index( i ), index( i ) );
+      foundLocalPlugins.remove( uuid );
+      ++i; // only increment if not removing
+    }
+    else if ( !mPlugins[i].remotelyAvailable )
+    {
+      beginRemoveRows( QModelIndex(), i, i );
+      mPlugins.removeAt( i );
+      endRemoveRows();
+    }
+    else
+    {
+      // still available remotely, just mark as not local
+      if ( mPlugins[i].locallyAvailable )
+      {
+        mPlugins[i].locallyAvailable = false;
+        emit dataChanged( index( i ), index( i ), { InstalledLocallyRole } );
+      }
+      ++i;
+    }
+  }
+
+
+  for ( const PluginInformation &newPlugin : foundLocalPlugins )
+  {
+    beginInsertRows( QModelIndex(), mPlugins.size(), mPlugins.size() );
+    mPlugins.append( newPlugin );
+    endInsertRows();
+  }
+}
+
+PluginInformation PluginModel::readPluginMetadata( const QFileInfo &pluginDir )
+{
+  QString name = pluginDir.fileName();
+  QString description, author, homepage, icon, version;
+  const QString path = QStringLiteral( "%1/main.qml" ).arg( pluginDir.absoluteFilePath() );
+
+  const QString metadataPath = QStringLiteral( "%1/metadata.txt" ).arg( pluginDir.absoluteFilePath() );
+  if ( QFileInfo::exists( metadataPath ) )
+  {
+    QSettings metadata( metadataPath, QSettings::IniFormat );
+    name = metadata.value( "name", pluginDir.fileName() ).toString();
+    description = metadata.value( "description" ).toString();
+    author = metadata.value( "author" ).toString();
+    homepage = metadata.value( "homepage" ).toString();
+    if ( !homepage.isEmpty() )
+    {
+      QUrl url( homepage );
+      if ( !url.scheme().startsWith( "http" ) )
+        homepage.clear();
+    }
+    if ( !metadata.value( "icon" ).toString().isEmpty() )
+      icon = QStringLiteral( "%1/%2" ).arg( pluginDir.absoluteFilePath(), metadata.value( "icon" ).toString() );
+    version = metadata.value( "version" ).toString();
+  }
+
+  PluginInformation plugin( pluginDir.fileName(), name, description, author, homepage, icon, version, path, true, false );
+  plugin.enabled = mManager->isAppPluginEnabled( plugin.uuid );
+  plugin.configurable = mManager->isAppPluginConfigurable( plugin.uuid );
+
+  return plugin;
 }
 
 bool PluginModel::hasPlugin( const QString &uuid ) const

@@ -39,6 +39,7 @@ struct PluginInformation
     QString icon;
     QString version;
     QString path;
+    QString downloadLink;
 
     PluginInformation( const QString &uuid = QString(), const QString &name = QString(), const QString &description = QString(), const QString &author = QString(), const QString &homepage = QString(), const QString &icon = QString(), const QString &version = QString(), const QString &path = QString(), const bool locallyAvailable = false, const bool remotelyAvailable = false )
       : uuid( uuid )

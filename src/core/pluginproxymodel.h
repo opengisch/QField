@@ -31,8 +31,8 @@ class PluginProxyModel : public QSortFilterProxyModel
   public:
     enum PluginFilter
     {
-      LocalPlugins,
-      PublicPlugins,
+      LocalPlugin,
+      RemotePlugin,
     };
     Q_ENUM( PluginFilter )
 
@@ -67,7 +67,7 @@ class PluginProxyModel : public QSortFilterProxyModel
 
   private:
     QString mSearchTerm;
-    PluginFilter mFilter = LocalPlugins;
+    PluginFilter mFilter = LocalPlugin;
 };
 
 Q_DECLARE_METATYPE( PluginProxyModel::PluginFilter )

@@ -378,7 +378,7 @@ void PluginManager::installFromUrl( const QString &url )
             {
               file.remove();
 
-              mPluginModel->loadLocalPlugins();
+              mPluginModel->refreshLocalPlugins();
               emit installEnded( pluginDirectoryName );
 
               return;
@@ -423,7 +423,7 @@ void PluginManager::uninstall( const QString &uuid )
     QFileInfo fi( mPluginModel->plugin( uuid ).path );
     fi.absoluteDir().removeRecursively();
 
-    mPluginModel->loadLocalPlugins();
+    mPluginModel->refreshLocalPlugins();
   }
 }
 
