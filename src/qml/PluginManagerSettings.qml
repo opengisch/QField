@@ -59,14 +59,9 @@ Popup {
           onClicked: {
             filterBar.currentIndex = index;
             if (index == 1)
-              pluginModel.fetchRemotePlugins();
+              pluginManager.pluginModel.fetchRemotePlugins();
           }
         }
-      }
-
-      PluginModel {
-        id: pluginModel
-        manager: pluginManager
       }
 
       QfSearchBar {
@@ -85,7 +80,7 @@ Popup {
         clip: true
 
         model: PluginProxyModel {
-          sourceModel: pluginModel
+          sourceModel: pluginManager.pluginModel
           searchTerm: filterBar.currentIndex === 1 ? searchBar.searchTerm : ""
           filter: filterBar.currentIndex === 0 ? PluginProxyModel.LocalPlugins : PluginProxyModel.PublicPlugins
         }
@@ -144,6 +139,30 @@ Popup {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         onLinkActivated: link => Qt.openUrlExternally(link)
+      }
+
+      Item {
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        Layout.margins: 20
+        visible: pluginManager.pluginModel.loading
+
+        BusyIndicator {
+          id: busyIndicator
+          running: pluginManager.pluginModel.loading
+          anchors.centerIn: parent
+        }
+
+        Label {
+          anchors.top: busyIndicator.bottom
+          anchors.topMargin: 8
+          width: parent.width
+          text: qsTr('Fetching plugins')
+          font: Theme.defaultFont
+          wrapMode: Text.WordWrap
+          horizontalAlignment: Text.AlignHCenter
+          verticalAlignment: Text.AlignVCenter
+        }
       }
 
       QfButton {
@@ -326,11 +345,11 @@ Popup {
     }
 
     function onAppPluginEnabled(uuid) {
-      pluginModel.updatePluginEnabledStateByUuid(uuid, true, pluginManager.isAppPluginConfigurable(uuid));
+      pluginManager.pluginModel.updatePluginEnabledStateByUuid(uuid, true, pluginManager.isAppPluginConfigurable(uuid));
     }
 
     function onAppPluginDisabled(uuid) {
-      pluginModel.updatePluginEnabledStateByUuid(uuid, false, false);
+      pluginManager.pluginModel.updatePluginEnabledStateByUuid(uuid, false, false);
     }
   }
 }

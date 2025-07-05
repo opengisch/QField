@@ -14,8 +14,14 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "platformutilities.h"
+#include "pluginmanager.h"
 #include "pluginmodel.h"
+#include "qgsnetworkaccessmanager.h"
 
+#include <QDir>
+#include <QFileInfo>
+#include <QSettings>
 #include <qjsonarray.h>
 #include <qjsondocument.h>
 #include <qjsonobject.h>
@@ -100,8 +106,6 @@ void PluginModel::setManager( PluginManager *newManager )
   if ( mManager == newManager )
     return;
   mManager = newManager;
-  setLocalAppPlugins();
-  emit managerChanged();
 }
 
 void PluginModel::clear()
@@ -109,30 +113,6 @@ void PluginModel::clear()
   beginResetModel();
   setPlugins( {} );
   endResetModel();
-}
-
-void PluginModel::setLocalAppPlugins()
-{
-  QList<PluginInformation> pluginEntries;
-
-  for ( const PluginInformation &plugin : mManager->availableAppPlugins() )
-  {
-    PluginInformation entry;
-    entry.uuid = plugin.uuid;
-    entry.name = plugin.name;
-    entry.enabled = mManager->isAppPluginEnabled( plugin.uuid );
-    entry.configurable = mManager->isAppPluginConfigurable( plugin.uuid );
-    entry.locallyAvailable = true;
-    entry.remotelyAvailable = false;
-    entry.description = plugin.description;
-    entry.author = plugin.author;
-    entry.homepage = plugin.homepage;
-    entry.icon = plugin.icon;
-    entry.version = plugin.version;
-    pluginEntries.append( entry );
-  }
-
-  setPlugins( pluginEntries );
 }
 
 bool PluginModel::setData( const QModelIndex &index, const QVariant &value, int role )
@@ -181,100 +161,171 @@ void PluginModel::updatePluginEnabledStateByUuid( const QString &uuid, bool enab
 
 void PluginModel::fetchRemotePlugins()
 {
-  QList<PluginInformation> mRemotePlugins = {};
+  mLoading = true;
+  emit loadingChanged();
 
-  QString jsonString = R"(
-    [
-      {
-        "name": "OSRM Routing",
-        "description": "Provides routing visualization within QField",
-        "icon": "https://raw.githubusercontent.com/opengisch/qfield-osrm/refs/heads/main/icon.svg",
-        "version": "1.0",
-        "download": "https://github.com/opengisch/qfield-osrm/releases/download/v1.0/qfield-osrm-routing.zip",
-        "minimum_version": "3.6.0",
-        "homepage": "https://github.com/opengisch/qfield-osrm",
-        "author": "OPENGIS.ch"
-      },
-      {
-        "name": "OpenStreetMap Nominatim Search",
-        "description": "Integrates OpenStreetMap Nominatim results into the search bar through the osm prefix",
-        "icon": "https://raw.githubusercontent.com/opengisch/qfield-nominatim-locator/refs/heads/main/icon.svg",
-        "version": "1.3",
-        "download": "https://github.com/opengisch/qfield-nominatim-locator/releases/download/v1.3/qfield-nominatim-locator-v1.3.zip",
-        "minimum_version": "3.6.0",
-        "homepage": "https://github.com/opengisch/qfield-nominatim-locator",
-        "author": "OPENGIS.ch"
-      }
-    ])";
+  const QUrl url( "https://qfield.org/plugins.json" );
 
-  QJsonParseError parseError;
-  QJsonDocument jsonDoc = QJsonDocument::fromJson( jsonString.toUtf8(), &parseError );
+  QNetworkRequest request( url );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy );
 
-  if ( parseError.error != QJsonParseError::NoError )
-  {
-    qWarning() << "JSON parse error:" << parseError.errorString();
-    return;
-  }
+  QgsNetworkAccessManager *manager = new QgsNetworkAccessManager( this );
 
-  if ( !jsonDoc.isArray() )
-  {
-    qWarning() << "Expected a JSON array!";
-    return;
-  }
+  QNetworkReply *reply = manager->get( request );
 
-  const QJsonArray jsonArray = jsonDoc.array();
-  for ( const QJsonValueConstRef &value : jsonArray )
-  {
-    if ( !value.isObject() )
-      continue;
+  connect( reply, &QNetworkReply::finished, this, [=]() {
+    reply->deleteLater();
+    manager->deleteLater();
 
-    const QJsonObject obj = value.toObject();
+    mLoading = false;
+    emit loadingChanged();
 
-    PluginInformation info;
-    info.name = obj.value( "name" ).toString();
-    info.description = obj.value( "description" ).toString();
-    info.author = obj.value( "author" ).toString();
-    info.homepage = obj.value( "homepage" ).toString();
-    info.icon = obj.value( "icon" ).toString();
-    info.version = obj.value( "version" ).toString();
-    info.path = obj.value( "download" ).toString();
-    info.uuid = info.name; // "WE_NEED_SECURE_UUID";
-    info.remotelyAvailable = true;
-    info.locallyAvailable = false;
-    mRemotePlugins.append( info );
-  }
-
-  QList<PluginInformation> pluginEntries = mPlugins;
-
-  for ( const PluginInformation &plugin : mRemotePlugins )
-  {
-    bool locallyExists = false;
-    for ( int i = 0; i < mPlugins.size(); ++i )
+    if ( reply->error() != QNetworkReply::NoError )
     {
-      if ( pluginEntries[i].name == plugin.name )
+      qWarning() << "Failed to fetch remote plugins:" << reply->errorString();
+      return;
+    }
+
+    const QByteArray responseData = reply->readAll();
+    QJsonParseError parseError;
+    QJsonDocument jsonDoc = QJsonDocument::fromJson( responseData, &parseError );
+
+    if ( parseError.error != QJsonParseError::NoError )
+    {
+      qWarning() << "JSON parse error:" << parseError.errorString();
+      return;
+    }
+
+    if ( !jsonDoc.isArray() )
+    {
+      qWarning() << "Expected JSON array!";
+      return;
+    }
+
+    QList<PluginInformation> remotePlugins;
+    const QJsonArray jsonArray = jsonDoc.array();
+    for ( const QJsonValue &value : jsonArray )
+    {
+      if ( !value.isObject() )
+        continue;
+
+      const QJsonObject obj = value.toObject();
+
+      PluginInformation info;
+      info.name = obj.value( "name" ).toString();
+      info.description = obj.value( "description" ).toString();
+      info.author = obj.value( "author" ).toString();
+      info.homepage = obj.value( "homepage" ).toString();
+      info.icon = obj.value( "icon" ).toString();
+      info.version = obj.value( "version" ).toString();
+      info.path = obj.value( "download" ).toString();
+      info.uuid = obj.value( "key" ).toString();
+      info.remotelyAvailable = true;
+      info.locallyAvailable = false;
+
+      remotePlugins.append( info );
+    }
+
+    // Merge with local plugins
+    QList<PluginInformation> mergedPlugins = mPlugins;
+
+    for ( const PluginInformation &remote : remotePlugins )
+    {
+      bool existsLocally = false;
+      for ( PluginInformation &local : mergedPlugins )
       {
-        pluginEntries[i].remotelyAvailable = true;
-        locallyExists = true;
-        break;
+        if ( local.uuid == remote.uuid )
+        {
+          local.remotelyAvailable = true;
+          existsLocally = true;
+          break;
+        }
+      }
+      if ( !existsLocally )
+      {
+        PluginInformation entry = remote;
+        entry.enabled = mManager->isAppPluginEnabled( entry.uuid );
+        entry.configurable = mManager->isAppPluginConfigurable( entry.uuid );
+        mergedPlugins.append( entry );
       }
     }
-    if ( !locallyExists )
+
+    setPlugins( mergedPlugins );
+  } );
+}
+
+void PluginModel::loadLocalPlugins()
+{
+  QList<PluginInformation> plugins;
+
+  const QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
+  for ( QString dataDir : dataDirs )
+  {
+    QDir pluginsDir( dataDir += QStringLiteral( "plugins" ) );
+    const QList<QFileInfo> candidates = pluginsDir.entryInfoList( QDir::Dirs | QDir::NoDotAndDotDot );
+    for ( const QFileInfo &candidate : candidates )
     {
-      PluginInformation entry;
-      entry.uuid = plugin.uuid;
-      entry.name = plugin.name;
-      entry.enabled = mManager->isAppPluginEnabled( plugin.uuid );
-      entry.configurable = mManager->isAppPluginConfigurable( plugin.uuid );
-      entry.locallyAvailable = false;
-      entry.remotelyAvailable = true;
-      entry.description = plugin.description;
-      entry.author = plugin.author;
-      entry.homepage = plugin.homepage;
-      entry.icon = plugin.icon;
-      entry.version = plugin.version;
-      pluginEntries.append( entry );
+      const QString path = QStringLiteral( "%1/main.qml" ).arg( candidate.absoluteFilePath() );
+      if ( QFileInfo::exists( path ) )
+      {
+        QString name = candidate.fileName();
+        QString description, author, homepage, icon, version;
+
+        const QString metadataPath = QStringLiteral( "%1/metadata.txt" ).arg( candidate.absoluteFilePath() );
+        if ( QFileInfo::exists( metadataPath ) )
+        {
+          QSettings metadata( metadataPath, QSettings::IniFormat );
+          name = metadata.value( "name", candidate.fileName() ).toString();
+          description = metadata.value( "description" ).toString();
+          author = metadata.value( "author" ).toString();
+          homepage = metadata.value( "homepage" ).toString();
+          if ( !homepage.isEmpty() )
+          {
+            QUrl url( homepage );
+            if ( !url.scheme().startsWith( "http" ) )
+              homepage.clear();
+          }
+          if ( !metadata.value( "icon" ).toString().isEmpty() )
+            icon = QStringLiteral( "%1/%2" ).arg( candidate.absoluteFilePath(), metadata.value( "icon" ).toString() );
+          version = metadata.value( "version" ).toString();
+        }
+
+        PluginInformation plugin( candidate.fileName(), name, description, author, homepage, icon, version, path, true, false );
+        plugin.enabled = mManager->isAppPluginEnabled( plugin.uuid );
+        plugin.configurable = mManager->isAppPluginConfigurable( plugin.uuid );
+        plugins.append( plugin );
+      }
     }
   }
 
-  setPlugins( pluginEntries );
+  std::sort( plugins.begin(), plugins.end(), []( const PluginInformation &plugin1, const PluginInformation &plugin2 ) {
+    return plugin1.name.toLower() < plugin2.name.toLower();
+  } );
+
+  setPlugins( plugins );
+}
+
+bool PluginModel::hasPlugin( const QString &uuid ) const
+{
+  for ( const PluginInformation &plugin : mPlugins )
+  {
+    if ( plugin.uuid == uuid )
+      return true;
+  }
+  return false;
+}
+
+PluginInformation PluginModel::plugin( const QString &uuid ) const
+{
+  for ( const PluginInformation &plugin : mPlugins )
+  {
+    if ( plugin.uuid == uuid )
+      return plugin;
+  }
+  return PluginInformation();
+}
+
+bool PluginModel::loading() const
+{
+  return mLoading;
 }

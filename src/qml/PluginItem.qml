@@ -124,6 +124,7 @@ Rectangle {
         font: Theme.tipFont
         color: Theme.secondaryTextColor
         wrapMode: Text.WordWrap
+        visible: InstalledLocallyRole
 
         onLinkActivated: link => {
           uninstallConfirmationClicked();

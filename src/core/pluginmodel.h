@@ -17,16 +17,16 @@
 #ifndef PLUGINMODEL_H
 #define PLUGINMODEL_H
 
-#include "pluginmanager.h"
 
 #include <QAbstractListModel>
 
+class PluginManager;
+class PluginInformation;
 
 class PluginModel : public QAbstractListModel
 {
     Q_OBJECT
-
-    Q_PROPERTY( PluginManager *manager READ manager WRITE setManager NOTIFY managerChanged )
+    Q_PROPERTY( bool loading READ loading NOTIFY loadingChanged )
 
   public:
     enum PluginRoles
@@ -45,29 +45,88 @@ class PluginModel : public QAbstractListModel
     };
     Q_ENUM( PluginRoles )
 
+    /**
+     * Constructs a PluginModel.
+     */
     explicit PluginModel( QObject *parent = nullptr );
 
+    /**
+     * Returns the number of plugins in the model.
+     */
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
+
+    /**
+     * Returns the data for \a index and \a role.
+     */
     QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
+
+    /**
+     * Returns the role names used by this model.
+     */
     QHash<int, QByteArray> roleNames() const override;
+
+    /**
+     * Sets the data for \a index and \a role to \a value.
+     */
     bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
+    /**
+     * Sets the list of plugins displayed by the model.
+     */
     void setPlugins( const QList<PluginInformation> &plugins );
 
+    /**
+     * Returns the plugin manager used by this model.
+     */
     PluginManager *manager() const;
+
+    /**
+     * Sets the plugin manager to \a newManager.
+     */
     void setManager( PluginManager *newManager );
 
+    /**
+     * Returns true if the model contains a plugin with the given \a uuid.
+     */
+    bool hasPlugin( const QString &uuid ) const;
+
+    /**
+     * Returns the plugin information for the plugin identified by \a uuid.
+     */
+    PluginInformation plugin( const QString &uuid ) const;
+
+    /**
+     * Loads the plugins available locally and updates the model.
+     */
+    void loadLocalPlugins();
+
+    /**
+     * Clears the list of plugins in the model.
+     */
     Q_INVOKABLE void clear();
-    Q_INVOKABLE void setLocalAppPlugins();
+
+    /**
+     * Updates the enabled and configurable state of the plugin with \a uuid.
+     */
     Q_INVOKABLE void updatePluginEnabledStateByUuid( const QString &uuid, bool enabled, bool configurable );
+
+    /**
+     * Fetches remote plugins from the QField plugin registry.
+     */
     Q_INVOKABLE void fetchRemotePlugins();
 
+    /**
+     * Returns true if the model is currently fetching remote plugins.
+     */
+    bool loading() const;
+
   signals:
-    void managerChanged();
+    void loadingChanged();
 
   private:
     QList<PluginInformation> mPlugins;
     PluginManager *mManager = nullptr;
+    bool mLoading = false;
 };
 
 #endif // PLUGINMODEL_H
