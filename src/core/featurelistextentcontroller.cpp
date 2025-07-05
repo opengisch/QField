@@ -50,14 +50,23 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
 {
   if ( mModel && mSelection && mSelection->focusedItem() > -1 && mMapSettings )
   {
-    QgsFeature feat = mSelection->focusedFeature();
+    const QgsFeature feature = mSelection->focusedFeature();
     QgsVectorLayer *layer = mSelection->focusedLayer();
 
     if ( layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
     {
-      QgsRectangle extent = FeatureUtils::extent( mMapSettings, layer, feat );
-      if ( !skipIfIntersects || !mMapSettings->extent().intersects( extent ) )
-        mMapSettings->setExtent( extent, true );
+      if ( feature.geometry().type() == Qgis::GeometryType::Point && feature.geometry().constGet()->partCount() == 1 )
+      {
+        mMapSettings->setCenter( QgsPoint( feature.geometry().asPoint() ), true );
+      }
+      else
+      {
+        QgsRectangle extent = FeatureUtils::extent( mMapSettings, layer, feature );
+        if ( !skipIfIntersects || !mMapSettings->extent().intersects( extent ) )
+        {
+          mMapSettings->setExtent( extent, true );
+        }
+      }
     }
   }
 }
