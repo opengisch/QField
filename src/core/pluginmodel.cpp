@@ -206,7 +206,7 @@ void PluginModel::fetchRemotePlugins()
 
     QList<PluginInformation> remotePlugins;
     const QJsonArray jsonArray = jsonDoc.array();
-    for ( const QJsonValue &value : jsonArray )
+    for ( const QJsonValueConstRef &value : jsonArray )
     {
       if ( !value.isObject() )
         continue;
@@ -240,6 +240,7 @@ void PluginModel::fetchRemotePlugins()
         {
           local.remotelyAvailable = true;
           local.icon = remote.icon;
+          local.downloadLink = remote.downloadLink;
           existsLocally = true;
           break;
         }

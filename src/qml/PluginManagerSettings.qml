@@ -76,7 +76,7 @@ Popup {
         id: pluginsList
         Layout.fillWidth: true
         Layout.fillHeight: true
-        visible: count > 0 || filterBar.currentIndex === 1
+        visible: (count > 0 || filterBar.currentIndex === 1) && !pluginManager.pluginModel.loading
         clip: true
 
         property real downloadingIndex: -1
@@ -110,7 +110,7 @@ Popup {
           onToggleEnabledPlugin: checked => {
             Enabled = checked;
             if (Enabled) {
-              pluginManager.enableAppPlugin(Uuid);
+              pluginManager.enableAppPlugin(Uuid, AvailableRemotely);
             } else {
               pluginManager.disableAppPlugin(Uuid);
             }
@@ -118,7 +118,7 @@ Popup {
 
           onPluginNameClicked: {
             if (!Enabled) {
-              pluginManager.enableAppPlugin(Uuid);
+              pluginManager.enableAppPlugin(Uuid, AvailableRemotely);
             } else {
               pluginManager.disableAppPlugin(Uuid);
             }
@@ -152,7 +152,6 @@ Popup {
       Item {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        Layout.margins: 20
         visible: pluginManager.pluginModel.loading
 
         BusyIndicator {

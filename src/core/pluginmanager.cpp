@@ -220,7 +220,7 @@ void PluginManager::restoreAppPlugins()
   settings.endGroup();
 }
 
-void PluginManager::enableAppPlugin( const QString &uuid )
+void PluginManager::enableAppPlugin( const QString &uuid, bool skipPermissionCheck )
 {
   if ( mPluginModel->hasPlugin( uuid ) )
   {
@@ -238,7 +238,7 @@ void PluginManager::enableAppPlugin( const QString &uuid )
       }
       settings.endGroup();
 
-      loadPlugin( pluginPath, mPluginModel->plugin( uuid ).name );
+      loadPlugin( pluginPath, mPluginModel->plugin( uuid ).name, skipPermissionCheck );
 
       if ( mLoadedPlugins.contains( pluginPath ) )
       {
