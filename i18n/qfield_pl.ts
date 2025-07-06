@@ -5859,6 +5859,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
         <translation>Otwórz folder projektu, aby uzyskać dostęp do plików projektu, źródeł danych i powiązanych dokumentów. Przydatne do zarządzania zasobami projektu, ręcznego przesyłania danych do QFieldCloud oraz udostępniania zestawów danych, załączników i widoków.</translation>
     </message>
+    <message>
+        <source>Legend</source>
+        <translation>Legenda</translation>
+    </message>
+    <message>
+        <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
+        <translation>Legenda pokazuje warstwy mapy i umożliwia przełączanie właściwości widoczności i krycia poprzez &lt;b&gt;długie naciśnięcie na warstwę, aby otworzyć wyskakujące okienko właściwości&lt;/b&gt;. Wyskakujące okienko oferuje dodatkowe funkcje, takie jak powiększanie do zakresu warstwy i wyświetlanie obiektów zawartych w warstwach wektorowych.</translation>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

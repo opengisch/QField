@@ -5853,6 +5853,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
         <translation>打开工程文件夹访问工程文件、数据源和相关文档。可用于管理工程资源、手动将数据上传到QFieldCloud以及共享数据集、附件与布局。</translation>
     </message>
+    <message>
+        <source>Legend</source>
+        <translation>图例</translation>
+    </message>
+    <message>
+        <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
+        <translation>图例显示地图图层，并允许 &lt;b&gt;长按图层打开属性弹出窗口&lt;/b&gt; 切换可见性和不透明度属性。弹出窗口提供了其他功能，例如缩放到图层范围和显示矢量图层中包含的要素。</translation>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
