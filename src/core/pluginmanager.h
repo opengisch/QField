@@ -28,10 +28,6 @@
 struct PluginInformation
 {
     QString uuid;
-    bool enabled;
-    bool configurable;
-    bool locallyAvailable;
-    bool remotelyAvailable;
     QString name;
     QString description;
     QString author;
@@ -40,8 +36,12 @@ struct PluginInformation
     QString version;
     QString path;
     QString downloadLink;
+    bool locallyAvailable;
+    bool remotelyAvailable;
+    bool enabled;
+    bool configurable;
 
-    PluginInformation( const QString &uuid = QString(), const QString &name = QString(), const QString &description = QString(), const QString &author = QString(), const QString &homepage = QString(), const QString &icon = QString(), const QString &version = QString(), const QString &path = QString(), const bool locallyAvailable = false, const bool remotelyAvailable = false )
+    PluginInformation( const QString &uuid = QString(), const QString &name = QString(), const QString &description = QString(), const QString &author = QString(), const QString &homepage = QString(), const QString &icon = QString(), const QString &version = QString(), const QString &path = QString(), const QString &downloadLink = QString(), const bool locallyAvailable = false, const bool remotelyAvailable = false, const bool enabled = false, const bool configurable = false )
       : uuid( uuid )
       , name( name )
       , description( description )
@@ -50,8 +50,11 @@ struct PluginInformation
       , icon( icon )
       , version( version )
       , path( path )
+      , downloadLink( downloadLink )
       , locallyAvailable( locallyAvailable )
       , remotelyAvailable( remotelyAvailable )
+      , enabled( enabled )
+      , configurable( configurable )
     {}
     ~PluginInformation() = default;
 };

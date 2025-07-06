@@ -216,19 +216,14 @@ void PluginModel::fetchRemotePlugins()
 
     for ( const PluginInformation &remote : remotePlugins )
     {
-      bool existsLocally = false;
-      for ( PluginInformation &local : mergedPlugins )
+      QList<PluginInformation>::iterator existingPluginIt = std::find_if( mergedPlugins.begin(), mergedPlugins.end(), [&]( const PluginInformation &local ) { return local.uuid == remote.uuid; } );
+      if ( existingPluginIt != mergedPlugins.end() )
       {
-        if ( local.uuid == remote.uuid )
-        {
-          local.remotelyAvailable = true;
-          local.icon = remote.icon;
-          local.downloadLink = remote.downloadLink;
-          existsLocally = true;
-          break;
-        }
+        existingPluginIt->remotelyAvailable = true;
+        existingPluginIt->icon = remote.icon;
+        existingPluginIt->downloadLink = remote.downloadLink;
       }
-      if ( !existsLocally )
+      else
       {
         PluginInformation entry = remote;
         entry.enabled = mManager->isAppPluginEnabled( entry.uuid );
@@ -345,7 +340,7 @@ PluginInformation PluginModel::readPluginMetadata( const QFileInfo &pluginDir )
     version = metadata.value( "version" ).toString();
   }
 
-  PluginInformation plugin( pluginDir.fileName(), name, description, author, homepage, icon, version, path, true, false );
+  PluginInformation plugin( pluginDir.fileName(), name, description, author, homepage, icon, version, path, "", true, false, false, false );
   plugin.enabled = mManager->isAppPluginEnabled( plugin.uuid );
   plugin.configurable = mManager->isAppPluginConfigurable( plugin.uuid );
 
@@ -354,22 +349,16 @@ PluginInformation PluginModel::readPluginMetadata( const QFileInfo &pluginDir )
 
 bool PluginModel::hasPluginInformation( const QString &uuid ) const
 {
-  for ( const PluginInformation &plugin : mPlugins )
-  {
-    if ( plugin.uuid == uuid )
-      return true;
-  }
-  return false;
+  return std::any_of( mPlugins.begin(), mPlugins.end(), [&]( const PluginInformation &plugin ) { return plugin.uuid == uuid; } );
 }
 
 PluginInformation PluginModel::pluginInformation( const QString &uuid ) const
 {
-  for ( const PluginInformation &plugin : mPlugins )
-  {
-    if ( plugin.uuid == uuid )
-      return plugin;
-  }
-  return PluginInformation();
+  const QList<PluginInformation>::const_iterator foundPluginIt = std::find_if( mPlugins.begin(), mPlugins.end(), [&]( const PluginInformation &plugin ) { return plugin.uuid == uuid; } );
+  if ( foundPluginIt != mPlugins.end() )
+    return *foundPluginIt;
+  else
+    return PluginInformation();
 }
 
 bool PluginModel::isRefreshing() const
