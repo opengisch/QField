@@ -25,8 +25,10 @@
 #include <qjsondocument.h>
 #include <qjsonobject.h>
 
-PluginModel::PluginModel( QObject *parent )
-  : QAbstractListModel( parent )
+#define REMOTE_PLUGINS_URL "https://qfield.org/plugins.json"
+
+PluginModel::PluginModel( PluginManager *manager, QObject *parent )
+  : mManager( manager ), QAbstractListModel( parent )
 {
 }
 
@@ -98,25 +100,6 @@ void PluginModel::setPlugins( const QList<PluginInformation> &plugins )
   endResetModel();
 }
 
-PluginManager *PluginModel::manager() const
-{
-  return mManager;
-}
-
-void PluginModel::setManager( PluginManager *newManager )
-{
-  if ( mManager == newManager )
-    return;
-  mManager = newManager;
-}
-
-void PluginModel::clear()
-{
-  beginResetModel();
-  setPlugins( {} );
-  endResetModel();
-}
-
 bool PluginModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   if ( !index.isValid() || index.row() >= mPlugins.size() )
@@ -163,28 +146,28 @@ void PluginModel::updatePluginEnabledStateByUuid( const QString &uuid, bool enab
 
 void PluginModel::fetchRemotePlugins()
 {
-  mLoading = true;
-  emit loadingChanged();
+  mIsRefreshing = true;
+  emit isRefreshingChanged();
 
-  const QUrl url( "https://qfield.org/plugins.json" );
+  const QUrl url( REMOTE_PLUGINS_URL );
 
   QNetworkRequest request( url );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy );
 
-  QgsNetworkAccessManager *manager = new QgsNetworkAccessManager( this );
+  QgsNetworkAccessManager *networkManager = new QgsNetworkAccessManager( this );
 
-  QNetworkReply *reply = manager->get( request );
+  QNetworkReply *reply = networkManager->get( request );
 
   connect( reply, &QNetworkReply::finished, this, [=]() {
     reply->deleteLater();
-    manager->deleteLater();
+    networkManager->deleteLater();
 
-    mLoading = false;
-    emit loadingChanged();
+    mIsRefreshing = false;
+    emit isRefreshingChanged();
 
     if ( reply->error() != QNetworkReply::NoError )
     {
-      qWarning() << "Failed to fetch remote plugins:" << reply->errorString();
+      qDebug() << "Failed to fetch remote plugins:" << reply->errorString();
       return;
     }
 
@@ -194,13 +177,13 @@ void PluginModel::fetchRemotePlugins()
 
     if ( parseError.error != QJsonParseError::NoError )
     {
-      qWarning() << "JSON parse error:" << parseError.errorString();
+      qDebug() << "JSON parse error:" << parseError.errorString();
       return;
     }
 
     if ( !jsonDoc.isArray() )
     {
-      qWarning() << "Expected JSON array!";
+      qDebug() << "Expected JSON array!";
       return;
     }
 
@@ -214,13 +197,13 @@ void PluginModel::fetchRemotePlugins()
       const QJsonObject obj = value.toObject();
 
       PluginInformation info;
+      info.uuid = obj.value( "key" ).toString();
       info.name = obj.value( "name" ).toString();
       info.description = obj.value( "description" ).toString();
       info.author = obj.value( "author" ).toString();
       info.homepage = obj.value( "homepage" ).toString();
       info.icon = obj.value( "icon" ).toString();
       info.version = obj.value( "version" ).toString();
-      info.uuid = obj.value( "key" ).toString();
       info.downloadLink = obj.value( "download" ).toString();
       info.remotelyAvailable = true;
       info.locallyAvailable = false;
@@ -258,48 +241,37 @@ void PluginModel::fetchRemotePlugins()
   } );
 }
 
-QList<PluginInformation> PluginModel::scanLocalPluginDirectories()
+QMap<QString, PluginInformation> PluginModel::scanLocalPluginDirectories()
 {
-  QList<PluginInformation> plugins;
+  QMap<QString, PluginInformation> plugins;
 
   const QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
   for ( QString dataDir : dataDirs )
   {
-    QDir pluginsDir( dataDir += QStringLiteral( "plugins" ) );
+    const QDir pluginsDir( dataDir += QStringLiteral( "plugins" ) );
     const QList<QFileInfo> candidates = pluginsDir.entryInfoList( QDir::Dirs | QDir::NoDotAndDotDot );
     for ( const QFileInfo &candidate : candidates )
     {
       const QString path = QStringLiteral( "%1/main.qml" ).arg( candidate.absoluteFilePath() );
       if ( QFileInfo::exists( path ) )
       {
-        PluginInformation plugin = readPluginMetadata( candidate );
-        plugins.append( plugin );
+        const PluginInformation plugin = readPluginMetadata( candidate );
+        plugins.insert( plugin.uuid, plugin );
       }
     }
   }
 
   return plugins;
 }
+
 void PluginModel::loadLocalPlugins()
 {
-  QList<PluginInformation> plugins = scanLocalPluginDirectories();
-
-  std::sort( plugins.begin(), plugins.end(), []( const PluginInformation &p1, const PluginInformation &p2 ) {
-    return p1.name.toLower() < p2.name.toLower();
-  } );
-
-  setPlugins( plugins );
+  setPlugins( scanLocalPluginDirectories().values() );
 }
 
 void PluginModel::refreshLocalPlugins()
 {
-  const QList<PluginInformation> localPluginsList = scanLocalPluginDirectories();
-
-  QHash<QString, PluginInformation> foundLocalPlugins;
-  for ( const PluginInformation &plugin : localPluginsList )
-  {
-    foundLocalPlugins.insert( plugin.uuid, plugin );
-  }
+  QMap<QString, PluginInformation> foundLocalPlugins = scanLocalPluginDirectories();
 
   for ( int i = 0; i < mPlugins.size(); )
   {
@@ -323,6 +295,7 @@ void PluginModel::refreshLocalPlugins()
     }
     else if ( !mPlugins[i].remotelyAvailable )
     {
+      // Local plugin directory removed, no remote fallback — remove from model.
       beginRemoveRows( QModelIndex(), i, i );
       mPlugins.removeAt( i );
       endRemoveRows();
@@ -338,7 +311,6 @@ void PluginModel::refreshLocalPlugins()
       ++i;
     }
   }
-
 
   for ( const PluginInformation &newPlugin : foundLocalPlugins )
   {
@@ -380,7 +352,7 @@ PluginInformation PluginModel::readPluginMetadata( const QFileInfo &pluginDir )
   return plugin;
 }
 
-bool PluginModel::hasPlugin( const QString &uuid ) const
+bool PluginModel::hasPluginInformation( const QString &uuid ) const
 {
   for ( const PluginInformation &plugin : mPlugins )
   {
@@ -390,7 +362,7 @@ bool PluginModel::hasPlugin( const QString &uuid ) const
   return false;
 }
 
-PluginInformation PluginModel::plugin( const QString &uuid ) const
+PluginInformation PluginModel::pluginInformation( const QString &uuid ) const
 {
   for ( const PluginInformation &plugin : mPlugins )
   {
@@ -400,7 +372,79 @@ PluginInformation PluginModel::plugin( const QString &uuid ) const
   return PluginInformation();
 }
 
-bool PluginModel::loading() const
+bool PluginModel::isRefreshing() const
 {
-  return mLoading;
+  return mIsRefreshing;
+}
+
+PluginProxyModel::PluginProxyModel( QObject *parent )
+  : QSortFilterProxyModel( parent )
+{
+  setFilterCaseSensitivity( Qt::CaseInsensitive );
+  setFilterRole( PluginModel::PluginRoles::NameRole );
+  sort( 0 );
+}
+
+QString PluginProxyModel::searchTerm() const
+{
+  return mSearchTerm;
+}
+
+void PluginProxyModel::setSearchTerm( const QString &searchTerm )
+{
+  if ( mSearchTerm != searchTerm )
+  {
+    mSearchTerm = searchTerm;
+    emit searchTermChanged();
+    invalidateFilter();
+  }
+}
+
+bool PluginProxyModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
+{
+  bool matchesPluginType = false;
+  const QModelIndex currentRowIndex = sourceModel()->index( sourceRow, 0, sourceParent );
+
+  switch ( mFilter )
+  {
+    case LocalPlugin:
+      matchesPluginType = sourceModel()->data( currentRowIndex, PluginModel::InstalledLocallyRole ).toBool();
+      break;
+    case RemotePlugin:
+      matchesPluginType = sourceModel()->data( currentRowIndex, PluginModel::AvailableRemotelyRole ).toBool();
+      break;
+  }
+
+  const QModelIndex index = sourceModel()->index( sourceRow, 0, sourceParent );
+  const QVariant data = sourceModel()->data( index, PluginModel::PluginRoles::NameRole );
+  const bool matchesTextFilter = mSearchTerm.isEmpty() || data.toString().contains( mSearchTerm, Qt::CaseInsensitive );
+
+  return matchesTextFilter && matchesPluginType;
+}
+
+
+void PluginProxyModel::setFilter( PluginFilter filter )
+{
+  if ( mFilter == filter )
+    return;
+
+  mFilter = filter;
+  invalidateFilter();
+
+  emit filterChanged();
+
+  sort( 0 );
+}
+
+bool PluginProxyModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const
+{
+  const QString leftName = sourceModel()->data( sourceLeft, PluginModel::PluginRoles::NameRole ).toString().toLower();
+  const QString rightName = sourceModel()->data( sourceRight, PluginModel::PluginRoles::NameRole ).toString().toLower();
+
+  return leftName < rightName;
+}
+
+PluginProxyModel::PluginFilter PluginProxyModel::filter() const
+{
+  return mFilter;
 }

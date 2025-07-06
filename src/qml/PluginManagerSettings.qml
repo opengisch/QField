@@ -76,7 +76,7 @@ Popup {
         id: pluginsList
         Layout.fillWidth: true
         Layout.fillHeight: true
-        visible: (count > 0 || filterBar.currentIndex === 1) && !pluginManager.pluginModel.loading
+        visible: (count > 0 || filterBar.currentIndex === 1) && !pluginManager.pluginModel.isRefreshing
         clip: true
 
         property real downloadingIndex: -1
@@ -152,11 +152,11 @@ Popup {
       Item {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        visible: pluginManager.pluginModel.loading
+        visible: pluginManager.pluginModel.isRefreshing
 
         BusyIndicator {
           id: busyIndicator
-          running: pluginManager.pluginModel.loading
+          running: pluginManager.pluginModel.isRefreshing
           anchors.centerIn: parent
         }
 

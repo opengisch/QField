@@ -92,7 +92,6 @@
 #include "permissions.h"
 #include "platformutilities.h"
 #include "pluginmodel.h"
-#include "pluginproxymodel.h"
 #include "positioning.h"
 #include "positioningdevicemodel.h"
 #include "positioninginformationmodel.h"

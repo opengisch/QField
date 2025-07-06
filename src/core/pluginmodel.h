@@ -20,6 +20,7 @@
 
 #include <QAbstractListModel>
 #include <QFileInfo>
+#include <QSortFilterProxyModel>
 
 class PluginManager;
 class PluginInformation;
@@ -27,7 +28,7 @@ class PluginInformation;
 class PluginModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY( bool loading READ loading NOTIFY loadingChanged )
+    Q_PROPERTY( bool isRefreshing READ isRefreshing NOTIFY isRefreshingChanged )
 
   public:
     enum PluginRoles
@@ -50,7 +51,7 @@ class PluginModel : public QAbstractListModel
     /**
      * Constructs a PluginModel.
      */
-    explicit PluginModel( QObject *parent = nullptr );
+    explicit PluginModel( PluginManager *manager, QObject *parent = nullptr );
 
     /**
      * Returns the number of plugins in the model.
@@ -73,29 +74,14 @@ class PluginModel : public QAbstractListModel
     bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
     /**
-     * Sets the list of plugins displayed by the model.
-     */
-    void setPlugins( const QList<PluginInformation> &plugins );
-
-    /**
-     * Returns the plugin manager used by this model.
-     */
-    PluginManager *manager() const;
-
-    /**
-     * Sets the plugin manager to \a newManager.
-     */
-    void setManager( PluginManager *newManager );
-
-    /**
      * Returns true if the model contains a plugin with the given \a uuid.
      */
-    bool hasPlugin( const QString &uuid ) const;
+    bool hasPluginInformation( const QString &uuid ) const;
 
     /**
-     * Returns the plugin information for the plugin identified by \a uuid.
+     * Returns the pluginInformation information for the pluginInformation identified by \a uuid.
      */
-    PluginInformation plugin( const QString &uuid ) const;
+    PluginInformation pluginInformation( const QString &uuid ) const;
 
     /**
      * Loads local plugins, replacing the model contents entirely.
@@ -109,10 +95,6 @@ class PluginModel : public QAbstractListModel
      * and removes entries that no longer exist locally (unless still available remotely).
      */
     void refreshLocalPlugins();
-    /**
-     * Clears the list of plugins in the model.
-     */
-    Q_INVOKABLE void clear();
 
     /**
      * Updates the enabled and configurable state of the plugin with \a uuid.
@@ -127,16 +109,20 @@ class PluginModel : public QAbstractListModel
     /**
      * Returns true if the model is currently fetching remote plugins.
      */
-    bool loading() const;
+    bool isRefreshing() const;
 
   private:
     /**
+     * Sets the list of plugins displayed by the model.
+     */
+    void setPlugins( const QList<PluginInformation> &plugins );
+
+    /**
      * Scans the app data directories for plugins, reading metadata and preparing PluginInformation objects.
      *
-     * @return A list of PluginInformation objects representing all plugins found locally.
+     * @return A map of plugin UUIDs to PluginInformation objects representing all plugins found locally.
      */
-    QList<PluginInformation> scanLocalPluginDirectories();
-
+    QMap<QString, PluginInformation> scanLocalPluginDirectories();
     /**
      * Reads the metadata (from metadata.txt) and prepares a PluginInformation for a given plugin directory.
      *
@@ -146,12 +132,67 @@ class PluginModel : public QAbstractListModel
     PluginInformation readPluginMetadata( const QFileInfo &pluginDir );
 
   signals:
-    void loadingChanged();
+    void isRefreshingChanged();
 
   private:
     QList<PluginInformation> mPlugins;
     PluginManager *mManager = nullptr;
-    bool mLoading = false;
+    bool mIsRefreshing = false;
 };
+
+/**
+ * \ingroup core
+ */
+class PluginProxyModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+    Q_PROPERTY( QString searchTerm READ searchTerm WRITE setSearchTerm NOTIFY searchTermChanged )
+    Q_PROPERTY( PluginFilter filter READ filter WRITE setFilter NOTIFY filterChanged )
+
+  public:
+    enum PluginFilter
+    {
+      LocalPlugin,
+      RemotePlugin,
+    };
+    Q_ENUM( PluginFilter )
+
+    explicit PluginProxyModel( QObject *parent = nullptr );
+
+    /**
+     * Returns the current search term used to filter items.
+     */
+    QString searchTerm() const;
+
+    /**
+     * Sets the search term for filtering and updates the filter.
+     */
+    void setSearchTerm( const QString &searchTerm );
+
+    /**
+     * Returns the current plugin filter.
+     */
+    PluginFilter filter() const;
+
+    /**
+     * Sets the plugin \a filter.
+     */
+    void setFilter( PluginFilter filter );
+
+  protected:
+    bool filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const override;
+    bool lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const override;
+
+  signals:
+    void searchTermChanged();
+    void filterChanged();
+
+  private:
+    QString mSearchTerm;
+    PluginFilter mFilter = LocalPlugin;
+};
+
+Q_DECLARE_METATYPE( PluginProxyModel::PluginFilter )
+
 
 #endif // PLUGINMODEL_H

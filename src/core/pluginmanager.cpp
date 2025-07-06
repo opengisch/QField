@@ -33,7 +33,6 @@ PluginManager::PluginManager( QQmlEngine *engine )
   , mEngine( engine )
 {
   mPluginModel = new PluginModel( this );
-  mPluginModel->setManager( this );
   connect( mEngine, &QQmlEngine::warnings, this, &PluginManager::handleWarnings );
   mPluginModel->loadLocalPlugins();
 }
@@ -211,9 +210,9 @@ void PluginManager::restoreAppPlugins()
     if ( settings.value( QStringLiteral( "%1/userEnabled" ).arg( pluginKey ), false ).toBool() )
     {
       const QString uuid = settings.value( QStringLiteral( "%1/uuid" ).arg( pluginKey ) ).toString();
-      if ( mPluginModel->hasPlugin( uuid ) )
+      if ( mPluginModel->hasPluginInformation( uuid ) )
       {
-        loadPlugin( mPluginModel->plugin( uuid ).path, mPluginModel->plugin( uuid ).name );
+        loadPlugin( mPluginModel->pluginInformation( uuid ).path, mPluginModel->pluginInformation( uuid ).name );
       }
     }
   }
@@ -222,9 +221,9 @@ void PluginManager::restoreAppPlugins()
 
 void PluginManager::enableAppPlugin( const QString &uuid, bool skipPermissionCheck )
 {
-  if ( mPluginModel->hasPlugin( uuid ) )
+  if ( mPluginModel->hasPluginInformation( uuid ) )
   {
-    const QString pluginPath = mPluginModel->plugin( uuid ).path;
+    const QString pluginPath = mPluginModel->pluginInformation( uuid ).path;
     if ( !mLoadedPlugins.contains( pluginPath ) )
     {
       QSettings settings;
@@ -238,7 +237,7 @@ void PluginManager::enableAppPlugin( const QString &uuid, bool skipPermissionChe
       }
       settings.endGroup();
 
-      loadPlugin( pluginPath, mPluginModel->plugin( uuid ).name, skipPermissionCheck );
+      loadPlugin( pluginPath, mPluginModel->pluginInformation( uuid ).name, skipPermissionCheck );
 
       if ( mLoadedPlugins.contains( pluginPath ) )
       {
@@ -251,18 +250,18 @@ void PluginManager::enableAppPlugin( const QString &uuid, bool skipPermissionChe
 void PluginManager::disableAppPlugin( const QString &uuid )
 {
   callPluginMethod( uuid, "appWideDisabled" );
-  if ( mPluginModel->hasPlugin( uuid ) )
+  if ( mPluginModel->hasPluginInformation( uuid ) )
   {
-    if ( mLoadedPlugins.contains( mPluginModel->plugin( uuid ).path ) )
+    if ( mLoadedPlugins.contains( mPluginModel->pluginInformation( uuid ).path ) )
     {
       QSettings settings;
-      QString pluginKey = mPluginModel->plugin( uuid ).path;
+      QString pluginKey = mPluginModel->pluginInformation( uuid ).path;
       pluginKey.replace( QChar( '/' ), QChar( '_' ) );
       settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
       settings.setValue( QStringLiteral( "userEnabled" ), false );
       settings.endGroup();
 
-      unloadPlugin( mPluginModel->plugin( uuid ).path );
+      unloadPlugin( mPluginModel->pluginInformation( uuid ).path );
     }
   }
 }
@@ -274,15 +273,15 @@ void PluginManager::configureAppPlugin( const QString &uuid )
 
 bool PluginManager::isAppPluginEnabled( const QString &uuid ) const
 {
-  return mPluginModel->hasPlugin( uuid ) && mLoadedPlugins.contains( mPluginModel->plugin( uuid ).path );
+  return mPluginModel->hasPluginInformation( uuid ) && mLoadedPlugins.contains( mPluginModel->pluginInformation( uuid ).path );
 }
 
 bool PluginManager::isAppPluginConfigurable( const QString &uuid ) const
 {
-  if ( mPluginModel->hasPlugin( uuid ) && mLoadedPlugins.contains( mPluginModel->plugin( uuid ).path ) )
+  if ( mPluginModel->hasPluginInformation( uuid ) && mLoadedPlugins.contains( mPluginModel->pluginInformation( uuid ).path ) )
   {
     QByteArray normalizedSignature = QMetaObject::normalizedSignature( "configure()" );
-    const int idx = mLoadedPlugins[mPluginModel->plugin( uuid ).path]->metaObject()->indexOfSlot( normalizedSignature.constData() );
+    const int idx = mLoadedPlugins[mPluginModel->pluginInformation( uuid ).path]->metaObject()->indexOfSlot( normalizedSignature.constData() );
     return idx >= 0;
   }
 
@@ -416,11 +415,11 @@ void PluginManager::installFromUrl( const QString &url )
 
 void PluginManager::uninstall( const QString &uuid )
 {
-  if ( mPluginModel->hasPlugin( uuid ) )
+  if ( mPluginModel->hasPluginInformation( uuid ) )
   {
     disableAppPlugin( uuid );
 
-    QFileInfo fi( mPluginModel->plugin( uuid ).path );
+    QFileInfo fi( mPluginModel->pluginInformation( uuid ).path );
     fi.absoluteDir().removeRecursively();
 
     mPluginModel->refreshLocalPlugins();
@@ -449,12 +448,12 @@ QString PluginManager::findProjectPlugin( const QString &projectPath )
 
 void PluginManager::callPluginMethod( const QString &uuid, const QString &methodName ) const
 {
-  if ( !mPluginModel->hasPlugin( uuid ) )
+  if ( !mPluginModel->hasPluginInformation( uuid ) )
   {
     return;
   }
 
-  const QString pluginPath = mPluginModel->plugin( uuid ).path;
+  const QString pluginPath = mPluginModel->pluginInformation( uuid ).path;
   if ( !mLoadedPlugins.contains( pluginPath ) )
   {
     return;
