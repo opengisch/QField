@@ -48,9 +48,10 @@ Popup {
 
       QfTabBar {
         id: filterBar
-        model: [qsTr("Local Plugins"), qsTr("Available Plugins")]
         Layout.fillWidth: true
         Layout.preferredHeight: defaultHeight
+        model: [qsTr("Local Plugins"), qsTr("Available Plugins")]
+        currentIndex: 0
         delegate: TabButton {
           text: modelData
           height: filterBar.defaultHeight
@@ -58,8 +59,9 @@ Popup {
           font: Theme.defaultFont
           onClicked: {
             filterBar.currentIndex = index;
-            if (index == 1)
+            if (index == 1) {
               pluginManager.pluginModel.refresh(true);
+            }
           }
         }
       }
@@ -141,12 +143,19 @@ Popup {
         Layout.margins: 20
         visible: pluginsList.count === 0 && filterBar.currentIndex === 0
 
-        text: qsTr('No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.').arg('<a href="https://docs.qfield.org/how-to/plugins/">').arg('</a>')
+        text: qsTr('No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.<br><br>For more information, %2read the documentation%3.').arg('<a href="#">').arg('<a href="https://docs.qfield.org/how-to/plugins/">').arg('</a>')
         font: Theme.defaultFont
         wrapMode: Text.WordWrap
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        onLinkActivated: link => Qt.openUrlExternally(link)
+        onLinkActivated: link => {
+          if (link === '#') {
+            filterBar.currentIndex = 1;
+            pluginManager.pluginModel.refresh(true);
+          } else {
+            Qt.openUrlExternally(link);
+          }
+        }
       }
 
       Item {
