@@ -21,6 +21,10 @@ Popup {
   parent: Overlay.overlay
   focus: visible
 
+  onAboutToShow: {
+    pluginManager.pluginModel.refresh(false);
+  }
+
   Page {
     id: page
     width: parent.width
