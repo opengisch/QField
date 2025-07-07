@@ -21,6 +21,10 @@ Popup {
   parent: Overlay.overlay
   focus: visible
 
+  onAboutToShow: {
+    pluginManager.pluginModel.refresh(false);
+  }
+
   Page {
     id: page
     width: parent.width
@@ -48,9 +52,10 @@ Popup {
 
       QfTabBar {
         id: filterBar
-        model: [qsTr("Local Plugins"), qsTr("Available plugins")]
         Layout.fillWidth: true
         Layout.preferredHeight: defaultHeight
+        model: [qsTr("Local Plugins"), qsTr("Available Plugins")]
+        currentIndex: 0
         delegate: TabButton {
           text: modelData
           height: filterBar.defaultHeight
@@ -58,8 +63,9 @@ Popup {
           font: Theme.defaultFont
           onClicked: {
             filterBar.currentIndex = index;
-            if (index == 1)
-              pluginManager.pluginModel.fetchRemotePlugins();
+            if (index == 1) {
+              pluginManager.pluginModel.refresh(true);
+            }
           }
         }
       }
@@ -76,10 +82,10 @@ Popup {
         id: pluginsList
         Layout.fillWidth: true
         Layout.fillHeight: true
-        visible: (count > 0 || filterBar.currentIndex === 1) && !pluginManager.pluginModel.isRefreshing
+        visible: count > 0
         clip: true
 
-        property real downloadingIndex: -1
+        property var downloadingUuids: []
 
         model: PluginProxyModel {
           sourceModel: pluginManager.pluginModel
@@ -92,8 +98,7 @@ Popup {
           icon: Icon !== '' ? UrlUtils.fromString(Icon) : ''
           name: Name
           itemEnabled: Enabled
-          itemConfigurable: Configurable
-          itemDownloading: pluginsList.downloadingIndex == index
+          itemDownloading: pluginsList.downloadingUuids.indexOf(Uuid) > -1
 
           onAuthorDetailsClicked: {
             authorDetails.authorName = Author;
@@ -110,7 +115,7 @@ Popup {
           onToggleEnabledPlugin: checked => {
             Enabled = checked;
             if (Enabled) {
-              pluginManager.enableAppPlugin(Uuid, AvailableRemotely);
+              pluginManager.enableAppPlugin(Uuid);
             } else {
               pluginManager.disableAppPlugin(Uuid);
             }
@@ -118,7 +123,7 @@ Popup {
 
           onPluginNameClicked: {
             if (!Enabled) {
-              pluginManager.enableAppPlugin(Uuid, AvailableRemotely);
+              pluginManager.enableAppPlugin(Uuid);
             } else {
               pluginManager.disableAppPlugin(Uuid);
             }
@@ -128,8 +133,17 @@ Popup {
             pluginManager.configureAppPlugin(Uuid);
           }
 
+          onUpdateClicked: {
+            let uuids = pluginsList.downloadingUuids;
+            uuids.push(Uuid);
+            pluginsList.downloadingUuids = uuids;
+            pluginManager.installFromUrl(DownloadLink);
+          }
+
           onDownloadClicked: {
-            pluginsList.downloadingIndex = index;
+            let uuids = pluginsList.downloadingUuids;
+            uuids.push(Uuid);
+            pluginsList.downloadingUuids = uuids;
             pluginManager.installFromUrl(DownloadLink);
           }
         }
@@ -139,71 +153,67 @@ Popup {
         Layout.fillWidth: true
         Layout.fillHeight: true
         Layout.margins: 20
-        visible: pluginsList.count === 0 && filterBar.currentIndex === 0
+        visible: pluginsList.count === 0
 
-        text: qsTr('No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.').arg('<a href="https://docs.qfield.org/how-to/plugins/">').arg('</a>')
+        text: pluginManager.pluginModel.isRefreshing ? qsTr('Fetching available plugins') : qsTr('No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.<br><br>For more information, %2read the documentation%3.').arg('<a href="#">').arg('<a href="https://docs.qfield.org/how-to/plugins/">').arg('</a>')
         font: Theme.defaultFont
         wrapMode: Text.WordWrap
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        onLinkActivated: link => Qt.openUrlExternally(link)
+        onLinkActivated: link => {
+          if (link === '#') {
+            filterBar.currentIndex = 1;
+            pluginManager.pluginModel.refresh(true);
+          } else {
+            Qt.openUrlExternally(link);
+          }
+        }
       }
 
-      Item {
+      RowLayout {
         Layout.fillWidth: true
-        Layout.fillHeight: true
-        visible: pluginManager.pluginModel.isRefreshing
+
+        QfButton {
+          id: installFromUrlButton
+          Layout.fillWidth: true
+          dropdown: true
+          enabled: !busyIndicator.running
+
+          text: qsTr("Install plugin from URL")
+
+          onClicked: {
+            installFromUrlDialog.open();
+          }
+
+          onDropdownClicked: {
+            pluginsManagementMenu.popup(installFromUrlButton.width - pluginsManagementMenu.width + 10, installFromUrlButton.y + 10);
+          }
+        }
 
         BusyIndicator {
           id: busyIndicator
+          Layout.preferredWidth: 48
+          Layout.preferredHeight: 48
+          visible: running
           running: pluginManager.pluginModel.isRefreshing
-          anchors.centerIn: parent
-        }
-
-        Label {
-          anchors.top: busyIndicator.bottom
-          anchors.topMargin: 8
-          width: parent.width
-          text: qsTr('Fetching plugins')
-          font: Theme.defaultFont
-          wrapMode: Text.WordWrap
-          horizontalAlignment: Text.AlignHCenter
-          verticalAlignment: Text.AlignVCenter
         }
       }
+    }
+  }
 
-      QfButton {
-        id: installFromUrlButton
-        Layout.fillWidth: true
-        visible: filterBar.currentIndex === 0
-        dropdown: true
+  QfMenu {
+    id: pluginsManagementMenu
+    title: qsTr('Plugins management menu')
 
-        text: qsTr("Install plugin from URL")
+    MenuItem {
+      text: qsTr('Clear remembered permissions')
 
-        onClicked: {
-          installFromUrlDialog.open();
-        }
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
 
-        onDropdownClicked: {
-          pluginsManagementMenu.popup(installFromUrlButton.width - pluginsManagementMenu.width + 10, installFromUrlButton.y + 10);
-        }
-      }
-
-      QfMenu {
-        id: pluginsManagementMenu
-        title: qsTr('Plugins management menu')
-
-        MenuItem {
-          text: qsTr('Clear remembered permissions')
-
-          font: Theme.defaultFont
-          height: 48
-          leftPadding: Theme.menuItemLeftPadding
-
-          onTriggered: {
-            pluginManager.clearPluginPermissions();
-          }
-        }
+      onTriggered: {
+        pluginManager.clearPluginPermissions();
       }
     }
   }
@@ -349,7 +359,12 @@ Popup {
       } else {
         displayToast(qsTr('Plugin installation failed: ' + error, 'error'));
       }
-      pluginsList.downloadingIndex = -1;
+      const downloadingIndex = pluginsList.downloadingUuids.indexOf(uuid);
+      if (downloadingIndex > -1) {
+        let uuids = pluginsList.downloadingUuids;
+        uuids.splice(downloadingIndex, 1);
+        pluginsList.downloadingUuids = uuids;
+      }
     }
 
     function onAppPluginEnabled(uuid) {

@@ -71,6 +71,8 @@ QVariant PluginModel::data( const QModelIndex &index, int role ) const
       return plugin.remotelyAvailable;
     case DownloadLinkRole:
       return plugin.downloadLink;
+    case AvailableUpdateRole:
+      return plugin.updateAvailable;
     default:
       return QVariant();
   }
@@ -90,14 +92,8 @@ QHash<int, QByteArray> PluginModel::roleNames() const
     { VersionRole, "Version" },
     { InstalledLocallyRole, "InstalledLocally" },
     { AvailableRemotelyRole, "AvailableRemotely" },
-    { DownloadLinkRole, "DownloadLink" } };
-}
-
-void PluginModel::setPlugins( const QList<PluginInformation> &plugins )
-{
-  beginResetModel();
-  mPlugins = plugins;
-  endResetModel();
+    { DownloadLinkRole, "DownloadLink" },
+    { AvailableUpdateRole, "AvailableUpdate" } };
 }
 
 bool PluginModel::setData( const QModelIndex &index, const QVariant &value, int role )
@@ -144,6 +140,94 @@ void PluginModel::updatePluginEnabledStateByUuid( const QString &uuid, bool enab
   }
 }
 
+void PluginModel::insertPluginsInformation( QMap<QString, PluginInformation> &pluginsInformation, bool isLocal )
+{
+  for ( int i = 0; i < mPlugins.size(); )
+  {
+    PluginInformation &plugin = mPlugins[i];
+    if ( pluginsInformation.contains( plugin.uuid ) )
+    {
+      // Plugin found, update its information
+      const PluginInformation &pluginInformation = pluginsInformation[plugin.uuid];
+      plugin.name = pluginInformation.name;
+      plugin.description = pluginInformation.description;
+      plugin.author = pluginInformation.author;
+      plugin.homepage = pluginInformation.homepage;
+      plugin.icon = pluginInformation.icon;
+
+      if ( isLocal )
+      {
+        plugin.version = pluginInformation.version;
+        plugin.path = pluginInformation.path;
+        plugin.locallyAvailable = true;
+        plugin.enabled = pluginInformation.enabled;
+        plugin.configurable = pluginInformation.configurable;
+      }
+      else
+      {
+        plugin.remoteVersion = pluginInformation.remoteVersion;
+        plugin.downloadLink = pluginInformation.downloadLink;
+        plugin.remotelyAvailable = true;
+      }
+      plugin.updateAvailable = !plugin.version.isEmpty() && !plugin.remoteVersion.isEmpty() && plugin.version != plugin.remoteVersion;
+
+      emit dataChanged( index( i ), index( i ) );
+      pluginsInformation.remove( plugin.uuid );
+      ++i;
+    }
+    else
+    {
+      if ( isLocal && plugin.remotelyAvailable )
+      {
+        // Plugin still remotely available
+        if ( plugin.locallyAvailable )
+        {
+          plugin.path = QString();
+          plugin.locallyAvailable = false;
+          emit dataChanged( index( i ), index( i ), { InstalledLocallyRole, AvailableUpdateRole } );
+        }
+        ++i;
+      }
+      else if ( !isLocal && plugin.locallyAvailable )
+      {
+        // Plugin still locally available
+        if ( plugin.remotelyAvailable )
+        {
+          plugin.remoteVersion = QString();
+          plugin.downloadLink = QString();
+          plugin.remotelyAvailable = false;
+          emit dataChanged( index( i ), index( i ), { AvailableRemotelyRole, AvailableUpdateRole } );
+        }
+        ++i;
+      }
+      else
+      {
+        // Plugin disappeared, remove
+        beginRemoveRows( QModelIndex(), i, i );
+        mPlugins.removeAt( i );
+        endRemoveRows();
+      }
+    }
+  }
+
+  for ( const PluginInformation &newPluginInformation : pluginsInformation )
+  {
+    beginInsertRows( QModelIndex(), mPlugins.size(), mPlugins.size() );
+    mPlugins.append( newPluginInformation );
+    endInsertRows();
+  }
+}
+
+void PluginModel::refresh( bool fetchRemote )
+{
+  fetchLocalPlugins();
+
+  if ( fetchRemote )
+  {
+    fetchRemotePlugins();
+  }
+}
+
 void PluginModel::fetchRemotePlugins()
 {
   mIsRefreshing = true;
@@ -153,41 +237,35 @@ void PluginModel::fetchRemotePlugins()
 
   QNetworkRequest request( url );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy );
+  QNetworkReply *reply = QgsNetworkAccessManager::instance()->get( request );
 
-  QgsNetworkAccessManager *networkManager = new QgsNetworkAccessManager( this );
-
-  QNetworkReply *reply = networkManager->get( request );
-
-  connect( reply, &QNetworkReply::finished, this, [=]() {
+  connect( reply, &QNetworkReply::finished, this, [this, reply]() {
     reply->deleteLater();
-    networkManager->deleteLater();
 
     mIsRefreshing = false;
     emit isRefreshingChanged();
 
     if ( reply->error() != QNetworkReply::NoError )
     {
-      qDebug() << "Failed to fetch remote plugins:" << reply->errorString();
+      qDebug() << "Failed to fetch remote plugins: " << reply->errorString();
       return;
     }
 
     const QByteArray responseData = reply->readAll();
     QJsonParseError parseError;
     QJsonDocument jsonDoc = QJsonDocument::fromJson( responseData, &parseError );
-
     if ( parseError.error != QJsonParseError::NoError )
     {
-      qDebug() << "JSON parse error:" << parseError.errorString();
+      qDebug() << "JSON parse error when parsing remote plugins: " << parseError.errorString();
       return;
     }
-
-    if ( !jsonDoc.isArray() )
+    else if ( !jsonDoc.isArray() )
     {
-      qDebug() << "Expected JSON array!";
+      qDebug() << "Expected JSON array when parsing remote plugins";
       return;
     }
 
-    QList<PluginInformation> remotePlugins;
+    QMap<QString, PluginInformation> foundRemotePlugins;
     const QJsonArray jsonArray = jsonDoc.array();
     for ( const QJsonValueConstRef &value : jsonArray )
     {
@@ -203,43 +281,20 @@ void PluginModel::fetchRemotePlugins()
       info.author = obj.value( "author" ).toString();
       info.homepage = obj.value( "homepage" ).toString();
       info.icon = obj.value( "icon" ).toString();
-      info.version = obj.value( "version" ).toString();
+      info.remoteVersion = obj.value( "version" ).toString();
       info.downloadLink = obj.value( "download" ).toString();
       info.remotelyAvailable = true;
-      info.locallyAvailable = false;
 
-      remotePlugins.append( info );
+      foundRemotePlugins[info.uuid] = info;
     }
 
-    // Merge with local plugins
-    QList<PluginInformation> mergedPlugins = mPlugins;
-
-    for ( const PluginInformation &remote : remotePlugins )
-    {
-      QList<PluginInformation>::iterator existingPluginIt = std::find_if( mergedPlugins.begin(), mergedPlugins.end(), [&]( const PluginInformation &local ) { return local.uuid == remote.uuid; } );
-      if ( existingPluginIt != mergedPlugins.end() )
-      {
-        existingPluginIt->remotelyAvailable = true;
-        existingPluginIt->icon = remote.icon;
-        existingPluginIt->downloadLink = remote.downloadLink;
-      }
-      else
-      {
-        PluginInformation entry = remote;
-        entry.enabled = mManager->isAppPluginEnabled( entry.uuid );
-        entry.configurable = mManager->isAppPluginConfigurable( entry.uuid );
-        mergedPlugins.append( entry );
-      }
-    }
-
-    setPlugins( mergedPlugins );
+    insertPluginsInformation( foundRemotePlugins, false );
   } );
 }
 
-QMap<QString, PluginInformation> PluginModel::scanLocalPluginDirectories()
+void PluginModel::fetchLocalPlugins()
 {
-  QMap<QString, PluginInformation> plugins;
-
+  QMap<QString, PluginInformation> foundLocalPlugins;
   const QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
   for ( QString dataDir : dataDirs )
   {
@@ -251,68 +306,11 @@ QMap<QString, PluginInformation> PluginModel::scanLocalPluginDirectories()
       if ( QFileInfo::exists( path ) )
       {
         const PluginInformation plugin = readPluginMetadata( candidate );
-        plugins.insert( plugin.uuid, plugin );
+        foundLocalPlugins[plugin.uuid] = plugin;
       }
     }
   }
-
-  return plugins;
-}
-
-void PluginModel::loadLocalPlugins()
-{
-  setPlugins( scanLocalPluginDirectories().values() );
-}
-
-void PluginModel::refreshLocalPlugins()
-{
-  QMap<QString, PluginInformation> foundLocalPlugins = scanLocalPluginDirectories();
-
-  for ( int i = 0; i < mPlugins.size(); )
-  {
-    const QString &uuid = mPlugins[i].uuid;
-    if ( foundLocalPlugins.contains( uuid ) )
-    {
-      const PluginInformation &local = foundLocalPlugins[uuid];
-      mPlugins[i].name = local.name;
-      mPlugins[i].description = local.description;
-      mPlugins[i].author = local.author;
-      mPlugins[i].homepage = local.homepage;
-      mPlugins[i].version = local.version;
-      mPlugins[i].path = local.path;
-      mPlugins[i].locallyAvailable = true;
-      mPlugins[i].enabled = local.enabled;
-      mPlugins[i].configurable = local.configurable;
-
-      emit dataChanged( index( i ), index( i ) );
-      foundLocalPlugins.remove( uuid );
-      ++i; // only increment if not removing
-    }
-    else if ( !mPlugins[i].remotelyAvailable )
-    {
-      // Local plugin directory removed, no remote fallback — remove from model.
-      beginRemoveRows( QModelIndex(), i, i );
-      mPlugins.removeAt( i );
-      endRemoveRows();
-    }
-    else
-    {
-      // still available remotely, just mark as not local
-      if ( mPlugins[i].locallyAvailable )
-      {
-        mPlugins[i].locallyAvailable = false;
-        emit dataChanged( index( i ), index( i ), { InstalledLocallyRole } );
-      }
-      ++i;
-    }
-  }
-
-  for ( const PluginInformation &newPlugin : foundLocalPlugins )
-  {
-    beginInsertRows( QModelIndex(), mPlugins.size(), mPlugins.size() );
-    mPlugins.append( newPlugin );
-    endInsertRows();
-  }
+  insertPluginsInformation( foundLocalPlugins, true );
 }
 
 PluginInformation PluginModel::readPluginMetadata( const QFileInfo &pluginDir )
@@ -340,7 +338,10 @@ PluginInformation PluginModel::readPluginMetadata( const QFileInfo &pluginDir )
     version = metadata.value( "version" ).toString();
   }
 
-  PluginInformation plugin( pluginDir.fileName(), name, description, author, homepage, icon, version, path, "", true, false, false, false );
+  PluginInformation plugin( pluginDir.fileName(), name, description, author, homepage, icon );
+  plugin.version = version;
+  plugin.path = path;
+  plugin.locallyAvailable = true;
   plugin.enabled = mManager->isAppPluginEnabled( plugin.uuid );
   plugin.configurable = mManager->isAppPluginConfigurable( plugin.uuid );
 
@@ -349,7 +350,7 @@ PluginInformation PluginModel::readPluginMetadata( const QFileInfo &pluginDir )
 
 bool PluginModel::hasPluginInformation( const QString &uuid ) const
 {
-  return std::any_of( mPlugins.begin(), mPlugins.end(), [&]( const PluginInformation &plugin ) { return plugin.uuid == uuid; } );
+  return !mPlugins.isEmpty() ? std::any_of( mPlugins.begin(), mPlugins.end(), [&]( const PluginInformation &plugin ) { return plugin.uuid == uuid; } ) : false;
 }
 
 PluginInformation PluginModel::pluginInformation( const QString &uuid ) const
