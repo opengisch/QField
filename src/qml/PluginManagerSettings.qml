@@ -59,7 +59,7 @@ Popup {
           onClicked: {
             filterBar.currentIndex = index;
             if (index == 1)
-              pluginManager.pluginModel.fetchRemotePlugins();
+              pluginManager.pluginModel.refresh(true);
           }
         }
       }

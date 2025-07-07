@@ -84,45 +84,35 @@ class PluginModel : public QAbstractListModel
     PluginInformation pluginInformation( const QString &uuid ) const;
 
     /**
-     * Loads local plugins, replacing the model contents entirely.
-     * Any previously loaded plugins (remote or local) will be cleared.
-     */
-    void loadLocalPlugins();
-
-    /**
-     * Refreshes local plugins incrementally by scanning plugin directories.
-     * Updates existing model items in-place, adds newly detected plugins,
-     * and removes entries that no longer exist locally (unless still available remotely).
-     */
-    void refreshLocalPlugins();
-
-    /**
      * Updates the enabled and configurable state of the plugin with \a uuid.
      */
     Q_INVOKABLE void updatePluginEnabledStateByUuid( const QString &uuid, bool enabled, bool configurable );
 
     /**
-     * Fetches remote plugins from the QField plugin registry.
+     * Refreshes the model.
+     * \param fetchRemote set to TRUE to fetch remotely available plugins
      */
-    Q_INVOKABLE void fetchRemotePlugins();
+    Q_INVOKABLE void refresh( bool fetchRemote = false );
 
     /**
      * Returns true if the model is currently fetching remote plugins.
      */
     bool isRefreshing() const;
 
+  signals:
+    void isRefreshingChanged();
+
   private:
     /**
-     * Sets the list of plugins displayed by the model.
+     * Scans the app data directories for plugins, reading metadata and preparing PluginInformation objects.
      */
-    void setPlugins( const QList<PluginInformation> &plugins );
+    void fetchLocalPlugins();
 
     /**
-     * Scans the app data directories for plugins, reading metadata and preparing PluginInformation objects.
-     *
-     * @return A map of plugin UUIDs to PluginInformation objects representing all plugins found locally.
+     * Retrieve a JSON list of remotely available plugins, reading its metadata and preparing Plugin Information objects.
      */
-    QMap<QString, PluginInformation> scanLocalPluginDirectories();
+    void fetchRemotePlugins();
+
     /**
      * Reads the metadata (from metadata.txt) and prepares a PluginInformation for a given plugin directory.
      *
@@ -131,10 +121,8 @@ class PluginModel : public QAbstractListModel
      */
     PluginInformation readPluginMetadata( const QFileInfo &pluginDir );
 
-  signals:
-    void isRefreshingChanged();
+    void insertPluginsInformation( QMap<QString, PluginInformation> &pluginsInformation, bool isLocal );
 
-  private:
     QList<PluginInformation> mPlugins;
     PluginManager *mManager = nullptr;
     bool mIsRefreshing = false;

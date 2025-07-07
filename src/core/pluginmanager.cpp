@@ -32,9 +32,9 @@ PluginManager::PluginManager( QQmlEngine *engine )
   : QObject( engine )
   , mEngine( engine )
 {
-  mPluginModel = new PluginModel( this );
   connect( mEngine, &QQmlEngine::warnings, this, &PluginManager::handleWarnings );
-  mPluginModel->loadLocalPlugins();
+  mPluginModel = new PluginModel( this );
+  mPluginModel->refresh( false );
 }
 
 void PluginManager::loadPlugin( const QString &pluginPath, const QString &pluginName, bool skipPermissionCheck, bool isProjectPlugin )
@@ -237,6 +237,7 @@ void PluginManager::enableAppPlugin( const QString &uuid, bool skipPermissionChe
       }
       settings.endGroup();
 
+      qDebug() << pluginPath;
       loadPlugin( pluginPath, mPluginModel->pluginInformation( uuid ).name, skipPermissionCheck );
 
       if ( mLoadedPlugins.contains( pluginPath ) )
@@ -377,7 +378,7 @@ void PluginManager::installFromUrl( const QString &url )
             {
               file.remove();
 
-              mPluginModel->refreshLocalPlugins();
+              mPluginModel->refresh( false );
               emit installEnded( pluginDirectoryName );
 
               return;
@@ -422,7 +423,7 @@ void PluginManager::uninstall( const QString &uuid )
     QFileInfo fi( mPluginModel->pluginInformation( uuid ).path );
     fi.absoluteDir().removeRecursively();
 
-    mPluginModel->refreshLocalPlugins();
+    mPluginModel->refresh( false );
   }
 }
 
