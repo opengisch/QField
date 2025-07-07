@@ -86,16 +86,20 @@ Rectangle {
 
     BusyIndicator {
       id: busyIndicator
+      Layout.preferredWidth: 48
+      Layout.preferredHeight: 48
       running: itemDownloading
       visible: !InstalledLocally && itemDownloading
     }
 
-    QfButton {
-      Layout.preferredHeight: 40
-      Layout.preferredWidth: 40
+    QfToolButton {
+      Layout.preferredWidth: 48
+      Layout.preferredHeight: 48
+      round: true
       visible: !InstalledLocally && !itemDownloading
-      icon.source: Theme.getThemeVectorIcon('ic_download_white_24dp')
-      color: "transparent"
+      iconSource: Theme.getThemeVectorIcon('ic_download_white_24dp')
+      iconColor: Theme.mainColor
+
       onClicked: {
         downloadClicked();
       }
