@@ -67,7 +67,7 @@
   },
   {
     "key": "qfield-geomapfish-locator",
-    "name": "GepMapFish Search",
+    "name": "GeoMapFish Search",
     "description": "Adds GeoMapFish services into the search bar.",
     "icon": "https://github.com/opengisch/qfield-geomapfish-locator/raw/refs/heads/main/icon.svg",
     "version": "1.3",
