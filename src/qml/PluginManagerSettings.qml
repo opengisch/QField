@@ -41,15 +41,105 @@ Popup {
     }
 
     ColumnLayout {
+      id: pluginsLayout
       spacing: 4
       width: parent.width
       height: parent.height
+
+      QfTabBar {
+        id: filterBar
+        model: [qsTr("Local Plugins"), qsTr("Available plugins")]
+        Layout.fillWidth: true
+        Layout.preferredHeight: defaultHeight
+        delegate: TabButton {
+          text: modelData
+          height: filterBar.defaultHeight
+          width: pluginsLayout.width / filterBar.count
+          font: Theme.defaultFont
+          onClicked: {
+            filterBar.currentIndex = index;
+            if (index == 1)
+              pluginManager.pluginModel.fetchRemotePlugins();
+          }
+        }
+      }
+
+      QfSearchBar {
+        id: searchBar
+        visible: filterBar.currentIndex === 1
+        Layout.fillWidth: true
+        Layout.preferredHeight: 41
+        placeHolderText: qsTr("Search for plugin")
+      }
+
+      ListView {
+        id: pluginsList
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        visible: (count > 0 || filterBar.currentIndex === 1) && !pluginManager.pluginModel.isRefreshing
+        clip: true
+
+        property real downloadingIndex: -1
+
+        model: PluginProxyModel {
+          sourceModel: pluginManager.pluginModel
+          searchTerm: filterBar.currentIndex === 1 ? searchBar.searchTerm : ""
+          filter: filterBar.currentIndex === 0 ? PluginProxyModel.LocalPlugin : PluginProxyModel.RemotePlugin
+        }
+
+        delegate: PluginItem {
+          width: parent ? parent.width : 10
+          icon: Icon !== '' ? UrlUtils.fromString(Icon) : ''
+          name: Name
+          itemEnabled: Enabled
+          itemConfigurable: Configurable
+          itemDownloading: pluginsList.downloadingIndex == index
+
+          onAuthorDetailsClicked: {
+            authorDetails.authorName = Author;
+            authorDetails.authorHomepage = Homepage;
+            authorDetails.open();
+          }
+
+          onUninstallConfirmationClicked: {
+            uninstallConfirmation.pluginName = Name;
+            uninstallConfirmation.pluginUuid = Uuid;
+            uninstallConfirmation.open();
+          }
+
+          onToggleEnabledPlugin: checked => {
+            Enabled = checked;
+            if (Enabled) {
+              pluginManager.enableAppPlugin(Uuid, AvailableRemotely);
+            } else {
+              pluginManager.disableAppPlugin(Uuid);
+            }
+          }
+
+          onPluginNameClicked: {
+            if (!Enabled) {
+              pluginManager.enableAppPlugin(Uuid, AvailableRemotely);
+            } else {
+              pluginManager.disableAppPlugin(Uuid);
+            }
+          }
+
+          onConfigClicked: {
+            pluginManager.configureAppPlugin(Uuid);
+          }
+
+          onDownloadClicked: {
+            pluginsList.downloadingIndex = index;
+            pluginManager.installFromUrl(DownloadLink);
+          }
+        }
+      }
 
       Label {
         Layout.fillWidth: true
         Layout.fillHeight: true
         Layout.margins: 20
-        visible: pluginsList.model.count === 0
+        visible: pluginsList.count === 0 && filterBar.currentIndex === 0
 
         text: qsTr('No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.').arg('<a href="https://docs.qfield.org/how-to/plugins/">').arg('</a>')
         font: Theme.defaultFont
@@ -59,138 +149,33 @@ Popup {
         onLinkActivated: link => Qt.openUrlExternally(link)
       }
 
-      ListView {
-        id: pluginsList
+      Item {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        visible: model.count > 0
-        clip: true
+        visible: pluginManager.pluginModel.isRefreshing
 
-        model: ListModel {
+        BusyIndicator {
+          id: busyIndicator
+          running: pluginManager.pluginModel.isRefreshing
+          anchors.centerIn: parent
         }
 
-        delegate: Rectangle {
-          id: rectangle
-          width: parent ? parent.width : 10
-          height: inner.height + 10
-          color: "transparent"
-
-          GridLayout {
-            id: inner
-            width: parent.width
-            anchors.leftMargin: 20
-            anchors.rightMargin: 20
-
-            columns: 3
-            columnSpacing: 0
-            rowSpacing: 2
-
-            RowLayout {
-              Layout.fillWidth: true
-
-              Image {
-                Layout.preferredWidth: 24
-                Layout.preferredHeight: 24
-
-                source: Icon !== '' ? UrlUtils.fromString(Icon) : ''
-                fillMode: Image.PreserveAspectFit
-                mipmap: true
-              }
-
-              Label {
-                Layout.fillWidth: true
-                text: Name
-                font: Theme.defaultFont
-                color: Theme.mainTextColor
-                wrapMode: Text.WordWrap
-
-                MouseArea {
-                  anchors.fill: parent
-                  onClicked: {
-                    if (!Enabled) {
-                      pluginManager.enableAppPlugin(Uuid);
-                    } else {
-                      pluginManager.disableAppPlugin(Uuid);
-                    }
-                  }
-                }
-              }
-            }
-
-            QfToolButton {
-              id: configureEnabledPlugin
-              Layout.preferredWidth: enabled ? 48 : 0
-              enabled: Configurable
-
-              iconSource: Theme.getThemeVectorIcon("ic_tune_white_24dp")
-              iconColor: Theme.mainTextColor
-
-              onClicked: {
-                pluginManager.configureAppPlugin(Uuid);
-              }
-            }
-
-            QfSwitch {
-              id: toggleEnabledPlugin
-              Layout.preferredWidth: implicitContentWidth
-              checked: Enabled
-
-              onClicked: {
-                Enabled = checked == true;
-                if (Enabled) {
-                  pluginManager.enableAppPlugin(Uuid);
-                } else {
-                  pluginManager.disableAppPlugin(Uuid);
-                }
-              }
-            }
-
-            ColumnLayout {
-              Layout.columnSpan: 2
-              Layout.fillWidth: true
-
-              Label {
-                Layout.fillWidth: true
-                text: qsTr('Authored by %1%2%3').arg('<a href="details">').arg(Author).arg(' ⚠</a>')
-                font: Theme.tipFont
-                color: Theme.secondaryTextColor
-                wrapMode: Text.WordWrap
-                onLinkActivated: link => {
-                  authorDetails.authorName = Author;
-                  authorDetails.authorHomepage = Homepage;
-                  authorDetails.open();
-                }
-              }
-
-              Label {
-                Layout.fillWidth: true
-                text: Description
-                font: Theme.tipFont
-                color: Theme.secondaryTextColor
-                wrapMode: Text.WordWrap
-              }
-
-              Label {
-                Layout.fillWidth: true
-                text: "<a href='delete'>" + (Version != "" ? qsTr("Uninstall version %1").arg(Version) : qsTr("Uninstall plugin")) + "</a>"
-                font: Theme.tipFont
-                color: Theme.secondaryTextColor
-                wrapMode: Text.WordWrap
-
-                onLinkActivated: link => {
-                  uninstallConfirmation.pluginName = Name;
-                  uninstallConfirmation.pluginUuid = Uuid;
-                  uninstallConfirmation.open();
-                }
-              }
-            }
-          }
+        Label {
+          anchors.top: busyIndicator.bottom
+          anchors.topMargin: 8
+          width: parent.width
+          text: qsTr('Fetching plugins')
+          font: Theme.defaultFont
+          wrapMode: Text.WordWrap
+          horizontalAlignment: Text.AlignHCenter
+          verticalAlignment: Text.AlignVCenter
         }
       }
 
       QfButton {
         id: installFromUrlButton
         Layout.fillWidth: true
+        visible: filterBar.currentIndex === 0
         dropdown: true
 
         text: qsTr("Install plugin from URL")
@@ -364,50 +349,15 @@ Popup {
       } else {
         displayToast(qsTr('Plugin installation failed: ' + error, 'error'));
       }
+      pluginsList.downloadingIndex = -1;
     }
 
     function onAppPluginEnabled(uuid) {
-      for (let i = 0; i < pluginsList.model.count; i++) {
-        if (pluginsList.model.get(i).Uuid === uuid) {
-          pluginsList.model.get(i).Enabled = true;
-          pluginsList.model.get(i).Configurable = pluginManager.isAppPluginConfigurable(uuid);
-        }
-      }
+      pluginManager.pluginModel.updatePluginEnabledStateByUuid(uuid, true, pluginManager.isAppPluginConfigurable(uuid));
     }
 
     function onAppPluginDisabled(uuid) {
-      for (let i = 0; i < pluginsList.model.count; i++) {
-        if (pluginsList.model.get(i).Uuid === uuid) {
-          pluginsList.model.get(i).Enabled = false;
-          pluginsList.model.get(i).Configurable = false;
-        }
-      }
+      pluginManager.pluginModel.updatePluginEnabledStateByUuid(uuid, false, false);
     }
-
-    function onAvailableAppPluginsChanged() {
-      refreshAppPluginsList();
-    }
-  }
-
-  function refreshAppPluginsList() {
-    pluginsList.model.clear();
-    for (const plugin of pluginManager.availableAppPlugins) {
-      const isEnabled = pluginManager.isAppPluginEnabled(plugin.uuid);
-      pluginsList.model.append({
-          "Uuid": plugin.uuid,
-          "Enabled": isEnabled,
-          "Configurable": isEnabled && pluginManager.isAppPluginConfigurable(plugin.uuid),
-          "Name": plugin.name,
-          "Description": plugin.description,
-          "Author": plugin.author,
-          "Homepage": plugin.homepage,
-          "Icon": plugin.icon,
-          "Version": plugin.version
-        });
-    }
-  }
-
-  Component.onCompleted: {
-    refreshAppPluginsList();
   }
 }

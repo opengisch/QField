@@ -4407,6 +4407,7 @@ ApplicationWindow {
     title: pluginPermissionDialog.isProjectPlugin ? pluginName + qsTr(" Project Plugin") : qsTr("Plugin Permission")
 
     Column {
+      width: parent.width
       Label {
         width: parent.width
         wrapMode: Text.WordWrap
