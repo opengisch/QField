@@ -22,6 +22,7 @@ Rectangle {
   signal toggleEnabledPlugin(bool checked)
   signal pluginNameClicked
   signal configClicked
+  signal updateClicked
   signal downloadClicked
 
   GridLayout {
@@ -29,7 +30,7 @@ Rectangle {
     anchors.left: parent.left
     anchors.right: parent.right
 
-    columns: 3
+    columns: 4
     columnSpacing: 0
     rowSpacing: 2
 
@@ -63,8 +64,8 @@ Rectangle {
 
     QfToolButton {
       id: configureEnabledPlugin
+      enabled: Configurable
       Layout.preferredWidth: enabled ? 48 : 0
-      enabled: itemConfigurable
 
       iconSource: Theme.getThemeVectorIcon("ic_tune_white_24dp")
       iconColor: Theme.mainTextColor
@@ -72,6 +73,40 @@ Rectangle {
       onClicked: {
         configClicked();
       }
+    }
+
+    QfToolButton {
+      id: updatePlugin
+      enabled: InstalledLocally && AvailableUpdate
+      Layout.preferredWidth: enabled ? 48 : 0
+
+      iconSource: Theme.getThemeVectorIcon("ic_update_white_24dp")
+      iconColor: Theme.mainColor
+
+      onClicked: {
+        updateClicked();
+      }
+    }
+
+    QfToolButton {
+      id: downloadPlugin
+      enabled: !InstalledLocally && !itemDownloading
+      Layout.preferredWidth: enabled ? 48 : 0
+      visible: enabled
+      iconSource: Theme.getThemeVectorIcon('ic_download_white_24dp')
+      iconColor: Theme.mainColor
+
+      onClicked: {
+        downloadClicked();
+      }
+    }
+
+    BusyIndicator {
+      id: busyIndicator
+      Layout.preferredWidth: itemDownloading ? 48 : 0
+      Layout.preferredHeight: 48
+      running: itemDownloading
+      visible: !InstalledLocally && itemDownloading
     }
 
     QfSwitch {
@@ -84,29 +119,8 @@ Rectangle {
       }
     }
 
-    BusyIndicator {
-      id: busyIndicator
-      Layout.preferredWidth: 48
-      Layout.preferredHeight: 48
-      running: itemDownloading
-      visible: !InstalledLocally && itemDownloading
-    }
-
-    QfToolButton {
-      Layout.preferredWidth: 48
-      Layout.preferredHeight: 48
-      round: true
-      visible: !InstalledLocally && !itemDownloading
-      iconSource: Theme.getThemeVectorIcon('ic_download_white_24dp')
-      iconColor: Theme.mainColor
-
-      onClicked: {
-        downloadClicked();
-      }
-    }
-
     ColumnLayout {
-      Layout.columnSpan: 2
+      Layout.columnSpan: 3
       Layout.fillWidth: true
 
       Label {

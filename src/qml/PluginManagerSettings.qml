@@ -81,7 +81,7 @@ Popup {
         visible: (count > 0 || filterBar.currentIndex === 1) && !pluginManager.pluginModel.isRefreshing
         clip: true
 
-        property real downloadingIndex: -1
+        property var downloadingUuids: []
 
         model: PluginProxyModel {
           sourceModel: pluginManager.pluginModel
@@ -94,8 +94,7 @@ Popup {
           icon: Icon !== '' ? UrlUtils.fromString(Icon) : ''
           name: Name
           itemEnabled: Enabled
-          itemConfigurable: Configurable
-          itemDownloading: pluginsList.downloadingIndex == index
+          itemDownloading: pluginsList.downloadingUuids.indexOf(Uuid) > -1
 
           onAuthorDetailsClicked: {
             authorDetails.authorName = Author;
@@ -130,8 +129,17 @@ Popup {
             pluginManager.configureAppPlugin(Uuid);
           }
 
+          onUpdateClicked: {
+            let uuids = pluginsList.downloadingUuids;
+            uuids.push(Uuid);
+            pluginsList.downloadingUuids = uuids;
+            pluginManager.installFromUrl(DownloadLink);
+          }
+
           onDownloadClicked: {
-            pluginsList.downloadingIndex = index;
+            let uuids = pluginsList.downloadingUuids;
+            uuids.push(Uuid);
+            pluginsList.downloadingUuids = uuids;
             pluginManager.installFromUrl(DownloadLink);
           }
         }
@@ -358,7 +366,12 @@ Popup {
       } else {
         displayToast(qsTr('Plugin installation failed: ' + error, 'error'));
       }
-      pluginsList.downloadingIndex = -1;
+      const downloadingIndex = pluginsList.downloadingUuids.indexOf(uuid);
+      if (downloadingIndex > -1) {
+        let uuids = pluginsList.downloadingUuids;
+        uuids.splice(downloadingIndex, 1);
+        pluginsList.downloadingUuids = uuids;
+      }
     }
 
     function onAppPluginEnabled(uuid) {

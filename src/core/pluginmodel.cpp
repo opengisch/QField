@@ -71,6 +71,8 @@ QVariant PluginModel::data( const QModelIndex &index, int role ) const
       return plugin.remotelyAvailable;
     case DownloadLinkRole:
       return plugin.downloadLink;
+    case AvailableUpdateRole:
+      return plugin.updateAvailable;
     default:
       return QVariant();
   }
@@ -90,7 +92,8 @@ QHash<int, QByteArray> PluginModel::roleNames() const
     { VersionRole, "Version" },
     { InstalledLocallyRole, "InstalledLocally" },
     { AvailableRemotelyRole, "AvailableRemotely" },
-    { DownloadLinkRole, "DownloadLink" } };
+    { DownloadLinkRole, "DownloadLink" },
+    { AvailableUpdateRole, "AvailableUpdate" } };
 }
 
 bool PluginModel::setData( const QModelIndex &index, const QVariant &value, int role )
@@ -150,11 +153,11 @@ void PluginModel::insertPluginsInformation( QMap<QString, PluginInformation> &pl
       plugin.description = pluginInformation.description;
       plugin.author = pluginInformation.author;
       plugin.homepage = pluginInformation.homepage;
-      plugin.version = pluginInformation.version;
       plugin.icon = pluginInformation.icon;
 
       if ( isLocal )
       {
+        plugin.version = pluginInformation.version;
         plugin.path = pluginInformation.path;
         plugin.locallyAvailable = true;
         plugin.enabled = pluginInformation.enabled;
@@ -162,9 +165,11 @@ void PluginModel::insertPluginsInformation( QMap<QString, PluginInformation> &pl
       }
       else
       {
+        plugin.remoteVersion = pluginInformation.remoteVersion;
         plugin.downloadLink = pluginInformation.downloadLink;
         plugin.remotelyAvailable = true;
       }
+      plugin.updateAvailable = !plugin.version.isEmpty() && !plugin.remoteVersion.isEmpty() && plugin.version != plugin.remoteVersion;
 
       emit dataChanged( index( i ), index( i ) );
       pluginsInformation.remove( plugin.uuid );
@@ -179,9 +184,7 @@ void PluginModel::insertPluginsInformation( QMap<QString, PluginInformation> &pl
         {
           plugin.path = QString();
           plugin.locallyAvailable = false;
-          emit dataChanged( index( i ), index( i ), {
-                                                      InstalledLocallyRole,
-                                                    } );
+          emit dataChanged( index( i ), index( i ), { InstalledLocallyRole, AvailableUpdateRole } );
         }
         ++i;
       }
@@ -190,9 +193,10 @@ void PluginModel::insertPluginsInformation( QMap<QString, PluginInformation> &pl
         // Plugin still locally available
         if ( plugin.remotelyAvailable )
         {
+          plugin.remoteVersion = QString();
           plugin.downloadLink = QString();
           plugin.remotelyAvailable = false;
-          emit dataChanged( index( i ), index( i ), { AvailableRemotelyRole } );
+          emit dataChanged( index( i ), index( i ), { AvailableRemotelyRole, AvailableUpdateRole } );
         }
         ++i;
       }
@@ -277,10 +281,9 @@ void PluginModel::fetchRemotePlugins()
       info.author = obj.value( "author" ).toString();
       info.homepage = obj.value( "homepage" ).toString();
       info.icon = obj.value( "icon" ).toString();
-      info.version = obj.value( "version" ).toString();
+      info.remoteVersion = obj.value( "version" ).toString();
       info.downloadLink = obj.value( "download" ).toString();
       info.remotelyAvailable = true;
-      info.locallyAvailable = false;
 
       foundRemotePlugins[info.uuid] = info;
     }
@@ -335,7 +338,10 @@ PluginInformation PluginModel::readPluginMetadata( const QFileInfo &pluginDir )
     version = metadata.value( "version" ).toString();
   }
 
-  PluginInformation plugin( pluginDir.fileName(), name, description, author, homepage, icon, version, path, "", true, false, false, false );
+  PluginInformation plugin( pluginDir.fileName(), name, description, author, homepage, icon );
+  plugin.version = version;
+  plugin.path = path;
+  plugin.locallyAvailable = true;
   plugin.enabled = mManager->isAppPluginEnabled( plugin.uuid );
   plugin.configurable = mManager->isAppPluginConfigurable( plugin.uuid );
 

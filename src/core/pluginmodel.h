@@ -44,7 +44,8 @@ class PluginModel : public QAbstractListModel
       VersionRole,
       InstalledLocallyRole,
       AvailableRemotelyRole,
-      DownloadLinkRole
+      DownloadLinkRole,
+      AvailableUpdateRole,
     };
     Q_ENUM( PluginRoles )
 
