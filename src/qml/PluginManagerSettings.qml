@@ -48,7 +48,7 @@ Popup {
 
       QfTabBar {
         id: filterBar
-        model: [qsTr("Local Plugins"), qsTr("Available plugins")]
+        model: [qsTr("Local Plugins"), qsTr("Available Plugins")]
         Layout.fillWidth: true
         Layout.preferredHeight: defaultHeight
         delegate: TabButton {
