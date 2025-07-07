@@ -272,11 +272,11 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>No Bluetooth devices detected.</source>
-        <translation type="unfinished"/>
+        <translation>No se detectaron dispositivos Bluetooth.</translation>
     </message>
     <message>
         <source>Deeper scanning for paired devices</source>
-        <translation type="unfinished"/>
+        <translation>Escaneo más profundo de dispositivos emparejados</translation>
     </message>
 </context>
 <context>
@@ -518,7 +518,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>The project is read-only.</source>
-        <translation type="unfinished"/>
+        <translation>El proyecto es de sólo lectura.</translation>
     </message>
 </context>
 <context>
@@ -758,7 +758,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
-        <translation type="unfinished"/>
+        <translation>Error de adjunto a pedido de QFieldCloud:</translation>
     </message>
 </context>
 <context>
@@ -821,7 +821,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Feature addition disabled</source>
-        <translation type="unfinished"/>
+        <translation>Adición de entidades deshabilitada</translation>
     </message>
 </context>
 <context>
@@ -1351,23 +1351,23 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>feature addition</source>
-        <translation type="unfinished"/>
+        <translation>adición de entidades</translation>
     </message>
     <message>
         <source>attribute editing</source>
-        <translation type="unfinished"/>
+        <translation>edición de atributos</translation>
     </message>
     <message>
         <source>geometry editing</source>
-        <translation type="unfinished"/>
+        <translation>editando geometría</translation>
     </message>
     <message>
         <source>feature deletion</source>
-        <translation type="unfinished"/>
+        <translation>eliminación de entidades</translation>
     </message>
     <message>
         <source>Disabled layer permissions: %1</source>
-        <translation type="unfinished"/>
+        <translation>Permisos de capa deshabilitados: %1</translation>
     </message>
 </context>
 <context>
@@ -1443,7 +1443,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation type="unfinished"/>
+        <translation>La configuración de permisos de esta capa deshabilita la adición de funciones.</translation>
     </message>
 </context>
 <context>
@@ -2840,15 +2840,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>File system error. Failed to write attachment to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Error del sistema de archivos. No se pudo escribir el archivo adjunto en la ubicación temporal `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Error del sistema de archivos. No se pudo abrir el archivo adjunto para escribir en el archivo temporal `%1`.</translation>
     </message>
     <message>
         <source>Network error. Failed to download attachment `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Error de red. No se pudo descargar el archivo adjunto `%1`.</translation>
     </message>
 </context>
 <context>
@@ -3447,15 +3447,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>root folder</source>
-        <translation type="unfinished"/>
+        <translation>carpeta raíz</translation>
     </message>
     <message>
         <source>Available locally in ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Disponible localmente en ‘%1’</translation>
     </message>
     <message>
         <source>Imported folder name</source>
-        <translation type="unfinished"/>
+        <translation>Nombre de la carpeta importada</translation>
     </message>
 </context>
 <context>
@@ -4365,7 +4365,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Ensure constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Asegúrese de que se cumplan las restricciones</translation>
     </message>
 </context>
 <context>
@@ -5809,35 +5809,35 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Failed to create feature</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo crear la entidad</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo crear la entidad debido a que el permiso para agregar entidades está deshabilitado</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo guardar la entidad</translation>
     </message>
     <message>
         <source>Digitizing toggle</source>
-        <translation type="unfinished"/>
+        <translation>Alternar digitalización</translation>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation type="unfinished"/>
+        <translation>Alterna entre los modos de exploración y digitalización. El modo de exploración se centra en ofrecer la mejor experiencia al visualizar el mapa y sus entidades, mientras que el modo de digitalización permite crear entidades y editar geometrías.</translation>
     </message>
     <message>
         <source>Measurement</source>
-        <translation type="unfinished"/>
+        <translation>Medición</translation>
     </message>
     <message>
         <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Alterne la herramienta de medición para calcular distancias y áreas en el mapa.</translation>
     </message>
     <message>
         <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
-        <translation type="unfinished"/>
+        <translation>Exporte el lienzo del mapa a PDF utilizando los diseños de atlas y de impresión del proyecto configurados.</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -5845,23 +5845,23 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Envíe cambios, sincronice o revierta cambios hacia y desde QFieldCloud cuando se abre un proyecto en la nube.</translation>
     </message>
     <message>
         <source>Project folder</source>
-        <translation type="unfinished"/>
+        <translation>Carpeta del proyecto</translation>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation type="unfinished"/>
+        <translation>Abra la carpeta del proyecto para acceder a los archivos, las fuentes de datos y los documentos relacionados. Resulta útil para administrar los recursos del proyecto, subir datos manualmente a QFieldCloud y compartir conjuntos de datos, archivos adjuntos y diseños.</translation>
     </message>
     <message>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>Leyenda</translation>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
-        <translation type="unfinished"/>
+        <translation>La leyenda muestra las capas del mapa y permite alternar las propiedades de visibilidad &lt;b&gt;y opacidad al mantener presionada una capa para abrir una ventana emergente de propiedades.&lt;/b&gt;. Esta ventana emergente ofrece funciones adicionales, como ampliar la extensión de la capa y mostrar las entidades contenidas en las capas vectoriales.</translation>
     </message>
 </context>
 <context>
