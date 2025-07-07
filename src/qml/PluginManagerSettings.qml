@@ -110,7 +110,7 @@ Popup {
           onToggleEnabledPlugin: checked => {
             Enabled = checked;
             if (Enabled) {
-              pluginManager.enableAppPlugin(Uuid, AvailableRemotely);
+              pluginManager.enableAppPlugin(Uuid);
             } else {
               pluginManager.disableAppPlugin(Uuid);
             }
@@ -118,7 +118,7 @@ Popup {
 
           onPluginNameClicked: {
             if (!Enabled) {
-              pluginManager.enableAppPlugin(Uuid, AvailableRemotely);
+              pluginManager.enableAppPlugin(Uuid);
             } else {
               pluginManager.disableAppPlugin(Uuid);
             }

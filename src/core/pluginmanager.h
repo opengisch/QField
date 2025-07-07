@@ -111,9 +111,8 @@ class PluginManager : public QObject
 
     /**
      * Enables the application plugin identified by \a uuid.
-     * Optionally skips permission checks.
      */
-    Q_INVOKABLE void enableAppPlugin( const QString &uuid, bool skipPermissionCheck = false );
+    Q_INVOKABLE void enableAppPlugin( const QString &uuid );
 
     /**
      * Disables the application plugin identified by \a uuid.

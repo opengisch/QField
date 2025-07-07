@@ -219,15 +219,15 @@ void PluginManager::restoreAppPlugins()
   settings.endGroup();
 }
 
-void PluginManager::enableAppPlugin( const QString &uuid, bool skipPermissionCheck )
+void PluginManager::enableAppPlugin( const QString &uuid )
 {
   if ( mPluginModel->hasPluginInformation( uuid ) )
   {
-    const QString pluginPath = mPluginModel->pluginInformation( uuid ).path;
-    if ( !mLoadedPlugins.contains( pluginPath ) )
+    const PluginInformation pluginInformation = mPluginModel->pluginInformation( uuid );
+    if ( !mLoadedPlugins.contains( pluginInformation.path ) )
     {
       QSettings settings;
-      QString pluginKey = pluginPath;
+      QString pluginKey = pluginInformation.path;
       pluginKey.replace( QChar( '/' ), QChar( '_' ) );
       settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
       settings.setValue( QStringLiteral( "uuid" ), uuid );
@@ -237,10 +237,9 @@ void PluginManager::enableAppPlugin( const QString &uuid, bool skipPermissionChe
       }
       settings.endGroup();
 
-      qDebug() << pluginPath;
-      loadPlugin( pluginPath, mPluginModel->pluginInformation( uuid ).name, skipPermissionCheck );
+      loadPlugin( pluginInformation.path, pluginInformation.name, pluginInformation.remotelyAvailable );
 
-      if ( mLoadedPlugins.contains( pluginPath ) )
+      if ( mLoadedPlugins.contains( pluginInformation.path ) )
       {
         callPluginMethod( uuid, "appWideEnabled" );
       }
