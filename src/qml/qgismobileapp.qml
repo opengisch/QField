@@ -4542,9 +4542,12 @@ ApplicationWindow {
       }]
 
     Connections {
+      id: dashBoardConnections
       target: dashBoard
       enabled: settings ? settings.valueBool("/QField/showDashboardGuide", true) : false
+
       function onOpened() {
+        dashBoardConnections.enabled = false;
         dashboardTour.index = 0;
         dashboardTour.runTour();
         settings.setValue("/QField/showDashboardGuide", false);
