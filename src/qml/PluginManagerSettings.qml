@@ -103,6 +103,7 @@ Popup {
           onAuthorDetailsClicked: {
             authorDetails.authorName = Author;
             authorDetails.authorHomepage = Homepage;
+            authorDetails.authorTrusted = Trusted;
             authorDetails.open();
           }
 
@@ -225,6 +226,7 @@ Popup {
 
     property string authorName: ""
     property string authorHomepage: ""
+    property bool authorTrusted: false
 
     Column {
       width: mainWindow.width - 60 < authorWarningLabelMetrics.width ? mainWindow.width - 60 : authorWarningLabelMetrics.width
@@ -254,6 +256,7 @@ Popup {
       Label {
         id: authorWarningLabel
         width: parent.width
+        visible: !authorDetails.authorTrusted
         text: "⚠ " + qsTr("The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin's origin.")
         wrapMode: Text.WordWrap
         font: Theme.defaultFont

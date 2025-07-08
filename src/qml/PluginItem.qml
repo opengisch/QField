@@ -125,7 +125,7 @@ Rectangle {
 
       Label {
         Layout.fillWidth: true
-        text: qsTr('Authored by %1%2%3').arg('<a href="details">').arg(Author).arg(' ⚠</a>')
+        text: qsTr('Authored by %1%2%3').arg('<a href="details">').arg(Author).arg(Trusted ? '' : ' ⚠</a>')
         font: Theme.tipFont
         color: Theme.secondaryTextColor
         wrapMode: Text.WordWrap

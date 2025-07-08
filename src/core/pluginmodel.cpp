@@ -21,6 +21,7 @@
 
 #include <QDir>
 #include <QSettings>
+#include <QStandardPaths>
 #include <qjsonarray.h>
 #include <qjsondocument.h>
 #include <qjsonobject.h>
@@ -49,6 +50,8 @@ QVariant PluginModel::data( const QModelIndex &index, int role ) const
   {
     case UuidRole:
       return plugin.uuid;
+    case TrustedRole:
+      return plugin.trusted;
     case EnabledRole:
       return plugin.enabled;
     case ConfigurableRole:
@@ -82,6 +85,7 @@ QHash<int, QByteArray> PluginModel::roleNames() const
 {
   return {
     { UuidRole, "Uuid" },
+    { TrustedRole, "Trusted" },
     { EnabledRole, "Enabled" },
     { ConfigurableRole, "Configurable" },
     { NameRole, "Name" },
@@ -165,6 +169,7 @@ void PluginModel::insertPluginsInformation( QMap<QString, PluginInformation> &pl
       }
       else
       {
+        plugin.trusted = pluginInformation.trusted;
         plugin.remoteVersion = pluginInformation.remoteVersion;
         plugin.downloadLink = pluginInformation.downloadLink;
         plugin.remotelyAvailable = true;
@@ -193,10 +198,11 @@ void PluginModel::insertPluginsInformation( QMap<QString, PluginInformation> &pl
         // Plugin still locally available
         if ( plugin.remotelyAvailable )
         {
+          plugin.trusted = false;
           plugin.remoteVersion = QString();
           plugin.downloadLink = QString();
           plugin.remotelyAvailable = false;
-          emit dataChanged( index( i ), index( i ), { AvailableRemotelyRole, AvailableUpdateRole } );
+          emit dataChanged( index( i ), index( i ), { AvailableRemotelyRole, AvailableUpdateRole, TrustedRole } );
         }
         ++i;
       }
@@ -220,11 +226,15 @@ void PluginModel::insertPluginsInformation( QMap<QString, PluginInformation> &pl
 
 void PluginModel::refresh( bool fetchRemote )
 {
-  fetchLocalPlugins();
+  populateLocalPlugins();
 
   if ( fetchRemote )
   {
     fetchRemotePlugins();
+  }
+  else
+  {
+    populateRemotePlugins();
   }
 }
 
@@ -252,8 +262,28 @@ void PluginModel::fetchRemotePlugins()
     }
 
     const QByteArray responseData = reply->readAll();
+    QDir cacheDir( QStandardPaths::writableLocation( QStandardPaths::AppConfigLocation ) );
+    cacheDir.mkpath( QStringLiteral( "plugins" ) );
+    QFile cacheFile( QStringLiteral( "%1/plugins/cache.json" ).arg( QStandardPaths::writableLocation( QStandardPaths::AppConfigLocation ) ) );
+    if ( cacheFile.open( QIODeviceBase::WriteOnly ) )
+    {
+      cacheFile.write( responseData );
+    }
+    cacheFile.close();
+
+    populateRemotePlugins();
+  } );
+}
+
+void PluginModel::populateRemotePlugins()
+{
+  QFile cacheFile( QStringLiteral( "%1/plugins/cache.json" ).arg( QStandardPaths::writableLocation( QStandardPaths::AppConfigLocation ) ) );
+  if ( cacheFile.exists() && cacheFile.open( QIODeviceBase::ReadOnly ) )
+  {
+    const QByteArray cacheData = cacheFile.readAll();
+
     QJsonParseError parseError;
-    QJsonDocument jsonDoc = QJsonDocument::fromJson( responseData, &parseError );
+    QJsonDocument jsonDoc = QJsonDocument::fromJson( cacheData, &parseError );
     if ( parseError.error != QJsonParseError::NoError )
     {
       qDebug() << "JSON parse error when parsing remote plugins: " << parseError.errorString();
@@ -275,6 +305,7 @@ void PluginModel::fetchRemotePlugins()
       const QJsonObject obj = value.toObject();
 
       PluginInformation info;
+      info.trusted = true;
       info.uuid = obj.value( "key" ).toString();
       info.name = obj.value( "name" ).toString();
       info.description = obj.value( "description" ).toString();
@@ -289,10 +320,10 @@ void PluginModel::fetchRemotePlugins()
     }
 
     insertPluginsInformation( foundRemotePlugins, false );
-  } );
+  }
 }
 
-void PluginModel::fetchLocalPlugins()
+void PluginModel::populateLocalPlugins()
 {
   QMap<QString, PluginInformation> foundLocalPlugins;
   const QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();

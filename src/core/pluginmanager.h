@@ -43,6 +43,7 @@ struct PluginInformation
     QString downloadLink;
     QString remoteVersion;
 
+    bool trusted = false;
     bool enabled = false;
     bool configurable = false;
 
