@@ -36,10 +36,10 @@ def outputPathName = "some.apk"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation 'androidx.documentfile:documentfile:1.0.1'
-    implementation "androidx.fragment:fragment:1.6.2"
-    implementation 'com.google.android.material:material:1.11.0'
+    implementation "androidx.fragment:fragment:1.8.8"
+    implementation 'com.google.android.material:material:1.12.0'
 }
 
 android {
@@ -109,5 +109,5 @@ android {
 
 // Add Sentry's SDK as a dependency.
 dependencies {
-    implementation 'io.sentry:sentry-android:7.19.1'
+    implementation 'io.sentry:sentry-android:7.22.5'
 }

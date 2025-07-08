@@ -82,7 +82,7 @@ jobs:
         run: |
           NDK_VERSION=26.3.11579264
           echo "JAVA_HOME=${JAVA_HOME_17_X64}" >> $GITHUB_ENV
-          echo "ANDROID_BUILD_TOOLS_VERSION=34.0.0" >> $GITHUB_ENV
+          echo "ANDROID_BUILD_TOOLS_VERSION=35.0.0" >> $GITHUB_ENV
           echo "ANDROID_NDK_VERSION=${NDK_VERSION}" >> $GITHUB_ENV
           echo "ANDROID_NDK=/usr/local/lib/android/sdk/ndk/${NDK_VERSION}" >> $GITHUB_ENV
           echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/${NDK_VERSION}" >> $GITHUB_ENV
@@ -123,7 +123,7 @@ jobs:
       - name: Download sentry libs
         run: |
           mkdir /tmp/sentry-android-ndk
-          wget https://repo1.maven.org/maven2/io/sentry/sentry-android-ndk/7.19.1/sentry-android-ndk-7.19.1.aar -O /tmp/sentry.zip
+          wget https://repo1.maven.org/maven2/io/sentry/sentry-android-ndk/7.22.5/sentry-android-ndk-7.22.5.aar -O /tmp/sentry.zip
           unzip /tmp/sentry.zip -d /tmp/sentry-android-ndk
 
       - name: 🌱 Install dependencies and generate project files
