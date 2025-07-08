@@ -378,6 +378,22 @@ font-size: 13pt;
   text-decoration: none !important;
 }
 
+/* success stories index */
+.ss-btn {
+  font-family: "bio-sans";
+  font-size: 12pt;
+  font-weight: 400;
+  color: #212121;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.ss-btn:hover {
+  color: var(--qfield-color);
+  text-decoration: none;
+}
+
 /* about */
 #about {
   background-color: #21212105;
