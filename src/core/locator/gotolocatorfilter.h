@@ -45,6 +45,7 @@ class GotoLocatorFilter : public QgsLocatorFilter
     GotoLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "goto" ); }
     QString displayName() const override { return tr( "Go to coordinate" ); }
+    QString description() const override { return tr( "Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar." ); }
     Priority priority() const override { return Medium; }
     QString prefix() const override { return QStringLiteral( "go" ); }
     QgsLocatorFilter::Flags flags() const override { return QgsLocatorFilter::FlagFast; }

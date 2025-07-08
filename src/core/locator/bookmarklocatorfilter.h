@@ -43,6 +43,7 @@ class BookmarkLocatorFilter : public QgsLocatorFilter
     BookmarkLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "bookmarks" ); }
     QString displayName() const override { return tr( "Spatial bookmarks" ); }
+    QString description() const override { return tr( "Returns a list of user and currently open project bookmarks with matching names." ); }
     Priority priority() const override { return Highest; }
     QString prefix() const override { return QStringLiteral( "b" ); }
     QgsLocatorFilter::Flags flags() const override { return QgsLocatorFilter::FlagFast; }

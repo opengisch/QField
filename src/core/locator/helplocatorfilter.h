@@ -41,8 +41,9 @@ class HelpLocatorFilter : public QgsLocatorFilter
 
     explicit HelpLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
     HelpLocatorFilter *clone() const override;
-    QString name() const override { return QStringLiteral( "optionpages" ); } // name should be "help" but we're working around QGIS guarding against 1-character prefix
+    QString name() const override { return QStringLiteral( "optionpages" ); }
     QString displayName() const override { return tr( "QField Documentation" ); }
+    QString description() const override { return tr( "Returns QField documentation pages matching terms." ); }
     Priority priority() const override { return Medium; }
     QString prefix() const override { return QStringLiteral( "?" ); }
 
