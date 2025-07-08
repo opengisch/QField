@@ -305,7 +305,7 @@ void PluginModel::populateRemotePlugins()
 
       PluginInformation info;
       info.trusted = true;
-      info.uuid = obj.value( "key" ).toString();
+      info.uuid = obj.value( "uuid" ).toString();
       info.name = obj.value( "name" ).toString();
       info.description = obj.value( "description" ).toString();
       info.author = obj.value( "author" ).toString();
@@ -315,7 +315,10 @@ void PluginModel::populateRemotePlugins()
       info.downloadLink = obj.value( "download" ).toString();
       info.remotelyAvailable = true;
 
-      foundRemotePlugins[info.uuid] = info;
+      if ( !info.uuid.isEmpty() )
+      {
+        foundRemotePlugins[info.uuid] = info;
+      }
     }
 
     insertPluginsInformation( foundRemotePlugins, false );
