@@ -1913,6 +1913,21 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
 </context>
 <context>
+    <name>PluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation>Szerző: %1%2%3</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>Törlésre kerülő verzió: %1</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>Bővítmény törlése</translation>
+    </message>
+</context>
+<context>
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
@@ -1942,10 +1957,6 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation>Bővítmények</translation>
     </message>
     <message>
-        <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation>Még nem került telepítésre bővítmény. A bővítményekről többet  %1olvass a dokumentációban%2.</translation>
-    </message>
-    <message>
         <source>Install plugin from URL</source>
         <translation>Bővítmény telepítése URL megadásával</translation>
     </message>
@@ -1962,20 +1973,8 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation>%1 telepítése</translation>
     </message>
     <message>
-        <source>Authored by %1%2%3</source>
-        <translation>Szerző: %1%2%3</translation>
-    </message>
-    <message>
         <source>Are you sure you want to uninstall `%1`?</source>
         <translation>Valóban törölni kívánod `%1`-t?</translation>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation>Törlésre kerülő verzió: %1</translation>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation>Bővítmény törlése</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
@@ -1984,6 +1983,26 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Plugins management menu</source>
         <translation>Bővítmény kezelési menű</translation>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

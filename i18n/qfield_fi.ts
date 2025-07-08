@@ -1914,6 +1914,21 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
 </context>
 <context>
+    <name>PluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation>Tekijä(t) %1%2%3</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>Poista version %1 asennus</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>Poista lisäosan asennus</translation>
+    </message>
+</context>
+<context>
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
@@ -1943,10 +1958,6 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <translation>Lisäosat</translation>
     </message>
     <message>
-        <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation>Yhtään lisäosaa ei ole vielä asennettu. Jos haluat lisätietoja lisäosista, %1lue dokumentaatio%2.</translation>
-    </message>
-    <message>
         <source>Install plugin from URL</source>
         <translation>Asenna lisäosa URL-osoitteesta</translation>
     </message>
@@ -1963,20 +1974,8 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <translation>Asennetaan %1</translation>
     </message>
     <message>
-        <source>Authored by %1%2%3</source>
-        <translation>Tekijä(t) %1%2%3</translation>
-    </message>
-    <message>
         <source>Are you sure you want to uninstall `%1`?</source>
         <translation>Oletko varma, että haluat poistaa asennuksen `%1`?</translation>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation>Poista version %1 asennus</translation>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation>Poista lisäosan asennus</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
@@ -1985,6 +1984,26 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Plugins management menu</source>
         <translation>Lisäosien hallintavalikko</translation>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

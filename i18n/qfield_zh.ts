@@ -1912,6 +1912,21 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>PluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation>作者: %1%2%3</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>卸载版本 %1</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>卸载插件</translation>
+    </message>
+</context>
+<context>
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
@@ -1941,10 +1956,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>插件</translation>
     </message>
     <message>
-        <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation>尚未安装任何插件。若要了解有关插件的详细信息，请%1阅读文档%2。</translation>
-    </message>
-    <message>
         <source>Install plugin from URL</source>
         <translation>从URL安装插件</translation>
     </message>
@@ -1961,20 +1972,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>正在安装 %1</translation>
     </message>
     <message>
-        <source>Authored by %1%2%3</source>
-        <translation>作者: %1%2%3</translation>
-    </message>
-    <message>
         <source>Are you sure you want to uninstall `%1`?</source>
         <translation>确定要卸载 `%1` 吗？</translation>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation>卸载版本 %1</translation>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation>卸载插件</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
@@ -1983,6 +1982,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Plugins management menu</source>
         <translation>插件管理菜单</translation>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation>本地插件</translation>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation>可用插件</translation>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation>搜索插件</translation>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation>正在获取可用插件</translation>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
+        <translation>尚未安装插件，请切换到  %1可用插件%3 选项卡立即尝试。&lt;br&gt;&lt;br&gt;详细信息，%2请阅读文档%3。</translation>
     </message>
 </context>
 <context>

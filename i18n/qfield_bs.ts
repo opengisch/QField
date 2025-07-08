@@ -1915,6 +1915,21 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
 </context>
 <context>
+    <name>PluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
@@ -1944,10 +1959,6 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Install plugin from URL</source>
         <translation type="unfinished"/>
     </message>
@@ -1964,19 +1975,7 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Authored by %1%2%3</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Are you sure you want to uninstall `%1`?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1985,6 +1984,26 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
     <message>
         <source>Plugins management menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
         <translation type="unfinished"/>
     </message>
 </context>

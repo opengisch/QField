@@ -1914,6 +1914,21 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
 </context>
 <context>
+    <name>PluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation>Creado por %1%2%3</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>Desinstalar a versión %1</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>Desinstalar o plugin</translation>
+    </message>
+</context>
+<context>
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
@@ -1943,10 +1958,6 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <translation>Plugins</translation>
     </message>
     <message>
-        <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation>Aínda non se instalou ningún plugin. Para aprender máis acerca dos plugins, %1mira a documentación%2.</translation>
-    </message>
-    <message>
         <source>Install plugin from URL</source>
         <translation>Instalar plugin dende URL</translation>
     </message>
@@ -1963,20 +1974,8 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <translation>Instalando %1</translation>
     </message>
     <message>
-        <source>Authored by %1%2%3</source>
-        <translation>Creado por %1%2%3</translation>
-    </message>
-    <message>
         <source>Are you sure you want to uninstall `%1`?</source>
         <translation>Seguro de querer desistalar `%1`?</translation>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation>Desinstalar a versión %1</translation>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation>Desinstalar o plugin</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
@@ -1985,6 +1984,26 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Plugins management menu</source>
         <translation>Menú de xestión de Plugins</translation>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

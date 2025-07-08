@@ -1916,6 +1916,21 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
 </context>
 <context>
+    <name>PluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation>Da autoria de %1%2%3</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>Desinstalar a versão %1</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>Desinstalar plugin</translation>
+    </message>
+</context>
+<context>
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
@@ -1945,10 +1960,6 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <translation>Plugins</translation>
     </message>
     <message>
-        <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation>Nenhum plugin foi ainda instalado. Para saber mais sobre plugins, %1leia a documentação%2.</translation>
-    </message>
-    <message>
         <source>Install plugin from URL</source>
         <translation>Instale o plugin a partir do URL</translation>
     </message>
@@ -1965,20 +1976,8 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <translation>Instalando % 1</translation>
     </message>
     <message>
-        <source>Authored by %1%2%3</source>
-        <translation>Da autoria de %1%2%3</translation>
-    </message>
-    <message>
         <source>Are you sure you want to uninstall `%1`?</source>
         <translation>Tem a certeza que pretende desinstalar `%1`?</translation>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation>Desinstalar a versão %1</translation>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation>Desinstalar plugin</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
@@ -1987,6 +1986,26 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <source>Plugins management menu</source>
         <translation>Menu de gestão de plugins</translation>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

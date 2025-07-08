@@ -1913,6 +1913,21 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
 </context>
 <context>
+    <name>PluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation>Verfasst von %1%2%3</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>Version %1 deinstallieren</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>Plugin deinstallieren</translation>
+    </message>
+</context>
+<context>
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
@@ -1942,10 +1957,6 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <translation>Plugins</translation>
     </message>
     <message>
-        <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation>Es wurden noch keine Plugins installiert. Um mehr über Plugins zu erfahren, %1lies die Dokumentation%2.</translation>
-    </message>
-    <message>
         <source>Install plugin from URL</source>
         <translation>Plugin aus URL installieren</translation>
     </message>
@@ -1962,20 +1973,8 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <translation>Installiere %1</translation>
     </message>
     <message>
-        <source>Authored by %1%2%3</source>
-        <translation>Verfasst von %1%2%3</translation>
-    </message>
-    <message>
         <source>Are you sure you want to uninstall `%1`?</source>
         <translation>Bist du sicher, dass du `%1` deinstallieren willst?</translation>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation>Version %1 deinstallieren</translation>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation>Plugin deinstallieren</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
@@ -1984,6 +1983,26 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Plugins management menu</source>
         <translation>Menü zur Verwaltung der Plugins</translation>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

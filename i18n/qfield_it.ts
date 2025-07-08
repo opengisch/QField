@@ -1916,6 +1916,21 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
 </context>
 <context>
+    <name>PluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation>Scritto da %1%2%3</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>Disinstalla versione %1</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>Disinstalla plugin</translation>
+    </message>
+</context>
+<context>
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
@@ -1945,10 +1960,6 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <translation>Plugin</translation>
     </message>
     <message>
-        <source>No plugins have been installed yet. To learn more about plugins, %1read the documentation%2.</source>
-        <translation>Nessun plugin è stato ancora installato. Per saperne di più sui plugin, %1leggi la documentazione%2.</translation>
-    </message>
-    <message>
         <source>Install plugin from URL</source>
         <translation>Installa plugin da URL</translation>
     </message>
@@ -1965,20 +1976,8 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <translation>Installazione di %1 in corso</translation>
     </message>
     <message>
-        <source>Authored by %1%2%3</source>
-        <translation>Scritto da %1%2%3</translation>
-    </message>
-    <message>
         <source>Are you sure you want to uninstall `%1`?</source>
         <translation>Sei sicuro di voler disinstallare `%1`?</translation>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation>Disinstalla versione %1</translation>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation>Disinstalla plugin</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
@@ -1986,6 +1985,26 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Plugins management menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
         <translation type="unfinished"/>
     </message>
 </context>
