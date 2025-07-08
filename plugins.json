@@ -1,0 +1,79 @@
+[
+  {
+    "uuid": "qfield-osrm-routing",
+    "name": "OSRM Routing",
+    "description": "Provides routing visualization within QField",
+    "icon": "https://raw.githubusercontent.com/opengisch/qfield-osrm/refs/heads/main/icon.svg",
+    "version": "1.0",
+    "download": "https://github.com/opengisch/qfield-osrm/releases/download/v1.0/qfield-osrm-routing.zip",
+    "minimum_version": "3.6.0",
+    "homepage": "https://github.com/opengisch/qfield-osrm",
+    "author": "OPENGIS.ch"
+  },
+  {
+    "uuid": "qfield-nominatim-locator",
+    "name": "OpenStreetMap Nominatim Search",
+    "description": "Integrates OpenStreetMap Nominatim results into the search bar through the osm prefix",
+    "icon": "https://raw.githubusercontent.com/opengisch/qfield-nominatim-locator/refs/heads/main/icon.svg",
+    "version": "1.4",
+    "download": "https://github.com/opengisch/qfield-nominatim-locator/releases/download/v1.4/qfield-nominatim-locator-v1.4.zip",
+    "minimum_version": "3.6.0",
+    "homepage": "https://github.com/opengisch/qfield-nominatim-locator",
+    "author": "OPENGIS.ch"
+  },
+  {
+    "uuid": "qfield-weather-forecast",
+    "name": "Weather Forecast",
+    "description": "Delivers a weather forecast overlay returning expected weather at your current location.",
+    "icon": "https://github.com/opengisch/qfield-weather-forecast/raw/refs/heads/main/icon.svg",
+    "version": "1.0",
+    "download": "https://github.com/opengisch/qfield-weather-forecast/releases/download/v1.0/qfield-weather-forecast.zip",
+    "minimum_version": "3.6.0",
+    "homepage": "https://github.com/opengisch/qfield-weather-forecast",
+    "author": "OPENGIS.ch"
+  },
+  {
+    "uuid": "qfield-plugin-reloader",
+    "name": "QField Plugin Reloader",
+    "description": "Reload a chosen QField (app) plugin in one click.",
+    "icon": "https://github.com/gacarrillor/qfield-plugin-reloader/raw/refs/heads/main/qfield-plugin-reloader/icon.svg",
+    "version": "0.3",
+    "download": "https://github.com/gacarrillor/qfield-plugin-reloader/releases/download/0.3/qfield-plugin-reloader.zip",
+    "minimum_version": "3.6.0",
+    "homepage": "https://github.com/gacarrillor/qfield-plugin-reloader",
+    "author": "OPENGIS.ch"
+  },
+  {
+    "uuid": "vocalpoint-qfield-plugin",
+    "name": "Vocal QField",
+    "description": "Use your device text recognition for quick digitizing of feature attributes.",
+    "icon": "https://github.com/SeqLaz/vocalpoint-qfield-plugin/raw/refs/heads/main/vocalpoint-qfield-plugin/icon.svg",
+    "version": "0.1",
+    "download": "https://github.com/SeqLaz/vocalpoint-qfield-plugin/releases/download/v0.2.0/vocalpoint-qfield-plugin.zip",
+    "minimum_version": "3.6.0",
+    "homepage": "https://github.com/SeqLaz/vocalpoint-qfield-plugin",
+    "author": "OPENGIS.ch"
+  },
+  {
+    "uuid": "qfield-snap-plugin",
+    "name": "Snap!",
+    "description": "Digitize points through snapping photos for fast environment capture.",
+    "icon": "https://github.com/opengisch/qfield-snap/raw/refs/heads/main/icon.svg",
+    "version": "1.0",
+    "download": "https://github.com/opengisch/qfield-snap/releases/download/v1.0/qfield-snap-plugin.zip",
+    "minimum_version": "3.6.0",
+    "homepage": "https://github.com/opengisch/qfield-snap",
+    "author": "OPENGIS.ch"
+  },
+  {
+    "uuid": "qfield-geomapfish-locator",
+    "name": "GeoMapFish Search",
+    "description": "Adds GeoMapFish services into the search bar.",
+    "icon": "https://github.com/opengisch/qfield-geomapfish-locator/raw/refs/heads/main/icon.svg",
+    "version": "1.4",
+    "download": "https://github.com/opengisch/qfield-geomapfish-locator/releases/download/v1.4/qfield-geomapfish-locator-v1.4.zip",
+    "minimum_version": "3.6.0",
+    "homepage": "https://github.com/opengisch/qfield-geomapfish-locator",
+    "author": "OPENGIS.ch"
+  }
+]
