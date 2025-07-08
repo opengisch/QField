@@ -45,7 +45,6 @@ class PluginModel : public QAbstractListModel
       VersionRole,
       InstalledLocallyRole,
       AvailableRemotelyRole,
-      DownloadLinkRole,
       AvailableUpdateRole,
     };
     Q_ENUM( PluginRoles )
@@ -103,6 +102,7 @@ class PluginModel : public QAbstractListModel
 
   signals:
     void isRefreshingChanged();
+    void remoteFetched();
 
   private:
     void fetchRemotePlugins();

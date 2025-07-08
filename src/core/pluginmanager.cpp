@@ -288,6 +288,18 @@ bool PluginManager::isAppPluginConfigurable( const QString &uuid ) const
   return false;
 }
 
+void PluginManager::installFromRepository( const QString &uuid )
+{
+  if ( mPluginModel->hasPluginInformation( uuid ) )
+  {
+    PluginInformation pluginInformation = mPluginModel->pluginInformation( uuid );
+    if ( pluginInformation.remotelyAvailable && !pluginInformation.downloadLink.isEmpty() )
+    {
+      installFromUrl( pluginInformation.downloadLink );
+    }
+  }
+}
+
 void PluginManager::installFromUrl( const QString &url )
 {
   QString sanitizedUrl = url.trimmed();
@@ -314,7 +326,7 @@ void PluginManager::installFromUrl( const QString &url )
     }
   } );
 
-  connect( reply, &QNetworkReply::finished, this, [this, reply]() {
+  connect( reply, &QNetworkReply::finished, this, [this, reply, url]() {
     const QString dataDir = PlatformUtilities::instance()->appDataDirs().at( 0 );
     QString error;
     if ( !dataDir.isEmpty() && reply->error() == QNetworkReply::NoError )
@@ -361,6 +373,17 @@ void PluginManager::installFromUrl( const QString &url )
             if ( !pluginDirectoryWithinZip )
             {
               pluginDirectoryName = fileName.replace( QRegularExpression( "(-v?\\d+(\\.\\d+)*)?.zIP$", QRegularExpression::CaseInsensitiveOption ), QString() );
+            }
+
+            if ( mPluginModel->hasPluginInformation( pluginDirectoryName ) )
+            {
+              PluginInformation pluginInformation = mPluginModel->pluginInformation( pluginDirectoryName );
+              if ( pluginInformation.remotelyAvailable && pluginInformation.downloadLink != url )
+              {
+                error = tr( "The requested plugin URL is present in the available plugins list, please install via its download button" );
+                emit installEnded( QString(), error );
+                return;
+              }
             }
 
             QDir pluginDirectory = QStringLiteral( "%1/plugins/%2" ).arg( dataDir, pluginDirectoryName );

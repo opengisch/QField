@@ -72,8 +72,6 @@ QVariant PluginModel::data( const QModelIndex &index, int role ) const
       return plugin.locallyAvailable;
     case AvailableRemotelyRole:
       return plugin.remotelyAvailable;
-    case DownloadLinkRole:
-      return plugin.downloadLink;
     case AvailableUpdateRole:
       return plugin.updateAvailable;
     default:
@@ -96,7 +94,6 @@ QHash<int, QByteArray> PluginModel::roleNames() const
     { VersionRole, "Version" },
     { InstalledLocallyRole, "InstalledLocally" },
     { AvailableRemotelyRole, "AvailableRemotely" },
-    { DownloadLinkRole, "DownloadLink" },
     { AvailableUpdateRole, "AvailableUpdate" } };
 }
 
@@ -272,6 +269,8 @@ void PluginModel::fetchRemotePlugins()
     cacheFile.close();
 
     populateRemotePlugins();
+
+    emit remoteFetched();
   } );
 }
 
