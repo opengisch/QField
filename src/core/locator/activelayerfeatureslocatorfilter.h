@@ -56,6 +56,7 @@ class ActiveLayerFeaturesLocatorFilter : public QgsLocatorFilter
     // Note that the name is important here, has to match the QgsLocator::CORE_FILTERS one to give us a 1-letter prefix
     QString name() const override { return QStringLiteral( "features" ); }
     QString displayName() const override { return tr( "Features from active layer" ); }
+    QString description() const override { return tr( "Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an '@'." ); }
     Priority priority() const override { return Medium; }
     QString prefix() const override { return QStringLiteral( "f" ); }
 

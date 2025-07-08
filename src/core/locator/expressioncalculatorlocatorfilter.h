@@ -44,6 +44,7 @@ class ExpressionCalculatorLocatorFilter : public QgsLocatorFilter
     ExpressionCalculatorLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "calculator" ); }
     QString displayName() const override { return tr( "Calculator" ); }
+    QString description() const override { return tr( "Returns the value of an expression typed in the search bar." ); }
     Priority priority() const override { return Highest; }
     QString prefix() const override { return QStringLiteral( "=" ); }
     QgsLocatorFilter::Flags flags() const override { return QgsLocatorFilter::FlagFast; }

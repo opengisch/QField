@@ -293,15 +293,6 @@ QHash<int, QByteArray> LocatorFiltersModel::roleNames() const
 
 QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
 {
-  const static QMap<QString, QString> sLocatorFilterDescriptions = {
-    { QStringLiteral( "features" ), tr( "Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an '@'." ) },
-    { QStringLiteral( "allfeatures" ), tr( "Returns a list of features accross all searchable layers with matching display name." ) },
-    { QStringLiteral( "goto" ), tr( "Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar." ) },
-    { QStringLiteral( "bookmarks" ), tr( "Returns a list of user and currently open project bookmarks with matching names." ) },
-    { QStringLiteral( "calculator" ), tr( "Returns the value of an expression typed in the search bar." ) },
-    { QStringLiteral( "optionpages" ), tr( "Returns QField documentation pages matching terms." ) },
-    { QStringLiteral( "pelias-finland" ), tr( "Returns a list of locations and addresses within Finland with matching terms." ) } };
-
   if ( !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() || index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
     return QVariant();
 
@@ -312,7 +303,7 @@ QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
       return filterForIndex( index )->displayName();
 
     case DescriptionRole:
-      return sLocatorFilterDescriptions.value( filterForIndex( index )->name() );
+      return filterForIndex( index )->description();
 
     case PrefixRole:
       return filterForIndex( index )->activePrefix();

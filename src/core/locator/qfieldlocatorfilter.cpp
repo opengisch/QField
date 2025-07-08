@@ -111,6 +111,15 @@ void QFieldLocatorFilter::setPrefix( const QString &prefix )
   emit prefixChanged();
 }
 
+void QFieldLocatorFilter::setDescription( const QString &description )
+{
+  if ( mDescription == description )
+    return;
+
+  mDescription = description;
+  emit descriptionChanged();
+}
+
 void QFieldLocatorFilter::fetchResultsEnded()
 {
   mFetchResultsEnded = true;

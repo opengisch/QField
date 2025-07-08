@@ -61,6 +61,7 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
     FeaturesLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "allfeatures" ); }
     QString displayName() const override { return tr( "Features in all layers" ); }
+    QString description() const override { return tr( "Returns a list of features accross all searchable layers with matching display name." ); }
     Priority priority() const override { return Medium; }
     QString prefix() const override { return QStringLiteral( "af" ); }
 

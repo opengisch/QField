@@ -39,6 +39,7 @@ class QFieldLocatorFilter : public QgsLocatorFilter
     Q_PROPERTY( QString name READ name WRITE setName NOTIFY nameChanged )
     Q_PROPERTY( QString displayName READ displayName WRITE setDisplayName NOTIFY displayNameChanged )
     Q_PROPERTY( QString prefix READ prefix WRITE setPrefix NOTIFY prefixChanged )
+    Q_PROPERTY( QString description READ description WRITE setDescription NOTIFY descriptionChanged )
 
     Q_PROPERTY( QVariantMap parameters READ parameters WRITE setParameters NOTIFY parametersChanged )
     Q_PROPERTY( QUrl source READ source WRITE setSource NOTIFY sourceChanged )
@@ -83,6 +84,14 @@ class QFieldLocatorFilter : public QgsLocatorFilter
      * \note The prefix must be >= 3 characters otherwise it will be ignored.
      */
     void setPrefix( const QString &prefix );
+
+    //! \copydoc QgsLocatorFilter::description
+    QString description() const override { return mDescription; }
+
+    /**
+     * Sets a description for the filter.
+     */
+    void setDescription( const QString &description );
 
     /**
      * Returns the source QML file which will process the locator filter results.
@@ -134,6 +143,9 @@ class QFieldLocatorFilter : public QgsLocatorFilter
     //! Emitted when the prefix has changed
     void prefixChanged();
 
+    //! Emitted when the description has changed
+    void descriptionChanged();
+
     //! Emitted when the parameters object has changed
     void parametersChanged();
 
@@ -151,6 +163,7 @@ class QFieldLocatorFilter : public QgsLocatorFilter
     QString mName;
     QString mDisplayName;
     QString mPrefix;
+    QString mDescription;
 
     bool mFetchResultsEnded = false;
 
