@@ -1,6 +1,6 @@
 [
   {
-    "key": "qfield-osrm-routing",
+    "uuid": "qfield-osrm-routing",
     "name": "OSRM Routing",
     "description": "Provides routing visualization within QField",
     "icon": "https://raw.githubusercontent.com/opengisch/qfield-osrm/refs/heads/main/icon.svg",
@@ -11,7 +11,7 @@
     "author": "OPENGIS.ch"
   },
   {
-    "key": "qfield-nominatim-locator",
+    "uuid": "qfield-nominatim-locator",
     "name": "OpenStreetMap Nominatim Search",
     "description": "Integrates OpenStreetMap Nominatim results into the search bar through the osm prefix",
     "icon": "https://raw.githubusercontent.com/opengisch/qfield-nominatim-locator/refs/heads/main/icon.svg",
@@ -22,7 +22,7 @@
     "author": "OPENGIS.ch"
   },
   {
-    "key": "qfield-weather-forecast",
+    "uuid": "qfield-weather-forecast",
     "name": "Weather Forecast",
     "description": "Delivers a weather forecast overlay returning expected weather at your current location.",
     "icon": "https://github.com/opengisch/qfield-weather-forecast/raw/refs/heads/main/icon.svg",
@@ -33,7 +33,7 @@
     "author": "OPENGIS.ch"
   },
   {
-    "key": "qfield-plugin-reloader",
+    "uuid": "qfield-plugin-reloader",
     "name": "QField Plugin Reloader",
     "description": "Reload a chosen QField (app) plugin in one click.",
     "icon": "https://github.com/gacarrillor/qfield-plugin-reloader/raw/refs/heads/main/qfield-plugin-reloader/icon.svg",
@@ -44,7 +44,7 @@
     "author": "OPENGIS.ch"
   },
   {
-    "key": "vocalpoint-qfield-plugin",
+    "uuid": "vocalpoint-qfield-plugin",
     "name": "Vocal QField",
     "description": "Use your device text recognition for quick digitizing of feature attributes.",
     "icon": "https://github.com/SeqLaz/vocalpoint-qfield-plugin/raw/refs/heads/main/vocalpoint-qfield-plugin/icon.svg",
@@ -55,7 +55,7 @@
     "author": "OPENGIS.ch"
   },
   {
-    "key": "qfield-snap-plugin",
+    "uuid": "qfield-snap-plugin",
     "name": "Snap!",
     "description": "Digitize points through snapping photos for fast environment capture.",
     "icon": "https://github.com/opengisch/qfield-snap/raw/refs/heads/main/icon.svg",
@@ -66,7 +66,7 @@
     "author": "OPENGIS.ch"
   },
   {
-    "key": "qfield-geomapfish-locator",
+    "uuid": "qfield-geomapfish-locator",
     "name": "GeoMapFish Search",
     "description": "Adds GeoMapFish services into the search bar.",
     "icon": "https://github.com/opengisch/qfield-geomapfish-locator/raw/refs/heads/main/icon.svg",
