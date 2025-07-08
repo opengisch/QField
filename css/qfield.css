@@ -913,7 +913,7 @@ div.explanation {
 }
 
 .back-button:hover {
-  color: var(--qfield-color);
+  font-weight: bolder;
   text-decoration: none;
 }
 
