@@ -576,25 +576,26 @@ div.explanation {
 }
 
 /* clients logos */
-.client-logos {
+/* .client-logos {
     padding: 25px 15px;
     text-align: center;
     max-width: 1140px;
     margin: 0 auto;
-}
+} */
 
-.logos-container {
+/* .logos-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     justify-items: center;
     align-items: center;
     gap: 30px;
-}
+} */
 
 .client-logo {
     max-height: 50px;
     max-width: auto;
     object-fit: contain;
+    margin: 0px 20px 50px 20px;
     transition: transform 0.3s ease;
 }
 
