@@ -35,7 +35,7 @@ QfVisibilityFadingRow {
 
   function applyChanges(apply) {
     if (apply && featureModel.vertexModel.dirty) {
-      featureModel.applyVertexModelToGeometry();
+      featureModel.applyGeometry(true);
       if (!featureModel.save()) {
         displayToast(qsTr("Failed to save feature!"), 'error');
       }
