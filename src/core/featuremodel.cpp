@@ -812,10 +812,13 @@ bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
   return updated;
 }
 
-void FeatureModel::applyGeometry()
+void FeatureModel::applyGeometry( bool fromVertexModel )
 {
+  if ( ( !fromVertexModel && !mGeometry ) || ( fromVertexModel && !mVertexModel ) )
+    return;
+
   QString error;
-  QgsGeometry geometry = mGeometry->asQgsGeometry();
+  QgsGeometry geometry = fromVertexModel ? mVertexModel->geometry() : mGeometry->asQgsGeometry();
 
   if ( QgsWkbTypes::geometryType( geometry.wkbType() ) == Qgis::GeometryType::Polygon )
   {
@@ -1107,14 +1110,6 @@ SnappingResult FeatureModel::topSnappingResult() const
 void FeatureModel::setTopSnappingResult( const SnappingResult &topSnappingResult )
 {
   mTopSnappingResult = topSnappingResult;
-}
-
-void FeatureModel::applyVertexModelToGeometry()
-{
-  if ( !mVertexModel )
-    return;
-
-  mFeature.setGeometry( mVertexModel->geometry() );
 }
 
 void FeatureModel::applyGeometryToVertexModel()
