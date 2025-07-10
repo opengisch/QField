@@ -932,6 +932,7 @@ div.explanation {
 .back-button:hover {
   font-weight: bolder;
   text-decoration: none;
+  color: #212121;
 }
 
 .container {
