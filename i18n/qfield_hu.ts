@@ -71,6 +71,10 @@
         <source>Features from active layer</source>
         <translation>Elemek az aktív rétegből</translation>
     </message>
+    <message>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation>Visszaadja az aktív réteg megegyező attribútummal rendelkező elemeinek listáját. A megfeleltetés egyetlen attribútumra korlátozása céljából  a nevét &apos;@&apos; előtaggal kell azonosítani.</translation>
+    </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
@@ -342,6 +346,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Spatial bookmarks</source>
         <translation>Térbeli könyvjelzők</translation>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation>Visszaadja az azonos nevű felhasználói és a jelenleg nyitott projektkönyvjelzők listáját.</translation>
     </message>
 </context>
 <context>
@@ -705,6 +713,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Calculator</source>
         <translation>Kalkulátor</translation>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation>Visszaadja a keresősávba írt kifejezés értékét</translation>
     </message>
 </context>
 <context>
@@ -1072,6 +1084,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>Features in all layers</source>
         <translation>Elemek az összes rétegen</translation>
     </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation>Visszaadja minden kereshető réteg, azonos megjelenített névvel rendelkező elemének listáját.</translation>
+    </message>
 </context>
 <context>
     <name>FillRing</name>
@@ -1191,12 +1207,20 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>Go to %1°N %2°E (%3)</source>
         <translation>Ugrás %1° N%2°E (%3)</translation>
     </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation>Visszaad egy a keresősávba írt,  X - Y koordináta párból, vagy WGS84 szélesség - hosszúság értékből képzett pontot.</translation>
+    </message>
 </context>
 <context>
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
         <translation>QField dokumentáció</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation>A kifejezésnek megfelelő QField dokumentációs oldalak visszaadása</translation>
     </message>
 </context>
 <context>
@@ -1487,34 +1511,6 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>A helyzetére vonatkozó keresési szűrők aktiválva vannak. A beállítások panelen testreszabhatja az eredményeket.</translation>
-    </message>
-    <message>
-        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation>Visszaadja az aktív réteg megegyező attribútummal rendelkező elemeinek listáját. A megfeleltetés egyetlen attribútumra korlátozása céljából  a nevét &apos;@&apos; előtaggal kell azonosítani.</translation>
-    </message>
-    <message>
-        <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation>Visszaadja minden kereshető réteg, azonos megjelenített névvel rendelkező elemének listáját.</translation>
-    </message>
-    <message>
-        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation>Visszaad egy a keresősávba írt,  X - Y koordináta párból, vagy WGS84 szélesség - hosszúság értékből képzett pontot.</translation>
-    </message>
-    <message>
-        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>Visszaadja az azonos nevű felhasználói és a jelenleg nyitott projektkönyvjelzők listáját.</translation>
-    </message>
-    <message>
-        <source>Returns the value of an expression typed in the search bar.</source>
-        <translation>Visszaadja a keresősávba írt kifejezés értékét</translation>
-    </message>
-    <message>
-        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation>Visszaadja a Finnországban található, a kifejezésnek megfelelő helyszínek és címek listáját.</translation>
-    </message>
-    <message>
-        <source>Returns QField documentation pages matching terms.</source>
-        <translation>A kifejezésnek megfelelő QField dokumentációs oldalak visszaadása</translation>
     </message>
 </context>
 <context>

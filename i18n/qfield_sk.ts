@@ -71,6 +71,10 @@
         <source>Features from active layer</source>
         <translation>Prvky z aktívnej hladiny</translation>
     </message>
+    <message>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation>Zobrazí zoznam prvkov z aktívnej vrstvy so zodpovedajúcimi atribútmi. Označenie jedného atribútu: &apos;@&apos; a názov atribútu.</translation>
+    </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
@@ -342,6 +346,10 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Spatial bookmarks</source>
         <translation>Mapové záložky</translation>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation>Zobrazí zoznam používateľských a aktuálne otvorených záložiek projektu so zodpovedajúcimi názvami.</translation>
     </message>
 </context>
 <context>
@@ -705,6 +713,10 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>Calculator</source>
         <translation>Kalkulačka</translation>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation>Zobrazí hodnotu výrazu vpísaného do vyhľadávacieho panelu.</translation>
     </message>
 </context>
 <context>
@@ -1075,6 +1087,10 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
         <source>Features in all layers</source>
         <translation>Prvky vo všetkých vrstvách</translation>
     </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation>Zobrazí zoznam prvkov vo všetkých prehľadávateľných vrstvách so zodpovedajúcim názvom.</translation>
+    </message>
 </context>
 <context>
     <name>FillRing</name>
@@ -1194,11 +1210,19 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
         <source>Go to %1°N %2°E (%3)</source>
         <translation>Ísť na %1°N %2°E (%3)</translation>
     </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation>Po zadaní do vyhľadávacieho panelu zobrazí bod podľa X a Y súradnice, príp. podľa zemepisnej šírky a dĺžky (WGS84)</translation>
+    </message>
 </context>
 <context>
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1491,34 +1515,6 @@ Dôvod:
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Boli aktivované filtre vyhľadávania vašich lokalít, výsledky môžete prispôsobovať v paneli nastavení</translation>
-    </message>
-    <message>
-        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation>Zobrazí zoznam prvkov z aktívnej vrstvy so zodpovedajúcimi atribútmi. Označenie jedného atribútu: &apos;@&apos; a názov atribútu.</translation>
-    </message>
-    <message>
-        <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation>Zobrazí zoznam prvkov vo všetkých prehľadávateľných vrstvách so zodpovedajúcim názvom.</translation>
-    </message>
-    <message>
-        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation>Po zadaní do vyhľadávacieho panelu zobrazí bod podľa X a Y súradnice, príp. podľa zemepisnej šírky a dĺžky (WGS84)</translation>
-    </message>
-    <message>
-        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>Zobrazí zoznam používateľských a aktuálne otvorených záložiek projektu so zodpovedajúcimi názvami.</translation>
-    </message>
-    <message>
-        <source>Returns the value of an expression typed in the search bar.</source>
-        <translation>Zobrazí hodnotu výrazu vpísaného do vyhľadávacieho panelu.</translation>
-    </message>
-    <message>
-        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation>Zobrazí zoznam lokalít a adresných bodov vo Fínsku</translation>
-    </message>
-    <message>
-        <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -71,6 +71,10 @@
         <source>Features from active layer</source>
         <translation>Objecten van de actieve laag</translation>
     </message>
+    <message>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation>Geeft een lijst van objecten van de actieve laag met overeenkomende eigenschappen. Het zoeken op een enkele eigenschap is mogelijk door de naam toe te voegen voorafgegaan door een &apos;@&apos;.</translation>
+    </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
@@ -342,6 +346,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Spatial bookmarks</source>
         <translation>Ruimtelijke bladwijzers</translation>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation>Geeft een lijst van favorieten in het project met overeenkomende namen.</translation>
     </message>
 </context>
 <context>
@@ -705,6 +713,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Calculator</source>
         <translation>Rekenmachine</translation>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation>Geeft de waarde van een expressie die in de zoekbalk is getypt.</translation>
     </message>
 </context>
 <context>
@@ -1073,6 +1085,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <source>Features in all layers</source>
         <translation>Objecten in alle lagen</translation>
     </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation>Geeft een lijst van objecten in alle doorzoekbare lagen met overeenkomende weergavenaam.</translation>
+    </message>
 </context>
 <context>
     <name>FillRing</name>
@@ -1192,12 +1208,20 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <source>Go to %1°N %2°E (%3)</source>
         <translation>Ga naar %1°N %2°E (%3)</translation>
     </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation>Geeft een locatie van X- en Y-coördinaten - of WGS84 breedtegraad en lengtegraad - die in de zoekbalk zijn ingevoerd.</translation>
+    </message>
 </context>
 <context>
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
         <translation>QField documentatie</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation>Geeft QField documentatiepagina&apos;s terug die overeenkomen.</translation>
     </message>
 </context>
 <context>
@@ -1488,34 +1512,6 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Zoekfilters voor uw locaties zijn geactiveerd, pas de resultaten aan in het instellingenpaneel</translation>
-    </message>
-    <message>
-        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation>Geeft een lijst van objecten van de actieve laag met overeenkomende eigenschappen. Het zoeken op een enkele eigenschap is mogelijk door de naam toe te voegen voorafgegaan door een &apos;@&apos;.</translation>
-    </message>
-    <message>
-        <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation>Geeft een lijst van objecten in alle doorzoekbare lagen met overeenkomende weergavenaam.</translation>
-    </message>
-    <message>
-        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation>Geeft een locatie van X- en Y-coördinaten - of WGS84 breedtegraad en lengtegraad - die in de zoekbalk zijn ingevoerd.</translation>
-    </message>
-    <message>
-        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>Geeft een lijst van favorieten in het project met overeenkomende namen.</translation>
-    </message>
-    <message>
-        <source>Returns the value of an expression typed in the search bar.</source>
-        <translation>Geeft de waarde van een expressie die in de zoekbalk is getypt.</translation>
-    </message>
-    <message>
-        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Returns QField documentation pages matching terms.</source>
-        <translation>Geeft QField documentatiepagina&apos;s terug die overeenkomen.</translation>
     </message>
 </context>
 <context>

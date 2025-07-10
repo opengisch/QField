@@ -71,6 +71,10 @@
         <source>Features from active layer</source>
         <translation>Elementos da camada ativa</translation>
     </message>
+    <message>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation>Retorna uma lista de elementos da camada ativa com atributos correspondentes. A restrição de correspondência a um único atributo é feita identificando o seu nome com um prefixo &apos;@&apos;.</translation>
+    </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
@@ -342,6 +346,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Spatial bookmarks</source>
         <translation>Marcadores espaciais</translation>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation>Devolve uma lista de marcadores de utilizador e de projetos abertos atualmente com o nome correspondente.</translation>
     </message>
 </context>
 <context>
@@ -705,6 +713,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Calculator</source>
         <translation>Calculadora</translation>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation>Devolve o valor de uma expressão escrita na barra de pesquisa.</translation>
     </message>
 </context>
 <context>
@@ -1075,6 +1087,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <source>Features in all layers</source>
         <translation>Elementos em todas as camadas</translation>
     </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation>Devolve uma lista de elementos através de todas as camadas de pesquisa com nome correspondente.</translation>
+    </message>
 </context>
 <context>
     <name>FillRing</name>
@@ -1194,11 +1210,19 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <source>Go to %1°N %2°E (%3)</source>
         <translation>Ir para %1°N %2°E (%3)</translation>
     </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation>Devolve um ponto a partir de um par de coordenadas XY - ou WGS84 latitude e longitude - introduzida na barra de pesquisa.</translation>
+    </message>
 </context>
 <context>
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1490,34 +1514,6 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Os filtros de pesquisa para os seus locais foi ativado, personalize os resultados no painel de configurações</translation>
-    </message>
-    <message>
-        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation>Retorna uma lista de elementos da camada ativa com atributos correspondentes. A restrição de correspondência a um único atributo é feita identificando o seu nome com um prefixo &apos;@&apos;.</translation>
-    </message>
-    <message>
-        <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation>Devolve uma lista de elementos através de todas as camadas de pesquisa com nome correspondente.</translation>
-    </message>
-    <message>
-        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation>Devolve um ponto a partir de um par de coordenadas XY - ou WGS84 latitude e longitude - introduzida na barra de pesquisa.</translation>
-    </message>
-    <message>
-        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>Devolve uma lista de marcadores de utilizador e de projetos abertos atualmente com o nome correspondente.</translation>
-    </message>
-    <message>
-        <source>Returns the value of an expression typed in the search bar.</source>
-        <translation>Devolve o valor de uma expressão escrita na barra de pesquisa.</translation>
-    </message>
-    <message>
-        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation>Devolve uma lista de locais e endereços na Finlândia com os termos correspondentes. </translation>
-    </message>
-    <message>
-        <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

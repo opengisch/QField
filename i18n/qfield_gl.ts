@@ -71,6 +71,10 @@
         <source>Features from active layer</source>
         <translation>Entidades da capa activa</translation>
     </message>
+    <message>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation>Devolve unha lista de entidades da capa activa con atributos coincidentes. Restrinxir a coincidencia a un único atributo faise identificando o seu nome co prefixo &apos;@&apos;.</translation>
+    </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
@@ -342,6 +346,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Spatial bookmarks</source>
         <translation>Marcadores espaciais</translation>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation>Devolve unha lista de marcadores do proxecto do usuario actualmente aberto con nomes coincidentes.</translation>
     </message>
 </context>
 <context>
@@ -705,6 +713,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Calculator</source>
         <translation>Calculadora</translation>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation>Devolve o valor dunha expresión tecleada na barra de busca.</translation>
     </message>
 </context>
 <context>
@@ -1073,6 +1085,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <source>Features in all layers</source>
         <translation>Entidades en tódalas capas</translation>
     </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation>Devolve unha lista de entidades a través de tódalas capas consultables con nome visible coincidente.</translation>
+    </message>
 </context>
 <context>
     <name>FillRing</name>
@@ -1192,12 +1208,20 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <source>Go to %1°N %2°E (%3)</source>
         <translation>Ir a %1°N %2°E (%3)</translation>
     </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation>Devolve un punto a partir dun par de coordenadas X e Y - ou latitude e lonxitude WGS84 - tecleadas na barra de busca.</translation>
+    </message>
 </context>
 <context>
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
         <translation>Documentación de QField</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation>Devolve as páxinas de documentación de QField que coincide cos termos.</translation>
     </message>
 </context>
 <context>
@@ -1488,34 +1512,6 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Busca filtros que xa estiveran activos para as túas localizacións, personaliza os resultados no panel de configuración</translation>
-    </message>
-    <message>
-        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation>Devolve unha lista de entidades da capa activa con atributos coincidentes. Restrinxir a coincidencia a un único atributo faise identificando o seu nome co prefixo &apos;@&apos;.</translation>
-    </message>
-    <message>
-        <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation>Devolve unha lista de entidades a través de tódalas capas consultables con nome visible coincidente.</translation>
-    </message>
-    <message>
-        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation>Devolve un punto a partir dun par de coordenadas X e Y - ou latitude e lonxitude WGS84 - tecleadas na barra de busca.</translation>
-    </message>
-    <message>
-        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>Devolve unha lista de marcadores do proxecto do usuario actualmente aberto con nomes coincidentes.</translation>
-    </message>
-    <message>
-        <source>Returns the value of an expression typed in the search bar.</source>
-        <translation>Devolve o valor dunha expresión tecleada na barra de busca.</translation>
-    </message>
-    <message>
-        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation>Devolve unha lista de localizacións e enderezos sitos en Finlandia con termos coincidentes.</translation>
-    </message>
-    <message>
-        <source>Returns QField documentation pages matching terms.</source>
-        <translation>Devolve as páxinas de documentación de QField que coincide cos termos.</translation>
     </message>
 </context>
 <context>

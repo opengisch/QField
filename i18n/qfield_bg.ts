@@ -71,6 +71,10 @@
         <source>Features from active layer</source>
         <translation>Обекти от активния слой</translation>
     </message>
+    <message>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation>Връща списък от обекти в активния слой като търси в атрибутите. Търси по един единствен атрибут като използваш @ и името на атрибута като представка.</translation>
+    </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
@@ -342,6 +346,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Spatial bookmarks</source>
         <translation>Пространствени отметки</translation>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation>Връща списък от любими отметки с дадено име.</translation>
     </message>
 </context>
 <context>
@@ -705,6 +713,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Calculator</source>
         <translation>Калкулатор</translation>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1073,6 +1085,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Features in all layers</source>
         <translation>Обекти във всички слоеве</translation>
     </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation>Връща списък от обекти сред всички слоеве за търсене като търси по име на обекта.</translation>
+    </message>
 </context>
 <context>
     <name>FillRing</name>
@@ -1192,12 +1208,20 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Go to %1°N %2°E (%3)</source>
         <translation>Върви на %1°N %2°E (%3)</translation>
     </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation>Връща точка от чифт X и Y координати, или WGS84 ширина и държина, написани в полето за търсене.</translation>
+    </message>
 </context>
 <context>
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
         <translation>Документация на QField</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1488,34 +1512,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Активиране на филтрите за търсене. Виж екрана с настройки.</translation>
-    </message>
-    <message>
-        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation>Връща списък от обекти в активния слой като търси в атрибутите. Търси по един единствен атрибут като използваш @ и името на атрибута като представка.</translation>
-    </message>
-    <message>
-        <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation>Връща списък от обекти сред всички слоеве за търсене като търси по име на обекта.</translation>
-    </message>
-    <message>
-        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation>Връща точка от чифт X и Y координати, или WGS84 ширина и държина, написани в полето за търсене.</translation>
-    </message>
-    <message>
-        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>Връща списък от любими отметки с дадено име.</translation>
-    </message>
-    <message>
-        <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -71,6 +71,10 @@
         <source>Features from active layer</source>
         <translation>Entités de la couche active</translation>
     </message>
+    <message>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation>Renvoie une liste d&apos;entités de la couche active avec les attributs correspondants. La restriction de la correspondance à un seul attribut est réalisée en précisant son nom avec le préfixe &apos;@&apos;.</translation>
+    </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
@@ -341,6 +345,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Spatial bookmarks</source>
         <translation>Signets spatiaux</translation>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation>Renvoie une liste d&apos;utilisateurs avec les signets de leurs projets actuellement ouverts.</translation>
     </message>
 </context>
 <context>
@@ -704,6 +712,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Calculator</source>
         <translation>Calculatrice</translation>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation>Renvoie la valeur d&apos;une expression saisie dans la barre de recherche.</translation>
     </message>
 </context>
 <context>
@@ -1074,6 +1086,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>Features in all layers</source>
         <translation>Entités dans toutes les couches</translation>
     </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation>Renvoie une liste d&apos;entités dans toutes les couches interrogeables qui correspondent aux attributs</translation>
+    </message>
 </context>
 <context>
     <name>FillRing</name>
@@ -1193,12 +1209,20 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>Go to %1°N %2°E (%3)</source>
         <translation>Aller à %1N %2E (%3)</translation>
     </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation>Renvoie un point depuis une paire de coordonnées X et Y - ou latitude et longitude WGS84 - saisie dans la barre de recherche.</translation>
+    </message>
 </context>
 <context>
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
         <translation>Documentation de QField</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation>Renvoie les pages de documentation de QField correspondant aux termes.</translation>
     </message>
 </context>
 <context>
@@ -1489,34 +1513,6 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Les filtres de recherche pour vos localisations ont été activés, les résultats peuvent être customisés dans le menu paramètres.</translation>
-    </message>
-    <message>
-        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation>Renvoie une liste d&apos;entités de la couche active avec les attributs correspondants. La restriction de la correspondance à un seul attribut est réalisée en précisant son nom avec le préfixe &apos;@&apos;.</translation>
-    </message>
-    <message>
-        <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation>Renvoie une liste d&apos;entités dans toutes les couches interrogeables qui correspondent aux attributs</translation>
-    </message>
-    <message>
-        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation>Renvoie un point depuis une paire de coordonnées X et Y - ou latitude et longitude WGS84 - saisie dans la barre de recherche.</translation>
-    </message>
-    <message>
-        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>Renvoie une liste d&apos;utilisateurs avec les signets de leurs projets actuellement ouverts.</translation>
-    </message>
-    <message>
-        <source>Returns the value of an expression typed in the search bar.</source>
-        <translation>Renvoie la valeur d&apos;une expression saisie dans la barre de recherche.</translation>
-    </message>
-    <message>
-        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation>Renvoie une liste de lieux et adresses en Finlande qui correspondent aux termes saisis.</translation>
-    </message>
-    <message>
-        <source>Returns QField documentation pages matching terms.</source>
-        <translation>Renvoie les pages de documentation de QField correspondant aux termes.</translation>
     </message>
 </context>
 <context>

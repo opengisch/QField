@@ -71,6 +71,10 @@
         <source>Features from active layer</source>
         <translation>Elementy z aktywnej warstwy</translation>
     </message>
+    <message>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation>Wyświetla listę obiektów z aktywnej warstwy z atrybutami spełniającymi kryteria wyszukiwania. Ograniczenie kryteriów wyszukiwania do pojedynczego atrybutu wykonuje się przez podanie jego nazwy poprzedzonej przez znak &quot;@&quot;.</translation>
+    </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
@@ -342,6 +346,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Spatial bookmarks</source>
         <translation>Zakładki przestrzenne</translation>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation>Wyświetla listę zakładek użytkownika i aktualnie otwartych w projekcie z odpowiadającymi nazwami</translation>
     </message>
 </context>
 <context>
@@ -705,6 +713,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Calculator</source>
         <translation>Kalkulator</translation>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation>Wyświetla wartość wyrażenia wpisanego w pasku wyszukiwania.</translation>
     </message>
 </context>
 <context>
@@ -1077,6 +1089,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Features in all layers</source>
         <translation>Obiekty na wszystkich warstwach</translation>
     </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation>Wyświetla listę obiektów we wszystkich przeszukiwalnych warstwach z odpowiadającymi atrybutami spełniających kryteria wyszukiwania.</translation>
+    </message>
 </context>
 <context>
     <name>FillRing</name>
@@ -1196,12 +1212,20 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Go to %1°N %2°E (%3)</source>
         <translation>Idź do %1°N %2°E (%3)</translation>
     </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation>Wyświetla punkt z wprowadzonych w pasku wyszukiwania pary współrzędnych X i Y lub szerokości i długości geograficznej WGS84.</translation>
+    </message>
 </context>
 <context>
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
         <translation>Dokumentacja QField</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation>Pokazuje strony dokumentacji QField pasujące do wybranych fukcji.</translation>
     </message>
 </context>
 <context>
@@ -1492,34 +1516,6 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Filtry wyszukiwania dla twoich lokalizacji zostały aktywowane, dostosuj wyniki w panelu ustawień.</translation>
-    </message>
-    <message>
-        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation>Wyświetla listę obiektów z aktywnej warstwy z atrybutami spełniającymi kryteria wyszukiwania. Ograniczenie kryteriów wyszukiwania do pojedynczego atrybutu wykonuje się przez podanie jego nazwy poprzedzonej przez znak &quot;@&quot;.</translation>
-    </message>
-    <message>
-        <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation>Wyświetla listę obiektów we wszystkich przeszukiwalnych warstwach z odpowiadającymi atrybutami spełniających kryteria wyszukiwania.</translation>
-    </message>
-    <message>
-        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation>Wyświetla punkt z wprowadzonych w pasku wyszukiwania pary współrzędnych X i Y lub szerokości i długości geograficznej WGS84.</translation>
-    </message>
-    <message>
-        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>Wyświetla listę zakładek użytkownika i aktualnie otwartych w projekcie z odpowiadającymi nazwami</translation>
-    </message>
-    <message>
-        <source>Returns the value of an expression typed in the search bar.</source>
-        <translation>Wyświetla wartość wyrażenia wpisanego w pasku wyszukiwania.</translation>
-    </message>
-    <message>
-        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation>Wyświetla listę lokalizacji i adresów w Finlandii z odpowiadającymi symbolami</translation>
-    </message>
-    <message>
-        <source>Returns QField documentation pages matching terms.</source>
-        <translation>Pokazuje strony dokumentacji QField pasujące do wybranych fukcji.</translation>
     </message>
 </context>
 <context>

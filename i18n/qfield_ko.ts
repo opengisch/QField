@@ -71,6 +71,10 @@
         <source>Features from active layer</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
@@ -342,6 +346,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Spatial bookmarks</source>
         <translation>Spatial bookmarks</translation>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -704,6 +712,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Calculator</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1071,6 +1083,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Features in all layers</source>
         <translation>Features in all layers</translation>
     </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FillRing</name>
@@ -1190,11 +1206,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Go to %1°N %2°E (%3)</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1486,34 +1510,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Search filters for your locations have been activated, customize results in the settings panel</translation>
-    </message>
-    <message>
-        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

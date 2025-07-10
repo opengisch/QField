@@ -71,6 +71,10 @@
         <source>Features from active layer</source>
         <translation>アクティブレイヤーからの地物</translation>
     </message>
+    <message>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation>アクティブレイヤーから、属性が一致するフィーチャーのリストを返します。マッチングを単一の属性に制限するには、その属性の名前の先頭に &apos;@&apos; を付けます。</translation>
+    </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
@@ -342,6 +346,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Spatial bookmarks</source>
         <translation>空間ブックマーク</translation>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation>ユーザーおよび現在開いているプロジェクトのブックマークのうち、名前が一致するものの一覧を返します。</translation>
     </message>
 </context>
 <context>
@@ -705,6 +713,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Calculator</source>
         <translation>計算機</translation>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation>検索バーに入力された式の値を返します。</translation>
     </message>
 </context>
 <context>
@@ -1071,6 +1083,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Features in all layers</source>
         <translation>全てのレイヤーの地物</translation>
     </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation>検索可能なすべてのレイヤーのうち、表示名が一致する地物のリストを返します。</translation>
+    </message>
 </context>
 <context>
     <name>FillRing</name>
@@ -1190,12 +1206,20 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Go to %1°N %2°E (%3)</source>
         <translation>%1°N %2°E (%3)に行く</translation>
     </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation>検索バーに入力されたX座標とY座標、またはWGS84緯度と経度の組み合わせから点を返します。</translation>
+    </message>
 </context>
 <context>
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
         <translation>QFieldドキュメンテーション</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation>該当する QField ドキュメントページに戻ります。</translation>
     </message>
 </context>
 <context>
@@ -1486,34 +1510,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>ロケーションの検索フィルタが有効になっている場合は、設定パネルで結果をカスタマイズしてください。</translation>
-    </message>
-    <message>
-        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation>アクティブレイヤーから、属性が一致するフィーチャーのリストを返します。マッチングを単一の属性に制限するには、その属性の名前の先頭に &apos;@&apos; を付けます。</translation>
-    </message>
-    <message>
-        <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation>検索可能なすべてのレイヤーのうち、表示名が一致する地物のリストを返します。</translation>
-    </message>
-    <message>
-        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation>検索バーに入力されたX座標とY座標、またはWGS84緯度と経度の組み合わせから点を返します。</translation>
-    </message>
-    <message>
-        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>ユーザーおよび現在開いているプロジェクトのブックマークのうち、名前が一致するものの一覧を返します。</translation>
-    </message>
-    <message>
-        <source>Returns the value of an expression typed in the search bar.</source>
-        <translation>検索バーに入力された式の値を返します。</translation>
-    </message>
-    <message>
-        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation>一致する条件でフィンランド国内の場所と住所のリストを返します。</translation>
-    </message>
-    <message>
-        <source>Returns QField documentation pages matching terms.</source>
-        <translation>該当する QField ドキュメントページに戻ります。</translation>
     </message>
 </context>
 <context>

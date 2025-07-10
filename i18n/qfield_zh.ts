@@ -71,6 +71,10 @@
         <source>Features from active layer</source>
         <translation>来自活动图层中的要素</translation>
     </message>
+    <message>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation>返回活动图层中匹配属性的要素列表。通过识别前缀为 &apos;@&apos; 的名称，可以将匹配限制为单个属性。</translation>
+    </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
@@ -342,6 +346,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Spatial bookmarks</source>
         <translation>空间书签</translation>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation>返回用户列表和与当前打开的工程相匹配名称的书签。</translation>
     </message>
 </context>
 <context>
@@ -705,6 +713,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Calculator</source>
         <translation>计算器</translation>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation>返回在搜索栏中键入的表达式的值。</translation>
     </message>
 </context>
 <context>
@@ -1071,6 +1083,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Features in all layers</source>
         <translation>所有图层中的要素</translation>
     </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation>返回所有可搜索图层中匹配显示名称的要素列表。</translation>
+    </message>
 </context>
 <context>
     <name>FillRing</name>
@@ -1190,12 +1206,20 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Go to %1°N %2°E (%3)</source>
         <translation>转到 %1°N %2°E (%3)</translation>
     </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation>返回在搜索栏中键入的X和Y坐标对 (或WGS84纬度和经度) 的点。</translation>
+    </message>
 </context>
 <context>
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
         <translation>QField文档</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation>打开与项相匹配的QField文档页面。</translation>
     </message>
 </context>
 <context>
@@ -1486,34 +1510,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>您所在位置的搜索过滤已激活，请在设置面板自定义结果</translation>
-    </message>
-    <message>
-        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation>返回活动图层中匹配属性的要素列表。通过识别前缀为 &apos;@&apos; 的名称，可以将匹配限制为单个属性。</translation>
-    </message>
-    <message>
-        <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation>返回所有可搜索图层中匹配显示名称的要素列表。</translation>
-    </message>
-    <message>
-        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation>返回在搜索栏中键入的X和Y坐标对 (或WGS84纬度和经度) 的点。</translation>
-    </message>
-    <message>
-        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>返回用户列表和与当前打开的工程相匹配名称的书签。</translation>
-    </message>
-    <message>
-        <source>Returns the value of an expression typed in the search bar.</source>
-        <translation>返回在搜索栏中键入的表达式的值。</translation>
-    </message>
-    <message>
-        <source>Returns a list of locations and addresses within Finland with matching terms.</source>
-        <translation>返回芬兰境内匹配条件的地点和地址列表。</translation>
-    </message>
-    <message>
-        <source>Returns QField documentation pages matching terms.</source>
-        <translation>打开与项相匹配的QField文档页面。</translation>
     </message>
 </context>
 <context>
