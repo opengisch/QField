@@ -1987,23 +1987,23 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Local Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Lokalne wtyczki</translation>
     </message>
     <message>
         <source>Available Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Dostępne wtyczki</translation>
     </message>
     <message>
         <source>Search for plugin</source>
-        <translation type="unfinished"/>
+        <translation>Wyszukaj wtyczkę</translation>
     </message>
     <message>
         <source>Fetching available plugins</source>
-        <translation type="unfinished"/>
+        <translation>Pobieranie dostępnych wtyczek</translation>
     </message>
     <message>
         <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation type="unfinished"/>
+        <translation>Żadne wtyczki nie zostały jeszcze zainstalowane, przejdź do zakładki %1dostępne wtyczki%3, aby wypróbować niektóre z nich od razu.&lt;br&gt;&lt;br&gt; Aby uzyskać więcej informacji, %2przeczytaj dokumentację%3.</translation>
     </message>
 </context>
 <context>
