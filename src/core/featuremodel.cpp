@@ -516,11 +516,6 @@ bool FeatureModel::save()
         if ( !mLayer->updateFeature( temporaryFeature, true ) )
           QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
 
-        if ( mProject && mProject->topologicalEditing() )
-        {
-          applyVertexModelTopography();
-        }
-
         isSuccess &= commit();
         if ( isSuccess )
         {
@@ -721,6 +716,11 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
 
   QString error;
   QgsGeometry geometry = fromVertexModel ? mVertexModel->geometry() : mGeometry->asQgsGeometry();
+
+  if ( fromVertexModel && mProject && mProject->topologicalEditing() )
+  {
+    applyVertexModelTopography();
+  }
 
   if ( QgsWkbTypes::geometryType( geometry.wkbType() ) == Qgis::GeometryType::Polygon )
   {
@@ -1120,9 +1120,9 @@ void FeatureModel::applyVertexModelTopography()
     {
       if ( !vectorLayer->getFeatures( request ).nextFeature( dummyFeature ) )
         continue;
-
-      vectorLayer->startEditing();
     }
+
+    vectorLayer->startEditing();
 
     for ( const auto &point : pointsAdded )
     {
@@ -1151,10 +1151,7 @@ void FeatureModel::applyVertexModelTopography()
     }
 
     vectorLayer->addTopologicalPoints( mFeature.geometry() );
-    if ( vectorLayer != mLayer )
-    {
-      vectorLayer->commitChanges( true );
-    }
+    vectorLayer->commitChanges( true );
   }
 }
 
