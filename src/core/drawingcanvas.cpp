@@ -49,16 +49,7 @@ void DrawingCanvas::createCanvasFromImage( const QString &path )
 {
   clear();
 
-  if ( path.startsWith( QStringLiteral( "file://" ) ) )
-  {
-    const QUrl url( path );
-    mLoadedImagePath = url.toLocalFile();
-  }
-  else
-  {
-    mLoadedImagePath = path;
-  }
-
+  mLoadedImagePath = path;
   QImageReader imageReader( mLoadedImagePath );
   imageReader.setAutoTransform( true );
   mBackgroundImage = imageReader.read();
