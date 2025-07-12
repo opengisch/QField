@@ -23,11 +23,11 @@
     </message>
     <message>
         <source>QField app directories</source>
-        <translation type="unfinished"/>
+        <translation>Каталоги програми QField</translation>
     </message>
     <message>
         <source>QField app directory</source>
-        <translation type="unfinished"/>
+        <translation>Каталог програми QField</translation>
     </message>
 </context>
 <context>
@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>Повертає список об&apos;єктів з активного шару, що відповідають заданим атрибутам. Обмеження відповідності одним атрибутом здійснюється шляхом ідентифікації його імені з префіксом &apos;@&apos;.</translation>
     </message>
 </context>
 <context>
@@ -276,7 +276,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No Bluetooth devices detected.</source>
-        <translation type="unfinished"/>
+        <translation>Не виявлено жодних пристроїв Bluetooth.</translation>
     </message>
     <message>
         <source>Deeper scanning for paired devices</source>
