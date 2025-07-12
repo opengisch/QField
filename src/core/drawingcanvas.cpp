@@ -34,10 +34,10 @@ void DrawingCanvas::createBlankCanvas( int width, int height, QColor backgroundC
 {
   clear();
 
-  mBackgroundImage = QImage( QSize( width, height ), QImage::Format_ARGB32 );
+  mBackgroundImage = QImage( QSize( width, height ), QImage::Format_ARGB32_Premultiplied );
   mBackgroundImage.fill( backgroundColor );
 
-  mDrawingImage = QImage( QSize( width, height ), QImage::Format_ARGB32 );
+  mDrawingImage = QImage( QSize( width, height ), QImage::Format_ARGB32_Premultiplied );
   mDrawingImage.fill( Qt::transparent );
 
   setIsEmpty( false );
@@ -65,12 +65,12 @@ void DrawingCanvas::createCanvasFromImage( const QString &path )
 
   if ( !mBackgroundImage.isNull() )
   {
-    if ( mBackgroundImage.format() != QImage::Format_ARGB32 )
+    if ( mBackgroundImage.format() != QImage::Format_ARGB32_Premultiplied )
     {
-      mBackgroundImage.convertTo( QImage::Format_ARGB32 );
+      mBackgroundImage.convertTo( QImage::Format_ARGB32_Premultiplied );
     }
 
-    mDrawingImage = QImage( mBackgroundImage.size(), QImage::Format_ARGB32 );
+    mDrawingImage = QImage( mBackgroundImage.size(), QImage::Format_ARGB32_Premultiplied );
     mDrawingImage.fill( Qt::transparent );
     setIsEmpty( false );
   }
@@ -103,7 +103,7 @@ void DrawingCanvas::clear()
 
 QString DrawingCanvas::save() const
 {
-  QImage image( mBackgroundImage.size(), QImage::Format_ARGB32 );
+  QImage image( mBackgroundImage.size(), QImage::Format_ARGB32_Premultiplied );
   image.fill( Qt::transparent );
 
   QPainter painter( &image );
