@@ -26,6 +26,28 @@
 /**
  * \ingroup core
  */
+struct DrawingStroke
+{
+    Q_GADGET
+
+    Q_PROPERTY( double width MEMBER width );
+    Q_PROPERTY( QColor color MEMBER color );
+    Q_PROPERTY( QColor fillColor MEMBER fillColor );
+    Q_PROPERTY( QList<QPointF> scenePoints MEMBER scenePoints );
+    Q_PROPERTY( QList<QPointF> points MEMBER points );
+
+  public:
+    double width = 5.0;
+    QColor color = QColor( 0, 0, 0 );
+    QColor fillColor = QColor( Qt::transparent );
+    QList<QPointF> scenePoints;
+    QList<QPointF> points;
+};
+
+
+/**
+ * \ingroup core
+ */
 class DrawingCanvas : public QQuickPaintedItem
 {
     Q_OBJECT
@@ -57,6 +79,8 @@ class DrawingCanvas : public QQuickPaintedItem
      * panning operations.
      */
     Q_PROPERTY( QPointF offset READ offset WRITE setOffset NOTIFY offsetChanged )
+
+    Q_PROPERTY( DrawingStroke currentStroke READ currentStroke NOTIFY currentStrokeChanged )
 
   public:
     DrawingCanvas( QQuickItem *parent = nullptr );
@@ -93,6 +117,8 @@ class DrawingCanvas : public QQuickPaintedItem
 
     //! \copydoc DrawingCanvas::offset
     void setOffset( const QPointF &offset );
+
+    DrawingStroke currentStroke() const;
 
     /**
      * Creates a blank drawing canvas.
@@ -167,17 +193,10 @@ class DrawingCanvas : public QQuickPaintedItem
     void frameColorChanged();
     void zoomFactorChanged();
     void offsetChanged();
+    void currentStrokeChanged();
 
   private:
-    struct Stroke
-    {
-        double width = 5.0;
-        QColor color = QColor( 0, 0, 0 );
-        QColor fillColor = QColor( Qt::transparent );
-        QList<QPointF> points;
-    };
-
-    void drawStroke( QPainter *painter, const Stroke &stroke, bool onCanvas = true ) const;
+    void drawStroke( QPainter *painter, const DrawingStroke &stroke, bool onCanvas = true ) const;
 
     QPointF itemToCanvas( const QPointF &point ) const;
     QPointF canvasToItem( const QPointF &point ) const;
@@ -194,8 +213,8 @@ class DrawingCanvas : public QQuickPaintedItem
     QImage mBackgroundImage;
     QImage mDrawingImage;
 
-    QList<Stroke> mStrokes;
-    Stroke mCurrentStroke;
+    QList<DrawingStroke> mStrokes;
+    DrawingStroke mCurrentStroke;
 };
 
 #endif // DRAWINGCANVAS_H
