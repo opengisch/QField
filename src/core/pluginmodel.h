@@ -34,6 +34,7 @@ class PluginModel : public QAbstractListModel
     enum PluginRoles
     {
       UuidRole = Qt::UserRole + 1,
+      TrustedRole,
       EnabledRole,
       ConfigurableRole,
       NameRole,
@@ -44,7 +45,6 @@ class PluginModel : public QAbstractListModel
       VersionRole,
       InstalledLocallyRole,
       AvailableRemotelyRole,
-      DownloadLinkRole,
       AvailableUpdateRole,
     };
     Q_ENUM( PluginRoles )
@@ -102,17 +102,13 @@ class PluginModel : public QAbstractListModel
 
   signals:
     void isRefreshingChanged();
+    void remoteFetched();
 
   private:
-    /**
-     * Scans the app data directories for plugins, reading metadata and preparing PluginInformation objects.
-     */
-    void fetchLocalPlugins();
-
-    /**
-     * Retrieve a JSON list of remotely available plugins, reading its metadata and preparing Plugin Information objects.
-     */
     void fetchRemotePlugins();
+
+    void populateLocalPlugins();
+    void populateRemotePlugins();
 
     /**
      * Reads the metadata (from metadata.txt) and prepares a PluginInformation for a given plugin directory.

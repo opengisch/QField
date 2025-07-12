@@ -43,6 +43,7 @@ struct PluginInformation
     QString downloadLink;
     QString remoteVersion;
 
+    bool trusted = false;
     bool enabled = false;
     bool configurable = false;
 
@@ -141,6 +142,11 @@ class PluginManager : public QObject
      * Installs a plugin from the given \a url.
      */
     Q_INVOKABLE void installFromUrl( const QString &url );
+
+    /**
+     * Installs a plugin from the given repository \a uuid.
+     */
+    Q_INVOKABLE void installFromRepository( const QString &uuid );
 
     /**
      * Uninstalls the application plugin identified by \a uuid.

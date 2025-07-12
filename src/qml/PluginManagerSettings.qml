@@ -11,6 +11,8 @@ import Theme
 Popup {
   id: popup
 
+  property bool availablePluginsFetched: false
+
   width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeMargin)
   height: mainWindow.height - 160
   x: (parent.width - width) / 2
@@ -63,7 +65,7 @@ Popup {
           font: Theme.defaultFont
           onClicked: {
             filterBar.currentIndex = index;
-            if (index == 1) {
+            if (index == 1 && !popup.availablePluginsFetched) {
               pluginManager.pluginModel.refresh(true);
             }
           }
@@ -103,6 +105,7 @@ Popup {
           onAuthorDetailsClicked: {
             authorDetails.authorName = Author;
             authorDetails.authorHomepage = Homepage;
+            authorDetails.authorTrusted = Trusted;
             authorDetails.open();
           }
 
@@ -137,14 +140,14 @@ Popup {
             let uuids = pluginsList.downloadingUuids;
             uuids.push(Uuid);
             pluginsList.downloadingUuids = uuids;
-            pluginManager.installFromUrl(DownloadLink);
+            pluginManager.installFromRepository(Uuid);
           }
 
           onDownloadClicked: {
             let uuids = pluginsList.downloadingUuids;
             uuids.push(Uuid);
             pluginsList.downloadingUuids = uuids;
-            pluginManager.installFromUrl(DownloadLink);
+            pluginManager.installFromRepository(Uuid);
           }
         }
       }
@@ -163,7 +166,9 @@ Popup {
         onLinkActivated: link => {
           if (link === '#') {
             filterBar.currentIndex = 1;
-            pluginManager.pluginModel.refresh(true);
+            if (!popup.availablePluginsFetched) {
+              pluginManager.pluginModel.refresh(true);
+            }
           } else {
             Qt.openUrlExternally(link);
           }
@@ -182,6 +187,9 @@ Popup {
           text: qsTr("Install plugin from URL")
 
           onClicked: {
+            if (!popup.availablePluginsFetched) {
+              pluginManager.pluginModel.refresh(true);
+            }
             installFromUrlDialog.open();
           }
 
@@ -225,6 +233,7 @@ Popup {
 
     property string authorName: ""
     property string authorHomepage: ""
+    property bool authorTrusted: false
 
     Column {
       width: mainWindow.width - 60 < authorWarningLabelMetrics.width ? mainWindow.width - 60 : authorWarningLabelMetrics.width
@@ -254,6 +263,7 @@ Popup {
       Label {
         id: authorWarningLabel
         width: parent.width
+        visible: !authorDetails.authorTrusted
         text: "⚠ " + qsTr("The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin's origin.")
         wrapMode: Text.WordWrap
         font: Theme.defaultFont
@@ -271,6 +281,7 @@ Popup {
     focus: true
 
     onAboutToShow: {
+      installFromUrlDialog.standardButton(Dialog.Ok).enabled = popup.availablePluginsFetched;
       installFromUrlInput.text = '';
     }
 
@@ -336,6 +347,15 @@ Popup {
 
     onAccepted: {
       pluginManager.uninstall(pluginUuid);
+    }
+  }
+
+  Connections {
+    target: pluginManager.pluginModel
+
+    function onRemoteFetched() {
+      popup.availablePluginsFetched = true;
+      installFromUrlDialog.standardButton(Dialog.Ok).enabled = true;
     }
   }
 
