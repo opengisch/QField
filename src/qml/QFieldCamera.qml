@@ -405,9 +405,8 @@ Popup {
                   } else {
                     cameraItem.state = "VideoPreview";
                     captureSession.recorder.stop();
-                    var path = captureSession.recorder.actualLocation.toString();
-                    var filePos = path.indexOf('file://');
-                    currentPath = filePos === 0 ? path.substring(7) : path;
+                    const path = captureSession.recorder.actualLocation.toString();
+                    currentPath = UrlUtils.toLocalFile(path);
                   }
                 } else if (cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview") {
                   if (cameraItem.state == "PhotoPreview") {
