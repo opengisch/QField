@@ -75,5 +75,16 @@
     "minimum_version": "3.6.0",
     "homepage": "https://github.com/opengisch/qfield-geomapfish-locator",
     "author": "OPENGIS.ch"
+  },
+  {
+    "uuid": "qfield-ask-ai",
+    "name": "Ask AI",
+    "description": "Enables AI prompt in the search bar using the AAI prefix or by using the prompt builder.",
+    "icon": "https://github.com/mbernasocchi/qfield-ask-ai/raw/refs/heads/main/icon.svg",
+    "version": "0.8",
+    "download": "https://github.com/mbernasocchi/qfield-ask-ai/releases/download/v0.8/qfield-ask-ai-v0.8.zip",
+    "minimum_version": "3.6.0",
+    "homepage": "https://github.com/mbernasocchi/qfield-ask-ai",
+    "author": "OPENGIS.ch"
   }
 ]
