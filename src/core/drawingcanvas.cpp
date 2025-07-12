@@ -364,7 +364,7 @@ void DrawingCanvas::paint( QPainter *painter )
   if ( !mBackgroundImage.isNull() )
   {
     painter->setRenderHint( QPainter::Antialiasing, true );
-    painter->setRenderHint( QPainter::SmoothPixmapTransform, true );
+    //painter->setRenderHint( QPainter::SmoothPixmapTransform, true );
 
     const QSizeF scaledImageSize = mBackgroundImage.size() * mZoomFactor;
     const QRectF imageRect( ( size().width() / 2 - scaledImageSize.width() / 2 ) + mOffset.x(),
