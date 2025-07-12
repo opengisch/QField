@@ -298,9 +298,8 @@ Popup {
           round: true
 
           onClicked: {
-            var path = recorder.actualLocation.toString();
-            var filePos = path.indexOf('file://');
-            audioRecorder.finished(filePos === 0 ? path.substring(7) : path);
+            const path = recorder.actualLocation.toString();
+            audioRecorder.finished(UrlUtils.toLocalFile(path));
             audioRecorder.close();
           }
         }
