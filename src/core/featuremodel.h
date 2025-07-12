@@ -232,9 +232,11 @@ class FeatureModel : public QAbstractListModel
      */
     void setTopSnappingResult( const SnappingResult &topSnappingResult );
 
-    //! Apply the vertex model to the feature geometry.
-    //! \note This shall be used if the feature model is used with the vertex model rather than the geometry and rubberband model
-    Q_INVOKABLE void applyVertexModelToGeometry();
+    /**
+     * Apply the geometry object or vertex model object's geometry to the feature geometry.
+     * \param fromVertexModel set to TRUE to use the vertex model
+     */
+    Q_INVOKABLE void applyGeometry( bool fromVertexModel = false );
 
     //! Apply the feature geometry to a vertex model if present.
     Q_INVOKABLE void applyGeometryToVertexModel();
@@ -276,7 +278,6 @@ class FeatureModel : public QAbstractListModel
     void setBatchMode( bool batchMode );
 
   public slots:
-    void applyGeometry();
     void removeLayer( QObject *layer );
 
   signals:
