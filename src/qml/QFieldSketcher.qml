@@ -336,7 +336,7 @@ Popup {
   }
 
   function loadImage(path) {
-    drawingCanvas.createCanvasFromImage(path);
+    drawingCanvas.createCanvasFromImage(UrlUtils.toLocalFile(path));
   }
 
   function clear() {

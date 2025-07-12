@@ -40,6 +40,9 @@ class QFIELD_CORE_EXPORT UrlUtils : public QObject
     //! Returns a URL from a \a url with logic to handle local paths
     static Q_INVOKABLE QUrl fromString( const QString &url );
 
+    //! Returns a URL from a \a url with logic to presence or absence of file://
+    static Q_INVOKABLE QString toLocalFile( const QString &url );
+
     /**
      * Returns a \a detail from an \a url. The possible components are:
      * - "scheme", e.g. https
