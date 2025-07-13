@@ -1945,6 +1945,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <source>Network error</source>
         <translation>Netzwerkfehler</translation>
     </message>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>

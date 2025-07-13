@@ -1946,6 +1946,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <source>Network error</source>
         <translation>Erro de rede</translation>
     </message>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>

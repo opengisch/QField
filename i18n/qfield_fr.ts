@@ -1947,6 +1947,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>Network error</source>
         <translation>Erreur de réseau</translation>
     </message>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>

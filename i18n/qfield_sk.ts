@@ -1949,6 +1949,10 @@ Dôvod:
         <source>Network error</source>
         <translation>Chyba siete</translation>
     </message>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>

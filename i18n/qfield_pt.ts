@@ -1948,6 +1948,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <source>Network error</source>
         <translation>Erro de rede</translation>
     </message>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>

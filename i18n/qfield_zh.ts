@@ -1944,6 +1944,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Network error</source>
         <translation>网络错误</translation>
     </message>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation>请求插件URL位于可用插件列表中，请通过其下载按钮安装</translation>
+    </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>

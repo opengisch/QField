@@ -1946,6 +1946,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Network error</source>
         <translation>Мрежова грешка</translation>
     </message>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>

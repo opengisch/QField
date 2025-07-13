@@ -1950,6 +1950,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Network error</source>
         <translation>Błąd sieci</translation>
     </message>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>
