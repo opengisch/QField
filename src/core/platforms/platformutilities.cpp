@@ -202,6 +202,8 @@ bool PlatformUtilities::renameFile( const QString &oldFilePath, const QString &n
 {
   QFileInfo oldFi( oldFilePath );
   QFileInfo newFi( newFilePath );
+  qInfo() << "oldFi " << oldFi.absoluteFilePath();
+  qInfo() << "newFi " << newFi.absoluteFilePath();
   if ( oldFi.absoluteFilePath() == newFi.absoluteFilePath() )
   {
     return true;
