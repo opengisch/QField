@@ -211,13 +211,27 @@ bool PlatformUtilities::renameFile( const QString &oldFilePath, const QString &n
 
   // Insure the path exists
   QDir dir( newFi.absolutePath() );
-  dir.mkpath( newFi.absolutePath() );
+  bool ok = dir.mkpath( newFi.absolutePath() );
+  if ( !ok )
+  {
+    qInfo() << "mkpath failed!";
+  }
 
   // If the renamed file exists, overwrite
   if ( newFi.exists() && overwrite )
   {
     QFile newfile( newFilePath );
-    newfile.remove();
+    ok = newfile.remove();
+    if ( !ok )
+    {
+      qInfo() << "remove failed!";
+    }
+  }
+
+  ok = QFile::rename( oldFilePath, newFilePath );
+  if ( !ok )
+  {
+    qInfo() << "rename failed!";
   }
 
   return QFile::rename( oldFilePath, newFilePath );
