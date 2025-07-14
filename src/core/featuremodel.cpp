@@ -613,11 +613,6 @@ bool FeatureModel::save()
         if ( !mLayer->updateFeature( temporaryFeature, true ) )
           QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
 
-        if ( mProject && mProject->topologicalEditing() )
-        {
-          applyVertexModelTopography();
-        }
-
         isSuccess &= commit();
         if ( isSuccess )
         {
@@ -812,10 +807,18 @@ bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
   return updated;
 }
 
-void FeatureModel::applyGeometry()
+void FeatureModel::applyGeometry( bool fromVertexModel )
 {
+  if ( ( !fromVertexModel && !mGeometry ) || ( fromVertexModel && !mVertexModel ) )
+    return;
+
   QString error;
-  QgsGeometry geometry = mGeometry->asQgsGeometry();
+  QgsGeometry geometry = fromVertexModel ? mVertexModel->geometry() : mGeometry->asQgsGeometry();
+
+  if ( fromVertexModel && mProject && mProject->topologicalEditing() )
+  {
+    applyVertexModelTopography();
+  }
 
   if ( QgsWkbTypes::geometryType( geometry.wkbType() ) == Qgis::GeometryType::Polygon )
   {
@@ -1109,14 +1112,6 @@ void FeatureModel::setTopSnappingResult( const SnappingResult &topSnappingResult
   mTopSnappingResult = topSnappingResult;
 }
 
-void FeatureModel::applyVertexModelToGeometry()
-{
-  if ( !mVertexModel )
-    return;
-
-  mFeature.setGeometry( mVertexModel->geometry() );
-}
-
 void FeatureModel::applyGeometryToVertexModel()
 {
   if ( !mVertexModel )
@@ -1223,9 +1218,9 @@ void FeatureModel::applyVertexModelTopography()
     {
       if ( !vectorLayer->getFeatures( request ).nextFeature( dummyFeature ) )
         continue;
-
-      vectorLayer->startEditing();
     }
+
+    vectorLayer->startEditing();
 
     for ( const auto &point : pointsAdded )
     {
@@ -1254,10 +1249,7 @@ void FeatureModel::applyVertexModelTopography()
     }
 
     vectorLayer->addTopologicalPoints( mFeature.geometry() );
-    if ( vectorLayer != mLayer )
-    {
-      vectorLayer->commitChanges( true );
-    }
+    vectorLayer->commitChanges( true );
   }
 }
 
