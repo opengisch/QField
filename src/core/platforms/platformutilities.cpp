@@ -232,9 +232,21 @@ bool PlatformUtilities::renameFile( const QString &oldFilePath, const QString &n
   if ( !ok )
   {
     qInfo() << "rename failed!";
+    ok = QFile::copy( oldFilePath, newFilePath );
+    if ( !ok )
+    {
+      qInfo() << "copy failed!";
+    }
+
+    QFile oldfile( oldFilePath );
+    ok = oldfile.remove();
+    if ( !ok )
+    {
+      qInfo() << "old remove failed!";
+    }
   }
 
-  return QFile::rename( oldFilePath, newFilePath );
+  return ok;
 }
 
 QString PlatformUtilities::applicationDirectory() const
