@@ -45,6 +45,17 @@ QUrl UrlUtils::fromString( const QString &url )
   return QUrl( url );
 }
 
+QString UrlUtils::toLocalFile( const QString &url )
+{
+  if ( url.startsWith( QStringLiteral( "file://" ) ) )
+  {
+    const QUrl urlObject( url );
+    return urlObject.toLocalFile();
+  }
+
+  return url;
+}
+
 QString UrlUtils::urlDetail( const QString &url, const QString &detail )
 {
   QUrl urlInterface( url );

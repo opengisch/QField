@@ -604,6 +604,9 @@ EditorWidgetBase {
 
       onFinished: path => {
         const filepath = StringUtils.replaceFilenameTags(getResourceFilePath(), path);
+        console.log("path " + path);
+        console.log("filepath " + filepath);
+        console.log("prefixToRelativePath + filepath " + prefixToRelativePath + filepath);
         platformUtilities.renameFile(path, prefixToRelativePath + filepath);
         valueChangeRequested(filepath, false);
         close();

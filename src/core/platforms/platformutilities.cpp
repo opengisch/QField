@@ -207,18 +207,35 @@ bool PlatformUtilities::renameFile( const QString &oldFilePath, const QString &n
     return true;
   }
 
+  bool ok = false;
+
   // Insure the path exists
   QDir dir( newFi.absolutePath() );
-  dir.mkpath( newFi.absolutePath() );
+  ok = dir.mkpath( newFi.absolutePath() );
+  if ( !ok )
+  {
+    return false;
+  }
 
   // If the renamed file exists, overwrite
   if ( newFi.exists() && overwrite )
   {
     QFile newfile( newFilePath );
-    newfile.remove();
+    ok = newfile.remove();
+    if ( !ok )
+    {
+      return false;
+    }
   }
 
-  return QFile::rename( oldFilePath, newFilePath );
+  ok = QFile::rename( oldFilePath, newFilePath );
+  if ( !ok )
+  {
+    ok = QFile::copy( oldFilePath, newFilePath );
+    QFile oldfile( oldFilePath );
+    oldfile.remove();
+  }
+  return ok;
 }
 
 QString PlatformUtilities::applicationDirectory() const
