@@ -413,6 +413,7 @@ class QFieldCloudProject : public QObject
     void download();
     void downloadFiles();
     void updateActiveFilesToDownload();
+    void downloadFilesCompleted();
 
     void startJob( JobType type );
 
