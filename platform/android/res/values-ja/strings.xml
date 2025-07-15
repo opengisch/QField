@@ -64,4 +64,6 @@
     <string name="export_operation_unsupported">お使いのデバイスはこのエクスポート操作に対応していません。</string>
     <string name="processing_message">処理中です...</string>
     <string name="positioning_title">測位</string>
-    </resources>
+    <string name="positioning_running">測位サービス実行中</string>
+    <string name="copy_to_clipboard">クリップボードにコピーする</string>
+</resources>

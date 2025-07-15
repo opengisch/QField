@@ -183,7 +183,7 @@
     <name>Binary</name>
     <message>
         <source>(Blob)</source>
-        <translation type="unfinished"/>
+        <translation>(Blob)</translation>
     </message>
 </context>
 <context>
@@ -276,11 +276,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No Bluetooth devices detected.</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth機器が見つかりません</translation>
     </message>
     <message>
         <source>Deeper scanning for paired devices</source>
-        <translation type="unfinished"/>
+        <translation>ペアリングされた機器を詳細にスキャンしています</translation>
     </message>
 </context>
 <context>
@@ -526,7 +526,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The project is read-only.</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトは読み取り専用です。</translation>
     </message>
 </context>
 <context>
@@ -643,19 +643,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Received data is too short to process</source>
-        <translation type="unfinished"/>
+        <translation>受信したデータを処理するには短すぎます</translation>
     </message>
     <message>
         <source>Invalid start byte</source>
-        <translation type="unfinished"/>
+        <translation>無効な開始バイト文字列</translation>
     </message>
     <message>
         <source>Received data is too short to contain the payload</source>
-        <translation type="unfinished"/>
+        <translation>受信したデータは短すぎてペイロードを含めません</translation>
     </message>
     <message>
         <source>Failed to parse JSON</source>
-        <translation type="unfinished"/>
+        <translation>JSONの変換に失敗しました</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
@@ -671,15 +671,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>TCP受信エラー (%1)</translation>
     </message>
     <message>
         <source>Failed to start egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>サーバーのスタートに失敗しました。</translation>
     </message>
     <message>
         <source>Failed to stop egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>サーバーの停止に失敗しました。</translation>
     </message>
 </context>
 <context>
@@ -762,7 +762,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation type="unfinished"/>
+        <translation>外部ストレージの認証IDの設定が不足しています。それがQFieldにインポートされたものであるか確認してください。</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -770,7 +770,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloudのオンデマンド添付ファイルエラー</translation>
     </message>
 </context>
 <context>
@@ -833,7 +833,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Feature addition disabled</source>
-        <translation type="unfinished"/>
+        <translation>地物の追加は無効です</translation>
     </message>
 </context>
 <context>
@@ -3479,7 +3479,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldPositioningService</name>
     <message>
         <source>Positioning service running</source>
-        <translation type="unfinished"/>
+        <translation>測位サービス実行中</translation>
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
@@ -4535,7 +4535,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>TCP受信エラー (%1)</translation>
     </message>
 </context>
 <context>
