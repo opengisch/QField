@@ -202,19 +202,19 @@ bool PlatformUtilities::renameFile( const QString &oldFilePath, const QString &n
 {
   QFileInfo oldFi( oldFilePath );
   QFileInfo newFi( newFilePath );
-  qInfo() << "oldFi " << oldFi.absoluteFilePath();
-  qInfo() << "newFi " << newFi.absoluteFilePath();
   if ( oldFi.absoluteFilePath() == newFi.absoluteFilePath() )
   {
     return true;
   }
 
+  bool ok = false;
+
   // Insure the path exists
   QDir dir( newFi.absolutePath() );
-  bool ok = dir.mkpath( newFi.absolutePath() );
+  ok = dir.mkpath( newFi.absolutePath() );
   if ( !ok )
   {
-    qInfo() << "mkpath failed!";
+    return false;
   }
 
   // If the renamed file exists, overwrite
@@ -224,28 +224,17 @@ bool PlatformUtilities::renameFile( const QString &oldFilePath, const QString &n
     ok = newfile.remove();
     if ( !ok )
     {
-      qInfo() << "remove failed!";
+      return false;
     }
   }
 
   ok = QFile::rename( oldFilePath, newFilePath );
   if ( !ok )
   {
-    qInfo() << "rename failed!";
     ok = QFile::copy( oldFilePath, newFilePath );
-    if ( !ok )
-    {
-      qInfo() << "copy failed!";
-    }
-
     QFile oldfile( oldFilePath );
-    ok = oldfile.remove();
-    if ( !ok )
-    {
-      qInfo() << "old remove failed!";
-    }
+    oldfile.remove();
   }
-
   return ok;
 }
 
