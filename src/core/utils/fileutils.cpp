@@ -431,9 +431,6 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text, co
       format.setSizeUnit( Qgis::RenderUnit::Pixels );
     }
 
-    qDebug() << format.size();
-    qDebug() << format.color();
-
     if ( !imageDecoration.isEmpty() )
     {
       const QFileInfo fi( QgsProject::instance()->pathResolver().readPath( imageDecoration ) );
@@ -486,7 +483,8 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text, co
       }
     }
 
-    QgsTextRenderer::drawText( QRectF( 10, 10, img.width() - 20, img.height() - 20 ), 0, horizontalAlignment, text.split( QStringLiteral( "\n" ) ), context, format, true, Qgis::TextVerticalAlignment::Bottom, Qgis::TextRendererFlag::WrapLines );
+    const double textHeight = QgsTextRenderer::textHeight( context, format, text.split( QStringLiteral( "\n" ) ), Qgis::TextLayoutMode::Rectangle, nullptr, Qgis::TextRendererFlag::WrapLines, img.width() - 20 );
+    QgsTextRenderer::drawText( QRectF( 10, img.height() - textHeight - 20, img.width() - 20, img.height() - 20 ), 0, horizontalAlignment, text.split( QStringLiteral( "\n" ) ), context, format, true, Qgis::TextVerticalAlignment::Top, Qgis::TextRendererFlag::WrapLines );
 
     img.save( imagePath, nullptr, 90 );
 
