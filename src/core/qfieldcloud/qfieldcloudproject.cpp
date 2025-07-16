@@ -1085,7 +1085,7 @@ void QFieldCloudProject::downloadFiles()
 
     if ( reply )
     {
-      mDownloadFileTransfers[fileKey].networkReply = reply;
+      transfer.networkReply = reply;
       downloadFileConnections( fileKey );
     }
   }
@@ -1362,21 +1362,21 @@ NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const 
     qint64 partialSize = partialFile.size();
     if ( partialSize < QFIELDCLOUD_MINIMUM_RANGE_HEADER_LENGTH || partialSize > transfer.bytesTotal || ( partialSize == transfer.bytesTotal ) && transfer.etag != FileUtils::fileEtag( transfer.partialFilePath ) )
     {
-      qDebug() << "Removing" << fileName;
+      // Invalid or dirty file; delete and re-download
       partialFile.remove();
     }
     else if ( partialSize < transfer.bytesTotal )
     {
-      qDebug() << "Resuming" << fileName;
+      // Partial file found; resume download using Range header
       request.setRawHeader( "Range", "bytes=" + QByteArray::number( partialSize ) + "-" );
       mDownloadBytesReceived += partialSize;
     }
     else if ( partialSize == transfer.bytesTotal )
     {
+      // File already fully downloaded and valid; skip download
       mDownloadBytesReceived += partialSize;
       mDownloadFilesFinished++;
       mActiveFilesToDownload.removeOne( fileKey );
-      qDebug() << fileName << "Already fully downloaded";
 
       if ( mActiveFilesToDownload.size() == 0 )
       {
