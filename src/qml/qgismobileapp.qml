@@ -1555,21 +1555,7 @@ ApplicationWindow {
           mainMenu.popup(menuButton.x, menuButton.y);
         }
 
-        Rectangle {
-          anchors {
-            top: parent.top
-            right: parent.right
-            rightMargin: 2
-            topMargin: 2
-          }
-
-          width: 12
-          height: 12
-          radius: width / 2
-
-          border.width: 1.5
-          border.color: "white"
-
+        QfBadge {
           visible: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
           color: Theme.cloudColor
         }
@@ -2273,21 +2259,7 @@ ApplicationWindow {
           }
         }
 
-        Rectangle {
-          anchors {
-            top: parent.top
-            right: parent.right
-            rightMargin: 2
-            topMargin: 2
-          }
-
-          width: 12
-          height: 12
-          radius: width / 2
-
-          border.width: 1.5
-          border.color: "white"
-
+        QfBadge {
           visible: positioningSettings.accuracyIndicator && gnssButton.state === "On"
           color: !positionSource.positionInformation || !positionSource.positionInformation.haccValid || positionSource.positionInformation.hacc > positioningSettings.accuracyBad ? Theme.accuracyBad : positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent ? Theme.accuracyTolerated : Theme.accuracyExcellent
         }

@@ -64,28 +64,24 @@ RoundButton {
   Material.foreground: icon.color
   font: Theme.tipFont
 
-  Rectangle {
-    id: bottomRightIndicator
-    color: bottomRightIndicatorBgColor
-    anchors.bottom: button.bottom
-    anchors.right: button.right
-    anchors.bottomMargin: 7
-    anchors.rightMargin: 5
+  QfBadge {
     width: button.width / 2.5
     height: width
     visible: bottomRightIndicatorText
-    radius: width
-    border.width: 2
+    color: bottomRightIndicatorBgColor
     border.color: Theme.mainColor
+    border.width: 2
     z: 2
 
-    Text {
-      anchors.fill: parent
-      color: bottomRightIndicatorFgColor
-      text: bottomRightIndicatorText
-      font.pixelSize: bottomRightIndicatorText.length == 1 ? height / 1.6 : height / 1.8
-      horizontalAlignment: Qt.AlignHCenter
-      verticalAlignment: Qt.AlignVCenter
+    anchors {
+      top: undefined
+      bottom: button.bottom
+      right: button.right
+      bottomMargin: 7
+      rightMargin: 5
     }
+
+    badgeText.color: bottomRightIndicatorFgColor
+    badgeText.text: bottomRightIndicatorText
   }
 }
