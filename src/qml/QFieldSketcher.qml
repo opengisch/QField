@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Shapes
 import QtCore
 import org.qfield
 import Theme
@@ -46,6 +47,24 @@ Popup {
         NumberAnimation {
           duration: 100
           easing.type: Easing.OutQuad
+        }
+      }
+    }
+
+    Shape {
+      id: drawingCurrentStroke
+      anchors.fill: parent
+
+      ShapePath {
+        strokeColor: drawingCanvas.currentStroke.color
+        strokeWidth: drawingCanvas.currentStroke.width * drawingCanvas.zoomFactor
+        strokeStyle: ShapePath.SolidLine
+        fillColor: drawingCanvas.currentStroke.fillColor
+        joinStyle: ShapePath.RoundJoin
+        capStyle: ShapePath.RoundCap
+
+        PathPolyline {
+          path: drawingCanvas.currentStroke.scenePoints
         }
       }
     }

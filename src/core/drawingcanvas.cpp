@@ -28,17 +28,19 @@ DrawingCanvas::DrawingCanvas( QQuickItem *parent )
   : QQuickPaintedItem( parent )
 {
   setOpaquePainting( true );
+  setAntialiasing( true );
+  setSmooth( true );
 }
 
 void DrawingCanvas::createBlankCanvas( int width, int height, QColor backgroundColor )
 {
   clear();
 
-  mBackgroundImage = QImage( QSize( width, height ), QImage::Format_ARGB32 );
+  mBackgroundImage = QImage( QSize( width, height ), QImage::Format_RGB888 );
   mBackgroundImage.fill( backgroundColor );
 
-  mDrawingImage = QImage( QSize( width, height ), QImage::Format_ARGB32 );
-  mDrawingImage.fill( Qt::transparent );
+  mDrawingImage = QImage( QSize( width, height ), QImage::Format_RGB888 );
+  mDrawingImage.fill( backgroundColor );
 
   setIsEmpty( false );
   setIsDirty( false );
@@ -52,17 +54,15 @@ void DrawingCanvas::createCanvasFromImage( const QString &path )
   mLoadedImagePath = path;
   QImageReader imageReader( mLoadedImagePath );
   imageReader.setAutoTransform( true );
-  mBackgroundImage = imageReader.read();
-
-  if ( !mBackgroundImage.isNull() )
+  QImage image = imageReader.read();
+  if ( !image.isNull() )
   {
-    if ( mBackgroundImage.format() != QImage::Format_ARGB32 )
-    {
-      mBackgroundImage.convertTo( QImage::Format_ARGB32 );
-    }
+    mBackgroundImage = QImage( image.size(), QImage::Format_RGB888 );
+    mBackgroundImage.fill( Qt::GlobalColor::white );
+    QPainter painter( &mBackgroundImage );
+    painter.drawImage( 0, 0, image );
 
-    mDrawingImage = QImage( mBackgroundImage.size(), QImage::Format_ARGB32 );
-    mDrawingImage.fill( Qt::transparent );
+    mDrawingImage = mBackgroundImage;
     setIsEmpty( false );
   }
   else
@@ -94,11 +94,10 @@ void DrawingCanvas::clear()
 
 QString DrawingCanvas::save() const
 {
-  QImage image( mBackgroundImage.size(), QImage::Format_ARGB32 );
+  QImage image( mBackgroundImage.size(), QImage::Format_RGBA8888 );
   image.fill( Qt::transparent );
 
   QPainter painter( &image );
-  painter.drawImage( 0, 0, mBackgroundImage );
   painter.drawImage( 0, 0, mDrawingImage );
 
   if ( !mLoadedImagePath.isEmpty() )
@@ -250,12 +249,18 @@ void DrawingCanvas::setOffset( const QPointF &offset )
   update();
 }
 
+DrawingStroke DrawingCanvas::currentStroke() const
+{
+  return mCurrentStroke;
+}
+
 void DrawingCanvas::strokeBegin( const QPointF &point, const QColor color )
 {
   mCurrentStroke.points.clear();
   mCurrentStroke.color = color;
   mCurrentStroke.width = DEFAULT_STROKE_WIDTH / mZoomFactor;
   mCurrentStroke.points << itemToCanvas( point );
+  mCurrentStroke.scenePoints << point;
 }
 
 void DrawingCanvas::strokeMove( const QPointF &point )
@@ -269,8 +274,8 @@ void DrawingCanvas::strokeMove( const QPointF &point )
   if ( std::pow( point.x() - lastPoint.x(), 2 ) + std::pow( point.y() - lastPoint.y(), 2 ) >= 0.1 )
   {
     mCurrentStroke.points << itemToCanvas( point );
-
-    update();
+    mCurrentStroke.scenePoints << point;
+    emit currentStrokeChanged();
   }
 }
 
@@ -284,18 +289,21 @@ void DrawingCanvas::strokeEnd( const QPointF &point )
   mCurrentStroke.points << itemToCanvas( point );
 
   QPainter painter( &mDrawingImage );
-  painter.setRenderHint( QPainter::Antialiasing, true );
+  painter.setRenderHint( QPainter::Antialiasing, antialiasing() );
+  painter.setRenderHint( QPainter::Antialiasing, smooth() );
   drawStroke( &painter, mCurrentStroke );
 
   mStrokes << mCurrentStroke;
   mCurrentStroke.points.clear();
+  mCurrentStroke.scenePoints.clear();
+  emit currentStrokeChanged();
 
   setIsDirty( true );
 
   update();
 }
 
-void DrawingCanvas::drawStroke( QPainter *painter, const Stroke &stroke, bool onCanvas ) const
+void DrawingCanvas::drawStroke( QPainter *painter, const DrawingStroke &stroke, bool onCanvas ) const
 {
   QPainterPath path( onCanvas ? stroke.points.at( 0 ) : canvasToItem( stroke.points.at( 0 ) ) );
   for ( int i = 1; i < stroke.points.size(); i++ )
@@ -320,11 +328,12 @@ void DrawingCanvas::undo()
     mStrokes.removeLast();
 
     // Reset image and redraw remaining strokes
-    mDrawingImage.fill( Qt::transparent );
-    for ( const Stroke &stroke : std::as_const( mStrokes ) )
+    mDrawingImage = mBackgroundImage;
+    for ( const DrawingStroke &stroke : std::as_const( mStrokes ) )
     {
       QPainter painter( &mDrawingImage );
-      painter.setRenderHint( QPainter::Antialiasing, true );
+      painter.setRenderHint( QPainter::Antialiasing, antialiasing() );
+      painter.setRenderHint( QPainter::Antialiasing, smooth() );
       drawStroke( &painter, stroke );
     }
 
@@ -354,9 +363,6 @@ void DrawingCanvas::paint( QPainter *painter )
 {
   if ( !mBackgroundImage.isNull() )
   {
-    painter->setRenderHint( QPainter::Antialiasing, true );
-    painter->setRenderHint( QPainter::SmoothPixmapTransform, true );
-
     const QSizeF scaledImageSize = mBackgroundImage.size() * mZoomFactor;
     const QRectF imageRect( ( size().width() / 2 - scaledImageSize.width() / 2 ) + mOffset.x(),
                             ( size().height() / 2 - scaledImageSize.height() / 2 ) + mOffset.y(),
@@ -370,9 +376,7 @@ void DrawingCanvas::paint( QPainter *painter )
     painter->setBrush( QBrush( shadowColor ) );
     painter->drawRect( imageRect.translated( 3, 3 ) );
 
-    painter->drawImage( imageRect, mBackgroundImage );
     painter->drawImage( imageRect, mDrawingImage );
-
     if ( mCurrentStroke.points.size() > 1 )
     {
       drawStroke( painter, mCurrentStroke, false );
