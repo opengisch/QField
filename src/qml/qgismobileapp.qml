@@ -1554,6 +1554,25 @@ ApplicationWindow {
         onPressAndHold: {
           mainMenu.popup(menuButton.x, menuButton.y);
         }
+
+        Rectangle {
+          anchors {
+            top: parent.top
+            right: parent.right
+            rightMargin: 2
+            topMargin: 2
+          }
+
+          width: 12
+          height: 12
+          radius: width / 2
+
+          border.width: 1.5
+          border.color: "white"
+
+          visible: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
+          color: Theme.cloudColor
+        }
       }
 
       QfActionButton {
