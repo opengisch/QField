@@ -275,11 +275,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No Bluetooth devices detected.</source>
-        <translation type="unfinished"/>
+        <translation>Aucun appareil Bluetooth détecté</translation>
     </message>
     <message>
         <source>Deeper scanning for paired devices</source>
-        <translation type="unfinished"/>
+        <translation>Scan approfondi pour les appareils couplés</translation>
     </message>
 </context>
 <context>
@@ -525,7 +525,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The project is read-only.</source>
-        <translation type="unfinished"/>
+        <translation>Ce projet est en lecture seule.</translation>
     </message>
 </context>
 <context>
@@ -769,7 +769,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
-        <translation type="unfinished"/>
+        <translation>Erreur lors de l&apos;envoi de la pièce jointe dans QFieldCloud:</translation>
     </message>
 </context>
 <context>
@@ -832,7 +832,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Feature addition disabled</source>
-        <translation type="unfinished"/>
+        <translation>Ajout d&apos;entité désactivé</translation>
     </message>
 </context>
 <context>
@@ -1374,23 +1374,23 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>feature addition</source>
-        <translation type="unfinished"/>
+        <translation>Ajout d&apos;entité</translation>
     </message>
     <message>
         <source>attribute editing</source>
-        <translation type="unfinished"/>
+        <translation>Édition des attributs</translation>
     </message>
     <message>
         <source>geometry editing</source>
-        <translation type="unfinished"/>
+        <translation>Édition de la géométrie</translation>
     </message>
     <message>
         <source>feature deletion</source>
-        <translation type="unfinished"/>
+        <translation>Suppression de l&apos;entité</translation>
     </message>
     <message>
         <source>Disabled layer permissions: %1</source>
-        <translation type="unfinished"/>
+        <translation>Autorisations de couche désactivées: %1</translation>
     </message>
 </context>
 <context>
@@ -1960,7 +1960,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Install plugin from URL</source>
-        <translation>Installer l&apos;extension à partir de l&apos;URL</translation>
+        <translation>Installer l&apos;extension à partir d&apos;une URL</translation>
     </message>
     <message>
         <source>Clear remembered permissions</source>
@@ -1988,15 +1988,15 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Local Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Extensions locales</translation>
     </message>
     <message>
         <source>Available Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Extensions disponibles</translation>
     </message>
     <message>
         <source>Search for plugin</source>
-        <translation type="unfinished"/>
+        <translation>Rechercher un plugin</translation>
     </message>
     <message>
         <source>Fetching available plugins</source>
@@ -3131,7 +3131,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Search for project</source>
-        <translation>Rechercher du projet</translation>
+        <translation>Rechercher un projet</translation>
     </message>
     <message>
         <source>Sign out</source>
@@ -3464,7 +3464,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>root folder</source>
-        <translation type="unfinished"/>
+        <translation>Dossier racine</translation>
     </message>
     <message>
         <source>Available locally in ‘%1’</source>
@@ -4381,7 +4381,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Ensure constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Assurez-vous que les contraintes soient respectées</translation>
     </message>
 </context>
 <context>
@@ -5829,19 +5829,19 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Failed to create feature</source>
-        <translation type="unfinished"/>
+        <translation>Échec de création de l&apos;entité</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation type="unfinished"/>
+        <translation>Échec lors de la création de l&apos;entité car l&apos;ajout d&apos;entité est désactivé</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
-        <translation type="unfinished"/>
+        <translation>Échec de sauvegarde de l&apos;entité</translation>
     </message>
     <message>
         <source>Digitizing toggle</source>
-        <translation type="unfinished"/>
+        <translation>Numérisation activée</translation>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
@@ -5869,7 +5869,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Project folder</source>
-        <translation type="unfinished"/>
+        <translation>Dossier de projet</translation>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
@@ -5877,7 +5877,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>Légende</translation>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
