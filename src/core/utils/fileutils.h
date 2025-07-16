@@ -22,6 +22,7 @@
 #include <QCryptographicHash>
 #include <QObject>
 #include <QVariantMap>
+#include <qgis.h>
 #include <qgsfeedback.h>
 
 #define FILENAME_MAX_CHAR_LENGTH 255
@@ -110,9 +111,20 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
      */
     Q_INVOKABLE void restrictImageSize( const QString &imagePath, int maximumWidthHeight );
 
+    /**
+     * Adds positioning metadata to a given image.
+     * \param imagePath the image path
+     * \param positionInformation the GNSS position information used to add metadata details
+     */
     Q_INVOKABLE void addImageMetadata( const QString &imagePath, const GnssPositionInformation &positionInformation );
 
-    Q_INVOKABLE void addImageStamp( const QString &imagePath, const QString &text );
+    /**
+     * Prints details to a given image.
+     * \param imagePath the image path
+     * \param text the details text
+     * \param project an optional project from which custom stamping settings will be retrieved
+     */
+    Q_INVOKABLE void addImageStamp( const QString &imagePath, const QString &text, const QString &textFormat = QString(), Qgis::TextHorizontalAlignment horizontalAlignment = Qgis::TextHorizontalAlignment::Left, const QString &imageDecoration = QString() );
 
     static bool copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback = nullptr, bool wipeDestFolder = true );
 

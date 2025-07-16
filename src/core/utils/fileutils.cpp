@@ -29,10 +29,13 @@
 #include <QPainterPath>
 #include <QStandardPaths>
 #include <qgis.h>
+#include <qgsapplication.h>
 #include <qgsexiftools.h>
 #include <qgsfileutils.h>
+#include <qgsimagecache.h>
 #include <qgsproject.h>
 #include <qgsrendercontext.h>
+#include <qgssvgcache.h>
 #include <qgstextformat.h>
 #include <qgstextrenderer.h>
 
@@ -384,35 +387,104 @@ void FileUtils::addImageMetadata( const QString &imagePath, const GnssPositionIn
   }
 }
 
-void FileUtils::addImageStamp( const QString &imagePath, const QString &text )
+void FileUtils::addImageStamp( const QString &imagePath, const QString &text, const QString &textFormat, Qgis::TextHorizontalAlignment horizontalAlignment, const QString &imageDecoration )
 {
   if ( !QFileInfo::exists( imagePath ) || text.isEmpty() )
   {
     return;
   }
 
+  QgsReadWriteContext readWriteContent;
+  readWriteContent.setPathResolver( QgsProject::instance()->pathResolver() );
   QVariantMap metadata = QgsExifTools::readTags( imagePath );
   QImage img( imagePath );
   if ( !img.isNull() )
   {
     QPainter painter( &img );
     painter.setRenderHint( QPainter::Antialiasing );
-
-    QFont font = painter.font();
-    font.setPixelSize( std::min( img.width(), img.height() ) / 40 );
-    font.setBold( true );
-
     QgsRenderContext context = QgsRenderContext::fromQPainter( &painter );
     QgsTextFormat format;
-    format.setFont( font );
-    format.setSize( font.pixelSize() );
-    format.setSizeUnit( Qgis::RenderUnit::Pixels );
-    format.setColor( Qt::white );
-    format.buffer().setColor( Qt::black );
-    format.buffer().setSize( 2 );
-    format.buffer().setSizeUnit( Qgis::RenderUnit::Pixels );
-    format.buffer().setEnabled( true );
-    QgsTextRenderer::drawText( QRectF( 10, 10, img.width() - 20, img.height() - 20 ), 0, Qgis::TextHorizontalAlignment::Left, text.split( QStringLiteral( "\n" ) ), context, format, true, Qgis::TextVerticalAlignment::Bottom, Qgis::TextRendererFlag::WrapLines );
+    if ( !textFormat.isEmpty() )
+    {
+      QDomDocument document = QDomDocument();
+      document.setContent( textFormat );
+      format.readXml( document.documentElement(), readWriteContent );
+    }
+    else
+    {
+      QFont font = painter.font();
+      font.setPixelSize( std::min( img.width(), img.height() ) / 40 );
+      font.setBold( true );
+      format.setFont( font );
+      format.setSize( font.pixelSize() );
+      format.setSizeUnit( Qgis::RenderUnit::Pixels );
+      format.setColor( Qt::white );
+      format.buffer().setColor( Qt::black );
+      format.buffer().setSize( 2 );
+      format.buffer().setSizeUnit( Qgis::RenderUnit::Pixels );
+      format.buffer().setEnabled( true );
+    }
+
+    if ( format.sizeUnit() == Qgis::RenderUnit::Percentage )
+    {
+      format.setSize( std::min( img.width(), img.height() ) * format.size() / 100 );
+      format.setSizeUnit( Qgis::RenderUnit::Pixels );
+    }
+
+    if ( !imageDecoration.isEmpty() )
+    {
+      const QFileInfo fi( QgsProject::instance()->pathResolver().readPath( imageDecoration ) );
+      if ( fi.exists() )
+      {
+        const double lineHeight = context.convertFromPainterUnits( format.size(), format.sizeUnit() );
+        const bool isRaster = fi.suffix().toLower() != QStringLiteral( "svg" );
+
+        bool fitsInCache = false;
+        if ( isRaster )
+        {
+          const QSizeF decorationOriginalSize = QgsApplication::instance()->imageCache()->originalSize( fi.absoluteFilePath(), true );
+          const double decorationHeight = std::min( std::min( decorationOriginalSize.height(), img.height() / 6.0 ), lineHeight * 10.0 );
+          const double decorationWidth = decorationOriginalSize.width() * decorationHeight / decorationOriginalSize.height();
+          QImage decorationImage = QgsApplication::instance()->imageCache()->pathAsImage( fi.absoluteFilePath(), QSize( decorationWidth, decorationHeight ), true, 1, fitsInCache, true );
+          switch ( horizontalAlignment )
+          {
+            case Qgis::TextHorizontalAlignment::Left:
+            case Qgis::TextHorizontalAlignment::Justify:
+              painter.drawImage( QRectF( 10, 10, decorationWidth, decorationHeight ), decorationImage );
+              break;
+            case Qgis::TextHorizontalAlignment::Center:
+              painter.drawImage( QRectF( img.size().width() / 2 - decorationWidth / 2, 10, decorationWidth, decorationHeight ), decorationImage );
+              break;
+            case Qgis::TextHorizontalAlignment::Right:
+              painter.drawImage( QRectF( img.size().width() - decorationWidth - 10, 10, decorationWidth, decorationHeight ), decorationImage );
+              break;
+          }
+        }
+        else
+        {
+          const QSizeF decorationOriginalSize = QgsApplication::instance()->svgCache()->svgViewboxSize( fi.absoluteFilePath(), 100, QColor( 0, 0, 0 ), QColor( 255, 0, 0 ), 10, 1, 0, true );
+          const double decorationHeight = std::min( img.height() / 6.0, lineHeight * 10.0 );
+          const double decorationWidth = decorationOriginalSize.width() * decorationHeight / decorationOriginalSize.height();
+          QPicture decorationPicture = QgsApplication::instance()->svgCache()->svgAsPicture( fi.absoluteFilePath(), decorationWidth, QColor(), QColor(), 1.0, 1, fitsInCache, 0, true );
+          switch ( horizontalAlignment )
+          {
+            case Qgis::TextHorizontalAlignment::Left:
+            case Qgis::TextHorizontalAlignment::Justify:
+              painter.drawPicture( 10 + decorationWidth / 2, 10 + decorationHeight / 2, decorationPicture );
+              break;
+            case Qgis::TextHorizontalAlignment::Center:
+              painter.drawPicture( img.size().width() / 2, 10 + decorationHeight / 2, decorationPicture );
+              break;
+            case Qgis::TextHorizontalAlignment::Right:
+              painter.drawPicture( img.size().width() - 10 - decorationWidth / 2, 10 + decorationHeight / 2, decorationPicture );
+              break;
+          }
+        }
+      }
+    }
+
+    const double textHeight = QgsTextRenderer::textHeight( context, format, text.split( QStringLiteral( "\n" ) ), Qgis::TextLayoutMode::Rectangle, nullptr, Qgis::TextRendererFlag::WrapLines, img.width() - 20 );
+    QgsTextRenderer::drawText( QRectF( 10, img.height() - textHeight - 20, img.width() - 20, img.height() - 20 ), 0, horizontalAlignment, text.split( QStringLiteral( "\n" ) ), context, format, true, Qgis::TextVerticalAlignment::Top, Qgis::TextRendererFlag::WrapLines );
 
     img.save( imagePath, nullptr, 90 );
 
