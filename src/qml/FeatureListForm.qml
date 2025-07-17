@@ -61,24 +61,24 @@ Rectangle {
   width: {
     if (props.isVisible || featureFormList.canvasOperationRequested) {
       if (fullScreenView || parent.width <= parent.height || parent.width < 300) {
-        parent.width;
+        return parent.width;
       } else {
-        Math.min(Math.max(200, parent.width / 2.25), parent.width);
+        return Math.min(Math.max(200, parent.width / 2.25), parent.width);
       }
     } else {
-      0;
+      return 0;
     }
   }
   height: {
     if (props.isVisible || featureFormList.canvasOperationRequested) {
       if (fullScreenView || parent.width > parent.height) {
-        parent.height;
+        return parent.height;
       } else {
         isVertical = true;
-        Math.min(Math.max(200, parent.height / 2), parent.height);
+        return Math.min(Math.max(200, parent.height / 2), parent.height);
       }
     } else {
-      0;
+      return 0;
     }
   }
 
