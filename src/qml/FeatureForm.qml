@@ -168,6 +168,7 @@ Page {
           clip: true
           ScrollBar.vertical: QfScrollBar {
           }
+          boundsBehavior: Flickable.StopAtBounds
 
           Rectangle {
             anchors.fill: parent
