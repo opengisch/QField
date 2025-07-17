@@ -229,6 +229,11 @@ Rectangle {
   color: Theme.mainBackgroundColor
   clip: true
 
+  WheelHandler {
+    onWheel: {
+    }
+  }
+
   QtObject {
     id: props
 
