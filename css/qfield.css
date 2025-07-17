@@ -832,7 +832,7 @@ div.explanation {
   text-transform: uppercase;
   font-weight: normal;
   opacity: 0.8;
-  margin: 8px 0;
+  margin: 8px 0px 0px 8px;
   color: white;
   background-color: rgba(33, 33, 33, 0.5);
   border-radius: 12px;
