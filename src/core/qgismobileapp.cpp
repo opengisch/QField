@@ -482,7 +482,9 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<ValueMapModel>( "org.qfield", 1, 0, "ValueMapModel" );
   qmlRegisterType<RecentProjectListModel>( "org.qfield", 1, 0, "RecentProjectListModel" );
   qmlRegisterType<ReferencingFeatureListModel>( "org.qfield", 1, 0, "ReferencingFeatureListModel" );
+  qmlRegisterType<ReferencingFeatureProxyModel>( "org.qfield", 1, 0, "ReferencingFeatureProxyModel" );
   qmlRegisterType<OrderedRelationModel>( "org.qfield", 1, 0, "OrderedRelationModel" );
+  qmlRegisterType<OrderedRelationProxyModel>( "org.qfield", 1, 0, "OrderedRelationProxyModel" );
   qmlRegisterType<FeatureCheckListModel>( "org.qfield", 1, 0, "FeatureCheckListModel" );
   qmlRegisterType<FeatureCheckListProxyModel>( "org.qfield", 1, 0, "FeatureCheckListProxyModel" );
   qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
