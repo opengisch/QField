@@ -295,6 +295,7 @@ font-size: 13pt;
   /* animation of padding change */
   transition: all 0.5s ease;
   background-color: #fff;
+  margin: 2px;;
 }
 
 #customers .customer-card {
