@@ -84,6 +84,7 @@ QHash<int, QByteArray> OrderedRelationModel::roleNames() const
   roles[OrderedRelationModel::ImagePathRole] = "ImagePath";
   roles[OrderedRelationModel::DescriptionRole] = "Description";
   roles[OrderedRelationModel::FeatureIdRole] = "FeatureId";
+  roles[OrderedRelationModel::OrderingValueRole] = "OrderingValue";
 
   return roles;
 }
@@ -112,6 +113,8 @@ QVariant OrderedRelationModel::data( const QModelIndex &index, int role ) const
       return result;
     case FeatureIdRole:
       return mEntries[index.row()].referencingFeature.id();
+    case OrderingValueRole:
+      return mEntries[index.row()].referencingFeature.attribute( mOrderingField );
   }
 
   return ReferencingFeatureListModel::data( index, role );
@@ -229,9 +232,16 @@ bool OrderedRelationModel::beforeDeleteFeature( QgsVectorLayer *referencingLayer
   return true;
 }
 
-void OrderedRelationModel::sortEntries()
+OrderedRelationProxyModel::OrderedRelationProxyModel( QObject *parent )
+  : QSortFilterProxyModel( parent )
 {
-  std::sort( mEntries.begin(), mEntries.end(), [this]( const Entry &e1, const Entry &e2 ) {
-    return e1.referencingFeature.attribute( mOrderingField ).toInt() < e2.referencingFeature.attribute( mOrderingField ).toInt();
-  } );
+  setSortRole( OrderedRelationModel::OrderingValueRole );
+}
+
+bool OrderedRelationProxyModel::lessThan( const QModelIndex &left, const QModelIndex &right ) const
+{
+  const QVariant leftData = sourceModel()->data( left, sortRole() );
+  const QVariant rightData = sourceModel()->data( right, sortRole() );
+
+  return leftData.toInt() < rightData.toInt();
 }

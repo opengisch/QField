@@ -8,13 +8,16 @@ import "../"
 EditorWidgetBase {
   id: relationEditorBase
 
-  property var relationEditorModel: undefined
+  property var relationEditorModel: relationEditorProxyModel
+
   property alias listView: listView
 
   property int itemHeight: 48
   property int bottomMargin: 10
   property int maximumVisibleItems: 4
   property bool showAllItems: false
+
+  signal toggleSortAction
 
   Component.onCompleted: {
     if (currentLayer && currentLayer.customProperty('QFieldSync/relationship_maximum_visible') !== undefined) {
@@ -37,8 +40,117 @@ EditorWidgetBase {
     border.width: 1
     clip: true
 
+    Rectangle {
+      id: addEntry
+      width: parent.width
+      height: visible ? itemHeight : 0
+      color: Theme.controlBorderColor
+      visible: isEnabled && isActionEnabled('AddChildFeature')
+      focus: true
+
+      Text {
+        visible: isEnabled
+        color: Theme.secondaryTextColor
+        text: isEnabled && !constraintsHardValid ? qsTr('Ensure constraints are met') : ''
+        anchors {
+          leftMargin: 10
+          left: parent.left
+          right: addButtonRow.left
+          verticalCenter: parent.verticalCenter
+        }
+        font: Theme.tipFont
+      }
+
+      Row {
+        id: addButtonRow
+        spacing: 8
+        anchors {
+          top: parent.top
+          right: parent.right
+          rightMargin: 10
+        }
+        height: parent.height
+
+        QfToolButton {
+          id: sortButton
+          width: parent.height
+          height: parent.height
+          enabled: constraintsHardValid
+
+          round: false
+          iconSource: Theme.getThemeVectorIcon('ic_sort_white_24dp')
+          bgcolor: parent.enabled ? 'black' : 'grey'
+          onClicked: {
+            toggleSortAction();
+          }
+        }
+
+        QfToolButton {
+          id: addButton
+          width: parent.height
+          height: parent.height
+          enabled: constraintsHardValid
+
+          round: false
+          iconSource: Theme.getThemeVectorIcon('ic_add_white_24dp')
+          bgcolor: parent.enabled ? 'black' : 'grey'
+          onClicked: {
+            addingIndicator.running = true;
+            addingTimer.restart();
+          }
+        }
+      }
+
+      BusyIndicator {
+        id: addingIndicator
+        anchors {
+          top: parent.top
+          right: parent.right
+          rightMargin: 10
+        }
+        width: parent.height
+        height: parent.height
+        running: false
+      }
+
+      Timer {
+        id: addingTimer
+
+        property string printName: ''
+
+        interval: 50
+        repeat: false
+
+        onTriggered: {
+          let saved = form.state === 'Add' ? !form.setupOnly && save() : true;
+          if (ProjectUtils.transactionMode(qgisProject) !== Qgis.TransactionMode.Disabled) {
+            // When a transaction mode is enabled, we must fallback to saving the parent feature to have provider-side issues
+            if (!saved) {
+              addingIndicator.running = false;
+              displayToast(qsTr('Cannot add child feature: insure the parent feature meets all constraints and can be saved'), 'warning');
+              return;
+            }
+          }
+
+          //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
+          if (relationEditorModel.parentPrimariesAvailable) {
+            displayToast(qsTr('Adding child feature in layer %1').arg(relationEditorModel.relation.referencingLayer.name));
+            if (relationEditorModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null) {
+              requestGeometry(relationEditor, relationEditorModel.relation.referencingLayer);
+              return;
+            }
+            showAddFeaturePopup();
+          } else {
+            addingIndicator.running = false;
+            displayToast(qsTr('Cannot add child feature: attribute value linking parent and children is not set'), 'warning');
+          }
+        }
+      }
+    }
+
     ListView {
       id: listView
+      anchors.top: addEntry.bottom
       width: parent.width
       height: !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * itemHeight, contentHeight) : contentHeight
       focus: true
@@ -46,110 +158,6 @@ EditorWidgetBase {
       boundsBehavior: Flickable.StopAtBounds
       highlightRangeMode: ListView.ApplyRange
       ScrollBar.vertical: QfScrollBar {
-      }
-    }
-
-    Item {
-      id: addEntry
-      anchors.bottom: parent.bottom
-      height: itemHeight
-      width: parent.width
-      visible: isActionEnabled('AddChildFeature')
-
-      focus: true
-
-      Rectangle {
-        anchors.fill: parent
-        color: Theme.controlBorderColor
-        visible: isEnabled
-
-        Text {
-          visible: isEnabled
-          color: Theme.secondaryTextColor
-          text: isEnabled && !constraintsHardValid ? qsTr('Ensure constraints are met') : ''
-          anchors {
-            leftMargin: 10
-            left: parent.left
-            right: addButtonRow.left
-            verticalCenter: parent.verticalCenter
-          }
-          font: Theme.tipFont
-        }
-
-        Row {
-          id: addButtonRow
-          anchors {
-            top: parent.top
-            right: parent.right
-            rightMargin: 10
-          }
-          height: parent.height
-
-          QfToolButton {
-            id: addButton
-            width: parent.height
-            height: parent.height
-            enabled: constraintsHardValid
-
-            round: false
-            iconSource: Theme.getThemeVectorIcon('ic_add_white_24dp')
-            bgcolor: parent.enabled ? 'black' : 'grey'
-          }
-        }
-
-        BusyIndicator {
-          id: addingIndicator
-          anchors {
-            top: parent.top
-            right: parent.right
-            rightMargin: 10
-          }
-          width: parent.height
-          height: parent.height
-          running: false
-        }
-
-        Timer {
-          id: addingTimer
-
-          property string printName: ''
-
-          interval: 50
-          repeat: false
-
-          onTriggered: {
-            let saved = form.state === 'Add' ? !form.setupOnly && save() : true;
-            if (ProjectUtils.transactionMode(qgisProject) !== Qgis.TransactionMode.Disabled) {
-              // When a transaction mode is enabled, we must fallback to saving the parent feature to have provider-side issues
-              if (!saved) {
-                addingIndicator.running = false;
-                displayToast(qsTr('Cannot add child feature: insure the parent feature meets all constraints and can be saved'), 'warning');
-                return;
-              }
-            }
-
-            //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
-            if (relationEditorModel.parentPrimariesAvailable) {
-              displayToast(qsTr('Adding child feature in layer %1').arg(relationEditorModel.relation.referencingLayer.name));
-              if (relationEditorModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null) {
-                requestGeometry(relationEditor, relationEditorModel.relation.referencingLayer);
-                return;
-              }
-              showAddFeaturePopup();
-            } else {
-              addingIndicator.running = false;
-              displayToast(qsTr('Cannot add child feature: attribute value linking parent and children is not set'), 'warning');
-            }
-          }
-        }
-
-        MouseArea {
-          anchors.fill: parent
-          onClicked: {
-            addingIndicator.running = true;
-            addingTimer.restart();
-          }
-        }
       }
     }
 
