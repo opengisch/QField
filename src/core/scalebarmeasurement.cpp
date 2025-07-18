@@ -16,6 +16,7 @@
 
 #include "scalebarmeasurement.h"
 
+#include <qgis.h>
 #include <qgsproject.h>
 #include <qgsunittypes.h>
 
@@ -33,7 +34,7 @@ void ScaleBarMeasurement::resetDistanceArea()
   }
   else
   {
-    mDistanceArea.setEllipsoid( geoNone() );
+    mDistanceArea.setEllipsoid( Qgis::geoNone() );
   }
 }
 
