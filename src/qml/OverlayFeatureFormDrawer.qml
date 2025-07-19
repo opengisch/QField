@@ -26,16 +26,16 @@ Drawer {
 
   width: {
     if (overlayFeatureFormDrawer.fullScreenView || parent.width < parent.height || parent.width < 300) {
-      parent.width;
+      return parent.width;
     } else {
-      Math.min(Math.max(200, parent.width / 2.25), parent.width);
+      return Math.min(Math.max(200, parent.width / 2.25), parent.width);
     }
   }
   height: {
-    if (overlayFeatureFormDrawer.fullScreenView || parent.width > parent.height) {
-      parent.height;
+    if (overlayFeatureFormDrawer.fullScreenView || parent.width >= parent.height) {
+      return parent.height;
     } else {
-      Math.min(Math.max(200, parent.height / 2), parent.height);
+      return Math.min(Math.max(200, parent.height / 2), parent.height);
     }
   }
 
