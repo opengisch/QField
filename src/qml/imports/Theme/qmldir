@@ -2,6 +2,7 @@ module Theme
 singleton Theme 1.0 Theme.qml
 QfComboBox 1.0 QfComboBox.qml
 QfActionButton 1.0 QfActionButton.qml
+QfBadge 1.0 QfBadge.qml
 QfSlider 1.0 QfSlider.qml
 QfSwitch 1.0 QfSwitch.qml
 QfButton 1.0 QfButton.qml
