@@ -17,6 +17,7 @@
 #include "distancearea.h"
 #include "rubberbandmodel.h"
 
+#include <qgis.h>
 #include <qgslinestring.h>
 #include <qgspolygon.h>
 #include <qgsproject.h>
@@ -38,7 +39,7 @@ void DistanceArea::init()
   }
   else
   {
-    mDistanceArea.setEllipsoid( geoNone() );
+    mDistanceArea.setEllipsoid( Qgis::geoNone() );
   }
 
   emit lengthUnitsChanged();

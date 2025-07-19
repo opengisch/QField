@@ -791,7 +791,7 @@ void QgsQuickMapCanvasMap::startPreviewJob( int number )
   const QList<QgsMapLayer *> layers = jobSettings.layers();
   QList<QgsMapLayer *> previewLayers;
   QgsDataProvider::PreviewContext context;
-  context.maxRenderingTimeMs = MAXIMUM_LAYER_PREVIEW_TIME_MS;
+  context.maxRenderingTimeMs = Qgis::MAXIMUM_LAYER_PREVIEW_TIME_MS;
   for ( QgsMapLayer *layer : layers )
   {
     if ( layer->customProperty( QStringLiteral( "rendering/noPreviewJobs" ), false ).toBool() )
@@ -841,7 +841,7 @@ void QgsQuickMapCanvasMap::stopPreviewJobs()
 void QgsQuickMapCanvasMap::schedulePreviewJob( int number )
 {
   mPreviewTimer.setSingleShot( true );
-  mPreviewTimer.setInterval( PREVIEW_JOB_DELAY_MS );
+  mPreviewTimer.setInterval( Qgis::PREVIEW_JOB_DELAY_MS );
   disconnect( mPreviewTimerConnection );
   mPreviewTimerConnection = connect( &mPreviewTimer, &QTimer::timeout, this, [this, number]() {
     startPreviewJob( number );
