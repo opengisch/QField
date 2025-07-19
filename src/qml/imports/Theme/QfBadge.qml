@@ -2,21 +2,34 @@ import QtQuick
 import QtQuick.Controls
 
 Rectangle {
-  property alias badgeText: inText
+  id: badge
 
-  anchors {
-    top: parent.top
-    right: parent.right
-    rightMargin: 2
-    topMargin: 2
-  }
+  property alias badgeText: inText
+  property int alignment: QfBadge.TopRight
+
+  property int topMargin: 2
+  property int bottomMargin: 2
+  property int leftMargin: 2
+  property int rightMargin: 2
 
   width: 12
   height: 12
   radius: width / 2
 
   border.width: 1.5
-  border.color: "white"
+  border.color: Theme.darkTheme ? Theme.mainTextColor : Theme.mainBackgroundColor
+
+  anchors {
+    top: (alignment === QfBadge.TopLeft || alignment === QfBadge.TopRight) ? parent.top : undefined
+    bottom: (alignment === QfBadge.BottomLeft || alignment === QfBadge.BottomRight) ? parent.bottom : undefined
+    left: (alignment === QfBadge.TopLeft || alignment === QfBadge.BottomLeft) ? parent.left : undefined
+    right: (alignment === QfBadge.TopRight || alignment === QfBadge.BottomRight) ? parent.right : undefined
+
+    topMargin: badge.topMargin
+    bottomMargin: badge.bottomMargin
+    leftMargin: badge.leftMargin
+    rightMargin: badge.rightMargin
+  }
 
   Text {
     id: inText

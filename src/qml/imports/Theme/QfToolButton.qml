@@ -65,23 +65,20 @@ RoundButton {
   font: Theme.tipFont
 
   QfBadge {
+    alignment: QfBadge.BottomRight
+
+    z: 2
     width: button.width / 2.5
     height: width
     visible: bottomRightIndicatorText
     color: bottomRightIndicatorBgColor
     border.color: Theme.mainColor
     border.width: 2
-    z: 2
-
-    anchors {
-      top: undefined
-      bottom: button.bottom
-      right: button.right
-      bottomMargin: 7
-      rightMargin: 5
-    }
 
     badgeText.color: bottomRightIndicatorFgColor
     badgeText.text: bottomRightIndicatorText
+
+    bottomMargin: 7
+    rightMargin: 5
   }
 }
