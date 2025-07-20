@@ -1,0 +1,34 @@
+From a003aafd86c91ce1b295516829b1028a6c0b9176 Mon Sep 17 00:00:00 2001
+From: Jarkko Koivikko <jarkko.koivikko@code-q.fi>
+Date: Wed, 30 Apr 2025 15:53:40 +0300
+Subject: [PATCH] Android: Skip restoring bundle state on process restart
+
+When the app process is restarted (e.g. after revoking a permission), Qt
+isn't running yet, so we must not restore the saved bundle state.
+
+Fixes: QTBUG-136497
+Fixes: QTBUG-136077
+Fixes: QTBUG-135961
+Change-Id: I5ec594ec93dd3ba13b088d63ec77a3649e21d798
+Reviewed-by: Assam Boudjelthia <assam.boudjelthia@qt.io>
+(cherry picked from commit 270d59f65be53a13263ba840b077b47026df4d0e)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+(cherry picked from commit da6c71569105eb09f17078614047957d104990ee)
+---
+
+diff --git a/src/android/jar/src/org/qtproject/qt/android/QtActivityBase.java b/src/android/jar/src/org/qtproject/qt/android/QtActivityBase.java
+index 291d91b..1e29f9b 100644
+--- a/src/android/jar/src/org/qtproject/qt/android/QtActivityBase.java
++++ b/src/android/jar/src/org/qtproject/qt/android/QtActivityBase.java
+@@ -277,6 +277,11 @@
+     protected void onRestoreInstanceState(Bundle savedInstanceState)
+     {
+         super.onRestoreInstanceState(savedInstanceState);
++
++        // only restore when this Activity is being recreated for a config change
++        if (getLastNonConfigurationInstance() == null)
++            return;
++
+         QtNative.setStarted(savedInstanceState.getBoolean("Started"));
+         boolean isFullScreen = savedInstanceState.getBoolean("isFullScreen");
+         boolean expandedToCutout = savedInstanceState.getBoolean("expandedToCutout");
