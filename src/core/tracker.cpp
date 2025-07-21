@@ -174,7 +174,7 @@ void Tracker::trackPosition()
   mSkipPositionReceived = true;
   mRubberbandModel->addVertex();
 
-  mLastVertexPositionTimestamp = mLastDevicePositionTimestamp;
+  mLastVertexPositionTimestampMSecsSinceEpoch = mLastDevicePositionTimestampMSecsSinceEpoch;
   mMaximumDistanceFailuresCount = 0;
   mCurrentDistance = 0.0;
   mTimeIntervalFulfilled = qgsDoubleNear( mTimeInterval, 0.0 );
@@ -189,6 +189,17 @@ void Tracker::positionReceived()
     // When calling mRubberbandModel->addVertex(), the signal we listen to for new position received is triggered, skip that one
     mSkipPositionReceived = false;
     return;
+  }
+
+  if ( !qgsDoubleNear( mTimeInterval, 0.0 ) )
+  {
+    mTimeIntervalFulfilled = mRubberbandModel->vertexCount() == 1 || ( ( mLastDevicePositionTimestampMSecsSinceEpoch - mLastVertexPositionTimestampMSecsSinceEpoch ) >= mTimeInterval * 1000 );
+
+    if ( !mConjunction && mTimeIntervalFulfilled )
+    {
+      trackPosition();
+      return;
+    }
   }
 
   if ( mRubberbandModel->vertexCount() > 1 && ( !qgsDoubleNear( mMinimumDistance, 0.0 ) || !qgsDoubleNear( mMaximumDistance, 0.0 ) ) )
@@ -211,17 +222,6 @@ void Tracker::positionReceived()
     mMinimumDistanceFulfilled = mRubberbandModel->vertexCount() == 1 || mCurrentDistance >= mMinimumDistance;
 
     if ( !mConjunction && mMinimumDistanceFulfilled )
-    {
-      trackPosition();
-      return;
-    }
-  }
-
-  if ( !qgsDoubleNear( mTimeInterval, 0.0 ) )
-  {
-    mTimeIntervalFulfilled = mRubberbandModel->vertexCount() == 1 || ( ( mLastDevicePositionTimestamp.toMSecsSinceEpoch() - mLastVertexPositionTimestamp.toMSecsSinceEpoch() ) >= mTimeInterval * 1000 );
-
-    if ( !mConjunction && mTimeIntervalFulfilled )
     {
       trackPosition();
       return;
@@ -306,7 +306,7 @@ void Tracker::processPositionInformation( const GnssPositionInformation &positio
   if ( !mIsActive && !mIsReplaying )
     return;
 
-  mLastDevicePositionTimestamp = positionInformation.utcDateTime();
+  mLastDevicePositionTimestampMSecsSinceEpoch = positionInformation.utcDateTime().toMSecsSinceEpoch();
 
   double measureValue = 0.0;
   switch ( mMeasureType )
