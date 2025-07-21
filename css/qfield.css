@@ -896,6 +896,10 @@ div.explanation {
     color: var(--qfield-color);
   }
 
+  .hidden {
+  display: none;
+}
+
 /* success story individual pages */
 
 /* back to all posts*/
