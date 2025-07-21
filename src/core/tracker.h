@@ -20,6 +20,7 @@
 
 #include <QPointer>
 #include <QTimer>
+#include <qgsdistancearea.h>
 #include <qgspoint.h>
 #include <qgsvectorlayer.h>
 
@@ -212,6 +213,8 @@ class Tracker : public QObject
     QDateTime mLastVertexPositionTimestamp;
 
     MeasureType mMeasureType = Tracker::SecondsSinceStart;
+
+    QgsDistanceArea mDa;
 };
 
 #endif // TRACKER_H
