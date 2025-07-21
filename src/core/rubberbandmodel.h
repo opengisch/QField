@@ -155,7 +155,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     Q_INVOKABLE void removeVertex();
 
     //! Reset the model, remove all vertices and restart the vertex index
-    Q_INVOKABLE void reset();
+    Q_INVOKABLE void reset( bool keepLast = true );
 
     /**
      * Sets the model data to match a given \a geometry

@@ -331,9 +331,9 @@ void RubberbandModel::removeVertex()
   removeVertices( mCurrentCoordinateIndex + 1, 1 );
 }
 
-void RubberbandModel::reset()
+void RubberbandModel::reset( bool keepLast )
 {
-  removeVertices( 0, mPointList.size() - 1 );
+  removeVertices( 0, mPointList.size() - ( keepLast ? 1 : 0 ) );
 
   mFrozen = false;
   emit frozenChanged();

@@ -209,8 +209,8 @@ class Tracker : public QObject
     bool mVisible = true;
 
     QDateTime mStartPositionTimestamp;
-    qint64 mLastDevicePositionTimestampMSecsSinceEpoch;
-    qint64 mLastVertexPositionTimestampMSecsSinceEpoch;
+    qint64 mLastDevicePositionTimestampMSecsSinceEpoch = 0;
+    qint64 mLastVertexPositionTimestampMSecsSinceEpoch = 0;
 
     MeasureType mMeasureType = Tracker::SecondsSinceStart;
 
