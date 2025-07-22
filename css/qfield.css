@@ -1024,7 +1024,7 @@ div.explanation {
     background-color: var(--qfield-color);
     color: white;
     padding: 0.75rem 2rem;
-    border-radius: 8px;
+    border-radius: 15px;
     text-decoration: none !important;
     font-weight: bold;
   }
@@ -1035,3 +1035,135 @@ div.explanation {
     text-decoration: none !important;
     /* border: 2px solid var(--qfield-color); */
   }
+
+
+/* reasons to support qfield*/
+
+        .header-section {
+            text-align: center;
+            margin: 50px 0 40px 0;
+        }
+
+        .footer-section {
+            text-align: center;
+            margin: 50px 0 40px 0;
+        }
+
+        .support-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .left-section {
+            padding-right: 0;
+            text-align: left;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .accent-bar {
+            width: 80px;
+            height: 4px;
+            background: var(--qfield-color);
+            margin-bottom: 30px;
+        }
+
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .support-card {
+            background: rgba(220, 232, 245, 0.3);
+            border-radius: 12px;
+            padding: 35px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card-title {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .card-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .card-list li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .card-list ul {
+            margin-left: 0px;
+        }
+
+        .card-list li::before {
+            content: "•";
+            color: #ff6b35;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        @media (max-width: 768px) {
+            .support-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .left-section {
+                padding-right: 0;
+                text-align: left;
+            }
+
+            .header-section h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .support-card {
+                padding: 25px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-section h1 {
+                font-size: 1.6rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .support-card {
+                padding: 20px;
+            }
+
+            .card-title {
+                font-size: 1.2rem;
+            }
+        }
