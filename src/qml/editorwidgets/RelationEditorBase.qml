@@ -28,8 +28,7 @@ EditorWidgetBase {
     }
   }
 
-  // because no additional addEntry item on readOnly (isEnabled false)
-  height: listView.height + (isEnabled ? addEntry.height : 0) + 10
+  height: listView.height + headerEntry.height + 10
   enabled: true
 
   Rectangle {
@@ -41,29 +40,36 @@ EditorWidgetBase {
     clip: true
 
     Rectangle {
-      id: addEntry
+      id: headerEntry
       width: parent.width
-      height: visible ? itemHeight : 0
+      height: itemHeight
       color: Theme.controlBorderColor
-      visible: isEnabled && isActionEnabled('AddChildFeature')
       focus: true
 
+      property bool entryEnabled: isEnabled && isActionEnabled('AddChildFeature')
+
+      onEntryEnabledChanged: {
+        if (entryEnabled && !constraintsHardValid) {
+          displayToast(qsTr('Ensure constraints are met'));
+        }
+      }
+
       Text {
-        visible: isEnabled
-        color: Theme.secondaryTextColor
-        text: isEnabled && !constraintsHardValid ? qsTr('Ensure constraints are met') : ''
+        text: qsTr("%n feature(s)", "", listView.count)
         anchors {
           leftMargin: 10
           left: parent.left
           right: addButtonRow.left
           verticalCenter: parent.verticalCenter
         }
-        font: Theme.tipFont
+        font: Theme.strongTipFont
+        opacity: enabled ? 1 : 0.45
+        color: Theme.mainTextColor
+        enabled: headerEntry.entryEnabled
       }
 
       Row {
         id: addButtonRow
-        spacing: 8
         anchors {
           top: parent.top
           right: parent.right
@@ -72,31 +78,32 @@ EditorWidgetBase {
         height: parent.height
 
         QfToolButton {
-          id: sortButton
+          id: addButton
           width: parent.height
           height: parent.height
-          enabled: constraintsHardValid
+          enabled: constraintsHardValid && headerEntry.entryEnabled
+          visible: enabled
 
           round: false
-          iconSource: Theme.getThemeVectorIcon('ic_sort_white_24dp')
-          bgcolor: parent.enabled ? 'black' : 'grey'
+          iconSource: Theme.getThemeVectorIcon('ic_add_white_24dp')
+          iconColor: enabled ? Theme.mainTextColor : 'grey'
           onClicked: {
-            toggleSortAction();
+            addingIndicator.running = true;
+            addingTimer.restart();
           }
         }
 
         QfToolButton {
-          id: addButton
+          id: sortButton
           width: parent.height
           height: parent.height
-          enabled: constraintsHardValid
+          visible: listView.count > 0
 
           round: false
-          iconSource: Theme.getThemeVectorIcon('ic_add_white_24dp')
-          bgcolor: parent.enabled ? 'black' : 'grey'
+          iconSource: Theme.getThemeVectorIcon('ic_sort_white_24dp')
+          iconColor: Theme.mainTextColor
           onClicked: {
-            addingIndicator.running = true;
-            addingTimer.restart();
+            toggleSortAction();
           }
         }
       }
@@ -150,7 +157,7 @@ EditorWidgetBase {
 
     ListView {
       id: listView
-      anchors.top: addEntry.bottom
+      anchors.top: headerEntry.bottom
       width: parent.width
       height: !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * itemHeight, contentHeight) : contentHeight
       focus: true
