@@ -17,7 +17,7 @@ Rectangle {
   radius: width / 2
 
   border.width: 1.5
-  border.color: Theme.darkTheme ? Theme.mainTextColor : Theme.mainBackgroundColor
+  border.color: Theme.mainBackgroundColor
 
   anchors {
     top: (alignment === QfBadge.TopLeft || alignment === QfBadge.TopRight) ? parent.top : undefined
@@ -34,7 +34,7 @@ Rectangle {
   Text {
     id: inText
     anchors.fill: parent
-    font.pixelSize: text.length === 1 ? height / 1.6 : height / 1.8
+    font.pointSize: Math.max(8, height > 0 ? (text.length === 1 ? height / 2 : height / 2.2) : 8)
     horizontalAlignment: Qt.AlignHCenter
     verticalAlignment: Qt.AlignVCenter
   }
