@@ -1556,7 +1556,7 @@ ApplicationWindow {
         }
 
         QfBadge {
-          alignment: QfBadge.TopRight
+          alignment: QfBadge.Alignment.TopRight
           visible: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
           color: Theme.cloudColor
         }
@@ -2261,7 +2261,7 @@ ApplicationWindow {
         }
 
         QfBadge {
-          alignment: QfBadge.TopRight
+          alignment: QfBadge.Alignment.TopRight
           visible: positioningSettings.accuracyIndicator && gnssButton.state === "On"
           color: !positionSource.positionInformation || !positionSource.positionInformation.haccValid || positionSource.positionInformation.hacc > positioningSettings.accuracyBad ? Theme.accuracyBad : positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent ? Theme.accuracyTolerated : Theme.accuracyExcellent
         }

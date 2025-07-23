@@ -65,7 +65,7 @@ RoundButton {
   font: Theme.tipFont
 
   QfBadge {
-    alignment: QfBadge.BottomRight
+    alignment: QfBadge.Alignment.BottomRight
 
     z: 2
     width: button.width / 2.5

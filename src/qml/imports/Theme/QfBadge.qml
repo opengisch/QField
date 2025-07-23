@@ -4,8 +4,15 @@ import QtQuick.Controls
 Rectangle {
   id: badge
 
+  enum Alignment {
+    TopLeft,
+    TopRight,
+    BottomLeft,
+    BottomRight
+  }
+
   property alias badgeText: inText
-  property int alignment: QfBadge.TopRight
+  property int alignment: QfBadge.Alignment.TopRight
 
   property int topMargin: 2
   property int bottomMargin: 2
@@ -20,10 +27,10 @@ Rectangle {
   border.color: Theme.mainBackgroundColor
 
   anchors {
-    top: (alignment === QfBadge.TopLeft || alignment === QfBadge.TopRight) ? parent.top : undefined
-    bottom: (alignment === QfBadge.BottomLeft || alignment === QfBadge.BottomRight) ? parent.bottom : undefined
-    left: (alignment === QfBadge.TopLeft || alignment === QfBadge.BottomLeft) ? parent.left : undefined
-    right: (alignment === QfBadge.TopRight || alignment === QfBadge.BottomRight) ? parent.right : undefined
+    top: (alignment === QfBadge.Alignment.TopLeft || alignment === QfBadge.Alignment.TopRight) ? parent.top : undefined
+    bottom: (alignment === QfBadge.Alignment.BottomLeft || alignment === QfBadge.Alignment.BottomRight) ? parent.bottom : undefined
+    left: (alignment === QfBadge.Alignment.TopLeft || alignment === QfBadge.Alignment.BottomLeft) ? parent.left : undefined
+    right: (alignment === QfBadge.Alignment.TopRight || alignment === QfBadge.Alignment.BottomRight) ? parent.right : undefined
 
     topMargin: badge.topMargin
     bottomMargin: badge.bottomMargin
