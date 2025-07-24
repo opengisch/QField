@@ -822,7 +822,7 @@ div.explanation {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .ss-card-industry {
@@ -880,15 +880,17 @@ div.explanation {
 /*filter buttons */
   .filter-btn {
     font-weight: bolder;
-    padding: 4px 4px 4px 4px;
+    padding: 5px 10px 5px 10px;
     margin: 3px;
-    border: none;
+    border: var(--qfield-color) 0.5px solid;
+    border-radius: 30px;
     background-color: white;
     cursor: pointer;
   }
 
   .filter-btn:hover {
     color: var(--qfield-color);
+    border: var(--qfield-color) 0.5px solid;
   }
 
   .filter-btn.active {
