@@ -17,10 +17,12 @@
 
 #include "clipboardmanager.h"
 #include "featureutils.h"
+#include "qgsvectorlayerutils.h"
 
 #include <QApplication>
 #include <QDomDocument>
 #include <qgsfeature.h>
+#include <qgsmessagelog.h>
 #include <qgsvectorlayer.h>
 
 ClipboardManager::ClipboardManager( QObject *parent )
@@ -180,4 +182,57 @@ QgsFeature ClipboardManager::pasteFeatureFromClipboard()
   }
 
   return feature;
+}
+
+bool ClipboardManager::pasteAsNewFeatureFromClipboardIntoLayer( QgsVectorLayer *layer )
+{
+  if ( !layer )
+  {
+    QgsMessageLog::logMessage( tr( "Paste failed: no destination layer provided" ), "QField" );
+    return false;
+  }
+
+  QgsFeature feature = pasteFeatureFromClipboard();
+  if ( !feature.isValid() )
+  {
+    QgsMessageLog::logMessage( tr( "Paste failed: clipboard feature is invalid" ), "QField" );
+    return false;
+  }
+
+  const QgsFeatureList compatible = QgsVectorLayerUtils::makeFeaturesCompatible( { feature }, layer );
+  if ( compatible.isEmpty() )
+  {
+    QgsMessageLog::logMessage( tr( "Paste failed: no compatible features could be created" ), "QField" );
+    return false;
+  }
+
+  if ( !layer->isEditable() )
+  {
+    if ( !layer->startEditing() )
+    {
+      QgsMessageLog::logMessage( tr( "Paste failed: could not start editing on layer %1" ).arg( layer->name() ), "QField" );
+      return false;
+    }
+  }
+
+  for ( const QgsFeature &f : compatible )
+  {
+    QgsFeature copyFeature = f;
+    copyFeature.setId( QgsFeatureId() ); // ensure it's a new feature ???
+    if ( !layer->addFeature( copyFeature ) )
+    {
+      QgsMessageLog::logMessage( tr( "Paste failed: could not add feature to layer %1" ).arg( layer->name() ), "QField" );
+      layer->rollBack();
+      return false;
+    }
+  }
+
+  if ( !layer->commitChanges( true ) )
+  {
+    QgsMessageLog::logMessage( tr( "Paste failed: commitChanges failed on layer %1" ).arg( layer->name() ), "QField" );
+    layer->rollBack();
+    return false;
+  }
+
+  return true;
 }

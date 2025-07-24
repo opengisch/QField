@@ -3096,6 +3096,85 @@ ApplicationWindow {
       onTriggered: qfieldSettings.enableMapRotation = checked
     }
 
+    Instantiator {
+      model: clipboardManager ? clipboardManager.holdsFeature ? 1 : 0 : 0
+
+      QfMenu {
+        id: pasteIntoLayers
+        title: "Paste into Layer"
+        icon.source: Theme.getThemeVectorIcon("ic_paste_black_24dp")
+        icon.color: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        font: Theme.defaultFont
+        enabled: clipboardManager ? clipboardManager.holdsFeature : false
+
+        onAboutToShow: {
+          // Populate just once
+          if (layersModel.count === 0) {
+            const mapLayers = ProjectUtils.mapLayers(qgisProject);
+            for (let layerId in mapLayers) {
+              const layer = mapLayers[layerId];
+              const geometryType = typeof layer.geometryType === 'function' ? layer.geometryType() : -1;
+              const hasGeometry = [0, 1, 2].includes(geometryType); // 0 = Point & 1 = Line & 2 = Polygon
+              if (layer.supportsEditing && !layer.readOnly && hasGeometry) {
+                layersModel.append({
+                    "LayerType": geometryType,
+                    "Layer": layer
+                  });
+              }
+            }
+          }
+        }
+
+        ListView {
+          model: ListModel {
+            id: layersModel
+          }
+
+          width: parent.width
+          height: Math.min(count * 48, 8 * 48)
+          delegate: MenuItem {
+            text: Layer.name
+            font: Theme.defaultFont
+            leftPadding: Theme.menuItemLeftPadding
+            height: 48
+            icon.source: {
+              switch (LayerType) {
+              case Qgis.GeometryType.Point:
+                return Theme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
+              case Qgis.GeometryType.Line:
+                return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
+              case Qgis.GeometryType.Polygon:
+                return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
+              default:
+                return '';
+              }
+            }
+            icon.width: 16
+            icon.height: 16
+
+            onTriggered: {
+              if (Layer) {
+                const result = clipboardManager.pasteAsNewFeatureFromClipboardIntoLayer(Layer);
+                if (result) {
+                  displayToast(qsTr("Feature pasted successfully"), 'info');
+                } else {
+                  displayToast(qsTr("Failed to paste feature into layer"), 'error');
+                }
+                canvasMenu.close();
+              }
+            }
+          }
+        }
+      }
+
+      onObjectAdded: (index, object) => {
+        canvasMenu.insertMenu(index + 7, object);
+      }
+      onObjectRemoved: (index, object) => {
+        canvasMenu.removeMenu(object);
+      }
+    }
+
     MenuSeparator {
       width: parent.width
     }

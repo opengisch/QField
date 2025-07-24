@@ -64,6 +64,14 @@ class ClipboardManager : public QObject
      */
     Q_INVOKABLE QgsFeature pasteFeatureFromClipboard();
 
+    /**
+     * Pastes the copied feature from the clipboard into the given editable layer.
+     * The feature is made compatible with the layer before being inserted.
+     * \param layer destination vector layer
+     * \returns TRUE if insertion was successful
+     */
+    Q_INVOKABLE bool pasteAsNewFeatureFromClipboardIntoLayer( QgsVectorLayer *layer );
+
   signals:
 
     void holdsFeatureChanged();
