@@ -276,11 +276,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected.</source>
-        <translation type="unfinished"/>
+        <translation>Ei havaittuja Bluetooth-laitteita.</translation>
     </message>
     <message>
         <source>Deeper scanning for paired devices</source>
-        <translation type="unfinished"/>
+        <translation>Paritettujen laitteiden tarkempi skannaus</translation>
     </message>
 </context>
 <context>
@@ -526,7 +526,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>The project is read-only.</source>
-        <translation type="unfinished"/>
+        <translation>Projekti on vain luku -tilassa.</translation>
     </message>
 </context>
 <context>
@@ -770,7 +770,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud-tilausliitteen virhe:</translation>
     </message>
 </context>
 <context>
@@ -833,7 +833,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Feature addition disabled</source>
-        <translation type="unfinished"/>
+        <translation>Kohteiden lisäys poistettu käytöstä</translation>
     </message>
 </context>
 <context>
@@ -1373,23 +1373,23 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>feature addition</source>
-        <translation type="unfinished"/>
+        <translation>kohteiden lisäys</translation>
     </message>
     <message>
         <source>attribute editing</source>
-        <translation type="unfinished"/>
+        <translation>ominaisuuksien muokkaus</translation>
     </message>
     <message>
         <source>geometry editing</source>
-        <translation type="unfinished"/>
+        <translation>geometrian editointi</translation>
     </message>
     <message>
         <source>feature deletion</source>
-        <translation type="unfinished"/>
+        <translation>kohteiden poisto</translation>
     </message>
     <message>
         <source>Disabled layer permissions: %1</source>
-        <translation type="unfinished"/>
+        <translation>Poistetut tasojen käyttöoikeudet: %1</translation>
     </message>
 </context>
 <context>
@@ -1465,7 +1465,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation type="unfinished"/>
+        <translation>Tämän tason käyttöoikeusasetukset estävät kohteiden lisäämisen.</translation>
     </message>
 </context>
 <context>
@@ -1948,7 +1948,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation type="unfinished"/>
+        <translation>Pyydetyn laajennuksen URL-osoite löytyy saatavilla olevien lisäosien luettelosta. Asenna se latauspainikkeen kautta.</translation>
     </message>
 </context>
 <context>
@@ -1987,23 +1987,23 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Local Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Paikalliset lisäosat</translation>
     </message>
     <message>
         <source>Available Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Saatavilla olevat lisäosat</translation>
     </message>
     <message>
         <source>Search for plugin</source>
-        <translation type="unfinished"/>
+        <translation>Etsi lisäosia</translation>
     </message>
     <message>
         <source>Fetching available plugins</source>
-        <translation type="unfinished"/>
+        <translation>Haetaan saatavilla olevia lisäosia</translation>
     </message>
     <message>
         <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation type="unfinished"/>
+        <translation>Yhtään laajennusta ei ole vielä asennettu. Kokeile niitä heti %1käytettävissä olevat laajennukset%3 -välilehdellä. &lt;br&gt;&lt;br&gt;Lisätietoja saat %2lukemalla dokumentaation%3.</translation>
     </message>
 </context>
 <context>
@@ -2860,15 +2860,15 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>File system error. Failed to write attachment to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostojärjestelmävirhe. Liitteen kirjoittaminen väliaikaiseen sijaintiin `%1` epäonnistui.</translation>
     </message>
     <message>
         <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostojärjestelmävirhe. Liitteen avaaminen kirjoittamista varten väliaikaiseen tiedostoon `%1` epäonnistui.</translation>
     </message>
     <message>
         <source>Network error. Failed to download attachment `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Verkkovirhe. Liitteen `%1` lataaminen epäonnistui.</translation>
     </message>
 </context>
 <context>
@@ -3468,15 +3468,15 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>root folder</source>
-        <translation type="unfinished"/>
+        <translation>juuri hakemisto</translation>
     </message>
     <message>
         <source>Available locally in ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Saatavilla paikallisesti kohteessa ‘%1’</translation>
     </message>
     <message>
         <source>Imported folder name</source>
-        <translation type="unfinished"/>
+        <translation>Tuodun kansion nimi</translation>
     </message>
 </context>
 <context>
@@ -4062,7 +4062,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Skipped file %1 outside of the directory %2</source>
-        <translation type="unfinished"/>
+        <translation>Ohitettiin tiedosto %1 hakemiston %2 ulkopuolella</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
@@ -4386,7 +4386,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Ensure constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>Varmista, että rajoitukset täyttyvät</translation>
     </message>
 </context>
 <context>
@@ -5818,47 +5818,47 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source> Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Projekti lisäosa</translation>
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
-        <translation type="unfinished"/>
+        <translation>Annatko luvan aktivoida lisäosan?</translation>
     </message>
     <message>
         <source>Follow location paused</source>
-        <translation type="unfinished"/>
+        <translation>Sijainnin seuraaminen keskeytetty</translation>
     </message>
     <message>
         <source>Failed to create feature</source>
-        <translation type="unfinished"/>
+        <translation>Kohteen luominen epäonnistui</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation type="unfinished"/>
+        <translation>Kohteen luominen epäonnistui, koska kohteen lisäysoikeus on poistettu käytöstä.</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
-        <translation type="unfinished"/>
+        <translation>Kohteen tallentaminen epäonnistui</translation>
     </message>
     <message>
         <source>Digitizing toggle</source>
-        <translation type="unfinished"/>
+        <translation>Digitointikytkin</translation>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation type="unfinished"/>
+        <translation>Vaihda selaus- ja digitointitilojen välillä. Selaustila keskittyy tarjoamaan parhaan mahdollisen käyttökokemuksen kartan ja sen kohteiden katselussa, kun taas digitointitilassa voit luoda kohteita ja muokata geometrioita.</translation>
     </message>
     <message>
         <source>Measurement</source>
-        <translation type="unfinished"/>
+        <translation>Mittaus</translation>
     </message>
     <message>
         <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Ota mittaustyökalu käyttöön laskeaksesi etäisyyksiä ja alueita kartalla.</translation>
     </message>
     <message>
         <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
-        <translation type="unfinished"/>
+        <translation>Vie karttapohja PDF-muotoon käyttämällä määritettyjä projektitulostus- ja atlasasetteluja.</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -5866,23 +5866,23 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Lähetä muutoksia, synkronoi tai palauta ne QFieldCloudiin ja QFieldCloudista, kun pilviprojekti avataan.</translation>
     </message>
     <message>
         <source>Project folder</source>
-        <translation type="unfinished"/>
+        <translation>Projektihakemisto</translation>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation type="unfinished"/>
+        <translation>Avaa projektikansio käyttääksesi projektitiedostoja, tietolähteitä ja niihin liittyviä dokumentteja. Hyödyllinen projektiresurssien hallintaan, tietojen manuaaliseen lataamiseen QFieldCloudiin sekä tietojoukkojen, liitteiden ja asettelujen jakamiseen.</translation>
     </message>
     <message>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>Selite</translation>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
-        <translation type="unfinished"/>
+        <translation>Selite näyttää karttatasot ja antaa sinun vaihtaa näkyvyys- ja läpinäkyvyysominaisuuksia &lt;b&gt; painamalla tasoa pitkään, jolloin ominaisuusikkuna avautuu&lt;/b&gt;. Ponnahdusikkuna tarjoaa lisätoimintoja, kuten zoomauksen tason laajuuteen ja vektoritasojen sisältämien kohteiden näyttämisen.</translation>
     </message>
 </context>
 <context>
