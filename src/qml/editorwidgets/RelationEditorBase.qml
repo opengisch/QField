@@ -8,7 +8,7 @@ import "../"
 EditorWidgetBase {
   id: relationEditorBase
 
-  property var relationEditorModel: relationEditorProxyModel
+  property var relationEditorModel: undefined
 
   property alias listView: listView
 

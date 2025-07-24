@@ -15,7 +15,7 @@ RelationEditorBase {
 
   showAllItems: true
 
-  OrderedRelationModel {
+  relationEditorModel: OrderedRelationModel {
     //containing the current (parent) feature, the relation to the children
     //and the relation from the children to the other parent (if it's nm and cardinality is set)
     id: orderedRelationModel
@@ -32,15 +32,11 @@ RelationEditorBase {
     }
   }
 
-  OrderedRelationProxyModel {
-    id: orderedRelationProxyModel
-    sourceModel: orderedRelationModel
-  }
-
-  relationEditorModel: orderedRelationModel
-
   listView.model: DelegateModel {
-    model: orderedRelationProxyModel
+    model: OrderedRelationProxyModel {
+      id: orderedRelationProxyModel
+      sourceModel: orderedRelationModel
+    }
     delegate: dragDelegate
   }
 

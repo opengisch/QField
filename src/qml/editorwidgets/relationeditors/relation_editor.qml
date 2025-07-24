@@ -12,7 +12,7 @@ import ".."
 RelationEditorBase {
   id: relationEditor
 
-  ReferencingFeatureListModel {
+  relationEditorModel: ReferencingFeatureListModel {
     //containing the current (parent) feature, the relation to the children
     //and the relation from the children to the other parent (if it's nm and cardinality is set)
     //if cardinality is not set, the nmRelationId is empty
@@ -30,20 +30,16 @@ RelationEditorBase {
     }
   }
 
-  ReferencingFeatureProxyModel {
-    id: relationEditorProxyModel
-    sourceModel: referencingFeatureListModel
-    sortOrder: Qt.DescendingOrder
-  }
-
-  relationEditorModel: referencingFeatureListModel
-
   onToggleSortAction: {
     relationEditorProxyModel.sortOrder = relationEditorProxyModel.sortOrder === Qt.AscendingOrder ? Qt.DescendingOrder : Qt.AscendingOrder;
   }
 
   listView.model: DelegateModel {
-    model: relationEditorProxyModel
+    model: ReferencingFeatureProxyModel {
+      id: relationEditorProxyModel
+      sourceModel: referencingFeatureListModel
+      sortOrder: Qt.DescendingOrder
+    }
     delegate: referencingFeatureDelegate
   }
 
