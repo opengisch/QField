@@ -866,13 +866,7 @@ void QFieldCloudProject::download()
         continue;
       }
 
-      mDownloadFileTransfers.insert( QStringLiteral( "%1/%2" ).arg( mId, fileName ), FileTransfer( fileName, fileSize, mId, cloudEtag ) );
-      const QString fileKey = QStringLiteral( "%1/%2" ).arg( mId, fileName );
-      const QString projectDir = QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId );
-      FileTransfer &transfer = mDownloadFileTransfers[fileKey];
-      transfer.partialFilePath = QDir( projectDir ).filePath( QStringLiteral( "%1.%2.part" ).arg( fileName, cloudEtag ) );
-
-      mDownloadBytesTotal += std::max( fileSize, 0 );
+      prepareDownloadTransfer( mId, fileName, fileSize, cloudEtag );
     }
 
     emit downloadBytesTotalChanged();
@@ -957,13 +951,7 @@ void QFieldCloudProject::download()
               if ( cloudEtag == localEtag )
                 continue;
 
-              mDownloadFileTransfers.insert( QStringLiteral( "%1/%2" ).arg( mSharedDatasetsProjectId, fileName ), FileTransfer( fileName, fileSize, mSharedDatasetsProjectId, cloudEtag ) );
-              const QString fileKey = QStringLiteral( "%1/%2" ).arg( mId, fileName );
-              const QString projectDir = QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId );
-              FileTransfer &transfer = mDownloadFileTransfers[fileKey];
-              transfer.partialFilePath = QDir( projectDir ).filePath( QStringLiteral( "%1.%2.part" ).arg( fileName, cloudEtag ) );
-
-              mDownloadBytesTotal += std::max( fileSize, 0 );
+              prepareDownloadTransfer( mId, fileName, fileSize, cloudEtag );
             }
           }
           emit downloadBytesTotalChanged();
@@ -993,6 +981,30 @@ void QFieldCloudProject::download()
       downloadFiles();
     }
   } );
+}
+
+void QFieldCloudProject::prepareDownloadTransfer( const QString &projectId, const QString &fileName, int fileSize, const QString &cloudEtag )
+{
+  const QString fileKey = QStringLiteral( "%1/%2" ).arg( projectId, fileName );
+  const QString projectDir = QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, projectId );
+
+  FileTransfer transfer( fileName, fileSize, projectId, cloudEtag );
+  transfer.partialFilePath = QDir( projectDir ).filePath( QStringLiteral( "%1.%2.part" ).arg( fileName, cloudEtag ) );
+
+  mDownloadFileTransfers.insert( fileKey, transfer );
+
+  // Remove old .part files with different etag
+  QDir dir( projectDir );
+  QStringList partFiles = dir.entryList( QStringList() << QStringLiteral( "%1.*.part" ).arg( fileName ), QDir::Files );
+  for ( const QString &partFile : partFiles )
+  {
+    if ( partFile.startsWith( fileName + "." ) && !partFile.contains( cloudEtag ) )
+    {
+      QgsLogger::debug( QStringLiteral( "Deleting outdated partial file: %1" ).arg( partFile ) );
+      QFile::remove( dir.filePath( partFile ) );
+    }
+  }
+  mDownloadBytesTotal += std::max( fileSize, 0 );
 }
 
 void QFieldCloudProject::updateActiveFilesToDownload()

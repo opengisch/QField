@@ -411,6 +411,7 @@ class QFieldCloudProject : public QObject
 
   private:
     void download();
+    void prepareDownloadTransfer( const QString &projectId, const QString &fileName, int fileSize, const QString &cloudEtag );
     void downloadFiles();
     void updateActiveFilesToDownload();
     void downloadFilesCompleted();
