@@ -104,7 +104,7 @@ void Geometry::updateRubberband( const QgsGeometry &geometry )
   }
   else
   {
-    mRubberbandModel->reset();
+    mRubberbandModel->reset( false );
   }
 }
 

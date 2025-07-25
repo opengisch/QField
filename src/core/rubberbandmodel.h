@@ -155,7 +155,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     Q_INVOKABLE void removeVertex();
 
     //! Reset the model, remove all vertices and restart the vertex index
-    Q_INVOKABLE void reset();
+    Q_INVOKABLE void reset( bool keepLast = true );
 
     /**
      * Sets the model data to match a given \a geometry
@@ -175,11 +175,14 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     //! Remove \a count vertices starting at \a index
     void removeVertices( int index, int count );
 
-    //! Returns the current vertex point transformed to give \a crs
+    //! Returns the current vertex point transformed to the given \a crs
     QgsPoint currentPoint( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem(), Qgis::WkbType wkbType = Qgis::WkbType::PointZ ) const;
 
-    //! Returns all vertices points keeping only X and Y coordinates
+    //! Returns all vertices points keeping only X and Y coordinates and transformed to the given \a crs
     QVector<QgsPointXY> flatPointSequence( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem() ) const;
+
+    //! Returns the vertex point at a given \a index transformed to the given \a crs
+    QgsPoint vertexAt( int index, const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem() ) const;
 
   signals:
     void vertexChanged( int index );

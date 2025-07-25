@@ -105,6 +105,21 @@ QVector<QgsPointXY> RubberbandModel::flatPointSequence( const QgsCoordinateRefer
   return sequence;
 }
 
+QgsPoint RubberbandModel::vertexAt( int index, const QgsCoordinateReferenceSystem &crs ) const
+{
+  if ( index >= mPointList.size() )
+    return QgsPoint();
+
+  QgsPoint point = mPointList.at( index );
+  if ( crs.isValid() && mCrs != crs )
+  {
+    QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
+    point.transform( ct );
+  }
+
+  return point;
+}
+
 void RubberbandModel::setVertex( int index, QgsPoint coordinate )
 {
   if ( mPointList.at( index ) != coordinate )
@@ -316,9 +331,9 @@ void RubberbandModel::removeVertex()
   removeVertices( mCurrentCoordinateIndex + 1, 1 );
 }
 
-void RubberbandModel::reset()
+void RubberbandModel::reset( bool keepLast )
 {
-  removeVertices( 0, mPointList.size() - 1 );
+  removeVertices( 0, mPointList.size() - ( keepLast ? 1 : 0 ) );
 
   mFrozen = false;
   emit frozenChanged();

@@ -18,7 +18,6 @@
 #include "rubberbandmodel.h"
 #include "tracker.h"
 
-#include <qgsdistancearea.h>
 #include <qgsproject.h>
 #include <qgssensormanager.h>
 
@@ -27,6 +26,8 @@
 Tracker::Tracker( QgsVectorLayer *vectorLayer )
   : mVectorLayer( vectorLayer )
 {
+  mDa.setEllipsoid( QgsProject::instance()->ellipsoid() );
+  mDa.setSourceCrs( QgsProject::instance()->crs(), QgsProject::instance()->transformContext() );
 }
 
 void Tracker::setVisible( bool visible )
@@ -173,7 +174,7 @@ void Tracker::trackPosition()
   mSkipPositionReceived = true;
   mRubberbandModel->addVertex();
 
-  mLastVertexPositionTimestamp = mLastDevicePositionTimestamp;
+  mLastVertexPositionTimestampMSecsSinceEpoch = mLastDevicePositionTimestampMSecsSinceEpoch;
   mMaximumDistanceFailuresCount = 0;
   mCurrentDistance = 0.0;
   mTimeIntervalFulfilled = qgsDoubleNear( mTimeInterval, 0.0 );
@@ -190,24 +191,25 @@ void Tracker::positionReceived()
     return;
   }
 
+  if ( !qgsDoubleNear( mTimeInterval, 0.0 ) )
+  {
+    mTimeIntervalFulfilled = mRubberbandModel->vertexCount() == 1 || ( ( mLastDevicePositionTimestampMSecsSinceEpoch - mLastVertexPositionTimestampMSecsSinceEpoch ) >= mTimeInterval * 1000 );
+
+    if ( !mConjunction && mTimeIntervalFulfilled )
+    {
+      trackPosition();
+      return;
+    }
+  }
+
   if ( mRubberbandModel->vertexCount() > 1 && ( !qgsDoubleNear( mMinimumDistance, 0.0 ) || !qgsDoubleNear( mMaximumDistance, 0.0 ) ) )
   {
-    QVector<QgsPointXY> points = mRubberbandModel->flatPointSequence( QgsProject::instance()->crs() );
+    const QgsPoint lastVertex = mRubberbandModel->vertexAt( mRubberbandModel->vertexCount() - 1, QgsProject::instance()->crs() );
+    const QgsPoint vertexBeforeLast = mRubberbandModel->vertexAt( mRubberbandModel->vertexCount() - 2, QgsProject::instance()->crs() );
 
-    auto pointIt = points.constEnd() - 1;
-
-    QVector<QgsPointXY> flatPoints;
-
-    flatPoints << *pointIt;
-    pointIt--;
-    flatPoints << *pointIt;
-
-    QgsDistanceArea distanceArea;
-    distanceArea.setEllipsoid( QgsProject::instance()->ellipsoid() );
-    distanceArea.setSourceCrs( QgsProject::instance()->crs(), QgsProject::instance()->transformContext() );
     try
     {
-      mCurrentDistance = distanceArea.measureLine( flatPoints );
+      mCurrentDistance = mDa.measureLine( lastVertex, vertexBeforeLast );
     }
     catch ( const QgsException & )
     {
@@ -220,17 +222,6 @@ void Tracker::positionReceived()
     mMinimumDistanceFulfilled = mRubberbandModel->vertexCount() == 1 || mCurrentDistance >= mMinimumDistance;
 
     if ( !mConjunction && mMinimumDistanceFulfilled )
-    {
-      trackPosition();
-      return;
-    }
-  }
-
-  if ( !qgsDoubleNear( mTimeInterval, 0.0 ) )
-  {
-    mTimeIntervalFulfilled = mRubberbandModel->vertexCount() == 1 || ( ( mLastDevicePositionTimestamp.toMSecsSinceEpoch() - mLastVertexPositionTimestamp.toMSecsSinceEpoch() ) >= mTimeInterval * 1000 );
-
-    if ( !mConjunction && mTimeIntervalFulfilled )
     {
       trackPosition();
       return;
@@ -315,7 +306,7 @@ void Tracker::processPositionInformation( const GnssPositionInformation &positio
   if ( !mIsActive && !mIsReplaying )
     return;
 
-  mLastDevicePositionTimestamp = positionInformation.utcDateTime();
+  mLastDevicePositionTimestampMSecsSinceEpoch = positionInformation.utcDateTime().toMSecsSinceEpoch();
 
   double measureValue = 0.0;
   switch ( mMeasureType )
