@@ -411,8 +411,10 @@ class QFieldCloudProject : public QObject
 
   private:
     void download();
+    void prepareDownloadTransfer( const QString &projectId, const QString &fileName, int fileSize, const QString &cloudEtag );
     void downloadFiles();
     void updateActiveFilesToDownload();
+    void downloadFilesCompleted();
 
     void startJob( JobType type );
 
@@ -433,8 +435,9 @@ class QFieldCloudProject : public QObject
         FileTransfer(
           const QString &fileName,
           const long long bytesTotal,
-          const QString &projectId )
-          : fileName( fileName ), bytesTotal( bytesTotal ), projectId( projectId ) {};
+          const QString &projectId,
+          const QString &etag )
+          : fileName( fileName ), bytesTotal( bytesTotal ), projectId( projectId ), etag( etag ) {};
 
         FileTransfer() = default;
 
@@ -442,6 +445,8 @@ class QFieldCloudProject : public QObject
         long long bytesTotal;
         QString projectId;
 
+        QString etag;
+        QString partialFilePath;
         QString tmpFile;
         long long bytesTransferred = 0;
         bool isFinished = false;

@@ -30,6 +30,7 @@
 #define MAX_REDIRECTS_ALLOWED 10
 #define MAX_PARALLEL_REQUESTS 6
 #define CACHE_PROJECT_DATA_SECS 1
+#define QFIELDCLOUD_MINIMUM_RANGE_HEADER_LENGTH 1000000
 
 QFieldCloudProject::QFieldCloudProject( const QString &id, QFieldCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher )
   : mId( id ), mCloudConnection( connection ), mGpkgFlusher( gpkgFlusher )
@@ -498,7 +499,7 @@ void QFieldCloudProject::downloadAttachment( const QString &fileName )
 {
   if ( !mAttachmentsFileTransfers.contains( fileName ) )
   {
-    mAttachmentsFileTransfers.insert( fileName, FileTransfer( fileName, 0, mId ) );
+    mAttachmentsFileTransfers.insert( fileName, FileTransfer( fileName, 0, mId, FileUtils::fileEtag( fileName ) ) );
 
     NetworkReply *reply = downloadFile( mId, fileName, true, true );
     QTemporaryFile *file = new QTemporaryFile( reply );
@@ -865,8 +866,7 @@ void QFieldCloudProject::download()
         continue;
       }
 
-      mDownloadFileTransfers.insert( QStringLiteral( "%1/%2" ).arg( mId, fileName ), FileTransfer( fileName, fileSize, mId ) );
-      mDownloadBytesTotal += std::max( fileSize, 0 );
+      prepareDownloadTransfer( mId, fileName, fileSize, cloudEtag );
     }
 
     emit downloadBytesTotalChanged();
@@ -951,8 +951,7 @@ void QFieldCloudProject::download()
               if ( cloudEtag == localEtag )
                 continue;
 
-              mDownloadFileTransfers.insert( QStringLiteral( "%1/%2" ).arg( mSharedDatasetsProjectId, fileName ), FileTransfer( fileName, fileSize, mSharedDatasetsProjectId ) );
-              mDownloadBytesTotal += std::max( fileSize, 0 );
+              prepareDownloadTransfer( mId, fileName, fileSize, cloudEtag );
             }
           }
           emit downloadBytesTotalChanged();
@@ -982,6 +981,30 @@ void QFieldCloudProject::download()
       downloadFiles();
     }
   } );
+}
+
+void QFieldCloudProject::prepareDownloadTransfer( const QString &projectId, const QString &fileName, int fileSize, const QString &cloudEtag )
+{
+  const QString fileKey = QStringLiteral( "%1/%2" ).arg( projectId, fileName );
+  const QString projectDir = QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, projectId );
+
+  FileTransfer transfer( fileName, fileSize, projectId, cloudEtag );
+  transfer.partialFilePath = QDir( projectDir ).filePath( QStringLiteral( "%1.%2.part" ).arg( fileName, cloudEtag ) );
+
+  mDownloadFileTransfers.insert( fileKey, transfer );
+
+  // Remove old .part files with different etag
+  QDir dir( projectDir );
+  QStringList partFiles = dir.entryList( QStringList() << QStringLiteral( "%1.*.part" ).arg( fileName ), QDir::Files );
+  for ( const QString &partFile : partFiles )
+  {
+    if ( partFile.startsWith( fileName + "." ) && !partFile.endsWith( QStringLiteral( "%1.part" ).arg( cloudEtag ) ) )
+    {
+      QgsLogger::debug( QStringLiteral( "Deleting outdated partial file: %1" ).arg( partFile ) );
+      QFile::remove( dir.filePath( partFile ) );
+    }
+  }
+  mDownloadBytesTotal += std::max( fileSize, 0 );
 }
 
 void QFieldCloudProject::updateActiveFilesToDownload()
@@ -1064,22 +1087,19 @@ void QFieldCloudProject::downloadFiles()
       continue;
     }
 
-    NetworkReply *reply = downloadFile( mDownloadFileTransfers[fileKey].projectId, mDownloadFileTransfers[fileKey].fileName, mDownloadFileTransfers[fileKey].projectId == mId );
+    FileTransfer &fileTransfer = mDownloadFileTransfers[fileKey];
 
-    QTemporaryFile *file = new QTemporaryFile( reply );
-    file->setAutoRemove( false );
+    NetworkReply *reply = downloadFile( fileTransfer.projectId, fileTransfer.fileName, fileTransfer.projectId == mId );
 
-    if ( !file->open() )
+    const QDir partialDir = QFileInfo( fileTransfer.partialFilePath ).dir();
+    if ( !partialDir.exists() )
+      partialDir.mkpath( "." );
+
+    if ( reply )
     {
-      mDownloadFilesFailed++;
-      emit downloadFinished( tr( "Failed to open temporary file for `%1`, reason:\n%2" ).arg( mDownloadFileTransfers[fileKey].fileName ).arg( file->errorString() ) );
-      return;
+      fileTransfer.networkReply = reply;
+      downloadFileConnections( fileKey );
     }
-
-    mDownloadFileTransfers[fileKey].tmpFile = file->fileName();
-    mDownloadFileTransfers[fileKey].networkReply = reply;
-
-    downloadFileConnections( fileKey );
   }
 }
 
@@ -1141,8 +1161,8 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
       return;
     }
 
-    const QString temporaryFileName = mDownloadFileTransfers[fileKey].tmpFile;
-    QFile file( temporaryFileName );
+    const QString partialFileName = mDownloadFileTransfers[fileKey].partialFilePath;
+    QFile file( partialFileName );
     QString errorMessageDetail;
     QString errorMessage;
     bool hasError = false;
@@ -1155,7 +1175,7 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
       {
         hasError = true;
         errorMessageDetail = file.errorString();
-        errorMessage = tr( "File system error. Failed to write file to temporary location `%1`." ).arg( temporaryFileName );
+        errorMessage = tr( "File system error. Failed to write to partial file `%1`." ).arg( partialFileName );
       }
 
       file.close();
@@ -1164,7 +1184,7 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
     {
       hasError = true;
       errorMessageDetail = file.errorString();
-      errorMessage = tr( "File system error. Failed to open file for writing on temporary `%1`." ).arg( temporaryFileName );
+      errorMessage = tr( "File system error. Failed to open partial file `%1`." ).arg( partialFileName );
     }
 
     // check if the code above failed with error
@@ -1240,90 +1260,95 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
 
     if ( mDownloadFilesFinished == fileKeys.count() )
     {
-      QgsLogger::debug( QStringLiteral( "Project %1: All files downloaded." ).arg( mId ) );
-      Q_ASSERT( mActiveFilesToDownload.size() == 0 );
-
-      QDir projectPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
-      const bool currentProjectReloadNeeded = QgsProject::instance()->homePath().startsWith( projectPath.absolutePath() );
-      QStringList gpkgFileNames;
-      if ( currentProjectReloadNeeded )
-      {
-        // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
-        QDirIterator it( projectPath.absolutePath(), { QStringLiteral( "*.gpkg" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
-        while ( it.hasNext() )
-        {
-          gpkgFileNames << it.nextFileInfo().absoluteFilePath();
-        }
-
-        QgsProject::instance()->clear();
-        if ( mGpkgFlusher )
-        {
-          for ( const QString &fileName : gpkgFileNames )
-          {
-            mGpkgFlusher->stop( fileName );
-          }
-        }
-      }
-
-      // move the files from their temporary location to their permanent one
-      if ( !moveDownloadedFilesToPermanentStorage() )
-      {
-        emit downloadFinished( tr( "Failed to copy some of the downloaded files on your device. Check your device storage." ) );
-        return;
-      }
-
-      if ( currentProjectReloadNeeded )
-      {
-        // Clear up Geopackage's shm and wal files
-        for ( const QString &fileName : gpkgFileNames )
-        {
-          QFile shmFile( QStringLiteral( "%1-shm" ).arg( fileName ) );
-          if ( shmFile.exists() )
-          {
-            if ( !shmFile.remove() )
-            {
-              QgsMessageLog::logMessage( QStringLiteral( "Failed to remove -shm file '%1' " ).arg( shmFile.fileName() ) );
-            }
-          }
-
-          QFile walFile( QStringLiteral( "%1-wal" ).arg( fileName ) );
-          if ( walFile.exists() )
-          {
-            if ( !walFile.remove() )
-            {
-              QgsMessageLog::logMessage( QStringLiteral( "Failed to remove -wal file '%1' " ).arg( walFile.fileName() ) );
-            }
-          }
-        }
-
-        AppInterface::instance()->reloadProject();
-      }
-
-      setStatus( ProjectStatus::Idle );
-      setErrorStatus( NoErrorStatus );
-      setCheckout( ProjectCheckout::LocalAndRemoteCheckout );
-      setLocalPath( QFieldCloudUtils::localProjectFilePath( mUsername, mId ) );
-      setLastLocalExportedAt( QDateTime::currentDateTimeUtc().toString( Qt::ISODate ) );
-      setLastLocalExportId( QUuid::createUuid().toString( QUuid::WithoutBraces ) );
-      setLastLocalDataLastUpdatedAt( mDataLastUpdatedAt );
-      setIsOutdated( false );
-      setProjectFileIsOutdated( false );
-
-      QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastExportedAt" ), mLastExportedAt );
-      QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastExportId" ), mLastExportId );
-      QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalExportedAt" ), mLastLocalExportedAt );
-      QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalExportId" ), mLastLocalExportId );
-      QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalDataLastUpdatedAt" ), mLastLocalDataLastUpdatedAt );
-      QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastProjectFileMd5" ), QString() );
-      QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "projectFileOudated" ), false );
-
-      emit downloadFinished();
+      downloadFilesCompleted();
     }
     else
     {
       downloadFiles();
     }
   } );
+}
+
+void QFieldCloudProject::downloadFilesCompleted()
+{
+  QgsLogger::debug( QStringLiteral( "Project %1: All files downloaded." ).arg( mId ) );
+  Q_ASSERT( mActiveFilesToDownload.size() == 0 );
+
+  QDir projectPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
+  const bool currentProjectReloadNeeded = QgsProject::instance()->homePath().startsWith( projectPath.absolutePath() );
+  QStringList gpkgFileNames;
+  if ( currentProjectReloadNeeded )
+  {
+    // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
+    QDirIterator it( projectPath.absolutePath(), { QStringLiteral( "*.gpkg" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
+    while ( it.hasNext() )
+    {
+      gpkgFileNames << it.nextFileInfo().absoluteFilePath();
+    }
+
+    QgsProject::instance()->clear();
+    if ( mGpkgFlusher )
+    {
+      for ( const QString &fileName : gpkgFileNames )
+      {
+        mGpkgFlusher->stop( fileName );
+      }
+    }
+  }
+
+  // move the files from their temporary location to their permanent one
+  if ( !moveDownloadedFilesToPermanentStorage() )
+  {
+    emit downloadFinished( tr( "Failed to copy some of the downloaded files on your device. Check your device storage." ) );
+    return;
+  }
+
+  if ( currentProjectReloadNeeded )
+  {
+    // Clear up Geopackage's shm and wal files
+    for ( const QString &fileName : gpkgFileNames )
+    {
+      QFile shmFile( QStringLiteral( "%1-shm" ).arg( fileName ) );
+      if ( shmFile.exists() )
+      {
+        if ( !shmFile.remove() )
+        {
+          QgsMessageLog::logMessage( QStringLiteral( "Failed to remove -shm file '%1' " ).arg( shmFile.fileName() ) );
+        }
+      }
+
+      QFile walFile( QStringLiteral( "%1-wal" ).arg( fileName ) );
+      if ( walFile.exists() )
+      {
+        if ( !walFile.remove() )
+        {
+          QgsMessageLog::logMessage( QStringLiteral( "Failed to remove -wal file '%1' " ).arg( walFile.fileName() ) );
+        }
+      }
+    }
+
+    AppInterface::instance()->reloadProject();
+  }
+
+  setStatus( ProjectStatus::Idle );
+  setErrorStatus( NoErrorStatus );
+  setCheckout( ProjectCheckout::LocalAndRemoteCheckout );
+  setLocalPath( QFieldCloudUtils::localProjectFilePath( mUsername, mId ) );
+  setLastLocalExportedAt( QDateTime::currentDateTimeUtc().toString( Qt::ISODate ) );
+  setLastLocalExportId( QUuid::createUuid().toString( QUuid::WithoutBraces ) );
+  setLastLocalDataLastUpdatedAt( mDataLastUpdatedAt );
+  setIsOutdated( false );
+  setProjectFileIsOutdated( false );
+
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastExportedAt" ), mLastExportedAt );
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastExportId" ), mLastExportId );
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalExportedAt" ), mLastLocalExportedAt );
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalExportId" ), mLastLocalExportId );
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalDataLastUpdatedAt" ), mLastLocalDataLastUpdatedAt );
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastProjectFileMd5" ), QString() );
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "projectFileOudated" ), false );
+
+  emit downloadFinished();
 }
 
 NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage, bool autoRedirect )
@@ -1340,7 +1365,42 @@ NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const 
 
   mCloudConnection->setAuthenticationDetails( request );
 
-  return mCloudConnection->get( request, fromLatestPackage ? QStringLiteral( "/api/v1/packages/%1/latest/files/%2/" ).arg( projectId, fileName ) : QStringLiteral( "/api/v1/files/%1/%2/" ).arg( projectId, fileName ) );
+  const QString fileKey = QStringLiteral( "%1/%2" ).arg( projectId, fileName );
+  const FileTransfer &fileTransfer = mDownloadFileTransfers[fileKey];
+  QFile partialFile( fileTransfer.partialFilePath );
+
+  if ( partialFile.exists() )
+  {
+    qint64 partialSize = partialFile.size();
+    if ( partialSize < QFIELDCLOUD_MINIMUM_RANGE_HEADER_LENGTH || partialSize > fileTransfer.bytesTotal || ( partialSize == fileTransfer.bytesTotal ) && fileTransfer.etag != FileUtils::fileEtag( fileTransfer.partialFilePath ) )
+    {
+      // Invalid or dirty file; delete and re-download
+      partialFile.remove();
+    }
+    else if ( partialSize < fileTransfer.bytesTotal )
+    {
+      // Partial file found; resume download using Range header
+      request.setRawHeader( "Range", "bytes=" + QByteArray::number( partialSize ) + "-" );
+      mDownloadBytesReceived += partialSize;
+    }
+    else if ( partialSize == fileTransfer.bytesTotal )
+    {
+      // File already fully downloaded and valid; skip download
+      mDownloadBytesReceived += partialSize;
+      mDownloadFilesFinished++;
+      mActiveFilesToDownload.removeOne( fileKey );
+
+      if ( mActiveFilesToDownload.size() == 0 )
+      {
+        downloadFilesCompleted();
+      }
+      return nullptr;
+    }
+  }
+
+  const QString urlPath = fromLatestPackage ? QStringLiteral( "/api/v1/packages/%1/latest/files/%2/" ).arg( projectId, fileName ) : QStringLiteral( "/api/v1/files/%1/%2/" ).arg( projectId, fileName );
+
+  return mCloudConnection->get( request, urlPath );
 }
 
 bool QFieldCloudProject::moveDownloadedFilesToPermanentStorage()
@@ -1350,38 +1410,38 @@ bool QFieldCloudProject::moveDownloadedFilesToPermanentStorage()
 
   for ( const QString &fileKey : fileKeys )
   {
-    QFileInfo fileInfo( mDownloadFileTransfers[fileKey].fileName );
-    QFile file( mDownloadFileTransfers[fileKey].tmpFile );
-    QDir dir( QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mDownloadFileTransfers[fileKey].projectId, fileInfo.path() ) );
+    const FileTransfer &fileTransfer = mDownloadFileTransfers[fileKey];
+    const QFileInfo origInfo( fileTransfer.fileName );
 
-    if ( !hasError && !dir.exists() && !dir.mkpath( QStringLiteral( "." ) ) )
+    const QDir targetDir( QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, fileTransfer.projectId, origInfo.path() ) );
+
+    if ( !targetDir.exists() && !targetDir.mkpath( "." ) )
     {
       hasError = true;
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to create directory at `%1`" ).arg( dir.path() ) );
+      QgsMessageLog::logMessage( QStringLiteral( "Failed to create directory `%1`" ).arg( targetDir.absolutePath() ) );
+      continue;
     }
 
-    const QString destinationFileName( QDir::cleanPath( dir.filePath( fileInfo.fileName() ) ) );
+    const QString finalFilePath = targetDir.filePath( origInfo.fileName() );
 
-    // if the file already exists, we need to delete it first, as QT does not support overwriting
+    // If the file already exists, we need to delete it first, as QT does not support overwriting
     // NOTE: it is possible that someone creates the file in the meantime between this and the next if statement
-    if ( !hasError && QFile::exists( destinationFileName ) && !file.remove( destinationFileName ) )
+    if ( QFile::exists( finalFilePath ) && !QFile::remove( finalFilePath ) )
     {
       hasError = true;
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to remove file before overwriting stored at `%1`, reason:\n%2" ).arg( destinationFileName ).arg( file.errorString() ) );
+      QgsMessageLog::logMessage( QStringLiteral( "Failed to remove existing file `%1`" ).arg( finalFilePath ) );
+      continue;
     }
 
-    if ( !hasError && !file.copy( destinationFileName ) )
+    // Rename the .part file to the final file name
+    if ( !QFile::rename( fileTransfer.partialFilePath, finalFilePath ) )
     {
       hasError = true;
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to write downloaded file stored at `%1`, reason:\n%2" ).arg( destinationFileName ).arg( file.errorString() ) );
-
-      if ( !QFile::remove( dir.filePath( mDownloadFileTransfers[fileKey].fileName ) ) )
-        QgsMessageLog::logMessage( QStringLiteral( "Failed to remove partly overwritten file stored at `%1`" ).arg( destinationFileName ) );
+      QgsMessageLog::logMessage( QStringLiteral( "Failed to rename `%1` to `%2`." ).arg( fileTransfer.partialFilePath, finalFilePath ) );
     }
-
-    if ( !file.remove() )
+    else
     {
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to remove temporary file `%1`" ).arg( destinationFileName ) );
+      QgsLogger::debug( QStringLiteral( "Moved downloaded file `%1` to `%2`" ).arg( fileTransfer.partialFilePath, finalFilePath ) );
     }
   }
 
