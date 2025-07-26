@@ -998,7 +998,7 @@ void QFieldCloudProject::prepareDownloadTransfer( const QString &projectId, cons
   QStringList partFiles = dir.entryList( QStringList() << QStringLiteral( "%1.*.part" ).arg( fileName ), QDir::Files );
   for ( const QString &partFile : partFiles )
   {
-    if ( partFile.startsWith( fileName + "." ) && !partFile.contains( cloudEtag ) )
+    if ( partFile.startsWith( fileName + "." ) && !partFile.endsWith( QStringLiteral( "%1.part" ).arg( cloudEtag ) ) )
     {
       QgsLogger::debug( QStringLiteral( "Deleting outdated partial file: %1" ).arg( partFile ) );
       QFile::remove( dir.filePath( partFile ) );
@@ -1087,17 +1087,17 @@ void QFieldCloudProject::downloadFiles()
       continue;
     }
 
-    FileTransfer &transfer = mDownloadFileTransfers[fileKey];
+    FileTransfer &fileTransfer = mDownloadFileTransfers[fileKey];
 
-    NetworkReply *reply = downloadFile( transfer.projectId, transfer.fileName, transfer.projectId == mId );
+    NetworkReply *reply = downloadFile( fileTransfer.projectId, fileTransfer.fileName, fileTransfer.projectId == mId );
 
-    const QDir partialDir = QFileInfo( transfer.partialFilePath ).dir();
+    const QDir partialDir = QFileInfo( fileTransfer.partialFilePath ).dir();
     if ( !partialDir.exists() )
       partialDir.mkpath( "." );
 
     if ( reply )
     {
-      transfer.networkReply = reply;
+      fileTransfer.networkReply = reply;
       downloadFileConnections( fileKey );
     }
   }
@@ -1366,24 +1366,24 @@ NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const 
   mCloudConnection->setAuthenticationDetails( request );
 
   const QString fileKey = QStringLiteral( "%1/%2" ).arg( projectId, fileName );
-  const FileTransfer &transfer = mDownloadFileTransfers[fileKey];
-  QFile partialFile( transfer.partialFilePath );
+  const FileTransfer &fileTransfer = mDownloadFileTransfers[fileKey];
+  QFile partialFile( fileTransfer.partialFilePath );
 
   if ( partialFile.exists() )
   {
     qint64 partialSize = partialFile.size();
-    if ( partialSize < QFIELDCLOUD_MINIMUM_RANGE_HEADER_LENGTH || partialSize > transfer.bytesTotal || ( partialSize == transfer.bytesTotal ) && transfer.etag != FileUtils::fileEtag( transfer.partialFilePath ) )
+    if ( partialSize < QFIELDCLOUD_MINIMUM_RANGE_HEADER_LENGTH || partialSize > fileTransfer.bytesTotal || ( partialSize == fileTransfer.bytesTotal ) && fileTransfer.etag != FileUtils::fileEtag( fileTransfer.partialFilePath ) )
     {
       // Invalid or dirty file; delete and re-download
       partialFile.remove();
     }
-    else if ( partialSize < transfer.bytesTotal )
+    else if ( partialSize < fileTransfer.bytesTotal )
     {
       // Partial file found; resume download using Range header
       request.setRawHeader( "Range", "bytes=" + QByteArray::number( partialSize ) + "-" );
       mDownloadBytesReceived += partialSize;
     }
-    else if ( partialSize == transfer.bytesTotal )
+    else if ( partialSize == fileTransfer.bytesTotal )
     {
       // File already fully downloaded and valid; skip download
       mDownloadBytesReceived += partialSize;
@@ -1410,10 +1410,10 @@ bool QFieldCloudProject::moveDownloadedFilesToPermanentStorage()
 
   for ( const QString &fileKey : fileKeys )
   {
-    const FileTransfer &transfer = mDownloadFileTransfers[fileKey];
-    const QFileInfo origInfo( transfer.fileName );
+    const FileTransfer &fileTransfer = mDownloadFileTransfers[fileKey];
+    const QFileInfo origInfo( fileTransfer.fileName );
 
-    const QDir targetDir( QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, transfer.projectId, origInfo.path() ) );
+    const QDir targetDir( QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, fileTransfer.projectId, origInfo.path() ) );
 
     if ( !targetDir.exists() && !targetDir.mkpath( "." ) )
     {
@@ -1434,14 +1434,14 @@ bool QFieldCloudProject::moveDownloadedFilesToPermanentStorage()
     }
 
     // Rename the .part file to the final file name
-    if ( !QFile::rename( transfer.partialFilePath, finalFilePath ) )
+    if ( !QFile::rename( fileTransfer.partialFilePath, finalFilePath ) )
     {
       hasError = true;
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to rename `%1` to `%2`." ).arg( transfer.partialFilePath, finalFilePath ) );
+      QgsMessageLog::logMessage( QStringLiteral( "Failed to rename `%1` to `%2`." ).arg( fileTransfer.partialFilePath, finalFilePath ) );
     }
     else
     {
-      QgsLogger::debug( QStringLiteral( "Moved downloaded file `%1` to `%2`" ).arg( transfer.partialFilePath, finalFilePath ) );
+      QgsLogger::debug( QStringLiteral( "Moved downloaded file `%1` to `%2`" ).arg( fileTransfer.partialFilePath, finalFilePath ) );
     }
   }
 
