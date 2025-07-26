@@ -18,7 +18,6 @@
 #define ORDEREDRELATIONMODEL_H
 
 #include "qgsfeature.h"
-#include "qgsfeaturerequest.h"
 #include "qgsrelation.h"
 #include "qgsvectorlayer.h"
 #include "referencingfeaturelistmodel.h"
@@ -69,29 +68,11 @@ class OrderedRelationModel : public ReferencingFeatureListModel
 
   private:
     bool beforeDeleteFeature( QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId ) override;
+    void sortEntries();
 
     QString mOrderingField;
     QString mImagePath;
     QString mDescription;
-};
-
-/**
- * \ingroup core
- */
-class OrderedRelationProxyModel : public QSortFilterProxyModel
-{
-    Q_OBJECT
-
-  public:
-    explicit OrderedRelationProxyModel( QObject *parent = nullptr );
-
-  protected:
-    /**
-     * Compare two model items for sorting by converting their data to integers.
-     * Assumes both data values can be converted to integers without error.
-     * Performs a simple numeric comparison on the converted values.
-     */
-    bool lessThan( const QModelIndex &left, const QModelIndex &right ) const override;
 };
 
 #endif // ORDEREDRELATIONMODEL_H

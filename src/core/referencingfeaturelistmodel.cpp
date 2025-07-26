@@ -158,6 +158,7 @@ void ReferencingFeatureListModel::updateModel()
   if ( mGatherer )
     mEntries = mGatherer->entries();
 
+  emit beforeModelUpdated();
   endResetModel();
   emit modelUpdated();
 }

@@ -16,6 +16,7 @@ EditorWidgetBase {
   property int bottomMargin: 10
   property int maximumVisibleItems: 4
   property bool showAllItems: false
+  property bool showSortButton: true
 
   signal toggleSortAction
 
@@ -97,7 +98,7 @@ EditorWidgetBase {
           id: sortButton
           width: parent.height
           height: parent.height
-          visible: listView.count > 0
+          visible: listView.count > 0 && relationEditorBase.showSortButton
 
           round: false
           iconSource: Theme.getThemeVectorIcon('ic_sort_white_24dp')

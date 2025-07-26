@@ -163,6 +163,7 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
     void nmRelationChanged();
     void parentPrimariesAvailableChanged();
     void isLoadingChanged();
+    void beforeModelUpdated();
     void modelUpdated();
 
   private slots:

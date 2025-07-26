@@ -14,12 +14,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "featureexpressionvaluesgatherer.h"
 #include "orderedrelationmodel.h"
-#include "qfield_core_export.h"
 #include "qgsexpressioncontextutils.h"
 #include "qgsfeature.h"
-#include "qgsfeaturerequest.h"
 #include "qgsmessagelog.h"
 #include "qgsproject.h"
 #include "qgsrelation.h"
@@ -30,6 +27,7 @@
 OrderedRelationModel::OrderedRelationModel( QObject *parent )
   : ReferencingFeatureListModel( parent )
 {
+  connect( this, &ReferencingFeatureListModel::beforeModelUpdated, this, &OrderedRelationModel::sortEntries );
 }
 
 QString OrderedRelationModel::orderingField() const
@@ -114,7 +112,7 @@ QVariant OrderedRelationModel::data( const QModelIndex &index, int role ) const
     case FeatureIdRole:
       return mEntries[index.row()].referencingFeature.id();
     case OrderingValueRole:
-      return mEntries[index.row()].referencingFeature.attribute( mOrderingField );
+      return mEntries[index.row()].referencingFeature.attribute( mOrderingField ).toInt();
   }
 
   return ReferencingFeatureListModel::data( index, role );
@@ -232,16 +230,9 @@ bool OrderedRelationModel::beforeDeleteFeature( QgsVectorLayer *referencingLayer
   return true;
 }
 
-OrderedRelationProxyModel::OrderedRelationProxyModel( QObject *parent )
-  : QSortFilterProxyModel( parent )
+void OrderedRelationModel::sortEntries()
 {
-  setSortRole( OrderedRelationModel::OrderingValueRole );
-}
-
-bool OrderedRelationProxyModel::lessThan( const QModelIndex &left, const QModelIndex &right ) const
-{
-  const QVariant leftData = sourceModel()->data( left, sortRole() );
-  const QVariant rightData = sourceModel()->data( right, sortRole() );
-
-  return leftData.toInt() < rightData.toInt();
+  std::sort( mEntries.begin(), mEntries.end(), [this]( const Entry &e1, const Entry &e2 ) {
+    return e1.referencingFeature.attribute( mOrderingField ).toInt() < e2.referencingFeature.attribute( mOrderingField ).toInt();
+  } );
 }
