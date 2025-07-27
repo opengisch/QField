@@ -2811,11 +2811,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation>Помилка файлової системи. Не вдалося записати файл у тимчасове розташування `%1`.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation>Помилка файлової системи. Не вдалося відкрити файл для запису на тимчасовий `%1`.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
@@ -2871,6 +2871,14 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Network error. Failed to download attachment `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to write to partial file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to open partial file `%1`.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4389,6 +4397,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Ensure constraints are met</source>
         <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>

@@ -2811,11 +2811,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation>Błąd systemu plików. Nie można było zapisać pliku do tymczasowej lokalizacji &quot;%1&quot;.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation>Błąd systemu plików. Nie można było otworzyć pliku do zapisu tymczasowego &quot;%1&quot;.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
@@ -2872,6 +2872,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Network error. Failed to download attachment `%1`.</source>
         <translation>Błąd sieci. Nie udało się pobrać załącznika `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write to partial file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to open partial file `%1`.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4389,6 +4397,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Ensure constraints are met</source>
         <translation>Upewnij się, że ograniczenia są spełnione</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>

@@ -2807,11 +2807,11 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation>Erro do sistema de ficheiros. Non se puido escribir o ficheiro nunha localización temporal `%1`.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation>Erro no sistema de ficheiros. Non se puido abrir o ficheiro para escritura no temporal `%1`.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
@@ -2867,6 +2867,14 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Network error. Failed to download attachment `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to write to partial file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to open partial file `%1`.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4385,6 +4393,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Ensure constraints are met</source>
         <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>

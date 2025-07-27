@@ -2806,11 +2806,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation>Dateisystem-Fehler. Die Datei konnte nicht in den temporären Speicherort `%1` geschrieben werden.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation>Dateisystem-Fehler. Die Datei konnte nicht geöffnet werden, um sie in den temporären Speicherort `%1` zu schreiben.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
@@ -2866,6 +2866,14 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Network error. Failed to download attachment `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to write to partial file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to open partial file `%1`.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4382,6 +4390,10 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>Ensure constraints are met</source>
         <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>

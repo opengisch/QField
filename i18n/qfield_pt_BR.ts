@@ -2861,6 +2861,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Network error. Failed to download attachment `%1`.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>File system error. Failed to write to partial file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to open partial file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
@@ -4376,6 +4384,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Ensure constraints are met</source>
         <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
