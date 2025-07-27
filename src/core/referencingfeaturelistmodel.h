@@ -18,6 +18,7 @@
 
 #include <QAbstractItemModel>
 #include <QPair>
+#include <QSortFilterProxyModel>
 #include <QThread>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerfeatureiterator.h>
@@ -162,6 +163,7 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
     void nmRelationChanged();
     void parentPrimariesAvailableChanged();
     void isLoadingChanged();
+    void beforeModelUpdated();
     void modelUpdated();
 
   private slots:
@@ -197,11 +199,39 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
     //! Checks if the parent pk(s) is not null
     bool checkParentPrimaries();
     virtual bool beforeDeleteFeature( QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId );
-    virtual void sortEntries();
 
     friend class FeatureGatherer;
     friend class OrderedRelationModel;
     friend class TestReferencingFeatureListModel;
+};
+
+/**
+ * \ingroup core
+ */
+class ReferencingFeatureProxyModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+    Q_PROPERTY( Qt::SortOrder sortOrder READ sortOrder WRITE setSortOrder NOTIFY sortOrderChanged )
+
+  public:
+    explicit ReferencingFeatureProxyModel( QObject *parent = nullptr );
+
+    /**
+     * @brief Returns the current sort order (ascending or descending).
+     */
+    Qt::SortOrder sortOrder() const;
+
+    /**
+     * @brief Sets the sort order and re-applies sorting.
+     * @param sortOrder The new sort order to use.
+     */
+    void setSortOrder( Qt::SortOrder sortOrder );
+
+  signals:
+    void sortOrderChanged();
+
+  private:
+    Qt::SortOrder mSortOrder = Qt::DescendingOrder;
 };
 
 class FeatureGatherer : public QThread

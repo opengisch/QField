@@ -18,10 +18,11 @@
 #define ORDEREDRELATIONMODEL_H
 
 #include "qgsfeature.h"
-#include "qgsfeaturerequest.h"
 #include "qgsrelation.h"
 #include "qgsvectorlayer.h"
 #include "referencingfeaturelistmodel.h"
+
+#include <QSortFilterProxyModel>
 
 class FeatureExpressionValuesGatherer;
 
@@ -44,6 +45,7 @@ class OrderedRelationModel : public ReferencingFeatureListModel
       ImagePathRole = Qt::UserRole + 100,
       DescriptionRole,
       FeatureIdRole,
+      OrderingValueRole,
     };
 
     QString orderingField() const;
@@ -66,7 +68,7 @@ class OrderedRelationModel : public ReferencingFeatureListModel
 
   private:
     bool beforeDeleteFeature( QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId ) override;
-    void sortEntries() override;
+    void sortEntries();
 
     QString mOrderingField;
     QString mImagePath;

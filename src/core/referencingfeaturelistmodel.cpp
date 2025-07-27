@@ -158,8 +158,7 @@ void ReferencingFeatureListModel::updateModel()
   if ( mGatherer )
     mEntries = mGatherer->entries();
 
-  sortEntries();
-
+  emit beforeModelUpdated();
   endResetModel();
   emit modelUpdated();
 }
@@ -317,9 +316,25 @@ bool ReferencingFeatureListModel::beforeDeleteFeature( QgsVectorLayer *referenci
   return true;
 }
 
-void ReferencingFeatureListModel::sortEntries()
+ReferencingFeatureProxyModel::ReferencingFeatureProxyModel( QObject *parent )
+  : QSortFilterProxyModel( parent )
 {
-  std::sort( mEntries.begin(), mEntries.end(), []( const Entry &e1, const Entry &e2 ) {
-    return e1.displayString < e2.displayString;
-  } );
+  setSortRole( ReferencingFeatureListModel::DisplayString );
+  setDynamicSortFilter( true );
+  sort( 0, mSortOrder );
+}
+
+Qt::SortOrder ReferencingFeatureProxyModel::sortOrder() const
+{
+  return mSortOrder;
+}
+
+void ReferencingFeatureProxyModel::setSortOrder( Qt::SortOrder sortOrder )
+{
+  if ( mSortOrder == sortOrder )
+    return;
+  mSortOrder = sortOrder;
+  emit sortOrderChanged();
+
+  sort( 0, mSortOrder );
 }

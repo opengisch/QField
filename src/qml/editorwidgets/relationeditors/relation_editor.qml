@@ -16,7 +16,7 @@ RelationEditorBase {
     //containing the current (parent) feature, the relation to the children
     //and the relation from the children to the other parent (if it's nm and cardinality is set)
     //if cardinality is not set, the nmRelationId is empty
-    id: relationEditorModel
+    id: referencingFeatureListModel
     currentRelationId: relationId
     currentNmRelationId: nmRelationId ? nmRelationId : ""
     feature: currentFeature
@@ -24,14 +24,22 @@ RelationEditorBase {
     property int featureFocus: -1
     onModelUpdated: {
       if (featureFocus > -1) {
-        listView.currentIndex = relationEditorModel.getFeatureIdRow(featureFocus);
+        listView.currentIndex = referencingFeatureListModel.getFeatureIdRow(featureFocus);
         featureFocus = -1;
       }
     }
   }
 
+  onToggleSortAction: {
+    relationEditorProxyModel.sortOrder = relationEditorProxyModel.sortOrder === Qt.AscendingOrder ? Qt.DescendingOrder : Qt.AscendingOrder;
+  }
+
   listView.model: DelegateModel {
-    model: relationEditorModel
+    model: ReferencingFeatureProxyModel {
+      id: relationEditorProxyModel
+      sourceModel: referencingFeatureListModel
+      sortOrder: Qt.DescendingOrder
+    }
     delegate: referencingFeatureDelegate
   }
 
@@ -62,11 +70,11 @@ RelationEditorBase {
         anchors.fill: parent
 
         onClicked: {
-          if (relationEditorModel.relation.referencingLayer !== undefined) {
-            if (relationEditorModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null && relationEditorModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Unknown) {
+          if (referencingFeatureListModel.relation.referencingLayer !== undefined) {
+            if (referencingFeatureListModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null && referencingFeatureListModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Unknown) {
               geometryHighlighter.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry;
-              geometryHighlighter.geometryWrapper.crs = relationEditorModel.relation.referencingLayer.crs;
-              mapCanvas.mapSettings.setExtent(FeatureUtils.extent(mapCanvas.mapSettings, relationEditorModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature), true);
+              geometryHighlighter.geometryWrapper.crs = referencingFeatureListModel.relation.referencingLayer.crs;
+              mapCanvas.mapSettings.setExtent(FeatureUtils.extent(mapCanvas.mapSettings, referencingFeatureListModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature), true);
             } else {
               viewButton.onClicked();
             }
@@ -107,9 +115,9 @@ RelationEditorBase {
 
           onClicked: {
             embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
-            embeddedPopup.currentLayer = nmRelationId ? relationEditorModel.nmRelation.referencedLayer : relationEditorModel.relation.referencingLayer;
-            embeddedPopup.linkedRelation = relationEditorModel.relation;
-            embeddedPopup.linkedParentFeature = relationEditorModel.feature;
+            embeddedPopup.currentLayer = nmRelationId ? referencingFeatureListModel.nmRelation.referencedLayer : referencingFeatureListModel.relation.referencingLayer;
+            embeddedPopup.linkedRelation = referencingFeatureListModel.relation;
+            embeddedPopup.linkedParentFeature = referencingFeatureListModel.feature;
             embeddedPopup.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature;
             embeddedPopup.open();
           }

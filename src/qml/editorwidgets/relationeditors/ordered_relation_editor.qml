@@ -14,6 +14,7 @@ RelationEditorBase {
   id: relationEditor
 
   showAllItems: true
+  showSortButton: false
 
   relationEditorModel: OrderedRelationModel {
     //containing the current (parent) feature, the relation to the children

@@ -14,12 +14,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "featureexpressionvaluesgatherer.h"
 #include "orderedrelationmodel.h"
-#include "qfield_core_export.h"
 #include "qgsexpressioncontextutils.h"
 #include "qgsfeature.h"
-#include "qgsfeaturerequest.h"
 #include "qgsmessagelog.h"
 #include "qgsproject.h"
 #include "qgsrelation.h"
@@ -30,6 +27,7 @@
 OrderedRelationModel::OrderedRelationModel( QObject *parent )
   : ReferencingFeatureListModel( parent )
 {
+  connect( this, &ReferencingFeatureListModel::beforeModelUpdated, this, &OrderedRelationModel::sortEntries );
 }
 
 QString OrderedRelationModel::orderingField() const
@@ -84,6 +82,7 @@ QHash<int, QByteArray> OrderedRelationModel::roleNames() const
   roles[OrderedRelationModel::ImagePathRole] = "ImagePath";
   roles[OrderedRelationModel::DescriptionRole] = "Description";
   roles[OrderedRelationModel::FeatureIdRole] = "FeatureId";
+  roles[OrderedRelationModel::OrderingValueRole] = "OrderingValue";
 
   return roles;
 }
@@ -112,6 +111,8 @@ QVariant OrderedRelationModel::data( const QModelIndex &index, int role ) const
       return result;
     case FeatureIdRole:
       return mEntries[index.row()].referencingFeature.id();
+    case OrderingValueRole:
+      return mEntries[index.row()].referencingFeature.attribute( mOrderingField ).toInt();
   }
 
   return ReferencingFeatureListModel::data( index, role );
