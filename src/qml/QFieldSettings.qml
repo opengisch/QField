@@ -33,6 +33,9 @@ Page {
   property alias snapToCommonAngleDegrees: registry.snapToCommonAngleDegrees
   property alias snapToCommonAngleTolerance: registry.snapToCommonAngleTolerance
 
+  leftPadding: mainWindow.sceneLeftMargin
+  rightPadding: mainWindow.sceneRightMargin
+
   visible: false
   focus: visible
 
