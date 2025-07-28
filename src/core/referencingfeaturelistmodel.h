@@ -231,7 +231,7 @@ class ReferencingFeatureProxyModel : public QSortFilterProxyModel
     void sortOrderChanged();
 
   private:
-    Qt::SortOrder mSortOrder = Qt::DescendingOrder;
+    Qt::SortOrder mSortOrder = Qt::AscendingOrder;
 };
 
 class FeatureGatherer : public QThread
