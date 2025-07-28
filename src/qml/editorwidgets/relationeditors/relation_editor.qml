@@ -38,7 +38,7 @@ RelationEditorBase {
     model: ReferencingFeatureProxyModel {
       id: relationEditorProxyModel
       sourceModel: referencingFeatureListModel
-      sortOrder: Qt.DescendingOrder
+      sortOrder: Qt.AscendingOrder
     }
     delegate: referencingFeatureDelegate
   }
