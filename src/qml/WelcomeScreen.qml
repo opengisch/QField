@@ -50,6 +50,8 @@ Page {
   ScrollView {
     padding: 0
     topPadding: Math.max(0, Math.min(80, (mainWindow.height - welcomeGrid.height) / 2 - 45))
+    leftPadding: mainWindow.sceneLeftMargin
+    rightPadding: mainWindow.sceneRighMargin
     ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
     ScrollBar.vertical: QfScrollBar {
       opacity: active
@@ -73,7 +75,7 @@ Page {
       columns: 1
       rowSpacing: 4
 
-      width: mainWindow.width
+      width: mainWindow.width - mainWindow.sceneLeftMargin - mainWindow.sceneRightMargin
 
       ImageDial {
         id: imageDialLogo
@@ -97,7 +99,7 @@ Page {
         Layout.topMargin: 10
         Layout.bottomMargin: 10
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-        Layout.preferredWidth: Math.min(410, mainWindow.width - 30)
+        Layout.preferredWidth: Math.min(410, welcomeGrid.width - 30)
         Layout.preferredHeight: Math.max(ohno.childrenRect.height, intro.childrenRect.height, ohyeah.childrenRect.height)
         clip: true
 
@@ -304,7 +306,7 @@ Page {
         Layout.topMargin: 10
         Layout.bottomMargin: 10
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-        Layout.preferredWidth: Math.min(410, mainWindow.width - 20)
+        Layout.preferredWidth: Math.min(410, welcomeGrid.width - 20)
         Layout.preferredHeight: Math.max(collectionOhno.childrenRect.height, collectionIntro.childrenRect.height)
         clip: true
 
@@ -799,7 +801,7 @@ Page {
       top: parent.top
       left: parent.left
       topMargin: mainWindow.sceneTopMargin + 4
-      leftMargin: 4
+      leftMargin: mainWindow.sceneLeftMargin + 4
     }
 
     QfActionButton {
@@ -834,7 +836,7 @@ Page {
       top: parent.top
       right: parent.right
       topMargin: mainWindow.sceneTopMargin + 4
-      rightMargin: 4
+      rightMargin: mainWindow.sceneRightMargin + 4
     }
     iconSource: Theme.getThemeVectorIcon('ic_shutdown_24dp')
     iconColor: Theme.toolButtonColor

@@ -246,7 +246,9 @@ Rectangle {
     clip: true
     anchors.top: featureListToolBar.bottom
     anchors.left: parent.left
+    anchors.leftMargin: featureFormList.x == 0 ? mainWindow.sceneLeftMargin : 0
     anchors.right: parent.right
+    anchors.rightMargin: mainWindow.sceneRightMargin
     anchors.bottom: parent.bottom
     anchors.bottomMargin: mainWindow.sceneBottomMargin
     height: parent.height - featureListToolBar.height
@@ -392,6 +394,8 @@ Rectangle {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: parent.bottom
+    leftMargin: featureFormList.x == 0 ? mainWindow.sceneLeftMargin : 0
+    rightMargin: mainWindow.sceneRightMargin
     bottomMargin: mainWindow.sceneBottomMargin
     height: parent.height - globalFeaturesList.height
     visible: false
@@ -468,6 +472,8 @@ Rectangle {
     id: featureListToolBar
 
     topMargin: featureFormList.y == 0 ? mainWindow.sceneTopMargin : 0.0
+    leftMargin: mainWindow.sceneLeftMargin
+    rightMargin: mainWindow.sceneRightMargin
 
     allowDelete: allowDelete
     model: globalFeaturesList.model

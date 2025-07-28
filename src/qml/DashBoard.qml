@@ -34,7 +34,7 @@ Drawer {
     }
   }
 
-  width: Math.min(Math.max(330, closeButton.width + buttonsRow.width + menuButton.width), mainWindow.width)
+  width: Math.min(Math.max(330, closeButton.width + buttonsRow.width + menuButton.width + mainWindow.sceneLeftMargin + 1), mainWindow.width)
   height: parent.height
   edge: Qt.LeftEdge
   dragMargin: 10
@@ -77,6 +77,7 @@ Drawer {
       QfToolButton {
         id: closeButton
         anchors.left: parent.left
+        anchors.leftMargin: mainWindow.sceneLeftMargin
         anchors.verticalCenter: buttonsRowContainer.verticalCenter
         iconSource: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
         iconColor: Theme.mainOverlayColor
@@ -257,6 +258,7 @@ Drawer {
         x: parent.leftPadding
         y: 2
         width: parent.availableWidth
+        leftPadding: mainWindow.sceneLeftMargin
         text: parent.title
         color: Theme.mainColor
         font: Theme.strongTipFont
@@ -272,9 +274,11 @@ Drawer {
 
       RowLayout {
         width: parent.width
+
         ComboBox {
           id: mapThemeComboBox
           Layout.fillWidth: true
+          Layout.leftMargin: mainWindow.sceneLeftMargin
           font: Theme.defaultFont
 
           popup.font: Theme.defaultFont
@@ -375,6 +379,7 @@ Drawer {
         objectName: "Legend"
         isVisible: position > 0
         anchors.fill: parent
+        anchors.leftMargin: mainWindow.sceneLeftMargin
         bottomMargin: bottomRow.height + 4
       }
     }
@@ -388,10 +393,12 @@ Drawer {
     color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGray
 
     Item {
-      width: parent.width
       height: 48
       anchors.bottom: parent.bottom
       anchors.bottomMargin: mainWindow.sceneBottomMargin
+      anchors.left: parent.left
+      anchors.leftMargin: mainWindow.sceneLeftMargin
+      anchors.right: parent.right
 
       MenuItem {
         id: homeButton

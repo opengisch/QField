@@ -740,17 +740,16 @@ QVariantMap AndroidPlatformUtilities::sceneMargins( QQuickWindow *window ) const
 {
   Q_UNUSED( window )
 
-  double statusBarMargin = std::abs( static_cast<double>( mActivity.callMethod<jdouble>( "statusBarMargin" ) ) );
-  double navigationBarMargin = std::abs( static_cast<double>( mActivity.callMethod<jdouble>( "navigationBarMargin" ) ) );
-
-  statusBarMargin /= QGuiApplication::primaryScreen()->devicePixelRatio();
-  navigationBarMargin /= QGuiApplication::primaryScreen()->devicePixelRatio();
+  double topMargin = std::abs( static_cast<double>( mActivity.callMethod<jdouble>( "topMargin" ) ) ) / QGuiApplication::primaryScreen()->devicePixelRatio();
+  double bottomMargin = std::abs( static_cast<double>( mActivity.callMethod<jdouble>( "bottomMargin" ) ) ) / QGuiApplication::primaryScreen()->devicePixelRatio();
+  double leftMargin = std::abs( static_cast<double>( mActivity.callMethod<jdouble>( "leftMargin" ) ) ) / QGuiApplication::primaryScreen()->devicePixelRatio();
+  double rightMargin = std::abs( static_cast<double>( mActivity.callMethod<jdouble>( "rightMargin" ) ) ) / QGuiApplication::primaryScreen()->devicePixelRatio();
 
   QVariantMap margins;
-  margins[QLatin1String( "top" )] = statusBarMargin;
-  margins[QLatin1String( "right" )] = 0.0;
-  margins[QLatin1String( "bottom" )] = navigationBarMargin;
-  margins[QLatin1String( "left" )] = 0.0;
+  margins[QLatin1String( "top" )] = topMargin;
+  margins[QLatin1String( "right" )] = rightMargin;
+  margins[QLatin1String( "bottom" )] = bottomMargin;
+  margins[QLatin1String( "left" )] = leftMargin;
   return margins;
 }
 

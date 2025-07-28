@@ -10,6 +10,8 @@ import Theme
 Popup {
   id: popup
   padding: 0
+  leftPadding: mainWindow.sceneLeftMargin
+  rightPadding: mainWindow.sceneRightMargin
 
   Page {
     anchors.fill: parent
