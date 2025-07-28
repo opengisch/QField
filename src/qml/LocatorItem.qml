@@ -39,7 +39,7 @@ Item {
       }
       PropertyChanges {
         target: searchFieldRect
-        width: mainWindow.width - 62
+        width: mainWindow.width - mainWindow.sceneLeftMargin - mainWindow.sceneRightMargin - 62
       }
       PropertyChanges {
         target: codeReaderButton

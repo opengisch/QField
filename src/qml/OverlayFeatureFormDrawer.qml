@@ -80,6 +80,8 @@ Drawer {
     visible: true
 
     topMargin: overlayFeatureFormDrawer.y === 0 ? mainWindow.sceneTopMargin : 0.0
+    leftMargin: mainWindow.sceneLeftMargin
+    rightMargin: mainWindow.sceneRightMargin
     bottomMargin: mainWindow.sceneBottomMargin
 
     property bool isSaved: false

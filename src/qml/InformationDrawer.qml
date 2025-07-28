@@ -10,10 +10,11 @@ Item {
   id: controller
 
   anchors.bottom: parent.bottom
-  anchors.leftMargin: 10
-  anchors.rightMargin: 10
+  anchors.left: parent.left
+  anchors.leftMargin: mainWindow.sceneLeftMargin
+  anchors.right: parent.right
+  anchors.rightMargin: mainWindow.sceneRightMargin
 
-  width: parent.width
   height: mainContent.height + (mainContent.height > 0 ? 5 : 0) + mainWindow.sceneBottomMargin
   Behavior on height  {
     PropertyAnimation {
