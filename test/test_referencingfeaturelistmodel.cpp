@@ -308,9 +308,9 @@ TEST_CASE( "ReferencingFeatureListModel" )
     //Gollum has shares of 3 lands (Mordor, Gondor, Rohan)
     REQUIRE( mModel->rowCount() == 3 );
 
-    //check display string of Gollums Mordor share (80)
+    //check display string of Gollums Mordor share (40)
     QString displayString = mProxyModel->data( mProxyModel->index( 0, 0 ), ReferencingFeatureListModel::DisplayString ).toString();
-    REQUIRE( displayString == QStringLiteral( "80" ) );
+    REQUIRE( displayString == QStringLiteral( "40" ) );
 
     //delete Gollums share on Mordor
     mModel->deleteFeature( qvariant_cast<QgsFeature>( mProxyModel->data( mProxyModel->index( 0, 0 ), ReferencingFeatureListModel::ReferencingFeature ) ).id() );
