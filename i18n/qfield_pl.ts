@@ -1952,7 +1952,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation type="unfinished"/>
+        <translation>Adres URL żądanej wtyczki znajduje się na liście dostępnych wtyczek, zainstaluj ją za pomocą przycisku pobierania.</translation>
     </message>
 </context>
 <context>
@@ -2875,11 +2875,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>File system error. Failed to write to partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Błąd systemu plików. Nie udało się zapisać do częściowego pliku &quot;%1&quot;.</translation>
     </message>
     <message>
         <source>File system error. Failed to open partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Błąd systemu plików. Nie udało się otworzyć częściowego pliku &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>

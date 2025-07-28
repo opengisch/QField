@@ -2869,11 +2869,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>File system error. Failed to write to partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>文件系统错误。无法写入部分文件 `%1`。</translation>
     </message>
     <message>
         <source>File system error. Failed to open partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>文件系统错误。无法打开部分文件 `%1`。</translation>
     </message>
 </context>
 <context>
@@ -4394,7 +4394,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n个要素</numerusform></translation>
     </message>
 </context>
 <context>
