@@ -36,6 +36,8 @@ Rectangle {
   property FeaturelistExtentController extentController
 
   property double topMargin: 0.0
+  property double leftMargin: 0.0
+  property double rightMargin: 0.0
 
   signal backClicked
   signal statusIndicatorClicked
@@ -103,8 +105,8 @@ Rectangle {
       anchors.left: parent.left
       anchors.right: parent.right
       anchors.top: parent.top
-      anchors.leftMargin: 0 + balancedMargin
-      anchors.rightMargin: 0 + balancedMargin
+      anchors.leftMargin: 0 + balancedMargin + toolBar.leftMargin
+      anchors.rightMargin: 0 + balancedMargin + toolBar.rightMargin
       anchors.topMargin: toolBar.topMargin
       height: parent.height - toolBar.topMargin
 
@@ -210,6 +212,7 @@ Rectangle {
     id: previousButton
 
     anchors.left: parent.left
+    anchors.leftMargin: toolBar.leftMargin
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
@@ -243,6 +246,7 @@ Rectangle {
     id: saveButton
 
     anchors.left: parent.left
+    anchors.leftMargin: toolBar.leftMargin
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
@@ -277,6 +281,7 @@ Rectangle {
     id: cancelButton
 
     anchors.right: parent.right
+    anchors.rightMargin: toolBar.rightMargin
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
@@ -385,6 +390,7 @@ Rectangle {
     id: menuButton
 
     anchors.right: parent.right
+    anchors.rightMargin: toolBar.rightMargin
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 

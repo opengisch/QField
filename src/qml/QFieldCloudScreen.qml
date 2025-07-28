@@ -16,6 +16,9 @@ Page {
   property LayerObserver layerObserver
   property string requestedProjectDetails: ""
 
+  leftPadding: mainWindow.sceneLeftMargin
+  rightPadding: mainWindow.sceneRightMargin
+
   header: QfPageHeader {
     title: qsTr("QFieldCloud Projects")
 

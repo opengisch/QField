@@ -50,7 +50,8 @@ ApplicationWindow {
   property bool sceneBorderless: false
   property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
   property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]
-  readonly property bool screenIsPortrait: (Screen.primaryOrientation === Qt.PortraitOrientation || Screen.primaryOrientation === Qt.InvertedPortraitOrientation)
+  property double sceneLeftMargin: platformUtilities.sceneMargins(mainWindow)["left"]
+  property double sceneRightMargin: platformUtilities.sceneMargins(mainWindow)["right"]
 
   onSceneLoadedChanged: {
     // This requires the scene to be fully loaded not to crash due to possibility of
@@ -60,8 +61,12 @@ ApplicationWindow {
     }
   }
 
-  onScreenIsPortraitChanged: {
-    refreshSceneMargins.start();
+  Connections {
+    target: Screen
+
+    function onOrientationChanged() {
+      refreshSceneMargins.start();
+    }
   }
 
   Timer {
@@ -71,8 +76,11 @@ ApplicationWindow {
     interval: 50
 
     onTriggered: {
-      mainWindow.sceneTopMargin = platformUtilities.sceneMargins(mainWindow)["top"];
-      mainWindow.sceneBottomMargin = platformUtilities.sceneMargins(mainWindow)["bottom"];
+      const margins = platformUtilities.sceneMargins(mainWindow);
+      mainWindow.sceneTopMargin = margins["top"];
+      mainWindow.sceneBottomMargin = margins["bottom"];
+      mainWindow.sceneLeftMargin = margins["left"];
+      mainWindow.sceneRightMargin = margins["right"];
     }
   }
 
@@ -1340,7 +1348,7 @@ ApplicationWindow {
       visible: rotation !== 0
       anchors.left: parent.left
       anchors.bottom: parent.bottom
-      anchors.leftMargin: 4
+      anchors.leftMargin: mainWindow.sceneLeftMargin + 4
       anchors.bottomMargin: 54
       round: true
       bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
@@ -1415,7 +1423,7 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       anchors.left: parent.left
       anchors.bottom: parent.bottom
-      anchors.leftMargin: 8
+      anchors.leftMargin: mainWindow.sceneLeftMargin + 8
       anchors.bottomMargin: 10
     }
 
@@ -1445,7 +1453,7 @@ ApplicationWindow {
     Column {
       id: zoomToolbar
       anchors.right: parent.right
-      anchors.rightMargin: 10
+      anchors.rightMargin: mainWindow.sceneRightMargin + 10
       anchors.bottom: parent.bottom
       anchors.bottomMargin: (parent.height - zoomToolbar.height / 2) / 2
       spacing: 8
@@ -1508,7 +1516,7 @@ ApplicationWindow {
       anchors.right: parent.right
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 4
-      anchors.rightMargin: 4
+      anchors.rightMargin: mainWindow.sceneRightMargin + 4
 
       visible: !screenLocker.enabled && stateMachine.state !== 'measure'
 
@@ -1540,7 +1548,7 @@ ApplicationWindow {
       width: childrenRect.width
       height: childrenRect.height
       topPadding: mainWindow.sceneTopMargin + 4
-      leftPadding: 4
+      leftPadding: mainWindow.sceneLeftMargin + 4
       spacing: 4
 
       QfToolButton {
@@ -1595,7 +1603,7 @@ ApplicationWindow {
       visible: !screenLocker.enabled
       anchors.left: mainMenuBar.left
       anchors.top: mainMenuBar.bottom
-      anchors.leftMargin: 4
+      anchors.leftMargin: mainWindow.sceneLeftMargin + 4
       anchors.topMargin: 4
       spacing: 4
 
@@ -2003,6 +2011,7 @@ ApplicationWindow {
     BusyIndicator {
       id: busyIndicator
       anchors.left: mainMenuBar.left
+      anchors.leftMargin: mainWindow.sceneLeftMargin
       anchors.top: mainToolbar.bottom
       width: menuButton.width + 10
       height: width
@@ -2012,7 +2021,7 @@ ApplicationWindow {
     Column {
       id: locationToolbar
       anchors.right: parent.right
-      anchors.rightMargin: 4
+      anchors.rightMargin: mainWindow.sceneRightMargin + 4
       anchors.bottom: digitizingToolbarContainer.top
       anchors.bottomMargin: 4
 
@@ -2315,7 +2324,7 @@ ApplicationWindow {
     Column {
       id: digitizingToolbarContainer
       anchors.right: parent.right
-      anchors.rightMargin: 4
+      anchors.rightMargin: mainWindow.sceneRightMargin + 4
       anchors.bottom: parent.bottom
       anchors.bottomMargin: 4
 

@@ -369,6 +369,7 @@ public class QFieldActivity extends QtActivity {
         });
     }
 
+    @SuppressWarnings("deprecation")
     private Insets getSafeInsets() {
         // TODO when updating to Qt >= 6.9, rely on safeAreaMargins
         View decorView = getWindow().getDecorView();
@@ -404,12 +405,20 @@ public class QFieldActivity extends QtActivity {
         return safeInsets;
     }
 
-    private double statusBarMargin() {
+    private double topMargin() {
         return getSafeInsets().top;
     }
 
-    private double navigationBarMargin() {
+    private double bottomMargin() {
         return getSafeInsets().bottom;
+    }
+
+    private double leftMargin() {
+        return getSafeInsets().left;
+    }
+
+    private double rightMargin() {
+        return getSafeInsets().right;
     }
 
     private void dimBrightness() {

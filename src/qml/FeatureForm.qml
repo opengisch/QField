@@ -42,6 +42,8 @@ Page {
   property bool featureCreated: false
 
   property double topMargin: 0.0
+  property double leftMargin: 0.0
+  property double rightMargin: 0.0
   property double bottomMargin: 0.0
 
   function requestCancel() {
@@ -84,6 +86,8 @@ Page {
   ColumnLayout {
     id: container
     anchors.fill: parent
+    anchors.leftMargin: form.leftMargin
+    anchors.rightMargin: form.rightMargin
 
     QfTabBar {
       id: tabRow
@@ -151,6 +155,7 @@ Page {
       Layout.fillHeight: true
       currentIndex: tabRow.currentIndex
       onCurrentIndexChanged: tabRow.currentIndex = swipeView.currentIndex
+      clip: true
 
       Repeater {
         // One page per tab in tabbed forms, 1 page in auto forms
@@ -161,7 +166,7 @@ Page {
 
           property int contentIndex: index
 
-          width: form.width
+          width: form.width - form.leftMargin - form.rightMargin
           contentWidth: content.width
           contentHeight: content.height
           bottomMargin: form.bottomMargin
@@ -177,7 +182,7 @@ Page {
 
           Flow {
             id: content
-            width: form.width
+            width: form.width - form.leftMargin - form.rightMargin
 
             SubModel {
               id: contentModel
