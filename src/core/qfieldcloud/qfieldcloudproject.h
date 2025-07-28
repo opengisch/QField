@@ -537,7 +537,7 @@ class QFieldCloudProject : public QObject
     bool mAutoPushEnabled = false;
     int mAutoPushIntervalMins = 30;
 
-    bool mAttachmentsOnDemandEnabled = true;
+    bool mAttachmentsOnDemandEnabled = false;
     QMap<QString, FileTransfer> mAttachmentsFileTransfers;
 
     QMap<JobType, Job> mJobs;
