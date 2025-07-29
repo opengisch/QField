@@ -447,52 +447,5 @@
         </div>
       </div>
     </section>
-
-    <script>
-      // Tab switching
-      document.querySelectorAll(".donation-tab").forEach((tab) => {
-        tab.addEventListener("click", () => {
-          document
-            .querySelectorAll(".donation-tab")
-            .forEach((t) => t.classList.remove("active"));
-          tab.classList.add("active");
-
-          const selectedTab = tab.getAttribute("data-tab");
-          document
-            .querySelectorAll(".donation-options")
-            .forEach((opt) => (opt.style.display = "none"));
-          document.getElementById(selectedTab).style.display = "grid";
-
-          // Reset selected amount
-          document
-            .querySelectorAll(".donation-btn")
-            .forEach((btn) => btn.classList.remove("selected"));
-          const firstBtn = document.querySelector(
-            `#${selectedTab} .donation-btn`
-          );
-          if (firstBtn) {
-            firstBtn.classList.add("selected");
-            document.getElementById("donate-link").href = firstBtn.href;
-          }
-        });
-      });
-
-      // Amount selection
-      document.querySelectorAll(".donation-btn").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-          e.preventDefault();
-          document
-            .querySelectorAll(".donation-btn")
-            .forEach((b) => b.classList.remove("selected"));
-          btn.classList.add("selected");
-          document.getElementById("donate-link").href = btn.href;
-        });
-      });
-
-      // Initial state
-      document.getElementById("donate-link").href = document.querySelector(
-        "#one-time .donation-btn"
-      ).href;
-    </script>
   </body>
 </html>
