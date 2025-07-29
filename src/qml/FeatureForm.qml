@@ -793,6 +793,8 @@ Page {
     RowLayout {
       anchors.fill: parent
       anchors.topMargin: form.topMargin
+      anchors.leftMargin: form.leftMargin
+      anchors.rightMargin: form.rightMargin
       Layout.margins: 0
 
       QfToolButton {
