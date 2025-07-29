@@ -298,7 +298,7 @@ void PositioningSource::lastGnssPositionInformationChanged( const GnssPositionIn
                                                      lastGnssPositionInformation.vdop(),
                                                      lastGnssPositionInformation.hacc(),
                                                      lastGnssPositionInformation.vacc(),
-                                                     lastGnssPositionInformation.utcDateTime().isValid() ? lastGnssPositionInformation.utcDateTime() : QDateTime::currentDateTimeUtc(),
+                                                     lastGnssPositionInformation.utcDateTime(),
                                                      lastGnssPositionInformation.fixMode(),
                                                      lastGnssPositionInformation.fixType(),
                                                      lastGnssPositionInformation.quality(),

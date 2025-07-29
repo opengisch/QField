@@ -44,7 +44,11 @@ QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPosi
   const QgsGeometry point = QgsGeometry( new QgsPoint( positionInformation.longitude(), positionInformation.latitude(), positionInformation.elevation() ) );
 
   addPositionVariable( scope, QStringLiteral( "coordinate" ), QVariant::fromValue<QgsGeometry>( point ), positionLocked );
-  addPositionVariable( scope, QStringLiteral( "timestamp" ), positionInformation.utcDateTime(), positionLocked );
+  addPositionVariable( scope, QStringLiteral( "timestamp" ), 
+                      positionInformation.utcDateTime().isValid() ? 
+                        positionInformation.utcDateTime() : 
+                        QDateTime::currentDateTimeUtc(), 
+                      positionLocked );
   addPositionVariable( scope, QStringLiteral( "direction" ), positionInformation.direction(), positionLocked ); // Speed direction
   addPositionVariable( scope, QStringLiteral( "ground_speed" ), positionInformation.speed(), positionLocked );
   addPositionVariable( scope, QStringLiteral( "orientation" ), positionInformation.orientation(), positionLocked ); // Compass/magnetometer orientation

@@ -177,7 +177,9 @@ void InternalGnssReceiver::handleSatellitesInUseUpdated( const QList<QGeoSatelli
                                                               mSatellitesInfo, 0, 0, 0,
                                                               mLastGnssPositionInformation.hacc(),
                                                               mLastGnssPositionInformation.vacc(),
-                                                              mLastGnssPositionInformation.utcDateTime(),
+                                                              mLastGnssPositionInformation.utcDateTime().isValid() ? 
+                                                                mLastGnssPositionInformation.utcDateTime() : 
+                                                                QDateTime::currentDateTimeUtc(),
                                                               QChar(), 0, -1, static_cast<int>( mSatellitesID.size() ), QChar( 'A' ), mSatellitesID, mSatelliteInformationValid,
                                                               mLastGnssPositionInformation.verticalSpeed(),
                                                               mLastGnssPositionInformation.magneticVariation(),
