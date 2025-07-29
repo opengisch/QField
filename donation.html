@@ -110,48 +110,83 @@
 
           <!-- donation block -->
           <div style="max-width: 500px; margin: 0 auto;">
-            <div
-              style="background-color: #fff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); padding: 2rem;">
+  <div style="background-color: #fff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); padding: 2rem;">
 
-              <!-- moved explanation text here -->
-              <h2 style="margin-bottom: 15px;"><strong>Payrexx Donation</strong></h2>
-              <p style="margin-bottom: 15px;"> We use the <a href="https://payrexx.com" target="_blank"
-                  style="color: var(--qfield-color); font-weight: bold;">payrexx.com <i class="fas fa-external-link-alt"
-                    style="font-size: 0.85em;"></i></a> service to receive credit card donations. No signup needed.
-              </p>
+    <h2 style="margin-bottom: 15px;"><strong>Payrexx Donation</strong></h2>
+    <p style="margin-bottom: 15px;">
+      We use <a href="https://payrexx.com" target="_blank" style="color: var(--qfield-color); font-weight: bold;">payrexx.com <i class="fas fa-external-link-alt" style="font-size: 0.85em;"></i></a> to receive credit card donations. No signup needed.
+    </p>
 
-              <!-- tabs -->
-              <div style="display: flex; justify-content: center; margin-bottom: 1rem; border-bottom: 1px solid #ccc;">
-                <button class="donation-tab active" data-tab="one-time">One-Time</button>
-                <button class="donation-tab" data-tab="monthly">Monthly</button>
-              </div>
+    <!-- tabs -->
+    <div style="display: flex; justify-content: center; margin-bottom: 1rem; border-bottom: 1px solid #ccc;">
+      <button class="donation-tab active" data-tab="one-time">One-Time</button>
+      <button class="donation-tab" data-tab="monthly">Monthly</button>
+    </div>
 
-              <!-- one-time -->
-              <div class="donation-options" id="one-time"
-                style="display: grid; gap: 1rem; max-width: 320px; margin: 0 auto;">
-                <a href="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=10&donation[preselect_interval]=one_time" class="donation-btn selected">CHF 10.00</a>
-                <a href="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=20&donation[preselect_interval]=one_time" class="donation-btn">CHF 20.00</a>
-                <a href="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=50&donation[preselect_interval]=one_time" class="donation-btn">CHF 50.00</a>
-                <a href="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=100&donation[preselect_interval]=one_time" class="donation-btn">CHF 100.00</a>
-                <a href="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=250&donation[preselect_interval]=one_time" class="donation-btn">CHF 250.00</a>
-              </div>
+    <!-- one-time -->
+    <div class="donation-options" id="one-time" style="display: grid; gap: 1rem; max-width: 320px; margin: 0 auto;">
+      <button data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=10&donation[preselect_interval]=one_time" class="donation-btn selected">CHF 10.00</button>
+      <button data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=20&donation[preselect_interval]=one_time" class="donation-btn">CHF 20.00</button>
+      <button data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=50&donation[preselect_interval]=one_time" class="donation-btn">CHF 50.00</button>
+      <button data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=100&donation[preselect_interval]=one_time" class="donation-btn">CHF 100.00</button>
+      <button data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=250&donation[preselect_interval]=one_time" class="donation-btn">CHF 250.00</button>
+    </div>
 
-              <!-- monthly -->
-              <div class="donation-options" id="monthly"
-                style="display: none; gap: 1rem; max-width: 320px; margin: 0 auto;">
-                <a href="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=5&donation[preselect_interval]=monthly" class="donation-btn selected">CHF 5.00</a>
-                <a href="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=10&donation[preselect_interval]=monthly" class="donation-btn">CHF 10.00</a>
-                <a href="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=20&donation[preselect_interval]=monthly" class="donation-btn">CHF 20.00</a>
-                <a href="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=50&donation[preselect_interval]=monthly" class="donation-btn">CHF 50.00</a>
-                <a href="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=100&donation[preselect_interval]=monthly" class="donation-btn">CHF 100.00</a>
-                <a href="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=250&donation[preselect_interval]=monthly" class="donation-btn">CHF 250.00</a>
-              </div>
+    <!-- monthly -->
+    <div class="donation-options" id="monthly" style="display: none; gap: 1rem; max-width: 320px; margin: 0 auto;">
+      <button data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=5&donation[preselect_interval]=monthly" class="donation-btn selected">CHF 5.00</button>
+      <button data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=10&donation[preselect_interval]=monthly" class="donation-btn">CHF 10.00</button>
+      <button data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=20&donation[preselect_interval]=monthly" class="donation-btn">CHF 20.00</button>
+      <button data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=50&donation[preselect_interval]=monthly" class="donation-btn">CHF 50.00</button>
+      <button data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=100&donation[preselect_interval]=monthly" class="donation-btn">CHF 100.00</button>
+      <button data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=250&donation[preselect_interval]=monthly" class="donation-btn">CHF 250.00</button>
+    </div>
 
-              
-              <!-- Currency
-                  <div style="text-align: right; margin-top: 0.5rem; font-size: 0.9em; color: #666;">EUR <i class="fas fa-chevron-down" style="font-size: 0.75em;"></i></div> -->
-            </div>
-          </div>
+    <!-- donate btn -->
+    <div style="text-align: center; margin-top: 25px; margin-bottom: 10px;">
+      <a href="#" id="donate-link" class="donation-submit" style="max-width: 200px; margin: 0 auto; display: inline-block;">Donate</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const tabs = document.querySelectorAll('.donation-tab');
+    const options = document.querySelectorAll('.donation-options');
+    const donateBtn = document.getElementById('donate-link');
+
+    let currentTab = 'one-time';
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        currentTab = tab.dataset.tab;
+        options.forEach(opt => opt.style.display = opt.id === currentTab ? 'grid' : 'none');
+
+        // Set default donate link when tab changes
+        const selected = document.querySelector(`#${currentTab} .donation-btn.selected`);
+        if (selected) donateBtn.href = selected.dataset.url;
+      });
+    });
+
+    document.querySelectorAll('.donation-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll(`#${currentTab} .donation-btn`).forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        donateBtn.href = btn.dataset.url;
+      });
+    });
+
+    // Set initial donate link
+    const initialSelected = document.querySelector(`#${currentTab} .donation-btn.selected`);
+    if (initialSelected) donateBtn.href = initialSelected.dataset.url;
+  });
+</script>
+
+
         </div>
 
         <div class="support-container">
