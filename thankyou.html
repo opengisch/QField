@@ -190,314 +190,130 @@
             "
           >
             <!-- donation block -->
-            <div style="max-width: 500px; margin: 0 auto">
-              <div
-                style="
-                  background-color: #fff;
-                  border-radius: 16px;
-                  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-                  padding: 2rem;
-                "
-              >
-                <h2 style="margin-bottom: 15px">
-                  Donate now to support QField
-                </h2>
-                <p style="margin-bottom: 15px">
-                  We use
-                  <a
-                    href="https://payrexx.com"
-                    target="_blank"
-                    style="color: var(--qfield-color); font-weight: bold"
-                    >payrexx.com
-                    <i
-                      class="fas fa-external-link-alt"
-                      style="font-size: 0.85em"
-                    ></i
-                  ></a>
-                  to receive credit card donations. No signup needed.
-                </p>
-
-                <!-- tabs -->
-                <div
-                  style="
-                    display: flex;
-                    justify-content: center;
-                    margin-bottom: 1rem;
-                    border-bottom: 1px solid #ccc;
-                  "
-                >
-                  <button class="donation-tab active" data-tab="one-time">
-                    One-Time
-                  </button>
-                  <button class="donation-tab" data-tab="monthly">
-                    Monthly
-                  </button>
-                </div>
-
-                <!-- one-time -->
-                <div
-                  class="donation-options"
-                  id="one-time"
-                  style="
-                    display: grid;
-                    gap: 1rem;
-                    max-width: 320px;
-                    margin: 0 auto;
-                  "
-                >
-                  <button
-                    data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=10&donation[preselect_interval]=one_time"
-                    class="donation-btn selected"
-                  >
-                    EUR 10.00
-                  </button>
-                  <button
-                    data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=20&donation[preselect_interval]=one_time"
-                    class="donation-btn"
-                  >
-                    EUR 20.00
-                  </button>
-                  <button
-                    data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=50&donation[preselect_interval]=one_time"
-                    class="donation-btn"
-                  >
-                    EUR 50.00
-                  </button>
-                  <button
-                    data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=100&donation[preselect_interval]=one_time"
-                    class="donation-btn"
-                  >
-                    EUR 100.00
-                  </button>
-                  <button
-                    data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=250&donation[preselect_interval]=one_time"
-                    class="donation-btn"
-                  >
-                    EUR 250.00
-                  </button>
-                </div>
-
-                <!-- monthly -->
-                <div
-                  class="donation-options"
-                  id="monthly"
-                  style="
-                    display: none;
-                    gap: 1rem;
-                    max-width: 320px;
-                    margin: 0 auto;
-                  "
-                >
-                  <button
-                    data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=5&donation[preselect_interval]=monthly"
-                    class="donation-btn selected"
-                  >
-                    EUR 5.00
-                  </button>
-                  <button
-                    data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=10&donation[preselect_interval]=monthly"
-                    class="donation-btn"
-                  >
-                    EUR 10.00
-                  </button>
-                  <button
-                    data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=20&donation[preselect_interval]=monthly"
-                    class="donation-btn"
-                  >
-                    EUR 20.00
-                  </button>
-                  <button
-                    data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=50&donation[preselect_interval]=monthly"
-                    class="donation-btn"
-                  >
-                    EUR 50.00
-                  </button>
-                  <button
-                    data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=100&donation[preselect_interval]=monthly"
-                    class="donation-btn"
-                  >
-                    EUR 100.00
-                  </button>
-                  <button
-                    data-url="https://qfield.payrexx.com/en/pay?cid=3a455978&donation[preselect_amount]=250&donation[preselect_interval]=monthly"
-                    class="donation-btn"
-                  >
-                    EUR 250.00
-                  </button>
-                </div>
-
-                <!-- donate btn -->
-                <div
-                  style="
-                    text-align: center;
-                    margin-top: 25px;
-                    margin-bottom: 10px;
-                  "
-                >
-                  <a
-                    href="#"
-                    id="donate-link"
-                    class="donation-submit"
-                    style="
-                      max-width: 200px;
-                      margin: 0 auto;
-                      display: inline-block;
-                    "
-                    >Donate</a
-                  >
-                </div>
-              </div>
-            </div>
-
-            <script>
-              document.addEventListener("DOMContentLoaded", function () {
-                const tabs = document.querySelectorAll(".donation-tab");
-                const options = document.querySelectorAll(".donation-options");
-                const donateBtn = document.getElementById("donate-link");
-
-                let currentTab = "one-time";
-
-                tabs.forEach((tab) => {
-                  tab.addEventListener("click", () => {
-                    tabs.forEach((t) => t.classList.remove("active"));
-                    tab.classList.add("active");
-
-                    currentTab = tab.dataset.tab;
-                    options.forEach(
-                      (opt) =>
-                        (opt.style.display =
-                          opt.id === currentTab ? "grid" : "none")
-                    );
-
-                    // Set default donate link when tab changes
-                    const selected = document.querySelector(
-                      `#${currentTab} .donation-btn.selected`
-                    );
-                    if (selected) donateBtn.href = selected.dataset.url;
-                  });
-                });
-
-                document.querySelectorAll(".donation-btn").forEach((btn) => {
-                  btn.addEventListener("click", () => {
-                    document
-                      .querySelectorAll(`#${currentTab} .donation-btn`)
-                      .forEach((b) => b.classList.remove("selected"));
-                    btn.classList.add("selected");
-                    donateBtn.href = btn.dataset.url;
-                  });
-                });
-
-                // Set initial donate link
-                const initialSelected = document.querySelector(
-                  `#${currentTab} .donation-btn.selected`
-                );
-                if (initialSelected)
-                  donateBtn.href = initialSelected.dataset.url;
-              });
-            </script>
           </div>
 
           <div class="support-container">
-            <div class="header-section">
-              <h1>Your support is vital to keep QField improving</h1>
-              <p>
-                We would like to extend our activities and improve the quality
-                of QField. Your financial contribution will support the
-                maintenance, improvement, and promotion of QField. Becoming a
-                sustaining member is a way of ensuring the longevity and overall
-                health of the project.
+            <div
+              class="alert alert-success"
+              style="
+                border-radius: 15px;
+                padding: 25px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              "
+            >
+              <h1 style="margin-top: 0">Thank You for Your Support!</h1>
+              <p style="font-size: 16px; line-height: 1.5">
+                Your contribution to QField is truly appreciated. It helps us
+                maintain, improve, and grow this essential tool for the
+                geospatial community. Together, we’re making field data
+                collection more efficient, powerful, and accessible to everyone.
               </p>
             </div>
-
-            <div class="support-content">
-              <div class="left-section">
-                <h2 class="section-title">
-                  Enhanced Infrastructure <br />
-                  & Development Support
-                </h2>
-                <div class="accent-bar"></div>
+            <div>
+              <div
+                style="
+                  margin: 30px 0;
+                  padding: 20px;
+                  background-color: #f8f9fa;
+                  border-radius: 15px;
+                  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                "
+              >
+                <h2>Spread the Word</h2>
+                <p>
+                  Love QField? Let others know! <br/>Share our donation page with
+                  friends and colleagues who believe in open-source GIS. Every
+                  bit of support makes a difference.
+                </p>
+                <div
+                  style="
+                    margin-top: 15px;
+                    display: flex;
+                    justify-content: center;
+                    gap: 15px;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <a
+                    href="https://twitter.com/intent/tweet?text=I%20just%20supported%20QField%20for%20QGIS!%20You%20can%20too%20at%20https://qfield.org/donate"
+                    target="_blank"
+                    class="btn btn-primary"
+                    style="display: inline-flex; align-items: center"
+                  >
+                    <i class="fab fa-twitter" style="margin-right: 8px"></i
+                    >Twitter
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/sharing/share-offsite/?url=https://qfield.org/donate"
+                    target="_blank"
+                    class="btn btn-primary"
+                    style="display: inline-flex; align-items: center"
+                  >
+                    <i class="fab fa-linkedin" style="margin-right: 8px"></i
+                    >LinkedIn
+                  </a>
+                  <a
+                    href="https://www.facebook.com/sharer/sharer.php?u=https://qfield.org/donate"
+                    target="_blank"
+                    class="btn btn-primary"
+                    style="display: inline-flex; align-items: center"
+                  >
+                    <i class="fab fa-facebook" style="margin-right: 8px"></i
+                    >Facebook
+                  </a>
+                  <a
+                    href="https://www.reddit.com/submit?url=https://qfield.org/donate&title=Support%20QField%20for%20QGIS"
+                    target="_blank"
+                    class="btn btn-primary"
+                    style="display: inline-flex; align-items: center"
+                  >
+                    <i class="fab fa-reddit" style="margin-right: 8px"></i
+                    >Reddit
+                  </a>
+                  <a
+                    href="https://fosstodon.org/share?text=I%20just%20supported%20QField%20for%20QGIS!%20You%20can%20too%20at%20https://qfield.org/donate"
+                    target="_blank"
+                    class="btn btn-primary"
+                    style="display: inline-flex; align-items: center"
+                  >
+                    <i class="fab fa-mastodon" style="margin-right: 8px"></i
+                    >Mastodon
+                  </a>
+                  <a
+                    href="https://bsky.app/intent/compose?text=I%20just%20supported%20QField%20for%20QGIS!%20You%20can%20too%20at%20https://qfield.org/donate"
+                    target="_blank"
+                    class="btn btn-primary"
+                    style="display: inline-flex; align-items: center"
+                  >
+                    <i class="fab fa-bluesky" style="margin-right: 8px"></i
+                    >Bluesky
+                  </a>
+                  <button
+                    onclick="copyToClipboard()"
+                    class="btn btn-primary"
+                    style="display: inline-flex; align-items: center"
+                  >
+                    <i class="fas fa-link" style="margin-right: 8px"></i> Copy
+                    Link
+                  </button>
+                </div>
               </div>
 
-              <div class="right-section">
-                <div class="support-card">
-                  <h3 class="card-title">Maintaining Core Infrastructure</h3>
-                  <ul class="card-list">
-                    <li>
-                      The official qfield.org website, a central hub for all
-                      things QField.
-                    </li>
-                    <li>
-                      Our issue tracking system for efficient bug and feature
-                      reporting.
-                    </li>
-                    <li>
-                      The continuous integration system, ensuring code quality
-                      and stability through automated tests.
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="support-card">
-                  <h3 class="card-title">Software Development & QA</h3>
-                  <ul class="card-list">
-                    <li>
-                      Continually improve and package QField for various
-                      operating systems, making it accessible to more users
-                      worldwide.
-                    </li>
-                    <li>
-                      Address bugs and other issues promptly, enhancing the user
-                      experience.
-                    </li>
-                    <li>
-                      Manage pull requests and conduct thorough code reviews,
-                      ensuring the highest standards of software development.
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              <script>
+                function copyToClipboard() {
+                  navigator.clipboard.writeText("https://qfield.org/donate");
+                }
+              </script>
             </div>
-
-            <div class="support-content" style="margin-top: 50px">
-              <div class="left-section">
-                <h2 class="section-title">
-                  Community Growth <br />
-                  & Engagement
-                </h2>
-                <div class="accent-bar"></div>
-              </div>
-
-              <div class="right-section">
-                <div class="support-card">
-                  <h3 class="card-title">Empowering Our Volunteers</h3>
-                  <ul class="card-list">
-                    <li>
-                      .Mentoring new contributors, fostering a welcoming and
-                      productive community.
-                    </li>
-                    <li>
-                      Translating QField into multiple languages, making the app
-                      truly global.
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="support-card">
-                  <h3 class="card-title">
-                    Fostering Collaboration & Knowledge Sharing
-                  </h3>
-                  <ul class="card-list">
-                    <li>
-                      Organizing and supporting contributor meetings and QField
-                      conferences, essential for knowledge exchange,
-                      collaboration, and the collective advancement of the
-                      QField project.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="footer-section">
+            <div>
+              <h2>Join our community</h2>
+              <p>
+                Connect with other QField users and contributors on our
+                <a href="https://community.qfield.org" target="_blank"
+                  >community platform</a
+                >
+                to share your experiences, ask questions, and more
+              </p>
             </div>
           </div>
         </section>
