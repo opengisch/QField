@@ -47,7 +47,7 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
     void nmeaSentenceReceived( const QString &substring );
 
   private:
-    void handleStartLogging() override;
+    void handleStartLogging( const QString &path ) override;
     void handleStopLogging() override;
     GnssPositionDetails details() const override;
 

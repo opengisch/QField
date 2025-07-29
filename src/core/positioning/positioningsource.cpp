@@ -130,9 +130,9 @@ void PositioningSource::setLogging( bool logging )
 
   if ( mReceiver )
   {
-    if ( mLogging )
+    if ( mLogging && !mLoggingPath.isEmpty() )
     {
-      mReceiver->startLogging();
+      mReceiver->startLogging( mLoggingPath );
     }
     else
     {
@@ -141,6 +141,21 @@ void PositioningSource::setLogging( bool logging )
   }
 
   emit loggingChanged();
+}
+
+void PositioningSource::setLoggingPath( const QString &path )
+{
+  if ( mLoggingPath == path )
+    return;
+
+  mLoggingPath = path;
+
+  if ( mReceiver && mLogging )
+  {
+    mReceiver->startLogging( mLoggingPath );
+  }
+
+  emit loggingPathChanged();
 }
 
 void PositioningSource::setBackgroundMode( bool backgroundMode )
@@ -269,9 +284,9 @@ void PositioningSource::setupDevice()
 
   emit deviceChanged();
 
-  if ( mLogging )
+  if ( mLogging && !mLoggingPath.isEmpty() )
   {
-    mReceiver->startLogging();
+    mReceiver->startLogging( mLoggingPath );
   }
 
   if ( mActive )

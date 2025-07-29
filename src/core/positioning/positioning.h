@@ -63,6 +63,7 @@ class Positioning : public QObject
     Q_PROPERTY( double orientation READ orientation NOTIFY orientationChanged );
 
     Q_PROPERTY( bool logging READ logging WRITE setLogging NOTIFY loggingChanged )
+    Q_PROPERTY( QString loggingPath READ loggingPath WRITE setLoggingPath NOTIFY loggingPathChanged )
 
     Q_PROPERTY( bool backgroundMode READ backgroundMode WRITE setBackgroundMode NOTIFY backgroundModeChanged )
 
@@ -218,6 +219,18 @@ class Positioning : public QObject
     void setLogging( bool logging );
 
     /**
+     * Returns the path where GNSS devices will log their incoming position stream into logfiles.
+     * \note Requires a device type with logging capability
+     */
+    QString loggingPath() const;
+
+    /**
+     * Sets the path where GNSS devices will log their incoming position stream into logfiles.
+     * \note Requires a device type with logging capability
+     */
+    void setLoggingPath( const QString &path );
+
+    /**
      * Returns TRUE if the background mode is active. When activated, position information details
      * will not be signaled but instead saved to disk until deactivated.
      * \see getBackgroundPositionInformation()
@@ -254,6 +267,7 @@ class Positioning : public QObject
     void antennaHeightChanged();
     void orientationChanged();
     void loggingChanged();
+    void loggingPathChanged();
     void backgroundModeChanged();
 
     void triggerConnectDevice();
