@@ -347,6 +347,8 @@ ApplicationWindow {
 
     elevationCorrectionMode: positioningSettings.elevationCorrectionMode
     antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
+
+    loggingPath: platformUtilities.appDataDirs()[0] + "/logs"
     logging: positioningSettings.logging
 
     onPositionInformationChanged: {
