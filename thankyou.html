@@ -302,9 +302,6 @@
               <script>
                 function copyToClipboard() {
                   navigator.clipboard.writeText("https://qfield.org/donate")
-                    .then(() => {
-                      alert("Link copied to clipboard successfully!");
-                    })
                     .catch((error) => {
                       alert("Failed to copy the link. Please try again.");
                       console.error("Clipboard copy failed:", error);
