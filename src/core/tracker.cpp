@@ -306,9 +306,7 @@ void Tracker::processPositionInformation( const GnssPositionInformation &positio
   if ( !mIsActive && !mIsReplaying )
     return;
 
-  mLastDevicePositionTimestampMSecsSinceEpoch = positionInformation.utcDateTime().isValid() ? 
-                                                 positionInformation.utcDateTime().toMSecsSinceEpoch() : 
-                                                 QDateTime::currentDateTimeUtc().toMSecsSinceEpoch();
+  mLastDevicePositionTimestampMSecsSinceEpoch = positionInformation.utcDateTime().isValid() ? positionInformation.utcDateTime().toMSecsSinceEpoch() : QDateTime::currentDateTimeUtc().toMSecsSinceEpoch();
 
   double measureValue = 0.0;
   switch ( mMeasureType )
@@ -318,9 +316,7 @@ void Tracker::processPositionInformation( const GnssPositionInformation &positio
         measureValue = positionInformation.utcDateTime().toSecsSinceEpoch() - mStartPositionTimestamp.toSecsSinceEpoch();
       break;
     case Tracker::Timestamp:
-      measureValue = positionInformation.utcDateTime().isValid() ? 
-                     positionInformation.utcDateTime().toSecsSinceEpoch() : 
-                     QDateTime::currentDateTimeUtc().toSecsSinceEpoch();
+      measureValue = positionInformation.utcDateTime().isValid() ? positionInformation.utcDateTime().toSecsSinceEpoch() : QDateTime::currentDateTimeUtc().toSecsSinceEpoch();
       break;
     case Tracker::GroundSpeed:
       measureValue = positionInformation.speed();
