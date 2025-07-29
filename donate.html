@@ -656,7 +656,7 @@
           );
           if (firstBtn) {
             firstBtn.classList.add("selected");
-            document.getElementById("donate-link").href = firstBtn.href;
+            document.getElementById("donate-link").href = firstBtn.dataset.url;
           }
         });
       });
