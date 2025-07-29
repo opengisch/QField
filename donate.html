@@ -669,14 +669,14 @@
             .querySelectorAll(".donation-btn")
             .forEach((b) => b.classList.remove("selected"));
           btn.classList.add("selected");
-          document.getElementById("donate-link").href = btn.href;
+          document.getElementById("donate-link").href = btn.dataset.url;
         });
       });
 
       // Initial state
       document.getElementById("donate-link").href = document.querySelector(
         "#one-time .donation-btn"
-      ).href;
+      ).dataset.url;
     </script>
   </body>
 </html>
