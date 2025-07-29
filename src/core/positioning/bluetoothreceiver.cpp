@@ -137,6 +137,11 @@ void BluetoothReceiver::handleError( QBluetoothSocket::SocketError error )
   }
 
   qInfo() << QStringLiteral( "BluetoothReceiver: Error: %1" ).arg( mLastError );
+  if (mSocket->isOpen())
+  {
+          mSocket->close();
+  }
+
   emit lastErrorChanged( mLastError );
 }
 
