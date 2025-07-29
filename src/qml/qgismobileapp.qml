@@ -3844,7 +3844,7 @@ ApplicationWindow {
         if (forceAutoPush) {
           cloudProjectsModel.currentProject.forceAutoPush = true;
           cloudProjectsModel.currentProject.autoPushEnabled = true;
-          cloudProjectsModel.currentProject.autoPushIntervalsMins = iface.readProjectNumEntry("qfieldsync", "forceAutoPushIntervalMins", 30);
+          cloudProjectsModel.currentProject.autoPushIntervalMins = iface.readProjectNumEntry("qfieldsync", "forceAutoPushIntervalMins", 30);
         } else {
           cloudProjectsModel.currentProject.forceAutoPush = false;
         }
