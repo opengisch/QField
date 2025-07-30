@@ -114,6 +114,9 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
 
     //! Returns a reprojected \a rectangle from the stated \a sourceCrs to a \a destinationCrs.
     static Q_INVOKABLE QgsRectangle reprojectRectangle( const QgsRectangle &rectangle, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs );
+
+    //! Returns a rectangle from two points.
+    static Q_INVOKABLE QgsRectangle createRectangleFromPoints( const QgsPoint &p1, const QgsPoint &p2 );
 };
 
 #endif // GEOMETRYUTILS_H

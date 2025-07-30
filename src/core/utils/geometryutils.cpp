@@ -304,3 +304,8 @@ QgsGeometry GeometryUtils::createGeometryFromWkt( const QString &wkt )
 {
   return QgsGeometry::fromWkt( wkt );
 }
+
+QgsRectangle GeometryUtils::createRectangleFromPoints( const QgsPoint &p1, const QgsPoint &p2 )
+{
+  return QgsRectangle( p1, p2 );
+}
