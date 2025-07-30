@@ -19,6 +19,7 @@
 
 #include "abstractgnssreceiver.h"
 #include "gnsspositioninformation.h"
+#include "ntripclient.h"
 
 #include <QCompass>
 #include <QObject>
@@ -282,6 +283,7 @@ class PositioningSource : public QObject
     bool mBackgroundMode = false;
 
     AbstractGnssReceiver *mReceiver = nullptr;
+    std::unique_ptr<NtripClient> mNtripClient;
 
     QCompass mCompass;
     QTimer mCompassTimer;

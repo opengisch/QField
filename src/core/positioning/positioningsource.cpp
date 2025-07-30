@@ -22,6 +22,7 @@
 #endif
 #include "egenioussreceiver.h"
 #include "internalgnssreceiver.h"
+#include "ntripclient.h"
 #include "positioningsource.h"
 #include "positioningutils.h"
 #include "tcpreceiver.h"
@@ -270,6 +271,24 @@ void PositioningSource::setupDevice()
     {
 #ifdef WITH_BLUETOOTH
       mReceiver = new BluetoothReceiver( mDeviceId, this );
+      if ( !mNtripClient )
+        mNtripClient = std::make_unique<NtripClient>( this );
+
+      QString ntripHost = "ppntrip.services.u-blox.com";
+      quint16 ntripPort = 2101;
+      QString mountpoint = "US";
+      QString username = "rIOFVFdfhyA3";
+      QString password = "F47Aj3@x^*";
+
+
+      mNtripClient->start( ntripHost, ntripPort, mountpoint, username, password );
+
+      connect( mNtripClient.get(), &NtripClient::correctionDataReceived, static_cast<BluetoothReceiver *>( mReceiver ), &BluetoothReceiver::onCorrectionDataReceived );
+
+      connect( mNtripClient.get(), &NtripClient::errorOccurred,
+               this, []( const QString &msg ) {
+                 qWarning() << msg;
+               } );
 #endif
     }
   }
