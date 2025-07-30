@@ -389,3 +389,9 @@ FeatureIterator LayerUtils::createFeatureIteratorFromExpression( QgsVectorLayer 
   const QgsFeatureRequest request = QgsFeatureRequest( QgsExpression( expression ) );
   return FeatureIterator( layer, request );
 }
+
+FeatureIterator LayerUtils::createFeatureIteratorFromRectangle( QgsVectorLayer *layer, const QgsRectangle &rectangle )
+{
+  const QgsFeatureRequest request = QgsFeatureRequest( rectangle );
+  return FeatureIterator( layer, request );
+}

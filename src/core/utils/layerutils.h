@@ -154,6 +154,11 @@ class LayerUtils : public QObject
      * Returns a feature iterator to get features matching a given \a expression within the provided \a layer.
      */
     Q_INVOKABLE static FeatureIterator createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression );
+
+    /**
+     * Returns a feature iterator to get features overlapping a given \a rectangle within the provided \a layer.
+     */
+    Q_INVOKABLE static FeatureIterator createFeatureIteratorFromRectangle( QgsVectorLayer *layer, const QgsRectangle &rectangle );
 };
 
 #endif // LAYERUTILS_H
