@@ -796,6 +796,7 @@ ApplicationWindow {
 
       MapCanvasPointHandler {
         id: pointHandler
+        objectName: "pointHandler"
       }
     }
 
