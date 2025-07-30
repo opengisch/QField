@@ -679,6 +679,8 @@ Rectangle {
         translateX -= moveFeaturesTransformer.projectedPosition.x;
         translateY -= moveFeaturesTransformer.projectedPosition.y;
         featureFormList.model.moveSelection(translateX, translateY);
+        moveFeaturesToolbar.startPoint = undefined;
+        moveFeaturesToolbar.endPoint = undefined;
       }
     }
 
