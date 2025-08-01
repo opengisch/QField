@@ -120,6 +120,7 @@ def test_wms_layer(app, screenshot_path, screenshot_check, extra, process_alive)
     assert app.existsAndVisible("mainWindow")
 
     # Arbitrary wait period to insure project fully loaded and rendered
+    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
     time.sleep(4)
 
     app.takeScreenshot(
@@ -152,6 +153,7 @@ def test_projection(app, screenshot_path, screenshot_check, extra, process_alive
     assert app.existsAndVisible("mainWindow")
 
     # Arbitrary wait period to insure project fully loaded and rendered
+    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
     time.sleep(4)
 
     app.takeScreenshot(
@@ -184,6 +186,7 @@ def test_image_attachment(app, screenshot_path, screenshot_check, extra, process
     assert app.existsAndVisible("mainWindow")
 
     # Arbitrary wait period to insure project fully loaded and rendered
+    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
     time.sleep(4)
 
     messagesCount = 0
@@ -229,6 +232,7 @@ def test_svg(app, screenshot_path, screenshot_check, extra, process_alive):
     assert app.existsAndVisible("mainWindow")
 
     # Arbitrary wait period to insure project fully loaded and rendered
+    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
     time.sleep(4)
 
     app.takeScreenshot("mainWindow", os.path.join(screenshot_path, "test_svg.png"))
@@ -246,6 +250,7 @@ def test_offline_project(app, screenshot_path, screenshot_check, extra, process_
     assert app.existsAndVisible("mainWindow")
 
     # Arbitrary wait period to insure project fully loaded and rendered
+    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
     time.sleep(4)
 
     app.takeScreenshot(
@@ -269,6 +274,7 @@ def test_postgis_ssl(app, screenshot_path, screenshot_check, extra, process_aliv
     assert app.existsAndVisible("mainWindow")
 
     # Arbitrary wait period to insure project fully loaded and rendered
+    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
     time.sleep(4)
     assert process_alive()
 
