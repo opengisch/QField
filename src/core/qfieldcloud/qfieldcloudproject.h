@@ -410,26 +410,6 @@ class QFieldCloudProject : public QObject
     void jobFinished( JobType type, const QString &error = QString() );
 
   private:
-    void download();
-    void prepareDownloadTransfer( const QString &projectId, const QString &fileName, int fileSize, const QString &cloudEtag );
-    void downloadFiles();
-    void updateActiveFilesToDownload();
-    void downloadFilesCompleted();
-
-    void startJob( JobType type );
-
-    void getJobStatus( JobType type );
-    void getDeltaStatus();
-
-    void refreshData( ProjectRefreshReason reason );
-
-    NetworkReply *downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage = true, bool autoRedirect = false );
-    void downloadFileConnections( const QString &fileKey );
-    void downloadAttachmentConnections( const QString &fileKey );
-
-    bool moveDownloadedFilesToPermanentStorage();
-    void logFailedDownload( const QString &fileKey, const QString &errorMessage, const QString &errorMessageDetail );
-
     struct FileTransfer
     {
         FileTransfer(
@@ -472,6 +452,27 @@ class QFieldCloudProject : public QObject
         QFieldCloudProject::JobType type;
         QFieldCloudProject::JobStatus status = QFieldCloudProject::JobPendingStatus;
     };
+
+    void download();
+    void prepareDownloadTransfer( const QString &projectId, const QString &fileName, int fileSize, const QString &cloudEtag );
+    void downloadFiles();
+    void updateActiveFilesToDownload();
+    void downloadFilesCompleted();
+
+    void startJob( JobType type );
+
+    void getJobStatus( JobType type );
+    void getDeltaStatus();
+
+    void refreshData( ProjectRefreshReason reason );
+
+    NetworkReply *downloadFile( const FileTransfer &fileTransfer, bool autoRedirect );
+
+    void downloadFileConnections( const QString &fileKey );
+    void downloadAttachmentConnections( const QString &fileKey );
+
+    bool moveDownloadedFilesToPermanentStorage();
+    void logFailedDownload( const QString &fileKey, const QString &errorMessage, const QString &errorMessageDetail );
 
     QString mId;
     QString mSharedDatasetsProjectId;

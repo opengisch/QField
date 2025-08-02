@@ -501,7 +501,7 @@ void QFieldCloudProject::downloadAttachment( const QString &fileName )
   {
     mAttachmentsFileTransfers.insert( fileName, FileTransfer( fileName, 0, mId, FileUtils::fileEtag( fileName ) ) );
 
-    NetworkReply *reply = downloadFile( mId, fileName, true, true );
+    NetworkReply *reply = downloadFile( mAttachmentsFileTransfers.last(), true );
     QTemporaryFile *file = new QTemporaryFile( reply );
     file->setAutoRemove( false );
     if ( !file->open() )
@@ -1088,8 +1088,7 @@ void QFieldCloudProject::downloadFiles()
     }
 
     FileTransfer &fileTransfer = mDownloadFileTransfers[fileKey];
-
-    NetworkReply *reply = downloadFile( fileTransfer.projectId, fileTransfer.fileName, fileTransfer.projectId == mId );
+    NetworkReply *reply = downloadFile( fileTransfer, false );
 
     const QDir partialDir = QFileInfo( fileTransfer.partialFilePath ).dir();
     if ( !partialDir.exists() )
@@ -1351,7 +1350,7 @@ void QFieldCloudProject::downloadFilesCompleted()
   emit downloadFinished();
 }
 
-NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage, bool autoRedirect )
+NetworkReply *QFieldCloudProject::downloadFile( const FileTransfer &fileTransfer, bool autoRedirect )
 {
   QNetworkRequest request;
   if ( autoRedirect )
@@ -1365,8 +1364,6 @@ NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const 
 
   mCloudConnection->setAuthenticationDetails( request );
 
-  const QString fileKey = QStringLiteral( "%1/%2" ).arg( projectId, fileName );
-  const FileTransfer &fileTransfer = mDownloadFileTransfers[fileKey];
   QFile partialFile( fileTransfer.partialFilePath );
 
   if ( partialFile.exists() )
@@ -1388,7 +1385,8 @@ NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const 
       // File already fully downloaded and valid; skip download
       mDownloadBytesReceived += partialSize;
       mDownloadFilesFinished++;
-      mActiveFilesToDownload.removeOne( fileKey );
+      const QString fileTransferKey = QStringLiteral( "%1/%2" ).arg( fileTransfer.projectId, fileTransfer.fileName );
+      mActiveFilesToDownload.removeOne( fileTransferKey );
 
       if ( mActiveFilesToDownload.size() == 0 )
       {
@@ -1398,8 +1396,9 @@ NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const 
     }
   }
 
-  const QString urlPath = fromLatestPackage ? QStringLiteral( "/api/v1/packages/%1/latest/files/%2/" ).arg( projectId, fileName ) : QStringLiteral( "/api/v1/files/%1/%2/" ).arg( projectId, fileName );
-
+  const bool fromLatestPackage = fileTransfer.projectId == mId;
+  const QString urlPath = fromLatestPackage ? QStringLiteral( "/api/v1/packages/%1/latest/files/%2/?%3" ).arg( fileTransfer.projectId, fileTransfer.fileName, fileTransfer.etag ) : QStringLiteral( "/api/v1/files/%1/%2/?%3" ).arg( fileTransfer.projectId, fileTransfer.fileName, fileTransfer.etag );
+  qDebug() << "xxx" << urlPath;
   return mCloudConnection->get( request, urlPath );
 }
 
