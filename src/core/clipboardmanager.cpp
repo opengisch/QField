@@ -188,21 +188,21 @@ bool ClipboardManager::pasteAsNewFeatureFromClipboardIntoLayer( QgsVectorLayer *
 {
   if ( !layer )
   {
-    QgsMessageLog::logMessage( tr( "Paste failed: no destination layer provided" ), "QField" );
+    qInfo() << tr( "Paste failed: no destination layer provided" );
     return false;
   }
 
   QgsFeature feature = pasteFeatureFromClipboard();
   if ( !feature.isValid() )
   {
-    QgsMessageLog::logMessage( tr( "Paste failed: clipboard feature is invalid" ), "QField" );
+    qInfo() << tr( "Paste failed: clipboard feature is invalid" );
     return false;
   }
 
   const QgsFeatureList compatible = QgsVectorLayerUtils::makeFeaturesCompatible( { feature }, layer );
   if ( compatible.isEmpty() )
   {
-    QgsMessageLog::logMessage( tr( "Paste failed: no compatible features could be created" ), "QField" );
+    qInfo() << tr( "Paste failed: no compatible features could be created" );
     return false;
   }
 
@@ -210,18 +210,17 @@ bool ClipboardManager::pasteAsNewFeatureFromClipboardIntoLayer( QgsVectorLayer *
   {
     if ( !layer->startEditing() )
     {
-      QgsMessageLog::logMessage( tr( "Paste failed: could not start editing on layer %1" ).arg( layer->name() ), "QField" );
+      qInfo() << tr( "Paste failed: could not start editing on layer %1" ).arg( layer->name() );
       return false;
     }
   }
 
   for ( const QgsFeature &f : compatible )
   {
-    QgsFeature copyFeature = f;
-    copyFeature.setId( QgsFeatureId() ); // ensure it's a new feature ???
+    QgsFeature copyFeature = QgsVectorLayerUtils::createFeature( layer, compatible.at( 0 ).geometry(), compatible.at( 0 ).attributes().toMap() );
     if ( !layer->addFeature( copyFeature ) )
     {
-      QgsMessageLog::logMessage( tr( "Paste failed: could not add feature to layer %1" ).arg( layer->name() ), "QField" );
+      qInfo() << tr( "Paste failed: could not add feature to layer %1" ).arg( layer->name() );
       layer->rollBack();
       return false;
     }
@@ -229,7 +228,7 @@ bool ClipboardManager::pasteAsNewFeatureFromClipboardIntoLayer( QgsVectorLayer *
 
   if ( !layer->commitChanges( true ) )
   {
-    QgsMessageLog::logMessage( tr( "Paste failed: commitChanges failed on layer %1" ).arg( layer->name() ), "QField" );
+    qInfo() << tr( "Paste failed: commitChanges failed on layer %1" ).arg( layer->name() );
     layer->rollBack();
     return false;
   }

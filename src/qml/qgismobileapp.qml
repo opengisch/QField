@@ -3080,6 +3080,10 @@ ApplicationWindow {
       }
     }
 
+    MenuSeparator {
+      width: parent.width
+    }
+
     MenuItem {
       id: lockMapRotation
       text: qsTr("Enable Map Rotation")
@@ -3094,76 +3098,6 @@ ApplicationWindow {
       indicator.implicitWidth: 24
 
       onTriggered: qfieldSettings.enableMapRotation = checked
-    }
-
-    Instantiator {
-      model: clipboardManager ? clipboardManager.holdsFeature ? 1 : 0 : 0
-
-      QfMenu {
-        id: pasteIntoLayers
-        title: "Paste Into Layer"
-        icon.source: Theme.getThemeVectorIcon("ic_paste_black_24dp")
-        icon.color: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        font: Theme.defaultFont
-        enabled: clipboardManager ? clipboardManager.holdsFeature : false
-
-        onAboutToShow: {
-          // Populate just once
-          if (layersModel.count === 0) {
-            const mapLayers = ProjectUtils.mapLayers(qgisProject);
-            for (let layerId in mapLayers) {
-              const layer = mapLayers[layerId];
-              const geometryType = typeof layer.geometryType === 'function' ? layer.geometryType() : -1;
-              const hasGeometry = [0, 1, 2].includes(geometryType); // 0 = Point & 1 = Line & 2 = Polygon
-              if (layer.supportsEditing && !layer.readOnly && hasGeometry) {
-                layersModel.append({
-                    "LayerType": geometryType,
-                    "Layer": layer
-                  });
-              }
-            }
-          }
-        }
-
-        Repeater {
-          model: ListModel {
-            id: layersModel
-          }
-          height: Math.min(count * 48, 8 * 48)
-          delegate: MenuItem {
-            text: Layer.name
-            font: Theme.defaultFont
-            leftPadding: Theme.menuItemLeftPadding
-            height: 48
-            icon.source: iconForGeometry(LayerType)
-            icon.width: 16
-            icon.height: 16
-
-            onTriggered: {
-              if (Layer) {
-                const result = clipboardManager.pasteAsNewFeatureFromClipboardIntoLayer(Layer);
-                if (result) {
-                  displayToast(qsTr("Feature pasted successfully"), 'info');
-                } else {
-                  displayToast(qsTr("Failed to paste feature into layer"), 'error');
-                }
-                canvasMenu.close();
-              }
-            }
-          }
-        }
-      }
-
-      onObjectAdded: (index, object) => {
-        canvasMenu.insertMenu(index + 7, object);
-      }
-      onObjectRemoved: (index, object) => {
-        canvasMenu.removeMenu(object);
-      }
-    }
-
-    MenuSeparator {
-      width: parent.width
     }
 
     MenuItem {
@@ -3270,6 +3204,82 @@ ApplicationWindow {
               }
             }
             displayToast(qsTr('Feature duplication not available'));
+          }
+        }
+      }
+
+      onObjectAdded: (index, object) => {
+        canvasMenu.insertMenu(index + 11, object);
+      }
+      onObjectRemoved: (index, object) => {
+        canvasMenu.removeMenu(object);
+      }
+    }
+
+    Instantiator {
+      model: clipboardManager ? clipboardManager.holdsFeature ? 1 : 0 : 0
+
+      QfMenu {
+        id: pasteIntoLayers
+
+        enabled: clipboardManager ? clipboardManager.holdsFeature : false
+
+        topMargin: sceneTopMargin
+        bottomMargin: sceneBottomMargin
+
+        title: "Paste Into Layer"
+        font: Theme.defaultFont
+
+        icon.source: Theme.getThemeVectorIcon("ic_paste_black_24dp")
+        icon.color: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        icon.width: 18 * screen.devicePixelRatio
+        icon.height: 18 * screen.devicePixelRatio
+
+        onAboutToShow: {
+          // Populate just once
+          if (layersModel.count === 0) {
+            const mapLayers = ProjectUtils.mapLayers(qgisProject);
+            for (let layerId in mapLayers) {
+              const layer = mapLayers[layerId];
+              const geometryType = typeof layer.geometryType === 'function' ? layer.geometryType() : -1;
+              const hasGeometry = [0, 1, 2].includes(geometryType); // 0 = Point & 1 = Line & 2 = Polygon
+              if (layer.supportsEditing && !layer.readOnly && hasGeometry) {
+                layersModel.append({
+                    "LayerType": geometryType,
+                    "Layer": layer
+                  });
+              }
+            }
+          }
+        }
+
+        Repeater {
+          model: ListModel {
+            id: layersModel
+          }
+          height: Math.min(count * 48, 8 * 48)
+          delegate: MenuItem {
+            text: Layer.name
+            font: Theme.defaultFont
+
+            height: 48
+            leftPadding: Theme.menuItemLeftPadding
+
+            icon.source: iconForGeometry(LayerType)
+            icon.width: 18 * screen.devicePixelRatio
+            icon.height: 18 * screen.devicePixelRatio
+
+            onTriggered: {
+              if (Layer) {
+                const result = clipboardManager.pasteAsNewFeatureFromClipboardIntoLayer(Layer);
+                if (result) {
+                  displayToast(qsTr("Feature pasted successfully"), 'info');
+                } else {
+                  displayToast(qsTr("Failed to paste feature into layer"), 'error');
+                }
+                canvasMenu.close();
+              }
+            }
           }
         }
       }
