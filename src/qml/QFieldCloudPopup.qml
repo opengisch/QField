@@ -162,10 +162,8 @@ Popup {
                     return;
                   if (!connectionSettings.visible) {
                     connectionSettings.visible = true;
-                    projects.visible = false;
                   } else {
                     connectionSettings.visible = false;
-                    projects.visible = true;
                   }
                 }
               }

@@ -131,7 +131,7 @@ class LayerUtils : public QObject
      * return the duplicated feature with attribute values saved updated to match what was saved
      * into the layer dataset.
      */
-    static QgsFeature duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature );
+    static QgsFeature duplicateFeature( QgsVectorLayer *layer, QgsFeature feature );
 
     /**
      * Adds a \a feature into the \a layer.
