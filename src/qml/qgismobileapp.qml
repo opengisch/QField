@@ -3101,7 +3101,7 @@ ApplicationWindow {
 
       QfMenu {
         id: pasteIntoLayers
-        title: "Paste into Layer"
+        title: "Paste Into Layer"
         icon.source: Theme.getThemeVectorIcon("ic_paste_black_24dp")
         icon.color: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
         font: Theme.defaultFont
@@ -3125,30 +3125,17 @@ ApplicationWindow {
           }
         }
 
-        ListView {
+        Repeater {
           model: ListModel {
             id: layersModel
           }
-
-          width: parent.width
           height: Math.min(count * 48, 8 * 48)
           delegate: MenuItem {
             text: Layer.name
             font: Theme.defaultFont
             leftPadding: Theme.menuItemLeftPadding
             height: 48
-            icon.source: {
-              switch (LayerType) {
-              case Qgis.GeometryType.Point:
-                return Theme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
-              case Qgis.GeometryType.Line:
-                return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
-              case Qgis.GeometryType.Polygon:
-                return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
-              default:
-                return '';
-              }
-            }
+            icon.source: iconForGeometry(LayerType)
             icon.width: 16
             icon.height: 16
 
@@ -3218,11 +3205,7 @@ ApplicationWindow {
         title: layerName + ': ' + featureName
         font: Theme.defaultFont
 
-        Component.onCompleted: {
-          if (featureMenu.icon !== undefined) {
-            featureMenu.icon.source = Theme.getThemeVectorIcon('ic_info_white_24dp');
-          }
-        }
+        icon.source: iconForGeometry(feature.geometry.type)
 
         MenuItem {
           text: qsTr('Layer:') + ' ' + layerName
@@ -3253,7 +3236,7 @@ ApplicationWindow {
         }
 
         MenuItem {
-          text: qsTr('Copy Feature Attributes')
+          text: qsTr('Copy Feature')
           font: Theme.defaultFont
           icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
           leftPadding: Theme.menuItemLeftPadding
@@ -3297,6 +3280,19 @@ ApplicationWindow {
       onObjectRemoved: (index, object) => {
         canvasMenu.removeMenu(object);
       }
+    }
+  }
+
+  function iconForGeometry(type) {
+    switch (type) {
+    case Qgis.GeometryType.Point:
+      return Theme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
+    case Qgis.GeometryType.Line:
+      return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
+    case Qgis.GeometryType.Polygon:
+      return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
+    default:
+      return Theme.getThemeVectorIcon('ic_info_white_24dp');
     }
   }
 
