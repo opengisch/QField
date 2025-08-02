@@ -41,24 +41,13 @@ QfVisibilityFadingRow {
     onConfirmed: {
       digitizingLogger.writeCoordinates();
       rubberbandModel.frozen = true;
-      // TODO: featureModel.currentLayer.selectByIds([featureModel.feature.id], VectorLayerStatic.SetSelection)
-      LayerUtils.selectFeaturesInLayer(featureModel.currentLayer, [featureModel.feature.id], VectorLayerStatic.SetSelection);
-      if (!featureModel.currentLayer.editBuffer())
-        featureModel.currentLayer.startEditing();
-      var result = GeometryUtils.splitFeatureFromRubberband(featureModel.currentLayer, drawLineToolbar.rubberbandModel);
+      const result = GeometryUtils.splitFeatureFromRubberband(featureModel.currentLayer, featureModel.feature.id, drawLineToolbar.rubberbandModel);
       if (result !== GeometryUtils.Success) {
         displayToast(qsTr('Feature could not be split'), 'error');
-        featureModel.currentLayer.rollBack();
-        rubberbandModel.reset();
-        cancel();
-        finished();
-      } else {
-        featureModel.currentLayer.commitChanges();
-        rubberbandModel.reset();
-        cancel();
-        finished();
       }
-      featureModel.currentLayer.removeSelection();
+      rubberbandModel.reset();
+      cancel();
+      finished();
     }
 
     onCancel: {

@@ -379,11 +379,12 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, QgsFeature featu
 
     // Insure the source primary ID of a duplicated child feature is correctly set to null (i.e. new feature within the source dataset)
     sourcePrimaryKeys = chl->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).toString();
-    for ( auto fid : fids )
+    if ( !sourcePrimaryKeys.isEmpty() && chl->fields().lookupField( sourcePrimaryKeys ) >= 0 )
     {
-      if ( chl->fields().lookupField( sourcePrimaryKeys ) >= 0 )
+      const int sourcePrimaryKeysIndex = chl->fields().lookupField( sourcePrimaryKeys );
+      for ( auto fid : fids )
       {
-        chl->changeAttributeValue( fid, chl->fields().lookupField( sourcePrimaryKeys ), QVariant() );
+        chl->changeAttributeValue( fid, sourcePrimaryKeysIndex, QVariant() );
       }
     }
 
