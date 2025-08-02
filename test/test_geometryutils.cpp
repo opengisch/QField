@@ -71,13 +71,13 @@ TEST_CASE( "GeometryUtils" )
   SECTION( "SplitFeatureFromRubberband" )
   {
     REQUIRE( mLayer->startEditing() );
-    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == GeometryUtils::GeometryOperationResult::NothingHappened );
+    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), 1, model.get() ) == GeometryUtils::GeometryOperationResult::NothingHappened );
 
     model->addVertexFromPoint( QgsPoint( 7.5, 8.5 ) );
     model->addVertexFromPoint( QgsPoint( 9.5, 8.5 ) );
     mLayer->select( 1 );
 
-    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == GeometryUtils::GeometryOperationResult::Success );
+    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), 1, model.get() ) == GeometryUtils::GeometryOperationResult::Success );
     REQUIRE( mLayer->rollBack() );
   }
 }
