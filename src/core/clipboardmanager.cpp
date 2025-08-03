@@ -22,7 +22,6 @@
 #include <QApplication>
 #include <QDomDocument>
 #include <qgsfeature.h>
-#include <qgsmessagelog.h>
 #include <qgsvectorlayer.h>
 
 ClipboardManager::ClipboardManager( QObject *parent )
