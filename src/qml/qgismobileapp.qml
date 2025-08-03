@@ -3212,7 +3212,7 @@ ApplicationWindow {
       }
 
       onObjectAdded: (index, object) => {
-        canvasMenu.insertMenu(index + 11, object);
+        canvasMenu.insertMenu(canvasMenu.contentData.length - 2, object);
       }
       onObjectRemoved: (index, object) => {
         canvasMenu.removeMenu(object);
