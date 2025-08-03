@@ -193,8 +193,10 @@ GeometryUtils::GeometryOperationResult GeometryUtils::eraseFromRubberband( QgsVe
 
 GeometryUtils::GeometryOperationResult GeometryUtils::addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
 {
-  QgsPointSequence ring = rubberBandModel->pointSequence( layer->crs(), layer->wkbType(), true );
+  if ( !layer || !rubberBandModel )
+    return GeometryUtils::GeometryOperationResult::NothingHappened;
 
+  QgsPointSequence ring = rubberBandModel->pointSequence( layer->crs(), layer->wkbType(), true );
   if ( ring.size() < 3 )
   {
     return GeometryUtils::GeometryOperationResult::AddRingNotValid;
@@ -206,9 +208,32 @@ GeometryUtils::GeometryOperationResult GeometryUtils::addRingFromRubberband( Qgs
   {
     geometry = geometry.makeValid();
     if ( !geometry.isNull() )
+    {
       static_cast<QgsLineString *>( geometry.get() )->points( ring );
+    }
   }
-  return static_cast<GeometryUtils::GeometryOperationResult>( layer->addRing( ring, &fid ) );
+
+  const bool wasEditing = ( layer->editBuffer() );
+  if ( !wasEditing )
+  {
+    layer->startEditing();
+  }
+  else
+  {
+    layer->commitChanges( false );
+  }
+
+  GeometryUtils::GeometryOperationResult result = static_cast<GeometryUtils::GeometryOperationResult>( layer->addRing( ring, &fid ) );
+  if ( result != GeometryUtils::GeometryOperationResult::Success )
+  {
+    layer->rollBack();
+  }
+  else
+  {
+    layer->commitChanges( !wasEditing );
+  }
+
+  return result;
 }
 
 GeometryUtils::GeometryOperationResult GeometryUtils::splitFeatureFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
@@ -250,7 +275,7 @@ GeometryUtils::GeometryOperationResult GeometryUtils::splitFeatureFromRubberband
         layer->changeAttributeValue( fid, sourcePrimaryKeysIndex, QVariant() );
       }
     }
-    layer->commitChanges( wasEditing );
+    layer->commitChanges( !wasEditing );
   }
 
   layer->removeSelection();
