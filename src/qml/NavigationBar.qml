@@ -631,7 +631,7 @@ Rectangle {
 
         onClicked: {
           clipboardManager.copyFeatureToClipboard(featureForm.model.featureModel.feature, true);
-          mainWindow.displayToast(qsTr('Feature attributes copied to clipboard'));
+          mainWindow.displayToast(qsTr('Feature copied to clipboard'));
         }
       }
 
