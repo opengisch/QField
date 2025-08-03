@@ -37,12 +37,15 @@ class DeltaFileWrapper : public QObject
 
     Q_PROPERTY( int count READ count NOTIFY countChanged )
     Q_PROPERTY( bool isPushing READ isPushing NOTIFY isPushingChanged )
+    Q_PROPERTY( bool hasError READ hasError NOTIFY errorChanged )
+    Q_PROPERTY( ErrorType errorType READ errorType NOTIFY errorChanged )
+    Q_PROPERTY( QString errorString READ errorString NOTIFY errorChanged )
 
   public:
     /**
      * Error types
      */
-    enum class ErrorTypes
+    enum class ErrorType
     {
       NoError,
       LockError,
@@ -56,6 +59,7 @@ class DeltaFileWrapper : public QObject
       JsonFormatDeltaItemError,
       JsonIncompatibleVersionError
     };
+    Q_ENUM( ErrorType )
 
 
     /**
@@ -150,7 +154,7 @@ class DeltaFileWrapper : public QObject
      *
      * @return bool whether an error has been encountered
      */
-    Q_INVOKABLE bool hasError() const;
+    bool hasError() const;
 
 
     /**
@@ -180,9 +184,9 @@ class DeltaFileWrapper : public QObject
     /**
      * Error type why the class has an error.
      *
-     * @return ErrorTypes error type
+     * @return ErrorType error type
      */
-    ErrorTypes errorType() const;
+    ErrorType errorType() const;
 
     /**
      * Human readable error description why the class has an error.
@@ -340,8 +344,6 @@ class DeltaFileWrapper : public QObject
   signals:
     /**
      * Emitted when the `deltas` list has changed.
-     *
-     * @todo TEST
      */
     void countChanged();
 
@@ -351,15 +353,22 @@ class DeltaFileWrapper : public QObject
      */
     void isPushingChanged();
 
-
     /**
-     *
-     * @todo TEST
+     * Emmitted when the deltas have been written to a file
      */
     void savedToFile();
 
+    /**
+     * Emmitted when the latest error has changed
+     */
+    void errorChanged();
 
   private:
+    /**
+     * Set the error type and details string.
+     */
+    void setError( const ErrorType &type, const QString &details = QString() );
+
     /**
      * Converts geometry to QJsonValue string in WKT format.
      * Returns null if the geometry is null, or WKT string of the geometry
@@ -463,7 +472,7 @@ class DeltaFileWrapper : public QObject
     /**
      * Type of error that the constructor has encountered.
      */
-    ErrorTypes mErrorType = ErrorTypes::NoError;
+    ErrorType mErrorType = ErrorType::NoError;
 
 
     /**
