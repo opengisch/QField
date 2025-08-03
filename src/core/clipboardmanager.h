@@ -55,8 +55,10 @@ class ClipboardManager : public QObject
      * \param fid the id of the feature
      * \param includeGeometry set to TRUE when a WKT string representation of the geometry
      * should be included
+     * \param isCutOperation set to TRUE if this is a cut operation. In that case, when pasting
+     * into a different layer, the feature will be deleted from the original layer.
      */
-    Q_INVOKABLE void copyFeatureToClipboard( QgsVectorLayer *layer, QgsFeatureId fid, bool includeGeometry = false );
+    Q_INVOKABLE void copyFeatureToClipboard( QgsVectorLayer *layer, QgsFeatureId fid, bool includeGeometry = false, bool isCutOperation = false );
 
     /**
      * Returns a feature with attributes and geometry matching clipboard values when
@@ -67,10 +69,12 @@ class ClipboardManager : public QObject
     /**
      * Pastes the copied feature from the clipboard into the given editable layer.
      * The feature is made compatible with the layer before being inserted.
+     * If the feature was previously cut and the destination layer differs from the source,
+     * the feature will be deleted from the original layer after paste.
      * \param layer destination vector layer
      * \returns TRUE if insertion was successful
      */
-    Q_INVOKABLE bool pasteAsNewFeatureFromClipboardIntoLayer( QgsVectorLayer *layer );
+    Q_INVOKABLE bool pasteFeatureFromClipboardIntoLayer( QgsVectorLayer *layer );
 
   signals:
 
@@ -85,6 +89,8 @@ class ClipboardManager : public QObject
     bool mSkipDataChanged = false;
     bool mHoldsFeature = false;
     bool mHasNativeFeature = false;
+    QgsVectorLayer *mSourceLayer = nullptr;
+    bool mIsCutOperation = false;
     QgsFeature mNativeFeature;
     QString mHtmlFeature;
 };

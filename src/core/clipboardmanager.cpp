@@ -52,6 +52,8 @@ void ClipboardManager::dataChanged()
   mHasNativeFeature = false;
   mNativeFeature = QgsFeature();
   mHtmlFeature.clear();
+  mIsCutOperation = false;
+  mSourceLayer = nullptr;
 
   bool holdsFeature = false;
 
@@ -77,12 +79,14 @@ void ClipboardManager::dataChanged()
   }
 }
 
-void ClipboardManager::copyFeatureToClipboard( QgsVectorLayer *layer, QgsFeatureId fid, bool includeGeometry )
+void ClipboardManager::copyFeatureToClipboard( QgsVectorLayer *layer, QgsFeatureId fid, bool includeGeometry, bool isCutOperation )
 {
   if ( layer )
   {
     const QgsFeature feature = layer->getFeature( fid );
     copyFeatureToClipboard( feature, includeGeometry );
+    mSourceLayer = layer;
+    mIsCutOperation = isCutOperation;
   }
 }
 
@@ -184,12 +188,18 @@ QgsFeature ClipboardManager::pasteFeatureFromClipboard()
   return feature;
 }
 
-bool ClipboardManager::pasteAsNewFeatureFromClipboardIntoLayer( QgsVectorLayer *layer )
+bool ClipboardManager::pasteFeatureFromClipboardIntoLayer( QgsVectorLayer *layer )
 {
   if ( !layer )
   {
     qInfo() << tr( "Paste failed: no destination layer provided" );
     return false;
+  }
+
+  if ( mIsCutOperation && mSourceLayer == layer )
+  {
+    qInfo() << tr( "Cut operation: source and destination layers are the same, skipping paste." );
+    return true;
   }
 
   QgsFeature feature = pasteFeatureFromClipboard();
@@ -232,6 +242,27 @@ bool ClipboardManager::pasteAsNewFeatureFromClipboardIntoLayer( QgsVectorLayer *
     layer->rollBack();
     return false;
   }
+
+  if ( mIsCutOperation && mSourceLayer && mSourceLayer != layer )
+  {
+    if ( !mSourceLayer->isEditable() )
+    {
+      mSourceLayer->startEditing();
+    }
+
+    if ( !mSourceLayer->deleteFeature( mNativeFeature.id() ) )
+    {
+      qInfo() << tr( "Cut failed: could not delete original feature from source layer %1" ).arg( mSourceLayer->name() );
+      mSourceLayer->rollBack();
+    }
+    else
+    {
+      mSourceLayer->commitChanges();
+    }
+  }
+
+  mIsCutOperation = false;
+  mSourceLayer = nullptr;
 
   return true;
 }

@@ -3185,6 +3185,18 @@ ApplicationWindow {
         }
 
         MenuItem {
+          text: qsTr('Cut Feature')
+          font: Theme.defaultFont
+          icon.source: Theme.getThemeVectorIcon("ic_content_cut_24dp")
+          leftPadding: Theme.menuItemLeftPadding
+          height: 48
+
+          onTriggered: {
+            clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true, true);
+          }
+        }
+
+        MenuItem {
           text: qsTr('Duplicate Feature')
           font: Theme.defaultFont
           enabled: projectInfo.insertRights
@@ -3279,7 +3291,7 @@ ApplicationWindow {
 
           onTriggered: {
             if (Layer) {
-              const result = clipboardManager.pasteAsNewFeatureFromClipboardIntoLayer(Layer);
+              const result = clipboardManager.pasteFeatureFromClipboardIntoLayer(Layer);
               if (result) {
                 displayToast(qsTr("Feature pasted successfully"), 'info');
               } else {
