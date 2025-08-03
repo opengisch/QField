@@ -204,11 +204,11 @@ TEST_CASE( "DeltaFileWrapper" )
     QString fileName( wrappedDeltaFilePath );
     DeltaFileWrapper dfw1( project, fileName );
 
-    REQUIRE( dfw1.errorType() == DeltaFileWrapper::ErrorTypes::NoError );
+    REQUIRE( dfw1.errorType() == DeltaFileWrapper::ErrorType::NoError );
 
     DeltaFileWrapper dfw2( project, fileName );
 
-    REQUIRE( dfw2.errorType() == DeltaFileWrapper::ErrorTypes::LockError );
+    REQUIRE( dfw2.errorType() == DeltaFileWrapper::ErrorType::LockError );
   }
 #endif
 
@@ -226,7 +226,7 @@ TEST_CASE( "DeltaFileWrapper" )
     REQUIRE( tmpDeltaFile.write( correctExistingContents.toUtf8() ) );
     tmpDeltaFile.flush();
     DeltaFileWrapper correctExistingDfw( project, tmpDeltaFile.fileName() );
-    REQUIRE( correctExistingDfw.errorType() == DeltaFileWrapper::ErrorTypes::NoError );
+    REQUIRE( correctExistingDfw.errorType() == DeltaFileWrapper::ErrorType::NoError );
     QJsonDocument correctExistingDoc = normalizeSchema( correctExistingDfw.toString() );
     REQUIRE( !correctExistingDoc.isNull() );
     REQUIRE( correctExistingDoc == QJsonDocument::fromJson( correctExistingContents.toUtf8() ) );
@@ -237,7 +237,7 @@ TEST_CASE( "DeltaFileWrapper" )
   {
     QString fileName( workDir.filePath( QUuid::createUuid().toString() ) );
     DeltaFileWrapper dfw( project, fileName );
-    REQUIRE( dfw.errorType() == DeltaFileWrapper::ErrorTypes::NoError );
+    REQUIRE( dfw.errorType() == DeltaFileWrapper::ErrorType::NoError );
     REQUIRE( QFileInfo::exists( fileName ) );
     DeltaFileWrapper validNonexistingFileCheckDfw( project, fileName );
     QFile deltaFile( fileName );
@@ -260,7 +260,7 @@ TEST_CASE( "DeltaFileWrapper" )
   SECTION( "ErrorInvalidName" )
   {
     DeltaFileWrapper dfw( project, "" );
-    REQUIRE( dfw.errorType() == DeltaFileWrapper::ErrorTypes::IOError );
+    REQUIRE( dfw.errorType() == DeltaFileWrapper::ErrorType::IOError );
   }
 
 
@@ -269,7 +269,7 @@ TEST_CASE( "DeltaFileWrapper" )
     REQUIRE( tmpDeltaFile.write( R""""( asd )"""" ) );
     tmpDeltaFile.flush();
     DeltaFileWrapper dfw( project, tmpDeltaFile.fileName() );
-    REQUIRE( dfw.errorType() == DeltaFileWrapper::ErrorTypes::JsonParseError );
+    REQUIRE( dfw.errorType() == DeltaFileWrapper::ErrorType::JsonParseError );
   }
 
 
@@ -278,7 +278,7 @@ TEST_CASE( "DeltaFileWrapper" )
     REQUIRE( tmpDeltaFile.write( R""""({"version":5,"files":[],"id":"11111111-1111-1111-1111-111111111111","project":"projectId","deltas":[]})"""" ) );
     tmpDeltaFile.flush();
     DeltaFileWrapper dfw( project, tmpDeltaFile.fileName() );
-    REQUIRE( dfw.errorType() == DeltaFileWrapper::ErrorTypes::JsonFormatVersionError );
+    REQUIRE( dfw.errorType() == DeltaFileWrapper::ErrorType::JsonFormatVersionError );
   }
 
 
@@ -287,7 +287,7 @@ TEST_CASE( "DeltaFileWrapper" )
     REQUIRE( tmpDeltaFile.write( R""""({"version":"","files":[],"id":"11111111-1111-1111-1111-111111111111","project":"projectId","deltas":[]})"""" ) );
     tmpDeltaFile.flush();
     DeltaFileWrapper emptyVersionDfw( project, tmpDeltaFile.fileName() );
-    REQUIRE( emptyVersionDfw.errorType() == DeltaFileWrapper::ErrorTypes::JsonFormatVersionError );
+    REQUIRE( emptyVersionDfw.errorType() == DeltaFileWrapper::ErrorType::JsonFormatVersionError );
   }
 
 
@@ -296,7 +296,7 @@ TEST_CASE( "DeltaFileWrapper" )
     REQUIRE( tmpDeltaFile.write( R""""({"version":"2.0","files":[],"id":"11111111-1111-1111-1111-111111111111","project":"projectId","deltas":[]})"""" ) );
     tmpDeltaFile.flush();
     DeltaFileWrapper wrongVersionNumberDfw( project, tmpDeltaFile.fileName() );
-    REQUIRE( wrongVersionNumberDfw.errorType() == DeltaFileWrapper::ErrorTypes::JsonIncompatibleVersionError );
+    REQUIRE( wrongVersionNumberDfw.errorType() == DeltaFileWrapper::ErrorType::JsonIncompatibleVersionError );
   }
 
 
@@ -305,7 +305,7 @@ TEST_CASE( "DeltaFileWrapper" )
     REQUIRE( tmpDeltaFile.write( R""""({"version":"2.0","files":[],"id": 5,"project":"projectId","deltas":[]})"""" ) );
     tmpDeltaFile.flush();
     DeltaFileWrapper wrongIdTypeDfw( project, tmpDeltaFile.fileName() );
-    REQUIRE( wrongIdTypeDfw.errorType() == DeltaFileWrapper::ErrorTypes::JsonFormatIdError );
+    REQUIRE( wrongIdTypeDfw.errorType() == DeltaFileWrapper::ErrorType::JsonFormatIdError );
   }
 
 
@@ -314,7 +314,7 @@ TEST_CASE( "DeltaFileWrapper" )
     REQUIRE( tmpDeltaFile.write( R""""({"version":"2.0","files":[],"id": "","project":"projectId","deltas":[]})"""" ) );
     tmpDeltaFile.flush();
     DeltaFileWrapper emptyIdDfw( project, tmpDeltaFile.fileName() );
-    REQUIRE( emptyIdDfw.errorType() == DeltaFileWrapper::ErrorTypes::JsonFormatIdError );
+    REQUIRE( emptyIdDfw.errorType() == DeltaFileWrapper::ErrorType::JsonFormatIdError );
   }
 
 
@@ -323,7 +323,7 @@ TEST_CASE( "DeltaFileWrapper" )
     REQUIRE( tmpDeltaFile.write( R""""({"version":"2.0","files":[],"id": "11111111-1111-1111-1111-111111111111","project":5,"deltas":[]})"""" ) );
     tmpDeltaFile.flush();
     DeltaFileWrapper wrongProjectIdTypeDfw( project, tmpDeltaFile.fileName() );
-    REQUIRE( wrongProjectIdTypeDfw.errorType() == DeltaFileWrapper::ErrorTypes::JsonFormatProjectIdError );
+    REQUIRE( wrongProjectIdTypeDfw.errorType() == DeltaFileWrapper::ErrorType::JsonFormatProjectIdError );
   }
 
 
@@ -332,7 +332,7 @@ TEST_CASE( "DeltaFileWrapper" )
     REQUIRE( tmpDeltaFile.write( R""""({"version":"2.0","files":[],"id": "11111111-1111-1111-1111-111111111111","project":"","deltas":[]})"""" ) );
     tmpDeltaFile.flush();
     DeltaFileWrapper emptyProjectIdDfw( project, tmpDeltaFile.fileName() );
-    REQUIRE( emptyProjectIdDfw.errorType() == DeltaFileWrapper::ErrorTypes::JsonFormatProjectIdError );
+    REQUIRE( emptyProjectIdDfw.errorType() == DeltaFileWrapper::ErrorType::JsonFormatProjectIdError );
   }
 
 
@@ -341,7 +341,7 @@ TEST_CASE( "DeltaFileWrapper" )
     REQUIRE( tmpDeltaFile.write( R""""({"version":"2.0","files":[],"id": "11111111-1111-1111-1111-111111111111","project":"projectId","deltas":{}})"""" ) );
     tmpDeltaFile.flush();
     DeltaFileWrapper wrongDeltasTypeDfw( project, tmpDeltaFile.fileName() );
-    REQUIRE( wrongDeltasTypeDfw.errorType() == DeltaFileWrapper::ErrorTypes::JsonFormatDeltasError );
+    REQUIRE( wrongDeltasTypeDfw.errorType() == DeltaFileWrapper::ErrorType::JsonFormatDeltasError );
   }
 
 

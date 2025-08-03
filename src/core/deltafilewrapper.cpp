@@ -50,60 +50,59 @@ DeltaFileWrapper::DeltaFileWrapper( const QgsProject *project, const QString &fi
   // Because the file may not exist yet, we cannot use QFileInfo::canonicalFilePath() as it returns an empty string if it fails to resolve.
   // However, we assume that the parent directory exists.
   mFileName = fileInfo.canonicalFilePath().isEmpty() ? fileInfo.absoluteFilePath() : fileInfo.canonicalFilePath();
-  mErrorType = DeltaFileWrapper::ErrorTypes::NoError;
 
 #if 0
 //  TODO enable this code once we have a single delta pointer stored per project and passed to the layer observer.
 //  Now both the qfieldcloudprojects model (Read only) and the layer observer (Read/Write) create their pointers to the deltafilewrapper
-  if ( mErrorType == DeltaFileWrapper::ErrorTypes::NoError && sFileLocks()->contains( mFileName ) )
-    mErrorType = DeltaFileWrapper::LockError;
+  if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && sFileLocks()->contains( mFileName ) )
+  {
+    setError( DeltaFileWrapper::LockError );
+  }
 #endif
 
-  if ( mErrorType == DeltaFileWrapper::ErrorTypes::NoError )
+  if ( mErrorType == DeltaFileWrapper::ErrorType::NoError )
     mCloudProjectId = QFieldCloudUtils::getProjectId( mProject->fileName() );
 
-  if ( mErrorType == DeltaFileWrapper::ErrorTypes::NoError && mCloudProjectId.isNull() )
-    mErrorType = DeltaFileWrapper::ErrorTypes::NotCloudProjectError;
+  if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && mCloudProjectId.isNull() )
+    setError( DeltaFileWrapper::ErrorType::NotCloudProjectError );
 
   QFile deltaFile( mFileName );
 
-  if ( mErrorType == DeltaFileWrapper::ErrorTypes::NoError && QFileInfo::exists( mFileName ) )
+  if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && QFileInfo::exists( mFileName ) )
   {
     QJsonParseError jsonError;
 
     QgsLogger::debug( QStringLiteral( "Loading deltas from %1" ).arg( mFileName ) );
 
-    if ( mErrorType == DeltaFileWrapper::ErrorTypes::NoError && !deltaFile.open( QIODevice::ReadWrite ) )
+    if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && !deltaFile.open( QIODevice::ReadWrite ) )
     {
-      mErrorType = DeltaFileWrapper::ErrorTypes::IOError;
-      mErrorDetails = deltaFile.errorString();
+      setError( DeltaFileWrapper::ErrorType::IOError, deltaFile.errorString() );
     }
 
-    if ( mErrorType == DeltaFileWrapper::ErrorTypes::NoError )
+    if ( mErrorType == DeltaFileWrapper::ErrorType::NoError )
       mJsonRoot = QJsonDocument::fromJson( deltaFile.readAll(), &jsonError ).object();
 
-    if ( mErrorType == DeltaFileWrapper::ErrorTypes::NoError && ( jsonError.error != QJsonParseError::NoError ) )
+    if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && ( jsonError.error != QJsonParseError::NoError ) )
     {
-      mErrorType = DeltaFileWrapper::ErrorTypes::JsonParseError;
-      mErrorDetails = jsonError.errorString();
+      setError( DeltaFileWrapper::ErrorType::JsonParseError, jsonError.errorString() );
     }
 
-    if ( mErrorType == DeltaFileWrapper::ErrorTypes::NoError && ( !mJsonRoot.value( QStringLiteral( "id" ) ).isString() || mJsonRoot.value( QStringLiteral( "id" ) ).toString().isEmpty() ) )
-      mErrorType = DeltaFileWrapper::ErrorTypes::JsonFormatIdError;
+    if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && ( !mJsonRoot.value( QStringLiteral( "id" ) ).isString() || mJsonRoot.value( QStringLiteral( "id" ) ).toString().isEmpty() ) )
+      setError( DeltaFileWrapper::ErrorType::JsonFormatIdError );
 
-    if ( mErrorType == DeltaFileWrapper::ErrorTypes::NoError && ( !mJsonRoot.value( QStringLiteral( "project" ) ).isString() || mJsonRoot.value( QStringLiteral( "project" ) ).toString().isEmpty() ) )
-      mErrorType = DeltaFileWrapper::ErrorTypes::JsonFormatProjectIdError;
+    if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && ( !mJsonRoot.value( QStringLiteral( "project" ) ).isString() || mJsonRoot.value( QStringLiteral( "project" ) ).toString().isEmpty() ) )
+      setError( DeltaFileWrapper::ErrorType::JsonFormatProjectIdError );
 
-    if ( mErrorType == DeltaFileWrapper::ErrorTypes::NoError && !mJsonRoot.value( QStringLiteral( "deltas" ) ).isArray() )
-      mErrorType = DeltaFileWrapper::ErrorTypes::JsonFormatDeltasError;
+    if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && !mJsonRoot.value( QStringLiteral( "deltas" ) ).isArray() )
+      setError( DeltaFileWrapper::ErrorType::JsonFormatDeltasError );
 
-    if ( mErrorType == DeltaFileWrapper::ErrorTypes::NoError && ( !mJsonRoot.value( QStringLiteral( "version" ) ).isString() || mJsonRoot.value( QStringLiteral( "version" ) ).toString().isEmpty() ) )
-      mErrorType = DeltaFileWrapper::ErrorTypes::JsonFormatVersionError;
+    if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && ( !mJsonRoot.value( QStringLiteral( "version" ) ).isString() || mJsonRoot.value( QStringLiteral( "version" ) ).toString().isEmpty() ) )
+      setError( DeltaFileWrapper::ErrorType::JsonFormatVersionError );
 
-    if ( mErrorType == DeltaFileWrapper::ErrorTypes::NoError && mJsonRoot.value( QStringLiteral( "version" ) ) != DeltaFormatVersion )
-      mErrorType = DeltaFileWrapper::ErrorTypes::JsonIncompatibleVersionError;
+    if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && mJsonRoot.value( QStringLiteral( "version" ) ) != DeltaFormatVersion )
+      setError( DeltaFileWrapper::ErrorType::JsonIncompatibleVersionError );
 
-    if ( mErrorType == DeltaFileWrapper::ErrorTypes::NoError )
+    if ( mErrorType == DeltaFileWrapper::ErrorType::NoError )
     {
       const QJsonArray deltasJsonArray = mJsonRoot.value( QStringLiteral( "deltas" ) ).toArray();
 
@@ -111,7 +110,7 @@ DeltaFileWrapper::DeltaFileWrapper( const QgsProject *project, const QString &fi
       {
         if ( !v.isObject() )
         {
-          mErrorType = DeltaFileWrapper::ErrorTypes::JsonFormatDeltaItemError;
+          setError( DeltaFileWrapper::ErrorType::JsonFormatDeltaItemError );
           continue;
         }
         // TODO validate delta item properties
@@ -127,7 +126,7 @@ DeltaFileWrapper::DeltaFileWrapper( const QgsProject *project, const QString &fi
       }
     }
   }
-  else if ( mErrorType == DeltaFileWrapper::ErrorTypes::NoError )
+  else if ( mErrorType == DeltaFileWrapper::ErrorType::NoError )
   {
     mJsonRoot = QJsonObject( { { "version", DeltaFormatVersion },
                                { "id", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
@@ -136,8 +135,7 @@ DeltaFileWrapper::DeltaFileWrapper( const QgsProject *project, const QString &fi
 
     if ( !deltaFile.open( QIODevice::ReadWrite ) )
     {
-      mErrorType = DeltaFileWrapper::ErrorTypes::IOError;
-      mErrorDetails = deltaFile.errorString();
+      setError( DeltaFileWrapper::ErrorType::IOError, deltaFile.errorString() );
     }
 
     // toFile() modifies mErrorType and mErrorDetails, that's why we ignore the boolean return
@@ -197,7 +195,7 @@ void DeltaFileWrapper::resetId()
 
 bool DeltaFileWrapper::hasError() const
 {
-  return mErrorType != DeltaFileWrapper::ErrorTypes::NoError;
+  return mErrorType != DeltaFileWrapper::ErrorType::NoError;
 }
 
 
@@ -219,7 +217,15 @@ QJsonArray DeltaFileWrapper::deltas() const
 }
 
 
-DeltaFileWrapper::ErrorTypes DeltaFileWrapper::errorType() const
+void DeltaFileWrapper::setError( const ErrorType &type, const QString &details )
+{
+  mErrorType = type;
+  mErrorDetails = details;
+  emit errorChanged();
+}
+
+
+DeltaFileWrapper::ErrorType DeltaFileWrapper::errorType() const
 {
   return mErrorType;
 }
@@ -227,18 +233,18 @@ DeltaFileWrapper::ErrorTypes DeltaFileWrapper::errorType() const
 
 QString DeltaFileWrapper::errorString() const
 {
-  const QMap<DeltaFileWrapper::ErrorTypes, QString> errorMessages(
-    { { DeltaFileWrapper::ErrorTypes::NoError, QString() },
-      { DeltaFileWrapper::ErrorTypes::LockError, QStringLiteral( "Delta file is already opened" ) },
-      { DeltaFileWrapper::ErrorTypes::NotCloudProjectError, QStringLiteral( "The current project is not a cloud project" ) },
-      { DeltaFileWrapper::ErrorTypes::IOError, QStringLiteral( "Cannot open file for read and write" ) },
-      { DeltaFileWrapper::ErrorTypes::JsonParseError, QStringLiteral( "Unable to parse JSON" ) },
-      { DeltaFileWrapper::ErrorTypes::JsonFormatIdError, QStringLiteral( "Delta file is missing a valid id" ) },
-      { DeltaFileWrapper::ErrorTypes::JsonFormatProjectIdError, QStringLiteral( "Delta file is missing a valid project id" ) },
-      { DeltaFileWrapper::ErrorTypes::JsonFormatVersionError, QStringLiteral( "Delta file is missing a valid version" ) },
-      { DeltaFileWrapper::ErrorTypes::JsonFormatDeltasError, QStringLiteral( "Delta file is missing a valid deltas" ) },
-      { DeltaFileWrapper::ErrorTypes::JsonFormatDeltaItemError, QStringLiteral( "Delta file is missing a valid delta item" ) },
-      { DeltaFileWrapper::ErrorTypes::JsonIncompatibleVersionError, QStringLiteral( "Delta file has incompatible version" ) } } );
+  const QMap<DeltaFileWrapper::ErrorType, QString> errorMessages(
+    { { DeltaFileWrapper::ErrorType::NoError, QString() },
+      { DeltaFileWrapper::ErrorType::LockError, QStringLiteral( "Delta file is already opened" ) },
+      { DeltaFileWrapper::ErrorType::NotCloudProjectError, QStringLiteral( "The current project is not a cloud project" ) },
+      { DeltaFileWrapper::ErrorType::IOError, QStringLiteral( "Cannot open file for read and write" ) },
+      { DeltaFileWrapper::ErrorType::JsonParseError, QStringLiteral( "Unable to parse JSON" ) },
+      { DeltaFileWrapper::ErrorType::JsonFormatIdError, QStringLiteral( "Delta file is missing a valid id" ) },
+      { DeltaFileWrapper::ErrorType::JsonFormatProjectIdError, QStringLiteral( "Delta file is missing a valid project id" ) },
+      { DeltaFileWrapper::ErrorType::JsonFormatVersionError, QStringLiteral( "Delta file is missing a valid version" ) },
+      { DeltaFileWrapper::ErrorType::JsonFormatDeltasError, QStringLiteral( "Delta file is missing a valid deltas" ) },
+      { DeltaFileWrapper::ErrorType::JsonFormatDeltaItemError, QStringLiteral( "Delta file is missing a valid delta item" ) },
+      { DeltaFileWrapper::ErrorType::JsonIncompatibleVersionError, QStringLiteral( "Delta file has incompatible version" ) } } );
 
   Q_ASSERT( errorMessages.contains( mErrorType ) );
 
@@ -271,17 +277,14 @@ bool DeltaFileWrapper::toFile()
 
   if ( !deltaFile.open( QIODevice::WriteOnly | QIODevice::Unbuffered ) )
   {
-    mErrorType = DeltaFileWrapper::ErrorTypes::IOError;
-    mErrorDetails = deltaFile.errorString();
+    setError( DeltaFileWrapper::ErrorType::IOError, deltaFile.errorString() );
     QgsMessageLog::logMessage( QStringLiteral( "File %1 cannot be open for writing. Reason: %2" ).arg( mFileName ).arg( mErrorDetails ) );
-
     return false;
   }
 
   if ( deltaFile.write( toJson() ) == -1 )
   {
-    mErrorType = DeltaFileWrapper::ErrorTypes::IOError;
-    mErrorDetails = deltaFile.errorString();
+    setError( DeltaFileWrapper::ErrorType::IOError, deltaFile.errorString() );
     QgsMessageLog::logMessage( QStringLiteral( "Contents of the file %1 has not been written. Reason %2" ).arg( mFileName ).arg( mErrorDetails ) );
     return false;
   }

@@ -3872,7 +3872,7 @@ ApplicationWindow {
           projectInfo.hasEditRights = true;
           break;
         }
-        if (cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()) {
+        if (cloudProjectsModel.layerObserver.deltaFileWrapper.hasError) {
           qfieldCloudPopup.show();
         }
         if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
