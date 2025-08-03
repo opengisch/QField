@@ -860,51 +860,51 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>レイヤー %1 への %n 地物の作成をもとに戻す。</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 地物の作成をもとに戻す。</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>レイヤー %1 への %n 地物の削除をもとに戻す。</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 地物の削除をもとに戻す。</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>レイヤー %1 への %n 地物の修正をもとに戻す。</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 地物の修正をもとに戻す。</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>レイヤー %1 への %n 地物の作成をやり直す。</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 地物の作成をやり直す。</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>レイヤー %1 への %n 地物の削除をやり直す。</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 地物の削除をやり直す。</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>レイヤー %1 への %n 地物の修正をやり直す。</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 地物の修正をやり直す。</numerusform></translation>
     </message>
 </context>
 <context>
@@ -1371,23 +1371,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>feature addition</source>
-        <translation type="unfinished"/>
+        <translation>地物の追加</translation>
     </message>
     <message>
         <source>attribute editing</source>
-        <translation type="unfinished"/>
+        <translation>属性の編集</translation>
     </message>
     <message>
         <source>geometry editing</source>
-        <translation type="unfinished"/>
+        <translation>ジオメトリの編集</translation>
     </message>
     <message>
         <source>feature deletion</source>
-        <translation type="unfinished"/>
+        <translation>地物の削除</translation>
     </message>
     <message>
         <source>Disabled layer permissions: %1</source>
-        <translation type="unfinished"/>
+        <translation>レイヤの権限を無効しました: %1</translation>
     </message>
 </context>
 <context>
@@ -1451,11 +1451,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This layer is is currently tracking positions.</source>
-        <translation type="unfinished"/>
+        <translation>このレイヤーは現在位置を追跡しています。</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"/>
+        <translation>停止</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -1463,7 +1463,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation type="unfinished"/>
+        <translation>権限設定によりこのレイヤーへの地物の追加は無効になっています。</translation>
     </message>
 </context>
 <context>
@@ -1732,15 +1732,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Rotate Feature</source>
-        <translation type="unfinished"/>
+        <translation>地物を回転</translation>
     </message>
     <message>
         <source>Update Attributes from Feature</source>
-        <translation type="unfinished"/>
+        <translation>地物から属性を更新する</translation>
     </message>
     <message>
         <source>Process Feature</source>
-        <translation type="unfinished"/>
+        <translation>地物を処理</translation>
     </message>
 </context>
 <context>
@@ -1900,11 +1900,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The dataset will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>データセットは削除されます。削除しますか？</translation>
     </message>
     <message>
         <source>The project folder will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトフォルダは削除されます。削除しますか？</translation>
     </message>
 </context>
 <context>
@@ -1946,7 +1946,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation type="unfinished"/>
+        <translation>リクエストされたプラグインのURLは利用可能なプラグインのリストにあります。ダウンロードボタンからインストールしてください。</translation>
     </message>
 </context>
 <context>
@@ -1985,23 +1985,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Local Plugins</source>
-        <translation type="unfinished"/>
+        <translation>ローカルプラグイン</translation>
     </message>
     <message>
         <source>Available Plugins</source>
-        <translation type="unfinished"/>
+        <translation>利用可能なプラグイン</translation>
     </message>
     <message>
         <source>Search for plugin</source>
-        <translation type="unfinished"/>
+        <translation>プラグインを検索</translation>
     </message>
     <message>
         <source>Fetching available plugins</source>
-        <translation type="unfinished"/>
+        <translation>利用可能なプラグインを取得しています</translation>
     </message>
     <message>
         <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation type="unfinished"/>
+        <translation>プラグインはまだインストールされていません。 %1利用可能なプラグイン%3 タブに切り替えて、試してみてください。&lt;br&gt;&lt;br&gt;さらに詳細な情報については %2ドキュメントを参照ください%3。</translation>
     </message>
 </context>
 <context>
@@ -2122,11 +2122,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Egeniouss</source>
-        <translation type="unfinished"/>
+        <translation>素晴らしい</translation>
     </message>
     <message>
         <source>Connection type</source>
-        <translation type="unfinished"/>
+        <translation>接続タイプ</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2134,11 +2134,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source> (leave empty to auto-fill)</source>
-        <translation type="unfinished"/>
+        <translation>(空欄のまま自動入力)</translation>
     </message>
     <message>
         <source>Connection details</source>
-        <translation type="unfinished"/>
+        <translation>接続の詳細</translation>
     </message>
 </context>
 <context>
@@ -2311,15 +2311,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldAppAuthRequestHandler</name>
     <message>
         <source>Please enter credentials for database</source>
-        <translation type="unfinished"/>
+        <translation>データベースの接続情報を入力してください</translation>
     </message>
     <message>
         <source>at host</source>
-        <translation type="unfinished"/>
+        <translation>ホスト</translation>
     </message>
     <message>
         <source>at service</source>
-        <translation type="unfinished"/>
+        <translation>サービス</translation>
     </message>
 </context>
 <context>
@@ -2438,11 +2438,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Authentication provider missing</source>
-        <translation type="unfinished"/>
+        <translation>認証プロバイダーが見つかりません</translation>
     </message>
     <message>
         <source>Password missing</source>
-        <translation type="unfinished"/>
+        <translation>パスワードがありません</translation>
     </message>
 </context>
 <context>
@@ -2530,11 +2530,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>もしくは</translation>
     </message>
     <message>
         <source>Sign in using %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 を使ってサインイン</translation>
     </message>
 </context>
 <context>
@@ -2857,23 +2857,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>File system error. Failed to write attachment to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>ファイルシステムエラーです。一時フォルダの `%1` への添付ファイルの書き込みに失敗しました。</translation>
     </message>
     <message>
         <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>ファイルシステムエラーです。一時フォルダの `%1` で書き込みのための添付ファイルを開くのに失敗しました。</translation>
     </message>
     <message>
         <source>Network error. Failed to download attachment `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>ネットワークエラーです。添付ファイル`%1`のダウンロードに失敗しました。</translation>
     </message>
     <message>
         <source>File system error. Failed to write to partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>ファイルシステムエラーです。一部のファイル `%1` の書き込みに失敗しました。</translation>
     </message>
     <message>
         <source>File system error. Failed to open partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>ファイルシステムエラーです。一部のファイル `%1` を開くのに失敗しました。</translation>
     </message>
 </context>
 <context>
@@ -3151,47 +3151,47 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Show invalid projects</source>
-        <translation type="unfinished"/>
+        <translation>無効なプロジェクトを表示</translation>
     </message>
     <message>
         <source>Available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>クラウドで利用可能</translation>
     </message>
     <message>
         <source>, has changes locally</source>
-        <translation type="unfinished"/>
+        <translation>ローカルでの変更があります</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>説明</translation>
     </message>
     <message>
         <source>Owner</source>
-        <translation type="unfinished"/>
+        <translation>所有者</translation>
     </message>
     <message>
         <source>Creation date</source>
-        <translation type="unfinished"/>
+        <translation>作成日</translation>
     </message>
     <message>
         <source>Latest update date</source>
-        <translation type="unfinished"/>
+        <translation>最新の更新日</translation>
     </message>
     <message>
         <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation type="unfinished"/>
+        <translation>このQRコードをスキャンすると、適切なアクセス権を持つユーザーがこのプロジェクトをダウンロードして開くことができます。</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloudはプロジェクトを適切にパッケージ化しています。</translation>
     </message>
     <message>
         <source>Downloading project</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトをダウンロードしています</translation>
     </message>
     <message>
         <source>Download project</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトをダウンロードしました</translation>
     </message>
     <message>
         <source>Open project</source>
@@ -3199,11 +3199,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>View Project Details</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトの詳細を見る</translation>
     </message>
     <message>
         <source>QFieldCloud project details fetching failed</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloudプロジェクトの詳細の取得に失敗しました</translation>
     </message>
 </context>
 <context>
@@ -3352,67 +3352,67 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloudにプッシュ</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV server</source>
-        <translation type="unfinished"/>
+        <translation>WebDAVサーバーにフォルダをアップロード</translation>
     </message>
     <message>
         <source>Download folder from WebDAV server</source>
-        <translation type="unfinished"/>
+        <translation>WebDAVサーバーからフォルダをダウンロード</translation>
     </message>
     <message>
         <source>Remove folder</source>
-        <translation type="unfinished"/>
+        <translation>フォルダを削除</translation>
     </message>
     <message>
         <source>Import WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>WebDAVフォルダをインポート</translation>
     </message>
     <message>
         <source>Upload project to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトをWebDAVにアップロード</translation>
     </message>
     <message>
         <source>Download project from WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>WebDAVからプロジェクトをダウンロード</translation>
     </message>
     <message>
         <source>Importing WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>WebDAVフォルダをインポートしています</translation>
     </message>
     <message>
         <source>Downloading WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>WebDAVフォルダをダウンロードしています</translation>
     </message>
     <message>
         <source>Uploading WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>WebDAVフォルダをアップロードしています</translation>
     </message>
     <message>
         <source>WebDAV error: </source>
-        <translation type="unfinished"/>
+        <translation>WebDAVエラー: </translation>
     </message>
     <message>
         <source>WebDAV upload</source>
-        <translation type="unfinished"/>
+        <translation>WebDAVアップロード</translation>
     </message>
     <message>
         <source>WebDAV download</source>
-        <translation type="unfinished"/>
+        <translation>WebDAVダウンロード</translation>
     </message>
     <message>
         <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>ユーザー &lt;b&gt;%2&lt;/b&gt;として修正したコンテンツを&lt;b&gt;%1&lt;/b&gt;へアップロードしようとしています。&lt;br&gt;&lt;br&gt;この操作はリモートで保存されたデータを上書きします。ご注意ください。</translation>
     </message>
     <message>
         <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>ユーザー &lt;b&gt;%2&lt;/b&gt;として修正したコンテンツを&lt;b&gt;%1&lt;/b&gt;からダウンロードしようとしています。&lt;br&gt;&lt;br&gt;この操作はローカルで保存されたデータを上書きします。ご注意ください。</translation>
     </message>
     <message>
         <source>Password (leave empty to use remembered)</source>
-        <translation type="unfinished"/>
+        <translation>パスワード（記憶したものを使う場合は空欄にしてください）</translation>
     </message>
     <message>
         <source>Password</source>
@@ -3420,67 +3420,67 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remember password</source>
-        <translation type="unfinished"/>
+        <translation>パスワードを記憶する</translation>
     </message>
     <message>
         <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation type="unfinished"/>
+        <translation>下にWebDAVの詳細を入力してリモートフォルダをインポート:</translation>
     </message>
     <message>
         <source>WebDAV server URL</source>
-        <translation type="unfinished"/>
+        <translation>WebDAVサーバーURL</translation>
     </message>
     <message>
         <source>Select the remote folder to import:</source>
-        <translation type="unfinished"/>
+        <translation>インポートするリモートフォルダを選択:</translation>
     </message>
     <message>
         <source>Fetching remote folders</source>
-        <translation type="unfinished"/>
+        <translation>リモートフォルダを取得しています</translation>
     </message>
     <message>
         <source>Fetch remote folders</source>
-        <translation type="unfinished"/>
+        <translation>リモートフォルダを取得</translation>
     </message>
     <message>
         <source>User and password</source>
-        <translation type="unfinished"/>
+        <translation>ユーザーとパスワード</translation>
     </message>
     <message>
         <source>leave empty to use remembered</source>
-        <translation type="unfinished"/>
+        <translation>記憶したものを使う場合は空欄にしてください</translation>
     </message>
     <message>
         <source>Upload file(s) to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>WebDAVへファイルをアップロード</translation>
     </message>
     <message>
         <source>Push file(s) to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloudにファイルをプッシュ</translation>
     </message>
     <message>
         <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloudにプッシュするファイルを一つ以上選択してください。</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>確認</translation>
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>保存されたWebDAVのアイテムを削除しようとしています。削除しますか？</translation>
     </message>
     <message>
         <source>root folder</source>
-        <translation type="unfinished"/>
+        <translation>ルートフォルダ</translation>
     </message>
     <message>
         <source>Available locally in ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>‘%1’でローカル上で利用可能</translation>
     </message>
     <message>
         <source>Imported folder name</source>
-        <translation type="unfinished"/>
+        <translation>インポートしたフォルダ名</translation>
     </message>
 </context>
 <context>
@@ -3491,11 +3491,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
-        <translation type="unfinished"/>
+        <translation>緯度 %1 | 経度 %2 | 高度 %3 m | 速度 %4 m/s | 方位 %5°</translation>
     </message>
     <message>
         <source>Positioning service stopped</source>
-        <translation type="unfinished"/>
+        <translation>測位サービスが停止しました</translation>
     </message>
 </context>
 <context>
@@ -3932,19 +3932,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Render preview content around visible map canvas</source>
-        <translation type="unfinished"/>
+        <translation>表示されている地図キャンバスの周囲にプレビュー コンテンツを描画します</translation>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、表示されている地図キャンバス範囲のすぐ外側の領域が部分的に描画され、ズームやパン時にプレビューできるようになります。</translation>
     </message>
     <message>
         <source>Automatically open form for single feature identification</source>
-        <translation type="unfinished"/>
+        <translation>単一地物確認用のフォームを自動的に開く</translation>
     </message>
     <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、地物が 1 つだけ存在した場合に地物リストをスキップして地物フォームを自動的に開きます。</translation>
     </message>
 </context>
 <context>
@@ -4066,7 +4066,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Skipped file %1 outside of the directory %2</source>
-        <translation type="unfinished"/>
+        <translation>ディレクトリ %2 の外部にあるファイル %1 をスキップしました</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
@@ -4116,51 +4116,51 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>January</source>
-        <translation type="unfinished"/>
+        <translation>1月</translation>
     </message>
     <message>
         <source>February</source>
-        <translation type="unfinished"/>
+        <translation>2月</translation>
     </message>
     <message>
         <source>March</source>
-        <translation type="unfinished"/>
+        <translation>3月</translation>
     </message>
     <message>
         <source>April</source>
-        <translation type="unfinished"/>
+        <translation>4月</translation>
     </message>
     <message>
         <source>May</source>
-        <translation type="unfinished"/>
+        <translation>5月</translation>
     </message>
     <message>
         <source>June</source>
-        <translation type="unfinished"/>
+        <translation>6月</translation>
     </message>
     <message>
         <source>July</source>
-        <translation type="unfinished"/>
+        <translation>7月</translation>
     </message>
     <message>
         <source>August</source>
-        <translation type="unfinished"/>
+        <translation>8月</translation>
     </message>
     <message>
         <source>September</source>
-        <translation type="unfinished"/>
+        <translation>9月</translation>
     </message>
     <message>
         <source>October</source>
-        <translation type="unfinished"/>
+        <translation>10月</translation>
     </message>
     <message>
         <source>November</source>
-        <translation type="unfinished"/>
+        <translation>11月</translation>
     </message>
     <message>
         <source>December</source>
-        <translation type="unfinished"/>
+        <translation>12月</translation>
     </message>
 </context>
 <context>
@@ -4228,7 +4228,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Map printed on %1 using QField</source>
-        <translation type="unfinished"/>
+        <translation>QFieldを利用して %1 に地図を印刷しました</translation>
     </message>
 </context>
 <context>
@@ -4342,7 +4342,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unlink Feature</source>
-        <translation type="unfinished"/>
+        <translation>地物のリンクを解除</translation>
     </message>
     <message>
         <source>Delete Feature</source>
@@ -4362,7 +4362,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Child Menu</source>
-        <translation type="unfinished"/>
+        <translation>子メニュー</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
@@ -4390,11 +4390,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Ensure constraints are met</source>
-        <translation type="unfinished"/>
+        <translation>制約が満たされていることを確認する</translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 地物</numerusform></translation>
     </message>
 </context>
 <context>
@@ -4500,11 +4500,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>IPアドレス</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>ポート</translation>
     </message>
 </context>
 <context>
@@ -4881,11 +4881,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>アドレス</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>ポート</translation>
     </message>
 </context>
 <context>
@@ -4975,11 +4975,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>WebdavConnection</name>
     <message>
         <source>Failed to download file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>ネットワークエラー (%2)によりファイル %1 のダウンロードに失敗しました</translation>
     </message>
     <message>
         <source>Failed to upload file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>ネットワークエラー (%2)によりファイル %1 のアップロードに失敗しました</translation>
     </message>
 </context>
 <context>
@@ -5094,7 +5094,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Return to map</source>
-        <translation type="unfinished"/>
+        <translation>地図に戻る</translation>
     </message>
 </context>
 <context>
@@ -5746,19 +5746,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
-        <translation type="unfinished"/>
+        <translation>アルゴリズムの実行をキャンセル</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>実行中のアルゴリズム操作を終了しようとしています。終了しますか?</translation>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトとアプリを閉じるには画面のロックを解除してください</translation>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
-        <translation type="unfinished"/>
+        <translation>ボーダーレスモードが有効になっている場合は、左上と右下の角を使ってウィンドウを移動したりサイズを変更したりできます。</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
@@ -5770,31 +5770,31 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>元に戻す</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>やり直す</translation>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
-        <translation type="unfinished"/>
+        <translation>収集した位置情報を再生中です、しばらくお待ちください</translation>
     </message>
     <message>
         <source>Snapping to every</source>
-        <translation type="unfinished"/>
+        <translation>全てにスナッピングする</translation>
     </message>
     <message>
         <source>%1°</source>
-        <translation type="unfinished"/>
+        <translation>%1°</translation>
     </message>
     <message>
         <source>Snapping tolerance</source>
-        <translation type="unfinished"/>
+        <translation>スナッピングの精度</translation>
     </message>
     <message>
         <source>Narrow</source>
-        <translation type="unfinished"/>
+        <translation>狭い</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -5806,67 +5806,67 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Snapping tolerance set to %1</source>
-        <translation type="unfinished"/>
+        <translation>スナッピングの精度が %1 に設定</translation>
     </message>
     <message>
         <source>Import Confirmation</source>
-        <translation type="unfinished"/>
+        <translation>インポートの確認</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;%1&lt;/b&gt;を&lt;b&gt;%2&lt;/b&gt;からQFieldへインポートしますか？</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
-        <translation type="unfinished"/>
+        <translation>プラグインの権限</translation>
     </message>
     <message>
         <source>Unlock</source>
-        <translation type="unfinished"/>
+        <translation>解除</translation>
     </message>
     <message>
         <source> Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトのプラグイン</translation>
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
-        <translation type="unfinished"/>
+        <translation>プラグインをアクティベートする権限を与えますか？</translation>
     </message>
     <message>
         <source>Follow location paused</source>
-        <translation type="unfinished"/>
+        <translation>位置情報の追跡を一時停止</translation>
     </message>
     <message>
         <source>Failed to create feature</source>
-        <translation type="unfinished"/>
+        <translation>地物の作成に失敗しました</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation type="unfinished"/>
+        <translation>地物の追加をする権限が無効になっているため、地物を作成できませんでした</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
-        <translation type="unfinished"/>
+        <translation>地物の保存に失敗しました</translation>
     </message>
     <message>
         <source>Digitizing toggle</source>
-        <translation type="unfinished"/>
+        <translation>編集の切り替え</translation>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation type="unfinished"/>
+        <translation>閲覧モードと編集モードを切り替えます。閲覧モードでは、マップとその地物を最適に表示することに重点が置かれており、編集モードでは、地物の作成やジオメトリの編集が可能です。</translation>
     </message>
     <message>
         <source>Measurement</source>
-        <translation type="unfinished"/>
+        <translation>計測</translation>
     </message>
     <message>
         <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation type="unfinished"/>
+        <translation>測定ツールに切り替えて、地図上の距離と面積を計算します。</translation>
     </message>
     <message>
         <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
-        <translation type="unfinished"/>
+        <translation>構成されたプロジェクトの印刷とアトラスのレイアウトを使用して、地図キャンバスを PDF に出力します。</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -5874,23 +5874,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
+        <translation>クラウドプロジェクトを開いたときに、QFieldCloudとの間で変更をプッシュしたり、同期したり、元に戻したりします。</translation>
     </message>
     <message>
         <source>Project folder</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトフォルダ</translation>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトフォルダを開くと、プロジェクトファイル、データソース、関連ドキュメントにアクセスできます。プロジェクトリソースの管理、QFieldCloudへのデータの手動アップロード、データセット、添付ファイル、レイアウトの共有に役立ちます。</translation>
     </message>
     <message>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>凡例</translation>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
-        <translation type="unfinished"/>
+        <translation>凡例には地図レイヤーが表示され、&lt;b&gt;レイヤーを長押ししてプロパティポップアップを開く&lt;/b&gt;ことで、表示設定と不透明度のプロパティを切り替えることができます。このポップアップでは、レイヤー範囲へのズームやベクターレイヤーに含まれる地物の表示といった追加機能も利用できます。</translation>
     </message>
 </context>
 <context>
