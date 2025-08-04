@@ -275,6 +275,8 @@ void AttributeFormModelBase::resetModel()
 void AttributeFormModelBase::applyFeatureModel()
 {
   mExpressionContext = mFeatureModel->createExpressionContext();
+  mExpressionContext.setFields( mFeatureModel->feature().fields() );
+  mExpressionContext.setFeature( mFeatureModel->feature() );
   mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
 
   for ( int i = 0; i < invisibleRootItem()->rowCount(); ++i )
