@@ -1187,6 +1187,7 @@ Page {
                     positioningSettings.accuracyBad = NaN;
                   } else {
                     positioningSettings.accuracyBad = parseFloat(text);
+                    positionSource.badAccuracyThreshold = positioningSettings.accuracyBad;
                   }
                 }
               }
@@ -1226,6 +1227,7 @@ Page {
                     positioningSettings.accuracyExcellent = NaN;
                   } else {
                     positioningSettings.accuracyExcellent = parseFloat(text);
+                    positionSource.excellentAccuracyThreshold = positioningSettings.accuracyExcellent;
                   }
                 }
               }

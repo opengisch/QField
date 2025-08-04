@@ -88,6 +88,9 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
 
   for ( const GnssPositionInformation &pi : positionsInformation )
   {
+    if ( pi.accuracyQuality() == GnssPositionInformation::AccuracyBad )
+      continue;
+
     if ( !std::isnan( pi.latitude() ) )
       latitude = !std::isnan( latitude ) ? latitude + pi.latitude() : pi.latitude();
     if ( !std::isnan( pi.longitude() ) )
