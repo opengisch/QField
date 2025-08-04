@@ -44,6 +44,15 @@ TEST_CASE( "AttributeFormModel" )
 
   layer->setDefaultValueDefinition( 2, QgsDefaultValue( QStringLiteral( " coalesce(\"str\",'') || '__'" ), true ) );
 
+  QgsEditFormConfig editFormConfig = layer->editFormConfig();
+  QgsPropertyCollection properties = editFormConfig.dataDefinedFieldProperties( QStringLiteral( "str" ) );
+  QgsProperty property;
+  property.setExpressionString( QStringLiteral( "\"str\" is null" ) );
+  property.setActive( true );
+  properties.setProperty( QgsEditFormConfig::DataDefinedProperty::Editable, property );
+  editFormConfig.setDataDefinedFieldProperties( QStringLiteral( "str" ), properties );
+  layer->setEditFormConfig( editFormConfig );
+
   std::unique_ptr<AttributeFormModel> attributeFormModel = std::make_unique<AttributeFormModel>();
   std::unique_ptr<FeatureModel> featureModel = std::make_unique<FeatureModel>();
   attributeFormModel->setFeatureModel( featureModel.get() );
@@ -79,6 +88,16 @@ TEST_CASE( "AttributeFormModel" )
 
     QgsFeature feature = layer->getFeature( fid );
     REQUIRE( feature.attributes().at( 2 ) == QStringLiteral( "edit_feature__" ) );
+  }
+
+  SECTION( "ReadOnlyDataDefinedProperty" )
+  {
+    featureModel->resetFeature();
+    featureModel->resetAttributes();
+
+    REQUIRE( attributeFormModel->data( attributeFormModel->index( 1, 0 ), AttributeFormModel::AttributeEditable ).toBool() == true );
+    attributeFormModel->setData( attributeFormModel->index( 1, 0 ), QString( "data" ), AttributeFormModel::AttributeValue );
+    REQUIRE( attributeFormModel->data( attributeFormModel->index( 1, 0 ), AttributeFormModel::AttributeEditable ).toBool() == false );
   }
 
   SECTION( "QAbstractItemModelTester" )
