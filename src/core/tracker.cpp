@@ -306,6 +306,9 @@ void Tracker::processPositionInformation( const GnssPositionInformation &positio
   if ( !mIsActive && !mIsReplaying )
     return;
 
+  if ( positionInformation.accuracyQuality() == GnssPositionInformation::AccuracyBad )
+    return;
+
   mLastDevicePositionTimestampMSecsSinceEpoch = positionInformation.utcDateTime().toMSecsSinceEpoch();
 
   double measureValue = 0.0;

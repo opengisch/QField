@@ -534,6 +534,24 @@ void Positioning::processGnssPositionInformation()
 {
   mPositionInformation = mPositioningSourceReplica->property( "positionInformation" ).value<GnssPositionInformation>();
 
+  GnssPositionInformation::AccuracyQuality quality = GnssPositionInformation::AccuracyBad;
+  const double hacc = mPositionInformation.hacc();
+
+  if ( !std::isnan( hacc ) )
+  {
+    if ( hacc <= excellentAccuracyThreshold() )
+      quality = GnssPositionInformation::AccuracyExcellent;
+    else if ( hacc <= badAccuracyThreshold() )
+      quality = GnssPositionInformation::AccuracyOk;
+    else
+      quality = GnssPositionInformation::AccuracyBad;
+  }
+  else
+  {
+    quality = GnssPositionInformation::AccuracyBad;
+  }
+  mPositionInformation.setAccuracyQuality( quality );
+
   if ( mPositionInformation.isValid() )
   {
     mSourcePosition = QgsPoint( mPositionInformation.longitude(), mPositionInformation.latitude(), mPositionInformation.elevation() );
@@ -581,4 +599,21 @@ void Positioning::processProjectedPosition()
   }
 
   emit positionInformationChanged();
+}
+
+
+void Positioning::setBadAccuracyThreshold( double threshold )
+{
+  if ( mBadAccuracyThreshold == threshold )
+    return;
+  mBadAccuracyThreshold = threshold;
+  emit badAccuracyThresholdChanged();
+}
+
+void Positioning::setExcellentAccuracyThreshold( double threshold )
+{
+  if ( mExcellentAccuracyThreshold == threshold )
+    return;
+  mExcellentAccuracyThreshold = threshold;
+  emit excellentAccuracyThresholdChanged();
 }

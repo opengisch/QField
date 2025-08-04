@@ -67,6 +67,9 @@ class Positioning : public QObject
 
     Q_PROPERTY( bool backgroundMode READ backgroundMode WRITE setBackgroundMode NOTIFY backgroundModeChanged )
 
+    Q_PROPERTY( double badAccuracyThreshold READ badAccuracyThreshold WRITE setBadAccuracyThreshold NOTIFY badAccuracyThresholdChanged )
+    Q_PROPERTY( double excellentAccuracyThreshold READ excellentAccuracyThreshold WRITE setExcellentAccuracyThreshold NOTIFY excellentAccuracyThresholdChanged )
+
   public:
     explicit Positioning( QObject *parent = nullptr );
     virtual ~Positioning() = default;
@@ -251,6 +254,26 @@ class Positioning : public QObject
      */
     Q_INVOKABLE QList<GnssPositionInformation> getBackgroundPositionInformation() const;
 
+    /**
+     * Returns the threshold above which accuracy is considered bad.
+     */
+    double badAccuracyThreshold() const { return mBadAccuracyThreshold; }
+
+    /**
+     * Sets the threshold above which accuracy is considered bad.
+     */
+    void setBadAccuracyThreshold( double threshold );
+
+    /**
+     * Returns the threshold below which accuracy is considered excellent.
+     */
+    double excellentAccuracyThreshold() const { return mExcellentAccuracyThreshold; }
+
+    /**
+     * Sets the threshold below which accuracy is considered excellent.
+     */
+    void setExcellentAccuracyThreshold( double threshold );
+
   signals:
     void activeChanged();
     void validChanged();
@@ -272,6 +295,9 @@ class Positioning : public QObject
 
     void triggerConnectDevice();
     void triggerDisconnectDevice();
+
+    void badAccuracyThresholdChanged();
+    void excellentAccuracyThresholdChanged();
 
   private slots:
     void onApplicationStateChanged( Qt::ApplicationState state );
@@ -305,6 +331,9 @@ class Positioning : public QObject
     bool mBackgroundMode = false;
 
     QVariantMap mPropertiesToSync;
+
+    double mBadAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
+    double mExcellentAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
 };
 
 #endif // POSITIONING_H
