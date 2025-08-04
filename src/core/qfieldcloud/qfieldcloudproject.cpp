@@ -1363,6 +1363,9 @@ NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const 
     request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::UserVerifiedRedirectPolicy );
   }
 
+  // Never rely on cache to insure latest package files are properly downloaded
+  request.setAttribute( QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::AlwaysNetwork );
+
   mCloudConnection->setAuthenticationDetails( request );
 
   const QString fileKey = QStringLiteral( "%1/%2" ).arg( projectId, fileName );
@@ -1399,7 +1402,6 @@ NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const 
   }
 
   const QString urlPath = fromLatestPackage ? QStringLiteral( "/api/v1/packages/%1/latest/files/%2/" ).arg( projectId, fileName ) : QStringLiteral( "/api/v1/files/%1/%2/" ).arg( projectId, fileName );
-
   return mCloudConnection->get( request, urlPath );
 }
 
