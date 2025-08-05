@@ -93,11 +93,11 @@ TEST_CASE( "OrderedRelationModel" )
     mModel->setOrderingField( QStringLiteral( "rank" ) );
     mModel->setFeature( mReferencedLayer->getFeature( 1 ) );
 
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModelBase::modelUpdated ).wait( 1000 ) );
 
     REQUIRE( mModel->rowCount() == 4 );
     REQUIRE( mModel->deleteFeature( 2 ) );
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModelBase::modelUpdated ).wait( 1000 ) );
     REQUIRE( mModel->rowCount() == 3 );
     REQUIRE( !mReferencingLayer->getFeature( 2 ).isValid() );
     REQUIRE( mReferencingLayer->getFeature( 1 ).attribute( QStringLiteral( "rank" ) ).toInt() == 1 );
@@ -113,7 +113,7 @@ TEST_CASE( "OrderedRelationModel" )
     mModel->setOrderingField( QStringLiteral( "rank" ) );
     mModel->setFeature( mReferencedLayer->getFeature( 1 ) );
 
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModelBase::modelUpdated ).wait( 1000 ) );
 
     REQUIRE( mModel->rowCount() == 4 );
     // try to move items out of range
@@ -131,7 +131,7 @@ TEST_CASE( "OrderedRelationModel" )
     REQUIRE( mReferencingLayer->getFeature( 4 ).attribute( QStringLiteral( "rank" ) ).toInt() == 4 );
 
     REQUIRE( mModel->moveItems( 1, 3 ) );
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModelBase::modelUpdated ).wait( 1000 ) );
     REQUIRE( mModel->rowCount() == 4 );
     REQUIRE( mReferencingLayer->getFeature( 1 ).attribute( QStringLiteral( "rank" ) ).toInt() == 1 );
     REQUIRE( mReferencingLayer->getFeature( 2 ).attribute( QStringLiteral( "rank" ) ).toInt() == 4 );
