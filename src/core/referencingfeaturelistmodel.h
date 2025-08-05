@@ -339,8 +339,8 @@ class ReferencingFeatureListModel : public QSortFilterProxyModel
     void sortOrderChanged();
 
   private:
+    ReferencingFeatureListModelBase *mSourceModel = nullptr;
     Qt::SortOrder mSortOrder = Qt::AscendingOrder;
-    ReferencingFeatureListModelBase *mSourceModel;
 };
 
 class FeatureGatherer : public QThread
