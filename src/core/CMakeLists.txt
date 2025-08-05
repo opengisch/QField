@@ -69,7 +69,6 @@ set(QFIELD_CORE_SRCS
     expressionvariablemodel.cpp
     externalstorage.cpp
     featurechecklistmodel.cpp
-    featurechecklistproxymodel.cpp
     featurelistextentcontroller.cpp
     featurelistmodel.cpp
     featurelistmodelselection.cpp
@@ -199,7 +198,6 @@ set(QFIELD_CORE_HDRS
     expressionvariablemodel.h
     externalstorage.h
     featurechecklistmodel.h
-    featurechecklistproxymodel.h
     featureexpressionvaluesgatherer.h
     featurelistextentcontroller.h
     featurelistmodel.h
