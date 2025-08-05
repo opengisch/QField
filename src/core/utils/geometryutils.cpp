@@ -193,8 +193,10 @@ GeometryUtils::GeometryOperationResult GeometryUtils::eraseFromRubberband( QgsVe
 
 GeometryUtils::GeometryOperationResult GeometryUtils::addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
 {
-  QgsPointSequence ring = rubberBandModel->pointSequence( layer->crs(), layer->wkbType(), true );
+  if ( !layer || !rubberBandModel )
+    return GeometryUtils::GeometryOperationResult::NothingHappened;
 
+  QgsPointSequence ring = rubberBandModel->pointSequence( layer->crs(), layer->wkbType(), true );
   if ( ring.size() < 3 )
   {
     return GeometryUtils::GeometryOperationResult::AddRingNotValid;
@@ -206,15 +208,81 @@ GeometryUtils::GeometryOperationResult GeometryUtils::addRingFromRubberband( Qgs
   {
     geometry = geometry.makeValid();
     if ( !geometry.isNull() )
+    {
       static_cast<QgsLineString *>( geometry.get() )->points( ring );
+    }
   }
-  return static_cast<GeometryUtils::GeometryOperationResult>( layer->addRing( ring, &fid ) );
+
+  const bool wasEditing = ( layer->editBuffer() );
+  if ( !wasEditing )
+  {
+    layer->startEditing();
+  }
+  else
+  {
+    layer->commitChanges( false );
+  }
+
+  GeometryUtils::GeometryOperationResult result = static_cast<GeometryUtils::GeometryOperationResult>( layer->addRing( ring, &fid ) );
+  if ( result != GeometryUtils::GeometryOperationResult::Success )
+  {
+    layer->rollBack();
+  }
+  else
+  {
+    layer->commitChanges( !wasEditing );
+  }
+
+  return result;
 }
 
-GeometryUtils::GeometryOperationResult GeometryUtils::splitFeatureFromRubberband( QgsVectorLayer *layer, RubberbandModel *rubberBandModel )
+GeometryUtils::GeometryOperationResult GeometryUtils::splitFeatureFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
 {
+  if ( !layer || !rubberBandModel )
+    return GeometryUtils::GeometryOperationResult::NothingHappened;
+
+  // The connection below will be triggered when the new feature is committed and will provide
+  // the saved feature ID needed to fetch the saved feature back from the data provider
+  QgsFeatureIds createdFeatureIds;
+  QMetaObject::Connection connection = connect( layer, &QgsVectorLayer::featureAdded, [&createdFeatureIds]( QgsFeatureId fid ) { createdFeatureIds << fid; } );
+
+  layer->selectByIds( QgsFeatureIds() << fid, Qgis::SelectBehavior::SetSelection );
+
+  const bool wasEditing = ( layer->editBuffer() );
+  if ( !wasEditing )
+  {
+    layer->startEditing();
+  }
+  else
+  {
+    layer->commitChanges( false );
+  }
+
   QgsPointSequence line = rubberBandModel->pointSequence( layer->crs(), Qgis::WkbType::Point, false );
-  return static_cast<GeometryUtils::GeometryOperationResult>( layer->splitFeatures( line, true ) );
+  GeometryUtils::GeometryOperationResult result = static_cast<GeometryUtils::GeometryOperationResult>( layer->splitFeatures( line, true ) );
+  if ( result != GeometryUtils::GeometryOperationResult::Success )
+  {
+    layer->rollBack();
+  }
+  else
+  {
+    const QString sourcePrimaryKeys = layer->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).toString();
+    if ( !sourcePrimaryKeys.isEmpty() && layer->fields().lookupField( sourcePrimaryKeys ) >= 0 )
+    {
+      const int sourcePrimaryKeysIndex = layer->fields().lookupField( sourcePrimaryKeys );
+      for ( const QgsFeatureId &createdFeatureId : createdFeatureIds )
+      {
+        layer->changeAttributeValue( createdFeatureId, sourcePrimaryKeysIndex, QVariant() );
+      }
+    }
+    layer->commitChanges( !wasEditing );
+  }
+
+  layer->removeSelection();
+
+  disconnect( connection );
+
+  return result;
 }
 
 QgsPoint GeometryUtils::coordinateToPoint( const QGeoCoordinate &coor )

@@ -81,9 +81,8 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
 
     /**
      * Performs a split using the line in the rubberband model.
-     * \note Requires a given vector layer to have selected feature(s).
      */
-    static Q_INVOKABLE GeometryOperationResult splitFeatureFromRubberband( QgsVectorLayer *layer, RubberbandModel *rubberBandModel );
+    static Q_INVOKABLE GeometryOperationResult splitFeatureFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel );
 
     //! Converts QGeoCoordinate to QgsPoint.
     static Q_INVOKABLE QgsPoint coordinateToPoint( const QGeoCoordinate &coor );
