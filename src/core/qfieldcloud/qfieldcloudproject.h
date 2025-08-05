@@ -62,7 +62,7 @@ class QFieldCloudProject : public QObject
 
     Q_PROPERTY( bool forceAutoPush READ forceAutoPush WRITE setForceAutoPush NOTIFY forceAutoPushChanged )
     Q_PROPERTY( bool autoPushEnabled READ autoPushEnabled WRITE setAutoPushEnabled NOTIFY autoPushEnabledChanged )
-    Q_PROPERTY( int autoPushIntervalMins READ autoPushIntervalMins NOTIFY autoPushIntervalMinsChanged )
+    Q_PROPERTY( int autoPushIntervalMins READ autoPushIntervalMins WRITE setAutoPushIntervalMins NOTIFY autoPushIntervalMinsChanged )
 
     Q_PROPERTY( bool attachmentsOnDemandEnabled READ attachmentsOnDemandEnabled WRITE setAttachmentsOnDemandEnabled NOTIFY attachmentsOnDemandEnabledChanged )
 
