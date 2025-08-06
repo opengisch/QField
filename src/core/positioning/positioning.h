@@ -332,6 +332,9 @@ class Positioning : public QObject
 
     QVariantMap mPropertiesToSync;
 
+    bool mAveragedPosition = false;
+    QList<GnssPositionInformation> mCollectedPositionInformations;
+
     double mBadAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
     double mExcellentAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
 };

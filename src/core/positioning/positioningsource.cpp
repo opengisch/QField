@@ -344,24 +344,11 @@ void PositioningSource::lastGnssPositionInformationChanged( const GnssPositionIn
                                                      lastGnssPositionInformation.imuHeading(),
                                                      lastGnssPositionInformation.imuSteering(),
                                                      mOrientation );
-
-  if ( mAveragedPosition )
-  {
-    mCollectedPositionInformations << positionInformation;
-    mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations );
-  }
-  else
-  {
-    mPositionInformation = positionInformation;
-  }
+  mPositionInformation = positionInformation;
 
   if ( !mBackgroundMode )
   {
     emit positionInformationChanged();
-    if ( mAveragedPosition )
-    {
-      emit averagedPositionCountChanged();
-    }
   }
   else
   {
