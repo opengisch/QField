@@ -316,25 +316,31 @@ AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities() const
 
 int Positioning::averagedPositionCount() const
 {
-  return isSourceAvailable() ? mPositioningSourceReplica->property( "averagedPositionCount" ).toInt() : 0;
+  return static_cast<int>( mCollectedPositionInformations.size() );
 }
 
 bool Positioning::averagedPosition() const
 {
-  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "averagedPosition" ) : mPropertiesToSync.value( "averagedPosition", false ) ).toBool();
+  return mAveragedPosition;
 }
 
 void Positioning::setAveragedPosition( bool averaged )
 {
-  if ( isSourceAvailable() )
+  if ( mAveragedPosition == averaged )
+    return;
+
+  mAveragedPosition = averaged;
+  if ( mAveragedPosition )
   {
-    mPositioningSourceReplica->setProperty( "averagedPosition", averaged );
+    mCollectedPositionInformations << mPositionInformation;
   }
   else
   {
-    mPropertiesToSync["averagedPosition"] = averaged;
-    emit averagedPositionChanged();
+    mCollectedPositionInformations.clear();
   }
+
+  emit averagedPositionCountChanged();
+  emit averagedPositionChanged();
 }
 
 bool Positioning::logging() const
@@ -533,6 +539,13 @@ double Positioning::projectedHorizontalAccuracy() const
 void Positioning::processGnssPositionInformation()
 {
   mPositionInformation = mPositioningSourceReplica->property( "positionInformation" ).value<GnssPositionInformation>();
+
+  if ( mAveragedPosition )
+  {
+    mCollectedPositionInformations << mPositionInformation;
+    mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations );
+    emit averagedPositionCountChanged();
+  }
 
   GnssPositionInformation::AccuracyQuality quality = GnssPositionInformation::AccuracyBad;
   const double hacc = mPositionInformation.hacc();
