@@ -4296,6 +4296,29 @@ Cancel to make a minimal device scan instead.</source>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
+        <translation type="vanished">無効な参照レイヤー</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">編集を開始できません</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">地物を削除できません</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">レイヤー %1 の変更内容をロールバックできませんでした。</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">レイヤー %1 の変更内容を保存できませんでした。</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
         <translation>無効な参照レイヤー</translation>
     </message>
     <message>

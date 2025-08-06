@@ -4294,6 +4294,29 @@ Cancel to make a minimal device scan instead.</source>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
+        <translation type="vanished">الطبقة المرجعية غير صالحة</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">لا يمكن بدء التحرير</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">لا يمكن حذف الميزة</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">لا يمكن استرجاع التغيرات في الطقة %1</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">لا يمكن تنفيذ التغيرات في الطبقة %1.</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
         <translation>الطبقة المرجعية غير صالحة</translation>
     </message>
     <message>

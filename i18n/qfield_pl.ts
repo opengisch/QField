@@ -4302,6 +4302,29 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
+        <translation type="vanished">Niepoprawna warstwa odniesienia</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">Nie można rozpocząć edycji</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">Nie można usunąć obiektu</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">Nie można cofnąć zmian w warstwie % 1</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">Nie można zatwierdzić zmian warstwy na warstwie %1.</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
         <translation>Niepoprawna warstwa odniesienia</translation>
     </message>
     <message>

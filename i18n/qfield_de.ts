@@ -4295,6 +4295,29 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
+        <translation type="vanished">Ungültiger Referenz-Layer</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">Kann nicht mit dem Bearbeiten beginnen.</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">Objekt kann nicht gelöscht werden.</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">Kann Änderungen im Layer %1 nicht rückgängig machen.</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">Kann Änderungen im Layer %1 nicht übergeben.</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
         <translation>Ungültiger Referenz-Layer</translation>
     </message>
     <message>

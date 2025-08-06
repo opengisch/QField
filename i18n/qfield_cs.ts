@@ -4301,6 +4301,29 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
+        <translation type="vanished">Neplatná referenční vrstva</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">Nelze zahájit úpravy</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">Nelze smazat prvek</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">Ve vrstvě %1 nelze vrátit zpět změny vrstvy</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">Ve vrstvě %1 nelze provést změny vrstev.</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
         <translation>Neplatná referenční vrstva</translation>
     </message>
     <message>

@@ -4296,11 +4296,34 @@ Cancel to make a minimal device scan instead.</source>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
+        <translation type="vanished">无效的参照图层</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">无法开始编辑</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">无法删除要素</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">无法取消图层 %1 中的图层更改</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">无法在图层 %1 提交图层更改。</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
         <translation>无效的参照图层</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>无法开始编辑</translation>
+        <translation>无法启动编辑</translation>
     </message>
     <message>
         <source>Cannot delete feature</source>

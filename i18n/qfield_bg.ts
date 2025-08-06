@@ -4300,6 +4300,29 @@ Cancel to make a minimal device scan instead.</source>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
+        <translation type="vanished">Невалиден привързан слой</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">Неуспешно започване на редакция</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">Неуспешно изтриване на обект</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">Неуспешна отмяна на промените в слоя %1</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">Неуспешно запазване на промените в слоя %1</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
         <translation>Невалиден привързан слой</translation>
     </message>
     <message>

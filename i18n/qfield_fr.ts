@@ -4295,6 +4295,29 @@ Cancel to make a minimal device scan instead.</source>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
+        <translation type="vanished">Couche de référence non valide</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">Édition impossible</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">Suppression de l&apos;entité impossible</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">Impossible d&apos;annuler les modifications dans la couche %1</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">Impossible d&apos;appliquer les modifications sur la couche %1.</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
         <translation>Couche de référence non valide</translation>
     </message>
     <message>

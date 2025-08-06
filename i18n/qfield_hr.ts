@@ -4296,6 +4296,29 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
+        <translation type="vanished">Nevažeči referentni sloj</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">Nije moguće započeti uređivanje</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">Nije moguće izbrisati element</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">Nije moguće vratiti promjene na sloju %1</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">Nije moguće izvršiti promjene na sloju %1</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
         <translation>Nevažeči referentni sloj</translation>
     </message>
     <message>
