@@ -536,20 +536,33 @@ void Positioning::processGnssPositionInformation()
 
   GnssPositionInformation::AccuracyQuality quality = GnssPositionInformation::AccuracyBad;
   const double hacc = mPositionInformation.hacc();
+  const bool isExcellentThresholdDefined = !std::isnan( excellentAccuracyThreshold() );
+  const bool isBadThresholdDefined = !std::isnan( badAccuracyThreshold() );
 
   if ( !std::isnan( hacc ) )
   {
-    if ( hacc <= excellentAccuracyThreshold() )
+    if ( isExcellentThresholdDefined && hacc <= excellentAccuracyThreshold() )
+    {
       quality = GnssPositionInformation::AccuracyExcellent;
-    else if ( hacc <= badAccuracyThreshold() )
+    }
+    else if ( isBadThresholdDefined && hacc <= badAccuracyThreshold() )
+    {
       quality = GnssPositionInformation::AccuracyOk;
-    else
+    }
+    else if ( isExcellentThresholdDefined || isBadThresholdDefined )
+    {
       quality = GnssPositionInformation::AccuracyBad;
+    }
+    else
+    {
+      quality = GnssPositionInformation::AccuracyOk;
+    }
   }
   else
   {
     quality = GnssPositionInformation::AccuracyBad;
   }
+
   mPositionInformation.setAccuracyQuality( quality );
 
   if ( mPositionInformation.isValid() )
@@ -606,6 +619,7 @@ void Positioning::setBadAccuracyThreshold( double threshold )
 {
   if ( mBadAccuracyThreshold == threshold )
     return;
+
   mBadAccuracyThreshold = threshold;
   emit badAccuracyThresholdChanged();
 }
@@ -614,6 +628,7 @@ void Positioning::setExcellentAccuracyThreshold( double threshold )
 {
   if ( mExcellentAccuracyThreshold == threshold )
     return;
+
   mExcellentAccuracyThreshold = threshold;
   emit excellentAccuracyThresholdChanged();
 }

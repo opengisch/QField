@@ -332,6 +332,8 @@ ApplicationWindow {
     objectName: "positionSource"
 
     deviceId: positioningSettings.positioningDevice
+    badAccuracyThreshold: positioningSettings.accuracyRequirement ? positioningSettings.accuracyBad : NaN
+    excellentAccuracyThreshold: positioningSettings.accuracyRequirement ? positioningSettings.accuracyExcellent : NaN
 
     property bool jumpToPosition: false
     property bool currentness: false

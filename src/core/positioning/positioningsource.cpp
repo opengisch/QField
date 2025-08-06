@@ -347,8 +347,7 @@ void PositioningSource::lastGnssPositionInformationChanged( const GnssPositionIn
 
   if ( mAveragedPosition )
   {
-    if ( positionInformation.accuracyQuality() != GnssPositionInformation::AccuracyBad )
-      mCollectedPositionInformations << positionInformation;
+    mCollectedPositionInformations << positionInformation;
     mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations );
   }
   else

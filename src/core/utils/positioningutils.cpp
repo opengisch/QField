@@ -58,8 +58,6 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
   if ( positionsInformation.isEmpty() )
     return GnssPositionInformation();
 
-  const int positionsInformationCount = positionsInformation.size();
-
   double latitude = std::numeric_limits<double>::quiet_NaN();
   double longitude = std::numeric_limits<double>::quiet_NaN();
   double elevation = std::numeric_limits<double>::quiet_NaN();
@@ -86,10 +84,14 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
   int quality = positionsInformation.at( 0 ).quality();
   QString sourceName = QStringLiteral( "%1 (%2)" ).arg( positionsInformation.at( 0 ).sourceName(), QObject::tr( "averaged" ) );
 
+  int validPositionsCount = 0;
+
   for ( const GnssPositionInformation &pi : positionsInformation )
   {
     if ( pi.accuracyQuality() == GnssPositionInformation::AccuracyBad )
       continue;
+
+    ++validPositionsCount;
 
     if ( !std::isnan( pi.latitude() ) )
       latitude = !std::isnan( latitude ) ? latitude + pi.latitude() : pi.latitude();
@@ -116,12 +118,15 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
       magneticVariation = !std::isnan( magneticVariation ) ? magneticVariation + pi.magneticVariation() : pi.magneticVariation();
   }
 
-  return GnssPositionInformation( latitude / positionsInformationCount, longitude / positionsInformationCount, elevation / positionsInformationCount,
-                                  speed / positionsInformationCount, direction / positionsInformationCount, satellitesInView,
-                                  pdop / positionsInformationCount, hdop / positionsInformationCount, vdop / positionsInformationCount,
-                                  hacc / positionsInformationCount, vacc / positionsInformationCount, utcDateTime,
+  if ( validPositionsCount == 0 )
+    return GnssPositionInformation(); // No valid data to average
+
+  return GnssPositionInformation( latitude / validPositionsCount, longitude / validPositionsCount, elevation / validPositionsCount,
+                                  speed / validPositionsCount, direction / validPositionsCount, satellitesInView,
+                                  pdop / validPositionsCount, hdop / validPositionsCount, vdop / validPositionsCount,
+                                  hacc / validPositionsCount, vacc / validPositionsCount, utcDateTime,
                                   fixMode, fixType, quality, satellitesUsed, status, satPrn, satInfoComplete,
-                                  verticalSpeed / positionsInformationCount, magneticVariation / positionsInformationCount, positionsInformationCount, sourceName );
+                                  verticalSpeed / validPositionsCount, magneticVariation / validPositionsCount, validPositionsCount, sourceName );
 }
 
 double PositioningUtils::bearingTrueNorth( const QgsPoint &position, const QgsCoordinateReferenceSystem &crs )
