@@ -37,7 +37,6 @@ FeatureHistory::FeatureHistory( const QgsProject *project, TrackingModel *tracki
   }
 }
 
-
 void FeatureHistory::onHomePathChanged()
 {
   if ( mProject->homePath().isNull() )
@@ -160,8 +159,9 @@ void FeatureHistory::onCommittedFeaturesAdded( const QString &localLayerId, cons
 
   FeatureModifications modifications = mTempHistoryStep.take( vl->id() );
 
-  for ( const QgsFeature &f : addedFeatures )
+  for ( QgsFeature f : addedFeatures )
   {
+    QgsVectorLayerUtils::matchAttributesToFields( f, vl->fields() );
     modifications.createdFeatures.append( OldNewFeaturePair( QgsFeature(), f ) );
   }
 
