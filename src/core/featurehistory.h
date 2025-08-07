@@ -56,7 +56,7 @@ class FeatureHistory : public QObject
      * @param project the current project instance
      * @param trackingModel the tracking model
      */
-    explicit FeatureHistory( const QgsProject *project, TrackingModel *trackingModel );
+    explicit FeatureHistory( const QgsProject *project, TrackingModel *trackingModel = nullptr );
 
     //! Perform undo of the most recent modification step
     Q_INVOKABLE bool undo();
