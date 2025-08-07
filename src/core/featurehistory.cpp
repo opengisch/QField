@@ -31,7 +31,10 @@ FeatureHistory::FeatureHistory( const QgsProject *project, TrackingModel *tracki
   connect( mProject, &QgsProject::layersAdded, this, &FeatureHistory::onLayersAdded );
   connect( &mTimer, &QTimer::timeout, this, &FeatureHistory::onTimerTimeout );
 
-  connect( mTrackingModel, &TrackingModel::layerInTrackingChanged, this, &FeatureHistory::onLayerInTrackingChanged );
+  if ( mTrackingModel )
+  {
+    connect( mTrackingModel, &TrackingModel::layerInTrackingChanged, this, &FeatureHistory::onLayerInTrackingChanged );
+  }
 }
 
 
