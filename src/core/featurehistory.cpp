@@ -1,10 +1,27 @@
+/***************************************************************************
+                        featurehistory.cpp
+                        ------------------
+  begin                : Dec 2023
+  copyright            : (C) 2023 by Ivan Ivanov
+  email                : ivan@opengis.ch
+***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
 #include "featurehistory.h"
+#include "trackingmodel.h"
 
 #include <qgsmessagelog.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayereditbuffer.h>
-
-#include <tracker.h>
+#include <qgsvectorlayerutils.h>
 
 FeatureHistory::FeatureHistory( const QgsProject *project, TrackingModel *trackingModel )
   : mProject( project )
@@ -105,7 +122,15 @@ void FeatureHistory::onBeforeCommitChanges()
   QgsFeature f;
 
   while ( featuresIt.nextFeature( f ) )
+  {
+    if ( deletedFids.contains( f.id() ) )
+    {
+      // Insure that join-provided fields are added to avoid error restoring deleted feature
+      // on vector layers containing joins
+      QgsVectorLayerUtils::matchAttributesToFields( f, vl->fields() );
+    }
     modifiedFeatures.insert( f.id(), f );
+  }
 
   qInfo() << "FeatureHistory::onBeforeCommitChanges: vl->id()=" << vl->id() << "changedFids=" << changedFids;
 
