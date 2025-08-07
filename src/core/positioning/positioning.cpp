@@ -558,7 +558,7 @@ void Positioning::processGnssPositionInformation()
     {
       quality = GnssPositionInformation::AccuracyExcellent;
     }
-    else if ( isBadThresholdDefined && hacc <= badAccuracyThreshold() )
+    else if ( isBadThresholdDefined && hacc >= badAccuracyThreshold() )
     {
       quality = GnssPositionInformation::AccuracyOk;
     }
