@@ -4302,6 +4302,29 @@ Cancel to make a minimal device scan instead.</source>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
+        <translation type="vanished">Недійсний шар посилання</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">Не вдалось розпочати редагування</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">Неможливо видалити об&apos;єкт</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">Неможливо відмінити зміни шару в шарі %1</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">Неможливо зафіксувати зміни шару в шарі %1.</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
         <translation>Недійсний шар посилання</translation>
     </message>
     <message>
@@ -4314,7 +4337,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Неможливо відмінити зміни шару в шарі %1</translation>
+        <translation>Неможливо відкати зміни шару в шарі %1</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>

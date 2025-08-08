@@ -4298,6 +4298,29 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
+        <translation type="vanished">Ongeldige referentielaag</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">Kan niet beginnen met bewerken</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">Kan object niet verwijderen</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">Kan geen laagwijzigingen vastleggen in laag %1.</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
         <translation>Ongeldige referentielaag</translation>
     </message>
     <message>
