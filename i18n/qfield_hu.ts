@@ -4294,6 +4294,29 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
+        <translation type="vanished">Hibás hivatkozó réteg</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">Szerkesztés elindítása nem sikerült</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">Nem tudom az elemet törölni</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">Nem tudom visszavonni a %1 rétegen végrehajtott módosításokat</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">Nem tudom tárolni %1 réteg végrehajtott módosításokat.</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
         <translation>Hibás hivatkozó réteg</translation>
     </message>
     <message>

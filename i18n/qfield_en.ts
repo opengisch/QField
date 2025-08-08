@@ -4369,23 +4369,46 @@ Cancel to make a minimal device scan instead.</translation>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
-        <translation>Invalid referencing layer</translation>
+        <translation type="vanished">Invalid referencing layer</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Cannot start editing</translation>
+        <translation type="vanished">Cannot start editing</translation>
     </message>
     <message>
         <source>Cannot delete feature</source>
-        <translation>Cannot delete feature</translation>
+        <translation type="vanished">Cannot delete feature</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Cannot rollback layer changes in layer %1</translation>
+        <translation type="vanished">Cannot rollback layer changes in layer %1</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Cannot commit layer changes in layer %1.</translation>
+        <translation type="vanished">Cannot commit layer changes in layer %1.</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
+        <translation type="unfinished">Invalid referencing layer</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="unfinished">Cannot start editing</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="unfinished">Cannot delete feature</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="unfinished">Cannot rollback layer changes in layer %1</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="unfinished">Cannot commit layer changes in layer %1.</translation>
     </message>
 </context>
 <context>
