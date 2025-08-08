@@ -59,6 +59,7 @@ ApplicationWindow {
     if (positioningSettings.positioningActivated) {
       positionSource.active = true;
     }
+    refreshSceneMargins.triggered();
   }
 
   Connections {
