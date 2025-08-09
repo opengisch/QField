@@ -32,6 +32,7 @@ set(QFIELD_CORE_SRCS
     positioning/internalgnssreceiver.cpp
     positioning/nmeagnssreceiver.cpp
     positioning/egenioussreceiver.cpp
+    positioning/filereceiver.cpp
     positioning/tcpreceiver.cpp
     positioning/udpreceiver.cpp
     positioning/positioning.cpp
@@ -164,6 +165,7 @@ set(QFIELD_CORE_HDRS
     positioning/internalgnssreceiver.h
     positioning/nmeagnssreceiver.h
     positioning/egenioussreceiver.h
+    positioning/filereceiver.h
     positioning/tcpreceiver.h
     positioning/udpreceiver.h
     positioning/geofencer.h

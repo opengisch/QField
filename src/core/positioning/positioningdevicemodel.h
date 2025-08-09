@@ -34,6 +34,7 @@ class PositioningDeviceModel : public QAbstractListModel
       UdpDevice,
       EgenioussDevice,
       SerialPortDevice,
+      FileDevice,
     };
     Q_ENUM( Type )
 
