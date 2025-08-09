@@ -144,6 +144,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "iOS")
   message(STATUS "QT_HOST_PATH: ${QT_HOST_PATH}")
 endif()
 
+set (TEST_DATA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test/testdata")
 set(ENABLE_TESTS CACHE BOOL "Build unit tests")
 
 if(MSVC)
