@@ -17,6 +17,7 @@
 
 #include "clipboardmanager.h"
 #include "featureutils.h"
+#include "qgsvectorlayerutils.h"
 
 #include <QApplication>
 #include <QDomDocument>
@@ -49,6 +50,8 @@ void ClipboardManager::dataChanged()
   mHasNativeFeature = false;
   mNativeFeature = QgsFeature();
   mHtmlFeature.clear();
+  mIsCutOperation = false;
+  mSourceLayer = nullptr;
 
   bool holdsFeature = false;
 
@@ -74,12 +77,14 @@ void ClipboardManager::dataChanged()
   }
 }
 
-void ClipboardManager::copyFeatureToClipboard( QgsVectorLayer *layer, QgsFeatureId fid, bool includeGeometry )
+void ClipboardManager::copyFeatureToClipboard( QgsVectorLayer *layer, QgsFeatureId fid, bool includeGeometry, bool isCutOperation )
 {
   if ( layer )
   {
     const QgsFeature feature = layer->getFeature( fid );
     copyFeatureToClipboard( feature, includeGeometry );
+    mSourceLayer = layer;
+    mIsCutOperation = isCutOperation;
   }
 }
 
@@ -179,4 +184,83 @@ QgsFeature ClipboardManager::pasteFeatureFromClipboard()
   }
 
   return feature;
+}
+
+bool ClipboardManager::pasteFeatureFromClipboardIntoLayer( QgsVectorLayer *layer )
+{
+  if ( !layer )
+  {
+    qInfo() << tr( "Paste failed: no destination layer provided" );
+    return false;
+  }
+
+  if ( mIsCutOperation && mSourceLayer == layer )
+  {
+    qInfo() << tr( "Cut operation: source and destination layers are the same, skipping paste." );
+    return true;
+  }
+
+  QgsFeature feature = pasteFeatureFromClipboard();
+  if ( !feature.isValid() )
+  {
+    qInfo() << tr( "Paste failed: clipboard feature is invalid" );
+    return false;
+  }
+
+  const QgsFeatureList compatible = QgsVectorLayerUtils::makeFeaturesCompatible( { feature }, layer );
+  if ( compatible.isEmpty() )
+  {
+    qInfo() << tr( "Paste failed: no compatible features could be created" );
+    return false;
+  }
+
+  if ( !layer->isEditable() )
+  {
+    if ( !layer->startEditing() )
+    {
+      qInfo() << tr( "Paste failed: could not start editing on layer %1" ).arg( layer->name() );
+      return false;
+    }
+  }
+
+  for ( const QgsFeature &f : compatible )
+  {
+    QgsFeature copyFeature = QgsVectorLayerUtils::createFeature( layer, compatible.at( 0 ).geometry(), compatible.at( 0 ).attributes().toMap() );
+    if ( !layer->addFeature( copyFeature ) )
+    {
+      qInfo() << tr( "Paste failed: could not add feature to layer %1" ).arg( layer->name() );
+      layer->rollBack();
+      return false;
+    }
+  }
+
+  if ( !layer->commitChanges( true ) )
+  {
+    qInfo() << tr( "Paste failed: commitChanges failed on layer %1" ).arg( layer->name() );
+    layer->rollBack();
+    return false;
+  }
+
+  if ( mIsCutOperation && mSourceLayer && mSourceLayer != layer )
+  {
+    if ( !mSourceLayer->isEditable() )
+    {
+      mSourceLayer->startEditing();
+    }
+
+    if ( !mSourceLayer->deleteFeature( mNativeFeature.id() ) )
+    {
+      qInfo() << tr( "Cut failed: could not delete original feature from source layer %1" ).arg( mSourceLayer->name() );
+      mSourceLayer->rollBack();
+    }
+    else
+    {
+      mSourceLayer->commitChanges();
+    }
+  }
+
+  mIsCutOperation = false;
+  mSourceLayer = nullptr;
+
+  return true;
 }
