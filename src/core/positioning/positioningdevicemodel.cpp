@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "egenioussreceiver.h"
+#include "filereceiver.h"
 #include "positioningdevicemodel.h"
 #include "tcpreceiver.h"
 #include "udpreceiver.h"
@@ -174,6 +175,9 @@ const QString PositioningDeviceModel::deviceId( const Device &device ) const
 
     case UdpDevice:
       return QStringLiteral( "%1:%2:%3" ).arg( UdpReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
+
+    case FileDevice:
+      return QStringLiteral( "%1:%2:%3" ).arg( FileReceiver::identifier, device.settings.value( QStringLiteral( "filePath" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "interval" ) ).toInt() ) );
 
 #ifdef WITH_SERIALPORT
     case SerialPortDevice:

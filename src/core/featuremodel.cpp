@@ -242,6 +242,20 @@ void FeatureModel::setAppExpressionContextScopesGenerator( AppExpressionContextS
   emit appExpressionContextScopesGeneratorChanged();
 }
 
+Geometry *FeatureModel::geometry()
+{
+  return mGeometry;
+}
+
+void FeatureModel::setGeometry( Geometry *geometry )
+{
+  if ( mGeometry == geometry )
+    return;
+
+  mGeometry = geometry;
+  emit geometryChanged();
+}
+
 VertexModel *FeatureModel::vertexModel()
 {
   return mVertexModel;
