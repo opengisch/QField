@@ -17,6 +17,7 @@
         <file>ElevationProfile.qml</file>
         <file>FeatureForm.qml</file>
         <file>FeatureListForm.qml</file>
+        <file>FileDeviceChooser.qml</file>
         <file>GridRenderer.qml</file>
         <file>LinePolygon.qml</file>
         <file>LocationMarker.qml</file>

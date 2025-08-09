@@ -896,6 +896,8 @@ Page {
                       switch (DeviceType) {
                       case PositioningDeviceModel.InternalDevice:
                         return Theme.getThemeVectorIcon('ic_internal_receiver_black_24dp');
+                      case PositioningDeviceModel.FileDevice:
+                        return Theme.getThemeVectorIcon("ic_file_black_24dp");
                       case PositioningDeviceModel.BluetoothDevice:
                         return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
                       case PositioningDeviceModel.TcpDevice:
@@ -924,6 +926,8 @@ Page {
                       switch (positioningDeviceComboBox.currentValue) {
                       case PositioningDeviceModel.InternalDevice:
                         return Theme.getThemeVectorIcon('ic_internal_receiver_black_24dp');
+                      case PositioningDeviceModel.FileDevice:
+                        return Theme.getThemeVectorIcon("ic_file_black_24dp");
                       case PositioningDeviceModel.BluetoothDevice:
                         return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
                       case PositioningDeviceModel.TcpDevice:
