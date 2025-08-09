@@ -173,7 +173,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     void insertVertices( int index, int count );
 
     //! Remove \a count vertices starting at \a index
-    void removeVertices( int index, int count );
+    void removeVertices( int index, int count, bool keepLast = true );
 
     //! Returns the current vertex point transformed to the given \a crs
     QgsPoint currentPoint( const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem(), Qgis::WkbType wkbType = Qgis::WkbType::PointZ ) const;
