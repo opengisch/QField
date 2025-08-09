@@ -140,9 +140,9 @@ void RubberbandModel::insertVertices( int index, int count )
   emit vertexCountChanged();
 }
 
-void RubberbandModel::removeVertices( int index, int count )
+void RubberbandModel::removeVertices( int index, int count, bool keepLast )
 {
-  if ( mPointList.size() <= 1 )
+  if ( mPointList.size() <= ( keepLast ? 1 : 0 ) )
     return;
 
   mPointList.remove( index, count );
@@ -239,10 +239,10 @@ QgsPoint RubberbandModel::penultimateCoordinate() const
 
 void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
 {
-  // play safe, but try to find out
-  // Q_ASSERT( mPointList.count() != 0 );
   if ( mPointList.count() == 0 )
-    return;
+  {
+    mPointList << QgsPoint();
+  }
 
   if ( mPointList.at( mCurrentCoordinateIndex ) == currentCoordinate )
     return;
@@ -333,7 +333,7 @@ void RubberbandModel::removeVertex()
 
 void RubberbandModel::reset( bool keepLast )
 {
-  removeVertices( 0, mPointList.size() - ( keepLast ? 1 : 0 ) );
+  removeVertices( 0, mPointList.size() - ( keepLast ? 1 : 0 ), keepLast );
 
   mFrozen = false;
   emit frozenChanged();
