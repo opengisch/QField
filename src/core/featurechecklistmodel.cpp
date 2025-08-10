@@ -465,12 +465,23 @@ void FeatureCheckListModel::setSortCheckedFirst( bool enabled )
 
 bool FeatureCheckListModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
 {
-  if ( mSearchTerm.isEmpty() )
+  const QStringList searchFragments = mSearchTerm.trimmed().toLower().split( " ", Qt::SkipEmptyParts );
+  if ( searchFragments.isEmpty() )
+  {
     return true;
+  }
 
   const QModelIndex index = sourceModel()->index( sourceRow, 0, sourceParent );
-  const QVariant data = sourceModel()->data( index, Qt::DisplayRole );
-  return data.toString().contains( mSearchTerm, Qt::CaseInsensitive );
+  const QString displayText = sourceModel()->data( index, Qt::DisplayRole ).toString().toLower();
+  for ( const QString &searchFragment : searchFragments )
+  {
+    if ( !displayText.contains( searchFragment ) )
+    {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 bool FeatureCheckListModel::lessThan( const QModelIndex &left, const QModelIndex &right ) const
@@ -506,6 +517,7 @@ bool FeatureCheckListModel::lessThan( const QModelIndex &left, const QModelIndex
     {
       return true;
     }
+
     const double leftFuzzyScore = calcFuzzyScore( leftDisplay, mSearchTerm.toLower() );
     const double rightFuzzyScore = calcFuzzyScore( rightDisplay, mSearchTerm.toLower() );
 
