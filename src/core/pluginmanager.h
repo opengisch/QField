@@ -25,8 +25,29 @@
 /**
  * \ingroup core
  */
-struct PluginInformation
+class PluginInformation
 {
+    Q_GADGET
+
+    Q_PROPERTY( QString uuid MEMBER uuid )
+    Q_PROPERTY( QString name MEMBER name )
+    Q_PROPERTY( QString description MEMBER description )
+    Q_PROPERTY( QString author MEMBER author )
+    Q_PROPERTY( QString homepage MEMBER homepage )
+    Q_PROPERTY( QString icon MEMBER icon )
+    Q_PROPERTY( QString version MEMBER version )
+
+  public:
+    PluginInformation( const QString &uuid = QString(), const QString &name = QString(), const QString &description = QString(), const QString &author = QString(), const QString &homepage = QString(), const QString &icon = QString() )
+      : uuid( uuid )
+      , name( name )
+      , description( description )
+      , author( author )
+      , homepage( homepage )
+      , icon( icon )
+    {}
+    ~PluginInformation() = default;
+
     QString uuid;
     QString name;
     QString description;
@@ -46,16 +67,6 @@ struct PluginInformation
     bool trusted = false;
     bool enabled = false;
     bool configurable = false;
-
-    PluginInformation( const QString &uuid = QString(), const QString &name = QString(), const QString &description = QString(), const QString &author = QString(), const QString &homepage = QString(), const QString &icon = QString() )
-      : uuid( uuid )
-      , name( name )
-      , description( description )
-      , author( author )
-      , homepage( homepage )
-      , icon( icon )
-    {}
-    ~PluginInformation() = default;
 };
 
 Q_DECLARE_METATYPE( PluginInformation )
@@ -68,12 +79,18 @@ class PluginManager : public QObject
     Q_OBJECT
 
     Q_PROPERTY( PluginModel *pluginModel READ pluginModel NOTIFY pluginModelChanged )
+    Q_PROPERTY( QList<PluginInformation> availableAppPlugins READ availableAppPlugins NOTIFY availableAppPluginsChanged )
 
   public:
     /**
      * Constructs a PluginManager with the given \a engine.
      */
     explicit PluginManager( QQmlEngine *engine );
+
+    /**
+     * Returns the list of available app plugins installed locally.
+     */
+    QList<PluginInformation> availableAppPlugins() const;
 
     /**
      * Loads a plugin from \a pluginPath and registers it under \a pluginName.
@@ -175,7 +192,7 @@ class PluginManager : public QObject
     void installProgress( double progress );
     void installEnded( const QString &uuid = QString(), const QString &error = QString() );
 
-
+    void availableAppPluginsChanged();
     void pluginModelChanged();
 
   private slots:

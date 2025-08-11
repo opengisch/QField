@@ -31,10 +31,20 @@
 PluginManager::PluginManager( QQmlEngine *engine )
   : QObject( engine )
   , mEngine( engine )
+  , mPluginModel( new PluginModel( this ) )
 {
   connect( mEngine, &QQmlEngine::warnings, this, &PluginManager::handleWarnings );
-  mPluginModel = new PluginModel( this );
+
   mPluginModel->refresh( false );
+
+  connect( mPluginModel, &QAbstractItemModel::dataChanged, this, &PluginManager::availableAppPluginsChanged );
+  connect( mPluginModel, &QAbstractItemModel::rowsInserted, this, &PluginManager::availableAppPluginsChanged );
+  connect( mPluginModel, &QAbstractItemModel::rowsRemoved, this, &PluginManager::availableAppPluginsChanged );
+}
+
+QList<PluginInformation> PluginManager::availableAppPlugins() const
+{
+  return mPluginModel->availableAppPlugins();
 }
 
 void PluginManager::loadPlugin( const QString &pluginPath, const QString &pluginName, bool skipPermissionCheck, bool isProjectPlugin )
