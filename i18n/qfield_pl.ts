@@ -1098,11 +1098,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <name>FileDeviceChooser</name>
     <message>
         <source>File path</source>
-        <translation type="unfinished"/>
+        <translation>Ścieżka pliku</translation>
     </message>
     <message>
         <source>Interval (in milliseconds)</source>
-        <translation type="unfinished"/>
+        <translation>Interwał (w milisekundach)</translation>
     </message>
 </context>
 <context>
@@ -2159,7 +2159,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Logs file (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Plik dziennika (NMEA)</translation>
     </message>
 </context>
 <context>

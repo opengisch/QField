@@ -1092,11 +1092,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>FileDeviceChooser</name>
     <message>
         <source>File path</source>
-        <translation type="unfinished"/>
+        <translation>文件路径</translation>
     </message>
     <message>
         <source>Interval (in milliseconds)</source>
-        <translation type="unfinished"/>
+        <translation>间隔 (毫秒)</translation>
     </message>
 </context>
 <context>
@@ -2153,7 +2153,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Logs file (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>日志文件 (NMEA)</translation>
     </message>
 </context>
 <context>
