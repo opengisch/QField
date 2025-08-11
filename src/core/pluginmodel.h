@@ -75,6 +75,11 @@ class PluginModel : public QAbstractListModel
     bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 
     /**
+     * Returns the list of available app plugins installed locally.
+     */
+    QList<PluginInformation> availableAppPlugins() const;
+
+    /**
      * Returns true if the model contains a plugin with the given \a uuid.
      */
     bool hasPluginInformation( const QString &uuid ) const;

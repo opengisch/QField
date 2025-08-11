@@ -127,6 +127,19 @@ bool PluginModel::setData( const QModelIndex &index, const QVariant &value, int 
   }
 }
 
+QList<PluginInformation> PluginModel::availableAppPlugins() const
+{
+  QList<PluginInformation> availableAppPlugins;
+  for ( const PluginInformation &pluginInformation : mPlugins )
+  {
+    if ( pluginInformation.locallyAvailable )
+    {
+      availableAppPlugins << pluginInformation;
+    }
+  }
+  return availableAppPlugins;
+}
+
 void PluginModel::updatePluginEnabledStateByUuid( const QString &uuid, bool enabled, bool configurable )
 {
   for ( int i = 0; i < mPlugins.size(); ++i )
