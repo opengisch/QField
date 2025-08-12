@@ -26,9 +26,17 @@ FeatureCheckListModelBase::FeatureCheckListModelBase( QObject *parent )
 QVariant FeatureCheckListModelBase::data( const QModelIndex &index, int role ) const
 {
   if ( role == CheckedRole )
+  {
+    if ( addNull() && index.row() == 0 )
+    {
+      return mCheckedEntries.isEmpty();
+    }
     return mCheckedEntries.contains( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() );
+  }
   else
+  {
     return FeatureListModel::data( index, role );
+  }
 }
 
 bool FeatureCheckListModelBase::setData( const QModelIndex &index, const QVariant &value, int role )
@@ -101,6 +109,7 @@ QVariant FeatureCheckListModelBase::attributeValue() const
       value = vl.first();
     }
   }
+
   return value;
 }
 
@@ -209,6 +218,7 @@ void FeatureCheckListModelBase::toggleCheckAll( const bool toggleChecked )
 
 void FeatureCheckListModelBase::setChecked( const QModelIndex &idx )
 {
+  const bool wasEmpty = mCheckedEntries.isEmpty();
   if ( !mAllowMulti )
   {
     mCheckedEntries.clear();
@@ -217,13 +227,24 @@ void FeatureCheckListModelBase::setChecked( const QModelIndex &idx )
 
   mCheckedEntries.append( FeatureListModel::data( idx, FeatureListModel::KeyFieldRole ).toString() );
   emit dataChanged( idx, idx, QList<int>() << CheckedRole );
+  if ( addNull() && wasEmpty )
+  {
+    QModelIndex nullIdx = index( 0, 0, QModelIndex() );
+    emit dataChanged( nullIdx, nullIdx, QList<int>() << CheckedRole );
+  }
   emit listUpdated();
 }
 
 void FeatureCheckListModelBase::setUnchecked( const QModelIndex &idx )
 {
+  const bool wasEmpty = mCheckedEntries.isEmpty();
   mCheckedEntries.removeAll( FeatureListModel::data( idx, FeatureListModel::KeyFieldRole ).toString() );
   emit dataChanged( idx, idx, QList<int>() << CheckedRole );
+  if ( addNull() && !wasEmpty && mCheckedEntries.isEmpty() )
+  {
+    QModelIndex nullIdx = index( 0, 0, QModelIndex() );
+    emit dataChanged( nullIdx, nullIdx, QList<int>() << CheckedRole );
+  }
   emit listUpdated();
 }
 
@@ -486,6 +507,11 @@ bool FeatureCheckListModel::filterAcceptsRow( int sourceRow, const QModelIndex &
 
 bool FeatureCheckListModel::lessThan( const QModelIndex &left, const QModelIndex &right ) const
 {
+  if ( addNull() && ( left.row() == 0 || right.row() == 0 ) )
+  {
+    return left.row() < right.row();
+  }
+
   if ( ( mSearchTerm.isEmpty() && mSortCheckedFirst ) )
   {
     const bool leftItemSelected = sourceModel()->data( left, FeatureCheckListModelBase::CheckedRole ).toBool();
