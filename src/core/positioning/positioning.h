@@ -67,6 +67,7 @@ class Positioning : public QObject
 
     Q_PROPERTY( bool backgroundMode READ backgroundMode WRITE setBackgroundMode NOTIFY backgroundModeChanged )
 
+    Q_PROPERTY( bool averagePositionFilterAccuracy READ averagePositionFilterAccuracy WRITE setAveragePositionFilterAccuracy NOTIFY averagePositionFilterAccuracyChanged )
     Q_PROPERTY( double badAccuracyThreshold READ badAccuracyThreshold WRITE setBadAccuracyThreshold NOTIFY badAccuracyThresholdChanged )
     Q_PROPERTY( double excellentAccuracyThreshold READ excellentAccuracyThreshold WRITE setExcellentAccuracyThreshold NOTIFY excellentAccuracyThresholdChanged )
 
@@ -274,6 +275,16 @@ class Positioning : public QObject
      */
     void setExcellentAccuracyThreshold( double threshold );
 
+    /**
+     * Returns whether the average position filter accuracy is enabled.
+     */
+    bool averagePositionFilterAccuracy() const;
+
+    /**
+     * Enables or disables the average position filter accuracy.
+     */
+    void setAveragePositionFilterAccuracy( bool enabled );
+
   signals:
     void activeChanged();
     void validChanged();
@@ -296,6 +307,7 @@ class Positioning : public QObject
     void triggerConnectDevice();
     void triggerDisconnectDevice();
 
+    void averagePositionFilterAccuracyChanged();
     void badAccuracyThresholdChanged();
     void excellentAccuracyThresholdChanged();
 
@@ -335,6 +347,7 @@ class Positioning : public QObject
     bool mAveragedPosition = false;
     QList<GnssPositionInformation> mCollectedPositionInformations;
 
+    bool mAveragePositionFilterAccuracy;
     double mBadAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
     double mExcellentAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
 };

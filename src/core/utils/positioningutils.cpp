@@ -53,7 +53,7 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
   return averagedPositionInformation( convertedList );
 }
 
-GnssPositionInformation PositioningUtils::averagedPositionInformation( const QList<GnssPositionInformation> &positionsInformation )
+GnssPositionInformation PositioningUtils::averagedPositionInformation( const QList<GnssPositionInformation> &positionsInformation, bool filterAccuracy )
 {
   if ( positionsInformation.isEmpty() )
     return GnssPositionInformation();
@@ -88,7 +88,7 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
 
   for ( const GnssPositionInformation &pi : positionsInformation )
   {
-    if ( pi.accuracyQuality() == GnssPositionInformation::AccuracyBad )
+    if ( filterAccuracy && pi.accuracyQuality() == GnssPositionInformation::AccuracyBad )
       continue;
 
     ++validPositionsCount;

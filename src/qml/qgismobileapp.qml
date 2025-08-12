@@ -332,8 +332,9 @@ ApplicationWindow {
     objectName: "positionSource"
 
     deviceId: positioningSettings.positioningDevice
-    badAccuracyThreshold: positioningSettings.accuracyRequirement ? positioningSettings.accuracyBad : NaN
-    excellentAccuracyThreshold: positioningSettings.accuracyRequirement ? positioningSettings.accuracyExcellent : NaN
+    badAccuracyThreshold: positioningSettings.accuracyBad
+    excellentAccuracyThreshold: positioningSettings.accuracyExcellent
+    averagePositionFilterAccuracy: positioningSettings.accuracyRequirement
 
     property bool jumpToPosition: false
     property bool currentness: false
@@ -2277,8 +2278,21 @@ ApplicationWindow {
 
         QfBadge {
           alignment: QfBadge.Alignment.TopRight
-          visible: positioningSettings.accuracyIndicator && gnssButton.state === "On"
-          color: !positionSource.positionInformation || !positionSource.positionInformation.haccValid || positionSource.positionInformation.hacc > positioningSettings.accuracyBad ? Theme.accuracyBad : positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent ? Theme.accuracyTolerated : Theme.accuracyExcellent
+          visible: positioningSettings.accuracyIndicator && gnssButton.state === "On" && positionSource.positionInformation.accuracyQuality != GnssPositionInformation.AccuracyUndetermined
+          color: {
+            if (!positionSource.positionInformation || !positionSource.positionInformation.haccValid)
+              return Theme.accuracyBad;
+            switch (positionSource.positionInformation.accuracyQuality) {
+            case GnssPositionInformation.AccuracyExcellent:
+              return Theme.accuracyExcellent;
+            case GnssPositionInformation.AccuracyOk:
+              return Theme.accuracyTolerated;
+            case GnssPositionInformation.AccuracyBad:
+            case GnssPositionInformation.AccuracyUndetermined:
+            default:
+              return Theme.accuracyBad;
+            }
+          }
         }
       }
 
