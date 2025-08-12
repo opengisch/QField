@@ -19,8 +19,17 @@ Item {
   property var relation: undefined
 
   Component.onCompleted: {
-    comboBox.currentIndex = featureListModel.findKey(value);
-    invalidWarning.visible = relation !== undefined ? !(relation.isValid) : false;
+    if (!featureListModel.addNull) {
+      comboBox.currentIndex = featureListModel.findKey(value);
+      invalidWarning.visible = relation !== undefined ? !(relation.isValid) : false;
+    }
+  }
+
+  onCurrentKeyValueChanged: {
+    if (!featureListModel.addNull) {
+      comboBox._cachedCurrentValue = currentKeyValue;
+      comboBox.currentIndex = featureListModel.findKey(currentKeyValue);
+    }
   }
 
   anchors {
@@ -31,11 +40,6 @@ Item {
 
   property var currentKeyValue: value
   property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopup
-
-  onCurrentKeyValueChanged: {
-    comboBox._cachedCurrentValue = currentKeyValue;
-    comboBox.currentIndex = featureListModel.findKey(currentKeyValue);
-  }
 
   EmbeddedFeatureForm {
     id: addFeaturePopup
@@ -267,6 +271,7 @@ Item {
 
       Connections {
         target: featureListModel
+        enabled: !featureListModel.addNull
 
         function onModelReset() {
           comboBox.currentIndex = featureListModel.findKey(comboBox._cachedCurrentValue);
@@ -474,7 +479,7 @@ Item {
           searchableLabel.useCompleter = activeFocus;
           if (activeFocus) {
             if (text === '') {
-              if (!featureListModel.addNull || comboBox.currentIndex != 0) {
+              if (!featureListModel.addNull || comboBox.currentIndex !== 0) {
                 text = comboBox.displayText;
                 color = Theme.mainTextColor;
               }
@@ -634,7 +639,7 @@ Item {
     onFeatureSaved: {
       var referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
       var index = featureListModel.findKey(referencedValue);
-      if ((featureListModel.addNull == true && index < 1) || index < 0) {
+      if ((featureListModel.addNull && index < 1) || index < 0) {
         // model not yet reloaded - keep the value and set it onModelReset
         comboBox._cachedCurrentValue = referencedValue;
       } else {
