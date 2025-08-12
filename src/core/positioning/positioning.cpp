@@ -540,43 +540,51 @@ void Positioning::processGnssPositionInformation()
 {
   mPositionInformation = mPositioningSourceReplica->property( "positionInformation" ).value<GnssPositionInformation>();
 
-  if ( mAveragedPosition )
-  {
-    mCollectedPositionInformations << mPositionInformation;
-    mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations );
-    emit averagedPositionCountChanged();
-  }
-
-  GnssPositionInformation::AccuracyQuality quality = GnssPositionInformation::AccuracyBad;
+  GnssPositionInformation::AccuracyQuality quality = GnssPositionInformation::AccuracyQuality::AccuracyBad;
   const double hacc = mPositionInformation.hacc();
   const bool isExcellentThresholdDefined = !std::isnan( excellentAccuracyThreshold() );
   const bool isBadThresholdDefined = !std::isnan( badAccuracyThreshold() );
 
-  if ( !std::isnan( hacc ) )
+  if ( isExcellentThresholdDefined && isBadThresholdDefined )
   {
-    if ( isExcellentThresholdDefined && hacc <= excellentAccuracyThreshold() )
+    if ( !std::isnan( hacc ) )
     {
-      quality = GnssPositionInformation::AccuracyExcellent;
-    }
-    else if ( isBadThresholdDefined && hacc >= badAccuracyThreshold() )
-    {
-      quality = GnssPositionInformation::AccuracyOk;
-    }
-    else if ( isExcellentThresholdDefined || isBadThresholdDefined )
-    {
-      quality = GnssPositionInformation::AccuracyBad;
+      if ( hacc <= excellentAccuracyThreshold() )
+      {
+        quality = GnssPositionInformation::AccuracyExcellent;
+      }
+      else if ( hacc <= badAccuracyThreshold() )
+      {
+        quality = GnssPositionInformation::AccuracyOk;
+      }
+      else if ( isExcellentThresholdDefined || isBadThresholdDefined )
+      {
+        quality = GnssPositionInformation::AccuracyBad;
+      }
+      else
+      {
+        quality = GnssPositionInformation::AccuracyOk;
+      }
     }
     else
     {
-      quality = GnssPositionInformation::AccuracyOk;
+      quality = GnssPositionInformation::AccuracyBad;
     }
   }
   else
   {
-    quality = GnssPositionInformation::AccuracyBad;
+    quality = GnssPositionInformation::AccuracyUndetermined;
   }
 
   mPositionInformation.setAccuracyQuality( quality );
+
+
+  if ( mAveragedPosition )
+  {
+    mCollectedPositionInformations << mPositionInformation;
+    mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations, mAveragePositionFilterAccuracy );
+    emit averagedPositionCountChanged();
+  }
 
   if ( mPositionInformation.isValid() )
   {
@@ -644,4 +652,18 @@ void Positioning::setExcellentAccuracyThreshold( double threshold )
 
   mExcellentAccuracyThreshold = threshold;
   emit excellentAccuracyThresholdChanged();
+}
+
+bool Positioning::averagePositionFilterAccuracy() const
+{
+  return mAveragePositionFilterAccuracy;
+}
+
+void Positioning::setAveragePositionFilterAccuracy( bool enabled )
+{
+  if ( mAveragePositionFilterAccuracy == enabled )
+    return;
+
+  mAveragePositionFilterAccuracy = enabled;
+  emit averagePositionFilterAccuracyChanged();
 }

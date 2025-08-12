@@ -112,6 +112,7 @@ class GnssPositionInformation
 
     enum AccuracyQuality
     {
+      AccuracyUndetermined,
       AccuracyBad,
       AccuracyOk,
       AccuracyExcellent
@@ -238,8 +239,8 @@ class GnssPositionInformation
     bool hvaccValid() const { return !std::isnan( mHvacc ); }
 
     /**
-     * Sets the accuracy quality classification.
-     * Indicates if the position accuracy is bad, okay, or excellent.
+     * Accuracy quality classification.
+     * Indicates if the position accuracy is bad, ok, or excellent, based on user-provided thresholds.
      */
     void setAccuracyQuality( AccuracyQuality quality ) { mAccuracyQuality = quality; }
     AccuracyQuality accuracyQuality() const { return mAccuracyQuality; }
@@ -371,7 +372,7 @@ class GnssPositionInformation
     double mHacc = std::numeric_limits<double>::quiet_NaN();
     double mVacc = std::numeric_limits<double>::quiet_NaN();
     double mHvacc = std::numeric_limits<double>::quiet_NaN();
-    AccuracyQuality mAccuracyQuality = AccuracyBad;
+    AccuracyQuality mAccuracyQuality = AccuracyUndetermined;
     QDateTime mUtcDateTime;
     QChar mFixMode;
     int mFixType = 0;
@@ -396,6 +397,7 @@ class GnssPositionInformation
 };
 
 Q_DECLARE_METATYPE( GnssPositionInformation )
+Q_DECLARE_METATYPE( GnssPositionInformation::AccuracyQuality )
 
 class GnssPositionDetails
 {
