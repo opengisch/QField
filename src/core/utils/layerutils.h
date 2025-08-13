@@ -131,7 +131,7 @@ class LayerUtils : public QObject
      * return the duplicated feature with attribute values saved updated to match what was saved
      * into the layer dataset.
      */
-    static QgsFeature duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature );
+    static QgsFeature duplicateFeature( QgsVectorLayer *layer, QgsFeature feature );
 
     /**
      * Adds a \a feature into the \a layer.
@@ -154,6 +154,11 @@ class LayerUtils : public QObject
      * Returns a feature iterator to get features matching a given \a expression within the provided \a layer.
      */
     Q_INVOKABLE static FeatureIterator createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression );
+
+    /**
+     * Returns a feature iterator to get features overlapping a given \a rectangle within the provided \a layer.
+     */
+    Q_INVOKABLE static FeatureIterator createFeatureIteratorFromRectangle( QgsVectorLayer *layer, const QgsRectangle &rectangle );
 };
 
 #endif // LAYERUTILS_H

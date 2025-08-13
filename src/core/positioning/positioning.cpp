@@ -85,6 +85,7 @@ void Positioning::setupSource()
   connect( mPositioningSourceReplica.data(), SIGNAL( antennaHeightChanged() ), this, SIGNAL( antennaHeightChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( orientationChanged() ), this, SIGNAL( orientationChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( loggingChanged() ), this, SIGNAL( loggingChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( loggingPathChanged() ), this, SIGNAL( loggingPathChanged() ) );
 
   connect( mPositioningSourceReplica.data(), SIGNAL( positionInformationChanged() ), this, SLOT( processGnssPositionInformation() ) );
 
@@ -351,6 +352,24 @@ void Positioning::setLogging( bool logging )
   {
     mPropertiesToSync["logging"] = logging;
     emit loggingChanged();
+  }
+}
+
+QString Positioning::loggingPath() const
+{
+  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "loggingPath" ) : mPropertiesToSync.value( "loggingPath" ) ).toString();
+}
+
+void Positioning::setLoggingPath( const QString &path )
+{
+  if ( isSourceAvailable() )
+  {
+    mPositioningSourceReplica->setProperty( "loggingPath", path );
+  }
+  else
+  {
+    mPropertiesToSync["loggingPath"] = path;
+    emit loggingPathChanged();
   }
 }
 

@@ -27,8 +27,6 @@
 #include <qgsfeature.h>
 #include <qgsrelationmanager.h>
 
-#include <memory>
-
 /**
  * \ingroup core
  */
@@ -41,9 +39,8 @@ class FeatureModel : public QAbstractListModel
     Q_PROPERTY( QgsFeature linkedParentFeature READ linkedParentFeature WRITE setLinkedParentFeature NOTIFY linkedParentFeatureChanged )
     Q_PROPERTY( QgsRelation linkedRelation READ linkedRelation WRITE setLinkedRelation NOTIFY linkedRelationChanged )
     Q_PROPERTY( QString linkedRelationOrderingField READ linkedRelationOrderingField WRITE setLinkedRelationOrderingField NOTIFY linkedRelationOrderingFieldChanged )
-    //! the vertex model is used to highlight vertices on the map
     Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
-    Q_PROPERTY( Geometry *geometry MEMBER mGeometry NOTIFY geometryChanged )
+    Q_PROPERTY( Geometry *geometry READ geometry WRITE setGeometry NOTIFY geometryChanged )
     Q_PROPERTY( bool featureAdditionLocked READ featureAdditionLocked NOTIFY featureAdditionLockedChanged )
     Q_PROPERTY( bool attributeEditingLocked READ attributeEditingLocked NOTIFY attributeEditingLockedChanged )
     Q_PROPERTY( bool geometryEditingLocked READ geometryEditingLocked NOTIFY geometryEditingLockedChanged )
@@ -144,9 +141,14 @@ class FeatureModel : public QAbstractListModel
     void setCurrentLayer( QgsVectorLayer *layer );
     QgsVectorLayer *layer() const;
 
-    //! \copydoc vertexModel
+    //! Returns the geometry object that will drive the feature geometry.
+    Geometry *geometry();
+    //! Sets the geometry object that will drive the feature geometry.
+    void setGeometry( Geometry *geometry );
+
+    //! Returns the vertex model is used to highlight vertices on the map.
     VertexModel *vertexModel();
-    //! \copydoc vertexModel
+    //! Sets the vertex \a model is used to highlight vertices on the map.
     void setVertexModel( VertexModel *model );
 
     bool featureAdditionLocked() const { return mFeatureAdditionLocked; }

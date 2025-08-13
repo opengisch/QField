@@ -47,7 +47,7 @@ class AbstractGnssReceiver : public QObject
     void connectDevice() { handleConnectDevice(); }
     void disconnectDevice() { handleDisconnectDevice(); }
 
-    void startLogging() { handleStartLogging(); }
+    void startLogging( const QString &path ) { handleStartLogging( path ); }
     void stopLogging() { handleStopLogging(); }
 
     GnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
@@ -83,7 +83,7 @@ class AbstractGnssReceiver : public QObject
     virtual void handleConnectDevice() {}
     virtual void handleDisconnectDevice() {}
 
-    virtual void handleStartLogging() {}
+    virtual void handleStartLogging( const QString &path ) {}
     virtual void handleStopLogging() {}
 
     bool mValid = false;

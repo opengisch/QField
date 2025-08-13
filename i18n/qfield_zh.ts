@@ -1089,6 +1089,17 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>FileDeviceChooser</name>
+    <message>
+        <source>File path</source>
+        <translation>文件路径</translation>
+    </message>
+    <message>
+        <source>Interval (in milliseconds)</source>
+        <translation>间隔 (毫秒)</translation>
+    </message>
+</context>
+<context>
     <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
@@ -2139,6 +2150,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Connection details</source>
         <translation>连接详细信息</translation>
+    </message>
+    <message>
+        <source>Logs file (NMEA)</source>
+        <translation>日志文件 (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -4296,11 +4311,34 @@ Cancel to make a minimal device scan instead.</source>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
+        <translation type="vanished">无效的参照图层</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">无法开始编辑</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">无法删除要素</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">无法取消图层 %1 中的图层更改</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">无法在图层 %1 提交图层更改。</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
         <translation>无效的参照图层</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>无法开始编辑</translation>
+        <translation>无法启动编辑</translation>
     </message>
     <message>
         <source>Cannot delete feature</source>
