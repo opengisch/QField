@@ -25,9 +25,9 @@
 #include <QAbstractTableModel>
 
 OrderedRelationModel::OrderedRelationModel( QObject *parent )
-  : ReferencingFeatureListModel( parent )
+  : ReferencingFeatureListModelBase( parent )
 {
-  connect( this, &ReferencingFeatureListModel::beforeModelUpdated, this, &OrderedRelationModel::sortEntries );
+  connect( this, &ReferencingFeatureListModelBase::beforeModelUpdated, this, &OrderedRelationModel::sortEntries );
 }
 
 QString OrderedRelationModel::orderingField() const
@@ -77,7 +77,7 @@ void OrderedRelationModel::setDescription( const QString &description )
 
 QHash<int, QByteArray> OrderedRelationModel::roleNames() const
 {
-  QHash<int, QByteArray> roles = ReferencingFeatureListModel::roleNames();
+  QHash<int, QByteArray> roles = ReferencingFeatureListModelBase::roleNames();
 
   roles[OrderedRelationModel::ImagePathRole] = "ImagePath";
   roles[OrderedRelationModel::DescriptionRole] = "Description";
@@ -115,7 +115,7 @@ QVariant OrderedRelationModel::data( const QModelIndex &index, int role ) const
       return mEntries[index.row()].referencingFeature.attribute( mOrderingField ).toInt();
   }
 
-  return ReferencingFeatureListModel::data( index, role );
+  return ReferencingFeatureListModelBase::data( index, role );
 }
 
 void OrderedRelationModel::triggerViewCurrentFeatureChange( int index )

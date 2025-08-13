@@ -19,8 +19,17 @@ Item {
   property var relation: undefined
 
   Component.onCompleted: {
-    comboBox.currentIndex = featureListModel.findKey(value);
-    invalidWarning.visible = relation !== undefined ? !(relation.isValid) : false;
+    if (!featureListModel.addNull) {
+      comboBox.currentIndex = featureListModel.findKey(value);
+      invalidWarning.visible = relation !== undefined ? !(relation.isValid) : false;
+    }
+  }
+
+  onCurrentKeyValueChanged: {
+    if (!featureListModel.addNull) {
+      comboBox._cachedCurrentValue = currentKeyValue;
+      comboBox.currentIndex = featureListModel.findKey(currentKeyValue);
+    }
   }
 
   anchors {
@@ -31,11 +40,6 @@ Item {
 
   property var currentKeyValue: value
   property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopup
-
-  onCurrentKeyValueChanged: {
-    comboBox._cachedCurrentValue = currentKeyValue;
-    comboBox.currentIndex = featureListModel.findKey(currentKeyValue);
-  }
 
   EmbeddedFeatureForm {
     id: addFeaturePopup
@@ -101,6 +105,10 @@ Item {
         anchors.right: parent.right
         height: childrenRect.height
 
+        onSearchTermChanged: {
+          featureListModel.searchTerm = searchTerm;
+        }
+
         onReturnPressed: {
           if (featureListModel.rowCount() === 1) {
             resultsList.itemAtIndex(0).performClick();
@@ -109,30 +117,23 @@ Item {
         }
       }
 
-      FeatureCheckListProxyModel {
-        id: featureCheckListProxyModel
-        sourceModel: featureListModel
-        searchTerm: searchBar.searchTerm
-        sortCheckedFirst: !isEnabled
-      }
-
       ListView {
         id: resultsList
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: searchBar.bottom
-        model: featureCheckListProxyModel
+        model: featureListModel
         width: parent.width
         height: searchFeaturePopup.height - searchBar.height - 50
         clip: true
         ScrollBar.vertical: QfScrollBar {
         }
-        section.property: featureCheckListProxyModel.groupField != "" ? "groupFieldValue" : ""
+        section.property: featureListModel.groupField != "" ? "groupFieldValue" : ""
         section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
         section.delegate: Component {
           Rectangle {
             width: parent.width
-            height: featureCheckListProxyModel.displayGroupName ? 30 : 5
+            height: featureListModel.displayGroupName ? 30 : 5
             color: Theme.controlBackgroundAlternateColor
 
             Text {
@@ -144,7 +145,7 @@ Item {
               font.pointSize: Theme.resultFont.pointSize
               color: Theme.mainTextColor
               text: section
-              visible: featureCheckListProxyModel.displayGroupName
+              visible: featureListModel.displayGroupName
             }
           }
         }
@@ -153,7 +154,7 @@ Item {
           id: rectangle
 
           property int idx: index
-          property string itemText: StringUtils.highlightText(displayString, featureCheckListProxyModel.searchTerm, Theme.mainTextColor)
+          property string itemText: StringUtils.highlightText(displayString, featureListModel.searchTerm, Theme.mainTextColor)
 
           anchors.margins: 10
           width: parent ? parent.width : undefined
@@ -202,7 +203,7 @@ Item {
               font.weight: model.checked ? Font.DemiBold : Font.Normal
               elide: Text.ElideRight
               wrapMode: Text.WordWrap
-              color: featureCheckListProxyModel.searchTerm != '' ? Theme.secondaryTextColor : Theme.mainTextColor
+              color: featureListModel.searchTerm != '' ? Theme.secondaryTextColor : Theme.mainTextColor
               textFormat: Text.RichText
               text: itemText
             }
@@ -270,6 +271,7 @@ Item {
 
       Connections {
         target: featureListModel
+        enabled: !featureListModel.addNull
 
         function onModelReset() {
           comboBox.currentIndex = featureListModel.findKey(comboBox._cachedCurrentValue);
@@ -477,7 +479,7 @@ Item {
           searchableLabel.useCompleter = activeFocus;
           if (activeFocus) {
             if (text === '') {
-              if (!featureListModel.addNull || comboBox.currentIndex != 0) {
+              if (!featureListModel.addNull || comboBox.currentIndex !== 0) {
                 text = comboBox.displayText;
                 color = Theme.mainTextColor;
               }
@@ -637,7 +639,7 @@ Item {
     onFeatureSaved: {
       var referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
       var index = featureListModel.findKey(referencedValue);
-      if ((featureListModel.addNull == true && index < 1) || index < 0) {
+      if ((featureListModel.addNull && index < 1) || index < 0) {
         // model not yet reloaded - keep the value and set it onModelReset
         comboBox._cachedCurrentValue = referencedValue;
       } else {

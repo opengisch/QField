@@ -1092,6 +1092,17 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
 </context>
 <context>
+    <name>FileDeviceChooser</name>
+    <message>
+        <source>File path</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Interval (in milliseconds)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
@@ -2141,6 +2152,10 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
     <message>
         <source>Connection details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Logs file (NMEA)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4296,6 +4311,29 @@ Cancel to make a minimal device scan instead.</source>
 </context>
 <context>
     <name>ReferencingFeatureListModel</name>
+    <message>
+        <source>Invalid referencing layer</source>
+        <translation type="vanished">Pogrešan referentni sloj</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">Nije moguće započeti edtovanje</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">Nije moguće izbrisati objekat</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">Nije moguće vratiti promjene na sloju %1</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">Nije moguće izvšiti promjene na sloju %1</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
     <message>
         <source>Invalid referencing layer</source>
         <translation>Pogrešan referentni sloj</translation>

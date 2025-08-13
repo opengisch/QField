@@ -1092,6 +1092,17 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
 </context>
 <context>
+    <name>FileDeviceChooser</name>
+    <message>
+        <source>File path</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Interval (in milliseconds)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
@@ -2142,6 +2153,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Connection details</source>
         <translation>Détails de connexion</translation>
+    </message>
+    <message>
+        <source>Logs file (NMEA)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4293,6 +4308,29 @@ Cancel to make a minimal device scan instead.</source>
 </context>
 <context>
     <name>ReferencingFeatureListModel</name>
+    <message>
+        <source>Invalid referencing layer</source>
+        <translation type="vanished">Couche de référence non valide</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">Édition impossible</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">Suppression de l&apos;entité impossible</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">Impossible d&apos;annuler les modifications dans la couche %1</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">Impossible d&apos;appliquer les modifications sur la couche %1.</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
     <message>
         <source>Invalid referencing layer</source>
         <translation>Couche de référence non valide</translation>

@@ -190,8 +190,6 @@ TEST_CASE( "ReferencingFeatureListModel" )
   REQUIRE( mL_Share->featureCount() == 7L );
 
   std::unique_ptr<ReferencingFeatureListModel> mModel( new ReferencingFeatureListModel() );
-  std::unique_ptr<ReferencingFeatureProxyModel> mProxyModel( new ReferencingFeatureProxyModel() );
-  mProxyModel->setSourceModel( mModel.get() );
 
   /*
       GetReferencingFeatures
@@ -271,11 +269,11 @@ TEST_CASE( "ReferencingFeatureListModel" )
     REQUIRE( mModel->rowCount() == 3 );
 
     //check display string of rohan
-    QString displayString = mProxyModel->data( mProxyModel->index( 1, 0 ), ReferencingFeatureListModel::DisplayString ).toString();
+    QString displayString = mModel->data( mModel->index( 1, 0 ), ReferencingFeatureListModelBase::DisplayString ).toString();
     REQUIRE( displayString == QStringLiteral( "Gondor" ) );
 
     //delete Rohan
-    mModel->deleteFeature( qvariant_cast<QgsFeature>( mProxyModel->data( mProxyModel->index( 1, 0 ), ReferencingFeatureListModel::ReferencingFeature ) ).id() );
+    mModel->deleteFeature( qvariant_cast<QgsFeature>( mModel->data( mModel->index( 1, 0 ), ReferencingFeatureListModelBase::ReferencingFeature ) ).id() );
     REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
     //Frodo rules 2 lands (Gondor, Eriador) no Rohan anymore
     REQUIRE( mModel->rowCount() == 2 );
@@ -309,11 +307,11 @@ TEST_CASE( "ReferencingFeatureListModel" )
     REQUIRE( mModel->rowCount() == 3 );
 
     //check display string of Gollums Mordor share (40)
-    QString displayString = mProxyModel->data( mProxyModel->index( 0, 0 ), ReferencingFeatureListModel::DisplayString ).toString();
+    QString displayString = mModel->data( mModel->index( 0, 0 ), ReferencingFeatureListModelBase::DisplayString ).toString();
     REQUIRE( displayString == QStringLiteral( "40" ) );
 
     //delete Gollums share on Mordor
-    mModel->deleteFeature( qvariant_cast<QgsFeature>( mProxyModel->data( mProxyModel->index( 0, 0 ), ReferencingFeatureListModel::ReferencingFeature ) ).id() );
+    mModel->deleteFeature( qvariant_cast<QgsFeature>( mModel->data( mModel->index( 0, 0 ), ReferencingFeatureListModelBase::ReferencingFeature ) ).id() );
     REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
     //Gollum has shares of 2 landd (Gondor, Rohan)
     REQUIRE( mModel->rowCount() == 2 );

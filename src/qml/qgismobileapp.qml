@@ -59,6 +59,7 @@ ApplicationWindow {
     if (positioningSettings.positioningActivated) {
       positionSource.active = true;
     }
+    refreshSceneMargins.triggered();
   }
 
   Connections {
@@ -653,8 +654,8 @@ ApplicationWindow {
       forceDeferredLayersRepaint: trackings.count > 0
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
 
-      rightMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? featureForm.x > 0 ? featureForm.width : 0 : 0
-      bottomMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? Math.max(informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0, featureForm.y > 0 ? featureForm.height : 0) : 0
+      rightMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? !featureForm.fullScreenView && !featureForm.canvasOperationRequested && featureForm.x > 0 ? featureForm.width : 0 : 0
+      bottomMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? Math.max(informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0, !featureForm.fullScreenView && !featureForm.canvasOperationRequested && featureForm.y > 0 ? featureForm.height : 0) : 0
 
       anchors.fill: parent
 
@@ -796,6 +797,7 @@ ApplicationWindow {
 
       MapCanvasPointHandler {
         id: pointHandler
+        objectName: "pointHandler"
       }
     }
 
@@ -1044,12 +1046,12 @@ ApplicationWindow {
     MapToScreen {
       id: mapToScreenTranslateX
       mapSettings: mapCanvas.mapSettings
-      mapDistance: moveFeaturesToolbar.moveFeaturesRequested ? mapCanvas.mapSettings.center.x - moveFeaturesToolbar.startPoint.x : 0
+      mapDistance: moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined ? mapCanvas.mapSettings.center.x - moveFeaturesToolbar.startPoint.x : 0
     }
     MapToScreen {
       id: mapToScreenTranslateY
       mapSettings: mapCanvas.mapSettings
-      mapDistance: moveFeaturesToolbar.moveFeaturesRequested ? mapCanvas.mapSettings.center.y - moveFeaturesToolbar.startPoint.y : 0
+      mapDistance: moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined ? mapCanvas.mapSettings.center.y - moveFeaturesToolbar.startPoint.y : 0
     }
 
     ProcessingAlgorithmPreview {
@@ -2516,12 +2518,12 @@ ApplicationWindow {
         }
 
         function initializeMoveFeatures() {
+          moveFeaturesRequested = true;
           if (featureForm && featureForm.selection.model.selectedCount === 1) {
             featureForm.extentController.zoomToSelected();
           }
           startPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y);
           moveAndRotateFeaturesHighlight.rotationDegrees = 0;
-          moveFeaturesRequested = true;
         }
       }
 
@@ -2547,11 +2549,11 @@ ApplicationWindow {
         }
 
         function initializeRotateFeatures() {
+          rotateFeaturesRequested = true;
           if (featureForm && featureForm.selection.model.selectedCount === 1) {
             featureForm.extentController.zoomToSelected();
           }
           moveAndRotateFeaturesHighlight.rotationDegrees = 0;
-          rotateFeaturesRequested = true;
         }
       }
     }
@@ -3871,7 +3873,7 @@ ApplicationWindow {
           projectInfo.hasEditRights = true;
           break;
         }
-        if (cloudProjectsModel.layerObserver.deltaFileWrapper.hasError()) {
+        if (cloudProjectsModel.layerObserver.deltaFileWrapper.hasError) {
           qfieldCloudPopup.show();
         }
         if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {

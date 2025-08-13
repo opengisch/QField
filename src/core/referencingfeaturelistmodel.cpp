@@ -19,12 +19,12 @@
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
 
-ReferencingFeatureListModel::ReferencingFeatureListModel( QObject *parent )
+ReferencingFeatureListModelBase::ReferencingFeatureListModelBase( QObject *parent )
   : QAbstractItemModel( parent )
 {
 }
 
-QHash<int, QByteArray> ReferencingFeatureListModel::roleNames() const
+QHash<int, QByteArray> ReferencingFeatureListModelBase::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
@@ -36,7 +36,7 @@ QHash<int, QByteArray> ReferencingFeatureListModel::roleNames() const
   return roles;
 }
 
-QModelIndex ReferencingFeatureListModel::index( int row, int column, const QModelIndex &parent ) const
+QModelIndex ReferencingFeatureListModelBase::index( int row, int column, const QModelIndex &parent ) const
 {
   Q_UNUSED( column )
   Q_UNUSED( parent )
@@ -44,26 +44,26 @@ QModelIndex ReferencingFeatureListModel::index( int row, int column, const QMode
   return createIndex( row, column, 1000 );
 }
 
-QModelIndex ReferencingFeatureListModel::parent( const QModelIndex &index ) const
+QModelIndex ReferencingFeatureListModelBase::parent( const QModelIndex &index ) const
 {
   Q_UNUSED( index )
 
   return QModelIndex();
 }
 
-int ReferencingFeatureListModel::rowCount( const QModelIndex &parent ) const
+int ReferencingFeatureListModelBase::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return mEntries.size();
 }
 
-int ReferencingFeatureListModel::columnCount( const QModelIndex &parent ) const
+int ReferencingFeatureListModelBase::columnCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return 1;
 }
 
-QVariant ReferencingFeatureListModel::data( const QModelIndex &index, int role ) const
+QVariant ReferencingFeatureListModelBase::data( const QModelIndex &index, int role ) const
 {
   if ( role == DisplayString )
     return mEntries.value( index.row() ).displayString;
@@ -76,7 +76,7 @@ QVariant ReferencingFeatureListModel::data( const QModelIndex &index, int role )
   return QVariant();
 }
 
-void ReferencingFeatureListModel::setFeature( const QgsFeature &feature )
+void ReferencingFeatureListModelBase::setFeature( const QgsFeature &feature )
 {
   if ( mFeature == feature )
     return;
@@ -85,28 +85,28 @@ void ReferencingFeatureListModel::setFeature( const QgsFeature &feature )
   reload();
 }
 
-QgsFeature ReferencingFeatureListModel::feature() const
+QgsFeature ReferencingFeatureListModelBase::feature() const
 {
   return mFeature;
 }
 
-void ReferencingFeatureListModel::setRelation( const QgsRelation &relation )
+void ReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
 {
   mRelation = relation;
   reload();
 }
 
-QgsRelation ReferencingFeatureListModel::relation() const
+QgsRelation ReferencingFeatureListModelBase::relation() const
 {
   return mRelation;
 }
 
-QString ReferencingFeatureListModel::currentRelationId() const
+QString ReferencingFeatureListModelBase::currentRelationId() const
 {
   return mRelation.isValid() ? mRelation.id() : QString();
 }
 
-void ReferencingFeatureListModel::setCurrentRelationId( const QString &relationId )
+void ReferencingFeatureListModelBase::setCurrentRelationId( const QString &relationId )
 {
   if ( relationId == currentRelationId() )
     return;
@@ -116,23 +116,23 @@ void ReferencingFeatureListModel::setCurrentRelationId( const QString &relationI
   reload();
 }
 
-void ReferencingFeatureListModel::setNmRelation( const QgsRelation &relation )
+void ReferencingFeatureListModelBase::setNmRelation( const QgsRelation &relation )
 {
   mNmRelation = relation;
   reload();
 }
 
-QgsRelation ReferencingFeatureListModel::nmRelation() const
+QgsRelation ReferencingFeatureListModelBase::nmRelation() const
 {
   return mNmRelation;
 }
 
-QString ReferencingFeatureListModel::currentNmRelationId() const
+QString ReferencingFeatureListModelBase::currentNmRelationId() const
 {
   return mNmRelation.isValid() ? mNmRelation.id() : QString();
 }
 
-void ReferencingFeatureListModel::setCurrentNmRelationId( const QString &nmRelationId )
+void ReferencingFeatureListModelBase::setCurrentNmRelationId( const QString &nmRelationId )
 {
   if ( nmRelationId == currentNmRelationId() )
     return;
@@ -141,17 +141,17 @@ void ReferencingFeatureListModel::setCurrentNmRelationId( const QString &nmRelat
   reload();
 }
 
-void ReferencingFeatureListModel::setParentPrimariesAvailable( const bool parentPrimariesAvailable )
+void ReferencingFeatureListModelBase::setParentPrimariesAvailable( const bool parentPrimariesAvailable )
 {
   mParentPrimariesAvailable = parentPrimariesAvailable;
 }
 
-bool ReferencingFeatureListModel::parentPrimariesAvailable() const
+bool ReferencingFeatureListModelBase::parentPrimariesAvailable() const
 {
   return mParentPrimariesAvailable;
 }
 
-void ReferencingFeatureListModel::updateModel()
+void ReferencingFeatureListModelBase::updateModel()
 {
   beginResetModel();
 
@@ -163,7 +163,7 @@ void ReferencingFeatureListModel::updateModel()
   emit modelUpdated();
 }
 
-void ReferencingFeatureListModel::gathererThreadFinished()
+void ReferencingFeatureListModelBase::gathererThreadFinished()
 {
   //ignore spooky signals from ancestor threads
   if ( sender() != mGatherer )
@@ -174,7 +174,7 @@ void ReferencingFeatureListModel::gathererThreadFinished()
   emit isLoadingChanged();
 }
 
-void ReferencingFeatureListModel::reload()
+void ReferencingFeatureListModelBase::reload()
 {
   if ( !mRelation.isValid() || !mFeature.isValid() )
     return;
@@ -187,8 +187,8 @@ void ReferencingFeatureListModel::reload()
     {
       // Send the gatherer thread to the graveyard:
       //   forget about it, tell it to stop and delete when finished
-      disconnect( mGatherer, &FeatureGatherer::collectedValues, this, &ReferencingFeatureListModel::updateModel );
-      disconnect( mGatherer, &FeatureGatherer::finished, this, &ReferencingFeatureListModel::gathererThreadFinished );
+      disconnect( mGatherer, &FeatureGatherer::collectedValues, this, &ReferencingFeatureListModelBase::updateModel );
+      disconnect( mGatherer, &FeatureGatherer::finished, this, &ReferencingFeatureListModelBase::gathererThreadFinished );
       connect( mGatherer, &FeatureGatherer::finished, mGatherer, &FeatureGatherer::deleteLater );
       mGatherer->stop();
       wasLoading = true;
@@ -196,8 +196,8 @@ void ReferencingFeatureListModel::reload()
 
     mGatherer = new FeatureGatherer( mFeature, mRelation, mNmRelation );
 
-    connect( mGatherer, &FeatureGatherer::collectedValues, this, &ReferencingFeatureListModel::updateModel );
-    connect( mGatherer, &FeatureGatherer::finished, this, &ReferencingFeatureListModel::gathererThreadFinished );
+    connect( mGatherer, &FeatureGatherer::collectedValues, this, &ReferencingFeatureListModelBase::updateModel );
+    connect( mGatherer, &FeatureGatherer::finished, this, &ReferencingFeatureListModelBase::gathererThreadFinished );
 
     mGatherer->start();
     if ( !wasLoading )
@@ -215,7 +215,7 @@ void ReferencingFeatureListModel::reload()
   setParentPrimariesAvailable( checkParentPrimaries() );
 }
 
-bool ReferencingFeatureListModel::deleteFeature( QgsFeatureId referencingFeatureId )
+bool ReferencingFeatureListModelBase::deleteFeature( QgsFeatureId referencingFeatureId )
 {
   QgsVectorLayer *referencingLayer = mRelation.referencingLayer();
 
@@ -259,7 +259,7 @@ bool ReferencingFeatureListModel::deleteFeature( QgsFeatureId referencingFeature
   return true;
 }
 
-int ReferencingFeatureListModel::getFeatureIdRow( QgsFeatureId featureId )
+int ReferencingFeatureListModelBase::getFeatureIdRow( QgsFeatureId featureId )
 {
   int row = 0;
   for ( const Entry &entry : mEntries )
@@ -272,12 +272,12 @@ int ReferencingFeatureListModel::getFeatureIdRow( QgsFeatureId featureId )
   return row < mEntries.size() ? row : -1;
 }
 
-bool ReferencingFeatureListModel::isLoading() const
+bool ReferencingFeatureListModelBase::isLoading() const
 {
   return mGatherer;
 }
 
-bool ReferencingFeatureListModel::checkParentPrimaries()
+bool ReferencingFeatureListModelBase::checkParentPrimaries()
 {
   if ( !mRelation.isValid() || !mFeature.isValid() )
     return false;
@@ -309,27 +309,119 @@ bool ReferencingFeatureListModel::checkParentPrimaries()
   return true;
 }
 
-bool ReferencingFeatureListModel::beforeDeleteFeature( QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId )
+bool ReferencingFeatureListModelBase::beforeDeleteFeature( QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId )
 {
   Q_UNUSED( referencingLayer );
   Q_UNUSED( referencingFeatureId );
   return true;
 }
 
-ReferencingFeatureProxyModel::ReferencingFeatureProxyModel( QObject *parent )
+ReferencingFeatureListModel::ReferencingFeatureListModel( QObject *parent )
   : QSortFilterProxyModel( parent )
+  , mSourceModel( new ReferencingFeatureListModelBase( parent ) )
 {
-  setSortRole( ReferencingFeatureListModel::DisplayString );
+  connect( mSourceModel, &ReferencingFeatureListModelBase::isLoadingChanged, this, &ReferencingFeatureListModel::isLoadingChanged );
+  connect( mSourceModel, &ReferencingFeatureListModelBase::featureChanged, this, &ReferencingFeatureListModel::featureChanged );
+  connect( mSourceModel, &ReferencingFeatureListModelBase::relationChanged, this, &ReferencingFeatureListModel::relationChanged );
+  connect( mSourceModel, &ReferencingFeatureListModelBase::nmRelationChanged, this, &ReferencingFeatureListModel::nmRelationChanged );
+  connect( mSourceModel, &ReferencingFeatureListModelBase::parentPrimariesAvailableChanged, this, &ReferencingFeatureListModel::parentPrimariesAvailableChanged );
+  connect( mSourceModel, &ReferencingFeatureListModelBase::beforeModelUpdated, this, &ReferencingFeatureListModel::beforeModelUpdated );
+  connect( mSourceModel, &ReferencingFeatureListModelBase::modelUpdated, this, &ReferencingFeatureListModel::modelUpdated );
+  connect( mSourceModel, &ReferencingFeatureListModelBase::attributeFormModelChanged, this, &ReferencingFeatureListModel::attributeFormModelChanged );
+
+  setSourceModel( mSourceModel );
+  setSortRole( ReferencingFeatureListModelBase::DisplayString );
   setDynamicSortFilter( true );
   sort( 0, mSortOrder );
 }
 
-Qt::SortOrder ReferencingFeatureProxyModel::sortOrder() const
+QString ReferencingFeatureListModel::currentRelationId() const
+{
+  return mSourceModel->currentRelationId();
+}
+
+void ReferencingFeatureListModel::setCurrentRelationId( const QString &relationId )
+{
+  mSourceModel->setCurrentRelationId( relationId );
+}
+
+QString ReferencingFeatureListModel::currentNmRelationId() const
+{
+  return mSourceModel->currentNmRelationId();
+}
+
+void ReferencingFeatureListModel::setCurrentNmRelationId( const QString &nmRelationId )
+{
+  mSourceModel->setCurrentNmRelationId( nmRelationId );
+}
+
+void ReferencingFeatureListModel::setFeature( const QgsFeature &feature )
+{
+  mSourceModel->setFeature( feature );
+}
+
+QgsFeature ReferencingFeatureListModel::feature() const
+{
+  return mSourceModel->feature();
+}
+
+void ReferencingFeatureListModel::setRelation( const QgsRelation &relation )
+{
+  mSourceModel->setRelation( relation );
+}
+
+QgsRelation ReferencingFeatureListModel::relation() const
+{
+  return mSourceModel->relation();
+}
+
+void ReferencingFeatureListModel::setNmRelation( const QgsRelation &relation )
+{
+  mSourceModel->setNmRelation( relation );
+}
+
+QgsRelation ReferencingFeatureListModel::nmRelation() const
+{
+  return mSourceModel->nmRelation();
+}
+
+void ReferencingFeatureListModel::setParentPrimariesAvailable( const bool parentPrimariesAvailable )
+{
+  mSourceModel->setParentPrimariesAvailable( parentPrimariesAvailable );
+}
+
+bool ReferencingFeatureListModel::parentPrimariesAvailable() const
+{
+  return mSourceModel->parentPrimariesAvailable();
+}
+
+void ReferencingFeatureListModel::reload()
+{
+  mSourceModel->reload();
+}
+
+bool ReferencingFeatureListModel::deleteFeature( QgsFeatureId referencingFeatureId )
+{
+  return mSourceModel->deleteFeature( referencingFeatureId );
+}
+
+int ReferencingFeatureListModel::getFeatureIdRow( QgsFeatureId featureId )
+{
+  const QModelIndex sourceIndex = mSourceModel->index( mSourceModel->getFeatureIdRow( featureId ), 0 );
+  return mapFromSource( sourceIndex ).row();
+}
+
+bool ReferencingFeatureListModel::isLoading() const
+{
+  return mSourceModel->isLoading();
+}
+
+Qt::SortOrder ReferencingFeatureListModel::sortOrder() const
 {
   return mSortOrder;
 }
 
-void ReferencingFeatureProxyModel::setSortOrder( Qt::SortOrder sortOrder )
+void ReferencingFeatureListModel::setSortOrder( Qt::SortOrder sortOrder )
 {
   if ( mSortOrder == sortOrder )
     return;

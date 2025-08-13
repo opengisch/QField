@@ -1087,6 +1087,17 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>FileDeviceChooser</name>
+    <message>
+        <source>File path</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Interval (in milliseconds)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
@@ -2136,6 +2147,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Connection details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Logs file (NMEA)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4292,6 +4307,29 @@ Cancel to make a minimal device scan instead.</source>
 </context>
 <context>
     <name>ReferencingFeatureListModel</name>
+    <message>
+        <source>Invalid referencing layer</source>
+        <translation type="vanished">الطبقة المرجعية غير صالحة</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">لا يمكن بدء التحرير</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">لا يمكن حذف الميزة</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">لا يمكن استرجاع التغيرات في الطقة %1</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">لا يمكن تنفيذ التغيرات في الطبقة %1.</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
     <message>
         <source>Invalid referencing layer</source>
         <translation>الطبقة المرجعية غير صالحة</translation>

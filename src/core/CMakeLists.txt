@@ -32,6 +32,7 @@ set(QFIELD_CORE_SRCS
     positioning/internalgnssreceiver.cpp
     positioning/nmeagnssreceiver.cpp
     positioning/egenioussreceiver.cpp
+    positioning/filereceiver.cpp
     positioning/tcpreceiver.cpp
     positioning/udpreceiver.cpp
     positioning/positioning.cpp
@@ -71,7 +72,6 @@ set(QFIELD_CORE_SRCS
     expressionvariablemodel.cpp
     externalstorage.cpp
     featurechecklistmodel.cpp
-    featurechecklistproxymodel.cpp
     featurelistextentcontroller.cpp
     featurelistmodel.cpp
     featurelistmodelselection.cpp
@@ -167,6 +167,7 @@ set(QFIELD_CORE_HDRS
     positioning/internalgnssreceiver.h
     positioning/nmeagnssreceiver.h
     positioning/egenioussreceiver.h
+    positioning/filereceiver.h
     positioning/tcpreceiver.h
     positioning/udpreceiver.h
     positioning/geofencer.h
@@ -201,7 +202,6 @@ set(QFIELD_CORE_HDRS
     expressionvariablemodel.h
     externalstorage.h
     featurechecklistmodel.h
-    featurechecklistproxymodel.h
     featureexpressionvaluesgatherer.h
     featurelistextentcontroller.h
     featurelistmodel.h

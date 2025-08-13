@@ -49,8 +49,6 @@ QfVisibilityFadingRow {
     onConfirmed: {
       digitizingLogger.writeCoordinates();
       rubberbandModel.frozen = true;
-      if (!featureModel.currentLayer.editBuffer())
-        featureModel.currentLayer.startEditing();
       var result = GeometryUtils.addRingFromRubberband(featureModel.currentLayer, featureModel.feature.id, rubberbandModel);
       if (result !== GeometryUtils.Success) {
         if (result === GeometryUtils.AddRingNotClosed)
@@ -63,10 +61,9 @@ QfVisibilityFadingRow {
           displayToast(qsTr('The ring doesn\'t have any existing ring to fit into'), 'error');
         else
           displayToast(qsTr('Unknown error when creating the ring'), 'error');
-        featureModel.currentLayer.rollBack();
         drawPolygonToolbar.rubberbandModel.reset();
       } else {
-        addPolygonDialog.show();
+        addPolygonDialog.open();
       }
     }
 
@@ -92,11 +89,7 @@ QfVisibilityFadingRow {
     }
 
     onRejected: {
-      commitRing();
-    }
-
-    function show() {
-      this.open();
+      drawPolygonToolbar.rubberbandModel.reset();
     }
   }
 
@@ -113,12 +106,12 @@ QfVisibilityFadingRow {
     drawPolygonToolbar.cancel();
   }
 
-  function commitRing() {
+  function commitRingFeature() {
     featureModel.currentLayer.commitChanges();
     drawPolygonToolbar.rubberbandModel.reset();
   }
 
-  function cancelRing() {
+  function cancelRingFeature() {
     featureModel.currentLayer.rollBack();
     drawPolygonToolbar.rubberbandModel.reset();
   }
@@ -128,8 +121,8 @@ QfVisibilityFadingRow {
     var feature = FeatureUtils.createBlankFeature(featureModel.currentLayer.fields, polygonGeometry);
 
     // Show form
-    formPopupLoader.onFeatureSaved.connect(commitRing);
-    formPopupLoader.onFeatureCancelled.connect(cancelRing);
+    formPopupLoader.onFeatureSaved.connect(commitRingFeature);
+    formPopupLoader.onFeatureCancelled.connect(cancelRingFeature);
     formPopupLoader.feature = feature;
     formPopupLoader.open();
   }

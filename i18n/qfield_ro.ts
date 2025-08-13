@@ -1095,6 +1095,17 @@ Motiv:
     </message>
 </context>
 <context>
+    <name>FileDeviceChooser</name>
+    <message>
+        <source>File path</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Interval (in milliseconds)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
@@ -2144,6 +2155,10 @@ Motiv:
     </message>
     <message>
         <source>Connection details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Logs file (NMEA)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4300,6 +4315,29 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
 </context>
 <context>
     <name>ReferencingFeatureListModel</name>
+    <message>
+        <source>Invalid referencing layer</source>
+        <translation type="vanished">Referința stratului invalidă</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">Nu se poate începe editarea</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">Nu puteți șterge elementul</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">Nu se pot anula modificările din stratul %1</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">Nu se pot efectua modificări în stratul %1.</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
     <message>
         <source>Invalid referencing layer</source>
         <translation>Referința stratului invalidă</translation>

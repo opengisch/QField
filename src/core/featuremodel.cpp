@@ -242,6 +242,20 @@ void FeatureModel::setAppExpressionContextScopesGenerator( AppExpressionContextS
   emit appExpressionContextScopesGeneratorChanged();
 }
 
+Geometry *FeatureModel::geometry()
+{
+  return mGeometry;
+}
+
+void FeatureModel::setGeometry( Geometry *geometry )
+{
+  if ( mGeometry == geometry )
+    return;
+
+  mGeometry = geometry;
+  emit geometryChanged();
+}
+
 VertexModel *FeatureModel::vertexModel()
 {
   return mVertexModel;
@@ -780,13 +794,23 @@ void FeatureModel::resetAttributes( bool partialReset )
 bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
 {
   bool updated = false;
+  QList<int> primaryKeyAttributes;
+  if ( mLayer )
+  {
+    primaryKeyAttributes << mLayer->primaryKeyAttributes();
+    const QString sourcePrimaryKeys = mLayer->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).toString();
+    if ( !sourcePrimaryKeys.isEmpty() && mFeature.fields().lookupField( sourcePrimaryKeys ) >= 0 )
+    {
+      primaryKeyAttributes << mFeature.fields().lookupField( sourcePrimaryKeys );
+    }
+  }
   const QgsFields fields = feature.fields();
   for ( int i = 0; i < fields.size(); i++ )
   {
     const int idx = mFeature.fields().lookupField( fields[i].name() );
     if ( idx >= 0 )
     {
-      if ( mLayer && mLayer->primaryKeyAttributes().contains( idx ) )
+      if ( primaryKeyAttributes.contains( idx ) )
       {
         continue;
       }

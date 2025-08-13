@@ -21,6 +21,7 @@
 #include "serialportreceiver.h"
 #endif
 #include "egenioussreceiver.h"
+#include "filereceiver.h"
 #include "internalgnssreceiver.h"
 #include "ntripclient.h"
 #include "positioningsource.h"
@@ -239,31 +240,43 @@ void PositioningSource::setupDevice()
   }
   else
   {
-    if ( mDeviceId.startsWith( TcpReceiver::identifier + ":" ) )
+    if ( mDeviceId.startsWith( FileReceiver::identifier + ":" ) )
     {
+      const int prefixLength = FileReceiver::identifier.length() + 1;
+      const int intervalSeparator = mDeviceId.lastIndexOf( ':' );
+      const QString filePath = mDeviceId.mid( prefixLength, intervalSeparator - prefixLength );
+      const int interval = mDeviceId.mid( intervalSeparator + 1 ).toInt();
+      mReceiver = new FileReceiver( filePath, interval, this );
+    }
+    else if ( mDeviceId.startsWith( TcpReceiver::identifier + ":" ) )
+    {
+      const int prefixLength = TcpReceiver::identifier.length() + 1;
       const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
-      const QString address = mDeviceId.mid( 4, portSeparator - 4 );
+      const QString address = mDeviceId.mid( prefixLength, portSeparator - prefixLength );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
       mReceiver = new TcpReceiver( address, port, this );
     }
     else if ( mDeviceId.startsWith( UdpReceiver::identifier + ":" ) )
     {
+      const int prefixLength = UdpReceiver::identifier.length() + 1;
       const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
-      const QString address = mDeviceId.mid( 4, portSeparator - 4 );
+      const QString address = mDeviceId.mid( prefixLength, portSeparator - prefixLength );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
       mReceiver = new UdpReceiver( address, port, this );
     }
     else if ( mDeviceId.startsWith( EgenioussReceiver::identifier + ":" ) )
     {
+      const int prefixLength = EgenioussReceiver::identifier.length() + 1;
       const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
-      const QString address = mDeviceId.mid( 10, portSeparator - 10 );
+      const QString address = mDeviceId.mid( prefixLength, portSeparator - prefixLength );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
       mReceiver = new EgenioussReceiver( address, port, this );
     }
 #ifdef WITH_SERIALPORT
     else if ( mDeviceId.startsWith( SerialPortReceiver::identifier + ":" ) )
     {
-      const QString address = mDeviceId.mid( 7 );
+      const int prefixLength = SerialPortReceiver::identifier.length() + 1;
+      const QString address = mDeviceId.mid( prefixLength );
       mReceiver = new SerialPortReceiver( address, this );
     }
 #endif

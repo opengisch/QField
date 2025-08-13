@@ -29,7 +29,7 @@ class FeatureExpressionValuesGatherer;
 /**
  * \ingroup core
  */
-class OrderedRelationModel : public ReferencingFeatureListModel
+class OrderedRelationModel : public ReferencingFeatureListModelBase
 {
     Q_OBJECT
 

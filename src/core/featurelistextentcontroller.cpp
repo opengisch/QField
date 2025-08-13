@@ -48,23 +48,44 @@ void FeatureListExtentController::requestFeatureFormState()
 
 void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
 {
-  if ( mModel && mSelection && mSelection->focusedItem() > -1 && mMapSettings )
+  if ( mModel && mSelection && mSelection->focusedItem() > -1 && mMapSettings && mSelection->focusedLayer() )
   {
-    const QgsFeature feature = mSelection->focusedFeature();
     QgsVectorLayer *layer = mSelection->focusedLayer();
+    const QgsFeature feature = mSelection->focusedFeature();
+    const QgsCoordinateTransform ct( layer->crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
 
-    if ( layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
+    if ( layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
     {
       if ( feature.geometry().type() == Qgis::GeometryType::Point && feature.geometry().constGet()->partCount() == 1 )
       {
-        mMapSettings->setCenter( QgsPoint( feature.geometry().asPoint() ), true );
+        try
+        {
+          const QgsPoint point( ct.transform( feature.geometry().asPoint() ) );
+          if ( !point.isEmpty() )
+          {
+            mMapSettings->setCenter( point, true );
+          }
+        }
+        catch ( const QgsException &e )
+        {
+          Q_UNUSED( e )
+          return;
+        }
       }
       else
       {
-        QgsRectangle extent = FeatureUtils::extent( mMapSettings, layer, feature );
-        if ( !skipIfIntersects || !mMapSettings->extent().intersects( extent ) )
+        try
         {
-          mMapSettings->setExtent( extent, true );
+          const QgsRectangle extent = ct.transform( FeatureUtils::extent( mMapSettings, layer, feature ) );
+          if ( !extent.isNull() && ( !skipIfIntersects || !mMapSettings->extent().intersects( extent ) ) )
+          {
+            mMapSettings->setExtent( extent, true );
+          }
+        }
+        catch ( const QgsException &e )
+        {
+          Q_UNUSED( e )
+          return;
         }
       }
     }
@@ -83,9 +104,15 @@ QgsPoint FeatureListExtentController::getCentroidFromSelected() const
       QgsGeometry geom = feat.geometry();
 
       const QgsCoordinateTransform transf( layer->crs(), mMapSettings->destinationCrs(), mMapSettings->mapSettings().transformContext() );
-      geom.transform( transf );
-
-      return QgsPoint( geom.centroid().asPoint() );
+      try
+      {
+        geom.transform( transf );
+        return QgsPoint( geom.centroid().asPoint() );
+      }
+      catch ( const QgsException &e )
+      {
+        Q_UNUSED( e )
+      }
     }
   }
   return QgsPoint();

@@ -1091,6 +1091,17 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
 </context>
 <context>
+    <name>FileDeviceChooser</name>
+    <message>
+        <source>File path</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Interval (in milliseconds)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
@@ -2139,6 +2150,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Connection details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Logs file (NMEA)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4293,6 +4308,29 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
 </context>
 <context>
     <name>ReferencingFeatureListModel</name>
+    <message>
+        <source>Invalid referencing layer</source>
+        <translation type="vanished">Ungültiger Referenz-Layer</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">Kann nicht mit dem Bearbeiten beginnen.</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">Objekt kann nicht gelöscht werden.</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">Kann Änderungen im Layer %1 nicht rückgängig machen.</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">Kann Änderungen im Layer %1 nicht übergeben.</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
     <message>
         <source>Invalid referencing layer</source>
         <translation>Ungültiger Referenz-Layer</translation>

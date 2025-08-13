@@ -1091,6 +1091,17 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     </message>
 </context>
 <context>
+    <name>FileDeviceChooser</name>
+    <message>
+        <source>File path</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Interval (in milliseconds)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
@@ -2141,6 +2152,10 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     <message>
         <source>Connection details</source>
         <translation>Yhteyden tiedot</translation>
+    </message>
+    <message>
+        <source>Logs file (NMEA)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4298,6 +4313,29 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
 </context>
 <context>
     <name>ReferencingFeatureListModel</name>
+    <message>
+        <source>Invalid referencing layer</source>
+        <translation type="vanished">Invalidi viittaava taso</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">Ei voida aloittaa muokkausta</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">Kohdetta ei voida poistaa</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">Ei voida palauttaa tason muutoksia tasolla %1. </translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">Ei voida kommitoida tason muutoksia tasolla %1.</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
     <message>
         <source>Invalid referencing layer</source>
         <translation>Invalidi viittaava taso</translation>
