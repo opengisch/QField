@@ -34,6 +34,24 @@
     <link href="css/qfield.css?ver=3" rel="stylesheet" media="screen" />
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
+
+    <style>
+      .btn-simple {
+        background-color: transparent;
+        color: var(--qfield-color);
+        font-weight: bold;
+        /* border: var(--qfield-color) 0.3px solid; */
+        margin-top: 18px;
+        text-decoration: none;
+        padding: 0px;
+      }
+
+      .btn-simple:hover {
+        background-color: transparent;
+        color: var(--qfield-color);
+      }
+    </style>
   </head>
 
   <body>
@@ -169,7 +187,7 @@
                     with comprehensive training and implementation services.
                   </p>
                   <div>
-                    <a href="#" class="btn btn-primary pull-left" data-toggle="modal" data-target="#oslandiaModal">Read more...</a>
+                    <a href="#" class="btn btn-simple pull-left" data-toggle="modal" data-target="#oslandiaModal">Read more...</a>
                     <a href="https://oslandia.com/en/" class="btn btn-primary pull-right" target="_blank">Visit Website</a>
                   </div>
                 </div>
@@ -198,7 +216,7 @@
                   </p>
 
                 <div>
-                  <a href="#" class="btn btn-primary pull-left" data-toggle="modal" data-target="#astunModal">Read more...</a>
+                  <a href="#" class="btn btn-simple pull-left" data-toggle="modal" data-target="#astunModal">Read more...</a>
                   <a href="https://www.astuntechnology.com/" class="btn btn-primary pull-right" target="_blank">Visit Website</a>
                 </div>
                 </div>
@@ -224,15 +242,34 @@
                     Based in South Africa and Portugal, Kartoza helps organizations harness open source geospatial tech through expert support and services.
                   </p>
                 <div>
-                  <a href="#" class="btn btn-primary pull-left" data-toggle="modal" data-target="#kartozaModal">Read more...</a>
+                  <a href="#" class="btn btn-simple pull-left" data-toggle="modal" data-target="#kartozaModal">Read more...</a>
                   <a href="https://kartoza.com/?srsltid=AfmBOopgp4nOuq-iMkikUPAwdL-qcPsu6AdOFMQsal152Zc4IjgohrSm" class="btn btn-primary pull-right" target="_blank">Visit Website</a>
                 </div>
                 </div>
               </div>
             </div>
-
+        <!-- Partner: Projectree -->
+        <div class="col-sm-6 col-md-4">
+          <div class="panel panel-default" data-region="south-america">
+            <div class="panel-body">
+              <div class="clearfix">
+                <span class="label label-default pull-right">🇧🇷 Brazil</span>
+              </div>
+              <h4 class="panel-title">
+                <img src="images/partners/projectree-logo.png" alt="Projectree" class="partner-logo" />
+                Projectree
+              </h4>
+              <p>
+                Engineering, environmental, and surveying consultancy. Specialists in environmental licensing and GIS solutions for the Brazilian market.
+              </p>
+              <div>
+                <a href="#" class="btn btn-simple pull-left" data-toggle="modal" data-target="#projectreeModal">Read more...</a>
+                <a href="https://projectree.com.br"
+                  class="btn btn-primary pull-right" target="_blank">Visit Website</a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
     </section>
 
     <!-- Section #3: fine lines -->
@@ -433,6 +470,38 @@
           <li>Open Source geospatial training</li>
         </ul>
         <p><strong>Expertise:</strong> Kartoza's vision is to enable a world where spatial decision making tools are universal, accessible and affordable for everyone for the benefit of the planet and the people that inhabit it. We would love to partner with you for training, development and maintenance of open source GIS systems.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a href="https://oslandia.com/en/" class="btn btn-success" target="_blank">Visit Website</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Projectree Modal -->
+<div class="modal fade" id="projectreeModal" tabindex="-1" role="dialog" aria-labelledby="projectreeModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="projectreeModalLabel">
+          <img src="images/partners/projectree-logo.png" alt="Projectree" class="partner-logo" style="width: 30px; height: 30px;">
+          Projectree
+        </h4>
+      </div>
+      <div class="modal-body">
+        <p><strong>Location:</strong> 🇵🇹 Brazil</p>
+        <p><strong>Services:</strong></p>
+        <ul>
+          <li>Engineering</li>
+          <li>Surveying and mapping services</li>
+          <li>GIS consulting</li>
+          <li>Environmental licensing</li>
+          <li>Project management</li>
+          <li>Environmental and forestry studies</li>
+        </ul>
+        <p><strong>Expertise:</strong> We provide geospatial solutions, optimizing office-field workflows and delivering results for sectors such as infrastructure, the environment, mapping, and legal surveying. We specialize in collecting and processing accurate data in full compliance with Brazilian legislation.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
