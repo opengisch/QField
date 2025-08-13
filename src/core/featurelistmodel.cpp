@@ -404,8 +404,9 @@ void FeatureListModel::setAddNull( bool addNull )
     return;
 
   mAddNull = addNull;
-  reloadLayer();
   emit addNullChanged();
+
+  reloadLayer();
 }
 
 bool FeatureListModel::orderByValue() const

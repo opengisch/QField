@@ -1093,6 +1093,17 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
 </context>
 <context>
+    <name>FileDeviceChooser</name>
+    <message>
+        <source>File path</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Interval (in milliseconds)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
@@ -2143,6 +2154,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Connection details</source>
         <translation>Detalles de la conexión</translation>
+    </message>
+    <message>
+        <source>Logs file (NMEA)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4296,6 +4311,29 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
 </context>
 <context>
     <name>ReferencingFeatureListModel</name>
+    <message>
+        <source>Invalid referencing layer</source>
+        <translation type="vanished">Capa de referenciación no válida</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">No se puede empezar a editar</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">No se puede borrar el objeto</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">No se pueden volver atrás los cambios en la capa %1</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">No se pueden registrar los cambios en la capa %1.</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
     <message>
         <source>Invalid referencing layer</source>
         <translation>Capa de referenciación no válida</translation>

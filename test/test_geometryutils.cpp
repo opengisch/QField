@@ -51,9 +51,8 @@ TEST_CASE( "GeometryUtils" )
     REQUIRE( geom.asWkt() == QStringLiteral( "Polygon ((0 0, 2 1, 1 2, 1 2, 0 0))" ) );
   }
 
-  SECTION( "   AddRingFromRubberband" )
+  SECTION( "AddRingFromRubberband" )
   {
-    REQUIRE( mLayer->startEditing() );
     REQUIRE( mLayer.get() );
     REQUIRE( model.get() );
     REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, model.get() ) == GeometryUtils::GeometryOperationResult::AddRingNotValid );
@@ -64,20 +63,17 @@ TEST_CASE( "GeometryUtils" )
     mLayer->select( 1 );
 
     REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 1, model.get() ) == GeometryUtils::GeometryOperationResult::Success );
-    REQUIRE( mLayer->rollBack() );
   }
 
 
   SECTION( "SplitFeatureFromRubberband" )
   {
-    REQUIRE( mLayer->startEditing() );
-    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == GeometryUtils::GeometryOperationResult::NothingHappened );
+    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), 1, model.get() ) == GeometryUtils::GeometryOperationResult::NothingHappened );
 
     model->addVertexFromPoint( QgsPoint( 7.5, 8.5 ) );
     model->addVertexFromPoint( QgsPoint( 9.5, 8.5 ) );
     mLayer->select( 1 );
 
-    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), model.get() ) == GeometryUtils::GeometryOperationResult::Success );
-    REQUIRE( mLayer->rollBack() );
+    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), 1, model.get() ) == GeometryUtils::GeometryOperationResult::Success );
   }
 }

@@ -34,20 +34,20 @@ class OrderedRelationModel;
 /**
  * \ingroup core
  */
-class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
+class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemModel
 {
     Q_OBJECT
 
+    Q_PROPERTY( bool isLoading READ isLoading NOTIFY isLoadingChanged )
     Q_PROPERTY( QgsFeature feature WRITE setFeature READ feature NOTIFY featureChanged )
     Q_PROPERTY( QgsRelation relation WRITE setRelation READ relation NOTIFY relationChanged )
     Q_PROPERTY( QString currentRelationId WRITE setCurrentRelationId READ currentRelationId NOTIFY relationChanged )
     Q_PROPERTY( QString currentNmRelationId WRITE setCurrentNmRelationId READ currentNmRelationId NOTIFY nmRelationChanged )
     Q_PROPERTY( QgsRelation nmRelation WRITE setNmRelation READ nmRelation NOTIFY nmRelationChanged )
     Q_PROPERTY( bool parentPrimariesAvailable WRITE setParentPrimariesAvailable READ parentPrimariesAvailable NOTIFY parentPrimariesAvailableChanged )
-    Q_PROPERTY( bool isLoading READ isLoading NOTIFY isLoadingChanged )
 
   public:
-    explicit ReferencingFeatureListModel( QObject *parent = nullptr );
+    explicit ReferencingFeatureListModelBase( QObject *parent = nullptr );
 
     enum ReferencedFeatureListRoles
     {
@@ -208,13 +208,113 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModel : public QAbstractItemModel
 /**
  * \ingroup core
  */
-class ReferencingFeatureProxyModel : public QSortFilterProxyModel
+class ReferencingFeatureListModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+
+    Q_PROPERTY( bool isLoading READ isLoading NOTIFY isLoadingChanged )
+    Q_PROPERTY( QgsFeature feature WRITE setFeature READ feature NOTIFY featureChanged )
+    Q_PROPERTY( QgsRelation relation WRITE setRelation READ relation NOTIFY relationChanged )
+    Q_PROPERTY( QString currentRelationId WRITE setCurrentRelationId READ currentRelationId NOTIFY relationChanged )
+    Q_PROPERTY( QString currentNmRelationId WRITE setCurrentNmRelationId READ currentNmRelationId NOTIFY nmRelationChanged )
+    Q_PROPERTY( QgsRelation nmRelation WRITE setNmRelation READ nmRelation NOTIFY nmRelationChanged )
+    Q_PROPERTY( bool parentPrimariesAvailable WRITE setParentPrimariesAvailable READ parentPrimariesAvailable NOTIFY parentPrimariesAvailableChanged )
     Q_PROPERTY( Qt::SortOrder sortOrder READ sortOrder WRITE setSortOrder NOTIFY sortOrderChanged )
 
   public:
-    explicit ReferencingFeatureProxyModel( QObject *parent = nullptr );
+    explicit ReferencingFeatureListModel( QObject *parent = nullptr );
+
+    //! Returns the id of the relation connecting the parent feature with the children in this model
+    QString currentRelationId() const;
+
+    //! Sets the relation connecting the parent feature with the children in this model
+    void setCurrentRelationId( const QString &relationId );
+
+    //! On many-to-many relations returns the second relation id connecting the children in the association table to their other parent
+    QString currentNmRelationId() const;
+
+    //! On many-to-many relations sets the second relation connecting the children in the association table to their other parent
+    void setCurrentNmRelationId( const QString &nmRelationId );
+
+    /**
+    * The parent feature for which this model contains the children
+    * \param feature
+    * \see feature
+    */
+    void setFeature( const QgsFeature &feature );
+
+    /**
+    * The parent feature for which this model contains the children
+    * \return the parent feature
+    * \see setFeature
+    */
+    QgsFeature feature() const;
+
+    /**
+    * The relation connecting the parent feature with the children in this model
+    * \param relation
+    * \see relation
+    */
+    void setRelation( const QgsRelation &relation );
+
+    /**
+    * The relation connecting the parent feature with the children in this model
+    * \return relation
+    * \see setRelation
+    */
+    QgsRelation relation() const;
+
+    /**
+    * On many-to-many relations this is the second relation connecting the children in the associationtable to their other parent
+    * \param relation The associated relation
+    * \see nmRelation
+    */
+    void setNmRelation( const QgsRelation &relation );
+
+    /**
+    * On many-to-many relations this is the second relation connecting the children in the associationtable to their other parent
+    * \return associated relation
+    * \see setNmRelation
+    */
+    QgsRelation nmRelation() const;
+
+    /**
+    * The status if the pk of the parent feature (this feature) are valid (not null)
+    * \param parentPrimariesAvailable The status if the parent pks are available
+    * \see parentPrimariesAvailable
+    */
+    void setParentPrimariesAvailable( const bool parentPrimariesAvailable );
+
+    /**
+    * The status if the pk of the parent feature (this feature) are valid (not null)
+    * It's needed to check on opening a form to add a new child
+    * \return parentPrimariesAvailable The status if the parent pks are available
+    * \see setParentPrimariesAvailable
+    */
+    bool parentPrimariesAvailable() const;
+
+    /**
+    * Reloads the model by starting the reload functionality in the gatherer (seperate thread)
+    * Sets the property parentPrimariesAvailable
+    */
+    Q_INVOKABLE void reload();
+
+    /**
+    * Deletes a feature regarding the referencing layer and the feature id of the selected child
+    * \param referencingFeatureId id of the selected child
+    */
+    Q_INVOKABLE bool deleteFeature( QgsFeatureId referencingFeatureId );
+
+    /**
+    * Returns the row number for a given feature id
+    * \param featureId the feature id
+    */
+    Q_INVOKABLE int getFeatureIdRow( QgsFeatureId featureId );
+
+    /**
+    * Indicator if the model is currently performing any feature iteration in the background.
+    */
+    bool isLoading() const;
 
     /**
      * @brief Returns the current sort order (ascending or descending).
@@ -228,9 +328,18 @@ class ReferencingFeatureProxyModel : public QSortFilterProxyModel
     void setSortOrder( Qt::SortOrder sortOrder );
 
   signals:
+    void attributeFormModelChanged();
+    void featureChanged();
+    void relationChanged();
+    void nmRelationChanged();
+    void parentPrimariesAvailableChanged();
+    void isLoadingChanged();
+    void beforeModelUpdated();
+    void modelUpdated();
     void sortOrderChanged();
 
   private:
+    ReferencingFeatureListModelBase *mSourceModel = nullptr;
     Qt::SortOrder mSortOrder = Qt::AscendingOrder;
 };
 
@@ -299,7 +408,7 @@ class FeatureGatherer : public QThread
           nmDisplayString = nmExpression.evaluate( &mNmContext ).toString();
         }
 
-        mEntries.append( ReferencingFeatureListModel::Entry( displayString, childFeature, nmDisplayString, nmFeature ) );
+        mEntries.append( ReferencingFeatureListModelBase::Entry( displayString, childFeature, nmDisplayString, nmFeature ) );
 
         //cppcheck-suppress knownConditionTrueFalse
         if ( mWasCanceled )
@@ -319,7 +428,7 @@ class FeatureGatherer : public QThread
     bool wasCanceled() const { return mWasCanceled; }
 
     //! \returns the list of entries
-    QList<ReferencingFeatureListModel::Entry> entries() const { return mEntries; }
+    QList<ReferencingFeatureListModelBase::Entry> entries() const { return mEntries; }
 
   signals:
 
@@ -355,7 +464,7 @@ class FeatureGatherer : public QThread
       return request;
     }
 
-    QList<ReferencingFeatureListModel::Entry> mEntries;
+    QList<ReferencingFeatureListModelBase::Entry> mEntries;
 
     std::unique_ptr<QgsVectorLayerFeatureSource> mReferencingSource;
     QgsFeatureRequest mRequest;

@@ -41,16 +41,12 @@ EditorWidgetBase {
     // attributeValue has to be the last property set to make sure its given value is handled properly (e.g. allow multiple)
     attributeValue: value !== undefined ? value : ""
 
+    searchTerm: allowMulti ? searchBar.searchTerm : ""
+    sortCheckedFirst: allowMulti && !isEnabled
+
     onListUpdated: {
       valueChangeRequested(attributeValue, attributeValue === "");
     }
-  }
-
-  FeatureCheckListProxyModel {
-    id: featureCheckListProxyModel
-    sourceModel: listModel
-    searchTerm: searchBar.searchTerm
-    sortCheckedFirst: !isEnabled
   }
 
   RelationCombobox {
@@ -59,7 +55,7 @@ EditorWidgetBase {
 
     useCompleter: !!config['UseCompleter']
     enabled: isEnabled
-    visible: Number(config['AllowMulti']) !== 1
+    visible: !listModel.allowMulti
     relation: undefined
   }
 
@@ -68,7 +64,7 @@ EditorWidgetBase {
     width: parent.width
     anchors.top: parent.top
     anchors.topMargin: 4
-    visible: Number(config['AllowMulti']) === 1
+    visible: listModel.allowMulti
     spacing: 4
 
     QfSearchBar {
@@ -77,6 +73,7 @@ EditorWidgetBase {
       height: 40
       visible: enabled
       enabled: isEnabled
+
       onEnabledChanged: {
         if (!enabled) {
           clear();
@@ -89,7 +86,6 @@ EditorWidgetBase {
 
       property int itemHeight: 32
 
-      visible: Number(config['AllowMulti']) === 1
       width: parent.width
       height: Math.min(8 * itemHeight, valueGridView.implicitHeight + 2)
 
@@ -110,21 +106,19 @@ EditorWidgetBase {
           anchors.left: parent.left
           anchors.right: parent.right
           anchors.top: parent.top
-          focus: true
           columns: config['NofColumns'] ? config['NofColumns'] : 1
           columnSpacing: 1
           rowSpacing: 0
 
           Repeater {
             id: repeater
-            model: featureCheckListProxyModel
+            model: listModel.allowMulti ? listModel : 0
 
             delegate: Item {
               id: listItem
               Layout.fillWidth: true
               Layout.fillHeight: true
               Layout.minimumHeight: Math.max(valueText.height, valueRelationList.itemHeight) + (header.visible ? header.height : 0)
-              focus: true
 
               property string groupFieldVal: groupFieldValue ? groupFieldValue : ""
               property alias headerItem: header

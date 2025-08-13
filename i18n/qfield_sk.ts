@@ -1093,6 +1093,17 @@ Geometrie objektov budú zlúčené do objektu &apos;%1&apos;, ktorý si zachov�
     </message>
 </context>
 <context>
+    <name>FileDeviceChooser</name>
+    <message>
+        <source>File path</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Interval (in milliseconds)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
@@ -2143,6 +2154,10 @@ Dôvod:
     </message>
     <message>
         <source>Connection details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Logs file (NMEA)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4299,6 +4314,29 @@ Zrušiť a spraviť minimálny sken.</translation>
 </context>
 <context>
     <name>ReferencingFeatureListModel</name>
+    <message>
+        <source>Invalid referencing layer</source>
+        <translation type="vanished">Neplatná referenčná vrstva</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation type="vanished">Editácia nie je možná</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation type="vanished">Odstránenie prvku nie je možné</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation type="vanished">Zmeny vo vrstve %1 nie je možné vrátiť späť</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation type="vanished">Vo vrstve %1 nejde spraviť zmeny.</translation>
+    </message>
+</context>
+<context>
+    <name>ReferencingFeatureListModelBase</name>
     <message>
         <source>Invalid referencing layer</source>
         <translation>Neplatná referenčná vrstva</translation>

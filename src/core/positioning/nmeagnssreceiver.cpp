@@ -15,9 +15,9 @@
  ***************************************************************************/
 
 #include "nmeagnssreceiver.h"
-#include "platformutilities.h"
 #include "positioningsource.h"
 
+#include <QFileInfo>
 #include <QSettings>
 
 NmeaGnssReceiver::NmeaGnssReceiver( QObject *parent )
@@ -99,12 +99,14 @@ void NmeaGnssReceiver::nmeaSentenceReceived( const QString &substring )
   }
 }
 
-void NmeaGnssReceiver::handleStartLogging()
+void NmeaGnssReceiver::handleStartLogging( const QString &path )
 {
-  const QStringList appDataDirs = PlatformUtilities::instance()->appDataDirs();
-  if ( !appDataDirs.isEmpty() )
+  if ( QFileInfo::exists( path ) )
   {
-    mLogFile.setFileName( QStringLiteral( "%1/logs/nmea-%2.log" ).arg( appDataDirs.at( 0 ), QDateTime::currentDateTime().toString( QStringLiteral( "yyyy-MM-ddThh:mm:ss" ) ) ) );
+    if ( mLogFile.isOpen() )
+      handleStopLogging();
+
+    mLogFile.setFileName( QStringLiteral( "%1/nmea-%2.log" ).arg( path, QDateTime::currentDateTime().toString( QStringLiteral( "yyyy-MM-ddThh:mm:ss" ) ) ) );
     mLogFile.open( QIODevice::WriteOnly );
     mLogStream.setDevice( &mLogFile );
   }

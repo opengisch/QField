@@ -31,15 +31,11 @@ RelationEditorBase {
   }
 
   onToggleSortAction: {
-    relationEditorProxyModel.sortOrder = relationEditorProxyModel.sortOrder === Qt.AscendingOrder ? Qt.DescendingOrder : Qt.AscendingOrder;
+    referencingFeatureListModel.sortOrder = referencingFeatureListModel.sortOrder === Qt.AscendingOrder ? Qt.DescendingOrder : Qt.AscendingOrder;
   }
 
   listView.model: DelegateModel {
-    model: ReferencingFeatureProxyModel {
-      id: relationEditorProxyModel
-      sourceModel: referencingFeatureListModel
-      sortOrder: Qt.AscendingOrder
-    }
+    model: referencingFeatureListModel
     delegate: referencingFeatureDelegate
   }
 

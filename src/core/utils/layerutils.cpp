@@ -305,7 +305,7 @@ bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, cons
   return isSuccess;
 }
 
-QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature )
+QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, QgsFeature feature )
 {
   if ( !layer )
   {
@@ -323,6 +323,13 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, const QgsFeature
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
     return QgsFeature();
+  }
+
+  // When duplicating a feature, insure the source primary ID is correctly set to null (i.e. new feature within the source dataset)
+  QString sourcePrimaryKeys = layer->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).toString();
+  if ( layer->fields().lookupField( sourcePrimaryKeys ) >= 0 )
+  {
+    feature.setAttribute( layer->fields().lookupField( sourcePrimaryKeys ), QVariant() );
   }
 
   QgsFeature duplicatedFeature;
@@ -370,6 +377,17 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, const QgsFeature
       }
     }
 
+    // Insure the source primary ID of a duplicated child feature is correctly set to null (i.e. new feature within the source dataset)
+    sourcePrimaryKeys = chl->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).toString();
+    if ( !sourcePrimaryKeys.isEmpty() && chl->fields().lookupField( sourcePrimaryKeys ) >= 0 )
+    {
+      const int sourcePrimaryKeysIndex = chl->fields().lookupField( sourcePrimaryKeys );
+      for ( auto fid : fids )
+      {
+        chl->changeAttributeValue( fid, sourcePrimaryKeysIndex, QVariant() );
+      }
+    }
+
     chl->commitChanges();
   }
 
@@ -387,5 +405,11 @@ bool LayerUtils::hasMValue( QgsVectorLayer *layer )
 FeatureIterator LayerUtils::createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression )
 {
   const QgsFeatureRequest request = QgsFeatureRequest( QgsExpression( expression ) );
+  return FeatureIterator( layer, request );
+}
+
+FeatureIterator LayerUtils::createFeatureIteratorFromRectangle( QgsVectorLayer *layer, const QgsRectangle &rectangle )
+{
+  const QgsFeatureRequest request = QgsFeatureRequest( rectangle );
   return FeatureIterator( layer, request );
 }

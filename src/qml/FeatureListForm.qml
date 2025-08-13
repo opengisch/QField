@@ -472,7 +472,7 @@ Rectangle {
     id: featureListToolBar
 
     topMargin: featureFormList.y == 0 ? mainWindow.sceneTopMargin : 0.0
-    leftMargin: mainWindow.sceneLeftMargin
+    leftMargin: featureFormList.x == 0 ? mainWindow.sceneLeftMargin : 0.0
     rightMargin: mainWindow.sceneRightMargin
 
     allowDelete: allowDelete
@@ -679,6 +679,8 @@ Rectangle {
         translateX -= moveFeaturesTransformer.projectedPosition.x;
         translateY -= moveFeaturesTransformer.projectedPosition.y;
         featureFormList.model.moveSelection(translateX, translateY);
+        moveFeaturesToolbar.startPoint = undefined;
+        moveFeaturesToolbar.endPoint = undefined;
       }
     }
 

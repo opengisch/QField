@@ -46,7 +46,6 @@ void ClipboardManager::dataChanged()
     return;
   }
 
-  mHoldsFeature = false;
   mHasNativeFeature = false;
   mNativeFeature = QgsFeature();
   mHtmlFeature.clear();

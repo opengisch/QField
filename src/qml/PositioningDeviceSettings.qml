@@ -75,6 +75,12 @@ Popup {
           "value": PositioningDeviceModel.SerialPortDevice
         });
     }
+    if (Qt.platform.os !== "android" && Qt.platform.os !== "ios") {
+      positioningDeviceTypeModel.insert(positioningDeviceTypeModel.count, {
+          "name": qsTr('Logs file (NMEA)'),
+          "value": PositioningDeviceModel.FileDevice
+        });
+    }
     if (positioningSettings.egenioussEnabled) {
       positioningDeviceTypeModel.insert(0, {
           "name": qsTr('Egeniouss'),
@@ -157,6 +163,8 @@ Popup {
           height: 36
           icon.source: {
             switch (value) {
+            case PositioningDeviceModel.FileDevice:
+              return Theme.getThemeVectorIcon("ic_file_black_24dp");
             case PositioningDeviceModel.BluetoothDevice:
               return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
             case PositioningDeviceModel.TcpDevice:
@@ -183,6 +191,8 @@ Popup {
 
           icon.source: {
             switch (positioningDeviceType.currentValue) {
+            case PositioningDeviceModel.FileDevice:
+              return Theme.getThemeVectorIcon("ic_file_black_24dp");
             case PositioningDeviceModel.BluetoothDevice:
               return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
             case PositioningDeviceModel.TcpDevice:
@@ -249,6 +259,8 @@ Popup {
         Layout.fillHeight: true
         source: {
           switch (positioningDeviceType.currentValue) {
+          case PositioningDeviceModel.FileDevice:
+            return "qrc:/qml/FileDeviceChooser.qml";
           case PositioningDeviceModel.BluetoothDevice:
             return "qrc:/qml/BluetoothDeviceChooser.qml";
           case PositioningDeviceModel.TcpDevice:
