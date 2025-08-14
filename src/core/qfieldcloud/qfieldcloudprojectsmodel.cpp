@@ -748,7 +748,9 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
           continue;
         }
 
-        if ( cloudProject->isSharedDatasetsProject() )
+        // If the cloud project is a special shared dataset project or if the cloud project
+        // had a folder but was not downloaded properly, do not add to the model
+        if ( cloudProject->isSharedDatasetsProject() || cloudProject->localPath().isEmpty() )
         {
           delete cloudProject;
         }
