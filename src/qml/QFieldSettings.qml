@@ -1047,10 +1047,29 @@ Page {
 
             GridLayout {
               Layout.fillWidth: true
+              Layout.leftMargin: 20
+              Layout.rightMargin: 20
 
               columns: 2
               columnSpacing: 0
               rowSpacing: 5
+
+              Label {
+                text: qsTr('User Interface')
+                font: Theme.strongFont
+                color: Theme.mainColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 5
+                Layout.columnSpan: 2
+              }
+
+              Rectangle {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                height: 1
+                color: Theme.mainColor
+              }
 
               Label {
                 text: qsTr("Show position information")
@@ -1073,60 +1092,6 @@ Page {
                 onCheckedChanged: {
                   positioningSettings.showPositionInformation = checked;
                 }
-              }
-
-              Label {
-                id: measureLabel
-                Layout.fillWidth: true
-                Layout.columnSpan: 2
-                text: qsTr("Measure (M) value attached to vertices:")
-                font: Theme.defaultFont
-                color: Theme.mainTextColor
-
-                wrapMode: Text.WordWrap
-              }
-
-              ComboBox {
-                id: measureComboBox
-                Layout.fillWidth: true
-                Layout.columnSpan: 2
-                Layout.alignment: Qt.AlignVCenter
-                font: Theme.defaultFont
-
-                popup.font: Theme.defaultFont
-                popup.topMargin: mainWindow.sceneTopMargin
-                popup.bottomMargin: mainWindow.sceneTopMargin
-
-                property bool loaded: false
-                Component.onCompleted: {
-                  // This list matches the Tracker::MeasureType enum, with SecondsSinceStart removed
-                  var measurements = [qsTr("Timestamp (milliseconds since epoch)"), qsTr("Ground speed"), qsTr("Bearing"), qsTr("Horizontal accuracy"), qsTr("Vertical accuracy"), qsTr("PDOP"), qsTr("HDOP"), qsTr("VDOP")];
-                  measureComboBox.model = measurements;
-                  measureComboBox.currentIndex = positioningSettings.digitizingMeasureType - 1;
-                  loaded = true;
-                }
-
-                onCurrentIndexChanged: {
-                  if (loaded) {
-                    positioningSettings.digitizingMeasureType = currentIndex + 1;
-                  }
-                }
-              }
-
-              Label {
-                id: measureTipLabel
-                Layout.fillWidth: true
-                text: qsTr("When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.")
-                font: Theme.tipFont
-                color: Theme.secondaryTextColor
-
-                wrapMode: Text.WordWrap
-              }
-
-              Item {
-                // spacer item
-                Layout.fillWidth: true
-                Layout.fillHeight: true
               }
 
               Label {
@@ -1231,35 +1196,7 @@ Page {
               }
 
               Label {
-                text: qsTr("Enforce accuracy requirement")
-                font: Theme.defaultFont
-                color: Theme.mainTextColor
-                enabled: accuracyIndicator.checked
-                visible: accuracyIndicator.checked
-                wrapMode: Text.WordWrap
-                Layout.fillWidth: true
-                Layout.leftMargin: 8
-
-                MouseArea {
-                  anchors.fill: parent
-                  onClicked: accuracyIndicator.toggle()
-                }
-              }
-
-              QfSwitch {
-                id: accuracyRequirement
-                Layout.preferredWidth: implicitContentWidth
-                Layout.alignment: Qt.AlignTop
-                enabled: accuracyIndicator.checked
-                visible: accuracyIndicator.checked
-                checked: positioningSettings.accuracyRequirement
-                onCheckedChanged: {
-                  positioningSettings.accuracyRequirement = checked;
-                }
-              }
-
-              Label {
-                text: qsTr("When the accuracy indicator is enabled, a badge is attached to the location button and colored <span %1>red</span> if the accuracy value is worse than <i>bad</i>, <span %2>yellow</span> if it falls short of <i>excellent</i>, or <span %3>green</span>.<br><br>In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.").arg("style='%1'".arg(Theme.toInlineStyles({
+                text: qsTr("When the accuracy indicator is enabled, a badge is attached to the location button and colored <span %1>red</span> if the accuracy value is worse than <i>bad</i>, <span %2>yellow</span> if it falls short of <i>excellent</i>, or <span %3>green</span>.").arg("style='%1'".arg(Theme.toInlineStyles({
                         "color": Theme.accuracyBad
                       }))).arg("style='%1'".arg(Theme.toInlineStyles({
                         "color": Theme.accuracyTolerated
@@ -1276,6 +1213,111 @@ Page {
               Item {
                 // empty cell in grid layout
                 width: 1
+              }
+
+              Label {
+                text: qsTr('Digitizing')
+                font: Theme.strongFont
+                color: Theme.mainColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 20
+                Layout.columnSpan: 2
+              }
+
+              Rectangle {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                height: 1
+                color: Theme.mainColor
+              }
+
+              Label {
+                text: qsTr("Enforce accuracy requirement")
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                enabled: accuracyIndicator.checked
+                visible: accuracyIndicator.checked
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+
+                MouseArea {
+                  anchors.fill: parent
+                  onClicked: accuracyRequirement.toggle()
+                }
+              }
+
+              QfSwitch {
+                id: accuracyRequirement
+                Layout.preferredWidth: implicitContentWidth
+                Layout.alignment: Qt.AlignTop
+                enabled: accuracyIndicator.checked
+                visible: accuracyIndicator.checked
+                checked: positioningSettings.accuracyRequirement
+                onCheckedChanged: {
+                  positioningSettings.accuracyRequirement = checked;
+                }
+              }
+
+              Label {
+                text: qsTr("In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.")
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+                textFormat: Qt.RichText
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                enabled: accuracyIndicator.checked
+                visible: accuracyIndicator.checked
+              }
+
+              Label {
+                id: measureLabel
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                text: qsTr("Measure (M) value attached to vertices:")
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+
+                wrapMode: Text.WordWrap
+              }
+
+              ComboBox {
+                id: measureComboBox
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.alignment: Qt.AlignVCenter
+                font: Theme.defaultFont
+
+                popup.font: Theme.defaultFont
+                popup.topMargin: mainWindow.sceneTopMargin
+                popup.bottomMargin: mainWindow.sceneTopMargin
+
+                property bool loaded: false
+                Component.onCompleted: {
+                  // This list matches the Tracker::MeasureType enum, with SecondsSinceStart removed
+                  var measurements = [qsTr("Timestamp (milliseconds since epoch)"), qsTr("Ground speed"), qsTr("Bearing"), qsTr("Horizontal accuracy"), qsTr("Vertical accuracy"), qsTr("PDOP"), qsTr("HDOP"), qsTr("VDOP")];
+                  measureComboBox.model = measurements;
+                  measureComboBox.currentIndex = positioningSettings.digitizingMeasureType - 1;
+                  loaded = true;
+                }
+
+                onCurrentIndexChanged: {
+                  if (loaded) {
+                    positioningSettings.digitizingMeasureType = currentIndex + 1;
+                  }
+                }
+              }
+
+              Label {
+                id: measureTipLabel
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                text: qsTr("When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.")
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+
+                wrapMode: Text.WordWrap
               }
 
               Label {
@@ -1380,6 +1422,23 @@ Page {
               Item {
                 // empty cell in grid layout
                 width: 1
+              }
+
+              Label {
+                text: qsTr('Altitude')
+                font: Theme.strongFont
+                color: Theme.mainColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 20
+                Layout.columnSpan: 2
+              }
+
+              Rectangle {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                height: 1
+                color: Theme.mainColor
               }
 
               Label {
@@ -1596,6 +1655,23 @@ Page {
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
+              }
+
+              Label {
+                text: qsTr('Advanced')
+                font: Theme.strongFont
+                color: Theme.mainColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 20
+                Layout.columnSpan: 2
+              }
+
+              Rectangle {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                height: 1
+                color: Theme.mainColor
               }
 
               Label {
