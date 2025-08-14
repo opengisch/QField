@@ -17,6 +17,7 @@ Item {
   property bool useSearch: false
   property bool allowAddFeature: false
   property var relation: undefined
+  property var layerResolver: undefined
 
   Component.onCompleted: {
     if (!featureListModel.allowMulti) {
@@ -612,11 +613,14 @@ Item {
       iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
       iconColor: Theme.mainTextColor
 
-      visible: enabled && allowAddFeature && relation !== undefined && relation.isValid
+      visible: enabled && allowAddFeature && (layerResolver !== undefined || (relation !== undefined && relation.isValid))
 
       onClicked: {
-        if (relationCombobox.relation.referencedLayer.geometryType() !== Qgis.GeometryType.Null) {
+        if (relationCombobox.relation !== undefined && relationCombobox.relation.referencedLayer.geometryType() !== Qgis.GeometryType.Null) {
           requestGeometry(relationCombobox, relationCombobox.relation.referencedLayer);
+          return;
+        } else if (relationCombobox.layerResolver !== undefined && relationCombobox.layerResolver.currentLayer.geometryType() !== Qgis.GeometryType.Null) {
+          requestGeometry(relationCombobox, relationCombobox.layerResolver.currentLayer);
           return;
         }
         showAddFeaturePopup();
@@ -656,7 +660,12 @@ Item {
 
   function showAddFeaturePopup(geometry) {
     embeddedPopup.state = 'Add';
-    embeddedPopup.currentLayer = relationCombobox.relation ? relationCombobox.relation.referencedLayer : null;
+    embeddedPopup.currentLayer = null;
+    if (relationCombobox.relation !== undefined) {
+      embeddedPopup.currentLayer = relationCombobox.relation.referencedLayer;
+    } else if (relationCombobox.layerResolver !== undefined) {
+      embeddedPopup.currentLayer = relationCombobox.layerResolver.currentLayer;
+    }
     if (geometry !== undefined) {
       embeddedPopup.applyGeometry(geometry);
     }
