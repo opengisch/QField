@@ -373,6 +373,7 @@ void FileUtils::addImageMetadata( const QString &imagePath, const GnssPositionIn
     metadata["Exif.GPSInfo.GPSSpeedRef"] = "K";
   }
 
+  // slight change in behaviour, but more correct
   if ( positionInformation.utcDateTime().isValid() )
   {
     metadata["Exif.GPSInfo.GPSDateStamp"] = positionInformation.utcDateTime().date();
