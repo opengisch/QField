@@ -49,8 +49,8 @@ Item {
     codeReader: form.codeReader
 
     onFeatureSaved: {
-      var referencedValue = addFeaturePopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
-      var index = featureListModel.findKey(referencedValue);
+      const referencedValue = addFeaturePopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
+      const index = featureListModel.findKey(referencedValue);
       if (index < 0) {
         // model not yet reloaded - keep the value and set it onModelReset
         comboBox._cachedCurrentValue = referencedValue;
@@ -85,6 +85,8 @@ Item {
 
     onClosed: {
       searchBar.clear();
+      // Reset the current index based on non-filtered list content
+      comboBox.currentIndex = featureListModel.findKey(currentKeyValue);
     }
 
     Page {
@@ -227,7 +229,7 @@ Item {
           propagateComposedEvents: true
 
           onClicked: mouse => {
-            var item = resultsList.itemAt(resultsList.contentX + mouse.x, resultsList.contentY + mouse.y);
+            const item = resultsList.itemAt(resultsList.contentX + mouse.x, resultsList.contentY + mouse.y);
             if (!item)
               return;
             item.performClick();
@@ -263,7 +265,7 @@ Item {
       valueRole: 'keyFieldValue'
 
       onCurrentIndexChanged: {
-        var newValue = featureListModel.dataFromRowIndex(currentIndex, FeatureListModel.KeyFieldRole);
+        const newValue = featureListModel.dataFromRowIndex(currentIndex, FeatureListModel.KeyFieldRole);
         if (newValue !== currentKeyValue) {
           valueChangeRequested(newValue, false);
         }
@@ -459,10 +461,10 @@ Item {
         onDisplayTextChanged: {
           if (activeFocus) {
             if (text != comboBox.displayText) {
-              var trimmedText = text.trim();
-              var matches = featureListModel.findDisplayValueMatches(trimmedText);
+              const trimmedText = text.trim();
+              const matches = featureListModel.findDisplayValueMatches(trimmedText);
               if (matches.length > 0) {
-                var remainder = featureListModel.dataFromRowIndex(matches[0], featureListModel.DisplayStringRole).substring(trimmedText.length);
+                const remainder = featureListModel.dataFromRowIndex(matches[0], featureListModel.DisplayStringRole).substring(trimmedText.length);
                 searchableLabel.completer = '<span style="color:rgba(0,0,0,0);">' + trimmedText + '</span><span style="font-weight:' + (matches.length === 1 ? 'bold' : 'normal') + ';">' + remainder + '</span>';
                 color = Theme.mainTextColor;
               } else {
@@ -515,8 +517,8 @@ Item {
         }
 
         function applyAutoCompletion(resetIfNone = false) {
-          var trimmedText = text.trim();
-          var matches = featureListModel.findDisplayValueMatches(trimmedText);
+          const trimmedText = text.trim();
+          const matches = featureListModel.findDisplayValueMatches(trimmedText);
           if (matches.length > 0) {
             text = '';
             comboBox.currentIndex = matches[0];
@@ -637,8 +639,8 @@ Item {
     codeReader: form.codeReader
 
     onFeatureSaved: {
-      var referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
-      var index = featureListModel.findKey(referencedValue);
+      const referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
+      const index = featureListModel.findKey(referencedValue);
       if ((featureListModel.addNull && index < 1) || index < 0) {
         // model not yet reloaded - keep the value and set it onModelReset
         comboBox._cachedCurrentValue = referencedValue;
