@@ -700,7 +700,7 @@ Popup {
 
   function revertLocalChangesFromCurrentProject() {
     if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QFieldCloudProject.Idle) {
-      if (cloudProjectsModel.revertLocalChangesFromCurrentProject(cloudProjectsModel.currentProjectId)) {
+      if (cloudProjectsModel.revertLocalChangesFromCurrentProject()) {
         displayToast(qsTr('Local changes reverted'));
       } else {
         displayToast(qsTr('Failed to revert changes'), 'error');
