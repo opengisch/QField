@@ -411,7 +411,7 @@ Page {
     id: fieldItem
 
     Item {
-      width: parent && parent.width > 0 ? parent.width / ColumnCount > 200 ? parent.width / ColumnCount : parent.width : form.width
+      width: parent && parent.width > 0 ? parent.width / ColumnCount > 190 ? parent.width / ColumnCount : parent.width : form.width
       height: fieldGroupTitle.height + fieldContent.childrenRect.height
 
       Rectangle {
