@@ -57,6 +57,8 @@ EditorWidgetBase {
     enabled: isEnabled
     visible: !listModel.allowMulti
     relation: undefined
+    layerResolver: layerResolver
+    allowAddFeature: currentLayer && currentLayer.customProperty('QFieldSync/allow_value_relation_feature_addition') !== undefined ? currentLayer.customProperty('QFieldSync/allow_value_relation_feature_addition') : false
   }
 
   Column {
