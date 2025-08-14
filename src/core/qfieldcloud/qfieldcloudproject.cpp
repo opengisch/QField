@@ -2116,8 +2116,8 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
     QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, project->id() ) );
     if ( localPath.exists() )
     {
-      project->mCheckout = LocalAndRemoteCheckout;
       restoreLocalSettings( project, localPath );
+      project->mCheckout = !project->mLocalPath.isEmpty() ? LocalAndRemoteCheckout : RemoteCheckout;
     }
   }
 
@@ -2193,11 +2193,10 @@ void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, cons
   project->mAutoPushIntervalMins = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "autoPushIntervalMins" ), 30 ).toInt();
 
   // generate local export id if not present. Possible reasons for missing localExportId are:
-  // - just upgraded QField that introduced the field
-  // - the local settings were somehow deleted, but not the project itself
+  // - the cloud project download aborted halfway
+  // - the local settings were somehow deleted, but not the project itself (unlikely)
   if ( project->lastLocalExportId().isEmpty() )
   {
-    project->mLastLocalExportId = QUuid::createUuid().toString( QUuid::WithoutBraces );
-    QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "lastLocalExportId" ), project->lastLocalExportId() );
+    project->mLocalPath.clear();
   }
 };
