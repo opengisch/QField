@@ -190,7 +190,6 @@ void BluetoothReceiver::handleError( QBluetoothSocket::SocketError error )
   if ( mSocket->isOpen() )
   {
     mSocket->close();
-    qInfo() << "Socket still open after error.";
   }
 
   emit lastErrorChanged( mLastError );

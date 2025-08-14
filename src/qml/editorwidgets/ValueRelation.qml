@@ -106,7 +106,7 @@ EditorWidgetBase {
           anchors.left: parent.left
           anchors.right: parent.right
           anchors.top: parent.top
-          columns: config['NofColumns'] ? config['NofColumns'] : 1
+          columns: config['NofColumns'] ? Math.min(config['NofColumns'], parent.width / 100) : 1
           columnSpacing: 1
           rowSpacing: 0
 
@@ -196,6 +196,7 @@ EditorWidgetBase {
                   anchors.right: parent.right
                   anchors.left: checkBox.right
                   anchors.leftMargin: 4
+                  anchors.rightMargin: 4
                   width: parent.width - checkBox.width
                   topPadding: 4
                   bottomPadding: 4
