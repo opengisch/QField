@@ -179,6 +179,111 @@ void PositioningSource::setBackgroundMode( bool backgroundMode )
   emit backgroundModeChanged();
 }
 
+void PositioningSource::setEnableNtripClient( bool enableNtripClient )
+{
+  if ( mEnableNtripClient == enableNtripClient )
+    return;
+
+  mEnableNtripClient = enableNtripClient;
+
+  // Start or stop NTRIP client based on the setting
+  if ( mEnableNtripClient )
+  {
+    startNtripClient();
+  }
+  else
+  {
+    stopNtripClient();
+  }
+
+  emit enableNtripClientChanged();
+}
+
+void PositioningSource::setNtripHost( const QString &ntripHost )
+{
+  if ( mNtripHost == ntripHost )
+    return;
+
+  mNtripHost = ntripHost;
+
+  // Restart NTRIP client if enabled and parameters changed
+  if ( mEnableNtripClient && mNtripClient )
+  {
+    stopNtripClient();
+    startNtripClient();
+  }
+
+  emit ntripHostChanged();
+}
+
+void PositioningSource::setNtripPort( int ntripPort )
+{
+  if ( mNtripPort == ntripPort )
+    return;
+
+  mNtripPort = ntripPort;
+
+  // Restart NTRIP client if enabled and parameters changed
+  if ( mEnableNtripClient && mNtripClient )
+  {
+    stopNtripClient();
+    startNtripClient();
+  }
+
+  emit ntripPortChanged();
+}
+
+void PositioningSource::setNtripMountpoint( const QString &ntripMountpoint )
+{
+  if ( mNtripMountpoint == ntripMountpoint )
+    return;
+
+  mNtripMountpoint = ntripMountpoint;
+
+  // Restart NTRIP client if enabled and parameters changed
+  if ( mEnableNtripClient && mNtripClient )
+  {
+    stopNtripClient();
+    startNtripClient();
+  }
+
+  emit ntripMountpointChanged();
+}
+
+void PositioningSource::setNtripUsername( const QString &ntripUsername )
+{
+  if ( mNtripUsername == ntripUsername )
+    return;
+
+  mNtripUsername = ntripUsername;
+
+  // Restart NTRIP client if enabled and parameters changed
+  if ( mEnableNtripClient && mNtripClient )
+  {
+    stopNtripClient();
+    startNtripClient();
+  }
+
+  emit ntripUsernameChanged();
+}
+
+void PositioningSource::setNtripPassword( const QString &ntripPassword )
+{
+  if ( mNtripPassword == ntripPassword )
+    return;
+
+  mNtripPassword = ntripPassword;
+
+  // Restart NTRIP client if enabled and parameters changed
+  if ( mEnableNtripClient && mNtripClient )
+  {
+    stopNtripClient();
+    startNtripClient();
+  }
+
+  emit ntripPasswordChanged();
+}
+
 QList<GnssPositionInformation> PositioningSource::getBackgroundPositionInformation() const
 {
   QList<GnssPositionInformation> positionInformationList;
@@ -229,13 +334,18 @@ void PositioningSource::setupDevice()
     disconnect( mReceiver, &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &PositioningSource::lastGnssPositionInformationChanged );
     disconnect( mReceiver, &AbstractGnssReceiver::lastErrorChanged, this, &PositioningSource::deviceLastErrorChanged );
     disconnect( mReceiver, &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::deviceSocketStateChanged );
+    disconnect( mReceiver, &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::onDeviceSocketStateChanged );
     disconnect( mReceiver, &AbstractGnssReceiver::socketStateStringChanged, this, &PositioningSource::deviceSocketStateStringChanged );
     mReceiver->deleteLater();
     mReceiver = nullptr;
+
+    // Stop NTRIP client when receiver is being replaced
+    stopNtripClient();
   }
 
   if ( mDeviceId.isEmpty() )
   {
+    // Using internal receiver - NTRIP client not needed
     mReceiver = new InternalGnssReceiver( this );
   }
   else
@@ -284,24 +394,12 @@ void PositioningSource::setupDevice()
     {
 #ifdef WITH_BLUETOOTH
       mReceiver = new BluetoothReceiver( mDeviceId, this );
-      if ( !mNtripClient )
-        mNtripClient = std::make_unique<NtripClient>( this );
 
-      QString ntripHost = "ppntrip.services.u-blox.com";
-      quint16 ntripPort = 2101;
-      QString mountpoint = "US";
-      QString username = "rIOFVFdfhyA3";
-      QString password = "F47Aj3@x^*";
-
-
-      mNtripClient->start( ntripHost, ntripPort, mountpoint, username, password );
-
-      connect( mNtripClient.get(), &NtripClient::correctionDataReceived, static_cast<BluetoothReceiver *>( mReceiver ), &BluetoothReceiver::onCorrectionDataReceived );
-
-      connect( mNtripClient.get(), &NtripClient::errorOccurred,
-               this, []( const QString &msg ) {
-                 qWarning() << msg;
-               } );
+      // Start NTRIP client if enabled for Bluetooth receivers
+      if ( mEnableNtripClient )
+      {
+        startNtripClient();
+      }
 #endif
     }
   }
@@ -311,6 +409,7 @@ void PositioningSource::setupDevice()
   connect( mReceiver, &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &PositioningSource::lastGnssPositionInformationChanged );
   connect( mReceiver, &AbstractGnssReceiver::lastErrorChanged, this, &PositioningSource::deviceLastErrorChanged );
   connect( mReceiver, &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::deviceSocketStateChanged );
+  connect( mReceiver, &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::onDeviceSocketStateChanged );
   connect( mReceiver, &AbstractGnssReceiver::socketStateStringChanged, this, &PositioningSource::deviceSocketStateStringChanged );
   setValid( mReceiver->valid() );
 
@@ -414,6 +513,25 @@ void PositioningSource::processCompassReading()
   }
 }
 
+void PositioningSource::onDeviceSocketStateChanged()
+{
+  if ( mReceiver )
+  {
+    QAbstractSocket::SocketState state = mReceiver->socketState();
+
+    // Stop NTRIP client when receiver is disconnected or has connection error
+    if ( mNtripClient && ( state == QAbstractSocket::UnconnectedState || state == QAbstractSocket::ClosingState ) )
+    {
+      stopNtripClient();
+    }
+    // Start NTRIP client when external receiver connects and setting is enabled
+    else if ( !mNtripClient && mEnableNtripClient && !mDeviceId.isEmpty() && state == QAbstractSocket::ConnectedState )
+    {
+      startNtripClient();
+    }
+  }
+}
+
 void PositioningSource::triggerConnectDevice()
 {
   if ( mReceiver )
@@ -428,4 +546,83 @@ void PositioningSource::triggerDisconnectDevice()
   {
     mReceiver->disconnectDevice();
   }
+}
+
+void PositioningSource::startNtripClient()
+{
+  // Only start NTRIP client if we have an external receiver that can use RTK corrections
+  if ( mReceiver && !mDeviceId.isEmpty() )
+  {
+    // Check that all required NTRIP parameters are configured
+    if ( mNtripHost.isEmpty() || mNtripMountpoint.isEmpty() || mNtripUsername.isEmpty() || mNtripPassword.isEmpty() )
+    {
+      setNtripStatus( QStringLiteral( "Missing parameters" ) );
+      qWarning() << "NTRIP Client: Missing required connection parameters (host, mountpoint, username, or password)";
+      return;
+    }
+
+    if ( !mNtripClient )
+      mNtripClient = std::make_unique<NtripClient>( this );
+
+    // Reset byte counters
+    mNtripBytesSent = 0;
+    mNtripBytesReceived = 0;
+    emit ntripBytesSentChanged();
+    emit ntripBytesReceivedChanged();
+
+    setNtripStatus( QStringLiteral( "Connecting..." ) );
+    mNtripClient->start( mNtripHost, static_cast<quint16>( mNtripPort ), mNtripMountpoint, mNtripUsername, mNtripPassword );
+
+    // Connect to receiver if it supports RTK corrections
+#ifdef WITH_BLUETOOTH
+    if ( auto bluetoothReceiver = dynamic_cast<BluetoothReceiver *>( mReceiver ) )
+    {
+      connect( mNtripClient.get(), &NtripClient::correctionDataReceived, bluetoothReceiver, &BluetoothReceiver::onCorrectionDataReceived );
+    }
+#endif
+
+    // Track connection status through signals
+    connect( mNtripClient.get(), &NtripClient::streamConnected,
+             this, [this]() {
+               setNtripStatus( QStringLiteral( "Connected" ) );
+             } );
+
+    connect( mNtripClient.get(), &NtripClient::errorOccurred,
+             this, [this]( const QString &msg ) {
+               setNtripStatus( QStringLiteral( "Error: %1" ).arg( msg ) );
+               qWarning() << "NTRIP Client Error:" << msg;
+             } );
+
+    // Track byte counters
+    connect( mNtripClient.get(), &NtripClient::bytesCountersChanged,
+             this, [this]() {
+               mNtripBytesSent = mNtripClient->bytesSent();
+               mNtripBytesReceived = mNtripClient->bytesReceived();
+               emit ntripBytesSentChanged();
+               emit ntripBytesReceivedChanged();
+             } );
+  }
+  else
+  {
+    setNtripStatus( QStringLiteral( "No external receiver" ) );
+  }
+}
+
+void PositioningSource::stopNtripClient()
+{
+  if ( mNtripClient )
+  {
+    mNtripClient->stop();
+    mNtripClient.reset();
+  }
+  setNtripStatus( QStringLiteral( "Disconnected" ) );
+}
+
+void PositioningSource::setNtripStatus( const QString &status )
+{
+  if ( mNtripStatus == status )
+    return;
+
+  mNtripStatus = status;
+  emit ntripStatusChanged();
 }
