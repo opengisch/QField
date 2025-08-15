@@ -646,6 +646,25 @@ Rectangle {
         height: 48
         width: 48
         round: true
+        iconSource: Theme.getThemeVectorIcon("ic_content_cut_24dp")
+        iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
+
+        onClicked: {
+          clipboardManager.copyFeatureToClipboard(featureForm.model.featureModel.currentLayer, featureForm.model.featureModel.feature.id, true, true);
+          mainWindow.displayToast(qsTr('Feature cut into clipboard'));
+          featureMenu.close();
+          selection.focusedItem = -1;
+          backClicked();
+          backClicked(); // Second back to close the features list
+        }
+      }
+
+      QfToolButton {
+        anchors.verticalCenter: parent.verticalCenter
+        height: 48
+        width: 48
+        round: true
         iconSource: Theme.getThemeVectorIcon("ic_paste_black_24dp")
         iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
         bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
