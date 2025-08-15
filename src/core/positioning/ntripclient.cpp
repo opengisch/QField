@@ -71,7 +71,7 @@ void NtripClient::start( const QString &ntripHost, const quint16 &port, const QS
 
   //connect(mReply, &QNetworkReply::readyRead, this, &NtripClient::onReadyRead);
   //connect(mReply, &QNetworkReply::finished, this, &NtripClient::onFinished);
-  //connect(mReply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::errorOccurred),
+  //connect(mReply, xxxQOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::errorOccurred),
   //        this, &NtripClient::onError);
 }
 
