@@ -3230,11 +3230,18 @@ ApplicationWindow {
       }
 
       onObjectAdded: (index, object) => {
-        canvasMenu.insertMenu(canvasMenu.contentData.length - 2, object);
+        canvasMenu.insertMenu(canvasMenu.contentData.length - 3, object);
       }
       onObjectRemoved: (index, object) => {
         canvasMenu.removeMenu(object);
       }
+    }
+
+    MenuSeparator {
+      enabled: canvasMenuFeatureListInstantiator.count > 0 && pasteIntoLayers.parent.visible
+      width: parent.width
+      visible: enabled
+      height: enabled ? undefined : 0
     }
 
     QfMenu {
