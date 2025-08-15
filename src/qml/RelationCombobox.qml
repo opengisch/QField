@@ -40,26 +40,7 @@ Item {
   height: childrenRect.height
 
   property var currentKeyValue: value
-  property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopup
-
-  EmbeddedFeatureForm {
-    id: addFeaturePopup
-
-    embeddedLevel: form.embeddedLevel + 1
-    digitizingToolbar: form.digitizingToolbar
-    codeReader: form.codeReader
-
-    onFeatureSaved: {
-      const referencedValue = addFeaturePopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
-      const index = featureListModel.findKey(referencedValue);
-      if (index < 0) {
-        // model not yet reloaded - keep the value and set it onModelReset
-        comboBox._cachedCurrentValue = referencedValue;
-      } else {
-        comboBox.currentIndex = index;
-      }
-    }
-  }
+  property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopupLoader.item
 
   Popup {
     id: searchFeaturePopup
@@ -635,21 +616,26 @@ Item {
     }
   }
 
-  EmbeddedFeatureForm {
-    id: embeddedPopup
+  Loader {
+    id: embeddedPopupLoader
+    active: false
 
-    embeddedLevel: form.embeddedLevel + 1
-    digitizingToolbar: form.digitizingToolbar
-    codeReader: form.codeReader
+    sourceComponent: EmbeddedFeatureForm {
+      id: embeddedPopup
 
-    onFeatureSaved: {
-      const referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
-      const index = featureListModel.findKey(referencedValue);
-      if ((featureListModel.addNull && index < 1) || index < 0) {
-        // model not yet reloaded - keep the value and set it onModelReset
-        comboBox._cachedCurrentValue = referencedValue;
-      } else {
-        comboBox.currentIndex = index;
+      embeddedLevel: form.embeddedLevel + 1
+      digitizingToolbar: form.digitizingToolbar
+      codeReader: form.codeReader
+
+      onFeatureSaved: {
+        const referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
+        const index = featureListModel.findKey(referencedValue);
+        if ((featureListModel.addNull && index < 1) || index < 0) {
+          // model not yet reloaded - keep the value and set it onModelReset
+          comboBox._cachedCurrentValue = referencedValue;
+        } else {
+          comboBox.currentIndex = index;
+        }
       }
     }
   }
@@ -658,17 +644,24 @@ Item {
     showAddFeaturePopup(geometry);
   }
 
+  function ensureEmbeddedFormLoaded() {
+    if (!embeddedPopupLoader.active) {
+      embeddedPopupLoader.active = true;
+    }
+  }
+
   function showAddFeaturePopup(geometry) {
-    embeddedPopup.state = 'Add';
-    embeddedPopup.currentLayer = null;
+    ensureEmbeddedFormLoaded();
+    embeddedFeatureForm.state = 'Add';
+    embeddedFeatureForm.currentLayer = null;
     if (relationCombobox.relation !== undefined) {
-      embeddedPopup.currentLayer = relationCombobox.relation.referencedLayer;
+      embeddedFeatureForm.currentLayer = relationCombobox.relation.referencedLayer;
     } else if (relationCombobox.layerResolver !== undefined) {
-      embeddedPopup.currentLayer = relationCombobox.layerResolver.currentLayer;
+      embeddedFeatureForm.currentLayer = relationCombobox.layerResolver.currentLayer;
     }
     if (geometry !== undefined) {
-      embeddedPopup.applyGeometry(geometry);
+      embeddedFeatureForm.applyGeometry(geometry);
     }
-    embeddedPopup.open();
+    embeddedFeatureForm.open();
   }
 }
