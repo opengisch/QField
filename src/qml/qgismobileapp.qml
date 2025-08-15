@@ -3016,6 +3016,12 @@ ApplicationWindow {
     skipFirstRow: true
     minimumRowWidth: canvasMenuActionsToolbar.childrenRect.width + 4
 
+    // Tweak the default delegate to align left padding and height of submenu items
+    delegate: MenuItem {
+      leftPadding: Theme.menuItemLeftPadding
+      height: 48
+    }
+
     Row {
       id: canvasMenuActionsToolbar
       objectName: "canvasMenuActionsToolbar"
@@ -3253,22 +3259,23 @@ ApplicationWindow {
 
       icon.source: Theme.getThemeVectorIcon("ic_paste_black_24dp")
       icon.color: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-      icon.width: 18 * screen.devicePixelRatio
-      icon.height: 18 * screen.devicePixelRatio
 
       onAboutToShow: {
-        // Populate just once
-        if (layersModel.count === 0) {
-          const mapLayers = ProjectUtils.mapLayers(qgisProject);
-          for (let layerId in mapLayers) {
-            const layer = mapLayers[layerId];
-            const geometryType = typeof layer.geometryType === 'function' ? layer.geometryType() : -1;
-            const hasGeometry = [0, 1, 2].includes(geometryType); // 0 = Point & 1 = Line & 2 = Polygon
-            if (layer.supportsEditing && !layer.readOnly && hasGeometry) {
-              layersModel.append({
-                  "LayerType": geometryType,
-                  "Layer": layer
-                });
+        layersModel.clear();
+        const feature = clipboardManager.pasteFeatureFromClipboard();
+        const featureGeometryType = feature.geometry.type;
+        const mapLayers = ProjectUtils.mapLayers(qgisProject);
+        for (let layerId in mapLayers) {
+          const layer = mapLayers[layerId];
+          if (layer.type === Qgis.LayerType.Vector) {
+            const layerGeometryType = layer.geometryType();
+            if (layerGeometryType !== Qgis.GeometryType.Null && layerGeometryType !== Qgis.GeometryType.Unknown && (featureGeometryType !== Qgis.GeometryType.Point || layerGeometryType === Qgis.GeometryType.Point)) {
+              if (layer.supportsEditing && !layer.readOnly) {
+                layersModel.append({
+                    "LayerType": layerGeometryType,
+                    "Layer": layer
+                  });
+              }
             }
           }
         }
@@ -3280,15 +3287,15 @@ ApplicationWindow {
       Component.onCompleted: updateVisibility()
 
       function updateVisibility() {
-        parent.height = visibleMenu ? parent.implicitHeight : 0;
-        pasteIntoLayers.parent.visible = visibleMenu;
+        parent.height = visibleMenu ? 48 : 0;
+        parent.visible = visibleMenu;
       }
 
       Repeater {
         model: ListModel {
           id: layersModel
         }
-        height: Math.min(count * 48, 8 * 48)
+
         delegate: MenuItem {
           text: Layer.name
           font: Theme.defaultFont
