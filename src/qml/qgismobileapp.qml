@@ -3147,8 +3147,6 @@ ApplicationWindow {
         font: Theme.defaultFont
 
         icon.source: iconForGeometry(feature.geometry.type)
-        icon.width: 18 * screen.devicePixelRatio
-        icon.height: 18 * screen.devicePixelRatio
 
         MenuItem {
           text: qsTr('Layer:') + ' ' + layerName
@@ -3299,8 +3297,6 @@ ApplicationWindow {
           leftPadding: Theme.menuItemLeftPadding
 
           icon.source: iconForGeometry(LayerType)
-          icon.width: 18 * screen.devicePixelRatio
-          icon.height: 18 * screen.devicePixelRatio
 
           onTriggered: {
             if (Layer) {
@@ -3321,11 +3317,11 @@ ApplicationWindow {
   function iconForGeometry(type) {
     switch (type) {
     case Qgis.GeometryType.Point:
-      return Theme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
+      return Theme.getThemeVectorIcon('ic_geometry_point_24dp');
     case Qgis.GeometryType.Line:
-      return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
+      return Theme.getThemeVectorIcon('ic_geometry_line_24dp');
     case Qgis.GeometryType.Polygon:
-      return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
+      return Theme.getThemeVectorIcon('ic_geometry_polygon_24dp');
     default:
       return Theme.getThemeVectorIcon('ic_info_white_24dp');
     }
