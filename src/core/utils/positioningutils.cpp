@@ -74,7 +74,7 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
   double verticalSpeed = std::numeric_limits<double>::quiet_NaN();
   double magneticVariation = std::numeric_limits<double>::quiet_NaN();
 
-  QDateTime utcDateTime = positionsInformation.last().utcDateTime();
+  QDateTime utcDateTime = positionsInformation.last().utcDateTime().isValid() ? positionsInformation.last().utcDateTime() : QDateTime::currentDateTimeUtc();
 
   QList<QgsSatelliteInfo> satellitesInView = positionsInformation.at( 0 ).satellitesInView();
   int satellitesUsed = satellitesInView.size();
