@@ -11,7 +11,7 @@ class NtripSocketClient : public QObject
     explicit NtripSocketClient( QObject *parent = nullptr );
     ~NtripSocketClient();
 
-    void start(
+    qint64 start(
       const QString &host,
       quint16 port,
       const QString &mountpoint,
@@ -23,6 +23,7 @@ class NtripSocketClient : public QObject
   signals:
     void correctionDataReceived( const QByteArray &data );
     void errorOccurred( const QString &message );
+    void streamConnected();
 
   private slots:
     void onConnected();

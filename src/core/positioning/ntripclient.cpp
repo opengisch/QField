@@ -21,9 +21,14 @@ void NtripClient::start( const QString &ntripHost, const quint16 &port, const QS
     return;
   }
 
+  mBytesSent = 0;
+  mBytesReceived = 0;
+
   NtripSocketClient *client = new NtripSocketClient( this );
 
   connect( client, &NtripSocketClient::correctionDataReceived, [this]( const QByteArray &data ) {
+    mBytesReceived += data.size();
+
     quint8 firstByte = quint8( data.at( 0 ) );
     if ( firstByte == 0xD3 )
     {
@@ -41,18 +46,27 @@ void NtripClient::start( const QString &ntripHost, const quint16 &port, const QS
     qDebug() << data.size() << "bytes";
     // send to your GNSS device
     emit correctionDataReceived( data );
+    emit bytesCountersChanged();
   } );
 
-  connect( client, &NtripSocketClient::errorOccurred, []( const QString &msg ) {
+  connect( client, &NtripSocketClient::errorOccurred, [this]( const QString &msg ) {
     qWarning() << msg;
+    emit errorOccurred( msg );
   } );
 
-  client->start(
+  connect( client, &NtripSocketClient::streamConnected, [this]() {
+    emit streamConnected();
+  } );
+
+  mBytesSent = client->start(
     ntripHost,
     port,
     "/" + mountpoint,
     username,
     password );
+
+  // Emit immediately to show sent bytes
+  emit bytesCountersChanged();
 
 
   //connect(mReply, &QNetworkReply::readyRead, this, &NtripClient::onReadyRead);

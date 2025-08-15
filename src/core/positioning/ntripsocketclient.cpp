@@ -17,7 +17,7 @@ NtripSocketClient::~NtripSocketClient()
   stop();
 }
 
-void NtripSocketClient::start(
+qint64 NtripSocketClient::start(
   const QString &host,
   quint16 port,
   const QString &mountpoint,
@@ -44,6 +44,8 @@ void NtripSocketClient::start(
     mSocket.write( request );
     mSocket.flush();
   } );
+
+  return request.size();
 }
 
 void NtripSocketClient::stop()
@@ -75,6 +77,7 @@ void NtripSocketClient::onReadyRead()
                << headerData;
       data = data.mid( headerEnd + 4 );
       mHeadersSent = true;
+      emit streamConnected();
     }
     else
     {
