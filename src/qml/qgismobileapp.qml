@@ -4140,6 +4140,11 @@ ApplicationWindow {
 
     anchors.fill: parent
 
+    // Pass positioning properties
+    positioning: positionSource
+    positioningSettings: positioningSettings
+    gnssMenu: gnssMenu
+
     onOpenLocalDataPicker: {
       qfieldLocalDataPickerScreen.projectFolderView = false;
       qfieldLocalDataPickerScreen.model.resetToRoot();
