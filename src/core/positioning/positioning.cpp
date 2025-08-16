@@ -316,25 +316,31 @@ AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities() const
 
 int Positioning::averagedPositionCount() const
 {
-  return isSourceAvailable() ? mPositioningSourceReplica->property( "averagedPositionCount" ).toInt() : 0;
+  return static_cast<int>( mCollectedPositionInformations.size() );
 }
 
 bool Positioning::averagedPosition() const
 {
-  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "averagedPosition" ) : mPropertiesToSync.value( "averagedPosition", false ) ).toBool();
+  return mAveragedPosition;
 }
 
 void Positioning::setAveragedPosition( bool averaged )
 {
-  if ( isSourceAvailable() )
+  if ( mAveragedPosition == averaged )
+    return;
+
+  mAveragedPosition = averaged;
+  if ( mAveragedPosition )
   {
-    mPositioningSourceReplica->setProperty( "averagedPosition", averaged );
+    mCollectedPositionInformations << mPositionInformation;
   }
   else
   {
-    mPropertiesToSync["averagedPosition"] = averaged;
-    emit averagedPositionChanged();
+    mCollectedPositionInformations.clear();
   }
+
+  emit averagedPositionCountChanged();
+  emit averagedPositionChanged();
 }
 
 bool Positioning::logging() const
@@ -534,6 +540,52 @@ void Positioning::processGnssPositionInformation()
 {
   mPositionInformation = mPositioningSourceReplica->property( "positionInformation" ).value<GnssPositionInformation>();
 
+  GnssPositionInformation::AccuracyQuality quality = GnssPositionInformation::AccuracyQuality::AccuracyBad;
+  const double hacc = mPositionInformation.hacc();
+  const bool isExcellentThresholdDefined = !std::isnan( excellentAccuracyThreshold() );
+  const bool isBadThresholdDefined = !std::isnan( badAccuracyThreshold() );
+
+  if ( isExcellentThresholdDefined && isBadThresholdDefined )
+  {
+    if ( !std::isnan( hacc ) )
+    {
+      if ( hacc <= excellentAccuracyThreshold() )
+      {
+        quality = GnssPositionInformation::AccuracyExcellent;
+      }
+      else if ( hacc <= badAccuracyThreshold() )
+      {
+        quality = GnssPositionInformation::AccuracyOk;
+      }
+      else if ( isExcellentThresholdDefined || isBadThresholdDefined )
+      {
+        quality = GnssPositionInformation::AccuracyBad;
+      }
+      else
+      {
+        quality = GnssPositionInformation::AccuracyOk;
+      }
+    }
+    else
+    {
+      quality = GnssPositionInformation::AccuracyBad;
+    }
+  }
+  else
+  {
+    quality = GnssPositionInformation::AccuracyUndetermined;
+  }
+
+  mPositionInformation.setAccuracyQuality( quality );
+
+
+  if ( mAveragedPosition )
+  {
+    mCollectedPositionInformations << mPositionInformation;
+    mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations, mAveragePositionFilterAccuracy );
+    emit averagedPositionCountChanged();
+  }
+
   if ( mPositionInformation.isValid() )
   {
     mSourcePosition = QgsPoint( mPositionInformation.longitude(), mPositionInformation.latitude(), mPositionInformation.elevation() );
@@ -581,4 +633,37 @@ void Positioning::processProjectedPosition()
   }
 
   emit positionInformationChanged();
+}
+
+
+void Positioning::setBadAccuracyThreshold( double threshold )
+{
+  if ( mBadAccuracyThreshold == threshold )
+    return;
+
+  mBadAccuracyThreshold = threshold;
+  emit badAccuracyThresholdChanged();
+}
+
+void Positioning::setExcellentAccuracyThreshold( double threshold )
+{
+  if ( mExcellentAccuracyThreshold == threshold )
+    return;
+
+  mExcellentAccuracyThreshold = threshold;
+  emit excellentAccuracyThresholdChanged();
+}
+
+bool Positioning::averagePositionFilterAccuracy() const
+{
+  return mAveragePositionFilterAccuracy;
+}
+
+void Positioning::setAveragePositionFilterAccuracy( bool enabled )
+{
+  if ( mAveragePositionFilterAccuracy == enabled )
+    return;
+
+  mAveragePositionFilterAccuracy = enabled;
+  emit averagePositionFilterAccuracyChanged();
 }

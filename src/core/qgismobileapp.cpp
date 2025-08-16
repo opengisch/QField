@@ -524,7 +524,8 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterUncreatableType<QAbstractSocket>( "org.qfield", 1, 0, "QAbstractSocket", "" );
   qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
   qmlRegisterUncreatableType<Tracker>( "org.qfield", 1, 0, "Tracker", "" );
-  qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
+  qmlRegisterUncreatableType<GnssPositionInformation>( "org.qfield", 1, 0, "GnssPositionInformation", "Access to enums and properties only; cannot instantiate in QML." );
+
   qRegisterMetaType<GnssPositionDetails>( "GnssPositionDetails" );
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
 

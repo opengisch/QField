@@ -306,6 +306,9 @@ void Tracker::processPositionInformation( const GnssPositionInformation &positio
   if ( !mIsActive && !mIsReplaying )
     return;
 
+  if ( mFilterAccuracy && positionInformation.accuracyQuality() == GnssPositionInformation::AccuracyBad )
+    return;
+
   mLastDevicePositionTimestampMSecsSinceEpoch = positionInformation.utcDateTime().toMSecsSinceEpoch();
 
   double measureValue = 0.0;
@@ -443,4 +446,18 @@ void Tracker::rubberbandModelVertexCountChanged()
       }
     }
   }
+}
+
+bool Tracker::filterAccuracy() const
+{
+  return mFilterAccuracy;
+}
+
+void Tracker::setFilterAccuracy( bool enabled )
+{
+  if ( mFilterAccuracy == enabled )
+    return;
+
+  mFilterAccuracy = enabled;
+  emit filterAccuracyChanged();
 }
