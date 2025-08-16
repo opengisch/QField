@@ -66,6 +66,15 @@ class Positioning : public QObject
     Q_PROPERTY( QString loggingPath READ loggingPath WRITE setLoggingPath NOTIFY loggingPathChanged )
 
     Q_PROPERTY( bool backgroundMode READ backgroundMode WRITE setBackgroundMode NOTIFY backgroundModeChanged )
+    Q_PROPERTY( bool enableNtripClient READ enableNtripClient WRITE setEnableNtripClient NOTIFY enableNtripClientChanged )
+    Q_PROPERTY( QString ntripHost READ ntripHost WRITE setNtripHost NOTIFY ntripHostChanged )
+    Q_PROPERTY( int ntripPort READ ntripPort WRITE setNtripPort NOTIFY ntripPortChanged )
+    Q_PROPERTY( QString ntripMountpoint READ ntripMountpoint WRITE setNtripMountpoint NOTIFY ntripMountpointChanged )
+    Q_PROPERTY( QString ntripUsername READ ntripUsername WRITE setNtripUsername NOTIFY ntripUsernameChanged )
+    Q_PROPERTY( QString ntripPassword READ ntripPassword WRITE setNtripPassword NOTIFY ntripPasswordChanged )
+    Q_PROPERTY( QString ntripStatus READ ntripStatus NOTIFY ntripStatusChanged )
+    Q_PROPERTY( qint64 ntripBytesSent READ ntripBytesSent NOTIFY ntripBytesSentChanged )
+    Q_PROPERTY( qint64 ntripBytesReceived READ ntripBytesReceived NOTIFY ntripBytesReceivedChanged )
 
   public:
     explicit Positioning( QObject *parent = nullptr );
@@ -245,6 +254,81 @@ class Positioning : public QObject
     void setBackgroundMode( bool backgroundMode );
 
     /**
+     * Returns TRUE if the NTRIP client is enabled.
+     */
+    bool enableNtripClient() const;
+
+    /**
+     * Sets whether the NTRIP client is enabled.
+     */
+    void setEnableNtripClient( bool enableNtripClient );
+
+    /**
+     * Returns the NTRIP host server address.
+     */
+    QString ntripHost() const;
+
+    /**
+     * Sets the NTRIP host server address.
+     */
+    void setNtripHost( const QString &ntripHost );
+
+    /**
+     * Returns the NTRIP server port.
+     */
+    int ntripPort() const;
+
+    /**
+     * Sets the NTRIP server port.
+     */
+    void setNtripPort( int ntripPort );
+
+    /**
+     * Returns the NTRIP mountpoint.
+     */
+    QString ntripMountpoint() const;
+
+    /**
+     * Sets the NTRIP mountpoint.
+     */
+    void setNtripMountpoint( const QString &ntripMountpoint );
+
+    /**
+     * Returns the NTRIP username.
+     */
+    QString ntripUsername() const;
+
+    /**
+     * Sets the NTRIP username.
+     */
+    void setNtripUsername( const QString &ntripUsername );
+
+    /**
+     * Returns the NTRIP password.
+     */
+    QString ntripPassword() const;
+
+    /**
+     * Sets the NTRIP password.
+     */
+    void setNtripPassword( const QString &ntripPassword );
+
+    /**
+     * Returns the current NTRIP connection status.
+     */
+    QString ntripStatus() const;
+
+    /**
+     * Returns the number of bytes sent via NTRIP.
+     */
+    qint64 ntripBytesSent() const;
+
+    /**
+     * Returns the number of bytes received via NTRIP.
+     */
+    qint64 ntripBytesReceived() const;
+
+    /**
      * Returns a list of position information collected while background mode is active.
      * \see backgroundMode()
      * \see setBackgroundMode()
@@ -269,6 +353,15 @@ class Positioning : public QObject
     void loggingChanged();
     void loggingPathChanged();
     void backgroundModeChanged();
+    void enableNtripClientChanged();
+    void ntripHostChanged();
+    void ntripPortChanged();
+    void ntripMountpointChanged();
+    void ntripUsernameChanged();
+    void ntripPasswordChanged();
+    void ntripStatusChanged();
+    void ntripBytesSentChanged();
+    void ntripBytesReceivedChanged();
 
     void triggerConnectDevice();
     void triggerDisconnectDevice();
