@@ -487,6 +487,46 @@ Cancel to make a minimal device scan instead.</source>
         <source>Geometry</source>
         <translation>ジオメトリ</translation>
     </message>
+    <message>
+        <source>Paste failed: no destination layer provided</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: clipboard feature is invalid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut failed: could not start editing on source layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut failed: could not delete original feature from source layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: no compatible features could be created</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: could not start editing on layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: could not add feature to layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: commitChanges failed on layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut commit failed on source layer %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>
@@ -1722,10 +1762,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>地図帳の地物がPDFに印刷され、プロジェクトフォルダに保存されました。</translation>
     </message>
     <message>
-        <source>Feature attributes copied to clipboard</source>
-        <translation>地物の属性をクリップボードにコピー</translation>
-    </message>
-    <message>
         <source>Feature attributes updated from clipboard</source>
         <translation>クリップボードから地物の属性を更新</translation>
     </message>
@@ -1752,6 +1788,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Process Feature</source>
         <translation>地物を処理</translation>
+    </message>
+    <message>
+        <source>Feature copied to clipboard</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5727,10 +5767,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>選択を覚える</translation>
     </message>
     <message>
-        <source>Copy Feature Attributes</source>
-        <translation>地物の属性をコピー</translation>
-    </message>
-    <message>
         <source>Position has trespassed into ‘%1’</source>
         <translation>現在位置が &apos;%1&apos; に侵入しました。</translation>
     </message>
@@ -5929,6 +5965,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
         <translation>凡例には地図レイヤーが表示され、&lt;b&gt;レイヤーを長押ししてプロパティポップアップを開く&lt;/b&gt;ことで、表示設定と不透明度のプロパティを切り替えることができます。このポップアップでは、レイヤー範囲へのズームやベクターレイヤーに含まれる地物の表示といった追加機能も利用できます。</translation>
+    </message>
+    <message>
+        <source>Copy Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature pasted successfully</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to paste feature into layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

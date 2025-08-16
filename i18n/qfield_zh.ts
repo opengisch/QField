@@ -487,6 +487,46 @@ Cancel to make a minimal device scan instead.</source>
         <source>Geometry</source>
         <translation>几何图形</translation>
     </message>
+    <message>
+        <source>Paste failed: no destination layer provided</source>
+        <translation>粘贴失败：未提供目标图层</translation>
+    </message>
+    <message>
+        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
+        <translation>剪切操作：源和目标图层相同，跳过粘贴。</translation>
+    </message>
+    <message>
+        <source>Paste failed: clipboard feature is invalid</source>
+        <translation>粘贴失败：剪贴板要素无效</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not start editing on source layer %1</source>
+        <translation>剪切失败：无法在源图层%1启动编辑</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not delete original feature from source layer %1</source>
+        <translation>剪切失败：无法从源图层%1删除原始要素</translation>
+    </message>
+    <message>
+        <source>Paste failed: no compatible features could be created</source>
+        <translation>粘贴失败：无法创建兼容要素</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not start editing on layer %1</source>
+        <translation>粘贴失败：无法在图层%1启动编辑</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not add feature to layer %1</source>
+        <translation>粘贴失败：无法将要素添加到图层%1</translation>
+    </message>
+    <message>
+        <source>Paste failed: commitChanges failed on layer %1</source>
+        <translation>粘贴失败：在图层%1提交更改失败</translation>
+    </message>
+    <message>
+        <source>Cut commit failed on source layer %1</source>
+        <translation>在源图层%1的剪切提交失败</translation>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>
@@ -1722,10 +1762,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>地图集要素已成功输出并保存在您的工程文件夹中</translation>
     </message>
     <message>
-        <source>Feature attributes copied to clipboard</source>
-        <translation>已将要素属性复制到剪贴板</translation>
-    </message>
-    <message>
         <source>Feature attributes updated from clipboard</source>
         <translation>从剪贴板已更新要素属性</translation>
     </message>
@@ -1752,6 +1788,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Process Feature</source>
         <translation>处理要素</translation>
+    </message>
+    <message>
+        <source>Feature copied to clipboard</source>
+        <translation>要素已复制到剪贴板</translation>
     </message>
 </context>
 <context>
@@ -5727,10 +5767,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>记住我的选择</translation>
     </message>
     <message>
-        <source>Copy Feature Attributes</source>
-        <translation>复制要素属性</translation>
-    </message>
-    <message>
         <source>Position has trespassed into ‘%1’</source>
         <translation>位置已侵入 ‘%1’</translation>
     </message>
@@ -5929,6 +5965,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
         <translation>图例显示地图图层，并允许 &lt;b&gt;长按图层打开属性弹出窗口&lt;/b&gt; 切换可见性和不透明度属性。弹出窗口提供了其他功能，例如缩放到图层范围和显示矢量图层中包含的要素。</translation>
+    </message>
+    <message>
+        <source>Copy Feature</source>
+        <translation>复制要素</translation>
+    </message>
+    <message>
+        <source>Cut Feature</source>
+        <translation>剪切要素</translation>
+    </message>
+    <message>
+        <source>Feature pasted successfully</source>
+        <translation>要素粘贴成功</translation>
+    </message>
+    <message>
+        <source>Failed to paste feature into layer</source>
+        <translation>无法将要素粘贴到图层</translation>
     </message>
 </context>
 <context>

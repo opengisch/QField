@@ -487,6 +487,46 @@ Cancel to make a minimal device scan instead.</source>
         <source>Geometry</source>
         <translation>Геометрия</translation>
     </message>
+    <message>
+        <source>Paste failed: no destination layer provided</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: clipboard feature is invalid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut failed: could not start editing on source layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut failed: could not delete original feature from source layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: no compatible features could be created</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: could not start editing on layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: could not add feature to layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: commitChanges failed on layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut commit failed on source layer %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>
@@ -1724,10 +1764,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Обектите от атласа бяха успешно принтирани и съхранени в директорията на проекта</translation>
     </message>
     <message>
-        <source>Feature attributes copied to clipboard</source>
-        <translation>Атрибутите на обекта са копирани в клипборда</translation>
-    </message>
-    <message>
         <source>Feature attributes updated from clipboard</source>
         <translation>Атрибутите на обекта са копирани от клипборда</translation>
     </message>
@@ -1754,6 +1790,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Process Feature</source>
         <translation>Обработи обект</translation>
+    </message>
+    <message>
+        <source>Feature copied to clipboard</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5731,10 +5771,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Запомни моя избор</translation>
     </message>
     <message>
-        <source>Copy Feature Attributes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Position has trespassed into ‘%1’</source>
         <translation type="unfinished"/>
     </message>
@@ -5932,6 +5968,22 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature pasted successfully</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to paste feature into layer</source>
         <translation type="unfinished"/>
     </message>
 </context>
