@@ -3183,6 +3183,18 @@ ApplicationWindow {
         }
 
         MenuItem {
+          text: qsTr('Cut Feature')
+          font: Theme.defaultFont
+          icon.source: Theme.getThemeVectorIcon("ic_cut_black_24dp")
+          leftPadding: Theme.menuItemLeftPadding
+          height: 48
+
+          onTriggered: {
+            clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true, true);
+          }
+        }
+
+        MenuItem {
           text: qsTr('Copy Feature')
           font: Theme.defaultFont
           icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
@@ -3191,18 +3203,6 @@ ApplicationWindow {
 
           onTriggered: {
             clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true);
-          }
-        }
-
-        MenuItem {
-          text: qsTr('Cut Feature')
-          font: Theme.defaultFont
-          icon.source: Theme.getThemeVectorIcon("ic_content_cut_24dp")
-          leftPadding: Theme.menuItemLeftPadding
-          height: 48
-
-          onTriggered: {
-            clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true, true);
           }
         }
 
