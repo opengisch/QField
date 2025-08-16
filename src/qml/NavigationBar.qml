@@ -631,22 +631,7 @@ Rectangle {
         height: 48
         width: 48
         round: true
-        iconSource: Theme.getThemeVectorIcon("ic_copy_black_24dp")
-        iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
-
-        onClicked: {
-          clipboardManager.copyFeatureToClipboard(featureForm.model.featureModel.feature, true);
-          mainWindow.displayToast(qsTr('Feature copied to clipboard'));
-        }
-      }
-
-      QfToolButton {
-        anchors.verticalCenter: parent.verticalCenter
-        height: 48
-        width: 48
-        round: true
-        iconSource: Theme.getThemeVectorIcon("ic_content_cut_24dp")
+        iconSource: Theme.getThemeVectorIcon("ic_cut_black_24dp")
         iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
         bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
 
@@ -657,6 +642,21 @@ Rectangle {
           selection.focusedItem = -1;
           backClicked();
           backClicked(); // Second back to close the features list
+        }
+      }
+
+      QfToolButton {
+        anchors.verticalCenter: parent.verticalCenter
+        height: 48
+        width: 48
+        round: true
+        iconSource: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+        iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
+
+        onClicked: {
+          clipboardManager.copyFeatureToClipboard(featureForm.model.featureModel.feature, true);
+          mainWindow.displayToast(qsTr('Feature copied to clipboard'));
         }
       }
 
