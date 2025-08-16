@@ -133,7 +133,10 @@ class FeatureHistory : public QObject
     //! Temporary storage of all modifications before creating a new undo step.
     QMap<QString, FeatureModifications> mTempHistoryStep;
 
-    //! Temporary storage of All features that have been modified before creating a new undo step.
+    //! Track committed feature IDs that were added, modified, or removed
+    QMap<QString, QgsFeatureIds> mTempModifiedFeatureIdsByLayerId;
+
+    //! Temporary storage of all features that have been modified before creating a new undo step.
     QMap<QString, QMap<QgsFeatureId, QgsFeature>> mTempModifiedFeaturesByLayerId;
 
     //! Temporary storage of the deleted feature ids before creating a new undo step.
