@@ -1795,6 +1795,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <source>Feature copied to clipboard</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Feature cut into clipboard</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

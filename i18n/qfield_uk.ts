@@ -1799,6 +1799,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Feature copied to clipboard</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Feature cut into clipboard</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

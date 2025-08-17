@@ -1795,6 +1795,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <source>Feature copied to clipboard</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Feature cut into clipboard</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

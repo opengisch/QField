@@ -1797,6 +1797,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <source>Feature copied to clipboard</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Feature cut into clipboard</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

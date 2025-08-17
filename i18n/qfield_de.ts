@@ -1794,6 +1794,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <source>Feature copied to clipboard</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Feature cut into clipboard</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

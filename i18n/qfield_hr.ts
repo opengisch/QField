@@ -1797,6 +1797,10 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <source>Feature copied to clipboard</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Feature cut into clipboard</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

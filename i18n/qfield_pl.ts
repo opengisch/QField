@@ -1799,6 +1799,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Feature copied to clipboard</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Feature cut into clipboard</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

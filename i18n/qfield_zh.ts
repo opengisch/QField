@@ -1793,6 +1793,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Feature copied to clipboard</source>
         <translation>要素已复制到剪贴板</translation>
     </message>
+    <message>
+        <source>Feature cut into clipboard</source>
+        <translation>要素剪切到剪贴板</translation>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>

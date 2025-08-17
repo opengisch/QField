@@ -1796,6 +1796,10 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
         <source>Feature copied to clipboard</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Feature cut into clipboard</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
