@@ -54,6 +54,7 @@ class Positioning : public QObject
     Q_PROPERTY( QgsPoint projectedPosition READ projectedPosition NOTIFY positionInformationChanged )
     Q_PROPERTY( double projectedHorizontalAccuracy READ projectedHorizontalAccuracy NOTIFY positionInformationChanged )
 
+    Q_PROPERTY( bool averagedPositionFilterAccuracy READ averagedPositionFilterAccuracy WRITE setAveragedPositionFilterAccuracy NOTIFY averagedPositionFilterAccuracyChanged )
     Q_PROPERTY( bool averagedPosition READ averagedPosition WRITE setAveragedPosition NOTIFY averagedPositionChanged )
     Q_PROPERTY( int averagedPositionCount READ averagedPositionCount NOTIFY averagedPositionCountChanged )
 
@@ -67,7 +68,6 @@ class Positioning : public QObject
 
     Q_PROPERTY( bool backgroundMode READ backgroundMode WRITE setBackgroundMode NOTIFY backgroundModeChanged )
 
-    Q_PROPERTY( bool averagePositionFilterAccuracy READ averagePositionFilterAccuracy WRITE setAveragePositionFilterAccuracy NOTIFY averagePositionFilterAccuracyChanged )
     Q_PROPERTY( double badAccuracyThreshold READ badAccuracyThreshold WRITE setBadAccuracyThreshold NOTIFY badAccuracyThresholdChanged )
     Q_PROPERTY( double excellentAccuracyThreshold READ excellentAccuracyThreshold WRITE setExcellentAccuracyThreshold NOTIFY excellentAccuracyThresholdChanged )
 
@@ -164,6 +164,16 @@ class Positioning : public QObject
      * Returns the position horizontal accuracy in the destination CRS' map units.
      */
     double projectedHorizontalAccuracy() const;
+
+    /**
+     * Returns whether the average position filter accuracy is enabled.
+     */
+    bool averagedPositionFilterAccuracy() const;
+
+    /**
+     * Enables or disables the average position filter accuracy.
+     */
+    void setAveragedPositionFilterAccuracy( bool enabled );
 
     /**
      * Returns whether the position information is averaged from an ongoing stream of incoming positions from the device.
@@ -275,16 +285,6 @@ class Positioning : public QObject
      */
     void setExcellentAccuracyThreshold( double threshold );
 
-    /**
-     * Returns whether the average position filter accuracy is enabled.
-     */
-    bool averagePositionFilterAccuracy() const;
-
-    /**
-     * Enables or disables the average position filter accuracy.
-     */
-    void setAveragePositionFilterAccuracy( bool enabled );
-
   signals:
     void activeChanged();
     void validChanged();
@@ -307,7 +307,7 @@ class Positioning : public QObject
     void triggerConnectDevice();
     void triggerDisconnectDevice();
 
-    void averagePositionFilterAccuracyChanged();
+    void averagedPositionFilterAccuracyChanged();
     void badAccuracyThresholdChanged();
     void excellentAccuracyThresholdChanged();
 
@@ -347,7 +347,7 @@ class Positioning : public QObject
     bool mAveragedPosition = false;
     QList<GnssPositionInformation> mCollectedPositionInformations;
 
-    bool mAveragePositionFilterAccuracy;
+    bool mAveragedPositionFilterAccuracy;
     double mBadAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
     double mExcellentAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
 };

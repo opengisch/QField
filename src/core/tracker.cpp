@@ -361,6 +361,9 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   for ( const GnssPositionInformation &positionInformation : positionInformationList )
   {
+    if ( mFilterAccuracy && positionInformation.accuracyQuality() == GnssPositionInformation::AccuracyBad )
+      continue;
+
     if ( isPointGeometry && mFeatureModel->appExpressionContextScopesGenerator() )
     {
       mFeatureModel->appExpressionContextScopesGenerator()->setPositionInformation( positionInformation );

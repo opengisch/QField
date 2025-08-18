@@ -582,7 +582,7 @@ void Positioning::processGnssPositionInformation()
   if ( mAveragedPosition )
   {
     mCollectedPositionInformations << mPositionInformation;
-    mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations, mAveragePositionFilterAccuracy );
+    mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations, mAveragedPositionFilterAccuracy );
     emit averagedPositionCountChanged();
   }
 
@@ -654,16 +654,16 @@ void Positioning::setExcellentAccuracyThreshold( double threshold )
   emit excellentAccuracyThresholdChanged();
 }
 
-bool Positioning::averagePositionFilterAccuracy() const
+bool Positioning::averagedPositionFilterAccuracy() const
 {
-  return mAveragePositionFilterAccuracy;
+  return mAveragedPositionFilterAccuracy;
 }
 
-void Positioning::setAveragePositionFilterAccuracy( bool enabled )
+void Positioning::setAveragedPositionFilterAccuracy( bool enabled )
 {
-  if ( mAveragePositionFilterAccuracy == enabled )
+  if ( mAveragedPositionFilterAccuracy == enabled )
     return;
 
-  mAveragePositionFilterAccuracy = enabled;
-  emit averagePositionFilterAccuracyChanged();
+  mAveragedPositionFilterAccuracy = enabled;
+  emit averagedPositionFilterAccuracyChanged();
 }
