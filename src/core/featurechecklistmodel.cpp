@@ -287,7 +287,8 @@ FeatureCheckListModel::FeatureCheckListModel( QObject *parent )
   setSourceModel( mSourceModel );
   setFilterCaseSensitivity( Qt::CaseInsensitive );
   setFilterRole( Qt::DisplayRole );
-  setDynamicSortFilter( false );
+  setDynamicSortFilter( true );
+  sort( 0 );
 }
 
 QgsFeature FeatureCheckListModel::getFeatureFromKeyValue( const QVariant &value ) const
