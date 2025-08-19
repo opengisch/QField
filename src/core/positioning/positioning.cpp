@@ -557,13 +557,9 @@ void Positioning::processGnssPositionInformation()
       {
         quality = GnssPositionInformation::AccuracyOk;
       }
-      else if ( isExcellentThresholdDefined || isBadThresholdDefined )
-      {
-        quality = GnssPositionInformation::AccuracyBad;
-      }
       else
       {
-        quality = GnssPositionInformation::AccuracyOk;
+        quality = GnssPositionInformation::AccuracyBad;
       }
     }
     else
@@ -581,8 +577,11 @@ void Positioning::processGnssPositionInformation()
 
   if ( mAveragedPosition )
   {
-    mCollectedPositionInformations << mPositionInformation;
-    mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations, mAveragedPositionFilterAccuracy );
+    if ( !mAveragedPositionFilterAccuracy || mPositionInformation.accuracyQuality() != GnssPositionInformation::AccuracyBad )
+    {
+      mCollectedPositionInformations << mPositionInformation;
+    }
+    mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations );
     emit averagedPositionCountChanged();
   }
 

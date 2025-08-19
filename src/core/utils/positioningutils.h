@@ -47,9 +47,8 @@ class QFIELD_CORE_EXPORT PositioningUtils : public QObject
 
     /**
      * Returns an average GnssPositionInformation from a list of position information.
-     * If filterAccuracy is true, positions with AccuracyBad are excluded from averaging.
      */
-    static GnssPositionInformation averagedPositionInformation( const QList<GnssPositionInformation> &positionsInformation, bool filterAccuracy = false );
+    static GnssPositionInformation averagedPositionInformation( const QList<GnssPositionInformation> &positionsInformation );
 
     /**
      * Returns an average GnssPositionInformation from a list of position information

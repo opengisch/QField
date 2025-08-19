@@ -53,7 +53,7 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
   return averagedPositionInformation( convertedList );
 }
 
-GnssPositionInformation PositioningUtils::averagedPositionInformation( const QList<GnssPositionInformation> &positionsInformation, bool filterAccuracy )
+GnssPositionInformation PositioningUtils::averagedPositionInformation( const QList<GnssPositionInformation> &positionsInformation )
 {
   if ( positionsInformation.isEmpty() )
     return GnssPositionInformation();
@@ -85,14 +85,8 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
   QString sourceName = QStringLiteral( "%1 (%2)" ).arg( positionsInformation.at( 0 ).sourceName(), QObject::tr( "averaged" ) );
 
   int validPositionsCount = 0;
-
   for ( const GnssPositionInformation &pi : positionsInformation )
   {
-    if ( filterAccuracy && pi.accuracyQuality() == GnssPositionInformation::AccuracyBad )
-      continue;
-
-    ++validPositionsCount;
-
     if ( !std::isnan( pi.latitude() ) )
       latitude = !std::isnan( latitude ) ? latitude + pi.latitude() : pi.latitude();
     if ( !std::isnan( pi.longitude() ) )
@@ -116,6 +110,8 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
       verticalSpeed = !std::isnan( verticalSpeed ) ? verticalSpeed + pi.verticalSpeed() : pi.verticalSpeed();
     if ( !std::isnan( pi.magneticVariation() ) )
       magneticVariation = !std::isnan( magneticVariation ) ? magneticVariation + pi.magneticVariation() : pi.magneticVariation();
+
+    ++validPositionsCount;
   }
 
   if ( validPositionsCount == 0 )
