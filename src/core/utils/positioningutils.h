@@ -46,7 +46,7 @@ class QFIELD_CORE_EXPORT PositioningUtils : public QObject
     static Q_INVOKABLE GnssPositionInformation createEmptyGnssPositionInformation();
 
     /**
-     * Returns an average GnssPositionInformation from a list of position information
+     * Returns an average GnssPositionInformation from a list of position information.
      */
     static GnssPositionInformation averagedPositionInformation( const QList<GnssPositionInformation> &positionsInformation );
 
