@@ -489,31 +489,31 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Paste failed: no destination layer provided</source>
-        <translation type="unfinished"/>
+        <translation>Error al pegar: no se proporcionó ninguna capa de destino</translation>
     </message>
     <message>
         <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation type="unfinished"/>
+        <translation>Operación de corte: las capas de origen y destino son las mismas, omitiendo el pegado.</translation>
     </message>
     <message>
         <source>Paste failed: clipboard feature is invalid</source>
-        <translation type="unfinished"/>
+        <translation>Error al pegar: la función del portapapeles no es válida</translation>
     </message>
     <message>
         <source>Cut failed: could not start editing on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Error de corte: no se pudo iniciar la edición en la capa de origen %1</translation>
     </message>
     <message>
         <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Error de corte: no se pudo eliminar la entidad original de la capa de origen %1</translation>
     </message>
     <message>
         <source>Paste failed: no compatible features could be created</source>
-        <translation type="unfinished"/>
+        <translation>Error al pegar: no se pudieron crear funciones compatibles</translation>
     </message>
     <message>
         <source>Paste failed: could not start editing on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Error al pegar: no se pudo iniciar la edición en la capa %1</translation>
     </message>
     <message>
         <source>Paste failed: could not add feature to layer %1</source>
@@ -5974,11 +5974,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Copy Feature</source>
-        <translation type="unfinished"/>
+        <translation>Copiar entidad</translation>
     </message>
     <message>
         <source>Cut Feature</source>
-        <translation type="unfinished"/>
+        <translation>Cortar entidad</translation>
     </message>
     <message>
         <source>Feature pasted successfully</source>
