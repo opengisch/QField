@@ -282,12 +282,14 @@ FeatureCheckListModel::FeatureCheckListModel( QObject *parent )
   connect( mSourceModel, &FeatureCheckListModelBase::attributeValueChanged, this, &FeatureCheckListModel::attributeValueChanged );
   connect( mSourceModel, &FeatureCheckListModelBase::attributeFieldChanged, this, &FeatureCheckListModel::attributeFieldChanged );
   connect( mSourceModel, &FeatureCheckListModelBase::allowMultiChanged, this, &FeatureCheckListModel::allowMultiChanged );
-  connect( mSourceModel, &FeatureCheckListModelBase::listUpdated, this, &FeatureCheckListModel::listUpdated );
+  connect( mSourceModel, &FeatureCheckListModelBase::listUpdated, this, [=]() {
+    sort( 0 );
+    emit listUpdated();
+  } );
 
   setSourceModel( mSourceModel );
   setFilterCaseSensitivity( Qt::CaseInsensitive );
-  setFilterRole( Qt::DisplayRole );
-  setDynamicSortFilter( true );
+  setDynamicSortFilter( false );
   sort( 0 );
 }
 
@@ -459,14 +461,15 @@ QString FeatureCheckListModel::searchTerm() const
 
 void FeatureCheckListModel::setSearchTerm( const QString &searchTerm )
 {
-  if ( mSearchTerm != searchTerm )
+  if ( mSearchTerm == searchTerm )
   {
-    mSearchTerm = searchTerm;
-    emit searchTermChanged();
-    invalidateFilter();
-
-    sort( 0 );
+    return;
   }
+  mSearchTerm = searchTerm;
+  emit searchTermChanged();
+
+  invalidateFilter();
+  sort( 0 );
 }
 
 bool FeatureCheckListModel::sortCheckedFirst() const
@@ -476,13 +479,15 @@ bool FeatureCheckListModel::sortCheckedFirst() const
 
 void FeatureCheckListModel::setSortCheckedFirst( bool enabled )
 {
-  if ( mSortCheckedFirst != enabled )
+  if ( mSortCheckedFirst == enabled )
   {
-    mSortCheckedFirst = enabled;
-    emit sortCheckedFirstChanged();
-
-    sort( 0 );
+    return;
   }
+
+  mSortCheckedFirst = enabled;
+  emit sortCheckedFirstChanged();
+
+  sort( 0 );
 }
 
 bool FeatureCheckListModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
