@@ -20,6 +20,14 @@ Item {
   }
 
   Connections {
+    target: positioningSettings
+
+    function onAccuracyRequirementChanged() {
+      tracker.filterAccuracy = positioningSettings.accuracyRequirement;
+    }
+  }
+
+  Connections {
     target: positionSource
     enabled: tracker.isActive
 

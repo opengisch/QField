@@ -217,6 +217,7 @@ class Tracker : public QObject
     QgsFeature mFeature;
 
     bool mVisible = true;
+    bool mFilterAccuracy = false;
 
     QDateTime mStartPositionTimestamp;
     qint64 mLastDevicePositionTimestampMSecsSinceEpoch = 0;
@@ -225,8 +226,6 @@ class Tracker : public QObject
     MeasureType mMeasureType = Tracker::SecondsSinceStart;
 
     QgsDistanceArea mDa;
-
-    bool mFilterAccuracy;
 };
 
 #endif // TRACKER_H

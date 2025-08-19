@@ -347,7 +347,7 @@ class Positioning : public QObject
     bool mAveragedPosition = false;
     QList<GnssPositionInformation> mCollectedPositionInformations;
 
-    bool mAveragedPositionFilterAccuracy;
+    bool mAveragedPositionFilterAccuracy = false;
     double mBadAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
     double mExcellentAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
 };
