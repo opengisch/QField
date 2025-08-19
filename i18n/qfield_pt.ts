@@ -487,6 +487,46 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>Geometry</source>
         <translation>Geometria</translation>
     </message>
+    <message>
+        <source>Paste failed: no destination layer provided</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: clipboard feature is invalid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut failed: could not start editing on source layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut failed: could not delete original feature from source layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: no compatible features could be created</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: could not start editing on layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: could not add feature to layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: commitChanges failed on layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut commit failed on source layer %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>
@@ -1726,10 +1766,6 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <translation>Elemento(s) do Atlas foram imprimidos com sucesso e guardados na sua pasta do projeto</translation>
     </message>
     <message>
-        <source>Feature attributes copied to clipboard</source>
-        <translation>Atributos do elemento copiados para a área de transferência</translation>
-    </message>
-    <message>
         <source>Feature attributes updated from clipboard</source>
         <translation>Atributos do elemento atualizados apartir área de transferência</translation>
     </message>
@@ -1755,6 +1791,14 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Process Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature cut into clipboard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5731,10 +5775,6 @@ Cancele para fazer uma verificação mínima.</translation>
         <translation>Relembrar a minha escolha</translation>
     </message>
     <message>
-        <source>Copy Feature Attributes</source>
-        <translation>Copiar atributos do elemento</translation>
-    </message>
-    <message>
         <source>Position has trespassed into ‘%1’</source>
         <translation>A posição ultrapassou ‘%1’</translation>
     </message>
@@ -5932,6 +5972,22 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature pasted successfully</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to paste feature into layer</source>
         <translation type="unfinished"/>
     </message>
 </context>

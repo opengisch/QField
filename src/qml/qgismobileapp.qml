@@ -332,6 +332,9 @@ ApplicationWindow {
     objectName: "positionSource"
 
     deviceId: positioningSettings.positioningDevice
+    badAccuracyThreshold: positioningSettings.accuracyBad
+    excellentAccuracyThreshold: positioningSettings.accuracyExcellent
+    averagedPositionFilterAccuracy: positioningSettings.accuracyRequirement
 
     property bool jumpToPosition: false
     property bool currentness: false
@@ -2275,8 +2278,21 @@ ApplicationWindow {
 
         QfBadge {
           alignment: QfBadge.Alignment.TopRight
-          visible: positioningSettings.accuracyIndicator && gnssButton.state === "On"
-          color: !positionSource.positionInformation || !positionSource.positionInformation.haccValid || positionSource.positionInformation.hacc > positioningSettings.accuracyBad ? Theme.accuracyBad : positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent ? Theme.accuracyTolerated : Theme.accuracyExcellent
+          visible: positioningSettings.accuracyIndicator && gnssButton.state === "On" && positionSource.positionInformation.accuracyQuality != GnssPositionInformation.AccuracyUndetermined
+          color: {
+            if (!positionSource.positionInformation || !positionSource.positionInformation.haccValid)
+              return Theme.accuracyBad;
+            switch (positionSource.positionInformation.accuracyQuality) {
+            case GnssPositionInformation.AccuracyExcellent:
+              return Theme.accuracyExcellent;
+            case GnssPositionInformation.AccuracyOk:
+              return Theme.accuracyTolerated;
+            case GnssPositionInformation.AccuracyBad:
+            case GnssPositionInformation.AccuracyUndetermined:
+            default:
+              return Theme.accuracyBad;
+            }
+          }
         }
       }
 
@@ -3016,6 +3032,12 @@ ApplicationWindow {
     skipFirstRow: true
     minimumRowWidth: canvasMenuActionsToolbar.childrenRect.width + 4
 
+    // Tweak the default delegate to align left padding and height of submenu items
+    delegate: MenuItem {
+      leftPadding: Theme.menuItemLeftPadding
+      height: 48
+    }
+
     Row {
       id: canvasMenuActionsToolbar
       objectName: "canvasMenuActionsToolbar"
@@ -3086,6 +3108,10 @@ ApplicationWindow {
       }
     }
 
+    MenuSeparator {
+      width: parent.width
+    }
+
     MenuItem {
       id: lockMapRotation
       text: qsTr("Enable Map Rotation")
@@ -3102,10 +3128,6 @@ ApplicationWindow {
       onTriggered: qfieldSettings.enableMapRotation = checked
     }
 
-    MenuSeparator {
-      width: parent.width
-    }
-
     MenuItem {
       text: qsTr('Lock Screen')
 
@@ -3120,7 +3142,7 @@ ApplicationWindow {
     }
 
     MenuSeparator {
-      enabled: canvasMenuFeatureListInstantiator.count > 0
+      enabled: canvasMenuFeatureListInstantiator.count > 0 || pasteIntoLayers.parent.visible
       width: parent.width
       visible: enabled
       height: enabled ? undefined : 0
@@ -3138,6 +3160,7 @@ ApplicationWindow {
 
         property int fid: featureId
         property var featureLayer: currentLayer
+        height: visible ? implicitHeight : 0
 
         topMargin: sceneTopMargin
         bottomMargin: sceneBottomMargin
@@ -3145,11 +3168,7 @@ ApplicationWindow {
         title: layerName + ': ' + featureName
         font: Theme.defaultFont
 
-        Component.onCompleted: {
-          if (featureMenu.icon !== undefined) {
-            featureMenu.icon.source = Theme.getThemeVectorIcon('ic_info_white_24dp');
-          }
-        }
+        icon.source: iconForGeometry(feature.geometry.type)
 
         MenuItem {
           text: qsTr('Layer:') + ' ' + layerName
@@ -3180,7 +3199,19 @@ ApplicationWindow {
         }
 
         MenuItem {
-          text: qsTr('Copy Feature Attributes')
+          text: qsTr('Cut Feature')
+          font: Theme.defaultFont
+          icon.source: Theme.getThemeVectorIcon("ic_cut_black_24dp")
+          leftPadding: Theme.menuItemLeftPadding
+          height: 48
+
+          onTriggered: {
+            clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true, true);
+          }
+        }
+
+        MenuItem {
+          text: qsTr('Copy Feature')
           font: Theme.defaultFont
           icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
           leftPadding: Theme.menuItemLeftPadding
@@ -3219,11 +3250,103 @@ ApplicationWindow {
       }
 
       onObjectAdded: (index, object) => {
-        canvasMenu.insertMenu(index + 11, object);
+        canvasMenu.insertMenu(canvasMenu.contentData.length - 3, object);
       }
       onObjectRemoved: (index, object) => {
         canvasMenu.removeMenu(object);
       }
+    }
+
+    MenuSeparator {
+      enabled: canvasMenuFeatureListInstantiator.count > 0 && pasteIntoLayers.parent.visible
+      width: parent.width
+      visible: enabled
+      height: enabled ? undefined : 0
+    }
+
+    QfMenu {
+      id: pasteIntoLayers
+
+      topMargin: sceneTopMargin
+      bottomMargin: sceneBottomMargin
+
+      title: "Paste Into Layer"
+      font: Theme.defaultFont
+
+      icon.source: Theme.getThemeVectorIcon("ic_paste_black_24dp")
+      icon.color: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+
+      onAboutToShow: {
+        layersModel.clear();
+        const feature = clipboardManager.pasteFeatureFromClipboard();
+        const featureGeometryType = feature.geometry.type;
+        const mapLayers = ProjectUtils.mapLayers(qgisProject);
+        for (let layerId in mapLayers) {
+          const layer = mapLayers[layerId];
+          if (layer.type === Qgis.LayerType.Vector) {
+            const layerGeometryType = layer.geometryType();
+            if (layerGeometryType !== Qgis.GeometryType.Null && layerGeometryType !== Qgis.GeometryType.Unknown && (featureGeometryType !== Qgis.GeometryType.Point || layerGeometryType === Qgis.GeometryType.Point)) {
+              if (layer.supportsEditing && !layer.readOnly) {
+                layersModel.append({
+                    "LayerType": layerGeometryType,
+                    "Layer": layer
+                  });
+              }
+            }
+          }
+        }
+      }
+
+      readonly property bool visibleMenu: clipboardManager ? clipboardManager.holdsFeature : false
+
+      onVisibleMenuChanged: updateVisibility()
+      Component.onCompleted: updateVisibility()
+
+      function updateVisibility() {
+        parent.height = visibleMenu ? 48 : 0;
+        parent.visible = visibleMenu;
+      }
+
+      Repeater {
+        model: ListModel {
+          id: layersModel
+        }
+
+        delegate: MenuItem {
+          text: Layer.name
+          font: Theme.defaultFont
+
+          height: 48
+          leftPadding: Theme.menuItemLeftPadding
+
+          icon.source: iconForGeometry(LayerType)
+
+          onTriggered: {
+            if (Layer) {
+              const result = clipboardManager.pasteFeatureFromClipboardIntoLayer(Layer);
+              if (result) {
+                displayToast(qsTr("Feature pasted successfully"), 'info');
+              } else {
+                displayToast(qsTr("Failed to paste feature into layer"), 'error');
+              }
+              canvasMenu.close();
+            }
+          }
+        }
+      }
+    }
+  }
+
+  function iconForGeometry(type) {
+    switch (type) {
+    case Qgis.GeometryType.Point:
+      return Theme.getThemeVectorIcon('ic_geometry_point_24dp');
+    case Qgis.GeometryType.Line:
+      return Theme.getThemeVectorIcon('ic_geometry_line_24dp');
+    case Qgis.GeometryType.Polygon:
+      return Theme.getThemeVectorIcon('ic_geometry_polygon_24dp');
+    default:
+      return Theme.getThemeVectorIcon('ic_info_white_24dp');
     }
   }
 

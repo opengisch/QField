@@ -103,25 +103,6 @@ void PositioningSource::setValid( bool valid )
   emit validChanged();
 }
 
-void PositioningSource::setAveragedPosition( bool averaged )
-{
-  if ( mAveragedPosition == averaged )
-    return;
-
-  mAveragedPosition = averaged;
-  if ( mAveragedPosition )
-  {
-    mCollectedPositionInformations << mPositionInformation;
-  }
-  else
-  {
-    mCollectedPositionInformations.clear();
-  }
-
-  emit averagedPositionCountChanged();
-  emit averagedPositionChanged();
-}
-
 void PositioningSource::setLogging( bool logging )
 {
   if ( mLogging == logging )
@@ -344,24 +325,11 @@ void PositioningSource::lastGnssPositionInformationChanged( const GnssPositionIn
                                                      lastGnssPositionInformation.imuHeading(),
                                                      lastGnssPositionInformation.imuSteering(),
                                                      mOrientation );
-
-  if ( mAveragedPosition )
-  {
-    mCollectedPositionInformations << positionInformation;
-    mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations );
-  }
-  else
-  {
-    mPositionInformation = positionInformation;
-  }
+  mPositionInformation = positionInformation;
 
   if ( !mBackgroundMode )
   {
     emit positionInformationChanged();
-    if ( mAveragedPosition )
-    {
-      emit averagedPositionCountChanged();
-    }
   }
   else
   {

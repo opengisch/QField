@@ -487,6 +487,46 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
         <source>Geometry</source>
         <translation>Geometría</translation>
     </message>
+    <message>
+        <source>Paste failed: no destination layer provided</source>
+        <translation>Error al pegar: no se proporcionó ninguna capa de destino</translation>
+    </message>
+    <message>
+        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
+        <translation>Operación de corte: las capas de origen y destino son las mismas, omitiendo el pegado.</translation>
+    </message>
+    <message>
+        <source>Paste failed: clipboard feature is invalid</source>
+        <translation>Error al pegar: la función del portapapeles no es válida</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not start editing on source layer %1</source>
+        <translation>Error de corte: no se pudo iniciar la edición en la capa de origen %1</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not delete original feature from source layer %1</source>
+        <translation>Error de corte: no se pudo eliminar la entidad original de la capa de origen %1</translation>
+    </message>
+    <message>
+        <source>Paste failed: no compatible features could be created</source>
+        <translation>Error al pegar: no se pudieron crear funciones compatibles</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not start editing on layer %1</source>
+        <translation>Error al pegar: no se pudo iniciar la edición en la capa %1</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not add feature to layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: commitChanges failed on layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut commit failed on source layer %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>
@@ -1726,10 +1766,6 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <translation>La entidad(es) del Atlas se imprimieron correctamente y se colocaron en la carpeta de su proyecto</translation>
     </message>
     <message>
-        <source>Feature attributes copied to clipboard</source>
-        <translation>Atributos del objeto copiados al portapapeles</translation>
-    </message>
-    <message>
         <source>Feature attributes updated from clipboard</source>
         <translation>Atributos del objeto actualizados desde el portapapeles</translation>
     </message>
@@ -1756,6 +1792,14 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Process Feature</source>
         <translation>Procesar objeto</translation>
+    </message>
+    <message>
+        <source>Feature copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature cut into clipboard</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5729,10 +5773,6 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <translation>Recordar mi elección</translation>
     </message>
     <message>
-        <source>Copy Feature Attributes</source>
-        <translation>Copiar atributos de objeto</translation>
-    </message>
-    <message>
         <source>Position has trespassed into ‘%1’</source>
         <translation>La posición ha traspasado a &apos;%1&apos;</translation>
     </message>
@@ -5931,6 +5971,22 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
         <translation>La leyenda muestra las capas del mapa y permite alternar las propiedades de visibilidad &lt;b&gt;y opacidad al mantener presionada una capa para abrir una ventana emergente de propiedades.&lt;/b&gt;. Esta ventana emergente ofrece funciones adicionales, como ampliar la extensión de la capa y mostrar las entidades contenidas en las capas vectoriales.</translation>
+    </message>
+    <message>
+        <source>Copy Feature</source>
+        <translation>Copiar entidad</translation>
+    </message>
+    <message>
+        <source>Cut Feature</source>
+        <translation>Cortar entidad</translation>
+    </message>
+    <message>
+        <source>Feature pasted successfully</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to paste feature into layer</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -487,6 +487,46 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Geometry</source>
         <translation>Geometria</translation>
     </message>
+    <message>
+        <source>Paste failed: no destination layer provided</source>
+        <translation>Wklejanie nie powiodło się: nie podano warstwy docelowej</translation>
+    </message>
+    <message>
+        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: clipboard feature is invalid</source>
+        <translation>Wklejanie nie powiodło się: element w schowku jest nieprawidłowy</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not start editing on source layer %1</source>
+        <translation>Wycięcie nie powiodło się: nie można rozpocząć edycji na warstwie żródłowej %1</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not delete original feature from source layer %1</source>
+        <translation>Wycięcie nie powiodło się: nie można usunąć oryginalnego elementu z warstwy źródłowej %1</translation>
+    </message>
+    <message>
+        <source>Paste failed: no compatible features could be created</source>
+        <translation>Wklejanie nie powiodło się: nie można utworzyć kompatybilnych obiektów.</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not start editing on layer %1</source>
+        <translation>Wklejanie nie powiodło się: nie można rozpocząć edycji na warstwie %1</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not add feature to layer %1</source>
+        <translation>Wklejanie nie powiodło się: nie można dodać obiekt do warstwy %1</translation>
+    </message>
+    <message>
+        <source>Paste failed: commitChanges failed on layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut commit failed on source layer %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CloseTool</name>
@@ -1728,10 +1768,6 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <translation>Element(y) atlasu zostały pomyślnie wydrukowane i umieszczone w twoim katalogu projektu.</translation>
     </message>
     <message>
-        <source>Feature attributes copied to clipboard</source>
-        <translation>Atrybuty elementu skopiowano do schowka</translation>
-    </message>
-    <message>
         <source>Feature attributes updated from clipboard</source>
         <translation>Atrybuty elementu zaktualizowano ze schowka</translation>
     </message>
@@ -1758,6 +1794,14 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Process Feature</source>
         <translation>Przetwarzaj obiekt</translation>
+    </message>
+    <message>
+        <source>Feature copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature cut into clipboard</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5733,10 +5777,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Zapamiętaj mój wybór</translation>
     </message>
     <message>
-        <source>Copy Feature Attributes</source>
-        <translation>Kopiuj atrybuty elementu</translation>
-    </message>
-    <message>
         <source>Position has trespassed into ‘%1’</source>
         <translation>Pozycja wkroczyła w obszar &quot;%1&quot;</translation>
     </message>
@@ -5935,6 +5975,22 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
         <translation>Legenda pokazuje warstwy mapy i umożliwia przełączanie właściwości widoczności i krycia poprzez &lt;b&gt;długie naciśnięcie na warstwę, aby otworzyć wyskakujące okienko właściwości&lt;/b&gt;. Wyskakujące okienko oferuje dodatkowe funkcje, takie jak powiększanie do zakresu warstwy i wyświetlanie obiektów zawartych w warstwach wektorowych.</translation>
+    </message>
+    <message>
+        <source>Copy Feature</source>
+        <translation>Skopiuj obiekt</translation>
+    </message>
+    <message>
+        <source>Cut Feature</source>
+        <translation>Wytnij obiekt</translation>
+    </message>
+    <message>
+        <source>Feature pasted successfully</source>
+        <translation>Obiekt wklejony pomyślnie</translation>
+    </message>
+    <message>
+        <source>Failed to paste feature into layer</source>
+        <translation>Nie udało się wkleić obiektu do warstwy</translation>
     </message>
 </context>
 <context>

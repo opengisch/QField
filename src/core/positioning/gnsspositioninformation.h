@@ -70,6 +70,7 @@ class GnssPositionInformation
     Q_PROPERTY( double vacc READ vacc )
     Q_PROPERTY( bool vaccValid READ vaccValid )
     Q_PROPERTY( double hvacc READ hvacc )
+    Q_PROPERTY( AccuracyQuality accuracyQuality READ accuracyQuality WRITE setAccuracyQuality )
     Q_PROPERTY( double hvaccValid READ hvaccValid )
     Q_PROPERTY( QDateTime utcDateTime READ utcDateTime )
     Q_PROPERTY( QChar fixMode READ fixMode )
@@ -108,6 +109,16 @@ class GnssPositionInformation
     };
 
     Q_ENUM( FixStatus )
+
+    enum AccuracyQuality
+    {
+      AccuracyUndetermined,
+      AccuracyBad,
+      AccuracyOk,
+      AccuracyExcellent
+    };
+
+    Q_ENUM( AccuracyQuality )
 
     GnssPositionInformation( double latitude = std::numeric_limits<double>::quiet_NaN(), double longitude = std::numeric_limits<double>::quiet_NaN(), double elevation = std::numeric_limits<double>::quiet_NaN(),
                              double speed = std::numeric_limits<double>::quiet_NaN(), double direction = std::numeric_limits<double>::quiet_NaN(), const QList<QgsSatelliteInfo> &satellitesInView = QList<QgsSatelliteInfo>(),
@@ -226,6 +237,13 @@ class GnssPositionInformation
     void setHVacc( double hvacc ) { mHvacc = hvacc; }
     double hvacc() const { return mHvacc; }
     bool hvaccValid() const { return !std::isnan( mHvacc ); }
+
+    /**
+     * Accuracy quality classification.
+     * Indicates if the position accuracy is bad, ok, or excellent, based on user-provided thresholds.
+     */
+    void setAccuracyQuality( AccuracyQuality quality ) { mAccuracyQuality = quality; }
+    AccuracyQuality accuracyQuality() const { return mAccuracyQuality; }
 
     /**
      * The date and time at which this position was reported, in UTC time.
@@ -354,6 +372,7 @@ class GnssPositionInformation
     double mHacc = std::numeric_limits<double>::quiet_NaN();
     double mVacc = std::numeric_limits<double>::quiet_NaN();
     double mHvacc = std::numeric_limits<double>::quiet_NaN();
+    AccuracyQuality mAccuracyQuality = AccuracyUndetermined;
     QDateTime mUtcDateTime;
     QChar mFixMode;
     int mFixType = 0;
@@ -378,6 +397,7 @@ class GnssPositionInformation
 };
 
 Q_DECLARE_METATYPE( GnssPositionInformation )
+Q_DECLARE_METATYPE( GnssPositionInformation::AccuracyQuality )
 
 class GnssPositionDetails
 {

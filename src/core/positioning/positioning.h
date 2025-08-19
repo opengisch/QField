@@ -54,6 +54,7 @@ class Positioning : public QObject
     Q_PROPERTY( QgsPoint projectedPosition READ projectedPosition NOTIFY positionInformationChanged )
     Q_PROPERTY( double projectedHorizontalAccuracy READ projectedHorizontalAccuracy NOTIFY positionInformationChanged )
 
+    Q_PROPERTY( bool averagedPositionFilterAccuracy READ averagedPositionFilterAccuracy WRITE setAveragedPositionFilterAccuracy NOTIFY averagedPositionFilterAccuracyChanged )
     Q_PROPERTY( bool averagedPosition READ averagedPosition WRITE setAveragedPosition NOTIFY averagedPositionChanged )
     Q_PROPERTY( int averagedPositionCount READ averagedPositionCount NOTIFY averagedPositionCountChanged )
 
@@ -66,6 +67,9 @@ class Positioning : public QObject
     Q_PROPERTY( QString loggingPath READ loggingPath WRITE setLoggingPath NOTIFY loggingPathChanged )
 
     Q_PROPERTY( bool backgroundMode READ backgroundMode WRITE setBackgroundMode NOTIFY backgroundModeChanged )
+
+    Q_PROPERTY( double badAccuracyThreshold READ badAccuracyThreshold WRITE setBadAccuracyThreshold NOTIFY badAccuracyThresholdChanged )
+    Q_PROPERTY( double excellentAccuracyThreshold READ excellentAccuracyThreshold WRITE setExcellentAccuracyThreshold NOTIFY excellentAccuracyThresholdChanged )
 
   public:
     explicit Positioning( QObject *parent = nullptr );
@@ -162,6 +166,16 @@ class Positioning : public QObject
     double projectedHorizontalAccuracy() const;
 
     /**
+     * Returns whether the average position filter accuracy is enabled.
+     */
+    bool averagedPositionFilterAccuracy() const;
+
+    /**
+     * Enables or disables the average position filter accuracy.
+     */
+    void setAveragedPositionFilterAccuracy( bool enabled );
+
+    /**
      * Returns whether the position information is averaged from an ongoing stream of incoming positions from the device.
      */
     bool averagedPosition() const;
@@ -251,6 +265,26 @@ class Positioning : public QObject
      */
     Q_INVOKABLE QList<GnssPositionInformation> getBackgroundPositionInformation() const;
 
+    /**
+     * Returns the threshold above which accuracy is considered bad.
+     */
+    double badAccuracyThreshold() const { return mBadAccuracyThreshold; }
+
+    /**
+     * Sets the threshold above which accuracy is considered bad.
+     */
+    void setBadAccuracyThreshold( double threshold );
+
+    /**
+     * Returns the threshold below which accuracy is considered excellent.
+     */
+    double excellentAccuracyThreshold() const { return mExcellentAccuracyThreshold; }
+
+    /**
+     * Sets the threshold below which accuracy is considered excellent.
+     */
+    void setExcellentAccuracyThreshold( double threshold );
+
   signals:
     void activeChanged();
     void validChanged();
@@ -272,6 +306,10 @@ class Positioning : public QObject
 
     void triggerConnectDevice();
     void triggerDisconnectDevice();
+
+    void averagedPositionFilterAccuracyChanged();
+    void badAccuracyThresholdChanged();
+    void excellentAccuracyThresholdChanged();
 
   private slots:
     void onApplicationStateChanged( Qt::ApplicationState state );
@@ -305,6 +343,13 @@ class Positioning : public QObject
     bool mBackgroundMode = false;
 
     QVariantMap mPropertiesToSync;
+
+    bool mAveragedPosition = false;
+    QList<GnssPositionInformation> mCollectedPositionInformations;
+
+    bool mAveragedPositionFilterAccuracy = false;
+    double mBadAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
+    double mExcellentAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
 };
 
 #endif // POSITIONING_H
