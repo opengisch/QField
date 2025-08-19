@@ -191,6 +191,13 @@ void Tracker::positionReceived()
     return;
   }
 
+  if ( mSkipBadPositionReceived )
+  {
+    // Occurs when filterAccuracy property is true and the received position accuracy quality was determined to be bad
+    mSkipBadPositionReceived = false;
+    return;
+  }
+
   if ( !qgsDoubleNear( mTimeInterval, 0.0 ) )
   {
     mTimeIntervalFulfilled = mRubberbandModel->vertexCount() == 1 || ( ( mLastDevicePositionTimestampMSecsSinceEpoch - mLastVertexPositionTimestampMSecsSinceEpoch ) >= mTimeInterval * 1000 );
@@ -307,7 +314,9 @@ void Tracker::processPositionInformation( const GnssPositionInformation &positio
     return;
 
   if ( mFilterAccuracy && positionInformation.accuracyQuality() == GnssPositionInformation::AccuracyBad )
-    return;
+  {
+    mSkipBadPositionReceived = true;
+  }
 
   mLastDevicePositionTimestampMSecsSinceEpoch = positionInformation.utcDateTime().toMSecsSinceEpoch();
 

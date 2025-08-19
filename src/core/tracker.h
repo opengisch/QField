@@ -212,6 +212,7 @@ class Tracker : public QObject
     bool mMinimumDistanceFulfilled = false;
     bool mSensorCaptureFulfilled = false;
     bool mSkipPositionReceived = false;
+    bool mSkipBadPositionReceived = false;
 
     QPointer<QgsVectorLayer> mVectorLayer;
     QgsFeature mFeature;
