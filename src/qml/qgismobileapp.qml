@@ -3142,7 +3142,7 @@ ApplicationWindow {
     }
 
     MenuSeparator {
-      enabled: canvasMenuFeatureListInstantiator.count > 0 || pasteIntoLayers.parent.visible
+      enabled: canvasMenuFeatureListInstantiator.count > 0 || pasteIntoLayersInstantiator.count > 0
       width: parent.width
       visible: enabled
       height: enabled ? undefined : 0
@@ -3250,7 +3250,11 @@ ApplicationWindow {
       }
 
       onObjectAdded: (index, object) => {
-        canvasMenu.insertMenu(canvasMenu.contentData.length - 3, object);
+        if (pasteIntoLayersInstantiator.count > 0) {
+          canvasMenu.insertMenu(canvasMenu.contentData.length - 4, object);
+        } else {
+          canvasMenu.insertMenu(canvasMenu.contentData.length - 2, object);
+        }
       }
       onObjectRemoved: (index, object) => {
         canvasMenu.removeMenu(object);
@@ -3258,81 +3262,84 @@ ApplicationWindow {
     }
 
     MenuSeparator {
-      enabled: canvasMenuFeatureListInstantiator.count > 0 && pasteIntoLayers.parent.visible
+      enabled: canvasMenuFeatureListInstantiator.count > 0 && pasteIntoLayersInstantiator.count > 0
       width: parent.width
       visible: enabled
       height: enabled ? undefined : 0
     }
 
-    QfMenu {
-      id: pasteIntoLayers
+    Instantiator {
+      id: pasteIntoLayersInstantiator
 
-      topMargin: sceneTopMargin
-      bottomMargin: sceneBottomMargin
+      model: clipboardManager.holdsFeature
 
-      title: "Paste Into Layer"
-      font: Theme.defaultFont
+      QfMenu {
+        id: pasteIntoLayers
 
-      icon.source: Theme.getThemeVectorIcon("ic_paste_black_24dp")
-      icon.color: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        topMargin: sceneTopMargin
+        bottomMargin: sceneBottomMargin
 
-      onAboutToShow: {
-        layersModel.clear();
-        const feature = clipboardManager.pasteFeatureFromClipboard();
-        const featureGeometryType = feature.geometry.type;
-        const mapLayers = ProjectUtils.mapLayers(qgisProject);
-        for (let layerId in mapLayers) {
-          const layer = mapLayers[layerId];
-          if (layer.type === Qgis.LayerType.Vector) {
-            const layerGeometryType = layer.geometryType();
-            if (layerGeometryType !== Qgis.GeometryType.Null && layerGeometryType !== Qgis.GeometryType.Unknown && (featureGeometryType !== Qgis.GeometryType.Point || layerGeometryType === Qgis.GeometryType.Point)) {
-              if (layer.supportsEditing && !layer.readOnly) {
-                layersModel.append({
-                    "LayerType": layerGeometryType,
-                    "Layer": layer
-                  });
+        title: "Paste Into Layer"
+        font: Theme.defaultFont
+
+        icon.source: Theme.getThemeVectorIcon("ic_paste_black_24dp")
+        icon.color: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+
+        onAboutToShow: {
+          layersModel.clear();
+          const feature = clipboardManager.pasteFeatureFromClipboard();
+          const featureGeometryType = feature.geometry.type;
+          const mapLayers = ProjectUtils.mapLayers(qgisProject);
+          for (let layerId in mapLayers) {
+            const layer = mapLayers[layerId];
+            if (layer.type === Qgis.LayerType.Vector) {
+              const layerGeometryType = layer.geometryType();
+              if (layerGeometryType !== Qgis.GeometryType.Null && layerGeometryType !== Qgis.GeometryType.Unknown && (featureGeometryType !== Qgis.GeometryType.Point || layerGeometryType === Qgis.GeometryType.Point)) {
+                if (layer.supportsEditing && !layer.readOnly) {
+                  layersModel.append({
+                      "LayerType": layerGeometryType,
+                      "Layer": layer
+                    });
+                }
+              }
+            }
+          }
+        }
+
+        Repeater {
+          model: ListModel {
+            id: layersModel
+          }
+
+          delegate: MenuItem {
+            text: Layer.name
+            font: Theme.defaultFont
+
+            height: 48
+            leftPadding: Theme.menuItemLeftPadding
+
+            icon.source: iconForGeometry(LayerType)
+
+            onTriggered: {
+              if (Layer) {
+                const result = clipboardManager.pasteFeatureFromClipboardIntoLayer(Layer);
+                if (result) {
+                  displayToast(qsTr("Feature pasted successfully"), 'info');
+                } else {
+                  displayToast(qsTr("Failed to paste feature into layer"), 'error');
+                }
+                canvasMenu.close();
               }
             }
           }
         }
       }
 
-      readonly property bool visibleMenu: clipboardManager ? clipboardManager.holdsFeature : false
-
-      onVisibleMenuChanged: updateVisibility()
-      Component.onCompleted: updateVisibility()
-
-      function updateVisibility() {
-      // parent.height = visibleMenu ? 48 : 0;
-      // parent.visible = visibleMenu;
+      onObjectAdded: (index, object) => {
+        canvasMenu.insertMenu(canvasMenu.contentData.length - 1, object);
       }
-
-      Repeater {
-        model: ListModel {
-          id: layersModel
-        }
-
-        delegate: MenuItem {
-          text: Layer.name
-          font: Theme.defaultFont
-
-          height: 48
-          leftPadding: Theme.menuItemLeftPadding
-
-          icon.source: iconForGeometry(LayerType)
-
-          onTriggered: {
-            if (Layer) {
-              const result = clipboardManager.pasteFeatureFromClipboardIntoLayer(Layer);
-              if (result) {
-                displayToast(qsTr("Feature pasted successfully"), 'info');
-              } else {
-                displayToast(qsTr("Failed to paste feature into layer"), 'error');
-              }
-              canvasMenu.close();
-            }
-          }
-        }
+      onObjectRemoved: (index, object) => {
+        canvasMenu.removeMenu(object);
       }
     }
   }
