@@ -3276,25 +3276,26 @@ ApplicationWindow {
       icon.source: Theme.getThemeVectorIcon("ic_paste_black_24dp")
       icon.color: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
 
-      onAboutToShow: {
-        layersModel.clear();
-        const feature = clipboardManager.pasteFeatureFromClipboard();
-        const featureGeometryType = feature.geometry.type;
-        const mapLayers = ProjectUtils.mapLayers(qgisProject);
-        for (let layerId in mapLayers) {
-          const layer = mapLayers[layerId];
-          if (layer.type === Qgis.LayerType.Vector) {
-            const layerGeometryType = layer.geometryType();
-            if (layerGeometryType !== Qgis.GeometryType.Null && layerGeometryType !== Qgis.GeometryType.Unknown && (featureGeometryType !== Qgis.GeometryType.Point || layerGeometryType === Qgis.GeometryType.Point)) {
-              if (layer.supportsEditing && !layer.readOnly) {
-                layersModel.append({
-                    "LayerType": layerGeometryType,
-                    "Layer": layer
-                  });
-              }
-            }
-          }
-        }
+      onAboutToShow:
+      // layersModel.clear();
+      // const feature = clipboardManager.pasteFeatureFromClipboard();
+      // const featureGeometryType = feature.geometry.type;
+      // const mapLayers = ProjectUtils.mapLayers(qgisProject);
+      // for (let layerId in mapLayers) {
+      //   const layer = mapLayers[layerId];
+      //   if (layer.type === Qgis.LayerType.Vector) {
+      //     const layerGeometryType = layer.geometryType();
+      //     if (layerGeometryType !== Qgis.GeometryType.Null && layerGeometryType !== Qgis.GeometryType.Unknown && (featureGeometryType !== Qgis.GeometryType.Point || layerGeometryType === Qgis.GeometryType.Point)) {
+      //       if (layer.supportsEditing && !layer.readOnly) {
+      //         layersModel.append({
+      //             "LayerType": layerGeometryType,
+      //             "Layer": layer
+      //           });
+      //       }
+      //     }
+      //   }
+      // }
+      {
       }
 
       readonly property bool visibleMenu: clipboardManager ? clipboardManager.holdsFeature : false
@@ -3307,33 +3308,33 @@ ApplicationWindow {
         parent.visible = visibleMenu;
       }
 
-      Repeater {
-        model: ListModel {
-          id: layersModel
-        }
+      // Repeater {
+      //   model: ListModel {
+      //     id: layersModel
+      //   }
 
-        delegate: MenuItem {
-          text: Layer.name
-          font: Theme.defaultFont
+      //   delegate: MenuItem {
+      //     text: Layer.name
+      //     font: Theme.defaultFont
 
-          height: 48
-          leftPadding: Theme.menuItemLeftPadding
+      //     height: 48
+      //     leftPadding: Theme.menuItemLeftPadding
 
-          icon.source: iconForGeometry(LayerType)
+      //     icon.source: iconForGeometry(LayerType)
 
-          onTriggered: {
-            if (Layer) {
-              const result = clipboardManager.pasteFeatureFromClipboardIntoLayer(Layer);
-              if (result) {
-                displayToast(qsTr("Feature pasted successfully"), 'info');
-              } else {
-                displayToast(qsTr("Failed to paste feature into layer"), 'error');
-              }
-              canvasMenu.close();
-            }
-          }
-        }
-      }
+      //     onTriggered: {
+      //       if (Layer) {
+      //         const result = clipboardManager.pasteFeatureFromClipboardIntoLayer(Layer);
+      //         if (result) {
+      //           displayToast(qsTr("Feature pasted successfully"), 'info');
+      //         } else {
+      //           displayToast(qsTr("Failed to paste feature into layer"), 'error');
+      //         }
+      //         canvasMenu.close();
+      //       }
+      //     }
+      //   }
+      // }
     }
   }
 
