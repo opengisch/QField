@@ -3297,14 +3297,14 @@ ApplicationWindow {
         }
       }
 
-      property bool visibleMenu: {
-        // let holdsFeature = clipboardManager ? clipboardManager.holdsFeature : false;
-        // if (pasteIntoLayers.parent) {
-        //   pasteIntoLayers.parent.height = holdsFeature ? 48 : 0;
-        //   pasteIntoLayers.parent.visible = holdsFeature;
-        // }
-        // return holdsFeature;
-        return true;
+      readonly property bool visibleMenu: clipboardManager ? clipboardManager.holdsFeature : false
+
+      onVisibleMenuChanged: updateVisibility()
+      Component.onCompleted: updateVisibility()
+
+      function updateVisibility() {
+      // parent.height = visibleMenu ? 48 : 0;
+      // parent.visible = visibleMenu;
       }
 
       Repeater {
