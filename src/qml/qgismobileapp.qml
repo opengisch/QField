@@ -3298,12 +3298,13 @@ ApplicationWindow {
       }
 
       property bool visibleMenu: {
-        let holdsFeature = clipboardManager ? clipboardManager.holdsFeature : false;
-        if (pasteIntoLayers.parent) {
-          pasteIntoLayers.parent.height = holdsFeature ? 48 : 0;
-          pasteIntoLayers.parent.visible = holdsFeature;
-        }
-        return holdsFeature;
+        // let holdsFeature = clipboardManager ? clipboardManager.holdsFeature : false;
+        // if (pasteIntoLayers.parent) {
+        //   pasteIntoLayers.parent.height = holdsFeature ? 48 : 0;
+        //   pasteIntoLayers.parent.visible = holdsFeature;
+        // }
+        // return holdsFeature;
+        return true;
       }
 
       Repeater {
