@@ -3038,6 +3038,25 @@ ApplicationWindow {
       height: 48
     }
 
+    readonly property bool isPasteMenuVisible: clipboardManager ? clipboardManager.holdsFeature : false
+
+    onIsPasteMenuVisibleChanged: {
+      updatePasteMenuVisibility();
+    }
+
+    function updatePasteMenuVisibility() {
+      for (let i = 0; i < canvasMenu.count; i++) {
+        if (canvasMenu.itemAt(i).text === pasteIntoLayers.title) {
+          canvasMenu.itemAt(i).height = isPasteMenuVisible ? 48 : 0;
+          canvasMenu.itemAt(i).visible = isPasteMenuVisible;
+        }
+      }
+    }
+
+    Component.onCompleted: {
+      updatePasteMenuVisibility();
+    }
+
     Row {
       id: canvasMenuActionsToolbar
       objectName: "canvasMenuActionsToolbar"
@@ -3142,7 +3161,7 @@ ApplicationWindow {
     }
 
     MenuSeparator {
-      enabled: canvasMenuFeatureListInstantiator.count > 0 || pasteIntoLayers.parent.visible
+      enabled: canvasMenuFeatureListInstantiator.count > 0 || canvasMenu.isPasteMenuVisible
       width: parent.width
       visible: enabled
       height: enabled ? undefined : 0
@@ -3258,7 +3277,7 @@ ApplicationWindow {
     }
 
     MenuSeparator {
-      enabled: canvasMenuFeatureListInstantiator.count > 0 && pasteIntoLayers.parent.visible
+      enabled: canvasMenuFeatureListInstantiator.count > 0 && canvasMenu.isPasteMenuVisible
       width: parent.width
       visible: enabled
       height: enabled ? undefined : 0
@@ -3270,7 +3289,7 @@ ApplicationWindow {
       topMargin: sceneTopMargin
       bottomMargin: sceneBottomMargin
 
-      title: "Paste Into Layer"
+      title: qsTr("Paste Into Layer")
       font: Theme.defaultFont
 
       icon.source: Theme.getThemeVectorIcon("ic_paste_black_24dp")
@@ -3295,16 +3314,6 @@ ApplicationWindow {
             }
           }
         }
-      }
-
-      readonly property bool visibleMenu: clipboardManager ? clipboardManager.holdsFeature : false
-
-      onVisibleMenuChanged: updateVisibility()
-      Component.onCompleted: updateVisibility()
-
-      function updateVisibility() {
-        parent.height = visibleMenu ? 48 : 0;
-        parent.visible = visibleMenu;
       }
 
       Repeater {
