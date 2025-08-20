@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>Retorna uma lista de elementos da camada ativa com atributos correspondentes. Para restringir a correspondência a um único atributo, basta identificá-lo com um &apos;@&apos; como prefixo.</translation>
     </message>
 </context>
 <context>
@@ -276,11 +276,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected.</source>
-        <translation type="unfinished"/>
+        <translation>Nenhum dispositivo Bluetooth detectado.</translation>
     </message>
     <message>
         <source>Deeper scanning for paired devices</source>
-        <translation type="unfinished"/>
+        <translation>Verificação detalhada para dispositivos pareados</translation>
     </message>
 </context>
 <context>
@@ -349,7 +349,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>Retorna uma lista de usuário e marcadores de nomes correspondentes.</translation>
     </message>
 </context>
 <context>
@@ -489,43 +489,43 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Paste failed: no destination layer provided</source>
-        <translation type="unfinished"/>
+        <translation>Colar falhou: nenhuma camada de destino fornecida</translation>
     </message>
     <message>
         <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation type="unfinished"/>
+        <translation>Operação recortar: camadas fonte e destino são as mesmas, pulando pasta.</translation>
     </message>
     <message>
         <source>Paste failed: clipboard feature is invalid</source>
-        <translation type="unfinished"/>
+        <translation>Colar falhou: elemento copiado é inválido</translation>
     </message>
     <message>
         <source>Cut failed: could not start editing on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Recortar falhou: não foi possível iniciar a edição na camada fonte %1</translation>
     </message>
     <message>
         <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Recortar falhou: não foi possível excluir o elemento original da camada fonte %1</translation>
     </message>
     <message>
         <source>Paste failed: no compatible features could be created</source>
-        <translation type="unfinished"/>
+        <translation>Colar falhou: nenhum elemento compatível pode ser criado</translation>
     </message>
     <message>
         <source>Paste failed: could not start editing on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Colar falhou: não foi possível iniciar a edição na camada %1</translation>
     </message>
     <message>
         <source>Paste failed: could not add feature to layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Colar falhou: não foi possível adicionar o elemento à camada %1</translation>
     </message>
     <message>
         <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Colar falhou: o registro de alterações falhou na camada %1</translation>
     </message>
     <message>
         <source>Cut commit failed on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Registro do recortar falhou na camada fonte %1</translation>
     </message>
 </context>
 <context>
@@ -562,11 +562,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Pasta de projeto</translation>
     </message>
     <message>
         <source>The project is read-only.</source>
-        <translation type="unfinished"/>
+        <translation>O projeto é somente-leitura.</translation>
     </message>
 </context>
 <context>
@@ -675,11 +675,11 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>EgenioussReceiver</name>
     <message>
         <source>Successfully connected</source>
-        <translation type="unfinished"/>
+        <translation>Conectado com sucesso</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Disconectado</translation>
     </message>
     <message>
         <source>Received data is too short to process</source>
@@ -715,7 +715,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Failed to start egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"/></translation>
     </message>
     <message>
         <source>Failed to stop egeniouss server.</source>
@@ -756,7 +756,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Retorna o valor de uma expressão digitada na barra de pesquisa.</translation>
     </message>
 </context>
 <context>
@@ -802,11 +802,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation type="unfinished"/>
+        <translation>O ID de configuração de autentificação do armazenamento externo não foi encontrado. Verifique que o mesmo foi importado para o QField</translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Saiba mais</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
@@ -873,7 +873,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Feature addition disabled</source>
-        <translation type="unfinished"/>
+        <translation>Adição de elementos desabilitada</translation>
     </message>
 </context>
 <context>
@@ -944,7 +944,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation>Refazer alterações em %n elemento(s)</translation>
     </message>
 </context>
 <context>
@@ -979,7 +979,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation type="unfinished"/>
+        <translation>Elementos selecionados duplicados com sucesso. Lista atualizada para exibir os novos elementos</translation>
     </message>
     <message>
         <source>No feature at this position</source>
@@ -994,11 +994,13 @@ Cancele para fazer uma verificação mínima.</translation>
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
         <comment>0</comment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation>O(s) elemento(s) %n selecionados devem ser mesclados?
+
+Os elementos serão combinados no elemento &apos;%1&apos; que terá seus atributos mantidos.</translation>
     </message>
     <message numerus="yes">
         <source>Successfully merged %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation>Elemento(s) %n mesclados com sucesso</translation>
     </message>
     <message numerus="yes">
         <source>Failed to merge %n feature(s)</source>
@@ -1019,7 +1021,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message numerus="yes">
         <source>Failed to delete %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation>Falha ao excluir %n elemento(s)</translation>
     </message>
     <message>
         <source>Changes discarded</source>
@@ -1027,19 +1029,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Transfer Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Transferir atributos de elementos</translation>
     </message>
     <message>
         <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
-        <translation type="unfinished"/>
+        <translation>Selecione o elemento abaixo para transferir seus atributos ao elemento atualmente aberto</translation>
     </message>
     <message>
         <source>Feature attributes transferred</source>
-        <translation type="unfinished"/>
+        <translation>Atributos de elementos transferidos</translation>
     </message>
     <message>
         <source>No feature attributes were transferred</source>
-        <translation type="unfinished"/>
+        <translation>Nenhum atributo de elementos foi transferido</translation>
     </message>
     <message>
         <source>Features</source>
@@ -1047,7 +1049,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Processing Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Algoritmos de Processamento</translation>
     </message>
 </context>
 <context>
@@ -1123,18 +1125,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
+        <translation>Retorna uma lista de elementos de todas camadas pesquisáveis com nome correspondente</translation>
     </message>
 </context>
 <context>
     <name>FileDeviceChooser</name>
     <message>
         <source>File path</source>
-        <translation type="unfinished"/>
+        <translation>Caminho do arquivo</translation>
     </message>
     <message>
         <source>Interval (in milliseconds)</source>
-        <translation type="unfinished"/>
+        <translation>Intervalo (em milisegundos)</translation>
     </message>
 </context>
 <context>
@@ -1226,7 +1228,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>Ferramenta apagar</translation>
     </message>
 </context>
 <context>
@@ -1257,14 +1259,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>Retorna um ponto a partir de um par de coordenadas X e Y - ou latitude e longitude em WGS84 - digitados na barra de pesquisa</translation>
     </message>
 </context>
 <context>
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Documentação do QField</translation>
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
@@ -1275,7 +1277,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Navegação</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -1283,15 +1285,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Precise view</source>
-        <translation type="unfinished"/>
+        <translation>Visualização precisa</translation>
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>Sensores</translation>
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Perfil de elevação</translation>
     </message>
 </context>
 <context>
@@ -1310,7 +1312,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Credentials Details</source>
-        <translation type="unfinished"/>
+        <translation>Informações de credencial</translation>
     </message>
 </context>
 <context>
@@ -1360,11 +1362,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Zoom to group</source>
-        <translation type="unfinished"/>
+        <translation>Aproximar ao grupo</translation>
     </message>
     <message>
         <source>Zoom to parent layer</source>
-        <translation type="unfinished"/>
+        <translation>Aproximar a camada pai</translation>
     </message>
     <message>
         <source>Zoom to layer</source>
@@ -1408,35 +1410,35 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>Exibir lista de elementos visíveis</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>Exibir menu de elementos</translation>
     </message>
     <message>
         <source>Read-only layer</source>
-        <translation type="unfinished"/>
+        <translation>Camada somente-leitura</translation>
     </message>
     <message>
         <source>feature addition</source>
-        <translation type="unfinished"/>
+        <translation>adição de elementos</translation>
     </message>
     <message>
         <source>attribute editing</source>
-        <translation type="unfinished"/>
+        <translation>edição de atributos</translation>
     </message>
     <message>
         <source>geometry editing</source>
-        <translation type="unfinished"/>
+        <translation>edição de geometrias</translation>
     </message>
     <message>
         <source>feature deletion</source>
-        <translation type="unfinished"/>
+        <translation>exclusão de elementos</translation>
     </message>
     <message>
         <source>Disabled layer permissions: %1</source>
-        <translation type="unfinished"/>
+        <translation>Permissões da camada desabilitadas: %1</translation>
     </message>
 </context>
 <context>
@@ -1504,7 +1506,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"/>
+        <translation>Parar</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -1569,11 +1571,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
+        <translation>Para procurar por elementos na camada ativa, selecione uma camada vetorial na legenda.</translation>
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>Selecione uma camada vetorial na legenda antes de usar esta função</translation>
     </message>
 </context>
 <context>
@@ -1588,7 +1590,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Search Bar Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações da barra de pesquisa</translation>
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
@@ -1913,11 +1915,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao salvar recurso de arquivo</translation>
     </message>
     <message>
         <source>Select Image File</source>
-        <translation type="unfinished"/>
+        <translation>Selecione o arquivo de imagem</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
@@ -1925,7 +1927,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select Video File</source>
-        <translation type="unfinished"/>
+        <translation>Selecione o arquivo de vídeo</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
@@ -1941,7 +1943,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"/>
+        <translation>Selecione o arquivo</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
@@ -1953,11 +1955,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The dataset will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>O conjunto de dados será excluído, confirma?</translation>
     </message>
     <message>
         <source>The project folder will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>A pasta de projeto será excluída, confirma?</translation>
     </message>
 </context>
 <context>
@@ -1979,15 +1981,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
-        <translation type="unfinished"/>
+        <translation>O arquivo zip não foi extraído</translation>
     </message>
     <message>
         <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation type="unfinished"/>
+        <translation>O arquivo zip baixado não contém o arquivo requerido main.qml</translation>
     </message>
     <message>
         <source>Can&apos;t save the downloaded file</source>
-        <translation type="unfinished"/>
+        <translation>Impossível salvar o arquivo baixado</translation>
     </message>
     <message>
         <source>Download file is not an zipped plugin</source>
@@ -1995,7 +1997,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Erro de rede</translation>
     </message>
     <message>
         <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
@@ -2139,19 +2141,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de posicionamento do Dispositivo</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>Nome:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="unfinished"/>
+        <translation>Deixe vazio para auto-preenchimento</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de conexão:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2171,7 +2173,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Serial port (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Porta serial (NMEA)</translation>
     </message>
     <message>
         <source>Egeniouss</source>
@@ -2179,7 +2181,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Connection type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de conexão</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2191,7 +2193,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Connection details</source>
-        <translation type="unfinished"/>
+        <translation>Detalhes de conexão</translation>
     </message>
     <message>
         <source>Logs file (NMEA)</source>
@@ -2320,7 +2322,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>Acurácia de posicionamento muito baixa para este nível de precisão</translation>
     </message>
 </context>
 <context>
@@ -2334,15 +2336,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>ProcessingAlgorithmForm</name>
     <message>
         <source>General Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Parâmetros gerais</translation>
     </message>
     <message>
         <source>Advanced Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Parâmetros avançados</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Ajuda</translation>
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
@@ -2498,7 +2500,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Password missing</source>
-        <translation type="unfinished"/>
+        <translation>Senha não informada</translation>
     </message>
 </context>
 <context>
@@ -2513,7 +2515,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>No changes have been pushed yet!</source>
-        <translation type="unfinished"/>
+        <translation>Não há alterações para envio!</translation>
     </message>
 </context>
 <context>
@@ -2585,11 +2587,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>ou</translation>
     </message>
     <message>
         <source>Sign in using %1</source>
-        <translation type="unfinished"/>
+        <translation>Login usando %1</translation>
     </message>
 </context>
 <context>
@@ -2600,7 +2602,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation>Algumas camadas não foram devidamente empacotadas ao QFieldCloud. Estas camadas podem ter tido um problema de configuração ou sua fonte de dados não é acessível ao servidor QFieldCloud.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
@@ -3191,7 +3193,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Search for project</source>
-        <translation type="unfinished"/>
+        <translation>Pesquisar projeto</translation>
     </message>
     <message>
         <source>Sign out</source>
@@ -3203,31 +3205,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Show invalid projects</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar projetos inválidos</translation>
     </message>
     <message>
         <source>Available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>Disponível na nuvem</translation>
     </message>
     <message>
         <source>, has changes locally</source>
-        <translation type="unfinished"/>
+        <translation>, tem alterações locais</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Descrição</translation>
     </message>
     <message>
         <source>Owner</source>
-        <translation type="unfinished"/>
+        <translation>Proprietário</translation>
     </message>
     <message>
         <source>Creation date</source>
-        <translation type="unfinished"/>
+        <translation>Data criação</translation>
     </message>
     <message>
         <source>Latest update date</source>
-        <translation type="unfinished"/>
+        <translation>Última modificação</translation>
     </message>
     <message>
         <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
@@ -3235,15 +3237,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud está empacotando o projeto...aguarde</translation>
     </message>
     <message>
         <source>Downloading project</source>
-        <translation type="unfinished"/>
+        <translation>Baixando projeto</translation>
     </message>
     <message>
         <source>Download project</source>
-        <translation type="unfinished"/>
+        <translation>Baixar projeto</translation>
     </message>
     <message>
         <source>Open project</source>
@@ -3251,11 +3253,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>View Project Details</source>
-        <translation type="unfinished"/>
+        <translation>Ver detalhes do projeto</translation>
     </message>
     <message>
         <source>QFieldCloud project details fetching failed</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud falhou ao obter detalhes do projeto</translation>
     </message>
 </context>
 <context>
@@ -3270,22 +3272,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>O armazenamento de sua conta acabou.</translation>
     </message>
 </context>
 <context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
-        <translation type="unfinished"/>
+        <translation>Concluir</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Próximo</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation type="unfinished"/>
+        <translation>Anterior</translation>
     </message>
 </context>
 <context>
@@ -3364,27 +3366,27 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import URL</source>
-        <translation type="unfinished"/>
+        <translation>Importar de URL</translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
-        <translation type="unfinished"/>
+        <translation>Informe uma URL para baixar/importar dados</translation>
     </message>
     <message>
         <source>Item Actions</source>
-        <translation type="unfinished"/>
+        <translation>Ações do item</translation>
     </message>
     <message>
         <source>Import Actions</source>
-        <translation type="unfinished"/>
+        <translation>Ações de importação</translation>
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Ações de projeto</translation>
     </message>
     <message>
         <source>Update project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Atualizar projeto a partir de ZIP</translation>
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
@@ -3392,15 +3394,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar aos favoritos/marcadores</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
-        <translation type="unfinished"/>
+        <translation>Remover dos marcadores</translation>
     </message>
     <message>
         <source>Files</source>
-        <translation type="unfinished"/>
+        <translation>Arquivos</translation>
     </message>
     <message>
         <source>Push to QFieldCloud</source>
@@ -3472,7 +3474,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remember password</source>
-        <translation type="unfinished"/>
+        <translation>Lembrar senha</translation>
     </message>
     <message>
         <source>Type the WebDAV details below to import a remote folder:</source>
@@ -3484,7 +3486,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Select the remote folder to import:</source>
-        <translation type="unfinished"/>
+        <translation>Selecione a pasta remota para importar:</translation>
     </message>
     <message>
         <source>Fetching remote folders</source>
@@ -3496,7 +3498,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>User and password</source>
-        <translation type="unfinished"/>
+        <translation>Usuário e senha</translation>
     </message>
     <message>
         <source>leave empty to use remembered</source>
@@ -3516,7 +3518,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
@@ -3832,11 +3834,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -3848,15 +3850,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Follow system appearance</source>
-        <translation type="unfinished"/>
+        <translation>Aparência do sistema</translation>
     </message>
     <message>
         <source>Light theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema claro</translation>
     </message>
     <message>
         <source>Dark theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema escuro</translation>
     </message>
     <message>
         <source>Tiny</source>
@@ -3884,15 +3886,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Best quality</source>
-        <translation type="unfinished"/>
+        <translation>Qualidade alta</translation>
     </message>
     <message>
         <source>Lower quality</source>
-        <translation type="unfinished"/>
+        <translation>Qualidade baixa</translation>
     </message>
     <message>
         <source>Lowest quality</source>
-        <translation type="unfinished"/>
+        <translation>Qualidade mais baixa</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
@@ -3908,7 +3910,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>Use as teclas de volume para digitalizar</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
@@ -3936,11 +3938,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>User Interface</source>
-        <translation type="unfinished"/>
+        <translation>Interface de usuário</translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Aparência</translation>
     </message>
     <message>
         <source>Font size:</source>
@@ -4152,15 +4154,15 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
-        <translation type="unfinished"/>
+        <translation>Horas</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="unfinished"/>
+        <translation>Minutos</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="unfinished"/>
+        <translation>Segundos</translation>
     </message>
     <message>
         <source>OK</source>
@@ -4168,58 +4170,58 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>January</source>
-        <translation type="unfinished"/>
+        <translation>Janeiro</translation>
     </message>
     <message>
         <source>February</source>
-        <translation type="unfinished"/>
+        <translation>Fevereiro</translation>
     </message>
     <message>
         <source>March</source>
-        <translation type="unfinished"/>
+        <translation>Março</translation>
     </message>
     <message>
         <source>April</source>
-        <translation type="unfinished"/>
+        <translation>Abril</translation>
     </message>
     <message>
         <source>May</source>
-        <translation type="unfinished"/>
+        <translation/>Maio</translation>
     </message>
     <message>
         <source>June</source>
-        <translation type="unfinished"/>
+        <translation>Junho</translation>
     </message>
     <message>
         <source>July</source>
-        <translation type="unfinished"/>
+        <translation>Julho</translation>
     </message>
     <message>
         <source>August</source>
-        <translation type="unfinished"/>
+        <translation>Agosto</translation>
     </message>
     <message>
         <source>September</source>
-        <translation type="unfinished"/>
+        <translation>Setembro</translation>
     </message>
     <message>
         <source>October</source>
-        <translation type="unfinished"/>
+        <translation>Outubro</translation>
     </message>
     <message>
         <source>November</source>
-        <translation type="unfinished"/>
+        <translation>Novembro</translation>
     </message>
     <message>
         <source>December</source>
-        <translation type="unfinished"/>
+        <translation>Dezembro</translation>
     </message>
 </context>
 <context>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation type="unfinished"/>
+        <translation>fechar</translation>
     </message>
 </context>
 <context>
@@ -4512,7 +4514,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Refresh list</source>
-        <translation type="unfinished"/>
+        <translation>Atualizar lista</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
@@ -5187,7 +5189,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>distance</name>
     <message>
         <source>degrees</source>
-        <translation type="unfinished"/>
+        <translation>graus</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
@@ -5195,15 +5197,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"/>
+        <translation>metros</translation>
     </message>
     <message>
         <source>kilometers</source>
-        <translation type="unfinished"/>
+        <translation>kilômetros</translation>
     </message>
     <message>
         <source>feet</source>
-        <translation type="unfinished"/>
+        <translation>pés</translation>
     </message>
     <message>
         <source>yards</source>
@@ -5211,7 +5213,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>miles</source>
-        <translation type="unfinished"/>
+        <translation>milhas</translation>
     </message>
     <message>
         <source>nautical miles</source>
@@ -5227,7 +5229,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>inches</source>
-        <translation type="unfinished"/>
+        <translation>polegadas</translation>
     </message>
 </context>
 <context>
