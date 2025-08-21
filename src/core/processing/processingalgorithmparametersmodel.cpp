@@ -22,7 +22,7 @@
 #include <qgsprocessingalgorithm.h>
 #include <qgsprocessingparameters.h>
 #include <qgsprocessingregistry.h>
-
+#include <qgsunittypes.h>
 
 ProcessingAlgorithmParametersModel::ProcessingAlgorithmParametersModel( QObject *parent )
   : QSortFilterProxyModel( parent )
@@ -140,7 +140,7 @@ void ProcessingAlgorithmParametersModelBase::rebuild()
 
   if ( mAlgorithm )
   {
-    const static QStringList sSupportedParameters = { QStringLiteral( "number" ), QStringLiteral( "distance" ), QStringLiteral( "enum" ), QStringLiteral( "boolean" ), QStringLiteral( "source" ) };
+    const static QStringList sSupportedParameters = { QStringLiteral( "number" ), QStringLiteral( "area" ), QStringLiteral( "distance" ), QStringLiteral( "enum" ), QStringLiteral( "boolean" ), QStringLiteral( "source" ) };
     const QgsProcessingAlgorithm *algorithm = QgsApplication::instance()->processingRegistry()->algorithmById( mAlgorithmId );
     for ( const QgsProcessingParameterDefinition *definition : algorithm->parameterDefinitions() )
     {
@@ -267,7 +267,14 @@ QVariant ProcessingAlgorithmParametersModelBase::data( const QModelIndex &index,
       return mValues.at( index.row() );
     case ParameterConfigurationRole:
       QVariantMap configuration;
-      if ( mParameters.at( index.row() )->type() == QStringLiteral( "distance" ) )
+      if ( mParameters.at( index.row() )->type() == QStringLiteral( "area" ) )
+      {
+        const QgsProcessingParameterArea *parameterArea = dynamic_cast<const QgsProcessingParameterArea *>( mParameters.at( index.row() ) );
+        configuration["minimum"] = parameterArea->minimum();
+        configuration["maximum"] = parameterArea->maximum();
+        configuration["areaUnit"] = static_cast<int>( ( mInPlaceLayer ? QgsUnitTypes::distanceToAreaUnit( mInPlaceLayer->crs().mapUnits() ) : Qgis::AreaUnit::Unknown ) );
+      }
+      else if ( mParameters.at( index.row() )->type() == QStringLiteral( "distance" ) )
       {
         const QgsProcessingParameterDistance *parameterDistance = dynamic_cast<const QgsProcessingParameterDistance *>( mParameters.at( index.row() ) );
         configuration["minimum"] = parameterDistance->minimum();

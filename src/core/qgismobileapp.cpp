@@ -99,6 +99,7 @@
 #include "processingalgorithm.h"
 #include "processingalgorithmparametersmodel.h"
 #include "processingalgorithmsmodel.h"
+#include "processingutils.h"
 #include "projectinfo.h"
 #include "projectsimageprovider.h"
 #include "projectsource.h"
@@ -550,6 +551,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   REGISTER_SINGLETON( "org.qfield", UrlUtils, "UrlUtils" );
   REGISTER_SINGLETON( "org.qfield", QFieldCloudUtils, "QFieldCloudUtils" );
   REGISTER_SINGLETON( "org.qfield", PositioningUtils, "PositioningUtils" );
+  REGISTER_SINGLETON( "org.qfield", ProcessingUtils, "ProcessingUtils" );
   REGISTER_SINGLETON( "org.qfield", ProjectUtils, "ProjectUtils" );
   REGISTER_SINGLETON( "org.qfield", CoordinateReferenceSystemUtils, "CoordinateReferenceSystemUtils" );
 
