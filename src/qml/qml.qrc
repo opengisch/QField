@@ -38,6 +38,7 @@
         <file>ProcessingAlgorithmForm.qml</file>
         <file>ProcessingAlgorithmPreview.qml</file>
         <file>processingparameterwidgets/ProcessingParameterWidgetBase.qml</file>
+        <file>processingparameterwidgets/area.qml</file>
         <file>processingparameterwidgets/boolean.qml</file>
         <file>processingparameterwidgets/enum.qml</file>
         <file>processingparameterwidgets/distance.qml</file>
