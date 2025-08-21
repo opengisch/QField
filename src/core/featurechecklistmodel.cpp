@@ -282,10 +282,7 @@ FeatureCheckListModel::FeatureCheckListModel( QObject *parent )
   connect( mSourceModel, &FeatureCheckListModelBase::attributeValueChanged, this, &FeatureCheckListModel::attributeValueChanged );
   connect( mSourceModel, &FeatureCheckListModelBase::attributeFieldChanged, this, &FeatureCheckListModel::attributeFieldChanged );
   connect( mSourceModel, &FeatureCheckListModelBase::allowMultiChanged, this, &FeatureCheckListModel::allowMultiChanged );
-  connect( mSourceModel, &FeatureCheckListModelBase::listUpdated, this, [=]() {
-    sort( 0 );
-    emit listUpdated();
-  } );
+  connect( mSourceModel, &FeatureCheckListModelBase::listUpdated, this, &FeatureCheckListModel::listUpdated );
 
   setSourceModel( mSourceModel );
   setFilterCaseSensitivity( Qt::CaseInsensitive );
@@ -533,34 +530,39 @@ bool FeatureCheckListModel::lessThan( const QModelIndex &left, const QModelIndex
     }
   }
 
-  const QString leftDisplay = sourceModel()->data( left, Qt::DisplayRole ).toString().toLower();
-  const QString rightDisplay = sourceModel()->data( right, Qt::DisplayRole ).toString().toLower();
-
-  if ( !mSearchTerm.isEmpty() )
+  if ( orderByValue() || !mSearchTerm.isEmpty() )
   {
-    const bool leftStartsWithSearchTerm = leftDisplay.startsWith( mSearchTerm.toLower() );
-    const bool rightStartsWithSearchTerm = rightDisplay.startsWith( mSearchTerm.toLower() );
-
-    if ( rightStartsWithSearchTerm && !leftStartsWithSearchTerm )
+    const QString leftDisplay = sourceModel()->data( left, Qt::DisplayRole ).toString().toLower();
+    const QString rightDisplay = sourceModel()->data( right, Qt::DisplayRole ).toString().toLower();
+    if ( !mSearchTerm.isEmpty() )
     {
-      return false;
+      const bool leftStartsWithSearchTerm = leftDisplay.startsWith( mSearchTerm.toLower() );
+      const bool rightStartsWithSearchTerm = rightDisplay.startsWith( mSearchTerm.toLower() );
+
+      if ( rightStartsWithSearchTerm && !leftStartsWithSearchTerm )
+      {
+        return false;
+      }
+      else if ( !rightStartsWithSearchTerm && leftStartsWithSearchTerm )
+      {
+        return true;
+      }
+
+      const double leftFuzzyScore = calcFuzzyScore( leftDisplay, mSearchTerm.toLower() );
+      const double rightFuzzyScore = calcFuzzyScore( rightDisplay, mSearchTerm.toLower() );
+
+      if ( leftFuzzyScore != rightFuzzyScore )
+      {
+        return leftFuzzyScore > rightFuzzyScore;
+      }
     }
-    else if ( !rightStartsWithSearchTerm && leftStartsWithSearchTerm )
+    if ( orderByValue() )
     {
-      return true;
-    }
-
-    const double leftFuzzyScore = calcFuzzyScore( leftDisplay, mSearchTerm.toLower() );
-    const double rightFuzzyScore = calcFuzzyScore( rightDisplay, mSearchTerm.toLower() );
-
-    if ( leftFuzzyScore != rightFuzzyScore )
-    {
-      return leftFuzzyScore > rightFuzzyScore;
+      return leftDisplay < rightDisplay;
     }
   }
 
-  // Alphabetically
-  return leftDisplay < rightDisplay;
+  return false;
 }
 
 double FeatureCheckListModel::calcFuzzyScore( const QString &displayString, const QString &searchTerm ) const
