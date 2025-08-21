@@ -5992,6 +5992,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Failed to paste feature into layer</source>
         <translation>Nie udało się wkleić obiektu do warstwy</translation>
     </message>
+    <message>
+        <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

@@ -5986,6 +5986,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <source>Failed to paste feature into layer</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

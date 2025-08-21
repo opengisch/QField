@@ -5986,6 +5986,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to paste feature into layer</source>
         <translation>无法将要素粘贴到图层</translation>
     </message>
+    <message>
+        <source>Paste Into Layer</source>
+        <translation>粘贴到图层</translation>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

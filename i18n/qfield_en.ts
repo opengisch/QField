@@ -6062,6 +6062,10 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Failed to paste feature into layer</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Paste Into Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

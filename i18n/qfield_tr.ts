@@ -5983,6 +5983,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <source>Failed to paste feature into layer</source>
         <translation>Özellik katmana yapıştırılamadı</translation>
     </message>
+    <message>
+        <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>
