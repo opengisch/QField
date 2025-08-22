@@ -48,6 +48,7 @@ Item {
 
     TextField {
       id: searchField
+      objectName: "SearchTextField"
       rightPadding: 7
       anchors.left: searchButton.right
       anchors.right: clearButton.left

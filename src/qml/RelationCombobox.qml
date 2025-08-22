@@ -237,6 +237,7 @@ Item {
 
     ComboBox {
       id: comboBox
+      objectName: "RelationComboBox"
       visible: !enabled || (!useSearch && !useCompleter && (relation !== undefined ? relation.isValid : true))
       Layout.fillWidth: true
 
@@ -585,6 +586,7 @@ Item {
 
     QfToolButton {
       id: addFeatureButton
+      objectName: "AddFeatureButton"
 
       Layout.preferredWidth: comboBox.enabled ? 48 : 0
       Layout.preferredHeight: 48
