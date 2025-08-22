@@ -19,14 +19,14 @@ Item {
   property var relation: undefined
 
   Component.onCompleted: {
-    if (!featureListModel.addNull) {
+    if (!featureListModel.allowMulti) {
       comboBox.currentIndex = featureListModel.findKey(value);
       invalidWarning.visible = relation !== undefined ? !(relation.isValid) : false;
     }
   }
 
   onCurrentKeyValueChanged: {
-    if (!featureListModel.addNull) {
+    if (!featureListModel.allowMulti) {
       comboBox._cachedCurrentValue = currentKeyValue;
       comboBox.currentIndex = featureListModel.findKey(currentKeyValue);
     }
@@ -273,7 +273,7 @@ Item {
 
       Connections {
         target: featureListModel
-        enabled: !featureListModel.addNull
+        enabled: !featureListModel.allowMulti
 
         function onModelReset() {
           comboBox.currentIndex = featureListModel.findKey(comboBox._cachedCurrentValue);
