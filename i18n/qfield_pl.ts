@@ -493,7 +493,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation type="unfinished"/>
+        <translation>Operacja wycięcia: warstwy źródłowe i docelowe są takie same, pomijam wklejanie.</translation>
     </message>
     <message>
         <source>Paste failed: clipboard feature is invalid</source>
@@ -521,11 +521,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Wklejanie nie powiodło się: commitChanges nie powiodło się na warstwie %1</translation>
     </message>
     <message>
         <source>Cut commit failed on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Wycięcie na warstwie źródłowej %1 nie powiodło się</translation>
     </message>
 </context>
 <context>
@@ -1797,11 +1797,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Feature copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Obiekt został skopiowany do schowka</translation>
     </message>
     <message>
         <source>Feature cut into clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Obiekt został wycięty do schowka</translation>
     </message>
 </context>
 <context>
@@ -5994,7 +5994,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
-        <translation type="unfinished"/>
+        <translation>Wklej na warstwę</translation>
     </message>
 </context>
 <context>
