@@ -3,6 +3,7 @@ import QtTest
 import org.qfield
 import Theme
 import "../../src/qml/editorwidgets" as EditorWidgets
+import "Utils.js" as Utils
 
 TestCase {
   name: "EditorWidgets"
@@ -82,6 +83,37 @@ TestCase {
     property var value: undefined
     property var config: undefined
     property bool isAdding: false
+  }
+
+  EditorWidgets.ValueRelation {
+    id: valueRelation
+    Layout.fillWidth: true
+    Layout.fillHeight: true
+    property var mainWindow: testWindow
+    property var value: undefined
+    property var config: undefined
+    property var currentLayer: undefined
+    property var currentFeature: undefined
+    property bool isEnabled: false
+
+    property var originalDataInExecel: {
+      "id": [1, 2, 3, 4, 5, 6, 7, 8],
+      "name": ["Olivia", "Liam", "Sophia", "Ethan", "Ava", "Noah", "Mathieu", "Mason"],
+      "rating": [4.2, 3.3, 4.5, 4.6, 4.6, 2.9, 3.1, 4.9],
+      "location": [1, 2, 3, 2, 3, 2, 1, 3]
+    }
+  }
+
+  EditorWidgets.ValueRelation {
+    id: valueRelation2
+    Layout.fillWidth: true
+    Layout.fillHeight: true
+    property var mainWindow: testWindow
+    property var value: undefined
+    property var config: undefined
+    property var currentLayer: undefined
+    property var currentFeature: undefined
+    property bool isEnabled: false
   }
 
   /**
@@ -367,5 +399,351 @@ TestCase {
     uuidGenerator.isLoaded = true;
     uuidGenerator.value = "";
     verify(label.text !== "ANY_VALUE");
+  }
+
+  function setupValueRelationInReadonlyMode() {
+    const selectedLayer = qgisProject.mapLayersByName('Fields')[0];
+    valueRelation.currentLayer = selectedLayer;
+    const selectedFeature = qgisProject.mapLayersByName('Fields')[0].getFeature("39");
+    valueRelation.currentFeature = selectedFeature;
+    valueRelation.isEnabled = false;
+    valueRelation.value = undefined;
+    waitForRendering(valueRelation);
+    wait(500);
+    verify(selectedLayer.customProperty('QFieldSync/allow_value_relation_feature_addition') !== undefined);
+    compare(selectedLayer.customProperty('QFieldSync/allow_value_relation_feature_addition'), true);
+  }
+
+  function test_01_ValueRelation() {
+    valueRelation.config = {
+      "AllowMulti": false,
+      "AllowNull": false,
+      "CompleterMatchFlags": 2,
+      "DisplayGroupName": false,
+      "Key": "id",
+      "LayerName": "TestRelationValues",
+      "LayerProviderName": "ogr",
+      "NofColumns": 1,
+      "OrderByDescending": false,
+      "OrderByField": false,
+      "OrderByFieldName": "id",
+      "OrderByKey": true,
+      "OrderByValue": false,
+      "UseCompleter": false,
+      "Value": "name"
+    };
+    setupValueRelationInReadonlyMode();
+    const relationComboBoxParent = valueRelation.children[0];
+    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
+    const addFeatureButton = Utils.findChildren(relationComboBoxParent, "AddFeatureButton");
+    const valueRelationListComponentParent = valueRelation.children[1];
+    const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
+
+    // check ui in readonly mode
+    compare(relationComboBoxParent.enabled, false);
+    compare(addFeatureButton.enabled, false);
+
+    // turn on editable mode
+    valueRelation.isEnabled = true;
+    waitForRendering(valueRelation);
+
+    // check ui in editable mode
+    compare(relationComboBoxParent.enabled, true);
+    compare(relationComboBoxParent.allowAddFeature, true);
+    compare(addFeatureButton.enabled, true);
+
+    // be sure that comboBox is loaded and listview is empty
+    compare(valueRelationRepeater.count, 0);
+    verify(comboBoxItem.count > 0);
+  }
+
+  function test_02_ValueRelation() {
+    valueRelation.config = {
+      "AllowMulti": false,
+      "AllowNull": false,
+      "CompleterMatchFlags": 2,
+      "DisplayGroupName": false,
+      "Key": "id",
+      "LayerName": "TestRelationValues",
+      "LayerProviderName": "ogr",
+      "NofColumns": 1,
+      "OrderByDescending": false,
+      "OrderByField": false,
+      "OrderByFieldName": "id",
+      "OrderByKey": true,
+      "OrderByValue": false,
+      "UseCompleter": false,
+      "Value": "name"
+    };
+    setupValueRelationInReadonlyMode();
+    const relationComboBoxParent = valueRelation.children[0];
+    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
+    const featureListModel = comboBoxItem.model;
+    const namesInList = valueRelation.originalDataInExecel["name"];
+    const keysInList = valueRelation.originalDataInExecel["id"];
+
+    // set value = 1 to set first item inside comboBox
+    valueRelation.value = 1;
+    wait(500);
+    compare(comboBoxItem.count, namesInList.length);
+    compare(comboBoxItem.displayText, namesInList[0]);
+
+    // check every element inside combobox model is correctly setted
+    for (let i = 0; i < comboBoxItem.count; ++i) {
+      const key = featureListModel.dataFromRowIndex(i, FeatureListModel.KeyFieldRole);
+      compare(key, keysInList[i]);
+      const value = featureListModel.dataFromRowIndex(i, FeatureListModel.DisplayStringRole);
+      compare(value, namesInList[i]);
+      valueRelation.value = (i + 1);
+      waitForRendering(valueRelation);
+      compare(comboBoxItem.displayText, namesInList[i]);
+    }
+  }
+
+  function test_03_ValueRelation() {
+    valueRelation.config = {
+      "AllowMulti": false,
+      "AllowNull": false,
+      "CompleterMatchFlags": 2,
+      "DisplayGroupName": false,
+      "Key": "id",
+      "LayerName": "TestRelationValues",
+      "LayerProviderName": "ogr",
+      "NofColumns": 1,
+      "OrderByDescending": false,
+      "OrderByField": false,
+      "OrderByFieldName": "id",
+      "OrderByKey": true,
+      "OrderByValue": false,
+      "UseCompleter": false,
+      "Value": "name"
+    };
+    setupValueRelationInReadonlyMode();
+    const relationComboBoxParent = valueRelation.children[0];
+    const addFeatureButton = Utils.findChildren(relationComboBoxParent, "AddFeatureButton");
+    valueRelation.isEnabled = true;
+    waitForRendering(valueRelation);
+    verify(relationComboBoxParent.embeddedFeatureForm === null);
+
+    // after click embeddedFeatureForm should be not null and in `Add` state
+    addFeatureButton.click();
+    compare(relationComboBoxParent.embeddedFeatureForm.state, "Add");
+  }
+
+  function test_04_ValueRelation() {
+    valueRelation.config = {
+      "AllowMulti": false,
+      "AllowNull": true,
+      "CompleterMatchFlags": 2,
+      "DisplayGroupName": false,
+      "Key": "id",
+      "LayerName": "TestRelationValues",
+      "LayerProviderName": "ogr",
+      "NofColumns": 1,
+      "OrderByDescending": false,
+      "OrderByField": false,
+      "OrderByFieldName": "id",
+      "OrderByKey": true,
+      "OrderByValue": false,
+      "UseCompleter": false,
+      "Value": "name"
+    };
+    setupValueRelationInReadonlyMode();
+    const relationComboBoxParent = valueRelation.children[0];
+    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
+    const featureListModel = comboBoxItem.model;
+    const namesInList = valueRelation.originalDataInExecel["name"];
+    const keysInList = valueRelation.originalDataInExecel["id"];
+
+    // set value = 1 to set first item inside comboBox
+    valueRelation.value = 0;
+    wait(500);
+    compare(comboBoxItem.count, namesInList.length + 1);
+    compare(comboBoxItem.displayText, "<i>NULL</i>");
+
+    // check every element inside combobox model is correctly setted
+    for (let i = 1; i < comboBoxItem.count - 1; ++i) {
+      const key = featureListModel.dataFromRowIndex(i, FeatureListModel.KeyFieldRole);
+      const value = featureListModel.dataFromRowIndex(i, FeatureListModel.DisplayStringRole);
+      compare(key, keysInList[i - 1]);
+      compare(value, namesInList[i - 1]);
+      valueRelation.value = (i + 1);
+      waitForRendering(valueRelation);
+      compare(comboBoxItem.displayText, namesInList[i]);
+    }
+  }
+
+  function test_05_ValueRelation() {
+    valueRelation2.config = {
+      "AllowMulti": true,
+      "AllowNull": true,
+      "CompleterMatchFlags": 2,
+      "DisplayGroupName": true,
+      "Group": "location",
+      "Key": "id",
+      "LayerName": "TestRelationValues",
+      "LayerProviderName": "ogr",
+      "NofColumns": 2,
+      "OrderByDescending": false,
+      "OrderByField": false,
+      "OrderByFieldName": "id",
+      "OrderByKey": true,
+      "OrderByValue": false,
+      "UseCompleter": true,
+      "Value": "name"
+    };
+    setupValueRelationInReadonlyMode();
+    const relationComboBoxParent = valueRelation2.children[0];
+    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
+    const addFeatureButton = Utils.findChildren(relationComboBoxParent, "AddFeatureButton");
+    const valueRelationListComponentParent = valueRelation2.children[1];
+    const valueRelationGridView = Utils.findChildren(valueRelationListComponentParent, "ValueRelationGridView");
+    const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
+    const valueRelationSearchBar = Utils.findChildren(valueRelationListComponentParent, "ValueRelationSearchBar");
+    const featureListModel = valueRelationRepeater.model;
+
+    // check ui in readonly mode
+    compare(relationComboBoxParent.enabled, false);
+    compare(addFeatureButton.enabled, false);
+    compare(valueRelationSearchBar.enabled, false);
+
+    // turn on editable mode
+    valueRelation2.isEnabled = true;
+    waitForRendering(valueRelation2);
+
+    // check ui in editable mode
+    compare(relationComboBoxParent.enabled, true);
+    compare(addFeatureButton.enabled, true);
+    compare(valueRelationSearchBar.enabled, true);
+    compare(comboBoxItem.count, 0);
+    verify(valueRelationGridView.columns > 0);
+    verify(valueRelationRepeater.count > 0);
+  }
+
+  function test_06_ValueRelation() {
+    valueRelation.config = {
+      "AllowMulti": true,
+      "AllowNull": true,
+      "CompleterMatchFlags": 2,
+      "DisplayGroupName": false,
+      "Group": "name",
+      "Key": "id",
+      "LayerName": "TestRelationValues",
+      "LayerProviderName": "ogr",
+      "NofColumns": 2,
+      "OrderByDescending": false,
+      "OrderByField": false,
+      "OrderByFieldName": "name",
+      "OrderByKey": true,
+      "OrderByValue": false,
+      "UseCompleter": false,
+      "Value": "name"
+    };
+    setupValueRelationInReadonlyMode();
+    const valueRelationListComponentParent = valueRelation.children[1];
+    const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
+    const featureListModel = valueRelationRepeater.model;
+
+    // ordered by name!
+    const expectedOrderedData = {
+      "id": [undefined, 5, 4, 2, 8, 7, 6, 1, 3],
+      "name": ["<i>NULL</i>", "Ava", "Ethan", "Liam", "Mason", "Mathieu", "Noah", "Olivia", "Sophia"],
+      "location": ['', "3", "2", "2", "3", "1", "2", "1", "3"],
+      "cheked": [true, false, false, false, false, false, false, false, false]
+    };
+    compare(valueRelationRepeater.count, expectedOrderedData["id"].length);
+    for (let i = 0; i < valueRelationRepeater.count; ++i) {
+      const key = featureListModel.dataFromRowIndex(i, FeatureListModel.KeyFieldRole);
+      const value = featureListModel.dataFromRowIndex(i, FeatureListModel.DisplayStringRole);
+      const checked = valueRelationRepeater.itemAt(i).selected;
+      compare(key, expectedOrderedData["id"][i]);
+      compare(value, expectedOrderedData["name"][i]);
+      compare(checked, expectedOrderedData["cheked"][i]);
+    }
+  }
+
+  function test_07_ValueRelation() {
+    valueRelation.config = {
+      "AllowMulti": true,
+      "AllowNull": false,
+      "CompleterMatchFlags": 2,
+      "DisplayGroupName": false,
+      "Group": "location",
+      "Key": "id",
+      "LayerName": "TestRelationValues",
+      "LayerProviderName": "ogr",
+      "NofColumns": 2,
+      "OrderByDescending": false,
+      "OrderByField": false,
+      "OrderByFieldName": "id",
+      "OrderByKey": true,
+      "OrderByValue": false,
+      "UseCompleter": true,
+      "Value": "name"
+    };
+    setupValueRelationInReadonlyMode();
+    const valueRelationListComponentParent = valueRelation.children[1];
+    const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
+    const featureListModel = valueRelationRepeater.model;
+
+    // ordered by location
+    const expectedOrderedData = {
+      "id": [7, 1, 4, 2, 6, 5, 8, 3],
+      "name": ["Mathieu", "Olivia", "Ethan", "Liam", "Noah", "Ava", "Mason", "Sophia"],
+      "location": [1, 1, 2, 2, 2, 3, 3, 3],
+      "cheked": [false, false, false, false, false, false, false, false]
+    };
+    compare(valueRelationRepeater.count, expectedOrderedData["id"].length);
+    for (let i = 0; i < valueRelationRepeater.count; ++i) {
+      const key = featureListModel.dataFromRowIndex(i, FeatureListModel.KeyFieldRole);
+      const value = featureListModel.dataFromRowIndex(i, FeatureListModel.DisplayStringRole);
+      const checked = valueRelationRepeater.itemAt(i).selected;
+      const groupFieldValue = valueRelationRepeater.itemAt(i).groupFieldVal;
+      compare(key, expectedOrderedData["id"][i]);
+      compare(value, expectedOrderedData["name"][i]);
+      compare(checked, expectedOrderedData["cheked"][i]);
+    }
+  }
+
+  function test_08_ValueRelation() {
+    valueRelation.config = {
+      "AllowMulti": true,
+      "AllowNull": false,
+      "CompleterMatchFlags": 2,
+      "DisplayGroupName": false,
+      "Group": "location",
+      "Key": "id",
+      "LayerName": "TestRelationValues",
+      "LayerProviderName": "ogr",
+      "NofColumns": 2,
+      "OrderByDescending": false,
+      "OrderByField": false,
+      "OrderByFieldName": "id",
+      "OrderByKey": true,
+      "OrderByValue": false,
+      "UseCompleter": true,
+      "Value": "name"
+    };
+    setupValueRelationInReadonlyMode();
+    const valueRelationListComponentParent = valueRelation2.children[1];
+    const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
+    const valueRelationSearchBar = Utils.findChildren(valueRelationListComponentParent, "ValueRelationSearchBar");
+    const searchTextField = Utils.findChildren(valueRelationSearchBar, "SearchTextField");
+
+    // turn on editable mode
+    valueRelation2.isEnabled = true;
+    waitForRendering(valueRelation2);
+
+    // write in search bar
+    searchTextField.text = "o";
+
+    // only Olivia, Noah, Sophia, Mason
+    compare(valueRelationRepeater.count, 4);
+
+    // write in search bar
+    searchTextField.text = "ia";
+
+    // only Olivia, Sophia, Liam
+    compare(valueRelationRepeater.count, 3);
   }
 }
