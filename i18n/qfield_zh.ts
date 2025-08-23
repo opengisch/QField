@@ -5180,6 +5180,61 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>area</name>
+    <message>
+        <source>square degrees</source>
+        <translation>平方度</translation>
+    </message>
+    <message>
+        <source>&lt;unknown&gt;</source>
+        <translation>&lt;unknown&gt;</translation>
+    </message>
+    <message>
+        <source>sqr. meters</source>
+        <translation>sqr. 米</translation>
+    </message>
+    <message>
+        <source>sqr. kilometers</source>
+        <translation>sqr. 千米</translation>
+    </message>
+    <message>
+        <source>sqr. feet</source>
+        <translation>sqr. 尺</translation>
+    </message>
+    <message>
+        <source>sqr. yards</source>
+        <translation>sqr. 码</translation>
+    </message>
+    <message>
+        <source>sqr. miles</source>
+        <translation>sqr. 英里</translation>
+    </message>
+    <message>
+        <source>hectares</source>
+        <translation>公顷</translation>
+    </message>
+    <message>
+        <source>acres</source>
+        <translation>英亩</translation>
+    </message>
+    <message>
+        <source>sqr. nautical miles</source>
+        <translation>sqr. 海里</translation>
+    </message>
+    <message>
+        <source>sqr. centimeters</source>
+        <translation>sqr. 厘米</translation>
+    </message>
+    <message>
+        <source>sqr. millimeters</source>
+        <translation>sqr. 毫米</translation>
+    </message>
+    <message>
+        <source>sqr. inches</source>
+        <translation>sqr. 英寸</translation>
+    </message>
+</context>
+<context>
     <name>boolean</name>
     <message>
         <source>True</source>
