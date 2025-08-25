@@ -20,6 +20,11 @@ Page {
   signal showQFieldCloudScreen
   signal showSettings
 
+  // Properties for positioning information
+  property var positioning
+  property var positioningSettings
+  property var gnssMenu
+
   visible: false
   focus: visible
 
@@ -51,7 +56,7 @@ Page {
     padding: 0
     topPadding: Math.max(0, Math.min(80, (mainWindow.height - welcomeGrid.height) / 2 - 45))
     leftPadding: mainWindow.sceneLeftMargin
-    rightPadding: mainWindow.sceneRighMargin
+    rightPadding: mainWindow.sceneRightMargin
     ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
     ScrollBar.vertical: QfScrollBar {
       opacity: active
@@ -1018,6 +1023,47 @@ Page {
         visible = false;
       } else {
         event.accepted = false;
+      }
+    }
+  }
+
+  // Add positioning information overlay at the bottom
+  QfOverlayContainer {
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.leftMargin: mainWindow.sceneLeftMargin + 10
+    anchors.rightMargin: mainWindow.sceneRightMargin + 10
+    anchors.bottomMargin: mainWindow.sceneBottomMargin + 10
+
+    visible: positioningSettings && positioningSettings.showPositionInformation
+    title: qsTr("Positioning")
+
+    PositioningInformationView {
+      width: parent.width
+      height: Math.min(contentHeight, 150) // Fixed max height instead of percentage
+      positionSource: positioning
+      antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
+    }
+  }
+
+  // GNSS button for accessing positioning menu
+  QfToolButton {
+    id: welcomeGnssButton
+    state: positioning && positioning.active ? "On" : "Off"
+    opacity: positioning && positioning.valid ? 1.0 : 0.5
+    round: true
+    bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+    iconSource: positioning && positioning.positionInformation && positioning.positionInformation.latitudeValid ? Theme.getThemeVectorIcon("ic_location_valid_white_24dp") : Theme.getThemeVectorIcon("ic_location_white_24dp")
+    anchors.right: parent.right
+    anchors.bottom: positioningSettings && positioningSettings.showPositionInformation ? parent.bottom : parent.bottom
+    anchors.rightMargin: mainWindow.sceneRightMargin + 10
+    anchors.bottomMargin: positioningSettings && positioningSettings.showPositionInformation ? mainWindow.sceneBottomMargin + 170 : mainWindow.sceneBottomMargin + 10
+
+    // Only handle long press, no tap functionality
+    onPressAndHold: {
+      if (gnssMenu) {
+        gnssMenu.popup(welcomeGnssButton.x, welcomeGnssButton.y - gnssMenu.height);
       }
     }
   }
