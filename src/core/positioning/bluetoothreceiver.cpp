@@ -89,6 +89,26 @@ BluetoothReceiver::~BluetoothReceiver()
   mSocket = nullptr;
 }
 
+void BluetoothReceiver::onCorrectionDataReceived( const QByteArray &data )
+{
+  if ( !mSocket || !mSocket->isOpen() )
+  {
+    qWarning() << "Bluetooth socket not open—cannot forward corrections.";
+    return;
+  }
+
+  qint64 bytesWritten = mSocket->write( data );
+  if ( bytesWritten == -1 )
+  {
+    qWarning() << "Failed to write corrections to Bluetooth socket:" << mSocket->errorString();
+  }
+  else
+  {
+    qDebug() << "Forwarded" << bytesWritten << "bytes of correction data to Bluetooth.";
+  }
+}
+
+
 void BluetoothReceiver::handleDisconnectDevice()
 {
   if ( mSocket->state() != QBluetoothSocket::SocketState::UnconnectedState )
@@ -137,6 +157,36 @@ void BluetoothReceiver::handleError( QBluetoothSocket::SocketError error )
   }
 
   qInfo() << QStringLiteral( "BluetoothReceiver: Error: %1" ).arg( mLastError );
+  const char *stateStr = nullptr;
+  switch ( int( mSocket->state() ) )
+  {
+    case int( QAbstractSocket::UnconnectedState ):
+      stateStr = "UnconnectedState";
+      break;
+    case int( QAbstractSocket::HostLookupState ):
+      stateStr = "HostLookupState";
+      break;
+    case int( QAbstractSocket::ConnectingState ):
+      stateStr = "ConnectingState";
+      break;
+    case int( QAbstractSocket::ConnectedState ):
+      stateStr = "ConnectedState";
+      break;
+    case int( QAbstractSocket::BoundState ):
+      stateStr = "BoundState";
+      break;
+    case int( QAbstractSocket::ClosingState ):
+      stateStr = "ClosingState";
+      break;
+    case int( QAbstractSocket::ListeningState ):
+      stateStr = "ListeningState";
+      break;
+    default:
+      stateStr = "UnknownState";
+      break;
+  }
+
+  qInfo() << "Bluetooth Socket State: Error:" << stateStr;
   if ( mSocket->isOpen() )
   {
     mSocket->close();
@@ -184,7 +234,7 @@ void BluetoothReceiver::repairDevice( const QBluetoothAddress &address )
     case QBluetoothLocalDevice::Paired:
     case QBluetoothLocalDevice::AuthorizedPaired:
     {
-      mSocket->connectToService( address, QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ), QBluetoothSocket::ReadOnly );
+      mSocket->connectToService( address, QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ), QBluetoothSocket::ReadWrite );
       break;
     }
 
@@ -206,7 +256,7 @@ void BluetoothReceiver::pairingFinished( const QBluetoothAddress &address, QBlue
       case QBluetoothLocalDevice::Paired:
       case QBluetoothLocalDevice::AuthorizedPaired:
       {
-        mSocket->connectToService( address, QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ), QBluetoothSocket::ReadOnly );
+        mSocket->connectToService( address, QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ), QBluetoothSocket::ReadWrite );
         break;
       }
 
