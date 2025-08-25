@@ -5189,7 +5189,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>area</name>
     <message>
         <source>square degrees</source>
-        <translation type="unfinished"/>
+        <translation>stopni kw.</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
@@ -5197,47 +5197,47 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>sqr. meters</source>
-        <translation type="unfinished"/>
+        <translation>metrów kw.</translation>
     </message>
     <message>
         <source>sqr. kilometers</source>
-        <translation type="unfinished"/>
+        <translation>km kw.</translation>
     </message>
     <message>
         <source>sqr. feet</source>
-        <translation type="unfinished"/>
+        <translation>stóp kw.</translation>
     </message>
     <message>
         <source>sqr. yards</source>
-        <translation type="unfinished"/>
+        <translation>jardów kw.</translation>
     </message>
     <message>
         <source>sqr. miles</source>
-        <translation type="unfinished"/>
+        <translation>mil kw.</translation>
     </message>
     <message>
         <source>hectares</source>
-        <translation type="unfinished"/>
+        <translation>hektarów</translation>
     </message>
     <message>
         <source>acres</source>
-        <translation type="unfinished"/>
+        <translation>akrów</translation>
     </message>
     <message>
         <source>sqr. nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>mil morskich kw.</translation>
     </message>
     <message>
         <source>sqr. centimeters</source>
-        <translation type="unfinished"/>
+        <translation>cm kw.</translation>
     </message>
     <message>
         <source>sqr. millimeters</source>
-        <translation type="unfinished"/>
+        <translation>mm kw.</translation>
     </message>
     <message>
         <source>sqr. inches</source>
-        <translation type="unfinished"/>
+        <translation>cali kw.</translation>
     </message>
 </context>
 <context>
