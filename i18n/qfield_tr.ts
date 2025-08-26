@@ -3083,7 +3083,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Benim Projelerim</translation>
+        <translation>Projelerim</translation>
     </message>
     <message>
         <source>Community</source>
@@ -3115,15 +3115,15 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>(Yerel olarak mevcut, bulutta eksik)</translation>
+        <translation>Yerel olarak mevcut, bulutta eksik</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
-        <translation type="vanished">(Bulutta mevcut, yerel olarak eksik)</translation>
+        <translation type="vanished">Bulutta mevcut, yerel olarak eksik</translation>
     </message>
     <message>
         <source>Available locally</source>
-        <translation>(Yerel olarak mevcut)</translation>
+        <translation>Yerel olarak mevcut</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3171,7 +3171,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>, updated data available on the cloud</source>
-        <translation>(Bulutta güncellenmiş veriler mevcut)</translation>
+        <translation>, bulutta güncellenmiş veriler mevcut</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
@@ -3528,7 +3528,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>root folder</source>
-        <translation>kök klasör</translation>
+        <translation>kök dizin</translation>
     </message>
     <message>
         <source>Available locally in ‘%1’</source>
