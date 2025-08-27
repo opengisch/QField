@@ -120,7 +120,9 @@ DeltaFileWrapper::DeltaFileWrapper( const QgsProject *project, const QString &fi
         const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
         const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
         if ( method == QStringLiteral( "create" ) )
-          mLocalPkDeltaIdx[localLayerId][localPk] = static_cast<int>( mDeltas.count() );
+        {
+          mLocalPkToDeltaUuid[localLayerId][localPk] = delta.value( QStringLiteral( "uuid" ) ).toString();
+        }
 
         mDeltas.append( v );
       }
@@ -181,7 +183,7 @@ void DeltaFileWrapper::reset()
 
   mIsDirty = true;
   mDeltas = QJsonArray();
-  mLocalPkDeltaIdx.clear();
+  mLocalPkToDeltaUuid.clear();
 
   emit countChanged();
 }
@@ -830,12 +832,12 @@ void DeltaFileWrapper::mergeCreateDelta( const QJsonObject &delta )
 
   const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
   const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
-  mLocalPkDeltaIdx[localLayerId][localPk] = static_cast<int>( mDeltas.count() );
+  mLocalPkToDeltaUuid[localLayerId][localPk] = delta.value( QStringLiteral( "uuid" ) ).toString();
 
   mDeltas.append( delta );
   mIsDirty = true;
 
-  qInfo() << "DeltaFileWrapper::addCreate: Added a new create delta: " << delta;
+  qInfo() << "DeltaFileWrapper::mergeCreateDelta: Added a new create delta: " << delta;
   emit countChanged();
 }
 
@@ -844,12 +846,17 @@ void DeltaFileWrapper::mergeDeleteDelta( const QJsonObject &delta )
   Q_ASSERT( delta.value( QStringLiteral( "method" ) ) == "delete" );
 
   const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
-  QMap<QString, int> layerPkDeltaIdx = mLocalPkDeltaIdx.value( localLayerId );
+  QMap<QString, QString> layerPkDeltaIdx = mLocalPkToDeltaUuid.value( localLayerId );
   QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
   if ( layerPkDeltaIdx.contains( localPk ) )
   {
+    const QString createDeltaUuid = layerPkDeltaIdx.take( localPk );
+    const int createDeltaIdx = getDeltaIndexByUuid( createDeltaUuid );
+
+    Q_ASSERT( createDeltaIdx >= 0 );
+
     // Feature creation/deletion occured in the same delta session, just remove as if nothing had ever occured
-    mDeltas.removeAt( layerPkDeltaIdx.take( localPk ) );
+    mDeltas.removeAt( createDeltaIdx );
     emit countChanged();
     return;
   }
@@ -857,7 +864,7 @@ void DeltaFileWrapper::mergeDeleteDelta( const QJsonObject &delta )
   mDeltas.append( delta );
   mIsDirty = true;
 
-  qInfo() << "DeltaFileWrapper::addDelete: Added a new delete delta: " << delta;
+  qInfo() << "DeltaFileWrapper::mergeDeleteDelta: Added a new delete delta: " << delta;
   emit countChanged();
 }
 
@@ -889,21 +896,25 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
 
   const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
   const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
-  QMap<QString, int> layerPkDeltaIdx = mLocalPkDeltaIdx.value( localLayerId );
+  QMap<QString, QString> layerPkDeltaIdx = mLocalPkToDeltaUuid.value( localLayerId );
 
-  qInfo() << "DeltaFileWrapper::addPatch: localPk=" << localPk << " layerPkDeltaIdx=" << layerPkDeltaIdx;
+  qInfo() << "DeltaFileWrapper::mergePatchDelta: localPk=" << localPk << " layerPkDeltaIdx=" << layerPkDeltaIdx;
 
   if ( layerPkDeltaIdx.contains( localPk ) )
   {
-    int deltaIdx = layerPkDeltaIdx.take( localPk );
-    QJsonObject deltaCreate = mDeltas.at( deltaIdx ).toObject();
+    const QString createDeltaUuid = layerPkDeltaIdx.take( localPk );
+    const int createDeltaIdx = getDeltaIndexByUuid( createDeltaUuid );
 
-    Q_ASSERT( deltaCreate.value( QStringLiteral( "method" ) ).toString() == QStringLiteral( "create" ) );
+    Q_ASSERT( createDeltaIdx >= 0 );
 
-    QJsonObject newCreate = deltaCreate.value( QStringLiteral( "new" ) ).toObject();
+    QJsonObject createDelta = mDeltas.at( createDeltaIdx ).toObject();
+
+    Q_ASSERT( createDelta.value( QStringLiteral( "method" ) ).toString() == QStringLiteral( "create" ) );
+
+    QJsonObject newCreate = createDelta.value( QStringLiteral( "new" ) ).toObject();
     QJsonObject attributesCreate = newCreate.value( QStringLiteral( "attributes" ) ).toObject();
 
-    qInfo() << "DeltaFileWrapper::addPatch: replacing an existing create delta: " << deltaCreate << "at" << deltaIdx;
+    qInfo() << "DeltaFileWrapper::mergePatchDelta: replacing an existing create delta: " << createDelta << "at" << createDeltaIdx;
 
     if ( !newData.value( QStringLiteral( "geometry" ) ).isUndefined() )
     {
@@ -930,12 +941,12 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
       newCreate.insert( QStringLiteral( "files_sha256" ), newFileChecksums );
     }
 
-    deltaCreate.insert( QStringLiteral( "new" ), newCreate );
-    deltaCreate.insert( QStringLiteral( "sourcePk" ), delta.value( QStringLiteral( "sourcePk" ) ) );
+    createDelta.insert( QStringLiteral( "new" ), newCreate );
+    createDelta.insert( QStringLiteral( "sourcePk" ), delta.value( QStringLiteral( "sourcePk" ) ) );
 
-    mDeltas.replace( deltaIdx, deltaCreate );
+    mDeltas.replace( createDeltaIdx, createDelta );
 
-    qInfo() << "DeltaFileWrapper::addPatch: replaced an existing create delta: " << deltaCreate;
+    qInfo() << "DeltaFileWrapper::mergePatchDelta: replaced an existing create delta: " << createDelta;
 
     return;
   }
@@ -994,7 +1005,7 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
 
         mDeltas.replace( i, existingDelta );
 
-        qInfo() << "DeltaFileWrapper::addPatch: replaced an existing patch delta: " << existingDelta;
+        qInfo() << "DeltaFileWrapper::mergePatchDelta: replaced an existing patch delta: " << existingDelta;
 
         return;
       }
@@ -1002,7 +1013,7 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
 
     mDeltas.append( delta );
 
-    qInfo() << "DeltaFileWrapper::addPatch: Added a new patch delta: " << delta;
+    qInfo() << "DeltaFileWrapper::mergePatchDelta: Added a new patch delta: " << delta;
 
     emit countChanged();
   }
@@ -1382,4 +1393,24 @@ QString DeltaFileWrapper::getSourceLayerId( const QgsVectorLayer *vl )
   qInfo() << "DeltaFileWrapper::getSourceLayerId: remoteLayerId=" << ( vl ? vl->customProperty( QStringLiteral( "remoteLayerId" ) ).toString() : QString() );
 
   return vl ? vl->customProperty( QStringLiteral( "remoteLayerId" ) ).toString() : QString();
+}
+
+
+int DeltaFileWrapper::getDeltaIndexByUuid( const QString &uuid ) const
+{
+  int idx = 0;
+
+  for ( const QJsonValue &deltaJson : std::as_const( mDeltas ) )
+  {
+    const QVariantMap delta = deltaJson.toObject().toVariantMap();
+
+    if ( delta.value( QStringLiteral( "uuid" ) ) == uuid )
+    {
+      return idx;
+    }
+
+    idx++;
+  }
+
+  return -1;
 }
