@@ -848,17 +848,18 @@ void DeltaFileWrapper::mergeDeleteDelta( const QJsonObject &delta )
   const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
   QMap<QString, QString> layerPkDeltaIdx = mLocalPkToDeltaUuid.value( localLayerId );
   QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
+
   if ( layerPkDeltaIdx.contains( localPk ) )
   {
-    const QString createDeltaUuid = layerPkDeltaIdx.take( localPk );
-    const int createDeltaIdx = getDeltaIndexByUuid( createDeltaUuid );
+    const QString existingDeltaUuid = layerPkDeltaIdx.take( localPk );
+    const int existingDeltaIdx = getDeltaIndexByUuid( existingDeltaUuid );
 
-    Q_ASSERT( createDeltaIdx >= 0 );
+    Q_ASSERT( existingDeltaIdx >= 0 );
 
     // Feature creation/deletion occured in the same delta session, just remove as if nothing had ever occured
-    mDeltas.removeAt( createDeltaIdx );
-    emit countChanged();
-    return;
+    const QJsonObject deletedDelta = mDeltas.takeAt( existingDeltaIdx ).toObject();
+
+    Q_ASSERT( deletedDelta.value( QStringLiteral( "method" ) ).toString() == QStringLiteral( "create" ) || deletedDelta.value( QStringLiteral( "method" ) ).toString() == QStringLiteral( "patch" ) );
   }
 
   mDeltas.append( delta );
@@ -902,118 +903,117 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
 
   if ( layerPkDeltaIdx.contains( localPk ) )
   {
-    const QString createDeltaUuid = layerPkDeltaIdx.take( localPk );
-    const int createDeltaIdx = getDeltaIndexByUuid( createDeltaUuid );
+    const QString existingDeltaUuid = layerPkDeltaIdx.take( localPk );
+    const int existingDeltaIdx = getDeltaIndexByUuid( existingDeltaUuid );
 
-    Q_ASSERT( createDeltaIdx >= 0 );
+    Q_ASSERT( existingDeltaIdx >= 0 );
 
-    QJsonObject createDelta = mDeltas.at( createDeltaIdx ).toObject();
+    QJsonObject existingDelta = mDeltas.at( existingDeltaIdx ).toObject();
+    const QString existingDeltaMethod = existingDelta.value( QStringLiteral( "method" ) ).toString();
+    QJsonObject existingDeltaNewData = existingDelta.value( QStringLiteral( "new" ) ).toObject();
+    QJsonObject existingDeltaOldData = existingDelta.value( QStringLiteral( "old" ) ).toObject();
+    QJsonObject existingDeltaNewAttrs = existingDeltaNewData.value( QStringLiteral( "attributes" ) ).toObject();
+    QJsonObject existingDeltaOldAttrs = existingDeltaOldData.value( QStringLiteral( "attributes" ) ).toObject();
 
-    Q_ASSERT( createDelta.value( QStringLiteral( "method" ) ).toString() == QStringLiteral( "create" ) );
-
-    QJsonObject newCreate = createDelta.value( QStringLiteral( "new" ) ).toObject();
-    QJsonObject attributesCreate = newCreate.value( QStringLiteral( "attributes" ) ).toObject();
-
-    qInfo() << "DeltaFileWrapper::mergePatchDelta: replacing an existing create delta: " << createDelta << "at" << createDeltaIdx;
-
-    if ( !newData.value( QStringLiteral( "geometry" ) ).isUndefined() )
-    {
-      newCreate.insert( QStringLiteral( "geometry" ), newData.value( QStringLiteral( "geometry" ) ) );
-    }
-
+    // add the attributes of the current delta in the old delta
     const QStringList attributeNames = tmpNewAttrs.keys();
     for ( const QString &attributeName : attributeNames )
     {
-      attributesCreate.insert( attributeName, tmpNewAttrs.value( attributeName ) );
-    }
+      existingDeltaNewAttrs.insert( attributeName, tmpNewAttrs.value( attributeName ) );
 
+      // Previous patch did not contain this attribute change, add old attribute value
+      if ( !existingDeltaOldAttrs.contains( attributeName ) )
+      {
+        existingDeltaOldAttrs.insert( attributeName, tmpOldAttrs.value( attributeName ) );
+      }
+    }
+    existingDeltaOldData.insert( QStringLiteral( "attributes" ), existingDeltaOldAttrs );
+    existingDeltaNewData.insert( QStringLiteral( "attributes" ), existingDeltaNewAttrs );
+
+    // if the current delta has a geometry, replace in the old delta
     if ( !newGeomString.isEmpty() )
     {
-      newCreate.insert( QStringLiteral( "geometry" ), newGeomString );
-    }
-    newCreate.insert( QStringLiteral( "attributes" ), attributesCreate );
+      existingDeltaNewData.insert( QStringLiteral( "geometry" ), newGeomString );
 
-    QJsonObject dummyOldFileChecksums;
-    QJsonObject newFileChecksums;
-    std::tie( newFileChecksums, dummyOldFileChecksums ) = addAttachments( localLayerId, attributesCreate );
-    if ( !newFileChecksums.isEmpty() )
-    {
-      newCreate.insert( QStringLiteral( "files_sha256" ), newFileChecksums );
-    }
-
-    createDelta.insert( QStringLiteral( "new" ), newCreate );
-    createDelta.insert( QStringLiteral( "sourcePk" ), delta.value( QStringLiteral( "sourcePk" ) ) );
-
-    mDeltas.replace( createDeltaIdx, createDelta );
-
-    qInfo() << "DeltaFileWrapper::mergePatchDelta: replaced an existing create delta: " << createDelta;
-
-    return;
-  }
-  else
-  {
-    for ( qsizetype i = mDeltas.size() - 1; i >= 0; i-- )
-    {
-      QJsonObject existingDelta = mDeltas[i].toObject();
-      const QString existingLayerId = existingDelta.value( QStringLiteral( "localLayerId" ) ).toString();
-      const QString existingLocalPk = existingDelta.value( QStringLiteral( "localPk" ) ).toString();
-      const QString existingMethod = existingDelta.value( QStringLiteral( "method" ) ).toString();
-      if ( existingLayerId == localLayerId && existingLocalPk == localPk && existingMethod == "patch" )
+      if ( !existingDeltaOldData.contains( "geometry" ) )
       {
-        QJsonObject existingOldData = existingDelta.value( QStringLiteral( "old" ) ).toObject();
-        QJsonObject existingNewData = existingDelta.value( QStringLiteral( "new" ) ).toObject();
-        if ( newData.contains( "geometry" ) )
-        {
-          existingNewData.insert( "geometry", newData.value( QStringLiteral( "geometry" ) ).toString() );
-          if ( !existingOldData.contains( "geometry" ) )
-          {
-            // Previous patch did not contain a geometry change, add old geometry data
-            existingOldData.insert( "geometry", oldData.value( QStringLiteral( "geometry" ) ) );
-          }
-        }
-        const QStringList attributeNames = tmpNewAttrs.keys();
-        if ( !attributeNames.isEmpty() )
-        {
-          QJsonObject existingOldAttributes = existingOldData.value( QStringLiteral( "attributes" ) ).toObject();
-          QJsonObject existingNewAttributes = existingNewData.value( QStringLiteral( "attributes" ) ).toObject();
-          for ( const QString &attributeName : attributeNames )
-          {
-            existingNewAttributes.insert( attributeName, tmpNewAttrs.value( attributeName ) );
-            if ( !existingOldAttributes.contains( attributeName ) )
-            {
-              // Previous patch did not contain this attribute change, add old attribute value
-              existingOldAttributes.insert( attributeName, tmpOldAttrs.value( attributeName ) );
-            }
-          }
-          existingOldData.insert( "attributes", existingOldAttributes );
-          existingNewData.insert( "attributes", existingNewAttributes );
-
-          QJsonObject oldFileChecksums;
-          QJsonObject newFileChecksums;
-          std::tie( newFileChecksums, oldFileChecksums ) = addAttachments( localLayerId, existingNewAttributes, existingOldAttributes );
-          if ( !oldFileChecksums.isEmpty() )
-          {
-            existingOldData.insert( "files_sha256", oldFileChecksums );
-          }
-          if ( !newFileChecksums.isEmpty() )
-          {
-            existingNewData.insert( "files_sha256", newFileChecksums );
-          }
-        }
-        existingDelta.insert( "old", existingOldData );
-        existingDelta.insert( "new", existingNewData );
-
-        mDeltas.replace( i, existingDelta );
-
-        qInfo() << "DeltaFileWrapper::mergePatchDelta: replaced an existing patch delta: " << existingDelta;
-
-        return;
+        // Previous patch did not contain a geometry change, add old geometry data
+        existingDeltaOldData.insert( "geometry", oldData.value( QStringLiteral( "geometry" ) ) );
       }
     }
 
-    mDeltas.append( delta );
+    // add the checksums of the files in the current and old delta combined
+    QJsonObject oldFileChecksums;
+    QJsonObject newFileChecksums;
+    std::tie( newFileChecksums, oldFileChecksums ) = addAttachments( localLayerId, existingDeltaNewAttrs, existingDeltaOldAttrs );
+    if ( !oldFileChecksums.isEmpty() )
+    {
+      existingDeltaOldData.insert( "files_sha256", oldFileChecksums );
+    }
+    if ( !newFileChecksums.isEmpty() )
+    {
+      existingDeltaNewData.insert( "files_sha256", newFileChecksums );
+    }
 
-    qInfo() << "DeltaFileWrapper::mergePatchDelta: Added a new patch delta: " << delta;
+    // now patch `existingDelta` with the changes from above
+    existingDelta.insert( QStringLiteral( "new" ), existingDeltaNewData );
+    existingDelta.insert( QStringLiteral( "sourcePk" ), delta.value( QStringLiteral( "sourcePk" ) ) );
+
+    if ( existingDeltaMethod == QStringLiteral( "create" ) )
+    {
+      mDeltas.replace( existingDeltaIdx, existingDelta );
+      mIsDirty = true;
+
+      qInfo() << "DeltaFileWrapper::mergePatchDelta: replaced an existing create delta: " << existingDelta;
+
+      mLocalPkToDeltaUuid[localLayerId][localPk] = existingDelta.value( QStringLiteral( "uuid" ) ).toString();
+
+      return;
+    }
+    else if ( existingDeltaMethod == QStringLiteral( "patch" ) )
+    {
+      // only "patch" deltas have "old" value
+      existingDelta.insert( QStringLiteral( "old" ), existingDeltaOldData );
+
+      // remove the existing delta
+      mDeltas.removeAt( existingDeltaIdx );
+
+      // and only re-add it if there is actual change between the `old` and `new` data in the delta
+      if ( deltaContainsActualChange( existingDelta ) )
+      {
+        mDeltas.append( existingDelta );
+
+        mLocalPkToDeltaUuid[localLayerId][localPk] = existingDelta.value( QStringLiteral( "uuid" ) ).toString();
+
+        qInfo() << "DeltaFileWrapper::mergePatchDelta: re-added a patch delta: " << existingDelta;
+      }
+      else
+      {
+        mLocalPkToDeltaUuid[localLayerId].remove( localPk );
+
+        qInfo() << "DeltaFileWrapper::mergePatchDelta: removed a patch delta: " << existingDelta;
+      }
+
+      mIsDirty = true;
+
+      emit countChanged();
+
+      return;
+    }
+    else
+    {
+      // cannot be a delete delta, nor it can be any unknown delta method
+      Q_ASSERT( false );
+    }
+  }
+  else
+  {
+    mDeltas.append( delta );
+    mIsDirty = true;
+
+    qInfo() << "DeltaFileWrapper::mergePatchDelta: added a new patch delta: " << delta;
+
+    mLocalPkToDeltaUuid[localLayerId][localPk] = delta.value( QStringLiteral( "uuid" ) ).toString();
 
     emit countChanged();
   }
@@ -1415,4 +1415,36 @@ int DeltaFileWrapper::getDeltaIndexByUuid( const QString &uuid ) const
   }
 
   return -1;
+}
+
+bool DeltaFileWrapper::deltaContainsActualChange( const QJsonObject &delta ) const
+{
+  const QJsonObject oldData = delta.value( QStringLiteral( "old" ) ).toObject();
+  const QJsonObject newData = delta.value( QStringLiteral( "new" ) ).toObject();
+  const QJsonObject newDataAttrs = newData.value( QStringLiteral( "attributes" ) ).toObject();
+  const QJsonObject oldDataAttrs = oldData.value( QStringLiteral( "attributes" ) ).toObject();
+  const QStringList newDataAttrNames = newData.value( QStringLiteral( "attributes" ) ).toObject().keys();
+
+  // the attributes in the `newData` are always going to be a (full) subset of `oldData`
+  for ( const QString &attrName : newDataAttrNames )
+  {
+    if ( newDataAttrs.value( attrName ) != oldDataAttrs.value( attrName ) )
+    {
+      return true;
+    }
+  }
+
+  // no "geometry" in `newData` indicates there was no change in geometry
+  if ( newData.value( QStringLiteral( "geometry" ) ).isUndefined() )
+  {
+    return false;
+  }
+
+  // when the "geometry" value differs, then it means the delta makes sense
+  if ( newData.value( QStringLiteral( "geometry" ) ) != newData.value( QStringLiteral( "geometry" ) ) )
+  {
+    return true;
+  }
+
+  return false;
 }
