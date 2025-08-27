@@ -824,14 +824,52 @@ void DeltaFileWrapper::mergeCreateDelta( const QJsonObject &delta )
 {
   Q_ASSERT( delta.value( QStringLiteral( "method" ) ) == "create" );
 
+  QJsonObject newData = delta.value( QStringLiteral( "new" ) ).toObject();
+
   const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
   const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
-  mLocalPkToDeltaUuid[localLayerId][localPk] = delta.value( QStringLiteral( "uuid" ) ).toString();
+  const QString existingDeltaUuid = mLocalPkToDeltaUuid[localLayerId].take( localPk );
+
+  if ( !existingDeltaUuid.isEmpty() )
+  {
+    const int existingDeltaIdx = getDeltaIndexByUuid( existingDeltaUuid );
+
+    Q_ASSERT( existingDeltaIdx >= 0 );
+
+    const QJsonObject existingDelta = mDeltas.at( existingDeltaIdx ).toObject();
+    const QString existingDeltaMethod = existingDelta.value( QStringLiteral( "method" ) ).toString();
+
+    // There is a change that the current "create" delta is actually the "undo" of a "delete" delta from earlier.
+    // In those cases we just discard both deltas like nothing happened
+    if ( existingDeltaMethod == QStringLiteral( "delete" ) )
+    {
+      const QJsonObject existingDeltaOldData = existingDelta.value( QStringLiteral( "old" ) ).toObject();
+
+      // the newly added "create" delta matches 1:1 with previously existing "delete" delta
+      if ( existingDeltaOldData == newData )
+      {
+        Q_ASSERT( existingDelta.value( QStringLiteral( "localLayerId" ) ).toString() == localLayerId );
+        Q_ASSERT( existingDelta.value( QStringLiteral( "localPk" ) ).toString() == localPk );
+
+        mDeltas.removeAt( existingDeltaIdx );
+        mIsDirty = true;
+
+        emit countChanged();
+
+        qInfo() << "DeltaFileWrapper::mergeCreateDelta: removed delete delta instead of adding a create delta: " << existingDeltaIdx;
+
+        return;
+      }
+    }
+  }
 
   mDeltas.append( delta );
   mIsDirty = true;
 
   qInfo() << "DeltaFileWrapper::mergeCreateDelta: Added a new create delta: " << delta;
+
+  mLocalPkToDeltaUuid[localLayerId][localPk] = delta.value( QStringLiteral( "uuid" ) ).toString();
+
   emit countChanged();
 }
 
@@ -851,15 +889,34 @@ void DeltaFileWrapper::mergeDeleteDelta( const QJsonObject &delta )
     Q_ASSERT( existingDeltaIdx >= 0 );
 
     // Feature creation/deletion occured in the same delta session, just remove as if nothing had ever occured
-    const QJsonObject deletedDelta = mDeltas.takeAt( existingDeltaIdx ).toObject();
+    const QJsonObject existingDelta = mDeltas.at( existingDeltaIdx ).toObject();
+    const QString existingDeltaMethod = existingDelta.value( QStringLiteral( "method" ) ).toString();
 
-    Q_ASSERT( deletedDelta.value( QStringLiteral( "method" ) ).toString() == QStringLiteral( "create" ) || deletedDelta.value( QStringLiteral( "method" ) ).toString() == QStringLiteral( "patch" ) );
+    Q_ASSERT( existingDeltaMethod == QStringLiteral( "create" ) || existingDeltaMethod == QStringLiteral( "patch" ) );
+
+    // we should remove the "create" delta if it is for the same feature, but must keep the "patch" delta, because othrewise it will not work with the undo/redo feature.
+    if ( existingDeltaMethod == QStringLiteral( "create" ) )
+    {
+      mDeltas.removeAt( existingDeltaIdx );
+      mIsDirty = true;
+
+      qInfo() << "DeltaFileWrapper::mergeDeleteDelta: removed the create delta: " << delta;
+
+      mLocalPkToDeltaUuid[localLayerId].remove( localPk );
+
+      emit countChanged();
+
+      return;
+    }
   }
 
   mDeltas.append( delta );
   mIsDirty = true;
 
   qInfo() << "DeltaFileWrapper::mergeDeleteDelta: Added a new delete delta: " << delta;
+
+  mLocalPkToDeltaUuid[localLayerId][localPk] = delta.value( QStringLiteral( "uuid" ) ).toString();
+
   emit countChanged();
 }
 
@@ -892,6 +949,32 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
   const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
   const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
   QMap<QString, QString> layerPkDeltaIdx = mLocalPkToDeltaUuid.value( localLayerId );
+
+  qInfo() << "DeltaFileWrapper::mergePatchDelta: localPk=" << localPk << " layerPkDeltaIdx=" << layerPkDeltaIdx;
+
+  // check if there is a patch delta that refers to the same `localLayerId` and `localPk`
+  // we might get here if we did 0) existing f1 1) modify f1 2) delete f1 3) undo 4) undo
+  if ( !layerPkDeltaIdx.contains( localPk ) )
+  {
+    qInfo() << "DeltaFileWrapper::mergePatchDelta: does not contain PK, trying to find a patch delta...";
+
+    for ( qsizetype i = mDeltas.size() - 1; i >= 0; i-- )
+    {
+      const QJsonObject existingDelta = mDeltas[i].toObject();
+
+      const QString existingLayerId = existingDelta.value( QStringLiteral( "localLayerId" ) ).toString();
+      const QString existingLocalPk = existingDelta.value( QStringLiteral( "localPk" ) ).toString();
+      const QString existingMethod = existingDelta.value( QStringLiteral( "method" ) ).toString();
+
+      if ( existingLayerId == localLayerId && existingLocalPk == localPk && existingMethod == "patch" )
+      {
+        qInfo() << "DeltaFileWrapper::mergePatchDelta: patch delta found!";
+
+        layerPkDeltaIdx[localPk] = existingDelta.value( "uuid" ).toString();
+        break;
+      }
+    }
+  }
 
   qInfo() << "DeltaFileWrapper::mergePatchDelta: localPk=" << localPk << " layerPkDeltaIdx=" << layerPkDeltaIdx;
 
