@@ -125,6 +125,11 @@ TestCase {
         "widgetType": "Range",
         "source": "editorwidgets/Range.qml",
         "value": 10
+      }, {
+        "containerName": "Owner",
+        "widgetType": "ValueRelation",
+        "source": "editorwidgets/ValueRelation.qml",
+        "value": ""
       }];
     compareFeatureFormWithExpectedResults(expectedModel);
   }
@@ -179,6 +184,11 @@ TestCase {
         "widgetType": "ValueMap",
         "source": "editorwidgets/ValueMap.qml",
         "value": "taraxacum"
+      }, {
+        "containerName": "Owner",
+        "widgetType": "ValueRelation",
+        "source": "editorwidgets/ValueRelation.qml",
+        "value": "2"
       }];
     compareFeatureFormWithExpectedResults(expectedModel);
   }

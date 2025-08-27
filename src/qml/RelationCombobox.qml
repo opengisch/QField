@@ -20,14 +20,14 @@ Item {
   property var layerResolver: undefined
 
   Component.onCompleted: {
-    if (!featureListModel.allowMulti) {
+    if (featureListModel && !featureListModel.allowMulti) {
       comboBox.currentIndex = featureListModel.findKey(value);
       invalidWarning.visible = relation !== undefined ? !(relation.isValid) : false;
     }
   }
 
   onCurrentKeyValueChanged: {
-    if (!featureListModel.allowMulti) {
+    if (featureListModel && !featureListModel.allowMulti) {
       comboBox._cachedCurrentValue = currentKeyValue;
       comboBox.currentIndex = featureListModel.findKey(currentKeyValue);
     }
@@ -112,7 +112,7 @@ Item {
         clip: true
         ScrollBar.vertical: QfScrollBar {
         }
-        section.property: featureListModel.groupField != "" ? "groupFieldValue" : ""
+        section.property: featureListModel ? featureListModel.groupField != "" ? "groupFieldValue" : "" : ""
         section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
         section.delegate: Component {
           Rectangle {
@@ -256,7 +256,7 @@ Item {
 
       Connections {
         target: featureListModel
-        enabled: !featureListModel.allowMulti
+        enabled: featureListModel ? !featureListModel.allowMulti : false
 
         function onModelReset() {
           comboBox.currentIndex = featureListModel.findKey(comboBox._cachedCurrentValue);
@@ -327,7 +327,7 @@ Item {
           implicitHeight: Math.min(mainWindow.height - mainWindow.sceneTopMargin - mainWindow.sceneTopMargin, contentHeight)
           currentIndex: comboBox.highlightedIndex
 
-          section.property: featureListModel.groupField != "" ? "groupFieldValue" : ""
+          section.property: featureListModel ? featureListModel.groupField != "" ? "groupFieldValue" : "" : ""
           section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
           section.delegate: Component {
             Rectangle {

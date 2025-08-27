@@ -51,7 +51,7 @@ EditorWidgetBase {
 
   RelationCombobox {
     id: valueRelationCombobox
-    featureListModel: config && !listModel.allowMulti ? listModel : 0
+    featureListModel: config && !listModel.allowMulti ? listModel : null
 
     useCompleter: !!config['UseCompleter']
     enabled: isEnabled
@@ -110,7 +110,7 @@ EditorWidgetBase {
           anchors.left: parent.left
           anchors.right: parent.right
           anchors.top: parent.top
-          columns: parent && parent.width > 0 ? config['NofColumns'] ? Math.min(config['NofColumns'], parent.width / 100) : 1 : 1
+          columns: listModel.displayGroupName ? 1 : parent && parent.width > 0 ? config['NofColumns'] ? Math.min(config['NofColumns'], parent.width / 100) : 1 : 1
           columnSpacing: 1
           rowSpacing: 0
 
@@ -125,7 +125,7 @@ EditorWidgetBase {
               Layout.fillHeight: true
               Layout.minimumHeight: Math.max(valueText.height, valueRelationList.itemHeight) + (header.visible ? header.height : 0)
 
-              property string groupFieldVal: groupFieldValue ? groupFieldValue : ""
+              property var groupFieldVal: groupFieldValue ? groupFieldValue : ""
               property bool selected: model.checked
               property alias headerItem: header
 
