@@ -439,6 +439,12 @@ class DeltaFileWrapper : public QObject
      */
     void mergePatchDelta( const QJsonObject &delta );
 
+    /**
+     * Checks whether the delta really has a change between the `old` and `new` attributes and geometry.
+     *
+     * It may not have any change in case undo/redo and delta merging is applied.
+     */
+    bool deltaContainsActualChange( const QJsonObject &delta ) const;
 
     /**
      * The current project instance
