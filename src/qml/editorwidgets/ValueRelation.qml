@@ -106,7 +106,7 @@ EditorWidgetBase {
           anchors.left: parent.left
           anchors.right: parent.right
           anchors.top: parent.top
-          columns: config['NofColumns'] ? Math.min(config['NofColumns'], parent.width / 100) : 1
+          columns: config['NofColumns'] && !listModel.groupField === "" ? Math.min(config['NofColumns'], parent.width / 100) : 1
           columnSpacing: 1
           rowSpacing: 0
 
@@ -142,10 +142,12 @@ EditorWidgetBase {
                 id: header
 
                 property bool isVisible: listModel.groupField && groupFieldValue !== "" && (index === 0 || (index > 0 ? groupFieldValue !== repeater.itemAt(index - 1).groupFieldVal : false))
+                property int visibleHeight: listModel.displayGroupName ? groupFieldValueText.height + 2 : 4
 
                 visible: isVisible
                 width: parent.width
-                height: visible ? groupFieldValueText.height + 2 : 0
+                height: isVisible ? visibleHeight : 0
+
                 color: Theme.controlBorderColor
                 border.color: Theme.controlBorderColor
                 border.width: 1
@@ -170,7 +172,7 @@ EditorWidgetBase {
                 id: checkBoxRow
                 width: parent.width
                 anchors.top: header.bottom
-                anchors.topMargin: !header.visible && rowContainsHeader ? groupFieldValueText.height + 2 : 0
+                anchors.topMargin: !header.visible && rowContainsHeader ? header.visibleHeight : 0
                 anchors.bottom: parent.bottom
                 color: Theme.mainBackgroundColor
 
