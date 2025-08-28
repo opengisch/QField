@@ -47,14 +47,6 @@ EditorWidgetBase {
       color: Theme.controlBorderColor
       focus: true
 
-      property bool entryEnabled: isEnabled && isActionEnabled('AddChildFeature')
-
-      onEntryEnabledChanged: {
-        if (entryEnabled && !constraintsHardValid) {
-          displayToast(qsTr('Ensure constraints are met'));
-        }
-      }
-
       Text {
         text: qsTr("%n feature(s)", "", listView.count)
         anchors {
@@ -66,7 +58,6 @@ EditorWidgetBase {
         font: Theme.strongTipFont
         opacity: enabled ? 1 : 0.45
         color: Theme.mainTextColor
-        enabled: headerEntry.entryEnabled
       }
 
       Row {
@@ -82,7 +73,7 @@ EditorWidgetBase {
           id: addButton
           width: parent.height
           height: parent.height
-          enabled: constraintsHardValid && headerEntry.entryEnabled
+          enabled: isEnabled
           visible: enabled
 
           round: false
