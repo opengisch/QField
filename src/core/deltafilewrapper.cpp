@@ -491,12 +491,12 @@ void DeltaFileWrapper::addPatch( const QString &localLayerId, const QString &sou
   QVariant sourcePk = oldFeature.attribute( sourcePkAttrName );
   QJsonObject delta(
     {
-      { "localPk", localPk.isNull() ? QString() : localPk.toString() },
+      { "localPk", QgsVariantUtils::isNull( localPk ) ? QString() : localPk.toString() },
       { "localLayerId", localLayerId },
       { "localLayerCrs", crsByLayerId( mProject, localLayerId ) },
       { "localLayerName", nameByLayerId( mProject, localLayerId ) },
       { "method", "patch" },
-      { "sourcePk", sourcePk.isNull() ? QString() : sourcePk.toString() },
+      { "sourcePk", QgsVariantUtils::isNull( sourcePk ) ? QString() : sourcePk.toString() },
       { "sourceLayerId", sourceLayerId },
       { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
       { "exportId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastExportId" ) ).toString() },
@@ -685,12 +685,12 @@ void DeltaFileWrapper::addDelete( const QString &localLayerId, const QString &so
   QVariant sourcePk = oldFeature.attribute( sourcePkAttrName );
   QJsonObject delta(
     {
-      { "localPk", localPk.isNull() ? QString() : localPk.toString() },
+      { "localPk", QgsVariantUtils::isNull( localPk ) ? QString() : localPk.toString() },
       { "localLayerId", localLayerId },
       { "localLayerCrs", crsByLayerId( mProject, localLayerId ) },
       { "localLayerName", nameByLayerId( mProject, localLayerId ) },
       { "method", "delete" },
-      { "sourcePk", sourcePk.isNull() ? QString() : sourcePk.toString() },
+      { "sourcePk", QgsVariantUtils::isNull( sourcePk ) ? QString() : sourcePk.toString() },
       { "sourceLayerId", sourceLayerId },
       { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
       { "exportId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastExportId" ) ).toString() },
@@ -745,12 +745,12 @@ void DeltaFileWrapper::addCreate( const QString &localLayerId, const QString &so
   QVariant sourcePk = newFeature.attribute( sourcePkAttrName );
   QJsonObject delta(
     {
-      { "localPk", localPk.isNull() ? QString() : localPk.toString() },
+      { "localPk", QgsVariantUtils::isNull( localPk ) ? QString() : localPk.toString() },
       { "localLayerId", localLayerId },
       { "localLayerCrs", crsByLayerId( mProject, localLayerId ) },
       { "localLayerName", nameByLayerId( mProject, localLayerId ) },
       { "method", "create" },
-      { "sourcePk", sourcePk.isNull() ? QString() : sourcePk.toString() },
+      { "sourcePk", QgsVariantUtils::isNull( sourcePk ) ? QString() : sourcePk.toString() },
       { "sourceLayerId", sourceLayerId },
       { "uuid", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
       { "exportId", QFieldCloudUtils::projectSetting( mCloudProjectId, QStringLiteral( "lastExportId" ) ).toString() },
