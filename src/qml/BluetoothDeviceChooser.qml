@@ -92,19 +92,6 @@ Item {
       textRole: 'display'
       model: BluetoothDeviceModel {
         id: bluetoothDeviceModel
-      }
-
-      property string selectedBluetoothDevice
-
-      onCurrentIndexChanged: {
-        var modelIndex = bluetoothDeviceModel.index(currentIndex, 0);
-        deviceName = bluetoothDeviceModel.data(modelIndex, BluetoothDeviceModel.DeviceNameRole);
-        deviceAddress = bluetoothDeviceModel.data(modelIndex, BluetoothDeviceModel.DeviceAddressRole);
-        selectedBluetoothDevice = bluetoothDeviceAddress.text;
-      }
-
-      Connections {
-        target: bluetoothDeviceModel
 
         function onModelReset() {
           bluetoothDeviceComboBox.currentIndex = selectedBluetoothDevice;
@@ -138,6 +125,15 @@ Item {
             break;
           }
         }
+      }
+
+      property string selectedBluetoothDevice
+
+      onCurrentIndexChanged: {
+        var modelIndex = bluetoothDeviceModel.index(currentIndex, 0);
+        deviceName = bluetoothDeviceModel.data(modelIndex, BluetoothDeviceModel.DeviceNameRole);
+        deviceAddress = bluetoothDeviceModel.data(modelIndex, BluetoothDeviceModel.DeviceAddressRole);
+        selectedBluetoothDevice = bluetoothDeviceAddress.text;
       }
     }
 
