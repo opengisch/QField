@@ -18,6 +18,8 @@ Item {
   property bool allowAddFeature: false
   property var relation: undefined
   property var layerResolver: undefined
+  property var currentKeyValue: value
+  property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopupLoader.item
 
   Component.onCompleted: {
     if (featureListModel && !featureListModel.allowMulti) {
@@ -38,9 +40,6 @@ Item {
     right: parent.right
   }
   height: childrenRect.height
-
-  property var currentKeyValue: value
-  property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopupLoader.item
 
   Popup {
     id: searchFeaturePopup

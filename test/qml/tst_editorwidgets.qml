@@ -816,7 +816,7 @@ TestCase {
     const valueRelationListComponentParent = valueRelation.children[1];
     const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
     const valueRelationSearchBar = Utils.findChildren(valueRelationListComponentParent, "ValueRelationSearchBar");
-    const searchTextField = Utils.findChildren(valueRelationSearchBar, "SearchTextField");
+    const searchTextField = valueRelationSearchBar.children[0].children[2];
 
     // turn on editable mode
     valueRelation.isEnabled = true;
