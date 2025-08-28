@@ -43,7 +43,7 @@ EditorWidgetBase {
 
   function formatDateTime(value) {
     // Will handle both null and undefined as date values
-    if (value == null || value === '') {
+    if (value === null || value === undefined || value === '') {
       return qsTr('(no date)');
     } else {
       let displayFormat = config['display_format'];
@@ -73,7 +73,11 @@ EditorWidgetBase {
       } else {
         const date = Date.fromLocaleString(Qt.locale(), value, config['field_format']);
         if (date.toString() === "Invalid Date") {
-          return Qt.formatDateTime(value, displayFormat);
+          try {
+            return Qt.formatDateTime(value, displayFormat);
+          } catch (e) {
+            return qsTr('(no date)');
+          }
         }
         return Qt.formatDateTime(date, displayFormat);
       }
