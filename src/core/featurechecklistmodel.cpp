@@ -515,6 +515,25 @@ bool FeatureCheckListModel::lessThan( const QModelIndex &left, const QModelIndex
     return left.row() < right.row();
   }
 
+  if ( !groupField().isEmpty() )
+  {
+    const QString leftGroup = sourceModel()->data( left, FeatureListModel::GroupFieldRole ).toString();
+    const QString rightGroup = sourceModel()->data( right, FeatureListModel::GroupFieldRole ).toString();
+
+    if ( leftGroup.isEmpty() && !rightGroup.isEmpty() )
+    {
+      return true;
+    }
+    else if ( !leftGroup.isEmpty() && rightGroup.isEmpty() )
+    {
+      return false;
+    }
+    else if ( leftGroup != rightGroup )
+    {
+      return leftGroup < rightGroup;
+    }
+  }
+
   if ( ( mSearchTerm.isEmpty() && mSortCheckedFirst ) )
   {
     const bool leftItemSelected = sourceModel()->data( left, FeatureCheckListModelBase::CheckedRole ).toBool();
