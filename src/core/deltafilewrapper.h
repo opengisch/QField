@@ -341,6 +341,15 @@ class DeltaFileWrapper : public QObject
      */
     void setIsPushing( bool isPushing );
 
+
+    /**
+     * Retuns the index position of a delta with given \a uuid in the deltas list or -1 if missing.
+     *
+     * @param uuid the uuid we are looking for
+     */
+    int getDeltaIndexByUuid( const QString &uuid ) const;
+
+
   signals:
     /**
      * Emitted when the `deltas` list has changed.
@@ -437,9 +446,9 @@ class DeltaFileWrapper : public QObject
     const QgsProject *mProject = nullptr;
 
     /**
-     * A mapping between the local primary key and it's index in the delta file.
+     * A mapping between the local primary key and the uuid of the delta.
      */
-    QMap<QString, QMap<QString, int>> mLocalPkDeltaIdx;
+    QMap<QString, QMap<QString, QString>> mLocalPkToDeltaUuid;
 
     /**
      * The list of JSON deltas.
