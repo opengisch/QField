@@ -1400,8 +1400,10 @@ int DeltaFileWrapper::getDeltaIndexByUuid( const QString &uuid ) const
 {
   int idx = 0;
 
-  for ( const QJsonValue &deltaJson : std::as_const( mDeltas ) )
+  for ( const QJsonValueConstRef &deltaJson : std::as_const( mDeltas ) )
   {
+    Q_ASSERT( deltaJson.isObject() );
+
     const QVariantMap delta = deltaJson.toObject().toVariantMap();
 
     if ( delta.value( QStringLiteral( "uuid" ) ) == uuid )
