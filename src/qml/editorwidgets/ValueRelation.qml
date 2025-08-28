@@ -110,7 +110,7 @@ EditorWidgetBase {
           anchors.left: parent.left
           anchors.right: parent.right
           anchors.top: parent.top
-          columns: listModel.displayGroupName ? 1 : parent && parent.width > 0 ? config['NofColumns'] ? Math.min(config['NofColumns'], parent.width / 100) : 1 : 1
+          columns: config['NofColumns'] && !listModel.groupField === "" ? Math.min(config['NofColumns'], parent.width / 100) : 1
           columnSpacing: 1
           rowSpacing: 0
 

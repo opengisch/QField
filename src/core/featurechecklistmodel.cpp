@@ -549,21 +549,6 @@ bool FeatureCheckListModel::lessThan( const QModelIndex &left, const QModelIndex
     }
   }
 
-  if ( !groupField().isEmpty() )
-  {
-    const QString leftGroup = sourceModel()->data( left, FeatureListModel::GroupFieldRole ).toString();
-    const QString rightGroup = sourceModel()->data( right, FeatureListModel::GroupFieldRole ).toString();
-
-    if ( leftGroup.isEmpty() && !rightGroup.isEmpty() )
-      return true;
-
-    if ( !leftGroup.isEmpty() && rightGroup.isEmpty() )
-      return false;
-
-    if ( !groupField().isEmpty() && leftGroup != rightGroup )
-      return leftGroup < rightGroup;
-  }
-
   if ( orderByValue() || !mSearchTerm.isEmpty() )
   {
     const QString leftDisplay = sourceModel()->data( left, Qt::DisplayRole ).toString().toLower();
