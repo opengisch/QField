@@ -183,8 +183,7 @@ QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
   switch ( role )
   {
     case Qt::DisplayRole:
-      return QStringLiteral( "%1%2" ).arg( mDiscoveredDevices.at( index.row() ).first,
-                                           index.row() > 0 ? QStringLiteral( " (%2)" ).arg( mDiscoveredDevices.at( index.row() ).second ) : QString() );
+      return QStringLiteral( "%1 (%2)" ).arg( mDiscoveredDevices.at( index.row() ).first, mDiscoveredDevices.at( index.row() ).second );
       break;
 
     case DeviceAddressRole:
