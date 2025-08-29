@@ -202,24 +202,37 @@ EditorWidgetBase {
     }
   }
 
-  property EmbeddedFeatureForm embeddedPopup: EmbeddedFeatureForm {
-    embeddedLevel: form.embeddedLevel + 1
-    digitizingToolbar: form.digitizingToolbar
-    codeReader: form.codeReader
+  property EmbeddedFeatureForm embeddedPopup: embeddedPopupLoader.item
 
-    onFeatureCancelled: {
-      if (autoSave) {
+  function ensureEmbeddedFormLoaded() {
+    if (!embeddedPopupLoader.active) {
+      embeddedPopupLoader.active = true;
+    }
+  }
+
+  Loader {
+    id: embeddedPopupLoader
+    active: false
+
+    sourceComponent: EmbeddedFeatureForm {
+      embeddedLevel: form.embeddedLevel + 1
+      digitizingToolbar: form.digitizingToolbar
+      codeReader: form.codeReader
+
+      onFeatureCancelled: {
+        if (autoSave) {
+          relationEditorModel.reload();
+        }
+      }
+
+      onFeatureSaved: id => {
+        relationEditorModel.featureFocus = id;
         relationEditorModel.reload();
       }
-    }
 
-    onFeatureSaved: id => {
-      relationEditorModel.featureFocus = id;
-      relationEditorModel.reload();
-    }
-
-    onOpened: {
-      addingIndicator.running = false;
+      onOpened: {
+        addingIndicator.running = false;
+      }
     }
   }
 
@@ -400,6 +413,7 @@ EditorWidgetBase {
   }
 
   function showAddFeaturePopup(geometry) {
+    ensureEmbeddedFormLoaded();
     embeddedPopup.state = 'Add';
     embeddedPopup.currentLayer = relationEditorModel.relation.referencingLayer;
     embeddedPopup.linkedParentFeature = relationEditorModel.feature;

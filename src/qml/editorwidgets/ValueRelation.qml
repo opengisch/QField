@@ -51,12 +51,14 @@ EditorWidgetBase {
 
   RelationCombobox {
     id: valueRelationCombobox
-    featureListModel: listModel
+    featureListModel: config && !listModel.allowMulti ? listModel : null
 
     useCompleter: !!config['UseCompleter']
     enabled: isEnabled
     visible: !listModel.allowMulti
     relation: undefined
+    layerResolver: layerResolver
+    allowAddFeature: currentLayer && currentLayer.customProperty('QFieldSync/allow_value_relation_feature_addition') !== undefined ? currentLayer.customProperty('QFieldSync/allow_value_relation_feature_addition') : false
   }
 
   Column {
@@ -69,6 +71,7 @@ EditorWidgetBase {
 
     QfSearchBar {
       id: searchBar
+      objectName: "ValueRelationSearchBar"
       width: parent.width
       height: 40
       visible: enabled
@@ -103,6 +106,7 @@ EditorWidgetBase {
 
         GridLayout {
           id: valueGridView
+          objectName: "ValueRelationGridView"
           anchors.left: parent.left
           anchors.right: parent.right
           anchors.top: parent.top
@@ -113,6 +117,7 @@ EditorWidgetBase {
           Repeater {
             id: repeater
             model: listModel.allowMulti ? listModel : 0
+            objectName: "ValueRelationRepeater"
 
             delegate: Item {
               id: listItem
@@ -120,7 +125,8 @@ EditorWidgetBase {
               Layout.fillHeight: true
               Layout.minimumHeight: Math.max(valueText.height, valueRelationList.itemHeight) + (header.visible ? header.height : 0)
 
-              property string groupFieldVal: groupFieldValue ? groupFieldValue : ""
+              property var groupFieldVal: groupFieldValue ? groupFieldValue : ""
+              property bool selected: model.checked
               property alias headerItem: header
 
               // Check if any item in the current row has a visible header item.

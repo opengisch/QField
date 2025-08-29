@@ -165,6 +165,7 @@ RelationEditorBase {
             bgcolor: 'transparent'
 
             onClicked: {
+              ensureEmbeddedFormLoaded();
               embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
               embeddedPopup.currentLayer = orderedRelationModel.relation.referencingLayer;
               embeddedPopup.linkedRelation = orderedRelationModel.relation;

@@ -17,16 +17,19 @@ Item {
   property bool useSearch: false
   property bool allowAddFeature: false
   property var relation: undefined
+  property var layerResolver: undefined
+  property var currentKeyValue: value
+  property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopupLoader.item
 
   Component.onCompleted: {
-    if (!featureListModel.allowMulti) {
+    if (featureListModel && !featureListModel.allowMulti) {
       comboBox.currentIndex = featureListModel.findKey(value);
       invalidWarning.visible = relation !== undefined ? !(relation.isValid) : false;
     }
   }
 
   onCurrentKeyValueChanged: {
-    if (!featureListModel.allowMulti) {
+    if (featureListModel && !featureListModel.allowMulti) {
       comboBox._cachedCurrentValue = currentKeyValue;
       comboBox.currentIndex = featureListModel.findKey(currentKeyValue);
     }
@@ -37,28 +40,6 @@ Item {
     right: parent.right
   }
   height: childrenRect.height
-
-  property var currentKeyValue: value
-  property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopup
-
-  EmbeddedFeatureForm {
-    id: addFeaturePopup
-
-    embeddedLevel: form.embeddedLevel + 1
-    digitizingToolbar: form.digitizingToolbar
-    codeReader: form.codeReader
-
-    onFeatureSaved: {
-      const referencedValue = addFeaturePopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
-      const index = featureListModel.findKey(referencedValue);
-      if (index < 0) {
-        // model not yet reloaded - keep the value and set it onModelReset
-        comboBox._cachedCurrentValue = referencedValue;
-      } else {
-        comboBox.currentIndex = index;
-      }
-    }
-  }
 
   Popup {
     id: searchFeaturePopup
@@ -130,7 +111,7 @@ Item {
         clip: true
         ScrollBar.vertical: QfScrollBar {
         }
-        section.property: featureListModel.groupField != "" ? "groupFieldValue" : ""
+        section.property: featureListModel ? featureListModel.groupField != "" ? "groupFieldValue" : "" : ""
         section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
         section.delegate: Component {
           Rectangle {
@@ -255,6 +236,7 @@ Item {
 
     ComboBox {
       id: comboBox
+      objectName: "RelationComboBox"
       visible: !enabled || (!useSearch && !useCompleter && (relation !== undefined ? relation.isValid : true))
       Layout.fillWidth: true
 
@@ -273,7 +255,7 @@ Item {
 
       Connections {
         target: featureListModel
-        enabled: !featureListModel.allowMulti
+        enabled: featureListModel ? !featureListModel.allowMulti : false
 
         function onModelReset() {
           comboBox.currentIndex = featureListModel.findKey(comboBox._cachedCurrentValue);
@@ -344,7 +326,7 @@ Item {
           implicitHeight: Math.min(mainWindow.height - mainWindow.sceneTopMargin - mainWindow.sceneTopMargin, contentHeight)
           currentIndex: comboBox.highlightedIndex
 
-          section.property: featureListModel.groupField != "" ? "groupFieldValue" : ""
+          section.property: featureListModel ? featureListModel.groupField != "" ? "groupFieldValue" : "" : ""
           section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
           section.delegate: Component {
             Rectangle {
@@ -603,6 +585,7 @@ Item {
 
     QfToolButton {
       id: addFeatureButton
+      objectName: "AddFeatureButton"
 
       Layout.preferredWidth: comboBox.enabled ? 48 : 0
       Layout.preferredHeight: 48
@@ -612,11 +595,14 @@ Item {
       iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
       iconColor: Theme.mainTextColor
 
-      visible: enabled && allowAddFeature && relation !== undefined && relation.isValid
+      visible: enabled && allowAddFeature && (layerResolver !== undefined || (relation !== undefined && relation.isValid))
 
       onClicked: {
-        if (relationCombobox.relation.referencedLayer.geometryType() !== Qgis.GeometryType.Null) {
+        if (relationCombobox.relation !== undefined && relationCombobox.relation.referencedLayer.geometryType() !== Qgis.GeometryType.Null) {
           requestGeometry(relationCombobox, relationCombobox.relation.referencedLayer);
+          return;
+        } else if (relationCombobox.layerResolver !== undefined && relationCombobox.layerResolver.currentLayer.geometryType() !== Qgis.GeometryType.Null) {
+          requestGeometry(relationCombobox, relationCombobox.layerResolver.currentLayer);
           return;
         }
         showAddFeaturePopup();
@@ -631,21 +617,26 @@ Item {
     }
   }
 
-  EmbeddedFeatureForm {
-    id: embeddedPopup
+  Loader {
+    id: embeddedPopupLoader
+    active: false
 
-    embeddedLevel: form.embeddedLevel + 1
-    digitizingToolbar: form.digitizingToolbar
-    codeReader: form.codeReader
+    sourceComponent: EmbeddedFeatureForm {
+      id: embeddedPopup
 
-    onFeatureSaved: {
-      const referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
-      const index = featureListModel.findKey(referencedValue);
-      if ((featureListModel.addNull && index < 1) || index < 0) {
-        // model not yet reloaded - keep the value and set it onModelReset
-        comboBox._cachedCurrentValue = referencedValue;
-      } else {
-        comboBox.currentIndex = index;
+      embeddedLevel: form.embeddedLevel + 1
+      digitizingToolbar: form.digitizingToolbar
+      codeReader: form.codeReader
+
+      onFeatureSaved: {
+        const referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
+        const index = featureListModel.findKey(referencedValue);
+        if ((featureListModel.addNull && index < 1) || index < 0) {
+          // model not yet reloaded - keep the value and set it onModelReset
+          comboBox._cachedCurrentValue = referencedValue;
+        } else {
+          comboBox.currentIndex = index;
+        }
       }
     }
   }
@@ -654,12 +645,24 @@ Item {
     showAddFeaturePopup(geometry);
   }
 
-  function showAddFeaturePopup(geometry) {
-    embeddedPopup.state = 'Add';
-    embeddedPopup.currentLayer = relationCombobox.relation ? relationCombobox.relation.referencedLayer : null;
-    if (geometry !== undefined) {
-      embeddedPopup.applyGeometry(geometry);
+  function ensureEmbeddedFormLoaded() {
+    if (!embeddedPopupLoader.active) {
+      embeddedPopupLoader.active = true;
     }
-    embeddedPopup.open();
+  }
+
+  function showAddFeaturePopup(geometry) {
+    ensureEmbeddedFormLoaded();
+    embeddedFeatureForm.state = 'Add';
+    embeddedFeatureForm.currentLayer = null;
+    if (relationCombobox.relation !== undefined) {
+      embeddedFeatureForm.currentLayer = relationCombobox.relation.referencedLayer;
+    } else if (relationCombobox.layerResolver !== undefined) {
+      embeddedFeatureForm.currentLayer = relationCombobox.layerResolver.currentLayer;
+    }
+    if (geometry !== undefined) {
+      embeddedFeatureForm.applyGeometry(geometry);
+    }
+    embeddedFeatureForm.open();
   }
 }
