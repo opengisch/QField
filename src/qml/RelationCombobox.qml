@@ -265,6 +265,8 @@ Item {
       valueRole: 'keyFieldValue'
 
       onCurrentIndexChanged: {
+        if (searchFeaturePopup.opened)
+          return;
         const newValue = featureListModel.dataFromRowIndex(currentIndex, FeatureListModel.KeyFieldRole);
         if (newValue !== currentKeyValue) {
           valueChangeRequested(newValue, false);
