@@ -219,7 +219,7 @@ void PluginManager::restoreAppPlugins()
   {
     const QString uuid = settings.value( QStringLiteral( "%1/uuid" ).arg( pluginKey ) ).toString();
     const PluginInformation pluginInformation = mPluginModel->pluginInformation( uuid );
-    if ( settings.value( QStringLiteral( "%1/userEnabled" ).arg( pluginKey ), false ).toBool() || pluginInformation.remotelyAvailable )
+    if ( settings.value( QStringLiteral( "%1/userEnabled" ).arg( pluginKey ), false ).toBool() )
     {
       if ( mPluginModel->hasPluginInformation( uuid ) )
       {
