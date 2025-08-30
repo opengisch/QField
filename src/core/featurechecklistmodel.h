@@ -166,7 +166,7 @@ class FeatureCheckListModel : public QSortFilterProxyModel
     Q_INVOKABLE QgsFeature getFeatureFromKeyValue( const QVariant &value ) const;
 
     /**
-    * Returns the first feature matching the key  \a id.
+    * Returns the first feature matching the feature  \a id.
     */
     Q_INVOKABLE QgsFeature getFeatureById( QgsFeatureId id ) const;
 
