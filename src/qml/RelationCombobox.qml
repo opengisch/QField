@@ -20,6 +20,7 @@ Item {
   property var layerResolver: undefined
   property var currentKeyValue: value
   property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopupLoader.item
+  readonly property alias searchPopup: searchFeaturePopup
 
   Component.onCompleted: {
     if (featureListModel && !featureListModel.allowMulti) {
@@ -44,9 +45,11 @@ Item {
   Popup {
     id: searchFeaturePopup
 
+    readonly property int minimumHeight: mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+
     parent: mainWindow.contentItem
     width: mainWindow.width - Theme.popupScreenEdgeMargin * 2
-    height: mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+    height: minimumHeight > 0 ? minimumHeight : 200
     x: Theme.popupScreenEdgeMargin
     y: (mainWindow.height - height) / 2
     z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
@@ -214,7 +217,8 @@ Item {
             if (!item)
               return;
             item.performClick();
-            model.checked = !model.checked;
+            // Do we need this ? After performClick() ? what is model outside of delegate?
+            // model.checked = !model.checked;
             if (!resultsList.model.allowMulti) {
               searchFeaturePopup.close();
             }
@@ -570,6 +574,7 @@ Item {
 
     QfToolButton {
       id: searchButton
+      objectName: "OpenSearchFeaturePopupButton"
 
       Layout.preferredWidth: enabled ? 48 : 0
       Layout.preferredHeight: 48
