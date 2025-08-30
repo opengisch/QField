@@ -475,9 +475,6 @@ TestCase {
    * This test:
    * - Verifies that items in the combobox should be sorted by feature key
    * - Compares actual order with the expected order
-   *
-   * TODO:
-   * - This test fails because items are not ordered by key, but by the test list order
    */
   function test_02_ValueRelation() {
     valueRelation.config = {
@@ -501,17 +498,10 @@ TestCase {
     const relationComboBoxParent = valueRelation.children[0];
     const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
     const featureListModel = comboBoxItem.model;
-
-    // Showed in QGIS
     const expectedOrderedData = {
       "name": ["Ethan", "Liam", "Olivia", "Sophia", "Noah", "Ava", "Mathieu", "Mason"]
     };
-
-    // Showed in QField 3.6 -- Based on the test list -- not key! -- which is wrong!
-    const expectedOrderedData2 = {
-      "name": ["Olivia", "Liam", "Sophia", "Ethan", "Ava", "Noah", "Mathieu", "Mason"]
-    };
-    const namesInList = expectedOrderedData2["name"];
+    const namesInList = expectedOrderedData["name"];
     wait(1000);
     compare(comboBoxItem.count, namesInList.length);
 
@@ -709,9 +699,6 @@ TestCase {
    *
    * This test:
    * - Compares actual item order against expected grouped order
-   *
-   * TODO:
-   * - This test fails because grouping and key-based sorting are not applied correctly
    */
   function test_07_ValueRelation() {
     valueRelation.config = {
@@ -736,20 +723,13 @@ TestCase {
     const valueRelationListComponentParent = valueRelation.children[1];
     const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
     const featureListModel = valueRelationRepeater.model;
-
-    // Showed in QGIS -- grouping is enabled by team
     const expectedOrderedData = {
       "name": ["<i>NULL</i>", "Ethan", "Olivia", "Mason", "Liam", "Mathieu", "Sophia", "Noah", "Ava"]
     };
-
-    // Showed in QField 3.6 -- not key! -- which is wrong!
-    const expectedOrderedData2 = {
-      "name": ["<i>NULL</i>", "Ethan", "Mason", "Olivia", "Liam", "Mathieu", "Ava", "Noah", "Sophia"]
-    };
-    compare(valueRelationRepeater.count, expectedOrderedData2["name"].length);
+    compare(valueRelationRepeater.count, expectedOrderedData["name"].length);
     for (let i = 0; i < valueRelationRepeater.count; ++i) {
       const value = featureListModel.dataFromRowIndex(i, FeatureListModel.DisplayStringRole);
-      compare(value, expectedOrderedData2["name"][i]);
+      compare(value, expectedOrderedData["name"][i]);
     }
   }
 
