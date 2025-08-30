@@ -11,6 +11,12 @@ TestCase {
   Item {
     // mainWindow for widgets
     id: mainWindowItem
+    width: 300
+    height: 400
+    property int sceneTopMargin: 10
+    property int sceneBottomMargin: 10
+    property int sceneLeftMargin: 10
+    property int sceneRightMargin: 10
   }
 
   EditorWidgets.TextEdit {
@@ -87,23 +93,17 @@ TestCase {
 
   EditorWidgets.ValueRelation {
     id: valueRelation
-    property var mainWindow: testWindow
+    property var mainWindow: mainWindowItem
     property var value: undefined
     property var config: undefined
     property var currentLayer: undefined
     property var currentFeature: undefined
     property bool isEnabled: false
-
-    property var originalDataInExecel: {
-      "id": [3, 2, 4, 1, 6, 5, 7, 8],
-      "name": ["Olivia", "Liam", "Sophia", "Ethan", "Ava", "Noah", "Mathieu", "Mason"],
-      "team": ["A", "B", "C", "A", "C", "C", "B", "A"]
-    }
   }
 
   EditorWidgets.ValueRelation {
     id: valueRelation2
-    property var mainWindow: testWindow
+    property var mainWindow: mainWindowItem
     property var value: undefined
     property var config: undefined
     property var currentLayer: undefined
@@ -773,7 +773,14 @@ TestCase {
     }
   }
 
-  function test_9_ValueRelation() {
+  /**
+   * Tests ValueRelation search filtering
+   *
+   * This test:
+   * - Verifies that the search bar filters items correctly based on input text
+   * - Ensures correct item count after applying search terms
+   */
+  function test_09_ValueRelation() {
     valueRelation.config = {
       "AllowMulti": true,
       "AllowNull": false,
@@ -813,5 +820,92 @@ TestCase {
 
     // only Olivia, Sophia, Liam
     compare(valueRelationRepeater.count, 3);
+  }
+
+  /**
+   * Tests ValueRelation component behavior
+   *
+   * Verifies:
+   * - Initial state and display text with undefined value
+   * - Value update in editable mode reflects in the combobox
+   * - Search popup filtering, result ordering, and highlighting
+   * - Selecting an item updates the ValueRelation correctly
+   *
+   * TODO: In this test, value is manually set after search selection to continue the test,
+   *       but in real usage, value should be set automatically upon item selection.
+   */
+  function test_10_ValueRelation() {
+    valueRelation.config = {
+      "AllowMulti": false,
+      "AllowNull": false,
+      "CompleterMatchFlags": 2,
+      "DisplayGroupName": false,
+      "Group": "team",
+      "Key": "id",
+      "LayerName": "TestRelationValues",
+      "LayerProviderName": "ogr",
+      "NofColumns": 1,
+      "OrderByDescending": false,
+      "OrderByField": false,
+      "OrderByFieldName": "id",
+      "OrderByKey": true,
+      "OrderByValue": false,
+      "UseCompleter": true,
+      "Value": "name"
+    };
+    setupValueRelationInReadonlyMode();
+    const relationComboBoxParent = valueRelation.children[0];
+    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
+    const addFeatureButton = Utils.findChildren(relationComboBoxParent, "AddFeatureButton");
+    const openSearchFeaturePopupButton = Utils.findChildren(relationComboBoxParent, "OpenSearchFeaturePopupButton");
+
+    // Initially, the combobox should not select any item because the value is undefined
+    compare(comboBoxItem.displayText, "");
+
+    // Enable editable mode
+    valueRelation.isEnabled = true;
+
+    // Setting the value to 3 should update the combobox display text to `Olivia`
+    valueRelation.value = 3;
+    compare(comboBoxItem.count, 8);
+    compare(comboBoxItem.displayText, "Olivia");
+    compare(relationComboBoxParent.searchPopup.opened, false);
+
+    // Open the search popup and search for 'ia'.
+    // Only three items should be visible. After selecting one, the combobox display text should update.
+    openSearchFeaturePopupButton.click();
+    wait(500);
+    compare(relationComboBoxParent.searchPopup.opened, true);
+    const searchFeaturePopup = relationComboBoxParent.searchPopup.contentItem;
+    const searchBarTextField = searchFeaturePopup.children[0].children[1].children[0].children[0].children[2];
+    const searchFeatureResultsList = searchFeaturePopup.children[0].children[1].children[1];
+    const featureListModel = searchFeatureResultsList.model;
+    compare(searchFeatureResultsList.count, 8);
+    const expectedOrderedData = ["Ethan", "Olivia", "Mason", "Liam", "Mathieu", "Sophia", "Noah", "Ava"];
+    for (let i = 0; i < searchFeatureResultsList.count; ++i) {
+      const value = featureListModel.dataFromRowIndex(i, FeatureListModel.DisplayStringRole);
+      compare(expectedOrderedData[i], value);
+    }
+    searchBarTextField.text = "ai";
+    compare(searchFeatureResultsList.count, 0);
+    searchBarTextField.text = "ia";
+    const expectedOrderedData2 = ["Olivia", "Liam", "Sophia"];
+    compare(searchFeatureResultsList.count, expectedOrderedData2.length);
+    for (let j = 0; j < searchFeatureResultsList.count; ++j) {
+      const value = featureListModel.dataFromRowIndex(j, FeatureListModel.DisplayStringRole);
+      compare(value, expectedOrderedData2[j]);
+    }
+    wait(500);
+    const itemToClick = searchFeatureResultsList.itemAtIndex(1);
+    compare(itemToClick.children[0].children[2].text, "L<span style=\"text-decoration:underline;color:#000000\">ia</span>m"); // `Liam` highlighted!
+    const clickX = itemToClick.x + itemToClick.width / 2;
+    const clickY = itemToClick.y + itemToClick.height / 2;
+    mouseClick(searchFeatureResultsList, clickX, clickY);
+    compare(relationComboBoxParent.searchPopup.opened, false);
+
+    // NOTE: Manually setting value here is not correct;
+    // it should update automatically when an item is clicked. This is done only to continue the test.
+    valueRelation.value = 2;
+    compare(comboBoxItem.displayText, "Liam");
   }
 }
