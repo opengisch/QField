@@ -631,13 +631,19 @@ Item {
       codeReader: form.codeReader
 
       onFeatureSaved: {
-        const referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
-        const index = featureListModel.findKey(referencedValue);
-        if ((featureListModel.addNull && index < 1) || index < 0) {
-          // model not yet reloaded - keep the value and set it onModelReset
-          comboBox._cachedCurrentValue = referencedValue;
+        // model not yet reloaded - keep the value in _cachedCurrentValue and set it onModelReset
+        if (relationCombobox.relation !== undefined) {
+          const referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
+          const index = featureListModel.findKey(referencedValue);
+          if ((featureListModel.addNull && index < 1) || index < 0) {
+            comboBox._cachedCurrentValue = referencedValue;
+          }
         } else {
-          comboBox.currentIndex = index;
+          const keyValue = embeddedPopup.attributeFormModel.attribute(relationCombobox.featureListModel.keyField);
+          const index = featureListModel.findKey(keyValue);
+          if ((featureListModel.addNull && index < 1) || index < 0) {
+            comboBox._cachedCurrentValue = keyValue;
+          }
         }
       }
     }
