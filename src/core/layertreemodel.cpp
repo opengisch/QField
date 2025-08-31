@@ -577,22 +577,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       QString id;
       if ( QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
-        if ( QgsSymbolLegendNode *symbolNode = qobject_cast<QgsSymbolLegendNode *>( legendNode ) )
-        {
-          id += QStringLiteral( "image://legend/legend" );
-          id += '/' + symbolNode->layerNode()->layerId();
-          QStringList legendParts;
-          QModelIndex currentIndex = sourceIndex;
-          while ( symbolNode )
-          {
-            legendParts << QString::number( currentIndex.internalId() );
-            currentIndex = currentIndex.parent();
-            symbolNode = qobject_cast<QgsSymbolLegendNode *>( mLayerTreeModel->index2legendNode( currentIndex ) );
-          }
-          std::reverse( legendParts.begin(), legendParts.end() );
-          id += '/' + legendParts.join( QStringLiteral( "~__~" ) );
-        }
-        else if ( QgsWmsLegendNode *wmsNode = qobject_cast<QgsWmsLegendNode *>( legendNode ) )
+        if ( QgsWmsLegendNode *wmsNode = qobject_cast<QgsWmsLegendNode *>( legendNode ) )
         {
           QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex.parent() );
           if ( QgsLayerTree::isLayer( node ) )
@@ -619,6 +604,21 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
               id += '/' + nodeLayer->layerId();
             }
           }
+        }
+        else
+        {
+          id += QStringLiteral( "image://legend/legend" );
+          id += '/' + legendNode->layerNode()->layerId();
+          QStringList legendParts;
+          QModelIndex currentIndex = sourceIndex;
+          while ( legendNode )
+          {
+            legendParts << QString::number( currentIndex.internalId() );
+            currentIndex = currentIndex.parent();
+            legendNode = qobject_cast<QgsSymbolLegendNode *>( mLayerTreeModel->index2legendNode( currentIndex ) );
+          }
+          std::reverse( legendParts.begin(), legendParts.end() );
+          id += '/' + legendParts.join( QStringLiteral( "~__~" ) );
         }
       }
       else
