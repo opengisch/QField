@@ -412,8 +412,11 @@ int FlatLayerTreeModelBase::buildMap( QgsLayerTreeModel *model, const QModelInde
           QgsRasterLayer *rasterLayer = qobject_cast<QgsRasterLayer *>( nodeLayer->layer() );
           if ( rasterLayer && rasterLayer->dataProvider() && rasterLayer->dataProvider()->name() == QStringLiteral( "wms" ) )
           {
-            // WMS layers have no legend items, skip those.
-            continue;
+            if ( rasterLayer->source().contains( QStringLiteral( "type=xyz" ), Qt::CaseInsensitive ) )
+            {
+              // XYZ layers have no legend items, skip those.
+              continue;
+            }
           }
         }
         row = buildMap( model, index, row, treeLevel + 1 );
@@ -572,25 +575,41 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
     case FlatLayerTreeModel::LegendImage:
     {
       QString id;
-      if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex ) )
+      if ( QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
-        id += QStringLiteral( "legend" );
-        id += '/' + sym->layerNode()->layerId();
-        QStringList legendParts;
-        QModelIndex currentIndex = sourceIndex;
-        while ( sym )
+        if ( QgsSymbolLegendNode *symbolNode = qobject_cast<QgsSymbolLegendNode *>( legendNode ) )
         {
-          legendParts << QString::number( currentIndex.internalId() );
-          currentIndex = currentIndex.parent();
-          sym = mLayerTreeModel->index2legendNode( currentIndex );
+          id += QStringLiteral( "image://legend/legend" );
+          id += '/' + symbolNode->layerNode()->layerId();
+          QStringList legendParts;
+          QModelIndex currentIndex = sourceIndex;
+          while ( symbolNode )
+          {
+            legendParts << QString::number( currentIndex.internalId() );
+            currentIndex = currentIndex.parent();
+            symbolNode = qobject_cast<QgsSymbolLegendNode *>( mLayerTreeModel->index2legendNode( currentIndex ) );
+          }
+          std::reverse( legendParts.begin(), legendParts.end() );
+          id += '/' + legendParts.join( QStringLiteral( "~__~" ) );
         }
-        std::reverse( legendParts.begin(), legendParts.end() );
-        id += '/' + legendParts.join( QStringLiteral( "~__~" ) );
+        if ( QgsWmsLegendNode *wmsNode = qobject_cast<QgsWmsLegendNode *>( legendNode ) )
+        {
+          QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex.parent() );
+          if ( QgsLayerTree::isLayer( node ) )
+          {
+            QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+            QgsRasterLayer *rasterLayer = qobject_cast<QgsRasterLayer *>( nodeLayer->layer() );
+            if ( rasterLayer && rasterLayer->dataProvider() && rasterLayer->dataProvider()->supportsLegendGraphic() )
+            {
+              id += QStringLiteral( "image://asynclegend/layer" );
+              id += '/' + nodeLayer->layerId();
+            }
+          }
+        }
       }
       else
       {
         QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
-
         if ( QgsLayerTree::isLayer( node ) )
         {
           QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
@@ -599,7 +618,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
             QgsVectorLayer *vectorLayer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
             if ( vectorLayer && vectorLayer->geometryType() != Qgis::GeometryType::Null )
             {
-              id += QStringLiteral( "layer" );
+              id += QStringLiteral( "image://legend/layer" );
               id += '/' + nodeLayer->layerId();
             }
           }
@@ -612,11 +631,22 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
-        return QStringLiteral( "layer" );
+      {
+        return FlatLayerTreeModel::Layer;
+      }
       else if ( QgsLayerTree::isGroup( node ) )
-        return QStringLiteral( "group" );
-      else
-        return QStringLiteral( "legend" );
+      {
+        return FlatLayerTreeModel::Group;
+      }
+      else if ( QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->index2legendNode( sourceIndex ) )
+      {
+        if ( QgsWmsLegendNode *wmsNode = qobject_cast<QgsWmsLegendNode *>( legendNode ) )
+        {
+          return FlatLayerTreeModel::Image;
+        }
+      }
+
+      return FlatLayerTreeModel::Legend;
     }
 
     case FlatLayerTreeModel::LayerType:

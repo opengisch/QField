@@ -158,6 +158,15 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
     };
     Q_ENUM( Roles )
 
+    enum Types
+    {
+      Layer,
+      Group,
+      Image,
+      Legend,
+    };
+    Q_ENUM( Types )
+
     explicit FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
 
     Q_INVOKABLE QVariant data( const QModelIndex &index, int role ) const override;
