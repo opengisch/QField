@@ -592,7 +592,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
           std::reverse( legendParts.begin(), legendParts.end() );
           id += '/' + legendParts.join( QStringLiteral( "~__~" ) );
         }
-        if ( QgsWmsLegendNode *wmsNode = qobject_cast<QgsWmsLegendNode *>( legendNode ) )
+        else if ( QgsWmsLegendNode *wmsNode = qobject_cast<QgsWmsLegendNode *>( legendNode ) )
         {
           QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex.parent() );
           if ( QgsLayerTree::isLayer( node ) )
@@ -602,6 +602,20 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
             if ( rasterLayer && rasterLayer->dataProvider() && rasterLayer->dataProvider()->supportsLegendGraphic() )
             {
               id += QStringLiteral( "image://asynclegend/layer" );
+              id += '/' + nodeLayer->layerId();
+            }
+          }
+        }
+        else if ( QgsImageLegendNode *imageNode = qobject_cast<QgsImageLegendNode *>( legendNode ) )
+        {
+          QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex.parent() );
+          if ( QgsLayerTree::isLayer( node ) )
+          {
+            QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+            QgsMapLayer *layer = qobject_cast<QgsMapLayer *>( nodeLayer->layer() );
+            if ( layer && !layer->legendPlaceholderImage().isEmpty() )
+            {
+              id += QStringLiteral( "image://legend/image" );
               id += '/' + nodeLayer->layerId();
             }
           }
@@ -641,6 +655,10 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       else if ( QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
         if ( QgsWmsLegendNode *wmsNode = qobject_cast<QgsWmsLegendNode *>( legendNode ) )
+        {
+          return FlatLayerTreeModel::Image;
+        }
+        else if ( QgsImageLegendNode *imageNode = qobject_cast<QgsImageLegendNode *>( legendNode ) )
         {
           return FlatLayerTreeModel::Image;
         }

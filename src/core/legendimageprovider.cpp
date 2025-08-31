@@ -14,6 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 #include "legendimageprovider.h"
+#include "qgsapplication.h"
+#include "qgsimagecache.h"
 
 #include <QQuickTextureFactory>
 #include <qgslayertree.h>
@@ -86,8 +88,7 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *, const QS
       }
     }
   }
-
-  if ( idParts.value( 0 ) == QStringLiteral( "layer" ) )
+  else if ( idParts.value( 0 ) == QStringLiteral( "layer" ) )
   {
     QgsLayerTreeLayer *layerNode = mRootNode->findLayer( idParts.value( 1 ) );
     if ( layerNode )
@@ -114,6 +115,20 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *, const QS
         QPixmap pixmap( iconSize, iconSize );
         pixmap.fill( QColor( 255, 255, 255 ) );
         return pixmap;
+      }
+    }
+  }
+  else if ( idParts.value( 0 ) == QStringLiteral( "image" ) )
+  {
+    QgsLayerTreeLayer *layerNode = mRootNode->findLayer( idParts.value( 1 ) );
+    if ( layerNode )
+    {
+      QgsMapLayer *mapLayer = layerNode->layer();
+      if ( mapLayer && !mapLayer->legendPlaceholderImage().isEmpty() )
+      {
+        bool fitsInCache = false;
+        const QImage image = QgsApplication::imageCache()->pathAsImage( mapLayer->legendPlaceholderImage(), QSize(), false, 1.0, fitsInCache );
+        return QPixmap::fromImage( image );
       }
     }
   }
