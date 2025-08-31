@@ -153,7 +153,7 @@ Popup {
           text: qsTr('Show on map')
           font: Theme.defaultFont
           // visible for all layer tree items but nonspatial layers
-          visible: index && layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent) ? true : false
+          visible: index && layerTree.data(index, FlatLayerTreeModel.Checkable) && layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent) ? true : false
           indicator.height: 16
           indicator.width: 16
           indicator.implicitHeight: 24
@@ -243,7 +243,7 @@ Popup {
           id: zoomToButton
           Layout.fillWidth: true
           Layout.topMargin: 5
-          text: index ? layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Group ? qsTr('Zoom to group') : layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Legend ? qsTr('Zoom to parent layer') : qsTr('Zoom to layer') : ''
+          text: index ? layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Group ? qsTr('Zoom to group') : layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Legend && layerTree.data(index, FlatLayerTreeModel.LayerType) === "vectorlayer" ? qsTr('Zoom to parent layer') : qsTr('Zoom to layer') : ''
           visible: zoomToButtonVisible
           icon.source: Theme.getThemeVectorIcon('zoom_out_map_24dp')
 
