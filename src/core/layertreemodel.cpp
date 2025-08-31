@@ -16,6 +16,7 @@
 
 #include "layertreemodel.h"
 
+#include <qgscolorramplegendnode.h>
 #include <qgslayernotesutils.h>
 #include <qgslayertree.h>
 #include <qgslayertreemodel.h>
@@ -395,6 +396,13 @@ int FlatLayerTreeModelBase::buildMap( QgsLayerTreeModel *model, const QModelInde
         QgsMapLayer *layer = nodeLayer->layer();
         if ( layer && layer->flags().testFlag( QgsMapLayer::Private ) )
           continue;
+      }
+
+      QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->index2legendNode( index );
+      if ( qobject_cast<QgsColorRampLegendNode *>( legendNode ) || qobject_cast<QgsDataDefinedSizeLegendNode *>( legendNode ) )
+      {
+        // Skip unsupported legend types
+        continue;
       }
 
       if ( node && !node->isExpanded() )
