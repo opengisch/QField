@@ -662,11 +662,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       }
       else if ( QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
-        if ( QgsWmsLegendNode *wmsNode = qobject_cast<QgsWmsLegendNode *>( legendNode ) )
-        {
-          return FlatLayerTreeModel::Image;
-        }
-        else if ( QgsImageLegendNode *imageNode = qobject_cast<QgsImageLegendNode *>( legendNode ) )
+        if ( qobject_cast<QgsWmsLegendNode *>( legendNode ) || qobject_cast<QgsImageLegendNode *>( legendNode ) )
         {
           return FlatLayerTreeModel::Image;
         }
