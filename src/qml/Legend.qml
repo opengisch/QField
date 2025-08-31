@@ -163,7 +163,7 @@ ListView {
 
         Item {
           id: layerVisibility
-          property bool isVisible: Type != FlatLayerTreeModel.Image && HasSpatialExtent
+          property bool isVisible: Checkable && HasSpatialExtent
           height: 24
           width: visible ? parent.height : 0
           anchors.verticalCenter: parent.verticalCenter

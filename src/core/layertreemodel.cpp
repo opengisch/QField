@@ -731,9 +731,9 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
           name += QStringLiteral( " [%1]" ).arg( count );
         }
       }
-      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex ) )
+      else if ( QgsLayerTreeModelLegendNode *symbol = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
-        name = sym->data( Qt::DisplayRole ).toString();
+        name = symbol->data( Qt::DisplayRole ).toString();
       }
 
       return name;
@@ -1119,6 +1119,17 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return QString();
     }
 
+    case FlatLayerTreeModel::Checkable:
+    {
+      QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->index2legendNode( sourceIndex );
+      if ( legendNode )
+      {
+        return ( legendNode->flags() & Qt::ItemIsUserCheckable ) ? true : false;
+      }
+
+      return true;
+    }
+
     default:
       return QAbstractProxyModel::data( index, role );
   }
@@ -1304,6 +1315,7 @@ QHash<int, QByteArray> FlatLayerTreeModelBase::roleNames() const
   roleNames[FlatLayerTreeModel::SnappingEnabled] = "SnappingEnabled";
   roleNames[FlatLayerTreeModel::HasNotes] = "HasNotes";
   roleNames[FlatLayerTreeModel::Notes] = "Notes";
+  roleNames[FlatLayerTreeModel::Checkable] = "Checkable";
   return roleNames;
 }
 
