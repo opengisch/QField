@@ -187,6 +187,7 @@ AsyncLegendImageResponse::AsyncLegendImageResponse( QgsRasterDataProvider *dataP
     mFetcher.reset( mDataProvider->getLegendGraphicFetcher( mapSettings ) );
     if ( mFetcher )
     {
+      mFetcher->setParent( nullptr );
       connect( mFetcher.get(), &QgsImageFetcher::finish, this, &AsyncLegendImageResponse::handleFinish );
       connect( mFetcher.get(), &QgsImageFetcher::error, this, &AsyncLegendImageResponse::handleError );
       mFetcher->start();
@@ -208,12 +209,24 @@ void AsyncLegendImageResponse::handleFinish( const QImage &image )
 
   mImage = image;
   emit finished();
+
+  mFetcher->deleteLater();
+  mFetcher.release();
 }
 
 void AsyncLegendImageResponse::handleError( const QString & )
 {
+  if ( !mFetcher )
+  {
+    // invalid signal, QGIS tells us it must be coming after finish
+    return;
+  }
+
   mImage = QImage();
   emit finished();
+
+  mFetcher->deleteLater();
+  mFetcher.release();
 }
 
 QQuickTextureFactory *AsyncLegendImageResponse::textureFactory() const

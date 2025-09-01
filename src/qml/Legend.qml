@@ -149,7 +149,7 @@ ListView {
             Image {
               id: legendImage
               fillMode: Image.PreserveAspectFit
-              cache: false
+              cache: true
               smooth: true
               mipmap: true
               source: {
