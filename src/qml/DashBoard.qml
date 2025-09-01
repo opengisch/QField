@@ -390,7 +390,7 @@ Drawer {
     height: 48 + mainWindow.sceneBottomMargin
     width: parent.width
     anchors.bottom: parent.bottom
-    color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGray
+    color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
 
     Item {
       height: 48
