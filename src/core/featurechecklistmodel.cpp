@@ -581,7 +581,20 @@ bool FeatureCheckListModel::lessThan( const QModelIndex &left, const QModelIndex
     }
   }
 
-  return false;
+  // Order By Key (as a fallback)
+  const QString leftKey = sourceModel()->data( left, FeatureListModel::KeyFieldRole ).toString().toLower();
+  const QString rightKey = sourceModel()->data( right, FeatureListModel::KeyFieldRole ).toString().toLower();
+
+  if ( leftKey.isEmpty() && !rightKey.isEmpty() )
+  {
+    return true;
+  }
+  else if ( !leftKey.isEmpty() && rightKey.isEmpty() )
+  {
+    return false;
+  }
+
+  return leftKey < rightKey;
 }
 
 double FeatureCheckListModel::calcFuzzyScore( const QString &displayString, const QString &searchTerm ) const
