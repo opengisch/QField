@@ -4476,10 +4476,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Element(y) atlasu zostały pomyślnie wydrukowane i umieszczone w twoim katalogu projektu.</translation>
     </message>
-    <message>
-        <source>Ensure constraints are met</source>
-        <translation>Upewnij się, że ograniczenia są spełnione</translation>
-    </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>

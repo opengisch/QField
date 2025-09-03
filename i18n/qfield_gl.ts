@@ -4472,10 +4472,6 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Imprimíronse con éxito as entidade(s) do Atlas e situáronse no directorio do proxecto</translation>
     </message>
-    <message>
-        <source>Ensure constraints are met</source>
-        <translation type="unfinished"/>
-    </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>

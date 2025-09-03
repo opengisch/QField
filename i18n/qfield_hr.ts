@@ -4470,10 +4470,6 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Stavka(e) Atlasa su uspješno ispisane i spremljene u direktorij projekta</translation>
     </message>
-    <message>
-        <source>Ensure constraints are met</source>
-        <translation type="unfinished"/>
-    </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>

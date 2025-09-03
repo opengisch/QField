@@ -4475,10 +4475,6 @@ Zrušiť a spraviť minimálny sken.</translation>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Prvky Atlasu úspešne vytlačené a umiestnené do projektového priečinka</translation>
     </message>
-    <message>
-        <source>Ensure constraints are met</source>
-        <translation type="unfinished"/>
-    </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>

@@ -4470,10 +4470,6 @@ Cancel to make a minimal device scan instead.</source>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>地图集要素已成功输出并保存在您的工程文件夹中</translation>
     </message>
-    <message>
-        <source>Ensure constraints are met</source>
-        <translation>确保满足约束条件</translation>
-    </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
         <translation><numerusform>%n个要素</numerusform></translation>

@@ -4468,10 +4468,6 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Az atlasz elem(ek) nyomtatása és a projekt könyvtáradba helyezése sikeres volt</translation>
     </message>
-    <message>
-        <source>Ensure constraints are met</source>
-        <translation type="unfinished"/>
-    </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>

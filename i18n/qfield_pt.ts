@@ -4474,10 +4474,6 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Elemento(s) do Atlas foram imprimidos com sucesso e guardados na sua pasta do projeto</translation>
     </message>
-    <message>
-        <source>Ensure constraints are met</source>
-        <translation type="unfinished"/>
-    </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>

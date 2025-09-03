@@ -4543,10 +4543,6 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation type="unfinished">Atlas feature(s) successfully printed and placed in your project folder</translation>
     </message>
-    <message>
-        <source>Ensure constraints are met</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
         <translation type="unfinished">

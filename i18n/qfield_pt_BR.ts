@@ -3539,7 +3539,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldPositioningService</name>
     <message>
         <source>Positioning service running</source>
-        <translation type="unfinished"/>
+        <translation>Serviço de posicionamento em execução</translation>
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
@@ -4461,10 +4461,6 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Ensure constraints are met</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">

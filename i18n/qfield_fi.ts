@@ -4474,10 +4474,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Atlas kohde(kohteet) tulostettu onnistuneesti ja sijoitettu projektihakemistoon</translation>
     </message>
-    <message>
-        <source>Ensure constraints are met</source>
-        <translation>Varmista, että rajoitukset täyttyvät</translation>
-    </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>

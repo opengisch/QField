@@ -4475,10 +4475,6 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Prvek(prvky) atlasu úspěšně vytištěný/é do PDF a umístěné ve složce Vašeho projektu</translation>
     </message>
-    <message>
-        <source>Ensure constraints are met</source>
-        <translation type="unfinished"/>
-    </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>

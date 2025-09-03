@@ -4472,10 +4472,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>Ensure constraints are met</source>
-        <translation type="unfinished"/>
-    </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>

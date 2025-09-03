@@ -66,6 +66,8 @@ QGIS pode ser executado a partir do armazenamento interno, mas isso não é reco
     <string name="operation_unsupported">Operação não suportada</string>
     <string name="import_operation_unsupported">Seu dispositivo não é compatível com essa operação de importação.</string>
     <string name="export_operation_unsupported">Seu dispositivo não é compatível com essa operação de exportação.</string>
-    <string name="processing_message">Processamento...</string>
+    <string name="processing_message">Processando...</string>
     <string name="positioning_title">Posicionamento</string>
-    </resources>
+    <string name="positioning_running">Serviço de posicionamento em execução</string>
+    <string name="copy_to_clipboard">Copiar para a área de transferência</string>
+</resources>

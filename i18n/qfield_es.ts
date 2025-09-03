@@ -4472,10 +4472,6 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>La entidad(es) del Atlas se imprimieron correctamente y se colocaron en la carpeta de su proyecto</translation>
     </message>
-    <message>
-        <source>Ensure constraints are met</source>
-        <translation>Asegúrese de que se cumplan las restricciones</translation>
-    </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
