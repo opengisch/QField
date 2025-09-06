@@ -2783,20 +2783,32 @@ ApplicationWindow {
       leftPadding: Theme.menuItemLeftPadding
       rightPadding: 40
 
-      arrow: Canvas {
-        x: parent.width - width
-        y: (parent.height - height) / 2
-        implicitWidth: 40
-        implicitHeight: 40
+      arrow: Shape {
+        id: sensorItemArrowShape
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.rightMargin: width / 2
+        width: 20
+        height: 20
+        visible: true
         opacity: sensorListInstantiator.count > 0 ? 1 : 0
-        onPaint: {
-          var ctx = getContext("2d");
-          ctx.strokeStyle = Theme.mainColor;
-          ctx.lineWidth = 1;
-          ctx.moveTo(15, 15);
-          ctx.lineTo(width - 15, height / 2);
-          ctx.lineTo(15, height - 15);
-          ctx.stroke();
+
+        ShapePath {
+          strokeWidth: 2
+          strokeColor: Theme.mainColor
+          fillColor: "transparent"
+
+          startX: sensorItemArrowShape.width * 0.35
+          startY: sensorItemArrowShape.height * 0.25
+
+          PathLine {
+            x: sensorItemArrowShape.width * 0.65
+            y: sensorItemArrowShape.height * 0.5
+          }
+          PathLine {
+            x: sensorItemArrowShape.width * 0.35
+            y: sensorItemArrowShape.height * 0.75
+          }
         }
       }
 
@@ -3376,20 +3388,31 @@ ApplicationWindow {
       leftPadding: Theme.menuItemLeftPadding
       rightPadding: 40
 
-      arrow: Canvas {
-        x: parent.width - width
-        y: (parent.height - height) / 2
-        implicitWidth: 40
-        implicitHeight: 40
+      arrow: Shape {
+        id: preciseViewArrowShape
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.rightMargin: width / 2
+        width: 20
+        height: 20
         visible: true
-        onPaint: {
-          var ctx = getContext("2d");
-          ctx.strokeStyle = Theme.mainColor;
-          ctx.lineWidth = 1;
-          ctx.moveTo(15, 15);
-          ctx.lineTo(width - 15, height / 2);
-          ctx.lineTo(15, height - 15);
-          ctx.stroke();
+
+        ShapePath {
+          strokeWidth: 2
+          strokeColor: Theme.mainColor
+          fillColor: "transparent"
+
+          startX: preciseViewArrowShape.width * 0.35
+          startY: preciseViewArrowShape.height * 0.25
+
+          PathLine {
+            x: preciseViewArrowShape.width * 0.65
+            y: preciseViewArrowShape.height * 0.5
+          }
+          PathLine {
+            x: preciseViewArrowShape.width * 0.35
+            y: preciseViewArrowShape.height * 0.75
+          }
         }
       }
 
