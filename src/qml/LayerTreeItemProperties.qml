@@ -45,7 +45,7 @@ Popup {
     updateCredits();
     itemVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.Visible);
     itemLabelsVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.LabelsVisible);
-    expandCheckBox.text = layerTree.data(index, FlatLayerTreeModel.Type) === 'group' ? qsTr('Expand group') : qsTr('Expand legend item');
+    expandCheckBox.text = layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Group ? qsTr('Expand group') : qsTr('Expand legend item');
     expandCheckBox.checked = !layerTree.data(index, FlatLayerTreeModel.IsCollapsed);
     reloadDataButtonVisible = layerTree.data(index, FlatLayerTreeModel.CanReloadData);
     zoomToButtonVisible = layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent);
@@ -153,7 +153,7 @@ Popup {
           text: qsTr('Show on map')
           font: Theme.defaultFont
           // visible for all layer tree items but nonspatial layers
-          visible: index && layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent) ? true : false
+          visible: index && layerTree.data(index, FlatLayerTreeModel.Checkable) && layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent) ? true : false
           indicator.height: 16
           indicator.width: 16
           indicator.implicitHeight: 24
@@ -243,7 +243,7 @@ Popup {
           id: zoomToButton
           Layout.fillWidth: true
           Layout.topMargin: 5
-          text: index ? layerTree.data(index, FlatLayerTreeModel.Type) === 'group' ? qsTr('Zoom to group') : layerTree.data(index, FlatLayerTreeModel.Type) === 'legend' ? qsTr('Zoom to parent layer') : qsTr('Zoom to layer') : ''
+          text: index ? layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Group ? qsTr('Zoom to group') : layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Legend && layerTree.data(index, FlatLayerTreeModel.LayerType) === "vectorlayer" ? qsTr('Zoom to parent layer') : qsTr('Zoom to layer') : ''
           visible: zoomToButtonVisible
           icon.source: Theme.getThemeVectorIcon('zoom_out_map_24dp')
 
@@ -420,13 +420,13 @@ Popup {
   function updateTitle() {
     if (index === undefined)
       return;
-    var title = layerTree.data(index, Qt.Name);
-    var type = layerTree.data(index, FlatLayerTreeModel.Type);
-    var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
+    const type = layerTree.data(index, FlatLayerTreeModel.Type);
+    const vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
+    let title = layerTree.data(index, Qt.Name);
     if (vl) {
-      if (type === 'legend') {
+      if (type === FlatLayerTreeModel.Legend) {
         title += ' (' + vl.name + ')';
-      } else if (type === 'layer' && layerTree.data(index, FlatLayerTreeModel.IsValid)) {
+      } else if (type === FlatLayerTreeModel.Layer && layerTree.data(index, FlatLayerTreeModel.IsValid)) {
         var count = layerTree.data(index, FlatLayerTreeModel.FeatureCount);
         if (count !== undefined && count >= 0) {
           var countSuffix = ' [' + count + ']';
@@ -435,7 +435,7 @@ Popup {
         }
       }
     }
-    titleLabel.text = title;
+    titleLabel.text = title !== undefined ? title : "";
   }
 
   function updateCredits() {
@@ -452,7 +452,7 @@ Popup {
   function isTrackingButtonVisible() {
     if (!index)
       return false;
-    return layerTree.data(index, FlatLayerTreeModel.Type) === 'layer' && !layerTree.data(index, FlatLayerTreeModel.ReadOnly) && layerTree.data(index, FlatLayerTreeModel.Trackable);
+    return layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Layer && !layerTree.data(index, FlatLayerTreeModel.ReadOnly) && layerTree.data(index, FlatLayerTreeModel.Trackable);
   }
 
   function isShowFeaturesListButtonVisible() {
