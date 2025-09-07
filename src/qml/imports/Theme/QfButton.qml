@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Controls.impl
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
+import QtQuick.Shapes
 
 Button {
   id: button
@@ -68,40 +69,35 @@ Button {
     anchors.verticalCenter: parent.verticalCenter
     visible: button.dropdown
 
-    width: 36
     height: parent.height
+    width: height
 
     color: "transparent"
 
-    Rectangle {
-      anchors.left: parent.left
-      anchors.verticalCenter: parent.verticalCenter
-
-      width: 1.5
-      height: parent.height - 16
-      opacity: button.enabled ? 1 : 0.25
-
-      color: button.color
-    }
-
-    Canvas {
+    Shape {
       id: dropdownArrow
       anchors.centerIn: parent
-      implicitWidth: 40
-      implicitHeight: 40
+      width: 20
+      height: 20
       visible: true
       opacity: button.enabled ? 1 : 0.25
 
-      onPaint: {
-        var ctx = getContext("2d");
-        ctx.fillStyle = button.color;
-        ctx.strokeStyle = button.color;
-        ctx.lineWidth = 1;
-        ctx.moveTo(14, 15);
-        ctx.lineTo(width - 16, 15);
-        ctx.lineTo((width / 2) - 1, height - 15);
-        ctx.stroke();
-        ctx.fill();
+      ShapePath {
+        strokeWidth: 2
+        strokeColor: button.color
+        fillColor: "transparent"
+
+        startX: dropdownArrow.width * 0.25
+        startY: dropdownArrow.height * 0.35
+
+        PathLine {
+          x: dropdownArrow.width * 0.5
+          y: dropdownArrow.height * 0.55
+        }
+        PathLine {
+          x: dropdownArrow.width * 0.75
+          y: dropdownArrow.height * 0.35
+        }
       }
     }
 
