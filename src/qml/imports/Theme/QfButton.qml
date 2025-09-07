@@ -12,6 +12,7 @@ Button {
   property alias radius: backgroundRectangle.radius
   property alias borderColor: backgroundRectangle.border.color
   property bool dropdown: false
+  property real progressValue: 0.0
 
   signal dropdownClicked
 
@@ -34,6 +35,7 @@ Button {
     radius: 12
     border.width: 1
     border.color: !parent.enabled ? Theme.controlBackgroundDisabledColor : button.bgcolor != "#00000000" ? button.bgcolor : button.color
+    clip: true
 
     Ripple {
       clip: true
@@ -43,6 +45,35 @@ Button {
       anchor: parent
       active: button.down
       color: Theme.darkTheme ? "#22000000" : button.bgcolor == "#ffffff" || button.bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
+    }
+
+    Loader {
+      active: progressValue != 0.0 && progressValue != 1.0
+      sourceComponent: progressComponent
+    }
+
+    Component {
+      id: progressComponent
+      Rectangle {
+        width: backgroundRectangle.width * progressValue
+        height: backgroundRectangle.height
+        radius: backgroundRectangle.radius
+        color: Theme.mainColor
+        clip: true
+
+        Rectangle {
+          width: Math.min(10, parent.width / 2)
+          height: parent.height
+          anchors.right: parent.right
+          color: parent.color
+        }
+
+        Behavior on width  {
+          NumberAnimation {
+            duration: 200
+          }
+        }
+      }
     }
   }
 

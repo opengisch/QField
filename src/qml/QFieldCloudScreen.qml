@@ -764,37 +764,27 @@ Page {
               ColumnLayout {
                 Layout.topMargin: 20
                 Layout.bottomMargin: 20
-                Layout.preferredWidth: projectDetailsCodeContainer.desiredWidth
+                Layout.preferredWidth: projectDetailsCode.desiredWidth
                 Layout.alignment: Qt.AlignHCenter
                 spacing: 5
 
-                Rectangle {
-                  id: projectDetailsCodeContainer
-
-                  property int desiredWidth: Math.min(mainWindow.width - 40, 250)
+                Image {
+                  id: projectDetailsCode
                   Layout.preferredWidth: desiredWidth
                   Layout.preferredHeight: desiredWidth
+                  fillMode: Image.PreserveAspectFit
 
-                  color: "transparent"
-                  radius: 4
-                  border.width: 1
-                  border.color: Theme.mainTextColor
-
-                  Image {
-                    anchors.fill: parent
-                    fillMode: Image.PreserveAspectFit
-
-                    sourceSize.width: projectDetailsCodeContainer.desiredWidth * Screen.devicePixelRatio
-                    sourceSize.height: projectDetailsCodeContainer.desiredWidth * Screen.devicePixelRatio
-                    source: projectDetails.cloudProject != undefined ? "image://barcode/?text=" + encodeURIComponent(UrlUtils.createActionUrl("qfield", "cloud", {
-                          "project": projectDetails.cloudProject.id
-                        })) + "&color=%2380cc28" : ""
-                  }
+                  sourceSize.width: desiredWidth * Screen.devicePixelRatio
+                  sourceSize.height: desiredWidth * Screen.devicePixelRatio
+                  source: projectDetails.cloudProject != undefined ? "image://barcode/?text=" + encodeURIComponent(UrlUtils.createActionUrl("qfield", "cloud", {
+                        "project": projectDetails.cloudProject.id
+                      })) + "&color=%2380cc28" : ""
+                  property int desiredWidth: Math.min(mainWindow.width - 40, 250)
                 }
 
                 Text {
                   id: projectDetailsCodeLabel
-                  Layout.preferredWidth: projectDetailsCodeContainer.desiredWidth - 20
+                  Layout.preferredWidth: projectDetailsCode.desiredWidth - 20
                   font: Theme.tinyFont
                   color: Theme.secondaryTextColor
                   wrapMode: Text.WordWrap
@@ -810,6 +800,7 @@ Page {
         QfButton {
           id: downloadProjectBtn
           Layout.fillWidth: true
+          progressValue: projectDetails.cloudProject ? projectDetails.cloudProject.downloadProgress : 0
           text: {
             if (projectDetails.cloudProject != undefined && projectDetails.cloudProject.status === QFieldCloudProject.ProjectStatus.Downloading) {
               if (projectDetails.cloudProject.packagingStatus === QFieldCloudProject.PackagingBusyStatus) {
