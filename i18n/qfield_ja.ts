@@ -489,43 +489,43 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Paste failed: no destination layer provided</source>
-        <translation type="unfinished"/>
+        <translation>貼り付けに失敗: 出力先のレイヤーが指定されていません</translation>
     </message>
     <message>
         <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation type="unfinished"/>
+        <translation>切り取り: 出力元及び出力先のレイヤーが同じため、貼り付けをスキップします。</translation>
     </message>
     <message>
         <source>Paste failed: clipboard feature is invalid</source>
-        <translation type="unfinished"/>
+        <translation>貼り付けに失敗: クリップボード機能が無効です</translation>
     </message>
     <message>
         <source>Cut failed: could not start editing on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>切り取りに失敗: ソースレイヤー %1の編集を開始できませんでした</translation>
     </message>
     <message>
         <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>切り取りに失敗: ソースレイヤー %1からオリジナルの地物を削除できませんでした</translation>
     </message>
     <message>
         <source>Paste failed: no compatible features could be created</source>
-        <translation type="unfinished"/>
+        <translation>貼り付けに失敗: 互換可能な地物で作成できるものはありません</translation>
     </message>
     <message>
         <source>Paste failed: could not start editing on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>貼り付けに失敗: レイヤー %1の編集を開始できませんでした</translation>
     </message>
     <message>
         <source>Paste failed: could not add feature to layer %1</source>
-        <translation type="unfinished"/>
+        <translation>貼り付けに失敗: レイヤー %1に地物を追加できませんでした</translation>
     </message>
     <message>
         <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>貼り付けに失敗: レイヤー %1のコミットに失敗しました</translation>
     </message>
     <message>
         <source>Cut commit failed on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>ソースレイヤー %1の切り取りのコミットに失敗しました</translation>
     </message>
 </context>
 <context>
@@ -1132,11 +1132,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>FileDeviceChooser</name>
     <message>
         <source>File path</source>
-        <translation type="unfinished"/>
+        <translation>ファイルパス</translation>
     </message>
     <message>
         <source>Interval (in milliseconds)</source>
-        <translation type="unfinished"/>
+        <translation>間隔 (ミリ秒)</translation>
     </message>
 </context>
 <context>
@@ -1791,11 +1791,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Feature copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>地物がクリップボードにコピーされました</translation>
     </message>
     <message>
         <source>Feature cut into clipboard</source>
-        <translation type="unfinished"/>
+        <translation>地物がクリップボードに切り取られました</translation>
     </message>
 </context>
 <context>
@@ -2197,7 +2197,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Logs file (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>ログファイル (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -5179,7 +5179,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>area</name>
     <message>
         <source>square degrees</source>
-        <translation type="unfinished"/>
+        <translation>平方度</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
@@ -5187,47 +5187,47 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>sqr. meters</source>
-        <translation type="unfinished"/>
+        <translation>平方メートル</translation>
     </message>
     <message>
         <source>sqr. kilometers</source>
-        <translation type="unfinished"/>
+        <translation>平方キロメートル</translation>
     </message>
     <message>
         <source>sqr. feet</source>
-        <translation type="unfinished"/>
+        <translation>平方フィート</translation>
     </message>
     <message>
         <source>sqr. yards</source>
-        <translation type="unfinished"/>
+        <translation>平方ヤード</translation>
     </message>
     <message>
         <source>sqr. miles</source>
-        <translation type="unfinished"/>
+        <translation>平方マイル</translation>
     </message>
     <message>
         <source>hectares</source>
-        <translation type="unfinished"/>
+        <translation>ヘクタール</translation>
     </message>
     <message>
         <source>acres</source>
-        <translation type="unfinished"/>
+        <translation>エーカー</translation>
     </message>
     <message>
         <source>sqr. nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>平方海里</translation>
     </message>
     <message>
         <source>sqr. centimeters</source>
-        <translation type="unfinished"/>
+        <translation>平方センチメートル</translation>
     </message>
     <message>
         <source>sqr. millimeters</source>
-        <translation type="unfinished"/>
+        <translation>平方ミリメートル</translation>
     </message>
     <message>
         <source>sqr. inches</source>
-        <translation type="unfinished"/>
+        <translation>平方インチ</translation>
     </message>
 </context>
 <context>
@@ -6023,23 +6023,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Feature</source>
-        <translation type="unfinished"/>
+        <translation>地物をコピー</translation>
     </message>
     <message>
         <source>Cut Feature</source>
-        <translation type="unfinished"/>
+        <translation>地物を切り取り</translation>
     </message>
     <message>
         <source>Feature pasted successfully</source>
-        <translation type="unfinished"/>
+        <translation>地物の貼り付けに成功しました</translation>
     </message>
     <message>
         <source>Failed to paste feature into layer</source>
-        <translation type="unfinished"/>
+        <translation>地物をレイヤーに貼り付けるのに失敗しました</translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
-        <translation type="unfinished"/>
+        <translation>レイヤーに貼り付ける</translation>
     </message>
 </context>
 <context>
