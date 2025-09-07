@@ -912,6 +912,7 @@ TestCase {
     wait(500);
     compare(relationComboBoxParent.searchPopup.opened, false);
     wait(500);
-  // compare(comboBoxItem.displayText, "Sophia"); // <-- fails to change! / remains olivia
+  // TODO investigate failure further
+  // compare(comboBoxItem.displayText, "Sophia"); // <-- fails to change! - remains olivia
   }
 }
