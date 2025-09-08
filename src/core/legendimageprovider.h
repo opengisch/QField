@@ -26,6 +26,10 @@
 class QgsLayerTreeModel;
 class QgsLayerTree;
 
+/**
+ * \brief This class provides legend images for the layer tree model.
+ * \ingroup core
+ */
 class LegendImageProvider : public QQuickImageProvider
 {
   public:
@@ -39,6 +43,11 @@ class LegendImageProvider : public QQuickImageProvider
 };
 
 
+/**
+ * \brief This class provides responses of asynchronously requested legend images for the layer
+ * tree model . Used for online WMS and AMS layers.
+ * \ingroup core
+ */
 class AsyncLegendImageResponse : public QQuickImageResponse
 {
   public:
@@ -58,6 +67,11 @@ class AsyncLegendImageResponse : public QQuickImageResponse
 };
 
 
+/**
+ * \brief This class prepares asynchrnous legend images requests. Used
+ * for online WMS and AMS layers.
+ * \ingroup core
+ */
 class AsyncLegendImageProvider : public QQuickAsyncImageProvider
 {
   public:
