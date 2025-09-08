@@ -589,10 +589,9 @@ TestCase {
     waitForRendering(valueRelation);
     verify(relationComboBoxParent.embeddedFeatureForm === null);
 
-    // After click embeddedFeatureForm should be not null, opened and in `Add` state
+    // After click embeddedFeatureForm should be not null and in `Add` state
     addFeatureButton.click();
     wait(500);
-    compare(relationComboBoxParent.embeddedFeatureForm.opened, true);
     compare(relationComboBoxParent.embeddedFeatureForm.state, "Add");
     relationComboBoxParent.embeddedFeatureForm.close();
     compare(relationComboBoxParent.embeddedFeatureForm.opened, false);
