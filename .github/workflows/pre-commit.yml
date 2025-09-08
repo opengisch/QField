@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: sudo apt install -y shfmt
 
-      - uses: actions/github-script@v7
+      - uses: actions/github-script@v8
         if: ${{ github.event.issue.pull_request }}
         id: get-pr
         with:
