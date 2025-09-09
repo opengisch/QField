@@ -288,6 +288,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mClipboardManager = std::make_unique<ClipboardManager>( this );
   mFlatLayerTree = new FlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
+  mAsyncLegendImageProvider = new AsyncLegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mLocalFilesImageProvider = new LocalFilesImageProvider();
   mProjectsImageProvider = new ProjectsImageProvider();
   mBarcodeImageProvider = new BarcodeImageProvider();
@@ -327,6 +328,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
   mMapCanvas->mapSettings()->setProject( mProject );
   mBookmarkModel->setMapSettings( mMapCanvas->mapSettings() );
+  mAsyncLegendImageProvider->setMapSettings( mMapCanvas->mapSettings() );
 
   mFlatLayerTree->layerTreeModel()->setLegendMapViewData( mMapCanvas->mapSettings()->mapSettings().mapUnitsPerPixel(),
                                                           static_cast<int>( std::round( mMapCanvas->mapSettings()->outputDpi() ) ), mMapCanvas->mapSettings()->mapSettings().scale() );
@@ -606,6 +608,7 @@ void QgisMobileapp::registerGlobalVariables()
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
   rootContext()->setContextProperty( "trackingModel", mTrackingModel );
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
+  addImageProvider( QLatin1String( "asynclegend" ), mAsyncLegendImageProvider );
   addImageProvider( QLatin1String( "localfiles" ), mLocalFilesImageProvider );
   addImageProvider( QLatin1String( "projects" ), mProjectsImageProvider );
   addImageProvider( QLatin1String( "barcode" ), mBarcodeImageProvider );

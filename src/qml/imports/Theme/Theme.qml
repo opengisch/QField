@@ -76,10 +76,11 @@ QtObject {
 
   property color darkRed: "#c0392b"
   property color darkGray: "#212121"
-  property color darkGraySemiOpaque: "#4D212121"
+  property color darkGraySemiOpaque: "#4d212121"
   property color gray: "#888888"
   property color lightGray: "#dddddd"
   property color lightestGray: "#eeeeee"
+  property color lightestGraySemiOpaque: "#e0eeeeee"
   property color light: "#ffffff"
 
   property color errorColor: darkTheme ? "#df3422" : "#c0392b"

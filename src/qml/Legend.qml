@@ -31,7 +31,7 @@ ListView {
   delegate: Rectangle {
     id: rectangle
     property int itemPadding: 30 * TreeLevel
-    property bool isSelectedLayer: Type === "layer" && VectorLayerPointer && VectorLayerPointer == activeLayer
+    property bool isSelectedLayer: Type === FlatLayerTreeModel.Layer && VectorLayerPointer && VectorLayerPointer == activeLayer
     width: parent ? parent.width : undefined
     height: line.height + 7
     color: isSelectedLayer ? Theme.mainColor : "transparent"
@@ -130,9 +130,40 @@ ListView {
         anchors.verticalCenter: parent.verticalCenter
         spacing: 5
 
+        Rectangle {
+          visible: Type == FlatLayerTreeModel.Image
+          width: rectangle.width - itemPadding - 36
+          height: legendImage.height + 8
+          color: "#f2f2f2" // hard-coded color as most legends are intented to be displayed against white backgrounds
+          radius: 4
+
+          Flickable {
+            anchors.fill: parent
+            anchors.margins: 4
+            contentWidth: legendImage.width
+            contentHeight: legendImage.height
+            clip: true
+            ScrollBar.horizontal: QfScrollBar {
+            }
+
+            Image {
+              id: legendImage
+              fillMode: Image.PreserveAspectFit
+              cache: true
+              smooth: true
+              mipmap: true
+              source: {
+                if (!legend.isVisible || Type != FlatLayerTreeModel.Image)
+                  return '';
+                return LegendImage;
+              }
+            }
+          }
+        }
+
         Item {
           id: layerVisibility
-          property bool isVisible: HasSpatialExtent
+          property bool isVisible: Checkable && HasSpatialExtent
           height: 24
           width: visible ? parent.height : 0
           anchors.verticalCenter: parent.verticalCenter
@@ -146,7 +177,6 @@ ListView {
             iconSource: !Visible ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
             iconColor: isSelectedLayer ? Theme.mainOverlayColor : Theme.mainTextColor
             bgcolor: "transparent"
-            visible: HasSpatialExtent
             enabled: (allowActiveLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
             onClicked: {
               layerTree.setData(legend.model.index(index, 0), !Visible, FlatLayerTreeModel.Visible);
@@ -161,55 +191,55 @@ ListView {
           height: 24
           width: 24
           anchors.verticalCenter: parent.verticalCenter
+          visible: Type != FlatLayerTreeModel.Image
 
           Image {
             anchors.fill: parent
             anchors.margins: 4
+            fillMode: Image.PreserveAspectFit
             cache: false
             smooth: true
             mipmap: true
             source: {
-              if (!legend.isVisible)
+              if (!legend.isVisible || Type == FlatLayerTreeModel.Image)
                 return '';
               if (LegendImage != '') {
-                return "image://legend/" + LegendImage;
-              } else if (LayerType == "vectorlayer") {
-                switch (VectorLayerPointer.geometryType()) {
-                case Qgis.GeometryType.Point:
-                  return Theme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
-                case Qgis.GeometryType.Line:
-                  return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
-                case Qgis.GeometryType.Polygon:
-                  return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
-                case Qgis.GeometryType.Null:
-                case Qgis.GeometryType.Unknown:
-                  return Theme.getThemeVectorIcon('ic_vectorlayer_table_18dp');
+                return LegendImage;
+              } else if (Type == FlatLayerTreeModel.Layer) {
+                if (LayerType == "vectorlayer") {
+                  switch (VectorLayerPointer.geometryType()) {
+                  case Qgis.GeometryType.Point:
+                    return Theme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
+                  case Qgis.GeometryType.Line:
+                    return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
+                  case Qgis.GeometryType.Polygon:
+                    return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
+                  case Qgis.GeometryType.Null:
+                  case Qgis.GeometryType.Unknown:
+                    return Theme.getThemeVectorIcon('ic_vectorlayer_table_18dp');
+                  }
+                } else if (LayerType == "rasterlayer") {
+                  return Theme.getThemeVectorIcon('ic_rasterlayer_18dp');
+                } else if (LayerType == "meshlayer") {
+                  return Theme.getThemeVectorIcon('ic_meshlayer_18dp');
+                } else if (LayerType == "vectortilelayer") {
+                  return Theme.getThemeVectorIcon('ic_vectortilelayer_18dp');
+                } else if (LayerType == "annotationlayer") {
+                  return Theme.getThemeVectorIcon('ic_annotationlayer_18dp');
                 }
-              } else if (LayerType == "rasterlayer") {
-                return Theme.getThemeVectorIcon('ic_rasterlayer_18dp');
-              } else if (LayerType == "meshlayer") {
-                return Theme.getThemeVectorIcon('ic_meshlayer_18dp');
-              } else if (LayerType == "vectortilelayer") {
-                return Theme.getThemeVectorIcon('ic_vectortilelayer_18dp');
-              } else if (LayerType == "annotationlayer") {
-                return Theme.getThemeVectorIcon('ic_annotationlayer_18dp');
-              } else if (Type == "group") {
+              } else if (Type == FlatLayerTreeModel.Group) {
                 return Theme.getThemeVectorIcon('ic_group_18dp');
               } else {
                 return '';
               }
             }
-            width: 16
-            height: 16
-            sourceSize.width: 16 * screen.devicePixelRatio
-            sourceSize.height: 16 * screen.devicePixelRatio
-            fillMode: Image.PreserveAspectFit
             opacity: Visible ? 1 : 0.25
           }
         }
 
         Text {
           id: layerName
+          visible: Type != FlatLayerTreeModel.Image
           width: rectangle.width - itemPadding - 46 // legend icon + right padding
           - collapsedState.width - (layerVisibility.isVisible ? layerVisibility.width : -5) - badges.width
           padding: 3
@@ -217,7 +247,7 @@ ListView {
           text: Name
           horizontalAlignment: Text.AlignLeft
           font.pointSize: Theme.tipFont.pointSize
-          font.bold: Type === "group" || (Type === "layer" && VectorLayerPointer && VectorLayerPointer == activeLayer) ? true : false
+          font.bold: Type == FlatLayerTreeModel.Group || (Type == FlatLayerTreeModel.Layer && VectorLayerPointer && VectorLayerPointer == activeLayer) ? true : false
           elide: Text.ElideRight
           opacity: Visible ? 1 : 0.25
           color: {
@@ -232,6 +262,7 @@ ListView {
 
         RowLayout {
           id: badges
+          visible: Type != FlatLayerTreeModel.Image
           anchors.verticalCenter: parent.verticalCenter
           spacing: 4
 
@@ -277,7 +308,7 @@ ListView {
 
           QfToolButton {
             id: invalidBadge
-            property bool isVisible: Type === 'layer' && !IsValid
+            property bool isVisible: Type == FlatLayerTreeModel.Layer && !IsValid
             visible: isVisible
             height: 24
             width: 24
@@ -339,7 +370,7 @@ ListView {
 
           QfToolButton {
             id: snappingBadge
-            property bool isVisible: stateMachine.state === "digitize" && qgisProject.snappingConfig.mode === Qgis.SnappingMode.AdvancedConfiguration && Type === "layer" && LayerType === "vectorlayer" && VectorLayerPointer.geometryType() !== Qgis.GeometryType.Null && VectorLayerPointer.geometryType() !== Qgis.GeometryType.Unknown
+            property bool isVisible: stateMachine.state === "digitize" && qgisProject.snappingConfig.mode === Qgis.SnappingMode.AdvancedConfiguration && Type === FlatLayerTreeModel.Layer && LayerType === "vectorlayer" && VectorLayerPointer.geometryType() !== Qgis.GeometryType.Null && VectorLayerPointer.geometryType() !== Qgis.GeometryType.Unknown
             visible: isVisible
             height: 24
             width: 24

@@ -155,8 +155,18 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
       SnappingEnabled,
       HasNotes,
       Notes,
+      Checkable,
     };
     Q_ENUM( Roles )
+
+    enum Types
+    {
+      Layer,
+      Group,
+      Image,
+      Legend,
+    };
+    Q_ENUM( Types )
 
     explicit FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
 
