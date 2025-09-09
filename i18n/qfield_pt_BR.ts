@@ -1512,7 +1512,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation type="unfinished"/>
+        <translation>A configuração de permissões desta camada proibe a adição de itens.</translation>
     </message>
 </context>
 <context>
@@ -1753,7 +1753,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Imprimindo...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
@@ -1812,7 +1812,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">centróide</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -2383,18 +2383,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
-        <translation type="unfinished"/>
+        <translation>Gravador de áudio</translation>
     </message>
 </context>
 <context>
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Geotagging habilitado</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Geotagging desabilitado</translation>
     </message>
     <message>
         <source>Grid enabled</source>
@@ -2406,11 +2406,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>front</source>
-        <translation type="unfinished"/>
+        <translation>frente</translation>
     </message>
     <message>
         <source>back</source>
-        <translation type="unfinished"/>
+        <translation>atrás</translation>
     </message>
     <message>
         <source>Image geotagging requires positioning to be turned on</source>
@@ -2438,7 +2438,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Orientation</source>
-        <translation type="unfinished"/>
+        <translation>Orientação</translation>
     </message>
     <message>
         <source>Details stamping disabled</source>
@@ -2604,7 +2604,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud teve problemas ao empacotar seu projeto</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
@@ -2707,7 +2707,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation>Reverter os itens alterados nas camadas locais. Você não poderá desfazer estas alterações.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -3316,7 +3316,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project file</source>
-        <translation type="unfinished"/>
+        <translation>Arquivo de projeto</translation>
     </message>
     <message>
         <source>Vector dataset</source>
@@ -3808,11 +3808,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Precisão horizontal</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Precisão vertical</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -3944,7 +3944,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho da fonte:</translation>
     </message>
     <message>
         <source>Language:</source>
@@ -3960,7 +3960,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation type="unfinished"/>
+        <translation>Permitir rotação do mapa</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
@@ -4094,7 +4094,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>centróide</translation>
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
@@ -4226,7 +4226,7 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Pesquisar</translation>
     </message>
 </context>
 <context>
@@ -4457,7 +4457,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Imprimindo...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
@@ -4644,7 +4644,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>Scanear código</translation>
     </message>
 </context>
 <context>
@@ -4739,11 +4739,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Precisão horizontal</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>Precisão vertical</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -4842,11 +4842,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Precisão horizontal</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Precisão vertical</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -5129,7 +5129,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>Projeto padrão</translation>
     </message>
     <message>
         <source>Base map</source>
@@ -5137,7 +5137,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>Projeto padrão</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
@@ -5180,11 +5180,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>sqr. meters</source>
-        <translation type="unfinished"/>
+        <translation>metros quadrados</translation>
     </message>
     <message>
         <source>sqr. kilometers</source>
-        <translation type="unfinished"/>
+        <translation>kilômetros quadrados</translation>
     </message>
     <message>
         <source>sqr. feet</source>
@@ -5200,7 +5200,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>hectares</source>
-        <translation type="unfinished"/>
+        <translation>hectares</translation>
     </message>
     <message>
         <source>acres</source>
@@ -5258,7 +5258,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>yards</source>
-        <translation type="unfinished"/>
+        <translation>jardas</translation>
     </message>
     <message>
         <source>miles</source>
@@ -5266,7 +5266,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>milhas náuticas</translation>
     </message>
     <message>
         <source>centimeters</source>
@@ -5704,7 +5704,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Imprimindo...</translation>
     </message>
     <message>
         <source>Print</source>
@@ -5852,7 +5852,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Pesquisar</translation>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
