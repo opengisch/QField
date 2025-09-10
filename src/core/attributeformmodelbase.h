@@ -66,6 +66,9 @@ class AttributeFormModelBase : public QStandardItemModel
     //! \copydoc AttributeFormModel::applyParentDefaultValues
     void applyParentDefaultValues();
 
+    //! \copydoc AttributeFormModel::applyRelationshipDefaultValues
+    void applyRelationshipDefaultValues();
+
   signals:
     void featureModelChanged();
     void hasTabsChanged();

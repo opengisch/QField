@@ -299,7 +299,6 @@ void AttributeFormModelBase::applyParentDefaultValues()
     QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
     for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
     {
-      QStandardItem *item = fieldIterator.key();
       const int fidx = fieldIterator.value();
       if ( !fields.at( fidx ).defaultValueDefinition().isValid() || ( !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() && !featureIsNew ) )
         continue;
@@ -314,6 +313,36 @@ void AttributeFormModelBase::applyParentDefaultValues()
         {
           synchronizeFieldValue( fidx, defaultValue );
         }
+      }
+    }
+  }
+}
+
+void AttributeFormModelBase::applyRelationshipDefaultValues()
+{
+  const bool featureIsNew = std::numeric_limits<QgsFeatureId>::min() == mFeatureModel->feature().id();
+  QgsFields fields = mFeatureModel->feature().fields();
+  mExpressionContext.setFields( fields );
+  mExpressionContext.setFeature( mFeatureModel->feature() );
+  mExpressionContext.clearCachedValues();
+
+  QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
+  {
+    const int fidx = fieldIterator.value();
+    if ( !fields.at( fidx ).defaultValueDefinition().isValid() || ( !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() && !featureIsNew ) )
+      continue;
+
+    if ( fields.at( fidx ).defaultValueDefinition().expression().indexOf( "relation_aggregate(" ) > -1 )
+    {
+      QgsExpression exp( fields.at( fidx ).defaultValueDefinition().expression() );
+      exp.prepare( &mExpressionContext );
+      const QVariant defaultValue = exp.evaluate( &mExpressionContext );
+      const bool success = mFeatureModel->setData( mFeatureModel->index( fidx ), defaultValue, FeatureModel::AttributeValue );
+      if ( success )
+      {
+        synchronizeFieldValue( fidx, defaultValue );
+        updateVisibilityAndConstraints( fidx );
       }
     }
   }
@@ -696,7 +725,9 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
 
     // avoid cost of value update if expression doesn't contain the field which triggered the default values update
     if ( !exp.referencedColumns().contains( fieldName ) && !exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+    {
       continue;
+    }
 
     const QVariant defaultValue = exp.evaluate( &mExpressionContext );
     const QVariant previousValue = mFeatureModel->data( mFeatureModel->index( fidx ), FeatureModel::AttributeValue );
