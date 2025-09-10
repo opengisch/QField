@@ -78,6 +78,10 @@ Item {
       if (searchableText.typedFilter != '') {
         searchBar.setSearchTerm(searchableText.typedFilter);
       }
+      if (searchableText.focus) {
+        searchableText.text = '';
+        searchableText.focus = false;
+      }
       if (resultsList.contentHeight > resultsList.height) {
         searchBar.focusOnTextField();
       }
