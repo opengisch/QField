@@ -276,11 +276,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No Bluetooth devices detected.</source>
-        <translation type="unfinished"/>
+        <translation>Nem érzékelhető bluetooth eszköz.</translation>
     </message>
     <message>
         <source>Deeper scanning for paired devices</source>
-        <translation type="unfinished"/>
+        <translation>Párosított eszközök mélyebb keresése</translation>
     </message>
 </context>
 <context>
@@ -489,43 +489,43 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Paste failed: no destination layer provided</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen beillesztés: a cél réteg nem biztosított</translation>
     </message>
     <message>
         <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation type="unfinished"/>
+        <translation>Vágás művelet: a forrás és cél réteg ugyanaz, elmaradt beillesztés.</translation>
     </message>
     <message>
         <source>Paste failed: clipboard feature is invalid</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen beillesztés: a vágólapi alakzat érvénytelen.</translation>
     </message>
     <message>
         <source>Cut failed: could not start editing on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen vágás: %1 forrás rétegen nem indítható szerkesztés</translation>
     </message>
     <message>
         <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen vágás: %1 forrás rétegből nem törölhető az eredeti alakzat</translation>
     </message>
     <message>
         <source>Paste failed: no compatible features could be created</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen beillesztés: nem készíthetők kompatibilis alakzatok</translation>
     </message>
     <message>
         <source>Paste failed: could not start editing on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen beillesztés: %1 réteg szerkesztése nem indítható el</translation>
     </message>
     <message>
         <source>Paste failed: could not add feature to layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen beillesztés: %1 réteghez nem adható alakzat</translation>
     </message>
     <message>
         <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen beillesztés: %1 rétegen sikertelen a változások véglegesítése</translation>
     </message>
     <message>
         <source>Cut commit failed on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 forrás rétegen a vágás véglegesítése nem sikerült</translation>
     </message>
 </context>
 <context>
@@ -566,7 +566,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The project is read-only.</source>
-        <translation type="unfinished"/>
+        <translation>A projekt csak olvasható.</translation>
     </message>
 </context>
 <context>
@@ -802,7 +802,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation type="unfinished"/>
+        <translation>A külső tároló bejelentkezési azonosító beállítása elveszett, győződj meg róla, hogy importálásra került a QField-be</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -810,7 +810,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud igény szerinti melléklet hiba:</translation>
     </message>
 </context>
 <context>
@@ -873,7 +873,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Feature addition disabled</source>
-        <translation type="unfinished"/>
+        <translation>Elem hozzáadás letiltva</translation>
     </message>
 </context>
 <context>
@@ -1133,11 +1133,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>FileDeviceChooser</name>
     <message>
         <source>File path</source>
-        <translation type="unfinished"/>
+        <translation>Fájl útvonal</translation>
     </message>
     <message>
         <source>Interval (in milliseconds)</source>
-        <translation type="unfinished"/>
+        <translation>Intervallum (ezred másodpercben)</translation>
     </message>
 </context>
 <context>
@@ -1423,23 +1423,23 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>feature addition</source>
-        <translation type="unfinished"/>
+        <translation>elem hozzáadás</translation>
     </message>
     <message>
         <source>attribute editing</source>
-        <translation type="unfinished"/>
+        <translation>attribútum szerkesztés</translation>
     </message>
     <message>
         <source>geometry editing</source>
-        <translation type="unfinished"/>
+        <translation>geometria szerkesztés</translation>
     </message>
     <message>
         <source>feature deletion</source>
-        <translation type="unfinished"/>
+        <translation>elem törlés</translation>
     </message>
     <message>
         <source>Disabled layer permissions: %1</source>
-        <translation type="unfinished"/>
+        <translation>Letiltott réteg jogosultságok: %1</translation>
     </message>
 </context>
 <context>
@@ -1515,7 +1515,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation type="unfinished"/>
+        <translation>Ezen réteg jogosultság beállításai tiltják az elem hozzáadást.</translation>
     </message>
 </context>
 <context>
@@ -1784,19 +1784,19 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Update Attributes from Feature</source>
-        <translation type="unfinished"/>
+        <translation>Attribútum frissítés elemből</translation>
     </message>
     <message>
         <source>Process Feature</source>
-        <translation type="unfinished"/>
+        <translation>Elem feldolgozás</translation>
     </message>
     <message>
         <source>Feature copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Elem a vágólapra másolva</translation>
     </message>
     <message>
         <source>Feature cut into clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Elem a vágólapra vágva</translation>
     </message>
 </context>
 <context>
@@ -2002,7 +2002,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation type="unfinished"/>
+        <translation>A kért plugin URL szerepel az elérhető plugin listában, installáld azt a letöltés gomb segítségével</translation>
     </message>
 </context>
 <context>
@@ -2041,19 +2041,19 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Local Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Helyi pluginok</translation>
     </message>
     <message>
         <source>Available Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Elérhető pluginok</translation>
     </message>
     <message>
         <source>Search for plugin</source>
-        <translation type="unfinished"/>
+        <translation>Plugin keresése</translation>
     </message>
     <message>
         <source>Fetching available plugins</source>
-        <translation type="unfinished"/>
+        <translation>Az elérhető pluginok lehívása</translation>
     </message>
     <message>
         <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
