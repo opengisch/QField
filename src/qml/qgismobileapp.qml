@@ -334,7 +334,7 @@ ApplicationWindow {
     deviceId: positioningSettings.positioningDevice
     badAccuracyThreshold: positioningSettings.accuracyBad
     excellentAccuracyThreshold: positioningSettings.accuracyExcellent
-    averagedPositionFilterAccuracy: positioningSettings.accuracyRequirement
+    averagedPositionFilterAccuracy: positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement
 
     property bool jumpToPosition: false
     property bool currentness: false
