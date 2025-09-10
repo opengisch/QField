@@ -109,6 +109,9 @@ class AttributeFormModel : public QSortFilterProxyModel
     //! Applies default values linked to a parent feature
     Q_INVOKABLE void applyParentDefaultValues();
 
+    //! Applies default values linked to relationships
+    Q_INVOKABLE void applyRelationshipDefaultValues();
+
   signals:
     void featureModelChanged();
     void hasTabsChanged();

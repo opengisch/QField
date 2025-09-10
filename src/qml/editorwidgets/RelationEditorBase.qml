@@ -196,6 +196,7 @@ EditorWidgetBase {
         displayToast(qsTr("Failed to delete referencing feature"), 'error');
       }
       visible = false;
+      form.model.applyRelationshipDefaultValues();
     }
     onRejected: {
       visible = false;
@@ -228,6 +229,7 @@ EditorWidgetBase {
       onFeatureSaved: id => {
         relationEditorModel.featureFocus = id;
         relationEditorModel.reload();
+        form.model.applyRelationshipDefaultValues();
       }
 
       onOpened: {
