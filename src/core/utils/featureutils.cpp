@@ -78,12 +78,11 @@ QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLa
 {
   if ( mapSettings && layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
   {
-    QgsCoordinateTransform transf( layer->crs(), mapSettings->destinationCrs(), mapSettings->mapSettings().transformContext() );
+    QgsCoordinateTransform ct( layer->crs(), mapSettings->destinationCrs(), mapSettings->mapSettings().transformContext() );
     QgsGeometry geom( feature.geometry() );
     if ( !geom.isNull() )
     {
-      geom.transform( transf );
-
+      geom.transform( ct );
       QgsRectangle extent;
       if ( geom.type() == Qgis::GeometryType::Point && geom.constGet()->partCount() == 1 )
       {

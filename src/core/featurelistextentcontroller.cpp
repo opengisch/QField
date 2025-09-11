@@ -52,7 +52,6 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
   {
     QgsVectorLayer *layer = mSelection->focusedLayer();
     const QgsFeature feature = mSelection->focusedFeature();
-    const QgsCoordinateTransform ct( layer->crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
 
     if ( layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
     {
@@ -60,6 +59,7 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
       {
         try
         {
+          const QgsCoordinateTransform ct( layer->crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
           const QgsPoint point( ct.transform( feature.geometry().asPoint() ) );
           if ( !point.isEmpty() )
           {
@@ -76,10 +76,17 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
       {
         try
         {
-          const QgsRectangle extent = ct.transform( FeatureUtils::extent( mMapSettings, layer, feature ) );
+          const QgsRectangle extent = FeatureUtils::extent( mMapSettings, layer, feature );
           if ( !extent.isNull() && ( !skipIfIntersects || !mMapSettings->extent().intersects( extent ) ) )
           {
-            mMapSettings->setExtent( extent, true );
+            if ( mKeepScale )
+            {
+              mMapSettings->setCenter( QgsPoint( extent.center() ), true );
+            }
+            else
+            {
+              mMapSettings->setExtent( extent, true );
+            }
           }
         }
         catch ( const QgsException &e )
