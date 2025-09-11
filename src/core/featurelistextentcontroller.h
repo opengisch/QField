@@ -33,6 +33,7 @@ class FeatureListExtentController : public QObject
     Q_PROPERTY( MultiFeatureListModel *model MEMBER mModel NOTIFY modelChanged )
     Q_PROPERTY( FeatureListModelSelection *selection MEMBER mSelection NOTIFY selectionChanged )
     Q_PROPERTY( bool autoZoom MEMBER mAutoZoom NOTIFY autoZoomChanged )
+    Q_PROPERTY( bool keepScale MEMBER mKeepScale NOTIFY keepScaleChanged )
     Q_PROPERTY( QgsQuickMapSettings *mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
 
   public:
@@ -56,6 +57,7 @@ class FeatureListExtentController : public QObject
 
   signals:
     void autoZoomChanged();
+    void keepScaleChanged();
     void selectionChanged();
     void modelChanged();
     void mapSettingsChanged();
@@ -70,6 +72,7 @@ class FeatureListExtentController : public QObject
     FeatureListModelSelection *mSelection = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
     bool mAutoZoom = false;
+    bool mKeepScale = false;
 };
 
 #endif // FEATURELISTEXTENTCONTROLLER_H
