@@ -3754,6 +3754,8 @@ ApplicationWindow {
       model: featureForm.model
     }
 
+    extentController.keepScale: qfieldSettings.locatorKeepScale
+
     selectionColor: "#ff7777"
 
     onShowMessage: displayToast(message)
