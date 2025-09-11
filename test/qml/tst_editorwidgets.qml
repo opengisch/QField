@@ -101,6 +101,14 @@ TestCase {
     property var currentLayer: undefined
     property var currentFeature: undefined
     property bool isEnabled: false
+
+    Connections {
+      target: valueRelation
+
+      function onValueChangeRequested(value, isNull) {
+        valueRelation.value = value;
+      }
+    }
   }
 
   EditorWidgets.ValueRelation {
@@ -111,6 +119,14 @@ TestCase {
     property var currentLayer: undefined
     property var currentFeature: undefined
     property bool isEnabled: false
+
+    Connections {
+      target: valueRelation
+
+      function onValueChangeRequested(value, isNull) {
+        valueRelation.value = value;
+      }
+    }
   }
 
   /**
@@ -907,11 +923,8 @@ TestCase {
     const clickX = itemToClick.x + itemToClick.width / 2;
     const clickY = itemToClick.y + itemToClick.height / 2;
     mouseClick(searchFeatureResultsList, clickX, clickY);
-    relationComboBoxParent.forceActiveFocus();
     wait(500);
     compare(relationComboBoxParent.searchPopup.opened, false);
-    wait(500);
-  // TODO investigate failure further
-  // compare(comboBoxItem.displayText, "Sophia"); // <-- fails to change! - remains olivia
+    compare(comboBoxItem.displayText, "Sophia");
   }
 }

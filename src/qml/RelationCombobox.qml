@@ -217,8 +217,6 @@ Item {
             if (!item)
               return;
             item.performClick();
-            // Do we need this ? After performClick() ? what is model outside of delegate?
-            // model.checked = !model.checked;
             if (!resultsList.model.allowMulti) {
               searchFeaturePopup.close();
             }
