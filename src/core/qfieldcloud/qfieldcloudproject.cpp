@@ -949,9 +949,11 @@ void QFieldCloudProject::download()
               }
 
               if ( cloudEtag == localEtag )
+              {
                 continue;
+              }
 
-              prepareDownloadTransfer( mId, fileName, fileSize, cloudEtag );
+              prepareDownloadTransfer( mSharedDatasetsProjectId, fileName, fileSize, cloudEtag );
             }
           }
           emit downloadBytesTotalChanged();
