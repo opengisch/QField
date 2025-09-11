@@ -465,7 +465,7 @@ void FeatureCheckListModel::setSearchTerm( const QString &searchTerm )
   mSearchTerm = searchTerm;
   emit searchTermChanged();
 
-  invalidateFilter();
+  invalidate();
   sort( 0 );
 }
 

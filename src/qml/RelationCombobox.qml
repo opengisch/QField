@@ -304,7 +304,7 @@ Item {
       contentItem: Text {
         leftPadding: enabled ? 5 : 0
         height: fontMetrics.height + 20
-        text: comboBox.currentIndex == -1 && value !== undefined ? '(' + value + ')' : comboBox.currentText
+        text: comboBox.currentIndex === -1 && value !== undefined ? '(' + value + ')' : comboBox.currentText
         font: comboBox.font
         color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
         horizontalAlignment: Text.AlignLeft
