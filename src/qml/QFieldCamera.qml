@@ -19,6 +19,7 @@ Popup {
 
   property string currentPath: ''
   property var currentPosition: PositioningUtils.createEmptyGnssPositionInformation()
+  property var currentProjectedPosition: undefined
 
   signal finished(string path)
   signal canceled
@@ -102,8 +103,6 @@ Popup {
 
   ExpressionEvaluator {
     id: stampExpressionEvaluator
-
-    property string defaultTextTemplate: "[% format_date(now(), 'yyyy-MM-dd @ HH:mm') || if(@gnss_coordinate is not null, format('\n" + qsTr("Latitude") + " %1 | " + qsTr("Longitude") + " %2 | " + qsTr("Altitude") + " %3\n" + qsTr("Speed") + " %4 | " + qsTr("Orientation") + " %5', coalesce(format_number(y(@gnss_coordinate), 7), 'N/A'), coalesce(format_number(x(@gnss_coordinate), 7), 'N/A'), coalesce(format_number(z(@gnss_coordinate), 3) || ' m', 'N/A'), if(@gnss_ground_speed != 'nan', format_number(@gnss_ground_speed, 3) || ' m/s', 'N/A'), if(@gnss_orientation != 'nan', format_number(@gnss_orientation, 1) || ' °', 'N/A')), '') %]"
 
     mode: ExpressionEvaluator.ExpressionTemplateMode
     expressionText: ""
@@ -395,8 +394,10 @@ Popup {
                   captureSession.imageCapture.captureToFile(qgisProject.homePath + '/DCIM/');
                   if (positionSource.active) {
                     currentPosition = positionSource.positionInformation;
+                    currentProjectedPosition = positionSource.projectedPosition;
                   } else {
                     currentPosition = PositioningUtils.createEmptyGnssPositionInformation();
+                    currentProjectedPosition = undefined;
                   }
                   if (cameraSettings.geoTagging && !positionSource.active) {
                     displayToast(qsTr("Image geotagging requires positioning to be turned on"), "warning");
@@ -416,10 +417,15 @@ Popup {
                       FileUtils.addImageMetadata(currentPath, currentPosition);
                     }
                     if (cameraSettings.stamping || iface.readProjectBoolEntry("qfieldsync", "forceStamping")) {
-                      stampExpressionEvaluator.expressionText = iface.readProjectEntry("qfieldsync", "stampingDetailsTemplate", stampExpressionEvaluator.defaultTextTemplate);
-                      if (stampExpressionEvaluator.expressionText === "") {
-                        stampExpressionEvaluator.expressionText = stampExpressionEvaluator.defaultTextTemplate;
+                      let expressionText = iface.readProjectEntry("qfieldsync", "stampingDetailsTemplate", "");
+                      if (expressionText === "") {
+                        expressionText = "[% format_date(now(), 'yyyy-MM-dd @ HH:mm') %] ";
+                        if (currentPosition.latitudeValid && currentPosition.longitudeValid) {
+                          expressionText += qsTr("Latitude") + " " + currentPosition.latitude.toFixed(6) + " " + qsTr("Longitude") + " " + currentPosition.longitude.toFixed(6) + " " + qsTr("Altitude") + " " + (currentPosition.elevationValid ? currentProjectedPosition.z.toFixed(3) + " m" : "N/A") + "\n";
+                          expressionText += qsTr("Speed") + " " + (currentPosition.speedValid ? currentPosition.speed.toFixed(3) + " m/s" : "N/A") + " " + qsTr("Orientation") + " " + (currentPosition.orientationValid ? currentPosition.orientation.toFixed(1) + " °" : "N/A");
+                        }
                       }
+                      stampExpressionEvaluator.expressionText = expressionText;
                       FileUtils.addImageStamp(currentPath, stampExpressionEvaluator.evaluate(), iface.readProjectEntry("qfieldsync", "stampingFontStyle"), iface.readProjectNumEntry("qfieldsync", "stampingHorizontalAlignment", 0), iface.readProjectEntry("qfieldsync", "stampingImageDecoration"));
                     }
                   }
