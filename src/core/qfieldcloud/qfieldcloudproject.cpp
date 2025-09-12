@@ -1232,9 +1232,10 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
     if ( rawReply->error() != QNetworkReply::NoError )
     {
       const int httpStatus = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
-      if ( httpStatus == 416 )
+      if ( httpStatus == 416 && mDownloadFileTransfers[fileKey].retryCount < 3 )
       {
         mDownloadFileTransfers[fileKey].resumableDownload = false;
+        mDownloadFileTransfers[fileKey].retryCount++;
 
         NetworkReply *newReply = downloadFile(
           mDownloadFileTransfers[fileKey].projectId,
