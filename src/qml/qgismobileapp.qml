@@ -3616,13 +3616,13 @@ ApplicationWindow {
       geometryEditingFeature.vertexModel.crs = featureForm.selection.focusedLayer.crs;
       geometryEditingFeature.currentLayer = featureForm.selection.focusedLayer;
       geometryEditingFeature.feature = featureForm.selection.focusedFeature;
-      if (!geometryEditingVertexModel.editingAllowed) {
-        displayToast(qsTr("Editing of multi geometry layer is not supported yet."));
-        geometryEditingVertexModel.clear();
-      } else {
+      if (geometryEditingVertexModel.editingAllowed) {
         featureForm.state = "Hidden";
+        geometryEditorsToolbar.init();
+      } else {
+        displayToast(qsTr("Editing of multipart geometry is not supported yet."), 'warning');
+        geometryEditingVertexModel.clear();
       }
-      geometryEditorsToolbar.init();
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
