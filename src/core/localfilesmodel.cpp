@@ -290,6 +290,18 @@ void LocalFilesModel::reloadModel()
               }
             }
           }
+          else if ( suffix == QStringLiteral( "zip" ) )
+          {
+            if ( item.endsWith( QStringLiteral( "_attachments.zip" ), Qt::CaseInsensitive ) )
+            {
+              const QString reducedItemName = item.mid( 0, item.size() - 16 );
+              if ( items.contains( QStringLiteral( "%1.qgs" ).arg( reducedItemName ), Qt::CaseInsensitive ) || items.contains( QStringLiteral( "%1.qgz" ).arg( reducedItemName ), Qt::CaseInsensitive ) )
+              {
+                // Skip project attachments sidecar file
+                continue;
+              }
+            }
+          }
           else if ( item == QStringLiteral( "qfield_webdav_configuration.json" ) )
           {
             // Skip QField WebDAV configuration file
