@@ -19,6 +19,7 @@ Popup {
 
   property string currentPath: ''
   property var currentPosition: PositioningUtils.createEmptyGnssPositionInformation()
+  property var currentProjectedPosition: undefined
 
   signal finished(string path)
   signal canceled
@@ -103,7 +104,7 @@ Popup {
   ExpressionEvaluator {
     id: stampExpressionEvaluator
 
-    property string defaultTextTemplate: "[% format_date(now(), 'yyyy-MM-dd @ HH:mm') || if(@gnss_coordinate is not null, format('\n" + qsTr("Latitude") + " %1 | " + qsTr("Longitude") + " %2 | " + qsTr("Altitude") + " %3\n" + qsTr("Speed") + " %4 | " + qsTr("Orientation") + " %5', coalesce(format_number(y(@gnss_coordinate), 7), 'N/A'), coalesce(format_number(x(@gnss_coordinate), 7), 'N/A'), coalesce(format_number(z(@gnss_coordinate), 3) || ' m', 'N/A'), if(@gnss_ground_speed != 'nan', format_number(@gnss_ground_speed, 3) || ' m/s', 'N/A'), if(@gnss_orientation != 'nan', format_number(@gnss_orientation, 1) || ' °', 'N/A')), '') %]"
+    property string defaultTextTemplate: "[% format_date(now(), 'yyyy-MM-dd @ HH:mm') || if(@gnss_coordinate is not null, format('\n" + qsTr("Latitude") + " %1 | " + qsTr("Longitude") + " %2 | " + qsTr("Altitude") + " %3\n" + qsTr("Speed") + " %4 | " + qsTr("Orientation") + " %5', coalesce(format_number(y(@gnss_coordinate), 7), 'N/A'), coalesce(format_number(x(@gnss_coordinate), 7), 'N/A'), coalesce(format_number(@corrected_elevation, 3) || ' ' || @corrected_elevation_unit, 'N/A'), if(@gnss_ground_speed != 'nan', format_number(@gnss_ground_speed, 3) || ' m/s', 'N/A'), if(@gnss_orientation != 'nan', format_number(@gnss_orientation, 1) || ' °', 'N/A')), '') %]"
 
     mode: ExpressionEvaluator.ExpressionTemplateMode
     expressionText: ""
@@ -112,6 +113,11 @@ Popup {
     appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
       positionInformation: currentPosition
       cloudUserInformation: appScopesGenerator.cloudUserInformation
+    }
+
+    variables: {
+      "corrected_elevation": currentProjectedPosition ? currentProjectedPosition.z : currentPosition.altitude,
+      "corrected_elevation_unit": UnitTypes.toAbbreviatedString(positionSource.coordinateTransformer.destinationCrs.mapUnit)
     }
   }
 
@@ -395,8 +401,10 @@ Popup {
                   captureSession.imageCapture.captureToFile(qgisProject.homePath + '/DCIM/');
                   if (positionSource.active) {
                     currentPosition = positionSource.positionInformation;
+                    currentProjectedPosition = positionSource.projectedPosition;
                   } else {
                     currentPosition = PositioningUtils.createEmptyGnssPositionInformation();
+                    currentProjectedPosition = undefined;
                   }
                   if (cameraSettings.geoTagging && !positionSource.active) {
                     displayToast(qsTr("Image geotagging requires positioning to be turned on"), "warning");

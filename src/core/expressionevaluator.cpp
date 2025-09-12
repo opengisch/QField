@@ -92,6 +92,15 @@ void ExpressionEvaluator::setAppExpressionContextScopesGenerator( AppExpressionC
   emit appExpressionContextScopesGeneratorChanged();
 }
 
+void ExpressionEvaluator::setVariables( const QVariantMap &variables )
+{
+  if ( mVariables == variables )
+    return;
+
+  mVariables = variables;
+  emit variablesChanged();
+}
+
 QVariant ExpressionEvaluator::evaluate()
 {
   if ( mExpressionText.isEmpty() )
@@ -123,6 +132,15 @@ QVariant ExpressionEvaluator::evaluate()
   if ( mFeature.isValid() )
   {
     expressionContext.setFeature( mFeature );
+  }
+  if ( !mVariables.isEmpty() )
+  {
+    QgsExpressionContextScope *scope = new QgsExpressionContextScope();
+    for ( auto it = mVariables.constKeyValueBegin(); it != mVariables.constKeyValueEnd(); ++it )
+    {
+      scope->addVariable( QgsExpressionContextScope::StaticVariable( it->first, it->second, true, true ) );
+    }
+    expressionContext << scope;
   }
 
   QVariant value;
