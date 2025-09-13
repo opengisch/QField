@@ -4327,6 +4327,12 @@ ApplicationWindow {
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
+
+    onViewProjectFolder: projectPath => {
+      qfieldLocalDataPickerScreen.projectFolderView = true;
+      qfieldLocalDataPickerScreen.model.resetToPath(projectPath);
+      qfieldLocalDataPickerScreen.visible = true;
+    }
   }
 
   QFieldCloudPopup {

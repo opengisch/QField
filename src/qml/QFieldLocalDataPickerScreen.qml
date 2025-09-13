@@ -445,6 +445,23 @@ Page {
       bottomMargin: sceneBottomMargin
       paddingMultiplier: 2
 
+      MenuItem {
+        id: viewFile
+
+        enabled: true
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("View")
+        onTriggered: {
+          platformUtilities.open(itemMenu.itemPath);
+        }
+      }
+
       // File items
       MenuItem {
         id: sendDatasetTo
