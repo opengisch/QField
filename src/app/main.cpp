@@ -209,9 +209,13 @@ int main( int argc, char **argv )
   QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
 
   if ( !qfieldTranslatorLoaded || qfieldTranslator.isEmpty() )
+  {
     ( void ) qfieldTranslator.load( QStringLiteral( "qfield_%1" ).arg( QLocale().name() ), QStringLiteral( ":/i18n/" ), "_" );
+  }
   if ( !qtTranslatorLoaded || qtTranslator.isEmpty() )
+  {
     ( void ) qtTranslator.load( QStringLiteral( "qt_%1" ).arg( QLocale().name() ), QStringLiteral( ":/i18n/" ), "_" );
+  }
 
   if ( !customLanguage.isEmpty() )
   {
@@ -221,6 +225,11 @@ int main( int argc, char **argv )
     // Set locale to emit QgsApplication's localeChanged signal
     QgsApplication::setLocale( QLocale() );
   }
+
+  QLocale locale;
+  const QString localeName = locale.name();
+  const int localeTagSeparator = localeName.indexOf( QStringLiteral( "_" ) );
+  QgsApplication::settingsLocaleUserLocale->setValue( localeName.mid( 0, localeTagSeparator ) );
 
   const QString qfieldFontName( qgetenv( "QFIELD_FONT_NAME" ) );
   if ( !qfieldFontName.isEmpty() )
