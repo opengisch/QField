@@ -12,6 +12,7 @@ Page {
   id: qfieldCloudScreen
 
   signal finished
+  signal openProjectFolder(string projectPath)
 
   property LayerObserver layerObserver
   property string requestedProjectDetails: ""
@@ -471,6 +472,7 @@ Page {
                     projectActions.projectLocalPath = LocalPath;
                     downloadProject.visible = LocalPath === '' && Status !== QFieldCloudProject.ProjectStatus.Downloading;
                     openProject.visible = LocalPath !== '';
+                    openProjectFolder.visible = LocalPath !== '';
                     removeProject.visible = LocalPath !== '';
                     cancelDownloadProject.visible = Status === QFieldCloudProject.ProjectStatus.Downloading;
                     projectActions.popup(gc.x + width - projectActions.width, gc.y - height);
@@ -939,6 +941,20 @@ Page {
           qfieldCloudScreen.visible = false;
           iface.loadFile(projectActions.projectLocalPath);
         }
+      }
+    }
+
+    MenuItem {
+      id: openProjectFolder
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+
+      text: qsTr("Open Project Folder")
+      onTriggered: {
+        qfieldCloudScreen.openProjectFolder(projectActions.projectLocalPath);
       }
     }
 
