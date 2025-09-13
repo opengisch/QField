@@ -4360,7 +4360,7 @@ ApplicationWindow {
 
     Component.onCompleted: focusstack.addFocusTaker(this)
 
-    onOpenProjectFolder: projectPath => {
+    onViewProjectFolder: projectPath => {
       qfieldLocalDataPickerScreen.projectFolderView = true;
       qfieldLocalDataPickerScreen.model.resetToPath(projectPath);
       qfieldLocalDataPickerScreen.visible = true;
