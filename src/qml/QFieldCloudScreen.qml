@@ -968,12 +968,7 @@ Page {
 
       text: qsTr("Remove Stored Project")
       onTriggered: {
-        cloudProjectsModel.removeLocalProject(projectActions.projectId);
-        iface.removeRecentProject(projectActions.projectLocalPath);
-        welcomeScreen.model.reloadModel();
-        if (projectActions.projectLocalPath === qgisProject.fileName) {
-          iface.clearProject();
-        }
+        confirmRemoveDialog.open();
       }
     }
 
@@ -987,6 +982,28 @@ Page {
       onTriggered: {
         cloudProjectsModel.projectCancelDownload(projectActions.projectId);
       }
+    }
+  }
+
+  QfDialog {
+    id: confirmRemoveDialog
+    parent: mainWindow.contentItem
+    title: removeProject.text
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: qsTr("Are you sure you want to remove `%1`?").arg(projectActions.projectName)
+    }
+    onAccepted: {
+      cloudProjectsModel.removeLocalProject(projectActions.projectId);
+      iface.removeRecentProject(projectActions.projectLocalPath);
+      welcomeScreen.model.reloadModel();
+      if (projectActions.projectLocalPath === qgisProject.fileName) {
+        iface.clearProject();
+      }
+    }
+    onRejected: {
+      visible = false;
     }
   }
 
