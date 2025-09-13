@@ -454,6 +454,8 @@ class QFieldCloudProject : public QObject
         QNetworkReply::NetworkError error = QNetworkReply::NoError;
         int redirectsCount = 0;
         QUrl lastRedirectUrl;
+        bool resumableDownload = true;
+        int retryCount = 0;
     };
 
     //! Tracks the job status (status, error etc) for a particular project. For now 1 project can have only 1 job of a type.

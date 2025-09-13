@@ -1233,6 +1233,29 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
+      const int httpStatus = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+      if ( httpStatus == 416 && mDownloadFileTransfers[fileKey].retryCount < 3 )
+      {
+        mDownloadFileTransfers[fileKey].resumableDownload = false;
+        mDownloadFileTransfers[fileKey].retryCount++;
+
+        NetworkReply *newReply = downloadFile(
+          mDownloadFileTransfers[fileKey].projectId,
+          mDownloadFileTransfers[fileKey].fileName,
+          true,
+          true );
+
+        if ( newReply )
+        {
+          mDownloadFileTransfers[fileKey].networkReply = newReply;
+          newReply->setParent( reply );
+          downloadFileConnections( fileKey );
+        }
+
+        reply->abort();
+        return;
+      }
+
       hasError = true;
       errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
       errorMessage = tr( "Network error. Failed to download file `%1`." ).arg( fileKey );
@@ -1377,7 +1400,7 @@ NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const 
   if ( partialFile.exists() )
   {
     qint64 partialSize = partialFile.size();
-    if ( partialSize < QFIELDCLOUD_MINIMUM_RANGE_HEADER_LENGTH || partialSize > fileTransfer.bytesTotal || ( partialSize == fileTransfer.bytesTotal ) && fileTransfer.etag != FileUtils::fileEtag( fileTransfer.partialFilePath ) )
+    if ( !fileTransfer.resumableDownload || partialSize < QFIELDCLOUD_MINIMUM_RANGE_HEADER_LENGTH || partialSize > fileTransfer.bytesTotal || ( partialSize == fileTransfer.bytesTotal ) && fileTransfer.etag != FileUtils::fileEtag( fileTransfer.partialFilePath ) )
     {
       // Invalid or dirty file; delete and re-download
       partialFile.remove();
