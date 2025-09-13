@@ -5659,7 +5659,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>A edição de camada com geometria multiparte ainda não é suportada.</translation>
+        <translation type="vanished">A edição de camada com geometria multiparte ainda não é suportada.</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6043,6 +6043,10 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
         <translation type="unfinished"/>
     </message>
 </context>

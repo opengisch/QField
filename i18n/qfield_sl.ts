@@ -5641,7 +5641,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Urejanje večgeometrijskega sloja še ni omogočeno.</translation>
+        <translation type="vanished">Urejanje večgeometrijskega sloja še ni omogočeno.</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6025,6 +6025,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
         <translation type="unfinished"/>
     </message>
 </context>

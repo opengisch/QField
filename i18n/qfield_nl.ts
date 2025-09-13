@@ -5657,7 +5657,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Het bewerken van een laag met meerdere geometrieën wordt nog niet ondersteund.</translation>
+        <translation type="vanished">Het bewerken van een laag met meerdere geometrieën wordt nog niet ondersteund.</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6041,6 +6041,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -5655,7 +5655,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>尚不支持编辑几何图形集图层。</translation>
+        <translation type="vanished">尚不支持编辑几何图形集图层。</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6040,6 +6040,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Paste Into Layer</source>
         <translation>粘贴到图层</translation>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

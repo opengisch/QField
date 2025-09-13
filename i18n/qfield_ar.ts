@@ -5653,7 +5653,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>تحرير الطبقة متعددة الرسومات غير مدعوم حالياً.</translation>
+        <translation type="vanished">تحرير الطبقة متعددة الرسومات غير مدعوم حالياً.</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6037,6 +6037,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -5661,7 +5661,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Редагування шару з кількома геометріями поки що не підтримується.</translation>
+        <translation type="vanished">Редагування шару з кількома геометріями поки що не підтримується.</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6045,6 +6045,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
         <translation type="unfinished"/>
     </message>
 </context>

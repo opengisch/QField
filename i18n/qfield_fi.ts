@@ -5659,7 +5659,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Monigeometrisen tason muokkausta ei vielä tueta.</translation>
+        <translation type="vanished">Monigeometrisen tason muokkausta ei vielä tueta.</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6043,6 +6043,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
         <translation type="unfinished"/>
     </message>
 </context>

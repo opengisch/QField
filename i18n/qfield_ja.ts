@@ -5655,7 +5655,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>マルチジオメトリレイヤーの編集は現在サポートされていません。</translation>
+        <translation type="vanished">マルチジオメトリレイヤーの編集は現在サポートされていません。</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6040,6 +6040,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Paste Into Layer</source>
         <translation>レイヤーに貼り付ける</translation>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -5653,7 +5653,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Multi geometria szerkesztése még nem támogatott.</translation>
+        <translation type="vanished">Multi geometria szerkesztése még nem támogatott.</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6037,6 +6037,10 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
         <translation type="unfinished"/>
     </message>
 </context>

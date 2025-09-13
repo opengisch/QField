@@ -5657,7 +5657,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Aínda non se admite a edición de capas multixeometría.</translation>
+        <translation type="vanished">Aínda non se admite a edición de capas multixeometría.</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6041,6 +6041,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -1685,7 +1685,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation type="unfinished"/>
+        <translation>Wydrukuj Atlas obiektów do PDF</translation>
     </message>
     <message>
         <source>Merge Selected Features</source>
@@ -1709,7 +1709,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Wydrukuj Atlas obiektów do PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
@@ -1741,7 +1741,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Drukowanie atlasu obiektów do pliku PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
@@ -1749,15 +1749,15 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Wydrukuj atlas obiektów do pliku obrazu</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Wydrukuj Atlas obiektów do obrazu</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Wydrukuj Atlas obiektów</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -4458,11 +4458,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation type="unfinished"/>
+        <translation>Wydrukuj Atlas obiektów do PDF</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Wydrukuj Atlas obiektów</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -5661,7 +5661,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Edycja warstw z wieloma geometriami nie jest jeszcze obsługiwana.</translation>
+        <translation type="vanished">Edycja warstw z wieloma geometriami nie jest jeszcze obsługiwana.</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6046,6 +6046,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Paste Into Layer</source>
         <translation>Wklej na warstwę</translation>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
+        <translation>Edycja wieloczęściowej geometrii nie jest jeszcze obsługiwana.</translation>
     </message>
 </context>
 <context>

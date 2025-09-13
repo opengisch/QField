@@ -5663,7 +5663,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>La modifica di layer multi geometria non é ancora supportata</translation>
+        <translation type="vanished">La modifica di layer multi geometria non é ancora supportata</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6047,6 +6047,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
         <translation type="unfinished"/>
     </message>
 </context>

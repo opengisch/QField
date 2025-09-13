@@ -5654,7 +5654,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Das Editieren von Multi-Geometrie-Layern wird noch nicht unterstützt.</translation>
+        <translation type="vanished">Das Editieren von Multi-Geometrie-Layern wird noch nicht unterstützt.</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6038,6 +6038,10 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
         <translation type="unfinished"/>
     </message>
 </context>

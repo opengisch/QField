@@ -5660,7 +5660,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Úprava vrstiev s viacerými geometriami nie je zatiaľ podporovaná.</translation>
+        <translation type="vanished">Úprava vrstiev s viacerými geometriami nie je zatiaľ podporovaná.</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6044,6 +6044,10 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
         <translation type="unfinished"/>
     </message>
 </context>

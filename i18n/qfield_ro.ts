@@ -5661,7 +5661,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Editarea stratului cu geometrie multiplă nu este permisă încă.</translation>
+        <translation type="vanished">Editarea stratului cu geometrie multiplă nu este permisă încă.</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6045,6 +6045,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
         <translation type="unfinished"/>
     </message>
 </context>

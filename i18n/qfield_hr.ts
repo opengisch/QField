@@ -5655,7 +5655,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>Uređivanje sloja sa višestrukom geometrijom još nije podržano.</translation>
+        <translation type="vanished">Uređivanje sloja sa višestrukom geometrijom još nije podržano.</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6039,6 +6039,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
         <translation type="unfinished"/>
     </message>
 </context>

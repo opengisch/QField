@@ -5657,7 +5657,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation>La edición de capas de geometría múltiples aún no está soportada.</translation>
+        <translation type="vanished">La edición de capas de geometría múltiples aún no está soportada.</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -6041,6 +6041,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
         <translation type="unfinished"/>
     </message>
 </context>
