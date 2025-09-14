@@ -3,9 +3,14 @@ find_package(Catch2 3 REQUIRED)
 include(CTest)
 include(Catch)
 
+set(CMAKE_AUTORCC ON)
+
 # Set WITH_CATCH2_MAIN to TRUE when qgis or qfield specific initialization is NOT needed
 function(ADD_CATCH2_TEST TESTNAME TESTSRC WITH_CATCH2_MAIN)
-  add_executable(${TESTNAME} ${TESTSRC})
+  set(TESTSOURCES
+      ${TESTSRC} ${CMAKE_SOURCE_DIR}/images/images.qrc
+  )
+  add_executable(${TESTNAME} ${TESTSOURCES})
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
   target_link_libraries(${TESTNAME} PRIVATE
     qfield_core
@@ -28,7 +33,10 @@ function(ADD_CATCH2_TEST TESTNAME TESTSRC WITH_CATCH2_MAIN)
 endfunction()
 
 macro (ADD_QFIELD_TEST TESTNAME TESTSRC)
-  add_executable(${TESTNAME} ${TESTSRC})
+  set(TESTSOURCES
+      ${TESTSRC} ${CMAKE_SOURCE_DIR}/images/images.qrc
+  )
+  add_executable(${TESTNAME} ${TESTSOURCES})
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
   target_link_libraries(${TESTNAME} PRIVATE
     qfield_core
@@ -41,8 +49,11 @@ macro (ADD_QFIELD_TEST TESTNAME TESTSRC)
 endmacro (ADD_QFIELD_TEST)
 
 macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
+  set(TESTSOURCES
+      ${TESTSRC} ${CMAKE_SOURCE_DIR}/images/images.qrc
+  )
   file(GLOB test_qmlfiles "${CMAKE_CURRENT_SOURCE_DIR}/qml/*.qml")
-  add_executable(${TESTNAME} ${TESTSRC} ${test_qmlfiles})
+  add_executable(${TESTNAME} ${TESTSOURCES} ${test_qmlfiles})
   # This should be in src/qml/CMakeLists.txt but that's not possible with Qt5. Retry with Qt6
   # Same is in src/app/CMakeLists.txt
   # https://bugreports.qt.io/browse/QTBUG-80847
