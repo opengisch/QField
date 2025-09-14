@@ -801,6 +801,7 @@ Page {
           id: downloadProjectBtn
           Layout.fillWidth: true
           progressValue: projectDetails.cloudProject ? projectDetails.cloudProject.downloadProgress : 0
+          showProgress: projectDetails.cloudProject != undefined && projectDetails.cloudProject.status === QFieldCloudProject.ProjectStatus.Downloading
           text: {
             if (projectDetails.cloudProject != undefined && projectDetails.cloudProject.status === QFieldCloudProject.ProjectStatus.Downloading) {
               if (projectDetails.cloudProject.packagingStatus === QFieldCloudProject.PackagingBusyStatus) {
