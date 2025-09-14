@@ -517,15 +517,15 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Paste failed: could not add feature to layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Error al añadir: no se ha podido añadir la función a capa %1</translation>
     </message>
     <message>
         <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Error al añadir: commitChanges falló en capa %1</translation>
     </message>
     <message>
         <source>Cut commit failed on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Falló la confirmación de corte en la fuente capa %1</translation>
     </message>
 </context>
 <context>
@@ -912,7 +912,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s).</source>
-        <translation><numerusform>Deshacer borrado de un objeto.</numerusform><numerusform>Deshacer borrado de %n objetos.</numerusform><numerusform>Deshacer borrado de %n objetos.</numerusform></translation>
+        <translation><numerusform>Deshacer borrado de un objeto.</numerusform><numerusform>Deshacer borrado de %n objetos.</numerusform><numerusform>Deshacer borrado de %n objeto(s)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s) on layer %1.</source>
@@ -1136,11 +1136,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>FileDeviceChooser</name>
     <message>
         <source>File path</source>
-        <translation type="unfinished"/>
+        <translation>Ruta del archivo</translation>
     </message>
     <message>
         <source>Interval (in milliseconds)</source>
-        <translation type="unfinished"/>
+        <translation>Intervalo (en milisegundos)</translation>
     </message>
 </context>
 <context>
@@ -1430,7 +1430,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>attribute editing</source>
-        <translation>edición de atributos</translation>
+        <translation>Editando atriburtos</translation>
     </message>
     <message>
         <source>geometry editing</source>
@@ -1795,11 +1795,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Feature copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Característica copiada en el portapapeles</translation>
     </message>
     <message>
         <source>Feature cut into clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Característica recortada en el portapapeles</translation>
     </message>
 </context>
 <context>
@@ -2005,7 +2005,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation type="unfinished"/>
+        <translation>La URL del plugin solicitado está presente en la lista de plugins disponibles, instálalo a través de su botón de descarga</translation>
     </message>
 </context>
 <context>
@@ -2201,7 +2201,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Logs file (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Archivo de registros (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -2930,11 +2930,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>File system error. Failed to write to partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Sistema de archivos Error. Error al escribir en el archivo parcial `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Sistema de archivos Error. Error al abrir el archivo parcial `%1`.</translation>
     </message>
 </context>
 <context>
@@ -4474,7 +4474,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n característica(s)</numerusform><numerusform>%n característica(s)</numerusform><numerusform>%n característica(s)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -5181,7 +5181,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>area</name>
     <message>
         <source>square degrees</source>
-        <translation type="unfinished"/>
+        <translation>grados cuadrados</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
@@ -5189,47 +5189,47 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>sqr. meters</source>
-        <translation type="unfinished"/>
+        <translation>metros cuadrados  - m2 -</translation>
     </message>
     <message>
         <source>sqr. kilometers</source>
-        <translation type="unfinished"/>
+        <translation>kilómetros cuadrados -km2-</translation>
     </message>
     <message>
         <source>sqr. feet</source>
-        <translation type="unfinished"/>
+        <translation>pies cuadrados</translation>
     </message>
     <message>
         <source>sqr. yards</source>
-        <translation type="unfinished"/>
+        <translation>yardas cuadradas</translation>
     </message>
     <message>
         <source>sqr. miles</source>
-        <translation type="unfinished"/>
+        <translation>millas cuadradas</translation>
     </message>
     <message>
         <source>hectares</source>
-        <translation type="unfinished"/>
+        <translation>hectáreas</translation>
     </message>
     <message>
         <source>acres</source>
-        <translation type="unfinished"/>
+        <translation>acres</translation>
     </message>
     <message>
         <source>sqr. nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>millas náuticas cuadradas</translation>
     </message>
     <message>
         <source>sqr. centimeters</source>
-        <translation type="unfinished"/>
+        <translation>centímetros cuadrados - cm2 -</translation>
     </message>
     <message>
         <source>sqr. millimeters</source>
-        <translation type="unfinished"/>
+        <translation>milímetros cuadrados - mm2 -</translation>
     </message>
     <message>
         <source>sqr. inches</source>
-        <translation type="unfinished"/>
+        <translation>pulgadas cuadradas</translation>
     </message>
 </context>
 <context>
@@ -5969,15 +5969,15 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Failed to create feature</source>
-        <translation>No se pudo crear la entidad</translation>
+        <translation>No se pudo crear la objeto</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation>No se pudo crear la entidad debido a que el permiso para agregar entidades está deshabilitado</translation>
+        <translation>No se pudo crear el objeto debido a que el permiso para agregar objetos está deshabilitado</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
-        <translation>No se pudo guardar la entidad</translation>
+        <translation>No se pudo guardar el objeto</translation>
     </message>
     <message>
         <source>Digitizing toggle</source>
@@ -5985,7 +5985,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation>Alterna entre los modos de exploración y digitalización. El modo de exploración se centra en ofrecer la mejor experiencia al visualizar el mapa y sus entidades, mientras que el modo de digitalización permite crear entidades y editar geometrías.</translation>
+        <translation>Alterna entre los modos de exploración y digitalización. El modo de exploración se centra en ofrecer la mejor experiencia al visualizar el mapa y sus objetos, mientras que el modo de digitalización permite crear objetos y editar geometrías.</translation>
     </message>
     <message>
         <source>Measurement</source>
@@ -6021,31 +6021,31 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
-        <translation>La leyenda muestra las capas del mapa y permite alternar las propiedades de visibilidad &lt;b&gt;y opacidad al mantener presionada una capa para abrir una ventana emergente de propiedades.&lt;/b&gt;. Esta ventana emergente ofrece funciones adicionales, como ampliar la extensión de la capa y mostrar las entidades contenidas en las capas vectoriales.</translation>
+        <translation>La leyenda muestra las capas del mapa y permite alternar las propiedades de visibilidad &lt;b&gt;y opacidad al mantener presionada una capa para abrir una ventana emergente de propiedades.&lt;/b&gt;. Esta ventana emergente ofrece funciones adicionales, como ampliar la extensión de la capa y mostrar los objetos contenidos en las capas vectoriales.</translation>
     </message>
     <message>
         <source>Copy Feature</source>
-        <translation>Copiar entidad</translation>
+        <translation>Copiar Objeto</translation>
     </message>
     <message>
         <source>Cut Feature</source>
-        <translation>Cortar entidad</translation>
+        <translation>Cortar Objeto</translation>
     </message>
     <message>
         <source>Feature pasted successfully</source>
-        <translation type="unfinished"/>
+        <translation>Objeto añadido correctamente</translation>
     </message>
     <message>
         <source>Failed to paste feature into layer</source>
-        <translation type="unfinished"/>
+        <translation>Fallo al pegar objeto en capa</translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
-        <translation type="unfinished"/>
+        <translation>Añadir en capa</translation>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
-        <translation type="unfinished"/>
+        <translation>Aún no se puede editar la geometría multiparte.</translation>
     </message>
 </context>
 <context>

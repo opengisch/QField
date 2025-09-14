@@ -46,7 +46,7 @@
     <string name="import_overwrite_cancel">Cancelar</string>
     <string name="export_error">Error de exportación</string>
     <string name="export_to_folder_error">La carpeta de proyecto seleccionada no se exportó correctamente.</string>
-    <string name="delete_confirm_title">Removal Confirmation</string>
+    <string name="delete_confirm_title">Confirmación de Borrado</string>
     <string name="delete_confirm_dataset">El conjunto de datos será eliminado permanentemente, ¿continuar con la eliminación?</string>
     <string name="delete_confirm_folder">La carpeta del proyecto será eliminada permanentemente, ¿continuar con la eliminación?</string>
     <string name="delete_confirm">Eliminar</string>
@@ -55,10 +55,10 @@
     <string name="storage_information_message">Tanto si es un usuario preexistente de QField 1.x que se pregunta porqué sus proyectos y conjuntos de datos han desaparecido como si es nuevo en QField, le sugerimos que se tome unos minutos para leer la documentación sobre el manejo del almacenamiento. Un acceso directo a esta documentación permanecerá accesible en el menú de acciones de la barra de título.</string>
     <string name="storage_information_view">Muéstrame la documentación</string>
     <string name="storage_information_dismiss">Lo leeré más tarde</string>
-    <string name="import_project_wait">Please wait while QField is importing the project</string>
-    <string name="import_dataset_wait">Please wait while QField is importing the dataset(s)</string>
+    <string name="import_project_wait">Por favor, espera mientras QField importa el proyecto</string>
+    <string name="import_dataset_wait">Espera mientras QField importa los conjunto(s) de datos.</string>
     <string name="update_project_wait">Por favor espere mientras QField actualiza el proyecto local</string>
-    <string name="upload_pending_attachments">Currently uploading attachments to QFieldCloud</string>
+    <string name="upload_pending_attachments">Actualmente subiendo archivos adjuntos a QFieldCloud</string>
     <string name="operation_unsupported">Operación no soportada</string>
     <string name="import_operation_unsupported">Su dispositivo no soporta esta operación de importación</string>
     <string name="export_operation_unsupported">Su dispositivo no soporta esta operación de exportación</string>

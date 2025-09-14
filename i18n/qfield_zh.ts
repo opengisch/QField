@@ -6043,7 +6043,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
-        <translation type="unfinished"/>
+        <translation>尚不支持编辑多部件几何图形。</translation>
     </message>
 </context>
 <context>
