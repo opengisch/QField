@@ -662,7 +662,7 @@ Page {
 
           QfToolButton {
             id: rememberButton
-            visible: form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
+            visible: CanRememberValue && form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
             width: visible ? 48 : 0
 
             iconSource: Theme.getThemeVectorIcon("ic_pin_black_24dp")
