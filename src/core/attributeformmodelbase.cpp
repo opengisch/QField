@@ -349,6 +349,24 @@ void AttributeFormModelBase::applyRelationshipDefaultValues()
   }
 }
 
+void AttributeFormModelBase::activateAllRememberValues()
+{
+  QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
+  {
+    setData( fieldIterator.key()->index(), true, AttributeFormModel::RememberValue );
+  }
+}
+
+void AttributeFormModelBase::deactivateAllRememberValues()
+{
+  QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
+  {
+    setData( fieldIterator.key()->index(), false, AttributeFormModel::RememberValue );
+  }
+}
+
 QgsAttributeEditorContainer *AttributeFormModelBase::generateRootContainer() const
 {
   QgsAttributeEditorContainer *root = new QgsAttributeEditorContainer( QString(), nullptr );

@@ -69,6 +69,12 @@ class AttributeFormModelBase : public QStandardItemModel
     //! \copydoc AttributeFormModel::applyRelationshipDefaultValues
     void applyRelationshipDefaultValues();
 
+    //! \copydoc AttributeFormModel::activateAllRememberValues
+    void activateAllRememberValues();
+
+    //! \copydoc AttributeFormModel::deactivateAllRememberValues
+    void deactivateAllRememberValues();
+
   signals:
     void featureModelChanged();
     void hasTabsChanged();
