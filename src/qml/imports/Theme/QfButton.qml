@@ -14,6 +14,7 @@ Button {
   property alias borderColor: backgroundRectangle.border.color
   property bool dropdown: false
   property real progressValue: 0.0
+  property bool showProgress: false
 
   signal dropdownClicked
 
@@ -49,8 +50,8 @@ Button {
     }
 
     Loader {
-      active: progressValue != 0.0 && progressValue != 1.0
-      sourceComponent: progressComponent
+      active: showProgress
+      sourceComponent: progressValue == 0.0 ? indeterminateProgressComponent : progressComponent
     }
 
     Component {
@@ -63,15 +64,48 @@ Button {
         clip: true
 
         Rectangle {
-          width: Math.min(10, parent.width / 2)
+          width: Math.min(20, parent.width / 2)
           height: parent.height
           anchors.right: parent.right
           color: parent.color
+          radius: progressValue > 0.98 ? parent.radius : 0
         }
 
         Behavior on width  {
           NumberAnimation {
             duration: 200
+          }
+        }
+      }
+    }
+    Component {
+      id: indeterminateProgressComponent
+      Item {
+        width: backgroundRectangle.width
+        height: backgroundRectangle.height
+        clip: true
+
+        Rectangle {
+          id: bar
+          width: parent.width * 0.3
+          height: parent.height
+          radius: 2
+          color: Theme.mainColor
+          opacity: 0.9
+          SequentialAnimation on x  {
+            loops: Animation.Infinite
+            NumberAnimation {
+              from: -bar.width
+              to: parent.width
+              duration: 2000
+              easing.type: Easing.Linear
+            }
+            NumberAnimation {
+              from: parent.width
+              to: -bar.width
+              duration: 2000
+              easing.type: Easing.Linear
+            }
           }
         }
       }
