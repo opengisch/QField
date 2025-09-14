@@ -448,7 +448,7 @@ Page {
       MenuItem {
         id: viewFile
 
-        enabled: true
+        enabled: itemMenu.itemMetaType != LocalFilesModel.Folder
         visible: enabled
 
         font: Theme.defaultFont
@@ -456,7 +456,7 @@ Page {
         height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("View")
+        text: qsTr("View file")
         onTriggered: {
           platformUtilities.open(itemMenu.itemPath);
         }
