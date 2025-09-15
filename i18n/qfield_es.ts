@@ -857,7 +857,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation>Está a punto de descartar la creación de una nueva entidad, ¿Continuar?</translation>
+        <translation>Está a punto de descartar la creación de un nuevo objeto espacial, ¿Proceder?</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
