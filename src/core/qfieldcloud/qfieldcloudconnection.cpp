@@ -854,6 +854,10 @@ void QFieldCloudConnection::processPendingAttachments()
           return;
         }
       }
+      if ( httpCode == 201 )
+      {
+        qInfo() << QStringLiteral( "Upload succeeded for %1" ).arg( fileName );
+      }
 
       if ( httpCode != 201 && httpCode != 404 )
       {
