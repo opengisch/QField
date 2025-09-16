@@ -71,7 +71,7 @@ EditorWidgetBase {
           return Qt.formatDateTime(value, displayFormat);
         }
       } else {
-        const date = Date.fromLocaleString(Qt.locale(), value, config['field_format']);
+        const date = Date.fromLocaleString(Qt.locale(), value, config['field_format'] !== undefined ? config['field_format'] : '');
         if (date.toString() === "Invalid Date") {
           try {
             return Qt.formatDateTime(value, displayFormat);
@@ -127,7 +127,7 @@ EditorWidgetBase {
         "";
       }
 
-      text: main.currentValue
+      text: main.currentValue !== undefined ? main.currentValue : ''
 
       background: Rectangle {
         id: backgroundRect

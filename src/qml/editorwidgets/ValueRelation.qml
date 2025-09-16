@@ -15,10 +15,10 @@ EditorWidgetBase {
   LayerResolver {
     id: layerResolver
 
-    layerId: config['Layer']
-    layerName: config['LayerName']
-    layerSource: config['LayerSource']
-    layerProviderName: config['LayerProviderName']
+    layerId: config['Layer'] !== undefined ? config['Layer'] : ''
+    layerName: config['LayerName'] !== undefined ? config['LayerName'] : ''
+    layerSource: config['LayerSource'] !== undefined ? config['LayerSource'] : ''
+    layerProviderName: config['LayerProviderName'] !== undefined ? config['LayerProviderName'] : ''
     project: qgisProject
   }
 

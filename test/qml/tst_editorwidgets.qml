@@ -19,11 +19,16 @@ TestCase {
     property int sceneRightMargin: 10
   }
 
+  AppExpressionContextScopesGenerator {
+    id: appScopesGenerator
+  }
+
   EditorWidgets.TextEdit {
     id: textEdit
     property var mainWindow: mainWindowItem
     property string value: "DEFAULT_VALUE"
-    property var config: undefined
+    property var config: ({})
+    property var field: FeatureUtils.createField("dummy", FeatureUtils.String)
     property bool isEnabled: true
   }
 
@@ -31,8 +36,8 @@ TestCase {
     id: range
     property var mainWindow: mainWindowItem
     property real value: default_value
-    property var config: undefined
-    property var field: undefined
+    property var config: ({})
+    property var field: FeatureUtils.createField("dummy", FeatureUtils.Double, "", 20, 10)
     property bool isEnabled: true
 
     readonly property real default_value: 999
@@ -45,8 +50,8 @@ TestCase {
     fieldIsDate: false
     fieldIsString: false
     property string value: "2022-01-01"
-    property var config: undefined
-    property var field: undefined
+    property var config: ({})
+    property var field: FeatureUtils.createField("dummy", FeatureUtils.String)
     property bool isEnabled: true
   }
 
@@ -54,17 +59,20 @@ TestCase {
     id: checkBox
     property var mainWindow: mainWindowItem
     property bool value: true
-    property var config: undefined
-    property var field: undefined
+    property var config: ({})
+    property var field: FeatureUtils.createField("dummy", FeatureUtils.String)
+    property bool isEnabled: true
   }
 
   EditorWidgets.ValueMap {
     id: valueMap
     property var mainWindow: mainWindowItem
     property var value: undefined
-    property var config: undefined
-    property var field: undefined
+    property var config: ({})
+    property var field: FeatureUtils.createField("dummy", FeatureUtils.String)
     property var currentLayer: undefined
+    property bool isEnabled: true
+    property string fieldLabel: "dummy"
 
     // to simulate customProperty('QFieldSync/value_map_button_interface_threshold') -> toggleButtons view
     Item {
@@ -87,7 +95,7 @@ TestCase {
     id: uuidGenerator
     property var mainWindow: mainWindowItem
     property var value: undefined
-    property var config: undefined
+    property var config: ({})
     property bool isAdding: false
   }
 
@@ -97,10 +105,12 @@ TestCase {
     height: parent.height
     property var mainWindow: mainWindowItem
     property var value: undefined
-    property var config: undefined
+    property var config: ({})
+    property var field: FeatureUtils.createField("dummy", FeatureUtils.String)
     property var currentLayer: undefined
-    property var currentFeature: undefined
+    property var currentFeature: FeatureUtils.createBlankFeature()
     property bool isEnabled: false
+    property string fieldLabel: "dummy"
 
     Connections {
       target: valueRelation
@@ -115,10 +125,12 @@ TestCase {
     id: valueRelation2
     property var mainWindow: mainWindowItem
     property var value: undefined
-    property var config: undefined
+    property var config: ({})
+    property var field: FeatureUtils.createField("dummy", FeatureUtils.String)
     property var currentLayer: undefined
-    property var currentFeature: undefined
+    property var currentFeature: FeatureUtils.createBlankFeature()
     property bool isEnabled: false
+    property string fieldLabel: "dummy"
 
     Connections {
       target: valueRelation
@@ -140,7 +152,7 @@ TestCase {
     const textReadonlyValue = textEdit.children[0];
     const textField = textEdit.children[1];
     const textArea = textEdit.children[2];
-    compare(textReadonlyValue.text, ""); // NOTE: If the config is undefined, the label will be an empty string.
+    compare(textReadonlyValue.text, "DEFAULT_VALUE");
     compare(textField.text, "DEFAULT_VALUE");
     compare(textArea.text, "DEFAULT_VALUE");
     textEdit.config = {
@@ -246,7 +258,7 @@ TestCase {
    */
   function test_01_dateTime() {
     const label = dateTime.children[1].children[0];
-    compare(label.text, ""); // NOTE: setting value without setting `config` and `field` objects won't work
+    compare(label.text, "2022-01-01");
     const testTimes = ["2023-01-01", "2023-01-01 23:33:56"];
     const displayFormats = ["yyyy-MM-dd", "yyyy-MM.dd", "yyyy-MM-dd HH:mm:ss", "HH:mm:ss", "HH:mm"];
     const results = ["2023-01-01", "2023-01.01", "2023-01-01 00:00:00", "00:00:00", "00:00", "2023-01-01", "2023-01.01", "2023-01-01 23:33:56", "23:33:56", "23:33"];
@@ -257,11 +269,8 @@ TestCase {
         dateTime.config = {
           "display_format": format,
           "calendar_popup": true,
-          "field_format": "UNKNOWN!",
+          "field_format": "yyyy-MM-dd",
           "allow_null": false
-        };
-        dateTime.field = {
-          "isDateOrTime": true
         };
         dateTime.value = time;
         compare(label.text, results[resultIdx++]);
@@ -293,19 +302,17 @@ TestCase {
     compare(checkBox.value, true);
     compare(checkBox.isBool, false);
     compare(checkBox.isNull, false);
-    compare(checkBox.checkedLabel, ""); // NOTE: `checkedLabel` initialized with "" when config is undefined
-    compare(checkBox.uncheckedLabel, ""); // NOTE: `uncheckedLabel` initialized with "" when config is undefined
-    compare(labelItem.text, "");
+    compare(checkBox.checkedLabel, "True");
+    compare(checkBox.uncheckedLabel, "False");
+    compare(labelItem.text, "False");
     compare(checkBoxItem.checked, false); // NOTE: even if `value` be true, without config `checked` will be false
     checkBox.config = {
       "TextDisplayMethod": 1,
       "CheckedState": "DEFAULT_CHECKED_STATE",
       "UncheckedState": "DEFAULT_UNCHECKED_STATE"
     };
-    checkBox.field = {
-      "type": 1
-    };
     checkBox.value = true;
+    checkBox.field = FeatureUtils.createField("dummy", FeatureUtils.Bool);
     compare(checkBox.value, true);
     compare(checkBox.isBool, true);
     compare(checkBox.isNull, false);
@@ -323,9 +330,6 @@ TestCase {
       "CheckedState": "DEFAULT_CHECKED_STATE",
       "UncheckedState": "DEFAULT_UNCHECKED_STATE"
     };
-    checkBox.field = {
-      "type": 1
-    };
     checkBox.value = true;
     compare(checkBox.checkedLabel, "True");
     compare(checkBox.uncheckedLabel, "False");
@@ -336,9 +340,7 @@ TestCase {
       "CheckedState": "DEFAULT_CHECKED_STATE",
       "UncheckedState": "DEFAULT_UNCHECKED_STATE"
     };
-    checkBox.field = {
-      "type": 0
-    };
+    checkBox.field = FeatureUtils.createField("dummy", FeatureUtils.String);
     checkBox.value = true;
     compare(labelItem.text, "DEFAULT_UNCHECKED_STATE"); // NOTE: value is true but it in unchecked state
     compare(checkBoxItem.checked, false); // NOTE: value is true but its not checked
