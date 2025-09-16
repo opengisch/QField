@@ -84,6 +84,11 @@ class QFIELD_CORE_EXPORT FeatureUtils : public QObject
      * Returns a new a field gadget.
      */
     static Q_INVOKABLE QgsField createField( const QString &name, FieldType type, const QString &typeName = QString(), int length = 0, int precision = 0, const QString &comment = QString() );
+
+    /**
+     * Returns a new a fields gadget.
+     */
+    static Q_INVOKABLE QgsFields createFields( const QList<QgsField> &fields );
 };
 
 #endif // FEATUREUTILS_H
