@@ -118,3 +118,8 @@ QgsField FeatureUtils::createField( const QString &name, FieldType type, const Q
 {
   return QgsField( name, static_cast<QMetaType::Type>( type ), typeName, length, precision, comment );
 }
+
+QgsFields FeatureUtils::createFields( const QList<QgsField> &fields )
+{
+  return QgsFields( fields );
+}
