@@ -34,6 +34,17 @@ class QFIELD_CORE_EXPORT FeatureUtils : public QObject
 {
     Q_OBJECT
   public:
+    enum FieldType
+    {
+      Int = QMetaType::Type::Int,
+      String = QMetaType::Type::QString,
+      Double = QMetaType::Type::Double,
+      Date = QMetaType::Type::QDate,
+      DateTime = QMetaType::Type::QDateTime,
+      Time = QMetaType::Type::QTime,
+    };
+    Q_ENUM( FieldType )
+
     explicit FeatureUtils( QObject *parent = nullptr );
 
     /**
@@ -67,6 +78,11 @@ class QFIELD_CORE_EXPORT FeatureUtils : public QObject
      * be parsed, an enmpty list will be returned.
      */
     static Q_INVOKABLE QList<QgsFeature> featuresFromJsonString( const QString &string );
+
+    /**
+     * Returns a new a field gadget.
+     */
+    static Q_INVOKABLE QgsField createField( const QString &name, FieldType type, const QString &typeName = QString(), int length = 0, int precision = 0, const QString &comment = QString() );
 };
 
 #endif // FEATUREUTILS_H
