@@ -233,7 +233,7 @@ void QFieldCloudUtils::addPendingAttachments( const QString &username, const QSt
     params.insert( "skip_metadata", 1 );
     NetworkReply *reply = cloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( projectId ), params );
 
-    connect( reply, &NetworkReply::finished, reply, [reply, username, projectId, fileNames, checkSumCheck]() {
+    connect( reply, &NetworkReply::finished, reply, [reply, username, projectId, fileNames, checkSumCheck, cloudConnection]() {
       QNetworkReply *rawReply = reply->currentRawReply();
       reply->deleteLater();
 
@@ -254,16 +254,16 @@ void QFieldCloudUtils::addPendingAttachments( const QString &username, const QSt
         fileChecksumMap.insert( fileName, cloudEtag );
       }
 
-      QFieldCloudUtils::writeToAttachmentsFile( username, projectId, fileNames, &fileChecksumMap, checkSumCheck );
+      writeToAttachmentsFile( username, projectId, fileNames, &fileChecksumMap, checkSumCheck, cloudConnection );
     } );
   }
   else
   {
-    writeToAttachmentsFile( username, projectId, fileNames, nullptr, false );
+    writeToAttachmentsFile( username, projectId, fileNames, nullptr, false, cloudConnection );
   }
 }
 
-void QFieldCloudUtils::writeToAttachmentsFile( const QString &username, const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck )
+void QFieldCloudUtils::writeToAttachmentsFile( const QString &username, const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QFieldCloudConnection *cloudConnection )
 {
   const QString localCloudUSerDirectory = QLatin1String( "%1/%2/" ).arg( QFieldCloudUtils::localCloudDirectory(), username );
   QLockFile attachmentsLock( QStringLiteral( "%1/attachments.lock" ).arg( localCloudUSerDirectory ) );
@@ -285,8 +285,10 @@ void QFieldCloudUtils::writeToAttachmentsFile( const QString &username, const QS
         writeFileDetails( fileName, projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
       }
     }
-
     attachmentsFile.close();
+
+    if ( cloudConnection )
+      emit cloudConnection->allAttachmentsWritten();
   }
 }
 
