@@ -276,7 +276,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No Bluetooth devices detected.</source>
-        <translation type="unfinished"/>
+        <translation>Устройства Bluetooth не обнаружены.</translation>
     </message>
     <message>
         <source>Deeper scanning for paired devices</source>
@@ -489,43 +489,43 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Paste failed: no destination layer provided</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось вставить: не установлен целевой слой</translation>
     </message>
     <message>
         <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation type="unfinished"/>
+        <translation>Операция вырезания: исходный слой и слой назначения один и тот же , вставка пропускается.</translation>
     </message>
     <message>
         <source>Paste failed: clipboard feature is invalid</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось вставить: объект в буфере обмена недействителен</translation>
     </message>
     <message>
         <source>Cut failed: could not start editing on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Разрезать не удалось: невозможно начать редактирование исходного слоя %1</translation>
     </message>
     <message>
         <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Разрезать не удалось: невозможно удалить исходный объект в слое  %1</translation>
     </message>
     <message>
         <source>Paste failed: no compatible features could be created</source>
-        <translation type="unfinished"/>
+        <translation>Вставить не удалось: невозможно создать совместимые объекты</translation>
     </message>
     <message>
         <source>Paste failed: could not start editing on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Вставить не удалось: невозможно начать редактирование исходного слоя %1</translation>
     </message>
     <message>
         <source>Paste failed: could not add feature to layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Вставить не удалось: невозможно добавить объект в слой %1</translation>
     </message>
     <message>
         <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Вставить не удалось: commitChanges (фиксация изменений) не произведена для слоя %1</translation>
     </message>
     <message>
         <source>Cut commit failed on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось зафиксировать вырезание в исходном слое %1</translation>
     </message>
 </context>
 <context>
@@ -566,7 +566,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The project is read-only.</source>
-        <translation type="unfinished"/>
+        <translation>Проект только для чтения.</translation>
     </message>
 </context>
 <context>
@@ -873,7 +873,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Feature addition disabled</source>
-        <translation type="unfinished"/>
+        <translation>Добавление объектов отключено</translation>
     </message>
 </context>
 <context>
@@ -1138,7 +1138,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>FileDeviceChooser</name>
     <message>
         <source>File path</source>
-        <translation type="unfinished"/>
+        <translation>Путь к файлу</translation>
     </message>
     <message>
         <source>Interval (in milliseconds)</source>
@@ -1428,23 +1428,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>feature addition</source>
-        <translation type="unfinished"/>
+        <translation>добавление объекта</translation>
     </message>
     <message>
         <source>attribute editing</source>
-        <translation type="unfinished"/>
+        <translation>редактирование атрибутов</translation>
     </message>
     <message>
         <source>geometry editing</source>
-        <translation type="unfinished"/>
+        <translation>редактирование геометрии</translation>
     </message>
     <message>
         <source>feature deletion</source>
-        <translation type="unfinished"/>
+        <translation>удаление объекта</translation>
     </message>
     <message>
         <source>Disabled layer permissions: %1</source>
-        <translation type="unfinished"/>
+        <translation>Отключены права слоя: %1</translation>
     </message>
 </context>
 <context>
@@ -1520,7 +1520,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation type="unfinished"/>
+        <translation>В конфигурации прав данного слоя отключена возможность добавления объектов. </translation>
     </message>
 </context>
 <context>
@@ -1789,7 +1789,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Update Attributes from Feature</source>
-        <translation type="unfinished"/>
+        <translation>Скопировать атрибуты от объекта</translation>
     </message>
     <message>
         <source>Process Feature</source>
@@ -1797,11 +1797,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Feature copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Объект сохранен в буфер обмена</translation>
     </message>
     <message>
         <source>Feature cut into clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Объект вырезан в буфер обмена</translation>
     </message>
 </context>
 <context>
@@ -2050,11 +2050,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Available Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Доступные плагины</translation>
     </message>
     <message>
         <source>Search for plugin</source>
-        <translation type="unfinished"/>
+        <translation>Найти плагин</translation>
     </message>
     <message>
         <source>Fetching available plugins</source>
@@ -2062,7 +2062,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation type="unfinished"/>
+        <translation>Не установлен ни один плагин; перейдите в закладку %1Доступные плагины%3, чтобы установить.&lt;br&gt;&lt;br&gt;Дополнительную информацию см. %2Документация%3.</translation>
     </message>
 </context>
 <context>
@@ -2507,7 +2507,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Password missing</source>
-        <translation type="unfinished"/>
+        <translation>Не задан пароль</translation>
     </message>
 </context>
 <context>
@@ -3218,7 +3218,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>Доступно в облаке</translation>
     </message>
     <message>
         <source>, has changes locally</source>
@@ -3226,23 +3226,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Описание</translation>
     </message>
     <message>
         <source>Owner</source>
-        <translation type="unfinished"/>
+        <translation>Владелец</translation>
     </message>
     <message>
         <source>Creation date</source>
-        <translation type="unfinished"/>
+        <translation>Дата создания</translation>
     </message>
     <message>
         <source>Latest update date</source>
-        <translation type="unfinished"/>
+        <translation>Дата последнего обновления</translation>
     </message>
     <message>
         <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation type="unfinished"/>
+        <translation>Этот QR код может быть отсканирован пользователями с соответствующим доступом, чтобы скачать и открыть этот проект</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
@@ -3250,11 +3250,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading project</source>
-        <translation type="unfinished"/>
+        <translation>Скачивание проекта</translation>
     </message>
     <message>
         <source>Download project</source>
-        <translation type="unfinished"/>
+        <translation>Скачать проект</translation>
     </message>
     <message>
         <source>Open project</source>
@@ -3262,7 +3262,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>View Project Details</source>
-        <translation type="unfinished"/>
+        <translation>Детали проекта</translation>
     </message>
     <message>
         <source>QFieldCloud project details fetching failed</source>
@@ -3415,7 +3415,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Отправить в QFieldCloud</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV server</source>
@@ -3475,7 +3475,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Password (leave empty to use remembered)</source>
-        <translation type="unfinished"/>
+        <translation>Пароль (оставить пустым для использования сохраненного)</translation>
     </message>
     <message>
         <source>Password</source>
@@ -3483,7 +3483,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remember password</source>
-        <translation type="unfinished"/>
+        <translation>Запомнить пароль</translation>
     </message>
     <message>
         <source>Type the WebDAV details below to import a remote folder:</source>
@@ -3507,11 +3507,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>User and password</source>
-        <translation type="unfinished"/>
+        <translation>Пользователь и пароль</translation>
     </message>
     <message>
         <source>leave empty to use remembered</source>
-        <translation type="unfinished"/>
+        <translation>оставить пустым при использовании сохраненного</translation>
     </message>
     <message>
         <source>Upload file(s) to WebDAV</source>
@@ -3527,7 +3527,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Подтвердить</translation>
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
@@ -3554,7 +3554,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
-        <translation type="unfinished"/>
+        <translation>Широта %1 | Долгота %2 | Высота %3 м | Скорость %4 м/сек | Направление %5°</translation>
     </message>
     <message>
         <source>Positioning service stopped</source>
@@ -4109,23 +4109,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка zip файл отсутствует: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error zip filename is empty</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка название zip файла пустое</translation>
     </message>
     <message>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка выходной каталог отсутствует: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка указанный каталог не является каталогом: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка указанный каталог не для записи: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Skipped file %1 outside of the directory %2</source>
@@ -4137,19 +4137,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not write to %1</source>
-        <translation type="unfinished"/>
+        <translation>Невозможно записать в %1</translation>
     </message>
     <message>
         <source>Error reading file: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка чтения файла: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error getting files: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка получения файлов: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка раскрытия zip архива : &apos;%1&apos; (Код ошибки: %2)</translation>
     </message>
 </context>
 <context>
@@ -4179,51 +4179,51 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>January</source>
-        <translation type="unfinished"/>
+        <translation>Январь</translation>
     </message>
     <message>
         <source>February</source>
-        <translation type="unfinished"/>
+        <translation>Февраль</translation>
     </message>
     <message>
         <source>March</source>
-        <translation type="unfinished"/>
+        <translation>Март</translation>
     </message>
     <message>
         <source>April</source>
-        <translation type="unfinished"/>
+        <translation>Апрель</translation>
     </message>
     <message>
         <source>May</source>
-        <translation type="unfinished"/>
+        <translation>Май</translation>
     </message>
     <message>
         <source>June</source>
-        <translation type="unfinished"/>
+        <translation>Июнь</translation>
     </message>
     <message>
         <source>July</source>
-        <translation type="unfinished"/>
+        <translation>Июль</translation>
     </message>
     <message>
         <source>August</source>
-        <translation type="unfinished"/>
+        <translation>Август</translation>
     </message>
     <message>
         <source>September</source>
-        <translation type="unfinished"/>
+        <translation>Сентябрь</translation>
     </message>
     <message>
         <source>October</source>
-        <translation type="unfinished"/>
+        <translation>Октябрь</translation>
     </message>
     <message>
         <source>November</source>
-        <translation type="unfinished"/>
+        <translation>Ноябрь</translation>
     </message>
     <message>
         <source>December</source>
-        <translation type="unfinished"/>
+        <translation>Декабрь</translation>
     </message>
 </context>
 <context>
@@ -4582,11 +4582,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP адрес</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Порт</translation>
     </message>
 </context>
 <context>
@@ -4963,11 +4963,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Адрес</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Порт</translation>
     </message>
 </context>
 <context>
@@ -5057,11 +5057,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>WebdavConnection</name>
     <message>
         <source>Failed to download file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка скачивания файла %1 из-за ошибки сети (%2)</translation>
     </message>
     <message>
         <source>Failed to upload file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка загрузки файла %1 из-за ошибки сети (%2)</translation>
     </message>
 </context>
 <context>
@@ -5176,7 +5176,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Return to map</source>
-        <translation type="unfinished"/>
+        <translation>Вернуться к карте</translation>
     </message>
 </context>
 <context>
@@ -5191,31 +5191,31 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>sqr. meters</source>
-        <translation type="unfinished"/>
+        <translation>кв. метры</translation>
     </message>
     <message>
         <source>sqr. kilometers</source>
-        <translation type="unfinished"/>
+        <translation>кв. километры</translation>
     </message>
     <message>
         <source>sqr. feet</source>
-        <translation type="unfinished"/>
+        <translation>кв. футы</translation>
     </message>
     <message>
         <source>sqr. yards</source>
-        <translation type="unfinished"/>
+        <translation>кв. ярды</translation>
     </message>
     <message>
         <source>sqr. miles</source>
-        <translation type="unfinished"/>
+        <translation>кв. мили</translation>
     </message>
     <message>
         <source>hectares</source>
-        <translation type="unfinished"/>
+        <translation>гектары</translation>
     </message>
     <message>
         <source>acres</source>
-        <translation type="unfinished"/>
+        <translation>акры</translation>
     </message>
     <message>
         <source>sqr. nautical miles</source>
@@ -5223,15 +5223,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>sqr. centimeters</source>
-        <translation type="unfinished"/>
+        <translation>кв. сантиметры</translation>
     </message>
     <message>
         <source>sqr. millimeters</source>
-        <translation type="unfinished"/>
+        <translation>кв. миллиметры</translation>
     </message>
     <message>
         <source>sqr. inches</source>
-        <translation type="unfinished"/>
+        <translation>кв. дюймы</translation>
     </message>
 </context>
 <context>
@@ -5887,7 +5887,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Разблокируйте экран, чтобы закрыть проект и приложение</translation>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
@@ -5903,11 +5903,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Отменить</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Повторить</translation>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
@@ -5915,15 +5915,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Snapping to every</source>
-        <translation type="unfinished"/>
+        <translation>Прилипать ко всем</translation>
     </message>
     <message>
         <source>%1°</source>
-        <translation type="unfinished"/>
+        <translation>%1°</translation>
     </message>
     <message>
         <source>Snapping tolerance</source>
-        <translation type="unfinished"/>
+        <translation>Допуск прилипания</translation>
     </message>
     <message>
         <source>Narrow</source>
@@ -5939,15 +5939,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Snapping tolerance set to %1</source>
-        <translation type="unfinished"/>
+        <translation>Допуск прилипания установлен %1</translation>
     </message>
     <message>
         <source>Import Confirmation</source>
-        <translation type="unfinished"/>
+        <translation>Подтверждение импорта</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation type="unfinished"/>
+        <translation>Вы хотите импортировать &lt;b&gt;%1&lt;/b&gt; из &lt;b&gt;%2&lt;/b&gt; в QField?</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
@@ -5955,7 +5955,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unlock</source>
-        <translation type="unfinished"/>
+        <translation>Разблокировать</translation>
     </message>
     <message>
         <source> Project Plugin</source>
@@ -5971,15 +5971,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to create feature</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось создать объект</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось создать объект, так как  право добавления объектов отключено</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось сохранить объект</translation>
     </message>
     <message>
         <source>Digitizing toggle</source>
@@ -5991,11 +5991,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Measurement</source>
-        <translation type="unfinished"/>
+        <translation>Измерение</translation>
     </message>
     <message>
         <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Переключение инструмента измерения с расстояний на площади на карте.</translation>
     </message>
     <message>
         <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
@@ -6011,7 +6011,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project folder</source>
-        <translation type="unfinished"/>
+        <translation>Каталог проекта</translation>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
@@ -6019,7 +6019,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>Легенда</translation>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
@@ -6027,27 +6027,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Feature</source>
-        <translation type="unfinished"/>
+        <translation>Копировать объект</translation>
     </message>
     <message>
         <source>Cut Feature</source>
-        <translation type="unfinished"/>
+        <translation>Вырезать объект</translation>
     </message>
     <message>
         <source>Feature pasted successfully</source>
-        <translation type="unfinished"/>
+        <translation>Объект вставлен успешно</translation>
     </message>
     <message>
         <source>Failed to paste feature into layer</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось вставить объект в слой</translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
-        <translation type="unfinished"/>
+        <translation>Вставить в слой</translation>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
-        <translation type="unfinished"/>
+        <translation>Редактирование мультигеометрий пока не поддерживается.</translation>
     </message>
 </context>
 <context>
