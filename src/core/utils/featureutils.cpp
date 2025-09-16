@@ -113,3 +113,8 @@ QList<QgsFeature> FeatureUtils::featuresFromJsonString( const QString &string )
   const QgsFields fields = QgsJsonUtils::stringToFields( string );
   return QgsJsonUtils::stringToFeatureList( string, fields );
 }
+
+QgsField FeatureUtils::createField( const QString &name, FieldType type, const QString &typeName, int length, int precision, const QString &comment )
+{
+  return QgsField( name, static_cast<QMetaType::Type>( type ), typeName, length, precision, comment );
+}
