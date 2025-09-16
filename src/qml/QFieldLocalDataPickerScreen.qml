@@ -481,7 +481,7 @@ Page {
 
       MenuItem {
         id: pushDatasetToCloud
-        enabled: (itemMenu.itemMetaType == LocalFilesModel.Dataset && itemMenu.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (itemMenu.itemMetaType == LocalFilesModel.Folder && itemMenu.itemWithinQFieldCloudProjectFolder)
+        enabled: (itemMenu.itemMetaType == LocalFilesModel.File) || (itemMenu.itemMetaType == LocalFilesModel.Dataset && itemMenu.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (itemMenu.itemMetaType == LocalFilesModel.Folder && itemMenu.itemWithinQFieldCloudProjectFolder)
         visible: enabled
 
         font: Theme.defaultFont
@@ -491,9 +491,12 @@ Page {
 
         text: qsTr("Push to QFieldCloud")
         onTriggered: {
-          QFieldCloudUtils.addPendingAttachments(projectInfo.cloudUserInformation.username, cloudProjectsModel.currentProjectId, [itemMenu.itemPath], cloudConnection, true);
-          platformUtilities.uploadPendingAttachments(cloudConnection);
-          displayToast(qsTr("‘%1’ is being uploaded to QFieldCloud").arg(FileUtils.fileName(itemMenu.itemPath)));
+          QFieldCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, cloudProjectsModel.currentProjectId, [itemMenu.itemPath], cloudConnection, true);
+          cloudConnection.onAllAttachmentsWritten.connect(function handler() {
+              platformUtilities.uploadPendingAttachments(cloudConnection);
+              displayToast(qsTr("‘%1’ is being uploaded to QFieldCloud").arg(FileUtils.fileName(itemMenu.itemPath)));
+              cloudConnection.onAllAttachmentsWritten.disconnect(handler);
+            });
         }
       }
 
