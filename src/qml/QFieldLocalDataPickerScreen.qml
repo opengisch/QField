@@ -882,9 +882,12 @@ Page {
             }
           }
           if (fileNames.length > 0) {
-            QFieldCloudUtils.addPendingAttachments(projectInfo.cloudUserInformation.username, cloudProjectsModel.currentProjectId, fileNames, cloudConnection, true);
-            platformUtilities.uploadPendingAttachments(cloudConnection);
-            localFilesModel.clearSelection();
+            QFieldCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, cloudProjectsModel.currentProjectId, fileNames, cloudConnection, true);
+            cloudConnection.onAllAttachmentsWritten.connect(function handler() {
+                platformUtilities.uploadPendingAttachments(cloudConnection);
+                localFilesModel.clearSelection();
+                cloudConnection.onAllAttachmentsWritten.disconnect(handler);
+              });
           } else {
             displayToast(qsTr("Please select one or more files to push to QFieldCloud."));
           }
