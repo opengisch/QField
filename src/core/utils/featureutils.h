@@ -36,6 +36,7 @@ class QFIELD_CORE_EXPORT FeatureUtils : public QObject
   public:
     enum FieldType
     {
+      Bool = QMetaType::Type::Bool,
       Int = QMetaType::Type::Int,
       String = QMetaType::Type::QString,
       Double = QMetaType::Type::Double,
