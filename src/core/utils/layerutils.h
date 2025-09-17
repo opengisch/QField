@@ -101,14 +101,29 @@ class LayerUtils : public QObject
     */
     static QgsSymbol *defaultSymbol( QgsVectorLayer *layer );
 
+    /**
+     * Sets the default symbology render for a given \a layer.
+     */
     static void setDefaultRenderer( QgsVectorLayer *layer, QgsProject *project = nullptr );
 
+    /**
+     * Returns the default vector layer labeling for a given \a layer and \a textFormat.
+     */
     static QgsAbstractVectorLayerLabeling *defaultLabeling( QgsVectorLayer *layer, QgsTextFormat textFormat = QgsTextFormat() );
 
+    /**
+     * Sets the default labeling for a given \a layer.
+     */
     static void setDefaultLabeling( QgsVectorLayer *layer, QgsProject *project = nullptr );
 
+    /**
+     * Creats an online raster elevation layer.
+     */
     static QgsRasterLayer *createOnlineElevationLayer();
 
+    /**
+     * Creates an online basemap layer.
+     */
     static QgsMapLayer *createBasemap( const QString &style = QString() );
 
     /**
