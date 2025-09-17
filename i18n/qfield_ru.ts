@@ -715,11 +715,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to start egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось стартовать сервер egeniouss.</translation>
     </message>
     <message>
         <source>Failed to stop egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось остановить сервер egeniouss.</translation>
     </message>
 </context>
 <context>
@@ -900,51 +900,51 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Отменить создание %n объекта в слое %1.</numerusform><numerusform>Отменить создание %n объектов в слое %1.</numerusform><numerusform>Отменить создание %n объектов в слое %1.</numerusform><numerusform>Отменить создание %n объектов в слое %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Отменить создание %n объекта.</numerusform><numerusform>Отменить создание %n объектов.</numerusform><numerusform>Отменить создание %n объектов.</numerusform><numerusform>Отменить создание %n объектов.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Отменить удаление %n объекта в слое %1.</numerusform><numerusform>Отменить удаление %n объектов в слое %1.</numerusform><numerusform>Отменить удаление %n объектов в слое %1.</numerusform><numerusform>Отменить удаление %n объектов в слое %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Отменить удаление %n объекта.</numerusform><numerusform>Отменить удаление %n объектов.</numerusform><numerusform>Отменить удаление %n feature(s).</numerusform><numerusform>Отменить удаление %n объектов.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Отменить изменения %n объекта в слое %1.</numerusform><numerusform>Отменить изменения %n объектов в слое %1.</numerusform><numerusform>Отменить изменения %n объектов в слое %1.</numerusform><numerusform>Отменить изменения %n объектов в слое %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Отменить изменения %n объекта.</numerusform><numerusform>Отменить изменения %n объектов.</numerusform><numerusform>Отменить изменения %n объектов.</numerusform><numerusform>Отменить изменения %n объектов.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Вернуть создание %n объекта в слое %1</numerusform><numerusform>Вернуть создание %n объектов в слое %1</numerusform><numerusform>Вернуть создание %n объектов в слое %1</numerusform><numerusform>Вернуть создание %n объектов в слое %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Вернуть создание %n объекта</numerusform><numerusform>Вернуть создание %n объектов</numerusform><numerusform>Вернуть создание %n объектов</numerusform><numerusform>Вернуть создание %n объектов</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Вернуть удаление %n объекта в слое %1</numerusform><numerusform>Вернуть удаление %n объектов в слое %1</numerusform><numerusform>Вернуть удаление %n объектов в слое %1</numerusform><numerusform>Вернуть удаление %n объектов в слое %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Вернуть удаление %n объекта</numerusform><numerusform>Вернуть удаление %n объектов</numerusform><numerusform>Вернуть удаление %n объектов</numerusform><numerusform>Вернуть удаление %n объектов</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Вернуть изменения %n объекта в слое %1</numerusform><numerusform>Вернуть изменения %n объектов в слое %1</numerusform><numerusform>Вернуть изменения %n объектов в слое %1</numerusform><numerusform>Вернуть изменения %n объектов в слое %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Вернуть изменения %n объекта</numerusform><numerusform>Вернуть изменения %n объектов</numerusform><numerusform>Вернуть изменения %n объектов</numerusform><numerusform>Вернуть изменения %n объектов</numerusform></translation>
     </message>
 </context>
 <context>
@@ -1142,7 +1142,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Interval (in milliseconds)</source>
-        <translation type="unfinished"/>
+        <translation>Интервал (в мс)</translation>
     </message>
 </context>
 <context>
@@ -1961,7 +1961,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The dataset will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>Данные будут удалены. Продолжить?</translation>
     </message>
     <message>
         <source>The project folder will be deleted, proceed with removal?</source>
@@ -2187,7 +2187,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Connection type</source>
-        <translation type="unfinished"/>
+        <translation>Тип соединения</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2195,11 +2195,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source> (leave empty to auto-fill)</source>
-        <translation type="unfinished"/>
+        <translation> (оставить пустым для автозаполнения)</translation>
     </message>
     <message>
         <source>Connection details</source>
-        <translation type="unfinished"/>
+        <translation>Детали соединения</translation>
     </message>
     <message>
         <source>Logs file (NMEA)</source>
@@ -2599,7 +2599,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Sign in using %1</source>
-        <translation type="unfinished"/>
+        <translation>Войти, используя %1</translation>
     </message>
 </context>
 <context>
@@ -3427,7 +3427,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove folder</source>
-        <translation type="unfinished"/>
+        <translation>Удалить каталог</translation>
     </message>
     <message>
         <source>Import WebDAV folder</source>
@@ -3467,11 +3467,12 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>Вы готовы загрузить измененные данные на &lt;b&gt;%1&lt;/b&gt; как пользователь &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;.
+Вы готовы загрузить измененные данные на , как пользователь. Это действие перепишет дистанционные данные. Убедитесь, что это требуемые действия.</translation>
     </message>
     <message>
         <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>Вы готовы скачать измененные данные с &lt;b&gt;%1&lt;/b&gt; как пользователь &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;. Это действие перепишет локальные данные. Убедитесь, что это требуемые действия.</translation>
     </message>
     <message>
         <source>Password (leave empty to use remembered)</source>
@@ -3519,11 +3520,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push file(s) to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Отправить файл(ы) в QFieldCloud</translation>
     </message>
     <message>
         <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Выберите один или несколько файлов для отправки в  QFieldCloud.</translation>
     </message>
     <message>
         <source>Confirm</source>
@@ -3535,11 +3536,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>root folder</source>
-        <translation type="unfinished"/>
+        <translation>корневой каталог</translation>
     </message>
     <message>
         <source>Available locally in ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Доступен локально в ‘%1’</translation>
     </message>
     <message>
         <source>Imported folder name</source>
@@ -3550,7 +3551,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldPositioningService</name>
     <message>
         <source>Positioning service running</source>
-        <translation type="unfinished"/>
+        <translation>Сервис позиционирования работает</translation>
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
@@ -3558,7 +3559,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Positioning service stopped</source>
-        <translation type="unfinished"/>
+        <translation>Сервис позиционирования остановлен</translation>
     </message>
 </context>
 <context>
@@ -4476,7 +4477,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n объект</numerusform><numerusform>%n объекта</numerusform><numerusform>%n объектов</numerusform><numerusform>%n объектов</numerusform></translation>
     </message>
 </context>
 <context>
@@ -5983,11 +5984,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Digitizing toggle</source>
-        <translation type="unfinished"/>
+        <translation>Режим цифрования</translation>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation type="unfinished"/>
+        <translation>Переключение между режимом обзора и цифрования. В режиме обзора можно смотреть карту и ее объекты, в режиме цифрования - создавать объекты и изменять геометрию.</translation>
     </message>
     <message>
         <source>Measurement</source>
