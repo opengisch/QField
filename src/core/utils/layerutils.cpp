@@ -55,7 +55,7 @@ void LayerUtils::setDefaultRenderer( QgsVectorLayer *layer, QgsProject *project 
     return;
 
   bool hasSymbol = true;
-  Qgis::SymbolType symbolType;
+  Qgis::SymbolType symbolType = Qgis::SymbolType::Marker;
   switch ( layer->geometryType() )
   {
     case Qgis::GeometryType::Point:
@@ -68,9 +68,8 @@ void LayerUtils::setDefaultRenderer( QgsVectorLayer *layer, QgsProject *project 
       symbolType = Qgis::SymbolType::Fill;
       break;
     case Qgis::GeometryType::Unknown:
-      hasSymbol = false;
-      break;
     case Qgis::GeometryType::Null:
+    default:
       hasSymbol = false;
       break;
   }
