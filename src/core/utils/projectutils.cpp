@@ -107,40 +107,60 @@ QString ProjectUtils::createProject( const QVariantMap &options )
     fields = notesLayer->fields();
     LayerUtils::setDefaultRenderer( notesLayer );
 
+    int fieldIndex;
     QVariantMap widgetOptions;
     QgsEditorWidgetSetup widgetSetup;
 
     // Configure fid field
-    widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), widgetOptions );
-    notesLayer->setEditorWidgetSetup( fields.indexOf( QStringLiteral( "fid" ) ), widgetSetup );
+    fieldIndex = fields.indexOf( QStringLiteral( "fid" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), widgetOptions );
+      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+    }
 
     // Configure time field
-    widgetOptions.clear();
-    widgetOptions[QStringLiteral( "display_format" )] = QStringLiteral( "yyyy-MM-dd HH:mm" );
-    widgetOptions[QStringLiteral( "field_format" )] = QStringLiteral( "yyyy-MM-dd HH:mm" );
-    widgetOptions[QStringLiteral( "field_format_overwrite" )] = true;
-    widgetOptions[QStringLiteral( "allow_null" )] = true;
-    widgetOptions[QStringLiteral( "calendar_popup" )] = true;
-    widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), widgetOptions );
-    notesLayer->setEditorWidgetSetup( fields.indexOf( QStringLiteral( "time" ) ), widgetSetup );
-    notesLayer->setDefaultValueDefinition( fields.indexOf( QStringLiteral( "time" ) ), QgsDefaultValue( QStringLiteral( "now()" ), false ) );
+    fieldIndex = fields.indexOf( QStringLiteral( "time" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( "display_format" )] = QStringLiteral( "yyyy-MM-dd HH:mm" );
+      widgetOptions[QStringLiteral( "field_format" )] = QStringLiteral( "yyyy-MM-dd HH:mm" );
+      widgetOptions[QStringLiteral( "field_format_overwrite" )] = true;
+      widgetOptions[QStringLiteral( "allow_null" )] = true;
+      widgetOptions[QStringLiteral( "calendar_popup" )] = true;
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), widgetOptions );
+      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "now()" ), false ) );
+      notesLayer->setFieldAlias( fieldIndex, tr( "Time" ) );
+    }
 
     // Configure note field
-    widgetOptions.clear();
-    widgetOptions[QStringLiteral( "IsMultiline" )] = true;
-    widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
-    notesLayer->setEditorWidgetSetup( fields.indexOf( QStringLiteral( "note" ) ), widgetSetup );
+    fieldIndex = fields.indexOf( QStringLiteral( "note" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( "IsMultiline" )] = true;
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
+      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer->setFieldAlias( fieldIndex, tr( "Note" ) );
+    }
 
     if ( options.value( QStringLiteral( "camera_capture" ) ).toBool() )
     {
       // Configure camera field
-      widgetOptions.clear();
-      widgetOptions[QStringLiteral( "DocumentViewer" )] = 1;
-      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;
-      widgetOptions[QStringLiteral( "FileWidget" )] = true;
-      widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
-      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
-      notesLayer->setEditorWidgetSetup( fields.indexOf( QStringLiteral( "camera" ) ), widgetSetup );
+      fieldIndex = fields.indexOf( QStringLiteral( "camera" ) );
+      if ( fieldIndex >= 0 )
+      {
+        widgetOptions.clear();
+        widgetOptions[QStringLiteral( "DocumentViewer" )] = 1;
+        widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;
+        widgetOptions[QStringLiteral( "FileWidget" )] = true;
+        widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
+        widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
+        notesLayer->setEditorWidgetSetup( fields.indexOf( QStringLiteral( "camera" ) ), widgetSetup );
+        notesLayer->setFieldAlias( fieldIndex, tr( "Camera" ) );
+      }
     }
 
     // Insure the layer is ready cloud-friendly
@@ -166,23 +186,33 @@ QString ProjectUtils::createProject( const QVariantMap &options )
     fields = tracksLayer->fields();
     LayerUtils::setDefaultRenderer( tracksLayer );
 
+    int fieldIndex;
     QVariantMap widgetOptions;
     QgsEditorWidgetSetup widgetSetup;
 
     // Configure fid field
-    widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), widgetOptions );
-    tracksLayer->setEditorWidgetSetup( fields.indexOf( QStringLiteral( "fid" ) ), widgetSetup );
+    fieldIndex = fields.indexOf( QStringLiteral( "fid" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), widgetOptions );
+      tracksLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+    }
 
     // Configure time field
-    widgetOptions.clear();
-    widgetOptions[QStringLiteral( "display_format" )] = QStringLiteral( "yyyy-MM-dd HH:mm" );
-    widgetOptions[QStringLiteral( "field_format" )] = QStringLiteral( "yyyy-MM-dd HH:mm" );
-    widgetOptions[QStringLiteral( "field_format_overwrite" )] = true;
-    widgetOptions[QStringLiteral( "allow_null" )] = true;
-    widgetOptions[QStringLiteral( "calendar_popup" )] = true;
-    widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), widgetOptions );
-    tracksLayer->setEditorWidgetSetup( fields.indexOf( QStringLiteral( "time" ) ), widgetSetup );
-    tracksLayer->setDefaultValueDefinition( fields.indexOf( QStringLiteral( "time" ) ), QgsDefaultValue( QStringLiteral( "now()" ), false ) );
+    fieldIndex = fields.indexOf( QStringLiteral( "time" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( "display_format" )] = QStringLiteral( "yyyy-MM-dd HH:mm" );
+      widgetOptions[QStringLiteral( "field_format" )] = QStringLiteral( "yyyy-MM-dd HH:mm" );
+      widgetOptions[QStringLiteral( "field_format_overwrite" )] = true;
+      widgetOptions[QStringLiteral( "allow_null" )] = true;
+      widgetOptions[QStringLiteral( "calendar_popup" )] = true;
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), widgetOptions );
+      tracksLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      tracksLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "now()" ), false ) );
+      tracksLayer->setFieldAlias( fieldIndex, tr( "Time" ) );
+    }
 
     // Skip feature form when launching tracks
     QgsEditFormConfig formConfig = tracksLayer->editFormConfig();
