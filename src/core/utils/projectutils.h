@@ -50,6 +50,15 @@ class ProjectUtils : public QObject
 
     /**
      * Creates a new project and return the local path of the project file.
+     *
+     * The available \a options are:
+     * - title: the project title
+     * - basemap: the basemap type (color, lightgray, darkgray, custom, blank)
+     * - basemap_url: a custom basemap URL (XYZ raster layer or vector tile layer style JSON)
+     * - notes: set to TRUE to add a notes layer
+     * - camera_capture: set to TRUE to add an image/video capture field to the notes layer
+     * - tracks: set to TRUE to add a tracks layer
+     * - track_on_launch: set to TRUE to start tracking position on project launch
      */
     Q_INVOKABLE static QString createProject( const QVariantMap &options );
 };
