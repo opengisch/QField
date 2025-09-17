@@ -662,7 +662,7 @@ Page {
 
           QfToolButton {
             id: rememberButton
-            visible: form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
+            visible: CanRememberValue && form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
             width: visible ? 48 : 0
 
             iconSource: Theme.getThemeVectorIcon("ic_pin_black_24dp")
@@ -827,6 +827,7 @@ Page {
         id: titleLabel
         Layout.fillWidth: true
         Layout.preferredHeight: parent.height
+        Layout.leftMargin: 48
         objectName: "titleLabel"
 
         font: Theme.strongFont
@@ -836,7 +837,7 @@ Page {
           const featureModel = model.featureModel;
           var currentLayer = featureModel ? featureModel.currentLayer : null;
           var layerName = 'N/A';
-          if (currentLayer != null)
+          if (currentLayer !== null)
             layerName = currentLayer.name;
           if (form.state === 'Add')
             qsTr('Add feature on %1').arg(layerName);
@@ -924,6 +925,52 @@ Page {
           }
         }
       }
+
+      QfToolButton {
+        id: menuButton
+
+        Layout.alignment: Qt.AlignTop | Qt.AlignRight
+
+        width: 49
+        height: 48
+        clip: true
+        visible: !setupOnly
+
+        iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+        iconColor: Theme.mainOverlayColor
+
+        onClicked: {
+          featureFormMenu.popup(menuButton.x + menuButton.width - featureFormMenu.width, menuButton.y);
+        }
+      }
+    }
+  }
+
+  QfMenu {
+    id: featureFormMenu
+    title: qsTr("Feature Form Menu")
+
+    topMargin: mainWindow.sceneTopMargin
+    bottomMargin: mainWindow.sceneBottomMargin
+
+    MenuItem {
+      text: qsTr('Remember all reusable values')
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+
+      onTriggered: form.model.activateAllRememberValues()
+    }
+
+    MenuItem {
+      text: qsTr('Forget all reusable values')
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+
+      onTriggered: form.model.deactivateAllRememberValues()
     }
   }
 
