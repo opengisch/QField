@@ -19,6 +19,7 @@
 #include <QScopeGuard>
 #include <qgsfillsymbol.h>
 #include <qgsfillsymbollayer.h>
+#include <qgshuesaturationfilter.h>
 #include <qgslabelobstaclesettings.h>
 #include <qgslayoutatlas.h>
 #include <qgslayoutmanager.h>
@@ -31,6 +32,7 @@
 #include <qgspallabeling.h>
 #include <qgsprintlayout.h>
 #include <qgsproject.h>
+#include <qgsprojectstylesettings.h>
 #include <qgsrasterlayer.h>
 #include <qgsrasterlayerelevationproperties.h>
 #include <qgssinglesymbolrenderer.h>
@@ -45,6 +47,43 @@
 LayerUtils::LayerUtils( QObject *parent )
   : QObject( parent )
 {
+}
+
+void LayerUtils::setDefaultRenderer( QgsVectorLayer *layer, QgsProject *project )
+{
+  if ( !layer )
+    return;
+
+  bool hasSymbol = true;
+  Qgis::SymbolType symbolType;
+  switch ( layer->geometryType() )
+  {
+    case Qgis::GeometryType::Point:
+      symbolType = Qgis::SymbolType::Marker;
+      break;
+    case Qgis::GeometryType::Line:
+      symbolType = Qgis::SymbolType::Line;
+      break;
+    case Qgis::GeometryType::Polygon:
+      symbolType = Qgis::SymbolType::Fill;
+      break;
+    case Qgis::GeometryType::Unknown:
+      hasSymbol = false;
+      break;
+    case Qgis::GeometryType::Null:
+      hasSymbol = false;
+      break;
+  }
+
+  QgsSymbol *symbol = project ? project->styleSettings()->defaultSymbol( symbolType ) : nullptr;
+  ;
+  if ( !symbol )
+  {
+    symbol = LayerUtils::defaultSymbol( layer );
+  }
+
+  QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
+  layer->setRenderer( renderer );
 }
 
 QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
@@ -87,6 +126,17 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
       break;
   }
   return symbol;
+}
+
+void LayerUtils::setDefaultLabeling( QgsVectorLayer *layer, QgsProject *project )
+{
+  QgsTextFormat textFormat = project ? project->styleSettings()->defaultTextFormat() : QgsTextFormat();
+  QgsAbstractVectorLayerLabeling *labeling = LayerUtils::defaultLabeling( layer, textFormat );
+  if ( labeling )
+  {
+    layer->setLabeling( labeling );
+    layer->setLabelsEnabled( layer->geometryType() == Qgis::GeometryType::Point );
+  }
 }
 
 QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *layer, QgsTextFormat textFormat )
@@ -163,6 +213,27 @@ QgsRasterLayer *LayerUtils::createOnlineElevationLayer()
   elevationProperties->setEnabled( true );
   elevationProperties->setProfileSymbology( Qgis::ProfileSurfaceSymbology::FillBelow );
   elevationProperties->profileFillSymbol()->setColor( QColor( 130, 130, 130 ) );
+  return layer;
+}
+
+QgsMapLayer *LayerUtils::createBasemap( const QString &style )
+{
+  QgsRasterLayer *layer = nullptr;
+  if ( style.compare( QStringLiteral( "lightgray" ) ) == 0 )
+  {
+    layer = new QgsRasterLayer( OPENSTREETMAP_URL, QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
+    layer->hueSaturationFilter()->setGrayscaleMode( QgsHueSaturationFilter::GrayscaleLightness );
+  }
+  else if ( style.compare( QStringLiteral( "darkgray" ) ) == 0 )
+  {
+    layer = new QgsRasterLayer( OPENSTREETMAP_URL, QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
+    layer->hueSaturationFilter()->setGrayscaleMode( QgsHueSaturationFilter::GrayscaleLightness );
+    layer->hueSaturationFilter()->setInvertColors( true );
+  }
+  else
+  {
+    layer = new QgsRasterLayer( OPENSTREETMAP_URL, QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
+  }
   return layer;
 }
 

@@ -27,6 +27,8 @@ class QgsVectorLayer;
 class QgsRasterLayer;
 class QgsSymbol;
 
+#define OPENSTREETMAP_URL QStringLiteral( "type=xyz&tilePixelRatio=1&url=https://tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&zmin=0&crs=EPSG3857" )
+
 /**
  * A class providing a feature iterator interface to be used within QML/javascript environment.
  *
@@ -99,9 +101,15 @@ class LayerUtils : public QObject
     */
     static QgsSymbol *defaultSymbol( QgsVectorLayer *layer );
 
+    static void setDefaultRenderer( QgsVectorLayer *layer, QgsProject *project = nullptr );
+
     static QgsAbstractVectorLayerLabeling *defaultLabeling( QgsVectorLayer *layer, QgsTextFormat textFormat = QgsTextFormat() );
 
+    static void setDefaultLabeling( QgsVectorLayer *layer, QgsProject *project = nullptr );
+
     static QgsRasterLayer *createOnlineElevationLayer();
+
+    static QgsMapLayer *createBasemap( const QString &style = QString() );
 
     /**
     * Returns TRUE if the vector layer is used as an atlas coverage layer in

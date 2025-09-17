@@ -1036,8 +1036,7 @@ void QgisMobileapp::readProjectFile()
           mProject->clear();
 
           // Add a default basemap
-          QgsRasterLayer *layer = new QgsRasterLayer( QStringLiteral( "type=xyz&tilePixelRatio=1&url=https://tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&zmin=0&crs=EPSG3857" ), QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
-          mProject->addMapLayers( QList<QgsMapLayer *>() << layer );
+          mProject->addMapLayers( QList<QgsMapLayer *>() << LayerUtils::createBasemap() );
         }
       }
 
@@ -1080,46 +1079,12 @@ void QgisMobileapp::readProjectFile()
       vlayer->loadDefaultStyle( ok );
       if ( !ok )
       {
-        bool hasSymbol = true;
-        Qgis::SymbolType symbolType;
-        switch ( vlayer->geometryType() )
-        {
-          case Qgis::GeometryType::Point:
-            symbolType = Qgis::SymbolType::Marker;
-            break;
-          case Qgis::GeometryType::Line:
-            symbolType = Qgis::SymbolType::Line;
-            break;
-          case Qgis::GeometryType::Polygon:
-            symbolType = Qgis::SymbolType::Fill;
-            break;
-          case Qgis::GeometryType::Unknown:
-            hasSymbol = false;
-            break;
-          case Qgis::GeometryType::Null:
-            hasSymbol = false;
-            break;
-        }
-
-        if ( hasSymbol )
-        {
-          QgsSymbol *symbol = mProject->styleSettings()->defaultSymbol( symbolType );
-          if ( !symbol )
-            symbol = LayerUtils::defaultSymbol( vlayer );
-          QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
-          vlayer->setRenderer( renderer );
-        }
+        LayerUtils::setDefaultRenderer( vlayer, mProject );
       }
 
       if ( !vlayer->labeling() )
       {
-        QgsTextFormat textFormat = mProject->styleSettings()->defaultTextFormat();
-        QgsAbstractVectorLayerLabeling *labeling = LayerUtils::defaultLabeling( vlayer, textFormat );
-        if ( labeling )
-        {
-          vlayer->setLabeling( labeling );
-          vlayer->setLabelsEnabled( vlayer->geometryType() == Qgis::GeometryType::Point );
-        }
+        LayerUtils::setDefaultLabeling( vlayer, mProject );
       }
 
       const QgsFields fields = vlayer->fields();

@@ -47,6 +47,11 @@ class ProjectUtils : public QObject
      * Returns the \a project title.
      */
     Q_INVOKABLE static QString title( QgsProject *project = nullptr );
+
+    /**
+     * Creates a new project and return the local path of the project file.
+     */
+    Q_INVOKABLE static QString createProject( const QVariantMap &options );
 };
 
 #endif // PROJECTUTILS_H

@@ -969,6 +969,15 @@ Page {
   }
 
   Component.onCompleted: {
+    console.log(ProjectUtils.createProject({
+          "title": "blah blah blah",
+          "basemap": "custom",
+          "basemap_url": "https://vector.openstreetmap.org/demo/shortbread/colorful.json",
+          "notes": true,
+          "camera_capture": true,
+          "tracks": true,
+          "track_on_launch": true
+        }));
     adjustWelcomeScreen();
     var runCount = settings.value("/QField/RunCount", 0) * 1;
     var feedbackFormShown = settings.value("/QField/FeedbackFormShown", false);
