@@ -75,8 +75,12 @@ void LayerUtils::setDefaultRenderer( QgsVectorLayer *layer, QgsProject *project 
       break;
   }
 
+  if ( !hasSymbol )
+  {
+    return;
+  }
+
   QgsSymbol *symbol = project ? project->styleSettings()->defaultSymbol( symbolType ) : nullptr;
-  ;
   if ( !symbol )
   {
     symbol = LayerUtils::defaultSymbol( layer );
@@ -91,7 +95,9 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
   QgsSymbol *symbol = nullptr;
 
   if ( !layer )
+  {
     return symbol;
+  }
 
   QgsSymbolLayerList symbolLayers;
   switch ( layer->geometryType() )
@@ -144,12 +150,16 @@ QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *lay
   QgsAbstractVectorLayerLabeling *labeling = nullptr;
 
   if ( !layer )
+  {
     return labeling;
+  }
 
   bool foundFriendlyIdentifier = true;
   QString fieldName = QgsVectorLayerUtils::guessFriendlyIdentifierField( layer->fields(), &foundFriendlyIdentifier );
   if ( !foundFriendlyIdentifier )
+  {
     return labeling;
+  }
 
   QgsPalLayerSettings settings;
   settings.fieldName = fieldName;

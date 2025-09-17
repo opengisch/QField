@@ -300,6 +300,12 @@ QString ProjectUtils::createProject( const QVariantMap &options )
     createdProject->setCrs( basemapLayer->crs() );
   }
 
+  // Insure attachment directories are populated in preparation for cloud project
+  createdProject->writeEntry( QStringLiteral( "QFieldSync" ), QStringLiteral( "attachmentDirs" ), QStringList() << "DCIM"
+                                                                                                                << "audio"
+                                                                                                                << "video"
+                                                                                                                << "files" );
+
   createdProject->addMapLayers( createdProjectLayers );
 
   connect( createdProject, &QgsProject::writeProject, [createdProject, basemapLayer]( QDomDocument &document ) {
