@@ -75,6 +75,7 @@ QString ProjectUtils::createProject( const QVariantMap &options )
   {
     createdProjectDir = QStringLiteral( "%1_%2" ).arg( createdProjectsDir.filePath( projectFilename ), QString::number( uniqueSuffix++ ) );
   }
+  createdProjectDir = QDir::cleanPath( createdProjectDir );
   createdProjectsDir.mkpath( createdProjectDir );
   const QString projectFilepath = QStringLiteral( "%1/%2.qgz" ).arg( createdProjectDir, projectFilename );
 
