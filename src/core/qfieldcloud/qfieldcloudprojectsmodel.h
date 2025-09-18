@@ -94,7 +94,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       FetchPublicProjects = QNetworkRequest::User + 1,
       ProjectsFetchOffset = QNetworkRequest::User + 2,
       ResetModel = QNetworkRequest::User + 3,
-      ProjectId = QNetworkRequest::User + 4
+      ProjectId = QNetworkRequest::User + 4,
+      LocalPath = QNetworkRequest::User + 5,
     };
 
     Q_ENUM( ColumnRole )
@@ -187,6 +188,15 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Fetches a cloud project for a given \a projectId and appends it to the model.
     Q_INVOKABLE void appendProject( const QString &projectId );
 
+    /**
+     * Transform a locally-stored project into a cloud project by uploading its content to the
+     * QFieldCloud server.
+     *
+     * The converted project will then be removed from the local storage in favor of a newly packaged
+     * cloud project downloaded from the server.
+     */
+    Q_INVOKABLE void createProject( const QString name, const QString &projectPath );
+
   signals:
     void cloudConnectionChanged();
     void layerObserverChanged();
@@ -197,17 +207,21 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void gpkgFlusherChanged();
     void warning( const QString &message );
 
+    void projectCreated( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
     void projectAppended( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
     void projectDownloaded( const QString &projectId, const QString &projectName, const bool hasError = false, const QString &errorString = QString() );
     void pushFinished( const QString &projectId, bool isDownloadingProject, bool hasError = false, const QString &errorString = QString() );
 
     void deltaListModelChanged();
 
+    void projectUploaded( const QString &projectId );
+
   private slots:
     void connectionStatusChanged();
     void usernameChanged();
     void projectListReceived();
     void projectReceived();
+    void projectCreationReceived();
 
     void layerObserverLayerEdited( const QString &layerId );
 

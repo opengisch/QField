@@ -971,6 +971,124 @@ void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &projectP
   QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
 }
 
+void QFieldCloudProjectsModel::createProject( QString name, const QString &localPath )
+{
+  if ( name.isEmpty() && localPath.isEmpty() )
+  {
+    return;
+  }
+
+  if ( !localPath.isEmpty() )
+  {
+    QFileInfo projectFileInfo;
+    QDirIterator projectDirIterator( localPath, { "*.qgs", "*.qgz" }, QDir::Files, QDirIterator::Subdirectories );
+    while ( projectDirIterator.hasNext() )
+    {
+      qDebug() << projectDirIterator.next();
+      if ( projectFileInfo.exists() )
+      {
+        projectFileInfo = QFileInfo();
+        break;
+      }
+      projectFileInfo = projectDirIterator.fileInfo();
+    }
+
+    if ( !projectFileInfo.exists() )
+    {
+      emit projectCreated( QString(), true, tr( "Local path of project to be cloudify is invalid" ) );
+      return;
+    }
+
+    if ( name.isEmpty() )
+    {
+      name = projectFileInfo.completeBaseName();
+    }
+  }
+
+  name.replace( QRegularExpression( "[^A-Za-z0-9_]" ), QStringLiteral( "_" ) );
+
+  QString url = QStringLiteral( "/api/v1/projects/?owner=%1" ).arg( mUsername );
+  QNetworkRequest request( url );
+  request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  mCloudConnection->setAuthenticationDetails( request );
+
+  NetworkReply *listingreply = mCloudConnection->get( request, url );
+  connect( listingreply, &NetworkReply::finished, this, [this, name, localPath]() {
+    NetworkReply *reply = qobject_cast<NetworkReply *>( sender() );
+    QNetworkReply *rawReply = reply->currentRawReply();
+    Q_ASSERT( rawReply );
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      emit projectCreated( QString(), true, mCloudConnection->errorString( rawReply ) );
+      return;
+    }
+
+    QByteArray response = rawReply->readAll();
+    QJsonDocument doc = QJsonDocument::fromJson( response );
+    QJsonArray projects = doc.array();
+    QStringList projectNames;
+    for ( const auto project : projects )
+    {
+      QVariantHash projectDetails = project.toObject().toVariantHash();
+      projectNames << projectDetails.value( QStringLiteral( "name" ) ).toString().toLower();
+    }
+
+    int uniqueSuffix = 1;
+    QString finalizedName = name;
+    while ( projectNames.contains( finalizedName.toLower() ) )
+    {
+      finalizedName = QStringLiteral( "%1_%2" ).arg( name, QString::number( uniqueSuffix++ ) );
+    }
+
+    QString url = QStringLiteral( "/api/v1/projects/" );
+
+    QVariantMap params;
+    params.insert( QStringLiteral( "name" ), finalizedName );
+    params.insert( QStringLiteral( "owner" ), mUsername );
+    params.insert( QStringLiteral( "description" ), QString() );
+    params.insert( QStringLiteral( "private" ), true );
+
+    QNetworkRequest request;
+    request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::LocalPath ), localPath );
+
+    NetworkReply *creationReply = mCloudConnection->post( request, url, params );
+    connect( creationReply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectCreationReceived );
+  } );
+}
+
+void QFieldCloudProjectsModel::projectCreationReceived()
+{
+  NetworkReply *reply = qobject_cast<NetworkReply *>( sender() );
+  QNetworkReply *rawReply = reply->currentRawReply();
+  Q_ASSERT( rawReply );
+
+  if ( rawReply->error() != QNetworkReply::NoError )
+  {
+    emit projectCreated( QString(), true, mCloudConnection->errorString( rawReply ) );
+    return;
+  }
+
+  qDebug() << rawReply->readAll();
+
+  QByteArray response = rawReply->readAll();
+  QJsonParseError parseError;
+  QJsonDocument doc = QJsonDocument::fromJson( response, &parseError );
+  qDebug() << parseError.errorString();
+  QVariantHash projectDetails = doc.object().toVariantHash();
+  qDebug() << doc.object();
+  qDebug() << projectDetails;
+
+  QFieldCloudProject *cloudProject = QFieldCloudProject::fromDetails( projectDetails, mCloudConnection );
+  if ( cloudProject )
+  {
+    qDebug() << "project created!";
+    insertProjects( QList<QFieldCloudProject *>() << cloudProject );
+    emit projectCreated( cloudProject->id() );
+  }
+}
+
 // --
 
 QFieldCloudProjectsFilterModel::QFieldCloudProjectsFilterModel( QObject *parent )

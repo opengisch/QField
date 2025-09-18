@@ -1008,6 +1008,7 @@ Page {
     function onStatusChanged() {
       if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         prepareCloudScreen();
+        cloudProjectsModel.createProject("", "/home/webmaster/Documents/QField Documents/Created Projects/abc_pharma_2");
       } else if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
         if (table.count === 0) {
           projectsSwipeView.visible = false;

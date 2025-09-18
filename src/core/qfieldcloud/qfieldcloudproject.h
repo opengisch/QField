@@ -75,6 +75,34 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( bool projectFileIsOutdated READ projectFileIsOutdated NOTIFY projectFileIsOutdatedChanged )
 
   public:
+    struct FileTransfer
+    {
+        FileTransfer(
+          const QString &fileName,
+          const long long bytesTotal,
+          const QString &projectId,
+          const QString &etag )
+          : fileName( fileName ), bytesTotal( bytesTotal ), projectId( projectId ), etag( etag ) {};
+
+        FileTransfer() = default;
+
+        QString fileName;
+        long long bytesTotal;
+        QString projectId;
+
+        QString etag;
+        QString partialFilePath;
+        QString tmpFile;
+        long long bytesTransferred = 0;
+        bool isFinished = false;
+        QPointer<NetworkReply> networkReply;
+        QNetworkReply::NetworkError error = QNetworkReply::NoError;
+        int redirectsCount = 0;
+        QUrl lastRedirectUrl;
+        bool resumableDownload = true;
+        int retryCount = 0;
+    };
+
     //! Whether the project is busy or idle.
     enum class ProjectStatus
     {
@@ -313,6 +341,8 @@ class QFieldCloudProject : public QObject
     Q_INVOKABLE void downloadThumbnail();
     Q_INVOKABLE void downloadAttachment( const QString &fileName );
 
+    Q_INVOKABLE void uploadLocalPath( const QString &localPath );
+
     void packageAndDownload();
     void cancelDownload();
 
@@ -416,6 +446,8 @@ class QFieldCloudProject : public QObject
     void updateActiveFilesToDownload();
     void downloadFilesCompleted();
 
+    void uploadFiles();
+
     void startJob( JobType type );
 
     void getJobStatus( JobType type );
@@ -429,34 +461,6 @@ class QFieldCloudProject : public QObject
 
     bool moveDownloadedFilesToPermanentStorage();
     void logFailedDownload( const QString &fileKey, const QString &errorMessage, const QString &errorMessageDetail );
-
-    struct FileTransfer
-    {
-        FileTransfer(
-          const QString &fileName,
-          const long long bytesTotal,
-          const QString &projectId,
-          const QString &etag )
-          : fileName( fileName ), bytesTotal( bytesTotal ), projectId( projectId ), etag( etag ) {};
-
-        FileTransfer() = default;
-
-        QString fileName;
-        long long bytesTotal;
-        QString projectId;
-
-        QString etag;
-        QString partialFilePath;
-        QString tmpFile;
-        long long bytesTransferred = 0;
-        bool isFinished = false;
-        QPointer<NetworkReply> networkReply;
-        QNetworkReply::NetworkError error = QNetworkReply::NoError;
-        int redirectsCount = 0;
-        QUrl lastRedirectUrl;
-        bool resumableDownload = true;
-        int retryCount = 0;
-    };
 
     //! Tracks the job status (status, error etc) for a particular project. For now 1 project can have only 1 job of a type.
     struct Job
@@ -520,6 +524,14 @@ class QFieldCloudProject : public QObject
     int mDownloadBytesReceived = 0;
     double mDownloadProgress = 0.0;    // range from 0.0 to 1.0
     double mUploadDeltaProgress = 0.0; // range from 0.0 to 1.0
+
+    QString mUploadLocalPath;
+    QMap<QString, QFieldCloudProject::FileTransfer> mUploadFileTransfers;
+
+    int mUploadFilesFailed = 0;
+    int mUploadBytesTotal = 0;
+    int mUploadBytesReceived = 0;
+    double mUploadProgress = 0.0;
 
     int mDeltasCount = 0;
     DeltaListModel *mDeltaListModel = nullptr;

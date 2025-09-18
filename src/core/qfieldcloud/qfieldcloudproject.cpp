@@ -2225,3 +2225,112 @@ void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, cons
     project->mLocalPath.clear();
   }
 };
+
+void QFieldCloudProject::uploadLocalPath( const QString &localPath )
+{
+  QDir localDir( localPath );
+  if ( !localDir.exists() )
+  {
+    return;
+  }
+
+  mUploadFilesFailed = 0;
+  mUploadBytesTotal = 0;
+  mUploadBytesReceived = 0;
+  mUploadProgress = 0.0;
+
+  QDirIterator localDirIterator( localPath, QDirIterator::Subdirectories );
+  while ( localDirIterator.hasNext() )
+  {
+    localDirIterator.next();
+    QFileInfo localFileInfo = localDirIterator.fileInfo();
+    mUploadFileTransfers.insert( localFileInfo.absoluteFilePath(), QFieldCloudProject::FileTransfer( localDir.relativeFilePath( localFileInfo.absoluteFilePath() ), localFileInfo.size(), cloudProject->id(), QString() ) );
+    mUploadBytesTotal += localFileInfo.size();
+  }
+
+  if ( !mUploadFileTransfers.isEmpty() )
+  {
+    mUploadLocalPath = localPath;
+    uploadFiles();
+  }
+}
+
+void QFieldCloudProject::uploadFiles()
+{
+  qDebug() << "uploadProjectFiles";
+  if ( mUploadFileTransfers.isEmpty() )
+  {
+    return;
+  }
+
+  QString filePath = mUploadFileTransfers.lastKey();
+  QFieldCloudProject::FileTransfer &fileTransfer = mUploadFileTransfers.last();
+
+  qDebug() << "uploadProjectFiles" << filePath;
+
+  NetworkReply *reply = mCloudConnection->post( QStringLiteral( "/api/v1/files/%1/%2/" ).arg( fileTransfer.projectId, fileTransfer.fileName ), QVariantMap(), QStringList( { filePath } ) );
+  fileTransfer.networkReply = reply;
+  connect( reply, &NetworkReply::finished, this, [this, reply, filePath]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+
+    Q_ASSERT( reply->isFinished() );
+    Q_ASSERT( rawReply );
+
+    // this is most probably the redirected request, nothing to do with this reply anymore, just ignore it
+    if ( mUploadFileTransfers[filePath].networkReply != reply )
+    {
+      return;
+    }
+
+    bool hasError = false;
+    QString errorMessageDetail;
+    QString errorMessage;
+    const QString projectId = mUploadFileTransfers[filePath].projectId;
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      hasError = true;
+
+      const int httpStatus = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+      errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
+      errorMessage = tr( "Network error. Failed to upload file `%1`." ).arg( filePath );
+      qDebug() << errorMessage;
+
+      rawReply->abort();
+    }
+    else
+    {
+      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: uploaded" ).arg( projectId, filePath ) );
+    }
+
+    if ( hasError && mUploadFileTransfers[filePath].retryCount++ <= 3 )
+    {
+      uploadFiles();
+      return;
+    }
+    else
+    {
+      mUploadFilesFailed++;
+    }
+
+    mUploadBytesReceived += mUploadFileTransfers[filePath].bytesTotal;
+    mUploadProgress = std::clamp( ( static_cast<double>( mUploadBytesReceived ) / std::max( mUploadBytesTotal, 1 ) ), 0., 1. );
+    mUploadFileTransfers.remove( filePath );
+
+    if ( mUploadFileTransfers.isEmpty() )
+    {
+      if ( mUploadFilesFailed == 0 && !mUploadLocalPath.isEmpty() )
+      {
+        // We remove the locally stored project, long live the packaged cloud project!
+        QDir localDir( mUploadLocalPath );
+        localDir.removeRecursively();
+      }
+
+      //projectUploaded( projectId );
+    }
+    else
+    {
+      uploadFiles();
+    }
+  } );
+}
