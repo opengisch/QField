@@ -76,9 +76,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       DownloadSizeRole,
       PackagingStatusRole,
       PackagedLayerErrorsRole,
-      UploadDeltaProgressRole,
-      UploadDeltaStatusRole,
-      UploadDeltaStatusStringRole,
+      PushDeltaProgressRole,
+      PushDeltaStatusRole,
+      PushDeltaStatusStringRole,
       LocalDeltasCountRole,
       LocalPathRole,
       LastLocalExportedAtRole,
@@ -144,7 +144,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     Q_INVOKABLE void refreshProjectsList( bool shouldResetModel = true, bool shouldFetchPublic = false, int projectFetchOffset = 0 );
 
     //! Pushes all local deltas for given \a projectId. If \a shouldDownloadUpdates is true, also calls `downloadProject`.
-    Q_INVOKABLE void projectUpload( const QString &projectId, const bool shouldDownloadUpdates );
+    Q_INVOKABLE void projectPush( const QString &projectId, const bool shouldDownloadUpdates );
 
     //! Retreives the delta list for a given \a projectId.
     Q_INVOKABLE void refreshProjectDeltaList( const QString &projectId );

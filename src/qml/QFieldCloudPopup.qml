@@ -23,7 +23,7 @@ Popup {
       showCancelButton: false
       showApplyButton: false
 
-      busyIndicatorState: cloudProjectsModel.currentProject && (cloudConnection.status === QFieldCloudConnection.Connecting || cloudProjectsModel.currentProject.status === QFieldCloudProject.Uploading || cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading ? 'on' : 'off')
+      busyIndicatorState: cloudProjectsModel.currentProject && (cloudConnection.status === QFieldCloudConnection.Connecting || cloudProjectsModel.currentProject.status === QFieldCloudProject.Pushing || cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading ? 'on' : 'off')
 
       topMargin: mainWindow.sceneTopMargin
 
@@ -186,7 +186,7 @@ Popup {
 
         Text {
           id: statusText
-          visible: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProject.status === QFieldCloudProject.Uploading)
+          visible: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProject.status === QFieldCloudProject.Pushing)
           font: Theme.tipFont
           color: Theme.secondaryTextColor
           text: {
@@ -206,10 +206,10 @@ Popup {
                     return qsTr('Reaching out to QFieldCloud to download project');
                   }
                 }
-              case QFieldCloudProject.Uploading:
-                switch (cloudProjectsModel.currentProject.deltaFileUploadStatus) {
+              case QFieldCloudProject.Pushing:
+                switch (cloudProjectsModel.currentProject.deltaFilePushStatus) {
                 case QFieldCloudProject.DeltaFileLocalStatus:
-                  return qsTr('Uploading %1%…').arg(Math.round(cloudProjectsModel.currentProject.uploadDeltaProgress * 100));
+                  return qsTr('Uploading %1%…').arg(Math.round(cloudProjectsModel.currentProject.pushDeltaProgress * 100));
                 default:
                   return qsTr('QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…');
                 }
@@ -236,7 +236,7 @@ Popup {
           width: 128
           height: 128
           color: 'transparent'
-          visible: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProject.status === QFieldCloudProject.Uploading)
+          visible: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProject.status === QFieldCloudProject.Pushing)
 
           Image {
             id: statusIcon
@@ -253,8 +253,8 @@ Popup {
                   default:
                     return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
                   }
-                case QFieldCloudProject.Uploading:
-                  switch (cloudProjectsModel.currentProject.deltaFileUploadStatus) {
+                case QFieldCloudProject.Pushing:
+                  switch (cloudProjectsModel.currentProject.deltaFilePushStatus) {
                   case QFieldCloudProject.DeltaFileLocalStatus:
                     return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
                   default:
@@ -390,7 +390,7 @@ Popup {
             enabled: !!(cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QFieldCloudProject.Idle) && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError
             icon.source: Theme.getThemeVectorIcon('ic_cloud_synchronize_24dp')
 
-            onClicked: projectUpload(true)
+            onClicked: projectPush(true)
           }
 
           Text {
@@ -413,7 +413,7 @@ Popup {
             enabled: !!(cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QFieldCloudProject.Idle) && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError
             icon.source: Theme.getThemeVectorIcon('ic_cloud_upload_24dp')
 
-            onClicked: projectUpload(false)
+            onClicked: projectPush(false)
           }
 
           Text {
@@ -523,7 +523,7 @@ Popup {
                     const dt = new Date(dtStr);
                     const now = new Date();
                     if ((now - dt) >= interval) {
-                      projectUpload(false);
+                      projectPush(false);
                     }
                   }
                 }
@@ -531,7 +531,7 @@ Popup {
 
               onTriggered: {
                 if (pushButton.enabled) {
-                  projectUpload(false);
+                  projectPush(false);
                 }
               }
             }
@@ -692,9 +692,9 @@ Popup {
     }
   }
 
-  function projectUpload(shouldDownloadUpdates) {
+  function projectPush(shouldDownloadUpdates) {
     if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QFieldCloudProject.Idle) {
-      cloudProjectsModel.projectUpload(cloudProjectsModel.currentProjectId, shouldDownloadUpdates);
+      cloudProjectsModel.projectPush(cloudProjectsModel.currentProjectId, shouldDownloadUpdates);
     }
   }
 

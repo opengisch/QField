@@ -322,7 +322,7 @@ Page {
                       switch (Status) {
                       case QFieldCloudProject.ProjectStatus.Downloading:
                         return Theme.getThemeVectorIcon('ic_cloud_project_download_48dp');
-                      case QFieldCloudProject.ProjectStatus.Uploading:
+                      case QFieldCloudProject.ProjectStatus.Pushing:
                         return Theme.getThemeVectorIcon('ic_cloud_project_upload_48dp');
                       case QFieldCloudProject.ProjectStatus.Failing:
                         return Theme.getThemeVectorIcon('ic_cloud_project_failed_48dp');
@@ -408,7 +408,7 @@ Page {
                             }
                           }
                           break;
-                        case QFieldCloudProject.Uploading:
+                        case QFieldCloudProject.Pushing:
                           status = qsTr('Uploading…');
                           break;
                         default:
@@ -420,7 +420,7 @@ Page {
                         case QFieldCloudProject.DownloadErrorStatus:
                           status = qsTr('Downloading error. ') + ErrorString;
                           break;
-                        case QFieldCloudProject.UploadErrorStatus:
+                        case QFieldCloudProject.PushErrorStatus:
                           status = qsTr('Uploading error. ') + ErrorString;
                           break;
                         }
