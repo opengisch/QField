@@ -768,7 +768,7 @@ Popup {
   function show() {
     visible = !visible;
     if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
-      if (cloudProjectsModel.currentProjectId && (cloudConnection.hasToken || cloudConnection.hasProviderConfiguration)) {
+      if ((cloudConnection.hasToken || cloudConnection.hasProviderConfiguration)) {
         cloudConnection.login();
       }
       cloudConnection.getAuthenticationProviders();
