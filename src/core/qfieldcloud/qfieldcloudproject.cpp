@@ -632,7 +632,6 @@ void QFieldCloudProject::downloadAttachmentConnections( const QString &fileKey )
 
 void QFieldCloudProject::packageAndDownload()
 {
-  qDebug() << "packageAndDownload";
   QgsLogger::debug( QStringLiteral( "Project %1: package and download initiated." ).arg( mId ) );
 
   if ( !mCloudConnection )
@@ -643,7 +642,6 @@ void QFieldCloudProject::packageAndDownload()
     return;
   }
 
-  qDebug() << "in!";
   mDownloadFileTransfers.clear();
   mDownloadFilesFinished = 0;
   mDownloadFilesFailed = 0;
@@ -662,7 +660,6 @@ void QFieldCloudProject::packageAndDownload()
   setModification( NoModification );
 
   auto repackageIfNeededAndThenDownload = [this]() {
-    qDebug() << "repackageIfNeededAndThenDownload" << ( mNeedsRepackaging ? "package!" : "nope!" );
     if ( mNeedsRepackaging )
     {
       QgsLogger::debug( QStringLiteral( "Project %1: repackaging triggered." ).arg( mId ) );
@@ -672,7 +669,6 @@ void QFieldCloudProject::packageAndDownload()
 
       QObject *tempProjectJobFinishedParent = new QObject( this ); // we need this to unsubscribe
       connect( this, &QFieldCloudProject::jobFinished, tempProjectJobFinishedParent, [this, tempProjectJobFinishedParent]( const JobType type, const QString &errorString ) {
-        qDebug() << "jobFinished";
         if ( type != JobType::Package )
         {
           QMetaEnum me = QMetaEnum::fromType<JobType>();
@@ -706,13 +702,11 @@ void QFieldCloudProject::packageAndDownload()
         setPackagingStatus( PackagingFinishedStatus );
         setPackagingStatusString( QString() );
 
-        qDebug() << "finished, download!";
         download();
       } );
     }
     else
     {
-      qDebug() << "download!";
       download();
     }
   };
@@ -761,7 +755,6 @@ void QFieldCloudProject::packageAndDownload()
   connect( this, &QFieldCloudProject::downloadFinished, tempProjectDownloadFinishedParent, [this, tempProjectDownloadFinishedParent]( const QString &error ) {
     tempProjectDownloadFinishedParent->deleteLater();
 
-    qDebug() << "downloadFinished";
     if ( mPackagingStatus == PackagingAbortStatus )
     {
       // no need to emit why we aborted packaging, it is callers responsibility to inform the user
