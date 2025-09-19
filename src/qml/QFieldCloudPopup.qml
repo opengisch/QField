@@ -23,7 +23,7 @@ Popup {
       showCancelButton: false
       showApplyButton: false
 
-      busyIndicatorState: cloudProjectsModel.currentProject && (cloudConnection.status === QFieldCloudConnection.Connecting || cloudProjectsModel.currentProject.status === QFieldCloudProject.Pushing || cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading ? 'on' : 'off')
+      busyIndicatorState: cloudProjectsModel.currentProject && (cloudConnection.status === QFieldCloudConnection.Connecting || cloudProjectsModel.currentProject.status === QFieldCloudProject.Pushing || cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading) ? 'on' : 'off'
 
       topMargin: mainWindow.sceneTopMargin
 
@@ -40,37 +40,10 @@ Popup {
       }
     }
 
-    ColumnLayout {
-      visible: !cloudProjectsModel.currentProjectId
-      anchors.fill: parent
-      anchors.margins: 20
-      anchors.topMargin: 50
-      spacing: 2
-
-      Text {
-        Layout.fillWidth: true
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
-        text: qsTr('The current project is not stored on QFieldCloud.<br><br>') + qsTr('Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.<br><br>') + ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.'
-        textFormat: Text.RichText
-        wrapMode: Text.WordWrap
-        horizontalAlignment: Text.AlignHCenter
-
-        onLinkActivated: link => {
-          Qt.openUrlExternally(link);
-        }
-      }
-
-      Item {
-        Layout.fillHeight: true
-        height: 15
-      }
-    }
-
     ScrollView {
-      visible: cloudProjectsModel.currentProjectId
       padding: 0
-      ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+      ScrollBar.horizontal: QfScrollBar {
+      }
       ScrollBar.vertical: QfScrollBar {
       }
       contentWidth: mainGrid.width
@@ -80,14 +53,13 @@ Popup {
 
       GridLayout {
         id: mainGrid
-        width: parent.parent.width
+        width: popup.width - popup.leftPadding - popup.rightPadding
         columns: 1
         columnSpacing: 2
         rowSpacing: 2
 
         RowLayout {
           id: connectionInformation
-          visible: cloudConnection.status === QFieldCloudConnection.LoggedIn
 
           Text {
             id: welcomeText
@@ -95,13 +67,13 @@ Popup {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             padding: 10
             text: switch (cloudConnection.status) {
-            case 0:
-              qsTr('Disconnected from the cloud.');
+            case QFieldCloudConnection.Disconnected:
+              '';
               break;
-            case 1:
+            case QFieldCloudConnection.Connecting:
               qsTr('Connecting to the cloud.');
               break;
-            case 2:
+            case QFieldCloudConnection.LoggedIn:
               qsTr('Greetings <strong>%1</strong>.').arg(cloudConnection.username);
               break;
             }
@@ -352,16 +324,34 @@ Popup {
           }
         }
 
-        GridLayout {
-          id: mainInnerGrid
+        ColumnLayout {
+          id: localProjectGrid
+          visible: !connectionSettings.visible && !cloudProjectsModel.currentProject
           Layout.margins: 10
           Layout.maximumWidth: 525
           Layout.alignment: Qt.AlignHCenter
-          width: parent.width
+
+          Text {
+            Layout.fillWidth: true
+            font: Theme.defaultFont
+            color: Theme.mainTextColor
+            text: qsTr('The current project is not stored on QFieldCloud.<br><br>') + qsTr('Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.<br><br>') + ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.'
+            textFormat: Text.RichText
+            wrapMode: Text.WordWrap
+            horizontalAlignment: Text.AlignHCenter
+
+            onLinkActivated: link => {
+              Qt.openUrlExternally(link);
+            }
+          }
+        }
+
+        ColumnLayout {
+          id: cloudProjectGrid
+          Layout.margins: 10
+          Layout.maximumWidth: 525
+          Layout.alignment: Qt.AlignHCenter
           visible: !connectionSettings.visible && cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QFieldCloudProject.Idle
-          columns: 1
-          columnSpacing: parent.columnSpacing
-          rowSpacing: parent.rowSpacing
 
           Text {
             id: changesText
