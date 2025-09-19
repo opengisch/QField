@@ -6,6 +6,8 @@ import Theme
 
 ToolBar {
   property alias title: titleLabel.text
+  property alias titleColor: titleLabel.color
+  property alias titleFont: titleLabel.font
 
   property bool backgroundFill: true
   property bool backAsCancel: false
@@ -169,7 +171,7 @@ ToolBar {
       visible: false
 
       iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-      iconColor: Theme.mainOverlayColor
+      iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
 
       onClicked: {
         openMenu();

@@ -9,6 +9,9 @@
     </qresource>
     <qresource prefix="/pictures">
         <file alias="qfield-love.png">pictures/qfield-love.png</file>
+        <file>pictures/colorful.jpg</file>
+        <file>pictures/dark.jpg</file>
+        <file>pictures/lightgray.jpg</file>
     </qresource>
     <qresource prefix="/">
         <file>themes/qfield/nodpi/ic_text_black_24dp.svg</file>
