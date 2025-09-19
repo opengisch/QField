@@ -2237,7 +2237,7 @@ void QFieldCloudProject::uploadLocalPath( const QString &localPath )
   QDirIterator projectDirIterator( localPath, { "*.qgs", "*.qgz" }, QDir::Files, QDirIterator::Subdirectories );
   while ( projectDirIterator.hasNext() )
   {
-    qDebug() << projectDirIterator.next();
+    projectDirIterator.next();
     if ( projectFileInfo.exists() )
     {
       projectFileInfo = QFileInfo();
@@ -2258,7 +2258,7 @@ void QFieldCloudProject::uploadLocalPath( const QString &localPath )
   mUploadProgress = 0.0;
 
   QDir localDir( localPath );
-  QDirIterator localDirIterator( localPath, QDirIterator::Subdirectories );
+  QDirIterator localDirIterator( localPath, QDir::Files, QDirIterator::Subdirectories );
   while ( localDirIterator.hasNext() )
   {
     localDirIterator.next();
@@ -2282,7 +2282,6 @@ void QFieldCloudProject::uploadLocalPath( const QString &localPath )
 
 void QFieldCloudProject::uploadFiles()
 {
-  qDebug() << "uploadProjectFiles";
   if ( mUploadFileTransfers.isEmpty() )
   {
     if ( mStatus == ProjectStatus::Uploading )
@@ -2294,8 +2293,6 @@ void QFieldCloudProject::uploadFiles()
 
   QString filePath = mUploadFileTransfers.lastKey();
   QFieldCloudProject::FileTransfer &fileTransfer = mUploadFileTransfers.last();
-
-  qDebug() << "uploadProjectFiles" << filePath;
 
   NetworkReply *reply = mCloudConnection->post( QStringLiteral( "/api/v1/files/%1/%2/" ).arg( fileTransfer.projectId, fileTransfer.fileName ), QVariantMap(), QStringList( { filePath } ) );
   fileTransfer.networkReply = reply;
@@ -2311,6 +2308,8 @@ void QFieldCloudProject::uploadFiles()
       return;
     }
 
+    rawReply->deleteLater();
+
     bool hasError = false;
     QString errorMessageDetail;
     QString errorMessage;
@@ -2323,8 +2322,7 @@ void QFieldCloudProject::uploadFiles()
       const int httpStatus = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
       errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
       errorMessage = tr( "Network error. Failed to upload file `%1`." ).arg( filePath );
-      qDebug() << errorMessage;
-
+      QgsLogger::debug( errorMessage );
       rawReply->abort();
     }
     else

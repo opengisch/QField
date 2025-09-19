@@ -1041,22 +1041,18 @@ void QFieldCloudProjectsModel::projectCreationReceived()
     return;
   }
 
-  qDebug() << rawReply->readAll();
-
   QByteArray response = rawReply->readAll();
-  QJsonParseError parseError;
-  QJsonDocument doc = QJsonDocument::fromJson( response, &parseError );
-  qDebug() << parseError.errorString();
+  QJsonDocument doc = QJsonDocument::fromJson( response );
   QVariantHash projectDetails = doc.object().toVariantHash();
-  qDebug() << doc.object();
-  qDebug() << projectDetails;
-
   QFieldCloudProject *cloudProject = QFieldCloudProject::fromDetails( projectDetails, mCloudConnection );
   if ( cloudProject )
   {
-    qDebug() << "project created!";
     insertProjects( QList<QFieldCloudProject *>() << cloudProject );
     emit projectCreated( cloudProject->id() );
+  }
+  else
+  {
+    emit projectCreated( QString(), true, tr( "Cloud project could not be created." ) );
   }
 }
 
