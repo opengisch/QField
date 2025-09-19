@@ -351,7 +351,7 @@ class QFieldCloudProject : public QObject
     Q_INVOKABLE void downloadThumbnail();
     Q_INVOKABLE void downloadAttachment( const QString &fileName );
 
-    Q_INVOKABLE void uploadLocalPath( QString localPath );
+    Q_INVOKABLE void uploadLocalPath( QString localPath, bool deleteAfterSuccessfulUpload = false );
 
     Q_INVOKABLE void packageAndDownload();
     void cancelDownload();
@@ -542,8 +542,9 @@ class QFieldCloudProject : public QObject
     double mPushDeltaProgress = 0.0; // range from 0.0 to 1.0
 
     QString mUploadLocalPath;
-    QMap<QString, QFieldCloudProject::FileTransfer> mUploadFileTransfers;
+    bool mUploadDeleteAfterSuccessfulUpload = false;
 
+    QMap<QString, QFieldCloudProject::FileTransfer> mUploadFileTransfers;
     int mUploadFilesFailed = 0;
     int mUploadBytesTotal = 0;
     int mUploadBytesSent = 0;

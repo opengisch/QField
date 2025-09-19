@@ -691,7 +691,7 @@ Popup {
       let createdCloudProject = cloudProjectsModel.findProject(projectId);
       if (createdCloudProject) {
         cloudProjectCreationConnection.target = createdCloudProject;
-        createdCloudProject.uploadLocalPath(qgisProject.fileName);
+        createdCloudProject.uploadLocalPath(FileUtils.absolutePath(qgisProject.fileName), true);
       }
     }
   }
@@ -706,7 +706,6 @@ Popup {
         cloudProjectCreationConnection.target = null;
         return;
       }
-      console.log('package and download!');
       cloudProjectCreationConnection.target.packageAndDownload();
     }
 

@@ -2233,7 +2233,7 @@ void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, cons
   }
 };
 
-void QFieldCloudProject::uploadLocalPath( QString localPath )
+void QFieldCloudProject::uploadLocalPath( QString localPath, bool deleteAfterSuccessfulUpload )
 {
   QFileInfo localInfo( localPath );
   if ( !localInfo.exists() )
@@ -2290,6 +2290,8 @@ void QFieldCloudProject::uploadLocalPath( QString localPath )
     setStatus( ProjectStatus::Uploading );
 
     mUploadLocalPath = localPath;
+    mUploadDeleteAfterSuccessfulUpload = deleteAfterSuccessfulUpload;
+
     uploadFiles();
   }
 }
@@ -2366,6 +2368,17 @@ void QFieldCloudProject::uploadFiles()
     if ( mUploadFileTransfers.isEmpty() )
     {
       setStatus( ProjectStatus::Idle );
+      if ( mUploadDeleteAfterSuccessfulUpload && mUploadFilesFailed == 0 )
+      {
+        const QString currentProjectLocalPath = FileUtils::absolutePath( QgsProject::instance()->fileName() );
+        if ( mUploadLocalPath == currentProjectLocalPath )
+        {
+          QgsProject::instance()->clear();
+          QDir uploadLocalDir( mUploadLocalPath );
+          uploadLocalDir.removeRecursively();
+        }
+      }
+
       emit uploadFinished( mUploadFilesFailed > 0 ? tr( "One or more files could not be uploaded" ) : QString() );
     }
     else
