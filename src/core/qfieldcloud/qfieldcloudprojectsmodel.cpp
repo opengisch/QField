@@ -971,38 +971,11 @@ void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &projectP
   QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
 }
 
-void QFieldCloudProjectsModel::createProject( QString name, const QString &localPath )
+void QFieldCloudProjectsModel::createProject( QString name )
 {
-  if ( name.isEmpty() && localPath.isEmpty() )
+  if ( name.isEmpty() )
   {
     return;
-  }
-
-  if ( !localPath.isEmpty() )
-  {
-    QFileInfo projectFileInfo;
-    QDirIterator projectDirIterator( localPath, { "*.qgs", "*.qgz" }, QDir::Files, QDirIterator::Subdirectories );
-    while ( projectDirIterator.hasNext() )
-    {
-      qDebug() << projectDirIterator.next();
-      if ( projectFileInfo.exists() )
-      {
-        projectFileInfo = QFileInfo();
-        break;
-      }
-      projectFileInfo = projectDirIterator.fileInfo();
-    }
-
-    if ( !projectFileInfo.exists() )
-    {
-      emit projectCreated( QString(), true, tr( "Local path of project to be cloudify is invalid" ) );
-      return;
-    }
-
-    if ( name.isEmpty() )
-    {
-      name = projectFileInfo.completeBaseName();
-    }
   }
 
   name.replace( QRegularExpression( "[^A-Za-z0-9_]" ), QStringLiteral( "_" ) );
@@ -1014,7 +987,7 @@ void QFieldCloudProjectsModel::createProject( QString name, const QString &local
   mCloudConnection->setAuthenticationDetails( request );
 
   NetworkReply *listingreply = mCloudConnection->get( request, url );
-  connect( listingreply, &NetworkReply::finished, this, [this, name, localPath]() {
+  connect( listingreply, &NetworkReply::finished, this, [this, name]() {
     NetworkReply *reply = qobject_cast<NetworkReply *>( sender() );
     QNetworkReply *rawReply = reply->currentRawReply();
     Q_ASSERT( rawReply );
@@ -1051,8 +1024,6 @@ void QFieldCloudProjectsModel::createProject( QString name, const QString &local
     params.insert( QStringLiteral( "private" ), true );
 
     QNetworkRequest request;
-    request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::LocalPath ), localPath );
-
     NetworkReply *creationReply = mCloudConnection->post( request, url, params );
     connect( creationReply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectCreationReceived );
   } );

@@ -95,7 +95,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       ProjectsFetchOffset = QNetworkRequest::User + 2,
       ResetModel = QNetworkRequest::User + 3,
       ProjectId = QNetworkRequest::User + 4,
-      LocalPath = QNetworkRequest::User + 5,
     };
 
     Q_ENUM( ColumnRole )
@@ -195,7 +194,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
      * The converted project will then be removed from the local storage in favor of a newly packaged
      * cloud project downloaded from the server.
      */
-    Q_INVOKABLE void createProject( const QString name, const QString &projectPath );
+    Q_INVOKABLE void createProject( const QString name );
 
   signals:
     void cloudConnectionChanged();

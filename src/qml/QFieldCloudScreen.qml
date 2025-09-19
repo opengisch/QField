@@ -1008,7 +1008,7 @@ Page {
     function onStatusChanged() {
       if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         prepareCloudScreen();
-        cloudProjectsModel.createProject("", "/home/webmaster/Documents/QField Documents/Created Projects/abc_pharma_2");
+        cloudProjectsModel.createProject("abc_pharma_2");
       } else if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
         if (table.count === 0) {
           projectsSwipeView.visible = false;
@@ -1020,6 +1020,11 @@ Page {
 
   Connections {
     target: cloudProjectsModel
+
+    function onProjectCreated(projectId) {
+      let createdProject = cloudProjectsModel.findProject(projectId);
+      createdProject.uploadLocalPath("/home/webmaster/Desktop/uc2025");
+    }
 
     function onProjectAppended(projectId, hasError, errorString) {
       requestedProjectDetails = "";

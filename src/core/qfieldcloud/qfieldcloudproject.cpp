@@ -2228,9 +2228,27 @@ void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, cons
 
 void QFieldCloudProject::uploadLocalPath( const QString &localPath )
 {
-  QDir localDir( localPath );
-  if ( !localDir.exists() )
+  if ( localPath.isEmpty() )
   {
+    return;
+  }
+
+  QFileInfo projectFileInfo;
+  QDirIterator projectDirIterator( localPath, { "*.qgs", "*.qgz" }, QDir::Files, QDirIterator::Subdirectories );
+  while ( projectDirIterator.hasNext() )
+  {
+    qDebug() << projectDirIterator.next();
+    if ( projectFileInfo.exists() )
+    {
+      projectFileInfo = QFileInfo();
+      break;
+    }
+    projectFileInfo = projectDirIterator.fileInfo();
+  }
+
+  if ( !projectFileInfo.exists() )
+  {
+    emit uploadFinished( tr( "Local path to upload is invalid" ) );
     return;
   }
 
@@ -2239,6 +2257,7 @@ void QFieldCloudProject::uploadLocalPath( const QString &localPath )
   mUploadBytesSent = 0;
   mUploadProgress = 0.0;
 
+  QDir localDir( localPath );
   QDirIterator localDirIterator( localPath, QDirIterator::Subdirectories );
   while ( localDirIterator.hasNext() )
   {
