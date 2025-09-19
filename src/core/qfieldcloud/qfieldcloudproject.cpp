@@ -2319,28 +2319,16 @@ void QFieldCloudProject::uploadFiles()
 
     rawReply->deleteLater();
 
-    bool hasError = false;
-    QString errorMessageDetail;
-    QString errorMessage;
     const QString projectId = mUploadFileTransfers[filePath].projectId;
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      hasError = true;
-
       const int httpStatus = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
-      errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
-      errorMessage = tr( "Network error. Failed to upload file `%1`." ).arg( filePath );
+      const QString errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
+      const QString errorMessage = tr( "Network error. Failed to upload file `%1`." ).arg( filePath );
       QgsLogger::debug( errorMessage );
       rawReply->abort();
-    }
-    else
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: uploaded" ).arg( projectId, filePath ) );
-    }
 
-    if ( hasError )
-    {
       if ( mUploadFileTransfers[filePath].retryCount++ <= 3 )
       {
         uploadFiles();
@@ -2350,6 +2338,10 @@ void QFieldCloudProject::uploadFiles()
       {
         mUploadFilesFailed++;
       }
+    }
+    else
+    {
+      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: uploaded" ).arg( projectId, filePath ) );
     }
 
     mUploadBytesSent += mUploadFileTransfers[filePath].bytesTotal;
