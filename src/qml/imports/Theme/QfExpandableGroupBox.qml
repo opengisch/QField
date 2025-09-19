@@ -15,7 +15,7 @@ Rectangle {
   property alias icon: headerIcon.source
   default property alias content: body.children
 
-  Behavior on height  {
+  Behavior on implicitHeight  {
     NumberAnimation {
       duration: 200
     }
