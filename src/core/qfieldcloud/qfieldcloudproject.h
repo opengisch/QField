@@ -60,6 +60,10 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( DeltaFileStatus deltaFilePushStatus READ deltaFilePushStatus NOTIFY deltaFilePushStatusChanged )
     Q_PROPERTY( DeltaListModel *deltaListModel READ deltaListModel NOTIFY deltaListModelChanged )
 
+    Q_PROPERTY( int uploadBytesTotal READ uploadBytesTotal NOTIFY uploadBytesTotalChanged )
+    Q_PROPERTY( int uploadBytesSent READ uploadBytesSent NOTIFY uploadBytesSentChanged )
+    Q_PROPERTY( double uploadProgress READ uploadProgress NOTIFY uploadProgressChanged )
+
     Q_PROPERTY( bool forceAutoPush READ forceAutoPush WRITE setForceAutoPush NOTIFY forceAutoPushChanged )
     Q_PROPERTY( bool autoPushEnabled READ autoPushEnabled WRITE setAutoPushEnabled NOTIFY autoPushEnabledChanged )
     Q_PROPERTY( int autoPushIntervalMins READ autoPushIntervalMins WRITE setAutoPushIntervalMins NOTIFY autoPushIntervalMinsChanged )
@@ -109,6 +113,7 @@ class QFieldCloudProject : public QObject
       Idle,
       Downloading,
       Pushing,
+      Uploading,
       Failing
     };
 
@@ -282,6 +287,8 @@ class QFieldCloudProject : public QObject
     QString deltaFilePushStatusString() const { return mDeltaFilePushStatusString; }
     void setDeltaFilePushStatusString( const QString &deltaFilPushStatusString );
 
+    double pushDeltaProgress() const { return mPushDeltaProgress; }
+
     QStringList deltaLayersToDownload() const { return mDeltaLayersToDownload; }
     void setDeltaLayersToDownload( const QStringList &deltaLayersToDownload );
 
@@ -330,7 +337,10 @@ class QFieldCloudProject : public QObject
     int downloadBytesTotal() const { return mDownloadBytesTotal; }
     int downloadBytesReceived() const { return mDownloadBytesReceived; }
     double downloadProgress() const { return mDownloadProgress; }
-    double pushDeltaProgress() const { return mPushDeltaProgress; }
+
+    int uploadBytesTotal() const { return mUploadBytesTotal; }
+    int uploadBytesSent() const { return mUploadBytesSent; }
+    double uploadProgress() const { return mUploadProgress; }
 
     int deltasCount() const { return mDeltasCount; }
     DeltaListModel *deltaListModel() const { return mDeltaListModel; }
@@ -397,6 +407,8 @@ class QFieldCloudProject : public QObject
     void deltaFilePushStatusStringChanged();
     void deltaLayersToDownloadChanged();
 
+    void pushDeltaProgressChanged();
+
     void isPackagingActiveChanged();
     void isPackagingFailedChanged();
     void packagingStatusChanged();
@@ -421,7 +433,9 @@ class QFieldCloudProject : public QObject
     void downloadBytesReceivedChanged();
     void downloadProgressChanged();
 
-    void pushDeltaProgressChanged();
+    void uploadBytesTotalChanged();
+    void uploadBytesSentChanged();
+    void uploadProgressChanged();
 
     void deltaListModelChanged();
 
@@ -532,7 +546,7 @@ class QFieldCloudProject : public QObject
 
     int mUploadFilesFailed = 0;
     int mUploadBytesTotal = 0;
-    int mUploadBytesReceived = 0;
+    int mUploadBytesSent = 0;
     double mUploadProgress = 0.0;
 
     int mDeltasCount = 0;

@@ -2236,7 +2236,7 @@ void QFieldCloudProject::uploadLocalPath( const QString &localPath )
 
   mUploadFilesFailed = 0;
   mUploadBytesTotal = 0;
-  mUploadBytesReceived = 0;
+  mUploadBytesSent = 0;
   mUploadProgress = 0.0;
 
   QDirIterator localDirIterator( localPath, QDirIterator::Subdirectories );
@@ -2250,6 +2250,12 @@ void QFieldCloudProject::uploadLocalPath( const QString &localPath )
 
   if ( !mUploadFileTransfers.isEmpty() )
   {
+    emit uploadBytesTotalChanged();
+    emit uploadBytesSentChanged();
+    emit uploadProgressChanged();
+
+    setStatus( ProjectStatus::Uploading );
+
     mUploadLocalPath = localPath;
     uploadFiles();
   }
@@ -2260,6 +2266,10 @@ void QFieldCloudProject::uploadFiles()
   qDebug() << "uploadProjectFiles";
   if ( mUploadFileTransfers.isEmpty() )
   {
+    if ( mStatus == ProjectStatus::Uploading )
+    {
+      setStatus( ProjectStatus::Idle );
+    }
     return;
   }
 
@@ -2313,10 +2323,12 @@ void QFieldCloudProject::uploadFiles()
       mUploadFilesFailed++;
     }
 
-    mUploadBytesReceived += mUploadFileTransfers[filePath].bytesTotal;
-    mUploadProgress = std::clamp( ( static_cast<double>( mUploadBytesReceived ) / std::max( mUploadBytesTotal, 1 ) ), 0., 1. );
-    mUploadFileTransfers.remove( filePath );
+    mUploadBytesSent += mUploadFileTransfers[filePath].bytesTotal;
+    mUploadProgress = std::clamp( ( static_cast<double>( mUploadBytesSent ) / std::max( mUploadBytesTotal, 1 ) ), 0., 1. );
+    emit uploadBytesSentChanged();
+    emit uploadProgressChanged();
 
+    mUploadFileTransfers.remove( filePath );
     if ( mUploadFileTransfers.isEmpty() )
     {
       if ( mUploadFilesFailed == 0 && !mUploadLocalPath.isEmpty() )
@@ -2326,7 +2338,8 @@ void QFieldCloudProject::uploadFiles()
         localDir.removeRecursively();
       }
 
-      uploadFinished();
+      emit uploadFinished();
+      setStatus( ProjectStatus::Idle );
     }
     else
     {
