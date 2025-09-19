@@ -285,7 +285,7 @@ class QFieldCloudProject : public QObject
     void setDeltaFilePushStatus( DeltaFileStatus deltaFilePushStatus );
 
     QString deltaFilePushStatusString() const { return mDeltaFilePushStatusString; }
-    void setDeltaFilePushStatusString( const QString &deltaFilPushStatusString );
+    void setDeltaFilePushStatusString( const QString &deltaFilePushStatusString );
 
     double pushDeltaProgress() const { return mPushDeltaProgress; }
 
