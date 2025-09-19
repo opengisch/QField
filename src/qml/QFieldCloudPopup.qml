@@ -158,36 +158,54 @@ Popup {
 
         Text {
           id: statusText
-          visible: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProject.status === QFieldCloudProject.Pushing)
+          visible: (cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProject.status === QFieldCloudProject.Pushing)) || (cloudProjectCreationConnection.target && (cloudProjectCreationConnection.target.status === QFieldCloudProject.Downloading))
           font: Theme.tipFont
           color: Theme.secondaryTextColor
           text: {
+            let status = QFieldCloudProject.Idle;
+            let packagingStatus = QFieldCloudProject.PackagingFinishedStatus;
+            let downloadProgress = 0.0;
+            let downloadBytesTotal = 0;
+            let deltaFilePushStatus = QFieldCloudProject.DeltaFileLocalStatus;
             if (cloudProjectsModel.currentProject) {
-              switch (cloudProjectsModel.currentProject.status) {
-              case QFieldCloudProject.Downloading:
-                if (cloudProjectsModel.currentProject.packagingStatus === QFieldCloudProject.PackagingBusyStatus) {
-                  return qsTr('QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight');
-                } else {
-                  if (cloudProjectsModel.currentProject.packagingStatus === QFieldCloudProject.PackagingFinishedStatus || cloudProjectsModel.currentProject.downloadProgress > 0.0) {
-                    if (cloudProjectsModel.currentProject.downloadBytesTotal > 0) {
-                      return qsTr('Downloading, %1% of %2 fetched').arg(Math.round(cloudProjectsModel.currentProject.downloadProgress * 100)).arg(FileUtils.representFileSize(cloudProjectsModel.currentProject.downloadBytesTotal));
-                    } else {
-                      return qsTr('Downloading, %1% fetched').arg(Math.round(cloudProjectsModel.currentProject.downloadProgress * 100));
-                    }
+              status = cloudProjectsModel.currentProject.status;
+              packagingStatus = cloudProjectsModel.currentProject.packagingStatus;
+              downloadProgress = cloudProjectsModel.currentProject.downloadProgress;
+              downloadBytesTotal = cloudProjectsModel.currentProject.downloadBytesTotal;
+              deltaFilePushStatus = cloudProjectsModel.currentProject.deltaFilePushStatus;
+            } else if (cloudProjectCreationConnection.target) {
+              status = cloudProjectCreationConnection.target.status;
+              packagingStatus = cloudProjectCreationConnection.target.packagingStatus;
+              downloadProgress = cloudProjectCreationConnection.target.downloadProgress;
+              downloadBytesTotal = cloudProjectCreationConnection.target.downloadBytesTotal;
+              deltaFilePushStatus = cloudProjectCreationConnection.target.deltaFilePushStatus;
+            } else {
+              return '';
+            }
+            switch (status) {
+            case QFieldCloudProject.Downloading:
+              if (packagingStatus === QFieldCloudProject.PackagingBusyStatus) {
+                return qsTr('QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight');
+              } else {
+                if (packagingStatus === QFieldCloudProject.PackagingFinishedStatus || downloadProgress > 0.0) {
+                  if (downloadBytesTotal > 0) {
+                    return qsTr('Downloading, %1% of %2 fetched').arg(Math.round(downloadProgress * 100)).arg(FileUtils.representFileSize(downloadBytesTotal));
                   } else {
-                    return qsTr('Reaching out to QFieldCloud to download project');
+                    return qsTr('Downloading, %1% fetched').arg(Math.round(downloadProgress * 100));
                   }
+                } else {
+                  return qsTr('Reaching out to QFieldCloud to download project');
                 }
-              case QFieldCloudProject.Pushing:
-                switch (cloudProjectsModel.currentProject.deltaFilePushStatus) {
-                case QFieldCloudProject.DeltaFileLocalStatus:
-                  return qsTr('Pushing changes, %1%…').arg(Math.round(cloudProjectsModel.currentProject.pushDeltaProgress * 100));
-                default:
-                  return qsTr('QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…');
-                }
-              default:
-                '';
               }
+            case QFieldCloudProject.Pushing:
+              switch (deltaFilePushStatus) {
+              case QFieldCloudProject.DeltaFileLocalStatus:
+                return qsTr('Pushing changes, %1%…').arg(Math.round(cloudProjectsModel.currentProject.pushDeltaProgress * 100));
+              default:
+                return qsTr('QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…');
+              }
+            default:
+              '';
             }
             return '';
           }
@@ -208,7 +226,7 @@ Popup {
           width: 128
           height: 128
           color: 'transparent'
-          visible: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProject.status === QFieldCloudProject.Pushing)
+          visible: statusText.visible
 
           Image {
             id: statusIcon
@@ -216,28 +234,41 @@ Popup {
             fillMode: Image.PreserveAspectFit
             smooth: true
             source: {
+              let status = QFieldCloudProject.Idle;
+              let packagingStatus = QFieldCloudProject.PackagingFinishedStatus;
+              let deltaFilePushStatus = QFieldCloudProject.DeltaFileLocalStatus;
               if (cloudProjectsModel.currentProject) {
-                switch (cloudProjectsModel.currentProject.status) {
-                case QFieldCloudProject.Downloading:
-                  switch (cloudProjectsModel.currentProject.packagingStatus) {
-                  case QFieldCloudProject.PackagingFinishedStatus || cloudProjectsModel.currentProject.downloadProgress > 0.0:
-                    return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
-                  default:
-                    return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
-                  }
-                case QFieldCloudProject.Pushing:
-                  switch (cloudProjectsModel.currentProject.deltaFilePushStatus) {
-                  case QFieldCloudProject.DeltaFileLocalStatus:
-                    return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
-                  default:
-                    return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
-                  }
+                status = cloudProjectsModel.currentProject.status;
+                packagingStatus = cloudProjectsModel.currentProject.packagingStatus;
+                deltaFilePushStatus = cloudProjectsModel.currentProject.deltaFilePushStatus;
+              } else if (cloudProjectCreationConnection.target) {
+                status = cloudProjectCreationConnection.target.status;
+                packagingStatus = cloudProjectCreationConnection.target.packagingStatus;
+                deltaFilePushStatus = cloudProjectCreationConnection.target.deltaFilePushStatus;
+              } else {
+                return '';
+              }
+              switch (status) {
+              case QFieldCloudProject.Downloading:
+                switch (packagingStatus) {
+                case QFieldCloudProject.PackagingFinishedStatus || cloudProjectsModel.currentProject.downloadProgress > 0.0:
+                  return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
                 default:
-                  '';
+                  return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
                 }
+              case QFieldCloudProject.Pushing:
+                switch (deltaFilePushStatus) {
+                case QFieldCloudProject.DeltaFileLocalStatus:
+                  return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
+                default:
+                  return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                }
+              default:
+                '';
               }
               return '';
             }
+
             width: parent.width
             height: parent.height
             sourceSize.width: width * screen.devicePixelRatio
@@ -303,7 +334,7 @@ Popup {
 
         ColumnLayout {
           id: localProjectGrid
-          visible: !connectionSettings.visible && !cloudProjectsModel.currentProject
+          visible: !connectionSettings.visible && !cloudProjectsModel.currentProject && !statusText.visible
           Layout.margins: 10
           Layout.maximumWidth: 525
           Layout.alignment: Qt.AlignHCenter
@@ -670,10 +701,22 @@ Popup {
     target: null
 
     function onUploadFinished(error) {
-      cloudProjectCreationConnection.target = null;
+      if (error !== '') {
+        displayToast(error, 'error');
+        cloudProjectCreationConnection.target = null;
+        return;
+      }
+      console.log('package and download!');
+      cloudProjectCreationConnection.target.packageAndDownload();
+    }
+
+    function onDownloadFinished(error) {
       if (error !== '') {
         displayToast(error, 'error');
       }
+      iface.loadFile(cloudProjectCreationConnection.target.localPath);
+      cloudProjectCreationConnection.target = null;
+      popup.close();
     }
   }
 

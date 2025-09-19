@@ -353,10 +353,10 @@ class QFieldCloudProject : public QObject
 
     Q_INVOKABLE void uploadLocalPath( QString localPath );
 
-    void packageAndDownload();
+    Q_INVOKABLE void packageAndDownload();
     void cancelDownload();
 
-    void push( LayerObserver *layerObserver, bool shouldDownloadUpdates );
+    Q_INVOKABLE void push( LayerObserver *layerObserver, bool shouldDownloadUpdates );
     void cancelPush();
 
     void refreshDeltaList();
