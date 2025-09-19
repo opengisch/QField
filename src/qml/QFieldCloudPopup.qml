@@ -13,6 +13,12 @@ Popup {
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
 
+  property string pendingAction: ""
+
+  onAboutToHide: {
+    pendingAction = "";
+  }
+
   Page {
     anchors.fill: parent
 
@@ -344,7 +350,7 @@ Popup {
             Layout.bottomMargin: 20
             font: Theme.tipFont
             color: Theme.mainTextColor
-            text: cloudProjectCreationConnection.target && cloudProjectCreationConnection.target.status === QFieldCloudProject.Uploading ? qsTr('Uploading the current project to QFieldCloud.') : qsTr('The current project is not stored on QFieldCloud.')
+            text: cloudProjectsModel.isCreating || (cloudProjectCreationConnection.target && cloudProjectCreationConnection.target.status === QFieldCloudProject.Uploading) ? qsTr('Uploading the current project to QFieldCloud.') : qsTr('The current project is not stored on QFieldCloud.')
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
           }
@@ -367,8 +373,12 @@ Popup {
             icon.source: Theme.getThemeVectorIcon('ic_cloud_white_24dp')
 
             onClicked: {
-              if (qgisProject.fileName != "") {
-                cloudProjectsModel.createProject(ProjectUtils.title(qgisProject));
+              if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+                if (qgisProject.fileName != "") {
+                  cloudProjectsModel.createProject(ProjectUtils.title(qgisProject));
+                }
+              } else {
+                popup.pendingAction = "cloudify";
               }
             }
           }
@@ -630,8 +640,7 @@ Popup {
           Layout.topMargin: connectionInformation.visible ? 0 : connectionInformation.childrenRect.height
           spacing: 2
 
-          property bool visibility: false
-          visible: visibility || (cloudProjectsModel.currentProjectId && cloudConnection.status !== QFieldCloudConnection.LoggedIn)
+          visible: (cloudProjectsModel.currentProjectId || popup.pendingAction != "") && cloudConnection.status !== QFieldCloudConnection.LoggedIn
 
           ScrollView {
             Layout.fillWidth: true
@@ -656,6 +665,19 @@ Popup {
             Layout.fillHeight: true
             height: 15
           }
+        }
+      }
+    }
+  }
+
+  Connections {
+    target: cloudConnection
+
+    function onStatusChanged() {
+      if (cloudConnection.status == QFieldCloudConnection.LoggedIn) {
+        if (popup.pendingAction === "cloudify") {
+          popup.pendingAction = "";
+          cloudifyButton.clicked();
         }
       }
     }

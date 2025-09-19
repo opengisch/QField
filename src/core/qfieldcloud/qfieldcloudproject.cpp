@@ -2254,15 +2254,15 @@ void QFieldCloudProject::uploadLocalPath( QString localPath, bool deleteAfterSuc
     projectDirIterator.next();
     if ( projectFileInfo.exists() )
     {
-      projectFileInfo = QFileInfo();
-      break;
+      emit uploadFinished( tr( "Local path to upload cannot be used as it has multiple project files" ) );
+      return;
     }
     projectFileInfo = projectDirIterator.fileInfo();
   }
 
-  if ( !projectFileInfo.exists() )
+  if ( !projectFileInfo.exists() && projectFileInfo.size() > 0 )
   {
-    emit uploadFinished( tr( "Local path to upload is invalid" ) );
+    emit uploadFinished( tr( "Local path to upload is missing a valid project file" ) );
     return;
   }
 
