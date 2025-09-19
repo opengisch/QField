@@ -51,5 +51,6 @@ QString ProjectUtils::title( QgsProject *project )
   if ( !project )
     return QString();
 
-  return project->title();
+  const QString title = project->title();
+  return !title.isEmpty() ? title : QFileInfo( project->fileName() ).completeBaseName();
 }

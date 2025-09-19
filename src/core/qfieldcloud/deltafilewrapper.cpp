@@ -301,7 +301,7 @@ bool DeltaFileWrapper::toFile()
 }
 
 
-QString DeltaFileWrapper::toFileForUpload( const QString &outFileName ) const
+QString DeltaFileWrapper::toFileForPush( const QString &outFileName ) const
 {
   QString fileName = outFileName;
 

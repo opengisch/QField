@@ -93,6 +93,9 @@ class QFieldCloudUtils : public QObject
      */
     static const QString localCloudDirectory();
 
+    /**
+     * Returns the file path to the locally-stored cloud project file.
+     */
     static const QString localProjectFilePath( const QString &username, const QString &projectId );
 
     /**

@@ -255,22 +255,22 @@ void QFieldCloudProject::setDeltaFileId( const QString &deltaFileId )
   emit deltaFileIdChanged();
 }
 
-void QFieldCloudProject::setDeltaFileUploadStatus( DeltaFileStatus deltaFileUploadStatus )
+void QFieldCloudProject::setDeltaFilePushStatus( DeltaFileStatus deltaFilePushStatus )
 {
-  if ( mDeltaFileUploadStatus == deltaFileUploadStatus )
+  if ( mDeltaFilePushStatus == deltaFilePushStatus )
     return;
 
-  mDeltaFileUploadStatus = deltaFileUploadStatus;
-  emit deltaFileUploadStatusChanged();
+  mDeltaFilePushStatus = deltaFilePushStatus;
+  emit deltaFilePushStatusChanged();
 }
 
-void QFieldCloudProject::setDeltaFileUploadStatusString( const QString &deltaFileUploadStatusString )
+void QFieldCloudProject::setDeltaFilePushStatusString( const QString &deltaFilePushStatusString )
 {
-  if ( mDeltaFileUploadStatusString == deltaFileUploadStatusString )
+  if ( mDeltaFilePushStatusString == deltaFilePushStatusString )
     return;
 
-  mDeltaFileUploadStatusString = deltaFileUploadStatusString;
-  emit deltaFileUploadStatusStringChanged();
+  mDeltaFilePushStatusString = deltaFilePushStatusString;
+  emit deltaFilePushStatusStringChanged();
 }
 
 void QFieldCloudProject::setDeltaLayersToDownload( const QStringList &deltaLayersToDownload )
@@ -1493,7 +1493,7 @@ void QFieldCloudProject::logFailedDownload( const QString &fileKey, const QStrin
   emit downloadFinished( trimmedMessage );
 }
 
-void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownloadUpdates )
+void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownloadUpdates )
 {
   if ( mStatus != ProjectStatus::Idle )
   {
@@ -1527,13 +1527,13 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
 
   deltaFileWrapper->setIsPushing( true );
 
-  setStatus( ProjectStatus::Uploading );
+  setStatus( ProjectStatus::Pushing );
   setDeltaFileId( deltaFileWrapper->id() );
-  setDeltaFileUploadStatus( DeltaLocalStatus );
-  setDeltaFileUploadStatusString( QString() );
-  mUploadDeltaProgress = 0.0;
+  setDeltaFilePushStatus( DeltaLocalStatus );
+  setDeltaFilePushStatusString( QString() );
+  mPushDeltaProgress = 0.0;
 
-  emit uploadDeltaProgressChanged();
+  emit pushDeltaProgressChanged();
 
   refreshModification( layerObserver );
 
@@ -1568,7 +1568,7 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
     QFieldCloudUtils::addPendingAttachments( mUsername, mId, { absoluteFilePath } );
   }
 
-  QString deltaFileToUpload = deltaFileWrapper->toFileForUpload();
+  QString deltaFileToUpload = deltaFileWrapper->toFileForPush();
 
   if ( deltaFileToUpload.isEmpty() )
   {
@@ -1585,8 +1585,8 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
   Q_ASSERT( deltasCloudReply );
 
   connect( deltasCloudReply, &NetworkReply::uploadProgress, this, [this]( int bytesSent, int bytesTotal ) {
-    mUploadDeltaProgress = std::clamp( ( static_cast<double>( bytesSent ) / bytesTotal ), 0., 1. );
-    emit uploadDeltaProgressChanged();
+    mPushDeltaProgress = std::clamp( ( static_cast<double>( bytesSent ) / bytesTotal ), 0., 1. );
+    emit pushDeltaProgressChanged();
   } );
 
   connect( deltasCloudReply, &NetworkReply::finished, this, [this, deltasCloudReply, layerObserver]() {
@@ -1599,33 +1599,33 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
     // if there is an error, cannot continue sync
     if ( deltasReply->error() != QNetworkReply::NoError )
     {
-      setDeltaFileUploadStatusString( QFieldCloudConnection::errorString( deltasReply ) );
+      setDeltaFilePushStatusString( QFieldCloudConnection::errorString( deltasReply ) );
       // TODO check why exactly we failed
       // maybe the project does not exist, then create it?
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to upload delta file, reason:\n%1\n%2" ).arg( deltasReply->errorString(), mDeltaFileUploadStatusString ) );
+      QgsMessageLog::logMessage( QStringLiteral( "Failed to upload delta file, reason:\n%1\n%2" ).arg( deltasReply->errorString(), mDeltaFilePushStatusString ) );
 
       layerObserver->deltaFileWrapper()->setIsPushing( false );
 
-      cancelUpload();
+      cancelPush();
       return;
     }
 
-    mUploadDeltaProgress = 1.0;
-    setDeltaFileUploadStatus( DeltaPendingStatus );
+    mPushDeltaProgress = 1.0;
+    setDeltaFilePushStatus( DeltaPendingStatus );
     setDeltaLayersToDownload( layerObserver->deltaFileWrapper()->deltaLayerIds() );
 
-    emit uploadDeltaProgressChanged();
+    emit pushDeltaProgressChanged();
 
-    emit networkDeltaUploaded();
+    emit networkDeltaPushed();
   } );
 
 
   // //////////
   // 2) delta successfully uploaded
   // //////////
-  QObject *networkDeltaUploadedParent = new QObject( this ); // we need this to unsubscribe
-  connect( this, &QFieldCloudProject::networkDeltaUploaded, networkDeltaUploadedParent, [this, networkDeltaUploadedParent, layerObserver, shouldDownloadUpdates]() {
-    delete networkDeltaUploadedParent;
+  QObject *networkDeltaPushedParent = new QObject( this ); // we need this to unsubscribe
+  connect( this, &QFieldCloudProject::networkDeltaPushed, networkDeltaPushedParent, [this, networkDeltaPushedParent, layerObserver, shouldDownloadUpdates]() {
+    delete networkDeltaPushedParent;
 
     if ( shouldDownloadUpdates )
     {
@@ -1651,9 +1651,9 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
         QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file after delta push. %1" ).arg( deltaFileWrapper->errorString() ) );
       }
 
-      emit uploadFinished( false );
+      emit pushFinished( false );
 
-      refreshData( ProjectRefreshReason::DeltaUploaded );
+      refreshData( ProjectRefreshReason::DeltaPushed );
     }
   } );
 
@@ -1664,7 +1664,7 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
   connect( this, &QFieldCloudProject::networkDeltaStatusChecked, networkDeltaStatusCheckedParent, [this, networkDeltaStatusCheckedParent, layerObserver, shouldDownloadUpdates]() {
     DeltaFileWrapper *deltaFileWrapper = layerObserver->deltaFileWrapper();
 
-    switch ( mDeltaFileUploadStatus )
+    switch ( mDeltaFilePushStatus )
     {
       case DeltaLocalStatus:
         // delta file should be already sent!!!
@@ -1685,7 +1685,7 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
         if ( !deltaFileWrapper->toFile() )
           QgsMessageLog::logMessage( QStringLiteral( "Failed update committed delta file." ) );
 
-        cancelUpload();
+        cancelPush();
         return;
 
       case DeltaConflictStatus:
@@ -1711,26 +1711,26 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
         // download the updated files, so the files are for sure the same on the client and on the server
         if ( shouldDownloadUpdates )
         {
-          emit uploadFinished( true, QString() );
+          emit pushFinished( true, QString() );
           packageAndDownload();
         }
         else
         {
           emit statusChanged();
-          emit uploadFinished( false, QString() );
+          emit pushFinished( false, QString() );
 
-          refreshData( ProjectRefreshReason::DeltaUploaded );
+          refreshData( ProjectRefreshReason::DeltaPushed );
         }
     }
   } );
 }
 
-void QFieldCloudProject::cancelUpload()
+void QFieldCloudProject::cancelPush()
 {
   setStatus( ProjectStatus::Idle );
-  setErrorStatus( UploadErrorStatus );
+  setErrorStatus( PushErrorStatus );
 
-  emit uploadFinished( false, mDeltaFileUploadStatusString );
+  emit pushFinished( false, mDeltaFilePushStatusString );
 
   return;
 }
@@ -1789,7 +1789,7 @@ void QFieldCloudProject::startJob( JobType type )
 
 void QFieldCloudProject::getDeltaStatus()
 {
-  setDeltaFileUploadStatusString( QString() );
+  setDeltaFilePushStatusString( QString() );
 
   NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/%2/" ).arg( mId, mDeltaFileId ) );
   connect( deltaStatusReply, &NetworkReply::finished, this, [this, deltaStatusReply]() {
@@ -1801,9 +1801,9 @@ void QFieldCloudProject::getDeltaStatus()
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      setDeltaFileUploadStatus( DeltaErrorStatus );
+      setDeltaFilePushStatus( DeltaErrorStatus );
       // TODO this is oversimplification. e.g. 404 error is when the requested delta file id is not existant
-      setDeltaFileUploadStatusString( QFieldCloudConnection::errorString( rawReply ) );
+      setDeltaFilePushStatusString( QFieldCloudConnection::errorString( rawReply ) );
 
       emit networkDeltaStatusChecked();
       return;
@@ -1813,24 +1813,24 @@ void QFieldCloudProject::getDeltaStatus()
     DeltaListModel deltaListModel( doc );
     if ( !deltaListModel.isValid() )
     {
-      setDeltaFileUploadStatus( DeltaErrorStatus );
-      setDeltaFileUploadStatusString( deltaListModel.errorString() );
+      setDeltaFilePushStatus( DeltaErrorStatus );
+      setDeltaFilePushStatusString( deltaListModel.errorString() );
 
       emit networkDeltaStatusChecked();
       return;
     }
 
-    setDeltaFileUploadStatusString( QString() );
+    setDeltaFilePushStatusString( QString() );
 
     if ( !deltaListModel.allHaveFinalStatus() )
     {
-      setDeltaFileUploadStatus( DeltaPendingStatus );
+      setDeltaFilePushStatus( DeltaPendingStatus );
 
       emit networkDeltaStatusChecked();
       return;
     }
 
-    setDeltaFileUploadStatus( DeltaAppliedStatus );
+    setDeltaFilePushStatus( DeltaAppliedStatus );
 
     emit networkDeltaStatusChecked();
   } );
@@ -2225,3 +2225,150 @@ void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, cons
     project->mLocalPath.clear();
   }
 };
+
+void QFieldCloudProject::uploadLocalPath( QString localPath, bool deleteAfterSuccessfulUpload )
+{
+  QFileInfo localInfo( localPath );
+  if ( !localInfo.exists() )
+  {
+    emit uploadFinished( tr( "Local path doesn't exist" ) );
+    return;
+  }
+
+  if ( localInfo.isFile() )
+  {
+    localPath = localInfo.absolutePath();
+  }
+
+  QFileInfo projectFileInfo;
+  QDirIterator projectDirIterator( localPath, { "*.qgs", "*.qgz" }, QDir::Files, QDirIterator::Subdirectories );
+  while ( projectDirIterator.hasNext() )
+  {
+    projectDirIterator.next();
+    if ( projectFileInfo.exists() )
+    {
+      emit uploadFinished( tr( "Local path to upload cannot be used as it has multiple project files" ) );
+      return;
+    }
+    projectFileInfo = projectDirIterator.fileInfo();
+  }
+
+  if ( !projectFileInfo.exists() && projectFileInfo.size() > 0 )
+  {
+    emit uploadFinished( tr( "Local path to upload is missing a valid project file" ) );
+    return;
+  }
+
+  mUploadFilesFailed = 0;
+  mUploadBytesTotal = 0;
+  mUploadBytesSent = 0;
+  mUploadProgress = 0.0;
+
+  QDir localDir( localPath );
+  QDirIterator localDirIterator( localPath, QDir::Files, QDirIterator::Subdirectories );
+  while ( localDirIterator.hasNext() )
+  {
+    localDirIterator.next();
+    QFileInfo localFileInfo = localDirIterator.fileInfo();
+    mUploadFileTransfers.insert( localFileInfo.absoluteFilePath(), QFieldCloudProject::FileTransfer( localDir.relativeFilePath( localFileInfo.absoluteFilePath() ), localFileInfo.size(), mId, QString() ) );
+    mUploadBytesTotal += localFileInfo.size();
+  }
+
+  if ( !mUploadFileTransfers.isEmpty() )
+  {
+    emit uploadBytesTotalChanged();
+    emit uploadBytesSentChanged();
+    emit uploadProgressChanged();
+
+    setStatus( ProjectStatus::Uploading );
+
+    mUploadLocalPath = localPath;
+    mUploadDeleteAfterSuccessfulUpload = deleteAfterSuccessfulUpload;
+
+    uploadFiles();
+  }
+}
+
+void QFieldCloudProject::uploadFiles()
+{
+  if ( mUploadFileTransfers.isEmpty() )
+  {
+    if ( mStatus == ProjectStatus::Uploading )
+    {
+      setStatus( ProjectStatus::Idle );
+    }
+    return;
+  }
+
+  QString filePath = mUploadFileTransfers.lastKey();
+  QFieldCloudProject::FileTransfer &fileTransfer = mUploadFileTransfers.last();
+
+  NetworkReply *reply = mCloudConnection->post( QStringLiteral( "/api/v1/files/%1/%2/" ).arg( fileTransfer.projectId, fileTransfer.fileName ), QVariantMap(), QStringList( { filePath } ) );
+  fileTransfer.networkReply = reply;
+  connect( reply, &NetworkReply::finished, this, [this, reply, filePath]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+
+    Q_ASSERT( reply->isFinished() );
+    Q_ASSERT( rawReply );
+
+    // this is most probably the redirected request, nothing to do with this reply anymore, just ignore it
+    if ( mUploadFileTransfers[filePath].networkReply != reply )
+    {
+      return;
+    }
+
+    rawReply->deleteLater();
+
+    const QString projectId = mUploadFileTransfers[filePath].projectId;
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      const int httpStatus = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+      const QString errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
+      const QString errorMessage = tr( "Network error. Failed to upload file `%1`." ).arg( filePath );
+      QgsLogger::debug( errorMessage );
+      rawReply->abort();
+
+      if ( mUploadFileTransfers[filePath].retryCount++ <= 3 )
+      {
+        uploadFiles();
+        return;
+      }
+      else
+      {
+        mUploadFilesFailed++;
+      }
+    }
+    else
+    {
+      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: uploaded" ).arg( projectId, filePath ) );
+    }
+
+    mUploadBytesSent += mUploadFileTransfers[filePath].bytesTotal;
+    mUploadProgress = std::clamp( ( static_cast<double>( mUploadBytesSent ) / std::max( mUploadBytesTotal, 1 ) ), 0., 1. );
+    emit uploadBytesSentChanged();
+    emit uploadProgressChanged();
+
+    mUploadFileTransfers.remove( filePath );
+    if ( mUploadFileTransfers.isEmpty() )
+    {
+      setStatus( ProjectStatus::Idle );
+      if ( mUploadDeleteAfterSuccessfulUpload && mUploadFilesFailed == 0 )
+      {
+        const QString currentProjectLocalPath = FileUtils::absolutePath( QgsProject::instance()->fileName() );
+        if ( mUploadLocalPath == currentProjectLocalPath )
+        {
+          QgsProject::instance()->clear();
+          QDir uploadLocalDir( mUploadLocalPath );
+          uploadLocalDir.removeRecursively();
+        }
+      }
+
+      emit uploadFinished( mUploadFilesFailed > 0 ? tr( "One or more files could not be uploaded" ) : QString() );
+    }
+    else
+    {
+      uploadFiles();
+    }
+  } );
+}

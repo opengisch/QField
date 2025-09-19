@@ -182,6 +182,13 @@ class QFieldCloudConnection : public QObject
      */
     NetworkReply *post( const QString &endpoint, const QVariantMap &params = QVariantMap(), const QStringList &fileNames = QStringList() );
 
+    /**
+     * Sends a post \a request with the given \a parameters to the given \a endpoint.
+     *
+     * If this connection is not logged in, will return nullptr.
+     * The returned reply needs to be deleted by the caller.
+     */
+    NetworkReply *post( QNetworkRequest &request, const QString &endpoint, const QVariantMap &params = QVariantMap(), const QStringList &fileNames = QStringList() );
 
     /**
      * Sends a get request to the given \a endpoint. Query can be passed via \a params, empty by default.
