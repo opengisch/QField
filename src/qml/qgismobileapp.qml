@@ -4312,6 +4312,10 @@ ApplicationWindow {
       qfieldSettings.visible = true;
     }
 
+    onShowProjectCreationScreen: {
+      projectCreationScreen.visible = true;
+    }
+
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
@@ -4339,6 +4343,22 @@ ApplicationWindow {
     height: parent.height
 
     Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
+  ProjectCreationScreen {
+    id: projectCreationScreen
+    visible: false
+    focus: visible
+    parent: Overlay.overlay
+
+    width: parent.width
+    height: parent.height
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
+
+    onCreate: projectConfig => {
+      console.log(JSON.stringify(projectConfig));
+    }
   }
 
   QFieldCloudPackageLayersFeedback {

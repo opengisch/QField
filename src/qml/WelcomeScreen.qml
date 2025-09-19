@@ -19,6 +19,7 @@ Page {
   signal openLocalDataPicker
   signal showQFieldCloudScreen
   signal showSettings
+  signal showProjectCreationScreen
 
   visible: false
   focus: visible
@@ -459,21 +460,59 @@ Page {
           width: parent.width
           spacing: 12
 
-          QfButton {
-            id: cloudProjectButton
+          GridLayout {
             Layout.fillWidth: true
-            text: qsTr("QFieldCloud projects")
-            onClicked: {
-              showQFieldCloudScreen();
+            columns: 3
+            rows: 2
+
+            Repeater {
+              id: actionsRepeater
+              model: [{
+                  "icon": Theme.getThemeVectorIcon("ic_cloud_active_24dp"),
+                  "iconColor": "transparent",
+                  "action": function () {
+                    showQFieldCloudScreen();
+                  }
+                }, {
+                  "icon": Theme.getThemeVectorIcon("ic_folder_open_black_24dp"),
+                  "iconColor": Theme.mainColor,
+                  "action": function () {
+                    platformUtilities.requestStoragePermission();
+                    openLocalDataPicker();
+                  }
+                }, {
+                  "icon": Theme.getThemeVectorIcon("ic_add_white_24dp"),
+                  "iconColor": Theme.mainColor,
+                  "action": function () {
+                    showProjectCreationScreen();
+                  }
+                }]
+
+              delegate: QfToolButton {
+                Layout.alignment: Qt.AlignHCenter
+                Layout.preferredWidth: welcomeActions.width / actionsRepeater.count / 1.5
+                Layout.preferredHeight: Layout.preferredWidth
+                icon.width: width / 2.2
+                icon.height: height / 2.2
+                bgcolor: Theme.darkTheme ? Theme.darkGray : Theme.lightGray
+                round: true
+                iconSource: modelData.icon
+                iconColor: modelData.iconColor
+                smooth: true
+                onClicked: modelData.action()
+              }
             }
-          }
-          QfButton {
-            id: localProjectButton
-            Layout.fillWidth: true
-            text: qsTr("Open local file")
-            onClicked: {
-              platformUtilities.requestStoragePermission();
-              openLocalDataPicker();
+
+            Repeater {
+              model: [qsTr("QFieldCloud\nprojects"), qsTr("Local projects and\n datasets"), qsTr("Create new\nproject")]
+
+              delegate: Text {
+                Layout.preferredWidth: welcomeActions.width / 3
+                text: modelData
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
+                color: Theme.mainTextColor
+              }
             }
           }
 

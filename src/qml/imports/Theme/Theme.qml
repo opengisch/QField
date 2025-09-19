@@ -23,7 +23,9 @@ QtObject {
     "toolButtonColor": "#ffffff",
     "toolButtonBackgroundColor": Theme.darkGray,
     "toolButtonBackgroundSemiOpaqueColor": Theme.darkGraySemiOpaque,
-    "scrollBarBackgroundColor": "#bb303030"
+    "scrollBarBackgroundColor": "#bb303030",
+    "groupBoxBackgroundColor": "#2a2a2e",
+    "groupBoxSurfaceColor": "#343437"
   }
 
   property var lightThemeColors: {
@@ -44,7 +46,9 @@ QtObject {
     "toolButtonColor": "#ffffff",
     "toolButtonBackgroundColor": Theme.darkGray,
     "toolButtonBackgroundSemiOpaqueColor": Theme.darkGraySemiOpaque,
-    "scrollBarBackgroundColor": "#aaffffff"
+    "scrollBarBackgroundColor": "#aaffffff",
+    "groupBoxBackgroundColor": "#f2f0f5",
+    "groupBoxSurfaceColor": "#e4e1e8"
   }
 
   property bool darkTheme: false
@@ -73,6 +77,9 @@ QtObject {
   property color toolButtonBackgroundSemiOpaqueColor: Theme.darkGraySemiOpaque
 
   property color scrollBarBackgroundColor: "#aaffffff"
+
+  property color groupBoxBackgroundColor: "#f2f0f5"
+  property color groupBoxSurfaceColor: "#e4e1e8"
 
   property color darkRed: "#c0392b"
   property color darkGray: "#212121"
@@ -152,6 +159,10 @@ QtObject {
   property font titleFont: Qt.font({
       "pointSize": systemFontPointSize * fontScale * 1.25,
       "weight": Font.Normal
+    })
+  property font strongTitleFont: Qt.font({
+      "pointSize": systemFontPointSize * fontScale * 1.25,
+      "weight": Font.Bold
     })
 
   readonly property int popupScreenEdgeMargin: 40
