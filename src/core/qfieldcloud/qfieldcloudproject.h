@@ -351,7 +351,7 @@ class QFieldCloudProject : public QObject
     Q_INVOKABLE void downloadThumbnail();
     Q_INVOKABLE void downloadAttachment( const QString &fileName );
 
-    Q_INVOKABLE void uploadLocalPath( const QString &localPath );
+    Q_INVOKABLE void uploadLocalPath( QString localPath );
 
     void packageAndDownload();
     void cancelDownload();

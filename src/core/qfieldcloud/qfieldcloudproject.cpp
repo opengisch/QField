@@ -2226,12 +2226,20 @@ void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, cons
   }
 };
 
-void QFieldCloudProject::uploadLocalPath( const QString &localPath )
+void QFieldCloudProject::uploadLocalPath( QString localPath )
 {
-  if ( localPath.isEmpty() )
+  QFileInfo localInfo( localPath );
+  if ( !localInfo.exists() )
   {
+    emit uploadFinished( tr( "Local path doesn't exist" ) );
     return;
   }
+
+  if ( localInfo.isFile() )
+  {
+    localPath = localInfo.absolutePath();
+  }
+  qDebug() << localPath;
 
   QFileInfo projectFileInfo;
   QDirIterator projectDirIterator( localPath, { "*.qgs", "*.qgz" }, QDir::Files, QDirIterator::Subdirectories );
@@ -2330,14 +2338,17 @@ void QFieldCloudProject::uploadFiles()
       QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: uploaded" ).arg( projectId, filePath ) );
     }
 
-    if ( hasError && mUploadFileTransfers[filePath].retryCount++ <= 3 )
+    if ( hasError )
     {
-      uploadFiles();
-      return;
-    }
-    else
-    {
-      mUploadFilesFailed++;
+      if ( mUploadFileTransfers[filePath].retryCount++ <= 3 )
+      {
+        uploadFiles();
+        return;
+      }
+      else
+      {
+        mUploadFilesFailed++;
+      }
     }
 
     mUploadBytesSent += mUploadFileTransfers[filePath].bytesTotal;

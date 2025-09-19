@@ -975,8 +975,12 @@ void QFieldCloudProjectsModel::createProject( QString name )
 {
   if ( name.isEmpty() )
   {
+    emit projectCreated( QString(), true, tr( "Project creation requires a name" ) );
     return;
   }
+
+  mIsCreating = true;
+  emit isCreatingChanged();
 
   name.replace( QRegularExpression( "[^A-Za-z0-9_]" ), QStringLiteral( "_" ) );
 
@@ -1038,6 +1042,9 @@ void QFieldCloudProjectsModel::projectCreationReceived()
   if ( rawReply->error() != QNetworkReply::NoError )
   {
     emit projectCreated( QString(), true, mCloudConnection->errorString( rawReply ) );
+
+    mIsCreating = false;
+    emit isCreatingChanged();
     return;
   }
 
@@ -1054,6 +1061,9 @@ void QFieldCloudProjectsModel::projectCreationReceived()
   {
     emit projectCreated( QString(), true, tr( "Cloud project could not be created." ) );
   }
+
+  mIsCreating = false;
+  emit isCreatingChanged();
 }
 
 // --

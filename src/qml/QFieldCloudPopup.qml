@@ -181,9 +181,9 @@ Popup {
               case QFieldCloudProject.Pushing:
                 switch (cloudProjectsModel.currentProject.deltaFilePushStatus) {
                 case QFieldCloudProject.DeltaFileLocalStatus:
-                  return qsTr('Uploading %1%…').arg(Math.round(cloudProjectsModel.currentProject.pushDeltaProgress * 100));
+                  return qsTr('Pushing changes, %1%…').arg(Math.round(cloudProjectsModel.currentProject.pushDeltaProgress * 100));
                 default:
-                  return qsTr('QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…');
+                  return qsTr('QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…');
                 }
               default:
                 '';
@@ -299,29 +299,6 @@ Popup {
               transferError.hasError = false;
             }
           }
-
-          Connections {
-            target: cloudProjectsModel
-
-            function onPushFinished(projectId, hasError, errorString) {
-              transferError.hasError = hasError;
-              if (transferError.visible) {
-                transferError.detailsText = errorString;
-              }
-            }
-
-            function onProjectDownloaded(projectId, projectName, hasError, errorString) {
-              transferError.hasError = hasError;
-              if (transferError.visible) {
-                transferError.detailsText = errorString;
-              }
-              const cloudProject = cloudProjectsModel.findProject(projectId);
-              if (cloudProject.packagedLayerErrors.length !== 0) {
-                cloudPackageLayersFeedback.packagedLayersListViewModel = cloudProject.packagedLayerErrors;
-                cloudPackageLayersFeedback.visible = true;
-              }
-            }
-          }
         }
 
         ColumnLayout {
@@ -333,9 +310,43 @@ Popup {
 
           Text {
             Layout.fillWidth: true
-            font: Theme.defaultFont
+            Layout.bottomMargin: 20
+            font: Theme.tipFont
             color: Theme.mainTextColor
-            text: qsTr('The current project is not stored on QFieldCloud.<br><br>') + qsTr('Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.<br><br>') + ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.'
+            text: cloudProjectCreationConnection.target && cloudProjectCreationConnection.target.status === QFieldCloudProject.Uploading ? qsTr('Uploading the current project to QFieldCloud.') : qsTr('The current project is not stored on QFieldCloud.')
+            wrapMode: Text.WordWrap
+            horizontalAlignment: Text.AlignHCenter
+          }
+
+          QfButton {
+            id: cloudifyButton
+            Layout.fillWidth: true
+            text: {
+              if (!enabled) {
+                if (cloudProjectCreationConnection.target && cloudProjectCreationConnection.target.uploadProgress > 0) {
+                  return qsTr("Cloudifying project") + " (%1%)".arg(Math.round(cloudProjectCreationConnection.target.uploadProgress * 100));
+                } else {
+                  return qsTr("Cloudifying project");
+                }
+              }
+              return qsTr('Cloudify!');
+            }
+            enabled: !cloudProjectsModel.isCreating && !cloudProjectCreationConnection.target
+            progressValue: cloudProjectCreationConnection.target ? cloudProjectCreationConnection.target.uploadProgress : 0
+            icon.source: Theme.getThemeVectorIcon('ic_cloud_white_24dp')
+
+            onClicked: {
+              if (qgisProject.fileName != "") {
+                cloudProjectsModel.createProject(ProjectUtils.title(qgisProject));
+              }
+            }
+          }
+
+          Text {
+            Layout.fillWidth: true
+            font: Theme.tipFont
+            color: Theme.secondaryTextColor
+            text: qsTr('Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.<br><br>') + ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.'
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
@@ -615,6 +626,53 @@ Popup {
             height: 15
           }
         }
+      }
+    }
+  }
+
+  Connections {
+    target: cloudProjectsModel
+
+    function onPushFinished(projectId, hasError, errorString) {
+      transferError.hasError = hasError;
+      if (transferError.visible) {
+        transferError.detailsText = errorString;
+      }
+    }
+
+    function onProjectDownloaded(projectId, projectName, hasError, errorString) {
+      transferError.hasError = hasError;
+      if (transferError.visible) {
+        transferError.detailsText = errorString;
+      }
+      const cloudProject = cloudProjectsModel.findProject(projectId);
+      if (cloudProject.packagedLayerErrors.length !== 0) {
+        cloudPackageLayersFeedback.packagedLayersListViewModel = cloudProject.packagedLayerErrors;
+        cloudPackageLayersFeedback.visible = true;
+      }
+    }
+
+    function onProjectCreated(projectId, hasError, errorString) {
+      if (hasError) {
+        displayToast(errorString, 'error');
+        return;
+      }
+      let createdCloudProject = cloudProjectsModel.findProject(projectId);
+      if (createdCloudProject) {
+        cloudProjectCreationConnection.target = createdCloudProject;
+        createdCloudProject.uploadLocalPath(qgisProject.fileName);
+      }
+    }
+  }
+
+  Connections {
+    id: cloudProjectCreationConnection
+    target: null
+
+    function onUploadFinished(error) {
+      cloudProjectCreationConnection.target = null;
+      if (error !== '') {
+        displayToast(error, 'error');
       }
     }
   }

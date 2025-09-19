@@ -48,6 +48,10 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     //! Returns TRUE whether the model is being refreshed
     Q_PROPERTY( bool isRefreshing READ isRefreshing NOTIFY isRefreshingChanged )
+
+    //! Returns TRUE whether the model is creating a project
+    Q_PROPERTY( bool isCreating READ isCreating NOTIFY isCreatingChanged )
+
     //! Currently busy project ids.
     Q_PROPERTY( QSet<QString> busyProjectIds READ busyProjectIds NOTIFY busyProjectIdsChanged )
 
@@ -115,6 +119,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     //! Returns TRUE whether the model is being refreshed
     bool isRefreshing() const { return mIsRefreshing; }
+
+    //! Returns TRUE whether the model is being refreshed
+    bool isCreating() const { return mIsCreating; }
 
     //! Returns the cloud project id of the currently opened project.
     QString currentProjectId() const;
@@ -200,6 +207,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void cloudConnectionChanged();
     void layerObserverChanged();
     void isRefreshingChanged();
+    void isCreatingChanged();
     void currentProjectIdChanged();
     void currentProjectChanged();
     void busyProjectIdsChanged();
@@ -238,6 +246,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QFieldCloudConnection *mCloudConnection = nullptr;
 
     bool mIsRefreshing = false;
+    bool mIsCreating = false;
 
     QString mCurrentProjectId;
     QPointer<QFieldCloudProject> mCurrentProject;
