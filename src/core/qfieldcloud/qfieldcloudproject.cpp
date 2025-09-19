@@ -2350,14 +2350,7 @@ void QFieldCloudProject::uploadFiles()
     mUploadFileTransfers.remove( filePath );
     if ( mUploadFileTransfers.isEmpty() )
     {
-      if ( mUploadFilesFailed == 0 && !mUploadLocalPath.isEmpty() )
-      {
-        // We remove the locally stored project, long live the packaged cloud project!
-        QDir localDir( mUploadLocalPath );
-        localDir.removeRecursively();
-      }
-
-      emit uploadFinished();
+      emit uploadFinished( mUploadFilesFailed > 0 ? tr( "One or more files could not be uploaded" ) : QString() );
       setStatus( ProjectStatus::Idle );
     }
     else
