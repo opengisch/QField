@@ -106,7 +106,7 @@ QString ProjectUtils::createProject( const QVariantMap &options )
 
     notesLayer = new QgsVectorLayer( notesFilepath, tr( "Notes" ) );
     fields = notesLayer->fields();
-    LayerUtils::setDefaultRenderer( notesLayer );
+    LayerUtils::setDefaultRenderer( notesLayer, nullptr, options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "camera" ) : QString() );
 
     int fieldIndex;
     QVariantMap widgetOptions;
