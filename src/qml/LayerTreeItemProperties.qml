@@ -293,7 +293,7 @@ Popup {
 
           onClicked: {
             var layer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
-            close();
+            popup.close();
             if (trackingModel.layerInTracking(layer)) {
               trackingModel.stopTracker(layer);
               displayToast(qsTr('Track on layer %1 stopped').arg(layer.name));
