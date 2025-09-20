@@ -108,6 +108,7 @@ void PlatformUtilities::afterUpdate()
   }
 
   QDir applicationDir( applicationDirectory() );
+  applicationDir.mkpath( QStringLiteral( "Created Projects" ) );
   applicationDir.mkpath( QStringLiteral( "Imported Projects" ) );
   applicationDir.mkpath( QStringLiteral( "Imported Datasets" ) );
 }

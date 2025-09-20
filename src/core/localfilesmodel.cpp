@@ -28,24 +28,44 @@ LocalFilesModel::LocalFilesModel( QObject *parent )
   : QAbstractListModel( parent )
 {
   QSettings settings;
-  const bool favoritesInitialized = settings.value( QStringLiteral( "qfieldFavoritesInitialized" ), false ).toBool();
-  if ( !favoritesInitialized )
+  mFavorites = settings.value( QStringLiteral( "qfieldFavorites" ), QStringList() ).toStringList();
+
+  const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
+  mCreatedProjectsPath = QDir::cleanPath( QStringLiteral( "%1/Created Projects" ).arg( applicationDirectory ) );
+  mImportedProjectsPath = QDir::cleanPath( QStringLiteral( "%1/Imported Projects" ).arg( applicationDirectory ) );
+  mImportedDatasetsPath = QDir::cleanPath( QStringLiteral( "%1/Imported Datasets" ).arg( applicationDirectory ) );
+  mSampleProjectsPath = QDir::cleanPath( PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) ) );
+
+  const bool favoritesInitialized = settings.value( QStringLiteral( "qfieldFavoritesInitialized2" ), false ).toBool();
+  if ( favoritesInitialized )
   {
-    const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
+    mFavorites.clear();
+
     if ( !applicationDirectory.isEmpty() )
     {
-      mFavorites << QStringLiteral( "%1/Imported Projects" ).arg( applicationDirectory )
-                 << QStringLiteral( "%1/Imported Datasets" ).arg( applicationDirectory );
+      if ( !mFavorites.contains( mCreatedProjectsPath ) )
+      {
+        mFavorites << mCreatedProjectsPath;
+      }
+      if ( !mFavorites.contains( mImportedProjectsPath ) )
+      {
+        mFavorites << mImportedProjectsPath;
+      }
+      if ( !mFavorites.contains( mImportedDatasetsPath ) )
+      {
+        mFavorites << mImportedDatasetsPath;
+      }
     }
-    const QString sampleProjectPath = PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) );
-    mFavorites << sampleProjectPath;
+
+    if ( !mFavorites.contains( mSampleProjectsPath ) )
+    {
+      mFavorites << mSampleProjectsPath;
+    }
+
     settings.setValue( QStringLiteral( "qfieldFavorites" ), mFavorites );
-    settings.setValue( QStringLiteral( "qfieldFavoritesInitialized" ), true );
+    settings.setValue( QStringLiteral( "qfieldFavoritesInitialized2" ), true );
   }
-  else
-  {
-    mFavorites = settings.value( QStringLiteral( "qfieldFavorites" ), QStringList() ).toStringList();
-  }
+
   resetToRoot();
 }
 
@@ -126,21 +146,25 @@ const QString LocalFilesModel::getCurrentTitleFromPath( const QString &path ) co
   {
     return tr( "QField files directory" );
   }
-  else if ( path == PlatformUtilities::instance()->applicationDirectory() + QStringLiteral( "/Imported Projects" ) )
+  else if ( path == mCreatedProjectsPath )
+  {
+    return tr( "Created projects" );
+  }
+  else if ( path == mImportedProjectsPath )
   {
     return tr( "Imported projects" );
   }
-  else if ( path == PlatformUtilities::instance()->applicationDirectory() + QStringLiteral( "/Imported Datasets" ) )
+  else if ( path == mImportedDatasetsPath )
   {
     return tr( "Imported datasets" );
+  }
+  else if ( path == mSampleProjectsPath )
+  {
+    return tr( "Sample projects" );
   }
   else if ( PlatformUtilities::instance()->additionalApplicationDirectories().contains( path ) )
   {
     return tr( "Additional files directory" );
-  }
-  else if ( path == PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) ) )
-  {
-    return tr( "Sample projects" );
   }
   else
   {

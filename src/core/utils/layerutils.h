@@ -27,6 +27,8 @@ class QgsVectorLayer;
 class QgsRasterLayer;
 class QgsSymbol;
 
+#define OPENSTREETMAP_URL QStringLiteral( "type=xyz&tilePixelRatio=1&url=https://tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&zmin=0&crs=EPSG3857" )
+
 /**
  * A class providing a feature iterator interface to be used within QML/javascript environment.
  *
@@ -97,11 +99,32 @@ class LayerUtils : public QObject
     * Returns the default symbol for a given layer.
     * \param layer the vector layer used to create the default symbol
     */
-    static QgsSymbol *defaultSymbol( QgsVectorLayer *layer );
+    static QgsSymbol *defaultSymbol( QgsVectorLayer *layer, const QString &attachmentField = QString() );
 
+    /**
+     * Sets the default symbology render for a given \a layer.
+     */
+    static void setDefaultRenderer( QgsVectorLayer *layer, QgsProject *project = nullptr, const QString &attachmentField = QString() );
+
+    /**
+     * Returns the default vector layer labeling for a given \a layer and \a textFormat.
+     */
     static QgsAbstractVectorLayerLabeling *defaultLabeling( QgsVectorLayer *layer, QgsTextFormat textFormat = QgsTextFormat() );
 
+    /**
+     * Sets the default labeling for a given \a layer.
+     */
+    static void setDefaultLabeling( QgsVectorLayer *layer, QgsProject *project = nullptr );
+
+    /**
+     * Creats an online raster elevation layer.
+     */
     static QgsRasterLayer *createOnlineElevationLayer();
+
+    /**
+     * Creates an online basemap layer.
+     */
+    static QgsMapLayer *createBasemap( const QString &style = QString() );
 
     /**
     * Returns TRUE if the vector layer is used as an atlas coverage layer in

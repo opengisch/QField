@@ -159,6 +159,11 @@ class LocalFilesModel : public QAbstractListModel
     QList<Item> mItems;
 
     QStringList mFavorites;
+
+    QString mCreatedProjectsPath;
+    QString mImportedProjectsPath;
+    QString mImportedDatasetsPath;
+    QString mSampleProjectsPath;
 };
 
 #endif // LOCALFILESMODEL_H

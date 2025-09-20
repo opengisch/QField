@@ -503,9 +503,10 @@ public class QFieldActivity extends QtActivity {
         File primaryExternalFilesDir = getExternalFilesDir(null);
         if (primaryExternalFilesDir != null) {
             String dataDir = primaryExternalFilesDir.getAbsolutePath() + "/";
-            // create import directories
+            // create import and creation directories
             new File(dataDir + "Imported Datasets/").mkdir();
             new File(dataDir + "Imported Projects/").mkdir();
+            new File(dataDir + "Created Projects/").mkdir();
 
             dataDir = dataDir + "QField/";
             // create QField directories
