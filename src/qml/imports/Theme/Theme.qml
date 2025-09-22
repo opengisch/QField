@@ -54,6 +54,7 @@ QtObject {
   property bool darkTheme: false
 
   property color mainColor: "#80cc28"
+  property color mainColorSemiOpaque: "#bb80cc28"
   property color mainOverlayColor: "#ffffff"
   property color accentColor: "#4CAF50"
   property color accentLightColor: "#994CAF50"

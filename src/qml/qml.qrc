@@ -137,5 +137,6 @@
         <file>PluginItem.qml</file>
         <file>InformationDrawer.qml</file>
         <file>QFieldGuide.qml</file>
+        <file>imports/Theme/QfProjectThumbnail.qml</file>
     </qresource>
 </RCC>

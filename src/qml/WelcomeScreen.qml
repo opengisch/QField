@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Controls.Material.impl
 import QtQuick.Layouts
 import QtQuick.Particles
 import QtCore
@@ -544,143 +543,41 @@ Page {
               width: parent.width
               height: contentItem.childrenRect.height
 
-              delegate: Rectangle {
-                id: rectangle
-                objectName: "loadProjectItem_1" // todo, suffix with e.g. ProjectTitle
-
-                property bool isPressed: false
+              delegate: QfProjectThumbnail {
                 property string path: ProjectPath
-                property string title: ProjectTitle
                 property var type: ProjectType
 
-                width: parent ? parent.width : undefined
-                height: line.height + 8
-                color: "transparent"
-
-                Rectangle {
-                  id: lineMask
-                  width: line.width
-                  height: line.height
-                  radius: 10
-                  color: "white"
-                  visible: false
-                  layer.enabled: true
+                objectName: "loadProjectItem_1" // todo, suffix with e.g. ProjectTitle
+                previewImageSource: welcomeScreen.visible ? 'image://projects/' + ProjectPath : ''
+                showType: true
+                projectTypeSource: switch (ProjectType) {
+                case 0:
+                  return Theme.getThemeVectorIcon('ic_map_green_48dp');     // local project
+                case 1:
+                  return Theme.getThemeVectorIcon('ic_cloud_project_48dp'); // cloud project
+                case 2:
+                  return Theme.getThemeVectorIcon('ic_file_green_48dp');    // local dataset
+                default:
+                  return '';
                 }
-
-                Rectangle {
-                  id: line
-                  width: parent.width
-                  height: previewImage.status === Image.Ready ? 120 : detailsContainer.height
-                  anchors.verticalCenter: parent.verticalCenter
-                  color: "transparent"
-                  clip: true
-
-                  layer.enabled: true
-                  layer.effect: QfOpacityMask {
-                    maskSource: lineMask
+                projectTitle.text: ProjectTitle
+                projectNote: {
+                  var notes = [];
+                  if (index == 0) {
+                    var firstRun = settings && !settings.value("/QField/FirstRunFlag", false);
+                    if (!firstRun && firstShown === false)
+                      notes.push(qsTr("Last session"));
                   }
-
-                  Image {
-                    id: previewImage
-                    width: parent.width
-                    height: parent.height
-                    source: welcomeScreen.visible ? 'image://projects/' + ProjectPath : ''
-                    fillMode: Image.PreserveAspectCrop
+                  if (ProjectPath === registry.defaultProject) {
+                    notes.push(qsTr("Default project"));
                   }
-
-                  Ripple {
-                    clip: true
-                    width: line.width
-                    height: line.height
-                    pressed: rectangle.isPressed
-                    active: rectangle.isPressed
-                    color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.15)
+                  if (ProjectPath === registry.baseMapProject) {
+                    notes.push(qsTr("Base map"));
                   }
-
-                  Rectangle {
-                    id: detailsContainer
-                    color: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.9)
-                    width: parent.width
-                    height: details.childrenRect.height + details.topPadding + details.bottomPadding
-                    anchors.bottom: parent.bottom
-
-                    Row {
-                      id: details
-                      width: parent.width
-                      topPadding: 3
-                      bottomPadding: 3
-                      spacing: 0
-
-                      Image {
-                        id: type
-                        anchors.verticalCenter: parent.verticalCenter
-                        source: switch (ProjectType) {
-                        case 0:
-                          return Theme.getThemeVectorIcon('ic_map_green_48dp');     // local project
-                        case 1:
-                          return Theme.getThemeVectorIcon('ic_cloud_project_48dp'); // cloud project
-                        case 2:
-                          return Theme.getThemeVectorIcon('ic_file_green_48dp');    // local dataset
-                        default:
-                          return '';
-                        }
-                        sourceSize.width: 80
-                        sourceSize.height: 80
-                        width: 40
-                        height: 40
-                      }
-                      ColumnLayout {
-                        id: inner
-                        anchors.verticalCenter: parent.verticalCenter
-                        width: rectangle.width - type.width - 20
-                        spacing: 2
-                        clip: true
-
-                        Text {
-                          id: projectTitle
-                          topPadding: 4
-                          leftPadding: 3
-                          bottomPadding: projectNote.visible ? 0 : 5
-                          text: ProjectTitle
-                          font.pointSize: Theme.tipFont.pointSize
-                          font.underline: true
-                          color: Theme.mainColor
-                          opacity: rectangle.isPressed ? 0.8 : 1
-                          wrapMode: Text.WordWrap
-                          Layout.fillWidth: true
-                        }
-                        Text {
-                          id: projectNote
-                          leftPadding: 3
-                          bottomPadding: 4
-                          text: {
-                            var notes = [];
-                            if (index == 0) {
-                              var firstRun = settings && !settings.value("/QField/FirstRunFlag", false);
-                              if (!firstRun && firstShown === false)
-                                notes.push(qsTr("Last session"));
-                            }
-                            if (ProjectPath === registry.defaultProject) {
-                              notes.push(qsTr("Default project"));
-                            }
-                            if (ProjectPath === registry.baseMapProject) {
-                              notes.push(qsTr("Base map"));
-                            }
-                            if (notes.length > 0) {
-                              return notes.join('; ');
-                            } else {
-                              return "";
-                            }
-                          }
-                          visible: text != ""
-                          font.pointSize: Theme.tipFont.pointSize - 2
-                          font.italic: true
-                          color: Theme.secondaryTextColor
-                          wrapMode: Text.WordWrap
-                          Layout.fillWidth: true
-                        }
-                      }
-                    }
+                  if (notes.length > 0) {
+                    return notes.join('; ');
+                  } else {
+                    return "";
                   }
                 }
               }
@@ -694,7 +591,7 @@ Page {
                     if (item.type == 1 && cloudConnection.hasToken && cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
                       cloudConnection.login();
                     }
-                    iface.loadFile(item.path, item.title);
+                    iface.loadFile(item.path, item.projectTitle.text);
                   }
                 }
                 onPressed: mouse => {

@@ -80,9 +80,9 @@ Page {
           ListView {
             id: baseMapList
             width: parent.width
-            height: 95
+            height: 105
             orientation: ListView.Horizontal
-            spacing: 4
+            spacing: 10
             model: [{
                 "icon": "qrc:/pictures/pictures/colorful.jpg",
                 "name": "Colorful "
@@ -102,85 +102,34 @@ Page {
 
             clip: true
 
-            delegate: Rectangle {
+            delegate: QfProjectThumbnail {
               width: 150
-              height: 95
-              color: modelData.name === "Blank" ? "white" : Theme.groupBoxSurfaceColor
+              implicitHeight: 95
               radius: 4
-              border.width: 2
-              border.color: baseMapList.currentIndex === index ? Theme.mainColor : "transparent"
-
-              Image {
-                id: baseMapIcon
-                anchors.fill: parent
-                anchors.margins: 2
-                fillMode: Image.PreserveAspectCrop
-                source: modelData.icon
-                sourceSize.width: width * screen.devicePixelRatio
-                sourceSize.height: height * screen.devicePixelRatio
-                visible: source !== ""
-              }
-
-              Rectangle {
-                width: 25
-                height: width
-                radius: width / 2
-                color: Theme.mainColor
-                anchors.top: parent.top
-                anchors.right: parent.right
-                anchors.margins: 8
-                visible: baseMapList.currentIndex === index
-                opacity: visible
-
-                Behavior on opacity  {
-                  NumberAnimation {
-                    duration: 200
-                  }
-                }
-
-                Image {
-                  anchors.fill: parent
-                  anchors.margins: 4
-                  fillMode: Image.PreserveAspectCrop
-                  source: "qrc:/themes/qfield/nodpi/ic_check_white_24dp.svg"
-                  sourceSize.width: width * screen.devicePixelRatio
-                  sourceSize.height: height * screen.devicePixelRatio
-                }
-              }
-
-              Rectangle {
-                anchors.left: parent.left
-                anchors.bottom: parent.bottom
-                anchors.margins: 2
-                anchors.right: parent.right
-                height: 20
-                color: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.9)
-
-                Label {
-                  text: modelData.name
-                  font: Theme.defaultFont
-                  color: Theme.mainTextColor
-                  wrapMode: Text.WordWrap
-                  width: parent.width
-                  anchors.verticalCenter: parent.verticalCenter
-                  anchors.left: parent.left
-                  anchors.leftMargin: 8
-                }
-              }
+              bgColor: modelData.name === "Blank" ? "white" : Theme.groupBoxSurfaceColor
+              previewImageSource: modelData.icon
+              projectTitle.text: modelData.name
+              projectTitle.color: Theme.mainTextColor
+              projectTitle.font.underline: false
+              showType: false
+              selected: baseMapList.currentIndex == index
+              fillHeight: true
+              showCustomizeIcon: projectTitle.text === "Custom"
 
               MouseArea {
-                id: baseMapItemMouseArea
                 anchors.fill: parent
-                onClicked: baseMapList.currentIndex = index
+                onClicked: {
+                  baseMapList.currentIndex = index;
+                }
 
-                Ripple {
-                  clip: true
-                  anchor: parent
-                  width: parent.width
-                  height: parent.height
-                  pressed: parent.pressed
-                  active: parent.pressed
-                  color: Material.rippleColor
+                onPressed: {
+                  parent.isPressed = true;
+                }
+                onReleased: {
+                  parent.isPressed = false;
+                }
+                onCanceled: {
+                  parent.isPressed = false;
                 }
               }
             }
@@ -299,29 +248,38 @@ Page {
     }
   }
 
-  QfButton {
-    id: createProjectButton
+  Rectangle {
+    id: bottomRow
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.margins: 10
-    text: qsTr("Create Project")
+    height: createProjectButton.height * 1.1
+    color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
 
-    onClicked: {
-      let selectedBasemap = (baseMapList.currentIndex >= 0 && baseMapList.currentIndex < baseMapList.model.length) ? baseMapList.model[baseMapList.currentIndex].name : "Colorful";
-      const isCustomBasemap = (selectedBasemap === "Custom");
-      selectedBasemap = isCustomBasemap ? baseMapURL.text : selectedBasemap;
-      var projectConfig = {
-        "title": projectName.text,
-        "is_custom_basemap_selected": isCustomBasemap,
-        "basemap": selectedBasemap,
-        "notes": takeNotesGroupBox.checked,
-        "camera_capture": takeMediaCheckBox.checked,
-        "tracks": trackPositionGroupBox.checked,
-        "track_on_launch": autoTrackPositionCheckBox.checked,
-        "use_cloud": qfieldCloudGroupBox.checked
-      };
-      create(projectConfig);
+    QfButton {
+      id: createProjectButton
+      width: parent.width
+      bgcolor: Theme.mainColorSemiOpaque
+
+      text: qsTr("Create Project")
+
+      onClicked: {
+        let selectedBasemap = (baseMapList.currentIndex >= 0 && baseMapList.currentIndex < baseMapList.model.length) ? baseMapList.model[baseMapList.currentIndex].name : "Colorful";
+        const isCustomBasemap = (selectedBasemap === "Custom");
+        selectedBasemap = isCustomBasemap ? baseMapURL.text : selectedBasemap;
+        var projectConfig = {
+          "title": projectName.text,
+          "is_custom_basemap_selected": isCustomBasemap,
+          "basemap": selectedBasemap,
+          "notes": takeNotesGroupBox.checked,
+          "camera_capture": takeMediaCheckBox.checked,
+          "tracks": trackPositionGroupBox.checked,
+          "track_on_launch": autoTrackPositionCheckBox.checked,
+          "use_cloud": qfieldCloudGroupBox.checked
+        };
+        console.log(JSON.stringify(projectConfig));
+      }
     }
   }
 }
