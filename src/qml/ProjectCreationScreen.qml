@@ -6,9 +6,7 @@ import org.qfield
 import Theme
 
 Page {
-  id: createNewProject
-
-  signal create(var projectConfig)
+  id: projectCreation
 
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
@@ -27,26 +25,23 @@ Page {
     titleFont: Theme.strongTitleFont
 
     onBack: {
-      createNewProject.visible = false;
+      projectCreation.visible = false;
     }
   }
 
   Flickable {
-    anchors.top: parent.top
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.bottom: createProjectButton.top
-    anchors.margins: 16
-    contentHeight: newProjectConfigColumn.height
+    anchors.fill: parent
+    anchors.margins: 10
+    contentHeight: newProjectConfigColumn.height + createProjectButton.height + 20
     clip: true
 
     Column {
       id: newProjectConfigColumn
       width: parent.width
-      spacing: 8
+      spacing: 10
 
       Label {
-        text: qsTr("Project Name")
+        text: qsTr("This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.")
         font: Theme.defaultFont
         color: Theme.mainTextColor
         wrapMode: Text.WordWrap
@@ -58,12 +53,8 @@ Page {
         width: parent.width
         height: 50
         font: Theme.defaultFont
-        placeholderText: text === "" && !focus ? "New project name" : ""
-      }
-
-      Item {
-        width: 1
-        height: 2
+        placeholderText: qsTr("New project name")
+        text: qsTr("My project")
       }
 
       QfExpandableGroupBox {
@@ -76,18 +67,14 @@ Page {
           id: basemapColumn
           anchors.left: parent.left
           anchors.right: parent.right
+          spacing: 10
 
           Label {
-            text: qsTr("Choose a basemap for your project. Pick from the available options or provide your own link.")
+            text: qsTr("Choose a basemap for your project. Pick from the available options or provide your own URL.")
             font: Theme.defaultFont
             color: Theme.secondaryTextColor
             wrapMode: Text.WordWrap
             width: parent.width
-          }
-
-          Item {
-            width: 1
-            height: 16
           }
 
           ListView {
@@ -118,7 +105,7 @@ Page {
             delegate: Rectangle {
               width: 150
               height: 95
-              color: modelData.name == "Blank" ? "white" : Theme.groupBoxSurfaceColor
+              color: modelData.name === "Blank" ? "white" : Theme.groupBoxSurfaceColor
               radius: 4
               border.width: 2
               border.color: baseMapList.currentIndex === index ? Theme.mainColor : "transparent"
@@ -199,11 +186,6 @@ Page {
             }
           }
 
-          Item {
-            width: 1
-            height: 8
-          }
-
           Column {
             spacing: 4
             width: parent.width
@@ -220,7 +202,7 @@ Page {
             TextField {
               id: baseMapURL
               font: Theme.defaultFont
-              placeholderText: text == "" && !focus ? "e.g., https://your-map-service.com/{z}/" : ""
+              placeholderText: text === "" && !focus ? "e.g., https://your-map-service.com/{z}/{x}/{y}.png" : ""
               placeholderTextColor: Theme.secondaryTextColor
               width: parent.width
             }
@@ -239,7 +221,7 @@ Page {
           anchors.right: parent.right
 
           Label {
-            text: qsTr("Quickly capture notes with date, time, and comments. Optionally, attach images to enrich your notes.")
+            text: qsTr("Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.")
             font: Theme.defaultFont
             color: Theme.secondaryTextColor
             wrapMode: Text.WordWrap
@@ -302,7 +284,6 @@ Page {
         content: Column {
           id: databaseAndColabrationColumn
           width: parent.width
-          spacing: 0
 
           Label {
             text: qsTr("QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. ") + "<a href=\"https://qfield.cloud/\">" + qsTr("Learn more about QFieldCloud here") + "</a>."
@@ -323,7 +304,7 @@ Page {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    anchors.margins: 16
+    anchors.margins: 10
     text: qsTr("Create Project")
 
     onClicked: {
@@ -331,14 +312,14 @@ Page {
       const isCustomBasemap = (selectedBasemap === "Custom");
       selectedBasemap = isCustomBasemap ? baseMapURL.text : selectedBasemap;
       var projectConfig = {
-        "name": projectName.text,
-        "isCustomBasemapSelected": isCustomBasemap,
+        "title": projectName.text,
+        "is_custom_basemap_selected": isCustomBasemap,
         "basemap": selectedBasemap,
-        "takeNotes": takeNotesGroupBox.checked,
-        "takeMediaAttachments": takeMediaCheckBox.checked,
-        "trackPosition": trackPositionGroupBox.checked,
-        "autoTrackPosition": autoTrackPositionCheckBox.checked,
-        "useCloud": qfieldCloudGroupBox.checked
+        "notes": takeNotesGroupBox.checked,
+        "camera_capture": takeMediaCheckBox.checked,
+        "tracks": trackPositionGroupBox.checked,
+        "track_on_launch": autoTrackPositionCheckBox.checked,
+        "use_cloud": qfieldCloudGroupBox.checked
       };
       create(projectConfig);
     }

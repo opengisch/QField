@@ -3,7 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 Rectangle {
-  implicitHeight: checked ? header.height + body.childrenRect.height + 24 : 60
+  implicitHeight: checked ? header.height + body.childrenRect.height + 20 : 60
 
   radius: 8
   color: Theme.groupBoxBackgroundColor
@@ -26,7 +26,7 @@ Rectangle {
     anchors.left: parent.left
     anchors.right: parent.right
     height: 60
-    anchors.margins: 24
+    anchors.margins: 20
 
     Image {
       id: headerIcon
@@ -71,9 +71,9 @@ Rectangle {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    anchors.leftMargin: 24
-    anchors.rightMargin: 24
-    anchors.topMargin: 16
-    anchors.bottomMargin: 16
+    anchors.leftMargin: 20
+    anchors.rightMargin: 20
+    anchors.topMargin: 10
+    anchors.bottomMargin: 10
   }
 }

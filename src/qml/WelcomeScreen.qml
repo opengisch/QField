@@ -16,7 +16,7 @@ Page {
   property bool firstShown: false
 
   property alias model: table.model
-  signal openLocalDataPicker
+  signal showLocalDataPicker
   signal showQFieldCloudScreen
   signal showSettings
   signal showProjectCreationScreen
@@ -478,7 +478,7 @@ Page {
                   "iconColor": Theme.mainColor,
                   "action": function () {
                     platformUtilities.requestStoragePermission();
-                    openLocalDataPicker();
+                    showLocalDataPicker();
                   }
                 }, {
                   "icon": Theme.getThemeVectorIcon("ic_add_white_24dp"),

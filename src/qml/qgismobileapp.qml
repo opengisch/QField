@@ -206,7 +206,7 @@ ApplicationWindow {
     enabled: keyHandler.focus || welcomeScreen.focus
     sequence: "Ctrl+O"
     onActivated: {
-      welcomeScreen.openLocalDataPicker();
+      welcomeScreen.showLocalDataPicker();
     }
   }
 
@@ -4297,7 +4297,7 @@ ApplicationWindow {
 
     anchors.fill: parent
 
-    onOpenLocalDataPicker: {
+    onShowLocalDataPicker: {
       qfieldLocalDataPickerScreen.projectFolderView = false;
       qfieldLocalDataPickerScreen.model.resetToRoot();
       qfieldLocalDataPickerScreen.visible = true;
@@ -4355,10 +4355,6 @@ ApplicationWindow {
     height: parent.height
 
     Component.onCompleted: focusstack.addFocusTaker(this)
-
-    onCreate: projectConfig => {
-      console.log(JSON.stringify(projectConfig));
-    }
   }
 
   QFieldCloudPackageLayersFeedback {
