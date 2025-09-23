@@ -94,10 +94,10 @@ Page {
                 "name": "colorful"
               }, {
                 "icon": "qrc:/pictures/pictures/dark.jpg",
-                "name": "dark"
+                "name": "darkgray"
               }, {
                 "icon": "qrc:/pictures/pictures/lightgray.jpg",
-                "name": "light"
+                "name": "lightgray"
               }, {
                 "icon": "",
                 "name": "blank"
