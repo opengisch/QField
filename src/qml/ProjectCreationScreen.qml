@@ -32,7 +32,7 @@ Page {
   Flickable {
     anchors.fill: parent
     anchors.margins: 10
-    contentHeight: newProjectConfigColumn.height + createProjectButton.height + 20
+    contentHeight: newProjectConfigColumn.height + bottomRow.height + 20
     clip: true
 
     Column {
@@ -85,19 +85,19 @@ Page {
             spacing: 10
             model: [{
                 "icon": "qrc:/pictures/pictures/colorful.jpg",
-                "name": "Colorful "
+                "name": "colorful"
               }, {
                 "icon": "qrc:/pictures/pictures/dark.jpg",
-                "name": "Dark "
+                "name": "dark"
               }, {
                 "icon": "qrc:/pictures/pictures/lightgray.jpg",
-                "name": "Light "
+                "name": "light"
               }, {
                 "icon": "",
-                "name": "Blank"
+                "name": "blank"
               }, {
                 "icon": "",
-                "name": "Custom"
+                "name": "custom"
               }]
 
             clip: true
@@ -265,20 +265,18 @@ Page {
       text: qsTr("Create Project")
 
       onClicked: {
-        let selectedBasemap = (baseMapList.currentIndex >= 0 && baseMapList.currentIndex < baseMapList.model.length) ? baseMapList.model[baseMapList.currentIndex].name : "Colorful";
-        const isCustomBasemap = (selectedBasemap === "Custom");
-        selectedBasemap = isCustomBasemap ? baseMapURL.text : selectedBasemap;
-        var projectConfig = {
+        let projectConfig = {
           "title": projectName.text,
-          "is_custom_basemap_selected": isCustomBasemap,
-          "basemap": selectedBasemap,
+          "basemap": baseMapList.model[Math.min(0, baseMapList.currentIndex)].name,
+          "basemap_url": baseMapURL.text,
           "notes": takeNotesGroupBox.checked,
           "camera_capture": takeMediaCheckBox.checked,
           "tracks": trackPositionGroupBox.checked,
           "track_on_launch": autoTrackPositionCheckBox.checked,
           "use_cloud": qfieldCloudGroupBox.checked
         };
-        console.log(JSON.stringify(projectConfig));
+        const projectFilePath = ProjectUtils.createProject(projectConfig);
+        iface.loadFile(projectFilePath);
       }
     }
   }
