@@ -35,7 +35,7 @@ Page {
   Flickable {
     anchors.fill: parent
     anchors.margins: 10
-    contentHeight: newProjectConfigColumn.height + bottomRow.height + 20
+    contentHeight: newProjectConfigColumn.height + bottomRow.height + mainWindow.sceneBottomMargin + 50
     clip: true
 
     Column {
@@ -57,7 +57,7 @@ Page {
         height: 50
         font: Theme.defaultFont
         placeholderText: qsTr("New project name")
-        text: qsTr("My project")
+        text: ""
       }
 
       QfExpandableGroupBox {
@@ -76,7 +76,7 @@ Page {
           spacing: 10
 
           Label {
-            text: qsTr("Choose a basemap for your project. Pick from the available options or provide your own URL.")
+            text: qsTr("Choose a basemap for your project. Pick from the available options or provide your own custom URL.")
             font: Theme.defaultFont
             color: Theme.secondaryTextColor
             wrapMode: Text.WordWrap
@@ -91,19 +91,24 @@ Page {
             spacing: 10
             model: [{
                 "icon": "qrc:/pictures/pictures/colorful.jpg",
-                "name": "colorful"
+                "name": "colorful",
+                "displayName": qsTr("Colorful")
               }, {
                 "icon": "qrc:/pictures/pictures/dark.jpg",
-                "name": "darkgray"
+                "name": "darkgray",
+                "displayName": qsTr("Darkgray")
               }, {
                 "icon": "qrc:/pictures/pictures/lightgray.jpg",
-                "name": "lightgray"
+                "name": "lightgray",
+                "displayName": qsTr("Lightgray")
               }, {
                 "icon": "",
-                "name": "blank"
+                "name": "blank",
+                "displayName": qsTr("Blank")
               }, {
                 "icon": "",
-                "name": "custom"
+                "name": "custom",
+                "displayName": qsTr("Custom")
               }]
 
             clip: true
@@ -114,7 +119,7 @@ Page {
               radius: 4
               bgColor: modelData.name === "Blank" ? "white" : Theme.groupBoxSurfaceColor
               previewImageSource: modelData.icon
-              projectTitle.text: modelData.name
+              projectTitle.text: modelData.displayName
               projectTitle.color: Theme.mainTextColor
               projectTitle.font.underline: false
               showType: false
@@ -125,6 +130,7 @@ Page {
               MouseArea {
                 anchors.fill: parent
                 onClicked: {
+                  Qt.inputMethod.hide();
                   baseMapList.currentIndex = index;
                 }
 

@@ -16,6 +16,12 @@ EditorWidgetBase {
     left: parent.left
   }
 
+  onEnabledChanged: {
+    if (!isEnabled && colorContainer.currentIndex > 0) {
+      colorContainer.currentIndex = 0;
+    }
+  }
+
   SwipeView {
     id: colorContainer
 
@@ -43,17 +49,25 @@ EditorWidgetBase {
         radius: height / 2
 
         color: value == null ? "transparent" : value
-      }
 
-      QfToolButton {
-        Layout.preferredWidth: 48
-        Layout.preferredHeight: 48
-        visible: isEnabled
-        iconSource: Theme.getThemeVectorIcon("ic_ellipsis_black_24dp")
-        iconColor: Theme.mainTextColor
+        QfToolButton {
+          anchors.right: parent.right
+          width: 48
+          height: 48
+          visible: isEnabled
+          enabled: false
+          iconSource: Theme.getThemeVectorIcon("ic_ellipsis_black_24dp")
+          iconColor: "white"
+          bgcolor: "transparent"
+        }
 
-        onClicked: {
-          colorContainer.currentIndex = 1;
+        MouseArea {
+          anchors.fill: parent
+          enabled: isEnabled
+
+          onClicked: {
+            colorContainer.currentIndex = 1;
+          }
         }
       }
     }

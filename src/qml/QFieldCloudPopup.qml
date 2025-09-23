@@ -378,7 +378,7 @@ Popup {
 
             onClicked: {
               if (qgisProject.fileName != "") {
-                cloudify(ProjectUtils.title(qgisProject, FileUtils.absolutePath(qgisProject.fileName)));
+                cloudify(ProjectUtils.title(qgisProject), FileUtils.absolutePath(qgisProject.fileName));
               }
             }
           }

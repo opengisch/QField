@@ -149,7 +149,7 @@ QString ProjectUtils::createProject( const QVariantMap &options )
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Color" ), widgetOptions );
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
       notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "'#e41a1c'" ), false ) );
-      notesLayer->setFieldAlias( fieldIndex, tr( "Color" ) );
+      notesLayer->setFieldAlias( fieldIndex, tr( "Marker color" ) );
     }
 
     // Configure note field
