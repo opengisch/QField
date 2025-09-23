@@ -410,7 +410,12 @@ void ProjectInfo::setStateMode( const QString &mode )
 
 QString ProjectInfo::stateMode() const
 {
-  return mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/stateMode" ).arg( mFilePath ), QStringLiteral( "browse" ) ).toString();
+  if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/stateMode" ) ) )
+  {
+    return mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/stateMode" ).arg( mFilePath ), QStringLiteral( "browse" ) ).toString();
+  }
+
+  return QgsProject::instance()->readEntry( QStringLiteral( "QFieldSync" ), QStringLiteral( "initialMapMode" ), QStringLiteral( "browse" ) );
 }
 
 void ProjectInfo::setActiveLayer( QgsMapLayer *layer )
@@ -427,7 +432,15 @@ void ProjectInfo::setActiveLayer( QgsMapLayer *layer )
 
 QgsMapLayer *ProjectInfo::activeLayer() const
 {
-  const QString layerId = mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ).toString();
+  QString layerId;
+  if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ) ) )
+  {
+    layerId = mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ).toString();
+  }
+  else
+  {
+    layerId = QgsProject::instance()->readEntry( QStringLiteral( "QFieldSync" ), QStringLiteral( "initialFocusedLayer" ) );
+  }
   return !layerId.isEmpty() ? QgsProject::instance()->mapLayer( layerId ) : nullptr;
 }
 
