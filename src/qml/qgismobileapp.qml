@@ -4059,6 +4059,11 @@ ApplicationWindow {
       geofencer.applyProjectSettings(qgisProject);
       positioningSettings.geofencingPreventDigitizingDuringAlert = iface.readProjectBoolEntry("qfieldsync", "/geofencingShouldPreventDigitizing", false);
       mapCanvasTour.startOnFreshRun();
+      const initialFocusedLayer = iface.readProjectEntry("qfieldsync", "/initialFocusedLayer", "");
+      const initialMapMode = iface.readProjectEntry("qfieldsync", "/initialMapMode", "");
+      if (initialMapMode === "digitizing") {
+        stateMachine.state = "digitize";
+      }
     }
 
     function onSetMapExtent(extent) {
