@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 Rectangle {
+  id: expandableGroupBox
   implicitHeight: checked ? header.height + body.childrenRect.height + 20 : 60
 
   radius: 8
@@ -15,6 +16,8 @@ Rectangle {
   property alias icon: headerIcon.iconSource
   property alias iconColor: headerIcon.iconColor
   default property alias content: body.children
+
+  signal clicked
 
   Behavior on implicitHeight  {
     NumberAnimation {
@@ -62,6 +65,7 @@ Rectangle {
       onClicked: mouse => {
         if (enabledSwitch.visible) {
           enabledSwitch.toggle();
+          expandableGroupBox.clicked();
         }
       }
     }
@@ -70,6 +74,10 @@ Rectangle {
       id: enabledSwitch
       anchors.right: parent.right
       anchors.verticalCenter: parent.verticalCenter
+
+      onClicked: {
+        expandableGroupBox.clicked();
+      }
     }
   }
 

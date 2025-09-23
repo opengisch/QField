@@ -204,6 +204,10 @@ Page {
             checked: true
           }
         }
+
+        onClicked: {
+          Qt.inputMethod.hide();
+        }
       }
 
       QfExpandableGroupBox {
@@ -239,6 +243,10 @@ Page {
             checked: true
           }
         }
+
+        onClicked: {
+          Qt.inputMethod.hide();
+        }
       }
 
       QfExpandableGroupBox {
@@ -261,6 +269,10 @@ Page {
             textFormat: Text.RichText
             onLinkActivated: link => Qt.openUrlExternally(link)
           }
+        }
+
+        onClicked: {
+          Qt.inputMethod.hide();
         }
       }
     }
