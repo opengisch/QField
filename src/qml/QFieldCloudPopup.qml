@@ -14,9 +14,13 @@ Popup {
   rightPadding: mainWindow.sceneRightMargin
 
   property string pendingAction: ""
+  property string pendingCreationTitle: ""
+  property string pendingUploadPath: ""
 
   onAboutToHide: {
     pendingAction = "";
+    pendingCreationTitle = "";
+    pendingUploadPath = "";
   }
 
   Page {
@@ -373,12 +377,8 @@ Popup {
             icon.source: Theme.getThemeVectorIcon('ic_cloud_white_24dp')
 
             onClicked: {
-              if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-                if (qgisProject.fileName != "") {
-                  cloudProjectsModel.createProject(ProjectUtils.title(qgisProject));
-                }
-              } else {
-                popup.pendingAction = "cloudify";
+              if (qgisProject.fileName != "") {
+                cloudify(ProjectUtils.title(qgisProject, FileUtils.absolutePath(qgisProject.fileName)));
               }
             }
           }
@@ -677,7 +677,7 @@ Popup {
       if (cloudConnection.status == QFieldCloudConnection.LoggedIn) {
         if (popup.pendingAction === "cloudify") {
           popup.pendingAction = "";
-          cloudifyButton.clicked();
+          cloudify(pendingCreationTitle, pendingUploadPath);
         }
       }
     }
@@ -706,6 +706,9 @@ Popup {
     }
 
     function onProjectCreated(projectId, hasError, errorString) {
+      if (!qfieldCloudPopup.visible) {
+        qfieldCloudPopup.visible = true;
+      }
       if (hasError) {
         displayToast(errorString, 'error');
         return;
@@ -713,7 +716,7 @@ Popup {
       let createdCloudProject = cloudProjectsModel.findProject(projectId);
       if (createdCloudProject) {
         cloudProjectCreationConnection.target = createdCloudProject;
-        createdCloudProject.uploadLocalPath(FileUtils.absolutePath(qgisProject.fileName), true);
+        createdCloudProject.uploadLocalPath(pendingUploadPath, true);
       }
     }
   }
@@ -825,5 +828,20 @@ Popup {
   function resetCurrentProject() {
     cloudProjectsModel.discardLocalChangesFromCurrentProject(cloudProjectsModel.currentProjectId);
     cloudProjectsModel.projectPackageAndDownload(cloudProjectsModel.currentProjectId);
+  }
+
+  function cloudify(title, path) {
+    if (!qfieldCloudPopup.visible) {
+      show();
+    }
+    pendingCreationTitle = title;
+    pendingUploadPath = path;
+    if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+      pendingCreationTitle = title;
+      pendingUploadPath = path;
+      cloudProjectsModel.createProject(title);
+    } else {
+      popup.pendingAction = "cloudify";
+    }
   }
 }

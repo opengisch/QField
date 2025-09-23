@@ -4354,6 +4354,15 @@ ApplicationWindow {
     width: parent.width
     height: parent.height
 
+    onTriggerCloudify: (title, path) => {
+      iface.clearProject();
+      qfieldCloudPopup.cloudify(title, FileUtils.absolutePath(path));
+    }
+
+    onTriggerProjectLoad: (title, path) => {
+      iface.loadFile(path, title);
+    }
+
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 

@@ -11,6 +11,9 @@ Page {
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
 
+  signal triggerCloudify(string title, string path)
+  signal triggerProjectLoad(string title, string path)
+
   header: QfPageHeader {
     title: qsTr("Create a new project")
 
@@ -23,6 +26,8 @@ Page {
     topMargin: mainWindow.sceneTopMargin
     titleColor: Theme.mainTextColor
     titleFont: Theme.strongTitleFont
+
+    busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Busy ? 'on' : 'off'
 
     onBack: {
       projectCreation.visible = false;
@@ -265,6 +270,9 @@ Page {
       text: qsTr("Create Project")
 
       onClicked: {
+        if (projectName.text === "") {
+          projectName.text = qsTr("My Project");
+        }
         let projectConfig = {
           "title": projectName.text,
           "basemap": baseMapList.model[Math.min(0, baseMapList.currentIndex)].name,
@@ -272,11 +280,15 @@ Page {
           "notes": takeNotesGroupBox.checked,
           "camera_capture": takeMediaCheckBox.checked,
           "tracks": trackPositionGroupBox.checked,
-          "track_on_launch": autoTrackPositionCheckBox.checked,
-          "use_cloud": qfieldCloudGroupBox.checked
+          "track_on_launch": autoTrackPositionCheckBox.checked
         };
         const projectFilePath = ProjectUtils.createProject(projectConfig);
-        iface.loadFile(projectFilePath);
+        projectCreation.visible = false;
+        if (qfieldCloudGroupBox.checked) {
+          triggerCloudify(projectName.text, projectFilePath);
+        } else {
+          triggerProjectLoad(projectName.text, projectFilePath);
+        }
       }
     }
   }
