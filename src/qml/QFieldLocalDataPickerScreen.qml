@@ -491,12 +491,9 @@ Page {
 
         text: qsTr("Push to QFieldCloud")
         onTriggered: {
+          pushFilesToQFieldCloudConnection.enabled = true;
+          pushFilesToQFieldCloudConnection.sendingItem = true;
           QFieldCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, cloudProjectsModel.currentProjectId, [itemMenu.itemPath], cloudConnection, true);
-          cloudConnection.onPendingAttachmentsAdded.connect(function handler() {
-              platformUtilities.uploadPendingAttachments(cloudConnection);
-              displayToast(qsTr("‘%1’ is being uploaded to QFieldCloud").arg(FileUtils.fileName(itemMenu.itemPath)));
-              cloudConnection.onPendingAttachmentsAdded.disconnect(handler);
-            });
         }
       }
 
@@ -882,17 +879,32 @@ Page {
             }
           }
           if (fileNames.length > 0) {
+            pushFilesToQFieldCloudConnection.enabled = true;
             QFieldCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, cloudProjectsModel.currentProjectId, fileNames, cloudConnection, true);
-            cloudConnection.onPendingAttachmentsAdded.connect(function handler() {
-                platformUtilities.uploadPendingAttachments(cloudConnection);
-                localFilesModel.clearSelection();
-                cloudConnection.onPendingAttachmentsAdded.disconnect(handler);
-              });
           } else {
             displayToast(qsTr("Please select one or more files to push to QFieldCloud."));
           }
         }
       }
+    }
+  }
+
+  Connections {
+    id: pushFilesToQFieldCloudConnection
+    enabled: false
+    target: cloudConnection
+
+    property bool sendingItem: false
+
+    function onPendingAttachmentsAdded() {
+      platformUtilities.uploadPendingAttachments(cloudConnection);
+      if (pushFilesToQFieldCloudConnection.sendingItem) {
+        displayToast(qsTr("‘%1’ is being uploaded to QFieldCloud").arg(FileUtils.fileName(itemMenu.itemPath)));
+        pushFilesToQFieldCloudConnection.sendingItem = false;
+      } else {
+        localFilesModel.clearSelection();
+      }
+      pushFilesToQFieldCloudConnection.enabled = false;
     }
   }
 
