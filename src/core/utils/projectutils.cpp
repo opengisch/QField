@@ -99,6 +99,7 @@ QString ProjectUtils::createProject( const QVariantMap &options )
     {
       fields.append( QgsField( QStringLiteral( "camera" ), QMetaType::QString ) );
     }
+    fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "title" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "time" ), QMetaType::QDateTime ) );
@@ -109,7 +110,7 @@ QString ProjectUtils::createProject( const QVariantMap &options )
 
     notesLayer = new QgsVectorLayer( notesFilepath, tr( "Notes" ) );
     fields = notesLayer->fields();
-    LayerUtils::setDefaultRenderer( notesLayer, nullptr, options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "camera" ) : QString() );
+    LayerUtils::setDefaultRenderer( notesLayer, nullptr, options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "camera" ) : QString(), QStringLiteral( "color" ) );
     LayerUtils::setDefaultLabeling( notesLayer );
 
     int fieldIndex;
@@ -138,6 +139,17 @@ QString ProjectUtils::createProject( const QVariantMap &options )
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
       notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "now()" ), false ) );
       notesLayer->setFieldAlias( fieldIndex, tr( "Time" ) );
+    }
+
+    // Configure color field
+    fieldIndex = fields.indexOf( QStringLiteral( "color" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Color" ), widgetOptions );
+      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "'#e41a1c'" ), false ) );
+      notesLayer->setFieldAlias( fieldIndex, tr( "Color" ) );
     }
 
     // Configure note field

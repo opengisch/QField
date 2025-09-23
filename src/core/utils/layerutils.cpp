@@ -49,7 +49,7 @@ LayerUtils::LayerUtils( QObject *parent )
 {
 }
 
-void LayerUtils::setDefaultRenderer( QgsVectorLayer *layer, QgsProject *project, const QString &attachmentField )
+void LayerUtils::setDefaultRenderer( QgsVectorLayer *layer, QgsProject *project, const QString &attachmentField, const QString &colorField )
 {
   if ( !layer )
     return;
@@ -82,14 +82,14 @@ void LayerUtils::setDefaultRenderer( QgsVectorLayer *layer, QgsProject *project,
   QgsSymbol *symbol = project ? project->styleSettings()->defaultSymbol( symbolType ) : nullptr;
   if ( !symbol )
   {
-    symbol = LayerUtils::defaultSymbol( layer, attachmentField );
+    symbol = LayerUtils::defaultSymbol( layer, attachmentField, colorField );
   }
 
   QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
   layer->setRenderer( renderer );
 }
 
-QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &attachmentField )
+QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &attachmentField, const QString &colorField )
 {
   QgsSymbol *symbol = nullptr;
 
@@ -107,7 +107,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &atta
       {
         QgsSymbolLayerList subSymbolLayers;
         QgsRasterMarkerSymbolLayer *rasterMarkerSymbolLayer = new QgsRasterMarkerSymbolLayer( QString(), 2.6, 0.0 );
-        rasterMarkerSymbolLayer->setSize( 6.0 ); //
+        rasterMarkerSymbolLayer->setSize( 6.0 );
         rasterMarkerSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( "scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value )" ), true ) );
         rasterMarkerSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Name, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000, @project_folder || '/' || \"%1\", '')" ).arg( attachmentField ), true ) );
         subSymbolLayers << rasterMarkerSymbolLayer;
@@ -120,21 +120,38 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &atta
 
         QgsFilledMarkerSymbolLayer *fillSymbolLayer = new QgsFilledMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0 );
         fillSymbolLayer->setSize( 2.4 );
+        if ( !colorField.isEmpty() )
+        {
+          fillSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::StrokeColor, QgsProperty::fromExpression( QStringLiteral( "if(\"%1\" is not null and \"%1\" != '', \"%1\", @value)" ).arg( colorField ), true ) );
+        }
         fillSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000 and \"%1\" is not null and \"%1\" != '', scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value ), @value)" ).arg( attachmentField ), true ) );
         fillSymbolLayer->setSubSymbol( new QgsFillSymbol( subSymbolLayers ) );
         symbolLayers << fillSymbolLayer;
 
-        QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 255, 0, 0, 100 ), QColor( 255, 0, 0 ) );
+        QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 228, 26, 28, 100 ), QColor( 228, 26, 28 ) );
         symbolLayer->setSize( 2.4 );
         symbolLayer->setStrokeWidth( 0.6 );
+        if ( !colorField.isEmpty() )
+        {
+          symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::FillColor, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000 and \"%1\" is not null and \"%1\" != '', '255,0,0,0', if(\"%2\" is not null and \"%2\" != '', set_color_part(\"%2\", 'alpha', 100), @value))" ).arg( attachmentField, colorField ), true ) );
+          symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::StrokeColor, QgsProperty::fromExpression( QStringLiteral( "if(\"%1\" is not null and \"%1\" != '', \"%1\", @value)" ).arg( colorField ), true ) );
+        }
+        else
+        {
+          symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::FillColor, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000 and \"%1\" is not null and \"%1\" != '', '255,0,0,0', @value))" ).arg( attachmentField ), true ) );
+        }
         symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000 and \"%1\" is not null and \"%1\" != '', scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value ), @value)" ).arg( attachmentField ), true ) );
-        symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::FillColor, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000 and \"%1\" is not null and \"%1\" != '', '255,0,0,0', @value)" ).arg( attachmentField ), true ) );
         symbolLayers << symbolLayer;
       }
       else
       {
-        QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 255, 0, 0, 100 ), QColor( 255, 0, 0 ) );
+        QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 228, 26, 28, 100 ), QColor( 228, 26, 28 ) );
         symbolLayer->setStrokeWidth( 0.6 );
+        if ( !colorField.isEmpty() )
+        {
+          symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::FillColor, QgsProperty::fromExpression( QStringLiteral( "if(\"%1\" is not null and \"%1\" != '', set_color_part(\"%1\", 'alpha', 100), @value)" ).arg( colorField ), true ) );
+        }
+        symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::StrokeColor, QgsProperty::fromExpression( QStringLiteral( "if(\"%1\" is not null and \"%1\" != '', \"%1\", @value)" ).arg( colorField ), true ) );
         symbolLayers << symbolLayer;
       }
       symbol = new QgsMarkerSymbol( symbolLayers );
@@ -143,7 +160,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &atta
 
     case Qgis::GeometryType::Line:
     {
-      QgsSimpleLineSymbolLayer *symbolLayer = new QgsSimpleLineSymbolLayer( QColor( 255, 0, 0 ), 0.6 );
+      QgsSimpleLineSymbolLayer *symbolLayer = new QgsSimpleLineSymbolLayer( QColor( 228, 26, 28 ), 0.6 );
       symbolLayers << symbolLayer;
       symbol = new QgsLineSymbol( symbolLayers );
       break;
@@ -151,7 +168,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &atta
 
     case Qgis::GeometryType::Polygon:
     {
-      QgsSimpleFillSymbolLayer *symbolLayer = new QgsSimpleFillSymbolLayer( QColor( 255, 0, 0, 100 ), DEFAULT_SIMPLEFILL_STYLE, QColor( 255, 0, 0 ), DEFAULT_SIMPLEFILL_BORDERSTYLE, 0.6 );
+      QgsSimpleFillSymbolLayer *symbolLayer = new QgsSimpleFillSymbolLayer( QColor( 228, 26, 28, 100 ), DEFAULT_SIMPLEFILL_STYLE, QColor( 228, 26, 28 ), DEFAULT_SIMPLEFILL_BORDERSTYLE, 0.6 );
       symbolLayers << symbolLayer;
       symbol = new QgsFillSymbol( symbolLayers );
       break;
