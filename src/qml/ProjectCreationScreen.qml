@@ -27,8 +27,6 @@ Page {
     titleColor: Theme.mainTextColor
     titleFont: Theme.strongTitleFont
 
-    busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Busy ? 'on' : 'off'
-
     onBack: {
       projectCreation.visible = false;
     }
@@ -258,14 +256,17 @@ Page {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    anchors.margins: 10
-    height: createProjectButton.height * 1.1
+
+    height: childrenRect.height + 20
     color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
 
     QfButton {
       id: createProjectButton
-      width: parent.width
-      bgcolor: Theme.mainColorSemiOpaque
+      anchors.top: parent.top
+      anchors.left: parent.left
+      anchors.right: parent.right
+      anchors.margins: 10
+      bgcolor: Theme.mainColor
 
       text: qsTr("Create Project")
 
@@ -275,7 +276,7 @@ Page {
         }
         let projectConfig = {
           "title": projectName.text,
-          "basemap": baseMapList.model[Math.min(0, baseMapList.currentIndex)].name,
+          "basemap": baseMapList.model[Math.max(0, baseMapList.currentIndex)].name,
           "basemap_url": baseMapURL.text,
           "notes": takeNotesGroupBox.checked,
           "camera_capture": takeMediaCheckBox.checked,
