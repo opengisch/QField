@@ -713,7 +713,7 @@ Popup {
         displayToast(errorString, 'error');
         return;
       }
-      let createdCloudProject = cloudProjectsModel.findProject(projectId);
+      const createdCloudProject = cloudProjectsModel.findProject(projectId);
       if (createdCloudProject) {
         cloudProjectCreationConnection.target = createdCloudProject;
         createdCloudProject.uploadLocalPath(pendingUploadPath, true);

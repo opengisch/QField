@@ -493,8 +493,9 @@ Page {
                 Layout.preferredHeight: Layout.preferredWidth
                 icon.width: width / 2.2
                 icon.height: height / 2.2
-                bgcolor: Theme.darkTheme ? Theme.darkGray : Theme.lightGray
-                round: true
+                bgcolor: Theme.controlBackgroundAlternateColor
+                round: false
+                roundborder: true
                 iconSource: modelData.icon
                 iconColor: modelData.iconColor
                 smooth: true

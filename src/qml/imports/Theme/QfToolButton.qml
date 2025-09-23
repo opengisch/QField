@@ -36,7 +36,7 @@ RoundButton {
     border.width: round && roundborder ? height / 6 : 1
     border.color: button.borderColor
     color: 'transparent'
-    radius: round ? height / 2 : 0
+    radius: round ? height / 2 : roundborder ? 12 : 0
     clip: true
 
     Behavior on color  {
