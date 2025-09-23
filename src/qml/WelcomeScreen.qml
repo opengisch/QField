@@ -456,7 +456,7 @@ Page {
 
         ColumnLayout {
           id: welcomeActions
-          width: parent.width
+          width: parent.width - 12
           spacing: 12
 
           GridLayout {
@@ -489,7 +489,7 @@ Page {
 
               delegate: QfToolButton {
                 Layout.alignment: Qt.AlignHCenter
-                Layout.preferredWidth: welcomeActions.width / actionsRepeater.count / 1.5
+                Layout.preferredWidth: Math.min(mainWindow.height / 4, welcomeActions.width / actionsRepeater.count / 1.5)
                 Layout.preferredHeight: Layout.preferredWidth
                 icon.width: width / 2.2
                 icon.height: height / 2.2
@@ -530,8 +530,6 @@ Page {
             Layout.fillWidth: true
             Layout.preferredHeight: table.height
             color: "transparent"
-            border.color: "transparent"
-            border.width: 1
 
             ListView {
               id: table
