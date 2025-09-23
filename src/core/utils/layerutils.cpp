@@ -19,6 +19,7 @@
 #include <QScopeGuard>
 #include <qgsfillsymbol.h>
 #include <qgsfillsymbollayer.h>
+#include <qgshuesaturationfilter.h>
 #include <qgslabelobstaclesettings.h>
 #include <qgslayoutatlas.h>
 #include <qgslayoutmanager.h>
@@ -31,6 +32,7 @@
 #include <qgspallabeling.h>
 #include <qgsprintlayout.h>
 #include <qgsproject.h>
+#include <qgsprojectstylesettings.h>
 #include <qgsrasterlayer.h>
 #include <qgsrasterlayerelevationproperties.h>
 #include <qgssinglesymbolrenderer.h>
@@ -47,21 +49,94 @@ LayerUtils::LayerUtils( QObject *parent )
 {
 }
 
-QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
+void LayerUtils::setDefaultRenderer( QgsVectorLayer *layer, QgsProject *project, const QString &attachmentField )
+{
+  if ( !layer )
+    return;
+
+  bool hasSymbol = true;
+  Qgis::SymbolType symbolType = Qgis::SymbolType::Marker;
+  switch ( layer->geometryType() )
+  {
+    case Qgis::GeometryType::Point:
+      symbolType = Qgis::SymbolType::Marker;
+      break;
+    case Qgis::GeometryType::Line:
+      symbolType = Qgis::SymbolType::Line;
+      break;
+    case Qgis::GeometryType::Polygon:
+      symbolType = Qgis::SymbolType::Fill;
+      break;
+    case Qgis::GeometryType::Unknown:
+    case Qgis::GeometryType::Null:
+    default:
+      hasSymbol = false;
+      break;
+  }
+
+  if ( !hasSymbol )
+  {
+    return;
+  }
+
+  QgsSymbol *symbol = project ? project->styleSettings()->defaultSymbol( symbolType ) : nullptr;
+  if ( !symbol )
+  {
+    symbol = LayerUtils::defaultSymbol( layer, attachmentField );
+  }
+
+  QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
+  layer->setRenderer( renderer );
+}
+
+QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &attachmentField )
 {
   QgsSymbol *symbol = nullptr;
 
   if ( !layer )
+  {
     return symbol;
+  }
 
   QgsSymbolLayerList symbolLayers;
   switch ( layer->geometryType() )
   {
     case Qgis::GeometryType::Point:
     {
-      QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 255, 0, 0, 100 ), QColor( 255, 0, 0 ) );
-      symbolLayer->setStrokeWidth( 0.6 );
-      symbolLayers << symbolLayer;
+      if ( !attachmentField.isEmpty() )
+      {
+        QgsSymbolLayerList subSymbolLayers;
+        QgsRasterMarkerSymbolLayer *rasterMarkerSymbolLayer = new QgsRasterMarkerSymbolLayer( QString(), 2.6, 0.0 );
+        rasterMarkerSymbolLayer->setSize( 6.0 ); //
+        rasterMarkerSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( "scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value )" ), true ) );
+        rasterMarkerSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Name, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000, @project_folder || '/' || \"%1\", '')" ).arg( attachmentField ), true ) );
+        subSymbolLayers << rasterMarkerSymbolLayer;
+
+        QgsCentroidFillSymbolLayer *centroidFillSymbolLayer = new QgsCentroidFillSymbolLayer();
+        centroidFillSymbolLayer->setClipPoints( true );
+        centroidFillSymbolLayer->setSubSymbol( new QgsMarkerSymbol( subSymbolLayers ) );
+        subSymbolLayers.clear();
+        subSymbolLayers << centroidFillSymbolLayer;
+
+        QgsFilledMarkerSymbolLayer *fillSymbolLayer = new QgsFilledMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0 );
+        fillSymbolLayer->setSize( 2.4 );
+        fillSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000 and \"%1\" is not null and \"%1\" != '', scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value ), @value)" ).arg( attachmentField ), true ) );
+        fillSymbolLayer->setSubSymbol( new QgsFillSymbol( subSymbolLayers ) );
+        symbolLayers << fillSymbolLayer;
+
+        QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 255, 0, 0, 100 ), QColor( 255, 0, 0 ) );
+        symbolLayer->setSize( 2.4 );
+        symbolLayer->setStrokeWidth( 0.6 );
+        symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000 and \"%1\" is not null and \"%1\" != '', scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value ), @value)" ).arg( attachmentField ), true ) );
+        symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::FillColor, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000 and \"%1\" is not null and \"%1\" != '', '255,0,0,0', @value)" ).arg( attachmentField ), true ) );
+        symbolLayers << symbolLayer;
+      }
+      else
+      {
+        QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 255, 0, 0, 100 ), QColor( 255, 0, 0 ) );
+        symbolLayer->setStrokeWidth( 0.6 );
+        symbolLayers << symbolLayer;
+      }
       symbol = new QgsMarkerSymbol( symbolLayers );
       break;
     }
@@ -89,17 +164,32 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
   return symbol;
 }
 
+void LayerUtils::setDefaultLabeling( QgsVectorLayer *layer, QgsProject *project )
+{
+  QgsTextFormat textFormat = project ? project->styleSettings()->defaultTextFormat() : QgsTextFormat();
+  QgsAbstractVectorLayerLabeling *labeling = LayerUtils::defaultLabeling( layer, textFormat );
+  if ( labeling )
+  {
+    layer->setLabeling( labeling );
+    layer->setLabelsEnabled( layer->geometryType() == Qgis::GeometryType::Point );
+  }
+}
+
 QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *layer, QgsTextFormat textFormat )
 {
   QgsAbstractVectorLayerLabeling *labeling = nullptr;
 
   if ( !layer )
+  {
     return labeling;
+  }
 
   bool foundFriendlyIdentifier = true;
   QString fieldName = QgsVectorLayerUtils::guessFriendlyIdentifierField( layer->fields(), &foundFriendlyIdentifier );
   if ( !foundFriendlyIdentifier )
+  {
     return labeling;
+  }
 
   QgsPalLayerSettings settings;
   settings.fieldName = fieldName;
@@ -163,6 +253,27 @@ QgsRasterLayer *LayerUtils::createOnlineElevationLayer()
   elevationProperties->setEnabled( true );
   elevationProperties->setProfileSymbology( Qgis::ProfileSurfaceSymbology::FillBelow );
   elevationProperties->profileFillSymbol()->setColor( QColor( 130, 130, 130 ) );
+  return layer;
+}
+
+QgsMapLayer *LayerUtils::createBasemap( const QString &style )
+{
+  QgsRasterLayer *layer = nullptr;
+  if ( style.compare( QStringLiteral( "lightgray" ) ) == 0 )
+  {
+    layer = new QgsRasterLayer( OPENSTREETMAP_URL, QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
+    layer->hueSaturationFilter()->setGrayscaleMode( QgsHueSaturationFilter::GrayscaleLightness );
+  }
+  else if ( style.compare( QStringLiteral( "darkgray" ) ) == 0 )
+  {
+    layer = new QgsRasterLayer( OPENSTREETMAP_URL, QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
+    layer->hueSaturationFilter()->setGrayscaleMode( QgsHueSaturationFilter::GrayscaleLightness );
+    layer->hueSaturationFilter()->setInvertColors( true );
+  }
+  else
+  {
+    layer = new QgsRasterLayer( OPENSTREETMAP_URL, QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
+  }
   return layer;
 }
 

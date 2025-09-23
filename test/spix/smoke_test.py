@@ -251,7 +251,7 @@ def test_offline_project(app, screenshot_path, screenshot_check, extra, process_
 
     # Arbitrary wait period to insure project fully loaded and rendered
     app.invokeMethod("mainWindow/toursController", "blockGuides", [])
-    time.sleep(4)
+    time.sleep(8)
 
     app.takeScreenshot(
         "mainWindow", os.path.join(screenshot_path, "test_offline_project.png")
