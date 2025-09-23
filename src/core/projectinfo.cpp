@@ -439,7 +439,7 @@ QgsMapLayer *ProjectInfo::activeLayer() const
   }
   else
   {
-    layerId = QgsProject::instance()->readEntry( QStringLiteral( "QFieldSync" ), QStringLiteral( "initialFocusedLayer" ) );
+    layerId = QgsProject::instance()->readEntry( QStringLiteral( "QFieldSync" ), QStringLiteral( "initialActiveLayer" ) );
   }
   return !layerId.isEmpty() ? QgsProject::instance()->mapLayer( layerId ) : nullptr;
 }
