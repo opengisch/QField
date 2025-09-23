@@ -18,6 +18,7 @@
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudutils.h"
 
+#include <QDirIterator>
 #include <QFile>
 #include <QHttpMultiPart>
 #include <QJsonDocument>
@@ -294,7 +295,7 @@ void QFieldCloudConnection::login( const QString &password )
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      int httpCode = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+      const int httpCode = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
 
       if ( rawReply->error() == QNetworkReply::HostNotFoundError )
       {
@@ -418,7 +419,14 @@ QFieldCloudConnection::ConnectionState QFieldCloudConnection::state() const
 
 NetworkReply *QFieldCloudConnection::post( const QString &endpoint, const QVariantMap &params, const QStringList &fileNames )
 {
-  QNetworkRequest request( mUrl + endpoint );
+  QNetworkRequest request;
+  return post( request, endpoint, params, fileNames );
+}
+
+NetworkReply *QFieldCloudConnection::post( QNetworkRequest &request, const QString &endpoint, const QVariantMap &params, const QStringList &fileNames )
+{
+  request.setUrl( mUrl + endpoint );
+
   QByteArray requestBody = QJsonDocument( QJsonObject::fromVariantMap( params ) ).toJson();
   setAuthenticationDetails( request );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );

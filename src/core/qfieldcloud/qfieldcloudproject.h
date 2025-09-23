@@ -56,9 +56,13 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( int downloadBytesReceived READ downloadBytesReceived NOTIFY downloadBytesReceivedChanged )
     Q_PROPERTY( double downloadProgress READ downloadProgress NOTIFY downloadProgressChanged )
 
-    Q_PROPERTY( double uploadDeltaProgress READ uploadDeltaProgress NOTIFY uploadDeltaProgressChanged )
-    Q_PROPERTY( DeltaFileStatus deltaFileUploadStatus READ deltaFileUploadStatus NOTIFY deltaFileUploadStatusChanged )
+    Q_PROPERTY( double pushDeltaProgress READ pushDeltaProgress NOTIFY pushDeltaProgressChanged )
+    Q_PROPERTY( DeltaFileStatus deltaFilePushStatus READ deltaFilePushStatus NOTIFY deltaFilePushStatusChanged )
     Q_PROPERTY( DeltaListModel *deltaListModel READ deltaListModel NOTIFY deltaListModelChanged )
+
+    Q_PROPERTY( int uploadBytesTotal READ uploadBytesTotal NOTIFY uploadBytesTotalChanged )
+    Q_PROPERTY( int uploadBytesSent READ uploadBytesSent NOTIFY uploadBytesSentChanged )
+    Q_PROPERTY( double uploadProgress READ uploadProgress NOTIFY uploadProgressChanged )
 
     Q_PROPERTY( bool forceAutoPush READ forceAutoPush WRITE setForceAutoPush NOTIFY forceAutoPushChanged )
     Q_PROPERTY( bool autoPushEnabled READ autoPushEnabled WRITE setAutoPushEnabled NOTIFY autoPushEnabledChanged )
@@ -75,11 +79,40 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( bool projectFileIsOutdated READ projectFileIsOutdated NOTIFY projectFileIsOutdatedChanged )
 
   public:
+    struct FileTransfer
+    {
+        FileTransfer(
+          const QString &fileName,
+          const long long bytesTotal,
+          const QString &projectId,
+          const QString &etag )
+          : fileName( fileName ), bytesTotal( bytesTotal ), projectId( projectId ), etag( etag ) {};
+
+        FileTransfer() = default;
+
+        QString fileName;
+        long long bytesTotal;
+        QString projectId;
+
+        QString etag;
+        QString partialFilePath;
+        QString tmpFile;
+        long long bytesTransferred = 0;
+        bool isFinished = false;
+        QPointer<NetworkReply> networkReply;
+        QNetworkReply::NetworkError error = QNetworkReply::NoError;
+        int redirectsCount = 0;
+        QUrl lastRedirectUrl;
+        bool resumableDownload = true;
+        int retryCount = 0;
+    };
+
     //! Whether the project is busy or idle.
     enum class ProjectStatus
     {
       Idle,
       Downloading,
+      Pushing,
       Uploading,
       Failing
     };
@@ -91,7 +124,7 @@ class QFieldCloudProject : public QObject
     {
       NoErrorStatus,
       DownloadErrorStatus,
-      UploadErrorStatus,
+      PushErrorStatus,
     };
 
     Q_ENUM( ProjectErrorStatus )
@@ -172,7 +205,7 @@ class QFieldCloudProject : public QObject
     enum class ProjectRefreshReason
     {
       Package,
-      DeltaUploaded
+      DeltaPushed
     };
 
     Q_ENUM( ProjectRefreshReason )
@@ -248,11 +281,13 @@ class QFieldCloudProject : public QObject
     QString deltaFileId() const { return mDeltaFileId; }
     void setDeltaFileId( const QString &deltaFileId );
 
-    DeltaFileStatus deltaFileUploadStatus() const { return mDeltaFileUploadStatus; }
-    void setDeltaFileUploadStatus( DeltaFileStatus deltaFileUploadStatus );
+    DeltaFileStatus deltaFilePushStatus() const { return mDeltaFilePushStatus; }
+    void setDeltaFilePushStatus( DeltaFileStatus deltaFilePushStatus );
 
-    QString deltaFileUploadStatusString() const { return mDeltaFileUploadStatusString; }
-    void setDeltaFileUploadStatusString( const QString &deltaFileUploadStatusString );
+    QString deltaFilePushStatusString() const { return mDeltaFilePushStatusString; }
+    void setDeltaFilePushStatusString( const QString &deltaFilePushStatusString );
+
+    double pushDeltaProgress() const { return mPushDeltaProgress; }
 
     QStringList deltaLayersToDownload() const { return mDeltaLayersToDownload; }
     void setDeltaLayersToDownload( const QStringList &deltaLayersToDownload );
@@ -302,7 +337,10 @@ class QFieldCloudProject : public QObject
     int downloadBytesTotal() const { return mDownloadBytesTotal; }
     int downloadBytesReceived() const { return mDownloadBytesReceived; }
     double downloadProgress() const { return mDownloadProgress; }
-    double uploadDeltaProgress() const { return mUploadDeltaProgress; }
+
+    int uploadBytesTotal() const { return mUploadBytesTotal; }
+    int uploadBytesSent() const { return mUploadBytesSent; }
+    double uploadProgress() const { return mUploadProgress; }
 
     int deltasCount() const { return mDeltasCount; }
     DeltaListModel *deltaListModel() const { return mDeltaListModel; }
@@ -313,11 +351,13 @@ class QFieldCloudProject : public QObject
     Q_INVOKABLE void downloadThumbnail();
     Q_INVOKABLE void downloadAttachment( const QString &fileName );
 
-    void packageAndDownload();
+    Q_INVOKABLE void uploadLocalPath( QString localPath, bool deleteAfterSuccessfulUpload = false );
+
+    Q_INVOKABLE void packageAndDownload();
     void cancelDownload();
 
-    void upload( LayerObserver *layerObserver, bool shouldDownloadUpdates );
-    void cancelUpload();
+    Q_INVOKABLE void push( LayerObserver *layerObserver, bool shouldDownloadUpdates );
+    void cancelPush();
 
     void refreshDeltaList();
     void refreshFileOutdatedStatus();
@@ -363,9 +403,11 @@ class QFieldCloudProject : public QObject
     void localPathChanged();
 
     void deltaFileIdChanged();
-    void deltaFileUploadStatusChanged();
-    void deltaFileUploadStatusStringChanged();
+    void deltaFilePushStatusChanged();
+    void deltaFilePushStatusStringChanged();
     void deltaLayersToDownloadChanged();
+
+    void pushDeltaProgressChanged();
 
     void isPackagingActiveChanged();
     void isPackagingFailedChanged();
@@ -391,7 +433,9 @@ class QFieldCloudProject : public QObject
     void downloadBytesReceivedChanged();
     void downloadProgressChanged();
 
-    void uploadDeltaProgressChanged();
+    void uploadBytesTotalChanged();
+    void uploadBytesSentChanged();
+    void uploadProgressChanged();
 
     void deltaListModelChanged();
 
@@ -401,9 +445,11 @@ class QFieldCloudProject : public QObject
     void downloadFinished( const QString &error = QString() );
     void downloaded( const QString &name, const QString &error = QString() );
 
-    void uploadFinished( bool isDownloading, const QString &error = QString() );
+    void pushFinished( bool isDownloading, const QString &error = QString() );
 
-    void networkDeltaUploaded();
+    void uploadFinished( const QString &error = QString() );
+
+    void networkDeltaPushed();
     void networkDeltaStatusChecked();
 
     void dataRefreshed( ProjectRefreshReason reason, const QString &error = QString() );
@@ -415,6 +461,8 @@ class QFieldCloudProject : public QObject
     void downloadFiles();
     void updateActiveFilesToDownload();
     void downloadFilesCompleted();
+
+    void uploadFiles();
 
     void startJob( JobType type );
 
@@ -429,34 +477,6 @@ class QFieldCloudProject : public QObject
 
     bool moveDownloadedFilesToPermanentStorage();
     void logFailedDownload( const QString &fileKey, const QString &errorMessage, const QString &errorMessageDetail );
-
-    struct FileTransfer
-    {
-        FileTransfer(
-          const QString &fileName,
-          const long long bytesTotal,
-          const QString &projectId,
-          const QString &etag )
-          : fileName( fileName ), bytesTotal( bytesTotal ), projectId( projectId ), etag( etag ) {};
-
-        FileTransfer() = default;
-
-        QString fileName;
-        long long bytesTotal;
-        QString projectId;
-
-        QString etag;
-        QString partialFilePath;
-        QString tmpFile;
-        long long bytesTransferred = 0;
-        bool isFinished = false;
-        QPointer<NetworkReply> networkReply;
-        QNetworkReply::NetworkError error = QNetworkReply::NoError;
-        int redirectsCount = 0;
-        QUrl lastRedirectUrl;
-        bool resumableDownload = true;
-        int retryCount = 0;
-    };
 
     //! Tracks the job status (status, error etc) for a particular project. For now 1 project can have only 1 job of a type.
     struct Job
@@ -502,8 +522,8 @@ class QFieldCloudProject : public QObject
     QString mLocalPath;
 
     QString mDeltaFileId;
-    DeltaFileStatus mDeltaFileUploadStatus = DeltaLocalStatus;
-    QString mDeltaFileUploadStatusString;
+    DeltaFileStatus mDeltaFilePushStatus = DeltaLocalStatus;
+    QString mDeltaFilePushStatusString;
     QStringList mDeltaLayersToDownload;
 
     bool mIsPackagingActive = false;
@@ -518,8 +538,17 @@ class QFieldCloudProject : public QObject
     int mDownloadFilesFailed = 0;
     int mDownloadBytesTotal = 0;
     int mDownloadBytesReceived = 0;
-    double mDownloadProgress = 0.0;    // range from 0.0 to 1.0
-    double mUploadDeltaProgress = 0.0; // range from 0.0 to 1.0
+    double mDownloadProgress = 0.0;  // range from 0.0 to 1.0
+    double mPushDeltaProgress = 0.0; // range from 0.0 to 1.0
+
+    QString mUploadLocalPath;
+    bool mUploadDeleteAfterSuccessfulUpload = false;
+
+    QMap<QString, QFieldCloudProject::FileTransfer> mUploadFileTransfers;
+    int mUploadFilesFailed = 0;
+    int mUploadBytesTotal = 0;
+    int mUploadBytesSent = 0;
+    double mUploadProgress = 0.0;
 
     int mDeltasCount = 0;
     DeltaListModel *mDeltaListModel = nullptr;

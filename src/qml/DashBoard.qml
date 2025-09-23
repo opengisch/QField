@@ -154,8 +154,8 @@ Drawer {
                   default:
                     return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
                   }
-                case QFieldCloudProject.Uploading:
-                  switch (cloudProjectsModel.currentProject.deltaFileUploadStatus) {
+                case QFieldCloudProject.Pushing:
+                  switch (cloudProjectsModel.currentProject.deltaFilePushStatus) {
                   case QFieldCloudProject.DeltaFileLocalStatus:
                     return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
                   default:
@@ -205,7 +205,7 @@ Drawer {
                 duration: 2000
                 target: cloudButton
               }
-              running: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProject.status === QFieldCloudProject.Uploading)
+              running: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProject.status === QFieldCloudProject.Pushing)
               loops: Animation.Infinite
 
               onStopped: {

@@ -588,7 +588,7 @@ Page {
                 onClicked: mouse => {
                   var item = table.itemAt(mouse.x, mouse.y);
                   if (item) {
-                    if (item.type == 1 && cloudConnection.hasToken && cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
+                    if (item.type === 1 && cloudConnection.hasToken && cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
                       cloudConnection.login();
                     }
                     iface.loadFile(item.path, item.projectTitle.text);
