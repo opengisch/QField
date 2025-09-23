@@ -125,7 +125,7 @@ Page {
               showType: false
               selected: baseMapList.currentIndex == index
               fillHeight: true
-              showCustomizeIcon: projectTitle.text === "Custom"
+              showCustomizeIcon: modelData.name === "custom"
 
               MouseArea {
                 anchors.fill: parent
