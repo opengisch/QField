@@ -23,3 +23,5 @@ QfSearchBar 1.0 QfSearchBar.qml
 QfVisibilityFadingRow 1.0 QfVisibilityFadingRow.qml
 QfDialog 1.0 QfDialog.qml
 QfMenu 1.0 QfMenu.qml
+QfExpandableGroupBox 1.0 QfExpandableGroupBox.qml
+QfProjectThumbnail 1.0 QfProjectThumbnail.qml

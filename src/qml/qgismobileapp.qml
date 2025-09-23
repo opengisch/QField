@@ -206,7 +206,7 @@ ApplicationWindow {
     enabled: keyHandler.focus || welcomeScreen.focus
     sequence: "Ctrl+O"
     onActivated: {
-      welcomeScreen.openLocalDataPicker();
+      welcomeScreen.showLocalDataPicker();
     }
   }
 
@@ -4297,7 +4297,7 @@ ApplicationWindow {
 
     anchors.fill: parent
 
-    onOpenLocalDataPicker: {
+    onShowLocalDataPicker: {
       qfieldLocalDataPickerScreen.projectFolderView = false;
       qfieldLocalDataPickerScreen.model.resetToRoot();
       qfieldLocalDataPickerScreen.visible = true;
@@ -4310,6 +4310,10 @@ ApplicationWindow {
     onShowSettings: {
       qfieldSettings.reset();
       qfieldSettings.visible = true;
+    }
+
+    onShowProjectCreationScreen: {
+      projectCreationScreen.visible = true;
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
@@ -4331,6 +4335,18 @@ ApplicationWindow {
 
   QFieldCloudPopup {
     id: qfieldCloudPopup
+    visible: false
+    focus: visible
+    parent: Overlay.overlay
+
+    width: parent.width
+    height: parent.height
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
+  ProjectCreationScreen {
+    id: projectCreationScreen
     visible: false
     focus: visible
     parent: Overlay.overlay

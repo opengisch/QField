@@ -44,6 +44,7 @@
         <file>processingparameterwidgets/distance.qml</file>
         <file>processingparameterwidgets/number.qml</file>
         <file>processingparameterwidgets/source.qml</file>
+        <file>ProjectCreationScreen.qml</file>
         <file>QFieldAudioRecorder.qml</file>
         <file>QFieldCamera.qml</file>
         <file>QFieldSettings.qml</file>
@@ -95,6 +96,7 @@
         <file>imports/Theme/QfActionButton.qml</file>
         <file>imports/Theme/QfComboBox.qml</file>
         <file>imports/Theme/QfDropShadow.qml</file>
+        <file>imports/Theme/QfExpandableGroupBox.qml</file>
         <file>imports/Theme/QfOpacityMask.qml</file>
         <file>imports/Theme/QfToolButton.qml</file>
         <file>imports/Theme/QfToolButtonDrawer.qml</file>
@@ -135,5 +137,6 @@
         <file>PluginItem.qml</file>
         <file>InformationDrawer.qml</file>
         <file>QFieldGuide.qml</file>
+        <file>imports/Theme/QfProjectThumbnail.qml</file>
     </qresource>
 </RCC>
