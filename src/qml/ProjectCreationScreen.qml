@@ -66,6 +66,9 @@ Page {
         width: parent.width
         checked: true
         interactive: false
+        icon: Theme.getThemeVectorIcon("ic_map_white_24dp")
+        iconColor: Theme.mainTextColor
+
         content: Column {
           id: basemapColumn
           anchors.left: parent.left
@@ -167,6 +170,9 @@ Page {
         title: qsTr("Take notes?")
         width: parent.width
         checked: true
+        icon: Theme.getThemeVectorIcon("ic_marker_white_24dp")
+        iconColor: Theme.mainTextColor
+
         content: Column {
           id: takeNotesColumn
           anchors.left: parent.left
@@ -199,6 +205,9 @@ Page {
         title: qsTr("Track your position?")
         width: parent.width
         checked: true
+        icon: Theme.getThemeVectorIcon("directions_walk_24dp")
+        iconColor: Theme.mainTextColor
+
         content: Column {
           id: trackPositionColumn
           anchors.left: parent.left
@@ -231,7 +240,7 @@ Page {
         title: qsTr("Backup & collaborate?")
         width: parent.width
         checked: true
-        icon: "qrc:/themes/qfield/nodpi/ic_cloud_active_24dp.svg"
+        icon: Theme.getThemeVectorIcon("ic_cloud_active_24dp")
 
         content: Column {
           id: databaseAndColabrationColumn

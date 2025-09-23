@@ -12,7 +12,8 @@ Rectangle {
   property alias title: headerText.text
   property alias checked: enabledSwitch.checked
   property alias interactive: enabledSwitch.visible
-  property alias icon: headerIcon.source
+  property alias icon: headerIcon.iconSource
+  property alias iconColor: headerIcon.iconColor
   default property alias content: body.children
 
   Behavior on implicitHeight  {
@@ -36,15 +37,16 @@ Rectangle {
       anchors.right: enabledSwitch.left
       height: childrenRect.height
 
-      Image {
+      QfToolButton {
         id: headerIcon
-        anchors.verticalCenter: parent.verticalCenter
+        width: 24
+        height: 24
+        padding: 0
+        anchors.verticalCenter: headerText.verticalCenter
         anchors.left: parent.left
-        fillMode: Image.PreserveAspectFit
-        smooth: true
-        sourceSize.width: 25
-        sourceSize.height: 25
-        visible: source !== ""
+        enabled: false
+
+        visible: iconSource !== ""
       }
 
       Label {
@@ -55,7 +57,6 @@ Rectangle {
         anchors.left: headerIcon.right
         anchors.margins: headerIcon.visible ? 8 : 0
         anchors.right: parent.right
-        anchors.verticalCenter: parent.verticalCenter
       }
 
       onClicked: mouse => {
