@@ -239,7 +239,7 @@ Page {
         id: qfieldCloudGroupBox
         title: qsTr("Backup & collaborate?")
         width: parent.width
-        checked: true
+        checked: false
         icon: Theme.getThemeVectorIcon("ic_cloud_active_24dp")
 
         content: Column {
