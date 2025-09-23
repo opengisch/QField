@@ -266,7 +266,7 @@ Page {
     anchors.left: parent.left
     anchors.right: parent.right
 
-    height: childrenRect.height + 20
+    height: childrenRect.height + 20 + mainWindow.sceneBottomMargin
     color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
 
     QfButton {
