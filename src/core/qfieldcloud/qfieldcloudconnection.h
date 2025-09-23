@@ -231,7 +231,7 @@ class QFieldCloudConnection : public QObject
     void providerConfigurationChanged();
     void userInformationChanged();
     void pendingAttachmentsUploadFinished();
-    void allAttachmentsWritten();
+    void pendingAttachmentsAdded();
     void error();
 
     void loginFailed( const QString &reason );

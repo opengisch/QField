@@ -492,10 +492,10 @@ Page {
         text: qsTr("Push to QFieldCloud")
         onTriggered: {
           QFieldCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, cloudProjectsModel.currentProjectId, [itemMenu.itemPath], cloudConnection, true);
-          cloudConnection.onAllAttachmentsWritten.connect(function handler() {
+          cloudConnection.onPendingAttachmentsAdded.connect(function handler() {
               platformUtilities.uploadPendingAttachments(cloudConnection);
               displayToast(qsTr("‘%1’ is being uploaded to QFieldCloud").arg(FileUtils.fileName(itemMenu.itemPath)));
-              cloudConnection.onAllAttachmentsWritten.disconnect(handler);
+              cloudConnection.onPendingAttachmentsAdded.disconnect(handler);
             });
         }
       }
@@ -883,10 +883,10 @@ Page {
           }
           if (fileNames.length > 0) {
             QFieldCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, cloudProjectsModel.currentProjectId, fileNames, cloudConnection, true);
-            cloudConnection.onAllAttachmentsWritten.connect(function handler() {
+            cloudConnection.onPendingAttachmentsAdded.connect(function handler() {
                 platformUtilities.uploadPendingAttachments(cloudConnection);
                 localFilesModel.clearSelection();
-                cloudConnection.onAllAttachmentsWritten.disconnect(handler);
+                cloudConnection.onPendingAttachmentsAdded.disconnect(handler);
               });
           } else {
             displayToast(qsTr("Please select one or more files to push to QFieldCloud."));

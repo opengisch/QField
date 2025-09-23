@@ -288,7 +288,7 @@ void QFieldCloudUtils::writeToAttachmentsFile( const QString &username, const QS
     attachmentsFile.close();
 
     if ( cloudConnection )
-      emit cloudConnection->allAttachmentsWritten();
+      emit cloudConnection->pendingAttachmentsAdded();
   }
 }
 
