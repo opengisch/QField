@@ -349,10 +349,10 @@ QString ProjectUtils::createProject( const QVariantMap &options )
 
       node.appendChild( canvasElement );
 
+      QgsRectangle extent;
       if ( basemapLayer && basemapLayer->isValid() )
       {
-        QgsRectangle extent = basemapLayer->extent();
-
+        extent = basemapLayer->extent();
         try
         {
           QgsCoordinateTransform transform( basemapLayer->crs(), createdProject->crs(), createdProject->transformContext() );
@@ -362,15 +362,28 @@ QString ProjectUtils::createProject( const QVariantMap &options )
         {
           extent = QgsRectangle();
         }
-
-        if ( !extent.isEmpty() )
+      }
+      else
+      {
+        extent = createdProject->crs().bounds();
+        try
         {
-          QgsMapSettings mapSettings;
-          mapSettings.setDestinationCrs( createdProject->crs() );
-          mapSettings.setOutputSize( QSize( 500, 500 ) );
-          mapSettings.setExtent( extent );
-          mapSettings.writeXml( canvasElement, document );
+          QgsCoordinateTransform transform( QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->crs(), createdProject->transformContext() );
+          extent = transform.transform( extent );
         }
+        catch ( const QgsException &e )
+        {
+          extent = QgsRectangle();
+        }
+      }
+
+      if ( !extent.isEmpty() )
+      {
+        QgsMapSettings mapSettings;
+        mapSettings.setDestinationCrs( createdProject->crs() );
+        mapSettings.setOutputSize( QSize( 500, 500 ) );
+        mapSettings.setExtent( extent );
+        mapSettings.writeXml( canvasElement, document );
       }
     }
   } );
