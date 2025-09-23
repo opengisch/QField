@@ -302,4 +302,11 @@ Page {
       }
     }
   }
+
+  Keys.onReleased: event => {
+    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+      event.accepted = true;
+      header.onBack();
+    }
+  }
 }

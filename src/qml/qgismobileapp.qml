@@ -4349,7 +4349,6 @@ ApplicationWindow {
     id: projectCreationScreen
     visible: false
     focus: visible
-    parent: Overlay.overlay
 
     width: parent.width
     height: parent.height
