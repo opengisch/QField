@@ -99,12 +99,12 @@ class LayerUtils : public QObject
     * Returns the default symbol for a given layer.
     * \param layer the vector layer used to create the default symbol
     */
-    static QgsSymbol *defaultSymbol( QgsVectorLayer *layer, const QString &attachmentField = QString() );
+    static QgsSymbol *defaultSymbol( QgsVectorLayer *layer, const QString &attachmentField = QString(), const QString &colorField = QString() );
 
     /**
      * Sets the default symbology render for a given \a layer.
      */
-    static void setDefaultRenderer( QgsVectorLayer *layer, QgsProject *project = nullptr, const QString &attachmentField = QString() );
+    static void setDefaultRenderer( QgsVectorLayer *layer, QgsProject *project = nullptr, const QString &attachmentField = QString(), const QString &colorField = QString() );
 
     /**
      * Returns the default vector layer labeling for a given \a layer and \a textFormat.

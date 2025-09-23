@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 Rectangle {
+  id: expandableGroupBox
   implicitHeight: checked ? header.height + body.childrenRect.height + 20 : 60
 
   radius: 8
@@ -12,8 +13,11 @@ Rectangle {
   property alias title: headerText.text
   property alias checked: enabledSwitch.checked
   property alias interactive: enabledSwitch.visible
-  property alias icon: headerIcon.source
+  property alias icon: headerIcon.iconSource
+  property alias iconColor: headerIcon.iconColor
   default property alias content: body.children
+
+  signal clicked
 
   Behavior on implicitHeight  {
     NumberAnimation {
@@ -28,32 +32,52 @@ Rectangle {
     height: 60
     anchors.margins: 20
 
-    Image {
-      id: headerIcon
+    MouseArea {
+      id: headerMouseArea
+      enabled: true
       anchors.verticalCenter: parent.verticalCenter
       anchors.left: parent.left
-      fillMode: Image.PreserveAspectFit
-      smooth: true
-      sourceSize.width: 25
-      sourceSize.height: 25
-      visible: source != ""
-    }
-
-    Label {
-      id: headerText
-      font: Theme.strongTitleFont
-      color: Theme.mainTextColor
-      wrapMode: Text.WordWrap
-      anchors.left: headerIcon.right
-      anchors.margins: headerIcon.visible ? 8 : 0
       anchors.right: enabledSwitch.left
-      anchors.verticalCenter: parent.verticalCenter
+      height: childrenRect.height
+
+      QfToolButton {
+        id: headerIcon
+        width: 24
+        height: 24
+        padding: 0
+        anchors.verticalCenter: headerText.verticalCenter
+        anchors.left: parent.left
+        enabled: false
+
+        visible: iconSource !== ""
+      }
+
+      Label {
+        id: headerText
+        font: Theme.strongTitleFont
+        color: Theme.mainTextColor
+        wrapMode: Text.WordWrap
+        anchors.left: headerIcon.right
+        anchors.margins: headerIcon.visible ? 8 : 0
+        anchors.right: parent.right
+      }
+
+      onClicked: mouse => {
+        if (enabledSwitch.visible) {
+          enabledSwitch.toggle();
+          expandableGroupBox.clicked();
+        }
+      }
     }
 
     QfSwitch {
       id: enabledSwitch
       anchors.right: parent.right
       anchors.verticalCenter: parent.verticalCenter
+
+      onClicked: {
+        expandableGroupBox.clicked();
+      }
     }
   }
 

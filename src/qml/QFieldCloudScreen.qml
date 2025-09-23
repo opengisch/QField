@@ -34,8 +34,12 @@ Page {
 
     onFinished: {
       if (connectionSettings.visible) {
-        connectionSettings.visible = false;
-        projectsSwipeView.visible = true;
+        if (cloudConnection.status === QFieldCloudConnection.LoggedIn || table.count > 0) {
+          connectionSettings.visible = false;
+          projectsSwipeView.visible = true;
+        } else {
+          parent.finished();
+        }
       } else if (projectsSwipeView.currentIndex === 1) {
         projectDetails.cloudProject = undefined;
         projectsSwipeView.currentIndex = 0;

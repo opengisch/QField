@@ -11,6 +11,9 @@ Page {
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
 
+  signal triggerCloudify(string title, string path)
+  signal triggerProjectLoad(string title, string path)
+
   header: QfPageHeader {
     title: qsTr("Create a new project")
 
@@ -32,7 +35,7 @@ Page {
   Flickable {
     anchors.fill: parent
     anchors.margins: 10
-    contentHeight: newProjectConfigColumn.height + createProjectButton.height + 20
+    contentHeight: newProjectConfigColumn.height + bottomRow.height + mainWindow.sceneBottomMargin + 50
     clip: true
 
     Column {
@@ -54,7 +57,7 @@ Page {
         height: 50
         font: Theme.defaultFont
         placeholderText: qsTr("New project name")
-        text: qsTr("My project")
+        text: ""
       }
 
       QfExpandableGroupBox {
@@ -63,6 +66,9 @@ Page {
         width: parent.width
         checked: true
         interactive: false
+        icon: Theme.getThemeVectorIcon("ic_map_white_24dp")
+        iconColor: Theme.mainTextColor
+
         content: Column {
           id: basemapColumn
           anchors.left: parent.left
@@ -70,7 +76,7 @@ Page {
           spacing: 10
 
           Label {
-            text: qsTr("Choose a basemap for your project. Pick from the available options or provide your own URL.")
+            text: qsTr("Choose a basemap for your project. Pick from the available options or provide your own custom URL.")
             font: Theme.defaultFont
             color: Theme.secondaryTextColor
             wrapMode: Text.WordWrap
@@ -85,19 +91,24 @@ Page {
             spacing: 10
             model: [{
                 "icon": "qrc:/pictures/pictures/colorful.jpg",
-                "name": "Colorful "
+                "name": "colorful",
+                "displayName": qsTr("Colorful")
               }, {
                 "icon": "qrc:/pictures/pictures/dark.jpg",
-                "name": "Dark "
+                "name": "darkgray",
+                "displayName": qsTr("Darkgray")
               }, {
                 "icon": "qrc:/pictures/pictures/lightgray.jpg",
-                "name": "Light "
+                "name": "lightgray",
+                "displayName": qsTr("Lightgray")
               }, {
                 "icon": "",
-                "name": "Blank"
+                "name": "blank",
+                "displayName": qsTr("Blank")
               }, {
                 "icon": "",
-                "name": "Custom"
+                "name": "custom",
+                "displayName": qsTr("Custom")
               }]
 
             clip: true
@@ -108,17 +119,18 @@ Page {
               radius: 4
               bgColor: modelData.name === "Blank" ? "white" : Theme.groupBoxSurfaceColor
               previewImageSource: modelData.icon
-              projectTitle.text: modelData.name
+              projectTitle.text: modelData.displayName
               projectTitle.color: Theme.mainTextColor
               projectTitle.font.underline: false
               showType: false
               selected: baseMapList.currentIndex == index
               fillHeight: true
-              showCustomizeIcon: projectTitle.text === "Custom"
+              showCustomizeIcon: modelData.name === "custom"
 
               MouseArea {
                 anchors.fill: parent
                 onClicked: {
+                  Qt.inputMethod.hide();
                   baseMapList.currentIndex = index;
                 }
 
@@ -164,6 +176,9 @@ Page {
         title: qsTr("Take notes?")
         width: parent.width
         checked: true
+        icon: Theme.getThemeVectorIcon("ic_marker_white_24dp")
+        iconColor: Theme.mainTextColor
+
         content: Column {
           id: takeNotesColumn
           anchors.left: parent.left
@@ -189,6 +204,10 @@ Page {
             checked: true
           }
         }
+
+        onClicked: {
+          Qt.inputMethod.hide();
+        }
       }
 
       QfExpandableGroupBox {
@@ -196,6 +215,9 @@ Page {
         title: qsTr("Track your position?")
         width: parent.width
         checked: true
+        icon: Theme.getThemeVectorIcon("directions_walk_24dp")
+        iconColor: Theme.mainTextColor
+
         content: Column {
           id: trackPositionColumn
           anchors.left: parent.left
@@ -221,14 +243,18 @@ Page {
             checked: true
           }
         }
+
+        onClicked: {
+          Qt.inputMethod.hide();
+        }
       }
 
       QfExpandableGroupBox {
         id: qfieldCloudGroupBox
         title: qsTr("Backup & collaborate?")
         width: parent.width
-        checked: true
-        icon: "qrc:/themes/qfield/nodpi/ic_cloud_active_24dp.svg"
+        checked: false
+        icon: Theme.getThemeVectorIcon("ic_cloud_active_24dp")
 
         content: Column {
           id: databaseAndColabrationColumn
@@ -244,6 +270,10 @@ Page {
             onLinkActivated: link => Qt.openUrlExternally(link)
           }
         }
+
+        onClicked: {
+          Qt.inputMethod.hide();
+        }
       }
     }
   }
@@ -253,33 +283,48 @@ Page {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    anchors.margins: 10
-    height: createProjectButton.height * 1.1
+
+    height: childrenRect.height + 20 + mainWindow.sceneBottomMargin
     color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
 
     QfButton {
       id: createProjectButton
-      width: parent.width
-      bgcolor: Theme.mainColorSemiOpaque
+      anchors.top: parent.top
+      anchors.left: parent.left
+      anchors.right: parent.right
+      anchors.margins: 10
+      bgcolor: Theme.mainColor
 
       text: qsTr("Create Project")
 
       onClicked: {
-        let selectedBasemap = (baseMapList.currentIndex >= 0 && baseMapList.currentIndex < baseMapList.model.length) ? baseMapList.model[baseMapList.currentIndex].name : "Colorful";
-        const isCustomBasemap = (selectedBasemap === "Custom");
-        selectedBasemap = isCustomBasemap ? baseMapURL.text : selectedBasemap;
-        var projectConfig = {
+        if (projectName.text === "") {
+          projectName.text = qsTr("My Project");
+        }
+        let projectConfig = {
           "title": projectName.text,
-          "is_custom_basemap_selected": isCustomBasemap,
-          "basemap": selectedBasemap,
+          "basemap": baseMapList.model[Math.max(0, baseMapList.currentIndex)].name,
+          "basemap_url": baseMapURL.text,
           "notes": takeNotesGroupBox.checked,
           "camera_capture": takeMediaCheckBox.checked,
           "tracks": trackPositionGroupBox.checked,
-          "track_on_launch": autoTrackPositionCheckBox.checked,
-          "use_cloud": qfieldCloudGroupBox.checked
+          "track_on_launch": autoTrackPositionCheckBox.checked
         };
-        console.log(JSON.stringify(projectConfig));
+        const projectFilePath = ProjectUtils.createProject(projectConfig);
+        projectCreation.visible = false;
+        if (qfieldCloudGroupBox.checked) {
+          triggerCloudify(projectName.text, projectFilePath);
+        } else {
+          triggerProjectLoad(projectName.text, projectFilePath);
+        }
       }
+    }
+  }
+
+  Keys.onReleased: event => {
+    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+      event.accepted = true;
+      header.onBack();
     }
   }
 }

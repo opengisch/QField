@@ -16,7 +16,7 @@ QtObject {
     "mainTextDisabledColor": "#73EEEEEE",
     "secondaryTextColor": "#AAAAAA",
     "controlBackgroundColor": "#202020",
-    "controlBackgroundAlternateColor": "#202020",
+    "controlBackgroundAlternateColor": "#303030",
     "controlBackgroundDisabledColor": "#33555555",
     "controlBorderColor": "#404040",
     "buttonTextColor": "#202020",
