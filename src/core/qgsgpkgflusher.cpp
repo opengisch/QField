@@ -152,6 +152,8 @@ void Flusher::flush( const QString &filename )
   if ( status != SQLITE_OK )
   {
     QgsMessageLog::logMessage( QObject::tr( "There was an error opening the database <b>%1</b>: %2" ).arg( filename, db.errorMessage() ) );
+    if ( !QFileInfo::exists( filename ) )
+      return;
   }
 
   QString error;

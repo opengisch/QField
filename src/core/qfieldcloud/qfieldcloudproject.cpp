@@ -1305,7 +1305,7 @@ void QFieldCloudProject::downloadFilesCompleted()
   if ( currentProjectReloadNeeded )
   {
     // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
-    QDirIterator it( projectPath.absolutePath(), { QStringLiteral( "*.gpkg" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
+    QDirIterator it( projectPath.absolutePath(), { QStringLiteral( "*.gpkg" ), QStringLiteral( "*.sqlite" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
     while ( it.hasNext() )
     {
       gpkgFileNames << it.nextFileInfo().absoluteFilePath();
@@ -2358,6 +2358,23 @@ void QFieldCloudProject::uploadFiles()
         const QString currentProjectLocalPath = FileUtils::absolutePath( QgsProject::instance()->fileName() );
         if ( mUploadLocalPath == currentProjectLocalPath )
         {
+          // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
+          QDirIterator it( mUploadLocalPath, { QStringLiteral( "*.gpkg" ), QStringLiteral( "*.sqlite" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
+          QStringList gpkgFileNames;
+          while ( it.hasNext() )
+          {
+            gpkgFileNames << it.nextFileInfo().absoluteFilePath();
+          }
+
+          QgsProject::instance()->clear();
+          if ( mGpkgFlusher )
+          {
+            for ( const QString &fileName : gpkgFileNames )
+            {
+              mGpkgFlusher->stop( fileName );
+            }
+          }
+
           QgsProject::instance()->clear();
           QDir uploadLocalDir( mUploadLocalPath );
           uploadLocalDir.removeRecursively();
