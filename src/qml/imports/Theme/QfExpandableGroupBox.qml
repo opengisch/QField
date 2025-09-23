@@ -28,26 +28,41 @@ Rectangle {
     height: 60
     anchors.margins: 20
 
-    Image {
-      id: headerIcon
+    MouseArea {
+      id: headerMouseArea
+      enabled: true
       anchors.verticalCenter: parent.verticalCenter
       anchors.left: parent.left
-      fillMode: Image.PreserveAspectFit
-      smooth: true
-      sourceSize.width: 25
-      sourceSize.height: 25
-      visible: source != ""
-    }
-
-    Label {
-      id: headerText
-      font: Theme.strongTitleFont
-      color: Theme.mainTextColor
-      wrapMode: Text.WordWrap
-      anchors.left: headerIcon.right
-      anchors.margins: headerIcon.visible ? 8 : 0
       anchors.right: enabledSwitch.left
-      anchors.verticalCenter: parent.verticalCenter
+      height: childrenRect.height
+
+      Image {
+        id: headerIcon
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        fillMode: Image.PreserveAspectFit
+        smooth: true
+        sourceSize.width: 25
+        sourceSize.height: 25
+        visible: source !== ""
+      }
+
+      Label {
+        id: headerText
+        font: Theme.strongTitleFont
+        color: Theme.mainTextColor
+        wrapMode: Text.WordWrap
+        anchors.left: headerIcon.right
+        anchors.margins: headerIcon.visible ? 8 : 0
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
+      }
+
+      onClicked: mouse => {
+        if (enabledSwitch.visible) {
+          enabledSwitch.toggle();
+        }
+      }
     }
 
     QfSwitch {
