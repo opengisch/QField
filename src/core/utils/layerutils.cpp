@@ -167,6 +167,12 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &atta
 void LayerUtils::setDefaultLabeling( QgsVectorLayer *layer, QgsProject *project )
 {
   QgsTextFormat textFormat = project ? project->styleSettings()->defaultTextFormat() : QgsTextFormat();
+  textFormat.setSize( 8 );
+  textFormat.setSizeUnit( Qgis::RenderUnit::Points );
+  textFormat.buffer().setEnabled( true );
+  textFormat.buffer().setSize( 0.5 );
+  textFormat.buffer().setSizeUnit( Qgis::RenderUnit::Millimeters );
+  textFormat.buffer().setColor( QColor( 255, 255, 255, 150 ) );
   QgsAbstractVectorLayerLabeling *labeling = LayerUtils::defaultLabeling( layer, textFormat );
   if ( labeling )
   {

@@ -95,12 +95,14 @@ QString ProjectUtils::createProject( const QVariantMap &options )
     const QString notesFilepath = QStringLiteral( "%1/notes.gpkg" ).arg( createdProjectDir );
 
     QgsFields fields;
-    fields.append( QgsField( QStringLiteral( "time" ), QMetaType::QDateTime ) );
-    fields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
     if ( options.value( QStringLiteral( "camera_capture" ) ).toBool() )
     {
       fields.append( QgsField( QStringLiteral( "camera" ), QMetaType::QString ) );
     }
+    fields.append( QgsField( QStringLiteral( "title" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "time" ), QMetaType::QDateTime ) );
+
     QgsVectorFileWriter::SaveVectorOptions writerOptions;
     QgsVectorFileWriter *writer = QgsVectorFileWriter::create( notesFilepath, fields, Qgis::WkbType::PointZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
     delete writer;
@@ -108,6 +110,7 @@ QString ProjectUtils::createProject( const QVariantMap &options )
     notesLayer = new QgsVectorLayer( notesFilepath, tr( "Notes" ) );
     fields = notesLayer->fields();
     LayerUtils::setDefaultRenderer( notesLayer, nullptr, options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "camera" ) : QString() );
+    LayerUtils::setDefaultLabeling( notesLayer );
 
     int fieldIndex;
     QVariantMap widgetOptions;
@@ -135,6 +138,16 @@ QString ProjectUtils::createProject( const QVariantMap &options )
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
       notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "now()" ), false ) );
       notesLayer->setFieldAlias( fieldIndex, tr( "Time" ) );
+    }
+
+    // Configure note field
+    fieldIndex = fields.indexOf( QStringLiteral( "title" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
+      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer->setFieldAlias( fieldIndex, tr( "Title" ) );
     }
 
     // Configure note field
@@ -168,6 +181,8 @@ QString ProjectUtils::createProject( const QVariantMap &options )
     // Insure the layer is ready cloud-friendly
     notesLayer->setCustomProperty( QStringLiteral( "QFieldSync/cloud_action" ), QStringLiteral( "offline" ) );
     notesLayer->setCustomProperty( QStringLiteral( "QFieldSync/action" ), QStringLiteral( "offline" ) );
+
+    notesLayer->setDisplayExpression( QStringLiteral( "\"title\"" ) );
 
     createdProjectLayers << notesLayer;
   }
