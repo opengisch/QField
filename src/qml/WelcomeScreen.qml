@@ -83,9 +83,10 @@ Page {
 
         Layout.margins: 6
         Layout.topMargin: 14 + mainWindow.sceneTopMargin
+        Layout.bottomMargin: 6
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-        Layout.preferredWidth: Math.min(138, mainWindow.height / 4)
-        Layout.preferredHeight: Math.min(138, mainWindow.height / 4)
+        Layout.preferredWidth: Math.min(138, mainWindow.height / 8)
+        Layout.preferredHeight: Math.min(138, mainWindow.height / 8)
 
         source: "qrc:/images/qfield_logo.svg"
         rotationOffset: 220
@@ -433,7 +434,7 @@ Page {
         Layout.leftMargin: 6
         Layout.rightMargin: 6
         Layout.topMargin: 2
-        Layout.bottomMargin: 2
+        Layout.bottomMargin: 8
         Layout.fillWidth: true
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         text: ""
@@ -447,7 +448,7 @@ Page {
         Layout.leftMargin: 6
         Layout.rightMargin: 6
         Layout.topMargin: 2
-        Layout.bottomMargin: 2
+        Layout.bottomMargin: 8
         Layout.fillWidth: true
         Layout.maximumWidth: 410
         Layout.preferredHeight: welcomeActions.height
@@ -525,6 +526,7 @@ Page {
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
+            Layout.topMargin: 10
           }
 
           Rectangle {
