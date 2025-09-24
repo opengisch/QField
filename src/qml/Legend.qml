@@ -30,7 +30,7 @@ ListView {
 
   delegate: Rectangle {
     id: rectangle
-    property int itemPadding: 30 * TreeLevel
+    property int itemPadding: 30 * TreeLevel + 5
     property bool isSelectedLayer: Type === FlatLayerTreeModel.Layer && VectorLayerPointer && VectorLayerPointer == activeLayer
     width: parent ? parent.width : undefined
     height: line.height + 7
