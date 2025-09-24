@@ -92,6 +92,8 @@ QString ProjectUtils::createProject( const QVariantMap &options )
   QgsVectorLayer *notesLayer = nullptr;
   if ( options.value( QStringLiteral( "notes" ) ).toBool() )
   {
+    createdProject->writeEntry( QStringLiteral( "QFieldSync" ), QStringLiteral( "initialMapMode" ), QStringLiteral( "digitize" ) );
+
     const QString notesFilepath = QStringLiteral( "%1/notes.gpkg" ).arg( createdProjectDir );
 
     QgsFields fields;
@@ -148,7 +150,7 @@ QString ProjectUtils::createProject( const QVariantMap &options )
       widgetOptions.clear();
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Color" ), widgetOptions );
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-      notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "'#e41a1c'" ), false ) );
+      notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "'#377eb8'" ), false ) );
       notesLayer->setFieldAlias( fieldIndex, tr( "Marker color" ) );
     }
 
@@ -257,6 +259,10 @@ QString ProjectUtils::createProject( const QVariantMap &options )
       tracksLayer->setCustomProperty( QStringLiteral( "QFieldSync/tracking_erroneous_distance_safeguard_active" ), true );
       tracksLayer->setCustomProperty( QStringLiteral( "QFieldSync/tracking_erroneous_distance_safeguard_maximum_meters" ), 50 );
       tracksLayer->setCustomProperty( QStringLiteral( "QFieldSync/tracking_measurement_type" ), 1 ); // Attach epoch value to the M value
+    }
+    else
+    {
+      createdProject->writeEntry( QStringLiteral( "QFieldSync" ), QStringLiteral( "initialMapMode" ), QStringLiteral( "digitize" ) );
     }
 
     // Insure the layer is ready cloud-friendly

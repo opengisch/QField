@@ -573,7 +573,7 @@ Page {
               QfSlider {
                 id: slider
                 Layout.fillWidth: true
-                value: settings ? settings.value('dimTimeoutSeconds', 40) : 40
+                value: settings ? settings.value('dimTimeoutSeconds', 60) : 60
                 from: 0
                 to: 180
                 stepSize: 10

@@ -128,7 +128,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &atta
         fillSymbolLayer->setSubSymbol( new QgsFillSymbol( subSymbolLayers ) );
         symbolLayers << fillSymbolLayer;
 
-        QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 228, 26, 28, 100 ), QColor( 228, 26, 28 ) );
+        QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 55, 126, 184, 100 ), QColor( 55, 126, 184 ) );
         symbolLayer->setSize( 2.4 );
         symbolLayer->setStrokeWidth( 0.6 );
         if ( !colorField.isEmpty() )
@@ -145,7 +145,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &atta
       }
       else
       {
-        QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 228, 26, 28, 100 ), QColor( 228, 26, 28 ) );
+        QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 55, 126, 184, 100 ), QColor( 55, 126, 184 ) );
         symbolLayer->setStrokeWidth( 0.6 );
         if ( !colorField.isEmpty() )
         {
@@ -160,7 +160,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &atta
 
     case Qgis::GeometryType::Line:
     {
-      QgsSimpleLineSymbolLayer *symbolLayer = new QgsSimpleLineSymbolLayer( QColor( 228, 26, 28 ), 0.6 );
+      QgsSimpleLineSymbolLayer *symbolLayer = new QgsSimpleLineSymbolLayer( QColor( 55, 126, 184 ), 0.6 );
       symbolLayers << symbolLayer;
       symbol = new QgsLineSymbol( symbolLayers );
       break;
@@ -168,7 +168,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &atta
 
     case Qgis::GeometryType::Polygon:
     {
-      QgsSimpleFillSymbolLayer *symbolLayer = new QgsSimpleFillSymbolLayer( QColor( 228, 26, 28, 100 ), DEFAULT_SIMPLEFILL_STYLE, QColor( 228, 26, 28 ), DEFAULT_SIMPLEFILL_BORDERSTYLE, 0.6 );
+      QgsSimpleFillSymbolLayer *symbolLayer = new QgsSimpleFillSymbolLayer( QColor( 55, 126, 184, 100 ), DEFAULT_SIMPLEFILL_STYLE, QColor( 55, 126, 184 ), DEFAULT_SIMPLEFILL_BORDERSTYLE, 0.6 );
       symbolLayers << symbolLayer;
       symbol = new QgsFillSymbol( symbolLayers );
       break;

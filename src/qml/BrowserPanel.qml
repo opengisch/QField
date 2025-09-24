@@ -64,10 +64,17 @@ Popup {
     }
   }
 
+  onAboutToHide: {
+    iface.setScreenDimmerTimeout(settings.value('dimTimeoutSeconds', 60));
+  }
+
   onAboutToShow: {
+    // Disable dimming to avoid dark screens while browsing
+    iface.setScreenDimmerTimeout(0);
+
     // Reset tracked cookies
     browserCookies = [];
-    if (url != '') {
+    if (url !== '') {
       if (browserView === undefined) {
         // avoid cost of WevView creation until needed
         browserView = Qt.createQmlObject('import QtWebView

@@ -11,6 +11,7 @@ Page {
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
 
+  signal triggerConnection
   signal triggerCloudify(string title, string path)
   signal triggerProjectLoad(string title, string path)
 
@@ -33,6 +34,7 @@ Page {
   }
 
   Flickable {
+    id: contentFlickable
     anchors.fill: parent
     anchors.margins: 10
     contentHeight: newProjectConfigColumn.height + bottomRow.height + mainWindow.sceneBottomMargin + 50
@@ -310,15 +312,44 @@ Page {
           "tracks": trackPositionGroupBox.checked,
           "track_on_launch": autoTrackPositionCheckBox.checked
         };
-        const projectFilePath = ProjectUtils.createProject(projectConfig);
-        projectCreation.visible = false;
         if (qfieldCloudGroupBox.checked) {
-          triggerCloudify(projectName.text, projectFilePath);
+          if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+            const projectFilePath = ProjectUtils.createProject(projectConfig);
+            triggerCloudify(projectName.text, projectFilePath);
+          } else {
+            connection.enabled = true;
+            triggerConnection();
+          }
         } else {
+          const projectFilePath = ProjectUtils.createProject(projectConfig);
           triggerProjectLoad(projectName.text, projectFilePath);
         }
       }
     }
+  }
+
+  Connections {
+    id: connection
+    target: cloudConnection
+    enabled: false
+
+    function onStatusChanged() {
+      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+        createProjectButton.click();
+      }
+    }
+  }
+
+  function show() {
+    if (visible) {
+      return;
+    }
+    contentFlickable.contentY = 0;
+    visible = true;
+  }
+
+  onVisibleChanged: {
+    connection.enabled = false;
   }
 
   Keys.onReleased: event => {
