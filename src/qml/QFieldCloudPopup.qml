@@ -678,6 +678,8 @@ Popup {
         if (popup.pendingAction === "cloudify") {
           popup.pendingAction = "";
           cloudify(pendingCreationTitle, pendingUploadPath);
+        } else if (popup.pendingAction == "connect") {
+          popup.visible = false;
         }
       }
     }
@@ -791,7 +793,9 @@ Popup {
   }
 
   function show() {
-    visible = !visible;
+    if (opened) {
+      return;
+    }
     if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
       if ((cloudConnection.hasToken || cloudConnection.hasProviderConfiguration)) {
         cloudConnection.login();
@@ -805,6 +809,7 @@ Popup {
     } else if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.isOutdated) {
       displayToast(qsTr('This project has updated data on the cloud, you should synchronize.'));
     }
+    open();
   }
 
   function projectPush(shouldDownloadUpdates) {
@@ -831,7 +836,7 @@ Popup {
   }
 
   function cloudify(title, path) {
-    if (!qfieldCloudPopup.visible) {
+    if (!opened) {
       show();
     }
     pendingCreationTitle = title;

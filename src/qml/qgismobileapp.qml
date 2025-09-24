@@ -3914,6 +3914,8 @@ ApplicationWindow {
       qfieldLocalDataPickerScreen.focus = false;
       welcomeScreen.visible = false;
       welcomeScreen.focus = false;
+      projectCreationScreen.visible = false;
+      projectCreationScreen.focus = false;
       if (changelogPopup.visible)
         changelogPopup.close();
       dashBoard.layerTree.freeze();
@@ -4319,6 +4321,32 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
+  ProjectCreationScreen {
+    id: projectCreationScreen
+    visible: false
+    focus: visible
+
+    width: parent.width
+    height: parent.height
+
+    onTriggerConnection: {
+      qfieldCloudPopup.pendingAction = "connect";
+      qfieldCloudPopup.show();
+    }
+
+    onTriggerCloudify: (title, path) => {
+      iface.clearProject();
+      cloudProjectsModel.currentProjectId = "";
+      qfieldCloudPopup.cloudify(title, FileUtils.absolutePath(path));
+    }
+
+    onTriggerProjectLoad: (title, path) => {
+      iface.loadFile(path, title);
+    }
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
   QFieldCloudScreen {
     id: qfieldCloudScreen
 
@@ -4341,26 +4369,6 @@ ApplicationWindow {
 
     width: parent.width
     height: parent.height
-
-    Component.onCompleted: focusstack.addFocusTaker(this)
-  }
-
-  ProjectCreationScreen {
-    id: projectCreationScreen
-    visible: false
-    focus: visible
-
-    width: parent.width
-    height: parent.height
-
-    onTriggerCloudify: (title, path) => {
-      iface.clearProject();
-      qfieldCloudPopup.cloudify(title, FileUtils.absolutePath(path));
-    }
-
-    onTriggerProjectLoad: (title, path) => {
-      iface.loadFile(path, title);
-    }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
