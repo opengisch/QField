@@ -39,6 +39,8 @@ Rectangle {
   property double leftMargin: 0.0
   property double rightMargin: 0.0
 
+  property color elementColor: navigationStatusIndicator.visible ? Theme.mainOverlayColor : Theme.mainTextColor
+
   signal backClicked
   signal statusIndicatorClicked
   signal statusIndicatorSwiped(var direction)
@@ -89,19 +91,23 @@ Rectangle {
   Rectangle {
     id: navigationStatusIndicator
     anchors.fill: parent
-
     height: toolBar.topMargin + 48
-
-    color: (featureForm.model.constraintsHardValid && featureForm.model.constraintsSoftValid) || toolBar.state !== "Edit" ? Theme.mainColor : !featureForm.model.constraintsHardValid ? Theme.errorColor : Theme.warningColor
-
+    visible: toolBar.state === "Edit" && (!featureForm.model.constraintsHardValid || !featureForm.model.constraintsSoftValid)
+    color: !featureForm.model.constraintsHardValid ? Theme.errorColor : !featureForm.model.constraintsSoftValid ? Theme.warningColor : "transparent"
     clip: true
-    focus: true
+  }
+
+  Rectangle {
+    anchors.fill: parent
+    height: toolBar.topMargin + 48
+    color: "transparent"
+    clip: true
 
     Text {
       // Insure that the text is always visually centered by using the same left and right margi
       property double balancedMargin: Math.max((saveButton.visible ? saveButton.width : 0) + (previousButton.visible ? previousButton.width : 0) + (nextButton.visible ? nextButton.width : 0) + (multiClearButton.visible ? multiClearButton.width : 0), (cancelButton.visible ? cancelButton.width : 0) + (editButton.visible ? editButton.width : 0) + (editGeomButton.visible ? editGeomButton.width : 0) + (multiEditButton.visible ? multiEditButton.width : 0) + (menuButton.visible ? menuButton.width : 0))
       font: Theme.strongFont
-      color: Theme.mainOverlayColor
+      color: toolBar.elementColor
       anchors.left: parent.left
       anchors.right: parent.right
       anchors.top: parent.top
@@ -182,15 +188,15 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: toolBar.state == "Navigation"
+    visible: toolBar.state === "Navigation"
     width: visible ? 48 : 0
     height: 48
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_chevron_right_white_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconColor: toolBar.elementColor
 
-    enabled: (toolBar.state == "Navigation")
+    enabled: toolBar.state === "Navigation"
 
     onClicked: {
       if (toolBar.model && (selection.focusedItem + 1) < toolBar.model.count) {
@@ -221,10 +227,10 @@ Rectangle {
     height: 48
     clip: true
 
-    iconSource: toolBar.state == "Navigation" ? Theme.getThemeVectorIcon("ic_chevron_left_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconSource: toolBar.state === "Navigation" ? Theme.getThemeVectorIcon("ic_chevron_left_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
+    iconColor: toolBar.elementColor
 
-    enabled: toolBar.state != "Edit" && !toolBar.multiSelection
+    enabled: toolBar.state !== "Edit" && !toolBar.multiSelection
 
     onClicked: {
       if (toolBar.model && (selection.focusedItem > 0)) {
@@ -250,17 +256,17 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: toolBar.state == "Edit" || toolBar.state == "ProcessingLaunch"
+    visible: toolBar.state === "Edit" || toolBar.state === "ProcessingLaunch"
     width: visible ? 48 : 0
     height: 48
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconColor: toolBar.elementColor
 
     opacity: featureForm.model.constraintsHardValid ? 1.0 : 0.3
     onClicked: {
-      if (toolBar.state == "ProcessingLaunch") {
+      if (toolBar.state === "ProcessingLaunch") {
         processingRunClicked();
       } else {
         if (featureForm.model.constraintsHardValid) {
@@ -285,13 +291,13 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: !qfieldSettings.autoSave && toolBar.state == "Edit"
+    visible: !qfieldSettings.autoSave && toolBar.state === "Edit"
     width: visible ? 48 : 0
     height: 48
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconColor: toolBar.elementColor
 
     onClicked: {
       toolBar.cancel();
@@ -309,14 +315,14 @@ Rectangle {
 
     property bool readOnly: false
 
-    visible: stateMachine.state === "digitize" && !selection.focusedGeometry.isNull && !featureForm.model.featureModel.geometryEditingLocked && (projectInfo.editRights || editButton.isCreatedCloudFeature) && toolBar.state == "Navigation" && editButton.supportsEditing && projectInfo.editRights
+    visible: stateMachine.state === "digitize" && !selection.focusedGeometry.isNull && !featureForm.model.featureModel.geometryEditingLocked && (projectInfo.editRights || editButton.isCreatedCloudFeature) && toolBar.state === "Navigation" && editButton.supportsEditing && projectInfo.editRights
 
     anchors.right: editButton.left
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
     iconSource: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconColor: toolBar.elementColor
 
     width: visible ? 48 : 0
     height: 48
@@ -358,7 +364,7 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconColor: toolBar.elementColor
 
     onClicked: {
       toolBar.editAttributesButtonClicked();
@@ -394,18 +400,18 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: toolBar.state != "Edit" && toolBar.state != "Processing" && toolBar.state != "ProcessingLaunch"
+    visible: toolBar.state !== "Edit" && toolBar.state !== "Processing" && toolBar.state !== "ProcessingLaunch"
     width: visible ? 48 : 0
     height: 48
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconColor: toolBar.elementColor
 
     onClicked: {
-      if (toolBar.state == "Indication") {
+      if (toolBar.state === "Indication") {
         featureListMenu.popup(menuButton.x + menuButton.width - featureListMenu.width, menuButton.y);
-      } else if (toolBar.state == "Navigation") {
+      } else if (toolBar.state === "Navigation") {
         featureMenu.popup(menuButton.x + menuButton.width - featureMenu.width, menuButton.y);
       }
     }
@@ -430,7 +436,7 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconColor: toolBar.elementColor
 
     enabled: (toolBar.multiSelection && toolBar.model)
 
@@ -450,12 +456,12 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    width: (toolBar.state == "Indication" && toolBar.multiSelection && toolBar.model ? 48 : 0)
+    width: (toolBar.state === "Indication" && toolBar.multiSelection && toolBar.model ? 48 : 0)
     visible: width > 0
     height: 48
     verticalAlignment: Text.AlignVCenter
     font: Theme.strongFont
-    color: Theme.mainOverlayColor
+    color: toolBar.elementColor
 
     text: model.selectedFeatures.length < 100 ? model.selectedFeatures.length : '99+'
 
@@ -469,13 +475,13 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin
 
-    visible: toolBar.state == "Indication" && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
+    visible: toolBar.state === "Indication" && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
     width: visible ? 48 : 0
     height: 48
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconColor: toolBar.elementColor
 
     enabled: toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
 

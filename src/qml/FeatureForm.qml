@@ -783,11 +783,15 @@ Page {
   /** The title toolbar **/
   header: ToolBar {
     id: toolbar
+
+    property color elementColor: toolbar.background.visible ? Theme.mainOverlayColor : Theme.mainTextColor
+
     height: visible ? form.topMargin + 48 : 0
     visible: form.state === 'Add'
     objectName: "toolbar"
     background: Rectangle {
-      color: model.featureModel.featureAdditionLocked || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : Theme.mainColor
+      visible: model.featureModel.featureAdditionLocked || !model.constraintsHardValid || !model.constraintsSoftValid
+      color: model.featureModel.featureAdditionLocked || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : "transparent"
     }
 
     RowLayout {
@@ -808,7 +812,7 @@ Page {
         clip: true
 
         iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
-        iconColor: Theme.mainOverlayColor
+        iconColor: toolbar.elementColor
         opacity: model.constraintsHardValid ? 1.0 : 0.3
 
         onClicked: {
@@ -830,7 +834,7 @@ Page {
         objectName: "titleLabel"
 
         font: Theme.strongFont
-        color: Theme.mainOverlayColor
+        color: toolbar.elementColor
 
         text: {
           const featureModel = model.featureModel;
@@ -913,7 +917,7 @@ Page {
         visible: !setupOnly
 
         iconSource: form.state === 'Add' ? Theme.getThemeVectorIcon('ic_delete_forever_white_24dp') : Theme.getThemeVectorIcon('ic_close_white_24dp')
-        iconColor: Theme.mainOverlayColor
+        iconColor: toolbar.elementColor
 
         onClicked: {
           Qt.inputMethod.hide();
