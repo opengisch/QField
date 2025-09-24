@@ -18,15 +18,12 @@ Page {
   header: QfPageHeader {
     title: qsTr("Create a new project")
 
-    backgroundFill: false
     showBackButton: true
     showApplyButton: false
     showCancelButton: false
     showMenuButton: false
 
     topMargin: mainWindow.sceneTopMargin
-    titleColor: Theme.mainTextColor
-    titleFont: Theme.strongTitleFont
 
     onBack: {
       projectCreation.visible = false;
