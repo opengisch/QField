@@ -30,11 +30,12 @@ ListView {
 
   delegate: Rectangle {
     id: rectangle
-    property int itemPadding: 30 * TreeLevel + 5
+    property int itemPadding: 30 * TreeLevel
     property bool isSelectedLayer: Type === FlatLayerTreeModel.Layer && VectorLayerPointer && VectorLayerPointer == activeLayer
     width: parent ? parent.width : undefined
     height: line.height + 7
     color: isSelectedLayer ? Theme.mainColor : "transparent"
+    radius: 2
 
     MouseArea {
       id: mouseArea

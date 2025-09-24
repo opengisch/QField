@@ -343,7 +343,7 @@ Drawer {
             Rectangle {
               id: backgroundRect
               anchors.fill: parent
-              border.color: mapThemeComboBox.pressed ? "#17a81a" : Theme.mainColor
+              border.color: Theme.secondaryTextColor
               border.width: mapThemeComboBox.visualFocus ? 2 : 1
               color: "transparent"
               radius: 2
@@ -368,8 +368,8 @@ Drawer {
       Layout.fillWidth: true
       Layout.fillHeight: true
       title: qsTr("Legend")
-      leftPadding: 0
-      rightPadding: 0
+      leftPadding: 5
+      rightPadding: 5
       topPadding: label.height + 5
       bottomPadding: 5
 
@@ -392,7 +392,8 @@ Drawer {
         objectName: "Legend"
         isVisible: dashBoard.position > 0
         anchors.fill: parent
-        anchors.leftMargin: mainWindow.sceneLeftMargin
+        anchors.leftMargin: mainWindow.sceneLeftMargin + 5
+        anchors.rightMargin: 5
         bottomMargin: bottomRow.height + 4
       }
     }
