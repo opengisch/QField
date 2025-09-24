@@ -77,7 +77,7 @@ Rectangle {
 
     Rectangle {
       id: detailsContainer
-      color: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.9)
+      color: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.95)
       width: parent.width
       height: details.childrenRect.height + details.topPadding + details.bottomPadding
       anchors.bottom: parent.bottom
@@ -132,6 +132,13 @@ Rectangle {
           }
         }
       }
+    }
+
+    Rectangle {
+      anchors.fill: parent
+      color: "transparent"
+      border.color: Theme.controlBorderColor
+      radius: 10
     }
 
     Loader {
