@@ -831,6 +831,7 @@ Page {
         id: titleLabel
         Layout.fillWidth: true
         Layout.preferredHeight: parent.height
+        Layout.rightMargin: setupOnly ? 48 : 0
         objectName: "titleLabel"
 
         font: Theme.strongFont
@@ -911,7 +912,7 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
 
-        width: 49
+        width: 48
         height: 48
         clip: true
         visible: !setupOnly
