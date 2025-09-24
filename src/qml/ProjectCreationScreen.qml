@@ -33,6 +33,7 @@ Page {
   }
 
   Flickable {
+    id: contentFlickable
     anchors.fill: parent
     anchors.margins: 10
     contentHeight: newProjectConfigColumn.height + bottomRow.height + mainWindow.sceneBottomMargin + 50
@@ -319,6 +320,14 @@ Page {
         }
       }
     }
+  }
+
+  function show() {
+    if (visible) {
+      return;
+    }
+    contentFlickable.contentY = 0;
+    visible = true;
   }
 
   Keys.onReleased: event => {

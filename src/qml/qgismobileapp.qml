@@ -4313,7 +4313,7 @@ ApplicationWindow {
     }
 
     onShowProjectCreationScreen: {
-      projectCreationScreen.visible = true;
+      projectCreationScreen.show();
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
