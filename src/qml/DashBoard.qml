@@ -62,6 +62,11 @@ Drawer {
     }
   }
 
+  Rectangle {
+    anchors.fill: parent
+    color: Theme.mainBackgroundColor
+  }
+
   ColumnLayout {
     anchors.fill: parent
 
@@ -264,6 +269,7 @@ Drawer {
       }
 
       background: Rectangle {
+        color: "transparent"
       }
 
       RowLayout {
@@ -374,6 +380,7 @@ Drawer {
       bottomPadding: 5
 
       background: Rectangle {
+        color: "transparent"
       }
 
       label: Label {
