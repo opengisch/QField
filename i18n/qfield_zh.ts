@@ -1539,6 +1539,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Sample projects</source>
         <translation>示例工程</translation>
     </message>
+    <message>
+        <source>Created projects</source>
+        <translation>已创建工程</translation>
+    </message>
 </context>
 <context>
     <name>LocatorFiltersModel</name>
@@ -2367,6 +2371,136 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>ProjectCreationScreen</name>
+    <message>
+        <source>Create a new project</source>
+        <translation>创建新工程</translation>
+    </message>
+    <message>
+        <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
+        <translation>本页将通过简单的配置切换，引导您创建简单的工程。对于更高级的需求，我们建议使用QFieldSync在QGIS中创建工程。</translation>
+    </message>
+    <message>
+        <source>New project name</source>
+        <translation>新工程名称</translation>
+    </message>
+    <message>
+        <source>Select your basemap</source>
+        <translation>请选择您的底图</translation>
+    </message>
+    <message>
+        <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Colorful</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Darkgray</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lightgray</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Blank</source>
+        <translation>空白</translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Custom basemap URL</source>
+        <translation>自定义底图URL</translation>
+    </message>
+    <message>
+        <source>Take notes?</source>
+        <translation>做注释？</translation>
+    </message>
+    <message>
+        <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
+        <translation>快速捕获带有日期、时间和评论的注释。可选，附加多媒体项，如图像和视频，以丰富您的注释。</translation>
+    </message>
+    <message>
+        <source>Take image and video attachments</source>
+        <translation>拍摄图像和视频附件</translation>
+    </message>
+    <message>
+        <source>Track your position?</source>
+        <translation>跟踪您的位置？</translation>
+    </message>
+    <message>
+        <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
+        <translation>每秒记录一次您的位置、日期和时间，以准确跟踪行踪。</translation>
+    </message>
+    <message>
+        <source>Begin tracking automatically</source>
+        <translation>自动开始跟踪</translation>
+    </message>
+    <message>
+        <source>Backup &amp; collaborate?</source>
+        <translation>备份和协作？</translation>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. </source>
+        <translation>QFieldCloud允许同步和合并您的团队在QField中收集的数据。从小型个人工程到大型数据收集活动。</translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud here</source>
+        <translation>在此了解有关QFieldCloud的更多信息</translation>
+    </message>
+    <message>
+        <source>Create Project</source>
+        <translation>创建工程</translation>
+    </message>
+    <message>
+        <source>My Project</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ProjectUtils</name>
+    <message>
+        <source>Created Project</source>
+        <translation>已创建工程</translation>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation>注释</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>时间</translation>
+    </message>
+    <message>
+        <source>Marker color</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>注释</translation>
+    </message>
+    <message>
+        <source>Camera</source>
+        <translation>相机</translation>
+    </message>
+    <message>
+        <source>Tracks</source>
+        <translation>跟踪</translation>
+    </message>
+    <message>
+        <source>Basemap</source>
+        <translation>底图</translation>
+    </message>
+</context>
+<context>
     <name>QFieldAppAuthRequestHandler</name>
     <message>
         <source>Please enter credentials for database</source>
@@ -2623,7 +2757,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
-        <translation>当前工程未存储在QFieldCloud。&lt;br&gt;&lt;br&gt;</translation>
+        <translation type="vanished">当前工程未存储在QFieldCloud。&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
@@ -2635,7 +2769,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>与云断开连接。</translation>
+        <translation type="vanished">与云断开连接。</translation>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
@@ -2659,11 +2793,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Uploading %1%…</source>
-        <translation>正在上传 %1%…</translation>
+        <translation type="vanished">正在上传 %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud正在请求最新上传的修改。这可能需要一些时间，请稍等...</translation>
+        <translation type="vanished">QFieldCloud正在请求最新上传的修改。这可能需要一些时间，请稍等...</translation>
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -2829,6 +2963,30 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
         <translation>将工程文件存储在QFieldCloud中，可提供无缝同步、离线编辑和团队管理等功能。&lt;br&gt;&lt;br&gt;</translation>
     </message>
+    <message>
+        <source>Pushing changes, %1%…</source>
+        <translation>推送修改, %1%…</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
+        <translation>QFieldCloud正在请求最新的推送更改。这可能需要一些时间，请稍等…</translation>
+    </message>
+    <message>
+        <source>Uploading the current project to QFieldCloud.</source>
+        <translation>正在将当前工程上传到QFieldCloud。</translation>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud.</source>
+        <translation>当前工程未存储在QFieldCloud。</translation>
+    </message>
+    <message>
+        <source>Cloudifying project</source>
+        <translation>云化工程</translation>
+    </message>
+    <message>
+        <source>Cloudify!</source>
+        <translation>Cloudify!</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -2933,6 +3091,26 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>File system error. Failed to open partial file `%1`.</source>
         <translation>文件系统错误。无法打开部分文件 `%1`。</translation>
+    </message>
+    <message>
+        <source>Local path doesn&apos;t exist</source>
+        <translation>本地路径不存在</translation>
+    </message>
+    <message>
+        <source>Local path to upload cannot be used as it has multiple project files</source>
+        <translation>无法使用本地路径上传，因为它有多个工程文件</translation>
+    </message>
+    <message>
+        <source>Local path to upload is missing a valid project file</source>
+        <translation>上传的本地路径缺少有效的工程文件</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to upload file `%1`.</source>
+        <translation>网络错误。上传文件 `%1` 失败。</translation>
+    </message>
+    <message>
+        <source>One or more files could not be uploaded</source>
+        <translation>无法上传一个或多个文件</translation>
     </message>
 </context>
 <context>
@@ -3064,6 +3242,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
         <translation type="vanished">无法复制设备上下载的某些文件，请检查您的存储设备。</translation>
+    </message>
+    <message>
+        <source>Project creation requires a name</source>
+        <translation>工程创建需要一个名称</translation>
+    </message>
+    <message>
+        <source>Cloud project could not be created.</source>
+        <translation>无法创建云工程。</translation>
     </message>
 </context>
 <context>
@@ -5100,11 +5286,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QFieldCloud projects</source>
-        <translation>QFieldCloud工程</translation>
+        <translation type="vanished">QFieldCloud工程</translation>
     </message>
     <message>
         <source>Open local file</source>
-        <translation>打开本地文件</translation>
+        <translation type="vanished">打开本地文件</translation>
     </message>
     <message>
         <source>Recent Projects</source>
@@ -5173,6 +5359,24 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Return to map</source>
         <translation>返回地图</translation>
+    </message>
+    <message>
+        <source>QFieldCloud
+projects</source>
+        <translation>QFieldCloud
+工程</translation>
+    </message>
+    <message>
+        <source>Local projects and
+ datasets</source>
+        <translation>本地工程和
+数据集</translation>
+    </message>
+    <message>
+        <source>Create new
+project</source>
+        <translation>创建新
+工程</translation>
     </message>
 </context>
 <context>

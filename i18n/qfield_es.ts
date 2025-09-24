@@ -1543,6 +1543,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <source>Sample projects</source>
         <translation>Proyectos de ejemplo</translation>
     </message>
+    <message>
+        <source>Created projects</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LocatorFiltersModel</name>
@@ -2371,6 +2375,136 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
 </context>
 <context>
+    <name>ProjectCreationScreen</name>
+    <message>
+        <source>Create a new project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New project name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select your basemap</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Colorful</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Darkgray</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lightgray</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Blank</source>
+        <translation>En blanco</translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Custom basemap URL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Take notes?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Take image and video attachments</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track your position?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Begin tracking automatically</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Backup &amp; collaborate?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud here</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My Project</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ProjectUtils</name>
+    <message>
+        <source>Created Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Marker color</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Camera</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Basemap</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldAppAuthRequestHandler</name>
     <message>
         <source>Please enter credentials for database</source>
@@ -2627,7 +2761,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
-        <translation>El proyecto actual no está guardado en QFieldCloud.&lt;br&gt;&lt;br&gt;</translation>
+        <translation type="vanished">El proyecto actual no está guardado en QFieldCloud.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
@@ -2639,7 +2773,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>Desconectado de la nube.</translation>
+        <translation type="vanished">Desconectado de la nube.</translation>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
@@ -2663,11 +2797,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Uploading %1%…</source>
-        <translation>Subiendo %1%…</translation>
+        <translation type="vanished">Subiendo %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud está aplicando los últimos cambios subidos. Esto puede llevar algo de tiempo, mantente atento…</translation>
+        <translation type="vanished">QFieldCloud está aplicando los últimos cambios subidos. Esto puede llevar algo de tiempo, mantente atento…</translation>
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -2831,6 +2965,30 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
         <translation>Almacenar los proyectos en QFieldCloud ofrece una sincronización perfecta, edición fuera de línea y administración de equipos.&lt;br&gt;&lt;br&gt;</translation>
     </message>
+    <message>
+        <source>Pushing changes, %1%…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading the current project to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudify!</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -2935,6 +3093,26 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>File system error. Failed to open partial file `%1`.</source>
         <translation>Sistema de archivos Error. Error al abrir el archivo parcial `%1`.</translation>
+    </message>
+    <message>
+        <source>Local path doesn&apos;t exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local path to upload cannot be used as it has multiple project files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local path to upload is missing a valid project file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error. Failed to upload file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>One or more files could not be uploaded</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3066,6 +3244,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
         <translation type="vanished">Algunos de los archivos descargados no se pudieron copiar en su dispositivo. Compruebe el almacenamiento de su dispositivo.</translation>
+    </message>
+    <message>
+        <source>Project creation requires a name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloud project could not be created.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5102,11 +5288,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>QFieldCloud projects</source>
-        <translation>Proyectos de QFieldCloud</translation>
+        <translation type="vanished">Proyectos de QFieldCloud</translation>
     </message>
     <message>
         <source>Open local file</source>
-        <translation>Abrir archivo local</translation>
+        <translation type="vanished">Abrir archivo local</translation>
     </message>
     <message>
         <source>Recent Projects</source>
@@ -5175,6 +5361,21 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Return to map</source>
         <translation>Regresar al mapa</translation>
+    </message>
+    <message>
+        <source>QFieldCloud
+projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local projects and
+ datasets</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create new
+project</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

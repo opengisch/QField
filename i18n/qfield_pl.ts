@@ -1545,6 +1545,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Sample projects</source>
         <translation>Przykładowe projekty</translation>
     </message>
+    <message>
+        <source>Created projects</source>
+        <translation>Utworzone projekty</translation>
+    </message>
 </context>
 <context>
     <name>LocatorFiltersModel</name>
@@ -2373,6 +2377,136 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
 </context>
 <context>
+    <name>ProjectCreationScreen</name>
+    <message>
+        <source>Create a new project</source>
+        <translation>Utwórz nowy projekt</translation>
+    </message>
+    <message>
+        <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
+        <translation>Ta strona poprowadzi Cię przez proces tworzenia prostego projektu za pomocą prostych przełączników konfiguracyjnych. W przypadku bardziej zaawansowanych potrzeb zalecamy tworzenie projektów w QGIS przy użyciu QFieldSync.</translation>
+    </message>
+    <message>
+        <source>New project name</source>
+        <translation>Nazwa nowego projektu</translation>
+    </message>
+    <message>
+        <source>Select your basemap</source>
+        <translation>Wybierz swoją mapę bazową</translation>
+    </message>
+    <message>
+        <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Colorful</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Darkgray</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lightgray</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Blank</source>
+        <translation>Puste</translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Custom basemap URL</source>
+        <translation>Niestandardowy adres URL mapy bazowej</translation>
+    </message>
+    <message>
+        <source>Take notes?</source>
+        <translation>Robisz notatki?</translation>
+    </message>
+    <message>
+        <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
+        <translation>Szybko rób notatki z datą, godziną i komentarzami. Opcjonalnie dołączaj elementy multimedialne, takie jak obrazy i filmy, aby wzbogacić swoje notatki.</translation>
+    </message>
+    <message>
+        <source>Take image and video attachments</source>
+        <translation>Rób załączniki fotograficzne i wideo</translation>
+    </message>
+    <message>
+        <source>Track your position?</source>
+        <translation>Śledzisz swoją pozycję?</translation>
+    </message>
+    <message>
+        <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
+        <translation>Rejestruj swoją lokalizację co sekundę, wraz z datą i godziną, aby dokładnie śledzić swoje ruchy.</translation>
+    </message>
+    <message>
+        <source>Begin tracking automatically</source>
+        <translation>Rozpocznij automatyczne śledzenie</translation>
+    </message>
+    <message>
+        <source>Backup &amp; collaborate?</source>
+        <translation>Kopia zapasowa i współpraca?</translation>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. </source>
+        <translation>QFieldCloud pozwala synchronizować i łączyć dane zebrane przez Twój zespół w QField. Od małych indywidualnych projektów po duże kampanie gromadzenia danych. </translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud here</source>
+        <translation>Dowiedz się więcej o QFieldCloud tutaj</translation>
+    </message>
+    <message>
+        <source>Create Project</source>
+        <translation>Utwórz projekt</translation>
+    </message>
+    <message>
+        <source>My Project</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>ProjectUtils</name>
+    <message>
+        <source>Created Project</source>
+        <translation>Utworzony projekt</translation>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation>Notatki</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>Czas</translation>
+    </message>
+    <message>
+        <source>Marker color</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>Notatka</translation>
+    </message>
+    <message>
+        <source>Camera</source>
+        <translation>Aparat</translation>
+    </message>
+    <message>
+        <source>Tracks</source>
+        <translation>Ścieżki</translation>
+    </message>
+    <message>
+        <source>Basemap</source>
+        <translation>Mapa bazowa</translation>
+    </message>
+</context>
+<context>
     <name>QFieldAppAuthRequestHandler</name>
     <message>
         <source>Please enter credentials for database</source>
@@ -2629,7 +2763,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
-        <translation>Bieżący projekt nie jest przechowywany w QFieldCloud.&lt;br&gt;&lt;br&gt;</translation>
+        <translation type="vanished">Bieżący projekt nie jest przechowywany w QFieldCloud.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
@@ -2641,7 +2775,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>Rozłączono z chmurą.</translation>
+        <translation type="vanished">Rozłączono z chmurą.</translation>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
@@ -2665,11 +2799,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Uploading %1%…</source>
-        <translation>Wysyłanie %1%...</translation>
+        <translation type="vanished">Wysyłanie %1%...</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud stosuje najnowsze przesłane zmiany. To może trochę potrwać, prosimy o cierpliwość…</translation>
+        <translation type="vanished">QFieldCloud stosuje najnowsze przesłane zmiany. To może trochę potrwać, prosimy o cierpliwość…</translation>
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -2835,6 +2969,30 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
         <translation>Przechowywanie projektów w chmurze QFieldCloud zapewnia płynną synchronizację, edycję offline i zarządzanie zespołem.&lt;br&gt;&lt;br&gt;</translation>
     </message>
+    <message>
+        <source>Pushing changes, %1%…</source>
+        <translation>Wprowadzanie zmian, %1%...</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
+        <translation>QFieldCloud stosuje najnowsze wprowadzone zmiany. Może to trochę potrwać, więc poczekaj chwilę...</translation>
+    </message>
+    <message>
+        <source>Uploading the current project to QFieldCloud.</source>
+        <translation>Wysyłanie bieżącego projektu na QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud.</source>
+        <translation>Bieżący projekt nie jest przechowywany w QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Cloudifying project</source>
+        <translation>Projekt w chmurze</translation>
+    </message>
+    <message>
+        <source>Cloudify!</source>
+        <translation>Przenieś do chmury!</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -2939,6 +3097,26 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>File system error. Failed to open partial file `%1`.</source>
         <translation>Błąd systemu plików. Nie udało się otworzyć częściowego pliku &quot;%1&quot;.</translation>
+    </message>
+    <message>
+        <source>Local path doesn&apos;t exist</source>
+        <translation>Ścieżka lokalna nie istnieje</translation>
+    </message>
+    <message>
+        <source>Local path to upload cannot be used as it has multiple project files</source>
+        <translation>Nie można użyć lokalnej ścieżki do przesłania, ponieważ zawiera ona wiele plików projektów.</translation>
+    </message>
+    <message>
+        <source>Local path to upload is missing a valid project file</source>
+        <translation>W lokalnej ścieżce do przesłania brakuje prawidłowego pliku projektu.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to upload file `%1`.</source>
+        <translation>Błąd sieci. Nie udało się przesłać pliku `%1`.</translation>
+    </message>
+    <message>
+        <source>One or more files could not be uploaded</source>
+        <translation>Nie można było przesłać jednego lub więcej plików</translation>
     </message>
 </context>
 <context>
@@ -3070,6 +3248,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
         <translation type="vanished">Nie udało się skopiować niektórych pobranych plików na twoje urządzenie. Sprawdź pamięć swojego urządzenia.</translation>
+    </message>
+    <message>
+        <source>Project creation requires a name</source>
+        <translation>Utworzenie projektu wymaga podania jego nazwy</translation>
+    </message>
+    <message>
+        <source>Cloud project could not be created.</source>
+        <translation>Nie można utworzyć projektu w chmurze.</translation>
     </message>
 </context>
 <context>
@@ -4478,7 +4664,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n obiekt</numerusform><numerusform>%n obiekty</numerusform><numerusform>%n obiektów</numerusform><numerusform>%n obiektów</numerusform></translation>
     </message>
 </context>
 <context>
@@ -5106,11 +5292,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
-        <translation>Projekty QFieldCloud</translation>
+        <translation type="vanished">Projekty QFieldCloud</translation>
     </message>
     <message>
         <source>Open local file</source>
-        <translation>Otwórz plik lokalny</translation>
+        <translation type="vanished">Otwórz plik lokalny</translation>
     </message>
     <message>
         <source>Recent Projects</source>
@@ -5179,6 +5365,24 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Return to map</source>
         <translation>Wróć do mapy</translation>
+    </message>
+    <message>
+        <source>QFieldCloud
+projects</source>
+        <translation>QFieldCloud
+projekty</translation>
+    </message>
+    <message>
+        <source>Local projects and
+ datasets</source>
+        <translation>Lokalne projekty i
+ zbiory danych</translation>
+    </message>
+    <message>
+        <source>Create new
+project</source>
+        <translation>Utwórz nowy
+projekt</translation>
     </message>
 </context>
 <context>
