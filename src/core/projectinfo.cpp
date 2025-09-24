@@ -410,7 +410,7 @@ void ProjectInfo::setStateMode( const QString &mode )
 
 QString ProjectInfo::stateMode() const
 {
-  if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/stateMode" ) ) )
+  if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/stateMode" ).arg( mFilePath ) ) )
   {
     return mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/stateMode" ).arg( mFilePath ), QStringLiteral( "browse" ) ).toString();
   }
@@ -433,7 +433,7 @@ void ProjectInfo::setActiveLayer( QgsMapLayer *layer )
 QgsMapLayer *ProjectInfo::activeLayer() const
 {
   QString layerId;
-  if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ) ) )
+  if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ) )
   {
     layerId = mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ).toString();
   }
