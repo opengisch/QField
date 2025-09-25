@@ -865,14 +865,15 @@ void QFieldCloudConnection::processPendingAttachments()
 
       if ( httpCode != 201 && httpCode != 404 )
       {
-        qInfo() << QStringLiteral( "Attachment project ID: %1" ).arg( projectId );
-        qInfo() << QStringLiteral( "Attachment file name: %1" ).arg( fileName );
-        qInfo() << QStringLiteral( "Attachment reply HTTP status code: %1" ).arg( httpCode );
+        qDebug() << QStringLiteral( "Attachment project ID: %1 %2 %3" ).arg( projectId ).arg( fileName ).arg( httpCode );
+
         for ( const QByteArray &header : attachmentReply->rawHeaderList() )
         {
-          qInfo() << QStringLiteral( "Attachment reply header: %1 => %2" ).arg( header ).arg( attachmentReply->rawHeader( header ) );
+          qDebug() << QStringLiteral( "Attachment reply header: %1 => %2" ).arg( header ).arg( attachmentReply->rawHeader( header ) );
         }
-        qInfo() << QStringLiteral( "Attachment reply content: %1" ).arg( attachmentReply->readAll() );
+
+        qDebug() << QStringLiteral( "Attachment reply content: %1" ).arg( attachmentReply->readAll() );
+
         AppInterface::instance()->sendLog( QStringLiteral( "QFieldCloud file upload HTTP code oddity!" ), QString() );
       }
 
