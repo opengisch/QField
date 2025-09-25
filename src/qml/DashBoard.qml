@@ -263,7 +263,7 @@ Drawer {
         width: parent.availableWidth
         leftPadding: mainWindow.sceneLeftMargin
         text: parent.title
-        color: Theme.mainColor
+        color: Theme.mainTextColor
         font: Theme.strongTipFont
         elide: Text.ElideRight
       }
@@ -389,7 +389,7 @@ Drawer {
         width: parent.availableWidth
         leftPadding: mainWindow.sceneLeftMargin
         text: parent.title
-        color: Theme.mainColor
+        color: Theme.mainTextColor
         font: Theme.strongTipFont
         elide: Text.ElideRight
       }
