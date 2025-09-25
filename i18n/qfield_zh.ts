@@ -2390,19 +2390,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
-        <translation type="unfinished"/>
+        <translation>为您的工程选择底图。从可用选项中选择或提供您自己的自定义URL。</translation>
     </message>
     <message>
         <source>Colorful</source>
-        <translation type="unfinished"/>
+        <translation>多彩</translation>
     </message>
     <message>
         <source>Darkgray</source>
-        <translation type="unfinished"/>
+        <translation>深灰色</translation>
     </message>
     <message>
         <source>Lightgray</source>
-        <translation type="unfinished"/>
+        <translation>浅灰色</translation>
     </message>
     <message>
         <source>Blank</source>
@@ -2410,7 +2410,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>自定义</translation>
     </message>
     <message>
         <source>Custom basemap URL</source>
@@ -2458,7 +2458,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>My Project</source>
-        <translation type="unfinished"/>
+        <translation>我的工程</translation>
     </message>
 </context>
 <context>
@@ -2477,11 +2477,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Marker color</source>
-        <translation type="unfinished"/>
+        <translation>标记颜色</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"/>
+        <translation>标题</translation>
     </message>
     <message>
         <source>Note</source>
