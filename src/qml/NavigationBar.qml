@@ -71,7 +71,7 @@ Rectangle {
   anchors.left: parent.left
   anchors.right: parent.right
   height: toolBar.topMargin + 48
-
+  color: Theme.mainBackgroundColor
   clip: true
 
   states: [

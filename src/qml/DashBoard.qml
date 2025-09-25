@@ -62,7 +62,7 @@ Drawer {
     }
   }
 
-  Rectangle {
+  background: Rectangle {
     anchors.fill: parent
     color: Theme.mainBackgroundColor
   }

@@ -136,7 +136,7 @@ Page {
           width: paintedWidth
           height: parent.height
           text: tabButton.text
-          color: !tabButton.enabled ? Theme.darkGray : tabButton.down ? Qt.darker(Theme.mainColor, 1.5) : Theme.mainColor
+          color: !tabButton.enabled ? Theme.mainTextDisabledColor : tabButton.down ? Qt.darker(Theme.mainColor, 1.5) : isCurrentIndex ? Theme.mainColor : Theme.mainTextColor
           font.pointSize: Theme.tipFont.pointSize
           font.weight: isCurrentIndex ? Font.DemiBold : Font.Normal
 
