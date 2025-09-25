@@ -322,7 +322,7 @@ Page {
               Label {
                 text: qsTr('Map Canvas')
                 font: Theme.strongFont
-                color: Theme.mainColor
+                color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
                 Layout.topMargin: 5
@@ -333,7 +333,7 @@ Page {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
                 height: 1
-                color: Theme.mainColor
+                color: Theme.mainTextColor
               }
             }
 
@@ -426,7 +426,7 @@ Page {
               Label {
                 text: qsTr('Digitizing & Editing')
                 font: Theme.strongFont
-                color: Theme.mainColor
+                color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
                 Layout.topMargin: 5
@@ -437,7 +437,7 @@ Page {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
                 height: 1
-                color: Theme.mainColor
+                color: Theme.mainTextColor
               }
             }
 
@@ -463,7 +463,7 @@ Page {
               Label {
                 text: qsTr('User Interface')
                 font: Theme.strongFont
-                color: Theme.mainColor
+                color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
                 Layout.topMargin: 5
@@ -474,7 +474,7 @@ Page {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
                 height: 1
-                color: Theme.mainColor
+                color: Theme.mainTextColor
               }
 
               Label {
@@ -799,7 +799,7 @@ Page {
               Label {
                 text: qsTr('Advanced')
                 font: Theme.strongFont
-                color: Theme.mainColor
+                color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
                 Layout.topMargin: 5
@@ -810,7 +810,7 @@ Page {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
                 height: 1
-                color: Theme.mainColor
+                color: Theme.mainTextColor
               }
             }
 

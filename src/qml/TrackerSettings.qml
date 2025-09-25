@@ -133,7 +133,7 @@ Popup {
           Label {
             text: qsTr('Requirement Settings')
             font: Theme.strongFont
-            color: Theme.mainColor
+            color: Theme.mainTextColor
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
             Layout.topMargin: 5
@@ -144,7 +144,7 @@ Popup {
             Layout.fillWidth: true
             Layout.columnSpan: 2
             height: 1
-            color: Theme.mainColor
+            color: Theme.mainTextColor
           }
 
           Label {
@@ -354,7 +354,7 @@ Popup {
           Label {
             text: qsTr('General Settings')
             font: Theme.strongFont
-            color: Theme.mainColor
+            color: Theme.mainTextColor
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
             Layout.columnSpan: 2
@@ -365,7 +365,7 @@ Popup {
             Layout.fillWidth: true
             Layout.columnSpan: 2
             height: 1
-            color: Theme.mainColor
+            color: Theme.mainTextColor
           }
 
           Label {

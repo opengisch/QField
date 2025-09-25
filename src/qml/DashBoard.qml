@@ -349,7 +349,7 @@ Drawer {
             Rectangle {
               id: backgroundRect
               anchors.fill: parent
-              border.color: Theme.secondaryTextColor
+              border.color: Theme.controlBorderColor
               border.width: mapThemeComboBox.visualFocus ? 2 : 1
               color: "transparent"
               radius: 2
