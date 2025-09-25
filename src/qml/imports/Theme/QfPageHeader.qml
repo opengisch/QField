@@ -6,10 +6,8 @@ import Theme
 
 ToolBar {
   property alias title: titleLabel.text
-  property alias titleColor: titleLabel.color
-  property alias titleFont: titleLabel.font
 
-  property bool backgroundFill: true
+  property bool backgroundFill: false
   property bool backAsCancel: false
 
   property alias showBackButton: backButton.visible
@@ -141,8 +139,8 @@ ToolBar {
       id: titleLabel
       leftPadding: !showApplyButton && showCancelButton ? 48 : 0
       rightPadding: (showApplyButton || showBackButton) && !showCancelButton && !showMenuButton ? 48 : 0
-      font: Theme.strongFont
-      color: backgroundFill ? Theme.mainOverlayColor : Theme.mainColor
+      font: Theme.strongTitleFont
+      color: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
       elide: Label.ElideRight
       horizontalAlignment: Qt.AlignHCenter
       verticalAlignment: Qt.AlignVCenter

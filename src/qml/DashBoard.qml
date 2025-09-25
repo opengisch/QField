@@ -26,8 +26,6 @@ Drawer {
   property alias layerTree: legend.model
   property MapSettings mapSettings
 
-  property color mainColor: Theme.mainColor
-
   Component.onCompleted: {
     if (Material.roundedScale) {
       Material.roundedScale = Material.NotRounded;
@@ -64,6 +62,11 @@ Drawer {
     }
   }
 
+  background: Rectangle {
+    anchors.fill: parent
+    color: Theme.mainBackgroundColor
+  }
+
   ColumnLayout {
     anchors.fill: parent
 
@@ -72,7 +75,7 @@ Drawer {
       Layout.fillWidth: true
       Layout.preferredHeight: height
 
-      color: mainColor
+      color: "transparent"
 
       QfToolButton {
         id: closeButton
@@ -80,7 +83,7 @@ Drawer {
         anchors.leftMargin: mainWindow.sceneLeftMargin
         anchors.verticalCenter: buttonsRowContainer.verticalCenter
         iconSource: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
-        iconColor: Theme.mainOverlayColor
+        iconColor: Theme.mainTextColor
         bgcolor: "transparent"
         onClicked: close()
       }
@@ -118,7 +121,7 @@ Drawer {
             anchors.verticalCenter: parent.verticalCenter
             round: true
             iconSource: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
-            iconColor: Theme.mainOverlayColor
+            iconColor: Theme.mainTextColor
             bgcolor: "transparent"
             onClicked: {
               toggleMeasurementTool();
@@ -132,7 +135,7 @@ Drawer {
             anchors.verticalCenter: parent.verticalCenter
             round: true
             iconSource: Theme.getThemeVectorIcon("ic_print_black_24dp")
-            iconColor: Theme.mainOverlayColor
+            iconColor: Theme.mainTextColor
             onClicked: {
               const p = mapToItem(mainWindow.contentItem, 0, 0);
               showPrintLayouts(p);
@@ -171,8 +174,8 @@ Drawer {
               }
             }
             iconColor: {
-              if (iconSource === Theme.getThemeVectorIcon('ic_cloud_white_24dp')) {
-                return Theme.mainOverlayColor;
+              if (cloudConnection.status !== QFieldCloudConnection.LoggedIn || !cloudProjectsModel.currentProject) {
+                return Theme.mainTextColor;
               } else {
                 return "transparent";
               }
@@ -180,7 +183,7 @@ Drawer {
             bgcolor: "transparent"
 
             onClicked: {
-              if (featureForm.state == "FeatureFormEdit") {
+              if (featureForm.state === "FeatureFormEdit") {
                 featureForm.requestCancel();
                 return;
               }
@@ -220,7 +223,7 @@ Drawer {
             anchors.verticalCenter: parent.verticalCenter
             font: Theme.defaultFont
             iconSource: Theme.getThemeVectorIcon("ic_project_folder_black_24dp")
-            iconColor: Theme.mainOverlayColor
+            iconColor: Theme.mainTextColor
             round: true
             onClicked: {
               showProjectFolder();
@@ -234,7 +237,7 @@ Drawer {
         anchors.right: parent.right
         anchors.verticalCenter: buttonsRowContainer.verticalCenter
         iconSource: Theme.getThemeVectorIcon('ic_dot_menu_black_24dp')
-        iconColor: Theme.mainOverlayColor
+        iconColor: Theme.mainTextColor
         bgcolor: "transparent"
         onClicked: {
           let p = mapToItem(mainWindow.contentItem, width, 0);
@@ -260,16 +263,13 @@ Drawer {
         width: parent.availableWidth
         leftPadding: mainWindow.sceneLeftMargin
         text: parent.title
-        color: Theme.mainColor
+        color: Theme.mainTextColor
         font: Theme.strongTipFont
         elide: Text.ElideRight
       }
 
       background: Rectangle {
-        y: parent.height - 1
-        width: parent.width
-        height: 1
-        color: Theme.mainColor
+        color: "transparent"
       }
 
       RowLayout {
@@ -308,7 +308,7 @@ Drawer {
             target: flatLayerTree
 
             function onMapThemeChanged() {
-              if (!mapThemeContainer.isLoading && mapThemeComboBox.currentText != flatLayerTree.mapTheme) {
+              if (!mapThemeContainer.isLoading && mapThemeComboBox.currentText !== flatLayerTree.mapTheme) {
                 mapThemeContainer.isLoading = true;
                 mapThemeComboBox.currentIndex = flatLayerTree.mapTheme != '' ? mapThemeComboBox.find(flatLayerTree.mapTheme) : -1;
                 mapThemeContainer.isLoading = false;
@@ -349,7 +349,7 @@ Drawer {
             Rectangle {
               id: backgroundRect
               anchors.fill: parent
-              border.color: mapThemeComboBox.pressed ? "#17a81a" : Theme.mainColor
+              border.color: Theme.controlBorderColor
               border.width: mapThemeComboBox.visualFocus ? 2 : 1
               color: "transparent"
               radius: 2
@@ -369,17 +369,38 @@ Drawer {
       }
     }
 
-    Rectangle {
+    GroupBox {
+      id: legendContainer
       Layout.fillWidth: true
       Layout.fillHeight: true
-      color: Theme.controlBackgroundColor
+      title: qsTr("Legend")
+      leftPadding: 5
+      rightPadding: 5
+      topPadding: label.height + 5
+      bottomPadding: 5
+
+      background: Rectangle {
+        color: "transparent"
+      }
+
+      label: Label {
+        x: mapThemeContainer.leftPadding
+        y: 2
+        width: parent.availableWidth
+        leftPadding: mainWindow.sceneLeftMargin
+        text: parent.title
+        color: Theme.mainTextColor
+        font: Theme.strongTipFont
+        elide: Text.ElideRight
+      }
 
       Legend {
         id: legend
         objectName: "Legend"
-        isVisible: position > 0
+        isVisible: dashBoard.position > 0
         anchors.fill: parent
-        anchors.leftMargin: mainWindow.sceneLeftMargin
+        anchors.leftMargin: mainWindow.sceneLeftMargin + 5
+        anchors.rightMargin: 5
         bottomMargin: bottomRow.height + 4
       }
     }

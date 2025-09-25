@@ -136,7 +136,7 @@ Page {
           width: paintedWidth
           height: parent.height
           text: tabButton.text
-          color: !tabButton.enabled ? Theme.darkGray : tabButton.down ? Qt.darker(Theme.mainColor, 1.5) : Theme.mainColor
+          color: !tabButton.enabled ? Theme.mainTextDisabledColor : tabButton.down ? Qt.darker(Theme.mainColor, 1.5) : isCurrentIndex ? Theme.mainColor : Theme.mainTextColor
           font.pointSize: Theme.tipFont.pointSize
           font.weight: isCurrentIndex ? Font.DemiBold : Font.Normal
 
@@ -783,11 +783,15 @@ Page {
   /** The title toolbar **/
   header: ToolBar {
     id: toolbar
+
+    property color elementColor: toolbar.background.visible ? Theme.mainOverlayColor : Theme.mainTextColor
+
     height: visible ? form.topMargin + 48 : 0
     visible: form.state === 'Add'
     objectName: "toolbar"
     background: Rectangle {
-      color: model.featureModel.featureAdditionLocked || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : Theme.mainColor
+      visible: model.featureModel.featureAdditionLocked || !model.constraintsHardValid || !model.constraintsSoftValid
+      color: model.featureModel.featureAdditionLocked || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : "transparent"
     }
 
     RowLayout {
@@ -808,7 +812,7 @@ Page {
         clip: true
 
         iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
-        iconColor: Theme.mainOverlayColor
+        iconColor: toolbar.elementColor
         opacity: model.constraintsHardValid ? 1.0 : 0.3
 
         onClicked: {
@@ -827,10 +831,11 @@ Page {
         id: titleLabel
         Layout.fillWidth: true
         Layout.preferredHeight: parent.height
+        Layout.rightMargin: setupOnly ? 48 : 0
         objectName: "titleLabel"
 
         font: Theme.strongFont
-        color: Theme.mainOverlayColor
+        color: toolbar.elementColor
 
         text: {
           const featureModel = model.featureModel;
@@ -907,13 +912,13 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
 
-        width: 49
+        width: 48
         height: 48
         clip: true
         visible: !setupOnly
 
         iconSource: form.state === 'Add' ? Theme.getThemeVectorIcon('ic_delete_forever_white_24dp') : Theme.getThemeVectorIcon('ic_close_white_24dp')
-        iconColor: Theme.mainOverlayColor
+        iconColor: toolbar.elementColor
 
         onClicked: {
           Qt.inputMethod.hide();

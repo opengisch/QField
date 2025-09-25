@@ -35,6 +35,7 @@ ListView {
     width: parent ? parent.width : undefined
     height: line.height + 7
     color: isSelectedLayer ? Theme.mainColor : "transparent"
+    radius: 2
 
     MouseArea {
       id: mouseArea
