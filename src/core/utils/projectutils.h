@@ -37,6 +37,8 @@ class ProjectUtils : public QObject
      */
     Q_INVOKABLE static QVariantMap mapLayers( QgsProject *project = nullptr );
 
+    Q_INVOKABLE static void addMapLayer( QgsProject *project = nullptr, QgsMapLayer *layer = nullptr );
+
     /**
      * Returns the transaction mode for a given \a project.
      * \note To be removed when QField updates to QGIS 3.38.

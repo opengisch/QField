@@ -87,6 +87,7 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     Q_INVOKABLE QgsRectangle nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer );
 
   signals:
+    void layersAdded();
     void mapThemeChanged();
     void isTemporalChanged();
     void isFrozenChanged();
@@ -202,6 +203,7 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
     Q_INVOKABLE QgsRectangle nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer = 0.02 );
 
   signals:
+    void layersAdded();
     void mapThemeChanged();
     void isTemporalChanged();
     void isFrozenChanged();

@@ -46,6 +46,14 @@ QVariantMap ProjectUtils::mapLayers( QgsProject *project )
   return mapLayers;
 }
 
+void ProjectUtils::addMapLayer( QgsProject *project, QgsMapLayer *layer )
+{
+  if ( !project )
+    return;
+
+  project->addMapLayer( layer );
+}
+
 Qgis::TransactionMode ProjectUtils::transactionMode( QgsProject *project )
 {
   if ( !project )
