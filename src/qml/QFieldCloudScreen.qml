@@ -195,14 +195,9 @@ Page {
           model: [qsTr("My Projects"), qsTr("Community")]
           Layout.fillWidth: true
           Layout.preferredHeight: defaultHeight
-          delegate: TabButton {
-            text: modelData
-            height: filterBar.defaultHeight
-            width: projects.width / filterBar.count
-            font: Theme.defaultFont
-            onClicked: {
-              filterBar.currentIndex = index;
-            }
+
+          onClicked: {
+            filterBar.currentIndex = filterBar.currentIndex;
           }
         }
 

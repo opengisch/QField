@@ -4,6 +4,9 @@ import Theme
 
 ListView {
   id: tabRow
+
+  signal clicked
+
   orientation: Qt.Horizontal
   highlightFollowsCurrentItem: true
   currentIndex: 0
@@ -26,6 +29,7 @@ ListView {
     checked: tabRow.currentIndex === index
     onClicked: {
       tabRow.currentIndex = index;
+      tabRow.clicked();
     }
   }
 
