@@ -493,7 +493,7 @@ Page {
         onTriggered: {
           pushFilesToQFieldCloudConnection.enabled = true;
           pushFilesToQFieldCloudConnection.sendingItem = true;
-          QFieldCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, cloudProjectsModel.currentProjectId, [itemMenu.itemPath], cloudConnection, true);
+          QFieldCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, QFieldCloudUtils.getProjectId(table.model.currentPath), [itemMenu.itemPath], cloudConnection, true);
         }
       }
 
@@ -880,7 +880,7 @@ Page {
           }
           if (fileNames.length > 0) {
             pushFilesToQFieldCloudConnection.enabled = true;
-            QFieldCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, cloudProjectsModel.currentProjectId, fileNames, cloudConnection, true);
+            QFieldCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, QFieldCloudUtils.getProjectId(table.model.currentPath), fileNames, cloudConnection, true);
           } else {
             displayToast(qsTr("Please select one or more files to push to QFieldCloud."));
           }

@@ -68,13 +68,30 @@ bool QFieldCloudUtils::isCloudAction( const QgsMapLayer *layer )
 
 const QString QFieldCloudUtils::getProjectId( const QString &fileName )
 {
-  QFileInfo fi( fileName );
-  QDir baseDir = fi.isDir() ? fi.canonicalFilePath() : fi.canonicalPath();
-  QString basePath = QFileInfo( baseDir.path() ).canonicalFilePath();
-  QString cloudPath = QFileInfo( localCloudDirectory() ).canonicalFilePath();
+  if ( fileName.isEmpty() )
+    return QString();
 
-  if ( !cloudPath.isEmpty() && basePath.startsWith( cloudPath ) )
-    return baseDir.dirName();
+  const QString path = QFileInfo( fileName ).canonicalFilePath();
+  if ( path.isEmpty() )
+    return QString();
+
+  const QString cloudPath = QFieldCloudUtils::localCloudDirectory();
+  if ( cloudPath.isEmpty() || !path.startsWith( cloudPath ) )
+    return QString();
+
+  const QRegularExpression re(
+    QStringLiteral( "^%1[/\\\\]([^/\\\\]+)[/\\\\]([^/\\\\]+)" )
+      .arg( QRegularExpression::escape( cloudPath ) ) );
+  const QRegularExpressionMatch match = re.match( path, 0,
+                                                  QRegularExpression::NormalMatch, QRegularExpression::AnchoredMatchOption );
+
+  if ( match.hasMatch() )
+  {
+    const QString username = match.captured( 1 );
+    const QString projectId = match.captured( 2 );
+    Q_UNUSED( username );
+    return projectId;
+  }
 
   return QString();
 }

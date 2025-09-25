@@ -954,7 +954,6 @@ Page {
 
       text: qsTr("View Project Folder")
       onTriggered: {
-        cloudProjectsModel.currentProjectId = QFieldCloudUtils.getProjectId(projectActions.projectLocalPath);
         qfieldCloudScreen.viewProjectFolder(projectActions.projectLocalPath);
       }
     }

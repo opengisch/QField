@@ -107,10 +107,14 @@ class QFieldCloudUtils : public QObject
     static bool isCloudAction( const QgsMapLayer *layer );
 
     /**
-     * Returns the cloud project id.
+     * Returns the cloud project ID for a given file path.
      *
-     * @param fileName file name of the project to be checked
-     * @return const QString either UUID-like string or a null string in case of failure
+     * This function checks if the given file path is under the QField local cloud
+     * directory. If it is, it extracts and returns the project ID (UUID-like string)
+     * from the path. Otherwise, it returns a null QString.
+     *
+     * @param fileName Full path to a file or directory inside a cloud project
+     * @return QString Project ID if found; otherwise, an empty string
      */
     Q_INVOKABLE static const QString getProjectId( const QString &fileName );
 
