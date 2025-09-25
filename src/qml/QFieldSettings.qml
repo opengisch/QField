@@ -351,6 +351,7 @@ Page {
               Layout.fillWidth: true
               Layout.leftMargin: 20
               Layout.rightMargin: 20
+              Layout.bottomMargin: 0
 
               columns: 2
               columnSpacing: 0
@@ -429,7 +430,7 @@ Page {
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
-                Layout.topMargin: 5
+                Layout.topMargin: 10
                 Layout.columnSpan: 2
               }
 
@@ -455,10 +456,11 @@ Page {
               Layout.fillWidth: true
               Layout.leftMargin: 20
               Layout.rightMargin: 20
+              Layout.bottomMargin: 0
 
               columns: 2
               columnSpacing: 0
-              rowSpacing: 5
+              rowSpacing: 0
 
               Label {
                 text: qsTr('User Interface')
@@ -552,12 +554,12 @@ Page {
               Layout.fillWidth: true
               Layout.leftMargin: 20
               Layout.rightMargin: 20
-              Layout.topMargin: 5
               Layout.bottomMargin: 5
+              Layout.topMargin: 5
 
               columns: 1
               columnSpacing: 0
-              rowSpacing: 0
+              rowSpacing: 5
 
               visible: platformUtilities.capabilities & PlatformUtilities.AdjustBrightness
 
@@ -600,12 +602,12 @@ Page {
               Layout.fillWidth: true
               Layout.leftMargin: 20
               Layout.rightMargin: 20
+              Layout.bottomMargin: 10
               Layout.topMargin: 5
-              Layout.bottomMargin: 40
 
               columns: 1
               columnSpacing: 0
-              rowSpacing: 5
+              rowSpacing: 10
 
               Label {
                 Layout.fillWidth: true

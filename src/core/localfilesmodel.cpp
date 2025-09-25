@@ -301,6 +301,31 @@ void LocalFilesModel::reloadModel()
             // Skip project preview images
             continue;
           }
+          else if ( suffix == QStringLiteral( "qgs" ) || suffix == QStringLiteral( "qgz" ) )
+          {
+            QRegularExpression re( QStringLiteral( "(.*)_[A-Za-z]{2}" ) );
+            QRegularExpressionMatch match = re.match( fi.completeBaseName() );
+            if ( match.hasMatch() )
+            {
+              if ( items.contains( QStringLiteral( "%1.qgs" ).arg( match.captured( 1 ) ), Qt::CaseInsensitive ) || items.contains( QStringLiteral( "%1.qgz" ).arg( match.captured( 1 ) ), Qt::CaseInsensitive ) )
+              {
+                // Skip translated project, users should always use the original project
+                continue;
+              }
+            }
+          }
+          else if ( suffix == QStringLiteral( "zip" ) )
+          {
+            if ( item.endsWith( QStringLiteral( "_attachments.zip" ), Qt::CaseInsensitive ) )
+            {
+              const QString reducedItemName = item.mid( 0, item.size() - 16 );
+              if ( items.contains( QStringLiteral( "%1.qgs" ).arg( reducedItemName ), Qt::CaseInsensitive ) || items.contains( QStringLiteral( "%1.qgz" ).arg( reducedItemName ), Qt::CaseInsensitive ) )
+              {
+                // Skip project attachments sidecar file
+                continue;
+              }
+            }
+          }
           else if ( item == QStringLiteral( "qfield_webdav_configuration.json" ) )
           {
             // Skip QField WebDAV configuration file
