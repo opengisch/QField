@@ -72,7 +72,7 @@ RoundButton {
     height: width
     visible: bottomRightIndicatorText
     color: bottomRightIndicatorBgColor
-    border.color: Theme.mainColor
+    border.color: Theme.mainBackgroundColor
     border.width: 2
 
     badgeText.color: bottomRightIndicatorFgColor
