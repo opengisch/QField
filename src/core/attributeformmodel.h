@@ -45,6 +45,7 @@ class AttributeFormModel : public QSortFilterProxyModel
       EditorWidgetConfig,
       RelationEditorWidget,
       RelationEditorWidgetConfig,
+      CanRememberValue,
       RememberValue,
       Field,
       RelationId,
@@ -111,6 +112,12 @@ class AttributeFormModel : public QSortFilterProxyModel
 
     //! Applies default values linked to relationships
     Q_INVOKABLE void applyRelationshipDefaultValues();
+
+    //! Activate all available value that can be remembered and reused.
+    Q_INVOKABLE void activateAllRememberValues();
+
+    //! Deactivate all available value that can be remembered and reused.
+    Q_INVOKABLE void deactivateAllRememberValues();
 
   signals:
     void featureModelChanged();
