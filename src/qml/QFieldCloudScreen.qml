@@ -195,10 +195,6 @@ Page {
           model: [qsTr("My Projects"), qsTr("Community")]
           Layout.fillWidth: true
           Layout.preferredHeight: defaultHeight
-
-          onClicked: {
-            filterBar.currentIndex = filterBar.currentIndex;
-          }
         }
 
         QfSearchBar {
