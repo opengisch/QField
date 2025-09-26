@@ -59,6 +59,7 @@ DeltaFileWrapper *LayerObserver::deltaFileWrapper() const
 void LayerObserver::onHomePathChanged()
 {
   QgsMessageLog::logMessage( QStringLiteral( "onHomePathChanged homePath %1" ).arg( mProject->homePath() ), "QField" );
+  QgsMessageLog::logMessage( QStringLiteral( "onHomePathChanged filePath %1" ).arg( mProject->homePath() ), "QField" );
   if ( mProject->homePath().isNull() )
   {
     QgsMessageLog::logMessage( QStringLiteral( "onHomePathChanged isNull" ), "QField" );
