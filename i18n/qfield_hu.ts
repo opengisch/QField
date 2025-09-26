@@ -568,6 +568,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>The project is read-only.</source>
         <translation>A projekt csak olvasható.</translation>
     </message>
+    <message>
+        <source>Legend</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

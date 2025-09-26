@@ -568,6 +568,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>The project is read-only.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Legend</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

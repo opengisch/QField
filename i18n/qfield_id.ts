@@ -568,6 +568,10 @@ Cancel to make a minimal device scan instead.</translation>
         <source>The project is read-only.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Legend</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

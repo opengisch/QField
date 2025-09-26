@@ -568,6 +568,10 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>The project is read-only.</source>
         <translation>O projeto é somente-leitura.</translation>
     </message>
+    <message>
+        <source>Legend</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

@@ -568,6 +568,10 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
         <source>The project is read-only.</source>
         <translation>El proyecto es de sólo lectura.</translation>
     </message>
+    <message>
+        <source>Legend</source>
+        <translation>Leyenda</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

@@ -569,6 +569,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>The project is read-only.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Legend</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

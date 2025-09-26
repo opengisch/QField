@@ -568,6 +568,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>The project is read-only.</source>
         <translation>Проект только для чтения.</translation>
     </message>
+    <message>
+        <source>Legend</source>
+        <translation>Легенда</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

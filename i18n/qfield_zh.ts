@@ -568,6 +568,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>The project is read-only.</source>
         <translation>该工程为只读。</translation>
     </message>
+    <message>
+        <source>Legend</source>
+        <translation>图例</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -2378,7 +2382,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
-        <translation>本页将通过简单的配置切换，引导您创建简单的工程。对于更高级的需求，我们建议使用QFieldSync在QGIS中创建工程。</translation>
+        <translation>本页将通过简单的配置切换开关，引导您创建简单的工程。对于更高级的需求，我们建议使用QFieldSync在QGIS中创建工程。</translation>
     </message>
     <message>
         <source>New project name</source>
@@ -2406,7 +2410,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Blank</source>
-        <translation>空白</translation>
+        <translation>空</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -2418,11 +2422,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Take notes?</source>
-        <translation>做注释？</translation>
+        <translation>注释？</translation>
     </message>
     <message>
         <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
-        <translation>快速捕获带有日期、时间和评论的注释。可选，附加多媒体项，如图像和视频，以丰富您的注释。</translation>
+        <translation>快速获取带有日期、时间和评论的注释。可选，附带多媒体项，如图像和视频，以丰富您的注释。</translation>
     </message>
     <message>
         <source>Take image and video attachments</source>
@@ -2434,7 +2438,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
-        <translation>每秒记录一次您的位置、日期和时间，以准确跟踪行踪。</translation>
+        <translation>每秒记录一次您的位置、日期和时间，准确跟踪活动轨迹。</translation>
     </message>
     <message>
         <source>Begin tracking automatically</source>
@@ -2446,7 +2450,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. </source>
-        <translation>QFieldCloud允许同步和合并您的团队在QField中收集的数据。从小型个人工程到大型数据收集活动。</translation>
+        <translation>QFieldCloud允许同步与合并您的团队在QField中收集的数据。从小型个人工程到大型数据收集活动。</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud here</source>

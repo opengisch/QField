@@ -568,6 +568,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>The project is read-only.</source>
         <translation>Projekt jest tylko do odczytu.</translation>
     </message>
+    <message>
+        <source>Legend</source>
+        <translation>Legenda</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

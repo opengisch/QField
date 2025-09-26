@@ -568,6 +568,10 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
         <source>The project is read-only.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Legend</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

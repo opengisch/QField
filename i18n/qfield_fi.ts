@@ -489,43 +489,43 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Paste failed: no destination layer provided</source>
-        <translation type="unfinished"/>
+        <translation>Liittäminen epäonnistui: kohdetasoa ei ole annettu</translation>
     </message>
     <message>
         <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation type="unfinished"/>
+        <translation>Leikkaustoiminto: lähde- ja kohdetasot ovat samat, liittäminen ohitetaan.</translation>
     </message>
     <message>
         <source>Paste failed: clipboard feature is invalid</source>
-        <translation type="unfinished"/>
+        <translation>Liittäminen epäonnistui: leikepöydän kohde on virheellinen</translation>
     </message>
     <message>
         <source>Cut failed: could not start editing on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Leikkaus epäonnistui: muokkausta ei voitu aloittaa lähdetasolla %1</translation>
     </message>
     <message>
         <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Leikkaus epäonnistui: alkuperäistä kohdetta ei voitu poistaa lähdetasolta %1</translation>
     </message>
     <message>
         <source>Paste failed: no compatible features could be created</source>
-        <translation type="unfinished"/>
+        <translation>Liittäminen epäonnistui: yhteensopivaa kohdetta ei voitu luoda</translation>
     </message>
     <message>
         <source>Paste failed: could not start editing on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Liittäminen epäonnistui: tason %1 muokkausta ei voitu aloittaa</translation>
     </message>
     <message>
         <source>Paste failed: could not add feature to layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Liittäminen epäonnistui: kohdetta ei voitu lisätä tasolle %1</translation>
     </message>
     <message>
         <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Liittäminen epäonnistui: commitChanges-muutosten luonti epäonnistui tasolla %1</translation>
     </message>
     <message>
         <source>Cut commit failed on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Leikkauksen vahvistus epäonnistui lähdetasolla %1</translation>
     </message>
 </context>
 <context>
@@ -567,6 +567,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>The project is read-only.</source>
         <translation>Projekti on vain luku -tilassa.</translation>
+    </message>
+    <message>
+        <source>Legend</source>
+        <translation>Selite</translation>
     </message>
 </context>
 <context>
@@ -1134,11 +1138,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>FileDeviceChooser</name>
     <message>
         <source>File path</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostopolku</translation>
     </message>
     <message>
         <source>Interval (in milliseconds)</source>
-        <translation type="unfinished"/>
+        <translation>Aikaväli (millisekunteina)</translation>
     </message>
 </context>
 <context>
@@ -1543,7 +1547,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Created projects</source>
-        <translation type="unfinished"/>
+        <translation>Luodut projektit</translation>
     </message>
 </context>
 <context>
@@ -1797,11 +1801,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Feature copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Kohde kopioitu leikepöydälle</translation>
     </message>
     <message>
         <source>Feature cut into clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Kohde leikattu leikepöydälle</translation>
     </message>
 </context>
 <context>
@@ -2203,7 +2207,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Logs file (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Lokitiedosto (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -2376,35 +2380,35 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>ProjectCreationScreen</name>
     <message>
         <source>Create a new project</source>
-        <translation type="unfinished"/>
+        <translation>Luo uusi projekti</translation>
     </message>
     <message>
         <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
-        <translation type="unfinished"/>
+        <translation>Tämä sivu opastaa sinua yksinkertaisen projektin luomisessa yksinkertaisten määritysten avulla. Edistyneempiin tarpeisiin suosittelemme projektien luomista QGISissä QFieldSync- lisäosan avulla.</translation>
     </message>
     <message>
         <source>New project name</source>
-        <translation type="unfinished"/>
+        <translation>Uuden projektin nimi</translation>
     </message>
     <message>
         <source>Select your basemap</source>
-        <translation type="unfinished"/>
+        <translation>Valitse taustakarttasi</translation>
     </message>
     <message>
         <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
-        <translation type="unfinished"/>
+        <translation>Valitse projektillesi taustakartta. Valitse käytettävissä olevista vaihtoehdoista tai anna oma mukautettu URL-osoitteesi.</translation>
     </message>
     <message>
         <source>Colorful</source>
-        <translation type="unfinished"/>
+        <translation>Värikäs</translation>
     </message>
     <message>
         <source>Darkgray</source>
-        <translation type="unfinished"/>
+        <translation>Tummanharmaa</translation>
     </message>
     <message>
         <source>Lightgray</source>
-        <translation type="unfinished"/>
+        <translation>Vaaleanharmaa</translation>
     </message>
     <message>
         <source>Blank</source>
@@ -2412,11 +2416,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Mukautettu</translation>
     </message>
     <message>
         <source>Custom basemap URL</source>
-        <translation type="unfinished"/>
+        <translation>Mukautetun taustakartan URL-osoite</translation>
     </message>
     <message>
         <source>Take notes?</source>

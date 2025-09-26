@@ -568,6 +568,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>The project is read-only.</source>
         <translation>プロジェクトは読み取り専用です。</translation>
     </message>
+    <message>
+        <source>Legend</source>
+        <translation>凡例</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>

@@ -568,6 +568,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <source>The project is read-only.</source>
         <translation>Proje sadece okunabilir.</translation>
     </message>
+    <message>
+        <source>Legend</source>
+        <translation>Açıklama</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
