@@ -16,10 +16,12 @@
 
 #include "layerutils.h"
 
+#include <QQmlEngine>
 #include <QScopeGuard>
 #include <qgsfillsymbol.h>
 #include <qgsfillsymbollayer.h>
 #include <qgshuesaturationfilter.h>
+#include <qgsjsonutils.h>
 #include <qgslabelobstaclesettings.h>
 #include <qgslayoutatlas.h>
 #include <qgslayoutmanager.h>
@@ -28,6 +30,7 @@
 #include <qgsmaplayerelevationproperties.h>
 #include <qgsmarkersymbol.h>
 #include <qgsmarkersymbollayer.h>
+#include <qgsmemoryproviderutils.h>
 #include <qgsmessagelog.h>
 #include <qgspallabeling.h>
 #include <qgsprintlayout.h>
@@ -534,6 +537,45 @@ bool LayerUtils::hasMValue( QgsVectorLayer *layer )
     return false;
 
   return QgsWkbTypes::hasM( layer->wkbType() );
+}
+
+QgsVectorLayer *LayerUtils::loadVectorLayer( const QString &uri, const QString &name, const QString &provider )
+{
+  QgsVectorLayer *layer = new QgsVectorLayer( uri, name, provider );
+  QQmlEngine::setObjectOwnership( layer, QQmlEngine::CppOwnership );
+  return layer;
+}
+
+QgsRasterLayer *LayerUtils::loadRasterLayer( const QString &uri, const QString &name, const QString &provider )
+{
+  QgsRasterLayer *layer = new QgsRasterLayer( uri, name, provider );
+  QQmlEngine::setObjectOwnership( layer, QQmlEngine::CppOwnership );
+  return layer;
+}
+
+QgsVectorLayer *LayerUtils::memoryLayerFromJsonString( const QString &name, const QString &string, const QgsCoordinateReferenceSystem &crs )
+{
+  const QgsFields fields = QgsJsonUtils::stringToFields( string );
+  QgsFeatureList features = QgsJsonUtils::stringToFeatureList( string, fields );
+  if ( features.isEmpty() )
+  {
+    return nullptr;
+  }
+
+  QgsVectorLayer *layer = LayerUtils::createMemoryLayer( name, fields, features[0].geometry().wkbType(), crs );
+  if ( QgsVectorDataProvider *dataProvider = layer->dataProvider() )
+  {
+    dataProvider->addFeatures( features );
+  }
+  return layer;
+}
+
+QgsVectorLayer *LayerUtils::createMemoryLayer( const QString &name, const QgsFields &fields, Qgis::WkbType geometryType, const QgsCoordinateReferenceSystem &crs )
+{
+  QgsVectorLayer *layer = QgsMemoryProviderUtils::createMemoryLayer( name, fields, geometryType, crs );
+  QQmlEngine::setObjectOwnership( layer, QQmlEngine::CppOwnership );
+  LayerUtils::setDefaultRenderer( layer );
+  return layer;
 }
 
 FeatureIterator LayerUtils::createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression )
