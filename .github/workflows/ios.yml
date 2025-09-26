@@ -68,6 +68,7 @@ jobs:
       - name: 🍹 Prepare ios build env
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
+          xcrun simctl list > /dev/null
           xcodebuild -downloadPlatform iOS -buildVersion 18.2
           brew uninstall cmake
           # Workaround GitHub Actions Python issues
