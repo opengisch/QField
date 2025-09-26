@@ -58,14 +58,17 @@ DeltaFileWrapper *LayerObserver::deltaFileWrapper() const
 
 void LayerObserver::onHomePathChanged()
 {
+  QgsMessageLog::logMessage( QStringLiteral( "onHomePathChanged homePath %1" ).arg( mProject->homePath() ), "QField" );
   if ( mProject->homePath().isNull() )
   {
+    QgsMessageLog::logMessage( QStringLiteral( "onHomePathChanged isNull" ), "QField" );
     return;
   }
 
   Q_ASSERT( mDeltaFileWrapper->hasError() || !mDeltaFileWrapper->isDirty() );
 
   QString dirPath = QFileInfo( mProject->absoluteFilePath() ).path();
+  QgsMessageLog::logMessage( QStringLiteral( "onHomePathChanged dirPath %1" ).arg( dirPath ), "QField" );
   mDeltaFileWrapper = std::unique_ptr<DeltaFileWrapper>( new DeltaFileWrapper( mProject, QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) ) );
   emit deltaFileWrapperChanged();
 
