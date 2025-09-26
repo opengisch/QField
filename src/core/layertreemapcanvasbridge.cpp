@@ -39,7 +39,8 @@ LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( FlatLayerTreeModel *model, Q
 {
   connect( mRoot, &QgsLayerTreeGroup::visibilityChanged, this, &LayerTreeMapCanvasBridge::nodeVisibilityChanged );
   connect( model, &FlatLayerTreeModel::mapThemeChanged, this, &LayerTreeMapCanvasBridge::mapThemeChanged );
-  connect( model, &FlatLayerTreeModel::layersAdded, this, &LayerTreeMapCanvasBridge::layersAdded );
+  connect( model, &FlatLayerTreeModel::layersAdded, this, &LayerTreeMapCanvasBridge::layersChanged );
+  connect( model, &FlatLayerTreeModel::layersRemoved, this, &LayerTreeMapCanvasBridge::layersChanged );
 
   connect( mTrackingModel, &TrackingModel::layerInTrackingChanged, this, &LayerTreeMapCanvasBridge::layerInTrackingChanged );
 
@@ -157,7 +158,7 @@ void LayerTreeMapCanvasBridge::mapThemeChanged()
     QgsProject::instance()->mapThemeCollection()->applyTheme( mModel->mapTheme(), mRoot, mModel->layerTreeModel() );
 }
 
-void LayerTreeMapCanvasBridge::layersAdded()
+void LayerTreeMapCanvasBridge::layersChanged()
 {
   deferredSetCanvasLayers();
 }

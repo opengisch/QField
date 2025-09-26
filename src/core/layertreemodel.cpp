@@ -36,6 +36,7 @@ FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *pro
 {
   setSourceModel( mSourceModel );
   connect( mSourceModel, &FlatLayerTreeModelBase::layersAdded, this, &FlatLayerTreeModel::layersAdded );
+  connect( mSourceModel, &FlatLayerTreeModelBase::layersRemoved, this, &FlatLayerTreeModel::layersRemoved );
   connect( mSourceModel, &FlatLayerTreeModelBase::mapThemeChanged, this, &FlatLayerTreeModel::mapThemeChanged );
   connect( mSourceModel, &FlatLayerTreeModelBase::isTemporalChanged, this, &FlatLayerTreeModel::isTemporalChanged );
   connect( mSourceModel, &FlatLayerTreeModelBase::isFrozenChanged, this, &FlatLayerTreeModel::isFrozenChanged );

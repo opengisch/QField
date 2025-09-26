@@ -88,6 +88,7 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
 
   signals:
     void layersAdded();
+    void layersRemoved();
     void mapThemeChanged();
     void isTemporalChanged();
     void isFrozenChanged();
@@ -204,6 +205,7 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
 
   signals:
     void layersAdded();
+    void layersRemoved();
     void mapThemeChanged();
     void isTemporalChanged();
     void isFrozenChanged();

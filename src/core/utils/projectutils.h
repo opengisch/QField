@@ -35,9 +35,24 @@ class ProjectUtils : public QObject
      * \note This function mimics QgsProject::mapLayers with a return type
      * that is QML compatible.
      */
-    Q_INVOKABLE static QVariantMap mapLayers( QgsProject *project = nullptr );
+    Q_INVOKABLE static QVariantMap mapLayers( QgsProject *project );
 
-    Q_INVOKABLE static void addMapLayer( QgsProject *project = nullptr, QgsMapLayer *layer = nullptr );
+    /**
+     * Adds a map \a layer to a \a project layers registry.
+     */
+    Q_INVOKABLE static bool addMapLayer( QgsProject *project, QgsMapLayer *layer );
+
+    /**
+     * Removes a map \a layer from a \a project layers registry.
+     */
+    Q_INVOKABLE static void removeMapLayer( QgsProject *project, QgsMapLayer *layer );
+
+    /**
+     * Removes a map layer from a project layers registry matching a given layer ID.
+     * \param project the project
+     * \param layerId the layer ID
+     */
+    Q_INVOKABLE static void removeMapLayer( QgsProject *project, const QString &layerId );
 
     /**
      * Returns the transaction mode for a given \a project.

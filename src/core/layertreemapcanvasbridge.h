@@ -79,7 +79,7 @@ class LayerTreeMapCanvasBridge : public QObject
     void extentChanged();
     void nodeVisibilityChanged();
     void mapThemeChanged();
-    void layersAdded();
+    void layersChanged();
     void layerInTrackingChanged( QgsVectorLayer *layer, bool tracking );
 
   private:
