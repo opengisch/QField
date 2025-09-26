@@ -25,10 +25,12 @@ jobs:
             triplet: x64-osx
             deployment-target: "10.15"
             target-arch: x86_64
+            run-tests: false
           - os: macos-15
             triplet: arm64-osx
             deployment-target: "11.0"
             target-arch: arm64
+            run-tests: true
     name: build (macos)
     runs-on: ${{ matrix.os }}
 
@@ -116,6 +118,7 @@ jobs:
           cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }} | xcbeautify
 
       - name: 🧫 Test
+        if: ${{ matrix.run-tests == true }}
         env:
           PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/${{ matrix.triplet }}/share/proj
           QFIELD_SYSTEM_SHARED_DATA_PATH: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/${{ matrix.triplet }}/share
@@ -139,7 +142,7 @@ jobs:
           path: qfield-app-${{ matrix.triplet }}.tar.gz
 
       - name: 📊 Upload test report
-        if: always()
+        if: ${{ matrix.run-tests == true && always() }}
         uses: actions/upload-artifact@v4
         with:
           name: "test-report-${{ matrix.triplet }}-${{ env.BUILD_TYPE }}"
