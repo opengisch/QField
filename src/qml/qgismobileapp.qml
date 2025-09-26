@@ -359,7 +359,7 @@ ApplicationWindow {
       if (active) {
         if (jumpToPosition && positionSource.projectedPosition.x) {
           jumpToPosition = false;
-          mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+          mapCanvasMap.mapCanvasWrapper.zoomScale(positionSource.projectedPosition, Math.min(mapCanvas.mapSettings.scale, 2257), true);
         }
         bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
@@ -789,7 +789,7 @@ ApplicationWindow {
           return;
         }
         if (type === "touch") {
-          mapCanvasWrapper.zoom(Qt.point(point.x, point.y), 0.8);
+          mapCanvasWrapper.zoomByFactor(Qt.point(point.x, point.y), 0.8);
         }
       }
 
