@@ -269,9 +269,14 @@ class QgsQuickMapCanvasMap : public QQuickItem
     void rotate( double degrees );
 
     /**
-     * Set map setting's extent (zoom the map) on the center by given scale
+     * Set map setting's extent (zoom the map) on the \a center by given \a factor
      */
-    void zoom( QPointF center, qreal scale );
+    void zoomByFactor( QPointF center, qreal factor, bool handleMargins = false );
+
+    /**
+     * Set map setting's extent (zoom the map) on the \a center at a given \a scale
+     */
+    void zoomScale( QPointF center, qreal scale, bool handleMargins = false );
 
     /**
      * Set map setting's extent (pan the map) based on the difference of positions

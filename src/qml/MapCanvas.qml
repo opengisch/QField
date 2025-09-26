@@ -89,11 +89,11 @@ Item {
   }
 
   function zoomIn(point) {
-    mapCanvasWrapper.zoom(point, 0.67);
+    mapCanvasWrapper.zoomByFactor(point, 0.67);
   }
 
   function zoomOut(point) {
-    mapCanvasWrapper.zoom(point, 1.5);
+    mapCanvasWrapper.zoomByFactor(point, 1.5);
   }
 
   function refresh(ignoreFreeze) {
@@ -209,7 +209,7 @@ Item {
     onCentroidChanged: {
       if (active) {
         if (isZooming) {
-          mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60));
+          mapCanvasWrapper.zoomByFactor(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60));
           oldTranslationY = translation.y;
         } else if (isPanning) {
           mapCanvasWrapper.pan(centroid.position, oldPos);
@@ -319,7 +319,7 @@ Item {
     onCentroidChanged: {
       if (active) {
         if (isZooming) {
-          mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60));
+          mapCanvasWrapper.zoomByFactor(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60));
           oldTranslationY = translation.y;
         } else if (isPanning) {
           mapCanvasWrapper.pan(centroid.position, oldPos);
@@ -354,7 +354,7 @@ Item {
 
     onTranslationChanged: {
       if (active) {
-        mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (oldTranslationY - translation.y) / 60));
+        mapCanvasWrapper.zoomByFactor(zoomCenter, Math.pow(0.8, (oldTranslationY - translation.y) / 60));
       }
       oldTranslationY = translation.y;
     }
@@ -486,7 +486,7 @@ Item {
     }
 
     onActiveScaleChanged: {
-      mapCanvasWrapper.zoom(pinchHandler.centroid.position, oldScale / pinchHandler.activeScale);
+      mapCanvasWrapper.zoomByFactor(pinchHandler.centroid.position, oldScale / pinchHandler.activeScale);
       mapCanvasWrapper.pan(pinchHandler.centroid.position, oldPos);
       oldScale = pinchHandler.activeScale;
     }
