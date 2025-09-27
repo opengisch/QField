@@ -2194,8 +2194,9 @@ ApplicationWindow {
             } else {
               if (positionSource.projectedPosition.x) {
                 const screenPosition = mapCanvas.mapSettings.coordinateToScreen(positionSource.projectedPosition);
-                const screenDistance = Math.sqrt(Math.pow(screenPosition.x - mapCanvas.width / 2, 2) + Math.pow(screenPosition.y - mapCanvas.height / 2, 2));
-                if (screenDistance < 150) {
+                const screenDistance = Math.sqrt(Math.pow(screenPosition.x - (mapCanvas.width - mapCanvasMap.rightMargin) / 2, 2) + Math.pow(screenPosition.y - (mapCanvas.height - mapCanvasMap.bottomMargin) / 2, 2));
+                console.log(screenDistance);
+                if (screenDistance < 60) {
                   mapCanvasMap.freeze('follow');
                   followActive = true;
                   followLocation(true);
