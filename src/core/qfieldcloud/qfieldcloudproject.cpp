@@ -1569,6 +1569,8 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
   }
 
   QString deltaFileToUpload = deltaFileWrapper->toFileForPush();
+  QgsMessageLog::logMessage( QStringLiteral( "deltaFileToUpload fileName %1" ).arg( deltaFileWrapper->fileName() ), "QField" );
+  QgsMessageLog::logMessage( QStringLiteral( "deltaFileToUpload projectId %1" ).arg( deltaFileWrapper->projectId() ), "QField" );
 
   if ( deltaFileToUpload.isEmpty() )
   {
