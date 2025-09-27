@@ -359,7 +359,7 @@ ApplicationWindow {
       if (active) {
         if (jumpToPosition && positionSource.projectedPosition.x) {
           jumpToPosition = false;
-          mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+          gnssButton.jumpToLocation();
         }
         bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
@@ -789,7 +789,7 @@ ApplicationWindow {
           return;
         }
         if (type === "touch") {
-          mapCanvasWrapper.zoom(Qt.point(point.x, point.y), 0.8);
+          mapCanvasWrapper.zoomByFactor(Qt.point(point.x, point.y), 0.8);
         }
       }
 
@@ -2196,14 +2196,19 @@ ApplicationWindow {
               positioningSettings.positioningActivated = true;
             } else {
               if (positionSource.projectedPosition.x) {
-                mapCanvasMap.freeze('follow');
-                followActive = true;
-                followLocation(true);
-                displayToast(qsTr("Canvas follows location"));
+                const screenPosition = mapCanvas.mapSettings.coordinateToScreen(positionSource.projectedPosition);
+                const screenDistance = Math.sqrt(Math.pow(screenPosition.x - (mapCanvas.width - mapCanvasMap.rightMargin) / 2, 2) + Math.pow(screenPosition.y - (mapCanvas.height - mapCanvasMap.bottomMargin) / 2, 2));
+                console.log(screenDistance);
+                if (screenDistance < 60) {
+                  mapCanvasMap.freeze('follow');
+                  followActive = true;
+                  followLocation(true);
+                  displayToast(qsTr("Canvas follows location"));
+                } else {
+                  jumpToLocation();
+                }
               } else {
                 displayToast(qsTr("Waiting for location"));
-                mapCanvasMap.freeze('follow');
-                followActive = true;
               }
             }
           }
@@ -2216,6 +2221,27 @@ ApplicationWindow {
         property int followLocationMinScale: 125
         property int followLocationMinMargin: 60
         property int followLocationScreenFraction: settings ? settings.value("/QField/Positioning/FollowScreenFraction", 5) : 5
+
+        function jumpToLocation() {
+          const scaleMin = 2257;
+          const scaleMax = 100000;
+          const speedMin = 10;
+          const speedMax = 500;
+          let targetScale = scaleMin;
+          if (positionSource.positionInformation.speedValid) {
+            const speed = positionSource.positionInformation.speed / 1000;
+            if (speed > speedMax) {
+              targetScale = scaleMax;
+            } else if (speed < speedMin) {
+              targetScale = scaleMin;
+            } else {
+              const exp = 2;
+              const ratio = (Math.pow(speed - speedMin, exp) - 1) / (Math.pow(speedMax - speedMin, exp) - 1);
+              targetScale = (scaleMax - scaleMin) * ratio + scaleMin;
+            }
+          }
+          mapCanvasMap.mapCanvasWrapper.zoomScale(positionSource.projectedPosition, targetScale, true);
+        }
 
         function followLocation(forceRecenter) {
           if (navigation.isActive && navigationButton.followIncludeDestination) {
