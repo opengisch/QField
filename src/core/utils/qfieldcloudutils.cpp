@@ -68,13 +68,30 @@ bool QFieldCloudUtils::isCloudAction( const QgsMapLayer *layer )
 
 const QString QFieldCloudUtils::getProjectId( const QString &fileName )
 {
-  QFileInfo fi( fileName );
-  QDir baseDir = fi.isDir() ? fi.canonicalFilePath() : fi.canonicalPath();
-  QString basePath = QFileInfo( baseDir.path() ).canonicalFilePath();
-  QString cloudPath = QFileInfo( localCloudDirectory() ).canonicalFilePath();
+  if ( fileName.isEmpty() )
+    return QString();
 
-  if ( !cloudPath.isEmpty() && basePath.startsWith( cloudPath ) )
-    return baseDir.dirName();
+  const QString path = QFileInfo( fileName ).canonicalFilePath();
+  if ( path.isEmpty() )
+    return QString();
+
+  const QString cloudPath = QFieldCloudUtils::localCloudDirectory();
+  if ( cloudPath.isEmpty() || !path.startsWith( cloudPath ) )
+    return QString();
+
+  const QRegularExpression re(
+    QStringLiteral( "^%1[/\\\\]([^/\\\\]+)[/\\\\]([^/\\\\]+)" )
+      .arg( QRegularExpression::escape( cloudPath ) ) );
+  const QRegularExpressionMatch match = re.match( path, 0,
+                                                  QRegularExpression::NormalMatch, QRegularExpression::AnchoredMatchOption );
+
+  if ( match.hasMatch() )
+  {
+    const QString username = match.captured( 1 );
+    const QString projectId = match.captured( 2 );
+    Q_UNUSED( username );
+    return projectId;
+  }
 
   return QString();
 }
@@ -233,7 +250,7 @@ void QFieldCloudUtils::addPendingAttachments( const QString &username, const QSt
     params.insert( "skip_metadata", 1 );
     NetworkReply *reply = cloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( projectId ), params );
 
-    connect( reply, &NetworkReply::finished, reply, [reply, username, projectId, fileNames, checkSumCheck]() {
+    connect( reply, &NetworkReply::finished, reply, [reply, username, projectId, fileNames, checkSumCheck, cloudConnection]() {
       QNetworkReply *rawReply = reply->currentRawReply();
       reply->deleteLater();
 
@@ -254,16 +271,16 @@ void QFieldCloudUtils::addPendingAttachments( const QString &username, const QSt
         fileChecksumMap.insert( fileName, cloudEtag );
       }
 
-      QFieldCloudUtils::writeToAttachmentsFile( username, projectId, fileNames, &fileChecksumMap, checkSumCheck );
+      writeToAttachmentsFile( username, projectId, fileNames, &fileChecksumMap, checkSumCheck, cloudConnection );
     } );
   }
   else
   {
-    writeToAttachmentsFile( username, projectId, fileNames, nullptr, false );
+    writeToAttachmentsFile( username, projectId, fileNames, nullptr, false, cloudConnection );
   }
 }
 
-void QFieldCloudUtils::writeToAttachmentsFile( const QString &username, const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck )
+void QFieldCloudUtils::writeToAttachmentsFile( const QString &username, const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QFieldCloudConnection *cloudConnection )
 {
   const QString localCloudUSerDirectory = QLatin1String( "%1/%2/" ).arg( QFieldCloudUtils::localCloudDirectory(), username );
   QLockFile attachmentsLock( QStringLiteral( "%1/attachments.lock" ).arg( localCloudUSerDirectory ) );
@@ -285,8 +302,10 @@ void QFieldCloudUtils::writeToAttachmentsFile( const QString &username, const QS
         writeFileDetails( fileName, projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
       }
     }
-
     attachmentsFile.close();
+
+    if ( cloudConnection )
+      emit cloudConnection->pendingAttachmentsAdded();
   }
 }
 
