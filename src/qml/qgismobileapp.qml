@@ -1479,7 +1479,7 @@ ApplicationWindow {
           if (gnssButton.followActive) {
             gnssButton.followActiveSkipExtentChanged = true;
           }
-          mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + mapCanvas.width / 2, mapCanvas.y + mapCanvas.height / 2));
+          mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + (mapCanvas.width - mapCanvasMap.rightMargin) / 2, mapCanvas.y + (mapCanvas.height - mapCanvasMap.bottomMargin) / 2));
           if (gnssButton.followActive) {
             // Trigger a mao redraw
             gnssButton.followLocation(true);
@@ -1502,7 +1502,7 @@ ApplicationWindow {
           if (gnssButton.followActive) {
             gnssButton.followActiveSkipExtentChanged = true;
           }
-          mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + mapCanvas.width / 2, mapCanvas.y + mapCanvas.height / 2));
+          mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + (mapCanvas.width - mapCanvasMap.rightMargin) / 2, mapCanvas.y + (mapCanvas.height - mapCanvasMap.bottomMargin) / 2));
           if (gnssButton.followActive) {
             // Trigger a mao redraw
             gnssButton.followLocation(true);
