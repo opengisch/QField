@@ -2198,8 +2198,7 @@ ApplicationWindow {
               if (positionSource.projectedPosition.x) {
                 const screenPosition = mapCanvas.mapSettings.coordinateToScreen(positionSource.projectedPosition);
                 const screenDistance = Math.sqrt(Math.pow(screenPosition.x - (mapCanvas.width - mapCanvasMap.rightMargin) / 2, 2) + Math.pow(screenPosition.y - (mapCanvas.height - mapCanvasMap.bottomMargin) / 2, 2));
-                console.log(screenDistance);
-                if (screenDistance < 60) {
+                if (jumpedOnce && screenDistance < 60) {
                   mapCanvasMap.freeze('follow');
                   followActive = true;
                   followLocation(true);
@@ -2218,30 +2217,37 @@ ApplicationWindow {
           gnssMenu.popup(locationToolbar.x + locationToolbar.width - gnssMenu.width, locationToolbar.y + locationToolbar.height - gnssMenu.height);
         }
 
+        property bool jumpedOnce: false
+
+        function jumpToLocation() {
+          if (!jumpedOnce) {
+            const scaleMin = 9028;
+            const scaleMax = 144448;
+            const speedMin = 2.57; // meters per second
+            const speedMax = 140; // meters per second
+            let targetScale = scaleMin;
+            if (positionSource.positionInformation.speedValid) {
+              const speed = positionSource.positionInformation.speed;
+              if (speed > speedMax) {
+                targetScale = scaleMax;
+              } else if (speed < speedMin) {
+                targetScale = scaleMin;
+              } else {
+                const exp = 2;
+                const ratio = (Math.pow(speed - speedMin, exp) - 1) / (Math.pow(speedMax - speedMin, exp) - 1);
+                targetScale = (scaleMax - scaleMin) * ratio + scaleMin;
+              }
+            }
+            mapCanvasMap.mapCanvasWrapper.zoomScale(positionSource.projectedPosition, targetScale, true);
+            jumpedOnce = true;
+          } else {
+            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+          }
+        }
+
         property int followLocationMinScale: 125
         property int followLocationMinMargin: 60
         property int followLocationScreenFraction: settings ? settings.value("/QField/Positioning/FollowScreenFraction", 5) : 5
-
-        function jumpToLocation() {
-          const scaleMin = 2257;
-          const scaleMax = 100000;
-          const speedMin = 10;
-          const speedMax = 500;
-          let targetScale = scaleMin;
-          if (positionSource.positionInformation.speedValid) {
-            const speed = positionSource.positionInformation.speed / 1000;
-            if (speed > speedMax) {
-              targetScale = scaleMax;
-            } else if (speed < speedMin) {
-              targetScale = scaleMin;
-            } else {
-              const exp = 2;
-              const ratio = (Math.pow(speed - speedMin, exp) - 1) / (Math.pow(speedMax - speedMin, exp) - 1);
-              targetScale = (scaleMax - scaleMin) * ratio + scaleMin;
-            }
-          }
-          mapCanvasMap.mapCanvasWrapper.zoomScale(positionSource.projectedPosition, targetScale, true);
-        }
 
         function followLocation(forceRecenter) {
           if (navigation.isActive && navigationButton.followIncludeDestination) {
@@ -3959,6 +3965,7 @@ ApplicationWindow {
       mapCanvasMap.unfreeze('projectload');
       busyOverlay.state = "hidden";
       dashBoard.layerTree.unfreeze(true);
+      gnssButton.jumpedOnce = false;
       if (qfieldAuthRequestHandler.hasPendingAuthRequest) {
         qfieldAuthRequestHandler.handleLayerLogins();
       } else {
