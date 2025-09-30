@@ -2218,6 +2218,9 @@ ApplicationWindow {
 
         function jumpToLocation() {
           if (!jumpedOnce) {
+            // The scale range and speed range aims at providing an adequate default
+            // value for a range of scenarios from people walking to people being driven
+            // in trains
             const scaleMin = 9028;
             const scaleMax = 144448;
             const speedMin = 2.57; // meters per second

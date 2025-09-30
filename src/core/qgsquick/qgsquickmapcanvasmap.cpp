@@ -72,7 +72,7 @@ void QgsQuickMapCanvasMap::rotate( double degrees )
   mMapSettings->setRotation( mMapSettings->rotation() + degrees );
 }
 
-void QgsQuickMapCanvasMap::zoomByFactor( QPointF center, qreal factor, bool handleMargins )
+void QgsQuickMapCanvasMap::zoomByFactor( const QPointF center, qreal factor, bool handleMargins )
 {
   QgsRectangle extent = mMapSettings->extent();
   QgsPoint oldCenter( extent.center() );
@@ -86,7 +86,7 @@ void QgsQuickMapCanvasMap::zoomByFactor( QPointF center, qreal factor, bool hand
   mMapSettings->setExtent( extent, handleMargins );
 }
 
-void QgsQuickMapCanvasMap::zoomScale( QPointF center, qreal scale, bool handleMargins )
+void QgsQuickMapCanvasMap::zoomScale( const QPointF center, qreal scale, bool handleMargins )
 {
   QgsRectangle extent = mMapSettings->extent();
   QgsPoint oldCenter( extent.center() );
@@ -96,7 +96,7 @@ void QgsQuickMapCanvasMap::zoomScale( QPointF center, qreal scale, bool handleMa
   mMapSettings->setExtent( extent, handleMargins );
 }
 
-void QgsQuickMapCanvasMap::pan( QPointF oldPos, QPointF newPos )
+void QgsQuickMapCanvasMap::pan( const QPointF oldPos, const QPointF newPos )
 {
   QgsPoint start = mMapSettings->screenToCoordinate( oldPos.toPoint() );
   QgsPoint end = mMapSettings->screenToCoordinate( newPos.toPoint() );
