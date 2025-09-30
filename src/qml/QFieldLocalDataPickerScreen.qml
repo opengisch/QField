@@ -492,7 +492,7 @@ Page {
         text: qsTr("Push to QFieldCloud")
         onTriggered: {
           pushFilesToQFieldCloudConnection.enabled = true;
-          pushFilesToQFieldCloudConnection.sendingItem = true;
+          pushFilesToQFieldCloudConnection.sendingMultiple = true;
           QFieldCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, QFieldCloudUtils.getProjectId(table.model.currentPath), [itemMenu.itemPath], cloudConnection, true);
         }
       }
@@ -894,15 +894,16 @@ Page {
     enabled: false
     target: cloudConnection
 
-    property bool sendingItem: false
+    property bool sendingMultiple: false
 
     function onPendingAttachmentsAdded() {
       platformUtilities.uploadPendingAttachments(cloudConnection);
-      if (pushFilesToQFieldCloudConnection.sendingItem) {
+      if (pushFilesToQFieldCloudConnection.sendingMultiple) {
         displayToast(qsTr("‘%1’ is being uploaded to QFieldCloud").arg(FileUtils.fileName(itemMenu.itemPath)));
-        pushFilesToQFieldCloudConnection.sendingItem = false;
+        pushFilesToQFieldCloudConnection.sendingMultiple = false;
       } else {
         localFilesModel.clearSelection();
+        displayToast(qsTr("Items being uploaded to QFieldCloud"));
       }
       pushFilesToQFieldCloudConnection.enabled = false;
     }
