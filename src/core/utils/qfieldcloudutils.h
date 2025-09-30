@@ -90,6 +90,7 @@ class QFieldCloudUtils : public QObject
     /**
      * Returns the path to the local cloud directory.
      * By default inside the user profile unless overwritten with setLocalCloudDirectory
+     * Ensures the returned path does NOT have a trailing '/' or '\' to avoid issues with regex operations.
      */
     static const QString localCloudDirectory();
 

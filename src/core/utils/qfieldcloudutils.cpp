@@ -40,6 +40,11 @@ const QString QFieldCloudUtils::localCloudDirectory()
   QString cloudDirectoryPath = sLocalCloudDirectory.isNull()
                                  ? PlatformUtilities::instance()->systemLocalDataLocation( QStringLiteral( "cloud_projects" ) )
                                  : sLocalCloudDirectory;
+  // Remove trailing '/' or '\' if present
+  while ( !cloudDirectoryPath.isEmpty() && ( cloudDirectoryPath.endsWith( '/' ) || cloudDirectoryPath.endsWith( '\\' ) ) )
+  {
+    cloudDirectoryPath.chop( 1 );
+  }
   return cloudDirectoryPath;
 }
 
