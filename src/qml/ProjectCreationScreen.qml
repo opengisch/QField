@@ -213,7 +213,7 @@ Page {
         id: trackPositionGroupBox
         title: qsTr("Track your position?")
         width: parent.width
-        checked: true
+        checked: false
         icon: Theme.getThemeVectorIcon("directions_walk_24dp")
         iconColor: Theme.mainTextColor
 
