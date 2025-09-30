@@ -87,9 +87,7 @@ const QString QFieldCloudUtils::getProjectId( const QString &fileName )
 
   if ( match.hasMatch() )
   {
-    const QString username = match.captured( 1 );
     const QString projectId = match.captured( 2 );
-    Q_UNUSED( username );
     return projectId;
   }
 
