@@ -359,7 +359,7 @@ ApplicationWindow {
       if (active) {
         if (jumpToPosition && positionSource.projectedPosition.x) {
           jumpToPosition = false;
-          mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+          gnssButton.jumpToLocation();
         }
         bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
@@ -789,7 +789,7 @@ ApplicationWindow {
           return;
         }
         if (type === "touch") {
-          mapCanvasWrapper.zoom(Qt.point(point.x, point.y), 0.8);
+          mapCanvasWrapper.zoomByFactor(Qt.point(point.x, point.y), 0.8);
         }
       }
 
@@ -1482,7 +1482,7 @@ ApplicationWindow {
           if (gnssButton.followActive) {
             gnssButton.followActiveSkipExtentChanged = true;
           }
-          mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + mapCanvas.width / 2, mapCanvas.y + mapCanvas.height / 2));
+          mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + (mapCanvas.width - mapCanvasMap.rightMargin) / 2, mapCanvas.y + (mapCanvas.height - mapCanvasMap.bottomMargin) / 2));
           if (gnssButton.followActive) {
             // Trigger a mao redraw
             gnssButton.followLocation(true);
@@ -1505,7 +1505,7 @@ ApplicationWindow {
           if (gnssButton.followActive) {
             gnssButton.followActiveSkipExtentChanged = true;
           }
-          mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + mapCanvas.width / 2, mapCanvas.y + mapCanvas.height / 2));
+          mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + (mapCanvas.width - mapCanvasMap.rightMargin) / 2, mapCanvas.y + (mapCanvas.height - mapCanvasMap.bottomMargin) / 2));
           if (gnssButton.followActive) {
             // Trigger a mao redraw
             gnssButton.followLocation(true);
@@ -2196,14 +2196,18 @@ ApplicationWindow {
               positioningSettings.positioningActivated = true;
             } else {
               if (positionSource.projectedPosition.x) {
-                mapCanvasMap.freeze('follow');
-                followActive = true;
-                followLocation(true);
-                displayToast(qsTr("Canvas follows location"));
+                const screenPosition = mapCanvas.mapSettings.coordinateToScreen(positionSource.projectedPosition);
+                const screenDistance = Math.sqrt(Math.pow(screenPosition.x - (mapCanvas.width - mapCanvasMap.rightMargin) / 2, 2) + Math.pow(screenPosition.y - (mapCanvas.height - mapCanvasMap.bottomMargin) / 2, 2));
+                if (jumpedOnce && screenDistance < 60) {
+                  mapCanvasMap.freeze('follow');
+                  followActive = true;
+                  followLocation(true);
+                  displayToast(qsTr("Canvas follows location"));
+                } else {
+                  jumpToLocation();
+                }
               } else {
                 displayToast(qsTr("Waiting for location"));
-                mapCanvasMap.freeze('follow');
-                followActive = true;
               }
             }
           }
@@ -2211,6 +2215,37 @@ ApplicationWindow {
 
         onPressAndHold: {
           gnssMenu.popup(locationToolbar.x + locationToolbar.width - gnssMenu.width, locationToolbar.y + locationToolbar.height - gnssMenu.height);
+        }
+
+        property bool jumpedOnce: false
+
+        function jumpToLocation() {
+          if (!jumpedOnce) {
+            // The scale range and speed range aims at providing an adequate default
+            // value for a range of scenarios from people walking to people being driven
+            // in trains
+            const scaleMin = 9028;
+            const scaleMax = 144448;
+            const speedMin = 2.57; // meters per second
+            const speedMax = 140; // meters per second
+            let targetScale = scaleMin;
+            if (positionSource.positionInformation.speedValid) {
+              const speed = positionSource.positionInformation.speed;
+              if (speed > speedMax) {
+                targetScale = scaleMax;
+              } else if (speed < speedMin) {
+                targetScale = scaleMin;
+              } else {
+                const exp = 2;
+                const ratio = (Math.pow(speed - speedMin, exp) - 1) / (Math.pow(speedMax - speedMin, exp) - 1);
+                targetScale = (scaleMax - scaleMin) * ratio + scaleMin;
+              }
+            }
+            mapCanvasMap.mapCanvasWrapper.zoomScale(positionSource.projectedPosition, targetScale, true);
+            jumpedOnce = true;
+          } else {
+            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+          }
         }
 
         property int followLocationMinScale: 125
@@ -3933,6 +3968,7 @@ ApplicationWindow {
       mapCanvasMap.unfreeze('projectload');
       busyOverlay.state = "hidden";
       dashBoard.layerTree.unfreeze(true);
+      gnssButton.jumpedOnce = false;
       if (qfieldAuthRequestHandler.hasPendingAuthRequest) {
         qfieldAuthRequestHandler.handleLayerLogins();
       } else {

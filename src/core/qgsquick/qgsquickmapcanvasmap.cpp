@@ -72,21 +72,31 @@ void QgsQuickMapCanvasMap::rotate( double degrees )
   mMapSettings->setRotation( mMapSettings->rotation() + degrees );
 }
 
-void QgsQuickMapCanvasMap::zoom( QPointF center, qreal scale )
+void QgsQuickMapCanvasMap::zoomByFactor( const QPointF center, qreal factor, bool handleMargins )
 {
   QgsRectangle extent = mMapSettings->extent();
   QgsPoint oldCenter( extent.center() );
   QgsPoint mousePos( mMapSettings->screenToCoordinate( center ) );
 
-  QgsPointXY newCenter( mousePos.x() + ( ( oldCenter.x() - mousePos.x() ) * scale ),
-                        mousePos.y() + ( ( oldCenter.y() - mousePos.y() ) * scale ) );
+  QgsPointXY newCenter( mousePos.x() + ( ( oldCenter.x() - mousePos.x() ) * factor ),
+                        mousePos.y() + ( ( oldCenter.y() - mousePos.y() ) * factor ) );
 
   // same as zoomWithCenter (no coordinate transformations are needed)
-  extent.scale( scale, &newCenter );
-  mMapSettings->setExtent( extent );
+  extent.scale( factor, &newCenter );
+  mMapSettings->setExtent( extent, handleMargins );
 }
 
-void QgsQuickMapCanvasMap::pan( QPointF oldPos, QPointF newPos )
+void QgsQuickMapCanvasMap::zoomScale( const QPointF center, qreal scale, bool handleMargins )
+{
+  QgsRectangle extent = mMapSettings->extent();
+  QgsPoint oldCenter( extent.center() );
+  extent += QgsVector( center.x() - oldCenter.x(), center.y() - oldCenter.y() );
+
+  extent.scale( scale / mMapSettings->scale() );
+  mMapSettings->setExtent( extent, handleMargins );
+}
+
+void QgsQuickMapCanvasMap::pan( const QPointF oldPos, const QPointF newPos )
 {
   QgsPoint start = mMapSettings->screenToCoordinate( oldPos.toPoint() );
   QgsPoint end = mMapSettings->screenToCoordinate( newPos.toPoint() );
