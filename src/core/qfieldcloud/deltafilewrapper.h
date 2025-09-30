@@ -68,7 +68,7 @@ class DeltaFileWrapper : public QObject
      * @param project the current project
      * @param fileName complete file name with path where the object should be stored
      */
-    DeltaFileWrapper( const QgsProject *project, const QString &fileName );
+    DeltaFileWrapper( const QString &projectId, const QString &fileName );
 
     /**
      * Destroy the Delta File Wrapper object
@@ -262,7 +262,7 @@ class DeltaFileWrapper : public QObject
      * @param sourcePkAttrName attribute name of the primary key
      * @param newFeature the feature that has been created
      */
-    void addCreate( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &newFeature );
+    void addCreate( const QgsProject *project, const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &newFeature );
 
 
     /**
@@ -274,7 +274,7 @@ class DeltaFileWrapper : public QObject
      * @param sourcePkAttrName attribute name of the primary key
      * @param oldFeature the feature that has been deleted
      */
-    void addDelete( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &oldFeature );
+    void addDelete( const QgsProject *project, const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &oldFeature );
 
 
     /**
@@ -288,7 +288,7 @@ class DeltaFileWrapper : public QObject
      * @param newFeature the new version of the feature that has been modified
      * @param storeSnapshot store a complete snapshot of the feature
      */
-    void addPatch( const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &oldFeature, const QgsFeature &newFeature, bool storeSnapshot = true );
+    void addPatch( const QgsProject *project, const QString &localLayerId, const QString &sourceLayerId, const QString &localPkAttrName, const QString &sourcePkAttrName, const QgsFeature &oldFeature, const QgsFeature &newFeature, bool storeSnapshot = true );
 
 
     /**
@@ -315,7 +315,7 @@ class DeltaFileWrapper : public QObject
      * @return whether the attempt was successful
      * @todo TEST
      */
-    Q_INVOKABLE bool apply();
+    Q_INVOKABLE bool apply( const QgsProject *project );
 
 
     /**
@@ -326,7 +326,7 @@ class DeltaFileWrapper : public QObject
      * @return whether the attempt was successful.
      * @todo TEST
      */
-    Q_INVOKABLE bool applyReversed();
+    Q_INVOKABLE bool applyReversed( const QgsProject *project );
 
     /**
      * Returns TRUE if the pushing state is active.
@@ -389,7 +389,7 @@ class DeltaFileWrapper : public QObject
      * Applies the current delta file on the current project. A wrapper method arround \a _applyDeltasOnLayers.
      * If \a shouldApplyInReverse is passed, the deltas are applied in reverse order (e.g. discarding the changes).
      */
-    bool applyInternal( bool shouldApplyInReverse );
+    bool applyInternal( const QgsProject *project, bool shouldApplyInReverse );
 
 
     /**
@@ -402,7 +402,7 @@ class DeltaFileWrapper : public QObject
      * Add file checksums from relevant changed attributes.
      * \returns A std::tuple<QJsonObject, QJsonObject> where the first object reflects new file checksums and the second reflects old file checkums.
      */
-    std::tuple<QJsonObject, QJsonObject> addAttachments( const QString &localLayerId, const QJsonObject &newAttrs, const QJsonObject &oldAttrs = QJsonObject() );
+    std::tuple<QJsonObject, QJsonObject> addAttachments( const QgsProject *project, const QString &localLayerId, const QJsonObject &newAttrs, const QJsonObject &oldAttrs = QJsonObject() );
 
     /**
      * Converts QVariant value to QJsonValue
@@ -445,11 +445,6 @@ class DeltaFileWrapper : public QObject
      * It may not have any change in case undo/redo and delta merging is applied.
      */
     bool deltaContainsActualChange( const QJsonObject &delta ) const;
-
-    /**
-     * The current project instance
-     */
-    const QgsProject *mProject = nullptr;
 
     /**
      * A mapping between the local primary key and the uuid of the delta.

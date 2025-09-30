@@ -2205,7 +2205,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
 
 void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, const QDir &localPath )
 {
-  project->mDeltasCount = DeltaFileWrapper( QgsProject::instance(), QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
+  project->mDeltasCount = DeltaFileWrapper( project->id(), QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
   project->mLastExportId = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastExportId" ) ).toString();
   project->mLastExportedAt = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastExportedAt" ) ).toString();
   project->mLastLocalExportId = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalExportId" ) ).toString();

@@ -900,7 +900,7 @@ bool QFieldCloudProjectsModel::revertLocalChangesFromCurrentProject()
   if ( !deltaFileWrapper->toFile() )
     return false;
 
-  if ( !deltaFileWrapper->applyReversed() )
+  if ( !deltaFileWrapper->applyReversed( QgsProject::instance() ) )
   {
     QgsMessageLog::logMessage( QStringLiteral( "Failed to apply reversed" ) );
     return false;

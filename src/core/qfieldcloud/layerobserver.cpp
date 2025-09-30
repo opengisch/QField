@@ -32,8 +32,9 @@
 LayerObserver::LayerObserver( const QgsProject *project )
   : mProject( project )
 {
-  QString dirPath = QFileInfo( mProject->absoluteFilePath() ).path();
-  mDeltaFileWrapper = std::make_unique<DeltaFileWrapper>( mProject, QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) );
+  const QString dirPath = QFileInfo( mProject->absoluteFilePath() ).path();
+  const QString projectId = QFieldCloudUtils::getProjectId( project->fileName() );
+  mDeltaFileWrapper = std::make_unique<DeltaFileWrapper>( projectId, QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) );
 
   connect( mProject, &QgsProject::homePathChanged, this, &LayerObserver::onHomePathChanged );
   connect( mProject, &QgsProject::layersAdded, this, &LayerObserver::onLayersAdded );
@@ -66,7 +67,7 @@ void LayerObserver::onHomePathChanged()
   Q_ASSERT( mDeltaFileWrapper->hasError() || !mDeltaFileWrapper->isDirty() );
 
   QString dirPath = QFileInfo( mProject->absoluteFilePath() ).path();
-  mDeltaFileWrapper = std::unique_ptr<DeltaFileWrapper>( new DeltaFileWrapper( mProject, QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) ) );
+  mDeltaFileWrapper = std::unique_ptr<DeltaFileWrapper>( new DeltaFileWrapper( QFieldCloudUtils::getProjectId( mProject->fileName() ), QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) ) );
   emit deltaFileWrapperChanged();
 
   mObservedLayerIds.clear();
@@ -150,7 +151,7 @@ void LayerObserver::onCommittedFeaturesAdded( const QString &localLayerId, const
 
   for ( const QgsFeature &newFeature : addedFeatures )
   {
-    mDeltaFileWrapper->addCreate( localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, newFeature );
+    mDeltaFileWrapper->addCreate( mProject, localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, newFeature );
   }
 }
 
@@ -174,7 +175,7 @@ void LayerObserver::onCommittedFeaturesRemoved( const QString &localLayerId, con
 
     QgsFeature oldFeature = changedFeatures.take( fid );
 
-    mDeltaFileWrapper->addDelete( localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, oldFeature );
+    mDeltaFileWrapper->addDelete( mProject, localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, oldFeature );
   }
 
   mChangedFeatures.insert( localLayerId, changedFeatures );
@@ -214,7 +215,7 @@ void LayerObserver::onCommittedAttributeValuesChanges( const QString &localLayer
     {
       mLocalAndSourcePkAttrAreEqual = true;
     }
-    mDeltaFileWrapper->addPatch( localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, oldFeature, newFeature );
+    mDeltaFileWrapper->addPatch( mProject, localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, oldFeature, newFeature );
   }
 
   mPatchedFids.insert( localLayerId, patchedFids );
@@ -255,7 +256,7 @@ void LayerObserver::onCommittedGeometriesChanges( const QString &localLayerId, c
     {
       mLocalAndSourcePkAttrAreEqual = true;
     }
-    mDeltaFileWrapper->addPatch( localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, oldFeature, newFeature );
+    mDeltaFileWrapper->addPatch( mProject, localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, oldFeature, newFeature );
   }
 
   mPatchedFids.insert( localLayerId, patchedFids );
