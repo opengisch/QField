@@ -6190,7 +6190,7 @@ erstellen</translation>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation>Wechsel zwischen Ansichts- und Digitalisierungs-Modus. Der Ansichts-Modus ist darauf fokussiert die Karte und Objekte zu betrachtet, während der Digitaliesrungs-Modus ermöglicht, Objekte zu erstellen und Geometrien zu bearbeiten.</translation>
+        <translation>Wechsel zwischen Browser- und Digitalisierungs-Modus. Der Ansichts-Modus ist darauf fokussiert die Karte und Objekte zu betrachtet, während der Digitalisierungs-Modus ermöglicht, Objekte zu erstellen und Geometrien zu bearbeiten.</translation>
     </message>
     <message>
         <source>Measurement</source>
