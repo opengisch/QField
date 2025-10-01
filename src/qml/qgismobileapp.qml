@@ -1572,7 +1572,7 @@ ApplicationWindow {
 
         QfBadge {
           alignment: QfBadge.Alignment.TopRight
-          visible: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
+          visible: cloudProjectsModel.layerObserver.deltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
           color: Theme.cloudColor
         }
       }

@@ -43,11 +43,6 @@ QFieldCloudProject::QFieldCloudProject( const QString &id, QFieldCloudConnection
   }
 }
 
-QFieldCloudProject::~QFieldCloudProject()
-{
-  delete mDeltaListModel;
-}
-
 void QFieldCloudProject::setSharedDatasetsProjectId( const QString &id )
 {
   if ( mSharedDatasetsProjectId == id )
@@ -1299,7 +1294,10 @@ void QFieldCloudProject::downloadFilesCompleted()
   QgsLogger::debug( QStringLiteral( "Project %1: All files downloaded." ).arg( mId ) );
   Q_ASSERT( mActiveFilesToDownload.size() == 0 );
 
-  QDir projectPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
+  const QDir projectPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
+  mDeltaFileWrapper.reset( new DeltaFileWrapper( mId, QStringLiteral( "%1/deltafile.json" ).arg( projectPath.absolutePath() ) ) );
+  emit deltaFileWrapperChanged();
+
   const bool currentProjectReloadNeeded = QgsProject::instance()->homePath().startsWith( projectPath.absolutePath() );
   QStringList gpkgFileNames;
   if ( currentProjectReloadNeeded )
@@ -2036,8 +2034,7 @@ void QFieldCloudProject::refreshDeltaList()
 {
   if ( mDeltaListModel )
   {
-    delete mDeltaListModel;
-    mDeltaListModel = nullptr;
+    mDeltaListModel.reset();
     emit deltaListModelChanged();
   }
 
@@ -2055,7 +2052,7 @@ void QFieldCloudProject::refreshDeltaList()
     }
 
     const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
-    mDeltaListModel = new DeltaListModel( doc );
+    mDeltaListModel.reset( new DeltaListModel( doc ) );
     emit deltaListModelChanged();
   } );
 }
@@ -2088,6 +2085,12 @@ void QFieldCloudProject::removeLocally()
   if ( dir.exists() )
   {
     dir.removeRecursively();
+
+    if ( mDeltaFileWrapper )
+    {
+      mDeltaFileWrapper.reset();
+      emit deltaFileWrapperChanged();
+    }
 
     setLocalPath( QString() );
     setModification( NoModification );
@@ -2197,7 +2200,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
     project->mLocalPath = QFieldCloudUtils::localProjectFilePath( username, project->mId );
   }
 
-  QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, project->mId ) );
+  const QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, project->mId ) );
   restoreLocalSettings( project, localPath );
 
   return project;
@@ -2205,7 +2208,6 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
 
 void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, const QDir &localPath )
 {
-  project->mDeltasCount = DeltaFileWrapper( project->id(), QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
   project->mLastExportId = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastExportId" ) ).toString();
   project->mLastExportedAt = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastExportedAt" ) ).toString();
   project->mLastLocalExportId = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalExportId" ) ).toString();
@@ -2220,7 +2222,12 @@ void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, cons
   // generate local export id if not present. Possible reasons for missing localExportId are:
   // - the cloud project download aborted halfway
   // - the local settings were somehow deleted, but not the project itself (unlikely)
-  if ( project->lastLocalExportId().isEmpty() )
+  if ( !project->lastLocalExportId().isEmpty() )
+  {
+    project->mDeltaFileWrapper.reset( new DeltaFileWrapper( project->id(), QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ) );
+    emit project->deltaFileWrapperChanged();
+  }
+  else
   {
     project->mLocalPath.clear();
   }

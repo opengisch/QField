@@ -126,6 +126,8 @@ void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjec
   mCurrentProjectId = currentProjectId;
   mCurrentProject = findProject( mCurrentProjectId );
 
+  mLayerObserver->setDeltaFileWrapper( mCurrentProject->deltaFileWrapper() );
+
   emit currentProjectIdChanged();
   emit currentProjectChanged();
 }
@@ -864,7 +866,7 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return project->deltaFilePushStatusString();
 
     case LocalDeltasCountRole:
-      return project->deltasCount();
+      return project->deltaFileWrapper() ? project->deltaFileWrapper()->count() : 0;
 
     case LocalPathRole:
       return project->localPath();

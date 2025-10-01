@@ -32,51 +32,61 @@
 LayerObserver::LayerObserver( const QgsProject *project )
   : mProject( project )
 {
-  const QString dirPath = QFileInfo( mProject->absoluteFilePath() ).path();
-  const QString projectId = QFieldCloudUtils::getProjectId( project->fileName() );
-  mDeltaFileWrapper = std::make_unique<DeltaFileWrapper>( projectId, QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) );
-
   connect( mProject, &QgsProject::homePathChanged, this, &LayerObserver::onHomePathChanged );
   connect( mProject, &QgsProject::layersAdded, this, &LayerObserver::onLayersAdded );
+
+  if ( !project->fileName().isEmpty() )
+  {
+    onHomePathChanged();
+  }
 }
 
 
 void LayerObserver::reset( bool isHardReset ) const
 {
+  if ( !mDeltaFileWrapper )
+  {
+    return;
+  }
+
   if ( isHardReset )
   {
     mDeltaFileWrapper->resetId();
   }
 
-  return mDeltaFileWrapper->reset();
+  mDeltaFileWrapper->reset();
 }
 
 
 DeltaFileWrapper *LayerObserver::deltaFileWrapper() const
 {
-  return mDeltaFileWrapper.get();
+  return mDeltaFileWrapper.data();
 }
 
-void LayerObserver::onHomePathChanged()
+
+void LayerObserver::setDeltaFileWrapper( DeltaFileWrapper *wrapper )
 {
-  if ( mProject->homePath().isNull() )
+  if ( mDeltaFileWrapper == wrapper )
   {
     return;
   }
 
-  Q_ASSERT( mDeltaFileWrapper->hasError() || !mDeltaFileWrapper->isDirty() );
-
-  QString dirPath = QFileInfo( mProject->absoluteFilePath() ).path();
-  mDeltaFileWrapper = std::unique_ptr<DeltaFileWrapper>( new DeltaFileWrapper( QFieldCloudUtils::getProjectId( mProject->fileName() ), QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) ) );
+  mDeltaFileWrapper = wrapper;
   emit deltaFileWrapperChanged();
+}
+
+
+void LayerObserver::onHomePathChanged()
+{
+  if ( mProject->fileName().isEmpty() )
+  {
+    return;
+  }
 
   mObservedLayerIds.clear();
 
   if ( !QFieldCloudUtils::getProjectId( mProject->fileName() ).isEmpty() )
   {
-    if ( mDeltaFileWrapper->hasError() )
-      QgsMessageLog::logMessage( QStringLiteral( "The current delta file wrapper experienced an error: %1" ).arg( mDeltaFileWrapper->errorString() ) );
-
     addLayerListeners();
   }
 }
@@ -139,7 +149,7 @@ void LayerObserver::onBeforeCommitChanges()
 
 void LayerObserver::onCommittedFeaturesAdded( const QString &localLayerId, const QgsFeatureList &addedFeatures )
 {
-  if ( mDeltaFileWrapper->isDeltaBeingApplied() )
+  if ( !mDeltaFileWrapper || mDeltaFileWrapper->isDeltaBeingApplied() )
   {
     return;
   }
@@ -158,7 +168,7 @@ void LayerObserver::onCommittedFeaturesAdded( const QString &localLayerId, const
 
 void LayerObserver::onCommittedFeaturesRemoved( const QString &localLayerId, const QgsFeatureIds &deletedFeatureIds )
 {
-  if ( mDeltaFileWrapper->isDeltaBeingApplied() )
+  if ( !mDeltaFileWrapper || mDeltaFileWrapper->isDeltaBeingApplied() )
   {
     return;
   }
@@ -184,7 +194,7 @@ void LayerObserver::onCommittedFeaturesRemoved( const QString &localLayerId, con
 
 void LayerObserver::onCommittedAttributeValuesChanges( const QString &localLayerId, const QgsChangedAttributesMap &changedAttributesValues )
 {
-  if ( mDeltaFileWrapper->isDeltaBeingApplied() )
+  if ( !mDeltaFileWrapper || mDeltaFileWrapper->isDeltaBeingApplied() )
   {
     return;
   }
@@ -225,7 +235,7 @@ void LayerObserver::onCommittedAttributeValuesChanges( const QString &localLayer
 
 void LayerObserver::onCommittedGeometriesChanges( const QString &localLayerId, const QgsGeometryMap &changedGeometries )
 {
-  if ( mDeltaFileWrapper->isDeltaBeingApplied() )
+  if ( !mDeltaFileWrapper || mDeltaFileWrapper->isDeltaBeingApplied() )
   {
     return;
   }
@@ -266,6 +276,11 @@ void LayerObserver::onCommittedGeometriesChanges( const QString &localLayerId, c
 
 void LayerObserver::onEditingStopped()
 {
+  if ( !mDeltaFileWrapper )
+  {
+    return;
+  }
+
   const QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( sender() );
   const QString layerId = vl->id();
 
