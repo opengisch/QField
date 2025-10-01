@@ -1,9 +1,9 @@
 /***************************************************************************
-                        test_layerobserver.h
+                        test_digitizinglogger.cpp
                         --------------------
-  begin                : Apr 2020
-  copyright            : (C) 2020 by Ivan Ivanov
-  email                : ivan@opengis.ch
+  begin                : Jun 2021
+  copyright            : (C) 2021 by Mathieu Pellerin
+  email                : mathieu at opengis dot ch
 ***************************************************************************/
 
 /***************************************************************************
