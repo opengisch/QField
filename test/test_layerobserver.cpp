@@ -98,7 +98,10 @@ TEST_CASE( "LayerObserver" )
   REQUIRE( mLayer->addFeature( f3 ) );
   REQUIRE( mLayer->commitChanges() );
 
+  const QString dirPath = QFileInfo( QgsProject::instance()->absoluteFilePath() ).path();
   std::unique_ptr<LayerObserver> mLayerObserver = std::make_unique<LayerObserver>( QgsProject::instance() );
+  std::unique_ptr<DeltaFileWrapper> mDeltaFileWrapper = std::make_unique<DeltaFileWrapper>( QFieldCloudUtils::getProjectId( QgsProject::instance()->fileName() ), QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) );
+  mLayerObserver->setDeltaFileWrapper( mDeltaFileWrapper.get() );
 
   REQUIRE( QgsProject::instance()->addMapLayer( mLayer.get(), false, false ) );
   REQUIRE( !mLayerObserver->deltaFileWrapper()->hasError() );

@@ -126,6 +126,8 @@ void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjec
   mCurrentProjectId = currentProjectId;
   mCurrentProject = findProject( mCurrentProjectId );
 
+  mLayerObserver->setDeltaFileWrapper( mCurrentProject ? mCurrentProject->deltaFileWrapper() : nullptr );
+
   emit currentProjectIdChanged();
   emit currentProjectChanged();
 }
@@ -345,7 +347,7 @@ void QFieldCloudProjectsModel::projectPush( const QString &projectId, const bool
   if ( !( project->status() == QFieldCloudProject::ProjectStatus::Idle ) )
     return;
 
-  project->push( mLayerObserver, shouldDownloadUpdates );
+  project->push( shouldDownloadUpdates );
 }
 
 
@@ -378,7 +380,7 @@ void QFieldCloudProjectsModel::layerObserverLayerEdited( const QString & )
     return;
   }
 
-  project->refreshModification( mLayerObserver );
+  project->refreshModification();
 }
 
 void QFieldCloudProjectsModel::projectReceived()
@@ -472,7 +474,7 @@ void QFieldCloudProjectsModel::refreshProjectModification( const QString &projec
     return;
 
   QFieldCloudProject *project = mProjects[projectIndex.row()];
-  project->refreshModification( mLayerObserver );
+  project->refreshModification();
 }
 
 QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
@@ -864,7 +866,7 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return project->deltaFilePushStatusString();
 
     case LocalDeltasCountRole:
-      return project->deltasCount();
+      return project->deltaFileWrapper() ? project->deltaFileWrapper()->count() : 0;
 
     case LocalPathRole:
       return project->localPath();
@@ -900,7 +902,7 @@ bool QFieldCloudProjectsModel::revertLocalChangesFromCurrentProject()
   if ( !deltaFileWrapper->toFile() )
     return false;
 
-  if ( !deltaFileWrapper->applyReversed() )
+  if ( !deltaFileWrapper->applyReversed( QgsProject::instance() ) )
   {
     QgsMessageLog::logMessage( QStringLiteral( "Failed to apply reversed" ) );
     return false;
@@ -912,7 +914,7 @@ bool QFieldCloudProjectsModel::revertLocalChangesFromCurrentProject()
   if ( !deltaFileWrapper->toFile() )
     return false;
 
-  project->refreshModification( mLayerObserver );
+  project->refreshModification();
 
   return true;
 }
@@ -934,7 +936,7 @@ bool QFieldCloudProjectsModel::discardLocalChangesFromCurrentProject()
   if ( !deltaFileWrapper->toFile() )
     return false;
 
-  project->refreshModification( mLayerObserver );
+  project->refreshModification();
 
   return true;
 }

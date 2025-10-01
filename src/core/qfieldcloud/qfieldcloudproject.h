@@ -16,6 +16,7 @@
 #ifndef QFIELDCLOUDPROJECT_H
 #define QFIELDCLOUDPROJECT_H
 
+#include "deltafilewrapper.h"
 #include "networkmanager.h"
 #include "networkreply.h"
 
@@ -25,7 +26,6 @@
 
 class DeltaListModel;
 class QgsGpkgFlusher;
-class LayerObserver;
 class QFieldCloudConnection;
 
 /**
@@ -58,6 +58,7 @@ class QFieldCloudProject : public QObject
 
     Q_PROPERTY( double pushDeltaProgress READ pushDeltaProgress NOTIFY pushDeltaProgressChanged )
     Q_PROPERTY( DeltaFileStatus deltaFilePushStatus READ deltaFilePushStatus NOTIFY deltaFilePushStatusChanged )
+    Q_PROPERTY( DeltaFileWrapper *deltaFileWrapper READ deltaFileWrapper NOTIFY deltaFileWrapperChanged )
     Q_PROPERTY( DeltaListModel *deltaListModel READ deltaListModel NOTIFY deltaListModelChanged )
 
     Q_PROPERTY( int uploadBytesTotal READ uploadBytesTotal NOTIFY uploadBytesTotalChanged )
@@ -211,7 +212,7 @@ class QFieldCloudProject : public QObject
     Q_ENUM( ProjectRefreshReason )
 
     QFieldCloudProject( const QString &id = QString(), QFieldCloudConnection *connection = nullptr, QgsGpkgFlusher *gpkgFlusher = nullptr );
-    ~QFieldCloudProject();
+    ~QFieldCloudProject() = default;
 
     QString id() const { return mId; }
 
@@ -342,8 +343,8 @@ class QFieldCloudProject : public QObject
     int uploadBytesSent() const { return mUploadBytesSent; }
     double uploadProgress() const { return mUploadProgress; }
 
-    int deltasCount() const { return mDeltasCount; }
-    DeltaListModel *deltaListModel() const { return mDeltaListModel; }
+    DeltaFileWrapper *deltaFileWrapper() const { return mDeltaFileWrapper.get(); }
+    DeltaListModel *deltaListModel() const { return mDeltaListModel.get(); }
 
     QString thumbnailPath() const { return mThumbnailPath; }
     void setThumbnailPath( const QString &thumbnailPath );
@@ -356,12 +357,12 @@ class QFieldCloudProject : public QObject
     Q_INVOKABLE void packageAndDownload();
     void cancelDownload();
 
-    Q_INVOKABLE void push( LayerObserver *layerObserver, bool shouldDownloadUpdates );
+    Q_INVOKABLE void push( bool shouldDownloadUpdates );
     void cancelPush();
 
     void refreshDeltaList();
     void refreshFileOutdatedStatus();
-    void refreshModification( LayerObserver *layerObserver );
+    void refreshModification();
 
     void removeLocally();
 
@@ -437,6 +438,7 @@ class QFieldCloudProject : public QObject
     void uploadBytesSentChanged();
     void uploadProgressChanged();
 
+    void deltaFileWrapperChanged();
     void deltaListModelChanged();
 
     void thumbnailPathChanged();
@@ -550,8 +552,8 @@ class QFieldCloudProject : public QObject
     int mUploadBytesSent = 0;
     double mUploadProgress = 0.0;
 
-    int mDeltasCount = 0;
-    DeltaListModel *mDeltaListModel = nullptr;
+    std::unique_ptr<DeltaFileWrapper> mDeltaFileWrapper;
+    std::unique_ptr<DeltaListModel> mDeltaListModel;
 
     QString mThumbnailPath;
 

@@ -13,7 +13,6 @@ Page {
 
   signal finished
 
-  property LayerObserver layerObserver
   property string requestedProjectDetails: ""
 
   leftPadding: mainWindow.sceneLeftMargin

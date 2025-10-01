@@ -22,6 +22,7 @@
 #include "deltafilewrapper.h"
 
 #include <QList>
+#include <QPointer>
 #include <qgsfeature.h>
 #include <qgsmaplayer.h>
 #include <qgsproject.h>
@@ -38,7 +39,7 @@ class LayerObserver : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( DeltaFileWrapper *deltaFileWrapper READ deltaFileWrapper NOTIFY deltaFileWrapperChanged )
+    Q_PROPERTY( DeltaFileWrapper *deltaFileWrapper READ deltaFileWrapper WRITE setDeltaFileWrapper NOTIFY deltaFileWrapperChanged )
 
   public:
     /**
@@ -62,6 +63,12 @@ class LayerObserver : public QObject
      */
     DeltaFileWrapper *deltaFileWrapper() const;
 
+    /**
+     * Sets the current delta file
+     *
+     * @return current delta file
+     */
+    void setDeltaFileWrapper( DeltaFileWrapper *wrapper );
 
   signals:
     void layerEdited( const QString &layerId );
@@ -134,9 +141,9 @@ class LayerObserver : public QObject
 
   private:
     /**
-     * The current Deltas File Wrapper object
+     * The current deltas file wrapper object
      */
-    std::unique_ptr<DeltaFileWrapper> mDeltaFileWrapper;
+    QPointer<DeltaFileWrapper> mDeltaFileWrapper;
 
 
     /**

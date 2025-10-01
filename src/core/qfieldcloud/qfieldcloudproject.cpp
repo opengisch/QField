@@ -17,7 +17,6 @@
 #include "deltafilewrapper.h"
 #include "deltalistmodel.h"
 #include "fileutils.h"
-#include "layerobserver.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudproject.h"
 #include "qfieldcloudutils.h"
@@ -41,11 +40,6 @@ QFieldCloudProject::QFieldCloudProject( const QString &id, QFieldCloudConnection
   {
     mUsername = mCloudConnection->username();
   }
-}
-
-QFieldCloudProject::~QFieldCloudProject()
-{
-  delete mDeltaListModel;
 }
 
 void QFieldCloudProject::setSharedDatasetsProjectId( const QString &id )
@@ -1299,7 +1293,13 @@ void QFieldCloudProject::downloadFilesCompleted()
   QgsLogger::debug( QStringLiteral( "Project %1: All files downloaded." ).arg( mId ) );
   Q_ASSERT( mActiveFilesToDownload.size() == 0 );
 
-  QDir projectPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
+  const QDir projectPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
+  if ( !mDeltaFileWrapper )
+  {
+    mDeltaFileWrapper.reset( new DeltaFileWrapper( mId, QStringLiteral( "%1/deltafile.json" ).arg( projectPath.absolutePath() ) ) );
+    emit deltaFileWrapperChanged();
+  }
+
   const bool currentProjectReloadNeeded = QgsProject::instance()->homePath().startsWith( projectPath.absolutePath() );
   QStringList gpkgFileNames;
   if ( currentProjectReloadNeeded )
@@ -1493,16 +1493,14 @@ void QFieldCloudProject::logFailedDownload( const QString &fileKey, const QStrin
   emit downloadFinished( trimmedMessage );
 }
 
-void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownloadUpdates )
+void QFieldCloudProject::push( bool shouldDownloadUpdates )
 {
   if ( mStatus != ProjectStatus::Idle )
   {
     return;
   }
 
-  DeltaFileWrapper *deltaFileWrapper = layerObserver->deltaFileWrapper();
-
-  if ( shouldDownloadUpdates && deltaFileWrapper->count() == 0 )
+  if ( shouldDownloadUpdates && mDeltaFileWrapper->count() == 0 )
   {
     setStatus( ProjectStatus::Idle );
     packageAndDownload();
@@ -1514,28 +1512,28 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
     return;
   }
 
-  if ( !layerObserver->deltaFileWrapper()->toFile() )
+  if ( !mDeltaFileWrapper->toFile() )
   {
     return;
   }
 
-  if ( deltaFileWrapper->hasError() )
+  if ( mDeltaFileWrapper->hasError() )
   {
-    QgsMessageLog::logMessage( QStringLiteral( "The delta file has an error: %1" ).arg( deltaFileWrapper->errorString() ) );
+    QgsMessageLog::logMessage( QStringLiteral( "The delta file has an error: %1" ).arg( mDeltaFileWrapper->errorString() ) );
     return;
   }
 
-  deltaFileWrapper->setIsPushing( true );
+  mDeltaFileWrapper->setIsPushing( true );
 
   setStatus( ProjectStatus::Pushing );
-  setDeltaFileId( deltaFileWrapper->id() );
+  setDeltaFileId( mDeltaFileWrapper->id() );
   setDeltaFilePushStatus( DeltaLocalStatus );
   setDeltaFilePushStatusString( QString() );
   mPushDeltaProgress = 0.0;
 
   emit pushDeltaProgressChanged();
 
-  refreshModification( layerObserver );
+  refreshModification();
 
   // //////////
   // prepare attachment files to be uploaded
@@ -1543,7 +1541,7 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
 
   const QFileInfo projectInfo( QFieldCloudUtils::localProjectFilePath( mUsername, mId ) );
   const QDir projectDir( projectInfo.absolutePath() );
-  const QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
+  const QStringList attachmentFileNames = mDeltaFileWrapper->attachmentFileNames().keys();
 
   for ( const QString &fileName : attachmentFileNames )
   {
@@ -1568,11 +1566,11 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
     QFieldCloudUtils::addPendingAttachments( mUsername, mId, { absoluteFilePath } );
   }
 
-  QString deltaFileToUpload = deltaFileWrapper->toFileForPush();
+  QString deltaFileToUpload = mDeltaFileWrapper->toFileForPush();
 
   if ( deltaFileToUpload.isEmpty() )
   {
-    deltaFileWrapper->setIsPushing( false );
+    mDeltaFileWrapper->setIsPushing( false );
     setStatus( ProjectStatus::Idle );
     return;
   }
@@ -1589,7 +1587,7 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
     emit pushDeltaProgressChanged();
   } );
 
-  connect( deltasCloudReply, &NetworkReply::finished, this, [this, deltasCloudReply, layerObserver]() {
+  connect( deltasCloudReply, &NetworkReply::finished, this, [this, deltasCloudReply]() {
     QNetworkReply *deltasReply = deltasCloudReply->currentRawReply();
     deltasCloudReply->deleteLater();
 
@@ -1604,7 +1602,7 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
       // maybe the project does not exist, then create it?
       QgsMessageLog::logMessage( QStringLiteral( "Failed to upload delta file, reason:\n%1\n%2" ).arg( deltasReply->errorString(), mDeltaFilePushStatusString ) );
 
-      layerObserver->deltaFileWrapper()->setIsPushing( false );
+      mDeltaFileWrapper->setIsPushing( false );
 
       cancelPush();
       return;
@@ -1612,7 +1610,7 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
 
     mPushDeltaProgress = 1.0;
     setDeltaFilePushStatus( DeltaPendingStatus );
-    setDeltaLayersToDownload( layerObserver->deltaFileWrapper()->deltaLayerIds() );
+    setDeltaLayersToDownload( mDeltaFileWrapper->deltaLayerIds() );
 
     emit pushDeltaProgressChanged();
 
@@ -1624,7 +1622,7 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
   // 2) delta successfully uploaded
   // //////////
   QObject *networkDeltaPushedParent = new QObject( this ); // we need this to unsubscribe
-  connect( this, &QFieldCloudProject::networkDeltaPushed, networkDeltaPushedParent, [this, networkDeltaPushedParent, layerObserver, shouldDownloadUpdates]() {
+  connect( this, &QFieldCloudProject::networkDeltaPushed, networkDeltaPushedParent, [this, networkDeltaPushedParent, shouldDownloadUpdates]() {
     delete networkDeltaPushedParent;
 
     if ( shouldDownloadUpdates )
@@ -1641,14 +1639,13 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
 
       QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalPushDeltas" ), mLastLocalPushDeltas );
 
-      DeltaFileWrapper *deltaFileWrapper = layerObserver->deltaFileWrapper();
-      deltaFileWrapper->reset();
-      deltaFileWrapper->resetId();
-      deltaFileWrapper->setIsPushing( false );
+      mDeltaFileWrapper->reset();
+      mDeltaFileWrapper->resetId();
+      mDeltaFileWrapper->setIsPushing( false );
 
-      if ( !deltaFileWrapper->toFile() )
+      if ( !mDeltaFileWrapper->toFile() )
       {
-        QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file after delta push. %1" ).arg( deltaFileWrapper->errorString() ) );
+        QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file after delta push. %1" ).arg( mDeltaFileWrapper->errorString() ) );
       }
 
       emit pushFinished( false );
@@ -1661,9 +1658,7 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
   // 3) new delta status received. Never give up to get a successful status.
   // //////////
   QObject *networkDeltaStatusCheckedParent = new QObject( this ); // we need this to unsubscribe
-  connect( this, &QFieldCloudProject::networkDeltaStatusChecked, networkDeltaStatusCheckedParent, [this, networkDeltaStatusCheckedParent, layerObserver, shouldDownloadUpdates]() {
-    DeltaFileWrapper *deltaFileWrapper = layerObserver->deltaFileWrapper();
-
+  connect( this, &QFieldCloudProject::networkDeltaStatusChecked, networkDeltaStatusCheckedParent, [this, networkDeltaStatusCheckedParent, shouldDownloadUpdates]() {
     switch ( mDeltaFilePushStatus )
     {
       case DeltaLocalStatus:
@@ -1679,11 +1674,13 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
 
       case DeltaErrorStatus:
         delete networkDeltaStatusCheckedParent;
-        deltaFileWrapper->resetId();
-        deltaFileWrapper->setIsPushing( false );
+        mDeltaFileWrapper->resetId();
+        mDeltaFileWrapper->setIsPushing( false );
 
-        if ( !deltaFileWrapper->toFile() )
+        if ( !mDeltaFileWrapper->toFile() )
+        {
           QgsMessageLog::logMessage( QStringLiteral( "Failed update committed delta file." ) );
+        }
 
         cancelPush();
         return;
@@ -1693,12 +1690,14 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
       case DeltaAppliedStatus:
         delete networkDeltaStatusCheckedParent;
 
-        deltaFileWrapper->reset();
-        deltaFileWrapper->resetId();
-        deltaFileWrapper->setIsPushing( false );
+        mDeltaFileWrapper->reset();
+        mDeltaFileWrapper->resetId();
+        mDeltaFileWrapper->setIsPushing( false );
 
-        if ( !deltaFileWrapper->toFile() )
-          QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file. %1" ).arg( deltaFileWrapper->errorString() ) );
+        if ( !mDeltaFileWrapper->toFile() )
+        {
+          QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file. %1" ).arg( mDeltaFileWrapper->errorString() ) );
+        }
 
         mModification ^= LocalModification;
         mModification |= RemoteModification;
@@ -1948,11 +1947,11 @@ QString QFieldCloudProject::getJobTypeAsString( JobType jobType )
   return QString();
 }
 
-void QFieldCloudProject::refreshModification( LayerObserver *layerObserver )
+void QFieldCloudProject::refreshModification()
 {
   ProjectModifications oldModifications = mModification;
 
-  if ( layerObserver->deltaFileWrapper()->count() > 0 )
+  if ( mDeltaFileWrapper && mDeltaFileWrapper->count() > 0 )
   {
     mModification |= LocalModification;
   }
@@ -2036,8 +2035,7 @@ void QFieldCloudProject::refreshDeltaList()
 {
   if ( mDeltaListModel )
   {
-    delete mDeltaListModel;
-    mDeltaListModel = nullptr;
+    mDeltaListModel.reset();
     emit deltaListModelChanged();
   }
 
@@ -2055,7 +2053,7 @@ void QFieldCloudProject::refreshDeltaList()
     }
 
     const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
-    mDeltaListModel = new DeltaListModel( doc );
+    mDeltaListModel.reset( new DeltaListModel( doc ) );
     emit deltaListModelChanged();
   } );
 }
@@ -2088,6 +2086,12 @@ void QFieldCloudProject::removeLocally()
   if ( dir.exists() )
   {
     dir.removeRecursively();
+
+    if ( mDeltaFileWrapper )
+    {
+      mDeltaFileWrapper.reset();
+      emit deltaFileWrapperChanged();
+    }
 
     setLocalPath( QString() );
     setModification( NoModification );
@@ -2197,7 +2201,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
     project->mLocalPath = QFieldCloudUtils::localProjectFilePath( username, project->mId );
   }
 
-  QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, project->mId ) );
+  const QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, project->mId ) );
   restoreLocalSettings( project, localPath );
 
   return project;
@@ -2205,7 +2209,6 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
 
 void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, const QDir &localPath )
 {
-  project->mDeltasCount = DeltaFileWrapper( QgsProject::instance(), QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
   project->mLastExportId = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastExportId" ) ).toString();
   project->mLastExportedAt = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastExportedAt" ) ).toString();
   project->mLastLocalExportId = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalExportId" ) ).toString();
@@ -2220,7 +2223,12 @@ void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, cons
   // generate local export id if not present. Possible reasons for missing localExportId are:
   // - the cloud project download aborted halfway
   // - the local settings were somehow deleted, but not the project itself (unlikely)
-  if ( project->lastLocalExportId().isEmpty() )
+  if ( !project->lastLocalExportId().isEmpty() )
+  {
+    project->mDeltaFileWrapper.reset( new DeltaFileWrapper( project->id(), QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ) );
+    emit project->deltaFileWrapperChanged();
+  }
+  else
   {
     project->mLocalPath.clear();
   }
