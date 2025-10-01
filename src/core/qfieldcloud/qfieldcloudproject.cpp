@@ -1678,7 +1678,9 @@ void QFieldCloudProject::push( bool shouldDownloadUpdates )
         mDeltaFileWrapper->setIsPushing( false );
 
         if ( !mDeltaFileWrapper->toFile() )
+        {
           QgsMessageLog::logMessage( QStringLiteral( "Failed update committed delta file." ) );
+        }
 
         cancelPush();
         return;
@@ -1693,7 +1695,9 @@ void QFieldCloudProject::push( bool shouldDownloadUpdates )
         mDeltaFileWrapper->setIsPushing( false );
 
         if ( !mDeltaFileWrapper->toFile() )
+        {
           QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file. %1" ).arg( mDeltaFileWrapper->errorString() ) );
+        }
 
         mModification ^= LocalModification;
         mModification |= RemoteModification;

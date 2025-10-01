@@ -1016,7 +1016,7 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
     {
       existingDeltaNewAttrs.insert( attributeName, tmpNewAttrs.value( attributeName ) );
 
-      // Previous patch did not contain this attribute change, add old attribute value
+      // previous patch did not contain this attribute change, add old attribute value
       if ( !existingDeltaOldAttrs.contains( attributeName ) )
       {
         existingDeltaOldAttrs.insert( attributeName, tmpOldAttrs.value( attributeName ) );
@@ -1038,6 +1038,7 @@ void DeltaFileWrapper::mergePatchDelta( const QJsonObject &delta )
     }
 
 
+    // add new file addition / deletion of the current delta in the old delta
     QJsonObject existingDeltaOldFileChecksums = existingDeltaOldData.value( QStringLiteral( "files_sha256" ) ).toObject();
     const QStringList oldFileChecksums = tmpOldFileChecksum.keys();
     for ( const QString &oldFileChecksum : oldFileChecksums )
