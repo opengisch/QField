@@ -423,7 +423,6 @@ QMap<QString, QString> DeltaFileWrapper::attachmentFileNames() const
   for ( const QJsonValue &deltaJson : std::as_const( mDeltas ) )
   {
     QVariantMap delta = deltaJson.toObject().toVariantMap();
-    qDebug() << delta;
     const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
     const QString method = delta.value( QStringLiteral( "method" ) ).toString();
     const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
