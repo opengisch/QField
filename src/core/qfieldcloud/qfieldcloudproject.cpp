@@ -17,7 +17,6 @@
 #include "deltafilewrapper.h"
 #include "deltalistmodel.h"
 #include "fileutils.h"
-#include "layerobserver.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudproject.h"
 #include "qfieldcloudutils.h"
@@ -1295,8 +1294,11 @@ void QFieldCloudProject::downloadFilesCompleted()
   Q_ASSERT( mActiveFilesToDownload.size() == 0 );
 
   const QDir projectPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
-  mDeltaFileWrapper.reset( new DeltaFileWrapper( mId, QStringLiteral( "%1/deltafile.json" ).arg( projectPath.absolutePath() ) ) );
-  emit deltaFileWrapperChanged();
+  if ( !mDeltaFileWrapper )
+  {
+    mDeltaFileWrapper.reset( new DeltaFileWrapper( mId, QStringLiteral( "%1/deltafile.json" ).arg( projectPath.absolutePath() ) ) );
+    emit deltaFileWrapperChanged();
+  }
 
   const bool currentProjectReloadNeeded = QgsProject::instance()->homePath().startsWith( projectPath.absolutePath() );
   QStringList gpkgFileNames;
@@ -1491,16 +1493,14 @@ void QFieldCloudProject::logFailedDownload( const QString &fileKey, const QStrin
   emit downloadFinished( trimmedMessage );
 }
 
-void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownloadUpdates )
+void QFieldCloudProject::push( bool shouldDownloadUpdates )
 {
   if ( mStatus != ProjectStatus::Idle )
   {
     return;
   }
 
-  DeltaFileWrapper *deltaFileWrapper = layerObserver->deltaFileWrapper();
-
-  if ( shouldDownloadUpdates && deltaFileWrapper->count() == 0 )
+  if ( shouldDownloadUpdates && mDeltaFileWrapper->count() == 0 )
   {
     setStatus( ProjectStatus::Idle );
     packageAndDownload();
@@ -1512,28 +1512,28 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
     return;
   }
 
-  if ( !layerObserver->deltaFileWrapper()->toFile() )
+  if ( !mDeltaFileWrapper->toFile() )
   {
     return;
   }
 
-  if ( deltaFileWrapper->hasError() )
+  if ( mDeltaFileWrapper->hasError() )
   {
-    QgsMessageLog::logMessage( QStringLiteral( "The delta file has an error: %1" ).arg( deltaFileWrapper->errorString() ) );
+    QgsMessageLog::logMessage( QStringLiteral( "The delta file has an error: %1" ).arg( mDeltaFileWrapper->errorString() ) );
     return;
   }
 
-  deltaFileWrapper->setIsPushing( true );
+  mDeltaFileWrapper->setIsPushing( true );
 
   setStatus( ProjectStatus::Pushing );
-  setDeltaFileId( deltaFileWrapper->id() );
+  setDeltaFileId( mDeltaFileWrapper->id() );
   setDeltaFilePushStatus( DeltaLocalStatus );
   setDeltaFilePushStatusString( QString() );
   mPushDeltaProgress = 0.0;
 
   emit pushDeltaProgressChanged();
 
-  refreshModification( layerObserver );
+  refreshModification();
 
   // //////////
   // prepare attachment files to be uploaded
@@ -1541,7 +1541,7 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
 
   const QFileInfo projectInfo( QFieldCloudUtils::localProjectFilePath( mUsername, mId ) );
   const QDir projectDir( projectInfo.absolutePath() );
-  const QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
+  const QStringList attachmentFileNames = mDeltaFileWrapper->attachmentFileNames().keys();
 
   for ( const QString &fileName : attachmentFileNames )
   {
@@ -1566,11 +1566,11 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
     QFieldCloudUtils::addPendingAttachments( mUsername, mId, { absoluteFilePath } );
   }
 
-  QString deltaFileToUpload = deltaFileWrapper->toFileForPush();
+  QString deltaFileToUpload = mDeltaFileWrapper->toFileForPush();
 
   if ( deltaFileToUpload.isEmpty() )
   {
-    deltaFileWrapper->setIsPushing( false );
+    mDeltaFileWrapper->setIsPushing( false );
     setStatus( ProjectStatus::Idle );
     return;
   }
@@ -1587,7 +1587,7 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
     emit pushDeltaProgressChanged();
   } );
 
-  connect( deltasCloudReply, &NetworkReply::finished, this, [this, deltasCloudReply, layerObserver]() {
+  connect( deltasCloudReply, &NetworkReply::finished, this, [this, deltasCloudReply]() {
     QNetworkReply *deltasReply = deltasCloudReply->currentRawReply();
     deltasCloudReply->deleteLater();
 
@@ -1602,7 +1602,7 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
       // maybe the project does not exist, then create it?
       QgsMessageLog::logMessage( QStringLiteral( "Failed to upload delta file, reason:\n%1\n%2" ).arg( deltasReply->errorString(), mDeltaFilePushStatusString ) );
 
-      layerObserver->deltaFileWrapper()->setIsPushing( false );
+      mDeltaFileWrapper->setIsPushing( false );
 
       cancelPush();
       return;
@@ -1610,7 +1610,7 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
 
     mPushDeltaProgress = 1.0;
     setDeltaFilePushStatus( DeltaPendingStatus );
-    setDeltaLayersToDownload( layerObserver->deltaFileWrapper()->deltaLayerIds() );
+    setDeltaLayersToDownload( mDeltaFileWrapper->deltaLayerIds() );
 
     emit pushDeltaProgressChanged();
 
@@ -1622,7 +1622,7 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
   // 2) delta successfully uploaded
   // //////////
   QObject *networkDeltaPushedParent = new QObject( this ); // we need this to unsubscribe
-  connect( this, &QFieldCloudProject::networkDeltaPushed, networkDeltaPushedParent, [this, networkDeltaPushedParent, layerObserver, shouldDownloadUpdates]() {
+  connect( this, &QFieldCloudProject::networkDeltaPushed, networkDeltaPushedParent, [this, networkDeltaPushedParent, shouldDownloadUpdates]() {
     delete networkDeltaPushedParent;
 
     if ( shouldDownloadUpdates )
@@ -1639,14 +1639,13 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
 
       QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalPushDeltas" ), mLastLocalPushDeltas );
 
-      DeltaFileWrapper *deltaFileWrapper = layerObserver->deltaFileWrapper();
-      deltaFileWrapper->reset();
-      deltaFileWrapper->resetId();
-      deltaFileWrapper->setIsPushing( false );
+      mDeltaFileWrapper->reset();
+      mDeltaFileWrapper->resetId();
+      mDeltaFileWrapper->setIsPushing( false );
 
-      if ( !deltaFileWrapper->toFile() )
+      if ( !mDeltaFileWrapper->toFile() )
       {
-        QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file after delta push. %1" ).arg( deltaFileWrapper->errorString() ) );
+        QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file after delta push. %1" ).arg( mDeltaFileWrapper->errorString() ) );
       }
 
       emit pushFinished( false );
@@ -1659,9 +1658,7 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
   // 3) new delta status received. Never give up to get a successful status.
   // //////////
   QObject *networkDeltaStatusCheckedParent = new QObject( this ); // we need this to unsubscribe
-  connect( this, &QFieldCloudProject::networkDeltaStatusChecked, networkDeltaStatusCheckedParent, [this, networkDeltaStatusCheckedParent, layerObserver, shouldDownloadUpdates]() {
-    DeltaFileWrapper *deltaFileWrapper = layerObserver->deltaFileWrapper();
-
+  connect( this, &QFieldCloudProject::networkDeltaStatusChecked, networkDeltaStatusCheckedParent, [this, networkDeltaStatusCheckedParent, shouldDownloadUpdates]() {
     switch ( mDeltaFilePushStatus )
     {
       case DeltaLocalStatus:
@@ -1677,10 +1674,10 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
 
       case DeltaErrorStatus:
         delete networkDeltaStatusCheckedParent;
-        deltaFileWrapper->resetId();
-        deltaFileWrapper->setIsPushing( false );
+        mDeltaFileWrapper->resetId();
+        mDeltaFileWrapper->setIsPushing( false );
 
-        if ( !deltaFileWrapper->toFile() )
+        if ( !mDeltaFileWrapper->toFile() )
           QgsMessageLog::logMessage( QStringLiteral( "Failed update committed delta file." ) );
 
         cancelPush();
@@ -1691,12 +1688,12 @@ void QFieldCloudProject::push( LayerObserver *layerObserver, bool shouldDownload
       case DeltaAppliedStatus:
         delete networkDeltaStatusCheckedParent;
 
-        deltaFileWrapper->reset();
-        deltaFileWrapper->resetId();
-        deltaFileWrapper->setIsPushing( false );
+        mDeltaFileWrapper->reset();
+        mDeltaFileWrapper->resetId();
+        mDeltaFileWrapper->setIsPushing( false );
 
-        if ( !deltaFileWrapper->toFile() )
-          QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file. %1" ).arg( deltaFileWrapper->errorString() ) );
+        if ( !mDeltaFileWrapper->toFile() )
+          QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file. %1" ).arg( mDeltaFileWrapper->errorString() ) );
 
         mModification ^= LocalModification;
         mModification |= RemoteModification;
@@ -1946,11 +1943,11 @@ QString QFieldCloudProject::getJobTypeAsString( JobType jobType )
   return QString();
 }
 
-void QFieldCloudProject::refreshModification( LayerObserver *layerObserver )
+void QFieldCloudProject::refreshModification()
 {
   ProjectModifications oldModifications = mModification;
 
-  if ( layerObserver->deltaFileWrapper()->count() > 0 )
+  if ( mDeltaFileWrapper && mDeltaFileWrapper->count() > 0 )
   {
     mModification |= LocalModification;
   }

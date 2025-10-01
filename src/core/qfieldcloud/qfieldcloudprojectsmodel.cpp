@@ -347,7 +347,7 @@ void QFieldCloudProjectsModel::projectPush( const QString &projectId, const bool
   if ( !( project->status() == QFieldCloudProject::ProjectStatus::Idle ) )
     return;
 
-  project->push( mLayerObserver, shouldDownloadUpdates );
+  project->push( shouldDownloadUpdates );
 }
 
 
@@ -380,7 +380,7 @@ void QFieldCloudProjectsModel::layerObserverLayerEdited( const QString & )
     return;
   }
 
-  project->refreshModification( mLayerObserver );
+  project->refreshModification();
 }
 
 void QFieldCloudProjectsModel::projectReceived()
@@ -474,7 +474,7 @@ void QFieldCloudProjectsModel::refreshProjectModification( const QString &projec
     return;
 
   QFieldCloudProject *project = mProjects[projectIndex.row()];
-  project->refreshModification( mLayerObserver );
+  project->refreshModification();
 }
 
 QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
@@ -914,7 +914,7 @@ bool QFieldCloudProjectsModel::revertLocalChangesFromCurrentProject()
   if ( !deltaFileWrapper->toFile() )
     return false;
 
-  project->refreshModification( mLayerObserver );
+  project->refreshModification();
 
   return true;
 }
@@ -936,7 +936,7 @@ bool QFieldCloudProjectsModel::discardLocalChangesFromCurrentProject()
   if ( !deltaFileWrapper->toFile() )
     return false;
 
-  project->refreshModification( mLayerObserver );
+  project->refreshModification();
 
   return true;
 }

@@ -26,7 +26,6 @@
 
 class DeltaListModel;
 class QgsGpkgFlusher;
-class LayerObserver;
 class QFieldCloudConnection;
 
 /**
@@ -358,12 +357,12 @@ class QFieldCloudProject : public QObject
     Q_INVOKABLE void packageAndDownload();
     void cancelDownload();
 
-    Q_INVOKABLE void push( LayerObserver *layerObserver, bool shouldDownloadUpdates );
+    Q_INVOKABLE void push( bool shouldDownloadUpdates );
     void cancelPush();
 
     void refreshDeltaList();
     void refreshFileOutdatedStatus();
-    void refreshModification( LayerObserver *layerObserver );
+    void refreshModification();
 
     void removeLocally();
 

@@ -452,7 +452,7 @@ Popup {
             Layout.fillWidth: true
             text: qsTr('Push changes')
             visible: cloudProjectsModel.layerObserver.deltaFileWrapper && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError
-            enabled: !!(cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QFieldCloudProject.Idle) && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError
+            enabled: !!(cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QFieldCloudProject.Idle) && cloudProjectsModel.layerObserver.deltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError
             icon.source: Theme.getThemeVectorIcon('ic_cloud_upload_24dp')
 
             onClicked: projectPush(false)
