@@ -137,13 +137,6 @@ QfPopup {
         Layout.columnSpan: 2
       }
 
-      Rectangle {
-        Layout.fillWidth: true
-        Layout.columnSpan: 2
-        height: 1
-        color: Theme.mainTextColor
-      }
-
       ComboBox {
         id: positioningDeviceType
         Layout.fillWidth: true
@@ -229,13 +222,6 @@ QfPopup {
         Layout.fillWidth: true
         Layout.topMargin: 5
         Layout.columnSpan: 2
-      }
-
-      Rectangle {
-        Layout.fillWidth: true
-        Layout.columnSpan: 2
-        height: 1
-        color: Theme.mainTextColor
       }
 
       ListModel {

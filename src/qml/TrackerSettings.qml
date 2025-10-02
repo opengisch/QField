@@ -139,13 +139,6 @@ QfPopup {
             Layout.columnSpan: 2
           }
 
-          Rectangle {
-            Layout.fillWidth: true
-            Layout.columnSpan: 2
-            height: 1
-            color: Theme.mainTextColor
-          }
-
           Label {
             text: qsTr("Time requirement")
             font: Theme.defaultFont
@@ -358,13 +351,6 @@ QfPopup {
             Layout.fillWidth: true
             Layout.columnSpan: 2
             Layout.topMargin: 4
-          }
-
-          Rectangle {
-            Layout.fillWidth: true
-            Layout.columnSpan: 2
-            height: 1
-            color: Theme.mainTextColor
           }
 
           Label {
