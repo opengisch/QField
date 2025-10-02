@@ -60,7 +60,7 @@ Popup {
     let cameraPicked = false;
     if (cameraSettings.deviceId != '') {
       for (const device of mediaDevices.videoInputs) {
-        if (device.id == cameraSettings.deviceId) {
+        if (device.id === cameraSettings.deviceId) {
           camera.cameraDevice = device;
           cameraPicked = true;
         }
@@ -69,7 +69,7 @@ Popup {
     if (!cameraPicked) {
       camera.cameraDevice = mediaDevices.defaultVideoInput;
     }
-    camera.applyCameraFormat(false);
+    camera.applyCameraFormat();
   }
 
   QfCameraPermission {
@@ -144,16 +144,16 @@ Popup {
         property bool restarting: false
         active: cameraItem.visible && cameraPermission.status === Qt.PermissionStatus.Granted && !restarting
 
-        function applyCameraFormat(restart) {
+        function applyCameraFormat() {
           if (cameraSettings.pixelFormat != 0) {
             let fallbackIndex = -1;
             let i = 0;
             for (let format of camera.cameraDevice.videoFormats) {
-              if (format.resolution == cameraSettings.resolution && format.pixelFormat == cameraSettings.pixelFormat) {
+              if (format.resolution === cameraSettings.resolution && format.pixelFormat === cameraSettings.pixelFormat) {
                 camera.cameraFormat = format;
                 fallbackIndex = -1;
                 break;
-              } else if (format.resolution == cameraSettings.resolution) {
+              } else if (format.resolution === cameraSettings.resolution) {
                 // If we can't match the pixel format and resolution, go for resolution match across devices
                 fallbackIndex = i;
               }
@@ -161,10 +161,6 @@ Popup {
             }
             if (fallbackIndex >= 0) {
               camera.cameraFormat = camera.cameraDevice.videoFormats[fallbackIndex];
-            }
-            if (restart) {
-              camera.restarting = true;
-              camera.restarting = false;
             }
           }
         }
@@ -191,10 +187,16 @@ Popup {
       imageCapture: ImageCapture {
         id: imageCapture
 
+        onImageCaptured: {
+          cameraItem.state = "PhotoPreview";
+        }
+
         onImageSaved: (requestId, path) => {
           currentPath = path;
-          photoPreview.source = UrlUtils.fromString(path);
-          cameraItem.state = "PhotoPreview";
+        }
+
+        onPreviewChanged: {
+          photoPreview.source = preview;
         }
       }
       recorder: MediaRecorder {
@@ -388,7 +390,7 @@ Popup {
               id: captureButton
 
               anchors.centerIn: parent
-              visible: camera.cameraStatus == Camera.ActiveStatus || camera.cameraStatus == Camera.LoadedStatus || camera.cameraStatus == Camera.StandbyStatus
+              visible: (cameraItem.state == "VideoCapture" || cameraItem.state == "PhotoCapture") || ((cameraItem.state == "PhotoPreview" || "VideoPreview") && (currentPath != ""))
 
               round: true
               roundborder: true
@@ -398,6 +400,7 @@ Popup {
 
               onClicked: {
                 if (cameraItem.state == "PhotoCapture") {
+                  currentPath = "";
                   captureSession.imageCapture.captureToFile(qgisProject.homePath + '/DCIM/');
                   if (positionSource.active) {
                     currentPosition = positionSource.positionInformation;
@@ -413,6 +416,7 @@ Popup {
                   if (captureSession.recorder.recorderState === MediaRecorder.StoppedState) {
                     captureSession.recorder.record();
                   } else {
+                    currentPath = "";
                     cameraItem.state = "VideoPreview";
                     captureSession.recorder.stop();
                     const path = captureSession.recorder.actualLocation.toString();
@@ -687,11 +691,11 @@ Popup {
           indicator.implicitHeight: 24
           indicator.implicitWidth: 24
 
-          onCheckedChanged: {
+          onTriggered: {
             if (checked && cameraSettings.deviceId !== modelData.id) {
               cameraSettings.deviceId = modelData.id;
               camera.cameraDevice = modelData;
-              camera.applyCameraFormat(true);
+              camera.applyCameraFormat();
             }
           }
         }
@@ -764,7 +768,7 @@ Popup {
             if (checked && (cameraSettings.resolution != resolution || cameraSettings.pixelFormat != pixelFormat)) {
               cameraSettings.resolution = resolution;
               cameraSettings.pixelFormat = pixelFormat;
-              camera.applyCameraFormat(true);
+              camera.applyCameraFormat();
             }
           }
         }
