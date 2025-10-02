@@ -56,16 +56,10 @@ QfPopup {
         Layout.preferredHeight: defaultHeight
         model: [qsTr("Local Plugins"), qsTr("Available Plugins")]
         currentIndex: 0
-        delegate: TabButton {
-          text: modelData
-          height: filterBar.defaultHeight
-          width: pluginsLayout.width / filterBar.count
-          font: Theme.defaultFont
-          onClicked: {
-            filterBar.currentIndex = index;
-            if (index == 1 && !popup.availablePluginsFetched) {
-              pluginManager.pluginModel.refresh(true);
-            }
+
+        onClicked: {
+          if (index == 1 && !popup.availablePluginsFetched) {
+            pluginManager.pluginModel.refresh(true);
           }
         }
       }
