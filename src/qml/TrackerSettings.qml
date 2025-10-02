@@ -12,7 +12,7 @@ Popup {
   id: trackInformationPopup
 
   parent: mainWindow.contentItem
-  padding: 0
+  padding: 5
   width: mainWindow.width - Theme.popupScreenEdgeMargin
   height: mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
   x: Theme.popupScreenEdgeMargin / 2
@@ -563,7 +563,7 @@ Popup {
 
       x: Theme.popupScreenEdgeMargin / 2
       y: Theme.popupScreenEdgeMargin
-      padding: 0
+      padding: 5
       width: parent.width - Theme.popupScreenEdgeMargin
       height: parent.height - Theme.popupScreenEdgeMargin * 2
       modal: true

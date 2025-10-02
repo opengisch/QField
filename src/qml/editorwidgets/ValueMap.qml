@@ -249,7 +249,7 @@ EditorWidgetBase {
       x: Theme.popupScreenEdgeMargin
       y: (mainWindow.height - height) / 2
       z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
-      padding: 0
+      padding: 5
       modal: true
       closePolicy: Popup.CloseOnEscape
       focus: visible

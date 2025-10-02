@@ -16,7 +16,7 @@ Popup {
   width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeMargin)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
-  padding: 0
+  padding: 5
   modal: true
   closePolicy: Popup.CloseOnEscape
   parent: Overlay.overlay

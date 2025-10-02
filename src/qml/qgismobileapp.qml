@@ -1419,7 +1419,7 @@ ApplicationWindow {
 
       onClicked: {
         if (gnssButton.followActive && gnssButton.followOrientationActive) {
-          gnssButton.onClicked();
+          gnssButton.click();
         }
         mapCanvas.mapSettings.rotation = 0;
       }
@@ -4214,7 +4214,7 @@ ApplicationWindow {
       height: parent.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
       x: Theme.popupScreenEdgeMargin
       y: (mainWindow.height - height) / 2
-      padding: 0
+      padding: 5
       modal: true
       closePolicy: Popup.CloseOnEscape
 

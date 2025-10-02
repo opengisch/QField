@@ -13,11 +13,11 @@ Popup {
 
   property bool availablePluginsFetched: false
 
-  width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeMargin)
+  width: Math.min(500, mainWindow.width - Theme.popupScreenEdgeMargin)
   height: mainWindow.height - 160
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
-  padding: 0
+  padding: 5
   modal: true
   closePolicy: Popup.CloseOnEscape
   parent: Overlay.overlay

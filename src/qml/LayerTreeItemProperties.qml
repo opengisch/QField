@@ -26,10 +26,10 @@ Popup {
 
   parent: mainWindow.contentItem
   width: Math.min(childrenRect.width, mainWindow.width - Theme.popupScreenEdgeMargin)
-  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 30, mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
-  padding: 0
+  padding: 5
   modal: true
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
   focus: visible
@@ -104,6 +104,7 @@ Popup {
       }
       contentWidth: popupLayout.childrenRect.width
       contentHeight: popupLayout.childrenRect.height
+      width: parent.width
       height: parent.height
       clip: true
 

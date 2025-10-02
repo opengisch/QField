@@ -48,7 +48,7 @@ Popup {
   parent: mainWindow.contentItem
   closePolicy: form.state === "ReadOnly" ? Popup.CloseOnEscape : Popup.NoAutoClose // prevent accidental feature addition and editing
 
-  padding: 0
+  padding: 5
   width: mainWindow.width - Theme.popupScreenEdgeMargin
   height: mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
   x: Theme.popupScreenEdgeMargin / 2

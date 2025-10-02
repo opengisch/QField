@@ -24,7 +24,7 @@ Popup {
   height: mainWindow.height - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin * 2)
   x: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin
   y: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin
-  padding: 0
+  padding: fullscreen ? 0 : 5
   modal: true
   closePolicy: Popup.CloseOnEscape
   focus: visible

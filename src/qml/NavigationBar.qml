@@ -39,8 +39,6 @@ Rectangle {
   property double leftMargin: 0.0
   property double rightMargin: 0.0
 
-  property color elementColor: navigationStatusIndicator.visible ? Theme.mainOverlayColor : Theme.mainTextColor
-
   signal backClicked
   signal statusIndicatorClicked
   signal statusIndicatorSwiped(var direction)
@@ -92,8 +90,7 @@ Rectangle {
     id: navigationStatusIndicator
     anchors.fill: parent
     height: toolBar.topMargin + 48
-    visible: toolBar.state === "Edit" && (!featureForm.model.constraintsHardValid || !featureForm.model.constraintsSoftValid)
-    color: !featureForm.model.constraintsHardValid ? Theme.errorColor : !featureForm.model.constraintsSoftValid ? Theme.warningColor : "transparent"
+    color: "transparent"
     clip: true
   }
 
@@ -107,7 +104,7 @@ Rectangle {
       // Insure that the text is always visually centered by using the same left and right margi
       property double balancedMargin: Math.max((saveButton.visible ? saveButton.width : 0) + (previousButton.visible ? previousButton.width : 0) + (nextButton.visible ? nextButton.width : 0) + (multiClearButton.visible ? multiClearButton.width : 0), (cancelButton.visible ? cancelButton.width : 0) + (editButton.visible ? editButton.width : 0) + (editGeomButton.visible ? editGeomButton.width : 0) + (multiEditButton.visible ? multiEditButton.width : 0) + (menuButton.visible ? menuButton.width : 0))
       font: Theme.strongFont
-      color: toolBar.elementColor
+      color: Theme.mainTextColor
       anchors.left: parent.left
       anchors.right: parent.right
       anchors.top: parent.top
@@ -194,7 +191,7 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_chevron_right_white_24dp")
-    iconColor: toolBar.elementColor
+    iconColor: Theme.mainTextColor
 
     enabled: toolBar.state === "Navigation"
 
@@ -228,7 +225,7 @@ Rectangle {
     clip: true
 
     iconSource: toolBar.state === "Navigation" ? Theme.getThemeVectorIcon("ic_chevron_left_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
-    iconColor: toolBar.elementColor
+    iconColor: Theme.mainTextColor
 
     enabled: toolBar.state !== "Edit" && !toolBar.multiSelection
 
@@ -262,9 +259,11 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
-    iconColor: toolBar.elementColor
+    iconColor: !featureForm.model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
+    bgcolor: !featureForm.model.constraintsHardValid ? Theme.errorColor : !featureForm.model.constraintsSoftValid ? Theme.warningColor : "transparent"
+    borderColor: Theme.mainBackgroundColor
+    round: true
 
-    opacity: featureForm.model.constraintsHardValid ? 1.0 : 0.3
     onClicked: {
       if (toolBar.state === "ProcessingLaunch") {
         processingRunClicked();
@@ -297,7 +296,7 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
-    iconColor: toolBar.elementColor
+    iconColor: Theme.mainTextColor
 
     onClicked: {
       toolBar.cancel();
@@ -322,7 +321,7 @@ Rectangle {
     anchors.topMargin: toolBar.topMargin
 
     iconSource: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
-    iconColor: toolBar.elementColor
+    iconColor: Theme.mainTextColor
 
     width: visible ? 48 : 0
     height: 48
@@ -364,7 +363,7 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
-    iconColor: toolBar.elementColor
+    iconColor: Theme.mainTextColor
 
     onClicked: {
       toolBar.editAttributesButtonClicked();
@@ -406,7 +405,7 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-    iconColor: toolBar.elementColor
+    iconColor: Theme.mainTextColor
 
     onClicked: {
       if (toolBar.state === "Indication") {
@@ -436,7 +435,7 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
-    iconColor: toolBar.elementColor
+    iconColor: Theme.mainTextColor
 
     enabled: (toolBar.multiSelection && toolBar.model)
 
@@ -461,7 +460,7 @@ Rectangle {
     height: 48
     verticalAlignment: Text.AlignVCenter
     font: Theme.strongFont
-    color: toolBar.elementColor
+    color: Theme.mainTextColor
 
     text: model.selectedFeatures.length < 100 ? model.selectedFeatures.length : '99+'
 
@@ -481,7 +480,7 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
-    iconColor: toolBar.elementColor
+    iconColor: Theme.mainTextColor
 
     enabled: toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
 
