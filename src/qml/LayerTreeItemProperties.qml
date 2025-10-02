@@ -8,7 +8,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: popup
 
   property var layerTree
@@ -29,8 +29,6 @@ Popup {
   height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 30, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
-  padding: 5
-  modal: true
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
   focus: visible
 

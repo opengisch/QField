@@ -8,7 +8,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: popup
 
   property bool availablePluginsFetched: false
@@ -17,8 +17,6 @@ Popup {
   height: mainWindow.height - 120
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
-  padding: 5
-  modal: true
   closePolicy: Popup.CloseOnEscape
   parent: Overlay.overlay
   focus: visible

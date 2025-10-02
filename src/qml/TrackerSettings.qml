@@ -8,16 +8,14 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: trackInformationPopup
 
   parent: mainWindow.contentItem
-  padding: 5
   width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
   height: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
   x: Theme.popupScreenEdgeHorizontalMargin
   y: (mainWindow.height - height) / 2
-  modal: true
   closePolicy: Popup.NoAutoClose
 
   property var tracker: undefined
@@ -558,16 +556,14 @@ Popup {
   Component {
     id: embeddedFeatureFormComponent
 
-    Popup {
+    QfPopup {
       id: embeddedFeatureFormPopup
       parent: mainWindow.contentItem
 
       x: Theme.popupScreenEdgeHorizontalMargin
       y: Theme.popupScreenEdgeVerticalMargin
-      padding: 5
       width: parent.width - Theme.popupScreenEdgeHorizontalMargin * 2
       height: parent.height - Theme.popupScreenEdgeVerticalMargin * 2
-      modal: true
       closePolicy: Popup.NoAutoClose
 
       FeatureForm {

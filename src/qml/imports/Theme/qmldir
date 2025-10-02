@@ -25,3 +25,4 @@ QfDialog 1.0 QfDialog.qml
 QfMenu 1.0 QfMenu.qml
 QfExpandableGroupBox 1.0 QfExpandableGroupBox.qml
 QfProjectThumbnail 1.0 QfProjectThumbnail.qml
+QfPopup 1.0 QfPopup.qml

@@ -8,7 +8,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: popup
 
   property alias model: deltaList.model
@@ -17,7 +17,6 @@ Popup {
   height: page.height
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
-  padding: 5
 
   onOpened: function () {
     if (cloudProjectsModel.currentProjectId) {

@@ -7,7 +7,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: changelogPopup
 
   parent: mainWindow.contentItem
@@ -15,8 +15,6 @@ Popup {
   height: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
   x: Theme.popupScreenEdgeHorizontalMargin
   y: (mainWindow.height - height) / 2
-  padding: 5
-  modal: true
   closePolicy: Popup.CloseOnEscape
   focus: visible
 

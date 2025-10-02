@@ -800,9 +800,10 @@ Page {
       QfToolButton {
         id: saveButton
 
-        Layout.alignment: Qt.AlignTop | Qt.AlignLeft
+        property bool isVisible: form.state === 'Add' || form.state === 'Edit'
 
-        visible: (form.state === 'Add' || form.state === 'Edit')
+        Layout.alignment: Qt.AlignTop | Qt.AlignLeft
+        visible: isVisible
         width: 48
         height: 48
         clip: true
@@ -830,7 +831,8 @@ Page {
         id: titleLabel
         Layout.fillWidth: true
         Layout.preferredHeight: parent.height
-        Layout.rightMargin: setupOnly ? 48 : 0
+        Layout.leftMargin: !saveButton.isVisible ? 48 : 0
+        Layout.rightMargin: !closeButton.isVisible ? 48 : 0
         objectName: "titleLabel"
 
         font: Theme.strongFont
@@ -909,12 +911,13 @@ Page {
       QfToolButton {
         id: closeButton
 
-        Layout.alignment: Qt.AlignTop | Qt.AlignRight
+        property bool isVisible: !setupOnly
 
+        Layout.alignment: Qt.AlignTop | Qt.AlignRight
         width: 48
         height: 48
         clip: true
-        visible: !setupOnly
+        visible: isVisible
 
         iconSource: form.state === 'Add' ? Theme.getThemeVectorIcon('ic_delete_forever_white_24dp') : Theme.getThemeVectorIcon('ic_close_white_24dp')
         iconColor: Theme.mainTextColor

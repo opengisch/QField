@@ -8,7 +8,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: browserPanel
 
   signal cancel
@@ -25,7 +25,6 @@ Popup {
   x: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeVerticalMargin
   y: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeVerticalMargin
   padding: fullscreen ? 0 : 5
-  modal: true
   closePolicy: Popup.CloseOnEscape
   focus: visible
 

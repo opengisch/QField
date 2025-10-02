@@ -10,7 +10,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: codeReader
 
   //! Emitted when a QR code or NFC tag has been decoded/received
@@ -28,7 +28,6 @@ Popup {
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
-  padding: 5
 
   closePolicy: Popup.CloseOnEscape
   dim: true

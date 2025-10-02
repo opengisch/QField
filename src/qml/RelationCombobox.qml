@@ -42,7 +42,7 @@ Item {
   }
   height: childrenRect.height
 
-  Popup {
+  QfPopup {
     id: searchFeaturePopup
 
     readonly property int minimumHeight: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
@@ -53,8 +53,6 @@ Item {
     x: Theme.popupScreenEdgeHorizontalMargin
     y: (mainWindow.height - height) / 2
     z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
-    padding: 5
-    modal: true
     closePolicy: Popup.CloseOnEscape
     focus: visible
 
