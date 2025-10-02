@@ -46,6 +46,30 @@ QVariantMap ProjectUtils::mapLayers( QgsProject *project )
   return mapLayers;
 }
 
+bool ProjectUtils::addMapLayer( QgsProject *project, QgsMapLayer *layer )
+{
+  if ( !project )
+    return false;
+
+  return ( project->addMapLayer( layer ) );
+}
+
+void ProjectUtils::removeMapLayer( QgsProject *project, QgsMapLayer *layer )
+{
+  if ( !project || !layer )
+    return;
+
+  project->removeMapLayer( layer );
+}
+
+void ProjectUtils::removeMapLayer( QgsProject *project, const QString &layerId )
+{
+  if ( !project || layerId.isEmpty() )
+    return;
+
+  project->removeMapLayer( layerId );
+}
+
 Qgis::TransactionMode ProjectUtils::transactionMode( QgsProject *project )
 {
   if ( !project )

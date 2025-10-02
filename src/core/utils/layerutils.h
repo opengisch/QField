@@ -174,6 +174,43 @@ class LayerUtils : public QObject
     Q_INVOKABLE static bool hasMValue( QgsVectorLayer *layer );
 
     /**
+     * Loads a vector layer.
+     * \param uri the data source uri
+     * \param name the layer name
+     * \param provider the data provider name
+     */
+    Q_INVOKABLE static QgsVectorLayer *loadVectorLayer( const QString &uri, const QString &name = QString(), const QString &provider = QStringLiteral( "ogr" ) );
+
+    /**
+     * Loads a raster layer.
+     * \param uri the data source uri
+     * \param name the layer name
+     * \param provider the data provider name
+     */
+    Q_INVOKABLE static QgsRasterLayer *loadRasterLayer( const QString &uri, const QString &name = QString(), const QString &provider = QStringLiteral( "gdal" ) );
+
+    /**
+     * Attempts to parse a GeoJSON string to a memory vector layer containing the collection of
+     * features. The geometry type will be taken from the first parsed feature.
+     * \param name layer name
+     * \param string the GeoJSON string
+     * \param crs optional layer CRS for layers with geometry
+     */
+    Q_INVOKABLE static QgsVectorLayer *memoryLayerFromJsonString( const QString &name, const QString &string, const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem() );
+
+    /**
+     * Creates a new memory layer using the specified parameters.
+     * \param name layer name
+     * \param fields fields for layer
+     * \param geometryType optional layer geometry type
+     * \param crs optional layer CRS for layers with geometry
+     */
+    Q_INVOKABLE static QgsVectorLayer *createMemoryLayer( const QString &name,
+                                                          const QgsFields &fields = QgsFields(),
+                                                          Qgis::WkbType geometryType = Qgis::WkbType::NoGeometry,
+                                                          const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem() );
+
+    /**
      * Returns a feature iterator to get features matching a given \a expression within the provided \a layer.
      */
     Q_INVOKABLE static FeatureIterator createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression );
