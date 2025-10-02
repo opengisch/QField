@@ -11,9 +11,9 @@ Popup {
   id: changelogPopup
 
   parent: mainWindow.contentItem
-  width: mainWindow.width - Theme.popupScreenEdgeMargin * 2
-  height: mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
-  x: Theme.popupScreenEdgeMargin
+  width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
+  height: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+  x: Theme.popupScreenEdgeHorizontalMargin
   y: (mainWindow.height - height) / 2
   padding: 5
   modal: true

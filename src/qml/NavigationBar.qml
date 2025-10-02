@@ -262,6 +262,7 @@ Rectangle {
     iconColor: !featureForm.model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
     bgcolor: !featureForm.model.constraintsHardValid ? Theme.errorColor : !featureForm.model.constraintsSoftValid ? Theme.warningColor : "transparent"
     borderColor: Theme.mainBackgroundColor
+    roundborder: true
     round: true
 
     onClicked: {

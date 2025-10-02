@@ -4210,9 +4210,9 @@ ApplicationWindow {
     Popup {
       id: loginDialogPopup
       parent: Overlay.overlay
-      width: parent.width - Theme.popupScreenEdgeMargin * 2
-      height: parent.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
-      x: Theme.popupScreenEdgeMargin
+      width: parent.width - Theme.popupScreenEdgeHorizontalMargin * 2
+      height: parent.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+      x: Theme.popupScreenEdgeHorizontalMargin
       y: (mainWindow.height - height) / 2
       padding: 5
       modal: true
@@ -4591,7 +4591,7 @@ ApplicationWindow {
     parent: mainWindow.contentItem
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
 
-    width: Math.min(mainWindow.width - Theme.popupScreenEdgeMargin * 2, 400)
+    width: Math.min(mainWindow.width - Theme.popupScreenEdgeVerticalMargin * 2, 400)
 
     property string url: ""
     property string serverName: ""
@@ -4629,7 +4629,7 @@ ApplicationWindow {
     parent: mainWindow.contentItem
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
 
-    width: Math.min(mainWindow.width - Theme.popupScreenEdgeMargin * 2, 400)
+    width: Math.min(mainWindow.width - Theme.popupScreenEdgeVerticalMargin * 2, 400)
 
     property string pluginName: ""
     property bool isProjectPlugin: false

@@ -13,7 +13,7 @@ Popup {
 
   property alias locatorFiltersModel: locatorfiltersList.model
 
-  width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeMargin)
+  width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   padding: 5

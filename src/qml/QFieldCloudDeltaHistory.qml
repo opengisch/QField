@@ -13,7 +13,7 @@ Popup {
 
   property alias model: deltaList.model
 
-  width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeMargin * 2)
+  width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2)
   height: page.height
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
@@ -32,7 +32,7 @@ Popup {
   Page {
     id: page
     width: parent.width
-    height: Math.min(deltaList.contentHeight + toolBar.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+    height: Math.min(deltaList.contentHeight + toolBar.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
     padding: 10
     header: ToolBar {
       id: toolBar

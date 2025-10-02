@@ -20,10 +20,10 @@ Popup {
   property bool fullscreen: false
   property bool clearCookiesOnOpen: false
 
-  width: mainWindow.width - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin * 2)
-  height: mainWindow.height - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin * 2)
-  x: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin
-  y: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin
+  width: mainWindow.width - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeHorizontalMargin * 2)
+  height: mainWindow.height - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeVerticalMargin * 2)
+  x: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeVerticalMargin
+  y: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeVerticalMargin
   padding: fullscreen ? 0 : 5
   modal: true
   closePolicy: Popup.CloseOnEscape

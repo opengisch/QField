@@ -13,7 +13,7 @@ Popup {
 
   property bool availablePluginsFetched: false
 
-  width: Math.min(500, mainWindow.width - Theme.popupScreenEdgeMargin)
+  width: Math.min(500, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
   height: mainWindow.height - 160
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2

@@ -166,7 +166,8 @@ QtObject {
       "weight": Font.Bold
     })
 
-  readonly property int popupScreenEdgeMargin: 40
+  readonly property int popupScreenEdgeVerticalMargin: 40
+  readonly property int popupScreenEdgeHorizontalMargin: 20
 
   readonly property int menuItemIconlessLeftPadding: 52
   readonly property int menuItemLeftPadding: 12

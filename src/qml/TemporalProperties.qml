@@ -14,7 +14,7 @@ Popup {
   property MapSettings mapSettings
 
   parent: mainWindow.contentItem
-  width: Math.min(350, mainWindow.width - Theme.popupScreenEdgeMargin)
+  width: Math.min(350, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   padding: 5

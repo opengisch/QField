@@ -811,6 +811,7 @@ Page {
         iconColor: model.featureModel.featureAdditionLocked || !model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
         bgcolor: model.featureModel.featureAdditionLocked || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : "transparent"
         borderColor: Theme.mainBackgroundColor
+        roundborder: true
         round: true
 
         onClicked: {
