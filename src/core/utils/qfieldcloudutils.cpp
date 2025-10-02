@@ -85,15 +85,14 @@ const QString QFieldCloudUtils::getProjectId( const QString &fileName )
     return QString();
 
   const QRegularExpression re(
-    QStringLiteral( "^%1[/\\\\]([^/\\\\]+)[/\\\\]([^/\\\\]+)" )
+    QStringLiteral( "^%1[/\\\\][^/\\\\]+[/\\\\]([^/\\\\]+)" )
       .arg( QRegularExpression::escape( cloudPath ) ) );
   const QRegularExpressionMatch match = re.match( path, 0,
                                                   QRegularExpression::NormalMatch, QRegularExpression::AnchorAtOffsetMatchOption );
 
   if ( match.hasMatch() )
   {
-    const QString projectId = match.captured( 2 );
-    return projectId;
+    return match.captured( 1 );
   }
 
   return QString();
