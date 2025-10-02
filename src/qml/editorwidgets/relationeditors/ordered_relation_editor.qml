@@ -79,7 +79,7 @@ RelationEditorBase {
             geometryHighlighter.geometryWrapper.crs = orderedRelationModel.relation.referencingLayer.crs;
             mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings, orderedRelationModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature);
           } else {
-            viewButton.onClicked();
+            viewButton.click();
           }
         }
       }

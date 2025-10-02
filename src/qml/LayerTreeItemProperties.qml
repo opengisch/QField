@@ -8,7 +8,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: popup
 
   property var layerTree
@@ -25,12 +25,10 @@ Popup {
   property bool opacitySliderVisible: false
 
   parent: mainWindow.contentItem
-  width: Math.min(childrenRect.width, mainWindow.width - Theme.popupScreenEdgeMargin)
-  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+  width: Math.min(childrenRect.width, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
+  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 30, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
-  padding: 0
-  modal: true
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
   focus: visible
 
@@ -62,19 +60,19 @@ Popup {
     id: popupContent
     width: parent.width
     height: parent.height
-    padding: 10
+    padding: 5
     header: RowLayout {
       id: headerLayout
       spacing: 2
       Label {
         id: titleLabel
         Layout.fillWidth: true
-        Layout.leftMargin: 10
+        Layout.leftMargin: reloadDataButtonVisible ? zoomInButton.width + headerLayout.spacing : 0
         topPadding: 10
         bottomPadding: 10
         text: ''
         font: Theme.strongFont
-        horizontalAlignment: Text.AlignLeft
+        horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
       }
       QfToolButton {
@@ -104,12 +102,13 @@ Popup {
       }
       contentWidth: popupLayout.childrenRect.width
       contentHeight: popupLayout.childrenRect.height
+      width: parent.width
       height: parent.height
       clip: true
 
       ColumnLayout {
         id: popupLayout
-        width: popupContent.width - 20
+        width: popupContent.width - 10
         spacing: 4
 
         FontMetrics {

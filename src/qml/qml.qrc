@@ -118,6 +118,7 @@
         <file>imports/Theme/QfSearchBar.qml</file>
         <file>imports/Theme/QfDialog.qml</file>
         <file>imports/Theme/QfMenu.qml</file>
+        <file>imports/Theme/QfPopup.qml</file>
         <file>imports/Theme/QfTimeItem.qml</file>
         <file>imports/Theme/QfCalendarItem.qml</file>
         <file>imports/Theme/QfBadge.qml</file>

@@ -6,7 +6,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: formPopup
 
   property alias state: form.state
@@ -48,13 +48,11 @@ Popup {
   parent: mainWindow.contentItem
   closePolicy: form.state === "ReadOnly" ? Popup.CloseOnEscape : Popup.NoAutoClose // prevent accidental feature addition and editing
 
-  padding: 0
-  width: mainWindow.width - Theme.popupScreenEdgeMargin
-  height: mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
-  x: Theme.popupScreenEdgeMargin / 2
+  width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
+  height: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+  x: Theme.popupScreenEdgeVerticalMargin / 2
   y: (mainWindow.height - height) / 2
   z: 1000 + embeddedLevel
-  modal: true
   focus: visible
 
   FeatureForm {

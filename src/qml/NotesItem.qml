@@ -8,19 +8,17 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: popup
 
   property alias title: titleLabel.text
   property alias notes: notesText.text
 
   parent: mainWindow.contentItem
-  width: Math.min(childrenRect.width, mainWindow.width - Theme.popupScreenEdgeMargin)
-  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+  width: Math.min(childrenRect.width, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
+  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
-  padding: 0
-  modal: true
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
   focus: visible
 
@@ -28,7 +26,7 @@ Popup {
     id: popupContent
     width: parent.width
     height: parent.height
-    padding: 10
+    padding: 5
 
     header: RowLayout {
       id: headerLayout

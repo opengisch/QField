@@ -8,16 +8,14 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: trackInformationPopup
 
   parent: mainWindow.contentItem
-  padding: 0
-  width: mainWindow.width - Theme.popupScreenEdgeMargin
-  height: mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
-  x: Theme.popupScreenEdgeMargin / 2
+  width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
+  height: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+  x: Theme.popupScreenEdgeHorizontalMargin
   y: (mainWindow.height - height) / 2
-  modal: true
   closePolicy: Popup.NoAutoClose
 
   property var tracker: undefined
@@ -89,6 +87,7 @@ Popup {
   Page {
     focus: true
     anchors.fill: parent
+    padding: 5
 
     header: QfPageHeader {
       title: tracker !== undefined && tracker.vectorLayer ? qsTr("Tracking: %1").arg(tracker.vectorLayer.name) : qsTr("Tracking")
@@ -138,13 +137,6 @@ Popup {
             Layout.fillWidth: true
             Layout.topMargin: 5
             Layout.columnSpan: 2
-          }
-
-          Rectangle {
-            Layout.fillWidth: true
-            Layout.columnSpan: 2
-            height: 1
-            color: Theme.mainTextColor
           }
 
           Label {
@@ -361,13 +353,6 @@ Popup {
             Layout.topMargin: 4
           }
 
-          Rectangle {
-            Layout.fillWidth: true
-            Layout.columnSpan: 2
-            height: 1
-            color: Theme.mainTextColor
-          }
-
           Label {
             text: qsTr("Erroneous distance safeguard")
             font: Theme.defaultFont
@@ -557,16 +542,14 @@ Popup {
   Component {
     id: embeddedFeatureFormComponent
 
-    Popup {
+    QfPopup {
       id: embeddedFeatureFormPopup
       parent: mainWindow.contentItem
 
-      x: Theme.popupScreenEdgeMargin / 2
-      y: Theme.popupScreenEdgeMargin
-      padding: 0
-      width: parent.width - Theme.popupScreenEdgeMargin
-      height: parent.height - Theme.popupScreenEdgeMargin * 2
-      modal: true
+      x: Theme.popupScreenEdgeHorizontalMargin
+      y: Theme.popupScreenEdgeVerticalMargin
+      width: parent.width - Theme.popupScreenEdgeHorizontalMargin * 2
+      height: parent.height - Theme.popupScreenEdgeVerticalMargin * 2
       closePolicy: Popup.NoAutoClose
 
       FeatureForm {

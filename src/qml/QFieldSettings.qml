@@ -328,13 +328,6 @@ Page {
                 Layout.topMargin: 5
                 Layout.columnSpan: 2
               }
-
-              Rectangle {
-                Layout.fillWidth: true
-                Layout.columnSpan: 2
-                height: 1
-                color: Theme.mainTextColor
-              }
             }
 
             ListView {
@@ -433,13 +426,6 @@ Page {
                 Layout.topMargin: 10
                 Layout.columnSpan: 2
               }
-
-              Rectangle {
-                Layout.fillWidth: true
-                Layout.columnSpan: 2
-                height: 1
-                color: Theme.mainTextColor
-              }
             }
 
             ListView {
@@ -470,13 +456,6 @@ Page {
                 Layout.fillWidth: true
                 Layout.topMargin: 5
                 Layout.columnSpan: 2
-              }
-
-              Rectangle {
-                Layout.fillWidth: true
-                Layout.columnSpan: 2
-                height: 1
-                color: Theme.mainTextColor
               }
 
               Label {
@@ -806,13 +785,6 @@ Page {
                 Layout.fillWidth: true
                 Layout.topMargin: 5
                 Layout.columnSpan: 2
-              }
-
-              Rectangle {
-                Layout.fillWidth: true
-                Layout.columnSpan: 2
-                height: 1
-                color: Theme.mainTextColor
               }
             }
 

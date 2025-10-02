@@ -8,18 +8,16 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: popup
   parent: mainWindow.contentItem
 
   signal apply
 
-  width: mainWindow.width - Theme.popupScreenEdgeMargin * 2
-  height: mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
-  x: Theme.popupScreenEdgeMargin
+  width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
+  height: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+  x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
-  padding: 0
-  modal: true
   focus: visible
 
   property alias name: positioningDeviceName.text
@@ -101,7 +99,7 @@ Popup {
     id: page
     width: parent.width
     height: parent.height
-    padding: 10
+    padding: 5
     header: QfPageHeader {
       id: pageHeader
       title: qsTr("Positioning Device Settings")
@@ -132,18 +130,11 @@ Popup {
       Label {
         text: qsTr("Connection type")
         font: Theme.strongFont
-        color: Theme.mainColor
+        color: Theme.mainTextColor
         wrapMode: Text.WordWrap
         Layout.fillWidth: true
         Layout.topMargin: 5
         Layout.columnSpan: 2
-      }
-
-      Rectangle {
-        Layout.fillWidth: true
-        Layout.columnSpan: 2
-        height: 1
-        color: Theme.mainColor
       }
 
       ComboBox {
@@ -226,18 +217,11 @@ Popup {
       Label {
         text: qsTr("Connection details")
         font: Theme.strongFont
-        color: Theme.mainColor
+        color: Theme.mainTextColor
         wrapMode: Text.WordWrap
         Layout.fillWidth: true
         Layout.topMargin: 5
         Layout.columnSpan: 2
-      }
-
-      Rectangle {
-        Layout.fillWidth: true
-        Layout.columnSpan: 2
-        height: 1
-        color: Theme.mainColor
       }
 
       ListModel {

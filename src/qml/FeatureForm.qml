@@ -784,14 +784,11 @@ Page {
   header: ToolBar {
     id: toolbar
 
-    property color elementColor: toolbar.background.visible ? Theme.mainOverlayColor : Theme.mainTextColor
-
     height: visible ? form.topMargin + 48 : 0
     visible: form.state === 'Add'
     objectName: "toolbar"
     background: Rectangle {
-      visible: model.featureModel.featureAdditionLocked || !model.constraintsHardValid || !model.constraintsSoftValid
-      color: model.featureModel.featureAdditionLocked || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : "transparent"
+      color: "transparent"
     }
 
     RowLayout {
@@ -799,21 +796,24 @@ Page {
       anchors.topMargin: form.topMargin
       anchors.leftMargin: form.leftMargin
       anchors.rightMargin: form.rightMargin
-      Layout.margins: 0
 
       QfToolButton {
         id: saveButton
 
-        Layout.alignment: Qt.AlignTop | Qt.AlignLeft
+        property bool isVisible: form.state === 'Add' || form.state === 'Edit'
 
-        visible: (form.state === 'Add' || form.state === 'Edit')
+        Layout.alignment: Qt.AlignTop | Qt.AlignLeft
+        visible: isVisible
         width: 48
         height: 48
         clip: true
 
         iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
-        iconColor: toolbar.elementColor
-        opacity: model.constraintsHardValid ? 1.0 : 0.3
+        iconColor: model.featureModel.featureAdditionLocked || !model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
+        bgcolor: model.featureModel.featureAdditionLocked || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : "transparent"
+        borderColor: Theme.mainBackgroundColor
+        roundborder: true
+        round: true
 
         onClicked: {
           if (model.constraintsHardValid) {
@@ -831,11 +831,12 @@ Page {
         id: titleLabel
         Layout.fillWidth: true
         Layout.preferredHeight: parent.height
-        Layout.rightMargin: setupOnly ? 48 : 0
+        Layout.leftMargin: !saveButton.isVisible ? 48 : 0
+        Layout.rightMargin: !closeButton.isVisible ? 48 : 0
         objectName: "titleLabel"
 
         font: Theme.strongFont
-        color: toolbar.elementColor
+        color: Theme.mainTextColor
 
         text: {
           const featureModel = model.featureModel;
@@ -910,15 +911,16 @@ Page {
       QfToolButton {
         id: closeButton
 
-        Layout.alignment: Qt.AlignTop | Qt.AlignRight
+        property bool isVisible: !setupOnly
 
+        Layout.alignment: Qt.AlignTop | Qt.AlignRight
         width: 48
         height: 48
         clip: true
-        visible: !setupOnly
+        visible: isVisible
 
         iconSource: form.state === 'Add' ? Theme.getThemeVectorIcon('ic_delete_forever_white_24dp') : Theme.getThemeVectorIcon('ic_close_white_24dp')
-        iconColor: toolbar.elementColor
+        iconColor: Theme.mainTextColor
 
         onClicked: {
           Qt.inputMethod.hide();

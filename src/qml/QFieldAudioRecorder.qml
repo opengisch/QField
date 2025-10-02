@@ -10,7 +10,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: audioRecorder
 
   signal finished(string path)
@@ -18,14 +18,13 @@ Popup {
 
   property bool preRecording: true
   property bool hasRecordedClip: player.duration > 0
-  property int popupWidth: Math.min(400, mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeMargin : mainWindow.height - Theme.popupScreenEdgeMargin)
+  property int popupWidth: Math.min(400, mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeVerticalMargin : mainWindow.height - Theme.popupScreenEdgeVerticalMargin)
 
   width: popupWidth
-  height: Math.min(mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4), popupWidth + toolBar.height + recordButton.height)
+  height: Math.min(mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4), popupWidth + toolBar.height + recordButton.height)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
-  padding: 0
   parent: mainWindow.contentItem
 
   closePolicy: Popup.CloseOnEscape

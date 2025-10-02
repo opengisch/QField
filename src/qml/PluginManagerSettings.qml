@@ -8,17 +8,15 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: popup
 
   property bool availablePluginsFetched: false
 
-  width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeMargin)
-  height: mainWindow.height - 160
+  width: Math.min(500, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
+  height: mainWindow.height - 120
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
-  padding: 0
-  modal: true
   closePolicy: Popup.CloseOnEscape
   parent: Overlay.overlay
   focus: visible
@@ -31,7 +29,7 @@ Popup {
     id: page
     width: parent.width
     height: parent.height
-    padding: 10
+    padding: 5
     header: QfPageHeader {
       id: pageHeader
       title: qsTr("Plugins")
@@ -58,16 +56,10 @@ Popup {
         Layout.preferredHeight: defaultHeight
         model: [qsTr("Local Plugins"), qsTr("Available Plugins")]
         currentIndex: 0
-        delegate: TabButton {
-          text: modelData
-          height: filterBar.defaultHeight
-          width: pluginsLayout.width / filterBar.count
-          font: Theme.defaultFont
-          onClicked: {
-            filterBar.currentIndex = index;
-            if (index == 1 && !popup.availablePluginsFetched) {
-              pluginManager.pluginModel.refresh(true);
-            }
+
+        onClicked: {
+          if (index == 1 && !popup.availablePluginsFetched) {
+            pluginManager.pluginModel.refresh(true);
           }
         }
       }

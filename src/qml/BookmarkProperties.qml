@@ -8,7 +8,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: bookmarkProperties
 
   property string bookmarkId: ''
@@ -16,11 +16,9 @@ Popup {
   property string bookmarkGroup: ''
 
   parent: mainWindow.contentItem
-  width: Math.min(350, mainWindow.width - Theme.popupScreenEdgeMargin)
+  width: Math.min(350, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
-  padding: 0
-  modal: true
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
   focus: visible
 
@@ -35,7 +33,7 @@ Popup {
 
   Page {
     width: parent.width
-    padding: 10
+    padding: 5
     header: QfPageHeader {
       id: pageHeader
       title: qsTr("Bookmark Properties")
