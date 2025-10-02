@@ -35,7 +35,7 @@ Popup {
 
   Page {
     width: parent.width
-    padding: 10
+    padding: 5
     header: QfPageHeader {
       id: pageHeader
       title: qsTr("Bookmark Properties")

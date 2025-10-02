@@ -33,7 +33,7 @@ Popup {
     id: page
     width: parent.width
     height: Math.min(deltaList.contentHeight + toolBar.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
-    padding: 10
+    padding: 5
     header: ToolBar {
       id: toolBar
       height: 48

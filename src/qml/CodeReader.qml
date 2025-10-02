@@ -106,7 +106,7 @@ Popup {
   Page {
     width: parent.width
     height: parent.height
-    padding: 10
+    padding: 5
     header: ToolBar {
       id: toolBar
 

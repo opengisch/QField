@@ -62,19 +62,19 @@ Popup {
     id: popupContent
     width: parent.width
     height: parent.height
-    padding: 10
+    padding: 5
     header: RowLayout {
       id: headerLayout
       spacing: 2
       Label {
         id: titleLabel
         Layout.fillWidth: true
-        Layout.leftMargin: 10
+        Layout.leftMargin: reloadDataButtonVisible ? zoomInButton.width + headerLayout.spacing : 0
         topPadding: 10
         bottomPadding: 10
         text: ''
         font: Theme.strongFont
-        horizontalAlignment: Text.AlignLeft
+        horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
       }
       QfToolButton {
@@ -110,7 +110,7 @@ Popup {
 
       ColumnLayout {
         id: popupLayout
-        width: popupContent.width - 20
+        width: popupContent.width - 10
         spacing: 4
 
         FontMetrics {

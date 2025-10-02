@@ -23,6 +23,7 @@ Popup {
   Page {
     focus: true
     anchors.fill: parent
+    padding: 5
 
     header: QfPageHeader {
       title: qsTr("What's new in QField")

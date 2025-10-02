@@ -79,6 +79,7 @@ Item {
 
     Page {
       anchors.fill: parent
+      padding: 5
 
       header: QfPageHeader {
         title: fieldLabel

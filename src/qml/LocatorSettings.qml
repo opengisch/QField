@@ -26,7 +26,7 @@ Popup {
     id: page
     width: parent.width
     height: locatorfiltersList.height + 60
-    padding: 10
+    padding: 5
     header: QfPageHeader {
       id: pageHeader
       title: qsTr("Search Bar Settings")

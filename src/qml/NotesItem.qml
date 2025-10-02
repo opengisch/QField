@@ -28,7 +28,7 @@ Popup {
     id: popupContent
     width: parent.width
     height: parent.height
-    padding: 10
+    padding: 5
 
     header: RowLayout {
       id: headerLayout

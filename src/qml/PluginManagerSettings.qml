@@ -14,7 +14,7 @@ Popup {
   property bool availablePluginsFetched: false
 
   width: Math.min(500, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
-  height: mainWindow.height - 160
+  height: mainWindow.height - 120
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   padding: 5
@@ -31,7 +31,7 @@ Popup {
     id: page
     width: parent.width
     height: parent.height
-    padding: 10
+    padding: 5
     header: QfPageHeader {
       id: pageHeader
       title: qsTr("Plugins")
