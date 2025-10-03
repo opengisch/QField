@@ -445,6 +445,23 @@ Page {
       bottomMargin: sceneBottomMargin
       paddingMultiplier: 2
 
+      MenuItem {
+        id: viewFile
+
+        enabled: itemMenu.itemMetaType != LocalFilesModel.Folder
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("View file")
+        onTriggered: {
+          platformUtilities.open(itemMenu.itemPath);
+        }
+      }
+
       // File items
       MenuItem {
         id: sendDatasetTo
@@ -464,7 +481,7 @@ Page {
 
       MenuItem {
         id: pushDatasetToCloud
-        enabled: (itemMenu.itemMetaType == LocalFilesModel.Dataset && itemMenu.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (itemMenu.itemMetaType == LocalFilesModel.Folder && itemMenu.itemWithinQFieldCloudProjectFolder)
+        enabled: (itemMenu.itemMetaType == LocalFilesModel.File) || (itemMenu.itemMetaType == LocalFilesModel.Dataset && itemMenu.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (itemMenu.itemMetaType == LocalFilesModel.Folder && itemMenu.itemWithinQFieldCloudProjectFolder)
         visible: enabled
 
         font: Theme.defaultFont
@@ -474,9 +491,9 @@ Page {
 
         text: qsTr("Push to QFieldCloud")
         onTriggered: {
-          QFieldCloudUtils.addPendingAttachments(projectInfo.cloudUserInformation.username, cloudProjectsModel.currentProjectId, [itemMenu.itemPath], cloudConnection, true);
-          platformUtilities.uploadPendingAttachments(cloudConnection);
-          displayToast(qsTr("‘%1’ is being uploaded to QFieldCloud").arg(FileUtils.fileName(itemMenu.itemPath)));
+          pushFilesToQFieldCloudConnection.enabled = true;
+          pushFilesToQFieldCloudConnection.sendingMultiple = true;
+          QFieldCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, QFieldCloudUtils.getProjectId(table.model.currentPath), [itemMenu.itemPath], cloudConnection, true);
         }
       }
 
@@ -862,14 +879,33 @@ Page {
             }
           }
           if (fileNames.length > 0) {
-            QFieldCloudUtils.addPendingAttachments(projectInfo.cloudUserInformation.username, cloudProjectsModel.currentProjectId, fileNames, cloudConnection, true);
-            platformUtilities.uploadPendingAttachments(cloudConnection);
-            localFilesModel.clearSelection();
+            pushFilesToQFieldCloudConnection.enabled = true;
+            QFieldCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, QFieldCloudUtils.getProjectId(table.model.currentPath), fileNames, cloudConnection, true);
           } else {
             displayToast(qsTr("Please select one or more files to push to QFieldCloud."));
           }
         }
       }
+    }
+  }
+
+  Connections {
+    id: pushFilesToQFieldCloudConnection
+    enabled: false
+    target: cloudConnection
+
+    property bool sendingMultiple: false
+
+    function onPendingAttachmentsAdded() {
+      platformUtilities.uploadPendingAttachments(cloudConnection);
+      if (pushFilesToQFieldCloudConnection.sendingMultiple) {
+        displayToast(qsTr("‘%1’ is being uploaded to QFieldCloud").arg(FileUtils.fileName(itemMenu.itemPath)));
+        pushFilesToQFieldCloudConnection.sendingMultiple = false;
+      } else {
+        localFilesModel.clearSelection();
+        displayToast(qsTr("Items being uploaded to QFieldCloud"));
+      }
+      pushFilesToQFieldCloudConnection.enabled = false;
     }
   }
 

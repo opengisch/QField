@@ -12,6 +12,7 @@ Page {
   id: qfieldCloudScreen
 
   signal finished
+  signal viewProjectFolder(string projectPath)
 
   property string requestedProjectDetails: ""
 
@@ -470,6 +471,7 @@ Page {
                     projectActions.projectLocalPath = LocalPath;
                     downloadProject.visible = LocalPath === '' && Status !== QFieldCloudProject.ProjectStatus.Downloading;
                     openProject.visible = LocalPath !== '';
+                    viewProjectFolder.visible = LocalPath !== '';
                     removeProject.visible = LocalPath !== '';
                     cancelDownloadProject.visible = Status === QFieldCloudProject.ProjectStatus.Downloading;
                     projectActions.popup(gc.x + width - projectActions.width, gc.y - height);
@@ -942,6 +944,20 @@ Page {
     }
 
     MenuItem {
+      id: viewProjectFolder
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+
+      text: qsTr("View Project Folder")
+      onTriggered: {
+        qfieldCloudScreen.viewProjectFolder(projectActions.projectLocalPath);
+      }
+    }
+
+    MenuItem {
       id: removeProject
 
       font: Theme.defaultFont
@@ -951,12 +967,7 @@ Page {
 
       text: qsTr("Remove Stored Project")
       onTriggered: {
-        cloudProjectsModel.removeLocalProject(projectActions.projectId);
-        iface.removeRecentProject(projectActions.projectLocalPath);
-        welcomeScreen.model.reloadModel();
-        if (projectActions.projectLocalPath === qgisProject.fileName) {
-          iface.clearProject();
-        }
+        confirmRemoveDialog.open();
       }
     }
 
@@ -970,6 +981,28 @@ Page {
       onTriggered: {
         cloudProjectsModel.projectCancelDownload(projectActions.projectId);
       }
+    }
+  }
+
+  QfDialog {
+    id: confirmRemoveDialog
+    parent: mainWindow.contentItem
+    title: removeProject.text
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: qsTr("Are you sure you want to remove `%1`?").arg(projectActions.projectName)
+    }
+    onAccepted: {
+      cloudProjectsModel.removeLocalProject(projectActions.projectId);
+      iface.removeRecentProject(projectActions.projectLocalPath);
+      welcomeScreen.model.reloadModel();
+      if (projectActions.projectLocalPath === qgisProject.fileName) {
+        iface.clearProject();
+      }
+    }
+    onRejected: {
+      visible = false;
     }
   }
 
