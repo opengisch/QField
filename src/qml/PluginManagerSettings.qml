@@ -58,7 +58,7 @@ QfPopup {
         currentIndex: 0
 
         onClicked: {
-          if (index == 1 && !popup.availablePluginsFetched) {
+          if (currentIndex == 1 && !popup.availablePluginsFetched) {
             pluginManager.pluginModel.refresh(true);
           }
         }
