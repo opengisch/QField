@@ -1589,7 +1589,7 @@ bool DeltaFileWrapper::deltaContainsActualChange( const QJsonObject &delta ) con
   }
 
   // when the "geometry" value differs, then it means the delta makes sense
-  if ( newData.value( QStringLiteral( "geometry" ) ) != newData.value( QStringLiteral( "geometry" ) ) )
+  if ( newData.value( QStringLiteral( "geometry" ) ) != oldData.value( QStringLiteral( "geometry" ) ) )
   {
     return true;
   }
