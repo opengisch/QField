@@ -2244,6 +2244,8 @@ void QFieldCloudProject::setupDeltaFileWrapper()
   } );
 
   emit deltaFileWrapperChanged();
+  refreshModification();
+  emit deltasCountChanged();
 }
 
 void QFieldCloudProject::uploadLocalPath( QString localPath, bool deleteAfterSuccessfulUpload )

@@ -109,6 +109,7 @@ Page {
 
         anchors.fill: parent
         anchors.margins: 1
+        spacing: -1
 
         clip: true
 
@@ -168,7 +169,10 @@ Page {
 
           width: parent ? parent.width : undefined
           height: line.height
-          color: "transparent"
+          color: Theme.controlBackgroundColor
+          border.color: Theme.controlBorderColor
+          border.width: 1
+          radius: 2
 
           RowLayout {
             id: line

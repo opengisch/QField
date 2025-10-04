@@ -547,10 +547,25 @@ Page {
               delegate: QfProjectThumbnail {
                 property string path: ProjectPath
                 property var type: ProjectType
+                property int changesCount: {
+                  const project = cloudProjectsModel.findProject(QFieldCloudUtils.getProjectId(ProjectPath));
+                  if (project) {
+                    return project.deltaFileWrapper.count;
+                  }
+                  return 0;
+                }
 
                 objectName: "loadProjectItem_1" // todo, suffix with e.g. ProjectTitle
                 previewImageSource: welcomeScreen.visible ? 'image://projects/' + ProjectPath : ''
                 showType: true
+                typeBadge.badgeText.text: changesCount
+                typeBadge.badgeText.color: Theme.light
+                typeBadge.visible: changesCount > 0
+
+                typeBadge.color: Theme.cloudColor
+                typeBadge.border.color: Theme.mainBackgroundColor
+                typeBadge.border.width: 1
+
                 projectTypeSource: switch (ProjectType) {
                 case 0:
                   return Theme.getThemeVectorIcon('ic_map_green_48dp');     // local project

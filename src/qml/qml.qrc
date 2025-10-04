@@ -114,6 +114,7 @@
         <file>imports/Theme/QfSwipeAnimator.qml</file>
         <file>imports/Theme/QfVisibilityFadingRow.qml</file>
         <file>imports/Theme/QfProgrerssRing.qml</file>
+        <file>imports/Theme/QfProjectThumbnail.qml</file>
         <file>imports/Theme/QfScrollBar.qml</file>
         <file>imports/Theme/QfSearchBar.qml</file>
         <file>imports/Theme/QfDialog.qml</file>
@@ -133,12 +134,12 @@
         <file>QFieldCloudPopup.qml</file>
         <file>QFieldCloudDeltaHistory.qml</file>
         <file>QFieldCloudPackageLayersFeedback.qml</file>
+        <file>QFieldCloudProjectDetails.qml</file>
         <file>QFieldLocalDataPickerScreen.qml</file>
         <file>QFieldSketcher.qml</file>
         <file>PluginManagerSettings.qml</file>
         <file>PluginItem.qml</file>
         <file>InformationDrawer.qml</file>
         <file>QFieldGuide.qml</file>
-        <file>imports/Theme/QfProjectThumbnail.qml</file>
     </qresource>
 </RCC>

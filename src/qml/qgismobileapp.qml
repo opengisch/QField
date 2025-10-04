@@ -4037,7 +4037,6 @@ ApplicationWindow {
       recentProjectListModel.reloadModel();
       const cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName);
       cloudProjectsModel.currentProjectId = cloudProjectId;
-      cloudProjectsModel.refreshProjectModification(cloudProjectId);
       if (cloudProjectsModel.currentProject) {
         const forceAutoPush = iface.readProjectBoolEntry("qfieldsync", "forceAutoPush", false);
         if (forceAutoPush) {

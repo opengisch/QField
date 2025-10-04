@@ -164,9 +164,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Discards the delta records of the current cloud project.
     Q_INVOKABLE bool discardLocalChangesFromCurrentProject();
 
-    //! Updates the project modification for given \a projectId.
-    Q_INVOKABLE void refreshProjectModification( const QString &projectId );
-
     //! Refreshes the project file (.qgs, .qgz) outdated status.
     Q_INVOKABLE void refreshProjectFileOutdatedStatus( const QString &projectId );
 

@@ -13,6 +13,7 @@ Rectangle {
   property alias bgColor: thumbnailContentRectangle.color
   property alias showCustomizeIcon: customizeIcon.active
   property alias selected: selectedIndicator.active
+  property alias typeBadge: badge
 
   property bool isPressed: false
   property bool fillHeight: false
@@ -97,6 +98,19 @@ Rectangle {
           width: 40
           height: visible ? 40 : 0
           visible: source !== ""
+
+          QfBadge {
+            id: badge
+            alignment: QfBadge.Alignment.BottomRight
+            visible: false
+
+            z: 2
+            width: type.width / 2.5
+            height: width
+            border.width: 2
+
+            bottomMargin: -2
+          }
         }
 
         ColumnLayout {
