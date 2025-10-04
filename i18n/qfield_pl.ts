@@ -3460,6 +3460,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>QFieldCloud project details fetching failed</source>
         <translation>Pobieranie szczegółów projektu QFieldCloud nie powiodło się</translation>
     </message>
+    <message>
+        <source>View Project Folder</source>
+        <translation>Wyświetl folder projektu</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>Czy na pewno chcesz usunąć `%1`?</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -3736,6 +3744,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Imported folder name</source>
         <translation>Nazwa importowanego folderu</translation>
+    </message>
+    <message>
+        <source>View file</source>
+        <translation>Wyświetl plik</translation>
+    </message>
+    <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>Elementy przesyłane do QFieldCloud</translation>
     </message>
 </context>
 <context>

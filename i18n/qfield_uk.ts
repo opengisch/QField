@@ -497,35 +497,35 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Paste failed: clipboard feature is invalid</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося вставити: функція буфера обміну недійсна</translation>
     </message>
     <message>
         <source>Cut failed: could not start editing on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося вирізати: не вдалося розпочати редагування вихідного шару %1</translation>
     </message>
     <message>
         <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Вирізання не вдалося: не вдалося видалити оригінальний об&apos;єкт з вихідного шару %1</translation>
     </message>
     <message>
         <source>Paste failed: no compatible features could be created</source>
-        <translation type="unfinished"/>
+        <translation>Вставити не вдалося: не вдалося створити сумісні об&apos;єкти</translation>
     </message>
     <message>
         <source>Paste failed: could not start editing on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Вставка не вдалася: не вдалося розпочати редагування шару %1</translation>
     </message>
     <message>
         <source>Paste failed: could not add feature to layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Вставка не вдалася: не вдалося додати об&apos;єкт до шару %1</translation>
     </message>
     <message>
         <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Вставка не вдалася: не вдалося виконати зміни на шарі %1</translation>
     </message>
     <message>
         <source>Cut commit failed on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося вирізати фіксацію на вихідному шарі %1</translation>
     </message>
 </context>
 <context>
@@ -539,7 +539,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>Виявлено текстову мітку NFC</translation>
     </message>
     <message>
         <source>Code Reader</source>
@@ -547,7 +547,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>Центруйте пристрій на коді</translation>
     </message>
 </context>
 <context>
@@ -566,11 +566,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The project is read-only.</source>
-        <translation type="unfinished"/>
+        <translation>Проєкт доступний лише для читання.</translation>
     </message>
     <message>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>Легенда</translation>
     </message>
 </context>
 <context>
@@ -665,7 +665,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>DrawingTemplateModel</name>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>Пустий</translation>
     </message>
 </context>
 <context>
@@ -687,7 +687,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Received data is too short to process</source>
-        <translation type="unfinished"/>
+        <translation>Отримані дані занадто короткі для обробки</translation>
     </message>
     <message>
         <source>Invalid start byte</source>
@@ -2416,7 +2416,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>Пустий</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -3460,6 +3460,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>QFieldCloud project details fetching failed</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>View Project Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -3735,6 +3743,14 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Imported folder name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Items being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6226,7 +6242,7 @@ project</source>
     </message>
     <message>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>Легенда</translation>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>

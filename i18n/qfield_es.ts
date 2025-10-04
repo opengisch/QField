@@ -3456,6 +3456,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>QFieldCloud project details fetching failed</source>
         <translation>Falló la obtención de detalles del proyecto de QFieldCloud</translation>
     </message>
+    <message>
+        <source>View Project Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -3732,6 +3740,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Imported folder name</source>
         <translation>Nombre de la carpeta importada</translation>
+    </message>
+    <message>
+        <source>View file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

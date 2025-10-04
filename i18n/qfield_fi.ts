@@ -3458,6 +3458,14 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
         <source>QFieldCloud project details fetching failed</source>
         <translation>QFieldCloud-projektin tietojen hakeminen epäonnistui</translation>
     </message>
+    <message>
+        <source>View Project Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
@@ -3734,6 +3742,14 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     <message>
         <source>Imported folder name</source>
         <translation>Tuodun kansion nimi</translation>
+    </message>
+    <message>
+        <source>View file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
