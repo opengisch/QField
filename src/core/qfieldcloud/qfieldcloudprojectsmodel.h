@@ -230,8 +230,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void projectReceived();
     void projectCreationReceived();
 
-    void layerObserverLayerEdited( const QString &layerId );
-
   private:
     void setupProjectConnections( QFieldCloudProject *project );
 

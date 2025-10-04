@@ -1293,13 +1293,12 @@ void QFieldCloudProject::downloadFilesCompleted()
   QgsLogger::debug( QStringLiteral( "Project %1: All files downloaded." ).arg( mId ) );
   Q_ASSERT( mActiveFilesToDownload.size() == 0 );
 
-  const QDir projectPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
   if ( !mDeltaFileWrapper )
   {
-    mDeltaFileWrapper.reset( new DeltaFileWrapper( mId, QStringLiteral( "%1/deltafile.json" ).arg( projectPath.absolutePath() ) ) );
-    emit deltaFileWrapperChanged();
+    setupDeltaFileWrapper();
   }
 
+  const QDir projectPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
   const bool currentProjectReloadNeeded = QgsProject::instance()->homePath().startsWith( projectPath.absolutePath() );
   QStringList gpkgFileNames;
   if ( currentProjectReloadNeeded )
@@ -2090,6 +2089,7 @@ void QFieldCloudProject::removeLocally()
     if ( mDeltaFileWrapper )
     {
       mDeltaFileWrapper.reset();
+      emit deltasCountChanged();
       emit deltaFileWrapperChanged();
     }
 
@@ -2225,14 +2225,26 @@ void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, cons
   // - the local settings were somehow deleted, but not the project itself (unlikely)
   if ( !project->lastLocalExportId().isEmpty() )
   {
-    project->mDeltaFileWrapper.reset( new DeltaFileWrapper( project->id(), QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ) );
-    emit project->deltaFileWrapperChanged();
+    project->setupDeltaFileWrapper();
   }
   else
   {
     project->mLocalPath.clear();
   }
 };
+
+void QFieldCloudProject::setupDeltaFileWrapper()
+{
+  const QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
+  mDeltaFileWrapper.reset( new DeltaFileWrapper( mId, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ) );
+
+  connect( mDeltaFileWrapper.get(), &DeltaFileWrapper::countChanged, this, [this]() {
+    refreshModification();
+    emit deltasCountChanged();
+  } );
+
+  emit deltaFileWrapperChanged();
+}
 
 void QFieldCloudProject::uploadLocalPath( QString localPath, bool deleteAfterSuccessfulUpload )
 {
