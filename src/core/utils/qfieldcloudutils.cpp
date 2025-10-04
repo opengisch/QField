@@ -80,15 +80,14 @@ const QString QFieldCloudUtils::getProjectId( const QString &fileName )
   if ( path.isEmpty() )
     return QString();
 
-  const QString cloudPath = QFieldCloudUtils::localCloudDirectory();
+  const QString cloudPath = QFileInfo( QFieldCloudUtils::localCloudDirectory() ).canonicalFilePath();
   if ( cloudPath.isEmpty() || !path.startsWith( cloudPath ) )
     return QString();
 
   const QRegularExpression re(
     QStringLiteral( "^%1[/\\\\][^/\\\\]+[/\\\\]([^/\\\\]+)" )
       .arg( QRegularExpression::escape( cloudPath ) ) );
-  const QRegularExpressionMatch match = re.match( path, 0,
-                                                  QRegularExpression::NormalMatch, QRegularExpression::AnchorAtOffsetMatchOption );
+  const QRegularExpressionMatch match = re.match( path );
 
   if ( match.hasMatch() )
   {
