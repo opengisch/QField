@@ -58,6 +58,7 @@ class QFieldCloudProject : public QObject
 
     Q_PROPERTY( double pushDeltaProgress READ pushDeltaProgress NOTIFY pushDeltaProgressChanged )
     Q_PROPERTY( DeltaFileStatus deltaFilePushStatus READ deltaFilePushStatus NOTIFY deltaFilePushStatusChanged )
+    Q_PROPERTY( int deltasCount READ deltasCount NOTIFY deltasCountChanged )
     Q_PROPERTY( DeltaFileWrapper *deltaFileWrapper READ deltaFileWrapper NOTIFY deltaFileWrapperChanged )
     Q_PROPERTY( DeltaListModel *deltaListModel READ deltaListModel NOTIFY deltaListModelChanged )
 
@@ -343,6 +344,7 @@ class QFieldCloudProject : public QObject
     int uploadBytesSent() const { return mUploadBytesSent; }
     double uploadProgress() const { return mUploadProgress; }
 
+    int deltasCount() const { return mDeltaFileWrapper ? mDeltaFileWrapper->count() : 0; }
     DeltaFileWrapper *deltaFileWrapper() const { return mDeltaFileWrapper.get(); }
     DeltaListModel *deltaListModel() const { return mDeltaListModel.get(); }
 
@@ -438,6 +440,7 @@ class QFieldCloudProject : public QObject
     void uploadBytesSentChanged();
     void uploadProgressChanged();
 
+    void deltasCountChanged();
     void deltaFileWrapperChanged();
     void deltaListModelChanged();
 
@@ -467,11 +470,12 @@ class QFieldCloudProject : public QObject
     void uploadFiles();
 
     void startJob( JobType type );
-
     void getJobStatus( JobType type );
     void getDeltaStatus();
 
     void refreshData( ProjectRefreshReason reason );
+
+    void setupDeltaFileWrapper();
 
     NetworkReply *downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage = true, bool autoRedirect = false );
     void downloadFileConnections( const QString &fileKey );
