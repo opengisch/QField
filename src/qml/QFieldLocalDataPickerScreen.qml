@@ -268,7 +268,6 @@ Page {
                 font.pointSize: Theme.tipFont.pointSize - 2
                 color: Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
-                opacity: 0.35
               }
             }
             QfToolButton {
