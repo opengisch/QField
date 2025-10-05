@@ -36,7 +36,6 @@ jobs:
       - name: Reclaim disk space
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
-          rm -rf /Applications/Xcode_14*
           rm -rf /Applications/Xcode_15*
           rm -rf /Users/runner/Library/Android/sdk
 
@@ -68,8 +67,6 @@ jobs:
       - name: 🍹 Prepare ios build env
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
-          xcrun simctl list > /dev/null
-          xcodebuild -downloadPlatform iOS -buildVersion 18.2
           brew uninstall cmake
           # Workaround GitHub Actions Python issues
           brew unlink python && brew link --overwrite python
