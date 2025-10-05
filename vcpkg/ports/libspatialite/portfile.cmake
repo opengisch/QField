@@ -148,6 +148,8 @@ else()
         set(SYSTEM_LIBS "")
     elseif(VCPKG_TARGET_IS_ANDROID)
         set(SYSTEM_LIBS "\$LIBS -llog")
+    elseif(VCPKG_TARGET_IS_IOS)
+        set(SYSTEM_LIBS "\$LIBS -lstdc++") # Not properly propagated from proj
     else()
         set(SYSTEM_LIBS "\$LIBS")
     endif()
