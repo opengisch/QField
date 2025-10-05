@@ -206,17 +206,17 @@ void PositioningSource::setupDevice()
   {
     mReceiver->disconnectDevice();
     mReceiver->stopLogging();
-    disconnect( mReceiver, &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &PositioningSource::lastGnssPositionInformationChanged );
-    disconnect( mReceiver, &AbstractGnssReceiver::lastErrorChanged, this, &PositioningSource::deviceLastErrorChanged );
-    disconnect( mReceiver, &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::deviceSocketStateChanged );
-    disconnect( mReceiver, &AbstractGnssReceiver::socketStateStringChanged, this, &PositioningSource::deviceSocketStateStringChanged );
+    disconnect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &PositioningSource::lastGnssPositionInformationChanged );
+    disconnect( mReceiver.get(), &AbstractGnssReceiver::lastErrorChanged, this, &PositioningSource::deviceLastErrorChanged );
+    disconnect( mReceiver.get(), &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::deviceSocketStateChanged );
+    disconnect( mReceiver.get(), &AbstractGnssReceiver::socketStateStringChanged, this, &PositioningSource::deviceSocketStateStringChanged );
     mReceiver->deleteLater();
-    mReceiver = nullptr;
+    mReceiver.reset();
   }
 
   if ( mDeviceId.isEmpty() )
   {
-    mReceiver = new InternalGnssReceiver( this );
+    mReceiver = std::make_unique<InternalGnssReceiver>( this );
   }
   else
   {
@@ -226,7 +226,7 @@ void PositioningSource::setupDevice()
       const int intervalSeparator = mDeviceId.lastIndexOf( ':' );
       const QString filePath = mDeviceId.mid( prefixLength, intervalSeparator - prefixLength );
       const int interval = mDeviceId.mid( intervalSeparator + 1 ).toInt();
-      mReceiver = new FileReceiver( filePath, interval, this );
+      mReceiver = std::make_unique<FileReceiver>( filePath, interval, this );
     }
     else if ( mDeviceId.startsWith( TcpReceiver::identifier + ":" ) )
     {
@@ -234,7 +234,7 @@ void PositioningSource::setupDevice()
       const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
       const QString address = mDeviceId.mid( prefixLength, portSeparator - prefixLength );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
-      mReceiver = new TcpReceiver( address, port, this );
+      mReceiver = std::make_unique<TcpReceiver>( address, port, this );
     }
     else if ( mDeviceId.startsWith( UdpReceiver::identifier + ":" ) )
     {
@@ -242,7 +242,7 @@ void PositioningSource::setupDevice()
       const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
       const QString address = mDeviceId.mid( prefixLength, portSeparator - prefixLength );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
-      mReceiver = new UdpReceiver( address, port, this );
+      mReceiver = std::make_unique<UdpReceiver>( address, port, this );
     }
     else if ( mDeviceId.startsWith( EgenioussReceiver::identifier + ":" ) )
     {
@@ -250,30 +250,30 @@ void PositioningSource::setupDevice()
       const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
       const QString address = mDeviceId.mid( prefixLength, portSeparator - prefixLength );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
-      mReceiver = new EgenioussReceiver( address, port, this );
+      mReceiver = std::make_unique<EgenioussReceiver>( address, port, this );
     }
 #ifdef WITH_SERIALPORT
     else if ( mDeviceId.startsWith( SerialPortReceiver::identifier + ":" ) )
     {
       const int prefixLength = SerialPortReceiver::identifier.length() + 1;
       const QString address = mDeviceId.mid( prefixLength );
-      mReceiver = new SerialPortReceiver( address, this );
+      mReceiver = std::make_unique<SerialPortReceiver>( address, this );
     }
 #endif
     else
     {
 #ifdef WITH_BLUETOOTH
-      mReceiver = new BluetoothReceiver( mDeviceId, this );
+      mReceiver = std::make_unique<BluetoothReceiver>( mDeviceId, this );
 #endif
     }
   }
 
   // Reset the position information to insure no cross contamination between receiver types
   lastGnssPositionInformationChanged( GnssPositionInformation() );
-  connect( mReceiver, &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &PositioningSource::lastGnssPositionInformationChanged );
-  connect( mReceiver, &AbstractGnssReceiver::lastErrorChanged, this, &PositioningSource::deviceLastErrorChanged );
-  connect( mReceiver, &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::deviceSocketStateChanged );
-  connect( mReceiver, &AbstractGnssReceiver::socketStateStringChanged, this, &PositioningSource::deviceSocketStateStringChanged );
+  connect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &PositioningSource::lastGnssPositionInformationChanged );
+  connect( mReceiver.get(), &AbstractGnssReceiver::lastErrorChanged, this, &PositioningSource::deviceLastErrorChanged );
+  connect( mReceiver.get(), &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::deviceSocketStateChanged );
+  connect( mReceiver.get(), &AbstractGnssReceiver::socketStateStringChanged, this, &PositioningSource::deviceSocketStateStringChanged );
   setValid( mReceiver->valid() );
 
   emit deviceChanged();

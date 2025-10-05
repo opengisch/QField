@@ -355,7 +355,8 @@ class Positioning : public QObject
 
     PositioningSource *mPositioningSource = nullptr;
     QRemoteObjectHost mHost;
-    QRemoteObjectNode mNode;
+
+    std::unique_ptr<QRemoteObjectNode> mNode;
     QSharedPointer<QRemoteObjectDynamicReplica> mPositioningSourceReplica; //skip-keyword-check
 
     bool mValid = true;

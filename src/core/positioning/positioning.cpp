@@ -45,66 +45,61 @@ Positioning::Positioning( QObject *parent )
 
 void Positioning::setupSource()
 {
-  bool positioningService = false;
+  mPositioningSourceReplica.reset();
+  mNode.reset();
+  if ( mPositioningSource )
+  {
+    mHost.disableRemoting( mPositioningSource );
+    mPositioningSource->deleteLater();
+    mPositioningSource = nullptr;
+  }
 
+  QString nodeUrl;
   if ( mServiceMode && ( PlatformUtilities::instance()->capabilities() & PlatformUtilities::PositioningService ) )
   {
-    QString nodeUrl = PlatformUtilities::instance()->startPositioningService();
-    mNode.connectToNode( QUrl( nodeUrl ) );
-    positioningService = true;
+    nodeUrl = PlatformUtilities::instance()->startPositioningService();
   }
   else
   {
     PlatformUtilities::instance()->stopPositioningService();
-  }
 
-  bool positioningRequiresReset = !mPositioningSourceReplica;
-  if ( positioningService && mPositioningSource )
-  {
-    // Sservice path, delete the pre-existing host
-    mHost.disableRemoting( mPositioningSource );
-    mPositioningSource->deleteLater();
-    mPositioningSource = nullptr;
-    positioningRequiresReset = true;
-  }
-  else if ( !positioningService && !mPositioningSource )
-  {
-    // Non-service path, we are both the host and the node
-    mPositioningSource = new PositioningSource( this );
-    mHost.setHostUrl( QUrl( QStringLiteral( "local:replica" ) ) );
-    mHost.enableRemoting( mPositioningSource, "PositioningSource" );
-    mNode.connectToNode( QUrl( QStringLiteral( "local:replica" ) ) );
-    positioningRequiresReset = true;
-  }
-
-  if ( positioningRequiresReset )
-  {
-    mPositioningSourceReplica.reset( mNode.acquireDynamic( "PositioningSource" ) );
-    mPositioningSourceReplica->waitForSource();
-
-    connect( mPositioningSourceReplica.data(), SIGNAL( activeChanged() ), this, SLOT( onActiveChanged() ) );
-    connect( mPositioningSourceReplica.data(), SIGNAL( validChanged() ), this, SLOT( onValidChanged() ) );
-    connect( mPositioningSourceReplica.data(), SIGNAL( deviceIdChanged() ), this, SLOT( onDeviceIdChanged() ) );
-    connect( mPositioningSourceReplica.data(), SIGNAL( elevationCorrectionModeChanged() ), this, SLOT( onElevationCorrectionModeChanged() ) );
-    connect( mPositioningSourceReplica.data(), SIGNAL( antennaHeightChanged() ), this, SLOT( onAntennaHeightChanged() ) );
-    connect( mPositioningSourceReplica.data(), SIGNAL( loggingChanged() ), this, SLOT( onLoggingChanged() ) );
-    connect( mPositioningSourceReplica.data(), SIGNAL( loggingPathChanged() ), this, SLOT( onLoggingPathChanged() ) );
-    connect( mPositioningSourceReplica.data(), SIGNAL( positionInformationChanged() ), this, SLOT( onPositionInformationChanged() ) );
-
-    connect( mPositioningSourceReplica.data(), SIGNAL( deviceLastErrorChanged() ), this, SIGNAL( deviceLastErrorChanged() ) );
-    connect( mPositioningSourceReplica.data(), SIGNAL( deviceSocketStateChanged() ), this, SIGNAL( deviceSocketStateChanged() ) );
-    connect( mPositioningSourceReplica.data(), SIGNAL( deviceSocketStateStringChanged() ), this, SIGNAL( deviceSocketStateStringChanged() ) );
-    connect( mPositioningSourceReplica.data(), SIGNAL( orientationChanged() ), this, SIGNAL( orientationChanged() ) );
-
-    connect( this, SIGNAL( triggerConnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerConnectDevice() ) );
-    connect( this, SIGNAL( triggerDisconnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerDisconnectDevice() ) );
-
-    // Synchronize properties
-    const QList<QString> properties = mProperties.keys();
-    for ( const QString &property : properties )
+    if ( mHost.hostUrl().isEmpty() )
     {
-      mPositioningSourceReplica->setProperty( property.toLatin1(), mProperties[property] );
+      mHost.setHostUrl( QUrl( QStringLiteral( "local:replica" ) ) );
     }
+
+    mPositioningSource = new PositioningSource( this );
+    mHost.enableRemoting( mPositioningSource, "PositioningSource" );
+    nodeUrl = QStringLiteral( "local:replica" );
+  }
+
+  mNode.reset( new QRemoteObjectNode( this ) );
+  mNode->connectToNode( QUrl( nodeUrl ) );
+  mPositioningSourceReplica.reset( mNode->acquireDynamic( "PositioningSource" ) );
+  mPositioningSourceReplica->waitForSource();
+
+  connect( mPositioningSourceReplica.data(), SIGNAL( activeChanged() ), this, SLOT( onActiveChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( validChanged() ), this, SLOT( onValidChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( deviceIdChanged() ), this, SLOT( onDeviceIdChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( elevationCorrectionModeChanged() ), this, SLOT( onElevationCorrectionModeChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( antennaHeightChanged() ), this, SLOT( onAntennaHeightChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( loggingChanged() ), this, SLOT( onLoggingChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( loggingPathChanged() ), this, SLOT( onLoggingPathChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( positionInformationChanged() ), this, SLOT( onPositionInformationChanged() ) );
+
+  connect( mPositioningSourceReplica.data(), SIGNAL( deviceLastErrorChanged() ), this, SIGNAL( deviceLastErrorChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( deviceSocketStateChanged() ), this, SIGNAL( deviceSocketStateChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( deviceSocketStateStringChanged() ), this, SIGNAL( deviceSocketStateStringChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( orientationChanged() ), this, SIGNAL( orientationChanged() ) );
+
+  connect( this, SIGNAL( triggerConnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerConnectDevice() ) );
+  connect( this, SIGNAL( triggerDisconnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerDisconnectDevice() ) );
+
+  // Synchronize properties
+  const QList<QString> properties = mProperties.keys();
+  for ( const QString &property : properties )
+  {
+    mPositioningSourceReplica->setProperty( property.toLatin1(), mProperties[property] );
   }
 }
 
@@ -456,6 +451,8 @@ void Positioning::setServiceMode( bool enabled )
 {
   if ( mServiceMode == enabled )
     return;
+
+  mServiceMode = enabled;
 
   if ( active() )
   {
