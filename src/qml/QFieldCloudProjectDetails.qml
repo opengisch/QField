@@ -231,7 +231,7 @@ ColumnLayout {
       id: pushButton
       Layout.fillWidth: true
       Layout.preferredWidth: 1
-      enabled: cloudProject != undefined && cloudProject.deltaFileWrapper != undefined && cloudProject.deltaFileWrapper.count > 0 && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
+      enabled: cloudProject != undefined && cloudProject.deltaFileWrapper != undefined && cloudProject.deltasCount > 0 && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
       text: qsTr('Push changes')
       visible: true
 
