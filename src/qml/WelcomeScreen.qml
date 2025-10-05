@@ -566,17 +566,16 @@ Page {
                 previewImageSource: welcomeScreen.visible ? 'image://projects/' + ProjectPath : ''
                 showType: true
 
-                secondaryBadge.visible: isOutdated
-                secondaryBadge.color: Theme.mainColor
-                secondaryBadge.border.color: Theme.mainBackgroundColor
-                secondaryBadge.border.width: 1
-
-                primaryBadge.badgeText.text: changesCount
+                primaryBadge.badgeText.text: changesCount > 0 ? changesCount : ''
                 primaryBadge.badgeText.color: Theme.light
-                primaryBadge.visible: changesCount > 0
-                primaryBadge.color: Theme.cloudColor
+                primaryBadge.visible: showSync || showPush
+                primaryBadge.color: showSync ? Theme.mainColor : Theme.cloudColor
                 primaryBadge.border.color: Theme.mainBackgroundColor
                 primaryBadge.border.width: 1
+                primaryBadge.enableGradient: showSync && showPush
+
+                readonly property bool showSync: isOutdated
+                readonly property bool showPush: changesCount > 0
 
                 projectTypeSource: switch (ProjectType) {
                 case 0:

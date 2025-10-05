@@ -499,20 +499,16 @@ Page {
                   }
 
                   QfBadge {
-                    id: syncBadge
                     alignment: QfBadge.Alignment.TopRight
-                    visible: projectDelegate.projectOutdated
-                    color: Theme.mainColor
+                    visible: showSync || showPush
+                    color: showSync ? Theme.mainColor : Theme.cloudColor
                     topMargin: 5
                     rightMargin: 5
-                  }
+                    enableGradient: showSync && showPush
+                    width: 14
 
-                  QfBadge {
-                    alignment: QfBadge.Alignment.TopRight
-                    visible: projectDelegate.localDeltasCount > 0
-                    color: Theme.cloudColor
-                    topMargin: 5 + (syncBadge.visible * (height * 0.8))
-                    rightMargin: 5
+                    readonly property bool showSync: projectDelegate.projectOutdated
+                    readonly property bool showPush: projectDelegate.localDeltasCount > 0
                   }
                 }
               }
@@ -718,7 +714,7 @@ Page {
       }
 
       QfBadge {
-        width: 20
+        width: 16
         height: width
         topMargin: 5
         rightMargin: 5
@@ -743,7 +739,7 @@ Page {
       }
 
       QfBadge {
-        width: 20
+        width: 16
         height: width
         topMargin: 5
         rightMargin: 5
