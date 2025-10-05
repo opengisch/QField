@@ -192,6 +192,12 @@ void QFieldCloudProject::setDataLastUpdatedAt( const QDateTime &dataLastUpdatedA
     return;
 
   mDataLastUpdatedAt = dataLastUpdatedAt;
+
+  if ( mDataLastUpdatedAt.isValid() && mLastLocalDataLastUpdatedAt.isValid() )
+  {
+    setIsOutdated( mDataLastUpdatedAt > mLastLocalDataLastUpdatedAt );
+  }
+
   emit dataLastUpdatedAtChanged();
 }
 
@@ -392,6 +398,12 @@ void QFieldCloudProject::setLastLocalDataLastUpdatedAt( const QDateTime &lastLoc
     return;
 
   mLastLocalDataLastUpdatedAt = lastLocalDataLastUpdatedAt;
+
+  if ( mDataLastUpdatedAt.isValid() && mLastLocalDataLastUpdatedAt.isValid() )
+  {
+    setIsOutdated( mDataLastUpdatedAt > mLastLocalDataLastUpdatedAt );
+  }
+
   emit lastLocalDataLastUpdatedAtChanged();
 }
 
@@ -2012,7 +2024,6 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
     setNeedsRepackaging( projectData.value( "needs_repackaging" ).toBool() );
     setLastRefreshedAt( QDateTime::currentDateTimeUtc() );
     setDataLastUpdatedAt( QDateTime::fromString( projectData.value( "data_last_updated_at" ).toString(), Qt::ISODate ) );
-    setIsOutdated( mLastLocalDataLastUpdatedAt.isValid() ? mDataLastUpdatedAt > mLastLocalDataLastUpdatedAt : false );
 
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "name" ), mName );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "owner" ), mOwner );
@@ -2025,6 +2036,7 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "isFeatured" ), mIsFeatured );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "canRepackage" ), mCanRepackage );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "needsRepackaging" ), mNeedsRepackaging );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "dataLastUpdatedAt" ), mDataLastUpdatedAt.toString( Qt::DateFormat::ISODate ) );
 
     emit dataRefreshed( reason );
   } );
@@ -2137,6 +2149,7 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isPublic" ), project->isPublic() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isFeatured" ), project->isFeatured() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isAttachmentDownloadOnDemand" ), project->attachmentsOnDemandEnabled() );
+  QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "dataLastUpdatedAt" ), project->mDataLastUpdatedAt.toString( Qt::DateFormat::ISODate ) );
 
   QString username = connection ? connection->username() : QString();
   if ( !username.isEmpty() )
@@ -2175,6 +2188,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   const QString sharedDatasetsProjectId = QFieldCloudUtils::projectSetting( id, QStringLiteral( "sharedDatasetsProjectId" ) ).toString();
   const bool isSharedDatasetsProject = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isSharedDatasetsProject" ) ).toBool();
   const bool isAttachmentDownloadOnDemand = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isAttachmentDownloadOnDemand" ) ).toBool();
+  const QDateTime dataLastUpdatedAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( "dataLastUpdatedAt" ) ).toString(), Qt::DateFormat::ISODate );
 
   QFieldCloudProject *project = new QFieldCloudProject( id, connection, gpkgFlusher );
   project->mIsPublic = isPublic;
@@ -2188,7 +2202,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   project->mStatus = status == "failed" ? ProjectStatus::Failing : ProjectStatus::Idle;
   project->mCreatedAt = createdAt;
   project->mUpdatedAt = updatedAt;
-  project->mDataLastUpdatedAt = QDateTime();
+  project->mDataLastUpdatedAt = dataLastUpdatedAt;
   project->mCanRepackage = false;
   project->mNeedsRepackaging = false;
   project->mSharedDatasetsProjectId = sharedDatasetsProjectId;
