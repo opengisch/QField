@@ -67,6 +67,7 @@ jobs:
       - name: 🍹 Prepare ios build env
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
+          xcodebuild -downloadPlatform iOS -buildVersion 18.2
           brew uninstall cmake
           # Workaround GitHub Actions Python issues
           brew unlink python && brew link --overwrite python
