@@ -87,7 +87,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     void vibrate( int milliseconds ) const override;
 
-    void startPositioningService() const override;
+    QString startPositioningService() const override;
     void stopPositioningService() const override;
 
     void requestBackgroundPositioningPermissions() override;

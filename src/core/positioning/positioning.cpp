@@ -14,17 +14,13 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "platformutilities.h"
 #include "positioning.h"
 #include "positioningutils.h"
 #include "tcpreceiver.h"
 #include "udpreceiver.h"
 #ifdef WITH_SERIALPORT
 #include "serialportreceiver.h"
-#endif
-
-#if defined( Q_OS_ANDROID )
-#include "platformutilities.h"
-#include "qfield_android.h"
 #endif
 
 #include <QFile>
@@ -49,23 +45,21 @@ Positioning::Positioning( QObject *parent )
 
 void Positioning::setupSource()
 {
-  bool positioningAsService = false;
+  bool positioningService = false;
 
-#if defined( Q_OS_ANDROID )
-  if ( mServiceMode )
+  if ( mServiceMode && ( PlatformUtilities::instance()->capabilities() & PlatformUtilities::PositioningService ) )
   {
-    PlatformUtilities::instance()->startPositioningService();
-    mNode.connectToNode( QUrl( QStringLiteral( "localabstract:" APP_PACKAGE_NAME "replica" ) ) );
+    QString nodeUrl = PlatformUtilities::instance()->startPositioningService();
+    mNode.connectToNode( QUrl( nodeUrl ) );
     positioningService = true;
   }
   else
   {
     PlatformUtilities::instance()->stopPositioningService();
   }
-#endif
 
   bool positioningRequiresReset = !mPositioningSourceReplica;
-  if ( positioningAsService && mPositioningSource )
+  if ( positioningService && mPositioningSource )
   {
     // Sservice path, delete the pre-existing host
     mHost.disableRemoting( mPositioningSource );
@@ -73,7 +67,7 @@ void Positioning::setupSource()
     mPositioningSource = nullptr;
     positioningRequiresReset = true;
   }
-  else if ( !positioningAsService && !mPositioningSource )
+  else if ( !positioningService && !mPositioningSource )
   {
     // Non-service path, we are both the host and the node
     mPositioningSource = new PositioningSource( this );
