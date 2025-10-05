@@ -315,14 +315,13 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual void vibrate( int milliseconds ) const { Q_UNUSED( milliseconds ) }
 
-
     /**
      * Starts a positioning service on supported platforms.
      */
     virtual void startPositioningService() const {}
 
     /**
-     * Starts a positioning service on supported platforms.
+     * Stops a positioning service on supported platforms.
      */
     virtual void stopPositioningService() const {}
 
