@@ -554,14 +554,26 @@ Page {
                   }
                   return 0;
                 }
+                property bool isOutdated: {
+                  const project = cloudProjectsModel.findProject(QFieldCloudUtils.getProjectId(ProjectPath));
+                  if (project) {
+                    return project.isOutdated;
+                  }
+                  return 0;
+                }
 
                 objectName: "loadProjectItem_1" // todo, suffix with e.g. ProjectTitle
                 previewImageSource: welcomeScreen.visible ? 'image://projects/' + ProjectPath : ''
                 showType: true
+
+                secondaryBadge.visible: isOutdated
+                secondaryBadge.color: Theme.mainColor
+                secondaryBadge.border.color: Theme.mainBackgroundColor
+                secondaryBadge.border.width: 1
+
                 primaryBadge.badgeText.text: changesCount
                 primaryBadge.badgeText.color: Theme.light
                 primaryBadge.visible: changesCount > 0
-
                 primaryBadge.color: Theme.cloudColor
                 primaryBadge.border.color: Theme.mainBackgroundColor
                 primaryBadge.border.width: 1

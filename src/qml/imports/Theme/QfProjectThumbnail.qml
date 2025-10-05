@@ -13,7 +13,8 @@ Rectangle {
   property alias bgColor: thumbnailContentRectangle.color
   property alias showCustomizeIcon: customizeIcon.active
   property alias selected: selectedIndicator.active
-  property alias primaryBadge: badge
+  property alias primaryBadge: primaryStatusBadge
+  property alias secondaryBadge: secondaryStatusBadge
 
   property bool isPressed: false
   property bool fillHeight: false
@@ -100,16 +101,26 @@ Rectangle {
           visible: source !== ""
 
           QfBadge {
-            id: badge
+            id: secondaryStatusBadge
+            z: 2
             alignment: QfBadge.Alignment.BottomRight
             visible: false
-
-            z: 2
             width: type.width / 2.5
             height: width
             border.width: 2
-
             bottomMargin: -2
+          }
+
+          QfBadge {
+            id: primaryStatusBadge
+            z: 2
+            alignment: QfBadge.Alignment.BottomRight
+            visible: false
+            width: type.width / 2.5
+            height: width
+            border.width: 2
+            bottomMargin: -2
+            rightMargin: -4
           }
         }
 
