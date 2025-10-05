@@ -277,6 +277,7 @@ Page {
               property string projectLocalPath: LocalPath
               property int status: Status
               property int localDeltasCount: LocalDeltasCount
+              property bool projectOutdated: ProjectOutdated
 
               width: parent ? parent.width : undefined
               height: line.height
@@ -488,6 +489,7 @@ Page {
                       projectActions.projectName = Name;
                       projectActions.projectLocalPath = LocalPath;
                       projectActions.localDeltasCount = projectDelegate.localDeltasCount;
+                      projectActions.projectOutdated = projectDelegate.projectOutdated;
                       openProject.visible = LocalPath !== '';
                       viewProjectFolder.visible = LocalPath !== '';
                       removeProject.visible = LocalPath !== '';
@@ -496,11 +498,20 @@ Page {
                   }
 
                   QfBadge {
+                    id: syncBadge
+                    alignment: QfBadge.Alignment.TopRight
+                    visible: projectDelegate.projectOutdated
+                    color: Theme.mainColor
                     topMargin: 5
                     rightMargin: 5
+                  }
+
+                  QfBadge {
                     alignment: QfBadge.Alignment.TopRight
-                    visible: projectDelegate.localDeltasCount
+                    visible: projectDelegate.localDeltasCount > 0
                     color: Theme.cloudColor
+                    topMargin: 5 + (syncBadge.visible * (height * 0.8))
+                    rightMargin: 5
                   }
                 }
               }
@@ -563,6 +574,7 @@ Page {
                   projectActions.projectName = item.projectName;
                   projectActions.projectLocalPath = item.projectLocalPath;
                   projectActions.localDeltasCount = item.localDeltasCount;
+                  projectActions.projectOutdated = item.projectOutdated;
                   openProject.visible = item.projectLocalPath !== '';
                   removeProject.visible = item.projectLocalPath !== '';
                   projectActions.popup(mouse.x, mouse.y);
@@ -663,6 +675,7 @@ Page {
     property string projectName: ''
     property string projectLocalPath: ''
     property int localDeltasCount: 0
+    property bool projectOutdated: false
 
     title: qsTr('Project Actions')
 
@@ -701,6 +714,17 @@ Page {
       text: qsTr("Synchronize")
       onTriggered: {
         pushProjectChanges(projectActions.projectId, true);
+      }
+
+      QfBadge {
+        width: 20
+        height: width
+        topMargin: 5
+        rightMargin: 5
+        alignment: QfBadge.Alignment.TopRight
+        visible: projectActions.projectOutdated
+        color: Theme.mainColor
+        border.color: "transparent"
       }
     }
     MenuItem {
