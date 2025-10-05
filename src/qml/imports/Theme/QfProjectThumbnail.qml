@@ -13,7 +13,7 @@ Rectangle {
   property alias bgColor: thumbnailContentRectangle.color
   property alias showCustomizeIcon: customizeIcon.active
   property alias selected: selectedIndicator.active
-  property alias typeBadge: badge
+  property alias primaryBadge: badge
 
   property bool isPressed: false
   property bool fillHeight: false

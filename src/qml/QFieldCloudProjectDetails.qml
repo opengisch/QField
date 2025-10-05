@@ -216,11 +216,11 @@ ColumnLayout {
 
     QfButton {
       id: syncButton
-      Layout.preferredHeight: downloadProjectInDetailsLayout.height
       Layout.fillWidth: true
+      Layout.preferredWidth: 1
       text: qsTr('Synchronize')
       visible: true
-      enabled: true
+      enabled: cloudProject != undefined && cloudProject.deltaFileWrapper != undefined && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
 
       onClicked: {
         synchronize();
@@ -229,9 +229,9 @@ ColumnLayout {
 
     QfButton {
       id: pushButton
-      Layout.preferredHeight: downloadProjectInDetailsLayout.height
       Layout.fillWidth: true
-      enabled: (cloudProject != undefined && cloudProject.deltaFileWrapper != undefined) ? cloudProject.deltaFileWrapper.count > 0 : false
+      Layout.preferredWidth: 1
+      enabled: cloudProject != undefined && cloudProject.deltaFileWrapper != undefined && cloudProject.deltaFileWrapper.count > 0 && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
       text: qsTr('Push changes')
       visible: true
 

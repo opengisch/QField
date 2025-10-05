@@ -64,6 +64,7 @@ Page {
 
       Label {
         Layout.fillWidth: true
+        padding: 10
         opacity: projectsSwipeView.visible ? 1 : 0
         text: switch (cloudConnection.status) {
         case 0:
@@ -459,7 +460,7 @@ Page {
                     visible: LocalPath === ''
                     iconSource: Status === QFieldCloudProject.ProjectStatus.Downloading ? Theme.getThemeVectorIcon("ic_clear_white_24dp") : Theme.getThemeVectorIcon("ic_download_white_24dp")
                     iconColor: Status === QFieldCloudProject.ProjectStatus.Downloading ? Theme.mainTextColor : Theme.mainColor
-                    opacity: Status === QFieldCloudProject.ProjectStatus.Downloading ? .5 : 1
+                    opacity: Status === QFieldCloudProject.ProjectStatus.Downloading ? 0.5 : 1
 
                     onClicked: {
                       if (Status === QFieldCloudProject.ProjectStatus.Downloading) {
@@ -483,7 +484,6 @@ Page {
                     iconColor: Theme.mainTextColor
 
                     onClicked: mouse => {
-                      let gc = mapToItem(qfieldCloudScreen, 0, 0);
                       projectActions.projectId = Id;
                       projectActions.projectOwner = Owner;
                       projectActions.projectName = Name;
@@ -493,6 +493,7 @@ Page {
                       openProject.visible = LocalPath !== '';
                       viewProjectFolder.visible = LocalPath !== '';
                       removeProject.visible = LocalPath !== '';
+                      const gc = mapToItem(qfieldCloudScreen, 0, 0);
                       projectActions.popup(gc.x + width - projectActions.width, gc.y - height);
                     }
                   }
@@ -619,11 +620,11 @@ Page {
         id: projectDetails
 
         onSynchronize: {
-          pushProjectChanges(projectDetails.cloudProject.id, true);
+          cloudProjectsModel.projectPush(projectDetails.cloudProject.id, true);
         }
 
         onPushChanges: {
-          pushProjectChanges(projectDetails.cloudProject.id, false);
+          cloudProjectsModel.projectPush(projectDetails.cloudProject.id, false);
         }
       }
     }
@@ -713,7 +714,7 @@ Page {
 
       text: qsTr("Synchronize")
       onTriggered: {
-        pushProjectChanges(projectActions.projectId, true);
+        cloudProjectsModel.projectPush(projectActions.projectId, true);
       }
 
       QfBadge {
@@ -738,7 +739,7 @@ Page {
 
       text: qsTr("Push changes")
       onTriggered: {
-        pushProjectChanges(projectActions.projectId, false);
+        cloudProjectsModel.projectPush(projectActions.projectId, false);
       }
 
       QfBadge {
@@ -935,9 +936,5 @@ Page {
       event.accepted = true;
       header.onFinished();
     }
-  }
-
-  function pushProjectChanges(projectId, shouldDownloadUpdates) {
-    cloudProjectsModel.projectPush(projectId, shouldDownloadUpdates);
   }
 }

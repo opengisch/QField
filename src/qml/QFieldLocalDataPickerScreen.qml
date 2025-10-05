@@ -240,8 +240,7 @@ Page {
                 text: ItemTitle + (ItemType !== LocalFilesModel.ProjectFile && ItemFormat !== '' ? '.' + ItemFormat : '')
 
                 font.pointSize: Theme.defaultFont.pointSize
-                font.underline: itemMenuLoadable
-                color: itemMenuLoadable ? Theme.mainColor : Theme.mainTextColor
+                color: Theme.mainTextColor
                 wrapMode: Text.Wrap
               }
               Text {
@@ -267,7 +266,6 @@ Page {
 
                 visible: text != ""
                 font.pointSize: Theme.tipFont.pointSize - 2
-                font.italic: true
                 color: Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 opacity: 0.35
