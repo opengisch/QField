@@ -11,6 +11,7 @@ Item {
   id: locationMarker
 
   property variant location // QgsPoint
+  property alias movementMarker: movementMarker
 
   property real accuracy: 0
   property real direction: -1 // A -1 value indicates absence of movement direction information
