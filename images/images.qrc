@@ -120,8 +120,8 @@
         <file>themes/qfield/nodpi/ic_topology_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_freehand_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_clear_black_18dp.svg</file>
-        <file>themes/qfield/nodpi/ic_location_locked_active_white_24dp.svg</file>
-        <file>themes/qfield/nodpi/ic_location_locked_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_location_canvas_lock_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_location_cursor_lock_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_qr_code_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_nfc_code_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_note_white_24dp.svg</file>

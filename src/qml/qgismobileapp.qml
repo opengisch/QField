@@ -973,6 +973,189 @@ ApplicationWindow {
       direction: positionSource.positionInformation && positionSource.positionInformation.directionValid ? positionSource.positionInformation.direction : -1
       speed: positionSource.positionInformation && positionSource.positionInformation.speedValid ? positionSource.positionInformation.speed : -1
       orientation: !isNaN(positionSource.orientation) ? positionSource.orientation + positionSource.bearingTrueNorth < 0 ? 360 + positionSource.orientation + positionSource.bearingTrueNorth : positionSource.orientation + positionSource.bearingTrueNorth : -1
+
+      Component.onCompleted: {
+        pointHandler.registerHandler("LocationMarker", (point, type, interactionType) => {
+            if (pointHandler.pointInItem(point, locationMarker.movementMarker)) {
+              if (interactionType === "clicked") {
+                actionsPiMenu.open();
+              }
+            }
+            return false;
+          });
+      }
+
+      QfToolButtonPie {
+        id: actionsPiMenu
+        anchors.centerIn: locationMarker.movementMarker
+        width: Math.min(200, mapCanvasMap.width / 2.5)
+        height: width
+
+        QfToolButton {
+          width: actionsPiMenu.bandWidth - 8
+          height: width
+          iconSource: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
+          round: true
+          checkable: false
+          checked: false
+          enabled: true
+          iconColor: Theme.light
+          bgcolor: Theme.toolButtonBackgroundColor
+          visible: actionsPiMenu.currentAngle > 0
+          onClicked: {
+            if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
+              displayToast(qsTr('Current location unknown'));
+              return;
+            }
+            var name = qsTr('My location') + ' (' + new Date().toLocaleString() + ')';
+            var group = 'blue';
+            var id = bookmarkModel.addBookmarkAtPoint(positionSource.projectedPosition, name, group);
+            if (id !== '') {
+              bookmarkProperties.bookmarkId = id;
+              bookmarkProperties.bookmarkName = name;
+              bookmarkProperties.bookmarkGroup = group;
+              bookmarkProperties.open();
+            }
+          }
+        }
+
+        QfToolButton {
+          id: gnssLockButton
+          width: actionsPiMenu.bandWidth - 8
+          height: width
+          round: true
+          checkable: true
+          enabled: visible
+          checked: positionSource.active && positioningSettings.positioningCoordinateLock
+          state: checked ? "On" : "Off"
+          visible: gnssButton.state === "On" && (stateMachine.state === "digitize" || stateMachine.state === 'measure') && actionsPiMenu.currentAngle > 90
+          iconSource: Theme.getThemeVectorIcon("ic_location_cursor_lock_white_24dp")
+
+          states: [
+            State {
+              name: "Off"
+              PropertyChanges {
+                target: gnssLockButton
+                iconColor: Theme.light
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+              }
+            },
+            State {
+              name: "On"
+              PropertyChanges {
+                target: gnssLockButton
+                iconColor: Theme.positionColor
+                bgcolor: Theme.toolButtonBackgroundColor
+              }
+            }
+          ]
+
+          onCheckedChanged: {
+            if (enabled) {
+              if (gnssButton.state === "On") {
+                if (checked) {
+                  if (freehandButton.freehandDigitizing) {
+                    // deactivate freehand digitizing when cursor locked is on
+                    freehandButton.clicked();
+                  }
+                  displayToast(qsTr("Coordinate cursor now locked to position"));
+                  if (positionSource.positionInformation.latitudeValid) {
+                    var screenLocation = mapCanvas.mapSettings.coordinateToScreen(locationMarker.location);
+                    if (screenLocation.x < 0 || screenLocation.x > mainWindow.width || screenLocation.y < 0 || screenLocation.y > mainWindow.height) {
+                      mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
+                    }
+                  }
+                  positioningSettings.positioningCoordinateLock = true;
+                } else {
+                  displayToast(qsTr("Coordinate cursor unlocked"));
+                  positioningSettings.positioningCoordinateLock = false;
+                  // deactivate any active averaged position collection
+                  positionSource.averagedPosition = false;
+                }
+              }
+            }
+          }
+        }
+
+        QfToolButton {
+          id: locationLockButton
+          width: actionsPiMenu.bandWidth - 8
+          height: width
+          round: true
+          checkable: true
+          checked: gnssButton.followActive
+          state: checked ? "On" : "Off"
+          visible: actionsPiMenu.currentAngle > 180
+          iconSource: Theme.getThemeVectorIcon("ic_location_canvas_lock_white_24dp")
+
+          states: [
+            State {
+              name: "Off"
+              PropertyChanges {
+                target: locationLockButton
+                iconColor: Theme.light
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+              }
+            },
+            State {
+              name: "On"
+              PropertyChanges {
+                target: locationLockButton
+                iconColor: Theme.positionColor
+                bgcolor: Theme.toolButtonBackgroundColor
+              }
+            }
+          ]
+
+          onCheckedChanged: {
+            if (!checked) {
+              mapCanvasMap.unfreeze('follow');
+              gnssButton.followActive = false;
+              gnssButton.followOrientationActive = false;
+              gnssButton.autoRefollow = false;
+            } else {
+              if (!positionSource.active) {
+                positionSource.jumpToPosition = true;
+                positioningSettings.positioningActivated = true;
+              } else {
+                if (positionSource.projectedPosition.x) {
+                  gnssButton.jumpToLocation();
+                  mapCanvasMap.freeze('follow');
+                  gnssButton.followActive = true;
+                  gnssButton.followLocation(true);
+                  displayToast(qsTr("Canvas follows location"));
+                } else {
+                  displayToast(qsTr("Waiting for location"));
+                }
+              }
+            }
+          }
+        }
+
+        QfToolButton {
+          width: actionsPiMenu.bandWidth - 8
+          height: width
+          iconSource: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+          round: true
+          checkable: false
+          checked: false
+          enabled: true
+          iconColor: Theme.light
+          bgcolor: Theme.toolButtonBackgroundColor
+          visible: actionsPiMenu.currentAngle > 270
+          onClicked: {
+            if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
+              displayToast(qsTr('Current location unknown'));
+              return;
+            }
+            var point = GeometryUtils.reprojectPoint(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs);
+            var coordinates = StringUtils.pointInformation(point, projectInfo.coordinateDisplayCrs);
+            coordinates += ' (' + qsTr('Accuracy') + ' ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr("N/A")) + ')';
+            platformUtilities.copyTextToClipboard(coordinates);
+            displayToast(qsTr('Current location copied to clipboard'));
+          }
+        }
+      }
     }
 
     /* Rubberband for vertices  */
@@ -2058,61 +2241,6 @@ ApplicationWindow {
 
         Component.onCompleted: {
           followIncludeDestination = settings.valueBool("/QField/Navigation/FollowIncludeDestination", true);
-        }
-      }
-
-      QfToolButton {
-        id: gnssLockButton
-        anchors.right: parent.right
-        state: positionSource.active && positioningSettings.positioningCoordinateLock ? "On" : "Off"
-        visible: gnssButton.state === "On" && (stateMachine.state === "digitize" || stateMachine.state === 'measure')
-        round: true
-        checkable: true
-        checked: positioningSettings.positioningCoordinateLock
-
-        states: [
-          State {
-            name: "Off"
-            PropertyChanges {
-              target: gnssLockButton
-              iconSource: Theme.getThemeVectorIcon("ic_location_locked_white_24dp")
-              iconColor: Theme.toolButtonColor
-              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
-            }
-          },
-          State {
-            name: "On"
-            PropertyChanges {
-              target: gnssLockButton
-              iconSource: Theme.getThemeVectorIcon("ic_location_locked_active_white_24dp")
-              iconColor: Theme.positionColor
-              bgcolor: Theme.toolButtonBackgroundColor
-            }
-          }
-        ]
-
-        onCheckedChanged: {
-          if (gnssButton.state === "On") {
-            if (checked) {
-              if (freehandButton.freehandDigitizing) {
-                // deactivate freehand digitizing when cursor locked is on
-                freehandButton.clicked();
-              }
-              displayToast(qsTr("Coordinate cursor now locked to position"));
-              if (positionSource.positionInformation.latitudeValid) {
-                var screenLocation = mapCanvas.mapSettings.coordinateToScreen(locationMarker.location);
-                if (screenLocation.x < 0 || screenLocation.x > mainWindow.width || screenLocation.y < 0 || screenLocation.y > mainWindow.height) {
-                  mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
-                }
-              }
-              positioningSettings.positioningCoordinateLock = true;
-            } else {
-              displayToast(qsTr("Coordinate cursor unlocked"));
-              positioningSettings.positioningCoordinateLock = false;
-              // deactivate any active averaged position collection
-              positionSource.averagedPosition = false;
-            }
-          }
         }
       }
 
@@ -3703,50 +3831,6 @@ ApplicationWindow {
 
       onTriggered: {
         mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
-      }
-    }
-
-    MenuItem {
-      text: qsTr("Add Bookmark at Location")
-      icon.source: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      font: Theme.defaultFont
-
-      onTriggered: {
-        if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
-          displayToast(qsTr('Current location unknown'));
-          return;
-        }
-        var name = qsTr('My location') + ' (' + new Date().toLocaleString() + ')';
-        var group = 'blue';
-        var id = bookmarkModel.addBookmarkAtPoint(positionSource.projectedPosition, name, group);
-        if (id !== '') {
-          bookmarkProperties.bookmarkId = id;
-          bookmarkProperties.bookmarkName = name;
-          bookmarkProperties.bookmarkGroup = group;
-          bookmarkProperties.open();
-        }
-      }
-    }
-
-    MenuItem {
-      text: qsTr("Copy Location Coordinates")
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
-
-      onTriggered: {
-        if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
-          displayToast(qsTr('Current location unknown'));
-          return;
-        }
-        var point = GeometryUtils.reprojectPoint(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs);
-        var coordinates = StringUtils.pointInformation(point, projectInfo.coordinateDisplayCrs);
-        coordinates += ' (' + qsTr('Accuracy') + ' ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr("N/A")) + ')';
-        platformUtilities.copyTextToClipboard(coordinates);
-        displayToast(qsTr('Current location copied to clipboard'));
       }
     }
   }
