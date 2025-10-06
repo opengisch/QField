@@ -1648,6 +1648,13 @@ void QFieldCloudProject::push( bool shouldDownloadUpdates )
       setStatus( ProjectStatus::Idle );
       setLastLocalPushDeltas( QDateTime::currentDateTimeUtc().toString( Qt::ISODate ) );
 
+      if ( !isOutdated() )
+      {
+        // If we are not in an outdated state, avoid falling into outdated state due to our own data change
+        setLastLocalDataLastUpdatedAt( QDateTime::currentDateTimeUtc().addSecs( 60 * 2 ) );
+        QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalDataLastUpdatedAt" ), mLastLocalDataLastUpdatedAt );
+      }
+
       QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalPushDeltas" ), mLastLocalPushDeltas );
 
       mDeltaFileWrapper->reset();
