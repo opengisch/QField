@@ -80,9 +80,9 @@ jobs:
         id: vars
         shell: bash
         run: |
-          NDK_VERSION=26.3.11579264
+          NDK_VERSION=28.2.13676358
           echo "JAVA_HOME=${JAVA_HOME_17_X64}" >> $GITHUB_ENV
-          echo "ANDROID_BUILD_TOOLS_VERSION=35.0.0" >> $GITHUB_ENV
+          echo "ANDROID_BUILD_TOOLS_VERSION=36.0.0" >> $GITHUB_ENV
           echo "ANDROID_NDK_VERSION=${NDK_VERSION}" >> $GITHUB_ENV
           echo "ANDROID_NDK=/usr/local/lib/android/sdk/ndk/${NDK_VERSION}" >> $GITHUB_ENV
           echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/${NDK_VERSION}" >> $GITHUB_ENV
