@@ -108,7 +108,7 @@ class PositioningSource : public QObject
      * Returns the current positioning device.
      * \see deviceId
      */
-    AbstractGnssReceiver *device() const { return mReceiver; }
+    AbstractGnssReceiver *device() const { return mReceiver.get(); }
 
     /**
      * Returns extra details (such as hdop, vdop, pdop) provided by the positioning device.
@@ -257,7 +257,7 @@ class PositioningSource : public QObject
 
     bool mBackgroundMode = false;
 
-    AbstractGnssReceiver *mReceiver = nullptr;
+    std::unique_ptr<AbstractGnssReceiver> mReceiver;
 
     QCompass mCompass;
     QTimer mCompassTimer;

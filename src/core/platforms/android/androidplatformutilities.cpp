@@ -82,7 +82,7 @@ AndroidPlatformUtilities::AndroidPlatformUtilities()
 
 PlatformUtilities::Capabilities AndroidPlatformUtilities::capabilities() const
 {
-  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera | AdjustBrightness | CustomImport | CustomExport | CustomSend | FilePicker | VolumeKeys | UpdateProjectFromArchive;
+  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera | AdjustBrightness | CustomImport | CustomExport | CustomSend | FilePicker | VolumeKeys | UpdateProjectFromArchive | PositioningService;
 #ifdef WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -799,7 +799,7 @@ void AndroidPlatformUtilities::requestBackgroundPositioningPermissions()
   checkAndAcquirePermissions( { QStringLiteral( "android.permission.ACCESS_BACKGROUND_LOCATION" ) } );
 }
 
-void AndroidPlatformUtilities::startPositioningService() const
+QString AndroidPlatformUtilities::startPositioningService() const
 {
   if ( qtAndroidSkdVersion() >= 33 )
   {
@@ -812,6 +812,7 @@ void AndroidPlatformUtilities::startPositioningService() const
                                       "startQFieldPositioningService",
                                       "(Landroid/content/Context;)V",
                                       qtAndroidContext().object() );
+  return QStringLiteral( "localabstract:" APP_PACKAGE_NAME "replica" );
 }
 
 void AndroidPlatformUtilities::stopPositioningService() const

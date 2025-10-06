@@ -331,6 +331,7 @@ ApplicationWindow {
     id: positionSource
     objectName: "positionSource"
 
+    serviceMode: trackings.count > 0// && (platformUtilities.capabilities & PlatformUtilities.PositioningService)
     deviceId: positioningSettings.positioningDevice
     badAccuracyThreshold: positioningSettings.accuracyBad
     excellentAccuracyThreshold: positioningSettings.accuracyExcellent
