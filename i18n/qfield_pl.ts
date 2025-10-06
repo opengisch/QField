@@ -3124,6 +3124,53 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectDetails</name>
+    <message>
+        <source>Owner</source>
+        <translation>Właściciel</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>Data utworzenia</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>Data ostatniej aktualizacji</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>Ten kod QR może zostać zeskanowany przez użytkowników z odpowiednimi prawami dostępu, aby pobrać i otworzyć ten projekt</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Synchronizuj</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Wyślij zmiany</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud  pakuje projekt, proszę czekać</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>Pobieranie projektu</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>Pobierz projekt</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Pobieranie projektu %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Otwórz projekt</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3330,11 +3377,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation>Pobieranie projektu %1</translation>
+        <translation type="vanished">Pobieranie projektu %1</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation>Pobierz projekt</translation>
+        <translation type="vanished">Pobierz projekt</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3346,7 +3393,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation>Anuluj pobieranie projektu</translation>
+        <translation type="vanished">Anuluj pobieranie projektu</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
@@ -3417,42 +3464,6 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>, posiada zmiany lokalnie</translation>
     </message>
     <message>
-        <source>Description</source>
-        <translation>Opis</translation>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation>Właściciel</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>Data utworzenia</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>Data ostatniej aktualizacji</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>Ten kod QR może zostać zeskanowany przez użytkowników z odpowiednimi prawami dostępu, aby pobrać i otworzyć ten projekt</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>QFieldCloud  pakuje projekt, proszę czekać</translation>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>Pobieranie projektu</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>Pobierz projekt</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Otwórz projekt</translation>
-    </message>
-    <message>
         <source>View Project Details</source>
         <translation>Zobacz szczegóły projektu</translation>
     </message>
@@ -3467,6 +3478,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation>Czy na pewno chcesz usunąć `%1`?</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Synchronizuj</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Wyślij zmiany</translation>
     </message>
 </context>
 <context>

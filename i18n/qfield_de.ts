@@ -3119,6 +3119,53 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectDetails</name>
+    <message>
+        <source>Owner</source>
+        <translation>Besitzer</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>Erstellungsdatum</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>Datum der letzten Aktualisierung</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>Dieser QR Code can von Nutzern mit entsprechendem Zugang gescannt werden, um das Projekt herunterzuladen und zu öffnen.</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Synchronisiere</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Änderungen pushen</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud verpackt das Projekt. Bitte warten</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>Projekt wird heruntergeladen</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>Projekt herunterladen</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Projekt %1 wird heruntergeladen</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Projekt öffnen</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3323,11 +3370,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation>Projekt %1 wird heruntergeladen</translation>
+        <translation type="vanished">Projekt %1 wird heruntergeladen</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation>Projekt herunterladen</translation>
+        <translation type="vanished">Projekt herunterladen</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3339,7 +3386,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation>Projekt-Download abbrechen</translation>
+        <translation type="vanished">Projekt-Download abbrechen</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
@@ -3410,42 +3457,6 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
         <translation>, wurde lokal geändert</translation>
     </message>
     <message>
-        <source>Description</source>
-        <translation>Beschreibung</translation>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation>Besitzer</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>Erstellungsdatum</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>Datum der letzten Aktualisierung</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>Dieser QR Code can von Nutzern mit entsprechendem Zugang gescannt werden, um das Projekt herunterzuladen und zu öffnen.</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>QFieldCloud verpackt das Projekt. Bitte warten</translation>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>Projekt wird heruntergeladen</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>Projekt herunterladen</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Projekt öffnen</translation>
-    </message>
-    <message>
         <source>View Project Details</source>
         <translation>Projekt-Details anzeigen</translation>
     </message>
@@ -3460,6 +3471,14 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Synchronisiere</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Änderungen pushen</translation>
     </message>
 </context>
 <context>

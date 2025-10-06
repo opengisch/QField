@@ -3124,6 +3124,53 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectDetails</name>
+    <message>
+        <source>Owner</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronizați</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Modificări Push</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Descărcarea proiectului %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Deschidere Proiect</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3330,11 +3377,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation>Descărcarea proiectului %1</translation>
+        <translation type="vanished">Descărcarea proiectului %1</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation>Descărcați Proiectul</translation>
+        <translation type="vanished">Descărcați Proiectul</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3346,7 +3393,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation>Anulați Descărcarea Proiectului</translation>
+        <translation type="vanished">Anulați Descărcarea Proiectului</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
@@ -3417,42 +3464,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Description</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Deschidere Proiect</translation>
-    </message>
-    <message>
         <source>View Project Details</source>
         <translation type="unfinished"/>
     </message>
@@ -3467,6 +3478,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronizați</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Modificări Push</translation>
     </message>
 </context>
 <context>

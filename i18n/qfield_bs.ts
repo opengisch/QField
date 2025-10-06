@@ -3121,6 +3121,53 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectDetails</name>
+    <message>
+        <source>Owner</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sinhroniziraj</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Poguraj promjene</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Skidanje projekta %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3327,11 +3374,11 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation>Skidanje projekta %1</translation>
+        <translation type="vanished">Skidanje projekta %1</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation>Skini projekat</translation>
+        <translation type="vanished">Skini projekat</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3343,7 +3390,7 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation>Otkaži skidanje projekta</translation>
+        <translation type="vanished">Otkaži skidanje projekta</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
@@ -3414,42 +3461,6 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Description</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>View Project Details</source>
         <translation type="unfinished"/>
     </message>
@@ -3464,6 +3475,14 @@ Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučiv
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sinhroniziraj</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Poguraj promjene</translation>
     </message>
 </context>
 <context>

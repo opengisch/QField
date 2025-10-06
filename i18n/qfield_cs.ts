@@ -3123,6 +3123,53 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectDetails</name>
+    <message>
+        <source>Owner</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Synchronizovat</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Push změny</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Stahuji projekt %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Otevřít projekt</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3329,11 +3376,11 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation>Stahuji projekt %1</translation>
+        <translation type="vanished">Stahuji projekt %1</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation>Stáhnout projekt</translation>
+        <translation type="vanished">Stáhnout projekt</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3345,7 +3392,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation>Zrušit stahování projektu</translation>
+        <translation type="vanished">Zrušit stahování projektu</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
@@ -3416,42 +3463,6 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Description</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Otevřít projekt</translation>
-    </message>
-    <message>
         <source>View Project Details</source>
         <translation type="unfinished"/>
     </message>
@@ -3466,6 +3477,14 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Synchronizovat</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Push změny</translation>
     </message>
 </context>
 <context>

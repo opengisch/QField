@@ -3118,6 +3118,53 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectDetails</name>
+    <message>
+        <source>Owner</source>
+        <translation>所有者</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>创建日期</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>最后更新日期</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>可以扫描此二维码，便于具有适合访问权限的用户下载并打开此工程</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>同步</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>推送修改</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud正在打包工程</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>正在下载工程</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>下载工程</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>正在下载工程 %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>打开工程</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3324,11 +3371,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation>正在下载工程 %1</translation>
+        <translation type="vanished">正在下载工程 %1</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation>下载工程</translation>
+        <translation type="vanished">下载工程</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3340,7 +3387,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation>取消工程下载</translation>
+        <translation type="vanished">取消工程下载</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
@@ -3411,42 +3458,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>, 在本地有更改</translation>
     </message>
     <message>
-        <source>Description</source>
-        <translation>描述</translation>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation>所有者</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>创建日期</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>最后更新日期</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>可以扫描此二维码，便于具有适合访问权限的用户下载并打开此工程</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>QFieldCloud正在打包工程</translation>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>正在下载工程</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>下载工程</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>打开工程</translation>
-    </message>
-    <message>
         <source>View Project Details</source>
         <translation>查看工程详细信息</translation>
     </message>
@@ -3461,6 +3472,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation>确定要移除 `%1` 吗？</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>同步</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>推送修改</translation>
     </message>
 </context>
 <context>

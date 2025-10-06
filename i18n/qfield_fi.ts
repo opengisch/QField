@@ -3121,6 +3121,53 @@ epäonnistui, syy: %2</translation>
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectDetails</name>
+    <message>
+        <source>Owner</source>
+        <translation>Omistaja</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>Luontipäivä</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>Viimeisin päivitys</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>Käyttäjät, joilla on tarvittavat käyttöoikeudet, voivat skannata tämän QR-koodin ladatakseen ja avatakseen tämän projektin.</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Synkronoi</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Aja muutokset</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud pakkaa projektia, odota hetki</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>Ladataan projektia</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>Lataa projekti</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Ladataan projektia %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Avaa projekti</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3328,11 +3375,11 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation>Ladataan projektia %1</translation>
+        <translation type="vanished">Ladataan projektia %1</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation>Lataa projekti</translation>
+        <translation type="vanished">Lataa projekti</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3344,7 +3391,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation>Peruuta projektin lataus</translation>
+        <translation type="vanished">Peruuta projektin lataus</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
@@ -3415,42 +3462,6 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
         <translation>, lokaaleja muutoksia</translation>
     </message>
     <message>
-        <source>Description</source>
-        <translation>Kuvaus</translation>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation>Omistaja</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>Luontipäivä</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>Viimeisin päivitys</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>Käyttäjät, joilla on tarvittavat käyttöoikeudet, voivat skannata tämän QR-koodin ladatakseen ja avatakseen tämän projektin.</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>QFieldCloud pakkaa projektia, odota hetki</translation>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>Ladataan projektia</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>Lataa projekti</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Avaa projekti</translation>
-    </message>
-    <message>
         <source>View Project Details</source>
         <translation>Näytä projektin tiedot</translation>
     </message>
@@ -3465,6 +3476,14 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Synkronoi</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Aja muutokset</translation>
     </message>
 </context>
 <context>

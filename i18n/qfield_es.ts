@@ -3120,6 +3120,53 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectDetails</name>
+    <message>
+        <source>Owner</source>
+        <translation>Propietario</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>Fecha de creación</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>Fecha de la última actualización</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>Este código QR puede ser escaneado por usuarios con el acceso apropiado para descargar y abrir este proyecto</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronizar</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Subir cambios</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud está empaquetando el proyecto, esté atento</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>Descargando proyecto</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>Descargar proyecto</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Descargando proyecto %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Abrir proyecto</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3326,11 +3373,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation>Descargando proyecto %1</translation>
+        <translation type="vanished">Descargando proyecto %1</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation>Descargar proyecto</translation>
+        <translation type="vanished">Descargar proyecto</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3342,7 +3389,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation>Cancelar la descarga del proyecto</translation>
+        <translation type="vanished">Cancelar la descarga del proyecto</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
@@ -3413,42 +3460,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>, tiene cambios localmente</translation>
     </message>
     <message>
-        <source>Description</source>
-        <translation>Descripción</translation>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation>Propietario</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>Fecha de creación</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>Fecha de la última actualización</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>Este código QR puede ser escaneado por usuarios con el acceso apropiado para descargar y abrir este proyecto</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>QFieldCloud está empaquetando el proyecto, esté atento</translation>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>Descargando proyecto</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>Descargar proyecto</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Abrir proyecto</translation>
-    </message>
-    <message>
         <source>View Project Details</source>
         <translation>Ver detalles del proyecto</translation>
     </message>
@@ -3463,6 +3474,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronizar</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Subir cambios</translation>
     </message>
 </context>
 <context>

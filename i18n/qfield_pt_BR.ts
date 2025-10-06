@@ -3112,6 +3112,53 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectDetails</name>
+    <message>
+        <source>Owner</source>
+        <translation>Proprietário</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>Data criação</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>Última modificação</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronizar</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Enviar alterações</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud está empacotando o projeto...aguarde</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>Baixando projeto</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>Baixar projeto</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Baixando projeto %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Abrir Projeto</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3317,11 +3364,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation>Baixando projeto %1</translation>
+        <translation type="vanished">Baixando projeto %1</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation>Baixar Projeto</translation>
+        <translation type="vanished">Baixar Projeto</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3333,7 +3380,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation>Cancelar download do projeto</translation>
+        <translation type="vanished">Cancelar download do projeto</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
@@ -3404,42 +3451,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>, tem alterações locais</translation>
     </message>
     <message>
-        <source>Description</source>
-        <translation>Descrição</translation>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation>Proprietário</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>Data criação</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>Última modificação</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>QFieldCloud está empacotando o projeto...aguarde</translation>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>Baixando projeto</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>Baixar projeto</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Abrir Projeto</translation>
-    </message>
-    <message>
         <source>View Project Details</source>
         <translation>Ver detalhes do projeto</translation>
     </message>
@@ -3454,6 +3465,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronizar</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Enviar alterações</translation>
     </message>
 </context>
 <context>

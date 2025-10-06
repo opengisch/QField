@@ -3124,6 +3124,53 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectDetails</name>
+    <message>
+        <source>Owner</source>
+        <translation>Владелец</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>Дата создания</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>Дата последнего обновления</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>Этот QR код может быть отсканирован пользователями с соответствующим доступом, чтобы скачать и открыть этот проект</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Синхронизировать</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Внести изменения</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>Скачивание проекта</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>Скачать проект</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Загрузка проекта  %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Открыть проект</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3328,11 +3375,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation>Загрузка проекта  %1</translation>
+        <translation type="vanished">Загрузка проекта  %1</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation>Скачать проект</translation>
+        <translation type="vanished">Скачать проект</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3344,7 +3391,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation>Отменить загрузку проекта</translation>
+        <translation type="vanished">Отменить загрузку проекта</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
@@ -3415,42 +3462,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Description</source>
-        <translation>Описание</translation>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation>Владелец</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>Дата создания</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>Дата последнего обновления</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>Этот QR код может быть отсканирован пользователями с соответствующим доступом, чтобы скачать и открыть этот проект</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>Скачивание проекта</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>Скачать проект</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Открыть проект</translation>
-    </message>
-    <message>
         <source>View Project Details</source>
         <translation>Детали проекта</translation>
     </message>
@@ -3465,6 +3476,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Синхронизировать</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Внести изменения</translation>
     </message>
 </context>
 <context>

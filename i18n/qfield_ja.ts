@@ -3118,6 +3118,53 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectDetails</name>
+    <message>
+        <source>Owner</source>
+        <translation>所有者</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>作成日</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>最新の更新日</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>このQRコードをスキャンすると、適切なアクセス権を持つユーザーがこのプロジェクトをダウンロードして開くことができます。</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>同期する</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>変更点をプッシュ</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloudはプロジェクトを適切にパッケージ化しています。</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>プロジェクトをダウンロードしています</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>プロジェクトをダウンロードしました</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>プロジェクト %1 をダウンロードしています</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>プロジェクトを開く</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3324,11 +3371,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation>プロジェクト %1 をダウンロードしています</translation>
+        <translation type="vanished">プロジェクト %1 をダウンロードしています</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation>プロジェクトをダウンロード</translation>
+        <translation type="vanished">プロジェクトをダウンロード</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3340,7 +3387,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation>プロジェクトのダウンロードをキャンセルする</translation>
+        <translation type="vanished">プロジェクトのダウンロードをキャンセルする</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
@@ -3411,42 +3458,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>ローカルでの変更があります</translation>
     </message>
     <message>
-        <source>Description</source>
-        <translation>説明</translation>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation>所有者</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>作成日</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>最新の更新日</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>このQRコードをスキャンすると、適切なアクセス権を持つユーザーがこのプロジェクトをダウンロードして開くことができます。</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>QFieldCloudはプロジェクトを適切にパッケージ化しています。</translation>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>プロジェクトをダウンロードしています</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>プロジェクトをダウンロードしました</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>プロジェクトを開く</translation>
-    </message>
-    <message>
         <source>View Project Details</source>
         <translation>プロジェクトの詳細を見る</translation>
     </message>
@@ -3461,6 +3472,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>同期する</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>変更点をプッシュ</translation>
     </message>
 </context>
 <context>

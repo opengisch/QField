@@ -3115,6 +3115,53 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectDetails</name>
+    <message>
+        <source>Owner</source>
+        <translation>Sahibi</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>Oluşturulma tarihi</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>Son güncelleme tarihi</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>Bu QR kodu, bu projeyi indirmek ve açmak için uygun erişime sahip kullanıcılar tarafından taranabilir</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Senkranize Et</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Değişiklikleri Gönder</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud, projeyi paketliyor, lütfen bekleyin</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>Proje indiriliyor</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>Projeyi indir</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Proje %1 indiriliyor</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Projeyi aç</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3321,11 +3368,11 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation>Proje %1 indiriliyor</translation>
+        <translation type="vanished">Proje %1 indiriliyor</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation>Projeyi İndir</translation>
+        <translation type="vanished">Projeyi İndir</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3337,7 +3384,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation>Proje İndirmeyi İptal Et</translation>
+        <translation type="vanished">Proje İndirmeyi İptal Et</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
@@ -3408,42 +3455,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation>, yerel olarak değişiklikler var</translation>
     </message>
     <message>
-        <source>Description</source>
-        <translation>Açıklama</translation>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation>Sahibi</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>Oluşturulma tarihi</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>Son güncelleme tarihi</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>Bu QR kodu, bu projeyi indirmek ve açmak için uygun erişime sahip kullanıcılar tarafından taranabilir</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>QFieldCloud, projeyi paketliyor, lütfen bekleyin</translation>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>Proje indiriliyor</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>Projeyi indir</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Projeyi aç</translation>
-    </message>
-    <message>
         <source>View Project Details</source>
         <translation>Proje Detaylarını Görüntüle</translation>
     </message>
@@ -3458,6 +3469,14 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Senkranize Et</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Değişiklikleri Gönder</translation>
     </message>
 </context>
 <context>

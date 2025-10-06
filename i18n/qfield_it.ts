@@ -3123,6 +3123,53 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectDetails</name>
+    <message>
+        <source>Owner</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronizza</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Invia le modifiche</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Scaricamento del progetto %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Apri progetto</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3332,11 +3379,11 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation>Scaricamento del progetto %1</translation>
+        <translation type="vanished">Scaricamento del progetto %1</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation>Scarica il Progetto</translation>
+        <translation type="vanished">Scarica il Progetto</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3348,7 +3395,7 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation>Annulla lo Scaricamento del Progetto</translation>
+        <translation type="vanished">Annulla lo Scaricamento del Progetto</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
@@ -3419,42 +3466,6 @@ Messaggio dell&apos;errore: %4</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Description</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Apri progetto</translation>
-    </message>
-    <message>
         <source>View Project Details</source>
         <translation type="unfinished"/>
     </message>
@@ -3469,6 +3480,14 @@ Messaggio dell&apos;errore: %4</translation>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronizza</translation>
+    </message>
+    <message>
+        <source>Push changes</source>
+        <translation>Invia le modifiche</translation>
     </message>
 </context>
 <context>
