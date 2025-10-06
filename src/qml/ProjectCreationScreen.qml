@@ -119,8 +119,6 @@ Page {
               bgColor: modelData.name === "Blank" ? "white" : Theme.groupBoxSurfaceColor
               previewImageSource: modelData.icon
               projectTitle.text: modelData.displayName
-              projectTitle.color: Theme.mainTextColor
-              projectTitle.font.underline: false
               showType: false
               selected: baseMapList.currentIndex == index
               fillHeight: true
