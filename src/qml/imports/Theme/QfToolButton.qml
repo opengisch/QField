@@ -9,6 +9,7 @@ RoundButton {
 
   property alias iconSource: button.icon.source
   property alias iconColor: button.icon.color
+  property alias statusBadge: badge
   property string bottomRightIndicatorText: ''
   property string bottomRightIndicatorBgColor: Theme.cloudColor
   property string bottomRightIndicatorFgColor: Theme.light
@@ -65,6 +66,7 @@ RoundButton {
   font: Theme.tipFont
 
   QfBadge {
+    id: badge
     alignment: QfBadge.Alignment.BottomRight
 
     z: 2

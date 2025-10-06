@@ -40,14 +40,6 @@
 QFieldCloudProjectsModel::QFieldCloudProjectsModel()
 {
   // TODO all of these connects are a bit too much, and I guess not very precise, should be refactored!
-  connect( this, &QFieldCloudProjectsModel::currentProjectIdChanged, this, [this]() {
-    QFieldCloudProject *project = findProject( mCurrentProjectId );
-
-    if ( !project )
-      return;
-
-    refreshProjectModification( mCurrentProjectId );
-  } );
 
   connect( this, &QFieldCloudProjectsModel::dataChanged, this, [this]( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles ) {
     Q_UNUSED( bottomRight )
@@ -438,26 +430,11 @@ void QFieldCloudProjectsModel::projectListReceived()
     {
       mCurrentProject = findProject( mCurrentProjectId );
       emit currentProjectChanged();
-
-      if ( mCurrentProject )
-      {
-        refreshProjectModification( mCurrentProject->id() );
-      }
     }
 
     mIsRefreshing = false;
     emit isRefreshingChanged();
   }
-}
-
-void QFieldCloudProjectsModel::refreshProjectModification( const QString &projectId )
-{
-  const QModelIndex projectIndex = findProjectIndex( projectId );
-  if ( !projectIndex.isValid() )
-    return;
-
-  QFieldCloudProject *project = mProjects[projectIndex.row()];
-  project->refreshModification();
 }
 
 QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const

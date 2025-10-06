@@ -1572,8 +1572,12 @@ ApplicationWindow {
 
         QfBadge {
           alignment: QfBadge.Alignment.TopRight
-          visible: cloudProjectsModel.layerObserver.deltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
-          color: Theme.cloudColor
+          visible: showSync || showPush
+          color: showSync ? Theme.mainColor : Theme.cloudColor
+          enableGradient: showSync && showPush
+
+          readonly property bool showSync: cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.isOutdated : false
+          readonly property bool showPush: cloudProjectsModel.layerObserver.deltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
         }
       }
 
@@ -4037,7 +4041,6 @@ ApplicationWindow {
       recentProjectListModel.reloadModel();
       const cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName);
       cloudProjectsModel.currentProjectId = cloudProjectId;
-      cloudProjectsModel.refreshProjectModification(cloudProjectId);
       if (cloudProjectsModel.currentProject) {
         const forceAutoPush = iface.readProjectBoolEntry("qfieldsync", "forceAutoPush", false);
         if (forceAutoPush) {

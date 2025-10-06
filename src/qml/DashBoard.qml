@@ -193,13 +193,6 @@ Drawer {
               showCloudPopup();
             }
 
-            bottomRightIndicatorText: {
-              if (cloudProjectsModel.layerObserver.deltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0) {
-                return cloudProjectsModel.layerObserver.deltaFileWrapper.count >= 10 ? '+' : cloudProjectsModel.layerObserver.deltaFileWrapper.count;
-              }
-              return '';
-            }
-
             SequentialAnimation {
               OpacityAnimator {
                 from: 1
@@ -220,6 +213,21 @@ Drawer {
                 cloudButton.opacity = 1;
               }
             }
+
+            statusBadge.visible: showSync || showPush
+            statusBadge.color: showSync ? Theme.mainColor : Theme.cloudColor
+            statusBadge.enableGradient: showSync && showPush
+            statusBadge.width: cloudButton.width / 2.85
+            statusBadge.badgeText.color: Theme.light
+            statusBadge.badgeText.text: {
+              if (cloudProjectsModel.layerObserver.deltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0) {
+                return cloudProjectsModel.layerObserver.deltaFileWrapper.count >= 10 ? '+' : cloudProjectsModel.layerObserver.deltaFileWrapper.count;
+              }
+              return '';
+            }
+
+            readonly property bool showSync: cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.isOutdated : false
+            readonly property bool showPush: cloudProjectsModel.layerObserver.deltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
           }
 
           QfToolButton {

@@ -109,6 +109,7 @@ Page {
 
         anchors.fill: parent
         anchors.margins: 1
+        spacing: -1
 
         clip: true
 
@@ -168,7 +169,10 @@ Page {
 
           width: parent ? parent.width : undefined
           height: line.height
-          color: "transparent"
+          color: Theme.controlBackgroundColor
+          border.color: Theme.controlBorderColor
+          border.width: 1
+          radius: 2
 
           RowLayout {
             id: line
@@ -236,8 +240,7 @@ Page {
                 text: ItemTitle + (ItemType !== LocalFilesModel.ProjectFile && ItemFormat !== '' ? '.' + ItemFormat : '')
 
                 font.pointSize: Theme.defaultFont.pointSize
-                font.underline: itemMenuLoadable
-                color: itemMenuLoadable ? Theme.mainColor : Theme.mainTextColor
+                color: Theme.mainTextColor
                 wrapMode: Text.Wrap
               }
               Text {
@@ -263,10 +266,8 @@ Page {
 
                 visible: text != ""
                 font.pointSize: Theme.tipFont.pointSize - 2
-                font.italic: true
                 color: Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
-                opacity: 0.35
               }
             }
             QfToolButton {
