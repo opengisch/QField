@@ -313,7 +313,7 @@ jobs:
           ./scripts/ci/env_gh.sh
 
       - name: Comment commit
-        uses: peter-evans/commit-comment@v3
+        uses: peter-evans/commit-comment@v4
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           token: ${{ secrets.FAIRY_TOKEN }}
