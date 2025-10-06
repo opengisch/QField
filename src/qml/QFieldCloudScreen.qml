@@ -507,7 +507,7 @@ Page {
                     enableGradient: showSync && showPush
                     width: 14
 
-                    readonly property bool showSync: projectDelegate.projectOutdated
+                    readonly property bool showSync: LocalPath !== '' && projectDelegate.projectOutdated
                     readonly property bool showPush: projectDelegate.localDeltasCount > 0
                   }
                 }
