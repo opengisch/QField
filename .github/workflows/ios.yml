@@ -36,7 +36,6 @@ jobs:
       - name: Reclaim disk space
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
-          rm -rf /Applications/Xcode_14*
           rm -rf /Applications/Xcode_15*
           rm -rf /Users/runner/Library/Android/sdk
 
