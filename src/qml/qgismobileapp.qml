@@ -59,30 +59,6 @@ ApplicationWindow {
     if (positioningSettings.positioningActivated) {
       positionSource.active = true;
     }
-    refreshSceneMargins.triggered();
-  }
-
-  Connections {
-    target: Screen
-
-    function onOrientationChanged() {
-      refreshSceneMargins.start();
-    }
-  }
-
-  Timer {
-    id: refreshSceneMargins
-    running: false
-    repeat: false
-    interval: 50
-
-    onTriggered: {
-      const margins = platformUtilities.sceneMargins(mainWindow);
-      mainWindow.sceneTopMargin = margins["top"];
-      mainWindow.sceneBottomMargin = margins["bottom"];
-      mainWindow.sceneLeftMargin = margins["left"];
-      mainWindow.sceneRightMargin = margins["right"];
-    }
   }
 
   Settings {
@@ -156,6 +132,10 @@ ApplicationWindow {
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
+  Keys.onReleased: event => {
+    console.log(event.key);
   }
 
   Shortcut {

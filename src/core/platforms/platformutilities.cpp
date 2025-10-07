@@ -468,24 +468,6 @@ QString PlatformUtilities::getTextFromClipboard() const
   return QGuiApplication::clipboard()->text();
 }
 
-QVariantMap PlatformUtilities::sceneMargins( QQuickWindow *window ) const
-{
-  QVariantMap margins;
-  margins[QLatin1String( "top" )] = 0.0;
-  margins[QLatin1String( "right" )] = 0.0;
-  margins[QLatin1String( "bottom" )] = 0.0;
-  margins[QLatin1String( "left" )] = 0.0;
-
-  QPlatformWindow *platformWindow = static_cast<QPlatformWindow *>( window->handle() );
-  if ( platformWindow )
-  {
-    margins[QLatin1String( "top" )] = platformWindow->safeAreaMargins().top();
-    margins[QLatin1String( "bottom" )] = platformWindow->safeAreaMargins().bottom();
-  }
-
-  return margins;
-}
-
 double PlatformUtilities::systemFontPointSize() const
 {
   return QApplication::font().pointSizeF() + 2.0;
