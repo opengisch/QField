@@ -29,6 +29,7 @@ set(${PORT}_PATCHES
         fix-libresolv-test.patch
         16kb.patch
         16kb-2.patch
+        insets.patch
 )
  
 if(VCPKG_TARGET_IS_WINDOWS AND NOT VCPKG_TARGET_IS_MINGW)
