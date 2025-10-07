@@ -41,17 +41,17 @@ ApplicationWindow {
   id: mainWindow
   objectName: 'mainWindow'
   visible: true
-  flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | (sceneBorderless ? Qt.FramelessWindowHint : 0) | (Qt.platform.os === "ios" || Qt.platform.os === "android" ? Qt.MaximizeUsingFullscreenGeometryHint : 0) | (Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint : 0)
+  flags: Qt.platform.os === "ios" || Qt.platform.os === "android" ? Qt.Window | Qt.ExpandedClientAreaHint | Qt.NoTitleBarBackgroundHint : Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint | (sceneBorderless ? Qt.FramelessWindowHint : 0)
 
   Material.theme: Theme.darkTheme ? "Dark" : "Light"
   Material.accent: Theme.mainColor
 
   property bool sceneLoaded: false
   property bool sceneBorderless: false
-  property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
-  property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]
-  property double sceneLeftMargin: platformUtilities.sceneMargins(mainWindow)["left"]
-  property double sceneRightMargin: platformUtilities.sceneMargins(mainWindow)["right"]
+  property double sceneTopMargin: SafeArea.margins.top
+  property double sceneBottomMargin: SafeArea.margins.bottom
+  property double sceneLeftMargin: SafeArea.margins.left
+  property double sceneRightMargin: SafeArea.margins.right
 
   onSceneLoadedChanged: {
     // This requires the scene to be fully loaded not to crash due to possibility of
