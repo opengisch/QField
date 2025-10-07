@@ -68,15 +68,15 @@ void BarcodeDecoder::decodeImage( const QImage &image )
       case QImage::Format_ARGB32:
       case QImage::Format_RGB32:
 #if Q_BYTE_ORDER == Q_LITTLE_ENDIAN
-        return ZXing::ImageFormat::BGRX;
+        return ZXing::ImageFormat::BGRA;
 #else
-        return ImageFormat::XRGB;
+        return ZXing::ImageFormat::ARGB;
 #endif
       case QImage::Format_RGB888:
         return ZXing::ImageFormat::RGB;
       case QImage::Format_RGBX8888:
       case QImage::Format_RGBA8888:
-        return ZXing::ImageFormat::RGBX;
+        return ZXing::ImageFormat::RGBA;
       case QImage::Format_Grayscale8:
         return ZXing::ImageFormat::Lum;
       default:
