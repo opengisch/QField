@@ -217,7 +217,7 @@ Drawer {
             statusBadge.visible: showSync || showPush
             statusBadge.color: showSync ? Theme.mainColor : Theme.cloudColor
             statusBadge.enableGradient: showSync && showPush
-            statusBadge.width: cloudButton.width / 2.85
+            statusBadge.width: cloudButton.width / 2.8
             statusBadge.badgeText.color: Theme.light
             statusBadge.badgeText.text: {
               if (cloudProjectsModel.layerObserver.deltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0) {

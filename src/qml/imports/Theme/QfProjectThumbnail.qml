@@ -104,7 +104,7 @@ Rectangle {
             z: 2
             alignment: QfBadge.Alignment.BottomRight
             visible: false
-            width: type.width / 3
+            width: type.width / 2.5
             height: width
             border.width: 2
             bottomMargin: -2
@@ -124,8 +124,7 @@ Rectangle {
             leftPadding: type.visible ? 3 : 10
             bottomPadding: projectNote.visible ? 0 : 5
             font.pointSize: Theme.tipFont.pointSize
-            font.underline: true
-            color: Theme.mainColor
+            color: Theme.mainTextColor
             opacity: thumbnail.isPressed ? 0.8 : 1
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
@@ -137,7 +136,6 @@ Rectangle {
             bottomPadding: 4
             visible: text !== ""
             font.pointSize: Theme.tipFont.pointSize - 2
-            font.italic: true
             color: Theme.secondaryTextColor
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
