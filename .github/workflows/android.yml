@@ -101,12 +101,12 @@ jobs:
           ruby-version: '3.2' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
-      - name: Setup .NET
+      - name: 🪟 Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
 
-      - name: Install Mono
+      - name: 🐵 Install Mono
         run: |
           sudo apt install ca-certificates gnupg
           sudo gpg --homedir /tmp --no-default-keyring --keyring gnupg-ring:/usr/share/keyrings/mono-official-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
@@ -134,7 +134,7 @@ jobs:
       # But we are compiling this before gradle is executed, so it is not downloaded
       # Therefore we download it manually to get include headers and libraries
       # ... a better implementation of this much appreciated ...
-      - name: Download sentry libs
+      - name: 📐 Download sentry libs
         run: |
           mkdir /tmp/sentry-android-ndk
           wget https://repo1.maven.org/maven2/io/sentry/sentry-android-ndk/7.22.5/sentry-android-ndk-7.22.5.aar -O /tmp/sentry.zip
@@ -182,7 +182,7 @@ jobs:
         run: |
           cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
 
-      - name: Setup signing key
+      - name: 🔑 Setup signing key
         env:
           SIGNINGKEY: ${{ secrets.PLAYSTORE_SIGNINGKEY }}
         run: |
