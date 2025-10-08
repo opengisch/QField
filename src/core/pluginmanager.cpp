@@ -370,7 +370,7 @@ void PluginManager::installFromUrl( const QString &url )
           bool pluginDirectoryWithinZip = false;
           QString pluginDirectoryName;
           QStringList zipFiles = QgsZipUtils::files( filePath );
-          if ( zipFiles.at( 0 ).indexOf( '/' ) >= 0 )
+          if ( !zipFiles.isEmpty() && !zipFiles.contains( "main.qml" ) && zipFiles.at( 0 ).indexOf( '/' ) >= 0 )
           {
             pluginDirectoryName = zipFiles.at( 0 ).mid( 0, zipFiles.at( 0 ).indexOf( '/' ) );
             pluginDirectoryWithinZip = true;
