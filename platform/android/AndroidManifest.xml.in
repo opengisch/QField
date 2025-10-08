@@ -61,8 +61,7 @@
       android:clearTaskOnLaunch="false"
       android:label="@APP_NAME@"
       android:icon="@AT@drawable/@APP_ICON@"
-      android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation"
-      android:theme="@style/AppTheme"
+      android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density"
       android:exported="true">
 
       <intent-filter>

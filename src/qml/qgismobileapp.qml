@@ -41,47 +41,28 @@ ApplicationWindow {
   id: mainWindow
   objectName: 'mainWindow'
   visible: true
-  flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | (sceneBorderless ? Qt.FramelessWindowHint : 0) | (Qt.platform.os === "ios" || Qt.platform.os === "android" ? Qt.MaximizeUsingFullscreenGeometryHint : 0) | (Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint : 0)
+  flags: Qt.platform.os === "ios" || Qt.platform.os === "android" ? Qt.ExpandedClientAreaHint | Qt.NoTitleBarBackgroundHint : Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint | (sceneBorderless ? Qt.FramelessWindowHint : 0)
+
+  topPadding: 0
+  bottomPadding: 0
+  leftPadding: 0
+  rightPadding: 0
 
   Material.theme: Theme.darkTheme ? "Dark" : "Light"
   Material.accent: Theme.mainColor
 
   property bool sceneLoaded: false
   property bool sceneBorderless: false
-  property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
-  property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]
-  property double sceneLeftMargin: platformUtilities.sceneMargins(mainWindow)["left"]
-  property double sceneRightMargin: platformUtilities.sceneMargins(mainWindow)["right"]
+  property double sceneTopMargin: SafeArea.margins.top
+  property double sceneBottomMargin: SafeArea.margins.bottom
+  property double sceneLeftMargin: SafeArea.margins.left
+  property double sceneRightMargin: SafeArea.margins.right
 
   onSceneLoadedChanged: {
     // This requires the scene to be fully loaded not to crash due to possibility of
     // a thread blocking permission request being thrown
     if (positioningSettings.positioningActivated) {
       positionSource.active = true;
-    }
-    refreshSceneMargins.triggered();
-  }
-
-  Connections {
-    target: Screen
-
-    function onOrientationChanged() {
-      refreshSceneMargins.start();
-    }
-  }
-
-  Timer {
-    id: refreshSceneMargins
-    running: false
-    repeat: false
-    interval: 50
-
-    onTriggered: {
-      const margins = platformUtilities.sceneMargins(mainWindow);
-      mainWindow.sceneTopMargin = margins["top"];
-      mainWindow.sceneBottomMargin = margins["bottom"];
-      mainWindow.sceneLeftMargin = margins["left"];
-      mainWindow.sceneRightMargin = margins["right"];
     }
   }
 
@@ -141,6 +122,7 @@ ApplicationWindow {
     focus: true
 
     Keys.onReleased: event => {
+      console.log('keyHandler key released' + event.key);
       if (event.modifiers === Qt.NoModifier) {
         if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
           if (featureForm.visible) {
@@ -156,6 +138,10 @@ ApplicationWindow {
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
+  Keys.onReleased: event => {
+    console.log('root key released' + event.key);
   }
 
   Shortcut {

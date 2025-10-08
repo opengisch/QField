@@ -20,13 +20,18 @@ ToolBar {
 
   property double topMargin: 0.0
 
-  height: topMargin + 48
-
   signal cancel
   signal apply
   signal back
   signal finished
   signal openMenu
+
+  height: topMargin + 48
+
+  topPadding: 0
+  leftPadding: 0
+  rightPadding: 0
+  bottomPadding: 0
 
   anchors {
     top: parent.top
