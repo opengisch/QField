@@ -59,7 +59,7 @@ shopt -s extglob
 mkdir /android-sdk/cmdline-tools/latest
 mv /android-sdk/cmdline-tools/!(latest) /android-sdk/cmdline-tools/latest
 yes | /android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
-/android-sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-35" "build-tools;36.0.0" "platform-tools" "tools" "ndk;${ANDROID_NDK_VERSION}"
+/android-sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-35" "build-tools;35.0.1" "platform-tools" "tools" "ndk;${ANDROID_NDK_VERSION}"
 END_OF_SCRIPT
 
 ENV ANDROID_SDK_ROOT /android-sdk
