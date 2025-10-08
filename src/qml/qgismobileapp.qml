@@ -40,8 +40,7 @@ import Theme
 ApplicationWindow {
   id: mainWindow
   objectName: 'mainWindow'
-  visible: true
-  flags: Qt.platform.os === "ios" || Qt.platform.os === "android" ? Qt.Window | Qt.ExpandedClientAreaHint | Qt.NoTitleBarBackgroundHint : Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint | (sceneBorderless ? Qt.FramelessWindowHint : 0)
+  flags: Qt.platform.os === "ios" || Qt.platform.os === "android" ? Qt.ExpandedClientAreaHint | Qt.NoTitleBarBackgroundHint : Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint | (sceneBorderless ? Qt.FramelessWindowHint : 0)
 
   Material.theme: Theme.darkTheme ? "Dark" : "Light"
   Material.accent: Theme.mainColor
@@ -58,32 +57,6 @@ ApplicationWindow {
     // a thread blocking permission request being thrown
     if (positioningSettings.positioningActivated) {
       positionSource.active = true;
-    }
-  }
-
-  Settings {
-    property alias x: mainWindow.x
-    property alias y: mainWindow.y
-    property alias width: mainWindow.width
-    property alias height: mainWindow.height
-
-    property int minimumSize: Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? 300 : 50
-    property string screenConfiguration: ''
-
-    Component.onCompleted: {
-      if (Qt.platform.os !== "ios" && Qt.platform.os !== "android") {
-        let currentScreensConfiguration = `${Qt.application.screens.length}`;
-        for (let screen of Qt.application.screens) {
-          currentScreensConfiguration += `:${screen.width}x${screen.height}-${screen.virtualX}-${screen.virtualY}`;
-        }
-        if (currentScreensConfiguration != screenConfiguration) {
-          screenConfiguration = currentScreensConfiguration;
-          width = Math.max(width, minimumSize);
-          height = Math.max(height, minimumSize);
-          x = Math.min(x, mainWindow.screen.width - width);
-          y = Math.min(y, mainWindow.screen.height - height);
-        }
-      }
     }
   }
 
