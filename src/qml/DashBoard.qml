@@ -20,6 +20,7 @@ Drawer {
   signal toggleMeasurementTool
   signal returnHome
 
+  property bool preventFromOpening: overlayFeatureFormDrawer.visible
   property bool allowInteractive: true
   property alias allowActiveLayerChange: legend.allowActiveLayerChange
   property alias activeLayer: legend.activeLayer
@@ -36,10 +37,12 @@ Drawer {
   height: parent.height
   edge: Qt.LeftEdge
   dragMargin: 10
-  padding: 0
   interactive: allowInteractive && buttonsRowContainer.width >= buttonsRow.width
 
-  property bool preventFromOpening: overlayFeatureFormDrawer.visible
+  topPadding: 0
+  leftPadding: 0
+  rightPadding: 0
+  bottomPadding: 0
 
   position: 0
   focus: visible
