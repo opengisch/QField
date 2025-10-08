@@ -40,6 +40,7 @@ import Theme
 ApplicationWindow {
   id: mainWindow
   objectName: 'mainWindow'
+  visible: true
   flags: Qt.platform.os === "ios" || Qt.platform.os === "android" ? Qt.ExpandedClientAreaHint | Qt.NoTitleBarBackgroundHint : Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint | (sceneBorderless ? Qt.FramelessWindowHint : 0)
 
   Material.theme: Theme.darkTheme ? "Dark" : "Light"
@@ -90,6 +91,7 @@ ApplicationWindow {
     focus: true
 
     Keys.onReleased: event => {
+      console.log('keyHandler key released' + event.key);
       if (event.modifiers === Qt.NoModifier) {
         if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
           if (featureForm.visible) {
@@ -108,7 +110,7 @@ ApplicationWindow {
   }
 
   Keys.onReleased: event => {
-    console.log(event.key);
+    console.log('root key released' + event.key);
   }
 
   Shortcut {
