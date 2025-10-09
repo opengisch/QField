@@ -123,6 +123,7 @@
         <file>imports/Theme/QfTimeItem.qml</file>
         <file>imports/Theme/QfCalendarItem.qml</file>
         <file>imports/Theme/QfBadge.qml</file>
+        <file>imports/Theme/QfToolButtonPie.qml</file>
         <file>TrackerSettings.qml</file>
         <file>TrackingSession.qml</file>
         <file>EmbeddedFeatureForm.qml</file>
