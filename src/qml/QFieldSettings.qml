@@ -166,21 +166,21 @@ Page {
   ListModel {
     id: interfaceSettingsModel
     ListElement {
-      title: qsTr("Maximized attribute form")
+      title: qsTr("Maximize feature form")
       description: ''
       settingAlias: "fullScreenIdentifyView"
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr("Open feature form for single feature identification")
+      description: qsTr("When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.")
+      settingAlias: "autoOpenFormSingleIdentify"
       isVisible: true
     }
     ListElement {
       title: qsTr("Fixed scale navigation")
       description: qsTr("When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.")
       settingAlias: "locatorKeepScale"
-      isVisible: true
-    }
-    ListElement {
-      title: qsTr("Automatically open form for single feature identification")
-      description: qsTr("When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.")
-      settingAlias: "autoOpenFormSingleIdentify"
       isVisible: true
     }
   }
