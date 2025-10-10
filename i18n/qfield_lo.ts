@@ -87,7 +87,7 @@
     <name>AppMissingGridHandler</name>
     <message>
         <source>No transform available between %1 and %2</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ມີການແປງຄ່າໃດໆ ໃຫ້ໃຊ້ລະຫວ່າງ %1 ແລະ %2</translation>
     </message>
     <message>
         <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
@@ -119,11 +119,11 @@
     </message>
     <message>
         <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>ການປ່ຽນຮູບແບບທີ່ຕ້ອງການລະຫວ່າງ %1 ແລະ %2 ບໍ່ມີໃຫ້ໃຊ້ໃນລະບົບ.</translation>
     </message>
     <message>
         <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ມີການແປງຄ່າໃດໆ ໃຫ້ໃຊ້ລະຫວ່າງ %1 ແລະ %2.%3</translation>
     </message>
     <message>
         <source>Cannot use project transform between %1 and %2</source>
@@ -131,7 +131,7 @@
     </message>
     <message>
         <source>Used a ballpark transform from %1 to %2</source>
-        <translation type="unfinished"/>
+        <translation>ໄດ້ໃຊ້ການປ່ຽນຂໍ້ມູນແບບປະມານຈາກ %1 ໄປຫາ %2</translation>
     </message>
 </context>
 <context>
@@ -161,7 +161,7 @@
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ທ່ານສາມາດກວດເບິ່ງສ່ວນ Portable Project ໃນເອກະສານ QField ເພື່ອຮັບຄວາມຊ່ວຍເຫຼືອເພີ່ມເຕີມ.</translation>
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
@@ -607,38 +607,38 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
-        <translation type="unfinished"/>
+        <translation>ຄາດວ່າອົງປະກອບທັງໝົດຂອງອາເຣຈະເປັນອັອບເຈັກ, ແຕ່ອົງປະກອບຢູ່ຕຳແໜ່ງ #%1 ບໍ່ແມ່ນ. </translation>
     </message>
     <message>
         <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
-        <translation type="unfinished"/>
+        <translation>ຄາດວ່າອົງປະກອບທັງໝົດຂອງອາເຣຈະເປັນອັອບເຈັກທີ່ມີຄີ “%1”, ແຕ່ອົງປະກອບຢູ່ຕຳແໜ່ງ #%2 ບໍ່ແມ່ນ. </translation>
     </message>
     <message>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
-        <translation type="unfinished"/>
+        <translation>ສະຖານະ “%1” ທີ່ບໍ່ຮູ້ຈັກສຳລັບ $%2</translation>
     </message>
 </context>
 <context>
     <name>DigitizingLogger</name>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
-        <translation type="unfinished"/>
+        <translation>ການສະແດງອອກຄ່າເລີ່ມຕົ້ນສຳລັບຊ່ອງບັນທຶກການສະແກນ %2 ມີຄວາມຜິດພາດການແຍກວິເຄາະ: %3</translation>
     </message>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
-        <translation type="unfinished"/>
+        <translation>ການສະແດງອອກຄ່າເລີ່ມຕົ້ນສຳລັບຊ່ອງບັນທຶກການສະແກນ %2 ມີຂໍ້ຜິດພາດໃນການປະເມີນ: %3</translation>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation type="unfinished"/>
+        <translation>ການເພີ່ມຟີເຈີໃນຊັ້ນຂໍ້ມູນບັນທຶກແບບດິຈິຕອລບໍ່ສຳເລັດ</translation>
     </message>
     <message>
         <source>Digitizing logs layer change commits failed</source>
-        <translation type="unfinished"/>
+        <translation>ການຢືນຢັນການປ່ຽນແປງຂອງຊັ້ນຂໍ້ມູນບັນທຶກແບບດິຈິຕອລບໍ່ສຳເລັດ</translation>
     </message>
     <message>
         <source>Digitizing logs layer editing failed</source>
-        <translation type="unfinished"/>
+        <translation>ການແກ້ໄຂຊັ້ນຂໍ້ມູນບັນທຶກແບບດິຈິຕອລບໍ່ສຳເລັດ</translation>
     </message>
 </context>
 <context>
@@ -813,7 +813,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
-        <translation type="unfinished"/>
+        <translation>ຂໍ້ຜິດພາດໃນການຕິດຄັດໄຟລ໌ແບບ On-demand ຂອງ QFieldCloud: </translation>
     </message>
 </context>
 <context>
@@ -4095,7 +4095,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Map canvas rendering quality:</source>
-        <translation type="unfinished"/>
+        <translation>ຄຸນນະພາບການສະແດງຜົນຜືນແຜນທີ່:</translation>
     </message>
     <message>
         <source>Best quality</source>
@@ -4111,7 +4111,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation type="unfinished"/>
+        <translation>ຄຸນນະພາບທີ່ຕໍ່າລົງຈະຫຼຸດຜ່ອນຄວາມລະອຽດຂອງການສະແດງຜົນ ເພື່ອໃຫ້ໃຊ້ໜ່ວຍຄວາມຈຳນ້ອຍລົງ ແລະ ໃຊ້ເວລາສະແດງຜົນສັ້ນລົງ.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
@@ -4195,15 +4195,16 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>ເມື່ອເປີດໃຊ້ຕົວຊີ້ວັດຄວາມແມ່ນຍຳ, ຈະມີປ້າຍຕິດກັບປຸ່ມຕຳແໜ່ງ ແລະມີສີ &lt;span %1&gt;ແດງ ຖ້າຄ່າຄວາມແມ່ນຍຳແຍ່ກວ່າຂີດຈຳກັດ “ບໍ່ດີ”, &lt;span %2&gt;ເຫຼືອງ ຖ້າຄ່າຄວາມແມ່ນຍຳຕ່ຳກວ່າຂີດຈຳກັດ “ດີເລີດ”, ຫຼື &lt;span %3&gt;ຂຽວ ຖ້າຄ່າຄວາມແມ່ນຍຳດີ.
+ຍິ່ງໄປກວ່ານັ້ນ, ຍັງສາມາດເປີດໂໝດຈຳກັດຄວາມແມ່ນຍຳໄດ້, ເຊິ່ງຈະຈຳກັດການເພີ່ມຈຸດຍອດ (vertex) ໃນເວລາທີ່ຕຳແໜ່ງຖືກລັອກກັບເຄື່ອງໝາຍພິກັດ ໃຫ້ຢູ່ໃນຕຳແໜ່ງທີ່ມີຄ່າຄວາມແມ່ນຍຳແຍ່ກວ່າຂີດຈຳກັດ “ບໍ່ດີ”.</translation>
     </message>
     <message>
         <source>Render preview content around visible map canvas</source>
-        <translation>ສະແດງເນື້ອຫາຕົວຢ່າງອ້ອມຮອບໜ້າຈໍແຜນທີ່ທີ່ເບິ່ງເຫັນ</translation>
+        <translation>ສະແດງຜົນເນື້ອໃນແບບເບິ່ງຕົວຢ່າງອ້ອມຮອບຜືນແຜນທີ່ທີ່ເຫັນໄດ້</translation>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
-        <translation>ຖ້າເປີດນຳໃຊ້, ພື້ນທີ່ທີ່ຢູ່ພາຍນອກຂອບເຂດໜ້າຈໍແຜນທີ່ທີ່ເບິ່ງເຫັນຈະຖືກສະແດງບາງສ່ວນ ເພື່ອໃຫ້ສາມາດເບິ່ງຕົວຢ່າງເວລາຊູມ ຫຼື ແພນໄດ້.</translation>
+        <translation>ຖ້າເປີດນຳໃຊ້, ພື້ນທີ່ທີ່ຢູ່ນອກຂອບເຂດຜືນແຜນທີ່ທີ່ເຫັນໄດ້ພຽງເລັກນ້ອຍ ຈະຖືກສະແດງຜົນບາງສ່ວນ ເພື່ອອະນຸຍາດໃຫ້ເບິ່ງຕົວຢ່າງເວລາຊູມ ແລະ ແພນ.</translation>
     </message>
     <message>
         <source>Automatically open form for single feature identification</source>
@@ -5034,7 +5035,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ເມື່ອຂໍ້ຈຳກັດທັງສອງຖືກປິດນຳໃຊ້, ການເພີ່ມຈຸດຍອດຈະເກີດຂຶ້ນເລື້ອຍໆຕາມທີ່ອຸປະກອນກຳນົດຕຳແໜ່ງສົ່ງໃຫ້.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -5294,7 +5295,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation type="unfinished"/>
+        <translation>ການເກັບກຳມາດຕະການທີ່ບໍ່ເປີດເຜີຍຊື່ໄດ້ຖືກປິດນຳໃຊ້ແລ້ວ. ທ່ານສາມາດເປີດນຳໃຊ້ຄືນໃໝ່ຜ່ານແຜງຕັ້ງຄ່າ.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
@@ -5318,23 +5319,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation type="unfinished"/>
+        <translation>ໂຄງການຫຼ້າສຸດ</translation>
     </message>
     <message>
         <source>Last session</source>
-        <translation type="unfinished"/>
+        <translation>ໃຊ້ງານຫຼ້າສຸດ</translation>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ໂຄງການແຜນທີ່ພື້ນຖານ</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ໂຄງການແຜນທີ່ພື້ນຖານ</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation type="unfinished"/>
+        <translation>ລຶບອອກຈາກໂຄງການຫຼ້າສຸດ</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
@@ -5378,7 +5379,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation type="unfinished"/>
+        <translation>ດີຫຼາຍ! ພວກເຮົາຢາກໃຫ້ທ່ານກົດປຸ່ມດ້ານລຸ່ມນີ້ ແລະ ຂຽນຄຳຕິຊົມໃຫ້ແດ່. </translation>
     </message>
     <message>
         <source>Return to map</source>
@@ -5404,7 +5405,7 @@ project</source>
     <name>area</name>
     <message>
         <source>square degrees</source>
-        <translation type="unfinished"/>
+        <translation>ອົງສາຕາລາງ</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
@@ -5412,11 +5413,11 @@ project</source>
     </message>
     <message>
         <source>sqr. meters</source>
-        <translation type="unfinished"/>
+        <translation>ຕາລາງແມັດ</translation>
     </message>
     <message>
         <source>sqr. kilometers</source>
-        <translation type="unfinished"/>
+        <translation>ຕາລາງກິໂລແມັດ</translation>
     </message>
     <message>
         <source>sqr. feet</source>
@@ -5560,7 +5561,7 @@ project</source>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation type="unfinished"/>
+        <translation>ຕອນນີ້ທ່ານຢູ່ໃນໂໝດເຮັດເປັນດິຈິຕອລ</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
@@ -5576,7 +5577,7 @@ project</source>
     </message>
     <message>
         <source>Segment</source>
-        <translation type="unfinished"/>
+        <translation>ສ່ວນ</translation>
     </message>
     <message>
         <source>Perimeter</source>
@@ -5588,19 +5589,19 @@ project</source>
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"/>
+        <translation>ພື້ນທີ່</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation type="unfinished"/>
+        <translation>ປິດເຄື່ອງມືວັດແທກ</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation type="unfinished"/>
+        <translation>ຢຸດການແກ້ໄຂ</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation type="unfinished"/>
+        <translation>ຍົກເລີກການເພີ່ມ</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
@@ -5616,7 +5617,7 @@ project</source>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation type="unfinished"/>
+        <translation>ການປ້ອນຂໍ້ມູນແບບອິດສະຫຼະໄດ້ຖືກປິດນຳໃຊ້ແລ້ວ</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
@@ -5636,11 +5637,11 @@ project</source>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>ໜ້າຈໍແຜນທີ່ເຄື່ອນຕາມຕຳແໜ່ງ</translation>
+        <translation>ຜືນແຜນທີ່ຕິດຕາມຕຳແໜ່ງ</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation type="unfinished"/>
+        <translation>ກຳລັງລໍຖ້າຕຳແໜ່ງ</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -5652,7 +5653,7 @@ project</source>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation type="vanished">ໜ້າຈໍເຊົາຕິດຕາມຈຸດທີ່ຕັ້ງແລ້ວ</translation>
+        <translation type="vanished">ຜືນແຜນທີ່ໄດ້ຢຸດການຕິດຕາມຕຳແໜ່ງແລ້ວ</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -5708,11 +5709,11 @@ project</source>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation type="unfinished"/>
+        <translation>ກຳລັງເປີດນຳໃຊ້ບໍລິການກຳນົດຕຳແໜ່ງ</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">QField ບໍ່ມີສິດໃນການນຳໃຊ້ການກຳນົດຕຳແໜ່ງ.</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
@@ -5728,11 +5729,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ເພີ່ມບຸກມາກຢູ່ພິກັດ</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation type="unfinished"/>
+        <translation>ບຸກມາກບໍ່ມີຊື່</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -5756,23 +5757,23 @@ project</source>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າການເບິ່ງແບບລະອຽດ</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ຄວາມລະອຽດ 0.25ມ</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ຄວາມລະອຽດ 0.5ມ</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ຄວາມລະອຽດ 1ມ</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ຄວາມລະອຽດ 2.5ມ</translation>
     </message>
     <message>
         <source>5m Precision</source>
@@ -5792,11 +5793,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="unfinished"/>
+        <translation>ເພີ່ມບຸກມາກຢູ່ຕຳແໜ່ງ</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>ສຳເນົາພິກັດຕຳແໜ່ງ</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5820,7 +5821,7 @@ project</source>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>ຄວາມລະອຽດ %1</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
@@ -5844,7 +5845,7 @@ project</source>
     </message>
     <message>
         <source>Center to Current Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ຈັດຢູ່ໃຈກາງຕາມຕຳແໜ່ງປັດຈຸບັນ</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
@@ -5856,7 +5857,7 @@ project</source>
     </message>
     <message>
         <source>My location</source>
-        <translation type="unfinished"/>
+        <translation>ຕຳແໜ່ງຂອງຂ້ອຍ</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -5908,11 +5909,11 @@ project</source>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation type="unfinished"/>
+        <translation>ການປ່ຽນແປງບໍ່ສາມາດສົ່ງໄປເຖິງ QFieldCloud ໄດ້: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>ການປ່ຽນແປງໄດ້ຖືກສົ່ງໄປຫາ QFieldCloud ສຳເລັດແລ້ວ</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
@@ -5932,7 +5933,7 @@ project</source>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ພິມອອກເປັນຮູບພາບ</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -5940,7 +5941,7 @@ project</source>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>ພິມ</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
@@ -5956,7 +5957,7 @@ project</source>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation type="unfinished"/>
+        <translation>ການຈັບຕິດໄດ້ຖືກເປີດນຳໃຊ້ແລ້ວ</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
@@ -5964,19 +5965,19 @@ project</source>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>ການຈັບຕິດມຸມ %1° ໄດ້ຖືກເປີດນຳໃຊ້ແລ້ວ</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>ການຈັບຕິດມຸມທົ່ວໄປໄດ້ຖືກປິດນຳໃຊ້ແລ້ວ</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>ມຸມທຽບເທົ່າ</translation>
     </message>
     <message>
         <source>Canvas follows location and compass orientation</source>
-        <translation>ໜ້າຈໍຕິດຕາມຈຸດທີ່ຕັ້ງ ແລະ ທິດທາງເຂັມທິດ</translation>
+        <translation>ຜືນແຜນທີ່ຕິດຕາມຕຳແໜ່ງ ແລະ ທິດທາງຂອງເຂັມທິດ</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -6144,7 +6145,7 @@ project</source>
     </message>
     <message>
         <source>Snapping tolerance</source>
-        <translation type="unfinished"/>
+        <translation>ຄ່າທົນທານຂອງການຈັບຕິດ</translation>
     </message>
     <message>
         <source>Narrow</source>
@@ -6216,11 +6217,11 @@ project</source>
     </message>
     <message>
         <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation type="unfinished"/>
+        <translation>ເປີດ/ປິດເຄື່ອງມືວັດແທກ ເພື່ອຄິດໄລ່ໄລຍະທາງ ແລະ ພື້ນທີ່ໃນແຜນທີ່.</translation>
     </message>
     <message>
         <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
-        <translation type="unfinished"/>
+        <translation>ສົ່ງອອກຜືນແຜນທີ່ເປັນ PDF ໂດຍໃຊ້ຮູບແບບການພິມໂຄງການ ແລະ ແຜນຜັງແຜນທີ່ຄູ່ມືທີ່ໄດ້ຕັ້ງຄ່າໄວ້.</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -6228,7 +6229,7 @@ project</source>
     </message>
     <message>
         <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
+        <translation>ຍູ້ການປ່ຽນແປງ, ສິງໂຄຣໄນ ຫຼື ປ່ຽນຄືນການປ່ຽນແປງໄປ ແລະ ຈາກ QFieldCloud ເມື່ອໂຄງການຄລາວຖືກເປີດ.</translation>
     </message>
     <message>
         <source>Project folder</source>
@@ -6236,7 +6237,7 @@ project</source>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation type="unfinished"/>
+        <translation>ເປີດໂຟນເດີໂຄງການ ເພື່ອເຂົ້າເຖິງໄຟລ໌ໂຄງການ, ແຫຼ່ງຂໍ້ມູນ, ແລະ ເອກະສານທີ່ກ່ຽວຂ້ອງ. ເປັນປະໂຫຍດສຳລັບການຈັດການຊັບພະຍາກອນໂຄງການ, ການອັບໂຫຼດຂໍ້ມູນດ້ວຍຕົນເອງໄປໃສ່ QFieldCloud, ແລະ ການແບ່ງປັນຊຸດຂໍ້ມູນ, ໄຟລ໌ຄັດຕິດ, ແລະ ຮູບແບບຕ່າງໆ.</translation>
     </message>
     <message>
         <source>Legend</source>
@@ -6268,7 +6269,7 @@ project</source>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
-        <translation type="unfinished"/>
+        <translation>ການແກ້ໄຂຮູບຊົງເລຂາຄະນິດແບບຫຼາຍພາກສ່ວນແມ່ນຍັງບໍ່ຮອງຮັບເທື່ອ.</translation>
     </message>
 </context>
 <context>
