@@ -3,18 +3,23 @@ import QtQuick.Controls
 import QtQuick.Shapes
 
 Container {
-  id: pieMenuCircle
+  id: container
 
   scale: 0
   opacity: 0
   visible: opacity > 0
 
-  property int shapeWidth: 48
-  property int animationDuration: 200
-  property real innerRadius: outerRadius - shapeWidth
-  property real outerRadius: width / 2
-  property real pathRadius: (innerRadius + outerRadius + shapeWidth) / 2
+  property int bandWidth: 48
   property real currentAngle: 0
+  property alias strokeColor: shapePath.strokeColor
+
+  QtObject {
+    id: internal
+    property int animationDuration: 200
+    property real outerRadius: container.width / 2
+    property real innerRadius: outerRadius - bandWidth
+    property real pathRadius: (innerRadius + outerRadius + bandWidth) / 2
+  }
 
   contentItem: Item {
     Shape {
@@ -22,18 +27,19 @@ Container {
       anchors.fill: parent
 
       ShapePath {
-        strokeWidth: pieMenuCircle.shapeWidth
+        id: shapePath
+        strokeWidth: container.bandWidth
         strokeColor: Qt.hsla(Theme.toolButtonBackgroundColor.hslHue, Theme.toolButtonBackgroundColor.hslSaturation, Theme.toolButtonBackgroundColor.hslLightness, 0.3)
         fillColor: "transparent"
         capStyle: ShapePath.RoundCap
 
         PathAngleArc {
-          centerX: pieMenuCircle.width / 2
-          centerY: pieMenuCircle.height / 2
-          radiusX: pieMenuCircle.width / 2
-          radiusY: pieMenuCircle.height / 2
+          centerX: container.width / 2
+          centerY: container.height / 2
+          radiusX: container.width / 2
+          radiusY: container.height / 2
           startAngle: 270
-          sweepAngle: pieMenuCircle.currentAngle
+          sweepAngle: container.currentAngle
         }
       }
     }
@@ -42,30 +48,28 @@ Container {
       id: menuItemsView
       anchors.fill: parent
       interactive: false
-      model: pieMenuCircle.contentModel
+      model: container.contentModel
 
       delegate: Item {
-        width: pieMenuCircle.shapeWidth - 8
-        height: pieMenuCircle.shapeWidth - 8
       }
 
       path: Path {
-        startX: pieMenuCircle.width / 2
-        startY: pieMenuCircle.height / 2 - pieMenuCircle.pathRadius
+        startX: container.width / 2
+        startY: container.height / 2 - internal.pathRadius
 
         PathArc {
-          x: pieMenuCircle.width / 2
-          y: pieMenuCircle.height / 2 + pieMenuCircle.pathRadius
-          radiusX: pieMenuCircle.pathRadius
-          radiusY: pieMenuCircle.pathRadius
+          x: container.width / 2
+          y: container.height / 2 + internal.pathRadius
+          radiusX: internal.pathRadius
+          radiusY: internal.pathRadius
           useLargeArc: true
         }
 
         PathArc {
-          x: pieMenuCircle.width / 2
-          y: pieMenuCircle.height / 2 - pieMenuCircle.pathRadius
-          radiusX: pieMenuCircle.pathRadius
-          radiusY: pieMenuCircle.pathRadius
+          x: container.width / 2
+          y: container.height / 2 - internal.pathRadius
+          radiusX: internal.pathRadius
+          radiusY: internal.pathRadius
           useLargeArc: true
         }
       }
@@ -73,16 +77,19 @@ Container {
       preferredHighlightBegin: 0
       preferredHighlightEnd: 0
       highlightRangeMode: PathView.NoHighlightRange
-      pathItemCount: pieMenuCircle.contentModel.count
+      pathItemCount: container.contentModel.count
       snapMode: PathView.SnapOneItem
     }
 
     MouseArea {
       anchors.fill: parent
-      anchors.margins: pieMenuCircle.outerRadius - pieMenuCircle.innerRadius
+      anchors.margins: internal.outerRadius - internal.innerRadius
       propagateComposedEvents: true
-      onClicked: event => {
-        pieMenuCircle.toggleMenu();
+      onClicked: function (event) {
+        if (container.visible)
+          container.close();
+        else
+          container.open();
         event.accepted = false;
       }
     }
@@ -90,36 +97,40 @@ Container {
 
   NumberAnimation {
     id: progressAnimation
-    target: pieMenuCircle
+    target: container
     property: "currentAngle"
     from: 0
     to: 360
-    duration: pieMenuCircle.animationDuration * 2
+    duration: internal.animationDuration * 2
     easing.type: Easing.InOutQuad
   }
 
   Behavior on scale  {
     NumberAnimation {
-      duration: pieMenuCircle.animationDuration * 2
+      duration: internal.animationDuration * 2
       easing.type: Easing.OutBack
     }
   }
 
   Behavior on opacity  {
     NumberAnimation {
-      duration: pieMenuCircle.animationDuration * 2
+      duration: internal.animationDuration * 2
     }
   }
 
-  function toggleMenu() {
-    if (!pieMenuCircle.visible) {
-      pieMenuCircle.opacity = 1;
-      pieMenuCircle.scale = 1;
-      pieMenuCircle.currentAngle = 0;
+  function open() {
+    if (!container.visible) {
+      container.opacity = 1;
+      container.scale = 1;
+      container.currentAngle = 0;
       progressAnimation.start();
-    } else {
-      pieMenuCircle.opacity = 0;
-      pieMenuCircle.scale = 0;
+    }
+  }
+
+  function close() {
+    if (container.visible) {
+      container.opacity = 0;
+      container.scale = 0;
     }
   }
 }
