@@ -495,6 +495,7 @@ Item {
   WheelHandler {
     enabled: interactive
     target: null
+    acceptedDevices: PointerDevice.AllDevices
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
     onWheel: event => {
