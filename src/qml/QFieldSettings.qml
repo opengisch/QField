@@ -14,6 +14,7 @@ Page {
   property alias currentPanel: bar.currentIndex
 
   property alias showScaleBar: registry.showScaleBar
+  property alias showZoomControls: registry.showZoomControls
   property alias fullScreenIdentifyView: registry.fullScreenIdentifyView
   property alias locatorKeepScale: registry.locatorKeepScale
   property alias autoOpenFormSingleIdentify: registry.autoOpenFormSingleIdentify
@@ -53,6 +54,7 @@ Page {
   Settings {
     id: registry
     property bool showScaleBar: true
+    property bool showZoomControls: false
     property bool fullScreenIdentifyView: false
     property bool locatorKeepScale: false
     property bool autoOpenFormSingleIdentify: false
@@ -96,6 +98,12 @@ Page {
       title: qsTr("Show scale bar")
       description: ''
       settingAlias: "showScaleBar"
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr("Show zoom controls")
+      description: ''
+      settingAlias: "showZoomControls"
       isVisible: true
     }
     ListElement {
