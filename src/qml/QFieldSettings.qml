@@ -129,12 +129,6 @@ Page {
       isVisible: true
     }
     ListElement {
-      title: qsTr("Fast editing mode")
-      description: qsTr("If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.")
-      settingAlias: "autoSave"
-      isVisible: true
-    }
-    ListElement {
       title: qsTr("Use volume keys to digitize")
       description: qsTr("If enabled, pressing the device's volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.")
       settingAlias: "digitizingVolumeKeys"
@@ -189,8 +183,14 @@ Page {
     id: advancedSettingsModel
     ListElement {
       title: qsTr("Render preview content around visible map canvas")
-      description: qsTr("If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning")
+      description: qsTr("If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.")
       settingAlias: "previewJobsEnabled"
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr("Enable auto-save mode")
+      description: qsTr("If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.")
+      settingAlias: "autoSave"
       isVisible: true
     }
     ListElement {
