@@ -34,11 +34,11 @@ class LocalFilesModel : public QAbstractListModel
   public:
     enum ItemMetaType
     {
+      Favorite,
       Folder,
       File,
       Project,
       Dataset,
-      Favorite,
     };
     Q_ENUM( ItemMetaType )
 
