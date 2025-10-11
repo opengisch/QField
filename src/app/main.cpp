@@ -168,7 +168,7 @@ int main( int argc, char **argv )
   }
 #endif
 
-  initGraphics();
+  //initGraphics();
 
   // Read settings, use a dummy app to get access to QSettings
   QCoreApplication *dummyApp = new QCoreApplication( argc, argv );
