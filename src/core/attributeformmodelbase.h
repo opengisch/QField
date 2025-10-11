@@ -44,6 +44,9 @@ class AttributeFormModelBase : public QStandardItemModel
     bool hasTabs() const;
     void setHasTabs( bool hasTabs );
 
+    bool hasRemembrance() const;
+    void setHasRemembrance( bool hasRemembrance );
+
     //! \copydoc AttributeFormModel::save
     bool save();
 
@@ -78,6 +81,7 @@ class AttributeFormModelBase : public QStandardItemModel
   signals:
     void featureModelChanged();
     void hasTabsChanged();
+    void hasRemembranceChanged();
     void featureChanged();
     void constraintsHardValidChanged();
     void constraintsSoftValidChanged();
@@ -145,7 +149,9 @@ class AttributeFormModelBase : public QStandardItemModel
     FeatureModel *mFeatureModel = nullptr;
     QPointer<QgsVectorLayer> mLayer;
     std::unique_ptr<QgsAttributeEditorContainer> mTemporaryContainer;
+
     bool mHasTabs = false;
+    bool mHasRemembrance = false;
 
     typedef QPair<QgsExpression, QStandardItem *> VisibilityExpression;
     QList<VisibilityExpression> mVisibilityExpressions;

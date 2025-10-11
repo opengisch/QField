@@ -191,6 +191,7 @@ void AttributeFormModelBase::resetModel()
   setConstraintsHardValid( true );
   setConstraintsSoftValid( true );
   setHasTabs( false );
+  setHasRemembrance( false );
 
   if ( !mFeatureModel )
     return;
@@ -566,7 +567,12 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( setup.type(), AttributeFormModel::EditorWidget );
         item->setData( setup.config(), AttributeFormModel::EditorWidgetConfig );
 #if _QGIS_VERSION_INT >= 39900
-        item->setData( mLayer->editFormConfig().reuseLastValuePolicy( fieldIndex ) != Qgis::AttributeFormReuseLastValuePolicy::NotAllowed, AttributeFormModel::CanRememberValue );
+        const bool canRemember = mLayer->editFormConfig().reuseLastValuePolicy( fieldIndex ) != Qgis::AttributeFormReuseLastValuePolicy::NotAllowed;
+        item->setData( canRemember, AttributeFormModel::CanRememberValue );
+        if ( canRemember )
+        {
+          setHasRemembrance( true );
+        }
 #else
         item->setData( true, AttributeFormModel::CanRememberValue );
 #endif
@@ -1205,6 +1211,20 @@ void AttributeFormModelBase::setHasTabs( bool hasTabs )
 
   mHasTabs = hasTabs;
   emit hasTabsChanged();
+}
+
+bool AttributeFormModelBase::hasRemembrance() const
+{
+  return mHasRemembrance;
+}
+
+void AttributeFormModelBase::setHasRemembrance( bool hasRemembrance )
+{
+  if ( hasRemembrance == mHasRemembrance )
+    return;
+
+  mHasRemembrance = hasRemembrance;
+  emit hasRemembranceChanged();
 }
 
 bool AttributeFormModelBase::save()

@@ -534,7 +534,7 @@ Page {
             height: attributeEditorLoader.childrenRect.height
             anchors {
               left: parent.left
-              right: menuButton.left
+              right: fieldMenuButton.left
               top: constraintDescriptionLabel.bottom
             }
 
@@ -641,7 +641,7 @@ Page {
           }
 
           QfToolButton {
-            id: menuButton
+            id: fieldMenuButton
             anchors {
               right: rememberButton.left
               top: constraintDescriptionLabel.bottom
@@ -656,7 +656,7 @@ Page {
             bgcolor: "transparent"
 
             onClicked: {
-              attributeEditorLoader.item.menu.popup(menuButton.x, menuButton.y);
+              attributeEditorLoader.item.menu.popup(fieldMenuButton.x, fieldMenuButton.y);
             }
           }
 
@@ -672,7 +672,7 @@ Page {
             anchors {
               right: parent.right
               top: constraintDescriptionLabel.bottom
-              verticalCenter: menuButton.verticalCenter
+              verticalCenter: fieldMenuButton.verticalCenter
               rightMargin: visible ? 0 : 10
             }
 
@@ -934,9 +934,9 @@ Page {
       }
 
       QfToolButton {
-        id: menuButton
+        id: featureFormMenuButton
 
-        property bool isVisible: !setupOnly
+        property bool isVisible: !setupOnly && form.model.hasRemembrance
 
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
 
@@ -949,7 +949,7 @@ Page {
         iconColor: Theme.mainTextColor
 
         onClicked: {
-          featureFormMenu.popup(menuButton.x + menuButton.width - featureFormMenu.width, menuButton.y);
+          featureFormMenu.popup(featureFormMenuButton.x + featureFormMenuButton.width - featureFormMenuButton.width, featureFormMenuButton.y);
         }
       }
     }
