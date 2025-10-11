@@ -237,6 +237,19 @@ void LocalFilesModel::reloadModel()
   const QString path = currentPath();
   if ( path == QLatin1String( "root" ) )
   {
+    const QStringList favorites = QSettings().value( QStringLiteral( "qfieldFavorites" ), QStringList() ).toStringList();
+    QList<Item> favoriteItems;
+    for ( const QString &item : favorites )
+    {
+      if ( QFileInfo::exists( item ) )
+      {
+        favoriteItems << Item( ItemMetaType::Favorite, ItemType::SimpleFolder, getCurrentTitleFromPath( item ), QString(), item );
+      }
+    }
+
+    std::sort( favoriteItems.begin(), favoriteItems.end(), []( const Item &a, const Item &b ) { return a.title < b.title; } );
+    mItems.append( favoriteItems );
+
     const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
     if ( !applicationDirectory.isEmpty() )
     {
@@ -262,19 +275,6 @@ void LocalFilesModel::reloadModel()
         mItems << Item( ItemMetaType::Folder, ItemType::SimpleFolder, fi.absoluteFilePath(), QString(), fi.absoluteFilePath() );
       }
     }
-
-    const QStringList favorites = QSettings().value( QStringLiteral( "qfieldFavorites" ), QStringList() ).toStringList();
-    QList<Item> favoriteItems;
-    for ( const QString &item : favorites )
-    {
-      if ( QFileInfo::exists( item ) )
-      {
-        favoriteItems << Item( ItemMetaType::Favorite, ItemType::SimpleFolder, getCurrentTitleFromPath( item ), QString(), item );
-      }
-    }
-
-    std::sort( favoriteItems.begin(), favoriteItems.end(), []( const Item &a, const Item &b ) { return a.title < b.title; } );
-    mItems.append( favoriteItems );
   }
   else
   {
