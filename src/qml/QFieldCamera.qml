@@ -69,7 +69,7 @@ Popup {
     if (!cameraPicked) {
       camera.cameraDevice = mediaDevices.defaultVideoInput;
     }
-    camera.applyCameraFormat(false);
+    camera.applyCameraFormat();
   }
 
   QfCameraPermission {
@@ -144,16 +144,16 @@ Popup {
         property bool restarting: false
         active: cameraItem.visible && cameraPermission.status === Qt.PermissionStatus.Granted && !restarting
 
-        function applyCameraFormat(restart) {
+        function applyCameraFormat() {
           if (cameraSettings.pixelFormat != 0) {
             let fallbackIndex = -1;
             let i = 0;
             for (let format of camera.cameraDevice.videoFormats) {
-              if (format.resolution == cameraSettings.resolution && format.pixelFormat == cameraSettings.pixelFormat) {
+              if (format.resolution === cameraSettings.resolution && format.pixelFormat === cameraSettings.pixelFormat) {
                 camera.cameraFormat = format;
                 fallbackIndex = -1;
                 break;
-              } else if (format.resolution == cameraSettings.resolution) {
+              } else if (format.resolution === cameraSettings.resolution) {
                 // If we can't match the pixel format and resolution, go for resolution match across devices
                 fallbackIndex = i;
               }
@@ -161,10 +161,6 @@ Popup {
             }
             if (fallbackIndex >= 0) {
               camera.cameraFormat = camera.cameraDevice.videoFormats[fallbackIndex];
-            }
-            if (restart) {
-              camera.restarting = true;
-              camera.restarting = false;
             }
           }
         }
@@ -193,8 +189,11 @@ Popup {
 
         onImageSaved: (requestId, path) => {
           currentPath = path;
-          photoPreview.source = UrlUtils.fromString(path);
+        }
+
+        onPreviewChanged: {
           cameraItem.state = "PhotoPreview";
+          photoPreview.source = imageCapture.preview;
         }
       }
       recorder: MediaRecorder {
@@ -353,6 +352,29 @@ Popup {
     }
 
     Rectangle {
+      id: captureFlash
+      anchors.fill: parent
+      anchors.margins: 6
+
+      color: "transparent"
+      SequentialAnimation {
+        id: captureFlashAnimation
+        PropertyAnimation {
+          target: captureFlash
+          property: "color"
+          to: "white"
+          duration: 0
+        }
+        PropertyAnimation {
+          target: captureFlash
+          property: "color"
+          to: "transparent"
+          duration: 1000
+        }
+      }
+    }
+
+    Rectangle {
       x: cameraItem.isPortraitMode ? 0 : parent.width - 100
       y: cameraItem.isPortraitMode ? parent.height - 100 : 0
       width: cameraItem.isPortraitMode ? parent.width : 100
@@ -399,6 +421,7 @@ Popup {
               onClicked: {
                 if (cameraItem.state == "PhotoCapture") {
                   captureSession.imageCapture.captureToFile(qgisProject.homePath + '/DCIM/');
+                  captureFlashAnimation.start();
                   if (positionSource.active) {
                     currentPosition = positionSource.positionInformation;
                     currentProjectedPosition = positionSource.projectedPosition;
@@ -687,11 +710,11 @@ Popup {
           indicator.implicitHeight: 24
           indicator.implicitWidth: 24
 
-          onCheckedChanged: {
+          onToggled: {
             if (checked && cameraSettings.deviceId !== modelData.id) {
               cameraSettings.deviceId = modelData.id;
               camera.cameraDevice = modelData;
-              camera.applyCameraFormat(true);
+              camera.applyCameraFormat();
             }
           }
         }
@@ -760,11 +783,11 @@ Popup {
           indicator.implicitHeight: 24
           indicator.implicitWidth: 24
 
-          onCheckedChanged: {
+          onToggled: {
             if (checked && (cameraSettings.resolution != resolution || cameraSettings.pixelFormat != pixelFormat)) {
               cameraSettings.resolution = resolution;
               cameraSettings.pixelFormat = pixelFormat;
-              camera.applyCameraFormat(true);
+              camera.applyCameraFormat();
             }
           }
         }
