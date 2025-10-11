@@ -1451,7 +1451,7 @@ ApplicationWindow {
       anchors.bottom: parent.bottom
       anchors.bottomMargin: (parent.height - zoomToolbar.height / 2) / 2
       spacing: 8
-      visible: !screenLocker.enabled && (locationToolbar.height + digitizingToolbarContainer.height) / (digitizingToolbarContainer.y) < 0.41
+      visible: qfieldSettings.showZoomControls && (!screenLocker.enabled && (locationToolbar.height + digitizingToolbarContainer.height) / (digitizingToolbarContainer.y) < 0.41)
 
       QfToolButton {
         id: zoomInButton
@@ -4715,11 +4715,6 @@ ApplicationWindow {
         "title": qsTr("Search"),
         "description": qsTr("The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more."),
         "target": () => [locatorItem]
-      }, {
-        "type": "information",
-        "title": qsTr("Zoom"),
-        "description": qsTr("In addition to the pinch gesture, these buttons help you quickly zoom in and out."),
-        "target": () => [zoomToolbar]
       }]
 
     function startOnFreshRun() {

@@ -14,6 +14,7 @@ Page {
   property alias currentPanel: bar.currentIndex
 
   property alias showScaleBar: registry.showScaleBar
+  property alias showZoomControls: registry.showZoomControls
   property alias fullScreenIdentifyView: registry.fullScreenIdentifyView
   property alias locatorKeepScale: registry.locatorKeepScale
   property alias autoOpenFormSingleIdentify: registry.autoOpenFormSingleIdentify
@@ -53,6 +54,7 @@ Page {
   Settings {
     id: registry
     property bool showScaleBar: true
+    property bool showZoomControls: false
     property bool fullScreenIdentifyView: false
     property bool locatorKeepScale: false
     property bool autoOpenFormSingleIdentify: false
@@ -99,6 +101,12 @@ Page {
       isVisible: true
     }
     ListElement {
+      title: qsTr("Show zoom controls")
+      description: ''
+      settingAlias: "showZoomControls"
+      isVisible: true
+    }
+    ListElement {
       title: qsTr("Show bookmarks")
       description: qsTr("When switched on, user's saved and currently opened project bookmarks will be displayed on the map.")
       settingAlias: "showBookmarks"
@@ -118,12 +126,6 @@ Page {
       title: qsTr("Show digitizing information")
       description: qsTr("When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.")
       settingAlias: "numericalDigitizingInformation"
-      isVisible: true
-    }
-    ListElement {
-      title: qsTr("Fast editing mode")
-      description: qsTr("If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.")
-      settingAlias: "autoSave"
       isVisible: true
     }
     ListElement {
@@ -158,9 +160,15 @@ Page {
   ListModel {
     id: interfaceSettingsModel
     ListElement {
-      title: qsTr("Maximized attribute form")
+      title: qsTr("Maximize feature form")
       description: ''
       settingAlias: "fullScreenIdentifyView"
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr("Open feature form for single feature identification")
+      description: qsTr("When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.")
+      settingAlias: "autoOpenFormSingleIdentify"
       isVisible: true
     }
     ListElement {
@@ -169,20 +177,20 @@ Page {
       settingAlias: "locatorKeepScale"
       isVisible: true
     }
-    ListElement {
-      title: qsTr("Automatically open form for single feature identification")
-      description: qsTr("When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.")
-      settingAlias: "autoOpenFormSingleIdentify"
-      isVisible: true
-    }
   }
 
   ListModel {
     id: advancedSettingsModel
     ListElement {
       title: qsTr("Render preview content around visible map canvas")
-      description: qsTr("If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning")
+      description: qsTr("If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.")
       settingAlias: "previewJobsEnabled"
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr("Enable auto-save mode")
+      description: qsTr("If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.")
+      settingAlias: "autoSave"
       isVisible: true
     }
     ListElement {
