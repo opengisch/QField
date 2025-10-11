@@ -36,8 +36,8 @@ LocalFilesModel::LocalFilesModel( QObject *parent )
   mImportedDatasetsPath = QDir::cleanPath( QStringLiteral( "%1/Imported Datasets" ).arg( applicationDirectory ) );
   mSampleProjectsPath = QDir::cleanPath( PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) ) );
 
-  const bool favoritesInitialized = settings.value( QStringLiteral( "qfieldFavoritesInitialized2" ), false ).toBool();
-  if ( favoritesInitialized )
+  const bool favoritesInitialized = settings.value( QStringLiteral( "qfieldFavoritesInitialized3" ), false ).toBool();
+  if ( !favoritesInitialized )
   {
     mFavorites.clear();
 
@@ -63,7 +63,7 @@ LocalFilesModel::LocalFilesModel( QObject *parent )
     }
 
     settings.setValue( QStringLiteral( "qfieldFavorites" ), mFavorites );
-    settings.setValue( QStringLiteral( "qfieldFavoritesInitialized2" ), true );
+    settings.setValue( QStringLiteral( "qfieldFavoritesInitialized3" ), true );
   }
 
   resetToRoot();
