@@ -80,6 +80,7 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::EditorWidgetConfig] = "EditorWidgetConfig";
   roles[AttributeFormModel::RelationEditorWidget] = "RelationEditorWidget";
   roles[AttributeFormModel::RelationEditorWidgetConfig] = "RelationEditorWidgetConfig";
+  roles[AttributeFormModel::CanRememberValue] = "CanRememberValue";
   roles[AttributeFormModel::RememberValue] = "RememberValue";
   roles[AttributeFormModel::Field] = "Field";
   roles[AttributeFormModel::RelationId] = "RelationId";
@@ -190,6 +191,7 @@ void AttributeFormModelBase::resetModel()
   setConstraintsHardValid( true );
   setConstraintsSoftValid( true );
   setHasTabs( false );
+  setHasRemembrance( false );
 
   if ( !mFeatureModel )
     return;
@@ -348,6 +350,24 @@ void AttributeFormModelBase::applyRelationshipDefaultValues()
   }
 }
 
+void AttributeFormModelBase::activateAllRememberValues()
+{
+  QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
+  {
+    setData( fieldIterator.key()->index(), true, AttributeFormModel::RememberValue );
+  }
+}
+
+void AttributeFormModelBase::deactivateAllRememberValues()
+{
+  QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
+  {
+    setData( fieldIterator.key()->index(), false, AttributeFormModel::RememberValue );
+  }
+}
+
 QgsAttributeEditorContainer *AttributeFormModelBase::generateRootContainer() const
 {
   QgsAttributeEditorContainer *root = new QgsAttributeEditorContainer( QString(), nullptr );
@@ -479,6 +499,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
     item->setData( QModelIndex(), AttributeFormModel::GroupIndex );
     item->setData( true, AttributeFormModel::ConstraintHardValid );
     item->setData( true, AttributeFormModel::ConstraintSoftValid );
+    item->setData( false, AttributeFormModel::CanRememberValue );
 
     QgsAttributeEditorElement::LabelStyle labelStyle = element->labelStyle();
     item->setData( labelStyle.overrideColor, AttributeFormModel::LabelOverrideColor );
@@ -545,6 +566,16 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ) && setup.type() != QStringLiteral( "Binary" ), AttributeFormModel::AttributeEditable );
         item->setData( setup.type(), AttributeFormModel::EditorWidget );
         item->setData( setup.config(), AttributeFormModel::EditorWidgetConfig );
+#if _QGIS_VERSION_INT >= 39900
+        const bool canRemember = mLayer->editFormConfig().reuseLastValuePolicy( fieldIndex ) != Qgis::AttributeFormReuseLastValuePolicy::NotAllowed;
+        item->setData( canRemember, AttributeFormModel::CanRememberValue );
+        if ( canRemember )
+        {
+          setHasRemembrance( true );
+        }
+#else
+        item->setData( true, AttributeFormModel::CanRememberValue );
+#endif
         item->setData( mFeatureModel->rememberedAttributes().at( fieldIndex ) ? Qt::Checked : Qt::Unchecked, AttributeFormModel::RememberValue );
         item->setData( QgsField( field ), AttributeFormModel::Field );
         item->setData( "field", AttributeFormModel::ElementType );
@@ -1180,6 +1211,20 @@ void AttributeFormModelBase::setHasTabs( bool hasTabs )
 
   mHasTabs = hasTabs;
   emit hasTabsChanged();
+}
+
+bool AttributeFormModelBase::hasRemembrance() const
+{
+  return mHasRemembrance;
+}
+
+void AttributeFormModelBase::setHasRemembrance( bool hasRemembrance )
+{
+  if ( hasRemembrance == mHasRemembrance )
+    return;
+
+  mHasRemembrance = hasRemembrance;
+  emit hasRemembranceChanged();
 }
 
 bool AttributeFormModelBase::save()

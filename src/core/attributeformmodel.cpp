@@ -24,6 +24,7 @@ AttributeFormModel::AttributeFormModel( QObject *parent )
   setSourceModel( mSourceModel );
 
   connect( mSourceModel, &AttributeFormModelBase::hasTabsChanged, this, &AttributeFormModel::hasTabsChanged );
+  connect( mSourceModel, &AttributeFormModelBase::hasRemembranceChanged, this, &AttributeFormModel::hasRemembranceChanged );
   connect( mSourceModel, &AttributeFormModelBase::featureModelChanged, this, &AttributeFormModel::featureModelChanged );
   connect( mSourceModel, &AttributeFormModelBase::featureChanged, this, &AttributeFormModel::featureChanged );
   connect( mSourceModel, &AttributeFormModelBase::constraintsHardValidChanged, this, &AttributeFormModel::constraintsHardValidChanged );
@@ -35,9 +36,9 @@ bool AttributeFormModel::hasTabs() const
   return mSourceModel->hasTabs();
 }
 
-void AttributeFormModel::setHasTabs( bool hasTabs )
+bool AttributeFormModel::hasRemembrance() const
 {
-  mSourceModel->setHasTabs( hasTabs );
+  return mSourceModel->hasRemembrance();
 }
 
 FeatureModel *AttributeFormModel::featureModel() const
@@ -93,6 +94,16 @@ void AttributeFormModel::applyParentDefaultValues()
 void AttributeFormModel::applyRelationshipDefaultValues()
 {
   return mSourceModel->applyRelationshipDefaultValues();
+}
+
+void AttributeFormModel::activateAllRememberValues()
+{
+  return mSourceModel->activateAllRememberValues();
+}
+
+void AttributeFormModel::deactivateAllRememberValues()
+{
+  return mSourceModel->deactivateAllRememberValues();
 }
 
 bool AttributeFormModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const

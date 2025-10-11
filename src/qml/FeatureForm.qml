@@ -534,7 +534,7 @@ Page {
             height: attributeEditorLoader.childrenRect.height
             anchors {
               left: parent.left
-              right: menuButton.left
+              right: fieldMenuButton.left
               top: constraintDescriptionLabel.bottom
             }
 
@@ -641,7 +641,7 @@ Page {
           }
 
           QfToolButton {
-            id: menuButton
+            id: fieldMenuButton
             anchors {
               right: rememberButton.left
               top: constraintDescriptionLabel.bottom
@@ -656,13 +656,13 @@ Page {
             bgcolor: "transparent"
 
             onClicked: {
-              attributeEditorLoader.item.menu.popup(menuButton.x, menuButton.y);
+              attributeEditorLoader.item.menu.popup(fieldMenuButton.x, fieldMenuButton.y);
             }
           }
 
           QfToolButton {
             id: rememberButton
-            visible: form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
+            visible: !!CanRememberValue && form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
             width: visible ? 48 : 0
 
             iconSource: Theme.getThemeVectorIcon("ic_pin_black_24dp")
@@ -672,7 +672,7 @@ Page {
             anchors {
               right: parent.right
               top: constraintDescriptionLabel.bottom
-              verticalCenter: menuButton.verticalCenter
+              verticalCenter: fieldMenuButton.verticalCenter
               rightMargin: visible ? 0 : 10
             }
 
@@ -829,10 +829,11 @@ Page {
 
       Text {
         id: titleLabel
+
         Layout.fillWidth: true
         Layout.preferredHeight: parent.height
-        Layout.leftMargin: !saveButton.isVisible ? 48 : 0
-        Layout.rightMargin: !closeButton.isVisible ? 48 : 0
+        Layout.leftMargin: !setupOnly ? 48 : 0
+        Layout.rightMargin: !setupOnly ? 0 : 48
         objectName: "titleLabel"
 
         font: Theme.strongFont
@@ -842,7 +843,7 @@ Page {
           const featureModel = model.featureModel;
           var currentLayer = featureModel ? featureModel.currentLayer : null;
           var layerName = 'N/A';
-          if (currentLayer != null)
+          if (currentLayer !== null)
             layerName = currentLayer.name;
           if (form.state === 'Add')
             qsTr('Add feature on %1').arg(layerName);
@@ -931,6 +932,54 @@ Page {
           }
         }
       }
+
+      QfToolButton {
+        id: featureFormMenuButton
+
+        property bool isVisible: !setupOnly && form.model.hasRemembrance
+
+        Layout.alignment: Qt.AlignTop | Qt.AlignRight
+
+        width: 48
+        height: 48
+        clip: true
+        visible: isVisible
+
+        iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+        iconColor: Theme.mainTextColor
+
+        onClicked: {
+          featureFormMenu.popup(featureFormMenuButton.x + featureFormMenuButton.width - featureFormMenuButton.width, featureFormMenuButton.y);
+        }
+      }
+    }
+  }
+
+  QfMenu {
+    id: featureFormMenu
+    title: qsTr("Feature Form Menu")
+
+    topMargin: mainWindow.sceneTopMargin
+    bottomMargin: mainWindow.sceneBottomMargin
+
+    MenuItem {
+      text: qsTr('Remember All Reusable Values')
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+
+      onTriggered: form.model.activateAllRememberValues()
+    }
+
+    MenuItem {
+      text: qsTr('Forget All Reusable Values')
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+
+      onTriggered: form.model.deactivateAllRememberValues()
     }
   }
 
