@@ -662,7 +662,7 @@ Page {
 
           QfToolButton {
             id: rememberButton
-            visible: CanRememberValue && form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
+            visible: !!CanRememberValue && form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
             width: visible ? 48 : 0
 
             iconSource: Theme.getThemeVectorIcon("ic_pin_black_24dp")
@@ -829,10 +829,11 @@ Page {
 
       Text {
         id: titleLabel
+
         Layout.fillWidth: true
         Layout.preferredHeight: parent.height
-        Layout.leftMargin: !saveButton.isVisible ? 48 : 0
-        Layout.rightMargin: !closeButton.isVisible ? 48 : 0
+        Layout.leftMargin: !setupOnly ? 48 : 0
+        Layout.rightMargin: !setupOnly ? 0 : 48
         objectName: "titleLabel"
 
         font: Theme.strongFont
@@ -935,15 +936,17 @@ Page {
       QfToolButton {
         id: menuButton
 
+        property bool isVisible: !setupOnly
+
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
 
         width: 49
         height: 48
         clip: true
-        visible: !setupOnly
+        visible: isVisible
 
         iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-        iconColor: Theme.mainOverlayColor
+        iconColor: Theme.mainTextColor
 
         onClicked: {
           featureFormMenu.popup(menuButton.x + menuButton.width - featureFormMenu.width, menuButton.y);
@@ -960,7 +963,7 @@ Page {
     bottomMargin: mainWindow.sceneBottomMargin
 
     MenuItem {
-      text: qsTr('Remember all reusable values')
+      text: qsTr('Remember All Reusable Values')
 
       font: Theme.defaultFont
       height: 48
@@ -970,7 +973,7 @@ Page {
     }
 
     MenuItem {
-      text: qsTr('Forget all reusable values')
+      text: qsTr('Forget All Reusable Values')
 
       font: Theme.defaultFont
       height: 48
