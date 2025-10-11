@@ -48,7 +48,7 @@ ApplicationWindow {
   leftPadding: 0
   rightPadding: 0
 
-  Material.theme: Theme.darkTheme ? "Dark" : "Light"
+  Material.theme: Theme.darkTheme ? Material.Dark : Material.Light
   Material.accent: Theme.mainColor
 
   property bool sceneLoaded: false

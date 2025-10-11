@@ -228,7 +228,8 @@ QtObject {
     } else {
       darkTheme = appearance === 'dark';
     }
-    Material.theme = darkTheme ? "Dark" : "Light";
+    Application.styleHints.colorScheme = Theme.darkTheme ? Qt.ColorScheme.Dark : Qt.ColorScheme.Light;
+    Material.theme = Theme.darkTheme ? Material.Dark : Material.Light;
     applyColors(darkTheme ? Theme.darkThemeColors : Theme.lightThemeColors);
     mainBackgroundColor = Material.backgroundColor;
     mainTextColor = Material.foreground;
