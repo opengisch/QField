@@ -69,7 +69,7 @@ Popup {
     if (!cameraPicked) {
       camera.cameraDevice = mediaDevices.defaultVideoInput;
     }
-    camera.applyCameraFormat(false);
+    camera.applyCameraFormat();
   }
 
   QfCameraPermission {
@@ -144,16 +144,16 @@ Popup {
         property bool restarting: false
         active: cameraItem.visible && cameraPermission.status === Qt.PermissionStatus.Granted && !restarting
 
-        function applyCameraFormat(restart) {
+        function applyCameraFormat() {
           if (cameraSettings.pixelFormat != 0) {
             let fallbackIndex = -1;
             let i = 0;
             for (let format of camera.cameraDevice.videoFormats) {
-              if (format.resolution == cameraSettings.resolution && format.pixelFormat == cameraSettings.pixelFormat) {
+              if (format.resolution === cameraSettings.resolution && format.pixelFormat === cameraSettings.pixelFormat) {
                 camera.cameraFormat = format;
                 fallbackIndex = -1;
                 break;
-              } else if (format.resolution == cameraSettings.resolution) {
+              } else if (format.resolution === cameraSettings.resolution) {
                 // If we can't match the pixel format and resolution, go for resolution match across devices
                 fallbackIndex = i;
               }
@@ -161,10 +161,6 @@ Popup {
             }
             if (fallbackIndex >= 0) {
               camera.cameraFormat = camera.cameraDevice.videoFormats[fallbackIndex];
-            }
-            if (restart) {
-              camera.restarting = true;
-              camera.restarting = false;
             }
           }
         }
@@ -711,11 +707,11 @@ Popup {
           indicator.implicitHeight: 24
           indicator.implicitWidth: 24
 
-          onCheckedChanged: {
+          onToggled: {
             if (checked && cameraSettings.deviceId !== modelData.id) {
               cameraSettings.deviceId = modelData.id;
               camera.cameraDevice = modelData;
-              camera.applyCameraFormat(true);
+              camera.applyCameraFormat();
             }
           }
         }
@@ -784,11 +780,11 @@ Popup {
           indicator.implicitHeight: 24
           indicator.implicitWidth: 24
 
-          onCheckedChanged: {
+          onToggled: {
             if (checked && (cameraSettings.resolution != resolution || cameraSettings.pixelFormat != pixelFormat)) {
               cameraSettings.resolution = resolution;
               cameraSettings.pixelFormat = pixelFormat;
-              camera.applyCameraFormat(true);
+              camera.applyCameraFormat();
             }
           }
         }
