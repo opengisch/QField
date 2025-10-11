@@ -339,6 +339,7 @@ Page {
     if (visible) {
       return;
     }
+    projectName.text = "";
     contentFlickable.contentY = 0;
     visible = true;
   }
