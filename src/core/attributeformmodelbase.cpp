@@ -566,7 +566,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( setup.type(), AttributeFormModel::EditorWidget );
         item->setData( setup.config(), AttributeFormModel::EditorWidgetConfig );
 #if _QGIS_VERSION_INT >= 39900
-        item->setData( mLayer->editFormConfig().reuseLastValue( fieldIndex ), AttributeFormModel::CanRememberValue );
+        item->setData( mLayer->editFormConfig().reuseLastValuePolicy( fieldIndex ) != Qgis::AttributeFormReuseLastValuePolicy::NotAllowed, AttributeFormModel::CanRememberValue );
 #else
         item->setData( true, AttributeFormModel::CanRememberValue );
 #endif

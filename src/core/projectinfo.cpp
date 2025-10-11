@@ -377,7 +377,7 @@ void ProjectInfo::saveLayerRememberedFields( QgsMapLayer *layer )
   for ( int i = 0; i < fields.size(); i++ )
   {
 #if _QGIS_VERSION_INT >= 39900
-    rememberedFields.insert( fields.at( i ).name(), config.reuseLastValue( i ) && config.rememberLastValueByDefault( i ) );
+    rememberedFields.insert( fields.at( i ).name(), config.reuseLastValuePolicy( i ) == Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOn );
 #else
     rememberedFields.insert( fields.at( i ).name(), config.reuseLastValue( i ) );
 #endif
@@ -571,7 +571,7 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
         for ( const QString fieldName : fieldNames )
         {
 #if _QGIS_VERSION_INT >= 39900
-          config.setRememberLastValueByDefault( vlayer->fields().indexFromName( fieldName ), rememberedFields[fieldName].toBool() );
+          config.setReuseLastValuePolicy( vlayer->fields().indexFromName( fieldName ), Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOn );
 #else
           config.setReuseLastValue( vlayer->fields().indexFromName( fieldName ), rememberedFields[fieldName].toBool() );
 #endif

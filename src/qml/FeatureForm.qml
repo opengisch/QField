@@ -940,7 +940,7 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
 
-        width: 49
+        width: 48
         height: 48
         clip: true
         visible: isVisible
