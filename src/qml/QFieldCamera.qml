@@ -189,8 +189,11 @@ Popup {
 
         onImageSaved: (requestId, path) => {
           currentPath = path;
-          photoPreview.source = UrlUtils.fromString(path);
+        }
+
+        onPreviewChanged: {
           cameraItem.state = "PhotoPreview";
+          photoPreview.source = imageCapture.preview;
         }
       }
       recorder: MediaRecorder {
