@@ -353,6 +353,29 @@ Popup {
     }
 
     Rectangle {
+      id: captureFlash
+      anchors.fill: parent
+      anchors.margins: 6
+
+      color: "transparent"
+      SequentialAnimation {
+        id: captureFlashAnimation
+        PropertyAnimation {
+          target: captureFlash
+          property: "color"
+          to: "white"
+          duration: 0
+        }
+        PropertyAnimation {
+          target: captureFlash
+          property: "color"
+          to: "transparent"
+          duration: 1000
+        }
+      }
+    }
+
+    Rectangle {
       x: cameraItem.isPortraitMode ? 0 : parent.width - 100
       y: cameraItem.isPortraitMode ? parent.height - 100 : 0
       width: cameraItem.isPortraitMode ? parent.width : 100
@@ -399,6 +422,7 @@ Popup {
               onClicked: {
                 if (cameraItem.state == "PhotoCapture") {
                   captureSession.imageCapture.captureToFile(qgisProject.homePath + '/DCIM/');
+                  captureFlashAnimation.start();
                   if (positionSource.active) {
                     currentPosition = positionSource.positionInformation;
                     currentProjectedPosition = positionSource.projectedPosition;
