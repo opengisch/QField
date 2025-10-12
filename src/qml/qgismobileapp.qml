@@ -1015,10 +1015,8 @@ ApplicationWindow {
       }
 
       ShapePath {
-        strokeWidth: 4
+        strokeWidth: 2
         strokeColor: connectionShape.linkColor
-        strokeStyle: ShapePath.DashLine
-        dashPattern: [4, 2]
         fillColor: "transparent"
 
         startX: actionsPiMenu.x + actionsPiMenu.width / 2
@@ -1063,6 +1061,8 @@ ApplicationWindow {
       readonly property bool tooCloseToBottom: markerCenterY + menuHalfHeight + minDistance + informationDrawer.height > mainWindow.height
       readonly property bool nearToEdge: tooCloseToLeft || tooCloseToRight || tooCloseToTop || tooCloseToBottom
 
+      readonly property int eachButtonAngle: 360 / 5
+
       width: Math.min(200, mapCanvasMap.width / 2.5)
       height: width
 
@@ -1092,38 +1092,11 @@ ApplicationWindow {
           duration: 100
         }
       }
+
       Behavior on y  {
         enabled: actionsPiMenu.nearToEdge
         NumberAnimation {
           duration: 100
-        }
-      }
-
-      QfToolButton {
-        width: actionsPiMenu.bandWidth - 8
-        height: width
-        iconSource: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
-        round: true
-        checkable: false
-        checked: false
-        enabled: true
-        iconColor: Theme.light
-        bgcolor: Theme.toolButtonBackgroundColor
-        visible: actionsPiMenu.currentAngle > 0
-        onClicked: {
-          if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
-            displayToast(qsTr('Current location unknown'));
-            return;
-          }
-          var name = qsTr('My location') + ' (' + new Date().toLocaleString() + ')';
-          var group = 'blue';
-          var id = bookmarkModel.addBookmarkAtPoint(positionSource.projectedPosition, name, group);
-          if (id !== '') {
-            bookmarkProperties.bookmarkId = id;
-            bookmarkProperties.bookmarkName = name;
-            bookmarkProperties.bookmarkGroup = group;
-            bookmarkProperties.open();
-          }
         }
       }
 
@@ -1133,11 +1106,12 @@ ApplicationWindow {
         height: width
         round: true
         checkable: true
-        enabled: visible
+        enabled: gnssButton.state === "On" && (stateMachine.state === "digitize" || stateMachine.state === 'measure')
         checked: positionSource.active && positioningSettings.positioningCoordinateLock
         state: checked ? "On" : "Off"
-        visible: gnssButton.state === "On" && (stateMachine.state === "digitize" || stateMachine.state === 'measure') && actionsPiMenu.currentAngle > 90
+        visible: actionsPiMenu.currentAngle >= actionsPiMenu.eachButtonAngle
         iconSource: Theme.getThemeVectorIcon("ic_location_cursor_lock_white_24dp")
+        opacity: enabled ? 1 : 0.4
 
         states: [
           State {
@@ -1193,7 +1167,7 @@ ApplicationWindow {
         checkable: true
         checked: gnssButton.followActive
         state: checked ? "On" : "Off"
-        visible: actionsPiMenu.currentAngle > 180
+        visible: actionsPiMenu.currentAngle >= actionsPiMenu.eachButtonAngle * 2
         iconSource: Theme.getThemeVectorIcon("ic_location_canvas_lock_white_24dp")
 
         states: [
@@ -1241,6 +1215,36 @@ ApplicationWindow {
       }
 
       QfToolButton {
+        id: addBookmarkButton
+        width: actionsPiMenu.bandWidth - 8
+        height: width
+        iconSource: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
+        round: true
+        checkable: false
+        checked: false
+        enabled: true
+        iconColor: Theme.light
+        bgcolor: Theme.toolButtonBackgroundColor
+        visible: actionsPiMenu.currentAngle >= actionsPiMenu.eachButtonAngle * 3
+        onClicked: {
+          if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
+            displayToast(qsTr('Current location unknown'));
+            return;
+          }
+          var name = qsTr('My location') + ' (' + new Date().toLocaleString() + ')';
+          var group = 'blue';
+          var id = bookmarkModel.addBookmarkAtPoint(positionSource.projectedPosition, name, group);
+          if (id !== '') {
+            bookmarkProperties.bookmarkId = id;
+            bookmarkProperties.bookmarkName = name;
+            bookmarkProperties.bookmarkGroup = group;
+            bookmarkProperties.open();
+          }
+        }
+      }
+
+      QfToolButton {
+        id: copyCurrentLocationButton
         width: actionsPiMenu.bandWidth - 8
         height: width
         iconSource: Theme.getThemeVectorIcon("ic_copy_black_24dp")
@@ -1250,7 +1254,7 @@ ApplicationWindow {
         enabled: true
         iconColor: Theme.light
         bgcolor: Theme.toolButtonBackgroundColor
-        visible: actionsPiMenu.currentAngle > 270
+        visible: actionsPiMenu.currentAngle >= actionsPiMenu.eachButtonAngle * 4
         onClicked: {
           if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
             displayToast(qsTr('Current location unknown'));
@@ -1261,6 +1265,43 @@ ApplicationWindow {
           coordinates += ' (' + qsTr('Accuracy') + ' ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr("N/A")) + ')';
           platformUtilities.copyTextToClipboard(coordinates);
           displayToast(qsTr('Current location copied to clipboard'));
+        }
+      }
+
+      QfToolButton {
+        id: showPositionInformation
+        width: actionsPiMenu.bandWidth - 8
+        height: width
+        iconSource: Theme.getThemeVectorIcon("ic_info_white_24dp")
+        round: true
+        checkable: true
+        checked: positioningSettings.showPositionInformation
+        enabled: true
+        iconColor: Theme.light
+        bgcolor: Theme.toolButtonBackgroundColor
+        state: checked ? "On" : "Off"
+        visible: actionsPiMenu.currentAngle >= actionsPiMenu.eachButtonAngle * 5
+
+        states: [
+          State {
+            name: "Off"
+            PropertyChanges {
+              target: showPositionInformation
+              iconColor: Theme.light
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+            }
+          },
+          State {
+            name: "On"
+            PropertyChanges {
+              target: showPositionInformation
+              iconColor: Theme.positionColor
+              bgcolor: Theme.toolButtonBackgroundColor
+            }
+          }
+        ]
+        onClicked: {
+          positioningSettings.showPositionInformation = checked;
         }
       }
     }
@@ -3897,21 +3938,6 @@ ApplicationWindow {
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
       onCheckedChanged: positioningSettings.positioningActivated = checked
-    }
-
-    MenuItem {
-      text: qsTr("Show Position Information")
-      height: 48
-      leftPadding: Theme.menuItemCheckLeftPadding
-      font: Theme.defaultFont
-
-      checkable: true
-      checked: positioningSettings.showPositionInformation
-      indicator.height: 20
-      indicator.width: 20
-      indicator.implicitHeight: 24
-      indicator.implicitWidth: 24
-      onCheckedChanged: positioningSettings.showPositionInformation = checked
     }
 
     MenuItem {
