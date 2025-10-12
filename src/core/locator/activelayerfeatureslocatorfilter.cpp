@@ -276,20 +276,21 @@ void ActiveLayerFeaturesLocatorFilter::fetchResults( const QString &string, cons
       {
         if ( idx < mAttributeAliases.count() )
         {
-          result.displayString = QStringLiteral( "%1 (%2)" ).arg( attrString, mAttributeAliases[idx] );
+          result.description = QStringLiteral( "%1 (%2)" ).arg( attrString, mAttributeAliases[idx] );
         }
         else
         {
-          result.displayString = attrString;
+          result.description = attrString;
         }
         break;
       }
       idx++;
     }
-    if ( result.displayString.isEmpty() )
+    if ( result.description.isEmpty() )
       continue; //not sure how this result slipped through...
+
+    result.displayString = mDispExpression.evaluate( &mContext ).toString();
     result.group = mLayerName;
-    result.description = mDispExpression.evaluate( &mContext ).toString();
 #if _QGIS_VERSION_INT >= 33300
     result.setUserData( QVariantList() << f.id() << mLayerId );
 #else
