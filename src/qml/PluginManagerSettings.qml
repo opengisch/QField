@@ -270,7 +270,6 @@ QfPopup {
     id: installFromUrlDialog
     title: "Install Plugin from URL"
     parent: mainWindow.contentItem
-    focus: true
 
     onAboutToShow: {
       installFromUrlDialog.standardButton(Dialog.Ok).enabled = popup.availablePluginsFetched;

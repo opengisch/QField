@@ -800,7 +800,6 @@ Page {
 
   QfDialog {
     id: confirmRemoveDialog
-    width: Math.min(400, parent.width * 0.8)
     parent: mainWindow.contentItem
     title: removeProject.text
 
