@@ -879,6 +879,18 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>Feature addition disabled</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Feature Form Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forget All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>
@@ -3795,7 +3807,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Maximized attribute form</source>
-        <translation>Maximalizovat atributový formulář</translation>
+        <translation type="vanished">Maximalizovat atributový formulář</translation>
     </message>
     <message>
         <source>Fixed scale navigation</source>
@@ -3831,11 +3843,11 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Fast editing mode</source>
-        <translation>Režim rychlých úprav</translation>
+        <translation type="vanished">Režim rychlých úprav</translation>
     </message>
     <message>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation>Je-li tato funkce povolena, je funkce uložena poté, co má platnou geometrii a omezení jsou splněna a atributy jsou okamžitě potvrzeny.</translation>
+        <translation type="vanished">Je-li tato funkce povolena, je funkce uložena poté, co má platnou geometrii a omezení jsou splněna a atributy jsou okamžitě potvrzeny.</translation>
     </message>
     <message>
         <source>Dim screen when idling</source>
@@ -4224,15 +4236,31 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Automatically open form for single feature identification</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6108,14 +6136,6 @@ project</source>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Zoom</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
         <translation type="unfinished"/>
     </message>
     <message>

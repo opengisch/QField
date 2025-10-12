@@ -879,6 +879,18 @@ Cancel to make a minimal device scan instead.</source>
         <source>Feature addition disabled</source>
         <translation>Elem hozzáadás letiltva</translation>
     </message>
+    <message>
+        <source>Feature Form Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forget All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>
@@ -3786,7 +3798,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Maximized attribute form</source>
-        <translation>Maximalizált attribútum űrlap</translation>
+        <translation type="vanished">Maximalizált attribútum űrlap</translation>
     </message>
     <message>
         <source>Fixed scale navigation</source>
@@ -3822,11 +3834,11 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Fast editing mode</source>
-        <translation>Gyors szerkesztő mód</translation>
+        <translation type="vanished">Gyors szerkesztő mód</translation>
     </message>
     <message>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation>Ha engedélyezve van, az elem mentésre kerül azonnal, amint érvényes geometriája van, a megszorítások teljesülnek és az attribútumok is véglegesítésítődtek.</translation>
+        <translation type="vanished">Ha engedélyezve van, az elem mentésre kerül azonnal, amint érvényes geometriája van, a megszorítások teljesülnek és az attribútumok is véglegesítésítődtek.</translation>
     </message>
     <message>
         <source>Dim screen when idling</source>
@@ -4217,15 +4229,31 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Automatically open form for single feature identification</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6102,14 +6130,6 @@ project</source>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
         <translation>A kereső sor lehetőséget ad a projekt elemeinek gyors keresésére, egy koordinátákkal megadott pontra ugrásra és sok másra.</translation>
-    </message>
-    <message>
-        <source>Zoom</source>
-        <translation>Nagyítás</translation>
-    </message>
-    <message>
-        <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
-        <translation>A két újjas zoomolási mozdulatok mellett ezek a gombok is segítik a belenagyítást és a kicsinyítést.</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>

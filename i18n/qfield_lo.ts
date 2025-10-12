@@ -878,6 +878,18 @@ Cancel to make a minimal device scan instead.</source>
         <source>Feature addition disabled</source>
         <translation>ການເພີ່ມຄຸນສົມບັດຖືກປິດໃຊ້ງານ</translation>
     </message>
+    <message>
+        <source>Feature Form Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forget All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>
@@ -3774,7 +3786,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Maximized attribute form</source>
-        <translation>ຮູບແບບຄຸນສົມບັດສູງສຸດ</translation>
+        <translation type="vanished">ຮູບແບບຄຸນສົມບັດສູງສຸດ</translation>
     </message>
     <message>
         <source>Fixed scale navigation</source>
@@ -3810,11 +3822,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Fast editing mode</source>
-        <translation>ຮູບແບບການແກ້ໄຂໄວ</translation>
+        <translation type="vanished">ຮູບແບບການແກ້ໄຂໄວ</translation>
     </message>
     <message>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation>ຖ້າເປີດໃຊ້, ຄຸນສົມບັດຈະຖືກເກັບໄວ້ຫຼັງຈາກມີເລຂາຄະນິດທີ່ຖືກຕ້ອງ ແລະ ຂໍ້ຈໍາກັດຖືກປະຕິບັດແລະ ຄຸນລັກສະນະຖືກປະຕິບັດທັນທີ.</translation>
+        <translation type="vanished">ຖ້າເປີດໃຊ້, ຄຸນສົມບັດຈະຖືກເກັບໄວ້ຫຼັງຈາກມີເລຂາຄະນິດທີ່ຖືກຕ້ອງ ແລະ ຂໍ້ຈໍາກັດຖືກປະຕິບັດແລະ ຄຸນລັກສະນະຖືກປະຕິບັດທັນທີ.</translation>
     </message>
     <message>
         <source>Dim screen when idling</source>
@@ -4203,16 +4215,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation>ສະແດງຜົນເນື້ອໃນແບບເບິ່ງຕົວຢ່າງອ້ອມຮອບຜືນແຜນທີ່ທີ່ເຫັນໄດ້</translation>
     </message>
     <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
-        <translation>ຖ້າເປີດນຳໃຊ້, ພື້ນທີ່ທີ່ຢູ່ນອກຂອບເຂດຜືນແຜນທີ່ທີ່ເຫັນໄດ້ພຽງເລັກນ້ອຍ ຈະຖືກສະແດງຜົນບາງສ່ວນ ເພື່ອອະນຸຍາດໃຫ້ເບິ່ງຕົວຢ່າງເວລາຊູມ ແລະ ແພນ.</translation>
-    </message>
-    <message>
-        <source>Automatically open form for single feature identification</source>
-        <translation>ເປີດຟອມສໍາລັບການກໍານົດຟີເຈີດຽວໂດຍອັດຕະໂນມັດ</translation>
-    </message>
-    <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
         <translation>ເມື່ອເປີດນຳໃຊ້, ຟອມຟີເຈີຈະເປີດຂຶ້ນໂດຍອັດຕະໂນມັດ ຖ້າຫາກກຳນົດຟີເຈີພຽງແຕ່ອັນດຽວເທົ່ານັ້ນ, ຊຶ່ງຈະຂ້າມລາຍການຟີເຈີໄປ.</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6090,14 +6118,6 @@ project</source>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
         <translation>ແຖບຄົ້ນຫາຊ່ວຍໃຫ້ທ່ານສາມາດຊອກຫາຟີເຈີພາຍໃນໂຄງການຂອງທ່ານໄດ້ຢ່າງວ່ອງໄວ, ເລື່ອນໄປຫາຈຸດພິກັດລະຕິຈູດ ແລະ ລອງຈິຈູດທີ່ພິມເຂົ້າ, ແລະອີກຫຼາຍຢ່າງ.</translation>
-    </message>
-    <message>
-        <source>Zoom</source>
-        <translation>ຊູມ</translation>
-    </message>
-    <message>
-        <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
-        <translation>ນອກຈາກການໃຊ້ທ່າທາງຈີບນິ້ວ, ປຸ່ມເຫຼົ່ານີ້ຍັງຊ່ວຍໃຫ້ທ່ານສາມາດຊູມເຂົ້າແລະຊູມອອກໄດ້ຢ່າງວ່ອງໄວ.</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>

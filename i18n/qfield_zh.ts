@@ -879,6 +879,18 @@ Cancel to make a minimal device scan instead.</source>
         <source>Feature addition disabled</source>
         <translation>要素添加已禁用</translation>
     </message>
+    <message>
+        <source>Feature Form Menu</source>
+        <translation>要素表单菜单</translation>
+    </message>
+    <message>
+        <source>Remember All Reusable Values</source>
+        <translation>记忆所有可重用值</translation>
+    </message>
+    <message>
+        <source>Forget All Reusable Values</source>
+        <translation>忽略所有可重用值</translation>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>
@@ -3790,7 +3802,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Maximized attribute form</source>
-        <translation>属性窗口最大化</translation>
+        <translation type="vanished">属性表单最大化</translation>
     </message>
     <message>
         <source>Fixed scale navigation</source>
@@ -3826,11 +3838,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Fast editing mode</source>
-        <translation>快速编辑模式</translation>
+        <translation type="vanished">快速编辑模式</translation>
     </message>
     <message>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation>启用后，具有有效几何图形并满足约束条件提交属性后后立即保存要素。</translation>
+        <translation type="vanished">启用后，具有有效几何图形并满足约束条件提交属性后后立即保存要素。</translation>
     </message>
     <message>
         <source>Dim screen when idling</source>
@@ -4016,7 +4028,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QField Settings</source>
-        <translation>QField 设置</translation>
+        <translation>QField设置</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
@@ -4219,16 +4231,32 @@ Cancel to make a minimal device scan instead.</source>
         <translation>在可见地图画布周围预渲染内容</translation>
     </message>
     <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
-        <translation>如果勾选，将渲染可见地图画布范围之外的周边区域，以便平滑缩放和平移</translation>
-    </message>
-    <message>
-        <source>Automatically open form for single feature identification</source>
-        <translation>自动打开表单进行单个要素识别</translation>
-    </message>
-    <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
         <translation>启用后，如果只识别了一个要素，要素表单将自动打开，并跳过要素列表。</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>显示缩放控件</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>要素表单最大化</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>用于单要素识别的开放式要素表单</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>如果勾选，将渲染可见地图画布范围之外的周边区域，以便平滑缩放和平移。</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>启用自动保存模式</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>如果勾选，新添加的要素一旦具有有效的几何图形并且满足约束，就会立即存储，并立即提交编辑属性。</translation>
     </message>
 </context>
 <context>
@@ -6107,14 +6135,6 @@ project</source>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
         <translation>搜索栏为您提供了快速查找工程中的要素，跳转到键入的经纬度点等的方法。</translation>
-    </message>
-    <message>
-        <source>Zoom</source>
-        <translation>缩放</translation>
-    </message>
-    <message>
-        <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
-        <translation>除了捏合手势外，这些按钮还可以帮助您快速放大和缩小。</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>

@@ -879,6 +879,18 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Feature addition disabled</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Feature Form Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forget All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>
@@ -3792,7 +3804,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Maximized attribute form</source>
-        <translation>Gemaximaliseerde eigenschap formulier</translation>
+        <translation type="vanished">Gemaximaliseerde eigenschap formulier</translation>
     </message>
     <message>
         <source>Fixed scale navigation</source>
@@ -3828,11 +3840,11 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Fast editing mode</source>
-        <translation>Snelle bewerkingsmodus</translation>
+        <translation type="vanished">Snelle bewerkingsmodus</translation>
     </message>
     <message>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation>Indien ingeschakeld, wordt het object opgeslagen nadat het een geldige geometrie heeft en aan de beperkingen is voldaan en worden attributen onmiddellijk vastgelegd.</translation>
+        <translation type="vanished">Indien ingeschakeld, wordt het object opgeslagen nadat het een geldige geometrie heeft en aan de beperkingen is voldaan en worden attributen onmiddellijk vastgelegd.</translation>
     </message>
     <message>
         <source>Dim screen when idling</source>
@@ -4221,15 +4233,31 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Automatically open form for single feature identification</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6106,14 +6134,6 @@ project</source>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
         <translation>De zoekbalk biedt u een snelle manier om objecten binnen uw project te vinden, naar een getypt lengte- en breedtegraad te springen, en nog veel meer.</translation>
-    </message>
-    <message>
-        <source>Zoom</source>
-        <translation>Zoom</translation>
-    </message>
-    <message>
-        <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
-        <translation>Naast het zoomen met twee vingers helpen deze knoppen je om snel in en uit te zoomen.</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>

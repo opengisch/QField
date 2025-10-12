@@ -879,6 +879,18 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>Feature addition disabled</source>
         <translation>Kohteiden lisäys poistettu käytöstä</translation>
     </message>
+    <message>
+        <source>Feature Form Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forget All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>
@@ -3794,7 +3806,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Maximized attribute form</source>
-        <translation>Laajin attribuuttilomake</translation>
+        <translation type="vanished">Laajin attribuuttilomake</translation>
     </message>
     <message>
         <source>Fixed scale navigation</source>
@@ -3830,11 +3842,11 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Fast editing mode</source>
-        <translation>Nopea muokkaustila</translation>
+        <translation type="vanished">Nopea muokkaustila</translation>
     </message>
     <message>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation>Jos käytössä, kohde tallennetaan välittömästi, kun sillä on kelvolliset geometriat, ehdot täyttyvät sekä attribuutit on kommitoitu.</translation>
+        <translation type="vanished">Jos käytössä, kohde tallennetaan välittömästi, kun sillä on kelvolliset geometriat, ehdot täyttyvät sekä attribuutit on kommitoitu.</translation>
     </message>
     <message>
         <source>Dim screen when idling</source>
@@ -4223,16 +4235,32 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <translation>Piirrä esikatselu näkyvän kartan ympärille</translation>
     </message>
     <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
-        <translation>Jos käytössä, näkyvän karttapohjan ulkopuolella olevat alueet piirretään osittain, jotta esikatselu on mahdollista zoomauksen ja panoroinnin aikana.</translation>
-    </message>
-    <message>
-        <source>Automatically open form for single feature identification</source>
-        <translation>Avaa lomake automaattisesti yksittäisen kohteen tunnistamisen yhteydessä</translation>
-    </message>
-    <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
         <translation>Kun tämä on käytössä, kohdelomake avautuu automaattisesti. Jos tunnistetaan vain yksi kohde, kohdeluettelo ohitetaan.</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6108,14 +6136,6 @@ project</source>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
         <translation>Hakupalkki tarjoaa sinulle nopean tavan löytää kohteita projektistasi, hypätä määritettyyn leveys- ja pituuspisteeseen ja paljon muuta.</translation>
-    </message>
-    <message>
-        <source>Zoom</source>
-        <translation>Zoomaus</translation>
-    </message>
-    <message>
-        <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
-        <translation>Nipistyseleen lisäksi nämä painikkeet auttavat sinua lähentämään ja loitontamaan nopeasti.</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>

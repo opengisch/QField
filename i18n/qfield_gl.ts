@@ -879,6 +879,18 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>Feature addition disabled</source>
         <translation>O engadido de entidades está desactivado</translation>
     </message>
+    <message>
+        <source>Feature Form Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forget All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>
@@ -3792,7 +3804,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Maximized attribute form</source>
-        <translation>Maximizar o formulario de atributos</translation>
+        <translation type="vanished">Maximizar o formulario de atributos</translation>
     </message>
     <message>
         <source>Fixed scale navigation</source>
@@ -3828,11 +3840,11 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Fast editing mode</source>
-        <translation>Modo de edición rápida</translation>
+        <translation type="vanished">Modo de edición rápida</translation>
     </message>
     <message>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation>De activarse, a entidade almacénase logo de ter unha xeometría válida e as restricións satisfeitas, entón os atributos remítense de inmediato.</translation>
+        <translation type="vanished">De activarse, a entidade almacénase logo de ter unha xeometría válida e as restricións satisfeitas, entón os atributos remítense de inmediato.</translation>
     </message>
     <message>
         <source>Dim screen when idling</source>
@@ -4221,16 +4233,32 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <translation>Representar unha vista preliminar do contido arredor da vista do mapa visible</translation>
     </message>
     <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning</source>
-        <translation>De activarse, as áreas xusto fóra da extensión da vista do mapa visible renderizarase parcialmente para permitir a vista preliminar cando se fai zoom ou no desprazamento</translation>
-    </message>
-    <message>
-        <source>Automatically open form for single feature identification</source>
-        <translation>Abrir formulario automaticamente para a identificación dunha única entidade</translation>
-    </message>
-    <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
         <translation>Cando se activa, o formulario da entidade abrirase automaticamente se só se identifica unha única entidade, saltando a lista de entidades.</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6106,14 +6134,6 @@ project</source>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
         <translation>A barra de busca proporciona unha forma rápida de atopar entidade dentro do proxecto, saltar a un punto tecleando latitude e lonxitudee moito máis.</translation>
-    </message>
-    <message>
-        <source>Zoom</source>
-        <translation>Zoom</translation>
-    </message>
-    <message>
-        <source>In addition to the pinch gesture, these buttons help you quickly zoom in and out.</source>
-        <translation>Ademais do xesto de beliscar, estes botón axudanche rapidamente a facer zoom ou alonxar.</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
