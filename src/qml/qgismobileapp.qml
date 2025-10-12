@@ -995,9 +995,9 @@ ApplicationWindow {
       visible: actionsPiMenu.visible && actionsPiMenu.nearToEdge
       opacity: visible ? 1 : 0
 
-      readonly property real markerCircleRadius: locationMarker.movementMarker.width / 2 - 4
+      readonly property real markerCircleRadius: locationMarker.movementMarker.width / 6
       readonly property real menuCircleRadius: 6
-      readonly property color linkColor: actionsPiMenu.strokeColor
+      readonly property color linkColor: Theme.positionColor
 
       ShapePath {
         strokeWidth: 0
