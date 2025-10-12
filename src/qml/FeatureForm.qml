@@ -784,6 +784,11 @@ Page {
   header: ToolBar {
     id: toolbar
 
+    topPadding: 0
+    leftPadding: 0
+    rightPadding: 0
+    bottomPadding: 0
+
     height: visible ? form.topMargin + 48 : 0
     visible: form.state === 'Add'
     objectName: "toolbar"
