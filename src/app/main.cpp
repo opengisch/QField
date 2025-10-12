@@ -204,8 +204,6 @@ int main( int argc, char **argv )
 
   delete dummyApp;
 
-  QtWebView::initialize();
-
   QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
 
   if ( !qfieldTranslatorLoaded || qfieldTranslator.isEmpty() )
