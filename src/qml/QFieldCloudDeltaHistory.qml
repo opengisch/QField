@@ -37,6 +37,11 @@ QfPopup {
       id: toolBar
       height: 48
 
+      topPadding: 0
+      leftPadding: 0
+      rightPadding: 0
+      bottomPadding: 0
+
       background: Rectangle {
         color: "transparent"
       }
