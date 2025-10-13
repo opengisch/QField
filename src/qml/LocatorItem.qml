@@ -523,6 +523,10 @@ Item {
               bgcolor: "transparent"
 
               iconSource: IconPath
+              iconColor: {
+                const colorMatch = IconPath.match(/(?:\?|&)color=([^\s&]+)(?:&|$)/);
+                return colorMatch !== null ? Theme[colorMatch[1]] : "transparent";
+              }
 
               onClicked: {
                 locatorItem.state = "off";
