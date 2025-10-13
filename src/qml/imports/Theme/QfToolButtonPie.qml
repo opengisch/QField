@@ -2,12 +2,13 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Shapes
 
-Container {
+Menu {
   id: container
-
   scale: 0
   opacity: 0
-  visible: opacity > 0
+
+  background: Item {
+  }
 
   property int bandWidth: 48
   property real currentAngle: 0
@@ -105,32 +106,16 @@ Container {
     easing.type: Easing.InOutQuad
   }
 
-  Behavior on scale  {
-    NumberAnimation {
-      duration: internal.animationDuration * 2
-      easing.type: Easing.OutBack
-    }
+  onAboutToShow: {
+    container.opacity = 1;
+    container.scale = 1;
+    container.currentAngle = 0;
+    progressAnimation.start();
   }
 
-  Behavior on opacity  {
-    NumberAnimation {
-      duration: internal.animationDuration * 2
-    }
-  }
-
-  function open() {
-    if (!container.visible) {
-      container.opacity = 1;
-      container.scale = 1;
-      container.currentAngle = 0;
-      progressAnimation.start();
-    }
-  }
-
-  function close() {
-    if (container.visible) {
-      container.opacity = 0;
-      container.scale = 0;
-    }
+  onAboutToHide: {
+    container.opacity = 0;
+    container.scale = 0;
+    container.visible = false;
   }
 }

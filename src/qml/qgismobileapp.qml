@@ -976,11 +976,28 @@ ApplicationWindow {
 
       Component.onCompleted: {
         pointHandler.registerHandler("LocationMarker", (point, type, interactionType) => {
-            if (pointHandler.pointInItem(point, locationMarker.movementMarker)) {
+            const dx = point.x - locationMarker.screenLocation.x;
+            const dy = point.y - locationMarker.screenLocation.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < 20) {
               if (interactionType === "clicked") {
                 if (actionsPiMenu.visible) {
                   actionsPiMenu.close();
                 } else {
+                  if (actionsPiMenu.tooCloseToLeft) {
+                    actionsPiMenu.x = actionsPiMenu.minDistance;
+                  } else if (actionsPiMenu.tooCloseToRight) {
+                    actionsPiMenu.x = mainWindow.width - actionsPiMenu.width - actionsPiMenu.minDistance;
+                  } else {
+                    actionsPiMenu.x = locationMarker.screenLocation.x - actionsPiMenu.menuHalfSize;
+                  }
+                  if (actionsPiMenu.tooCloseToTop) {
+                    actionsPiMenu.y = actionsPiMenu.minDistance;
+                  } else if (actionsPiMenu.tooCloseToBottom) {
+                    actionsPiMenu.y = mainWindow.height - actionsPiMenu.height - informationDrawer.height - actionsPiMenu.minDistance;
+                  } else {
+                    actionsPiMenu.y = locationMarker.screenLocation.y - actionsPiMenu.menuHalfSize;
+                  }
                   actionsPiMenu.open();
                 }
               }
@@ -992,10 +1009,10 @@ ApplicationWindow {
 
     Shape {
       id: connectionShape
-      visible: actionsPiMenu.visible && actionsPiMenu.nearToEdge
+      visible: actionsPiMenu.visible && (actionsPiMenu.nearToEdge || actionsPiMenu.locationMarkerOutSidePie)
       opacity: visible ? 1 : 0
 
-      readonly property real markerCircleRadius: locationMarker.movementMarker.width / 6
+      readonly property real markerCircleRadius: 2
       readonly property real menuCircleRadius: 6
       readonly property color linkColor: Theme.positionColor
 
@@ -1005,8 +1022,8 @@ ApplicationWindow {
         fillColor: connectionShape.linkColor
 
         PathAngleArc {
-          centerX: locationMarker.movementMarker.x + locationMarker.movementMarker.width / 2
-          centerY: locationMarker.movementMarker.y + locationMarker.movementMarker.height / 2
+          centerX: locationMarker.screenLocation.x
+          centerY: locationMarker.screenLocation.y
           radiusX: connectionShape.markerCircleRadius
           radiusY: connectionShape.markerCircleRadius
           startAngle: 0
@@ -1023,8 +1040,8 @@ ApplicationWindow {
         startY: actionsPiMenu.y + actionsPiMenu.height / 2
 
         PathLine {
-          x: locationMarker.movementMarker.x + locationMarker.movementMarker.width / 2
-          y: locationMarker.movementMarker.y + locationMarker.movementMarker.height / 2
+          x: locationMarker.screenLocation.x
+          y: locationMarker.screenLocation.y
         }
       }
 
@@ -1048,57 +1065,25 @@ ApplicationWindow {
       id: actionsPiMenu
 
       readonly property int minDistance: 80
+      readonly property real menuHalfSize: actionsPiMenu.width / 2
 
-      readonly property real markerCenterX: locationMarker.movementMarker.x + locationMarker.movementMarker.width / 2
-      readonly property real markerCenterY: locationMarker.movementMarker.y + locationMarker.movementMarker.height / 2
-
-      readonly property real menuHalfWidth: actionsPiMenu.width / 2
-      readonly property real menuHalfHeight: actionsPiMenu.height / 2
-
-      readonly property bool tooCloseToLeft: markerCenterX - menuHalfWidth - minDistance < 0
-      readonly property bool tooCloseToRight: markerCenterX + menuHalfWidth + minDistance > mainWindow.width
-      readonly property bool tooCloseToTop: markerCenterY - menuHalfHeight - minDistance < 0
-      readonly property bool tooCloseToBottom: markerCenterY + menuHalfHeight + minDistance + informationDrawer.height > mainWindow.height
+      readonly property bool tooCloseToLeft: locationMarker.screenLocation.x - menuHalfSize - minDistance < 0
+      readonly property bool tooCloseToRight: locationMarker.screenLocation.x + menuHalfSize + minDistance > mainWindow.width
+      readonly property bool tooCloseToTop: locationMarker.screenLocation.y - menuHalfSize - minDistance < 0
+      readonly property bool tooCloseToBottom: locationMarker.screenLocation.y + menuHalfSize + minDistance + informationDrawer.height > mainWindow.height
       readonly property bool nearToEdge: tooCloseToLeft || tooCloseToRight || tooCloseToTop || tooCloseToBottom
+
+      readonly property bool locationMarkerOutSidePie: {
+        const dx = actionsPiMenu.x + (actionsPiMenu.width / 2) - locationMarker.screenLocation.x;
+        const dy = actionsPiMenu.y + (actionsPiMenu.height / 2) - locationMarker.screenLocation.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        return distance > 20;
+      }
 
       readonly property int eachButtonAngle: 360 / 5
 
       width: Math.min(150, mapCanvasMap.width / 3)
       height: width
-
-      x: {
-        if (tooCloseToLeft) {
-          return minDistance;
-        } else if (tooCloseToRight) {
-          return mainWindow.width - actionsPiMenu.width - minDistance;
-        } else {
-          return markerCenterX - menuHalfWidth;
-        }
-      }
-
-      y: {
-        if (tooCloseToTop) {
-          return minDistance;
-        } else if (tooCloseToBottom) {
-          return mainWindow.height - actionsPiMenu.height - informationDrawer.height - minDistance;
-        } else {
-          return markerCenterY - menuHalfHeight;
-        }
-      }
-
-      Behavior on x  {
-        enabled: actionsPiMenu.nearToEdge
-        NumberAnimation {
-          duration: 100
-        }
-      }
-
-      Behavior on y  {
-        enabled: actionsPiMenu.nearToEdge
-        NumberAnimation {
-          duration: 100
-        }
-      }
 
       QfToolButton {
         id: gnssCursorLockButton
@@ -1155,6 +1140,7 @@ ApplicationWindow {
                 positionSource.averagedPosition = false;
               }
             }
+            actionsPiMenu.close();
           }
         }
       }
@@ -1211,6 +1197,7 @@ ApplicationWindow {
               }
             }
           }
+          actionsPiMenu.close();
         }
       }
 
@@ -1240,6 +1227,7 @@ ApplicationWindow {
             bookmarkProperties.bookmarkGroup = group;
             bookmarkProperties.open();
           }
+          actionsPiMenu.close();
         }
       }
 
@@ -1265,6 +1253,7 @@ ApplicationWindow {
           coordinates += ' (' + qsTr('Accuracy') + ' ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr("N/A")) + ')';
           platformUtilities.copyTextToClipboard(coordinates);
           displayToast(qsTr('Current location copied to clipboard'));
+          actionsPiMenu.close();
         }
       }
 
@@ -1302,6 +1291,7 @@ ApplicationWindow {
         ]
         onClicked: {
           positioningSettings.showPositionInformation = checked;
+          actionsPiMenu.close();
         }
       }
     }
