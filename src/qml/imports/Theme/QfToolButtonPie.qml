@@ -30,6 +30,12 @@ Menu {
     visible: pieMenu.showConnectionLine && pieMenu.targetLocation !== null
     opacity: visible ? 1 : 0
 
+    Behavior on opacity  {
+      NumberAnimation {
+        duration: internal.animationDuration
+      }
+    }
+
     readonly property real markerCircleRadius: 3
     readonly property real menuCircleRadius: 6
 

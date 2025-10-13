@@ -1020,6 +1020,8 @@ ApplicationWindow {
       readonly property bool nearToEdge: tooCloseToLeft || tooCloseToRight || tooCloseToTop || tooCloseToBottom
 
       readonly property bool locationMarkerOutSidePieMenu: {
+        if (!visible)
+          return true;
         const dx = actionsPieMenu.x + (actionsPieMenu.width / 2) - locationMarker.screenLocation.x;
         const dy = actionsPieMenu.y + (actionsPieMenu.height / 2) - locationMarker.screenLocation.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
