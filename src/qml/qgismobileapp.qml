@@ -981,24 +981,24 @@ ApplicationWindow {
             const distance = Math.sqrt(dx * dx + dy * dy);
             if (distance < 20) {
               if (interactionType === "clicked") {
-                if (actionsPiMenu.visible) {
-                  actionsPiMenu.close();
+                if (actionsPieMenu.visible) {
+                  actionsPieMenu.close();
                 } else {
-                  if (actionsPiMenu.tooCloseToLeft) {
-                    actionsPiMenu.x = actionsPiMenu.minDistance;
-                  } else if (actionsPiMenu.tooCloseToRight) {
-                    actionsPiMenu.x = mainWindow.width - actionsPiMenu.width - actionsPiMenu.minDistance;
+                  if (actionsPieMenu.tooCloseToLeft) {
+                    actionsPieMenu.x = actionsPieMenu.minDistance;
+                  } else if (actionsPieMenu.tooCloseToRight) {
+                    actionsPieMenu.x = mainWindow.width - actionsPieMenu.width - actionsPieMenu.minDistance;
                   } else {
-                    actionsPiMenu.x = locationMarker.screenLocation.x - actionsPiMenu.menuHalfSize;
+                    actionsPieMenu.x = locationMarker.screenLocation.x - actionsPieMenu.menuHalfSize;
                   }
-                  if (actionsPiMenu.tooCloseToTop) {
-                    actionsPiMenu.y = actionsPiMenu.minDistance;
-                  } else if (actionsPiMenu.tooCloseToBottom) {
-                    actionsPiMenu.y = mainWindow.height - actionsPiMenu.height - informationDrawer.height - actionsPiMenu.minDistance;
+                  if (actionsPieMenu.tooCloseToTop) {
+                    actionsPieMenu.y = actionsPieMenu.minDistance;
+                  } else if (actionsPieMenu.tooCloseToBottom) {
+                    actionsPieMenu.y = mainWindow.height - actionsPieMenu.height - informationDrawer.height - actionsPieMenu.minDistance;
                   } else {
-                    actionsPiMenu.y = locationMarker.screenLocation.y - actionsPiMenu.menuHalfSize;
+                    actionsPieMenu.y = locationMarker.screenLocation.y - actionsPieMenu.menuHalfSize;
                   }
-                  actionsPiMenu.open();
+                  actionsPieMenu.open();
                 }
               }
             }
@@ -1007,65 +1007,11 @@ ApplicationWindow {
       }
     }
 
-    Shape {
-      id: connectionShape
-      visible: actionsPiMenu.visible && (actionsPiMenu.nearToEdge || actionsPiMenu.locationMarkerOutSidePie)
-      opacity: visible ? 1 : 0
-
-      readonly property real markerCircleRadius: 2
-      readonly property real menuCircleRadius: 6
-      readonly property color linkColor: Theme.positionColor
-
-      ShapePath {
-        strokeWidth: 0
-        strokeColor: "transparent"
-        fillColor: connectionShape.linkColor
-
-        PathAngleArc {
-          centerX: locationMarker.screenLocation.x
-          centerY: locationMarker.screenLocation.y
-          radiusX: connectionShape.markerCircleRadius
-          radiusY: connectionShape.markerCircleRadius
-          startAngle: 0
-          sweepAngle: 360
-        }
-      }
-
-      ShapePath {
-        strokeWidth: 2
-        strokeColor: connectionShape.linkColor
-        fillColor: "transparent"
-
-        startX: actionsPiMenu.x + actionsPiMenu.width / 2
-        startY: actionsPiMenu.y + actionsPiMenu.height / 2
-
-        PathLine {
-          x: locationMarker.screenLocation.x
-          y: locationMarker.screenLocation.y
-        }
-      }
-
-      ShapePath {
-        strokeWidth: 0
-        strokeColor: "transparent"
-        fillColor: connectionShape.linkColor
-
-        PathAngleArc {
-          centerX: actionsPiMenu.x + actionsPiMenu.width / 2
-          centerY: actionsPiMenu.y + actionsPiMenu.height / 2
-          radiusX: connectionShape.menuCircleRadius
-          radiusY: connectionShape.menuCircleRadius
-          startAngle: 0
-          sweepAngle: 360
-        }
-      }
-    }
-
     QfToolButtonPie {
-      id: actionsPiMenu
+      id: actionsPieMenu
 
       readonly property int minDistance: 80
-      readonly property real menuHalfSize: actionsPiMenu.width / 2
+      readonly property real menuHalfSize: actionsPieMenu.width / 2
 
       readonly property bool tooCloseToLeft: locationMarker.screenLocation.x - menuHalfSize - minDistance < 0
       readonly property bool tooCloseToRight: locationMarker.screenLocation.x + menuHalfSize + minDistance > mainWindow.width
@@ -1073,28 +1019,31 @@ ApplicationWindow {
       readonly property bool tooCloseToBottom: locationMarker.screenLocation.y + menuHalfSize + minDistance + informationDrawer.height > mainWindow.height
       readonly property bool nearToEdge: tooCloseToLeft || tooCloseToRight || tooCloseToTop || tooCloseToBottom
 
-      readonly property bool locationMarkerOutSidePie: {
-        const dx = actionsPiMenu.x + (actionsPiMenu.width / 2) - locationMarker.screenLocation.x;
-        const dy = actionsPiMenu.y + (actionsPiMenu.height / 2) - locationMarker.screenLocation.y;
+      readonly property bool locationMarkerOutSidePieMenu: {
+        const dx = actionsPieMenu.x + (actionsPieMenu.width / 2) - locationMarker.screenLocation.x;
+        const dy = actionsPieMenu.y + (actionsPieMenu.height / 2) - locationMarker.screenLocation.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         return distance > 20;
       }
 
-      readonly property int eachButtonAngle: 360 / 5
+      readonly property int segmentAngle: 360 / actionsPieMenu.numberOfButtons
 
       width: Math.min(150, mapCanvasMap.width / 3)
       height: width
 
+      targetLocation: locationMarker.screenLocation
+      showConnectionLine: visible && (nearToEdge || locationMarkerOutSidePieMenu)
+
       QfToolButton {
         id: gnssCursorLockButton
-        width: actionsPiMenu.bandWidth - 8
+        width: actionsPieMenu.bandWidth - 8
         height: width
         round: true
         checkable: true
         enabled: gnssButton.state === "On" && (stateMachine.state === "digitize" || stateMachine.state === 'measure')
         checked: positionSource.active && positioningSettings.positioningCoordinateLock
         state: checked ? "On" : "Off"
-        visible: actionsPiMenu.currentAngle >= actionsPiMenu.eachButtonAngle
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle
         iconSource: Theme.getThemeVectorIcon("ic_location_cursor_lock_white_24dp")
         opacity: enabled ? 1 : 0.4
 
@@ -1140,20 +1089,20 @@ ApplicationWindow {
                 positionSource.averagedPosition = false;
               }
             }
-            actionsPiMenu.close();
+            actionsPieMenu.close();
           }
         }
       }
 
       QfToolButton {
         id: gnssCanvasLockButton
-        width: actionsPiMenu.bandWidth - 8
+        width: actionsPieMenu.bandWidth - 8
         height: width
         round: true
         checkable: true
         checked: gnssButton.followActive
         state: checked ? "On" : "Off"
-        visible: actionsPiMenu.currentAngle >= actionsPiMenu.eachButtonAngle * 2
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 2
         iconSource: Theme.getThemeVectorIcon("ic_location_canvas_lock_white_24dp")
 
         states: [
@@ -1197,13 +1146,13 @@ ApplicationWindow {
               }
             }
           }
-          actionsPiMenu.close();
+          actionsPieMenu.close();
         }
       }
 
       QfToolButton {
         id: addBookmarkAtCurrentLocationButton
-        width: actionsPiMenu.bandWidth - 8
+        width: actionsPieMenu.bandWidth - 8
         height: width
         iconSource: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
         round: true
@@ -1212,7 +1161,7 @@ ApplicationWindow {
         enabled: true
         iconColor: Theme.light
         bgcolor: Theme.toolButtonBackgroundColor
-        visible: actionsPiMenu.currentAngle >= actionsPiMenu.eachButtonAngle * 3
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 3
         onClicked: {
           if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
             displayToast(qsTr('Current location unknown'));
@@ -1227,13 +1176,13 @@ ApplicationWindow {
             bookmarkProperties.bookmarkGroup = group;
             bookmarkProperties.open();
           }
-          actionsPiMenu.close();
+          actionsPieMenu.close();
         }
       }
 
       QfToolButton {
         id: copyCurrentLocationButton
-        width: actionsPiMenu.bandWidth - 8
+        width: actionsPieMenu.bandWidth - 8
         height: width
         iconSource: Theme.getThemeVectorIcon("ic_copy_black_24dp")
         round: true
@@ -1242,7 +1191,7 @@ ApplicationWindow {
         enabled: true
         iconColor: Theme.light
         bgcolor: Theme.toolButtonBackgroundColor
-        visible: actionsPiMenu.currentAngle >= actionsPiMenu.eachButtonAngle * 4
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 4
         onClicked: {
           if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
             displayToast(qsTr('Current location unknown'));
@@ -1253,13 +1202,13 @@ ApplicationWindow {
           coordinates += ' (' + qsTr('Accuracy') + ' ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr("N/A")) + ')';
           platformUtilities.copyTextToClipboard(coordinates);
           displayToast(qsTr('Current location copied to clipboard'));
-          actionsPiMenu.close();
+          actionsPieMenu.close();
         }
       }
 
       QfToolButton {
         id: showGnssInformation
-        width: actionsPiMenu.bandWidth - 8
+        width: actionsPieMenu.bandWidth - 8
         height: width
         iconSource: Theme.getThemeVectorIcon("ic_info_white_24dp")
         round: true
@@ -1269,7 +1218,7 @@ ApplicationWindow {
         iconColor: Theme.light
         bgcolor: Theme.toolButtonBackgroundColor
         state: checked ? "On" : "Off"
-        visible: actionsPiMenu.currentAngle >= actionsPiMenu.eachButtonAngle * 5
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 5
 
         states: [
           State {
@@ -1291,7 +1240,7 @@ ApplicationWindow {
         ]
         onClicked: {
           positioningSettings.showPositionInformation = checked;
-          actionsPiMenu.close();
+          actionsPieMenu.close();
         }
       }
     }
