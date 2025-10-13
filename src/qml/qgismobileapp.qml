@@ -1063,7 +1063,7 @@ ApplicationWindow {
 
       readonly property int eachButtonAngle: 360 / 5
 
-      width: Math.min(200, mapCanvasMap.width / 2.5)
+      width: Math.min(150, mapCanvasMap.width / 3)
       height: width
 
       x: {
@@ -1101,7 +1101,7 @@ ApplicationWindow {
       }
 
       QfToolButton {
-        id: gnssLockButton
+        id: gnssCursorLockButton
         width: actionsPiMenu.bandWidth - 8
         height: width
         round: true
@@ -1117,7 +1117,7 @@ ApplicationWindow {
           State {
             name: "Off"
             PropertyChanges {
-              target: gnssLockButton
+              target: gnssCursorLockButton
               iconColor: Theme.light
               bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
             }
@@ -1125,7 +1125,7 @@ ApplicationWindow {
           State {
             name: "On"
             PropertyChanges {
-              target: gnssLockButton
+              target: gnssCursorLockButton
               iconColor: Theme.positionColor
               bgcolor: Theme.toolButtonBackgroundColor
             }
@@ -1160,7 +1160,7 @@ ApplicationWindow {
       }
 
       QfToolButton {
-        id: locationLockButton
+        id: gnssCanvasLockButton
         width: actionsPiMenu.bandWidth - 8
         height: width
         round: true
@@ -1174,7 +1174,7 @@ ApplicationWindow {
           State {
             name: "Off"
             PropertyChanges {
-              target: locationLockButton
+              target: gnssCanvasLockButton
               iconColor: Theme.light
               bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
             }
@@ -1182,7 +1182,7 @@ ApplicationWindow {
           State {
             name: "On"
             PropertyChanges {
-              target: locationLockButton
+              target: gnssCanvasLockButton
               iconColor: Theme.positionColor
               bgcolor: Theme.toolButtonBackgroundColor
             }
@@ -1215,7 +1215,7 @@ ApplicationWindow {
       }
 
       QfToolButton {
-        id: addBookmarkButton
+        id: addBookmarkAtCurrentLocationButton
         width: actionsPiMenu.bandWidth - 8
         height: width
         iconSource: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
@@ -1269,7 +1269,7 @@ ApplicationWindow {
       }
 
       QfToolButton {
-        id: showPositionInformation
+        id: showGnssInformation
         width: actionsPiMenu.bandWidth - 8
         height: width
         iconSource: Theme.getThemeVectorIcon("ic_info_white_24dp")
@@ -1286,7 +1286,7 @@ ApplicationWindow {
           State {
             name: "Off"
             PropertyChanges {
-              target: showPositionInformation
+              target: showGnssInformation
               iconColor: Theme.light
               bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
             }
@@ -1294,7 +1294,7 @@ ApplicationWindow {
           State {
             name: "On"
             PropertyChanges {
-              target: showPositionInformation
+              target: showGnssInformation
               iconColor: Theme.positionColor
               bgcolor: Theme.toolButtonBackgroundColor
             }
