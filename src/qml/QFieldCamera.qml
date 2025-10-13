@@ -398,9 +398,6 @@ Popup {
                   } else {
                     currentPosition = PositioningUtils.createEmptyGnssPositionInformation();
                   }
-                  if (cameraSettings.geoTagging && !positionSource.active) {
-                    displayToast(qsTr("Image geotagging requires positioning to be turned on"), "warning");
-                  }
                 } else if (cameraItem.state == "VideoCapture") {
                   if (captureSession.recorder.recorderState === MediaRecorder.StoppedState) {
                     captureSession.recorder.record();
