@@ -17,6 +17,7 @@ Item {
   property real speed: -1 // A -1 value indicates absence of speed information
   property real orientation: -1 // A -1 value indicates absence of compass orientation
 
+  property color strokeColor: "white"
   property color color: Qt.darker(Theme.positionColor, 1.25)
   property color semiOpaqueColor: Qt.hsla(color.hslHue, color.hslSaturation, color.hslLightness, 0.1)
 
@@ -163,7 +164,7 @@ Item {
 
     ShapePath {
       strokeWidth: 3
-      strokeColor: "white"
+      strokeColor: locationMarker.strokeColor
       strokeStyle: ShapePath.SolidLine
       fillColor: locationMarker.color
       joinStyle: ShapePath.MiterJoin
@@ -240,7 +241,7 @@ Item {
 
     ShapePath {
       strokeWidth: 3
-      strokeColor: "white"
+      strokeColor: locationMarker.strokeColor
       strokeStyle: ShapePath.SolidLine
       fillColor: locationMarker.color
       joinStyle: ShapePath.MiterJoin
