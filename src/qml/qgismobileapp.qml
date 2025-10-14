@@ -985,16 +985,16 @@ ApplicationWindow {
                   actionsPieMenu.close();
                 } else {
                   if (actionsPieMenu.tooCloseToLeft) {
-                    actionsPieMenu.x = actionsPieMenu.minDistance;
+                    actionsPieMenu.x = actionsPieMenu.minimumDistanceToScreenEdge;
                   } else if (actionsPieMenu.tooCloseToRight) {
-                    actionsPieMenu.x = mainWindow.width - actionsPieMenu.width - actionsPieMenu.minDistance;
+                    actionsPieMenu.x = mainWindow.width - actionsPieMenu.width - actionsPieMenu.minimumDistanceToScreenEdge;
                   } else {
                     actionsPieMenu.x = locationMarker.screenLocation.x - actionsPieMenu.menuHalfSize;
                   }
                   if (actionsPieMenu.tooCloseToTop) {
-                    actionsPieMenu.y = actionsPieMenu.minDistance;
+                    actionsPieMenu.y = actionsPieMenu.minimumDistanceToScreenEdge;
                   } else if (actionsPieMenu.tooCloseToBottom) {
-                    actionsPieMenu.y = mainWindow.height - actionsPieMenu.height - informationDrawer.height - actionsPieMenu.minDistance;
+                    actionsPieMenu.y = mainWindow.height - actionsPieMenu.height - informationDrawer.height - actionsPieMenu.minimumDistanceToScreenEdge;
                   } else {
                     actionsPieMenu.y = locationMarker.screenLocation.y - actionsPieMenu.menuHalfSize;
                   }
@@ -1010,13 +1010,13 @@ ApplicationWindow {
     QfToolButtonPie {
       id: actionsPieMenu
 
-      readonly property int minDistance: 80
+      readonly property int minimumDistanceToScreenEdge: 80
       readonly property real menuHalfSize: actionsPieMenu.width / 2
 
-      readonly property bool tooCloseToLeft: locationMarker.screenLocation.x - menuHalfSize - minDistance < 0
-      readonly property bool tooCloseToRight: locationMarker.screenLocation.x + menuHalfSize + minDistance > mainWindow.width
-      readonly property bool tooCloseToTop: locationMarker.screenLocation.y - menuHalfSize - minDistance < 0
-      readonly property bool tooCloseToBottom: locationMarker.screenLocation.y + menuHalfSize + minDistance + informationDrawer.height > mainWindow.height
+      readonly property bool tooCloseToLeft: locationMarker.screenLocation.x - menuHalfSize - minimumDistanceToScreenEdge < 0
+      readonly property bool tooCloseToRight: locationMarker.screenLocation.x + menuHalfSize + minimumDistanceToScreenEdge > mainWindow.width
+      readonly property bool tooCloseToTop: locationMarker.screenLocation.y - menuHalfSize - minimumDistanceToScreenEdge < 0
+      readonly property bool tooCloseToBottom: locationMarker.screenLocation.y + menuHalfSize + minimumDistanceToScreenEdge + informationDrawer.height > mainWindow.height
       readonly property bool nearToEdge: tooCloseToLeft || tooCloseToRight || tooCloseToTop || tooCloseToBottom
 
       readonly property bool locationMarkerOutSidePieMenu: {
@@ -1033,7 +1033,7 @@ ApplicationWindow {
       width: Math.min(150, mapCanvasMap.width / 3)
       height: width
 
-      targetLocation: locationMarker.screenLocation
+      targetPoint: locationMarker.screenLocation
       showConnectionLine: visible && (nearToEdge || locationMarkerOutSidePieMenu)
 
       QfToolButton {

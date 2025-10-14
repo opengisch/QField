@@ -14,7 +14,7 @@ Menu {
 
   property alias strokeColor: shapePath.strokeColor
   property color linkColor: Theme.positionColor
-  property var targetLocation: null
+  property var targetPoint: null
   property bool showConnectionLine: false
 
   QtObject {
@@ -27,7 +27,7 @@ Menu {
 
   background: Shape {
     id: connectionShape
-    visible: pieMenu.showConnectionLine && pieMenu.targetLocation !== null
+    visible: pieMenu.showConnectionLine && pieMenu.targetPoint !== null
     opacity: visible ? 1 : 0
 
     Behavior on opacity  {
@@ -48,8 +48,8 @@ Menu {
       startY: height / 2 + 8
 
       PathLine {
-        x: pieMenu.targetLocation ? pieMenu.targetLocation.x - pieMenu.x : 0
-        y: pieMenu.targetLocation ? pieMenu.targetLocation.y - pieMenu.y : 0
+        x: pieMenu.targetPoint ? pieMenu.targetPoint.x - pieMenu.x : 0
+        y: pieMenu.targetPoint ? pieMenu.targetPoint.y - pieMenu.y : 0
       }
     }
 
@@ -74,8 +74,8 @@ Menu {
       fillColor: pieMenu.linkColor
 
       PathAngleArc {
-        centerX: pieMenu.targetLocation ? pieMenu.targetLocation.x - pieMenu.x : 0
-        centerY: pieMenu.targetLocation ? pieMenu.targetLocation.y - pieMenu.y : 0
+        centerX: pieMenu.targetPoint ? pieMenu.targetPoint.x - pieMenu.x : 0
+        centerY: pieMenu.targetPoint ? pieMenu.targetPoint.y - pieMenu.y : 0
         radiusX: connectionShape.markerCircleRadius
         radiusY: connectionShape.markerCircleRadius
         startAngle: 0
