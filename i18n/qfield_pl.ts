@@ -881,15 +881,15 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Feature Form Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu formularza obiektu</translation>
     </message>
     <message>
         <source>Remember All Reusable Values</source>
-        <translation type="unfinished"/>
+        <translation>Zapamiętaj wszystkie wartości wielokrotnego użytku</translation>
     </message>
     <message>
         <source>Forget All Reusable Values</source>
-        <translation type="unfinished"/>
+        <translation>Zapomnij o wszystkich wartościach wielokrotnego użytku</translation>
     </message>
 </context>
 <context>
@@ -4242,27 +4242,27 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Show zoom controls</source>
-        <translation type="unfinished"/>
+        <translation>Pokaż elementy sterujące powiększeniem</translation>
     </message>
     <message>
         <source>Maximize feature form</source>
-        <translation type="unfinished"/>
+        <translation>Zmaksymalizuj formularz obiektu </translation>
     </message>
     <message>
         <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
+        <translation>Otwórz formularz obiektu dla pojedynczej identyfikacji obiektu </translation>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation type="unfinished"/>
+        <translation>Jeśli opcja ta jest włączona, obszary znajdujące się poza widocznym obszarem mapy będą częściowo renderowane, aby umożliwić podgląd podczas powiększania i przesuwania.</translation>
     </message>
     <message>
         <source>Enable auto-save mode</source>
-        <translation type="unfinished"/>
+        <translation>Włącz tryb automatycznego zapisywania</translation>
     </message>
     <message>
         <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation type="unfinished"/>
+        <translation>Jeśli opcja ta jest włączona, nowo dodane obiekty są zapisywane, gdy tylko mają prawidłową geometrię i spełnione są ograniczenia, a edytowane atrybuty są natychmiast zatwierdzane.</translation>
     </message>
 </context>
 <context>
