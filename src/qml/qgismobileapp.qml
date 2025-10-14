@@ -973,6 +973,275 @@ ApplicationWindow {
       direction: positionSource.positionInformation && positionSource.positionInformation.directionValid ? positionSource.positionInformation.direction : -1
       speed: positionSource.positionInformation && positionSource.positionInformation.speedValid ? positionSource.positionInformation.speed : -1
       orientation: !isNaN(positionSource.orientation) ? positionSource.orientation + positionSource.bearingTrueNorth < 0 ? 360 + positionSource.orientation + positionSource.bearingTrueNorth : positionSource.orientation + positionSource.bearingTrueNorth : -1
+
+      Component.onCompleted: {
+        pointHandler.registerHandler("LocationMarker", (point, type, interactionType) => {
+            if (interactionType !== "clicked")
+              return;
+            const dx = point.x - locationMarker.screenLocation.x;
+            const dy = point.y - locationMarker.screenLocation.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < 20) {
+              if (actionsPieMenu.tooCloseToLeft) {
+                actionsPieMenu.x = actionsPieMenu.minimumDistanceToScreenEdge;
+              } else if (actionsPieMenu.tooCloseToRight) {
+                actionsPieMenu.x = mainWindow.width - actionsPieMenu.width - actionsPieMenu.minimumDistanceToScreenEdge;
+              } else {
+                actionsPieMenu.x = locationMarker.screenLocation.x - actionsPieMenu.menuHalfSize;
+              }
+              if (actionsPieMenu.tooCloseToTop) {
+                actionsPieMenu.y = actionsPieMenu.minimumDistanceToScreenEdge;
+              } else if (actionsPieMenu.tooCloseToBottom) {
+                actionsPieMenu.y = mainWindow.height - actionsPieMenu.height - informationDrawer.height - actionsPieMenu.minimumDistanceToScreenEdge;
+              } else {
+                actionsPieMenu.y = locationMarker.screenLocation.y - actionsPieMenu.menuHalfSize;
+              }
+              actionsPieMenu.open();
+              return true;
+            }
+            return false;
+          });
+      }
+    }
+
+    QfToolButtonPie {
+      id: actionsPieMenu
+
+      readonly property int minimumDistanceToScreenEdge: 80
+      readonly property real menuHalfSize: actionsPieMenu.width / 2
+
+      readonly property bool tooCloseToLeft: locationMarker.screenLocation.x - menuHalfSize - minimumDistanceToScreenEdge < 0
+      readonly property bool tooCloseToRight: locationMarker.screenLocation.x + menuHalfSize + minimumDistanceToScreenEdge > mainWindow.width
+      readonly property bool tooCloseToTop: locationMarker.screenLocation.y - menuHalfSize - minimumDistanceToScreenEdge < 0
+      readonly property bool tooCloseToBottom: locationMarker.screenLocation.y + menuHalfSize + minimumDistanceToScreenEdge + informationDrawer.height > mainWindow.height
+      readonly property bool nearToEdge: tooCloseToLeft || tooCloseToRight || tooCloseToTop || tooCloseToBottom
+
+      readonly property bool locationMarkerOutSidePieMenu: {
+        if (!visible)
+          return true;
+        const dx = actionsPieMenu.x + (actionsPieMenu.width / 2) - locationMarker.screenLocation.x;
+        const dy = actionsPieMenu.y + (actionsPieMenu.height / 2) - locationMarker.screenLocation.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        return distance > 20;
+      }
+
+      readonly property int segmentAngle: 360 / actionsPieMenu.numberOfButtons
+
+      width: Math.min(150, mapCanvasMap.width / 3)
+      height: width
+
+      targetPoint: locationMarker.screenLocation
+      showConnectionLine: visible && (nearToEdge || locationMarkerOutSidePieMenu)
+
+      QfToolButton {
+        id: gnssCursorLockButton
+        width: actionsPieMenu.bandWidth - 8
+        height: width
+        round: true
+        checkable: true
+        enabled: gnssButton.state === "On" && (stateMachine.state === "digitize" || stateMachine.state === 'measure')
+        checked: positionSource.active && positioningSettings.positioningCoordinateLock
+        state: checked ? "On" : "Off"
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle
+        iconSource: Theme.getThemeVectorIcon("ic_location_cursor_lock_white_24dp")
+        opacity: enabled ? 1 : 0.4
+
+        states: [
+          State {
+            name: "Off"
+            PropertyChanges {
+              target: gnssCursorLockButton
+              iconColor: Theme.light
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+            }
+          },
+          State {
+            name: "On"
+            PropertyChanges {
+              target: gnssCursorLockButton
+              iconColor: Theme.positionColor
+              bgcolor: Theme.toolButtonBackgroundColor
+            }
+          }
+        ]
+
+        onCheckedChanged: {
+          if (enabled) {
+            if (gnssButton.state === "On") {
+              if (checked) {
+                if (freehandButton.freehandDigitizing) {
+                  // deactivate freehand digitizing when cursor locked is on
+                  freehandButton.clicked();
+                }
+                displayToast(qsTr("Coordinate cursor now locked to position"));
+                if (positionSource.positionInformation.latitudeValid) {
+                  var screenLocation = mapCanvas.mapSettings.coordinateToScreen(locationMarker.location);
+                  if (screenLocation.x < 0 || screenLocation.x > mainWindow.width || screenLocation.y < 0 || screenLocation.y > mainWindow.height) {
+                    mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
+                  }
+                }
+                positioningSettings.positioningCoordinateLock = true;
+              } else {
+                displayToast(qsTr("Coordinate cursor unlocked"));
+                positioningSettings.positioningCoordinateLock = false;
+                // deactivate any active averaged position collection
+                positionSource.averagedPosition = false;
+              }
+            }
+            actionsPieMenu.close();
+          }
+        }
+      }
+
+      QfToolButton {
+        id: gnssCanvasLockButton
+        width: actionsPieMenu.bandWidth - 8
+        height: width
+        round: true
+        checkable: true
+        checked: gnssButton.followActive
+        state: checked ? "On" : "Off"
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 2
+        iconSource: Theme.getThemeVectorIcon("ic_location_canvas_lock_white_24dp")
+
+        states: [
+          State {
+            name: "Off"
+            PropertyChanges {
+              target: gnssCanvasLockButton
+              iconColor: Theme.light
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+            }
+          },
+          State {
+            name: "On"
+            PropertyChanges {
+              target: gnssCanvasLockButton
+              iconColor: Theme.positionColor
+              bgcolor: Theme.toolButtonBackgroundColor
+            }
+          }
+        ]
+
+        onCheckedChanged: {
+          if (!checked) {
+            mapCanvasMap.unfreeze('follow');
+            gnssButton.followActive = false;
+            gnssButton.followOrientationActive = false;
+            gnssButton.autoRefollow = false;
+          } else {
+            if (!positionSource.active) {
+              positionSource.jumpToPosition = true;
+              positioningSettings.positioningActivated = true;
+            } else {
+              if (positionSource.projectedPosition.x) {
+                gnssButton.jumpToLocation();
+                mapCanvasMap.freeze('follow');
+                gnssButton.followActive = true;
+                gnssButton.followLocation(true);
+                displayToast(qsTr("Canvas follows location"));
+              } else {
+                displayToast(qsTr("Waiting for location"));
+              }
+            }
+          }
+          actionsPieMenu.close();
+        }
+      }
+
+      QfToolButton {
+        id: addBookmarkAtCurrentLocationButton
+        width: actionsPieMenu.bandWidth - 8
+        height: width
+        iconSource: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
+        round: true
+        checkable: false
+        checked: false
+        enabled: true
+        iconColor: Theme.light
+        bgcolor: Theme.toolButtonBackgroundColor
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 3
+        onClicked: {
+          if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
+            displayToast(qsTr('Current location unknown'));
+            return;
+          }
+          var name = qsTr('My location') + ' (' + new Date().toLocaleString() + ')';
+          var group = 'blue';
+          var id = bookmarkModel.addBookmarkAtPoint(positionSource.projectedPosition, name, group);
+          if (id !== '') {
+            bookmarkProperties.bookmarkId = id;
+            bookmarkProperties.bookmarkName = name;
+            bookmarkProperties.bookmarkGroup = group;
+            bookmarkProperties.open();
+          }
+          actionsPieMenu.close();
+        }
+      }
+
+      QfToolButton {
+        id: copyCurrentLocationButton
+        width: actionsPieMenu.bandWidth - 8
+        height: width
+        iconSource: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+        round: true
+        checkable: false
+        checked: false
+        enabled: true
+        iconColor: Theme.light
+        bgcolor: Theme.toolButtonBackgroundColor
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 4
+        onClicked: {
+          if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
+            displayToast(qsTr('Current location unknown'));
+            return;
+          }
+          var point = GeometryUtils.reprojectPoint(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs);
+          var coordinates = StringUtils.pointInformation(point, projectInfo.coordinateDisplayCrs);
+          coordinates += ' (' + qsTr('Accuracy') + ' ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr("N/A")) + ')';
+          platformUtilities.copyTextToClipboard(coordinates);
+          displayToast(qsTr('Current location copied to clipboard'));
+          actionsPieMenu.close();
+        }
+      }
+
+      QfToolButton {
+        id: showGnssInformation
+        width: actionsPieMenu.bandWidth - 8
+        height: width
+        iconSource: Theme.getThemeVectorIcon("ic_info_white_24dp")
+        round: true
+        checkable: true
+        checked: positioningSettings.showPositionInformation
+        enabled: true
+        iconColor: Theme.light
+        bgcolor: Theme.toolButtonBackgroundColor
+        state: checked ? "On" : "Off"
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 5
+
+        states: [
+          State {
+            name: "Off"
+            PropertyChanges {
+              target: showGnssInformation
+              iconColor: Theme.light
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+            }
+          },
+          State {
+            name: "On"
+            PropertyChanges {
+              target: showGnssInformation
+              iconColor: Theme.positionColor
+              bgcolor: Theme.toolButtonBackgroundColor
+            }
+          }
+        ]
+        onClicked: {
+          positioningSettings.showPositionInformation = checked;
+          actionsPieMenu.close();
+        }
+      }
     }
 
     /* Rubberband for vertices  */
@@ -2058,61 +2327,6 @@ ApplicationWindow {
 
         Component.onCompleted: {
           followIncludeDestination = settings.valueBool("/QField/Navigation/FollowIncludeDestination", true);
-        }
-      }
-
-      QfToolButton {
-        id: gnssLockButton
-        anchors.right: parent.right
-        state: positionSource.active && positioningSettings.positioningCoordinateLock ? "On" : "Off"
-        visible: gnssButton.state === "On" && (stateMachine.state === "digitize" || stateMachine.state === 'measure')
-        round: true
-        checkable: true
-        checked: positioningSettings.positioningCoordinateLock
-
-        states: [
-          State {
-            name: "Off"
-            PropertyChanges {
-              target: gnssLockButton
-              iconSource: Theme.getThemeVectorIcon("ic_location_locked_white_24dp")
-              iconColor: Theme.toolButtonColor
-              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
-            }
-          },
-          State {
-            name: "On"
-            PropertyChanges {
-              target: gnssLockButton
-              iconSource: Theme.getThemeVectorIcon("ic_location_locked_active_white_24dp")
-              iconColor: Theme.positionColor
-              bgcolor: Theme.toolButtonBackgroundColor
-            }
-          }
-        ]
-
-        onCheckedChanged: {
-          if (gnssButton.state === "On") {
-            if (checked) {
-              if (freehandButton.freehandDigitizing) {
-                // deactivate freehand digitizing when cursor locked is on
-                freehandButton.clicked();
-              }
-              displayToast(qsTr("Coordinate cursor now locked to position"));
-              if (positionSource.positionInformation.latitudeValid) {
-                var screenLocation = mapCanvas.mapSettings.coordinateToScreen(locationMarker.location);
-                if (screenLocation.x < 0 || screenLocation.x > mainWindow.width || screenLocation.y < 0 || screenLocation.y > mainWindow.height) {
-                  mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
-                }
-              }
-              positioningSettings.positioningCoordinateLock = true;
-            } else {
-              displayToast(qsTr("Coordinate cursor unlocked"));
-              positioningSettings.positioningCoordinateLock = false;
-              // deactivate any active averaged position collection
-              positionSource.averagedPosition = false;
-            }
-          }
         }
       }
 
@@ -3665,21 +3879,6 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("Show Position Information")
-      height: 48
-      leftPadding: Theme.menuItemCheckLeftPadding
-      font: Theme.defaultFont
-
-      checkable: true
-      checked: positioningSettings.showPositionInformation
-      indicator.height: 20
-      indicator.width: 20
-      indicator.implicitHeight: 24
-      indicator.implicitWidth: 24
-      onCheckedChanged: positioningSettings.showPositionInformation = checked
-    }
-
-    MenuItem {
       text: qsTr("Positioning Settings")
       height: 48
       leftPadding: Theme.menuItemIconlessLeftPadding
@@ -3703,50 +3902,6 @@ ApplicationWindow {
 
       onTriggered: {
         mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
-      }
-    }
-
-    MenuItem {
-      text: qsTr("Add Bookmark at Location")
-      icon.source: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      font: Theme.defaultFont
-
-      onTriggered: {
-        if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
-          displayToast(qsTr('Current location unknown'));
-          return;
-        }
-        var name = qsTr('My location') + ' (' + new Date().toLocaleString() + ')';
-        var group = 'blue';
-        var id = bookmarkModel.addBookmarkAtPoint(positionSource.projectedPosition, name, group);
-        if (id !== '') {
-          bookmarkProperties.bookmarkId = id;
-          bookmarkProperties.bookmarkName = name;
-          bookmarkProperties.bookmarkGroup = group;
-          bookmarkProperties.open();
-        }
-      }
-    }
-
-    MenuItem {
-      text: qsTr("Copy Location Coordinates")
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
-
-      onTriggered: {
-        if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
-          displayToast(qsTr('Current location unknown'));
-          return;
-        }
-        var point = GeometryUtils.reprojectPoint(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs);
-        var coordinates = StringUtils.pointInformation(point, projectInfo.coordinateDisplayCrs);
-        coordinates += ' (' + qsTr('Accuracy') + ' ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr("N/A")) + ')';
-        platformUtilities.copyTextToClipboard(coordinates);
-        displayToast(qsTr('Current location copied to clipboard'));
       }
     }
   }

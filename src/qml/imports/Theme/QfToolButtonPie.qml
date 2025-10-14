@@ -2,23 +2,86 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Shapes
 
-Container {
-  id: container
-
+Menu {
+  id: pieMenu
   scale: 0
   opacity: 0
-  visible: opacity > 0
+
+  readonly property int numberOfButtons: menuItemsView.count
 
   property int bandWidth: 48
-  property real currentAngle: 0
+  property real openingAngle: 0
+
   property alias strokeColor: shapePath.strokeColor
+  property color linkColor: Theme.positionColor
+  property var targetPoint: null
+  property bool showConnectionLine: false
 
   QtObject {
     id: internal
     property int animationDuration: 200
-    property real outerRadius: container.width / 2
+    property real outerRadius: pieMenu.width / 2
     property real innerRadius: outerRadius - bandWidth
     property real pathRadius: (innerRadius + outerRadius + bandWidth) / 2
+  }
+
+  background: Shape {
+    id: connectionShape
+    visible: pieMenu.showConnectionLine && pieMenu.targetPoint !== null
+    opacity: visible ? 1 : 0
+
+    Behavior on opacity  {
+      NumberAnimation {
+        duration: internal.animationDuration
+      }
+    }
+
+    readonly property real markerCircleRadius: 3
+    readonly property real menuCircleRadius: 6
+
+    ShapePath {
+      strokeWidth: 2
+      strokeColor: pieMenu.linkColor
+      fillColor: "transparent"
+
+      startX: width / 2
+      startY: height / 2 + 8
+
+      PathLine {
+        x: pieMenu.targetPoint ? pieMenu.targetPoint.x - pieMenu.x : 0
+        y: pieMenu.targetPoint ? pieMenu.targetPoint.y - pieMenu.y : 0
+      }
+    }
+
+    ShapePath {
+      strokeWidth: 0
+      strokeColor: "transparent"
+      fillColor: pieMenu.linkColor
+
+      PathAngleArc {
+        centerX: width / 2
+        centerY: height / 2 + 8
+        radiusX: connectionShape.menuCircleRadius
+        radiusY: connectionShape.menuCircleRadius
+        startAngle: 0
+        sweepAngle: 360
+      }
+    }
+
+    ShapePath {
+      strokeWidth: 0
+      strokeColor: "transparent"
+      fillColor: pieMenu.linkColor
+
+      PathAngleArc {
+        centerX: pieMenu.targetPoint ? pieMenu.targetPoint.x - pieMenu.x : 0
+        centerY: pieMenu.targetPoint ? pieMenu.targetPoint.y - pieMenu.y : 0
+        radiusX: connectionShape.markerCircleRadius
+        radiusY: connectionShape.markerCircleRadius
+        startAngle: 0
+        sweepAngle: 360
+      }
+    }
   }
 
   contentItem: Item {
@@ -28,18 +91,18 @@ Container {
 
       ShapePath {
         id: shapePath
-        strokeWidth: container.bandWidth
+        strokeWidth: pieMenu.bandWidth
         strokeColor: Qt.hsla(Theme.toolButtonBackgroundColor.hslHue, Theme.toolButtonBackgroundColor.hslSaturation, Theme.toolButtonBackgroundColor.hslLightness, 0.3)
         fillColor: "transparent"
         capStyle: ShapePath.RoundCap
 
         PathAngleArc {
-          centerX: container.width / 2
-          centerY: container.height / 2
-          radiusX: container.width / 2
-          radiusY: container.height / 2
+          centerX: pieMenu.width / 2
+          centerY: pieMenu.height / 2
+          radiusX: pieMenu.width / 2
+          radiusY: pieMenu.height / 2
           startAngle: 270
-          sweepAngle: container.currentAngle
+          sweepAngle: pieMenu.openingAngle
         }
       }
     }
@@ -48,26 +111,26 @@ Container {
       id: menuItemsView
       anchors.fill: parent
       interactive: false
-      model: container.contentModel
+      model: pieMenu.contentModel
 
       delegate: Item {
       }
 
       path: Path {
-        startX: container.width / 2
-        startY: container.height / 2 - internal.pathRadius
+        startX: pieMenu.width / 2
+        startY: pieMenu.height / 2 - internal.pathRadius
 
         PathArc {
-          x: container.width / 2
-          y: container.height / 2 + internal.pathRadius
+          x: pieMenu.width / 2
+          y: pieMenu.height / 2 + internal.pathRadius
           radiusX: internal.pathRadius
           radiusY: internal.pathRadius
           useLargeArc: true
         }
 
         PathArc {
-          x: container.width / 2
-          y: container.height / 2 - internal.pathRadius
+          x: pieMenu.width / 2
+          y: pieMenu.height / 2 - internal.pathRadius
           radiusX: internal.pathRadius
           radiusY: internal.pathRadius
           useLargeArc: true
@@ -77,7 +140,7 @@ Container {
       preferredHighlightBegin: 0
       preferredHighlightEnd: 0
       highlightRangeMode: PathView.NoHighlightRange
-      pathItemCount: container.contentModel.count
+      pathItemCount: pieMenu.contentModel.count
       snapMode: PathView.SnapOneItem
     }
 
@@ -86,10 +149,10 @@ Container {
       anchors.margins: internal.outerRadius - internal.innerRadius
       propagateComposedEvents: true
       onClicked: function (event) {
-        if (container.visible)
-          container.close();
+        if (pieMenu.visible)
+          pieMenu.close();
         else
-          container.open();
+          pieMenu.open();
         event.accepted = false;
       }
     }
@@ -97,40 +160,24 @@ Container {
 
   NumberAnimation {
     id: progressAnimation
-    target: container
-    property: "currentAngle"
+    target: pieMenu
+    property: "openingAngle"
     from: 0
     to: 360
     duration: internal.animationDuration * 2
     easing.type: Easing.InOutQuad
   }
 
-  Behavior on scale  {
-    NumberAnimation {
-      duration: internal.animationDuration * 2
-      easing.type: Easing.OutBack
-    }
+  onAboutToShow: {
+    pieMenu.opacity = 1;
+    pieMenu.scale = 1;
+    pieMenu.openingAngle = 0;
+    progressAnimation.start();
   }
 
-  Behavior on opacity  {
-    NumberAnimation {
-      duration: internal.animationDuration * 2
-    }
-  }
-
-  function open() {
-    if (!container.visible) {
-      container.opacity = 1;
-      container.scale = 1;
-      container.currentAngle = 0;
-      progressAnimation.start();
-    }
-  }
-
-  function close() {
-    if (container.visible) {
-      container.opacity = 0;
-      container.scale = 0;
-    }
+  onAboutToHide: {
+    pieMenu.opacity = 0;
+    pieMenu.scale = 0;
+    pieMenu.visible = false;
   }
 }

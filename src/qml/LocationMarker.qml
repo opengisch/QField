@@ -12,6 +12,11 @@ Item {
 
   property variant location // QgsPoint
 
+  // props
+  property point screenLocation
+  property real screenAccuracy
+  readonly property bool isOnMapCanvas: screenLocation.x > 0 && screenLocation.x < mapCanvas.width && screenLocation.y > 0 && screenLocation.y < mapCanvas.height
+
   property real accuracy: 0
   property real direction: -1 // A -1 value indicates absence of movement direction information
   property real speed: -1 // A -1 value indicates absence of speed information
@@ -23,27 +28,19 @@ Item {
 
   property MapSettings mapSettings
 
-  QtObject {
-    id: props
-
-    property point screenLocation
-    property real screenAccuracy
-
-    property bool isOnMapCanvas: screenLocation.x > 0 && screenLocation.x < mapCanvas.width && screenLocation.y > 0 && screenLocation.y < mapCanvas.height
-  }
   function updateScreenLocation() {
-    props.screenLocation = mapSettings.coordinateToScreen(location);
-    props.screenAccuracy = accuracy / mapSettings.mapUnitsPerPoint;
+    screenLocation = mapSettings.coordinateToScreen(location);
+    screenAccuracy = accuracy / mapSettings.mapUnitsPerPoint;
   }
 
   Rectangle {
     id: accuracyMarker
-    visible: props.screenAccuracy > 0.0
-    width: props.screenAccuracy * 2
-    height: props.screenAccuracy * 2
+    visible: screenAccuracy > 0.0
+    width: screenAccuracy * 2
+    height: screenAccuracy * 2
 
-    x: props.screenLocation.x - width / 2
-    y: props.screenLocation.y - height / 2
+    x: screenLocation.x - width / 2
+    y: screenLocation.y - height / 2
 
     radius: width / 2
 
@@ -59,8 +56,8 @@ Item {
     height: 48
     opacity: 0.6
 
-    x: props.screenLocation.x - width / 2
-    y: props.screenLocation.y - height
+    x: screenLocation.x - width / 2
+    y: screenLocation.y - height
 
     rotation: orientation + mapSettings.rotation
     transformOrigin: Item.Bottom
@@ -152,12 +149,12 @@ Item {
 
   Shape {
     id: movementMarker
-    visible: speed > 0 && props.isOnMapCanvas
+    visible: speed > 0 && isOnMapCanvas
     width: 26
     height: 26
 
-    x: props.screenLocation.x - width / 2
-    y: props.screenLocation.y - height / 2
+    x: screenLocation.x - width / 2
+    y: screenLocation.y - height / 2
 
     rotation: direction + mapSettings.rotation
     transformOrigin: Item.Center
@@ -200,13 +197,13 @@ Item {
 
   Rectangle {
     id: positionMarker
-    visible: !movementMarker.visible && props.isOnMapCanvas
+    visible: !movementMarker.visible && isOnMapCanvas
 
     width: 13
     height: 13
 
-    x: props.screenLocation.x - width / 2
-    y: props.screenLocation.y - height / 2
+    x: screenLocation.x - width / 2
+    y: screenLocation.y - height / 2
 
     radius: width / 2
 
@@ -226,17 +223,17 @@ Item {
 
   Shape {
     id: edgeMarker
-    visible: !props.isOnMapCanvas
+    visible: !isOnMapCanvas
     width: 20
     height: 24
 
-    x: Math.min(mapCanvas.width - width, Math.max(0, props.screenLocation.x - width / 2))
-    y: Math.min(mapCanvas.height - width, Math.max(0, props.screenLocation.y - width / 2))
+    x: Math.min(mapCanvas.width - width, Math.max(0, screenLocation.x - width / 2))
+    y: Math.min(mapCanvas.height - width, Math.max(0, screenLocation.y - width / 2))
 
     transform: Rotation {
       origin.x: edgeMarker.width / 2
       origin.y: edgeMarker.width / 2
-      angle: -(Math.atan2(mapCanvas.width / 2 - props.screenLocation.x, mapCanvas.height / 2 - props.screenLocation.y) / Math.PI) * 180
+      angle: -(Math.atan2(mapCanvas.width / 2 - screenLocation.x, mapCanvas.height / 2 - screenLocation.y) / Math.PI) * 180
     }
 
     ShapePath {
