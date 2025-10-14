@@ -3921,8 +3921,6 @@ ApplicationWindow {
     rotateFeaturesToolbar: rotateFeaturesToolbar
     codeReader: codeReader
 
-    focus: visible
-
     anchors {
       right: parent.right
       bottom: parent.bottom
