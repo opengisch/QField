@@ -413,8 +413,6 @@ Rectangle {
       }
     }
 
-    focus: true
-
     onCancelled: {
       featureFormList.selection.focusedItemChanged();
       featureForm.model.featureModel.reset();
