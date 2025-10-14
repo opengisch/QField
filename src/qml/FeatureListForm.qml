@@ -26,7 +26,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Rectangle {
+Page {
   id: featureFormList
 
   property ProcessingAlgorithm algorithm: processingAlgorithm
@@ -225,8 +225,6 @@ Rectangle {
     }
   ]
   state: "Hidden"
-
-  color: Theme.mainBackgroundColor
   clip: true
 
   WheelHandler {
