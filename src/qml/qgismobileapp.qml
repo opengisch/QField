@@ -976,31 +976,28 @@ ApplicationWindow {
 
       Component.onCompleted: {
         pointHandler.registerHandler("LocationMarker", (point, type, interactionType) => {
+            if (interactionType !== "clicked")
+              return;
             const dx = point.x - locationMarker.screenLocation.x;
             const dy = point.y - locationMarker.screenLocation.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
             if (distance < 20) {
-              if (interactionType === "clicked") {
-                if (actionsPieMenu.visible) {
-                  actionsPieMenu.close();
-                } else {
-                  if (actionsPieMenu.tooCloseToLeft) {
-                    actionsPieMenu.x = actionsPieMenu.minimumDistanceToScreenEdge;
-                  } else if (actionsPieMenu.tooCloseToRight) {
-                    actionsPieMenu.x = mainWindow.width - actionsPieMenu.width - actionsPieMenu.minimumDistanceToScreenEdge;
-                  } else {
-                    actionsPieMenu.x = locationMarker.screenLocation.x - actionsPieMenu.menuHalfSize;
-                  }
-                  if (actionsPieMenu.tooCloseToTop) {
-                    actionsPieMenu.y = actionsPieMenu.minimumDistanceToScreenEdge;
-                  } else if (actionsPieMenu.tooCloseToBottom) {
-                    actionsPieMenu.y = mainWindow.height - actionsPieMenu.height - informationDrawer.height - actionsPieMenu.minimumDistanceToScreenEdge;
-                  } else {
-                    actionsPieMenu.y = locationMarker.screenLocation.y - actionsPieMenu.menuHalfSize;
-                  }
-                  actionsPieMenu.open();
-                }
+              if (actionsPieMenu.tooCloseToLeft) {
+                actionsPieMenu.x = actionsPieMenu.minimumDistanceToScreenEdge;
+              } else if (actionsPieMenu.tooCloseToRight) {
+                actionsPieMenu.x = mainWindow.width - actionsPieMenu.width - actionsPieMenu.minimumDistanceToScreenEdge;
+              } else {
+                actionsPieMenu.x = locationMarker.screenLocation.x - actionsPieMenu.menuHalfSize;
               }
+              if (actionsPieMenu.tooCloseToTop) {
+                actionsPieMenu.y = actionsPieMenu.minimumDistanceToScreenEdge;
+              } else if (actionsPieMenu.tooCloseToBottom) {
+                actionsPieMenu.y = mainWindow.height - actionsPieMenu.height - informationDrawer.height - actionsPieMenu.minimumDistanceToScreenEdge;
+              } else {
+                actionsPieMenu.y = locationMarker.screenLocation.y - actionsPieMenu.menuHalfSize;
+              }
+              actionsPieMenu.open();
+              return true;
             }
             return false;
           });
