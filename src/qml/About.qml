@@ -80,7 +80,7 @@ Item {
             wrapMode: Text.WordWrap
 
             text: {
-              let links = '<a href="https://github.com/opengisch/QField/commit/' + gitRev + '">' + gitRev.substr(0, 6) + '</a>';
+              let links = '<a href="https://github.com/opengisch/QField/commit/' + gitRev + '">' + gitRev.substr(0, 7) + '</a>';
               if (appVersion && appVersion !== '1.0.0') {
                 links += ' <a href="https://github.com/opengisch/QField/releases/tag/' + appVersion + '">' + appVersion + '</a>';
               }
