@@ -705,6 +705,10 @@ ApplicationWindow {
       }
 
       onConfirmedClicked: point => {
+        // Check if any registered handlers want to handle this tap
+        if (pointHandler.clicked(point, "touch")) {
+          return;
+        }
         // Check if geometry editor is taking over
         const positionLocked = positionSource.active && positioningSettings.positioningCoordinateLock;
         if (geometryEditorsToolbar.stateVisible) {
