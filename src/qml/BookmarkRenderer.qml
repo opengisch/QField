@@ -147,7 +147,7 @@ Item {
                 }
               }
               return false;
-            });
+            }, MapCanvasPointHandler.Priority.Low);
         }
 
         Component.onDestruction: {

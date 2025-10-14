@@ -1004,7 +1004,7 @@ ApplicationWindow {
               return true;
             }
             return false;
-          });
+          }, MapCanvasPointHandler.Priority.High);
       }
     }
 
