@@ -228,7 +228,6 @@ Item {
 
     onTriggered: {
       mainTapHandler.doublePressed = false;
-      mapArea.clicked(tapPoint, "touch");
       confirmedClicked(tapPoint);
     }
   }
