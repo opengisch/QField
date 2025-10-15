@@ -32,7 +32,7 @@ Page {
     showBackButton: true
     showApplyButton: false
     showCancelButton: false
-    showMenuButton: localFilesModel.inSelectionMode && (table.selectedItemsPushableToQField || table.selectedItemsWebDavConfigured)
+    showMenuButton: localFilesModel.inSelectionMode && (table.selectedItemsPushableToQField || table.selectedItemsWebDavConfigured || table.selectedItemsDeletable)
     backAsCancel: localFilesModel.inSelectionMode
 
     topMargin: mainWindow.sceneTopMargin
@@ -151,6 +151,7 @@ Page {
         property var selectedList: []
         property bool selectedItemsWebDavConfigured
         property bool selectedItemsPushableToQField
+        property bool selectedItemsDeletable
 
         delegate: Rectangle {
           id: rectangle
@@ -304,10 +305,12 @@ Page {
             }
             table.selectedItemsWebDavConfigured = true;
             table.selectedItemsPushableToQField = true;
+            table.selectedItemsDeletable = true;
             for (let i = 0; i < table.selectedList.length; ++i) {
               const item = table.itemAtIndex(table.selectedList[i]);
               table.selectedItemsWebDavConfigured = table.selectedItemsWebDavConfigured && item.itemHasWebdavConfiguration;
               table.selectedItemsPushableToQField = (table.selectedItemsPushableToQField && item.itemMetaType == LocalFilesModel.Dataset && item.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (item.itemMetaType == LocalFilesModel.Folder && item.itemWithinQFieldCloudProjectFolder);
+              table.selectedItemsDeletable = table.selectedItemsDeletable && FileUtils.isDeletable(item.itemPath);
             }
           }
         }
@@ -611,10 +614,27 @@ Page {
       }
 
       MenuSeparator {
-        enabled: removeDataset.visible || removeProjectFolder.visible
+        enabled: deleteFile.visible || removeDataset.visible || removeProjectFolder.visible
         visible: enabled
         width: parent.width
         height: enabled ? undefined : 0
+      }
+
+      MenuItem {
+        id: deleteFile
+        enabled: FileUtils.isDeletable(itemMenu.itemPath)
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Delete file")
+        onTriggered: {
+          confirmRemoveDialog.itemsToRemove = [itemMenu.itemPath];
+          confirmRemoveDialog.open();
+        }
       }
 
       MenuItem {
@@ -887,6 +907,30 @@ Page {
           }
         }
       }
+
+      MenuItem {
+        id: deleteSelectedFiles
+
+        enabled: table.selectedItemsDeletable
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Delete file(s)")
+        onTriggered: {
+          var fileNames = [];
+          for (let i = 0; i < table.selectedList.length; ++i) {
+            fileNames.push(table.itemAtIndex(table.selectedList[i]).itemPath);
+          }
+          if (fileNames.length > 0) {
+            confirmRemoveDialog.itemsToRemove = fileNames;
+            confirmRemoveDialog.open();
+          }
+        }
+      }
     }
   }
 
@@ -907,6 +951,44 @@ Page {
         displayToast(qsTr("Items being uploaded to QFieldCloud"));
       }
       pushFilesToQFieldCloudConnection.enabled = false;
+    }
+  }
+
+  QfDialog {
+    id: confirmRemoveDialog
+    parent: mainWindow.contentItem
+    title: qsTr("Remove File(s)")
+
+    property list<string> itemsToRemove: []
+
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: confirmRemoveDialog.itemsToRemove.length === 1 ? qsTr("Are you sure you want to remove this file?") : qsTr("Are you sure you want to remove these %1 files?").arg(confirmRemoveDialog.itemsToRemove.length)
+    }
+
+    onAccepted: {
+      const results = FileUtils.deleteFiles(itemsToRemove);
+      let allSucceeded = true;
+      let failedCount = 0;
+      for (let i = 0; i < itemsToRemove.length; i++) {
+        if (!results[itemsToRemove[i]]) {
+          allSucceeded = false;
+          failedCount++;
+        }
+      }
+      if (allSucceeded) {
+        displayToast(qsTr("File(s) deleted successfully"));
+      } else {
+        displayToast(qsTr("Failed to delete %1 file(s)").arg(failedCount));
+      }
+      table.model.resetToPath(table.model.currentPath);
+      table.selectedList = [];
+      localFilesModel.clearSelection();
+    }
+
+    onRejected: {
+      visible = false;
     }
   }
 
