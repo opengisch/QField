@@ -980,7 +980,7 @@ ApplicationWindow {
 
       Component.onCompleted: {
         pointHandler.registerHandler("LocationMarker", (point, type, interactionType) => {
-            if (interactionType !== "clicked")
+            if (!locationMarker.visible || interactionType !== "clicked")
               return;
             const dx = point.x - locationMarker.screenLocation.x;
             const dy = point.y - locationMarker.screenLocation.y;
