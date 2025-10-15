@@ -3976,7 +3976,7 @@ ApplicationWindow {
   }
 
   function showAutoLockToast() {
-    displayToast(qsTr('Follow location paused'), 'info', qsTr('Unlock'), () => {
+    displayToast(qsTr('Map canvas lock paused'), 'info', qsTr('Unlock'), () => {
         gnssButton.autoRefollow = false;
       }, true, () => {
         if (positionSource.active && gnssButton.autoRefollow) {
