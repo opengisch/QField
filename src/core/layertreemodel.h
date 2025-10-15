@@ -109,8 +109,9 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     QList<QgsLayerTreeLayer *> mLayersInTracking;
 
     bool mIsTemporal = false;
-
     int mFrozen = 0;
+
+    bool mProjectLayersChanged = false;
 };
 
 /**

@@ -137,10 +137,18 @@ FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProj
   connect( mProject, &QgsProject::layersAdded, this, [this]( const QList<QgsMapLayer *> &layers ) {
     if ( !mFrozen )
     {
-      buildMap( mLayerTreeModel );
+      mProjectLayersChanged = true;
       emit layersAdded();
+
+      adjustTemporalStateFromAddedLayers( layers );
     }
-    adjustTemporalStateFromAddedLayers( layers );
+  } );
+  connect( mProject, static_cast<void ( QgsProject::* )( const QList<QgsMapLayer *> &layers )>( &QgsProject::layersWillBeRemoved ), this, [this]( const QList<QgsMapLayer *> &layers ) {
+    if ( !mFrozen )
+    {
+      mProjectLayersChanged = true;
+      emit layersRemoved();
+    }
   } );
   connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, [this]( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles ) {
     updateMap( topLeft, bottomRight, roles );
@@ -186,6 +194,13 @@ void FlatLayerTreeModelBase::insertInMap( const QModelIndex &parent, int first, 
 {
   if ( mFrozen )
     return;
+
+  if ( mProjectLayersChanged )
+  {
+    mProjectLayersChanged = false;
+    buildMap( mLayerTreeModel );
+    return;
+  }
 
   bool resetNeeded = false;
   for ( int i = 0; first + i <= last; i++ )
@@ -273,6 +288,13 @@ void FlatLayerTreeModelBase::removeFromMap( const QModelIndex &parent, int first
 {
   if ( mFrozen )
     return;
+
+  if ( mProjectLayersChanged )
+  {
+    mProjectLayersChanged = false;
+    buildMap( mLayerTreeModel );
+    return;
+  }
 
   int removedAt = -1;
   if ( first == 0 )
