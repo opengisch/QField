@@ -1043,8 +1043,7 @@ ApplicationWindow {
         height: width
         round: true
         checkable: true
-        enabled: gnssButton.state === "On" && (stateMachine.state === "digitize" || stateMachine.state === 'measure')
-        checked: positionSource.active && positioningSettings.positioningCoordinateLock
+        checked: positioningSettings.positioningCoordinateLock
         state: checked ? "On" : "Off"
         visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle
         iconSource: Theme.getThemeVectorIcon("ic_location_cursor_lock_white_24dp")
@@ -1070,30 +1069,20 @@ ApplicationWindow {
         ]
 
         onClicked: {
-          if (enabled) {
-            if (gnssButton.state === "On") {
-              if (checked) {
-                if (freehandButton.freehandDigitizing) {
-                  // deactivate freehand digitizing when cursor locked is on
-                  freehandButton.clicked();
-                }
-                displayToast(qsTr("Coordinate cursor now locked to position"));
-                if (positionSource.positionInformation.latitudeValid) {
-                  var screenLocation = mapCanvas.mapSettings.coordinateToScreen(locationMarker.location);
-                  if (screenLocation.x < 0 || screenLocation.x > mainWindow.width || screenLocation.y < 0 || screenLocation.y > mainWindow.height) {
-                    mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
-                  }
-                }
-                positioningSettings.positioningCoordinateLock = true;
-              } else {
-                displayToast(qsTr("Coordinate cursor unlocked"));
-                positioningSettings.positioningCoordinateLock = false;
-                // deactivate any active averaged position collection
-                positionSource.averagedPosition = false;
-              }
+          if (positioningSettings.positioningCoordinateLock) {
+            positioningSettings.positioningCoordinateLock = false;
+            // deactivate any active averaged position collection
+            positionSource.averagedPosition = false;
+            displayToast(qsTr("Digitizing coordinate cursor unlocked"));
+          } else {
+            if (freehandButton.freehandDigitizing) {
+              // deactivate freehand digitizing when cursor locked is on
+              freehandButton.clicked();
             }
-            actionsPieMenu.close();
+            positioningSettings.positioningCoordinateLock = true;
+            displayToast(qsTr("Digitizing coordinate cursor locked to position"));
           }
+          actionsPieMenu.close();
         }
       }
 
@@ -1133,13 +1122,14 @@ ApplicationWindow {
             gnssButton.autoRefollow = false;
             gnssButton.followActive = false;
             gnssButton.followOrientationActive = false;
+            displayToast(qsTr("Map canvas unlocked"));
           } else {
             gnssButton.jumpToLocation();
             mapCanvasMap.freeze('follow');
             gnssButton.autoRefollow = true;
             gnssButton.followActive = true;
             gnssButton.followLocation(true);
-            displayToast(qsTr("Canvas follows location"));
+            displayToast(qsTr("Map canvas locked to position"));
           }
           actionsPieMenu.close();
         }
