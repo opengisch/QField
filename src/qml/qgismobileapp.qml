@@ -1148,10 +1148,6 @@ ApplicationWindow {
         bgcolor: Theme.toolButtonBackgroundColor
         visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 3
         onClicked: {
-          if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
-            displayToast(qsTr('Current location unknown'));
-            return;
-          }
           var name = qsTr('My location') + ' (' + new Date().toLocaleString() + ')';
           var group = 'blue';
           var id = bookmarkModel.addBookmarkAtPoint(positionSource.projectedPosition, name, group);
@@ -1178,10 +1174,6 @@ ApplicationWindow {
         bgcolor: Theme.toolButtonBackgroundColor
         visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 4
         onClicked: {
-          if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
-            displayToast(qsTr('Current location unknown'));
-            return;
-          }
           var point = GeometryUtils.reprojectPoint(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs);
           var coordinates = StringUtils.pointInformation(point, projectInfo.coordinateDisplayCrs);
           coordinates += ' (' + qsTr('Accuracy') + ' ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr("N/A")) + ')';
