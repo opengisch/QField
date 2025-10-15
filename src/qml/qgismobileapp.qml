@@ -1041,6 +1041,7 @@ ApplicationWindow {
         id: gnssCursorLockButton
         width: actionsPieMenu.bandWidth - 8
         height: width
+        padding: 2
         round: true
         checkable: true
         checked: positioningSettings.positioningCoordinateLock
@@ -1093,6 +1094,7 @@ ApplicationWindow {
         id: gnssCanvasLockButton
         width: actionsPieMenu.bandWidth - 8
         height: width
+        padding: 2
         round: true
         checkable: true
         checked: gnssButton.autoRefollow
@@ -1141,7 +1143,8 @@ ApplicationWindow {
         id: addBookmarkAtCurrentLocationButton
         width: actionsPieMenu.bandWidth - 8
         height: width
-        iconSource: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
+        padding: 2
+        iconSource: Theme.getThemeVectorIcon("ic_add_bookmark_black_24dp")
         round: true
         checkable: false
         checked: false
@@ -1167,6 +1170,7 @@ ApplicationWindow {
         id: copyCurrentLocationButton
         width: actionsPieMenu.bandWidth - 8
         height: width
+        padding: 2
         iconSource: Theme.getThemeVectorIcon("ic_copy_black_24dp")
         round: true
         checkable: false
@@ -1189,6 +1193,7 @@ ApplicationWindow {
         id: showGnssInformation
         width: actionsPieMenu.bandWidth - 8
         height: width
+        padding: 2
         iconSource: Theme.getThemeVectorIcon("ic_info_white_24dp")
         round: true
         checkable: true
@@ -3343,7 +3348,7 @@ ApplicationWindow {
     MenuItem {
       id: addBookmarkItem
       text: qsTr("Add Bookmark")
-      icon.source: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_add_bookmark_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
@@ -3944,7 +3949,7 @@ ApplicationWindow {
 
     MenuItem {
       text: qsTr("Add Bookmark at Location")
-      icon.source: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_add_bookmark_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
