@@ -3870,7 +3870,24 @@ ApplicationWindow {
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged: positioningSettings.positioningActivated = checked
+
+      onTriggered: positioningSettings.positioningActivated = checked
+    }
+
+    MenuItem {
+      text: qsTr("Show Position Information")
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+      font: Theme.defaultFont
+
+      checkable: true
+      checked: positioningSettings.showPositionInformation
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+
+      onTriggered: positioningSettings.showPositionInformation = checked
     }
 
     MenuItem {
@@ -3890,13 +3907,64 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("Center to Location")
+      text: qsTr("Lock Digitizing Coordinate Cursor to Location")
       height: 48
-      leftPadding: Theme.menuItemIconlessLeftPadding
+      leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
+      enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+      checkable: true
+      checked: positioningSettings.showPositionInformation
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
 
       onTriggered: {
-        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+        gnssCursorLockButton.click();
+      }
+    }
+
+    MenuItem {
+      text: qsTr("Lock Map Canvas to Location")
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+      font: Theme.defaultFont
+      enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+      checkable: true
+      checked: gnssButton.autoRefollow
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+
+      onTriggered: {
+        gnssCanvasLockButton.click();
+      }
+    }
+
+    MenuItem {
+      text: qsTr("Add Bookmark at Location")
+      icon.source: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+      font: Theme.defaultFont
+      enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+
+      onTriggered: {
+        addBookmarkAtCurrentLocationButton.click();
+      }
+    }
+
+    MenuItem {
+      text: qsTr("Copy Location Coordinates")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+      enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+
+      onTriggered: {
+        copyCurrentLocationButton.click();
       }
     }
   }
