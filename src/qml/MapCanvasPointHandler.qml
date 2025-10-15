@@ -64,8 +64,8 @@ Item {
 
   // Helper function to process any type of interaction
   function processInteraction(point, type, interactionType) {
-    for (var i = 0; i < handlers.length; i++) {
-      if (handlers[i].handler(point, type, interactionType)) {
+    for (const handler of handlers) {
+      if (handler.handler(point, type, interactionType)) {
         return true;
       }
     }
