@@ -4845,7 +4845,7 @@ ApplicationWindow {
       }, {
         "type": "information",
         "title": qsTr("Positioning"),
-        "description": qsTr("This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored."),
+        "description": qsTr("This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities."),
         "target": () => [gnssButton]
       }, {
         "type": "information",
