@@ -985,7 +985,7 @@ ApplicationWindow {
             const dx = point.x - locationMarker.screenLocation.x;
             const dy = point.y - locationMarker.screenLocation.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < 20) {
+            if (distance < 25) {
               if (actionsPieMenu.tooCloseToLeft) {
                 actionsPieMenu.x = actionsPieMenu.minimumDistanceToScreenEdge;
               } else if (actionsPieMenu.tooCloseToRight) {
