@@ -3921,6 +3921,8 @@ ApplicationWindow {
     rotateFeaturesToolbar: rotateFeaturesToolbar
     codeReader: codeReader
 
+    focus: visible
+
     anchors {
       right: parent.right
       bottom: parent.bottom
@@ -3964,19 +3966,6 @@ ApplicationWindow {
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
-
-    //that the focus is set by selecting the empty space
-    MouseArea {
-      anchors.fill: parent
-      propagateComposedEvents: true
-      enabled: !parent.activeFocus
-
-      //onPressed because onClicked shall be handled in underlying MouseArea
-      onPressed: mouse => {
-        parent.focus = true;
-        mouse.accepted = false;
-      }
-    }
   }
 
   QfDropShadow {
