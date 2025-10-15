@@ -1075,6 +1075,9 @@ ApplicationWindow {
             positionSource.averagedPosition = false;
             displayToast(qsTr("Digitizing coordinate cursor unlocked"));
           } else {
+            if (stateMachine.state === "browse") {
+              mainWindow.changeMode("digitize");
+            }
             if (freehandButton.freehandDigitizing) {
               // deactivate freehand digitizing when cursor locked is on
               freehandButton.clicked();
