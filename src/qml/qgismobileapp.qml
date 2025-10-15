@@ -1073,7 +1073,7 @@ ApplicationWindow {
             positioningSettings.positioningCoordinateLock = false;
             // deactivate any active averaged position collection
             positionSource.averagedPosition = false;
-            displayToast(qsTr("Digitizing coordinate cursor unlocked"));
+            displayToast(qsTr("Coordinate cursor unlocked"));
           } else {
             if (stateMachine.state === "browse") {
               mainWindow.changeMode("digitize");
@@ -1083,7 +1083,7 @@ ApplicationWindow {
               freehandButton.clicked();
             }
             positioningSettings.positioningCoordinateLock = true;
-            displayToast(qsTr("Digitizing coordinate cursor locked to location"));
+            displayToast(qsTr("Coordinate cursor locked to location"));
           }
           actionsPieMenu.close();
         }
@@ -3907,7 +3907,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("Lock Digitizing Coordinate Cursor to Location")
+      text: qsTr("Lock Coordinate Cursor to Location")
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
