@@ -1080,7 +1080,7 @@ ApplicationWindow {
               freehandButton.clicked();
             }
             positioningSettings.positioningCoordinateLock = true;
-            displayToast(qsTr("Digitizing coordinate cursor locked to position"));
+            displayToast(qsTr("Digitizing coordinate cursor locked to location"));
           }
           actionsPieMenu.close();
         }
@@ -1124,12 +1124,11 @@ ApplicationWindow {
             gnssButton.followOrientationActive = false;
             displayToast(qsTr("Map canvas unlocked"));
           } else {
-            gnssButton.jumpToLocation();
             mapCanvasMap.freeze('follow');
             gnssButton.autoRefollow = true;
             gnssButton.followActive = true;
             gnssButton.followLocation(true);
-            displayToast(qsTr("Map canvas locked to position"));
+            displayToast(qsTr("Map canvas locked to location"));
           }
           actionsPieMenu.close();
         }
@@ -2367,10 +2366,18 @@ ApplicationWindow {
               if (!followOrientationActive) {
                 followOrientationActive = true;
                 followOrientation();
-                displayToast(qsTr("Canvas follows location and compass orientation"));
+                if (autoRefollow) {
+                  displayToast(qsTr("Map canvas locked to location and compass orientation"));
+                } else {
+                  displayToast(qsTr("Map canvas follows location and compass orientation"));
+                }
               } else {
                 followOrientationActive = false;
-                displayToast(qsTr("Canvas follows location"));
+                if (autoRefollow) {
+                  displayToast(qsTr("Map canvas locked to location"));
+                } else {
+                  displayToast(qsTr("Map canvas follows location"));
+                }
               }
             }
           } else {
@@ -2381,7 +2388,7 @@ ApplicationWindow {
               if (positionSource.projectedPosition.x) {
                 const screenPosition = mapCanvas.mapSettings.coordinateToScreen(positionSource.projectedPosition);
                 const screenDistance = Math.sqrt(Math.pow(screenPosition.x - (mapCanvas.width - mapCanvasMap.rightMargin) / 2, 2) + Math.pow(screenPosition.y - (mapCanvas.height - mapCanvasMap.bottomMargin) / 2, 2));
-                if (jumpedOnce && screenDistance < 60) {
+                if (jumpedOnce) {
                   mapCanvasMap.freeze('follow');
                   followActive = true;
                   followLocation(true);
@@ -2428,6 +2435,11 @@ ApplicationWindow {
             jumpedOnce = true;
           } else {
             mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+          }
+          if (!followActive) {
+            mapCanvasMap.freeze('follow');
+            followActive = true;
+            followLocation(true);
           }
         }
 
