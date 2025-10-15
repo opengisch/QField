@@ -1069,7 +1069,7 @@ ApplicationWindow {
           }
         ]
 
-        onCheckedChanged: {
+        onClicked: {
           if (enabled) {
             if (gnssButton.state === "On") {
               if (checked) {
@@ -1103,7 +1103,7 @@ ApplicationWindow {
         height: width
         round: true
         checkable: true
-        checked: gnssButton.followActive
+        checked: gnssButton.autoRefollow
         state: checked ? "On" : "Off"
         visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 2
         iconSource: Theme.getThemeVectorIcon("ic_location_canvas_lock_white_24dp")
@@ -1127,27 +1127,19 @@ ApplicationWindow {
           }
         ]
 
-        onCheckedChanged: {
-          if (!checked) {
+        onClicked: {
+          if (gnssButton.autoRefollow) {
             mapCanvasMap.unfreeze('follow');
+            gnssButton.autoRefollow = false;
             gnssButton.followActive = false;
             gnssButton.followOrientationActive = false;
-            gnssButton.autoRefollow = false;
           } else {
-            if (!positionSource.active) {
-              positionSource.jumpToPosition = true;
-              positioningSettings.positioningActivated = true;
-            } else {
-              if (positionSource.projectedPosition.x) {
-                gnssButton.jumpToLocation();
-                mapCanvasMap.freeze('follow');
-                gnssButton.followActive = true;
-                gnssButton.followLocation(true);
-                displayToast(qsTr("Canvas follows location"));
-              } else {
-                displayToast(qsTr("Waiting for location"));
-              }
-            }
+            gnssButton.jumpToLocation();
+            mapCanvasMap.freeze('follow');
+            gnssButton.autoRefollow = true;
+            gnssButton.followActive = true;
+            gnssButton.followLocation(true);
+            displayToast(qsTr("Canvas follows location"));
           }
           actionsPieMenu.close();
         }
@@ -2551,8 +2543,9 @@ ApplicationWindow {
               mapCanvasMap.unfreeze('follow');
               gnssButton.followActive = false;
               gnssButton.followOrientationActive = false;
-              gnssButton.autoRefollow = true;
-              showAutoLockToast();
+              if (gnssButton.autoRefollow) {
+                showAutoLockToast();
+              }
             }
           } else if (gnssButton.autoRefollow) {
             showAutoLockToast();
@@ -2570,8 +2563,9 @@ ApplicationWindow {
             mapCanvasMap.unfreeze('follow');
             gnssButton.followActive = false;
             gnssButton.followOrientationActive = false;
-            gnssButton.autoRefollow = true;
-            showAutoLockToast();
+            if (gnssButton.autoRefollow) {
+              showAutoLockToast();
+            }
           } else if (gnssButton.autoRefollow) {
             showAutoLockToast();
           }
@@ -3991,9 +3985,9 @@ ApplicationWindow {
     displayToast(qsTr('Follow location paused'), 'info', qsTr('Unlock'), () => {
         gnssButton.autoRefollow = false;
       }, true, () => {
-        if (positionSource.active) {
-          gnssButton.followActive = true;
+        if (positionSource.active && gnssButton.autoRefollow) {
           mapCanvasMap.freeze('follow');
+          gnssButton.followActive = true;
           gnssButton.followLocation(true);
         }
       });
