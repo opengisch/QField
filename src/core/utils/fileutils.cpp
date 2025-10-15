@@ -16,6 +16,8 @@
 
 #include "fileutils.h"
 #include "gnsspositioninformation.h"
+#include "platforms/platformutilities.h"
+#include "qfieldcloudutils.h"
 #include "qgsmessagelog.h"
 
 #include <QDebug>
@@ -844,4 +846,72 @@ bool FileUtils::unzip( const QString &zipFilename, const QString &dir, QStringLi
   }
 
   return true;
+}
+
+bool FileUtils::isDeletable( const QString &filePath )
+{
+  const QFileInfo fileInfo( filePath );
+  if ( !fileInfo.exists() || !fileInfo.isFile() )
+    return false;
+
+  const QString canonicalFilePath = fileInfo.canonicalFilePath();
+  const QString appDataDir = PlatformUtilities::instance()->applicationDirectory();
+  const QString cloudDataDir = QFieldCloudUtils::localCloudDirectory();
+  const QStringList extraDirs = PlatformUtilities::instance()->additionalApplicationDirectories();
+
+  const bool isInsideAppDataDir = !appDataDir.isEmpty() && canonicalFilePath.startsWith( appDataDir );
+  const bool isInsideCloudDataDir = !cloudDataDir.isEmpty() && canonicalFilePath.startsWith( cloudDataDir );
+  const bool isInsideExtraDir = std::any_of( extraDirs.begin(), extraDirs.end(), [&canonicalFilePath]( const QString &dir ) {
+    return !dir.isEmpty() && canonicalFilePath.startsWith( dir );
+  } );
+
+  if ( !( isInsideAppDataDir || isInsideCloudDataDir || isInsideExtraDir ) )
+    return false;
+
+  const QString suffix = fileInfo.suffix().toLower();
+
+  static const QStringList allowedExtensions = { "pdf", "png", "jpg", "jpeg", "mp4", "mp4a", "mp3" };
+  static const QStringList disallowedExtensions = { "qgs", "qgz", "gpkg", "db", "sqlite" };
+
+  return allowedExtensions.contains( suffix ) && !disallowedExtensions.contains( suffix );
+}
+
+QVariantMap FileUtils::deleteFiles( const QStringList &filePaths )
+{
+  QVariantMap results;
+
+  for ( const QString &filePath : filePaths )
+  {
+    if ( !isDeletable( filePath ) )
+    {
+      qWarning() << QStringLiteral( "Cannot delete file (not allowed): %1" ).arg( filePath );
+      results[filePath] = false;
+      continue;
+    }
+
+    const QFileInfo fileInfo( filePath );
+    const QString canonicalPath = fileInfo.canonicalFilePath();
+    QFile file( canonicalPath.isEmpty() ? filePath : canonicalPath );
+
+    if ( !file.exists() )
+    {
+      qWarning() << QStringLiteral( "File does not exist: %1" ).arg( filePath );
+      results[filePath] = false;
+      continue;
+    }
+
+    const bool success = file.remove();
+    if ( success )
+    {
+      qDebug() << QStringLiteral( "Successfully deleted file: %1" ).arg( filePath );
+    }
+    else
+    {
+      qWarning() << QStringLiteral( "Failed to delete file: %1 - %2" ).arg( filePath, file.errorString() );
+    }
+
+    results[filePath] = success;
+  }
+
+  return results;
 }
