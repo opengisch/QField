@@ -26,7 +26,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Rectangle {
+Pane {
   id: featureFormList
 
   property ProcessingAlgorithm algorithm: processingAlgorithm
@@ -85,6 +85,11 @@ Rectangle {
   anchors.bottomMargin: featureFormList.canvasOperationRequested ? featureFormList.height : 0
   anchors.rightMargin: featureFormList.canvasOperationRequested ? -featureFormList.width : 0
   opacity: featureFormList.canvasOperationRequested ? 0.5 : 1
+
+  topPadding: 0
+  leftPadding: 0
+  rightPadding: 0
+  bottomPadding: 0
 
   enabled: !featureFormList.canvasOperationRequested
   visible: props.isVisible
@@ -225,8 +230,6 @@ Rectangle {
     }
   ]
   state: "Hidden"
-
-  color: Theme.mainBackgroundColor
   clip: true
 
   WheelHandler {
@@ -284,7 +287,6 @@ Rectangle {
         left: parent ? parent.left : undefined
         right: parent ? parent.right : undefined
       }
-      focus: true
       height: Math.max(48, featureText.height)
       color: "transparent"
 
@@ -412,8 +414,6 @@ Rectangle {
         appExpressionContextScopesGenerator: appScopesGenerator
       }
     }
-
-    focus: true
 
     onCancelled: {
       featureFormList.selection.focusedItemChanged();
