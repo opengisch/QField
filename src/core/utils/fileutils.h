@@ -154,6 +154,25 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
      */
     static bool unzip( const QString &zipFilename, const QString &dir, QStringList &files, bool checkConsistency );
 
+    /**
+     * Checks if a file can be safely deleted.
+     * Security checks:
+     * - File must be within application or cloud directories
+     * - Only allows deletion of specific file types
+     * - Prevents deletion of folders, project files
+     * \param filePath The path to check for deletion eligibility
+     * \return True if the file can be safely deleted, false otherwise
+     */
+    Q_INVOKABLE static bool isDeletable( const QString &filePath );
+
+    /**
+     * Deletes a list of files with security validation.
+     * Only deletes files that pass isDeletable() checks and are within the project or cloud directories.
+     * \param filePaths List of file paths to delete
+     * \return A map with file paths as keys and boolean success status as values
+     */
+    Q_INVOKABLE static QVariantMap deleteFiles( const QStringList &filePaths );
+
   private:
     static int copyRecursivelyPrepare( const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString>> &mapping );
 };
