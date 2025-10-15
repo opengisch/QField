@@ -2571,10 +2571,6 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation type="unfinished"/>
     </message>
@@ -5840,11 +5836,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Přidat záložku na polohu</translation>
+        <translation type="vanished">Přidat záložku na polohu</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Kopírovat souřadnice polohy</translation>
+        <translation type="vanished">Kopírovat souřadnice polohy</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5884,7 +5880,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Zobrazit informaci o poloze</translation>
+        <translation type="vanished">Zobrazit informaci o poloze</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

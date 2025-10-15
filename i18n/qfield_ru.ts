@@ -2571,10 +2571,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>назад</translation>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation>Геотегирование изображений требует включения позиционирования</translation>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation type="unfinished"/>
     </message>
@@ -5840,11 +5836,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Добавить местопол. в закладки</translation>
+        <translation type="vanished">Добавить местопол. в закладки</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Копировать координаты местоположения</translation>
+        <translation type="vanished">Копировать координаты местоположения</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5884,7 +5880,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Показывать информацию о местоположении</translation>
+        <translation type="vanished">Показывать информацию о местоположении</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

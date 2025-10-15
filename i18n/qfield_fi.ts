@@ -2567,10 +2567,6 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <translation>taka</translation>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation>Kuvan geokoodaus edellyttää, että sijainti on käytössä</translation>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation>Tietojen leimaus käytössä</translation>
     </message>
@@ -5839,11 +5835,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Lisää kirjanmerkki sijaintiin</translation>
+        <translation type="vanished">Lisää kirjanmerkki sijaintiin</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Kopioi sijainnin koordinaatit</translation>
+        <translation type="vanished">Kopioi sijainnin koordinaatit</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5883,7 +5879,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Näytä sijainnin tiedot</translation>
+        <translation type="vanished">Näytä sijainnin tiedot</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

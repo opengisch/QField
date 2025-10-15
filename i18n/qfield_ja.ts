@@ -2565,10 +2565,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>戻る</translation>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation>画像のジオタギングには、位置情報の利用を有効にする必要があります。</translation>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation>詳細のスタンプが有効です</translation>
     </message>
@@ -5835,11 +5831,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>現在位置でブックマークを追加</translation>
+        <translation type="vanished">現在位置でブックマークを追加</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>位置座標をコピー</translation>
+        <translation type="vanished">位置座標をコピー</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5879,7 +5875,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>座標情報を表示する</translation>
+        <translation type="vanished">座標情報を表示する</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

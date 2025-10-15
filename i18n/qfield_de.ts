@@ -2566,10 +2566,6 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <translation>Rückseite</translation>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation>Für das Geotagging von Bildern muss die Positionierung aktiviert sein.</translation>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation>Details stempeln aktiviert</translation>
     </message>
@@ -5837,11 +5833,11 @@ erstellen</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Lesezeichen an Standort hinzufügen</translation>
+        <translation type="vanished">Lesezeichen an Standort hinzufügen</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Kopiere Ortskoordinaten</translation>
+        <translation type="vanished">Kopiere Ortskoordinaten</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5881,7 +5877,7 @@ erstellen</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Postionsinformation anzeigen</translation>
+        <translation type="vanished">Postionsinformation anzeigen</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

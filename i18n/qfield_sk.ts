@@ -2570,10 +2570,6 @@ Dôvod:
         <translation>vzadu</translation>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation type="unfinished"/>
     </message>
@@ -5840,11 +5836,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Pridať záložku na polohu</translation>
+        <translation type="vanished">Pridať záložku na polohu</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Kopírovať súradnice polohy</translation>
+        <translation type="vanished">Kopírovať súradnice polohy</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5884,7 +5880,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Ukázať informácie o polohe</translation>
+        <translation type="vanished">Ukázať informácie o polohe</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

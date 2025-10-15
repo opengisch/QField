@@ -2566,10 +2566,6 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation>hátsó</translation>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation>Fotók georeferenciájához szükséges a bekapcsolt pozícionálás</translation>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation type="unfinished"/>
     </message>
@@ -5833,11 +5829,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Könyvjelző hozzáadása a helyhez</translation>
+        <translation type="vanished">Könyvjelző hozzáadása a helyhez</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Helykoordináták másolása</translation>
+        <translation type="vanished">Helykoordináták másolása</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5877,7 +5873,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Pozíció megjelenítés</translation>
+        <translation type="vanished">Pozíció megjelenítés</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

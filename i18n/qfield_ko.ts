@@ -2565,10 +2565,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation type="unfinished"/>
     </message>
@@ -5879,7 +5875,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Show Position Information</translation>
+        <translation type="vanished">Show Position Information</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

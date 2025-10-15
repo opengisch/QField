@@ -2562,10 +2562,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>arka</translation>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation>Görüntü coğrafi etiketleme için konumlandırmanın etkinleştirilmesi gerekir</translation>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation>Ayrıntı damgalama etkin</translation>
     </message>
@@ -5832,11 +5828,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Konuma Yer İmleri Ekle</translation>
+        <translation type="vanished">Konuma Yer İmleri Ekle</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Konum Koordinatlarını Kopyala</translation>
+        <translation type="vanished">Konum Koordinatlarını Kopyala</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5876,7 +5872,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Konum Bilgilerini Göster</translation>
+        <translation type="vanished">Konum Bilgilerini Göster</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

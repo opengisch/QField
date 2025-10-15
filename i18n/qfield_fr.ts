@@ -2568,10 +2568,6 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <translation>arrière</translation>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation>Le géo-étiquetage d&apos;image exige que la géolocalisation soit activée</translation>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation>Estampillage des détails activé</translation>
     </message>
@@ -5837,11 +5833,11 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Ajouter un signet à l&apos;emplacement</translation>
+        <translation type="vanished">Ajouter un signet à l&apos;emplacement</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Copier les coordonnées de l&apos;emplacement</translation>
+        <translation type="vanished">Copier les coordonnées de l&apos;emplacement</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5881,7 +5877,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Montrer les informations de position</translation>
+        <translation type="vanished">Montrer les informations de position</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

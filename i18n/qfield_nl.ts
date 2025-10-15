@@ -2567,10 +2567,6 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>achter</translation>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation type="unfinished"/>
     </message>
@@ -5837,11 +5833,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Bladwijzer toevoegen aan locatie</translation>
+        <translation type="vanished">Bladwijzer toevoegen aan locatie</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Coördinaten van locatie kopiëren</translation>
+        <translation type="vanished">Coördinaten van locatie kopiëren</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5881,7 +5877,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Toon Positie Informatie</translation>
+        <translation type="vanished">Toon Positie Informatie</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

@@ -2567,10 +2567,6 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <translation>detrás</translation>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation>O xeoetiquetado de imaxes precisa que o posicionamento estea acendido</translation>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation>Activado o rexistro dos detalles</translation>
     </message>
@@ -5837,11 +5833,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Engadir Marcador na Localización</translation>
+        <translation type="vanished">Engadir Marcador na Localización</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Copiar Coordenadas da Localización</translation>
+        <translation type="vanished">Copiar Coordenadas da Localización</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5881,7 +5877,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Amosar Información da Posición</translation>
+        <translation type="vanished">Amosar Información da Posición</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

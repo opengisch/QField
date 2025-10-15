@@ -2568,10 +2568,6 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation type="unfinished"/>
     </message>
@@ -5881,7 +5877,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Prikaži informacije o lokaciji</translation>
+        <translation type="vanished">Prikaži informacije o lokaciji</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

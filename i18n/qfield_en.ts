@@ -2626,10 +2626,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5911,11 +5907,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Add Bookmark at Location</translation>
+        <translation type="vanished">Add Bookmark at Location</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Copy Location Coordinates</translation>
+        <translation type="vanished">Copy Location Coordinates</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5955,7 +5951,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Show Position Information</translation>
+        <translation type="vanished">Show Position Information</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

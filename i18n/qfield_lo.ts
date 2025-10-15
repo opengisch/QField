@@ -2558,10 +2558,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>ດ້ານຫລັງ</translation>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation>ການຈັດຕໍາແຫນ່ງຕ້ອງເປີດໃຊ້ງານ ເພືອຕັ້ງພູມສາດຂອງຮູບພາບ</translation>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation>ເປີດໃຊ້ການສະແຕມລາຍລະອຽດແລ້ວ</translation>
     </message>
@@ -5821,11 +5817,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>ເພີ່ມບຸກມາກຢູ່ຕຳແໜ່ງ</translation>
+        <translation type="vanished">ເພີ່ມບຸກມາກຢູ່ຕຳແໜ່ງ</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>ສຳເນົາພິກັດຕຳແໜ່ງ</translation>
+        <translation type="vanished">ສຳເນົາພິກັດຕຳແໜ່ງ</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5865,7 +5861,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>ສະແດງຂໍ້ມູນຕຳແໜ່ງ </translation>
+        <translation type="vanished">ສະແດງຂໍ້ມູນຕຳແໜ່ງ </translation>
     </message>
     <message>
         <source>Positioning Settings</source>

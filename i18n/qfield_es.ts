@@ -2569,10 +2569,6 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <translation>trasera</translation>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation>El geoetiquetado de imágenes requiere que el posicionamiento está activado</translation>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation>Marcado de detalles habilitado</translation>
     </message>
@@ -5837,11 +5833,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Añadir marcador en la localización</translation>
+        <translation type="vanished">Añadir marcador en la localización</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Copiar coordenadas de la localización</translation>
+        <translation type="vanished">Copiar coordenadas de la localización</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5881,7 +5877,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Mostrar información de la posición</translation>
+        <translation type="vanished">Mostrar información de la posición</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

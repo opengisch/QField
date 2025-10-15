@@ -2569,10 +2569,6 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <translation>costas</translation>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation type="unfinished"/>
     </message>
@@ -5839,11 +5835,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Adicionar o Marcador na Localização</translation>
+        <translation type="vanished">Adicionar o Marcador na Localização</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Copiar Coordenadas de Localização</translation>
+        <translation type="vanished">Copiar Coordenadas de Localização</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5883,7 +5879,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Mostrar a informação da posição</translation>
+        <translation type="vanished">Mostrar a informação da posição</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

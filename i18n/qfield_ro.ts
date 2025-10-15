@@ -2571,10 +2571,6 @@ Motiv:
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation type="unfinished"/>
     </message>
@@ -5841,11 +5837,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Adăugați un Semn de Carte la Locație</translation>
+        <translation type="vanished">Adăugați un Semn de Carte la Locație</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Copiază Coordonatele Locației</translation>
+        <translation type="vanished">Copiază Coordonatele Locației</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5885,7 +5881,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Arată Informațiile Poziției</translation>
+        <translation type="vanished">Arată Informațiile Poziției</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

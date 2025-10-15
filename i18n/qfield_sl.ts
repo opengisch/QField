@@ -2558,10 +2558,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation type="unfinished"/>
     </message>
@@ -5821,11 +5817,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Dodaj zaznamek na lokaciji</translation>
+        <translation type="vanished">Dodaj zaznamek na lokaciji</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Kopiraj koordinate lokacije</translation>
+        <translation type="vanished">Kopiraj koordinate lokacije</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5865,7 +5861,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Pokaži informacije o lokaciji</translation>
+        <translation type="vanished">Pokaži informacije o lokaciji</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

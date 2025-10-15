@@ -2569,10 +2569,6 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation type="unfinished"/>
     </message>
@@ -5843,11 +5839,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Aggiungi Segnalibro alla Posizione</translation>
+        <translation type="vanished">Aggiungi Segnalibro alla Posizione</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Copia le Coordinate della Posizione</translation>
+        <translation type="vanished">Copia le Coordinate della Posizione</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5887,7 +5883,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Mostra informazioni sulla posizione</translation>
+        <translation type="vanished">Mostra informazioni sulla posizione</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

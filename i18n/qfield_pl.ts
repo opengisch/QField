@@ -2571,10 +2571,6 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <translation>tył</translation>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation>Geotagowanie obrazów wymaga włączenia pozycjonowania.</translation>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation>Zapisywanie szczegółów metadanych włączone</translation>
     </message>
@@ -5844,11 +5840,11 @@ projekt</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Dodaj zakładkę w tym położeniu</translation>
+        <translation type="vanished">Dodaj zakładkę w tym położeniu</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Skopiuj współrzędne położenia</translation>
+        <translation type="vanished">Skopiuj współrzędne położenia</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5888,7 +5884,7 @@ projekt</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Pokaż informacje o aktualnej pozycji</translation>
+        <translation type="vanished">Pokaż informacje o aktualnej pozycji</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

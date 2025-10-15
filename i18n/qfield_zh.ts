@@ -2565,10 +2565,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>后</translation>
     </message>
     <message>
-        <source>Image geotagging requires positioning to be turned on</source>
-        <translation>图像地理标记需要打开定位功能</translation>
-    </message>
-    <message>
         <source>Details stamping enabled</source>
         <translation>戳记已启用</translation>
     </message>
@@ -5838,11 +5834,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>在定位处添加书签</translation>
+        <translation type="vanished">在定位处添加书签</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>复制定位坐标</translation>
+        <translation type="vanished">复制定位坐标</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5882,7 +5878,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>显示位置信息</translation>
+        <translation type="vanished">显示位置信息</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
