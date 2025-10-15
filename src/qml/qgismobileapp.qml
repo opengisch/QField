@@ -510,7 +510,7 @@ ApplicationWindow {
 
     HoverHandler {
       id: hoverHandler
-      enabled: !(positionSource.active && positioningSettings.positioningCoordinateLock) && (!digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen)
+      enabled: !(positionSource.active && coordinateLocator.positionLocked) && (!digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen)
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
       grabPermissions: PointerHandler.TakeOverForbidden
 
@@ -670,7 +670,7 @@ ApplicationWindow {
           }
 
           // Check if geometry editor is taking over
-          const positionLocked = positionSource.active && positioningSettings.positioningCoordinateLock;
+          const positionLocked = positionSource.active && coordinateLocator.positionLocked;
           if (geometryEditorsToolbar.stateVisible) {
             if (!positionLocked) {
               geometryEditorsToolbar.canvasClicked(point, type);
@@ -700,7 +700,7 @@ ApplicationWindow {
           return;
         }
         // Check if geometry editor is taking over
-        const positionLocked = positionSource.active && positioningSettings.positioningCoordinateLock;
+        const positionLocked = positionSource.active && coordinateLocator.positionLocked;
         if (geometryEditorsToolbar.stateVisible) {
           if (!positionLocked) {
             geometryEditorsToolbar.canvasClicked(point, '');
@@ -953,7 +953,7 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.activeLayer
       positionInformation: positionSource.positionInformation
-      positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
+      positionLocked: positionSource.active && (positioningSettings.positioningCoordinateLock || gnssButton.followActive)
       rubberbandModel: geometryEditorsToolbar.stateVisible ? geometryEditorsToolbar.editorRubberbandModel : digitizingToolbar.rubberbandModel
       averagedPosition: positionSource.averagedPosition
       averagedPositionCount: positionSource.averagedPositionCount
@@ -1947,7 +1947,7 @@ ApplicationWindow {
           height: visible ? 40 : 0
           padding: 2
           round: true
-          visible: hoverHandler.hasBeenHovered && !(positionSource.active && positioningSettings.positioningCoordinateLock) && stateMachine.state === "digitize" && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid && (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line)) || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
+          visible: hoverHandler.hasBeenHovered && !(positionSource.active && coordinateLocator.positionLocked) && stateMachine.state === "digitize" && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid && (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line)) || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
           iconSource: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
           iconColor: Theme.toolButtonColor
           bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
@@ -4686,7 +4686,7 @@ ApplicationWindow {
     id: appScopesGenerator
 
     positionInformation: positionSource.positionInformation
-    positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
+    positionLocked: positionSource.active && coordinateLocator.positionLocked
     cloudUserInformation: projectInfo.cloudUserInformation
   }
 
