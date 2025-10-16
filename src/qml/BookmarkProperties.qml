@@ -17,6 +17,7 @@ QfPopup {
 
   parent: mainWindow.contentItem
   width: Math.min(350, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
+
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
@@ -24,11 +25,11 @@ QfPopup {
 
   onAboutToShow: {
     nameField.text = bookmarkName;
-    groupField.value = bookmarkGroup;
+    colorContainer.value = bookmarkGroup;
   }
 
   function saveBookmark() {
-    bookmarkModel.updateBookmarkDetails(bookmarkProperties.bookmarkId, nameField.text, groupField.value);
+    bookmarkModel.updateBookmarkDetails(bookmarkProperties.bookmarkId, nameField.text, colorContainer.value);
   }
 
   Page {
@@ -39,12 +40,17 @@ QfPopup {
       title: qsTr("Bookmark Properties")
 
       showBackButton: false
-      showApplyButton: false
-      showCancelButton: true
+      showApplyButton: true
+      showCancelButton: false
+      showRemoveButton: true
       backgroundFill: false
 
-      onCancel: {
+      onApply: {
         bookmarkProperties.close();
+      }
+
+      onRemove: {
+        removeBookmarkDialog.open();
       }
     }
 
@@ -53,11 +59,14 @@ QfPopup {
       spacing: 10
       width: parent.width
 
-      TextField {
+      TextArea {
         id: nameField
         Layout.fillWidth: true
+        Layout.fillHeight: false
+        Layout.preferredHeight: Math.min(mainWindow.height - mainWindow.sceneTopMargin - mainWindow.sceneBottomMargin - 200, Math.max(144, contentHeight) + 24)
         font: Theme.defaultFont
-        placeholderText: qsTr('Name')
+        wrapMode: Text.Wrap
+        placeholderText: qsTr("Description")
         text: ''
 
         onTextChanged: {
@@ -66,99 +75,141 @@ QfPopup {
       }
 
       RowLayout {
-        id: groupField
         spacing: 8
         Layout.fillWidth: true
+        Layout.preferredWidth: propertiesLayout.width
         Layout.alignment: Qt.AlignHCenter
 
-        property int iconSize: 32
-        property string value: ''
+        SwipeView {
+          id: colorContainer
 
-        onValueChanged: {
-          saveBookmark();
-        }
+          property string value: ''
+          onValueChanged: {
+            saveBookmark();
+          }
 
-        Rectangle {
-          id: defaultColor
-          width: groupField.iconSize
-          height: groupField.iconSize
-          color: Theme.bookmarkDefault
-          border.width: 4
-          border.color: groupField.value != 'orange' && groupField.value != 'red' && groupField.value != 'blue' ? Theme.mainTextColor : "transparent"
-          radius: 2
+          Layout.fillWidth: true
+          height: 48
 
-          MouseArea {
-            anchors.fill: parent
-            onClicked: groupField.value = ''
+          clip: true
+          interactive: false
+          currentIndex: 0
+
+          RowLayout {
+            id: currentColorView
+            width: colorContainer.width
+            height: 48
+            spacing: 5
+
+            Rectangle {
+              id: colorArea
+              Layout.fillWidth: true
+              Layout.preferredHeight: 48
+              height: 48
+              radius: height / 2
+
+              color: {
+                switch (colorContainer.value) {
+                case "orange":
+                  return Theme.bookmarkOrange;
+                case "red":
+                  return Theme.bookmarkRed;
+                case "blue":
+                  return Theme.bookmarkBlue;
+                }
+                return Theme.bookmarkDefault;
+              }
+
+              Label {
+                anchors.left: parent.left
+                anchors.leftMargin: 24
+                anchors.verticalCenter: colorPicker.verticalCenter
+                font: Theme.defaultFont
+                text: qsTr("Change color")
+                color: "white"
+              }
+
+              QfToolButton {
+                id: colorPicker
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                width: 48
+                height: 48
+                visible: true
+                enabled: false
+                iconSource: Theme.getThemeVectorIcon("ic_chevron_right_white_24dp")
+                iconColor: "white"
+                bgcolor: "transparent"
+              }
+
+              MouseArea {
+                anchors.fill: parent
+                enabled: true
+
+                onClicked: {
+                  colorContainer.currentIndex = 1;
+                }
+              }
+            }
+          }
+
+          RowLayout {
+            id: selectColorView
+            width: colorContainer.width
+            height: 48
+            spacing: 5
+
+            ListView {
+              Layout.fillWidth: true
+              Layout.preferredHeight: 48
+              orientation: ListView.Horizontal
+              spacing: 10
+              model: ["", "orange", "red", "blue"]
+
+              clip: true
+
+              delegate: QfToolButton {
+                Layout.preferredWidth: 48
+                Layout.preferredHeight: 48
+                bgcolor: {
+                  switch (modelData) {
+                  case "orange":
+                    return Theme.bookmarkOrange;
+                  case "red":
+                    return Theme.bookmarkRed;
+                  case "blue":
+                    return Theme.bookmarkBlue;
+                  }
+                  return Theme.bookmarkDefault;
+                }
+                round: true
+
+                iconSource: modelData === colorContainer.value ? Theme.getThemeVectorIcon("ic_check_white_24dp") : ""
+                iconColor: "#ffffff"
+
+                onClicked: {
+                  colorContainer.value = modelData;
+                  colorContainer.currentIndex = 0;
+                }
+              }
+            }
           }
         }
-        Rectangle {
-          id: orangeColor
-          width: groupField.iconSize
-          height: groupField.iconSize
-          color: Theme.bookmarkOrange
-          border.width: 4
-          border.color: groupField.value === 'orange' ? Theme.mainTextColor : "transparent"
-          radius: 2
 
-          MouseArea {
-            anchors.fill: parent
-            onClicked: groupField.value = 'orange'
+        QfToolButton {
+          height: 48
+          width: 48
+          iconSource: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+          iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+          bgcolor: "transparent"
+
+          onClicked: {
+            var point = bookmarkModel.getBookmarkPoint(bookmarkProperties.bookmarkId);
+            var crs = bookmarkModel.getBookmarkCrs(bookmarkProperties.bookmarkId);
+            var coordinates = StringUtils.pointInformation(point, crs);
+            platformUtilities.copyTextToClipboard(nameField.text + '\n' + coordinates);
+            displayToast(qsTr('Bookmark details copied to clipboard'));
           }
-        }
-        Rectangle {
-          id: redColor
-          width: groupField.iconSize
-          height: groupField.iconSize
-          color: Theme.bookmarkRed
-          border.width: 4
-          border.color: groupField.value === 'red' ? Theme.mainTextColor : "transparent"
-          radius: 2
-
-          MouseArea {
-            anchors.fill: parent
-            onClicked: groupField.value = 'red'
-          }
-        }
-        Rectangle {
-          id: blueColor
-          width: groupField.iconSize
-          height: groupField.iconSize
-          color: Theme.bookmarkBlue
-          border.width: 4
-          border.color: groupField.value === 'blue' ? Theme.mainTextColor : "transparent"
-          radius: 2
-
-          MouseArea {
-            anchors.fill: parent
-            onClicked: groupField.value = 'blue'
-          }
-        }
-      }
-
-      QfButton {
-        id: updateBookmarkButton
-        Layout.fillWidth: true
-        text: qsTr('Copy bookmark details')
-
-        onClicked: {
-          var point = bookmarkModel.getBookmarkPoint(bookmarkProperties.bookmarkId);
-          var crs = bookmarkModel.getBookmarkCrs(bookmarkProperties.bookmarkId);
-          var coordinates = StringUtils.pointInformation(point, crs);
-          platformUtilities.copyTextToClipboard(nameField.text + '\n' + coordinates);
-          displayToast(qsTr('Bookmark details copied to clipboard'));
-        }
-      }
-
-      QfButton {
-        id: deleteBookmarkButton
-        Layout.fillWidth: true
-        bgcolor: 'transparent'
-        color: Theme.darkRed
-        text: qsTr('Remove bookmark')
-
-        onClicked: {
-          removeBookmarkDialog.open();
         }
       }
     }
