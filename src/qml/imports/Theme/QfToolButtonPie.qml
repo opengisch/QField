@@ -19,7 +19,7 @@ Menu {
 
   QtObject {
     id: internal
-    property int animationDuration: 200
+    property int animationDuration: 150
     property real outerRadius: pieMenu.width / 2
     property real innerRadius: outerRadius - bandWidth
     property real pathRadius: (innerRadius + outerRadius + bandWidth) / 2
@@ -45,7 +45,7 @@ Menu {
       fillColor: "transparent"
 
       startX: width / 2
-      startY: height / 2 + 8
+      startY: height / 2 + 4
 
       PathLine {
         x: pieMenu.targetPoint ? pieMenu.targetPoint.x - pieMenu.x : 0
@@ -60,7 +60,7 @@ Menu {
 
       PathAngleArc {
         centerX: width / 2
-        centerY: height / 2 + 8
+        centerY: height / 2 + 4
         radiusX: connectionShape.menuCircleRadius
         radiusY: connectionShape.menuCircleRadius
         startAngle: 0
@@ -87,7 +87,8 @@ Menu {
   contentItem: Item {
     Shape {
       id: shape
-      anchors.fill: parent
+      x: 0
+      y: -4
 
       ShapePath {
         id: shapePath
@@ -109,7 +110,8 @@ Menu {
 
     PathView {
       id: menuItemsView
-      anchors.fill: parent
+      x: 0
+      y: -4
       interactive: false
       model: pieMenu.contentModel
 

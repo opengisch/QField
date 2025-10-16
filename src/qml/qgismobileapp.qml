@@ -510,7 +510,7 @@ ApplicationWindow {
 
     HoverHandler {
       id: hoverHandler
-      enabled: !(positionSource.active && positioningSettings.positioningCoordinateLock) && (!digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen)
+      enabled: !(positionSource.active && coordinateLocator.positionLocked) && (!digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen)
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
       grabPermissions: PointerHandler.TakeOverForbidden
 
@@ -670,7 +670,7 @@ ApplicationWindow {
           }
 
           // Check if geometry editor is taking over
-          const positionLocked = positionSource.active && positioningSettings.positioningCoordinateLock;
+          const positionLocked = positionSource.active && coordinateLocator.positionLocked;
           if (geometryEditorsToolbar.stateVisible) {
             if (!positionLocked) {
               geometryEditorsToolbar.canvasClicked(point, type);
@@ -700,7 +700,7 @@ ApplicationWindow {
           return;
         }
         // Check if geometry editor is taking over
-        const positionLocked = positionSource.active && positioningSettings.positioningCoordinateLock;
+        const positionLocked = positionSource.active && coordinateLocator.positionLocked;
         if (geometryEditorsToolbar.stateVisible) {
           if (!positionLocked) {
             geometryEditorsToolbar.canvasClicked(point, '');
@@ -953,7 +953,7 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.activeLayer
       positionInformation: positionSource.positionInformation
-      positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
+      positionLocked: positionSource.active && (positioningSettings.positioningCoordinateLock || gnssButton.followActive)
       rubberbandModel: geometryEditorsToolbar.stateVisible ? geometryEditorsToolbar.editorRubberbandModel : digitizingToolbar.rubberbandModel
       averagedPosition: positionSource.averagedPosition
       averagedPositionCount: positionSource.averagedPositionCount
@@ -985,7 +985,7 @@ ApplicationWindow {
             const dx = point.x - locationMarker.screenLocation.x;
             const dy = point.y - locationMarker.screenLocation.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < 20) {
+            if (distance < 25) {
               if (actionsPieMenu.tooCloseToLeft) {
                 actionsPieMenu.x = actionsPieMenu.minimumDistanceToScreenEdge;
               } else if (actionsPieMenu.tooCloseToRight) {
@@ -1041,10 +1041,10 @@ ApplicationWindow {
         id: gnssCursorLockButton
         width: actionsPieMenu.bandWidth - 8
         height: width
+        padding: 2
         round: true
         checkable: true
-        enabled: gnssButton.state === "On" && (stateMachine.state === "digitize" || stateMachine.state === 'measure')
-        checked: positionSource.active && positioningSettings.positioningCoordinateLock
+        checked: positioningSettings.positioningCoordinateLock
         state: checked ? "On" : "Off"
         visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle
         iconSource: Theme.getThemeVectorIcon("ic_location_cursor_lock_white_24dp")
@@ -1069,31 +1069,24 @@ ApplicationWindow {
           }
         ]
 
-        onCheckedChanged: {
-          if (enabled) {
-            if (gnssButton.state === "On") {
-              if (checked) {
-                if (freehandButton.freehandDigitizing) {
-                  // deactivate freehand digitizing when cursor locked is on
-                  freehandButton.clicked();
-                }
-                displayToast(qsTr("Coordinate cursor now locked to position"));
-                if (positionSource.positionInformation.latitudeValid) {
-                  var screenLocation = mapCanvas.mapSettings.coordinateToScreen(locationMarker.location);
-                  if (screenLocation.x < 0 || screenLocation.x > mainWindow.width || screenLocation.y < 0 || screenLocation.y > mainWindow.height) {
-                    mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
-                  }
-                }
-                positioningSettings.positioningCoordinateLock = true;
-              } else {
-                displayToast(qsTr("Coordinate cursor unlocked"));
-                positioningSettings.positioningCoordinateLock = false;
-                // deactivate any active averaged position collection
-                positionSource.averagedPosition = false;
-              }
+        onClicked: {
+          if (positioningSettings.positioningCoordinateLock) {
+            positioningSettings.positioningCoordinateLock = false;
+            // deactivate any active averaged position collection
+            positionSource.averagedPosition = false;
+            displayToast(qsTr("Coordinate cursor unlocked"));
+          } else {
+            if (stateMachine.state === "browse") {
+              mainWindow.changeMode("digitize");
             }
-            actionsPieMenu.close();
+            if (freehandButton.freehandDigitizing) {
+              // deactivate freehand digitizing when cursor locked is on
+              freehandButton.clicked();
+            }
+            positioningSettings.positioningCoordinateLock = true;
+            displayToast(qsTr("Coordinate cursor locked to location"));
           }
+          actionsPieMenu.close();
         }
       }
 
@@ -1101,9 +1094,10 @@ ApplicationWindow {
         id: gnssCanvasLockButton
         width: actionsPieMenu.bandWidth - 8
         height: width
+        padding: 2
         round: true
         checkable: true
-        checked: gnssButton.followActive
+        checked: gnssButton.autoRefollow
         state: checked ? "On" : "Off"
         visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 2
         iconSource: Theme.getThemeVectorIcon("ic_location_canvas_lock_white_24dp")
@@ -1127,27 +1121,19 @@ ApplicationWindow {
           }
         ]
 
-        onCheckedChanged: {
-          if (!checked) {
+        onClicked: {
+          if (gnssButton.autoRefollow) {
             mapCanvasMap.unfreeze('follow');
+            gnssButton.autoRefollow = false;
             gnssButton.followActive = false;
             gnssButton.followOrientationActive = false;
-            gnssButton.autoRefollow = false;
+            displayToast(qsTr("Map canvas unlocked"));
           } else {
-            if (!positionSource.active) {
-              positionSource.jumpToPosition = true;
-              positioningSettings.positioningActivated = true;
-            } else {
-              if (positionSource.projectedPosition.x) {
-                gnssButton.jumpToLocation();
-                mapCanvasMap.freeze('follow');
-                gnssButton.followActive = true;
-                gnssButton.followLocation(true);
-                displayToast(qsTr("Canvas follows location"));
-              } else {
-                displayToast(qsTr("Waiting for location"));
-              }
-            }
+            mapCanvasMap.freeze('follow');
+            gnssButton.autoRefollow = true;
+            gnssButton.followActive = true;
+            gnssButton.followLocation(true);
+            displayToast(qsTr("Map canvas locked to location"));
           }
           actionsPieMenu.close();
         }
@@ -1157,7 +1143,8 @@ ApplicationWindow {
         id: addBookmarkAtCurrentLocationButton
         width: actionsPieMenu.bandWidth - 8
         height: width
-        iconSource: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
+        padding: 2
+        iconSource: Theme.getThemeVectorIcon("ic_add_bookmark_black_24dp")
         round: true
         checkable: false
         checked: false
@@ -1166,10 +1153,6 @@ ApplicationWindow {
         bgcolor: Theme.toolButtonBackgroundColor
         visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 3
         onClicked: {
-          if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
-            displayToast(qsTr('Current location unknown'));
-            return;
-          }
           var name = qsTr('My location') + ' (' + new Date().toLocaleString() + ')';
           var group = 'blue';
           var id = bookmarkModel.addBookmarkAtPoint(positionSource.projectedPosition, name, group);
@@ -1187,6 +1170,7 @@ ApplicationWindow {
         id: copyCurrentLocationButton
         width: actionsPieMenu.bandWidth - 8
         height: width
+        padding: 2
         iconSource: Theme.getThemeVectorIcon("ic_copy_black_24dp")
         round: true
         checkable: false
@@ -1196,10 +1180,6 @@ ApplicationWindow {
         bgcolor: Theme.toolButtonBackgroundColor
         visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 4
         onClicked: {
-          if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
-            displayToast(qsTr('Current location unknown'));
-            return;
-          }
           var point = GeometryUtils.reprojectPoint(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs);
           var coordinates = StringUtils.pointInformation(point, projectInfo.coordinateDisplayCrs);
           coordinates += ' (' + qsTr('Accuracy') + ' ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr("N/A")) + ')';
@@ -1213,6 +1193,7 @@ ApplicationWindow {
         id: showGnssInformation
         width: actionsPieMenu.bandWidth - 8
         height: width
+        padding: 2
         iconSource: Theme.getThemeVectorIcon("ic_info_white_24dp")
         round: true
         checkable: true
@@ -1971,7 +1952,7 @@ ApplicationWindow {
           height: visible ? 40 : 0
           padding: 2
           round: true
-          visible: hoverHandler.hasBeenHovered && !(positionSource.active && positioningSettings.positioningCoordinateLock) && stateMachine.state === "digitize" && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid && (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line)) || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
+          visible: hoverHandler.hasBeenHovered && !(positionSource.active && coordinateLocator.positionLocked) && stateMachine.state === "digitize" && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid && (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line)) || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
           iconSource: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
           iconColor: Theme.toolButtonColor
           bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
@@ -2393,10 +2374,18 @@ ApplicationWindow {
               if (!followOrientationActive) {
                 followOrientationActive = true;
                 followOrientation();
-                displayToast(qsTr("Canvas follows location and compass orientation"));
+                if (autoRefollow) {
+                  displayToast(qsTr("Map canvas locked to location and compass orientation"));
+                } else {
+                  displayToast(qsTr("Map canvas follows location and compass orientation"));
+                }
               } else {
                 followOrientationActive = false;
-                displayToast(qsTr("Canvas follows location"));
+                if (autoRefollow) {
+                  displayToast(qsTr("Map canvas locked to location"));
+                } else {
+                  displayToast(qsTr("Map canvas follows location"));
+                }
               }
             }
           } else {
@@ -2407,7 +2396,7 @@ ApplicationWindow {
               if (positionSource.projectedPosition.x) {
                 const screenPosition = mapCanvas.mapSettings.coordinateToScreen(positionSource.projectedPosition);
                 const screenDistance = Math.sqrt(Math.pow(screenPosition.x - (mapCanvas.width - mapCanvasMap.rightMargin) / 2, 2) + Math.pow(screenPosition.y - (mapCanvas.height - mapCanvasMap.bottomMargin) / 2, 2));
-                if (jumpedOnce && screenDistance < 60) {
+                if (jumpedOnce) {
                   mapCanvasMap.freeze('follow');
                   followActive = true;
                   followLocation(true);
@@ -2454,6 +2443,11 @@ ApplicationWindow {
             jumpedOnce = true;
           } else {
             mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+          }
+          if (!followActive) {
+            mapCanvasMap.freeze('follow');
+            followActive = true;
+            followLocation(true);
           }
         }
 
@@ -2551,8 +2545,9 @@ ApplicationWindow {
               mapCanvasMap.unfreeze('follow');
               gnssButton.followActive = false;
               gnssButton.followOrientationActive = false;
-              gnssButton.autoRefollow = true;
-              showAutoLockToast();
+              if (gnssButton.autoRefollow) {
+                showAutoLockToast();
+              }
             }
           } else if (gnssButton.autoRefollow) {
             showAutoLockToast();
@@ -2570,8 +2565,9 @@ ApplicationWindow {
             mapCanvasMap.unfreeze('follow');
             gnssButton.followActive = false;
             gnssButton.followOrientationActive = false;
-            gnssButton.autoRefollow = true;
-            showAutoLockToast();
+            if (gnssButton.autoRefollow) {
+              showAutoLockToast();
+            }
           } else if (gnssButton.autoRefollow) {
             showAutoLockToast();
           }
@@ -3352,7 +3348,7 @@ ApplicationWindow {
     MenuItem {
       id: addBookmarkItem
       text: qsTr("Add Bookmark")
-      icon.source: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_add_bookmark_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
@@ -3879,7 +3875,24 @@ ApplicationWindow {
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged: positioningSettings.positioningActivated = checked
+
+      onTriggered: positioningSettings.positioningActivated = checked
+    }
+
+    MenuItem {
+      text: qsTr("Show Position Information")
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+      font: Theme.defaultFont
+
+      checkable: true
+      checked: positioningSettings.showPositionInformation
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+
+      onTriggered: positioningSettings.showPositionInformation = checked
     }
 
     MenuItem {
@@ -3899,13 +3912,64 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("Center to Location")
+      text: qsTr("Lock Coordinate Cursor to Location")
       height: 48
-      leftPadding: Theme.menuItemIconlessLeftPadding
+      leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
+      enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+      checkable: true
+      checked: positioningSettings.showPositionInformation
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
 
       onTriggered: {
-        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+        gnssCursorLockButton.click();
+      }
+    }
+
+    MenuItem {
+      text: qsTr("Lock Map Canvas to Location")
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+      font: Theme.defaultFont
+      enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+      checkable: true
+      checked: gnssButton.autoRefollow
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+
+      onTriggered: {
+        gnssCanvasLockButton.click();
+      }
+    }
+
+    MenuItem {
+      text: qsTr("Add Bookmark at Location")
+      icon.source: Theme.getThemeVectorIcon("ic_add_bookmark_black_24dp")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+      font: Theme.defaultFont
+      enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+
+      onTriggered: {
+        addBookmarkAtCurrentLocationButton.click();
+      }
+    }
+
+    MenuItem {
+      text: qsTr("Copy Location Coordinates")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+      enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+
+      onTriggered: {
+        copyCurrentLocationButton.click();
       }
     }
   }
@@ -3988,12 +4052,12 @@ ApplicationWindow {
   }
 
   function showAutoLockToast() {
-    displayToast(qsTr('Follow location paused'), 'info', qsTr('Unlock'), () => {
+    displayToast(qsTr('Map canvas lock paused'), 'info', qsTr('Unlock'), () => {
         gnssButton.autoRefollow = false;
       }, true, () => {
-        if (positionSource.active) {
-          gnssButton.followActive = true;
+        if (positionSource.active && gnssButton.autoRefollow) {
           mapCanvasMap.freeze('follow');
+          gnssButton.followActive = true;
           gnssButton.followLocation(true);
         }
       });
@@ -4627,7 +4691,7 @@ ApplicationWindow {
     id: appScopesGenerator
 
     positionInformation: positionSource.positionInformation
-    positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
+    positionLocked: positionSource.active && coordinateLocator.positionLocked
     cloudUserInformation: projectInfo.cloudUserInformation
   }
 
@@ -4854,7 +4918,7 @@ ApplicationWindow {
       }, {
         "type": "information",
         "title": qsTr("Positioning"),
-        "description": qsTr("This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored."),
+        "description": qsTr("This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities."),
         "target": () => [gnssButton]
       }, {
         "type": "information",
