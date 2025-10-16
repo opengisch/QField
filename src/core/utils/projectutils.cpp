@@ -116,7 +116,7 @@ QString ProjectUtils::createProject( const QVariantMap &options )
   QgsVectorLayer *notesLayer = nullptr;
   if ( options.value( QStringLiteral( "notes" ) ).toBool() )
   {
-    createdProject->writeEntry( QStringLiteral( "QFieldSync" ), QStringLiteral( "initialMapMode" ), QStringLiteral( "digitize" ) );
+    createdProject->writeEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "initialMapMode" ), QStringLiteral( "digitize" ) );
 
     const QString notesFilepath = QStringLiteral( "%1/notes.gpkg" ).arg( createdProjectDir );
 
@@ -286,7 +286,7 @@ QString ProjectUtils::createProject( const QVariantMap &options )
     }
     else
     {
-      createdProject->writeEntry( QStringLiteral( "QFieldSync" ), QStringLiteral( "initialMapMode" ), QStringLiteral( "digitize" ) );
+      createdProject->writeEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "initialMapMode" ), QStringLiteral( "digitize" ) );
     }
 
     // Insure the layer is ready cloud-friendly
@@ -360,7 +360,7 @@ QString ProjectUtils::createProject( const QVariantMap &options )
   }
 
   // Insure attachment directories are populated in preparation for cloud project
-  createdProject->writeEntry( QStringLiteral( "QFieldSync" ), QStringLiteral( "attachmentDirs" ), QStringList() << "DCIM"
+  createdProject->writeEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "attachmentDirs" ), QStringList() << "DCIM"
                                                                                                                 << "audio"
                                                                                                                 << "video"
                                                                                                                 << "files" );
