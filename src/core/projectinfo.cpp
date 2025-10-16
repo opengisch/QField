@@ -419,7 +419,7 @@ QString ProjectInfo::stateMode() const
     return mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/stateMode" ).arg( mFilePath ), QStringLiteral( "browse" ) ).toString();
   }
 
-  return QgsProject::instance()->readEntry( QStringLiteral( "QFieldSync" ), QStringLiteral( "initialMapMode" ), QStringLiteral( "browse" ) );
+  return QgsProject::instance()->readEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "initialMapMode" ), QStringLiteral( "browse" ) );
 }
 
 void ProjectInfo::setActiveLayer( QgsMapLayer *layer )
@@ -443,7 +443,7 @@ QgsMapLayer *ProjectInfo::activeLayer() const
   }
   else
   {
-    layerId = QgsProject::instance()->readEntry( QStringLiteral( "QFieldSync" ), QStringLiteral( "initialActiveLayer" ) );
+    layerId = QgsProject::instance()->readEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "initialActiveLayer" ) );
   }
   return !layerId.isEmpty() ? QgsProject::instance()->mapLayer( layerId ) : nullptr;
 }
