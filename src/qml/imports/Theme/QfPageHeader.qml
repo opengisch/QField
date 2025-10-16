@@ -13,6 +13,7 @@ ToolBar {
   property alias showBackButton: backButton.visible
   property alias showApplyButton: applyButton.visible
   property alias showCancelButton: cancelButton.visible
+  property alias showRemoveButton: removeButton.visible
   property alias showMenuButton: menuButton.visible
 
   property alias busyIndicatorState: busyIndicator.state
@@ -24,6 +25,7 @@ ToolBar {
   signal apply
   signal back
   signal finished
+  signal remove
   signal openMenu
 
   height: topMargin + 48
@@ -50,7 +52,7 @@ ToolBar {
       width: parent.width
       height: 6
       value: 50
-      indeterminate: value == 0 ? true : false
+      indeterminate: value === 0 ? true : false
 
       state: "off"
 
@@ -111,7 +113,7 @@ ToolBar {
     QfToolButton {
       id: backButton
 
-      Layout.alignment: Qt.AlignTop | Qt.AlignLeft
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
       clip: true
       iconSource: backAsCancel ? Theme.getThemeVectorIcon('ic_close_white_24dp') : Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
       iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
@@ -129,7 +131,7 @@ ToolBar {
     QfToolButton {
       id: applyButton
 
-      Layout.alignment: Qt.AlignTop | Qt.AlignLeft
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
       clip: true
       iconSource: Theme.getThemeVectorIcon('ic_check_white_24dp')
       iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
@@ -142,8 +144,8 @@ ToolBar {
 
     Label {
       id: titleLabel
-      leftPadding: !showApplyButton && showCancelButton ? 48 : 0
-      rightPadding: (showApplyButton || showBackButton) && !showCancelButton && !showMenuButton ? 48 : 0
+      leftPadding: !showApplyButton && (showCancelButton || showRemoveButton) ? 48 : 0
+      rightPadding: (showApplyButton || showBackButton) && !showCancelButton && !showRemoveButton && !showMenuButton ? 48 : 0
       font: Theme.strongTitleFont
       color: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
       elide: Label.ElideRight
@@ -153,9 +155,24 @@ ToolBar {
     }
 
     QfToolButton {
+      id: removeButton
+
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+      visible: false
+      clip: true
+      iconSource: Theme.getThemeVectorIcon('ic_delete_forever_white_24dp')
+      iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
+
+      onClicked: {
+        remove();
+        finished();
+      }
+    }
+
+    QfToolButton {
       id: cancelButton
 
-      Layout.alignment: Qt.AlignTop | Qt.AlignRight
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
       clip: true
       iconSource: Theme.getThemeVectorIcon('ic_close_white_24dp')
       iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
@@ -169,7 +186,7 @@ ToolBar {
     QfToolButton {
       id: menuButton
 
-      Layout.alignment: Qt.AlignTop | Qt.AlignRight
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
       clip: true
       visible: false
 
