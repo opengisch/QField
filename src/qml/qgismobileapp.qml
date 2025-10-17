@@ -122,7 +122,6 @@ ApplicationWindow {
     focus: true
 
     Keys.onReleased: event => {
-      console.log('keyHandler key released' + event.key);
       if (event.modifiers === Qt.NoModifier) {
         if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
           if (featureForm.visible) {
@@ -138,10 +137,6 @@ ApplicationWindow {
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
-  }
-
-  Keys.onReleased: event => {
-    console.log('root key released' + event.key);
   }
 
   Shortcut {
