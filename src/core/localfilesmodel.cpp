@@ -408,6 +408,27 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
+QVariantMap LocalFilesModel::get( int index ) const
+{
+  QVariantMap map;
+  if ( index < 0 || index >= mItems.size() )
+    return map;
+
+  const Item &item = mItems[index];
+  map["ItemMetaType"] = item.metaType;
+  map["ItemType"] = item.type;
+  map["ItemTitle"] = item.title;
+  map["ItemFormat"] = item.format;
+  map["ItemPath"] = item.path;
+  map["ItemSize"] = item.size;
+  map["ItemHasThumbnail"] = item.size < 25000000 && SUPPORTED_DATASET_THUMBNAIL.contains( item.format );
+  map["ItemIsFavorite"] = mFavorites.contains( item.path );
+  map["ItemHasWebdavConfiguration"] = WebdavConnection::hasWebdavConfiguration( item.path );
+  map["ItemChecked"] = item.checked;
+
+  return map;
+}
+
 bool LocalFilesModel::inSelectionMode()
 {
   if ( currentTitle() == QStringLiteral( "Home" ) )
