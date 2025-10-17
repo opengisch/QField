@@ -837,7 +837,7 @@ Page {
 
         Layout.fillWidth: true
         Layout.preferredHeight: parent.height
-        Layout.leftMargin: !setupOnly ? 48 : 0
+        Layout.leftMargin: !setupOnly && form.model.hasRemembrance ? 48 : 0
         Layout.rightMargin: !setupOnly ? 0 : 48
         objectName: "titleLabel"
 
