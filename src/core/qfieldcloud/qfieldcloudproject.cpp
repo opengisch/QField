@@ -999,6 +999,17 @@ void QFieldCloudProject::prepareDownloadTransfer( const QString &projectId, cons
   FileTransfer transfer( fileName, fileSize, projectId, cloudEtag );
   transfer.partialFilePath = QDir( projectDir ).filePath( QStringLiteral( "%1.%2.part" ).arg( fileName, cloudEtag ) );
 
+  QFileInfo partialFileInfo( transfer.partialFilePath );
+  qInfo() << "prepareDownloadTransfer file details " << fileKey << fileSize << cloudEtag;
+  if ( partialFileInfo.exists() )
+  {
+    qInfo() << "prepareDownloadTransfer partial details " << partialFileInfo.absoluteFilePath() << partialFileInfo.size();
+  }
+  else
+  {
+    qInfo() << "prepareDownloadTransfer NO partial details";
+  }
+
   mDownloadFileTransfers.insert( fileKey, transfer );
 
   // Remove old .part files with different etag
@@ -1008,6 +1019,7 @@ void QFieldCloudProject::prepareDownloadTransfer( const QString &projectId, cons
   {
     if ( partFile.startsWith( fileName + "." ) && !partFile.endsWith( QStringLiteral( "%1.part" ).arg( cloudEtag ) ) )
     {
+      qInfo() << QStringLiteral( "Deleting outdated partial file: %1" ).arg( partFile );
       QgsLogger::debug( QStringLiteral( "Deleting outdated partial file: %1" ).arg( partFile ) );
       QFile::remove( dir.filePath( partFile ) );
     }
@@ -1209,6 +1221,7 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
     mDownloadBytesReceived += bytesReceived;
     mDownloadFileTransfers[fileKey].bytesTransferred = bytesReceived;
 
+    qInfo() << "downloadProgress " << fileKey << "file bytes received" << bytesReceived << "total bytes received" << mDownloadBytesReceived;
     mDownloadProgress = std::clamp( ( static_cast<double>( mDownloadBytesReceived ) / std::max( mDownloadBytesTotal, static_cast<qint64>( 1 ) ) ), 0., 1. );
 
     emit downloadBytesReceivedChanged();
@@ -1241,6 +1254,7 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
     if ( rawReply->error() != QNetworkReply::NoError )
     {
       const int httpStatus = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+      qInfo() << "downloadFile error " << fileKey << "http status" << httpStatus << "retry count" << mDownloadFileTransfers[fileKey].retryCount;
       if ( httpStatus == 416 && mDownloadFileTransfers[fileKey].retryCount < 3 )
       {
         mDownloadFileTransfers[fileKey].resumableDownload = false;
@@ -1491,6 +1505,7 @@ void QFieldCloudProject::logFailedDownload( const QString &fileKey, const QStrin
 {
   mDownloadFilesFailed++;
 
+  qInfo() << QStringLiteral( "Project %1, file `%2`: %3 %4" ).arg( mId, fileKey, errorMessage, errorMessageDetail );
   QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: %3 %4" ).arg( mId, fileKey, errorMessage, errorMessageDetail ) );
 
   // translate the user messages
