@@ -855,14 +855,18 @@ bool FileUtils::isDeletable( const QString &filePath )
     return false;
 
   const QString canonicalFilePath = fileInfo.canonicalFilePath();
-  const QString appDataDir = PlatformUtilities::instance()->applicationDirectory();
-  const QString cloudDataDir = QFieldCloudUtils::localCloudDirectory();
+  const QString appDataDir = QFileInfo( PlatformUtilities::instance()->applicationDirectory() ).canonicalFilePath();
+  const QString cloudDataDir = QFileInfo( QFieldCloudUtils::localCloudDirectory() ).canonicalFilePath();
   const QStringList extraDirs = PlatformUtilities::instance()->additionalApplicationDirectories();
 
   const bool isInsideAppDataDir = !appDataDir.isEmpty() && canonicalFilePath.startsWith( appDataDir );
   const bool isInsideCloudDataDir = !cloudDataDir.isEmpty() && canonicalFilePath.startsWith( cloudDataDir );
   const bool isInsideExtraDir = std::any_of( extraDirs.begin(), extraDirs.end(), [&canonicalFilePath]( const QString &dir ) {
-    return !dir.isEmpty() && canonicalFilePath.startsWith( dir );
+    if ( dir.isEmpty() )
+      return false;
+
+    const QString canonicalDir = QFileInfo( dir ).canonicalFilePath();
+    return !canonicalDir.isEmpty() && canonicalFilePath.startsWith( canonicalDir );
   } );
 
   if ( !( isInsideAppDataDir || isInsideCloudDataDir || isInsideExtraDir ) )
