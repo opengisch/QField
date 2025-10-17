@@ -330,7 +330,7 @@ void PluginManager::installFromUrl( const QString &url )
   emit installTriggered( request.url().fileName() );
 
   QNetworkReply *reply = manager->get( request );
-  connect( reply, &QNetworkReply::downloadProgress, this, [this]( int bytesReceived, int bytesTotal ) {
+  connect( reply, &QNetworkReply::downloadProgress, this, [this]( qint64 bytesReceived, qint64 bytesTotal ) {
     if ( bytesTotal != 0 )
     {
       emit installProgress( static_cast<double>( bytesReceived ) / bytesTotal );
