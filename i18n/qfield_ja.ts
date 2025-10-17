@@ -360,7 +360,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Name</source>
-        <translation>名前</translation>
+        <translation type="vanished">名前</translation>
     </message>
     <message>
         <source>Color</source>
@@ -368,7 +368,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation>ブックマークの詳細をコピーする</translation>
+        <translation type="vanished">ブックマークの詳細をコピーする</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -397,6 +397,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>ブックマークを削除しますか？</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>説明</translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

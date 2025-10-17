@@ -360,7 +360,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Name</source>
-        <translation>Nome</translation>
+        <translation type="vanished">Nome</translation>
     </message>
     <message>
         <source>Color</source>
@@ -368,7 +368,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation>Copiar detalles do marcador</translation>
+        <translation type="vanished">Copiar detalles do marcador</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -397,6 +397,14 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>Estás a piques de eliminar o marcador, continuar?</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Descrición</translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

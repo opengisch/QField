@@ -360,7 +360,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Name</translation>
+        <translation type="vanished">Name</translation>
     </message>
     <message>
         <source>Color</source>
@@ -368,7 +368,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation>Lesezeichen Einstellungen speichern</translation>
+        <translation type="vanished">Lesezeichen Einstellungen speichern</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -397,6 +397,14 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>Du bist dabei ein Lesezeichen zu löschen, weitermachen?</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Beschreibung</translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

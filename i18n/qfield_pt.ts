@@ -360,7 +360,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Nome</translation>
+        <translation type="vanished">Nome</translation>
     </message>
     <message>
         <source>Color</source>
@@ -368,7 +368,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation>Copiar detalhes do marcador</translation>
+        <translation type="vanished">Copiar detalhes do marcador</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -397,6 +397,14 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>Está prestes a remover o marcador, proceder?</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -360,7 +360,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>İsim</translation>
+        <translation type="vanished">İsim</translation>
     </message>
     <message>
         <source>Color</source>
@@ -368,7 +368,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation>Yer işareti ayrıntılarını kopyala</translation>
+        <translation type="vanished">Yer işareti ayrıntılarını kopyala</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -397,6 +397,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>Bir yer işaretini kaldırmak üzeresiniz, devam edilsin mi?</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Açıklama</translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

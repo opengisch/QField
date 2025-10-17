@@ -360,7 +360,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Name</source>
-        <translation>Име</translation>
+        <translation type="vanished">Име</translation>
     </message>
     <message>
         <source>Color</source>
@@ -368,7 +368,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation>Копирай детайлите на отметката</translation>
+        <translation type="vanished">Копирай детайлите на отметката</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -397,6 +397,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>Отметката ще бъде изтрита. Искаш ли да продължиш?</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Описани</translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

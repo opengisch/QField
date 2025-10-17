@@ -360,7 +360,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Nome</translation>
+        <translation type="vanished">Nome</translation>
     </message>
     <message>
         <source>Color</source>
@@ -368,7 +368,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation>Copia i dettagli del segnalibro</translation>
+        <translation type="vanished">Copia i dettagli del segnalibro</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -397,6 +397,14 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>Stai per rimuovere un segnalibro, procedere?</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

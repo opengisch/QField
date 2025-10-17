@@ -365,7 +365,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Name</translation>
+        <translation type="vanished">Name</translation>
     </message>
     <message>
         <source>Color</source>
@@ -373,7 +373,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation>Copy bookmark details</translation>
+        <translation type="vanished">Copy bookmark details</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -402,6 +402,14 @@ Cancel to make a minimal device scan instead.</translation>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>You are about to remove a bookmark, proceed?</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5735,7 +5743,7 @@ project</source>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>Coordinate cursor now locked to position</translation>
+        <translation type="vanished">Coordinate cursor now locked to position</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
@@ -5903,15 +5911,15 @@ project</source>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation>Center to Location</translation>
+        <translation type="vanished">Center to Location</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="vanished">Add Bookmark at Location</translation>
+        <translation>Add Bookmark at Location</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="vanished">Copy Location Coordinates</translation>
+        <translation>Copy Location Coordinates</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5951,7 +5959,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">Show Position Information</translation>
+        <translation>Show Position Information</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
@@ -5967,7 +5975,7 @@ project</source>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation>Current location unknown</translation>
+        <translation type="vanished">Current location unknown</translation>
     </message>
     <message>
         <source>My location</source>
@@ -6090,10 +6098,6 @@ project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6194,10 +6198,6 @@ project</source>
         <translation type="unfinished">Positioning</translation>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6294,10 +6294,6 @@ project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Follow location paused</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Failed to create feature</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6375,6 +6371,46 @@ project</source>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Coordinate cursor locked to location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Map canvas unlocked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Map canvas locked to location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Map canvas locked to location and compass orientation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Map canvas follows location and compass orientation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Map canvas follows location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock Coordinate Cursor to Location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock Map Canvas to Location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Map canvas lock paused</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

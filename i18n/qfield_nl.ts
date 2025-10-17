@@ -360,7 +360,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Name</source>
-        <translation>Naam</translation>
+        <translation type="vanished">Naam</translation>
     </message>
     <message>
         <source>Color</source>
@@ -368,7 +368,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation>Kopiëren bladwijzergegevens</translation>
+        <translation type="vanished">Kopiëren bladwijzergegevens</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -397,6 +397,14 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>U staat op het punt een bladwijzer te verwijderen, doorgaan?</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -360,7 +360,7 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Ime</translation>
+        <translation type="vanished">Ime</translation>
     </message>
     <message>
         <source>Color</source>
@@ -368,7 +368,7 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation>Kopiraj detalje oznake</translation>
+        <translation type="vanished">Kopiraj detalje oznake</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -397,6 +397,14 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>Ukloniti ćete oznaku, nastaviti?</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -360,7 +360,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Name</source>
-        <translation>名称</translation>
+        <translation type="vanished">名称</translation>
     </message>
     <message>
         <source>Color</source>
@@ -368,7 +368,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation>复制书签详细信息</translation>
+        <translation type="vanished">复制书签详细信息</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -397,6 +397,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>将移除书签，是否继续？</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>描述</translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation>更改颜色</translation>
     </message>
 </context>
 <context>

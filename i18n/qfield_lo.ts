@@ -359,7 +359,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Name</source>
-        <translation>ຊື່</translation>
+        <translation type="vanished">ຊື່</translation>
     </message>
     <message>
         <source>Color</source>
@@ -367,7 +367,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation>ສຳເນົາລາຍລະອຽດບຸກມາກ</translation>
+        <translation type="vanished">ສຳເນົາລາຍລະອຽດບຸກມາກ</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -396,6 +396,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>ທ່ານກຳລັງຈະລຶບບຸກມາກ, ດຳເນີນການຕໍ່ບໍ?</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

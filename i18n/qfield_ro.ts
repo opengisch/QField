@@ -361,7 +361,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Nume</translation>
+        <translation type="vanished">Nume</translation>
     </message>
     <message>
         <source>Color</source>
@@ -369,7 +369,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation>Copiați detalii marcaj</translation>
+        <translation type="vanished">Copiați detalii marcaj</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -398,6 +398,14 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>Sunteți pe cale să eliminați un marcaj, continuați?</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

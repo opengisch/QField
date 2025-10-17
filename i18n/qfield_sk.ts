@@ -360,7 +360,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Názov</translation>
+        <translation type="vanished">Názov</translation>
     </message>
     <message>
         <source>Color</source>
@@ -368,7 +368,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation>Kopírovať detaily záložky</translation>
+        <translation type="vanished">Kopírovať detaily záložky</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -397,6 +397,14 @@ Zrušiť a spraviť minimálny sken.</translation>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>Chystáte sa odstrániť záložku, chcete pokračovať?</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -360,7 +360,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Nazwa</translation>
+        <translation type="vanished">Nazwa</translation>
     </message>
     <message>
         <source>Color</source>
@@ -368,7 +368,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation>Skopiuj szczegóły zakładki</translation>
+        <translation type="vanished">Skopiuj szczegóły zakładki</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -397,6 +397,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>Czy na pewno zamierzasz usunąć zakładkę?</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Opis</translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

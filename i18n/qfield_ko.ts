@@ -398,6 +398,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BookmarkRenderer</name>

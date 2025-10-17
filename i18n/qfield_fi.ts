@@ -360,7 +360,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Nimi</translation>
+        <translation type="vanished">Nimi</translation>
     </message>
     <message>
         <source>Color</source>
@@ -368,7 +368,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation>Kopioi kirjanmerkin yksityiskohdat</translation>
+        <translation type="vanished">Kopioi kirjanmerkin yksityiskohdat</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -397,6 +397,14 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>Oletko varma, että haluat poistaa kirjainmerkin?</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Kuvaus</translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
