@@ -268,7 +268,7 @@ QfPopup {
             } else {
               var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
               var filter = layerTree.data(index, FlatLayerTreeModel.FilterExpression);
-              featureForm.model.setFeatures(vl, filter);
+              featureListForm.model.setFeatures(vl, filter);
               if (layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)) {
                 mapCanvas.mapSettings.extent = layerTree.nodeExtent(index, mapCanvas.mapSettings);
               }
@@ -396,7 +396,7 @@ QfPopup {
         } else {
           var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
           var filter = layerTree.data(index, FlatLayerTreeModel.FilterExpression);
-          featureForm.model.setFeatures(vl, filter, mapCanvas.mapSettings.visibleExtent);
+          featureListForm.model.setFeatures(vl, filter, mapCanvas.mapSettings.visibleExtent);
         }
         close();
         dashBoard.visible = false;

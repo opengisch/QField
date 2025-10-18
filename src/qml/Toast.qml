@@ -9,26 +9,33 @@ Popup {
   id: toast
 
   property string type: 'info'
-  property int edgeSpacing: 52
+  property double edgeSpacing: 54
+  property double bottomSpacing: 0
   property var act: undefined
   property var timeoutAct: undefined
   property bool timeoutFeedback: false
+
   property real virtualKeyboardHeight: {
-    const top = Qt.inputMethod.keyboardRectangle.top / Screen.devicePixelRatio;
-    if (top > 0) {
-      const height = Qt.inputMethod.keyboardRectangle.height / Screen.devicePixelRatio;
-      return height - (top + height - mainWindow.height);
+    if (Qt.platform.os === "android") {
+      const top = Qt.inputMethod.keyboardRectangle.top / Screen.devicePixelRatio;
+      if (top > 0) {
+        const height = Qt.inputMethod.keyboardRectangle.height / Screen.devicePixelRatio;
+        return height - (top + height - mainWindow.height);
+      }
     }
     return 0;
   }
 
   x: edgeSpacing
-  y: mainWindow.height - 112 - virtualKeyboardHeight
+  y: mainWindow.height
   z: 10001
 
   width: mainWindow.width - edgeSpacing * 2
   height: toastMessage.contentHeight + 20
-  margins: 0
+  topMargin: 0
+  leftMargin: 0
+  rightMargin: 0
+  bottomMargin: 60 + Math.max(bottomSpacing, virtualKeyboardHeight)
   padding: 0
   closePolicy: Popup.NoAutoClose
 

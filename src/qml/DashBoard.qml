@@ -186,12 +186,12 @@ Drawer {
             bgcolor: "transparent"
 
             onClicked: {
-              if (featureForm.state === "FeatureFormEdit") {
-                featureForm.requestCancel();
+              if (featureListForm.state === "FeatureFormEdit") {
+                featureListForm.requestCancel();
                 return;
               }
-              if (featureForm.visible) {
-                featureForm.hide();
+              if (featureListForm.visible) {
+                featureListForm.hide();
               }
               showCloudPopup();
             }

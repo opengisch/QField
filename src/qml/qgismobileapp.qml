@@ -98,7 +98,7 @@ ApplicationWindow {
 
     activeLayer: dashBoard.activeLayer
     bookmarks: bookmarkModel
-    featureListController: featureForm.extentController
+    featureListController: featureListForm.extentController
     mapSettings: mapCanvas.mapSettings
     navigation: navigation
     geometryHighlighter: geometryHighlighter.geometryWrapper
@@ -124,8 +124,8 @@ ApplicationWindow {
     Keys.onReleased: event => {
       if (event.modifiers === Qt.NoModifier) {
         if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-          if (featureForm.visible) {
-            featureForm.hide();
+          if (featureListForm.visible) {
+            featureListForm.hide();
           } else if (stateMachine.state === 'measure') {
             mainWindow.closeMeasureTool();
           } else {
@@ -436,7 +436,7 @@ ApplicationWindow {
     DragHandler {
       id: freehandHandler
       property bool isDigitizing: false
-      enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen && ((!featureForm.visible && digitizingToolbar.digitizingAllowed) || digitizingToolbar.geometryRequested)
+      enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen && ((!featureListForm.visible && digitizingToolbar.digitizingAllowed) || digitizingToolbar.geometryRequested)
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
       dragThreshold: 0
@@ -491,8 +491,8 @@ ApplicationWindow {
         if (active) {
           let newPositionX = pressClickX + translation.x;
           let newPositionY = pressClickY + translation.y;
-          screenCenterX = mapCanvas.mapSettings.coordinateToScreen(featureForm.extentController.getCentroidFromSelected()).x;
-          screenCenterY = mapCanvas.mapSettings.coordinateToScreen(featureForm.extentController.getCentroidFromSelected()).y;
+          screenCenterX = mapCanvas.mapSettings.coordinateToScreen(featureListForm.extentController.getCentroidFromSelected()).x;
+          screenCenterY = mapCanvas.mapSettings.coordinateToScreen(featureListForm.extentController.getCentroidFromSelected()).y;
           let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX);
           if (angle != 0) {
             moveAndRotateFeaturesHighlight.originX = screenCenterX;
@@ -639,8 +639,8 @@ ApplicationWindow {
       forceDeferredLayersRepaint: trackings.count > 0
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
 
-      rightMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? !featureForm.fullScreenView && !featureForm.canvasOperationRequested && featureForm.x > 0 ? featureForm.width : 0 : 0
-      bottomMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? Math.max(informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0, !featureForm.fullScreenView && !featureForm.canvasOperationRequested && featureForm.y > 0 ? featureForm.height : 0) : 0
+      rightMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.x > 0 ? featureListForm.width : 0 : 0
+      bottomMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? Math.max(informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0, !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.y > 0 ? featureListForm.height : 0) : 0
 
       anchors.fill: parent
 
@@ -649,10 +649,10 @@ ApplicationWindow {
         if (pointHandler.clicked(point, type)) {
           return;
         }
-        if (type === "stylus" && (overlayFeatureFormDrawer.opened || (featureForm.visible && pointHandler.pointInItem(point, featureForm)))) {
+        if (type === "stylus" && (overlayFeatureFormDrawer.opened || (featureListForm.visible && pointHandler.pointInItem(point, featureListForm)))) {
           return;
         }
-        if (!digitizingToolbar.geometryRequested && featureForm.state == "FeatureFormEdit") {
+        if (!digitizingToolbar.geometryRequested && featureListForm.state == "FeatureFormEdit") {
           return;
         }
         if (locatorItem.state == "on") {
@@ -673,7 +673,7 @@ ApplicationWindow {
             return;
           }
           if ((stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) || stateMachine.state === "measure") {
-            if (!positionLocked && (!featureForm.visible || digitizingToolbar.geometryRequested)) {
+            if (!positionLocked && (!featureListForm.visible || digitizingToolbar.geometryRequested)) {
               if (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Point || Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Null) {
                 digitizingToolbar.confirm();
               } else {
@@ -681,7 +681,7 @@ ApplicationWindow {
               }
             }
           } else {
-            if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state !== "FeatureFormEdit") {
+            if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureListForm.state !== "FeatureFormEdit") {
               identifyTool.isMenuRequest = false;
               identifyTool.identify(point);
             }
@@ -703,10 +703,10 @@ ApplicationWindow {
           return;
         }
         if (qfieldSettings.fingerTapDigitizing && ((stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) || stateMachine.state === "measure")) {
-          if (!positionLocked && (!featureForm.visible || digitizingToolbar.geometryRequested)) {
+          if (!positionLocked && (!featureListForm.visible || digitizingToolbar.geometryRequested)) {
             coordinateLocator.sourceLocation = point;
           }
-        } else if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state !== "FeatureFormEdit") {
+        } else if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureListForm.state !== "FeatureFormEdit") {
           identifyTool.isMenuRequest = false;
           identifyTool.identify(point);
         }
@@ -718,7 +718,7 @@ ApplicationWindow {
           return;
         }
         if (type === "stylus") {
-          if (overlayFeatureFormDrawer.opened || (featureForm.visible && pointHandler.pointInItem(point, featureForm))) {
+          if (overlayFeatureFormDrawer.opened || (featureListForm.visible && pointHandler.pointInItem(point, featureListForm))) {
             return;
           }
 
@@ -805,13 +805,13 @@ ApplicationWindow {
       property bool isMenuRequest: false
 
       mapSettings: mapCanvas.mapSettings
-      model: isMenuRequest ? canvasMenuFeatureListModel : featureForm.model
+      model: isMenuRequest ? canvasMenuFeatureListModel : featureListForm.model
       searchRadiusMm: 3
 
       onIdentifyFinished: {
-        if (qfieldSettings.autoOpenFormSingleIdentify && !isMenuRequest && !featureForm.multiSelection && featureForm.model.count === 1) {
-          featureForm.selection.focusedItem = 0;
-          featureForm.state = "FeatureForm";
+        if (qfieldSettings.autoOpenFormSingleIdentify && !isMenuRequest && !featureListForm.multiSelection && featureListForm.model.count === 1) {
+          featureListForm.selection.focusedItem = 0;
+          featureListForm.state = "FeatureForm";
         }
       }
     }
@@ -1246,7 +1246,7 @@ ApplicationWindow {
       id: featureListHighlight
       visible: !moveFeaturesToolbar.moveFeaturesRequested && !rotateFeaturesToolbar.rotateFeaturesRequested
 
-      selectionModel: featureForm.selection
+      selectionModel: featureListForm.selection
       mapSettings: mapCanvas.mapSettings
 
       color: "yellow"
@@ -1261,7 +1261,7 @@ ApplicationWindow {
       visible: moveFeaturesToolbar.moveFeaturesRequested || rotateFeaturesToolbar.rotateFeaturesRequested
       showSelectedOnly: true
 
-      selectionModel: featureForm.selection
+      selectionModel: featureListForm.selection
       mapSettings: mapCanvas.mapSettings
 
       // take rotation into account
@@ -1295,7 +1295,7 @@ ApplicationWindow {
 
     ProcessingAlgorithmPreview {
       id: processingAlgorithmPreview
-      algorithm: featureForm.algorithm
+      algorithm: featureListForm.algorithm
       mapSettings: mapCanvas.mapSettings
     }
   }
@@ -1766,8 +1766,8 @@ ApplicationWindow {
       onStateChanged: {
         if (state == "off") {
           focus = false;
-          if (featureForm.visible) {
-            featureForm.focus = true;
+          if (featureListForm.visible) {
+            featureListForm.focus = true;
           } else {
             keyHandler.focus = true;
           }
@@ -2770,8 +2770,8 @@ ApplicationWindow {
 
         function initializeMoveFeatures() {
           moveFeaturesRequested = true;
-          if (featureForm && featureForm.selection.model.selectedCount === 1) {
-            featureForm.extentController.zoomToSelected();
+          if (featureListForm && featureListForm.selection.model.selectedCount === 1) {
+            featureListForm.extentController.zoomToSelected();
           }
           startPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y);
           moveAndRotateFeaturesHighlight.rotationDegrees = 0;
@@ -2801,8 +2801,8 @@ ApplicationWindow {
 
         function initializeRotateFeatures() {
           rotateFeaturesRequested = true;
-          if (featureForm && featureForm.selection.model.selectedCount === 1) {
-            featureForm.extentController.zoomToSelected();
+          if (featureListForm && featureListForm.selection.model.selectedCount === 1) {
+            featureListForm.extentController.zoomToSelected();
           }
           moveAndRotateFeaturesHighlight.rotationDegrees = 0;
         }
@@ -2852,7 +2852,7 @@ ApplicationWindow {
     }
 
     onToggleMeasurementTool: {
-      if (featureForm.state === "ProcessingAlgorithmForm") {
+      if (featureListForm.state === "ProcessingAlgorithmForm") {
         cancelAlgorithmDialog.visible = true;
       } else {
         activateMeasurementMode();
@@ -3458,9 +3458,9 @@ ApplicationWindow {
           height: 48
 
           onTriggered: {
-            featureForm.model.setFeatures(menu.featureLayer, '@id = ' + menu.fid);
-            featureForm.selection.focusedItem = 0;
-            featureForm.state = "FeatureForm";
+            featureListForm.model.setFeatures(menu.featureLayer, '@id = ' + menu.fid);
+            featureListForm.selection.focusedItem = 0;
+            featureListForm.state = "FeatureForm";
           }
         }
 
@@ -3497,15 +3497,15 @@ ApplicationWindow {
           height: 48
 
           onTriggered: {
-            featureForm.model.setFeatures(menu.featureLayer, '@id = ' + menu.fid);
-            featureForm.selection.focusedItem = 0;
-            featureForm.multiSelection = true;
-            featureForm.selection.toggleSelectedItem(0);
-            featureForm.state = "FeatureList";
-            if (featureForm.model.canDuplicateSelection) {
-              if (featureForm.selection.model.duplicateFeature(featureForm.selection.focusedLayer, featureForm.selection.focusedFeature)) {
+            featureListForm.model.setFeatures(menu.featureLayer, '@id = ' + menu.fid);
+            featureListForm.selection.focusedItem = 0;
+            featureListForm.multiSelection = true;
+            featureListForm.selection.toggleSelectedItem(0);
+            featureListForm.state = "FeatureList";
+            if (featureListForm.model.canDuplicateSelection) {
+              if (featureListForm.selection.model.duplicateFeature(featureListForm.selection.focusedLayer, featureListForm.selection.focusedFeature)) {
                 displayToast(qsTr('Successfully duplicated feature'));
-                featureForm.selection.focusedItem = -1;
+                featureListForm.selection.focusedItem = -1;
                 moveFeaturesToolbar.initializeMoveFeatures();
                 return;
               }
@@ -3971,7 +3971,7 @@ ApplicationWindow {
 
   /* The feature form */
   FeatureListForm {
-    id: featureForm
+    id: featureListForm
     objectName: "featureForm"
 
     mapSettings: mapCanvas.mapSettings
@@ -3995,7 +3995,7 @@ ApplicationWindow {
 
     selection: FeatureListModelSelection {
       id: featureListModelSelection
-      model: featureForm.model
+      model: featureListForm.model
     }
 
     extentController.keepScale: qfieldSettings.locatorKeepScale
@@ -4007,16 +4007,16 @@ ApplicationWindow {
     onEditGeometry: {
       // Set overall selected (i.e. current) layer to that of the feature geometry being edited,
       // important for snapping settings to make sense when set to current layer
-      if (dashBoard.activeLayer != featureForm.selection.focusedLayer) {
-        dashBoard.activeLayer = featureForm.selection.focusedLayer;
+      if (dashBoard.activeLayer != featureListForm.selection.focusedLayer) {
+        dashBoard.activeLayer = featureListForm.selection.focusedLayer;
         displayToast(qsTr("Current layer switched to the one holding the selected geometry."));
       }
-      geometryEditingFeature.vertexModel.geometry = featureForm.selection.focusedGeometry;
-      geometryEditingFeature.vertexModel.crs = featureForm.selection.focusedLayer.crs;
-      geometryEditingFeature.currentLayer = featureForm.selection.focusedLayer;
-      geometryEditingFeature.feature = featureForm.selection.focusedFeature;
+      geometryEditingFeature.vertexModel.geometry = featureListForm.selection.focusedGeometry;
+      geometryEditingFeature.vertexModel.crs = featureListForm.selection.focusedLayer.crs;
+      geometryEditingFeature.currentLayer = featureListForm.selection.focusedLayer;
+      geometryEditingFeature.feature = featureListForm.selection.focusedFeature;
       if (geometryEditingVertexModel.editingAllowed) {
-        featureForm.state = "Hidden";
+        featureListForm.state = "Hidden";
         geometryEditorsToolbar.init();
       } else {
         displayToast(qsTr("Editing of multipart geometry is not supported yet."), 'warning');
@@ -4028,12 +4028,12 @@ ApplicationWindow {
   }
 
   QfDropShadow {
-    anchors.fill: featureForm
+    anchors.fill: featureListForm
     horizontalOffset: mainWindow.width >= mainWindow.height ? -2 : 0
     verticalOffset: mainWindow.width < mainWindow.height ? -2 : 0
     radius: 6.0
     color: "#80000000"
-    source: featureForm
+    source: featureListForm
   }
 
   OverlayFeatureFormDrawer {
@@ -4655,6 +4655,7 @@ ApplicationWindow {
 
   Toast {
     id: toast
+    bottomSpacing: Math.max(60, mainWindow.sceneBottomMargin, informationDrawer.height, overlayFeatureFormDrawer.opened && !overlayFeatureFormDrawer.fullScreenView && overlayFeatureFormDrawer.y > 0 ? overlayFeatureFormDrawer.height : 0, !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.y > 0 ? featureListForm.height : 0)
   }
 
   MouseArea {
@@ -4882,7 +4883,7 @@ ApplicationWindow {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
-      featureForm.state = "Hidden";
+      featureListForm.state = "Hidden";
       mentMode();
     }
     onDiscarded: {
