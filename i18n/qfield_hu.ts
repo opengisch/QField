@@ -5665,7 +5665,7 @@ project</source>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>A koordinátához tartozó kurzor zárolt a pozíciónál</translation>
+        <translation type="vanished">A koordinátához tartozó kurzor zárolt a pozíciónál</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
@@ -5833,15 +5833,15 @@ project</source>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation>Térképközép a helyedhez</translation>
+        <translation type="vanished">Térképközép a helyedhez</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="vanished">Könyvjelző hozzáadása a helyhez</translation>
+        <translation>Könyvjelző hozzáadása a helyhez</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="vanished">Helykoordináták másolása</translation>
+        <translation>Helykoordináták másolása</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5881,7 +5881,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">Pozíció megjelenítés</translation>
+        <translation>Pozíció megjelenítés</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
@@ -5897,7 +5897,7 @@ project</source>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation>Jelenlegi helye ismeretlen</translation>
+        <translation type="vanished">Jelenlegi helye ismeretlen</translation>
     </message>
     <message>
         <source>My location</source>
@@ -6020,10 +6020,6 @@ project</source>
         <translation>Relatív szög</translation>
     </message>
     <message>
-        <source>Canvas follows location and compass orientation</source>
-        <translation>A térképvászon követi a pozíciót és az irányt</translation>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>Tudjon meg többet</translation>
     </message>
@@ -6124,10 +6120,6 @@ project</source>
         <translation>Pozícionálás</translation>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation>Ez a gomb kapcsolja a pozícionálási rendszert. Hosszan megnyomva megjelenik a pozícionálás menű, további funkciókat téve elérhetővé.</translation>
-    </message>
-    <message>
         <source>Search</source>
         <translation>Keresés</translation>
     </message>
@@ -6224,10 +6216,6 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Follow location paused</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Failed to create feature</source>
         <translation type="unfinished"/>
     </message>
@@ -6305,6 +6293,46 @@ project</source>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Coordinate cursor locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas unlocked</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Coordinate Cursor to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Map Canvas to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas lock paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
         <translation type="unfinished"/>
     </message>
 </context>

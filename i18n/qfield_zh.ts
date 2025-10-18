@@ -5670,7 +5670,7 @@ project</source>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>坐标光标现已锁定位置</translation>
+        <translation type="vanished">坐标光标现已锁定位置</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
@@ -5838,15 +5838,15 @@ project</source>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation>定位居中</translation>
+        <translation type="vanished">位置居中</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="vanished">在定位处添加书签</translation>
+        <translation>在位置处添加书签</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="vanished">复制定位坐标</translation>
+        <translation>复制位置坐标</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5886,7 +5886,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">显示位置信息</translation>
+        <translation>显示位置信息</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
@@ -5902,7 +5902,7 @@ project</source>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation>当前位置未知</translation>
+        <translation type="vanished">当前位置未知</translation>
     </message>
     <message>
         <source>My location</source>
@@ -6025,10 +6025,6 @@ project</source>
         <translation>相对角度</translation>
     </message>
     <message>
-        <source>Canvas follows location and compass orientation</source>
-        <translation>地图遵循位置和指南针方向</translation>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>点击了解更多信息</translation>
     </message>
@@ -6129,10 +6125,6 @@ project</source>
         <translation>定位</translation>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation>该按钮可以切换到定位系统。启用后，位置标记将显示在地图顶部。长按按钮将打开定位菜单，可以在其中探索其他功能。</translation>
-    </message>
-    <message>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -6229,10 +6221,6 @@ project</source>
         <translation>您是否授权激活该插件？</translation>
     </message>
     <message>
-        <source>Follow location paused</source>
-        <translation>跟踪位置已暂停</translation>
-    </message>
-    <message>
         <source>Failed to create feature</source>
         <translation>创建要素失败</translation>
     </message>
@@ -6311,6 +6299,46 @@ project</source>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
         <translation>尚不支持编辑多部件几何图形。</translation>
+    </message>
+    <message>
+        <source>Coordinate cursor locked to location</source>
+        <translation>坐标光标已锁定位置</translation>
+    </message>
+    <message>
+        <source>Map canvas unlocked</source>
+        <translation>地图画布已解锁</translation>
+    </message>
+    <message>
+        <source>Map canvas locked to location</source>
+        <translation>地图画布已锁定位置</translation>
+    </message>
+    <message>
+        <source>Map canvas locked to location and compass orientation</source>
+        <translation>地图画布已锁定到位置和指南针方向</translation>
+    </message>
+    <message>
+        <source>Map canvas follows location and compass orientation</source>
+        <translation>地图画布遵循位置和指南针方向</translation>
+    </message>
+    <message>
+        <source>Map canvas follows location</source>
+        <translation>地图画布跟随位置</translation>
+    </message>
+    <message>
+        <source>Lock Coordinate Cursor to Location</source>
+        <translation>锁定坐标光标至位置</translation>
+    </message>
+    <message>
+        <source>Lock Map Canvas to Location</source>
+        <translation>锁定地图画布至位置</translation>
+    </message>
+    <message>
+        <source>Map canvas lock paused</source>
+        <translation>地图画布锁定已暂停</translation>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
+        <translation>该按钮可切换定位系统。启用后，位置标记将显示在地图顶部。点击位置标记将为您提供额外的定位功能。</translation>
     </message>
 </context>
 <context>

@@ -5667,7 +5667,7 @@ project</source>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>座標カーソルが現在位置にロックされるようになりました</translation>
+        <translation type="vanished">座標カーソルが現在位置にロックされるようになりました</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
@@ -5835,15 +5835,15 @@ project</source>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation>現在位置を中央に表示</translation>
+        <translation type="vanished">現在位置を中央に表示</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="vanished">現在位置でブックマークを追加</translation>
+        <translation>現在位置でブックマークを追加</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="vanished">位置座標をコピー</translation>
+        <translation>位置座標をコピー</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5883,7 +5883,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">座標情報を表示する</translation>
+        <translation>座標情報を表示する</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
@@ -5899,7 +5899,7 @@ project</source>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation>不明な現在位置</translation>
+        <translation type="vanished">不明な現在位置</translation>
     </message>
     <message>
         <source>My location</source>
@@ -6022,10 +6022,6 @@ project</source>
         <translation>相対角度</translation>
     </message>
     <message>
-        <source>Canvas follows location and compass orientation</source>
-        <translation>キャンバスは位置とコンパスの向きに従います</translation>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>詳細はこちら</translation>
     </message>
@@ -6126,10 +6122,6 @@ project</source>
         <translation>測位</translation>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation>このボタンは測位システムを切り替えます。有効にすると、地図の上部に位置マーカーが表示されます。このボタンを長押しすると、その他の機能がある測位メニューが表示されます。</translation>
-    </message>
-    <message>
         <source>Search</source>
         <translation>検索</translation>
     </message>
@@ -6226,10 +6218,6 @@ project</source>
         <translation>プラグインをアクティベートする権限を与えますか？</translation>
     </message>
     <message>
-        <source>Follow location paused</source>
-        <translation>位置情報の追跡を一時停止</translation>
-    </message>
-    <message>
         <source>Failed to create feature</source>
         <translation>地物の作成に失敗しました</translation>
     </message>
@@ -6307,6 +6295,46 @@ project</source>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Coordinate cursor locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas unlocked</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Coordinate Cursor to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Map Canvas to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas lock paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
         <translation type="unfinished"/>
     </message>
 </context>

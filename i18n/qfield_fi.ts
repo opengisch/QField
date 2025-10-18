@@ -5671,7 +5671,7 @@ project</source>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>Koordinaattikursori lukittu sijaintiin</translation>
+        <translation type="vanished">Koordinaattikursori lukittu sijaintiin</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
@@ -5839,15 +5839,15 @@ project</source>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation>Keskitä sijaintiin</translation>
+        <translation type="vanished">Keskitä sijaintiin</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="vanished">Lisää kirjanmerkki sijaintiin</translation>
+        <translation>Lisää kirjanmerkki sijaintiin</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="vanished">Kopioi sijainnin koordinaatit</translation>
+        <translation>Kopioi sijainnin koordinaatit</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5887,7 +5887,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">Näytä sijainnin tiedot</translation>
+        <translation>Näytä sijainnin tiedot</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
@@ -5903,7 +5903,7 @@ project</source>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation>Nykyinen sijainti tuntematon</translation>
+        <translation type="vanished">Nykyinen sijainti tuntematon</translation>
     </message>
     <message>
         <source>My location</source>
@@ -6026,10 +6026,6 @@ project</source>
         <translation>Relatiivinen kulma</translation>
     </message>
     <message>
-        <source>Canvas follows location and compass orientation</source>
-        <translation>Karttapohja seuraa sijaintia ja kompassin suuntaa</translation>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>Opi lisää</translation>
     </message>
@@ -6130,10 +6126,6 @@ project</source>
         <translation>Paikannus</translation>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation>Tämä painike vaihtaa paikannusjärjestelmän. Kun tämä on käytössä, sijaintimerkki näkyy kartan yläosassa. Painikkeen pitkä painallus avaa paikannusvalikon, jossa voit tutkia muita toimintoja.</translation>
-    </message>
-    <message>
         <source>Search</source>
         <translation>Etsi</translation>
     </message>
@@ -6230,10 +6222,6 @@ project</source>
         <translation>Annatko luvan aktivoida lisäosan?</translation>
     </message>
     <message>
-        <source>Follow location paused</source>
-        <translation>Sijainnin seuraaminen keskeytetty</translation>
-    </message>
-    <message>
         <source>Failed to create feature</source>
         <translation>Kohteen luominen epäonnistui</translation>
     </message>
@@ -6311,6 +6299,46 @@ project</source>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Coordinate cursor locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas unlocked</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Coordinate Cursor to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Map Canvas to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas lock paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
         <translation type="unfinished"/>
     </message>
 </context>

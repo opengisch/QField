@@ -5653,7 +5653,7 @@ project</source>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>Kazalec koordinat je sedaj zaklenjen na lokacijo</translation>
+        <translation type="vanished">Kazalec koordinat je sedaj zaklenjen na lokacijo</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
@@ -5825,11 +5825,11 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="vanished">Dodaj zaznamek na lokaciji</translation>
+        <translation>Dodaj zaznamek na lokaciji</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="vanished">Kopiraj koordinate lokacije</translation>
+        <translation>Kopiraj koordinate lokacije</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5869,7 +5869,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">Pokaži informacije o lokaciji</translation>
+        <translation>Pokaži informacije o lokaciji</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
@@ -5885,7 +5885,7 @@ project</source>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation>Trenutna lokacija neznana</translation>
+        <translation type="vanished">Trenutna lokacija neznana</translation>
     </message>
     <message>
         <source>My location</source>
@@ -6008,10 +6008,6 @@ project</source>
         <translation>Relativni kot</translation>
     </message>
     <message>
-        <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>Preberi več</translation>
     </message>
@@ -6112,10 +6108,6 @@ project</source>
         <translation>Določanje položaja</translation>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Search</source>
         <translation>Iskanje</translation>
     </message>
@@ -6212,10 +6204,6 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Follow location paused</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Failed to create feature</source>
         <translation type="unfinished"/>
     </message>
@@ -6293,6 +6281,46 @@ project</source>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Coordinate cursor locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas unlocked</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Coordinate Cursor to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Map Canvas to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas lock paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
         <translation type="unfinished"/>
     </message>
 </context>

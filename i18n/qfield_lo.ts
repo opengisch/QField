@@ -5653,7 +5653,7 @@ project</source>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>ເຄີເຊີພິກັດຖືກລັອກໄປທີ່ຕຳແໜ່ງແລ້ວ</translation>
+        <translation type="vanished">ເຄີເຊີພິກັດຖືກລັອກໄປທີ່ຕຳແໜ່ງແລ້ວ</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
@@ -5821,15 +5821,15 @@ project</source>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation>ຈັດຢູ່ໃຈກາງຕາມຕຳແໜ່ງ</translation>
+        <translation type="vanished">ຈັດຢູ່ໃຈກາງຕາມຕຳແໜ່ງ</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="vanished">ເພີ່ມບຸກມາກຢູ່ຕຳແໜ່ງ</translation>
+        <translation>ເພີ່ມບຸກມາກຢູ່ຕຳແໜ່ງ</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="vanished">ສຳເນົາພິກັດຕຳແໜ່ງ</translation>
+        <translation>ສຳເນົາພິກັດຕຳແໜ່ງ</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5869,7 +5869,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">ສະແດງຂໍ້ມູນຕຳແໜ່ງ </translation>
+        <translation>ສະແດງຂໍ້ມູນຕຳແໜ່ງ </translation>
     </message>
     <message>
         <source>Positioning Settings</source>
@@ -5885,7 +5885,7 @@ project</source>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation>ບໍ່ຮູ້ຕຳແໜ່ງປັດຈຸບັນ</translation>
+        <translation type="vanished">ບໍ່ຮູ້ຕຳແໜ່ງປັດຈຸບັນ</translation>
     </message>
     <message>
         <source>My location</source>
@@ -6008,10 +6008,6 @@ project</source>
         <translation>ມຸມທຽບເທົ່າ</translation>
     </message>
     <message>
-        <source>Canvas follows location and compass orientation</source>
-        <translation>ຜືນແຜນທີ່ຕິດຕາມຕຳແໜ່ງ ແລະ ທິດທາງຂອງເຂັມທິດ</translation>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>ຮຽນ​ຮູ້​ເພີ່ມ​ເຕີມ</translation>
     </message>
@@ -6112,10 +6108,6 @@ project</source>
         <translation>ການຈັດຕໍາແໜ່ງ</translation>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation>ປຸ່ມນີ້ໃຊ້ເປີດ/ປິດລະບົບກຳນົດຕຳແໜ່ງ. ເມື່ອເປີດນຳໃຊ້ແລ້ວ, ເຄື່ອງໝາຍຕຳແໜ່ງຈະສະແດງຢູ່ເທິງສຸດຂອງແຜນທີ່. ການກົດປຸ່ມຄ້າງໄວ້ຈະເປີດເມນູການກຳນົດຕຳແໜ່ງ ຊຶ່ງທ່ານສາມາດສຳຫຼວດເບິ່ງໜ້າທີ່ເພີ່ມເຕີມໄດ້. </translation>
-    </message>
-    <message>
         <source>Search</source>
         <translation>ຄົ້ນ​ຫາ</translation>
     </message>
@@ -6212,10 +6204,6 @@ project</source>
         <translation>ທ່ານອະນຸຍາດໃຫ້ເປີດໃຊ້ plugin ບໍ?</translation>
     </message>
     <message>
-        <source>Follow location paused</source>
-        <translation>ຕິດຕາມສະຖານທີ່ຢຸດຊົ່ວຄາວ</translation>
-    </message>
-    <message>
         <source>Failed to create feature</source>
         <translation>ສ້າງຄຸນສົມບັດບໍ່ສໍາເລັດ</translation>
     </message>
@@ -6294,6 +6282,46 @@ project</source>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
         <translation>ການແກ້ໄຂຮູບຊົງເລຂາຄະນິດແບບຫຼາຍພາກສ່ວນແມ່ນຍັງບໍ່ຮອງຮັບເທື່ອ.</translation>
+    </message>
+    <message>
+        <source>Coordinate cursor locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas unlocked</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Coordinate Cursor to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Map Canvas to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas lock paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

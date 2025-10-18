@@ -5660,7 +5660,7 @@ project</source>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>Coordenada do cursor bloqueada na posição</translation>
+        <translation type="vanished">Coordenada do cursor bloqueada na posição</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
@@ -5828,7 +5828,7 @@ project</source>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation>Centralizar na Localização</translation>
+        <translation type="vanished">Centralizar na Localização</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
@@ -5876,7 +5876,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">Mostrar informações de posicionamento</translation>
+        <translation>Mostrar informações de posicionamento</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
@@ -5892,7 +5892,7 @@ project</source>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation>Localização atual desconhecida</translation>
+        <translation type="vanished">Localização atual desconhecida</translation>
     </message>
     <message>
         <source>My location</source>
@@ -6015,10 +6015,6 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>Saiba mais</translation>
     </message>
@@ -6119,10 +6115,6 @@ project</source>
         <translation>Posicionamento</translation>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Search</source>
         <translation>Pesquisar</translation>
     </message>
@@ -6219,10 +6211,6 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Follow location paused</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Failed to create feature</source>
         <translation type="unfinished"/>
     </message>
@@ -6300,6 +6288,46 @@ project</source>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Coordinate cursor locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas unlocked</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Coordinate Cursor to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Map Canvas to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas lock paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
         <translation type="unfinished"/>
     </message>
 </context>

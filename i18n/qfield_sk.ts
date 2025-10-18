@@ -5672,7 +5672,7 @@ project</source>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation>Súradnicový kurzor je zamknutý na polohe</translation>
+        <translation type="vanished">Súradnicový kurzor je zamknutý na polohe</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
@@ -5840,15 +5840,15 @@ project</source>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation>Centrovať na polohu</translation>
+        <translation type="vanished">Centrovať na polohu</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="vanished">Pridať záložku na polohu</translation>
+        <translation>Pridať záložku na polohu</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="vanished">Kopírovať súradnice polohy</translation>
+        <translation>Kopírovať súradnice polohy</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -5888,7 +5888,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">Ukázať informácie o polohe</translation>
+        <translation>Ukázať informácie o polohe</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
@@ -5904,7 +5904,7 @@ project</source>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation>Aktuálna poloha neznáma</translation>
+        <translation type="vanished">Aktuálna poloha neznáma</translation>
     </message>
     <message>
         <source>My location</source>
@@ -6027,10 +6027,6 @@ project</source>
         <translation>Susedný uhol</translation>
     </message>
     <message>
-        <source>Canvas follows location and compass orientation</source>
-        <translation>Mapové okno nasleduje polohu a orientáciu kompasu</translation>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>Viac informácií</translation>
     </message>
@@ -6131,10 +6127,6 @@ project</source>
         <translation>Určenie polohy</translation>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Search</source>
         <translation type="unfinished"/>
     </message>
@@ -6231,10 +6223,6 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Follow location paused</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Failed to create feature</source>
         <translation type="unfinished"/>
     </message>
@@ -6312,6 +6300,46 @@ project</source>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Coordinate cursor locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas unlocked</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Coordinate Cursor to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Map Canvas to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas lock paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
         <translation type="unfinished"/>
     </message>
 </context>
