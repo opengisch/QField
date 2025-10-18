@@ -823,11 +823,11 @@ Page {
         onClicked: {
           if (model.constraintsHardValid) {
             if (!model.constraintsSoftValid) {
-              displayToast(qsTr('Note: soft constraints were not met'));
+              displayToast(qsTr('Soft constraints were not satisified'));
             }
             confirm();
           } else {
-            displayToast(qsTr('Constraints not valid'), 'warning');
+            displayToast(qsTr('Hard constraints not satisfied'), 'error');
           }
         }
       }
