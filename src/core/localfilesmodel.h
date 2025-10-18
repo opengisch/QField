@@ -100,6 +100,9 @@ class LocalFilesModel : public QAbstractListModel
     int rowCount( const QModelIndex &parent ) const override;
     QVariant data( const QModelIndex &index, int role ) const override;
 
+    //! Returns a QVariantMap containing all roles of the item at the given \a index
+    Q_INVOKABLE QVariantMap get( int index ) const;
+
     //! Resets the model and sets the first navigation history item to root
     Q_INVOKABLE void resetToRoot();
 
