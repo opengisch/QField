@@ -538,7 +538,7 @@ void QFieldCloudProject::downloadAttachmentConnections( const QString &fileKey )
     return;
   }
 
-  connect( reply, &NetworkReply::downloadProgress, reply, [this, reply, fileKey]( int bytesReceived, int bytesTotal ) {
+  connect( reply, &NetworkReply::downloadProgress, reply, [this, reply, fileKey]( qint64 bytesReceived, qint64 bytesTotal ) {
     QNetworkReply *rawReply = reply->currentRawReply();
     if ( !rawReply )
     {
@@ -841,7 +841,7 @@ void QFieldCloudProject::download()
     {
       const QJsonObject fileObject = fileValue.toObject();
 
-      const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
+      const qint64 fileSize = fileObject.value( QStringLiteral( "size" ) ).toInteger();
       const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
       const QString projectFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId, fileName );
       // NOTE the cloud API is giving the false impression that the file keys `md5sum` is having a MD5 or another checksum.
@@ -937,7 +937,7 @@ void QFieldCloudProject::download()
             const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
             if ( localizedDatasetsFileNames.contains( fileName ) )
             {
-              const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
+              const qint64 fileSize = fileObject.value( QStringLiteral( "size" ) ).toInteger();
               const QString absoluteFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mSharedDatasetsProjectId, fileName );
               // NOTE the cloud API is giving the false impression that the file keys `md5sum` is having a MD5 or another checksum.
               // This actually is an Object Storage (S3) implementation specific ETag.
@@ -991,13 +991,24 @@ void QFieldCloudProject::download()
   } );
 }
 
-void QFieldCloudProject::prepareDownloadTransfer( const QString &projectId, const QString &fileName, int fileSize, const QString &cloudEtag )
+void QFieldCloudProject::prepareDownloadTransfer( const QString &projectId, const QString &fileName, qint64 fileSize, const QString &cloudEtag )
 {
   const QString fileKey = QStringLiteral( "%1/%2" ).arg( projectId, fileName );
   const QString projectDir = QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, projectId );
 
   FileTransfer transfer( fileName, fileSize, projectId, cloudEtag );
   transfer.partialFilePath = QDir( projectDir ).filePath( QStringLiteral( "%1.%2.part" ).arg( fileName, cloudEtag ) );
+
+  QFileInfo partialFileInfo( transfer.partialFilePath );
+  qInfo() << "prepareDownloadTransfer file details " << fileKey << fileSize << cloudEtag;
+  if ( partialFileInfo.exists() )
+  {
+    qInfo() << "prepareDownloadTransfer partial details " << partialFileInfo.absoluteFilePath() << partialFileInfo.size();
+  }
+  else
+  {
+    qInfo() << "prepareDownloadTransfer NO partial details";
+  }
 
   mDownloadFileTransfers.insert( fileKey, transfer );
 
@@ -1008,11 +1019,12 @@ void QFieldCloudProject::prepareDownloadTransfer( const QString &projectId, cons
   {
     if ( partFile.startsWith( fileName + "." ) && !partFile.endsWith( QStringLiteral( "%1.part" ).arg( cloudEtag ) ) )
     {
+      qInfo() << QStringLiteral( "Deleting outdated partial file: %1" ).arg( partFile );
       QgsLogger::debug( QStringLiteral( "Deleting outdated partial file: %1" ).arg( partFile ) );
       QFile::remove( dir.filePath( partFile ) );
     }
   }
-  mDownloadBytesTotal += std::max( fileSize, 0 );
+  mDownloadBytesTotal += std::max( fileSize, static_cast<qint64>( 0 ) );
 }
 
 void QFieldCloudProject::updateActiveFilesToDownload()
@@ -1162,7 +1174,7 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
     downloadFileConnections( fileKey );
   } );
 
-  connect( reply, &NetworkReply::downloadProgress, reply, [this, reply, fileKey]( int bytesReceived, int bytesTotal ) {
+  connect( reply, &NetworkReply::downloadProgress, reply, [this, reply, fileKey]( qint64 bytesReceived, qint64 bytesTotal ) {
     QNetworkReply *rawReply = reply->currentRawReply();
     if ( !rawReply )
     {
@@ -1208,7 +1220,9 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
     mDownloadBytesReceived -= mDownloadFileTransfers[fileKey].bytesTransferred;
     mDownloadBytesReceived += bytesReceived;
     mDownloadFileTransfers[fileKey].bytesTransferred = bytesReceived;
-    mDownloadProgress = std::clamp( ( static_cast<double>( mDownloadBytesReceived ) / std::max( mDownloadBytesTotal, 1 ) ), 0., 1. );
+
+    qInfo() << "downloadProgress " << fileKey << "file bytes received" << bytesReceived << "total bytes received" << mDownloadBytesReceived;
+    mDownloadProgress = std::clamp( ( static_cast<double>( mDownloadBytesReceived ) / std::max( mDownloadBytesTotal, static_cast<qint64>( 1 ) ) ), 0., 1. );
 
     emit downloadBytesReceivedChanged();
     emit downloadProgressChanged();
@@ -1240,6 +1254,7 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
     if ( rawReply->error() != QNetworkReply::NoError )
     {
       const int httpStatus = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+      qInfo() << "downloadFile error " << fileKey << "http status" << httpStatus << "retry count" << mDownloadFileTransfers[fileKey].retryCount;
       if ( httpStatus == 416 && mDownloadFileTransfers[fileKey].retryCount < 3 )
       {
         mDownloadFileTransfers[fileKey].resumableDownload = false;
@@ -1271,7 +1286,7 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
     {
       mDownloadBytesReceived -= mDownloadFileTransfers[fileKey].bytesTransferred;
       mDownloadBytesReceived += mDownloadFileTransfers[fileKey].bytesTotal;
-      mDownloadProgress = std::clamp( ( static_cast<double>( mDownloadBytesReceived ) / std::max( mDownloadBytesTotal, 1 ) ), 0., 1. );
+      mDownloadProgress = std::clamp( ( static_cast<double>( mDownloadBytesReceived ) / std::max( mDownloadBytesTotal, static_cast<qint64>( 1 ) ) ), 0., 1. );
 
       emit downloadBytesReceivedChanged();
       emit downloadProgressChanged();
@@ -1490,6 +1505,7 @@ void QFieldCloudProject::logFailedDownload( const QString &fileKey, const QStrin
 {
   mDownloadFilesFailed++;
 
+  qInfo() << QStringLiteral( "Project %1, file `%2`: %3 %4" ).arg( mId, fileKey, errorMessage, errorMessageDetail );
   QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: %3 %4" ).arg( mId, fileKey, errorMessage, errorMessageDetail ) );
 
   // translate the user messages
@@ -1593,7 +1609,7 @@ void QFieldCloudProject::push( bool shouldDownloadUpdates )
 
   Q_ASSERT( deltasCloudReply );
 
-  connect( deltasCloudReply, &NetworkReply::uploadProgress, this, [this]( int bytesSent, int bytesTotal ) {
+  connect( deltasCloudReply, &NetworkReply::uploadProgress, this, [this]( qint64 bytesSent, qint64 bytesTotal ) {
     mPushDeltaProgress = std::clamp( ( static_cast<double>( bytesSent ) / bytesTotal ), 0., 1. );
     emit pushDeltaProgressChanged();
   } );
@@ -2388,7 +2404,7 @@ void QFieldCloudProject::uploadFiles()
     }
 
     mUploadBytesSent += mUploadFileTransfers[filePath].bytesTotal;
-    mUploadProgress = std::clamp( ( static_cast<double>( mUploadBytesSent ) / std::max( mUploadBytesTotal, 1 ) ), 0., 1. );
+    mUploadProgress = std::clamp( ( static_cast<double>( mUploadBytesSent ) / std::max( mUploadBytesTotal, static_cast<qint64>( 1 ) ) ), 0., 1. );
     emit uploadBytesSentChanged();
     emit uploadProgressChanged();
 

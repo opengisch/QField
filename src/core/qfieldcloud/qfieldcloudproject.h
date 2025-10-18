@@ -52,8 +52,8 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( PackagingStatus packagingStatus READ packagingStatus NOTIFY packagingStatusChanged )
     Q_PROPERTY( QStringList packagedLayerErrors READ packagedLayerErrors NOTIFY packagedLayerErrorsChanged )
 
-    Q_PROPERTY( int downloadBytesTotal READ downloadBytesTotal NOTIFY downloadBytesTotalChanged )
-    Q_PROPERTY( int downloadBytesReceived READ downloadBytesReceived NOTIFY downloadBytesReceivedChanged )
+    Q_PROPERTY( qint64 downloadBytesTotal READ downloadBytesTotal NOTIFY downloadBytesTotalChanged )
+    Q_PROPERTY( qint64 downloadBytesReceived READ downloadBytesReceived NOTIFY downloadBytesReceivedChanged )
     Q_PROPERTY( double downloadProgress READ downloadProgress NOTIFY downloadProgressChanged )
 
     Q_PROPERTY( double pushDeltaProgress READ pushDeltaProgress NOTIFY pushDeltaProgressChanged )
@@ -62,8 +62,8 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( DeltaFileWrapper *deltaFileWrapper READ deltaFileWrapper NOTIFY deltaFileWrapperChanged )
     Q_PROPERTY( DeltaListModel *deltaListModel READ deltaListModel NOTIFY deltaListModelChanged )
 
-    Q_PROPERTY( int uploadBytesTotal READ uploadBytesTotal NOTIFY uploadBytesTotalChanged )
-    Q_PROPERTY( int uploadBytesSent READ uploadBytesSent NOTIFY uploadBytesSentChanged )
+    Q_PROPERTY( qint64 uploadBytesTotal READ uploadBytesTotal NOTIFY uploadBytesTotalChanged )
+    Q_PROPERTY( qint64 uploadBytesSent READ uploadBytesSent NOTIFY uploadBytesSentChanged )
     Q_PROPERTY( double uploadProgress READ uploadProgress NOTIFY uploadProgressChanged )
 
     Q_PROPERTY( bool forceAutoPush READ forceAutoPush WRITE setForceAutoPush NOTIFY forceAutoPushChanged )
@@ -85,7 +85,7 @@ class QFieldCloudProject : public QObject
     {
         FileTransfer(
           const QString &fileName,
-          const long long bytesTotal,
+          const qint64 bytesTotal,
           const QString &projectId,
           const QString &etag )
           : fileName( fileName ), bytesTotal( bytesTotal ), projectId( projectId ), etag( etag ) {};
@@ -93,13 +93,13 @@ class QFieldCloudProject : public QObject
         FileTransfer() = default;
 
         QString fileName;
-        long long bytesTotal;
+        qint64 bytesTotal;
         QString projectId;
 
         QString etag;
         QString partialFilePath;
         QString tmpFile;
-        long long bytesTransferred = 0;
+        qint64 bytesTransferred = 0;
         bool isFinished = false;
         QPointer<NetworkReply> networkReply;
         QNetworkReply::NetworkError error = QNetworkReply::NoError;
@@ -336,12 +336,12 @@ class QFieldCloudProject : public QObject
     QDateTime lastRefreshedAt() const { return mLastRefreshedAt; }
     void setLastRefreshedAt( const QDateTime &lastRefreshedAt );
 
-    int downloadBytesTotal() const { return mDownloadBytesTotal; }
-    int downloadBytesReceived() const { return mDownloadBytesReceived; }
+    qint64 downloadBytesTotal() const { return mDownloadBytesTotal; }
+    qint64 downloadBytesReceived() const { return mDownloadBytesReceived; }
     double downloadProgress() const { return mDownloadProgress; }
 
-    int uploadBytesTotal() const { return mUploadBytesTotal; }
-    int uploadBytesSent() const { return mUploadBytesSent; }
+    qint64 uploadBytesTotal() const { return mUploadBytesTotal; }
+    qint64 uploadBytesSent() const { return mUploadBytesSent; }
     double uploadProgress() const { return mUploadProgress; }
 
     int deltasCount() const { return mDeltaFileWrapper ? mDeltaFileWrapper->count() : 0; }
@@ -462,7 +462,7 @@ class QFieldCloudProject : public QObject
 
   private:
     void download();
-    void prepareDownloadTransfer( const QString &projectId, const QString &fileName, int fileSize, const QString &cloudEtag );
+    void prepareDownloadTransfer( const QString &projectId, const QString &fileName, qint64 fileSize, const QString &cloudEtag );
     void downloadFiles();
     void updateActiveFilesToDownload();
     void downloadFilesCompleted();
@@ -542,8 +542,8 @@ class QFieldCloudProject : public QObject
     QMap<QString, FileTransfer> mDownloadFileTransfers;
     int mDownloadFilesFinished = 0;
     int mDownloadFilesFailed = 0;
-    int mDownloadBytesTotal = 0;
-    int mDownloadBytesReceived = 0;
+    qint64 mDownloadBytesTotal = 0;
+    qint64 mDownloadBytesReceived = 0;
     double mDownloadProgress = 0.0;  // range from 0.0 to 1.0
     double mPushDeltaProgress = 0.0; // range from 0.0 to 1.0
 
@@ -552,8 +552,8 @@ class QFieldCloudProject : public QObject
 
     QMap<QString, QFieldCloudProject::FileTransfer> mUploadFileTransfers;
     int mUploadFilesFailed = 0;
-    int mUploadBytesTotal = 0;
-    int mUploadBytesSent = 0;
+    qint64 mUploadBytesTotal = 0;
+    qint64 mUploadBytesSent = 0;
     double mUploadProgress = 0.0;
 
     std::unique_ptr<DeltaFileWrapper> mDeltaFileWrapper;
