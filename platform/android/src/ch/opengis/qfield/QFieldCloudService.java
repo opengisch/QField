@@ -48,10 +48,33 @@ public class QFieldCloudService extends QtService {
     private final String CHANNEL_ID = "qfield_service_01";
     private final int NOTIFICATION_ID = 101;
 
+    private static QFieldCloudService instance = null;
+    public static QFieldCloudService getInstance() {
+        return instance;
+    }
+
     public static void startQFieldCloudService(Context context) {
         Log.v("QFieldCloudService", "Starting QFieldCloudService");
         Intent intent = new Intent(context, QFieldCloudService.class);
-        context.startService(intent);
+        context.startForegroundService(intent);
+    }
+
+    public static void triggerShowNotification(String message) {
+        if (getInstance() != null) {
+            getInstance().showNotification(message, addCopyToClipboard);
+        } else {
+            Log.v("QFieldCloudService",
+                  "Showing message failed, no instance available.");
+        }
+    }
+
+    public static void triggerCloseNotification() {
+        if (getInstance() != null) {
+            getInstance().closeNotification();
+        } else {
+            Log.v("QFieldCloudService",
+                  "Closing message failed, no instance available.");
+        }
     }
 
     @Override
@@ -59,18 +82,11 @@ public class QFieldCloudService extends QtService {
         Log.v("QFieldCloudService", "onCreate triggered");
         super.onCreate();
 
-        notificationManager =
-            (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            notificationChannel =
-                new NotificationChannel(CHANNEL_ID, "QFieldCloud",
-                                        NotificationManager.IMPORTANCE_DEFAULT);
-            notificationChannel.setDescription(
-                "QFieldCloud background synchronization");
-            notificationChannel.enableLights(false);
-            notificationChannel.enableVibration(false);
-            notificationManager.createNotificationChannel(notificationChannel);
+        if (getInstance() != null) {
+            Log.v("QFieldCloudService",
+                  "service already running, aborting onCreate.");
+            stopSelf();
+            return;
         }
     }
 
@@ -79,29 +95,64 @@ public class QFieldCloudService extends QtService {
         Log.v("QFieldCloudService", "onDestroy triggered");
         notificationManager.cancel(NOTIFICATION_ID);
         super.onDestroy();
+        instance = null;
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        int ret = super.onStartCommand(intent, flags, startId);
-        showNotification();
-        return ret;
-    }
+        Log.v("QFieldCloudService", "onStartCommand triggered");
 
-    private void showNotification() {
+        int ret = super.onStartCommand(intent, flags, startId);
+        if (instance != null) {
+            Log.v("QFieldCloudService",
+                  "service already running, aborting onStartCommand.");
+            return START_NOT_STICKY;
+        }
+
+        instance = this;
+
+        notificationManager =
+            (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            notificationChannel =
+                new NotificationChannel(CHANNEL_ID, "QFieldCloud",
+                                        NotificationManager.IMPORTANCE_DEFAULT);
+            notificationChannel.setDescription("QFieldCloud service");
+            notificationChannel.setImportance(
+                NotificationManager.IMPORTANCE_LOW);
+            notificationChannel.enableLights(false);
+            notificationChannel.enableVibration(false);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+
         Notification.Builder builder =
             new Notification.Builder(this)
                 .setSmallIcon(R.drawable.qfield_logo)
                 .setWhen(System.currentTimeMillis())
-                .setContentTitle("QFieldCloud")
-                .setContentText(getString(R.string.upload_pending_attachments))
-                .setProgress(0, 0, true);
+                .setOngoing(true)
+                .setContentTitle(getString("QFieldCloud"))
+                .setContentText(getString(R.string.upload_pending_attachments));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             builder.setChannelId(CHANNEL_ID);
         }
 
         Notification notification = builder.build();
-        notificationManager.notify(NOTIFICATION_ID, notification);
+
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                startForeground(NOTIFICATION_ID, notification,
+                                ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC);
+            } else {
+                startForeground(NOTIFICATION_ID, notification);
+            }
+        } catch (SecurityException e) {
+            Log.v("QFieldCloudService",
+                  "Missing permission to launch the QFieldCloud service");
+            return START_NOT_STICKY;
+        }
+
+        return START_STICKY;
     }
 }
