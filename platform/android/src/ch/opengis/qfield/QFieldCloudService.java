@@ -59,9 +59,9 @@ public class QFieldCloudService extends QtService {
         context.startForegroundService(intent);
     }
 
-    public static void triggerShowNotification(String message) {
+    public static void triggerShowNotification(String message, progress) {
         if (getInstance() != null) {
-            getInstance().showNotification(message, addCopyToClipboard);
+            getInstance().showNotification(message, progress);
         } else {
             Log.v("QFieldCloudService",
                   "Showing message failed, no instance available.");
@@ -154,5 +154,33 @@ public class QFieldCloudService extends QtService {
         }
 
         return START_STICKY;
+    }
+
+    public void showNotification(String contentText, int progress) {
+        // Return to QField activity when clicking on the notification
+        PendingIntent contentIntent = PendingIntent.getActivity(
+            this, 0, new Intent(this, QFieldActivity.class),
+            PendingIntent.FLAG_MUTABLE);
+
+        Notification.Builder builder =
+            new Notification.Builder(this)
+                .setSmallIcon(R.drawable.qfield_logo)
+                .setWhen(System.currentTimeMillis())
+                .setOngoing(true)
+                .setContentTitle("QFieldCloud")
+                .setContentText(contentText)
+                .setProgress(100, progress, progress == -1)
+                .setContentIntent(contentIntent);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            builder.setChannelId(CHANNEL_ID);
+        }
+
+        Notification notification = builder.build();
+        notificationManager.notify(NOTIFICATION_ID, notification);
+    }
+
+    public void closeNotification() {
+        notificationManager.cancel(NOTIFICATION_ID);
     }
 }
