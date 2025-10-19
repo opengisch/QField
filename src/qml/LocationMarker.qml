@@ -17,6 +17,11 @@ Item {
   property real screenAccuracy
   readonly property bool isOnMapCanvas: screenLocation.x > 0 && screenLocation.x < mapCanvas.width && screenLocation.y > 0 && screenLocation.y < mapCanvas.height
 
+  property bool bubbleVisible
+  property string bubbleText
+  property color bubbleColor
+  property var bubbleAction
+
   property real accuracy: 0
   property real direction: -1 // A -1 value indicates absence of movement direction information
   property real speed: -1 // A -1 value indicates absence of speed information
@@ -147,6 +152,60 @@ Item {
     }
   }
 
+  Item {
+    id: locationMarkerBubbleMessage
+    width: Math.min(description.implicitWidth + 14, locationMarker.parent.width - 80)
+    height: description.height + pointerToLocationMarker.height + 10
+    visible: locationMarker.bubbleVisible
+    anchors.horizontalCenter: movementMarker.horizontalCenter
+    anchors.top: movementMarker.bottom
+    anchors.topMargin: -10
+
+    Shape {
+      id: pointerToLocationMarker
+      anchors.top: parent.top
+      anchors.horizontalCenter: parent.horizontalCenter
+      rotation: 180
+
+      ShapePath {
+        fillColor: locationMarker.bubbleColor
+        strokeWidth: 0
+        strokeColor: locationMarker.bubbleColor
+        PathSvg {
+          path: "M 0 0 L 20 0 L 10 10 Z"
+        }
+      }
+    }
+
+    Rectangle {
+      width: parent.width
+      height: parent.height - pointerToLocationMarker.height
+      anchors.top: pointerToLocationMarker.bottom
+
+      color: locationMarker.bubbleColor
+      radius: 4
+      clip: true
+
+      Text {
+        id: description
+        font: Theme.tipFont
+        wrapMode: Text.WordWrap
+        color: Theme.mainTextColor
+        text: locationMarker.bubbleText
+
+        anchors.centerIn: parent
+        horizontalAlignment: Text.AlignHCenter
+      }
+
+      MouseArea {
+        anchors.fill: parent
+        onPressed: {
+          locationMarker.bubbleAction();
+        }
+      }
+    }
+  }
+
   Shape {
     id: movementMarker
     visible: speed > 0 && isOnMapCanvas
@@ -199,8 +258,8 @@ Item {
     id: positionMarker
     visible: !movementMarker.visible && isOnMapCanvas
 
-    width: 13
-    height: 13
+    width: 14
+    height: 14
 
     x: screenLocation.x - width / 2
     y: screenLocation.y - height / 2
