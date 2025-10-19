@@ -800,6 +800,7 @@ int QFieldCloudConnection::uploadPendingAttachments()
   }
 
   mUploadPendingCount = attachments.size();
+  mUploadDoneCount = 0;
   mUploadFailingCount = 0;
   processPendingAttachments();
   return mUploadPendingCount;
@@ -827,8 +828,9 @@ void QFieldCloudConnection::processPendingAttachments()
     const QString apiPath = projectDir.relativeFilePath( it.value() );
     NetworkReply *attachmentCloudReply = post( QStringLiteral( "/api/v1/files/%1/%2/" ).arg( it.key(), apiPath ), QVariantMap(), QStringList( { it.value() } ) );
 
-    QString projectId = it.key();
-    QString fileName = it.value();
+    const QString projectId = it.key();
+    const QString fileName = it.value();
+    emit pendingAttachmentsUploadStatus( fileName, std::min( static_cast<double>( mUploadDoneCount ) / mUploadPendingCount, 1.0 ) );
     connect( attachmentCloudReply, &NetworkReply::finished, this, [this, attachmentCloudReply, fileName, projectId]() {
       QNetworkReply *attachmentReply = attachmentCloudReply->currentRawReply();
       attachmentCloudReply->deleteLater();
@@ -879,6 +881,7 @@ void QFieldCloudConnection::processPendingAttachments()
 
       QFieldCloudUtils::removePendingAttachment( mUsername, projectId, fileName );
       mUploadPendingCount--;
+      mUploadDoneCount++;
       mUploadFailingCount = 0;
 
       if ( mUploadPendingCount > 0 )

@@ -30,7 +30,14 @@ void QFieldCloudService::execute()
   QSettings settings;
   QEventLoop loop( this );
   QFieldCloudConnection connection;
+  QObject::connect( &connection, &QFieldCloudConnection::pendingAttachmentsUploadStatus, this, [=]( const QString &fileName, double progress ) {
+    QJniObject message = QJniObject::fromString( tr( "Uploading %1 - attachment synchronization %1% done)" ).arg( fileName, QStirng::number( progress, 2 ) );
+    QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldCloudService",
+                                        "triggerShowNotification",
+                                        message.object<jstring>() );
+  } );
   QObject::connect( &connection, &QFieldCloudConnection::pendingAttachmentsUploadFinished, &loop, &QEventLoop::quit );
+
   int pendingAttachments = connection.uploadPendingAttachments();
   if ( pendingAttachments > 0 )
   {
