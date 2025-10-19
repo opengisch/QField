@@ -161,6 +161,7 @@ public class QFieldCloudService extends QtService {
 
     public void showNotification(String contentText, int progress) {
         // Return to QField activity when clicking on the notification
+        Log.v("QFieldCloudService", "Showing notification message");
         PendingIntent contentIntent = PendingIntent.getActivity(
             this, 0, new Intent(this, QFieldActivity.class),
             PendingIntent.FLAG_MUTABLE);

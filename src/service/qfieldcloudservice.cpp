@@ -31,6 +31,7 @@ void QFieldCloudService::execute()
   QEventLoop loop( this );
   QFieldCloudConnection connection;
   QObject::connect( &connection, &QFieldCloudConnection::pendingAttachmentsUploadStatus, this, [=]( const QString &fileName, double progress ) {
+    qInfo() << "about to trigger notification message" << fileName << static_cast<int>( std::floor( progress * 100 ) );
     QJniObject message = QJniObject::fromString( tr( "Uploading %1" ).arg( fileName ) );
     QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldCloudService",
                                         "triggerShowNotification",
