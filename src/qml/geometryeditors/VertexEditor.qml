@@ -189,7 +189,7 @@ QfVisibilityFadingRow {
     mapSettings: mapSettings
 
     positionInformation: positionSource.positionInformation
-    positionLocked: gnssLockButton.checked
+    positionLocked: coordinateLocator.positionLocked
     topSnappingResult: coordinateLocator.topSnappingResult
     cloudUserInformation: projectInfo.cloudUserInformation
   }
