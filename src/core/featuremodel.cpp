@@ -893,12 +893,15 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
         switch ( mProject->avoidIntersectionsMode() )
         {
           case Qgis::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
+            qDebug() << "current";
             intersectionLayers.append( mLayer );
             break;
           case Qgis::AvoidIntersectionsMode::AvoidIntersectionsLayers:
+            qDebug() << "all";
             intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
             break;
           case Qgis::AvoidIntersectionsMode::AllowIntersections:
+            qDebug() << "none";
             break;
         }
         if ( !intersectionLayers.isEmpty() )
@@ -907,6 +910,7 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
           if ( mFeature.id() != FID_NULL )
           {
             ignoredFeature.insert( mLayer, QSet<QgsFeatureId>() << mFeature.id() );
+            qDebug() << mFeature.id();
           }
           geometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
         }
@@ -1216,16 +1220,16 @@ void FeatureModel::applyGeometryTopography( const QgsGeometry &geometry )
     {
       if ( !vectorLayer->getFeatures( request ).nextFeature( dummyFeature ) )
         continue;
+    }
 
-      if ( requiresCommit )
-      {
-        vectorLayer->startEditing();
-      }
+    if ( requiresCommit )
+    {
+      vectorLayer->startEditing();
     }
 
     vectorLayer->addTopologicalPoints( geometry );
 
-    if ( vectorLayer != mLayer && requiresCommit )
+    if ( requiresCommit )
     {
       vectorLayer->commitChanges( true );
     }
