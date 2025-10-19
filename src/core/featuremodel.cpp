@@ -914,13 +914,17 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
           QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
           ignoredFeature.insert( mLayer, modifiedFeatureIds );
           geometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
-          qDebug() << "...";
 
           if ( fromVertexModel && !modifiedFeatureIds.isEmpty() )
           {
             if ( !modifiedFeatureIds.contains( mFeature.id() ) || modifiedFeatureIds.size() >= 2 )
             {
               mLayer->startEditing();
+
+              if ( mFeature.id() != FID_NULL )
+              {
+                modifiedFeatureIds.remove( mFeature.id() );
+              }
 
               QgsFeature modifiedFeature;
               const QgsFeatureRequest request = QgsFeatureRequest().setFilterFids( modifiedFeatureIds );
