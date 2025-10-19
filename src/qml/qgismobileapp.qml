@@ -505,7 +505,7 @@ ApplicationWindow {
 
     HoverHandler {
       id: hoverHandler
-      enabled: !(positionSource.active && coordinateLocator.positionLocked) && (!digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen)
+      enabled: !digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
       grabPermissions: PointerHandler.TakeOverForbidden
 
