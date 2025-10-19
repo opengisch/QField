@@ -851,64 +851,73 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
   QString error;
   QgsGeometry geometry = fromVertexModel ? mVertexModel->geometry() : mGeometry->asQgsGeometry();
 
-  if ( fromVertexModel && mProject && mProject->topologicalEditing() )
+  if ( mProject && mProject->topologicalEditing() && fromVertexModel )
   {
+    // Overall geometry topology not applied until we conduct further modifications, including overlap avoidance
     applyVertexModelTopography();
   }
 
-  if ( QgsWkbTypes::geometryType( geometry.wkbType() ) == Qgis::GeometryType::Polygon )
+  switch ( QgsWkbTypes::geometryType( geometry.wkbType() ) )
   {
-    if ( !geometry.isGeosValid() )
-    {
-      // Remove any invalid intersection in polygon geometry
-      QgsGeometry sanitizedGeometry;
-      if ( QgsGeometryCollection *collection = qgsgeometry_cast<QgsGeometryCollection *>( geometry.get() ) )
+    case Qgis::GeometryType::Polygon:
+      if ( !geometry.isGeosValid() )
       {
-        QgsGeometryPartIterator parts = collection->parts();
-        while ( parts.hasNext() )
+        // Remove any invalid intersection in polygon geometry
+        QgsGeometry sanitizedGeometry;
+        if ( QgsGeometryCollection *collection = qgsgeometry_cast<QgsGeometryCollection *>( geometry.get() ) )
         {
-          QgsGeometry part( parts.next() );
-          sanitizedGeometry.addPartV2( part.buffer( 0.0, 5 ).constGet()->clone(), Qgis::WkbType ::Polygon );
+          QgsGeometryPartIterator parts = collection->parts();
+          while ( parts.hasNext() )
+          {
+            QgsGeometry part( parts.next() );
+            sanitizedGeometry.addPartV2( part.buffer( 0.0, 5 ).constGet()->clone(), Qgis::WkbType ::Polygon );
+          }
+        }
+        else if ( QgsCurvePolygon *polygon = qgsgeometry_cast<QgsCurvePolygon *>( geometry.get() ) )
+        {
+          sanitizedGeometry = geometry.buffer( 0.0, 5 );
+        }
+
+        if ( !sanitizedGeometry.isNull() && sanitizedGeometry.constGet()->isValid( error ) )
+        {
+          geometry = sanitizedGeometry;
+        }
+
+        // PSA: calling makeValid() wipes out M values
+        geometry = geometry.makeValid();
+      }
+
+      if ( mProject )
+      {
+        QList<QgsVectorLayer *> intersectionLayers;
+        switch ( mProject->avoidIntersectionsMode() )
+        {
+          case Qgis::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
+            intersectionLayers.append( mLayer );
+            break;
+          case Qgis::AvoidIntersectionsMode::AvoidIntersectionsLayers:
+            intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
+            break;
+          case Qgis::AvoidIntersectionsMode::AllowIntersections:
+            break;
+        }
+        if ( !intersectionLayers.isEmpty() )
+        {
+          QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
+          if ( mFeature.id() != FID_NULL )
+          {
+            ignoredFeature.insert( mLayer, QSet<QgsFeatureId>() << mFeature.id() );
+          }
+          geometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
         }
       }
-      else if ( QgsCurvePolygon *polygon = qgsgeometry_cast<QgsCurvePolygon *>( geometry.get() ) )
-      {
-        sanitizedGeometry = geometry.buffer( 0.0, 5 );
-      }
+      break;
 
-      if ( !sanitizedGeometry.isNull() && sanitizedGeometry.constGet()->isValid( error ) )
-      {
-        geometry = sanitizedGeometry;
-      }
-
-      // PSA: calling makeValid() wipes out M values
-      geometry = geometry.makeValid();
-    }
-
-    if ( mProject )
-    {
-      QList<QgsVectorLayer *> intersectionLayers;
-      switch ( mProject->avoidIntersectionsMode() )
-      {
-        case Qgis::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
-          intersectionLayers.append( mLayer );
-          break;
-        case Qgis::AvoidIntersectionsMode::AvoidIntersectionsLayers:
-          intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
-          break;
-        case Qgis::AvoidIntersectionsMode::AllowIntersections:
-          break;
-      }
-      if ( !intersectionLayers.isEmpty() )
-      {
-        QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
-        if ( mFeature.id() != FID_NULL )
-        {
-          ignoredFeature.insert( mLayer, QSet<QgsFeatureId>() << mFeature.id() );
-        }
-        geometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
-      }
-    }
+    case Qgis::GeometryType::Line:
+    case Qgis::GeometryType::Point:
+    case Qgis::GeometryType::Unknown:
+    case Qgis::GeometryType::Null:
+      break;
   }
 
   if ( geometry.wkbType() != Qgis::WkbType::Unknown && mLayer && mLayer->geometryOptions()->geometryPrecision() == 0.0 )
@@ -918,6 +927,11 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
     deduplicatedGeometry.removeDuplicateNodes( 0.00000001 );
     if ( deduplicatedGeometry.constGet()->isValid( error ) )
       geometry = deduplicatedGeometry;
+  }
+
+  if ( mProject && mProject->topologicalEditing() )
+  {
+    applyGeometryTopography( geometry );
   }
 
   mFeature.setGeometry( geometry );
@@ -1008,36 +1022,7 @@ bool FeatureModel::create()
     {
       if ( mProject && mProject->topologicalEditing() && !mFeature.geometry().isEmpty() )
       {
-        const double searchRadius = mLayer ? QgsVectorLayerEditUtils::getTopologicalSearchRadius( mLayer ) : 0.0;
-        QgsRectangle bbox = mFeature.geometry().boundingBox();
-        bbox.grow( searchRadius );
-
-        QgsFeature dummyFeature;
-        const QgsFeatureRequest request = QgsFeatureRequest().setNoAttributes().setFlags( Qgis::FeatureRequestFlag::NoGeometry ).setLimit( 1 ).setFilterRect( bbox );
-        const QVector<QgsVectorLayer *> vectorLayers = mProject->layers<QgsVectorLayer *>();
-        for ( QgsVectorLayer *vectorLayer : vectorLayers )
-        {
-          if ( vectorLayer->readOnly() )
-            continue;
-
-          if ( vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ), false ).toBool() )
-            continue;
-
-          if ( vectorLayer != mLayer )
-          {
-            if ( !vectorLayer->getFeatures( request ).nextFeature( dummyFeature ) )
-              continue;
-
-            vectorLayer->startEditing();
-          }
-
-          vectorLayer->addTopologicalPoints( mFeature.geometry() );
-
-          if ( vectorLayer != mLayer )
-          {
-            vectorLayer->commitChanges( true );
-          }
-        }
+        applyGeometryTopography( mFeature.geometry() );
       }
 
       if ( commit() )
@@ -1209,6 +1194,44 @@ class MatchCollectingFilter : public QgsPointLocator::MatchFilter
     }
 };
 
+void FeatureModel::applyGeometryTopography( const QgsGeometry &geometry )
+{
+  const double searchRadius = mLayer ? QgsVectorLayerEditUtils::getTopologicalSearchRadius( mLayer ) : 0.0;
+  QgsRectangle bbox = geometry.boundingBox();
+  bbox.grow( searchRadius );
+
+  QgsFeature dummyFeature;
+  const QgsFeatureRequest request = QgsFeatureRequest().setNoAttributes().setFlags( Qgis::FeatureRequestFlag::NoGeometry ).setLimit( 1 ).setFilterRect( bbox );
+  const QVector<QgsVectorLayer *> vectorLayers = mProject->layers<QgsVectorLayer *>();
+  for ( QgsVectorLayer *vectorLayer : vectorLayers )
+  {
+    if ( vectorLayer->readOnly() )
+      continue;
+
+    if ( vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ), false ).toBool() )
+      continue;
+
+    bool requiresCommit = !vectorLayer->editBuffer();
+    if ( vectorLayer != mLayer )
+    {
+      if ( !vectorLayer->getFeatures( request ).nextFeature( dummyFeature ) )
+        continue;
+
+      if ( requiresCommit )
+      {
+        vectorLayer->startEditing();
+      }
+    }
+
+    vectorLayer->addTopologicalPoints( geometry );
+
+    if ( vectorLayer != mLayer && requiresCommit )
+    {
+      vectorLayer->commitChanges( true );
+    }
+  }
+}
+
 void FeatureModel::applyVertexModelTopography()
 {
   if ( !mVertexModel )
@@ -1284,7 +1307,6 @@ void FeatureModel::applyVertexModelTopography()
       }
     }
 
-    vectorLayer->addTopologicalPoints( mFeature.geometry() );
     vectorLayer->commitChanges( true );
   }
 }
