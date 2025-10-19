@@ -850,11 +850,11 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
 
   QString error;
   QgsGeometry geometry = fromVertexModel ? mVertexModel->geometry() : mGeometry->asQgsGeometry();
-
+  QgsFeatureIds modifiedFeatureIds;
   if ( mProject && mProject->topologicalEditing() && fromVertexModel )
   {
     // Overall geometry topology not applied until we conduct further modifications, including overlap avoidance
-    applyVertexModelTopography();
+    modifiedFeatureIds = applyVertexModelTopography();
   }
 
   switch ( QgsWkbTypes::geometryType( geometry.wkbType() ) )
@@ -893,26 +893,55 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
         switch ( mProject->avoidIntersectionsMode() )
         {
           case Qgis::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
-            qDebug() << "current";
             intersectionLayers.append( mLayer );
             break;
           case Qgis::AvoidIntersectionsMode::AvoidIntersectionsLayers:
-            qDebug() << "all";
             intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
             break;
           case Qgis::AvoidIntersectionsMode::AllowIntersections:
-            qDebug() << "none";
             break;
         }
         if ( !intersectionLayers.isEmpty() )
         {
-          QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
           if ( mFeature.id() != FID_NULL )
           {
-            ignoredFeature.insert( mLayer, QSet<QgsFeatureId>() << mFeature.id() );
-            qDebug() << mFeature.id();
+            if ( !modifiedFeatureIds.contains( mFeature.id() ) )
+            {
+              modifiedFeatureIds << mFeature.id();
+            }
           }
-          geometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
+
+          QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
+          ignoredFeature.insert( mLayer, modifiedFeatureIds );
+          Qgis::GeometryOperationResult result = geometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
+
+          if ( fromVertexModel && !modifiedFeatureIds.isEmpty() )
+          {
+            if ( !modifiedFeatureIds.contains( mFeature.id() ) || modifiedFeatureIds.size() >= 2 )
+            {
+              mLayer->startEditing();
+
+              QgsFeature modifiedFeature;
+              const QgsFeatureRequest request = QgsFeatureRequest().setNoAttributes().setFilterFids( modifiedFeatureIds );
+              QgsFeatureIterator it = mLayer->getFeatures( modifiedFeatureIds );
+              while ( it.nextFeature( modifiedFeature ) )
+              {
+                QgsGeometry modifiedGeometry = modifiedFeature.geometry();
+                if ( !modifiedGeometry.isGeosValid() )
+                {
+                  // PSA: calling makeValid() wipes out M values
+                  modifiedGeometry = modifiedGeometry.makeValid();
+                }
+                Qgis::GeometryOperationResult result = modifiedGeometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
+                if ( result != Qgis::GeometryOperationResult::NothingHappened )
+                {
+                  mLayer->changeGeometry( modifiedFeature.id(), modifiedGeometry );
+                }
+              }
+
+              mLayer->commitChanges();
+            }
+          }
         }
       }
       break;
@@ -1236,10 +1265,13 @@ void FeatureModel::applyGeometryTopography( const QgsGeometry &geometry )
   }
 }
 
-void FeatureModel::applyVertexModelTopography()
+QgsFeatureIds FeatureModel::applyVertexModelTopography()
 {
+  QgsFeatureIds modifiedFeatureIds;
   if ( !mVertexModel )
-    return;
+  {
+    return modifiedFeatureIds;
+  }
 
   const QVector<QgsPoint> pointsAdded = mVertexModel->verticesAdded();
   const QVector<QPair<QgsPoint, QgsPoint>> pointsMoved = mVertexModel->verticesMoved();
@@ -1265,6 +1297,13 @@ void FeatureModel::applyVertexModelTopography()
     pointBbox.grow( searchRadius );
     bbox.combineExtentWith( pointBbox );
   }
+
+  QMetaObject::Connection connection = connect( mLayer, &QgsVectorLayer::geometryChanged, this, [&modifiedFeatureIds]( QgsFeatureId fid, const QgsGeometry & ) {
+    if ( !modifiedFeatureIds.contains( fid ) )
+    {
+      modifiedFeatureIds << fid;
+    }
+  } );
 
   QgsFeature dummyFeature;
   const QgsFeatureRequest request = QgsFeatureRequest().setNoAttributes().setFlags( Qgis::FeatureRequestFlag::NoGeometry ).setLimit( 1 ).setFilterRect( bbox );
@@ -1313,6 +1352,11 @@ void FeatureModel::applyVertexModelTopography()
 
     vectorLayer->commitChanges( true );
   }
+
+  disconnect( connection );
+
+  qDebug() << modifiedFeatureIds;
+  return modifiedFeatureIds;
 }
 
 QVector<bool> FeatureModel::rememberedAttributes() const

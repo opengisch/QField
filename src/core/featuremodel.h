@@ -307,7 +307,7 @@ class FeatureModel : public QAbstractListModel
     void warning( const QString &text );
 
   private:
-    void applyVertexModelTopography();
+    QgsFeatureIds applyVertexModelTopography();
     void applyGeometryTopography( const QgsGeometry &geometry );
 
     bool commit();
