@@ -913,7 +913,8 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
 
           QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
           ignoredFeature.insert( mLayer, modifiedFeatureIds );
-          Qgis::GeometryOperationResult result = geometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
+          geometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
+          qDebug() << "...";
 
           if ( fromVertexModel && !modifiedFeatureIds.isEmpty() )
           {
@@ -922,7 +923,7 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
               mLayer->startEditing();
 
               QgsFeature modifiedFeature;
-              const QgsFeatureRequest request = QgsFeatureRequest().setNoAttributes().setFilterFids( modifiedFeatureIds );
+              const QgsFeatureRequest request = QgsFeatureRequest().setFilterFids( modifiedFeatureIds );
               QgsFeatureIterator it = mLayer->getFeatures( modifiedFeatureIds );
               while ( it.nextFeature( modifiedFeature ) )
               {
@@ -935,6 +936,25 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
                 Qgis::GeometryOperationResult result = modifiedGeometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
                 if ( result != Qgis::GeometryOperationResult::NothingHappened )
                 {
+                  if ( QgsWkbTypes::isMultiType( modifiedGeometry.wkbType() ) && !QgsWkbTypes::isMultiType( mLayer->wkbType() ) )
+                  {
+                    QVector<QgsGeometry> modifiedGeometryCollection = modifiedGeometry.asGeometryCollection();
+                    QVector<QgsGeometry>::iterator largestModifiedFeature = std::max_element( modifiedGeometryCollection.begin(), modifiedGeometryCollection.end(), []( const QgsGeometry &a, const QgsGeometry &b ) -> bool {
+                      return a.area() < b.area();
+                    } );
+                    modifiedGeometry = *largestModifiedFeature;
+                    modifiedGeometryCollection.erase( largestModifiedFeature );
+                    for ( QgsGeometry &modifiedGeometryFromCollection : modifiedGeometryCollection )
+                    {
+                      QgsFeature newFeature = QgsVectorLayerUtils::createFeature( mLayer, modifiedGeometryFromCollection, modifiedFeature.attributes().toMap() );
+                      const QString sourcePrimaryKeys = mLayer->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).toString();
+                      if ( !sourcePrimaryKeys.isEmpty() && mLayer->fields().lookupField( sourcePrimaryKeys ) >= 0 )
+                      {
+                        newFeature.setAttribute( mLayer->fields().lookupField( sourcePrimaryKeys ), QVariant() );
+                      }
+                      mLayer->addFeature( newFeature );
+                    }
+                  }
                   mLayer->changeGeometry( modifiedFeature.id(), modifiedGeometry );
                 }
               }
