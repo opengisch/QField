@@ -31,10 +31,10 @@ void QFieldCloudService::execute()
   QEventLoop loop( this );
   QFieldCloudConnection connection;
   QObject::connect( &connection, &QFieldCloudConnection::pendingAttachmentsUploadStatus, this, [=]( const QString &fileName, double progress ) {
-    QJniObject message = QJniObject::fromString( tr( "Uploading %1" ).arg( fileName );
+    QJniObject message = QJniObject::fromString( tr( "Uploading %1" ).arg( fileName ) );
     QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldCloudService",
                                         "triggerShowNotification",
-                                        message.object<jstring>()
+                                        message.object<jstring>(),
                                         static_cast<int>( std::floor( progress * 100 ) ) );
   } );
   QObject::connect( &connection, &QFieldCloudConnection::pendingAttachmentsUploadFinished, &loop, &QEventLoop::quit );
