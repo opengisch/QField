@@ -900,6 +900,14 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>Forget All Reusable Values</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Soft constraints were not satisified</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>

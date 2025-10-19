@@ -904,6 +904,14 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Forget All Reusable Values</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Soft constraints were not satisified</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>

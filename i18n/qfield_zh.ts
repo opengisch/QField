@@ -899,6 +899,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>Forget All Reusable Values</source>
         <translation>忽略所有可重用值</translation>
     </message>
+    <message>
+        <source>Soft constraints were not satisified</source>
+        <translation>软约束未满足</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation>硬约束未满足</translation>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>

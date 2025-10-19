@@ -899,6 +899,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <source>Forget All Reusable Values</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Soft constraints were not satisified</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>
