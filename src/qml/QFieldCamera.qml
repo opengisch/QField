@@ -48,7 +48,7 @@ Popup {
   onAboutToShow: {
     if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
       cameraPermission.request();
-    } else if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
+    } else if (state == "VideoCapture" && microphonePermission.status === Qt.PermissionStatus.Undetermined) {
       microphonePermission.request();
     }
     recorder.mediaFormat.audioCodec = MediaFormat.AudioCodec.AAC;
@@ -60,7 +60,7 @@ Popup {
     let cameraPicked = false;
     if (cameraSettings.deviceId != '') {
       for (const device of mediaDevices.videoInputs) {
-        if (device.id == cameraSettings.deviceId) {
+        if (device.id === cameraSettings.deviceId) {
           camera.cameraDevice = device;
           cameraPicked = true;
         }
@@ -76,7 +76,7 @@ Popup {
     id: cameraPermission
 
     onStatusChanged: {
-      if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
+      if (state == "VideoCapture" && microphonePermission.status === Qt.PermissionStatus.Undetermined) {
         microphonePermission.request();
       }
     }
@@ -410,7 +410,7 @@ Popup {
               id: captureButton
 
               anchors.centerIn: parent
-              visible: camera.cameraStatus == Camera.ActiveStatus || camera.cameraStatus == Camera.LoadedStatus || camera.cameraStatus == Camera.StandbyStatus
+              visible: camera.cameraStatus === Camera.ActiveStatus || camera.cameraStatus === Camera.LoadedStatus || camera.cameraStatus === Camera.StandbyStatus
 
               round: true
               roundborder: true
