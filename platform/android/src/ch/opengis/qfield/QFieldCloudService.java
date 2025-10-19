@@ -34,8 +34,11 @@ package ch.opengis.qfield;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ServiceInfo;
 import android.os.Build;
 import android.util.Log;
 import org.qtproject.qt.android.bindings.QtService;
@@ -59,7 +62,7 @@ public class QFieldCloudService extends QtService {
         context.startForegroundService(intent);
     }
 
-    public static void triggerShowNotification(String message, progress) {
+    public static void triggerShowNotification(String message, int progress) {
         if (getInstance() != null) {
             getInstance().showNotification(message, progress);
         } else {
@@ -131,7 +134,7 @@ public class QFieldCloudService extends QtService {
                 .setSmallIcon(R.drawable.qfield_logo)
                 .setWhen(System.currentTimeMillis())
                 .setOngoing(true)
-                .setContentTitle(getString("QFieldCloud"))
+                .setContentTitle("QFieldCloud")
                 .setContentText(getString(R.string.upload_pending_attachments));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
