@@ -218,9 +218,20 @@ ColumnLayout {
       id: syncButton
       Layout.fillWidth: true
       Layout.preferredWidth: 1
-      text: qsTr('Synchronize')
+      progressValue: cloudProject != undefined && cloudProject.localPath !== "" ? cloudProject.downloadProgress : 0
+      showProgress: cloudProject != undefined && cloudProject.localPath !== "" && cloudProject.status === QFieldCloudProject.ProjectStatus.Downloading
+      text: {
+        if (showProgress) {
+          if (cloudProject.downloadProgress > 0) {
+            return qsTr("Synchronizing") + " (%1%)".arg(Math.round(cloudProject.downloadProgress * 100));
+          } else {
+            return qsTr("Synchronizing");
+          }
+        }
+        return qsTr('Synchronize');
+      }
       visible: true
-      enabled: cloudProject != undefined && cloudProject.deltaFileWrapper != undefined && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
+      enabled: cloudProject != undefined && cloudProject.deltaFileWrapper !== undefined && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
 
       onClicked: {
         synchronize();
@@ -231,7 +242,7 @@ ColumnLayout {
       id: pushButton
       Layout.fillWidth: true
       Layout.preferredWidth: 1
-      enabled: cloudProject != undefined && cloudProject.deltaFileWrapper != undefined && cloudProject.deltasCount > 0 && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
+      enabled: cloudProject != undefined && cloudProject.deltaFileWrapper !== undefined && cloudProject.deltasCount > 0 && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
       text: qsTr('Push changes')
       visible: true
 
@@ -247,7 +258,7 @@ ColumnLayout {
     progressValue: cloudProject ? cloudProject.downloadProgress : 0
     showProgress: cloudProject != undefined && cloudProject.status === QFieldCloudProject.ProjectStatus.Downloading
     text: {
-      if (cloudProject != undefined && cloudProject.status === QFieldCloudProject.ProjectStatus.Downloading) {
+      if (showProgress) {
         if (cloudProject.packagingStatus === QFieldCloudProject.PackagingBusyStatus) {
           return qsTr("QFieldCloud is packaging project, hold tight");
         } else {
@@ -276,6 +287,7 @@ ColumnLayout {
     Layout.fillWidth: true
     text: qsTr("Open project")
     visible: cloudProject != undefined && cloudProject.localPath !== ""
+    enabled: cloudProject != undefined && cloudProject.localPath !== "" && cloudProject.status === QFieldCloudProject.Idle
 
     onClicked: {
       if (cloudProject != undefined) {
