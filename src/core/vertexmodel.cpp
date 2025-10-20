@@ -62,7 +62,9 @@ void VertexModel::setCrs( const QgsCoordinateReferenceSystem &crs )
     return;
 
   mCrs = crs;
+  beginResetModel();
   refreshGeometry();
+  endResetModel();
   emit crsChanged();
 }
 
@@ -73,6 +75,9 @@ QgsCoordinateReferenceSystem VertexModel::crs() const
 
 void VertexModel::setGeometry( const QgsGeometry &geometry )
 {
+  if ( mOriginalGeometry.equals( geometry ) )
+    return;
+
   beginResetModel();
   mVerticesDeleted.clear();
   mOriginalGeometry = geometry;
