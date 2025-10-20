@@ -75,6 +75,7 @@ Page {
         Layout.preferredWidth: parent.width - showPasswordButton.width * 2
         Layout.bottomMargin: 10
         echoMode: TextInput.Password
+        passwordMaskDelay: 1000
         inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
         horizontalAlignment: Text.AlignHCenter
         placeholderText: qsTr("Password")

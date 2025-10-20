@@ -1071,6 +1071,7 @@ Page {
         rightPadding: leftPadding + (downloadUploadWebdavShowPasswordInput.width - leftPadding)
         placeholderText: text === "" && webdavConnectionLoader.item && webdavConnectionLoader.item.isPasswordStored ? qsTr("Password (leave empty to use remembered)") : qsTr("Password")
         echoMode: TextInput.Password
+        passwordMaskDelay: 1000
 
         onDisplayTextChanged: {
           if (webdavConnectionLoader.item) {
@@ -1286,6 +1287,7 @@ Page {
           rightPadding: leftPadding + (importWebdavShowPasswordInput.width - leftPadding)
           placeholderText: text === "" && webdavConnectionLoader.item && webdavConnectionLoader.item.isPasswordStored ? qsTr("leave empty to use remembered") : ""
           echoMode: TextInput.Password
+          passwordMaskDelay: 1000
 
           onDisplayTextChanged: {
             if (webdavConnectionLoader.item) {

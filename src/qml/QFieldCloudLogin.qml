@@ -182,6 +182,7 @@ Item {
     TextField {
       id: passwordField
       echoMode: TextInput.Password
+      passwordMaskDelay: 1000
       inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
       Layout.preferredWidth: parent.width - showPasswordButton.width * 2
       Layout.alignment: Qt.AlignHCenter
