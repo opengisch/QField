@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Controls.impl
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
+import QtQuick.Effects
 import QtQuick.Shapes
 
 Button {
@@ -57,19 +58,14 @@ Button {
     Component {
       id: progressComponent
       Rectangle {
-        width: backgroundRectangle.width * progressValue
+        width: Math.max(24, backgroundRectangle.width * progressValue)
         height: backgroundRectangle.height
-        radius: backgroundRectangle.radius
+        topLeftRadius: backgroundRectangle.radius
+        bottomLeftRadius: backgroundRectangle.radius
+        topRightRadius: width >= backgroundRectangle.width - 24 ? 24 : 0
+        bottomRightRadius: width >= backgroundRectangle.width - 24 ? 24 : 0
         color: Theme.mainColor
         clip: true
-
-        Rectangle {
-          width: Math.min(20, parent.width / 2)
-          height: parent.height
-          anchors.right: parent.right
-          color: parent.color
-          radius: progressValue > 0.98 ? parent.radius : 0
-        }
 
         Behavior on width  {
           NumberAnimation {
@@ -89,7 +85,7 @@ Button {
           id: bar
           width: parent.width * 0.3
           height: parent.height
-          radius: 2
+          radius: backgroundRectangle.radius
           color: Theme.mainColor
           opacity: 0.9
           SequentialAnimation on x  {
