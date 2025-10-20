@@ -404,7 +404,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Change color</source>
-        <translation type="unfinished"/>
+        <translation>Zmień kolor</translation>
     </message>
 </context>
 <context>
@@ -6316,43 +6316,43 @@ projekt</translation>
     </message>
     <message>
         <source>Coordinate cursor locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Kursor współrzędnych zablokowany w lokalizacji</translation>
     </message>
     <message>
         <source>Map canvas unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Kanwa mapy odblokowana</translation>
     </message>
     <message>
         <source>Map canvas locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Kanwa mapy zablokowana do lokalizacji</translation>
     </message>
     <message>
         <source>Map canvas locked to location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Kanwa mapy zablokowana do lokalizacji i orientacji kompasu</translation>
     </message>
     <message>
         <source>Map canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Kanwa mapy podąża za lokalizacją i orientacją kompasu</translation>
     </message>
     <message>
         <source>Map canvas follows location</source>
-        <translation type="unfinished"/>
+        <translation>Kanwa mapy podąża za lokalizacją</translation>
     </message>
     <message>
         <source>Lock Coordinate Cursor to Location</source>
-        <translation type="unfinished"/>
+        <translation>Zablokuj Kursor współrzędnych do lokalizacji</translation>
     </message>
     <message>
         <source>Lock Map Canvas to Location</source>
-        <translation type="unfinished"/>
+        <translation>Zablokuj kanwę mapy do lokalizacji</translation>
     </message>
     <message>
         <source>Map canvas lock paused</source>
-        <translation type="unfinished"/>
+        <translation>Blokada kanwy mapy wstrzymana</translation>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
-        <translation type="unfinished"/>
+        <translation>Ten przycisk przełącza system pozycjonowania. Po jego włączeniu w górnej części mapy pojawi się znacznik lokalizacji. Dotknięcie znacznika lokalizacji umożliwi Ci skorzystanie z dodatkowych funkcji pozycjonowania.</translation>
     </message>
 </context>
 <context>

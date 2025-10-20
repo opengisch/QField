@@ -183,7 +183,7 @@
     <name>Binary</name>
     <message>
         <source>(Blob)</source>
-        <translation type="unfinished"/>
+        <translation>(BLOB)</translation>
     </message>
 </context>
 <context>
@@ -738,7 +738,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>Задайте лінію для побудови профілю місцевості</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
@@ -822,7 +822,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
-        <translation type="unfinished"/>
+        <translation>Помилка вкладення на вимогу QFieldCloud: </translation>
     </message>
 </context>
 <context>
@@ -877,19 +877,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>Останнє введене значення для цього поля запам&apos;ятається та буде використано повторно під час створення нових об&apos;єктів</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>Останнє введене значення для цього поля не буде використано повторно під час створення нових об&apos;єктів</translation>
     </message>
     <message>
         <source>Feature addition disabled</source>
-        <translation type="unfinished"/>
+        <translation>Додавання об&apos;єктів вимкнено</translation>
     </message>
     <message>
         <source>Feature Form Menu</source>
-        <translation type="unfinished"/>
+        <translation>Меню форми об&apos;єктів</translation>
     </message>
     <message>
         <source>Remember All Reusable Values</source>
@@ -928,55 +928,55 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося скасувати відкати зміни шару в шарі &quot;%1&quot;</translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Скасувати створення %n об&apos;єкта(-ів) y шарі %1.</numerusform><numerusform>Скасувати створення %n об&apos;єкта(-ів) y шарі %1.</numerusform><numerusform>Скасувати створення %n об&apos;єкта(-ів) y шарі %1.</numerusform><numerusform>Скасувати створення %n об&apos;єкта(-ів) y шарі %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Скасувати створення %n об&apos;єкта(-ів).</numerusform><numerusform>Скасувати створення %n об&apos;єкта(-ів).</numerusform><numerusform>Скасувати створення %n об&apos;єкта(-ів).</numerusform><numerusform>Скасувати створення %n об&apos;єкта(-ів).</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Скасувати видалення %n об&apos;єкта(-ів) з шару %1.</numerusform><numerusform>Скасувати видалення %n об&apos;єкта(-ів) з шару %1.</numerusform><numerusform>Скасувати видалення %n об&apos;єкта(-ів) з шару %1.</numerusform><numerusform>Скасувати видалення %n об&apos;єкта(-ів) з шару %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Скасувати видалення %n об&apos;єкта(-ів).</numerusform><numerusform>Скасувати видалення %n об&apos;єкта(-ів).</numerusform><numerusform>Скасувати видалення %n об&apos;єкта(-ів).</numerusform><numerusform>Скасувати видалення %n об&apos;єкта(-ів).</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Скасувати зміни %n об&apos;єкта(-ів) на шарі %1.</numerusform><numerusform>Скасувати зміни %n об&apos;єкта(-ів) на шарі %1.</numerusform><numerusform>Скасувати зміни %n об&apos;єкта(-ів) на шарі %1.</numerusform><numerusform>Скасувати зміни %n об&apos;єкта(-ів) на шарі %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Скасувати зміни %n об&apos;єкта(-ів).</numerusform><numerusform>Скасувати зміни %n об&apos;єкта(-ів).</numerusform><numerusform>Скасувати зміни %n об&apos;єкта(-ів).</numerusform><numerusform>Скасувати зміни %n об&apos;єкта(-ів).</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Повторити створення %n об&apos;єкта(-ів) у шарі %1</numerusform><numerusform>Повторити створення %n об&apos;єкта(-ів) у шарі %1</numerusform><numerusform>Повторити створення %n об&apos;єкта(-ів) у шарі %1</numerusform><numerusform>Повторити створення %n об&apos;єкта(-ів) у шарі %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Повторити створення %n об&apos;єкта(-ів)</numerusform><numerusform>Повторити створення %n об&apos;єкта(-ів)</numerusform><numerusform>Повторити створення %n об&apos;єкта(-ів)</numerusform><numerusform>Повторити створення %n об&apos;єкта(-ів)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Повторити видалення %n об&apos;єкта(-ів) у шарі %1</numerusform><numerusform>Повторити видалення %n об&apos;єкта(-ів) у шарі %1</numerusform><numerusform>Повторити видалення %n об&apos;єкта(-ів) у шарі %1</numerusform><numerusform>Повторити видалення %n об&apos;єкта(-ів) у шарі %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Повторити видалення %n об&apos;єкта(-ів)</numerusform><numerusform>Повторити видалення %n об&apos;єкта(-ів)</numerusform><numerusform>Повторити видалення %n об&apos;єкта(-ів)</numerusform><numerusform>Повторити видалення %n об&apos;єкта(-ів)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Повторити зміни %n об&apos;єкта(-ів) у шарі %1</numerusform><numerusform>Повторити зміни %n об&apos;єкта(-ів) у шарі %1</numerusform><numerusform>Повторити зміни %n об&apos;єкта(-ів) у шарі %1</numerusform><numerusform>Повторити зміни %n об&apos;єкта(-ів) у шарі %1</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Повторити зміни для %n об&apos;єкта(-ів)</numerusform><numerusform>Повторити зміни для %n об&apos;єкта(-ів)</numerusform><numerusform>Повторити зміни для %n об&apos;єкта(-ів)</numerusform><numerusform>Повторити зміни для %n об&apos;єкта(-ів)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -1067,19 +1067,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Transfer Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Передати атрибути об&apos;єкта</translation>
     </message>
     <message>
         <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
-        <translation type="unfinished"/>
+        <translation>Виберіть нижче об&apos;єкт, атрибути якого будуть перенесені на поточний відкритий об&apos;єкт.</translation>
     </message>
     <message>
         <source>Feature attributes transferred</source>
-        <translation type="unfinished"/>
+        <translation>Атрибути об&apos;єкта передані</translation>
     </message>
     <message>
         <source>No feature attributes were transferred</source>
-        <translation type="unfinished"/>
+        <translation>Атрибути об&apos;єктів не було передано</translation>
     </message>
     <message>
         <source>Features</source>
@@ -1087,7 +1087,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Processing Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Алгоритми обробки</translation>
     </message>
 </context>
 <context>
@@ -1460,7 +1460,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>feature addition</source>
-        <translation type="unfinished"/>
+        <translation>додавання об&apos;єкта</translation>
     </message>
     <message>
         <source>attribute editing</source>
@@ -1472,7 +1472,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>feature deletion</source>
-        <translation type="unfinished"/>
+        <translation>видалення об&apos;єкта</translation>
     </message>
     <message>
         <source>Disabled layer permissions: %1</source>
@@ -1507,7 +1507,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Неможливо відмінити зміни шару в шарі %1</translation>
+        <translation>Неможливо відкати зміни шару в шарі %1</translation>
     </message>
     <message>
         <source>Cannot copy invalid feature</source>
@@ -1552,7 +1552,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation type="unfinished"/>
+        <translation>Налаштування дозволів цього шару виключають додавання об&apos;єкта.</translation>
     </message>
 </context>
 <context>
@@ -1671,7 +1671,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>Журнал профайлера часу виконання</translation>
     </message>
     <message>
         <source>Type optional details</source>
@@ -1683,11 +1683,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>Це надішле журнал Вашого поточного сеансу команді розробників. Вам потрібно зробити це лише тоді, коли вас про це попросять.</translation>
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
+        <translation>Журнал Вашого застосунку надсилається...</translation>
     </message>
 </context>
 <context>
@@ -1797,7 +1797,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Друк...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
@@ -1891,7 +1891,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Неможливо відмінити зміни шару в шарі %1</translation>
+        <translation>Неможливо відкати зміни шару в шарі %1</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
@@ -3710,11 +3710,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>Ви збираєтеся завантажити змінений вміст до &lt;b&gt;%1&lt;/b&gt; за допомогою користувача &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Ця операція перезапише дані, що зберігаються віддалено, переконайтеся, що Ви хочете це зробити.</translation>
     </message>
     <message>
         <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>Ви збираєтеся завантажити змінений вміст з &lt;b&gt;%1&lt;/b&gt; за допомогою користувача &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Ця операція перезапише дані, що зберігаються локально, переконайтеся, що Ви хочете це зробити.</translation>
     </message>
     <message>
         <source>Password (leave empty to use remembered)</source>
@@ -4138,7 +4138,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
-        <translation type="unfinished"/>
+        <translation>Журнал речень NMEA від пристрою до файлу</translation>
     </message>
     <message>
         <source>Map canvas rendering quality:</source>
@@ -4166,7 +4166,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>Ортометрична висота із присторою</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
@@ -4250,7 +4250,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation type="unfinished"/>
+        <translation>Якщо ввімкнено, форма об’єктів відкриється автоматично, якщо визначено лише один об’єкт, список об’єктів пропускається.</translation>
     </message>
     <message>
         <source>Show zoom controls</source>
@@ -4258,11 +4258,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Maximize feature form</source>
-        <translation type="unfinished"/>
+        <translation>Максимізувати форму об&apos;єкта</translation>
     </message>
     <message>
         <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
+        <translation>Відкрити форму об&apos;єкта для ідентифікації одного об&apos;єкта</translation>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
@@ -4638,7 +4638,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="vanished">Неможливо відмінити зміни шару в шарі %1</translation>
+        <translation type="vanished">Неможливо відкати зміни шару в шарі %1</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
@@ -4683,7 +4683,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>RelationEditorBase</name>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо додати дочірній об&apos;єкт: переконайтеся, що батьківський об&apos;єкт відповідає всім обмеженням і його можна зберегти</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
@@ -4691,11 +4691,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо додати дочірній об&apos;єкт: значення атрибута, що пов&apos;язує батьківський та дочірній елементи, не встановлено</translation>
     </message>
     <message>
         <source>Unlink Feature</source>
-        <translation type="unfinished"/>
+        <translation>Від’єднати об&apos;єкт</translation>
     </message>
     <message>
         <source>Delete Feature</source>
@@ -4719,7 +4719,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Копіювати атрибути об&apos;єкта</translation>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
@@ -4735,7 +4735,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Друк...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
@@ -4743,7 +4743,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n об&apos;єкт(-и)</numerusform><numerusform>%n об&apos;єкт(-и)</numerusform><numerusform>%n об&apos;єкт(-и)</numerusform><numerusform>%n об&apos;єкт(-и)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -5299,11 +5299,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>Глобальні змінні</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>Змінні проекту</translation>
     </message>
 </context>
 <context>
@@ -5423,7 +5423,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Завантажити проект за замовчуванням під час запуску</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
@@ -5996,11 +5996,11 @@ project</source>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Експортувати як зображення</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>Друк...</translation>
     </message>
     <message>
         <source>Print</source>
@@ -6036,7 +6036,7 @@ project</source>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>Відносний кут</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -6080,15 +6080,15 @@ project</source>
     </message>
     <message>
         <source>Feature:</source>
-        <translation type="unfinished"/>
+        <translation>Об&apos;єкт:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>Відкрити форму об&apos;єкта</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>Дублювання об&apos;єкта недоступне</translation>
     </message>
     <message>
         <source>Importing %1</source>
@@ -6120,7 +6120,7 @@ project</source>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Положення ліворуч від ‘%1’</translation>
     </message>
     <message>
         <source>Enable Map Rotation</source>
@@ -6128,7 +6128,7 @@ project</source>
     </message>
     <message>
         <source>Dashboard</source>
-        <translation type="unfinished"/>
+        <translation>Інформаційна панель</translation>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
@@ -6148,11 +6148,11 @@ project</source>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
-        <translation type="unfinished"/>
+        <translation>Скасувати роботу алгоритму</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Ви збираєтеся закрити поточну операцію алгоритму, продовжити?</translation>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
@@ -6196,7 +6196,7 @@ project</source>
     </message>
     <message>
         <source>Narrow</source>
-        <translation type="unfinished"/>
+        <translation>Обмежити</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -6220,7 +6220,7 @@ project</source>
     </message>
     <message>
         <source>Plugin Permission</source>
-        <translation type="unfinished"/>
+        <translation>Дозвіл плагіна</translation>
     </message>
     <message>
         <source>Unlock</source>
@@ -6236,15 +6236,15 @@ project</source>
     </message>
     <message>
         <source>Failed to create feature</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося створити об&apos;єкт</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося створити об&apos;єкт, оскільки дозвіл на додавання об&apos;єктів вимкнено</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося зберегти об&apos;єкт</translation>
     </message>
     <message>
         <source>Digitizing toggle</source>
@@ -6292,19 +6292,19 @@ project</source>
     </message>
     <message>
         <source>Copy Feature</source>
-        <translation type="unfinished"/>
+        <translation>Копіювати об&apos;єкт</translation>
     </message>
     <message>
         <source>Cut Feature</source>
-        <translation type="unfinished"/>
+        <translation>Вирізати об&apos;єкт</translation>
     </message>
     <message>
         <source>Feature pasted successfully</source>
-        <translation type="unfinished"/>
+        <translation>Об&apos;єкт успішно вставлено</translation>
     </message>
     <message>
         <source>Failed to paste feature into layer</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося вставити об&apos;єкт у шар</translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
@@ -6320,23 +6320,23 @@ project</source>
     </message>
     <message>
         <source>Map canvas unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Полотно карти розблоковано</translation>
     </message>
     <message>
         <source>Map canvas locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Полотно карти заблоковано за місцем розташування</translation>
     </message>
     <message>
         <source>Map canvas locked to location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Полотно карти заблоковане за місцем розташування та орієнтацією компаса</translation>
     </message>
     <message>
         <source>Map canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Полотно карти слідує за розташуванням і орієнтацією компаса</translation>
     </message>
     <message>
         <source>Map canvas follows location</source>
-        <translation type="unfinished"/>
+        <translation>Полотно карти слідує за розташуванням</translation>
     </message>
     <message>
         <source>Lock Coordinate Cursor to Location</source>
@@ -6344,11 +6344,11 @@ project</source>
     </message>
     <message>
         <source>Lock Map Canvas to Location</source>
-        <translation type="unfinished"/>
+        <translation>Заблокувати полотно карти до місця розташування</translation>
     </message>
     <message>
         <source>Map canvas lock paused</source>
-        <translation type="unfinished"/>
+        <translation>Блокування полотна карти призупинено</translation>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
