@@ -4,6 +4,7 @@ import QtQuick.Controls
 TextField {
   id: textField
   echoMode: TextInput.Normal
+  passwordMaskDelay: 1000
   font: Theme.defaultFont
   placeholderTextColor: Theme.accentLightColor
   rightPadding: showPasswordButton.visible ? showPasswordButton.width : 0
