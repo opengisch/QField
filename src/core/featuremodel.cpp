@@ -18,6 +18,7 @@
 #include "expressioncontextutils.h"
 #include "featuremodel.h"
 #include "layerutils.h"
+#include "qgsquickmapsettings.h"
 #include "vertexmodel.h"
 
 #include <QJSValue>
@@ -1209,9 +1210,6 @@ class MatchCollectingFilter : public QgsPointLocator::MatchFilter
 
     bool acceptMatch( const QgsPointLocator::Match &match ) override
     {
-      if ( match.distance() > 0 )
-        return false;
-
       // there may be multiple points at the same location, but we get only one
       // result... the locator API needs a new method verticesInRect()
       QgsFeature f;
@@ -1357,7 +1355,7 @@ QgsFeatureIds FeatureModel::applyVertexModelTopography()
     for ( const auto &point : pointsMoved )
     {
       MatchCollectingFilter filter;
-      loc.nearestVertex( point.first, 0, &filter );
+      loc.nearestVertex( point.first, QgsTolerance::vertexSearchRadius( vectorLayer, mVertexModel->mapSettings()->mapSettings() ), &filter );
       for ( int i = 0; i < filter.matches.size(); i++ )
       {
         vectorLayer->moveVertex( point.second, filter.matches.at( i ).featureId(), filter.matches.at( i ).vertexIndex() );
@@ -1379,7 +1377,6 @@ QgsFeatureIds FeatureModel::applyVertexModelTopography()
 
   disconnect( connection );
 
-  qDebug() << modifiedFeatureIds;
   return modifiedFeatureIds;
 }
 

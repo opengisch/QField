@@ -247,7 +247,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     QVector<QPair<QgsPoint, QgsPoint>> verticesMoved() const;
 
     //! Returns a list of added vertices not found in linked geometry
-    QVector<QgsPoint> verticesDeleted() const { return mVerticesDeleted; }
+    QVector<QgsPoint> verticesDeleted() const;
 
     //! Returns a list of vertices
     QList<Vertex> vertices() const;

@@ -75,9 +75,6 @@ QgsCoordinateReferenceSystem VertexModel::crs() const
 
 void VertexModel::setGeometry( const QgsGeometry &geometry )
 {
-  if ( mOriginalGeometry.equals( geometry ) )
-    return;
-
   beginResetModel();
   mVerticesDeleted.clear();
   mOriginalGeometry = geometry;
@@ -492,6 +489,7 @@ void VertexModel::clear()
   setEditingMode( NoEditing );
   mVertices.clear();
   mVerticesDeleted.clear();
+  mOriginalGeometry = QgsGeometry();
   updateCanRemoveVertex();
   updateCanAddVertex();
   emit vertexCountChanged();
@@ -864,8 +862,22 @@ QVector<QgsPoint> VertexModel::verticesAdded() const
   {
     if ( mHistory[i].type == VertexAddition )
     {
-      vertices << mHistory[i].vertex.point;
+      QgsPoint point = mHistory[i].vertex.point;
+      point.transform( mTransform, Qgis::TransformDirection::Reverse );
+      vertices << point;
     }
+  }
+  return vertices;
+}
+
+QVector<QgsPoint> VertexModel::verticesDeleted() const
+{
+  QVector<QgsPoint> vertices;
+  for ( const QgsPoint &vertexDeleted : mVerticesDeleted )
+  {
+    QgsPoint point = vertexDeleted;
+    point.transform( mTransform, Qgis::TransformDirection::Reverse );
+    vertices << point;
   }
   return vertices;
 }
@@ -880,7 +892,13 @@ QVector<QPair<QgsPoint, QgsPoint>> VertexModel::verticesMoved() const
     if ( vertex.originalPoint.isEmpty() )
       continue;
     if ( vertex.point != vertex.originalPoint )
-      vertices << qMakePair( vertex.originalPoint, vertex.point );
+    {
+      QgsPoint originalPoint = vertex.originalPoint;
+      QgsPoint point = vertex.point;
+      originalPoint.transform( mTransform, Qgis::TransformDirection::Reverse );
+      point.transform( mTransform, Qgis::TransformDirection::Reverse );
+      vertices << qMakePair( originalPoint, point );
+    }
   }
   return vertices;
 }
