@@ -214,6 +214,11 @@ void QgsQuickMapSettings::setCenter( const QgsPoint &center, bool handleMargins 
   setExtent( e );
 }
 
+void QgsQuickMapSettings::setCenter( const QPointF &center, bool handleMargins )
+{
+  return setCenter( QgsPoint( center ), handleMargins );
+}
+
 void QgsQuickMapSettings::setCenterToLayer( QgsMapLayer *layer, bool shouldZoom )
 {
   Q_ASSERT( layer );

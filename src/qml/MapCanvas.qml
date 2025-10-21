@@ -104,6 +104,110 @@ Item {
     mapCanvasWrapper.stopRendering();
   }
 
+  /**
+   * Calculate the shortest rotation path between two angles
+   * Handles the circular nature of angles (0° = 360°)
+   */
+  function shortestRotationPath(fromAngle, toAngle) {
+    // Normalize angles to [0, 360)
+    const from = ((fromAngle % 360) + 360) % 360;
+    const to = ((toAngle % 360) + 360) % 360;
+    const diff = to - from;
+    if (diff > 180) {
+      diff -= 360;
+    } else if (diff < -180) {
+      diff += 360;
+    }
+    return diff;
+  }
+
+  /**
+   * Smoothly animates the map to a new center point
+   */
+  function jumpTo(point, scale = -1, rotation = -1, handleMargins = false) {
+    console.log("- JumpTo", point, scale, rotation, handleMargins);
+    const currentCenter = mapCanvasWrapper.mapSettings.center;
+    const currentRotation = mapCanvasWrapper.mapSettings.rotation;
+    jumpDetails.fromScale = mapCanvasWrapper.mapSettings.scale;
+    jumpDetails.fromRotation = currentRotation;
+    jumpDetails.fromX = currentCenter.x;
+    jumpDetails.fromY = currentCenter.y;
+    jumpDetails.toX = point.x;
+    jumpDetails.toY = point.y;
+    jumpDetails.toScale = scale;
+    if (rotation !== -1) {
+      const rotationDiff = shortestRotationPath(currentRotation, rotation);
+      jumpDetails.rotationDelta = rotationDiff;
+      jumpDetails.toRotation = rotation;
+    } else {
+      jumpDetails.toRotation = -1;
+    }
+    jumpDetails.position = 0.0;
+    jumpDetails.handleMargins = handleMargins;
+    freeze('jumping');
+    jumpDetails.enabled = true;
+    jumpDetails.position = 1.0;
+  }
+
+  Item {
+    id: jumpDetails
+
+    property bool enabled: false
+    property double fromRotation: 0
+    property double fromScale: 0
+    property double fromX: 0
+    property double fromY: 0
+    property double toRotation: -1
+    property double toScale: -1
+    property double toX: 0
+    property double toY: 0
+    property double position: 0
+    property bool handleMargins: false
+    property double rotationDelta: 0  // The actual rotation difference to apply
+
+    onPositionChanged: {
+      if (!enabled) {
+        return;
+      }
+      const dx = toX - fromX;
+      const dy = toY - fromY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      if (distance === 0 && toRotation === -1 && toScale === -1) {
+        enabled = false;
+        mapArea.unfreeze('jumping');
+        return;
+      }
+      const progressX = fromX + dx * position;
+      const progressY = fromY + dy * position;
+
+      // Handle rotation animation using the calculated delta
+      if (toRotation !== -1) {
+        const progressRotation = fromRotation + rotationDelta * position;
+        mapCanvasWrapper.mapSettings.rotation = progressRotation;
+      }
+      if (toScale !== -1) {
+        // Handle scale animation
+        const progressScale = fromScale + (toScale - fromScale) * position;
+        mapCanvasWrapper.zoomScale(Qt.point(progressX, progressY), progressScale, jumpDetails.handleMargins);
+      } else {
+        // Handle only position animation
+        mapCanvasWrapper.mapSettings.setCenter(Qt.point(progressX, progressY), jumpDetails.handleMargins);
+      }
+      if (position >= 1.0) {
+        enabled = false;
+        mapArea.unfreeze('jumping');
+      }
+    }
+
+    Behavior on position  {
+      enabled: jumpDetails.enabled
+      NumberAnimation {
+        easing.type: Easing.InOutQuart
+        duration: 2500
+      }
+    }
+  }
+
   MapCanvasMap {
     id: mapCanvasWrapper
 
