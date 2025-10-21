@@ -155,10 +155,8 @@ int main( int argc, char **argv )
       profileDir.rmdir( QStringLiteral( "fonts" ) );
       profileDir.rename( QStringLiteral( "fonts-disabled" ), QStringLiteral( "fonts" ) );
 
-      service.execute();
-      service.exit( 0 );
-
-      return 0;
+      service.initService();
+      return service.exec();
     }
     else if ( strcmp( argv[1], "--positioningservice" ) == 0 )
     {

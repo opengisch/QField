@@ -15,22 +15,26 @@
  ***************************************************************************/
 
 #include "qfield_android.h"
-#include "qfieldcloudconnection.h"
 #include "qfieldcloudservice.h"
 
-#include <QSettings>
+#include <QTimer>
 
 QFieldCloudService::QFieldCloudService( int &argc, char **argv )
   : QAndroidService( argc, argv )
 {
 }
 
-void QFieldCloudService::execute()
+QFieldCloudService::~QFieldCloudService()
 {
-  QSettings settings;
-  QEventLoop loop( this );
-  QFieldCloudConnection connection;
-  QObject::connect( &connection, &QFieldCloudConnection::pendingAttachmentsUploadStatus, this, [=]( const QString &fileName, double progress ) {
+  QJniObject activity = QCoreApplication::instance()->nativeInterface<QNativeInterface::QAndroidApplication>()->context();
+  activity.callMethod<void>( "stopSelf" );
+}
+
+void QFieldCloudService::initService()
+{
+  mCloudConnection.reset( new QFieldCloudConnection() );
+
+  QObject::connect( mCloudConnection.get(), &QFieldCloudConnection::pendingAttachmentsUploadStatus, this, [=]( const QString &fileName, double progress ) {
     qInfo() << "about to trigger notification message" << fileName << static_cast<int>( std::floor( progress * 100 ) );
     QJniObject message = QJniObject::fromString( tr( "Uploading %1" ).arg( fileName ) );
     QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldCloudService",
@@ -38,18 +42,14 @@ void QFieldCloudService::execute()
                                         message.object<jstring>(),
                                         static_cast<int>( std::floor( progress * 100 ) ) );
   } );
-  QObject::connect( &connection, &QFieldCloudConnection::pendingAttachmentsUploadFinished, &loop, &QEventLoop::quit );
+  QObject::connect( mCloudConnection.get(), &QFieldCloudConnection::pendingAttachmentsUploadFinished, this, [=]() {
+    exit( 1 );
+  } );
 
-  int pendingAttachments = connection.uploadPendingAttachments();
-  if ( pendingAttachments > 0 )
-  {
-    loop.exec();
-  }
-
-  QJniObject activity = QCoreApplication::instance()->nativeInterface<QNativeInterface::QAndroidApplication>()->context();
-  activity.callMethod<void>( "stopSelf" );
+  QTimer::singleShot( 1000, [=] { uploadPendingAttachments(); } );
 }
 
-QFieldCloudService::~QFieldCloudService()
+void QFieldCloudService::uploadPendingAttachments()
 {
+  mCloudConnection->uploadPendingAttachments();
 }
