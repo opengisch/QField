@@ -154,8 +154,8 @@ Item {
 
   Item {
     id: locationMarkerBubbleMessage
-    width: Math.min(description.implicitWidth + 14, locationMarker.parent.width - 80)
-    height: description.height + pointerToLocationMarker.height + 10
+    width: Math.min(bubbleMessage.implicitWidth + 14, locationMarker.parent.width - 80)
+    height: bubbleMessage.height + pointerToLocationMarker.height + 10
     visible: locationMarker.bubbleVisible
     anchors.horizontalCenter: movementMarker.horizontalCenter
     anchors.top: movementMarker.bottom
@@ -187,7 +187,7 @@ Item {
       clip: true
 
       Text {
-        id: description
+        id: bubbleMessage
         font: Theme.tipFont
         wrapMode: Text.WordWrap
         color: Theme.mainTextColor

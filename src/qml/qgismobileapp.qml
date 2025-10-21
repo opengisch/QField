@@ -977,8 +977,7 @@ ApplicationWindow {
       bubbleColor: Theme.mainBackgroundColorSemiOpaque
       bubbleVisible: locationMarker.isOnMapCanvas && locationMarker.visible && (settings ? !settings.value("/QField/pieMenuOpened", false) : false)
       bubbleAction: () => {
-        bubbleVisible = false;
-        openPieMenu();
+        openPieMenu(locationMarker.screenLocation);
       }
 
       Component.onCompleted: {
@@ -989,7 +988,7 @@ ApplicationWindow {
           }, MapCanvasPointHandler.Priority.High);
       }
 
-      function openPieMenu(point = locationMarker.screenLocation) {
+      function openPieMenu(point) {
         const dx = point.x - locationMarker.screenLocation.x;
         const dy = point.y - locationMarker.screenLocation.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -1009,7 +1008,10 @@ ApplicationWindow {
             actionsPieMenu.y = locationMarker.screenLocation.y - actionsPieMenu.menuHalfSize;
           }
           actionsPieMenu.open();
-          settings.setValue("/QField/pieMenuOpened", true);
+          if (!settings.value("/QField/pieMenuOpened", false)) {
+            settings.setValue("/QField/pieMenuOpened", true);
+            locationMarker.bubbleVisible = false;
+          }
           return true;
         }
         return false;
