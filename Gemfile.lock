@@ -5,6 +5,7 @@ GEM
       base64
       nkf
       rexml
+    abbrev (0.1.2)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     apktools (0.7.5)
@@ -183,8 +184,10 @@ GEM
     nanaimo (0.4.0)
     naturally (2.3.0)
     nkf (0.2.0)
+    openssl (3.3.1)
     optparse (0.6.0)
     os (1.1.4)
+    ostruct (0.6.3)
     plist (3.7.2)
     public_suffix (6.0.2)
     rake (13.3.0)
@@ -239,9 +242,13 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  abbrev
   fastlane
   fastlane-plugin-aws_s3
   fastlane-plugin-sentry
+  mutex_m
+  openssl (>= 3.3.1)
+  ostruct
 
 BUNDLED WITH
    2.7.2
