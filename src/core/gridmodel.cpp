@@ -35,13 +35,28 @@ void GridModel::setEnabled( bool enabled )
   }
   else
   {
-    if ( !mLines.isEmpty() || !mMarkers.isEmpty() || !mAnnotations.isEmpty() )
+    if ( !mMajorLines.isEmpty() || !mMinorLines.isEmpty() || !mMarkers.isEmpty() || !mAnnotations.isEmpty() )
     {
-      mLines.clear();
+      mMajorLines.clear();
+      mMinorLines.clear();
       mMarkers.clear();
       mAnnotations.clear();
       emit gridChanged();
     }
+  }
+}
+
+void GridModel::setIndeterminate( bool indeterminate )
+{
+  if ( mIndeterminate == indeterminate )
+    return;
+
+  mIndeterminate = indeterminate;
+  emit indeterminateChanged();
+
+  if ( mEnabled )
+  {
+    update();
   }
 }
 
@@ -54,6 +69,7 @@ void GridModel::setMapSettings( QgsQuickMapSettings *mapSettings )
 
   if ( mMapSettings )
   {
+    disconnect( mMapSettings, &QgsQuickMapSettings::backgroundColorChanged, this, &GridModel::updateColors );
     disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &GridModel::update );
   }
 
@@ -63,6 +79,7 @@ void GridModel::setMapSettings( QgsQuickMapSettings *mapSettings )
 
   if ( mMapSettings )
   {
+    connect( mMapSettings, &QgsQuickMapSettings::backgroundColorChanged, this, &GridModel::updateColors );
     connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &GridModel::update );
   }
 }
@@ -125,9 +142,10 @@ void GridModel::setPrepareLines( bool prepare )
   }
   else
   {
-    if ( !mLines.isEmpty() )
+    if ( !mMajorLines.isEmpty() || !mMinorLines.isEmpty() )
     {
-      mLines.clear();
+      mMajorLines.clear();
+      mMinorLines.clear();
       emit gridChanged();
     }
   }
@@ -177,6 +195,99 @@ void GridModel::setPrepareAnnotations( bool prepare )
   }
 }
 
+void GridModel::setAutoColor( bool autoColor )
+{
+  if ( mAutoColor == autoColor )
+  {
+    return;
+  }
+
+  mAutoColor = autoColor;
+  emit autoColorChanged();
+
+  if ( mAutoColor && mMapSettings )
+  {
+    updateColors();
+  }
+}
+
+void GridModel::setMajorLineColor( const QColor &color )
+{
+  if ( mMajorLineColor == color )
+  {
+    return;
+  }
+
+  mMajorLineColor = color;
+  emit majorLineColorChanged();
+}
+
+void GridModel::setMinorLineColor( const QColor &color )
+{
+  if ( mMinorLineColor == color )
+  {
+    return;
+  }
+
+  mMinorLineColor = color;
+  emit minorLineColorChanged();
+}
+
+void GridModel::setMarkerColor( const QColor &color )
+{
+  if ( mMarkerColor == color )
+  {
+    return;
+  }
+
+  mMarkerColor = color;
+  emit markerColorChanged();
+}
+
+void GridModel::setAnnotationColor( const QColor &color )
+{
+  if ( mAnnotationColor == color )
+  {
+    return;
+  }
+
+  mAnnotationColor = color;
+  emit annotationColorChanged();
+}
+
+void GridModel::setAnnotationOutlineColor( const QColor &color )
+{
+  if ( mAnnotationOutlineColor == color )
+  {
+    return;
+  }
+
+  mAnnotationOutlineColor = color;
+  emit annotationOutlineColorChanged();
+}
+
+void GridModel::setAnnotationHasOutline( bool hasOutline )
+{
+  if ( mAnnotationHasOutline == hasOutline )
+  {
+    return;
+  }
+
+  mAnnotationHasOutline = hasOutline;
+  emit annotationHasOutlineChanged();
+}
+
+void GridModel::setAnnotationPrecision( int precision )
+{
+  if ( mAnnotationPrecision == precision )
+  {
+    return;
+  }
+
+  mAnnotationPrecision = precision;
+  emit annotationPrecisionChanged();
+}
+
 void GridModel::update()
 {
   if ( !mEnabled || !mMapSettings )
@@ -184,45 +295,125 @@ void GridModel::update()
     return;
   }
 
-  bool hadGrid = !mLines.isEmpty() || !mMarkers.isEmpty() || !mAnnotations.isEmpty();
+  bool hadGrid = !mMajorLines.isEmpty() || !mMinorLines.isEmpty() || !mMarkers.isEmpty() || !mAnnotations.isEmpty();
 
-  mLines.clear();
+  mMajorLines.clear();
+  mMinorLines.clear();
   mMarkers.clear();
   mAnnotations.clear();
 
   const QgsRectangle visibleExtent = mMapSettings->visibleExtent();
-  double smallestScreenInterval = std::min( mXInterval / mMapSettings->mapUnitsPerPoint(), mYInterval / mMapSettings->mapUnitsPerPoint() );
-  if ( smallestScreenInterval < ( mPrepareMarkers ? 20 : 10 ) )
+
+  if ( mIndeterminate )
   {
-    if ( hadGrid )
+    const double indeterminateInterval = mMapSettings->mapUnitsPerPoint() * 200;
+    if ( qgsDoubleNear( mIndeterminateInterval, 0.0 ) || mIndeterminateInterval / indeterminateInterval > 10 || mIndeterminateInterval / indeterminateInterval < 0.1 )
     {
-      emit gridChanged();
+      mIndeterminateInterval = indeterminateInterval;
     }
-    return;
+    else if ( mIndeterminateInterval / indeterminateInterval >= 2 )
+    {
+      mIndeterminateInterval = mIndeterminateInterval / 2;
+    }
+    else if ( mIndeterminateInterval / indeterminateInterval <= 0.5 )
+    {
+      mIndeterminateInterval = mIndeterminateInterval * 2;
+    }
   }
+  else
+  {
+    double smallestScreenInterval = std::min( mXInterval / mMapSettings->mapUnitsPerPoint(), mYInterval / mMapSettings->mapUnitsPerPoint() );
+    if ( qgsDoubleNear( smallestScreenInterval, 0.0 ) || smallestScreenInterval < ( mPrepareMarkers ? 20 : 10 ) )
+    {
+      if ( hadGrid )
+      {
+        emit gridChanged();
+      }
+      return;
+    }
+  }
+
+  const double xInterval = mIndeterminate ? mIndeterminateInterval : mXInterval;
+  const double yInterval = mIndeterminate ? mIndeterminateInterval : mYInterval;
+  const double xOffset = mIndeterminate ? 0.0 : mXOffset;
+  const double yOffset = mIndeterminate ? 0.0 : mYOffset;
 
   QList<QPointF> line;
   QPointF intersectionPoint;
 
   if ( mPrepareMarkers )
   {
-    double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), mXInterval ) + mXOffset;
+    double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), xInterval ) + mXOffset;
     while ( xPos <= visibleExtent.xMaximum() )
     {
-      double yPos = visibleExtent.yMinimum() - std::fmod( visibleExtent.yMinimum(), mYInterval ) + mYOffset;
+      double yPos = visibleExtent.yMinimum() - std::fmod( visibleExtent.yMinimum(), yInterval ) + mYOffset;
       while ( yPos <= visibleExtent.yMaximum() )
       {
         mMarkers << mMapSettings->coordinateToScreen( QgsPoint( xPos, yPos ) );
-        yPos += mYInterval;
+        yPos += yInterval;
       }
-      xPos += mXInterval;
+      xPos += xInterval;
     }
   }
 
   const QSizeF sceneSize = mMapSettings->outputSize() / mMapSettings->devicePixelRatio();
-  if ( mPrepareLines || mPrepareAnnotations )
+  if ( mIndeterminate && mPrepareLines )
   {
-    double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), mXInterval ) + mXOffset;
+    const int minorDivisions = 5;
+    const double minorInterval = xInterval / minorDivisions;
+
+    double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), xInterval ) + mXOffset;
+    double minorXPos = 0.0;
+    const QLineF topBorder( QPointF( 0, 0 ), QPointF( sceneSize.width(), 0 ) );
+    const QLineF bottomBorder( QPointF( 0, sceneSize.height() ), QPointF( sceneSize.width(), sceneSize.height() ) );
+    while ( xPos <= visibleExtent.xMaximum() )
+    {
+      const QLineF currentLine( mMapSettings->coordinateToScreen( QgsPoint( xPos, visibleExtent.yMinimum() ) ), mMapSettings->coordinateToScreen( QgsPoint( xPos, visibleExtent.yMaximum() ) ) );
+      line << currentLine.p1() << currentLine.p2();
+      mMajorLines << line;
+      mMinorLines << line;
+      line.clear();
+
+      for ( int i = 1; i < minorDivisions; i++ )
+      {
+        minorXPos = xPos + minorInterval * i;
+        const QLineF currentMinorLine( mMapSettings->coordinateToScreen( QgsPoint( minorXPos, visibleExtent.yMinimum() ) ), mMapSettings->coordinateToScreen( QgsPoint( minorXPos, visibleExtent.yMaximum() ) ) );
+        line << currentMinorLine.p1() << currentMinorLine.p2();
+        mMinorLines << line;
+        line.clear();
+      }
+
+      xPos += xInterval;
+    }
+
+    double yPos = visibleExtent.yMinimum() - std::fmod( visibleExtent.yMinimum(), yInterval ) + mYOffset;
+    double minorYPos = 0.0;
+    const QLineF leftBorder( QPointF( 0, 0 ), QPointF( 0, sceneSize.height() ) );
+    const QLineF rightBorder( QPointF( sceneSize.width(), 0 ), QPointF( sceneSize.width(), sceneSize.height() ) );
+    while ( yPos <= visibleExtent.yMaximum() )
+    {
+      const QLineF currentLine( mMapSettings->coordinateToScreen( QgsPoint( visibleExtent.xMinimum(), yPos ) ), mMapSettings->coordinateToScreen( QgsPoint( visibleExtent.xMaximum(), yPos ) ) );
+
+      line << currentLine.p1() << currentLine.p2();
+      mMajorLines << line;
+      mMinorLines << line;
+      line.clear();
+
+      for ( int i = 1; i < minorDivisions; i++ )
+      {
+        minorYPos = yPos + minorInterval * i;
+        const QLineF currentMinorLine( mMapSettings->coordinateToScreen( QgsPoint( visibleExtent.xMinimum(), minorYPos ) ), mMapSettings->coordinateToScreen( QgsPoint( visibleExtent.xMaximum(), minorYPos ) ) );
+        line << currentMinorLine.p1() << currentMinorLine.p2();
+        mMinorLines << line;
+        line.clear();
+      }
+
+      yPos += yInterval;
+    }
+  }
+  else if ( mPrepareLines || mPrepareAnnotations )
+  {
+    double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), xInterval ) + mXOffset;
     const QLineF topBorder( QPointF( 0, 0 ), QPointF( sceneSize.width(), 0 ) );
     const QLineF bottomBorder( QPointF( 0, sceneSize.height() ), QPointF( sceneSize.width(), sceneSize.height() ) );
     while ( xPos <= visibleExtent.xMaximum() )
@@ -244,14 +435,14 @@ void GridModel::update()
       if ( mPrepareLines )
       {
         line << currentLine.p1() << currentLine.p2();
-        mLines << line;
+        mMajorLines << line;
         line.clear();
       }
 
-      xPos += mXInterval;
+      xPos += xInterval;
     }
 
-    double yPos = visibleExtent.yMinimum() - std::fmod( visibleExtent.yMinimum(), mYInterval ) + mYOffset;
+    double yPos = visibleExtent.yMinimum() - std::fmod( visibleExtent.yMinimum(), yInterval ) + mYOffset;
     const QLineF leftBorder( QPointF( 0, 0 ), QPointF( 0, sceneSize.height() ) );
     const QLineF rightBorder( QPointF( sceneSize.width(), 0 ), QPointF( sceneSize.width(), sceneSize.height() ) );
     while ( yPos <= visibleExtent.yMaximum() )
@@ -273,13 +464,30 @@ void GridModel::update()
       if ( mPrepareLines )
       {
         line << currentLine.p1() << currentLine.p2();
-        mLines << line;
+        mMajorLines << line;
         line.clear();
       }
 
-      yPos += mYInterval;
+      yPos += yInterval;
     }
   }
 
   emit gridChanged();
+}
+
+void GridModel::updateColors()
+{
+  if ( !mAutoColor )
+  {
+    return;
+  }
+
+  QColor backgroundColor = mMapSettings->backgroundColor();
+  QColor color = backgroundColor.lightness() > 150 ? backgroundColor.darker( 105 ) : backgroundColor.lighter( 200 );
+  setMinorLineColor( color );
+  color = backgroundColor.lightness() > 150 ? color.darker( 115 ) : color.lighter( 180 );
+  setMajorLineColor( color );
+  setMarkerColor( color );
+
+  update();
 }
