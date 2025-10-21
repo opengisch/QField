@@ -798,6 +798,14 @@ ApplicationWindow {
       }
     }
 
+    Button {
+      text: "jump"
+      anchors.verticalCenter: parent.verticalCenter
+      onClicked: {
+        mapCanvasMap.jumpTo(Qt.point(958140.671561235, 5865350.290366924));
+      }
+    }
+
     /**************************************************
    * Overlays, including:
    * - Coordinate Locator
@@ -2324,7 +2332,7 @@ ApplicationWindow {
             settings.setValue("/QField/Navigation/FollowIncludeDestination", followIncludeDestination);
             gnssButton.followLocation(true);
           } else {
-            mapCanvas.mapSettings.setCenter(navigation.destination);
+            mapCanvasMap.jumpTo(navigation.destination);
           }
         }
 
@@ -2461,10 +2469,11 @@ ApplicationWindow {
                 targetScale = (scaleMax - scaleMin) * ratio + scaleMin;
               }
             }
-            mapCanvasMap.mapCanvasWrapper.zoomScale(positionSource.projectedPosition, targetScale, true);
+            console.log("targetScale = ", targetScale);
+            mapCanvasMap.jumpTo(positionSource.projectedPosition, targetScale, -1, true);
             jumpedOnce = true;
           } else {
-            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+            mapCanvasMap.jumpTo(positionSource.projectedPosition, -1, -1, true);
           }
           if (!followActive) {
             mapCanvasMap.freeze('follow');
