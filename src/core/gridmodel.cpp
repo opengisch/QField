@@ -343,10 +343,10 @@ void GridModel::update()
 
   if ( mPrepareMarkers )
   {
-    double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), xInterval ) + mXOffset;
+    double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), xInterval ) + xOffset;
     while ( xPos <= visibleExtent.xMaximum() )
     {
-      double yPos = visibleExtent.yMinimum() - std::fmod( visibleExtent.yMinimum(), yInterval ) + mYOffset;
+      double yPos = visibleExtent.yMinimum() - std::fmod( visibleExtent.yMinimum(), yInterval ) + yOffset;
       while ( yPos <= visibleExtent.yMaximum() )
       {
         mMarkers << mMapSettings->coordinateToScreen( QgsPoint( xPos, yPos ) );
@@ -362,8 +362,7 @@ void GridModel::update()
     const int minorDivisions = 5;
     const double minorInterval = xInterval / minorDivisions;
 
-    double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), xInterval ) + mXOffset;
-    double minorXPos = 0.0;
+    double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), xInterval ) + xOffset;
     const QLineF topBorder( QPointF( 0, 0 ), QPointF( sceneSize.width(), 0 ) );
     const QLineF bottomBorder( QPointF( 0, sceneSize.height() ), QPointF( sceneSize.width(), sceneSize.height() ) );
     while ( xPos <= visibleExtent.xMaximum() )
@@ -376,7 +375,7 @@ void GridModel::update()
 
       for ( int i = 1; i < minorDivisions; i++ )
       {
-        minorXPos = xPos + minorInterval * i;
+        const double minorXPos = xPos + minorInterval * i;
         const QLineF currentMinorLine( mMapSettings->coordinateToScreen( QgsPoint( minorXPos, visibleExtent.yMinimum() ) ), mMapSettings->coordinateToScreen( QgsPoint( minorXPos, visibleExtent.yMaximum() ) ) );
         line << currentMinorLine.p1() << currentMinorLine.p2();
         mMinorLines << line;
@@ -386,8 +385,7 @@ void GridModel::update()
       xPos += xInterval;
     }
 
-    double yPos = visibleExtent.yMinimum() - std::fmod( visibleExtent.yMinimum(), yInterval ) + mYOffset;
-    double minorYPos = 0.0;
+    double yPos = visibleExtent.yMinimum() - std::fmod( visibleExtent.yMinimum(), yInterval ) + yOffset;
     const QLineF leftBorder( QPointF( 0, 0 ), QPointF( 0, sceneSize.height() ) );
     const QLineF rightBorder( QPointF( sceneSize.width(), 0 ), QPointF( sceneSize.width(), sceneSize.height() ) );
     while ( yPos <= visibleExtent.yMaximum() )
@@ -401,7 +399,7 @@ void GridModel::update()
 
       for ( int i = 1; i < minorDivisions; i++ )
       {
-        minorYPos = yPos + minorInterval * i;
+        const double minorYPos = yPos + minorInterval * i;
         const QLineF currentMinorLine( mMapSettings->coordinateToScreen( QgsPoint( visibleExtent.xMinimum(), minorYPos ) ), mMapSettings->coordinateToScreen( QgsPoint( visibleExtent.xMaximum(), minorYPos ) ) );
         line << currentMinorLine.p1() << currentMinorLine.p2();
         mMinorLines << line;
@@ -413,7 +411,7 @@ void GridModel::update()
   }
   else if ( mPrepareLines || mPrepareAnnotations )
   {
-    double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), xInterval ) + mXOffset;
+    double xPos = visibleExtent.xMinimum() - std::fmod( visibleExtent.xMinimum(), xInterval ) + xOffset;
     const QLineF topBorder( QPointF( 0, 0 ), QPointF( sceneSize.width(), 0 ) );
     const QLineF bottomBorder( QPointF( 0, sceneSize.height() ), QPointF( sceneSize.width(), sceneSize.height() ) );
     while ( xPos <= visibleExtent.xMaximum() )
@@ -442,7 +440,7 @@ void GridModel::update()
       xPos += xInterval;
     }
 
-    double yPos = visibleExtent.yMinimum() - std::fmod( visibleExtent.yMinimum(), yInterval ) + mYOffset;
+    double yPos = visibleExtent.yMinimum() - std::fmod( visibleExtent.yMinimum(), yInterval ) + yOffset;
     const QLineF leftBorder( QPointF( 0, 0 ), QPointF( 0, sceneSize.height() ) );
     const QLineF rightBorder( QPointF( sceneSize.width(), 0 ), QPointF( sceneSize.width(), sceneSize.height() ) );
     while ( yPos <= visibleExtent.yMaximum() )

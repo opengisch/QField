@@ -627,7 +627,7 @@ ApplicationWindow {
 
     GridRenderer {
       mapSettings: mapCanvas.mapSettings
-      enabled: true
+      enabled: !gridDecoration.enabled
       indeterminate: true
       prepareLines: true
       autoColor: true
