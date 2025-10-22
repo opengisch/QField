@@ -44,9 +44,14 @@ QfPopup {
     id: microphonePermission
   }
 
+  MediaDevices {
+    id: mediaDevices
+  }
+
   CaptureSession {
     id: captureSession
     audioInput: AudioInput {
+      device: mediaDevices.defaultAudioInput
     }
     recorder: AudioRecorder {
       id: recorder
