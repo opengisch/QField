@@ -324,10 +324,10 @@ Page {
           table.selectedItemsDeletable = true;
           for (let i = 0; i < table.selectedList.length; ++i) {
             const selectedItem = table.model.get(table.selectedList[i]);
-            table.selectedItemsWebDavConfigured = table.selectedItemsWebDavConfigured && selectedItem.ItemHasWebdavConfiguration;
-            const itemWithinQFieldCloudProjectFolder = cloudProjectsModel.currentProjectId !== "" && selectedItem.ItemPath.search(cloudProjectsModel.currentProjectId) !== -1;
-            table.selectedItemsPushableToQField = (table.selectedItemsPushableToQField && selectedItem.ItemMetaType == LocalFilesModel.Dataset && selectedItem.ItemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (selectedItem.ItemMetaType == LocalFilesModel.Folder && itemWithinQFieldCloudProjectFolder);
-            table.selectedItemsDeletable = table.selectedItemsDeletable && FileUtils.isDeletable(selectedItem.ItemPath);
+            table.selectedItemsWebDavConfigured = table.selectedItemsWebDavConfigured && webdavConnectionLoader.item.hasWebdavConfiguration(selectedItem.path);
+            const itemWithinQFieldCloudProjectFolder = cloudProjectsModel.currentProjectId !== "" && selectedItem.path.search(cloudProjectsModel.currentProjectId) !== -1;
+            table.selectedItemsPushableToQField = (table.selectedItemsPushableToQField && selectedItem.metaType == LocalFilesModel.Dataset && selectedItem.type == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (selectedItem.metaType == LocalFilesModel.Folder && itemWithinQFieldCloudProjectFolder);
+            table.selectedItemsDeletable = table.selectedItemsDeletable && FileUtils.isDeletable(selectedItem.path);
           }
         }
 
@@ -885,8 +885,8 @@ Page {
         onTriggered: {
           var fileNames = [];
           for (let i = 0; i < table.selectedList.length; ++i) {
-            const itemPath = table.model.get(table.selectedList[i]).ItemPath;
-            fileNames.push(itemPath);
+            const item = table.model.get(table.selectedList[i]);
+            fileNames.push(item.path);
           }
           if (webdavConnectionLoader.item && fileNames.length > 0) {
             webdavConnectionLoader.item.uploadPaths(fileNames);
@@ -910,10 +910,10 @@ Page {
           var fileNames = [];
           for (let i = 0; i < table.selectedList.length; ++i) {
             const item = table.model.get(table.selectedList[i]);
-            const itemWithinQFieldCloudProjectFolder = cloudProjectsModel.currentProjectId !== "" && item.ItemPath.search(cloudProjectsModel.currentProjectId) !== -1;
-            const pushableToCloud = (item.ItemMetaType === LocalFilesModel.Dataset && item.ItemType === LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (item.ItemMetaType === LocalFilesModel.Folder && itemWithinQFieldCloudProjectFolder);
+            const itemWithinQFieldCloudProjectFolder = cloudProjectsModel.currentProjectId !== "" && item.path.search(cloudProjectsModel.currentProjectId) !== -1;
+            const pushableToCloud = (item.metaType === LocalFilesModel.Dataset && item.type === LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (item.metaType === LocalFilesModel.Folder && itemWithinQFieldCloudProjectFolder);
             if (pushableToCloud)
-              fileNames.push(item.ItemPath);
+              fileNames.push(item.path);
           }
           if (fileNames.length > 0) {
             pushFilesToQFieldCloudConnection.enabled = true;
@@ -939,8 +939,8 @@ Page {
         onTriggered: {
           var fileNames = [];
           for (let i = 0; i < table.selectedList.length; ++i) {
-            const itemPath = table.model.get(table.selectedList[i]).ItemPath;
-            fileNames.push(itemPath);
+            const item = table.model.get(table.selectedList[i]);
+            fileNames.push(item.path);
           }
           if (fileNames.length > 0) {
             confirmRemoveDialog.itemsToRemove = fileNames;
