@@ -727,7 +727,11 @@ Popup {
     }
 
     function onPendingAttachmentsUploadStatus(fileName, fileProgress, uploadPending) {
-      uploadLabel.text = qsTr("Uploading %1 - %n file(s) remaining", "", uploadPending).arg(fileName);
+      let text = qsTr("Uploading %1").arg(fileName);
+      if (uploadPending > 0) {
+        text += " — " + qsTr("%n file(s) remaining", "", uploadPending);
+      }
+      uploadLabel.text = text;
       uploadProgress.value = fileProgress;
     }
 
