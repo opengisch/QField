@@ -3187,6 +3187,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Open project</source>
         <translation>打开工程</translation>
     </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation>同步中</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

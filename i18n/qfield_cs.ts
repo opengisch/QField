@@ -3192,6 +3192,10 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
         <source>Open project</source>
         <translation>Otevřít projekt</translation>
     </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

@@ -3192,6 +3192,10 @@ Messaggio dell&apos;errore: %4</translation>
         <source>Open project</source>
         <translation>Apri progetto</translation>
     </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

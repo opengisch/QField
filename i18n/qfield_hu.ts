@@ -3185,6 +3185,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <source>Open project</source>
         <translation>Projekt megnyitása</translation>
     </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

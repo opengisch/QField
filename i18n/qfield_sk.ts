@@ -3192,6 +3192,10 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
         <source>Open project</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

@@ -3190,6 +3190,10 @@ epäonnistui, syy: %2</translation>
         <source>Open project</source>
         <translation>Avaa projekti</translation>
     </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

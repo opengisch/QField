@@ -3193,6 +3193,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Open project</source>
         <translation>Открыть проект</translation>
     </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

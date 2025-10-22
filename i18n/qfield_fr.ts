@@ -3189,6 +3189,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <source>Open project</source>
         <translation>Ouvrir un projet</translation>
     </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
