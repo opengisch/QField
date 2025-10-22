@@ -231,7 +231,7 @@ class QFieldCloudConnection : public QObject
     void providerConfigurationChanged();
     void userInformationChanged();
     void pendingAttachmentsUploadFinished();
-    void pendingAttachmentsUploadStatus( const QString &fileName, double progress );
+    void pendingAttachmentsUploadStatus( const QString &fileName, double fileProgress, int uploadPending );
     void pendingAttachmentsAdded();
     void error();
 

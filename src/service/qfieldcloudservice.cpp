@@ -34,13 +34,13 @@ void QFieldCloudService::initService()
 {
   mCloudConnection.reset( new QFieldCloudConnection() );
 
-  QObject::connect( mCloudConnection.get(), &QFieldCloudConnection::pendingAttachmentsUploadStatus, this, [=]( const QString &fileName, double progress ) {
-    qInfo() << "about to trigger notification message" << fileName << static_cast<int>( std::floor( progress * 100 ) );
-    QJniObject message = QJniObject::fromString( tr( "Uploading %1" ).arg( fileName ) );
+  QObject::connect( mCloudConnection.get(), &QFieldCloudConnection::pendingAttachmentsUploadStatus, this, [=]( const QString &fileName, double fileProgress, int uploadPending ) {
+    qInfo() << "about to trigger notification message" << fileName;
+    QJniObject message = QJniObject::fromString( tr( "Uploading %1 - %n file(s) remaining", "", uploadPending ).arg( fileName ) );
     QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldCloudService",
                                         "triggerShowNotification",
                                         message.object<jstring>(),
-                                        static_cast<int>( std::floor( progress * 100 ) ) );
+                                        fileProgress );
   } );
   QObject::connect( mCloudConnection.get(), &QFieldCloudConnection::pendingAttachmentsUploadFinished, this, [=]() {
     exit( 1 );

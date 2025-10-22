@@ -823,6 +823,9 @@ void QFieldCloudConnection::processPendingAttachments()
       continue;
     }
 
+    QFileInfo fileInfo( it.value() );
+    qint64 fileSize = fileInfo.size();
+
     QFileInfo projectInfo( QFieldCloudUtils::localProjectFilePath( mUsername, it.key() ) );
     QDir projectDir( projectInfo.absolutePath() );
     const QString apiPath = projectDir.relativeFilePath( it.value() );
@@ -830,7 +833,12 @@ void QFieldCloudConnection::processPendingAttachments()
 
     const QString projectId = it.key();
     const QString fileName = it.value();
-    emit pendingAttachmentsUploadStatus( fileName, std::min( static_cast<double>( mUploadDoneCount ) / mUploadPendingCount, 1.0 ) );
+    emit pendingAttachmentsUploadStatus( apiPath, 0.0, mUploadPendingCount - 1 );
+
+    connect( attachmentCloudReply, &NetworkReply::uploadProgress, this, [this, apiPath]( qint64 bytesSent, qint64 bytesTotal ) {
+      emit pendingAttachmentsUploadStatus( apiPath, bytesTotal > 0 ? static_cast<double>( bytesSent ) / bytesTotal : 0, mUploadPendingCount - 1 );
+    } );
+
     connect( attachmentCloudReply, &NetworkReply::finished, this, [this, attachmentCloudReply, fileName, projectId]() {
       QNetworkReply *attachmentReply = attachmentCloudReply->currentRawReply();
       attachmentCloudReply->deleteLater();
