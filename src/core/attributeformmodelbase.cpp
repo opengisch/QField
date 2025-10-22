@@ -201,11 +201,7 @@ void AttributeFormModelBase::resetModel()
   if ( mLayer )
   {
     QgsAttributeEditorContainer *root;
-#if _QGIS_VERSION_INT >= 33100
     if ( mLayer->editFormConfig().layout() == Qgis::AttributeFormLayout::DragAndDrop )
-#else
-    if ( mLayer->editFormConfig().layout() == QgsEditFormConfig::TabLayout )
-#endif
     {
       root = mLayer->editFormConfig().invisibleRootContainer();
       mTemporaryContainer.reset();
@@ -216,11 +212,7 @@ void AttributeFormModelBase::resetModel()
       mTemporaryContainer.reset( root );
     }
 
-#if _QGIS_VERSION_INT >= 33100
     const bool hasTabs = !root->children().isEmpty() && Qgis::AttributeEditorType::Container == root->children().first()->type();
-#else
-    const bool hasTabs = !root->children().isEmpty() && QgsAttributeEditorElement::AeTypeContainer == root->children().first()->type();
-#endif
 
     invisibleRootItem()->setColumnCount( 1 );
     QList<QStandardItem *> containers;
@@ -230,11 +222,7 @@ void AttributeFormModelBase::resetModel()
       int currentTab = 0;
       for ( QgsAttributeEditorElement *element : children )
       {
-#if _QGIS_VERSION_INT >= 33100
         if ( element->type() == Qgis::AttributeEditorType::Container )
-#else
-        if ( element->type() == QgsAttributeEditorElement::AeTypeContainer )
-#endif
         {
           QgsAttributeEditorContainer *container = static_cast<QgsAttributeEditorContainer *>( element );
           const int columnCount = container->columnCount();
@@ -509,11 +497,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
 
     switch ( element->type() )
     {
-#if _QGIS_VERSION_INT >= 33100
       case Qgis::AttributeEditorType::Container:
-#else
-      case QgsAttributeEditorElement::AeTypeContainer:
-#endif
       {
         QString visibilityExpression = parentVisibilityExpressions;
         QgsAttributeEditorContainer *innerContainer = static_cast<QgsAttributeEditorContainer *>( element );
@@ -544,11 +528,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         break;
       }
 
-#if _QGIS_VERSION_INT >= 33100
       case Qgis::AttributeEditorType::Field:
-#else
-      case QgsAttributeEditorElement::AeTypeField:
-#endif
       {
         QgsAttributeEditorField *editorField = static_cast<QgsAttributeEditorField *>( element );
 
@@ -621,11 +601,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         break;
       }
 
-#if _QGIS_VERSION_INT >= 33100
       case Qgis::AttributeEditorType::Relation:
-#else
-      case QgsAttributeEditorElement::AeTypeRelation:
-#endif
       {
         QgsAttributeEditorRelation *editorRelation = static_cast<QgsAttributeEditorRelation *>( element );
         const QgsRelation relation = editorRelation->relation();
@@ -648,11 +624,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         break;
       }
 
-#if _QGIS_VERSION_INT >= 33100
       case Qgis::AttributeEditorType::QmlElement:
-#else
-      case QgsAttributeEditorElement::AeTypeQmlElement:
-#endif
       {
         QgsAttributeEditorQmlElement *qmlElement = static_cast<QgsAttributeEditorQmlElement *>( element );
 
@@ -669,11 +641,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         break;
       }
 
-#if _QGIS_VERSION_INT >= 33100
       case Qgis::AttributeEditorType::HtmlElement:
-#else
-      case QgsAttributeEditorElement::AeTypeHtmlElement:
-#endif
       {
         QgsAttributeEditorHtmlElement *htmlElement = static_cast<QgsAttributeEditorHtmlElement *>( element );
 
@@ -689,7 +657,6 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         break;
       }
 
-#if _QGIS_VERSION_INT >= 33100
       case Qgis::AttributeEditorType::TextElement:
       {
         QgsAttributeEditorTextElement *textElement = static_cast<QgsAttributeEditorTextElement *>( element );
@@ -705,13 +672,12 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         mEditorWidgetCodes.insert( item, textElement->text() );
         break;
       }
-      case Qgis::AttributeEditorType::Action:
+
       case Qgis::AttributeEditorType::SpacerElement:
+        break;
+
+      case Qgis::AttributeEditorType::Action:
       case Qgis::AttributeEditorType::Invalid:
-#else
-      case QgsAttributeEditorElement::AeTypeInvalid:
-      case QgsAttributeEditorElement::AeTypeAction:
-#endif
         // TODO: implement
         delete item;
         break;
@@ -1144,11 +1110,7 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int fieldIndex )
     }
 
     //when it's a provider field with default value clause, take Textedit
-#if _QGIS_VERSION_INT >= 33800
     if ( fields.fieldOrigin( fieldIndex ) == Qgis::FieldOrigin::Provider )
-#else
-    if ( fields.fieldOrigin( fieldIndex ) == QgsFields::OriginProvider )
-#endif
     {
       const int providerOrigin = fields.fieldOriginIndex( fieldIndex );
       if ( !mLayer->dataProvider()->defaultValueClause( providerOrigin ).isEmpty() )
