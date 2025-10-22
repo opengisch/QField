@@ -13,7 +13,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "appinterface.h"
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudutils.h"
@@ -823,9 +822,6 @@ void QFieldCloudConnection::processPendingAttachments()
       continue;
     }
 
-    QFileInfo fileInfo( it.value() );
-    qint64 fileSize = fileInfo.size();
-
     QFileInfo projectInfo( QFieldCloudUtils::localProjectFilePath( mUsername, it.key() ) );
     QDir projectDir( projectInfo.absolutePath() );
     const QString apiPath = projectDir.relativeFilePath( it.value() );
@@ -883,8 +879,6 @@ void QFieldCloudConnection::processPendingAttachments()
         }
 
         qDebug() << QStringLiteral( "Attachment reply content: %1" ).arg( attachmentReply->readAll() );
-
-        AppInterface::instance()->sendLog( QStringLiteral( "QFieldCloud file upload HTTP code oddity!" ), QString() );
       }
 
       QFieldCloudUtils::removePendingAttachment( mUsername, projectId, fileName );
