@@ -419,7 +419,8 @@ void QFieldCloudProjectsModel::projectListReceived()
   QJsonArray projects = doc.array();
 
   loadProjects( projects, projectFetchOffset > 0 );
-  if ( projects.size() > 0 )
+
+  if ( rawReply->hasRawHeader( QStringLiteral( "X-Next-Page" ) ) )
   {
     refreshProjectsList( resetModel, fetchPublic, projectFetchOffset + mProjectsPerFetch );
   }
