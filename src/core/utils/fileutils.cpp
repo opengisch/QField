@@ -855,29 +855,42 @@ bool FileUtils::isDeletable( const QString &filePath )
     return false;
 
   const QString canonicalFilePath = fileInfo.canonicalFilePath();
+
+  // Collect all allowed directories
+  QStringList allowedDirectories;
+
   const QString appDataDir = QFileInfo( PlatformUtilities::instance()->applicationDirectory() ).canonicalFilePath();
+  if ( !appDataDir.isEmpty() )
+    allowedDirectories << appDataDir;
+
   const QString cloudDataDir = QFileInfo( QFieldCloudUtils::localCloudDirectory() ).canonicalFilePath();
+  if ( !cloudDataDir.isEmpty() )
+    allowedDirectories << cloudDataDir;
+
   const QStringList extraDirs = PlatformUtilities::instance()->additionalApplicationDirectories();
+  for ( const QString &dir : extraDirs )
+  {
+    if ( !dir.isEmpty() )
+    {
+      const QString canonicalDir = QFileInfo( dir ).canonicalFilePath();
+      if ( !canonicalDir.isEmpty() )
+        allowedDirectories << canonicalDir;
+    }
+  }
 
-  const bool isInsideAppDataDir = !appDataDir.isEmpty() && canonicalFilePath.startsWith( appDataDir );
-  const bool isInsideCloudDataDir = !cloudDataDir.isEmpty() && canonicalFilePath.startsWith( cloudDataDir );
-  const bool isInsideExtraDir = std::any_of( extraDirs.begin(), extraDirs.end(), [&canonicalFilePath]( const QString &dir ) {
-    if ( dir.isEmpty() )
-      return false;
-
-    const QString canonicalDir = QFileInfo( dir ).canonicalFilePath();
-    return !canonicalDir.isEmpty() && canonicalFilePath.startsWith( canonicalDir );
+  // Check if file is inside any of the allowed directories
+  const bool isInsideAllowedDir = std::any_of( allowedDirectories.begin(), allowedDirectories.end(), [&canonicalFilePath]( const QString &dir ) {
+    return canonicalFilePath.startsWith( dir );
   } );
 
-  if ( !( isInsideAppDataDir || isInsideCloudDataDir || isInsideExtraDir ) )
+  if ( !isInsideAllowedDir )
     return false;
 
   const QString suffix = fileInfo.suffix().toLower();
 
   static const QStringList allowedExtensions = { "pdf", "png", "jpg", "jpeg", "mp4", "mp4a", "mp3" };
-  static const QStringList disallowedExtensions = { "qgs", "qgz", "gpkg", "db", "sqlite" };
 
-  return allowedExtensions.contains( suffix ) && !disallowedExtensions.contains( suffix );
+  return allowedExtensions.contains( suffix );
 }
 
 QVariantMap FileUtils::deleteFiles( const QStringList &filePaths )
@@ -895,7 +908,7 @@ QVariantMap FileUtils::deleteFiles( const QStringList &filePaths )
 
     const QFileInfo fileInfo( filePath );
     const QString canonicalPath = fileInfo.canonicalFilePath();
-    QFile file( canonicalPath.isEmpty() ? filePath : canonicalPath );
+    QFile file( canonicalPath );
 
     if ( !file.exists() )
     {

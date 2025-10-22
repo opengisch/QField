@@ -113,7 +113,6 @@ Page {
           }
         }
 
-        boundsBehavior: Flickable.StopAtBounds
         anchors.fill: parent
         anchors.margins: 1
         spacing: -1
@@ -981,7 +980,7 @@ Page {
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
-      text: confirmRemoveDialog.itemsToRemove.length === 1 ? qsTr("Are you sure you want to remove this file?") : qsTr("Are you sure you want to remove these %1 files?").arg(confirmRemoveDialog.itemsToRemove.length)
+      text: qsTr("Are you sure you want to remove %n files?", "", confirmRemoveDialog.itemsToRemove.length)
     }
 
     onAccepted: {
@@ -995,9 +994,9 @@ Page {
         }
       }
       if (allSucceeded) {
-        displayToast(qsTr("File(s) deleted successfully"));
+        displayToast(qsTr("%n file(s) deleted successfully", "", confirmRemoveDialog.itemsToRemove.length));
       } else {
-        displayToast(qsTr("Failed to delete %1 file(s)").arg(failedCount));
+        displayToast(qsTr("Failed to delete %n file(s)", "", failedCount));
       }
       table.model.resetToPath(table.model.currentPath);
       localFilesModel.clearSelection();
