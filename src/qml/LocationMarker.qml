@@ -12,7 +12,6 @@ Item {
 
   property variant location // QgsPoint
 
-  // props
   property point screenLocation
   property real screenAccuracy
   readonly property bool isOnMapCanvas: screenLocation.x > 0 && screenLocation.x < mapCanvas.width && screenLocation.y > 0 && screenLocation.y < mapCanvas.height

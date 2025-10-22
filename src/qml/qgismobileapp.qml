@@ -973,19 +973,20 @@ ApplicationWindow {
       speed: positionSource.positionInformation && positionSource.positionInformation.speedValid ? positionSource.positionInformation.speed : -1
       orientation: !isNaN(positionSource.orientation) ? positionSource.orientation + positionSource.bearingTrueNorth < 0 ? 360 + positionSource.orientation + positionSource.bearingTrueNorth : positionSource.orientation + positionSource.bearingTrueNorth : -1
 
-      bubbleText: "Tap on your location marker\nto show actions"
-      bubbleColor: Theme.mainBackgroundColorSemiOpaque
-      bubbleVisible: locationMarker.isOnMapCanvas && locationMarker.visible && (settings ? !settings.value("/QField/pieMenuOpened", false) : false)
-      bubbleAction: () => {
-        openPieMenu(locationMarker.screenLocation);
-      }
-
       Component.onCompleted: {
         pointHandler.registerHandler("LocationMarker", (point, type, interactionType) => {
             if (!locationMarker.visible || interactionType !== "clicked")
               return;
             openPieMenu(point);
           }, MapCanvasPointHandler.Priority.High);
+        if (!settings.valueBool("/QField/pieMenuOpenedOnce", false)) {
+          bubbleText = qsTr("Tap on your location marker\nto show actions");
+          bubbleColor = Theme.mainBackgroundColorSemiOpaque;
+          bubbleVisible = Qt.binding(() => locationMarker.isOnMapCanvas && locationMarker.visible);
+          bubbleAction = () => {
+            openPieMenu(locationMarker.screenLocation);
+          };
+        }
       }
 
       function openPieMenu(point) {
@@ -1008,10 +1009,6 @@ ApplicationWindow {
             actionsPieMenu.y = locationMarker.screenLocation.y - actionsPieMenu.menuHalfSize;
           }
           actionsPieMenu.open();
-          if (!settings.value("/QField/pieMenuOpened", false)) {
-            settings.setValue("/QField/pieMenuOpened", true);
-            locationMarker.bubbleVisible = false;
-          }
           return true;
         }
         return false;
@@ -1236,6 +1233,13 @@ ApplicationWindow {
           positioningSettings.showPositionInformation = checked;
           actionsPieMenu.close();
         }
+      }
+
+      Component.onCompleted: {
+        onOpened.connect(() => {
+            settings.setValue("/QField/pieMenuOpenedOnce", true);
+            locationMarker.bubbleVisible = false;
+          });
       }
     }
 
