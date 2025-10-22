@@ -24,6 +24,7 @@
 #include <qgsattributeeditorhtmlelement.h>
 #include <qgsattributeeditorqmlelement.h>
 #include <qgsattributeeditorrelation.h>
+#include <qgsattributeeditorspacerelement.h>
 #include <qgsattributeeditortextelement.h>
 #include <qgsdatetimefieldformatter.h>
 #include <qgseditorwidgetsetup.h>
@@ -674,7 +675,18 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
       }
 
       case Qgis::AttributeEditorType::SpacerElement:
+      {
+        QgsAttributeEditorSpacerElement *spacerElement = static_cast<QgsAttributeEditorSpacerElement *>( element );
+
+        item->setData( "spacer", AttributeFormModel::ElementType );
+        item->setData( spacerElement->drawLine() ? QStringLiteral( "-" ) : QString(), AttributeFormModel::Name );
+        item->setData( true, AttributeFormModel::CurrentlyVisible );
+        item->setData( false, AttributeFormModel::AttributeEditable );
+        item->setData( false, AttributeFormModel::AttributeAllowEdit );
+
+        parent->appendRow( item );
         break;
+      }
 
       case Qgis::AttributeEditorType::Action:
       case Qgis::AttributeEditorType::Invalid:

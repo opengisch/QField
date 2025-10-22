@@ -204,6 +204,34 @@ Page {
   }
 
   Component {
+    id: spacerContainer
+
+    Item {
+      height: childrenRect.height
+      anchors {
+        left: parent.left
+        right: parent.right
+        leftMargin: 12
+        rightMargin: 12
+      }
+
+      Item {
+        width: parent.width
+        height: 36
+
+        Rectangle {
+          anchors.centerIn: parent
+          width: parent.width * 0.66
+          height: 3
+          radius: 1
+          color: Theme.controlBackgroundAlternateColor
+          visible: containerName !== ""
+        }
+      }
+    }
+  }
+
+  Component {
     id: textContainer
 
     Item {
@@ -468,14 +496,29 @@ Page {
           property var labelColor: LabelColor
           property string itemType: Type
 
-          active: (Type === 'container' && GroupIndex !== undefined && GroupIndex.valid) || ((Type === 'text' || Type === 'html' || Type === 'qml') && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel)
+          active: (Type === 'container' && GroupIndex !== undefined && GroupIndex.valid) || ((Type === 'text' || Type === 'html' || Type === 'qml' || Type === 'spacer') && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel)
           height: status == Loader.Ready ? item.childrenRect.height : 0
           anchors {
             left: parent.left
             right: parent.right
           }
 
-          sourceComponent: Type === 'container' && GroupIndex !== undefined && GroupIndex.valid ? innerContainer : Type === 'qml' ? qmlContainer : Type === 'html' ? htmlContainer : Type === 'text' ? textContainer : dummyContainer
+          sourceComponent: {
+            if (Type === 'container') {
+              if (GroupIndex !== undefined && GroupIndex.valid) {
+                return innerContainer;
+              }
+            } else if (Type === 'qml') {
+              return qmlContainer;
+            } else if (Type === 'html') {
+              return htmlContainer;
+            } else if (Type === 'text') {
+              return textContainer;
+            } else if (Type === 'spacer') {
+              return spacerContainer;
+            }
+            return dummyContainer;
+          }
         }
 
         Item {
