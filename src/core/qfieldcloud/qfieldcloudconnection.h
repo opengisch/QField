@@ -230,7 +230,8 @@ class QFieldCloudConnection : public QObject
     void tokenChanged();
     void providerConfigurationChanged();
     void userInformationChanged();
-    void pendingAttachmentsUploadFinished();
+    void pendingAttachmentsUploadFinished( const QString &error = QString() );
+    void pendingAttachmentsUploadStatus( const QString &fileName, double fileProgress, int uploadPending );
     void pendingAttachmentsAdded();
     void error();
 
@@ -266,6 +267,7 @@ class QFieldCloudConnection : public QObject
     int mPendingRequests = 0;
 
     int mUploadPendingCount = 0;
+    int mUploadDoneCount = 0;
     int mUploadFailingCount = 0;
 
     void setClientHeaders( QNetworkRequest &request );

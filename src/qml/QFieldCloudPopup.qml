@@ -51,14 +51,17 @@ Popup {
     }
 
     ScrollView {
-      padding: 0
+      id: scrollView
+      anchors.fill: parent
+
       ScrollBar.horizontal: QfScrollBar {
       }
       ScrollBar.vertical: QfScrollBar {
       }
       contentWidth: mainGrid.width
       contentHeight: mainGrid.height
-      anchors.fill: parent
+      padding: 0
+      bottomPadding: uploadFeedback.isVisible ? uploadFeedback.height + 20 : 0
       clip: true
 
       GridLayout {
@@ -668,6 +671,52 @@ Popup {
         }
       }
     }
+
+    Rectangle {
+      id: uploadFeedback
+
+      property bool isVisible: uploadLabel.text !== ""
+
+      anchors.left: parent.left
+      anchors.right: parent.right
+      anchors.bottom: parent.bottom
+      anchors.margins: 10
+      height: isVisible ? uploadLabel.contentHeight + uploadProgress.height + 25 : 0
+
+      radius: 8
+      color: Theme.groupBoxBackgroundColor
+      clip: true
+      opacity: isVisible ? 1 : 0
+
+      Behavior on opacity  {
+        PropertyAnimation {
+          easing.type: Easing.OutQuart
+        }
+      }
+
+      Column {
+        anchors.fill: parent
+        anchors.margins: 10
+        spacing: 5
+
+        Text {
+          id: uploadLabel
+          width: parent.width
+          wrapMode: Text.WordWrap
+          text: ""
+          font: Theme.tipFont
+          color: Theme.mainTextColor
+        }
+
+        ProgressBar {
+          id: uploadProgress
+          width: parent.width
+          indeterminate: false
+          from: 0
+          to: 1
+        }
+      }
+    }
   }
 
   Connections {
@@ -682,6 +731,19 @@ Popup {
           popup.visible = false;
         }
       }
+    }
+
+    function onPendingAttachmentsUploadStatus(fileName, fileProgress, uploadPending) {
+      let text = qsTr("Uploading %1").arg(fileName);
+      if (uploadPending > 0) {
+        text += " — " + qsTr("%n file(s) remaining", "", uploadPending);
+      }
+      uploadLabel.text = text;
+      uploadProgress.value = fileProgress;
+    }
+
+    function onPendingAttachmentsUploadFinished() {
+      uploadLabel.text = "";
     }
   }
 

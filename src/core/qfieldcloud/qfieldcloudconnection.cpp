@@ -13,7 +13,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "appinterface.h"
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudutils.h"
@@ -800,6 +799,7 @@ int QFieldCloudConnection::uploadPendingAttachments()
   }
 
   mUploadPendingCount = attachments.size();
+  mUploadDoneCount = 0;
   mUploadFailingCount = 0;
   processPendingAttachments();
   return mUploadPendingCount;
@@ -827,8 +827,15 @@ void QFieldCloudConnection::processPendingAttachments()
     const QString apiPath = projectDir.relativeFilePath( it.value() );
     NetworkReply *attachmentCloudReply = post( QStringLiteral( "/api/v1/files/%1/%2/" ).arg( it.key(), apiPath ), QVariantMap(), QStringList( { it.value() } ) );
 
-    QString projectId = it.key();
-    QString fileName = it.value();
+    const QString projectId = it.key();
+    const QString fileName = it.value();
+    const QString statusName = QStringLiteral( "%1:%2" ).arg( QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "name" ), QString() ).toString(), apiPath );
+    emit pendingAttachmentsUploadStatus( statusName, 0.0, mUploadPendingCount - 1 );
+
+    connect( attachmentCloudReply, &NetworkReply::uploadProgress, this, [this, statusName]( qint64 bytesSent, qint64 bytesTotal ) {
+      emit pendingAttachmentsUploadStatus( statusName, bytesTotal > 0 ? static_cast<double>( bytesSent ) / bytesTotal : 0, mUploadPendingCount - 1 );
+    } );
+
     connect( attachmentCloudReply, &NetworkReply::finished, this, [this, attachmentCloudReply, fileName, projectId]() {
       QNetworkReply *attachmentReply = attachmentCloudReply->currentRawReply();
       attachmentCloudReply->deleteLater();
@@ -873,12 +880,11 @@ void QFieldCloudConnection::processPendingAttachments()
         }
 
         qDebug() << QStringLiteral( "Attachment reply content: %1" ).arg( attachmentReply->readAll() );
-
-        AppInterface::instance()->sendLog( QStringLiteral( "QFieldCloud file upload HTTP code oddity!" ), QString() );
       }
 
       QFieldCloudUtils::removePendingAttachment( mUsername, projectId, fileName );
       mUploadPendingCount--;
+      mUploadDoneCount++;
       mUploadFailingCount = 0;
 
       if ( mUploadPendingCount > 0 )
