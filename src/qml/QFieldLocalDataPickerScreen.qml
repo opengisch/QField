@@ -32,7 +32,7 @@ Page {
     showBackButton: true
     showApplyButton: false
     showCancelButton: false
-    showMenuButton: localFilesModel.inSelectionMode && (table.selectedItemsPushableToQField || table.selectedItemsWebDavConfigured)
+    showMenuButton: localFilesModel.inSelectionMode && (table.selectedItemsPushableToQField || table.selectedItemsWebDavConfigured || table.selectedItemsDeletable)
     backAsCancel: localFilesModel.inSelectionMode
 
     topMargin: mainWindow.sceneTopMargin
@@ -105,6 +105,12 @@ Page {
 
         model: LocalFilesModel {
           id: localFilesModel
+
+          onInSelectionModeChanged: {
+            if (!inSelectionMode) {
+              table.selectedList = [];
+            }
+          }
         }
 
         anchors.fill: parent
@@ -151,6 +157,7 @@ Page {
         property var selectedList: []
         property bool selectedItemsWebDavConfigured
         property bool selectedItemsPushableToQField
+        property bool selectedItemsDeletable
 
         delegate: Rectangle {
           id: rectangle
@@ -294,21 +301,32 @@ Page {
               }
             }
           }
+        }
 
-          onItemCheckedChanged: {
-            const itemIndexInList = table.selectedList.findIndex(q => q === index);
-            if (itemIndexInList === -1) {
-              table.selectedList.push(index);
-            } else {
-              table.selectedList.splice(itemIndexInList, 1);
-            }
-            table.selectedItemsWebDavConfigured = true;
-            table.selectedItemsPushableToQField = true;
-            for (let i = 0; i < table.selectedList.length; ++i) {
-              const item = table.itemAtIndex(table.selectedList[i]);
-              table.selectedItemsWebDavConfigured = table.selectedItemsWebDavConfigured && item.itemHasWebdavConfiguration;
-              table.selectedItemsPushableToQField = (table.selectedItemsPushableToQField && item.itemMetaType == LocalFilesModel.Dataset && item.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (item.itemMetaType == LocalFilesModel.Folder && item.itemWithinQFieldCloudProjectFolder);
-            }
+        function updateSelection(item) {
+          const newCheckedState = !item.itemChecked;
+          table.model.setChecked(item.itemIndex, newCheckedState);
+          const itemIndexInList = table.selectedList.findIndex(q => q === item.itemIndex);
+          if (newCheckedState && itemIndexInList === -1) {
+            table.selectedList.push(item.itemIndex);
+          } else if (!newCheckedState && itemIndexInList !== -1) {
+            table.selectedList.splice(itemIndexInList, 1);
+          }
+          if (table.selectedList.length === 0) {
+            table.selectedItemsWebDavConfigured = false;
+            table.selectedItemsPushableToQField = false;
+            table.selectedItemsDeletable = false;
+            return;
+          }
+          table.selectedItemsWebDavConfigured = true;
+          table.selectedItemsPushableToQField = true;
+          table.selectedItemsDeletable = true;
+          for (let i = 0; i < table.selectedList.length; ++i) {
+            const selectedItem = table.model.get(table.selectedList[i]);
+            table.selectedItemsWebDavConfigured = table.selectedItemsWebDavConfigured && webdavConnectionLoader.item.hasWebdavConfiguration(selectedItem.path);
+            const itemWithinQFieldCloudProjectFolder = cloudProjectsModel.currentProjectId !== "" && selectedItem.path.search(cloudProjectsModel.currentProjectId) !== -1;
+            table.selectedItemsPushableToQField = (table.selectedItemsPushableToQField && selectedItem.metaType == LocalFilesModel.Dataset && selectedItem.type == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (selectedItem.metaType == LocalFilesModel.Folder && itemWithinQFieldCloudProjectFolder);
+            table.selectedItemsDeletable = table.selectedItemsDeletable && FileUtils.isDeletable(selectedItem.path);
           }
         }
 
@@ -319,7 +337,7 @@ Page {
           onClicked: mouse => {
             const item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
             if (item && localFilesModel.inSelectionMode) {
-              table.model.setChecked(item.itemIndex, !item.itemChecked);
+              table.updateSelection(item);
               return;
             }
             if (itemMenu.visible) {
@@ -365,7 +383,7 @@ Page {
             }
             const item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
             if (item)
-              table.model.setChecked(item.itemIndex, !item.itemChecked);
+              table.updateSelection(item);
           }
         }
       }
@@ -611,10 +629,27 @@ Page {
       }
 
       MenuSeparator {
-        enabled: removeDataset.visible || removeProjectFolder.visible
+        enabled: deleteFile.visible || removeDataset.visible || removeProjectFolder.visible
         visible: enabled
         width: parent.width
         height: enabled ? undefined : 0
+      }
+
+      MenuItem {
+        id: deleteFile
+        enabled: FileUtils.isDeletable(itemMenu.itemPath)
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Delete file")
+        onTriggered: {
+          confirmRemoveDialog.itemsToRemove = [itemMenu.itemPath];
+          confirmRemoveDialog.open();
+        }
       }
 
       MenuItem {
@@ -849,8 +884,8 @@ Page {
         onTriggered: {
           var fileNames = [];
           for (let i = 0; i < table.selectedList.length; ++i) {
-            const item = table.itemAtIndex(table.selectedList[i]);
-            fileNames.push(item.itemPath);
+            const item = table.model.get(table.selectedList[i]);
+            fileNames.push(item.path);
           }
           if (webdavConnectionLoader.item && fileNames.length > 0) {
             webdavConnectionLoader.item.uploadPaths(fileNames);
@@ -873,17 +908,42 @@ Page {
         onTriggered: {
           var fileNames = [];
           for (let i = 0; i < table.selectedList.length; ++i) {
-            const item = table.itemAtIndex(table.selectedList[i]);
-            const pushableToCloud = (item.itemMetaType == LocalFilesModel.Dataset && item.itemType == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (item.itemMetaType == LocalFilesModel.Folder && item.itemWithinQFieldCloudProjectFolder);
-            if (pushableToCloud) {
-              fileNames.push(item.itemPath);
-            }
+            const item = table.model.get(table.selectedList[i]);
+            const itemWithinQFieldCloudProjectFolder = cloudProjectsModel.currentProjectId !== "" && item.path.search(cloudProjectsModel.currentProjectId) !== -1;
+            const pushableToCloud = (item.metaType === LocalFilesModel.Dataset && item.type === LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (item.metaType === LocalFilesModel.Folder && itemWithinQFieldCloudProjectFolder);
+            if (pushableToCloud)
+              fileNames.push(item.path);
           }
           if (fileNames.length > 0) {
             pushFilesToQFieldCloudConnection.enabled = true;
             QFieldCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, QFieldCloudUtils.getProjectId(table.model.currentPath), fileNames, cloudConnection, true);
           } else {
             displayToast(qsTr("Please select one or more files to push to QFieldCloud."));
+          }
+        }
+      }
+
+      MenuItem {
+        id: deleteSelectedFiles
+
+        enabled: table.selectedItemsDeletable
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Delete file(s)")
+        onTriggered: {
+          var fileNames = [];
+          for (let i = 0; i < table.selectedList.length; ++i) {
+            const item = table.model.get(table.selectedList[i]);
+            fileNames.push(item.path);
+          }
+          if (fileNames.length > 0) {
+            confirmRemoveDialog.itemsToRemove = fileNames;
+            confirmRemoveDialog.open();
           }
         }
       }
@@ -907,6 +967,43 @@ Page {
         displayToast(qsTr("Items being uploaded to QFieldCloud"));
       }
       pushFilesToQFieldCloudConnection.enabled = false;
+    }
+  }
+
+  QfDialog {
+    id: confirmRemoveDialog
+    parent: mainWindow.contentItem
+    title: qsTr("Remove File(s)")
+
+    property list<string> itemsToRemove: []
+
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: qsTr("Are you sure you want to remove %n files?", "", confirmRemoveDialog.itemsToRemove.length)
+    }
+
+    onAccepted: {
+      const results = FileUtils.deleteFiles(itemsToRemove);
+      let allSucceeded = true;
+      let failedCount = 0;
+      for (let i = 0; i < itemsToRemove.length; i++) {
+        if (!results[itemsToRemove[i]]) {
+          allSucceeded = false;
+          failedCount++;
+        }
+      }
+      if (allSucceeded) {
+        displayToast(qsTr("%n file(s) deleted successfully", "", confirmRemoveDialog.itemsToRemove.length));
+      } else {
+        displayToast(qsTr("Failed to delete %n file(s)", "", failedCount));
+      }
+      table.model.resetToPath(table.model.currentPath);
+      localFilesModel.clearSelection();
+    }
+
+    onRejected: {
+      visible = false;
     }
   }
 
