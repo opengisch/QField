@@ -304,7 +304,6 @@ Popup {
     Video {
       id: videoPreview
       anchors.fill: parent
-
       visible: cameraItem.state == "VideoPreview"
 
       loops: MediaPlayer.Infinite

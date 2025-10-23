@@ -44,12 +44,22 @@ QfPopup {
     id: microphonePermission
   }
 
-  CaptureSession {
-    id: captureSession
-    audioInput: AudioInput {
-    }
-    recorder: AudioRecorder {
-      id: recorder
+  AudioRecorder {
+    id: recorder
+  }
+
+  Loader {
+    id: captureSessionLoader
+    active: microphonePermission.status !== Qt.PermissionStatus.Undetermined
+
+    property AudioRecorder audioRecorder: recorder
+
+    sourceComponent: Component {
+      CaptureSession {
+        audioInput: AudioInput {
+        }
+        recorder: audioRecorder
+      }
     }
   }
 
@@ -72,15 +82,16 @@ QfPopup {
   Video {
     id: player
 
-    visible: false
+    property bool loaded: false
 
     anchors.left: parent.left
     anchors.top: parent.top
-
+    visible: false
     width: parent.width
     height: parent.height - 54
 
-    property bool loaded: false
+    muted: false
+    volume: 1.0
 
     onDurationChanged: {
       if (duration > 0 && !loaded) {
