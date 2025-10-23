@@ -1199,56 +1199,6 @@ void FeatureModel::applyGeometryToVertexModel()
   mVertexModel->setGeometry( mFeature.geometry() );
 }
 
-// a filter to gather all matches at the same place
-// taken from QGIS' qgsvectortool.cpp
-class MatchCollectingFilter : public QgsPointLocator::MatchFilter
-{
-  public:
-    QList<QgsPointLocator::Match> matches;
-
-    MatchCollectingFilter() {}
-
-    bool acceptMatch( const QgsPointLocator::Match &match ) override
-    {
-      // there may be multiple points at the same location, but we get only one
-      // result... the locator API needs a new method verticesInRect()
-      QgsFeature f;
-      match.layer()->getFeatures( QgsFeatureRequest( match.featureId() ).setNoAttributes() ).nextFeature( f );
-      QgsGeometry matchGeom = f.geometry();
-      bool isPolygon = matchGeom.type() == Qgis::GeometryType::Polygon;
-      QgsVertexId polygonRingVid;
-      QgsVertexId vid;
-      QgsPoint pt;
-      while ( matchGeom.constGet()->nextVertex( vid, pt ) )
-      {
-        int vindex = matchGeom.vertexNrFromVertexId( vid );
-        if ( pt.x() == match.point().x() && pt.y() == match.point().y() )
-        {
-          if ( isPolygon )
-          {
-            // for polygons we need to handle the case where the first vertex is matching because the
-            // last point will have the same coordinates and we would have a duplicate match which
-            // would make subsequent code behave incorrectly (topology editing mode would add a single
-            // vertex twice)
-            if ( vid.vertex == 0 )
-            {
-              polygonRingVid = vid;
-            }
-            else if ( vid.ringEqual( polygonRingVid ) && vid.vertex == matchGeom.constGet()->vertexCount( vid.part, vid.ring ) - 1 )
-            {
-              continue;
-            }
-          }
-
-          QgsPointLocator::Match extra_match( match.type(), match.layer(), match.featureId(),
-                                              0, match.point(), vindex );
-          matches.append( extra_match );
-        }
-      }
-      return true;
-    }
-};
-
 void FeatureModel::applyGeometryTopography( const QgsGeometry &geometry )
 {
   const double searchRadius = mLayer ? QgsVectorLayerEditUtils::getTopologicalSearchRadius( mLayer ) : 0.0;
@@ -1352,23 +1302,22 @@ QgsFeatureIds FeatureModel::applyVertexModelTopography()
     }
 
     QgsPointLocator loc( vectorLayer );
+    const double tol = QgsTolerance::vertexSearchRadius( vectorLayer, mVertexModel->mapSettings()->mapSettings() );
     for ( const auto &point : pointsMoved )
     {
-      MatchCollectingFilter filter;
-      loc.nearestVertex( point.first, QgsTolerance::vertexSearchRadius( vectorLayer, mVertexModel->mapSettings()->mapSettings() ), &filter );
-      for ( int i = 0; i < filter.matches.size(); i++ )
+      QgsPointLocator::MatchList matches = loc.verticesInRect( point.first, tol );
+      for ( int i = 0; i < matches.size(); i++ )
       {
-        vectorLayer->moveVertex( point.second, filter.matches.at( i ).featureId(), filter.matches.at( i ).vertexIndex() );
+        vectorLayer->moveVertex( point.second, matches.at( i ).featureId(), matches.at( i ).vertexIndex() );
       }
     }
 
     for ( const auto &point : pointsDeleted )
     {
-      MatchCollectingFilter filter;
-      loc.nearestVertex( point, 0, &filter );
-      for ( int i = 0; i < filter.matches.size(); i++ )
+      QgsPointLocator::MatchList matches = loc.verticesInRect( point, tol );
+      for ( int i = 0; i < matches.size(); i++ )
       {
-        vectorLayer->deleteVertex( filter.matches.at( i ).featureId(), filter.matches.at( i ).vertexIndex() );
+        vectorLayer->deleteVertex( matches.at( i ).featureId(), matches.at( i ).vertexIndex() );
       }
     }
 
