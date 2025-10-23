@@ -625,6 +625,14 @@ ApplicationWindow {
       color: mapCanvas.mapSettings.backgroundColor
     }
 
+    GridRenderer {
+      mapSettings: mapCanvas.mapSettings
+      enabled: !gridDecoration.enabled
+      indeterminate: true
+      prepareLines: true
+      autoColor: true
+    }
+
     /* The map canvas */
     MapCanvas {
       id: mapCanvasMap
@@ -4240,7 +4248,7 @@ ApplicationWindow {
       gridDecoration.xOffset = gridDecorationConfiguration["xOffset"];
       gridDecoration.yOffset = gridDecorationConfiguration["yOffset"];
       gridDecoration.prepareLines = gridDecorationConfiguration["hasLines"];
-      gridDecoration.lineColor = gridDecorationConfiguration["lineColor"];
+      gridDecoration.majorLineColor = gridDecorationConfiguration["lineColor"];
       gridDecoration.prepareMarkers = gridDecorationConfiguration["hasMarkers"];
       gridDecoration.markerColor = gridDecorationConfiguration["markerColor"];
       gridDecoration.prepareAnnotations = gridDecorationConfiguration["hasAnnotations"];

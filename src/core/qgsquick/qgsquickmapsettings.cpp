@@ -427,6 +427,7 @@ void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
   emit outputSizeChanged();
   emit outputDpiChanged();
   emit layersChanged();
+  emit backgroundColorChanged();
   emit temporalStateChanged();
 }
 
