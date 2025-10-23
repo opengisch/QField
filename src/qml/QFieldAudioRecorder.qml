@@ -82,15 +82,16 @@ QfPopup {
   Video {
     id: player
 
-    visible: false
+    property bool loaded: false
 
     anchors.left: parent.left
     anchors.top: parent.top
-
+    visible: false
     width: parent.width
     height: parent.height - 54
 
-    property bool loaded: false
+    muted: false
+    volume: 1.0
 
     onDurationChanged: {
       if (duration > 0 && !loaded) {

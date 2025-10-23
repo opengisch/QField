@@ -344,6 +344,8 @@ EditorWidgetBase {
           visible: isVideo
           anchors.fill: parent
 
+          muted: false
+          volume: 1.0
           source: player.sourceUrl
 
           onHasVideoChanged: {
