@@ -686,6 +686,13 @@ Popup {
       radius: 8
       color: Theme.groupBoxBackgroundColor
       clip: true
+      opacity: isVisible ? 1 : 0
+
+      Behavior on opacity  {
+        PropertyAnimation {
+          easing.type: Easing.OutQuart
+        }
+      }
 
       Column {
         anchors.fill: parent

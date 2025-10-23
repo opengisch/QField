@@ -50,7 +50,7 @@ void QFieldCloudService::initService()
                                         progress );
   } );
   QObject::connect( mCloudConnection.get(), &QFieldCloudConnection::pendingAttachmentsUploadFinished, this, [=]() {
-    exit( 1 );
+    exit();
   } );
 
   QTimer::singleShot( 1000, [=] { uploadPendingAttachments(); } );

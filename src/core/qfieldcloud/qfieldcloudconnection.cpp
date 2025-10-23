@@ -829,10 +829,11 @@ void QFieldCloudConnection::processPendingAttachments()
 
     const QString projectId = it.key();
     const QString fileName = it.value();
-    emit pendingAttachmentsUploadStatus( apiPath, 0.0, mUploadPendingCount - 1 );
+    const QString statusName = QStringLiteral( "%1:%2" ).arg( QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "name" ), QString() ).toString(), apiPath );
+    emit pendingAttachmentsUploadStatus( statusName, 0.0, mUploadPendingCount - 1 );
 
-    connect( attachmentCloudReply, &NetworkReply::uploadProgress, this, [this, apiPath]( qint64 bytesSent, qint64 bytesTotal ) {
-      emit pendingAttachmentsUploadStatus( apiPath, bytesTotal > 0 ? static_cast<double>( bytesSent ) / bytesTotal : 0, mUploadPendingCount - 1 );
+    connect( attachmentCloudReply, &NetworkReply::uploadProgress, this, [this, statusName]( qint64 bytesSent, qint64 bytesTotal ) {
+      emit pendingAttachmentsUploadStatus( statusName, bytesTotal > 0 ? static_cast<double>( bytesSent ) / bytesTotal : 0, mUploadPendingCount - 1 );
     } );
 
     connect( attachmentCloudReply, &NetworkReply::finished, this, [this, attachmentCloudReply, fileName, projectId]() {
