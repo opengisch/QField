@@ -33,11 +33,7 @@ QfPopup {
   onAboutToShow: {
     preRecording = true;
     player.source = '';
-    console.log('loading...');
-    console.log(mediaDevices.audioInputs);
-    console.log(mediaDevices.defaultAudioInput);
     if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
-      console.log('requesting...');
       microphonePermission.request();
     }
     recorder.mediaFormat.audioCodec = MediaFormat.AudioCodec.AAC;
@@ -46,35 +42,24 @@ QfPopup {
 
   QfMicrophonePermission {
     id: microphonePermission
-    onStatusChanged: {
-      console.log('status changed...');
-      console.log(status);
-      console.log(mediaDevices.audioInputs);
-      console.log(mediaDevices.defaultAudioInput);
-    }
   }
 
-  MediaDevices {
-    id: mediaDevices
-
-    onAudioInputsChanged: {
-      console.log('audio inputs changed...');
-      console.log(mediaDevices.audioInputs);
-    }
-
-    onDefaultAudioInputChanged: {
-      console.log('default audio input changed...');
-      console.log(mediaDevices.defaultAudioInput);
-    }
+  AudioRecorder {
+    id: recorder
   }
 
-  CaptureSession {
-    id: captureSession
-    audioInput: AudioInput {
-      device: mediaDevices.defaultAudioInput
-    }
-    recorder: AudioRecorder {
-      id: recorder
+  Loader {
+    id: captureSessionLoader
+    active: microphonePermission.status !== Qt.PermissionStatus.Undetermined
+
+    property AudioRecorder audioRecorder: recorder
+
+    sourceComponent: Component {
+      CaptureSession {
+        audioInput: AudioInput {
+        }
+        recorder: audioRecorder
+      }
     }
   }
 
