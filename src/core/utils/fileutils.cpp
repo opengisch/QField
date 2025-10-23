@@ -852,7 +852,9 @@ bool FileUtils::isDeletable( const QString &filePath )
 {
   const QFileInfo fileInfo( filePath );
   if ( !fileInfo.exists() || !fileInfo.isFile() )
+  {
     return false;
+  }
 
   const QString canonicalFilePath = fileInfo.canonicalFilePath();
 
@@ -861,11 +863,15 @@ bool FileUtils::isDeletable( const QString &filePath )
 
   const QString appDataDir = QFileInfo( PlatformUtilities::instance()->applicationDirectory() ).canonicalFilePath();
   if ( !appDataDir.isEmpty() )
+  {
     allowedDirectories << appDataDir;
+  }
 
   const QString cloudDataDir = QFileInfo( QFieldCloudUtils::localCloudDirectory() ).canonicalFilePath();
   if ( !cloudDataDir.isEmpty() )
+  {
     allowedDirectories << cloudDataDir;
+  }
 
   const QStringList extraDirs = PlatformUtilities::instance()->additionalApplicationDirectories();
   for ( const QString &dir : extraDirs )
@@ -874,7 +880,9 @@ bool FileUtils::isDeletable( const QString &filePath )
     {
       const QString canonicalDir = QFileInfo( dir ).canonicalFilePath();
       if ( !canonicalDir.isEmpty() )
+      {
         allowedDirectories << canonicalDir;
+      }
     }
   }
 
@@ -884,7 +892,9 @@ bool FileUtils::isDeletable( const QString &filePath )
   } );
 
   if ( !isInsideAllowedDir )
+  {
     return false;
+  }
 
   const QString suffix = fileInfo.suffix().toLower();
 
