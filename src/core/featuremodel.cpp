@@ -865,16 +865,16 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
       {
         // Remove any invalid intersection in polygon geometry
         QgsGeometry sanitizedGeometry;
-        if ( QgsGeometryCollection *collection = qgsgeometry_cast<QgsGeometryCollection *>( geometry.get() ) )
+        if ( const QgsGeometryCollection *collection = qgsgeometry_cast<const QgsGeometryCollection *>( geometry.constGet() ) )
         {
-          QgsGeometryPartIterator parts = collection->parts();
+          QgsGeometryConstPartIterator parts = collection->parts();
           while ( parts.hasNext() )
           {
-            QgsGeometry part( parts.next() );
+            QgsGeometry part( parts.next()->clone() );
             sanitizedGeometry.addPartV2( part.buffer( 0.0, 5 ).constGet()->clone(), Qgis::WkbType ::Polygon );
           }
         }
-        else if ( QgsCurvePolygon *polygon = qgsgeometry_cast<QgsCurvePolygon *>( geometry.get() ) )
+        else if ( const QgsCurvePolygon *polygon = qgsgeometry_cast<const QgsCurvePolygon *>( geometry.constGet() ) )
         {
           sanitizedGeometry = geometry.buffer( 0.0, 5 );
         }
