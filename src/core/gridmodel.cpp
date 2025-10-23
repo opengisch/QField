@@ -35,14 +35,7 @@ void GridModel::setEnabled( bool enabled )
   }
   else
   {
-    if ( !mMajorLines.isEmpty() || !mMinorLines.isEmpty() || !mMarkers.isEmpty() || !mAnnotations.isEmpty() )
-    {
-      mMajorLines.clear();
-      mMinorLines.clear();
-      mMarkers.clear();
-      mAnnotations.clear();
-      emit gridChanged();
-    }
+    clear();
   }
 }
 
@@ -142,11 +135,15 @@ void GridModel::setPrepareLines( bool prepare )
   }
   else
   {
-    if ( !mMajorLines.isEmpty() || !mMinorLines.isEmpty() )
+    if ( !mMajorLines.isEmpty() )
     {
       mMajorLines.clear();
+      emit majorLinesChanged();
+    }
+    if ( !mMinorLines.isEmpty() )
+    {
       mMinorLines.clear();
-      emit gridChanged();
+      emit minorLinesChanged();
     }
   }
 }
@@ -168,7 +165,7 @@ void GridModel::setPrepareMarkers( bool prepare )
     if ( !mMarkers.isEmpty() )
     {
       mMarkers.clear();
-      emit gridChanged();
+      emit markersChanged();
     }
   }
 }
@@ -190,7 +187,7 @@ void GridModel::setPrepareAnnotations( bool prepare )
     if ( !mAnnotations.isEmpty() )
     {
       mAnnotations.clear();
-      emit gridChanged();
+      emit annotationsChanged();
     }
   }
 }
@@ -288,6 +285,30 @@ void GridModel::setAnnotationPrecision( int precision )
   emit annotationPrecisionChanged();
 }
 
+void GridModel::clear()
+{
+  if ( !mMajorLines.isEmpty() )
+  {
+    mMajorLines.clear();
+    emit majorLinesChanged();
+  }
+  if ( !mMinorLines.isEmpty() )
+  {
+    mMinorLines.clear();
+    emit minorLinesChanged();
+  }
+  if ( !mMarkers.isEmpty() )
+  {
+    mMarkers.clear();
+    emit markersChanged();
+  }
+  if ( !mAnnotations.isEmpty() )
+  {
+    mAnnotations.clear();
+    emit annotationsChanged();
+  }
+}
+
 void GridModel::update()
 {
   if ( !mEnabled || !mMapSettings )
@@ -295,20 +316,10 @@ void GridModel::update()
     return;
   }
 
-  bool hadGrid = !mMajorLines.isEmpty() || !mMinorLines.isEmpty() || !mMarkers.isEmpty() || !mAnnotations.isEmpty();
-
-  mMajorLines.clear();
-  mMinorLines.clear();
-  mMarkers.clear();
-  mAnnotations.clear();
-
   const QgsRectangle visibleExtent = mMapSettings->visibleExtent();
   if ( qgsDoubleNear( mMapSettings->mapUnitsPerPoint(), 0.0 ) || visibleExtent.isEmpty() )
   {
-    if ( hadGrid )
-    {
-      emit gridChanged();
-    }
+    clear();
     return;
   }
 
@@ -333,13 +344,17 @@ void GridModel::update()
     double smallestScreenInterval = std::min( mXInterval / mMapSettings->mapUnitsPerPoint(), mYInterval / mMapSettings->mapUnitsPerPoint() );
     if ( qgsDoubleNear( smallestScreenInterval, 0.0 ) || smallestScreenInterval < ( mPrepareMarkers ? 20 : 10 ) )
     {
-      if ( hadGrid )
-      {
-        emit gridChanged();
-      }
+      clear();
       return;
     }
   }
+
+  const bool hadMinorLines = !mMinorLines.isEmpty();
+
+  mMajorLines.clear();
+  mMinorLines.clear();
+  mMarkers.clear();
+  mAnnotations.clear();
 
   const double xInterval = mIndeterminate ? mIndeterminateInterval : mXInterval;
   const double yInterval = mIndeterminate ? mIndeterminateInterval : mYInterval;
@@ -476,7 +491,22 @@ void GridModel::update()
     }
   }
 
-  emit gridChanged();
+  if ( mPrepareMarkers )
+  {
+    emit markersChanged();
+  }
+  if ( mPrepareLines )
+  {
+    emit majorLinesChanged();
+    if ( !mMinorLines.isEmpty() || hadMinorLines )
+    {
+      emit minorLinesChanged();
+    }
+  }
+  if ( mPrepareAnnotations )
+  {
+    emit annotationsChanged();
+  }
 }
 
 void GridModel::updateColors()

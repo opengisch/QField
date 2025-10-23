@@ -62,7 +62,7 @@ Item {
 
   Shape {
     id: minorLinesContainer
-    visible: gridModel.prepareLines && minorLineSvgPath.path !== ""
+    visible: gridModel.prepareLines && gridModel.minorLines.length > 0
     anchors.fill: parent
 
     ShapePath {
@@ -83,7 +83,7 @@ Item {
 
   Shape {
     id: majorLinesContainer
-    visible: gridModel.prepareLines && majorLineSvgPath.path !== ""
+    visible: gridModel.prepareLines && gridModel.majorLines.length > 0
     anchors.fill: parent
 
     ShapePath {
@@ -125,7 +125,7 @@ Item {
 
   Repeater {
     id: annotationsContainer
-    model: gridModel.prepareAnnotations && gridModel.annotations
+    model: gridModel.prepareAnnotations && gridModel.annotations.length > 0
 
     Rectangle {
       x: modelData.coordinate.x - width / 2

@@ -71,12 +71,13 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     Q_PROPERTY( double yOffset READ yOffset WRITE setYOffset NOTIFY yOffsetChanged )
 
     Q_PROPERTY( bool prepareLines READ prepareLines WRITE setPrepareLines NOTIFY prepareLinesChanged )
-    Q_PROPERTY( QList<QList<QPointF>> majorLines READ majorLines NOTIFY gridChanged )
-    Q_PROPERTY( QList<QList<QPointF>> minorLines READ minorLines NOTIFY gridChanged )
     Q_PROPERTY( bool prepareMarkers READ prepareMarkers WRITE setPrepareMarkers NOTIFY prepareMarkersChanged )
-    Q_PROPERTY( QList<QPointF> markers READ markers NOTIFY gridChanged )
     Q_PROPERTY( bool prepareAnnotations READ prepareAnnotations WRITE setPrepareAnnotations NOTIFY prepareAnnotationsChanged )
-    Q_PROPERTY( QList<GridAnnotation> annotations READ annotations NOTIFY gridChanged )
+
+    Q_PROPERTY( QList<QList<QPointF>> majorLines READ majorLines NOTIFY majorLinesChanged )
+    Q_PROPERTY( QList<QList<QPointF>> minorLines READ minorLines NOTIFY minorLinesChanged )
+    Q_PROPERTY( QList<QPointF> markers READ markers NOTIFY markersChanged )
+    Q_PROPERTY( QList<GridAnnotation> annotations READ annotations NOTIFY markersChanged )
 
     Q_PROPERTY( bool autoColor READ autoColor WRITE setAutoColor NOTIFY autoColorChanged )
     Q_PROPERTY( QColor majorLineColor READ majorLineColor WRITE setMajorLineColor NOTIFY majorLineColorChanged )
@@ -255,8 +256,17 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     //! Emitted when grid annotations preparation setting has changed
     void prepareAnnotationsChanged();
 
-    //! Emitted when the grid lines, markers, and/or annotations have changed
-    void gridChanged();
+    //! Emitted when the grid major lines have changed
+    void majorLinesChanged();
+
+    //! Emitted when the grid minor lines have changed
+    void minorLinesChanged();
+
+    //! Emitted when the grid markers have changed
+    void markersChanged();
+
+    //! Emitted when the grid annotations have changed
+    void annotationsChanged();
 
     //! Emitted when the grid line and marker colors are automatically assigned
     void autoColorChanged();
@@ -283,6 +293,7 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     void annotationPrecisionChanged();
 
   private:
+    void clear();
     void update();
     void updateColors();
 
