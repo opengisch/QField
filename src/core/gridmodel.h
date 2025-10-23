@@ -105,7 +105,7 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     bool indeterminate() const { return mIndeterminate; }
 
     /**
-     * Sets whther the grid will adopt an indeterminate behavior
+     * Sets whether the grid will adopt an indeterminate behavior
      * and ignore the interval and offset values.
      */
     void setIndeterminate( bool indeterminate );
@@ -172,13 +172,13 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
 
     /**
      * Returns whether grid line and marker colors will be automatically assigned to
-     * colors derivez from the map canvas background color.
+     * colors derived from the map canvas background color.
      */
     bool autoColor() const { return mAutoColor; }
 
     /**
      * Set whether grid line and marker colors will be automatically assigned to
-     * colors derivez from the map canvas background color.
+     * colors derived from the map canvas background color.
      */
     void setAutoColor( bool autoColor );
 

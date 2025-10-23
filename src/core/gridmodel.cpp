@@ -303,6 +303,14 @@ void GridModel::update()
   mAnnotations.clear();
 
   const QgsRectangle visibleExtent = mMapSettings->visibleExtent();
+  if ( qgsDoubleNear( mMapSettings->mapUnitsPerPoint(), 0.0 ) || visibleExtent.isEmpty() )
+  {
+    if ( hadGrid )
+    {
+      emit gridChanged();
+    }
+    return;
+  }
 
   if ( mIndeterminate )
   {
@@ -370,10 +378,9 @@ void GridModel::update()
       const QLineF currentLine( mMapSettings->coordinateToScreen( QgsPoint( xPos, visibleExtent.yMinimum() ) ), mMapSettings->coordinateToScreen( QgsPoint( xPos, visibleExtent.yMaximum() ) ) );
       line << currentLine.p1() << currentLine.p2();
       mMajorLines << line;
-      mMinorLines << line;
       line.clear();
 
-      for ( int i = 1; i < minorDivisions; i++ )
+      for ( int i = 1; i < minorDivisions - 1; i++ )
       {
         const double minorXPos = xPos + minorInterval * i;
         const QLineF currentMinorLine( mMapSettings->coordinateToScreen( QgsPoint( minorXPos, visibleExtent.yMinimum() ) ), mMapSettings->coordinateToScreen( QgsPoint( minorXPos, visibleExtent.yMaximum() ) ) );
@@ -394,10 +401,9 @@ void GridModel::update()
 
       line << currentLine.p1() << currentLine.p2();
       mMajorLines << line;
-      mMinorLines << line;
       line.clear();
 
-      for ( int i = 1; i < minorDivisions; i++ )
+      for ( int i = 1; i < minorDivisions - 1; i++ )
       {
         const double minorYPos = yPos + minorInterval * i;
         const QLineF currentMinorLine( mMapSettings->coordinateToScreen( QgsPoint( visibleExtent.xMinimum(), minorYPos ) ), mMapSettings->coordinateToScreen( QgsPoint( visibleExtent.xMaximum(), minorYPos ) ) );
@@ -486,6 +492,4 @@ void GridModel::updateColors()
   color = backgroundColor.lightness() > 150 ? color.darker( 115 ) : color.lighter( 180 );
   setMajorLineColor( color );
   setMarkerColor( color );
-
-  update();
 }
