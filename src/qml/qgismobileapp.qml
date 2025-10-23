@@ -977,29 +977,41 @@ ApplicationWindow {
         pointHandler.registerHandler("LocationMarker", (point, type, interactionType) => {
             if (!locationMarker.visible || interactionType !== "clicked")
               return;
-            const dx = point.x - locationMarker.screenLocation.x;
-            const dy = point.y - locationMarker.screenLocation.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < 25) {
-              if (actionsPieMenu.tooCloseToLeft) {
-                actionsPieMenu.x = actionsPieMenu.minimumDistanceToScreenEdge;
-              } else if (actionsPieMenu.tooCloseToRight) {
-                actionsPieMenu.x = mainWindow.width - actionsPieMenu.width - actionsPieMenu.minimumDistanceToScreenEdge;
-              } else {
-                actionsPieMenu.x = locationMarker.screenLocation.x - actionsPieMenu.menuHalfSize;
-              }
-              if (actionsPieMenu.tooCloseToTop) {
-                actionsPieMenu.y = actionsPieMenu.minimumDistanceToScreenEdge;
-              } else if (actionsPieMenu.tooCloseToBottom) {
-                actionsPieMenu.y = mainWindow.height - actionsPieMenu.height - informationDrawer.height - actionsPieMenu.minimumDistanceToScreenEdge;
-              } else {
-                actionsPieMenu.y = locationMarker.screenLocation.y - actionsPieMenu.menuHalfSize;
-              }
-              actionsPieMenu.open();
-              return true;
-            }
-            return false;
+            openPieMenu(point);
           }, MapCanvasPointHandler.Priority.High);
+        if (!settings.valueBool("/QField/pieMenuOpenedOnce", false)) {
+          bubbleText = qsTr("Tap on your location marker\nto show actions");
+          bubbleColor = Theme.mainBackgroundColorSemiOpaque;
+          bubbleVisible = Qt.binding(() => locationMarker.isOnMapCanvas && locationMarker.visible);
+          bubbleAction = () => {
+            openPieMenu(locationMarker.screenLocation);
+          };
+        }
+      }
+
+      function openPieMenu(point) {
+        const dx = point.x - locationMarker.screenLocation.x;
+        const dy = point.y - locationMarker.screenLocation.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < 25) {
+          if (actionsPieMenu.tooCloseToLeft) {
+            actionsPieMenu.x = actionsPieMenu.minimumDistanceToScreenEdge;
+          } else if (actionsPieMenu.tooCloseToRight) {
+            actionsPieMenu.x = mainWindow.width - actionsPieMenu.width - actionsPieMenu.minimumDistanceToScreenEdge;
+          } else {
+            actionsPieMenu.x = locationMarker.screenLocation.x - actionsPieMenu.menuHalfSize;
+          }
+          if (actionsPieMenu.tooCloseToTop) {
+            actionsPieMenu.y = actionsPieMenu.minimumDistanceToScreenEdge;
+          } else if (actionsPieMenu.tooCloseToBottom) {
+            actionsPieMenu.y = mainWindow.height - actionsPieMenu.height - informationDrawer.height - actionsPieMenu.minimumDistanceToScreenEdge;
+          } else {
+            actionsPieMenu.y = locationMarker.screenLocation.y - actionsPieMenu.menuHalfSize;
+          }
+          actionsPieMenu.open();
+          return true;
+        }
+        return false;
       }
     }
 
@@ -1221,6 +1233,13 @@ ApplicationWindow {
           positioningSettings.showPositionInformation = checked;
           actionsPieMenu.close();
         }
+      }
+
+      Component.onCompleted: {
+        onOpened.connect(() => {
+            settings.setValue("/QField/pieMenuOpenedOnce", true);
+            locationMarker.bubbleVisible = false;
+          });
       }
     }
 
@@ -4914,7 +4933,7 @@ ApplicationWindow {
       }, {
         "type": "information",
         "title": qsTr("Positioning"),
-        "description": qsTr("This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities."),
+        "description": qsTr("This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored."),
         "target": () => [gnssButton]
       }, {
         "type": "information",
