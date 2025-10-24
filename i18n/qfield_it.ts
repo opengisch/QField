@@ -3019,6 +3019,14 @@ Anche se puoi ancora visualizzare e utilizzare questo progetto, è altamente rac
         <source>Cloudify!</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3519,6 +3527,17 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
 </context>
 <context>
+    <name>QFieldCloudService</name>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3552,55 +3571,55 @@ Messaggio dell&apos;errore: %4</translation>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>Cartella del Progetto</translation>
+        <translation type="vanished">Cartella del Progetto</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>Progetti &amp; Dataset Locali</translation>
+        <translation type="vanished">Progetti &amp; Dataset Locali</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>Cartelle</translation>
+        <translation type="vanished">Cartelle</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>Progetti</translation>
+        <translation type="vanished">Progetti</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>Dataset</translation>
+        <translation type="vanished">Dataset</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Preferiti</translation>
+        <translation type="vanished">Preferiti</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>File di progetto</translation>
+        <translation type="vanished">File di progetto</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>Dataset vettoriale</translation>
+        <translation type="vanished">Dataset vettoriale</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>Dataset raster</translation>
+        <translation type="vanished">Dataset raster</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>Invia a...</translation>
+        <translation type="vanished">Invia a...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Esporta nella cartella...</translation>
+        <translation type="vanished">Esporta nella cartella...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>Rimuovi dataset</translation>
+        <translation type="vanished">Rimuovi dataset</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>Invia cartella compressa a...</translation>
+        <translation type="vanished">Invia cartella compressa a...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3608,198 +3627,22 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Importa progetto da cartella</translation>
+        <translation type="vanished">Importa progetto da cartella</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>Importa progetto da ZIP</translation>
+        <translation type="vanished">Importa progetto da ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Importa dataset</translation>
+        <translation type="vanished">Importa dataset</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Aiuto per la gestione dell&apos;archiviazione</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>Importa URL</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Digita un URL qui sotto per scaricare e importare il progetto o il dataset:</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>Azioni dell&apos;oggetto</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>Importa Azioni</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>Azioni del progetto</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>Aggiorna progetto da ZIP</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aiuto per la gestione dell&apos;archiviazione</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6354,7 +6197,12 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
+        <source>Tap on your location marker
+to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
         <translation type="unfinished"/>
     </message>
 </context>

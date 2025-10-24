@@ -3015,6 +3015,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Cloudify!</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3511,6 +3519,17 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudService</name>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3544,55 +3563,55 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>プロジェクトフォルダ</translation>
+        <translation type="vanished">プロジェクトフォルダ</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>ローカルプロジェクト&amp;データセット</translation>
+        <translation type="vanished">ローカルプロジェクト&amp;データセット</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>フォルダ</translation>
+        <translation type="vanished">フォルダ</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>プロジェクト</translation>
+        <translation type="vanished">プロジェクト</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>データセット</translation>
+        <translation type="vanished">データセット</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>お気に入り</translation>
+        <translation type="vanished">お気に入り</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>プロジェクトファイル</translation>
+        <translation type="vanished">プロジェクトファイル</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>ベクターデータセット</translation>
+        <translation type="vanished">ベクターデータセット</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>ラスターデータセット</translation>
+        <translation type="vanished">ラスターデータセット</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>送信...</translation>
+        <translation type="vanished">送信...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>フォルダの出力先...</translation>
+        <translation type="vanished">フォルダの出力先...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>データセットを削除</translation>
+        <translation type="vanished">データセットを削除</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>圧縮フォルダの送信先...</translation>
+        <translation type="vanished">圧縮フォルダの送信先...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3600,198 +3619,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>プロジェクトをフォルダからインポート</translation>
+        <translation type="vanished">プロジェクトをフォルダからインポート</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>プロジェクトをZIPファイルからインポート</translation>
+        <translation type="vanished">プロジェクトをZIPファイルからインポート</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>データセットをインポート</translation>
+        <translation type="vanished">データセットをインポート</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>ストレージ管理に関するヘルプ</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>URLをインポートする</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>プロジェクトまたはデータセットをダウンロードしてインポートするには、次にURLを入力してください:</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>アイテムのアクション</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>インポートのアクション</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>プロジェクトのアクション</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>ZIPファイルからプロジェクトを更新する</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>‘%1’がQFieldCloudにアップロードされてします</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>お気に入りに追加</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>お気に入りから削除</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>ファイル</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>QFieldCloudにプッシュ</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>WebDAVサーバーにフォルダをアップロード</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>WebDAVサーバーからフォルダをダウンロード</translation>
-    </message>
-    <message>
-        <source>Remove folder</source>
-        <translation>フォルダを削除</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>WebDAVフォルダをインポート</translation>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>プロジェクトをWebDAVにアップロード</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>WebDAVからプロジェクトをダウンロード</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>WebDAVフォルダをインポートしています</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>WebDAVフォルダをダウンロードしています</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>WebDAVフォルダをアップロードしています</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>WebDAVエラー: </translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>WebDAVアップロード</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>WebDAVダウンロード</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>ユーザー &lt;b&gt;%2&lt;/b&gt;として修正したコンテンツを&lt;b&gt;%1&lt;/b&gt;へアップロードしようとしています。&lt;br&gt;&lt;br&gt;この操作はリモートで保存されたデータを上書きします。ご注意ください。</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>ユーザー &lt;b&gt;%2&lt;/b&gt;として修正したコンテンツを&lt;b&gt;%1&lt;/b&gt;からダウンロードしようとしています。&lt;br&gt;&lt;br&gt;この操作はローカルで保存されたデータを上書きします。ご注意ください。</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>パスワード（記憶したものを使う場合は空欄にしてください）</translation>
+        <translation type="vanished">ストレージ管理に関するヘルプ</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>パスワード</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>パスワードを記憶する</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>下にWebDAVの詳細を入力してリモートフォルダをインポート:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>WebDAVサーバーURL</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>インポートするリモートフォルダを選択:</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>リモートフォルダを取得しています</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>リモートフォルダを取得</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>ユーザーとパスワード</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>記憶したものを使う場合は空欄にしてください</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>WebDAVへファイルをアップロード</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>QFieldCloudにファイルをプッシュ</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>QFieldCloudにプッシュするファイルを一つ以上選択してください。</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>確認</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>保存されたWebDAVのアイテムを削除しようとしています。削除しますか？</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>ルートフォルダ</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>‘%1’でローカル上で利用可能</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation>インポートしたフォルダ名</translation>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6346,8 +6189,13 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
+        <source>Tap on your location marker
+to show actions</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
+        <translation>このボタンは測位システムを切り替えます。有効にすると、地図の上部に位置マーカーが表示されます。このボタンを長押しすると、その他の機能がある測位メニューが表示されます。</translation>
     </message>
 </context>
 <context>

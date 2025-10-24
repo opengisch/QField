@@ -3021,6 +3021,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>Cloudify!</source>
         <translation>Przenieś do chmury!</translation>
     </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3195,7 +3203,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Synchronizing</source>
-        <translation type="unfinished"/>
+        <translation>Synchronizacja</translation>
     </message>
 </context>
 <context>
@@ -3517,6 +3525,17 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
 </context>
 <context>
+    <name>QFieldCloudService</name>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3550,55 +3569,55 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>Katalog projektu</translation>
+        <translation type="vanished">Katalog projektu</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>Lokalne projekty i zestawy danych</translation>
+        <translation type="vanished">Lokalne projekty i zestawy danych</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>Katalogi</translation>
+        <translation type="vanished">Katalogi</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>Projekty</translation>
+        <translation type="vanished">Projekty</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>Zestawy danych</translation>
+        <translation type="vanished">Zestawy danych</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Ulubione</translation>
+        <translation type="vanished">Ulubione</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>Plik projektu</translation>
+        <translation type="vanished">Plik projektu</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>Zestaw danych wektorowych</translation>
+        <translation type="vanished">Zestaw danych wektorowych</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>Zestaw danych rastrowych</translation>
+        <translation type="vanished">Zestaw danych rastrowych</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>Wyślij do...</translation>
+        <translation type="vanished">Wyślij do...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Eksportuj do katalogu...</translation>
+        <translation type="vanished">Eksportuj do katalogu...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>Usuń zestaw danych</translation>
+        <translation type="vanished">Usuń zestaw danych</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>Wyślij skompresowany katalog do...</translation>
+        <translation type="vanished">Wyślij skompresowany katalog do...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3606,199 +3625,23 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Importuj projekt z katalogu</translation>
+        <translation type="vanished">Importuj projekt z katalogu</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>Importuj projekt z pliku ZIP</translation>
+        <translation type="vanished">Importuj projekt z pliku ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Importuj zestaw(y) danych</translation>
+        <translation type="vanished">Importuj zestaw(y) danych</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Pomoc dotycząca zarządzania pamięcią</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>Importuj URL</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Wprowadź poniżej URL, aby pobrać i zaimportować projekt lub zestaw danych:</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>Działania elementów</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>Importuj działania</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>Działania projektu</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>Zaktualizuj projekt z archiwum ZIP</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>&quot;%1&quot; jest przesyłane do QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>Dodaj do ulubionych</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>Usuń z ulubionych</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>Pliki</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Wyślij do QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Prześlij katalog na serwer WebDAV</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Pobierz katalog z serwera WebDAV</translation>
-    </message>
-    <message>
-        <source>Remove folder</source>
-        <translation>Usuń katalog</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>Importuj katalog WebDAV</translation>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>Prześlij projekt do WebDAV</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>Pobierz projekt z WebDAV</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>Importowanie katalogu WebDAV</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>Pobieranie katalogu WebDAV</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>Przesyłanie katalogu WebDAV</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>Błąd WebDAV: </translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>Przesyłanie WebDAV</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>Pobieranie WebDAV</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>Zamierzasz przesłać zmodyfikowaną zawartość do &lt;b&gt;%1&lt;/b&gt; przy użyciu użytkownika &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt; Ta operacja spowoduje nadpisanie danych przechowywanych zdalnie, upewnij się, że na pewno chcesz to zrobić.</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>Zamierzasz pobrać zmodyfikowaną zawartość z &lt;b&gt;%1&lt;/b&gt; przy użyciu użytkownika &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt; Ta operacja spowoduje nadpisanie danych przechowywanych lokalnie, upewnij się, że tego właśnie chcesz.</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>Hasło (pozostaw puste, aby użyć zapamiętanego)</translation>
+        <translation type="vanished">Pomoc dotycząca zarządzania pamięcią</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Hasło</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>Zapamiętaj hasło</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>Wpisz poniżej dane WebDAV, aby zaimportować katalog zdalny:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>Adres URL serwera WebDAV</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>Wybierz katalog zdalny do zaimportowania:</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>Pobieranie katalogów zdalnych</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>Pobierz zdalne katalogi</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>Użytkownik i hasło</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>pozostaw puste, aby użyć zapamiętanego</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>Prześlij plik(i) do WebDAV</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Prześlij plik(i) do QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Wybierz jeden lub więcej plików do przesłania do QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>Potwierdź</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>Zamierzasz usunąć zapisany element WebDAV, czy kontynuować?</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>folder główny</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>Dostępne lokalnie w &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation>Nazwa importowanego folderu</translation>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation>Wyświetl plik</translation>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>Elementy przesyłane do QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6355,8 +6198,13 @@ projekt</translation>
         <translation>Blokada kanwy mapy wstrzymana</translation>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
-        <translation>Ten przycisk przełącza system pozycjonowania. Po jego włączeniu w górnej części mapy pojawi się znacznik lokalizacji. Dotknięcie znacznika lokalizacji umożliwi Ci skorzystanie z dodatkowych funkcji pozycjonowania.</translation>
+        <source>Tap on your location marker
+to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
+        <translation>Ten przycisk przełącza system pozycjonowania. Po włączeniu na górze mapy pojawi się znacznik pozycji. Długie naciśnięcie przycisku spowoduje otwarcie menu pozycjonowania, w którym można korzystać z dodatkowych funkcji.</translation>
     </message>
 </context>
 <context>

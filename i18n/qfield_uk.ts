@@ -1083,7 +1083,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Features</source>
-        <translation>Особливості</translation>
+        <translation>Об&apos;єкти</translation>
     </message>
     <message>
         <source>Processing Algorithms</source>
@@ -1420,7 +1420,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show features list</source>
-        <translation>Показати список функцій</translation>
+        <translation>Показати список об&apos;єктів</translation>
     </message>
     <message>
         <source>The layer has no features</source>
@@ -2464,7 +2464,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Take image and video attachments</source>
-        <translation type="unfinished"/>
+        <translation>Взяти вкладення зображень і відео</translation>
     </message>
     <message>
         <source>Track your position?</source>
@@ -3021,6 +3021,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Cloudify!</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3195,7 +3203,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Synchronizing</source>
-        <translation type="unfinished"/>
+        <translation>Синхронізація</translation>
     </message>
 </context>
 <context>
@@ -3334,7 +3342,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Cloud project could not be created.</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося створити проект у хмарі.</translation>
     </message>
 </context>
 <context>
@@ -3517,6 +3525,17 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudService</name>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3550,55 +3569,55 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>Папка проектів</translation>
+        <translation type="vanished">Папка проектів</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>Локальні Проекти та Набори даних</translation>
+        <translation type="vanished">Локальні Проекти та Набори даних</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>Папки</translation>
+        <translation type="vanished">Папки</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>Проекти</translation>
+        <translation type="vanished">Проекти</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>Набори даних</translation>
+        <translation type="vanished">Набори даних</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Вибране</translation>
+        <translation type="vanished">Вибране</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>Файл проекту</translation>
+        <translation type="vanished">Файл проекту</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>Набір векторних даних</translation>
+        <translation type="vanished">Набір векторних даних</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>Набір растрових даних</translation>
+        <translation type="vanished">Набір растрових даних</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>Відправити...</translation>
+        <translation type="vanished">Відправити...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Експортувати в папку...</translation>
+        <translation type="vanished">Експортувати в папку...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>Видалити набір даних</translation>
+        <translation type="vanished">Видалити набір даних</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>Надіслати стиснуту папку до...</translation>
+        <translation type="vanished">Надіслати стиснуту папку до...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3606,198 +3625,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Імпорт проекту з папки</translation>
+        <translation type="vanished">Імпорт проекту з папки</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>Імпорт проекту з ZIP</translation>
+        <translation type="vanished">Імпорт проекту з ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Імпорт наборів даних</translation>
+        <translation type="vanished">Імпорт наборів даних</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Допомога в управлінні сховищем</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>Імпорт URL</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Введіть нижче URL-адресу, щоб завантажити та імпортувати проєкт або набір даних:</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>Оновити проект із ZIP</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>‘%1’ завантажується до QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>Додати до обраних</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>Видалити із обраних</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>Файли</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Надіслати до QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Завантаження папки на сервер WebDAV</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Завантажити папку із сервера WebDAV</translation>
-    </message>
-    <message>
-        <source>Remove folder</source>
-        <translation>Видалити папку</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>Імпорт папки WebDAV</translation>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>Завантаження проекту до WebDAV</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>Завантажити проект з WebDAV</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>Імпорт папки WebDAV</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>Завантаження папки WebDAV</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>Завантаження папки WebDAV</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>Помилка WebDAV:</translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>Завантаження WebDAV</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>Завантаження WebDAV</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>Ви збираєтеся завантажити змінений вміст до &lt;b&gt;%1&lt;/b&gt; за допомогою користувача &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Ця операція перезапише дані, що зберігаються віддалено, переконайтеся, що Ви хочете це зробити.</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>Ви збираєтеся завантажити змінений вміст з &lt;b&gt;%1&lt;/b&gt; за допомогою користувача &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Ця операція перезапише дані, що зберігаються локально, переконайтеся, що Ви хочете це зробити.</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Допомога в управлінні сховищем</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>Запам&apos;ятати пароль</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>Введіть нижче дані WebDAV, щоб імпортувати віддалену папку:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>URL-адреса сервера WebDAV</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>Виберіть віддалену папку для імпорту:</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>Отримання віддалених папок</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>Отримати віддалені папки</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>Ім&apos;я користувача та пароль</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>Завантаження файлy(-ів) до WebDAV</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Надіслати файл(и) до QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Будь ласка, виберіть один або декілька файлів для надсилання до QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>Підтвердити</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>Ви збираєтеся видалити збережений елемент WebDAV. Продовжити?</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>коренева папка</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>Доступно локально в ‘%1’</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation>Назва імпортованої папки</translation>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation>Переглянути файл</translation>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6355,7 +6198,12 @@ project</source>
         <translation>Блокування полотна карти призупинено</translation>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
+        <source>Tap on your location marker
+to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
         <translation type="unfinished"/>
     </message>
 </context>

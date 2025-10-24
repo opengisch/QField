@@ -3004,6 +3004,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Cloudify!</source>
         <translation>ບັນ​ທຶກ​ໃນ​ຄລາວ</translation>
     </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3495,6 +3503,17 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudService</name>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3528,55 +3547,55 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>ໂຟນເດີໂຄງການ</translation>
+        <translation type="vanished">ໂຟນເດີໂຄງການ</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>ໂຄງການ ແລະ ຊຸດຂໍ້ມູນທ້ອງຖິ່ນ</translation>
+        <translation type="vanished">ໂຄງການ ແລະ ຊຸດຂໍ້ມູນທ້ອງຖິ່ນ</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>ໂຟນເດີ</translation>
+        <translation type="vanished">ໂຟນເດີ</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>ໂຄງການ</translation>
+        <translation type="vanished">ໂຄງການ</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>ຊຸດຂໍ້ມູນ</translation>
+        <translation type="vanished">ຊຸດຂໍ້ມູນ</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>ລາຍການທີ່ມັກ</translation>
+        <translation type="vanished">ລາຍການທີ່ມັກ</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>ໄຟລ໌ໂຄງການ</translation>
+        <translation type="vanished">ໄຟລ໌ໂຄງການ</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>ຊຸດຂໍ້ມູນ Vector</translation>
+        <translation type="vanished">ຊຸດຂໍ້ມູນ Vector</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>ຊຸດຂໍ້ມູນ Raster</translation>
+        <translation type="vanished">ຊຸດຂໍ້ມູນ Raster</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>ສົ່ງໄປ...</translation>
+        <translation type="vanished">ສົ່ງໄປ...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>ສົ່ງອອກໄປໂຟນເດີ...</translation>
+        <translation type="vanished">ສົ່ງອອກໄປໂຟນເດີ...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>ເອົາຊຸດຂໍ້ມູນອອກ</translation>
+        <translation type="vanished">ເອົາຊຸດຂໍ້ມູນອອກ</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>ສົ່ງໂຟນເດີທີ່ຖືກບີບອັດໄປ...</translation>
+        <translation type="vanished">ສົ່ງໂຟນເດີທີ່ຖືກບີບອັດໄປ...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3584,199 +3603,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>ນໍາເຂົ້າໂຄງການຈາກໂຟນເດີ</translation>
+        <translation type="vanished">ນໍາເຂົ້າໂຄງການຈາກໂຟນເດີ</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>ນໍາເຂົ້າໂຄງການຈາກ ZIP</translation>
+        <translation type="vanished">ນໍາເຂົ້າໂຄງການຈາກ ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>ນຳເຂົ້າຊຸດຂໍ້ມູນ</translation>
+        <translation type="vanished">ນຳເຂົ້າຊຸດຂໍ້ມູນ</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>ຊ່ວຍການຄຸ້ມຄອງການເກັບຮັກສາ</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>ນຳເຂົ້າ URL</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>ພິມ URL ຂ້າງລຸ່ມນີ້ເພື່ອດາວໂຫລດ ແລະ ນໍາເຂົ້າໂຄງການ ຫຼືຊຸດຂໍ້ມູນ:</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>ລາຍ​ການການດໍາເນີນການ</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>ນຳເຂົ້າການດໍາເນີນການ</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>ການດໍາເນີນການໂຄງການ</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>ອັບເດດໂຄງການຈາກ ZIP</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>&apos;%1&apos; ກຳລັງຖືກອັບໂຫລດໄປໃສ່ QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>ເພີ່ມເຂົ້າໃນລາຍການທີ່ມັກ</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>ເອົາ​ອອກ​ຈາກລາຍການທີ່ມັກ</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>ໄຟລ໌</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>ຍູ້ໄປທີ່ QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>ອັບໂຫລດໂຟນເດີໄປໃສ່ເຊີບເວີ WebDAV</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>ດາວໂຫລດໂຟນເດີຈາກເຊີບເວີ WebDAV</translation>
-    </message>
-    <message>
-        <source>Remove folder</source>
-        <translation>ເອົາໂຟນເດີອອກ</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>ນໍາເຂົ້າໂຟນເດີ WebDAV</translation>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>ອັບໂຫຼດໂຄງການໃສ່ WebDAV</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>ດາວໂຫລດໂຄງການຈາກ WebDAV</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>ກຳລັງນຳເຂົ້າໂຟນເດີ WebDAV</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>ກຳລັງດາວໂຫຼດໂຟນເດີ WebDAV</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>ກຳລັງອັບໂຫລດໂຟນເດີ WebDAV</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>ຄວາມຜິດພາດ WebDAV:</translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>ອັບໂຫຼດ WebDAV</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>ດາວໂຫຼດ WebDAV</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>ທ່ານກຳລັງຈະອັບໂຫລດເນື້ອຫາທີ່ຖືກແກ້ໄຂໄປໃສ່ %1 ໂດຍໃຊ້ຜູ້ໃຊ້ %2. ຄຳສັ່ງນີ້ຈະຂຽນທັບຂໍ້ມູນທີ່ເກັບໄວ້ຈາກໄລຍະໄກ, ທ່ານແນ່ໃຈບໍ່ວ່າແມ່ນສິ່ງທີ່ທ່ານຕ້ອງການເຮັດ.</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>ທ່ານກຳລັງຈະດາວໂຫຼດເນື້ອຫາທີ່ຖືກແກ້ໄຂໄປໃສ່ %1 ໂດຍໃຊ້ຜູ້ໃຊ້ %2. ຄຳສັ່ງນີ້ຈະຂຽນທັບຂໍ້ມູນທີ່ເກັບໄວ້ຈາກໄລຍະໄກ, ທ່ານແນ່ໃຈບໍ່ວ່າແມ່ນສິ່ງທີ່ທ່ານຕ້ອງການເຮັດ.</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>ລະຫັດຜ່ານ (ປ່ອຍໃຫ້ຫວ່າງເພື່ອໃຊ້ອັນທີ່ບັນ​ທຶກ​ໄວ້​ແລ້ວ)</translation>
+        <translation type="vanished">ຊ່ວຍການຄຸ້ມຄອງການເກັບຮັກສາ</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>ລະຫັດຜ່ານ</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>ຈື່ລະຫັດຜ່ານ</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>ພິມລາຍລະອຽດ WebDAV ຂ້າງລຸ່ມນີ້ເພື່ອນໍາເຂົ້າໂຟນເດີທາງໄກ:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>WebDAV ເຊີບເວີ URL</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>ເລືອກໂຟນເດີທາງໄກເພື່ອນໍາເຂົ້າ:</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>ກຳລັງດຶງເອົາໂຟນເດີທາງໄກ</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>ດຶງເອົາໂຟນເດີທາງໄກ</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>ຜູ້ໃຊ້ ແລະ ລະຫັດຜ່ານ</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>ປ່ອຍໃຫ້ຫວ່າງເພື່ອໃຊ້ອັນທີ່ບັນ​ທຶກ​ໄວ້​ແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>ອັບໂຫຼດໄຟລ໌ໃສ່ WebDAV</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>ຍູ້ໄຟລ໌ໄປຫາ QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>ກະລຸນາເລືອກໜຶ່ງ ຫຼືຫຼາຍໄຟລ໌ເພື່ອຍູ້ໄປທີ່ QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>ຢືນຢັນ</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>ທ່ານກຳລັງຈະລຶບລາຍການ WebDAV ທີ່ບັນທຶກໄວ້, ດຳເນີນການຕໍ່ບໍ?</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>ໂຟນເດີຮາກ</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>ມີຢູ່ໃນເຄື່ອງໃນ &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation>ຊື່ໂຟນເດີທີ່ນໍາເຂົ້າ</translation>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation>ເບິ່ງໄຟລ໌</translation>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>ລາຍການກຳລັງຖືກອັບໂຫຼດໃສ່ QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6332,8 +6175,13 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
+        <source>Tap on your location marker
+to show actions</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
+        <translation>ປຸ່ມນີ້ໃຊ້ເປີດ/ປິດລະບົບກຳນົດຕຳແໜ່ງ. ເມື່ອເປີດນຳໃຊ້ແລ້ວ, ເຄື່ອງໝາຍຕຳແໜ່ງຈະສະແດງຢູ່ເທິງສຸດຂອງແຜນທີ່. ການກົດປຸ່ມຄ້າງໄວ້ຈະເປີດເມນູການກຳນົດຕຳແໜ່ງ ຊຶ່ງທ່ານສາມາດສຳຫຼວດເບິ່ງໜ້າທີ່ເພີ່ມເຕີມໄດ້. </translation>
     </message>
 </context>
 <context>

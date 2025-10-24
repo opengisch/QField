@@ -3018,6 +3018,14 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
         <source>Cloudify!</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3515,6 +3523,17 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
 </context>
 <context>
+    <name>QFieldCloudService</name>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3548,55 +3567,55 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>Projektihakemisto</translation>
+        <translation type="vanished">Projektihakemisto</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>Paikalliset projektit ja tietojoukot</translation>
+        <translation type="vanished">Paikalliset projektit ja tietojoukot</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>Hakemistot</translation>
+        <translation type="vanished">Hakemistot</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>Projektit</translation>
+        <translation type="vanished">Projektit</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>Tietojoukot</translation>
+        <translation type="vanished">Tietojoukot</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Suosikit</translation>
+        <translation type="vanished">Suosikit</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>Projektitiedosto</translation>
+        <translation type="vanished">Projektitiedosto</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>Vektoritietojoukko</translation>
+        <translation type="vanished">Vektoritietojoukko</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>Rasteritietojoukko</translation>
+        <translation type="vanished">Rasteritietojoukko</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>Lähetä ...</translation>
+        <translation type="vanished">Lähetä ...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Vie hakemistoon...</translation>
+        <translation type="vanished">Vie hakemistoon...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>Poista tietojoukkko</translation>
+        <translation type="vanished">Poista tietojoukkko</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>Lähetä pakattu hakemisto ...</translation>
+        <translation type="vanished">Lähetä pakattu hakemisto ...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3604,198 +3623,22 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Tuo projekti hakemistosta</translation>
+        <translation type="vanished">Tuo projekti hakemistosta</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>Tuo projekti ZIP tiedostosta</translation>
+        <translation type="vanished">Tuo projekti ZIP tiedostosta</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Tuo tietojoukko(t)</translation>
+        <translation type="vanished">Tuo tietojoukko(t)</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Apua tallennustilan hallintaan</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>Tuo URL</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Kirjoita alle URL jota käytät ladataksesi tai tuodaksesi projektin tai tietojoukon:</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>Kohteen toimet</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>Tuo toimet</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>Projektin toimet</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>Päivitä projekti ZIP-tiedostosta.</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>‘%1’ on ladattu QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>Lisää suosikkeihin</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>Poista suosikeista</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>Tiedostot</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Vie QFieldCloudiin</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Lähetä kansio WebDAV-palvelimelle</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Lataa kansio webDAV-palvelimelta</translation>
-    </message>
-    <message>
-        <source>Remove folder</source>
-        <translation>Poista kansio</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>Tuo WebDAV-kansiosta</translation>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>Lähetä projekti WebDAV-palvelimelle</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>Lataa projekti WebDAV-palvelimelta</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>Tuodaan WebDAV-kansiota</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>Ladataan WebDAV-kansiota</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>Lähetetään WebDAV-kansioon</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>WebDAV virhe:</translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>WebDAV-lähetys</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>WebDAV-lataus</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>Olet lähettämässä muokattua sisältöä kohteeseen &lt;b&gt;%1 &lt;/b&gt;käyttämällä käyttäjän &lt;b&gt;%2&lt;/b&gt;. &lt;br&gt;&lt;br&gt;. Tämä toiminto korvaa etätallennetun datan, varmista, että haluat tehdä näin.</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>Olet lataamassa muokattua sisältöä kohteesta &lt;b&gt;%1 &lt;/b&gt;käyttämällä käyttäjän &lt;b&gt;%2&lt;/b&gt;. &lt;br&gt;&lt;br&gt;. Tämä toiminto korvaa lokaalin datan, varmista, että haluat tehdä näin.</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>Salasana (jätä tyhjäksi käyttääksesi muistissa olevaa)</translation>
+        <translation type="vanished">Apua tallennustilan hallintaan</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Salasana</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>Muista salasana</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>Kirjoita alla olevat WebDAV-tiedot tuodaksesi etäkansion:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>WebDAV palvelin URL</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>Valitse tuotava etähakemisto:</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>Haetaan etähakemistoja</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>Hae etähakemistot</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>Käyttäjä ja salasana</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>jätä tyhjäksi käyttääksesi muistissa olevaa</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>Lähetä tiedosto(t) WebDAV-palvelimelle</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Vie tiedosto(t) QFieldCloudiin</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Valitse yksi tai useampi tiedosto viedäksesi ne QFieldCloudiin</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>Vahvista</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>Olet poistamassa tallennettua WebDAV-kohdetta, haluatko jatkaa?</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>juuri hakemisto</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>Saatavilla paikallisesti kohteessa ‘%1’</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation>Tuodun kansion nimi</translation>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6350,8 +6193,13 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
+        <source>Tap on your location marker
+to show actions</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
+        <translation>Tämä painike vaihtaa paikannusjärjestelmän. Kun tämä on käytössä, sijaintimerkki näkyy kartan yläosassa. Painikkeen pitkä painallus avaa paikannusvalikon, jossa voit tutkia muita toimintoja.</translation>
     </message>
 </context>
 <context>

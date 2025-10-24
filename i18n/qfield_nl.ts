@@ -3017,6 +3017,14 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <source>Cloudify!</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3513,6 +3521,17 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
 </context>
 <context>
+    <name>QFieldCloudService</name>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3546,55 +3565,55 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>Projectmap</translation>
+        <translation type="vanished">Projectmap</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>Lokale Projecten &amp; Datasets</translation>
+        <translation type="vanished">Lokale Projecten &amp; Datasets</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>Mappen</translation>
+        <translation type="vanished">Mappen</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>Projecten</translation>
+        <translation type="vanished">Projecten</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>Datasets</translation>
+        <translation type="vanished">Datasets</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Favorieten</translation>
+        <translation type="vanished">Favorieten</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>Projectbestand</translation>
+        <translation type="vanished">Projectbestand</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>Vector dataset</translation>
+        <translation type="vanished">Vector dataset</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>Raster dataset</translation>
+        <translation type="vanished">Raster dataset</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>Versturen naar...</translation>
+        <translation type="vanished">Versturen naar...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Exporteren naar folder:</translation>
+        <translation type="vanished">Exporteren naar folder:</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>Verwijder dataset</translation>
+        <translation type="vanished">Verwijder dataset</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>Verzend gecomprimeerde map naar...</translation>
+        <translation type="vanished">Verzend gecomprimeerde map naar...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3602,198 +3621,22 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Project importeren van folder</translation>
+        <translation type="vanished">Project importeren van folder</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>Project importeren van ZIP</translation>
+        <translation type="vanished">Project importeren van ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Importeer dataset(s)</translation>
+        <translation type="vanished">Importeer dataset(s)</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Geheugen beheer hulp</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>Importeer URL</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Typ een URL om een project of dataset te downloaden en te importeren:</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>Importacties</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>Projectacties</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>Project bijwerken met ZIP</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>&apos;%1&apos; wordt geüpload naar QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>Toevoegen aan favorieten</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>Verwijderen uit favorieten</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>Bestanden</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Versturen naar QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Map uploaden naar WebDAV-server</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Map downloaden van WebDAV-server</translation>
-    </message>
-    <message>
-        <source>Remove folder</source>
-        <translation>Map verwijderen</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>WebDAV-map importeren</translation>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>Project uploaden naar WebDAV</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>Project downloaden van WebDAV</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>WebDAV-map importeren</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>WebDAV-map downloaden</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>WebDAV-map uploaden</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>WebDAV Fout: </translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>WebDAV upload</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>WebDAV download</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>Wachtwoord (leeg laten om opgeslagen wachtwoord te gebruiken)</translation>
+        <translation type="vanished">Geheugen beheer hulp</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Wachtwoord</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>Wachtwoord onthouden</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>WebDAV server URL</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>Gebruikersnaam en wachtwoord</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>leeg laten om de onthouden gegevens te gebruiken</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6348,8 +6191,13 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
+        <source>Tap on your location marker
+to show actions</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
+        <translation>Met deze knop schakelt u tussen het positioneringssysteem. Indien ingeschakeld, verschijnt er een positiemarkering bovenaan de kaart. Als u lang op de knop drukt, wordt het positioneringsmenu geopend, waar u aanvullende functionaliteiten kunt verkennen.</translation>
     </message>
 </context>
 <context>

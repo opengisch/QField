@@ -3012,6 +3012,14 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <source>Cloudify!</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3508,6 +3516,17 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
 </context>
 <context>
+    <name>QFieldCloudService</name>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3541,55 +3560,55 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>Proje Klasörü</translation>
+        <translation type="vanished">Proje Klasörü</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>Yerel Projeler ve Veri Setleri</translation>
+        <translation type="vanished">Yerel Projeler ve Veri Setleri</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>Klasörler</translation>
+        <translation type="vanished">Klasörler</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>Projeler</translation>
+        <translation type="vanished">Projeler</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>Veri Setleri</translation>
+        <translation type="vanished">Veri Setleri</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Favoriler</translation>
+        <translation type="vanished">Favoriler</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>Proje dosyası</translation>
+        <translation type="vanished">Proje dosyası</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>Vektör veri seti</translation>
+        <translation type="vanished">Vektör veri seti</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>Raster veri seti</translation>
+        <translation type="vanished">Raster veri seti</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>Gönder...</translation>
+        <translation type="vanished">Gönder...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Klasöre Dışa Aktar...</translation>
+        <translation type="vanished">Klasöre Dışa Aktar...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>Veri setini kaldır</translation>
+        <translation type="vanished">Veri setini kaldır</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>Sıkıştırılmış klasörü gönder...</translation>
+        <translation type="vanished">Sıkıştırılmış klasörü gönder...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3597,198 +3616,22 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Klasörden proje içe aktar</translation>
+        <translation type="vanished">Klasörden proje içe aktar</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>ZIP dosyasından proje içe aktar</translation>
+        <translation type="vanished">ZIP dosyasından proje içe aktar</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Veri seti(ler)ini içe aktar</translation>
+        <translation type="vanished">Veri seti(ler)ini içe aktar</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Depolama yönetimi yardımı</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>İçe Aktarma URL&apos;si</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Aşağıya bir URL girin ve projeyi veya veri setini indirin ve içe aktarın:</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>Öğe Eylemleri</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>İçe Aktarma Eylemleri</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>Proje Eylemleri</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>ZIP dosyasından projeyi güncelle</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>‘%1’ QFieldCloud&apos;a yükleniyor</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>Favorilere ekle</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>Favorilerden kaldır</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>Dosyalar</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>QFieldCloud&apos;a Gönder</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>WebDAV sunucusuna klasör yükle</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>WebDAV sunucusundan klasör indir</translation>
-    </message>
-    <message>
-        <source>Remove folder</source>
-        <translation>Klasörü kaldır</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>WebDAV klasörünü içe aktar</translation>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>Projeyi WebDAV&apos;a yükle</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>Projeyi WebDAV&apos;dan indir</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>WebDAV klasörü içe aktarılıyor</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>WebDAV klasörü indiriliyor</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>WebDAV klasörü yükleniyor</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>WebDAV hatası: </translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>WebDAV yüklemesi</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>WebDAV indirmesi</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>Değiştirilmiş içeriği &lt;b&gt;%1&lt;/b&gt; konumuna yüklemek üzeresiniz. Kullanıcı: &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Bu işlem, uzakta depolanan verileri üzerine yazacaktır, lütfen bunu yapmak istediğinizden emin olun.</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>Değiştirilmiş içeriği &lt;b&gt;%1&lt;/b&gt; konumundan indirmek üzeresiniz. Kullanıcı: &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Bu işlem, yerel olarak depolanan verileri üzerine yazacaktır, lütfen bunu yapmak istediğinizden emin olun.</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>Parola (hatırlananı kullanmak için boş bırakın)</translation>
+        <translation type="vanished">Depolama yönetimi yardımı</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>Parolayı hatırla</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>Aşağıya WebDAV bilgilerini girin ve uzak bir klasörü içe aktarın:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>WebDAV sunucu URL&apos;si</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>İçe aktarılacak uzak klasörü seçin:</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>Uzak klasörler alınıyor</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>Uzak klasörleri al</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>Kullanıcı ve parola</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>Hatırlananı kullanmak için boş bırakın</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>WebDAV&apos;a dosya(lar) yükle</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>QFieldCloud&apos;a dosya(lar) gönder</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Lütfen QFieldCloud&apos;a göndermek için bir veya daha fazla dosya seçin.</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>Onayla</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>Kaydedilmiş bir WebDAV öğesini kaldırmak üzeresiniz, devam etmek istiyor musunuz?</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>kök dizin</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>‘%1’ konumunda yerel olarak mevcut</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation>İçe aktarılan klasör adı</translation>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6343,8 +6186,13 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
+        <source>Tap on your location marker
+to show actions</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
+        <translation>Bu buton konumlandırma sistemini açıp kapatır. Etkinleştirildiğinde, haritanın üstünde bir konum işareti belirecektir. Butona uzun basmak, ek işlevlerin keşfedilebileceği konumlandırma menüsünü açar.</translation>
     </message>
 </context>
 <context>

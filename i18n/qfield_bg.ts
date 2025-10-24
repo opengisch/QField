@@ -3017,6 +3017,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Cloudify!</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3515,6 +3523,17 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudService</name>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3548,55 +3567,55 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>Директория на проекта</translation>
+        <translation type="vanished">Директория на проекта</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>Проекти и файлове на устройството</translation>
+        <translation type="vanished">Проекти и файлове на устройството</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>Директории</translation>
+        <translation type="vanished">Директории</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>Проекти</translation>
+        <translation type="vanished">Проекти</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>Данни</translation>
+        <translation type="vanished">Данни</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Любими</translation>
+        <translation type="vanished">Любими</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>Файл на проекта</translation>
+        <translation type="vanished">Файл на проекта</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>Векторни данни</translation>
+        <translation type="vanished">Векторни данни</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>Растерни данни</translation>
+        <translation type="vanished">Растерни данни</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>Сподели...</translation>
+        <translation type="vanished">Сподели...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Експортирай в директория...</translation>
+        <translation type="vanished">Експортирай в директория...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>Премахни данните</translation>
+        <translation type="vanished">Премахни данните</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>Сподели компресираната директория...</translation>
+        <translation type="vanished">Сподели компресираната директория...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3604,198 +3623,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Импортирай проект от директория</translation>
+        <translation type="vanished">Импортирай проект от директория</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>Импортирай проект от ZIP</translation>
+        <translation type="vanished">Импортирай проект от ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Импортирай данните</translation>
+        <translation type="vanished">Импортирай данните</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Помощ с управление на паметта</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>Импортирай URL</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Напиши URL адрес за да изтеглиш проект или данни</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>Действия с проекта</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>Обнови проект от ZIP архив</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>&quot;%1&quot; се качва на QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>Добави в любими</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>Премахни от любими</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>Файлове</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Изпрати на QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Качи директорията на WebDAV сървър</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Изтегли директорията от WebDAV сървър</translation>
-    </message>
-    <message>
-        <source>Remove folder</source>
-        <translation>Премахни директорията</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>Импортирай WebDAV директория</translation>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>Качи проекта на WebDAV сървър</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>Изтегли проект от WebDAV сърввър</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>Импортиране на WebDAV директория</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>Изтегляне на WebDAV директория</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>Качване на WebDAV директория</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>WebDAV грешка:</translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>Качване на WebDAV сървър</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>Сваляне от WebDAV сървър</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>Парола (остави празно, за да се използва запазената)</translation>
+        <translation type="vanished">Помощ с управление на паметта</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Парола</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>Запазена парола</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>Ннапиши детайлите на WebDAV сървъра, за да импортираш отдалечената директория:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>URL адрес на WebDAV сървъра</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>Избери отдалечена директория за импорт</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>Изтегляне на отдалечените директории</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>Изтегли отдалечените дироктирии</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>Потребител и парола</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>остави празно, за да се запази</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>Качи файловете на WebDAV сървъра</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Изпрати файловете на QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Моля, избери един или повече файлове за изпращане на QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>Потвърди</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>На път си да премахнеш запазен обект в WebDAV сървъра, сигурен ли си?</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6350,7 +6193,12 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
+        <source>Tap on your location marker
+to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
         <translation type="unfinished"/>
     </message>
 </context>

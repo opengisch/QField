@@ -3021,6 +3021,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Cloudify!</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3515,6 +3523,17 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudService</name>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3548,55 +3567,55 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>Каталог проекта</translation>
+        <translation type="vanished">Каталог проекта</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>Локальные проекты и наборы данных</translation>
+        <translation type="vanished">Локальные проекты и наборы данных</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>Папки</translation>
+        <translation type="vanished">Папки</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>Проекты</translation>
+        <translation type="vanished">Проекты</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>Наборы данных</translation>
+        <translation type="vanished">Наборы данных</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Избранное</translation>
+        <translation type="vanished">Избранное</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>Файл проекта</translation>
+        <translation type="vanished">Файл проекта</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>Векторный набор данных</translation>
+        <translation type="vanished">Векторный набор данных</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>Растровый набор данных</translation>
+        <translation type="vanished">Растровый набор данных</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>Отправить ...</translation>
+        <translation type="vanished">Отправить ...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Экспорт в папку...</translation>
+        <translation type="vanished">Экспорт в папку...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>Удалить набор данных</translation>
+        <translation type="vanished">Удалить набор данных</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>Отправить сжатую папку в...</translation>
+        <translation type="vanished">Отправить сжатую папку в...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3604,199 +3623,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Импорт проекта из папки</translation>
+        <translation type="vanished">Импорт проекта из папки</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>Импорт проекта из ZIP</translation>
+        <translation type="vanished">Импорт проекта из ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Импорт наборов данных</translation>
+        <translation type="vanished">Импорт наборов данных</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Помощь в управлении хранилищем</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>Импорт URL</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Введите URL-адрес, чтобы загрузить и импортировать проект или набор данных:</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>Действия (над объектом)</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>Действия при импорте</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>Действия по проекту</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>Обновление проекта из ZIP</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>&apos;%1&apos; загружается в QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>Добавить в Избр.</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>Удалить из Избр.</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>Файлы</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Отправить в QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove folder</source>
-        <translation>Удалить каталог</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>Вы готовы загрузить измененные данные на &lt;b&gt;%1&lt;/b&gt; как пользователь &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;.
-Вы готовы загрузить измененные данные на , как пользователь. Это действие перепишет дистанционные данные. Убедитесь, что это требуемые действия.</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>Вы готовы скачать измененные данные с &lt;b&gt;%1&lt;/b&gt; как пользователь &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;. Это действие перепишет локальные данные. Убедитесь, что это требуемые действия.</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>Пароль (оставить пустым для использования сохраненного)</translation>
+        <translation type="vanished">Помощь в управлении хранилищем</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>Запомнить пароль</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>Пользователь и пароль</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>оставить пустым при использовании сохраненного</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Отправить файл(ы) в QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Выберите один или несколько файлов для отправки в  QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>Подтвердить</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>корневой каталог</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>Доступен локально в ‘%1’</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6351,8 +6193,13 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
+        <source>Tap on your location marker
+to show actions</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
+        <translation>Эта кнопка включает систему позиционирования. Если она включена, в верхней части карты появится маркер местоположения. Длительное нажатие на кнопку открывает меню позиционирования с доп.функциями</translation>
     </message>
 </context>
 <context>

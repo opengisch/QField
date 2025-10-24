@@ -3020,6 +3020,14 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
         <source>Cloudify!</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3516,6 +3524,17 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
 </context>
 <context>
+    <name>QFieldCloudService</name>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3549,55 +3568,55 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>Priečinok projektu</translation>
+        <translation type="vanished">Priečinok projektu</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>Lokálne projekty &amp; datasety</translation>
+        <translation type="vanished">Lokálne projekty &amp; datasety</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>Priečinky</translation>
+        <translation type="vanished">Priečinky</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>Projekty</translation>
+        <translation type="vanished">Projekty</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>Datasety</translation>
+        <translation type="vanished">Datasety</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Obľúbené</translation>
+        <translation type="vanished">Obľúbené</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>Súbor projektu</translation>
+        <translation type="vanished">Súbor projektu</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>Vektorový dataset</translation>
+        <translation type="vanished">Vektorový dataset</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>Rastrový dataset</translation>
+        <translation type="vanished">Rastrový dataset</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>Odoslať do...</translation>
+        <translation type="vanished">Odoslať do...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Exportovať do priečinka...</translation>
+        <translation type="vanished">Exportovať do priečinka...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>Odstrániť dataset</translation>
+        <translation type="vanished">Odstrániť dataset</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>Odoslať komprimovaný priečinok do...</translation>
+        <translation type="vanished">Odoslať komprimovaný priečinok do...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3605,198 +3624,22 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Importovať projekt z priečinka</translation>
+        <translation type="vanished">Importovať projekt z priečinka</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>Importovať projekt zo ZIPu</translation>
+        <translation type="vanished">Importovať projekt zo ZIPu</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Importovať dataset(y)</translation>
+        <translation type="vanished">Importovať dataset(y)</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Pomoc s manažmentom úložiska</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>Importovať URL</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Skopírujte URL nižšie pre stiahnutie a import projektu alebo datasetu:</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>Akcie položiek</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>Importovať akcie</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>Projektové akcie</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>Aktualizovať projekt zo ZIP súboru</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Pomoc s manažmentom úložiska</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Heslo</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6351,7 +6194,12 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
+        <source>Tap on your location marker
+to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
         <translation type="unfinished"/>
     </message>
 </context>

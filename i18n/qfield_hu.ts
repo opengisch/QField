@@ -3013,6 +3013,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Cloudify!</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3507,6 +3515,17 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
 </context>
 <context>
+    <name>QFieldCloudService</name>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3540,55 +3559,55 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>Projekt mappa</translation>
+        <translation type="vanished">Projekt mappa</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>Helyi projektek és adathalmazok</translation>
+        <translation type="vanished">Helyi projektek és adathalmazok</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>Mappák</translation>
+        <translation type="vanished">Mappák</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>Projektek</translation>
+        <translation type="vanished">Projektek</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>Adathalmazok</translation>
+        <translation type="vanished">Adathalmazok</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Kedvencek</translation>
+        <translation type="vanished">Kedvencek</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>Projektfájl</translation>
+        <translation type="vanished">Projektfájl</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>Vektor adathalmaz</translation>
+        <translation type="vanished">Vektor adathalmaz</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>Raszter adathalmaz</translation>
+        <translation type="vanished">Raszter adathalmaz</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>Küldés...</translation>
+        <translation type="vanished">Küldés...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Exportálás mappába...</translation>
+        <translation type="vanished">Exportálás mappába...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>Adathalmaz eltávolítása</translation>
+        <translation type="vanished">Adathalmaz eltávolítása</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>Tömörített mappa küldése...</translation>
+        <translation type="vanished">Tömörített mappa küldése...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3596,198 +3615,22 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Projekt importálása mappából</translation>
+        <translation type="vanished">Projekt importálása mappából</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>Projekt importálása ZIP-ből</translation>
+        <translation type="vanished">Projekt importálása ZIP-ből</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Adathalmaz(ok) importálása</translation>
+        <translation type="vanished">Adathalmaz(ok) importálása</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Tárhelykezelési súgó</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>URL importálása</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Írd az URL címet alább a projekt, vagy adathalmaz importálásához</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>Elem műveletek</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>Import műveletek</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>Projekt műveletek</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>Projekt aktualizálása ZIP-ből</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>‘%1’ a QFieldCloud-ra való feltöltés alatt</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>Hozzáadás a Kedvencekhez</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>Eltávolítás a Kedvencek közül</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>Fájlok</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Feltöltés a QFieldCloud-ra</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Mappa feltöltése WebDAV szerverre</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Mappa letöltése WebDAV szerverről</translation>
-    </message>
-    <message>
-        <source>Remove folder</source>
-        <translation>Mappa eltávolítása</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>WebDAV mappa import</translation>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>Projekt feltöltése WebDAV-ra</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>Projekt letöltése WebDAV-ról</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>WebDAV mappa importálása</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>WebDAV mappa letöltése</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>WebDAV mappa feltöltése</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>WebDAV hiba:</translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>WebDAV feltöltés</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>WebDAV letöltés</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>Módosított tartalmat fog feltölteni &lt;b&gt;%1&lt;/b&gt;-be mint &lt;b&gt;%2&lt;/b&gt; felhasználó. &lt;br&gt;&lt;br&gt;Ez a művelet felülírja a távol tárolt tartalmat, győződjön meg róla, hogy ezt akarja csinálni.</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>Jelszó (hagyja üresen a megjegyzett használatához)</translation>
+        <translation type="vanished">Tárhelykezelési súgó</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Jelszó</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>Jelszó megjegyzése</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>Írja be a WebDAV adatokat a távoli mappa importhoz:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>WebDAV szerver URL</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>Válassza ki az importálandó távoli mappát:</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>Távoli mappák lekérése</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>Távoli mappák lekérése</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>Felhasználó és jelszó</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>Fájl(ok) feltöltése WebDAV-ra</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Fájl(ok) elküldése a QFieldCloudba</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>Megerősít</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>Egy mentett WebDAV-elemet készül eltávolítani, folytatja?</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6344,8 +6187,13 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
+        <source>Tap on your location marker
+to show actions</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
+        <translation>Ez a gomb kapcsolja a pozícionálási rendszert. Hosszan megnyomva megjelenik a pozícionálás menű, további funkciókat téve elérhetővé.</translation>
     </message>
 </context>
 <context>

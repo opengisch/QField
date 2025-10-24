@@ -3015,6 +3015,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Cloudify!</source>
         <translation>Cloudify!</translation>
     </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation>正在上传 %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation><numerusform>剩余%n个文件</numerusform></translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3511,6 +3519,17 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudService</name>
+    <message>
+        <source>Uploading %1</source>
+        <translation>正在上传 %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation><numerusform>剩余%n个文件</numerusform></translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3544,55 +3563,55 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>工程文件夹</translation>
+        <translation type="vanished">工程文件夹</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>本地工程和数据集</translation>
+        <translation type="vanished">本地工程和数据集</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>文件夹</translation>
+        <translation type="vanished">文件夹</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>工程</translation>
+        <translation type="vanished">工程</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>数据集</translation>
+        <translation type="vanished">数据集</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>收藏夹</translation>
+        <translation type="vanished">收藏夹</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>工程文件</translation>
+        <translation type="vanished">工程文件</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>矢量数据集</translation>
+        <translation type="vanished">矢量数据集</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>栅格数据集</translation>
+        <translation type="vanished">栅格数据集</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>发送到...</translation>
+        <translation type="vanished">发送到...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>导出到文件夹...</translation>
+        <translation type="vanished">导出到文件夹...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>移除数据集</translation>
+        <translation type="vanished">移除数据集</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>将文件夹压缩并发送到...</translation>
+        <translation type="vanished">将文件夹压缩并发送到...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3600,199 +3619,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>从文件夹导入工程</translation>
+        <translation type="vanished">从文件夹导入工程</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>从ZIP导入工程</translation>
+        <translation type="vanished">从ZIP导入工程</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>导入数据集</translation>
+        <translation type="vanished">导入数据集</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>存储管理帮助</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>导入URL</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>在下面键入URL，下载并导入工程或数据集：</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>项动作</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>导入动作</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>工程动作</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>从ZIP更新工程</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>‘%1’ 正在上传到QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>添加到收藏夹</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>从收藏夹中移除</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>文件</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>推送到QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>将文件夹上传到WebDAV服务器</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>从WebDAV服务器下载文件夹</translation>
-    </message>
-    <message>
-        <source>Remove folder</source>
-        <translation>移除文件夹</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>导入WebDAV文件夹</translation>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>将工程上传到WebDAV</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>从WebDAV下载工程</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>正在导入WebDAV文件夹</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>正在下载WebDAV文件夹</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>正在上传WebDAV文件夹</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>WebDAV错误: </translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>WebDAV上传</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>WebDAV下载</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>使用用户 &lt;b&gt;%2 &lt;/b&gt; 将修改后的内容上载到 &lt;b&gt;%1&lt;/b&gt;。&lt;br&gt;&lt;br&gt;此操作将盖写远程存储的数据，请确保这是您想要的结果。</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>您将使用用户 &lt;b&gt;%2&lt;/b&gt; 从 &lt;b&gt;%1&lt;/b&gt; 下载修改后的内容。&lt;br&gt;&lt;br&gt;此操作将盖写本地存储的数据，请确保这是您想要的结果。</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>密码 (留空供记忆使用)</translation>
+        <translation type="vanished">存储管理帮助</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>密码</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>记忆密码</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>请在下面输入WebDAV详细信息以导入远程文件夹:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>WebDAV服务器URL</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>选择要导入的远程文件夹:</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>正在获取远程文件夹</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>获取远程文件夹</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>用户名和密码</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>留空供记忆使用</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>将文件上传到WebDAV</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>将文件推送到QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>请选择一个或多个文件推送到QFieldCloud。</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>确定</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>将移除已保存的WebDAV项，是否继续？</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>根文件夹</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>‘%1’ 本地可用</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation>已导入文件夹名称</translation>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation>查看文件</translation>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>正在上传到QFieldCloud的项目</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6349,8 +6192,14 @@ project</source>
         <translation>地图画布锁定已暂停</translation>
     </message>
     <message>
-        <source>This button toggles the positioning system. When enabled, a location marker will appear top of the map. Tapping on the location marker will give you additional positioning functionalities.</source>
-        <translation>该按钮可切换定位系统。启用后，位置标记将显示在地图顶部。点击位置标记将为您提供额外的定位功能。</translation>
+        <source>Tap on your location marker
+to show actions</source>
+        <translation>点击您的位置标记
+显示动作</translation>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
+        <translation>该按钮可以切换到定位系统。启用后，位置标记将显示在地图顶部。长按按钮将打开定位菜单，可以在其中探索其他功能。</translation>
     </message>
 </context>
 <context>
