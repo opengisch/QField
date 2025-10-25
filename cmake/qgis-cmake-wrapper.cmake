@@ -63,7 +63,7 @@ endfunction()
 #  set(CMAKE_USE_PTHREADS_INIT 1)
 #endif()
 
-if(TRUE) # Should possibly have a "static only" check
+if(VCPKG_TARGET_TRIPLET MATCHES "-static")
   find_package(PkgConfig QUIET)
 
   _find_and_link_library(authmethod_basic_a QGIS::Core)
