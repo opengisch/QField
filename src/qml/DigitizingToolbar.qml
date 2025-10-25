@@ -71,7 +71,7 @@ QfVisibilityFadingRow {
     digitizingLayer: rubberbandModel ? rubberbandModel.vectorLayer : null
 
     positionInformation: positionSource.positionInformation
-    positionLocked: gnssCursorLockButton.checked
+    positionLocked: coordinateLocator.positionLocked
     topSnappingResult: coordinateLocator.topSnappingResult
     cloudUserInformation: projectInfo.cloudUserInformation
   }

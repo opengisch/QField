@@ -243,9 +243,6 @@ class FeatureModel : public QAbstractListModel
     //! Apply the feature geometry to a vertex model if present.
     Q_INVOKABLE void applyGeometryToVertexModel();
 
-    //! Apply the vertex model changes to editablelayers' topography.
-    Q_INVOKABLE void applyVertexModelTopography();
-
     //! Update the linked geometry rubber band to match the feature's geometry
     Q_INVOKABLE void updateRubberband() const;
 
@@ -310,6 +307,9 @@ class FeatureModel : public QAbstractListModel
     void warning( const QString &text );
 
   private:
+    QgsFeatureIds applyVertexModelTopography();
+    void applyGeometryTopography( const QgsGeometry &geometry );
+
     bool commit();
     bool startEditing();
     void setLinkedFeatureValues();

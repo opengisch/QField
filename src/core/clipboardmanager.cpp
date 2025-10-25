@@ -17,12 +17,12 @@
 
 #include "clipboardmanager.h"
 #include "featureutils.h"
-#include "qgsvectorlayerutils.h"
 
 #include <QApplication>
 #include <QDomDocument>
 #include <qgsfeature.h>
 #include <qgsvectorlayer.h>
+#include <qgsvectorlayerutils.h>
 
 ClipboardManager::ClipboardManager( QObject *parent )
   : QObject( parent )
