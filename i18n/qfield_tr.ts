@@ -404,7 +404,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Change color</source>
-        <translation type="unfinished"/>
+        <translation>Renk değiştir</translation>
     </message>
 </context>
 <context>
