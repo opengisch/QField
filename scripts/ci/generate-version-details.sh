@@ -57,18 +57,25 @@ elif [[ ${CI_PULL_REQUEST} = false ]]; then
 	export APP_ENV="dev"
 else
 	echo "Building pull request beta"
-	if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
-		export APP_NAME="QField~ Beta ${CI_PULL_REQUEST_NUMBER}"
-		export APP_PACKAGE_NAME="qfield_all_access_beta"
-	else
-		export APP_NAME="QField Beta ${CI_PULL_REQUEST_NUMBER}"
-		export APP_PACKAGE_NAME="qfield_beta"
-	fi
+	CI_TAG="v4.0.0"
+	# v1.2.3 Release Name -> 1.2.3 Release Name
+	# v1.2.3-rc4 Release Name -> 1.2.3 RC4 Release Name
+	APP_VERSION_STR="$(app_version_str ${CI_TAG}) - ${APP_VERSION_NAME}"
+	# v1.2.3-rc4 arm7 -> 0102030400
+	APK_VERSION_CODE=$(apk_version_code "${CI_TAG}" "${TRIPLET}")
+	# ^-- SC2155: Declare and assign separately to avoid masking return values.
 
-	export APP_ICON="qfield_logo_pr"
-	export APP_VERSION=""
-	export APP_VERSION_STR="PR${CI_PULL_REQUEST_NUMBER} - ${APP_VERSION_NAME}"
-	export APK_VERSION_CODE="1"
+	if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
+		export APP_NAME="QField~"
+		export APP_PACKAGE_NAME="qfield_all_access"
+	else
+		export APP_NAME="QField"
+		export APP_PACKAGE_NAME="qfield"
+	fi
+	export APP_ICON="qfield_logo"
+	export APP_VERSION="${CI_TAG}" # v1.2.3 or v1.2.3-rc4
+	export APP_VERSION_STR
+	export APK_VERSION_CODE
 	export APP_ENV="pr"
 fi
 
