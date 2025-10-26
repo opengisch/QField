@@ -115,7 +115,7 @@ Rectangle {
 
       text: {
         if (model && selection && selection.focusedItem > -1 && (toolBar.state === 'Navigation' || toolBar.state === 'Edit')) {
-          var featurePosition = model.count > 1 ? ((selection.focusedItem + 1) + '/' + model.count + ': ') : '';
+          const featurePosition = model.count > 1 ? ((selection.focusedItem + 1) + '/' + model.count + ': ') : '';
           return featurePosition + FeatureUtils.displayName(selection.focusedLayer, selection.focusedFeature);
         } else {
           return toolBar.title;

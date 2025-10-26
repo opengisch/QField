@@ -68,8 +68,14 @@ QString FeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &feat
   context.setFeature( feature );
 
   QString name = QgsExpression( layer->displayExpression() ).evaluate( &context ).toString();
-  if ( name.isEmpty() )
-    name = QString::number( feature.id() );
+  QList<int> pkAttrIdxs = layer->primaryKeyAttributes() << -1;
+  QString pkAttrName = layer->fields().at( pkAttrIdxs[0] ).name();
+
+  // if the suggested feature name or the displayExpression evaluates to just the primary key, then prefix the layer name in front
+  if ( name.isEmpty() || layer->displayExpression() == QStringLiteral( "\"%1\"" ).arg( pkAttrName ) )
+  {
+    name = QStringLiteral( "%1 #%2" ).arg( layer->name(), QString::number( feature.id() ) );
+  }
 
   return name;
 }
