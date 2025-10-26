@@ -306,7 +306,7 @@ find_package(SQLite3 REQUIRED)
 find_package(ZXing REQUIRED)
 find_package(QtWebDAV REQUIRED)
 
-add_library(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
+add_library(qfield_core ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 
 string(SUBSTRING ${ZXing_VERSION} 0 1 ZXing_VERSION_MAJOR)
 target_compile_definitions(qfield_core

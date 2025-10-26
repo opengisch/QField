@@ -11,7 +11,7 @@ else()
   qt_add_resources(QML_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/qml.qrc)
 endif()
 
-add_library(qfield_qml STATIC ${QML_SOURCES})
+add_library(qfield_qml ${QML_SOURCES})
 target_link_libraries(qfield_qml PRIVATE Qt::Quick)
 
 target_compile_definitions(

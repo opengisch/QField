@@ -1,7 +1,7 @@
 set(QFIELD_SERVICE_SRCS qfieldcloudservice.cpp qfieldpositioningservice.cpp)
 set(QFIELD_SERVICE_HDRS qfieldcloudservice.h qfieldpositioningservice.h)
 
-add_library(qfield_service STATIC ${QFIELD_SERVICE_SRCS} ${QFIELD_SERVICE_HDRS})
+add_library(qfield_service ${QFIELD_SERVICE_SRCS} ${QFIELD_SERVICE_HDRS})
 
 include(GenerateExportHeader)
 generate_export_header(qfield_service)
