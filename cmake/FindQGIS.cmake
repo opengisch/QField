@@ -48,6 +48,7 @@ macro(_find_qgis_library _lib_name _component)
   if(NOT QGIS_${_component}_LIBRARY)
     find_library(QGIS_${_component}_LIBRARY_RELEASE NAMES qgis_${_lib_name})
     find_library(QGIS_${_component}_LIBRARY_DEBUG NAMES qgis_${_lib_name})
+    find_file(QGIS_${_component}_LIBRARY_DLL NAMES qgis_${_component}.dll)
     select_library_configurations(QGIS_${_component})
     mark_as_advanced(QGIS_${_component}_LIBRARY_RELEASE QGIS_${_component}_LIBRARY_DEBUG)
   endif()
@@ -55,29 +56,28 @@ macro(_find_qgis_library _lib_name _component)
   if(QGIS_${_component}_LIBRARY)
     list(APPEND QGIS_LIBRARIES QGIS_${_component}_LIBRARY)
     if(NOT TARGET QGIS::${_component})
-      add_library(QGIS::${_component} UNKNOWN IMPORTED)
+      if(EXISTS "${QGIS_${_component}_LIBRARY_DLL}") # Windows shared dll
+        set(LIBTYPE SHARED)
+        set(IMPLIB "${QGIS_${_component}_LIBRARY}")
+        set(LOCATION "${QGIS_${_component}_LIBRARY_DLL}")
+      else()
+        if(QGIS_${_component}_LIBRARY_RELEASE MATCHES "\\.so$" OR QGIS_${_component}_LIBRARY_RELEASE MATCHES "\\.dylib$")
+          set(LIBTYPE SHARED)
+        else()
+          set(LIBTYPE STATIC)
+        endif()
+        set(LOCATION "${QGIS_${_component}_LIBRARY}")
+      endif()
+      add_library(QGIS::${_component} ${LIBTYPE} IMPORTED)
       set_target_properties(QGIS::${_component} PROPERTIES
                             INTERFACE_INCLUDE_DIRECTORIES ${QGIS_INCLUDE_DIR}
                             IMPORTED_LINK_INTERFACE_LANGUAGES "CXX")
       if(EXISTS "${QGIS_${_component}_LIBRARY}")
         set_target_properties(QGIS::${_component} PROPERTIES
           IMPORTED_LINK_INTERFACE_LANGUAGES "CXX"
-          IMPORTED_LOCATION "${QGIS_${_component}_LIBRARY}")
+          IMPORTED_IMPLIB "${IMPLIB}"
+          IMPORTED_LOCATION "${LOCATION}")
       endif()
-                          #      if(EXISTS "${QGIS_${_component}_LIBRARY_RELEASE}")
-                          #        set_property(TARGET QGIS::${_component} APPEND PROPERTY
-                          #          IMPORTED_CONFIGURATIONS RELEASE)
-                          #        set_target_properties(QGIS::${_component} PROPERTIES
-                          #          IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
-                          #          IMPORTED_LOCATION_RELEASE "${QGIS_${_component}_LIBRARY_RELEASE}")
-                          #      endif()
-                          #      if(EXISTS "${QGIS_${_component}_LIBRARY_DEBUG}")
-                          #        set_property(TARGET QGIS::${_component} APPEND PROPERTY
-                          #          IMPORTED_CONFIGURATIONS DEBUG)
-                          #        set_target_properties(QGIS::${_component} PROPERTIES
-                          #          IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "CXX"
-                          #          IMPORTED_LOCATION_DEBUG "${QGIS_${_component}_LIBRARY_DEBUG}")
-                          #      endif()
     endif()
   endif()
   mark_as_advanced(QGIS_${_component}_LIBRARY)

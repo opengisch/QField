@@ -115,7 +115,8 @@ function(create_executable)
       Qt6::QDarwinLocationPermissionPlugin)
   endif()
 
-  if(WITH_VCPKG) # this triggers the initialisation of static qca ossl plugin.
+  get_target_property(QCA_TARGET_TYPE Qca::qca TYPE)
+  if(${QCA_TARGET_TYPE} STREQUAL "STATIC_LIBRARY") # this triggers the initialisation of static qca ossl plugin.
     target_compile_definitions(${exe_TARGET} PUBLIC HAVE_STATIC_QCA_PLUGINS)
   endif()
 

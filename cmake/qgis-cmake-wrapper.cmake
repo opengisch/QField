@@ -63,6 +63,8 @@ endfunction()
 #  set(CMAKE_USE_PTHREADS_INIT 1)
 #endif()
 
+get_target_property(QGIS_TARGET_TYPE QGIS::Core TYPE)
+if(${QGIS_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
 if(VCPKG_TARGET_TRIPLET MATCHES "-static")
   find_package(PkgConfig QUIET)
 
