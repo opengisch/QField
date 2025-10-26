@@ -48,7 +48,11 @@ macro(_find_qgis_library _lib_name _component)
   if(NOT QGIS_${_component}_LIBRARY)
     find_library(QGIS_${_component}_LIBRARY_RELEASE NAMES qgis_${_lib_name})
     find_library(QGIS_${_component}_LIBRARY_DEBUG NAMES qgis_${_lib_name})
+
+    # This file should be found relative to the lib file, it's located in vcpkg_installed/x64-windows/bin/ whereas the lib file is in vcpkg_installed/x64-windows/lib
+    set(CMAKE_FIND_DEBUG_MODE TRUE)
     find_file(QGIS_${_component}_LIBRARY_DLL NAMES qgis_${_lib_name}.dll)
+    set(CMAKE_FIND_DEBUG_MODE FALSE)
     select_library_configurations(QGIS_${_component})
     mark_as_advanced(QGIS_${_component}_LIBRARY_RELEASE QGIS_${_component}_LIBRARY_DEBUG)
   endif()
