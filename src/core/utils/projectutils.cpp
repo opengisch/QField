@@ -128,7 +128,7 @@ QString ProjectUtils::createProject( const QVariantMap &options )
     fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "title" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
-    fields.append( QgsField( QStringLiteral( "time" ), QMetaType::QDateTime ) );
+    fields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
 
     QgsVectorFileWriter::SaveVectorOptions writerOptions;
     QgsVectorFileWriter *writer = QgsVectorFileWriter::create( notesFilepath, fields, Qgis::WkbType::PointZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
@@ -152,7 +152,7 @@ QString ProjectUtils::createProject( const QVariantMap &options )
     }
 
     // Configure time field
-    fieldIndex = fields.indexOf( QStringLiteral( "time" ) );
+    fieldIndex = fields.indexOf( QStringLiteral( "timestamp" ) );
     if ( fieldIndex >= 0 )
     {
       widgetOptions.clear();
@@ -232,7 +232,7 @@ QString ProjectUtils::createProject( const QVariantMap &options )
     const QString tracksFilepath = QStringLiteral( "%1/tracks.gpkg" ).arg( createdProjectDir );
 
     QgsFields fields;
-    fields.append( QgsField( QStringLiteral( "time" ), QMetaType::QDateTime ) );
+    fields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
     QgsVectorFileWriter::SaveVectorOptions writerOptions;
     QgsVectorFileWriter *writer = QgsVectorFileWriter::create( tracksFilepath, fields, Qgis::WkbType::LineStringZM, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
     delete writer;
@@ -254,7 +254,7 @@ QString ProjectUtils::createProject( const QVariantMap &options )
     }
 
     // Configure time field
-    fieldIndex = fields.indexOf( QStringLiteral( "time" ) );
+    fieldIndex = fields.indexOf( QStringLiteral( "timestamp" ) );
     if ( fieldIndex >= 0 )
     {
       widgetOptions.clear();
