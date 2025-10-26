@@ -52,7 +52,7 @@ macro(_find_qgis_library _lib_name _component)
     # This file should be found relative to the lib file, it's located in vcpkg_installed/x64-windows/bin/ whereas the lib file is in vcpkg_installed/x64-windows/lib
     select_library_configurations(QGIS_${_component})
 
-    cmake_path(GET "${QGIS_${_component}_LIBRARY}" PARENT_PATH PARENT_DIR)
+    cmake_path(GET "${QGIS_${_component}_LIBRARY_RELEASE}" PARENT_PATH PARENT_DIR)
     find_file(QGIS_${_component}_LIBRARY_DLL NAMES qgis_${_lib_name}.dll PATHS "${PARENT_DIR}/bin")
     mark_as_advanced(QGIS_${_component}_LIBRARY_RELEASE QGIS_${_component}_LIBRARY_DEBUG)
   endif()
