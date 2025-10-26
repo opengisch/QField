@@ -139,6 +139,9 @@ QString ProjectUtils::createProject( const QVariantMap &options )
     LayerUtils::setDefaultRenderer( notesLayer, nullptr, options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "camera" ) : QString(), QStringLiteral( "color" ) );
     LayerUtils::setDefaultLabeling( notesLayer );
 
+    // Set a nice display expression for the feature list
+    notesLayer->setDisplayExpression( "COALESCE( title , 'Note #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' ) )" );
+
     int fieldIndex;
     QVariantMap widgetOptions;
     QgsEditorWidgetSetup widgetSetup;
@@ -240,6 +243,9 @@ QString ProjectUtils::createProject( const QVariantMap &options )
     tracksLayer = new QgsVectorLayer( tracksFilepath, tr( "Tracks" ) );
     fields = tracksLayer->fields();
     LayerUtils::setDefaultRenderer( tracksLayer );
+
+    // Set a nice display expression for the feature list
+    tracksLayer->setDisplayExpression( "'Track #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' )" );
 
     int fieldIndex;
     QVariantMap widgetOptions;
