@@ -6,7 +6,7 @@ endif()
 
 configure_file(sentry_config.h.in sentry_config.h @ONLY)
 
-add_library(qfield_sentry ${QFIELD_SOURCES})
+add_library(qfield_sentry STATIC ${QFIELD_SOURCES})
 
 if(APPLE)
   find_package(SentryCocoa REQUIRED)
