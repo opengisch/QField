@@ -81,7 +81,6 @@ jobs:
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D VCPKG_TARGET_TRIPLET="x64-windows" \
                 -D VCPKG_HOST_TRIPLET="x64-windows" \
-                -D BUILD_SHARED_LIBS=ON \
                 -D WITH_VCPKG=ON \
                 -D WITH_SPIX=ON \
                 -D WITH_NFC=OFF \
