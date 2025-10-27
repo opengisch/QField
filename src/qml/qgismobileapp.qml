@@ -983,9 +983,17 @@ ApplicationWindow {
 
       Component.onCompleted: {
         pointHandler.registerHandler("LocationMarker", (point, type, interactionType) => {
-            if (!locationMarker.visible || interactionType !== "clicked")
-              return;
+            if (!locationMarker.visible || !locationMarker.isOnMapCanvas || nteractionType !== "clicked") {
+              return false;
+            }
+            const dx = point.x - locationMarker.screenLocation.x;
+            const dy = point.y - locationMarker.screenLocation.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance > 25) {
+              return false;
+            }
             openPieMenu(point);
+            return true;
           }, MapCanvasPointHandler.Priority.High);
         if (!settings.valueBool("/QField/pieMenuOpenedOnce", false)) {
           bubbleText = qsTr("Tap on your location marker\nto show actions");
@@ -998,28 +1006,21 @@ ApplicationWindow {
       }
 
       function openPieMenu(point) {
-        const dx = point.x - locationMarker.screenLocation.x;
-        const dy = point.y - locationMarker.screenLocation.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 25) {
-          if (actionsPieMenu.tooCloseToLeft) {
-            actionsPieMenu.x = actionsPieMenu.minimumDistanceToScreenEdge;
-          } else if (actionsPieMenu.tooCloseToRight) {
-            actionsPieMenu.x = mainWindow.width - actionsPieMenu.width - actionsPieMenu.minimumDistanceToScreenEdge;
-          } else {
-            actionsPieMenu.x = locationMarker.screenLocation.x - actionsPieMenu.menuHalfSize;
-          }
-          if (actionsPieMenu.tooCloseToTop) {
-            actionsPieMenu.y = actionsPieMenu.minimumDistanceToScreenEdge;
-          } else if (actionsPieMenu.tooCloseToBottom) {
-            actionsPieMenu.y = mainWindow.height - actionsPieMenu.height - informationDrawer.height - actionsPieMenu.minimumDistanceToScreenEdge;
-          } else {
-            actionsPieMenu.y = locationMarker.screenLocation.y - actionsPieMenu.menuHalfSize;
-          }
-          actionsPieMenu.open();
-          return true;
+        if (actionsPieMenu.tooCloseToLeft) {
+          actionsPieMenu.x = actionsPieMenu.minimumDistanceToScreenEdge;
+        } else if (actionsPieMenu.tooCloseToRight) {
+          actionsPieMenu.x = mainWindow.width - actionsPieMenu.width - actionsPieMenu.minimumDistanceToScreenEdge;
+        } else {
+          actionsPieMenu.x = locationMarker.screenLocation.x - actionsPieMenu.menuHalfSize;
         }
-        return false;
+        if (actionsPieMenu.tooCloseToTop) {
+          actionsPieMenu.y = actionsPieMenu.minimumDistanceToScreenEdge;
+        } else if (actionsPieMenu.tooCloseToBottom) {
+          actionsPieMenu.y = mainWindow.height - actionsPieMenu.height - informationDrawer.height - actionsPieMenu.minimumDistanceToScreenEdge;
+        } else {
+          actionsPieMenu.y = locationMarker.screenLocation.y - actionsPieMenu.menuHalfSize;
+        }
+        actionsPieMenu.open();
       }
     }
 
