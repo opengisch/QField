@@ -107,6 +107,10 @@ ApplicationWindow {
     onMessageEmitted: {
       displayToast(text);
     }
+
+    onSetCenter: function (center, handleMargins) {
+      mapCanvasMap.jumpTo(center, -1, -1, handleMargins);
+    }
   }
 
   FocusStack {
