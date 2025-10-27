@@ -566,7 +566,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Map Theme</source>
-        <translation>Тема мапи</translation>
+        <translation>Тема карти</translation>
     </message>
     <message>
         <source>Project Folder</source>
@@ -3663,7 +3663,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Показати шкалу масштабу</translation>
+        <translation>Показати масштабну шкалу</translation>
     </message>
     <message>
         <source>Maximized attribute form</source>
