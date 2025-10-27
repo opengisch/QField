@@ -983,7 +983,7 @@ ApplicationWindow {
 
       Component.onCompleted: {
         pointHandler.registerHandler("LocationMarker", (point, type, interactionType) => {
-            if (!locationMarker.visible || !locationMarker.isOnMapCanvas || nteractionType !== "clicked") {
+            if (!locationMarker.visible || !locationMarker.isOnMapCanvas || interactionType !== "clicked") {
               return false;
             }
             const dx = point.x - locationMarker.screenLocation.x;
@@ -997,7 +997,6 @@ ApplicationWindow {
           }, MapCanvasPointHandler.Priority.High);
         if (!settings.valueBool("/QField/pieMenuOpenedOnce", false)) {
           bubbleText = qsTr("Tap on your location marker\nto show actions");
-          bubbleColor = Theme.mainBackgroundColorSemiOpaque;
           bubbleVisible = Qt.binding(() => locationMarker.isOnMapCanvas && locationMarker.visible);
           bubbleAction = () => {
             openPieMenu(locationMarker.screenLocation);

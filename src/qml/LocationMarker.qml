@@ -16,10 +16,11 @@ Item {
   property real screenAccuracy
   readonly property bool isOnMapCanvas: screenLocation.x > 0 && screenLocation.x < mapCanvas.width && screenLocation.y > 0 && screenLocation.y < mapCanvas.height
 
-  property bool bubbleVisible
-  property string bubbleText
-  property color bubbleColor
-  property var bubbleAction
+  property bool bubbleVisible: false
+  property string bubbleText: ""
+  property color bubbleTextColor: Theme.mainTextColor
+  property color bubbleColor: Theme.mainBackgroundColorSemiOpaque
+  property var bubbleAction: undefined
 
   property real accuracy: 0
   property real direction: -1 // A -1 value indicates absence of movement direction information
@@ -189,7 +190,7 @@ Item {
         id: bubbleMessage
         font: Theme.tipFont
         wrapMode: Text.WordWrap
-        color: Theme.mainTextColor
+        color: locationMarker.bubbleTextColor
         text: locationMarker.bubbleText
 
         anchors.centerIn: parent
