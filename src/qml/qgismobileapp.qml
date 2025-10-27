@@ -802,14 +802,6 @@ ApplicationWindow {
       }
     }
 
-    Button {
-      text: "jump"
-      anchors.verticalCenter: parent.verticalCenter
-      onClicked: {
-        mapCanvasMap.jumpTo(Qt.point(958140.671561235, 5865350.290366924));
-      }
-    }
-
     /**************************************************
    * Overlays, including:
    * - Coordinate Locator
