@@ -487,6 +487,10 @@ Pane {
       onFeatureFormStateRequested: {
         featureFormList.state = "FeatureForm";
       }
+
+      onRequestJumpToPoint: function (center, handleMargins) {
+        mapCanvasMap.jumpTo(center, -1, -1, handleMargins); // direct access to mapCanvasMap ??
+      }
     }
 
     onBackClicked: {

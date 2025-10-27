@@ -63,7 +63,7 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
           const QgsPoint point( ct.transform( feature.geometry().asPoint() ) );
           if ( !point.isEmpty() )
           {
-            mMapSettings->setCenter( point, true );
+            emit requestJumpToPoint( point, true );
           }
         }
         catch ( const QgsException &e )
@@ -81,7 +81,7 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
           {
             if ( mKeepScale )
             {
-              mMapSettings->setCenter( QgsPoint( extent.center() ), true );
+              emit requestJumpToPoint( QgsPoint( extent.center() ), true );
             }
             else
             {
