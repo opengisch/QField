@@ -17,6 +17,8 @@
 #ifndef PROJECTUTILS_H
 #define PROJECTUTILS_H
 
+#include "gnsspositioninformation.h"
+
 #include <QObject>
 #include <qgsproject.h>
 
@@ -77,7 +79,7 @@ class ProjectUtils : public QObject
      * - tracks: set to TRUE to add a tracks layer
      * - track_on_launch: set to TRUE to start tracking position on project launch
      */
-    Q_INVOKABLE static QString createProject( const QVariantMap &options );
+    Q_INVOKABLE static QString createProject( const QVariantMap &options, const GnssPositionInformation &positionInformation = GnssPositionInformation() );
 };
 
 #endif // PROJECTUTILS_H

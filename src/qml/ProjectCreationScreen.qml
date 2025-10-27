@@ -309,14 +309,14 @@ Page {
         };
         if (qfieldCloudGroupBox.checked) {
           if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-            const projectFilePath = ProjectUtils.createProject(projectConfig);
+            const projectFilePath = ProjectUtils.createProject(projectConfig, positionSource.positionInformation);
             triggerCloudify(projectName.text, projectFilePath);
           } else {
             connection.enabled = true;
             triggerConnection();
           }
         } else {
-          const projectFilePath = ProjectUtils.createProject(projectConfig);
+          const projectFilePath = ProjectUtils.createProject(projectConfig, positionSource.positionInformation);
           triggerProjectLoad(projectName.text, projectFilePath);
         }
       }
