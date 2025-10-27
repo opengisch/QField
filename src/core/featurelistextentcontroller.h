@@ -62,6 +62,7 @@ class FeatureListExtentController : public QObject
     void modelChanged();
     void mapSettingsChanged();
     void featureFormStateRequested();
+    void requestJumpToPoint( const QgsPoint &center, bool handleMargins = false ) const;
 
   private slots:
     void onModelChanged();

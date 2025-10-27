@@ -108,7 +108,7 @@ ApplicationWindow {
       displayToast(text);
     }
 
-    onSetCenter: function (center, handleMargins) {
+    onRequestJumpToPoint: function (center, handleMargins) {
       mapCanvasMap.jumpTo(center, -1, -1, handleMargins);
     }
   }
