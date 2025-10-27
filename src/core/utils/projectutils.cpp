@@ -16,6 +16,7 @@
 
 #include "layerutils.h"
 #include "platformutilities.h"
+#include "positioningutils.h"
 #include "projectutils.h"
 
 #include <qgsmaplayer.h>
@@ -87,7 +88,7 @@ QString ProjectUtils::title( QgsProject *project )
   return !title.isEmpty() ? title : QFileInfo( project->fileName() ).completeBaseName();
 }
 
-QString ProjectUtils::createProject( const QVariantMap &options )
+QString ProjectUtils::createProject( const QVariantMap &options, const GnssPositionInformation &positionInformation )
 {
   QString projectTitle = options.value( QStringLiteral( "title" ), tr( "Created Project" ) ).toString();
   QString projectFilename = projectTitle;
@@ -373,7 +374,7 @@ QString ProjectUtils::createProject( const QVariantMap &options )
 
   createdProject->addMapLayers( createdProjectLayers );
 
-  connect( createdProject, &QgsProject::writeProject, [createdProject, basemapLayer]( QDomDocument &document ) {
+  connect( createdProject, &QgsProject::writeProject, [createdProject, basemapLayer, positionInformation]( QDomDocument &document ) {
     QDomNodeList nodes = document.elementsByTagName( "qgis" );
     if ( !nodes.isEmpty() )
     {
@@ -385,34 +386,7 @@ QString ProjectUtils::createProject( const QVariantMap &options )
 
       node.appendChild( canvasElement );
 
-      QgsRectangle extent;
-      if ( basemapLayer && basemapLayer->isValid() )
-      {
-        extent = basemapLayer->extent();
-        try
-        {
-          QgsCoordinateTransform transform( basemapLayer->crs(), createdProject->crs(), createdProject->transformContext() );
-          extent = transform.transform( extent );
-        }
-        catch ( const QgsException &e )
-        {
-          extent = QgsRectangle();
-        }
-      }
-      else
-      {
-        extent = createdProject->crs().bounds();
-        try
-        {
-          QgsCoordinateTransform transform( QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->crs(), createdProject->transformContext() );
-          extent = transform.transform( extent );
-        }
-        catch ( const QgsException &e )
-        {
-          extent = QgsRectangle();
-        }
-      }
-
+      QgsRectangle extent = PositioningUtils::createExtentForDevice( positionInformation, createdProject->crs() );
       if ( !extent.isEmpty() )
       {
         QgsMapSettings mapSettings;

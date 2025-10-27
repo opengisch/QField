@@ -15,11 +15,13 @@
  ***************************************************************************/
 
 #include "gnsspositioninformation.h"
+#include "platformutilities.h"
 #include "positioningutils.h"
 
 #include <qgsbearingutils.h>
 #include <qgscoordinatetransformcontext.h>
 #include <qgsproject.h>
+#include <qgsvectorlayer.h>
 
 PositioningUtils::PositioningUtils( QObject *parent )
   : QObject( parent )
@@ -141,4 +143,48 @@ double PositioningUtils::bearingTrueNorth( const QgsPoint &position, const QgsCo
   }
 
   return bearing;
+}
+
+QgsRectangle PositioningUtils::createExtentForDevice( const GnssPositionInformation &positionInformation, const QgsCoordinateReferenceSystem &crs )
+{
+  QgsRectangle extent;
+  QgsCoordinateReferenceSystem extentCrs;
+  if ( positionInformation.latitudeValid() && positionInformation.longitudeValid() && positionInformation.hvaccValid() )
+  {
+    extent = QgsRectangle( positionInformation.longitude() - 1.0, positionInformation.latitude() - 1.0, positionInformation.longitude() + 1.0, positionInformation.latitude() + 1.0 );
+    extentCrs = QgsCoordinateReferenceSystem::fromEpsgId( 4326 );
+  }
+  else
+  {
+    const QString timeZoneName = QTimeZone::systemTimeZone().displayName( QTimeZone::StandardTime, QTimeZone::OffsetName, QLocale::c() );
+    std::unique_ptr<QgsVectorLayer> timeZoneLayer = std::make_unique<QgsVectorLayer>( QStringLiteral( "%1/qfield/data/timezones.gpkg" ).arg( PlatformUtilities::instance()->systemSharedDataLocation() ) );
+    QgsFeatureIterator it = timeZoneLayer->getFeatures( QStringLiteral( "UTC_offset_ST = '%1'" ).arg( timeZoneName.mid( 3 ) ) );
+    QgsFeature feature;
+    if ( it.nextFeature( feature ) )
+    {
+      extent = feature.geometry().boundingBox();
+      extentCrs = timeZoneLayer->crs();
+    }
+  }
+
+  if ( extent.isEmpty() )
+  {
+    extent = crs.bounds();
+    extentCrs = QgsCoordinateReferenceSystem::fromEpsgId( 4326 );
+  }
+
+  if ( extentCrs != crs )
+  {
+    QgsCoordinateTransform transform( extentCrs, crs, QgsProject::instance()->transformContext() );
+    try
+    {
+      extent = transform.transform( extent );
+    }
+    catch ( const QgsException &e )
+    {
+      extent = QgsRectangle();
+    }
+  }
+
+  return extent;
 }

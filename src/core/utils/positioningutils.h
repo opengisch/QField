@@ -59,6 +59,11 @@ class QFIELD_CORE_EXPORT PositioningUtils : public QObject
      * Returns the true north bearing from a given position and CRS
      */
     static Q_INVOKABLE double bearingTrueNorth( const QgsPoint &position, const QgsCoordinateReferenceSystem &crs );
+
+    /**
+     * Returns a reasonable default extent derived from a device's timezone and positioning if available.
+     */
+    static QgsRectangle createExtentForDevice( const GnssPositionInformation &positionInformation, const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem::fromEpsgId( 4326 ) );
 };
 
 #endif // POSITIONINGUTILS_H
