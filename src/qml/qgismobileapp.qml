@@ -997,7 +997,7 @@ ApplicationWindow {
           }, MapCanvasPointHandler.Priority.High);
         if (!settings.valueBool("/QField/pieMenuOpenedOnce", false)) {
           bubbleText = qsTr("Tap on your location marker\nto show actions");
-          bubbleVisible = Qt.binding(() => locationMarker.isOnMapCanvas && locationMarker.visible);
+          bubbleVisible = Qt.binding(() => locationMarker.isOnMapCanvas && locationMarker.visible && !mapCanvasTour.opened);
           bubbleAction = () => {
             openPieMenu(locationMarker.screenLocation);
           };
