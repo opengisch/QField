@@ -64,6 +64,11 @@ class QFIELD_CORE_EXPORT PositioningUtils : public QObject
      * Returns a reasonable default extent derived from a device's timezone and positioning if available.
      */
     static QgsRectangle createExtentForDevice( const GnssPositionInformation &positionInformation, const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem::fromEpsgId( 4326 ) );
+
+  private:
+    static void initTimeZones();
+    //! \note not available in Python bindings
+    static void buildTimeZones();
 };
 
 #endif // POSITIONINGUTILS_H
