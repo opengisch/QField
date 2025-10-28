@@ -64,4 +64,5 @@
     <string name="export_operation_unsupported">O seu dispositivo não tem suporte para esta operação de exportação.</string>
     <string name="processing_message">Em processamento…</string>
     <string name="positioning_title">Posicionamento</string>
-    </resources>
+    <string name="copy_to_clipboard">Copiar para a área de transferência</string>
+</resources>
