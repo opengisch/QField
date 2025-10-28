@@ -25,7 +25,7 @@
 
 #include <mutex>
 
-typedef QMap<QString, QgsRectangle> TimeZoneBounds;
+typedef QMap<int, QgsRectangle> TimeZoneBounds;
 Q_GLOBAL_STATIC( TimeZoneBounds, sTimeZones )
 
 PositioningUtils::PositioningUtils( QObject *parent )
@@ -162,11 +162,11 @@ QgsRectangle PositioningUtils::createExtentForDevice( const GnssPositionInformat
   {
     PositioningUtils::initTimeZones();
 
-    const QString timeZoneName = QTimeZone::systemTimeZone().displayName( QTimeZone::StandardTime, QTimeZone::OffsetName, QLocale::c() );
-    qDebug() << "ZZZ" << timeZoneName;
-    if ( sTimeZones->contains( timeZoneName ) )
+    QTimeZone tz = QTimeZone::systemTimeZone();
+    const int offset = static_cast<double>( tz.offsetFromUtc( QDateTime( QDate( 2026, 1, 1 ), QTime( 0, 0 ), QTimeZone::utc() ) ) );
+    if ( sTimeZones->contains( offset ) )
     {
-      extent = sTimeZones->value( timeZoneName );
+      extent = sTimeZones->value( offset );
     }
   }
 
@@ -199,42 +199,42 @@ void PositioningUtils::initTimeZones()
 
 void PositioningUtils::buildTimeZones()
 {
-  sTimeZones->insert( "UTC+00:00", QgsRectangle( -25.013, -61.709, 7.670, 82.999 ) );
-  sTimeZones->insert( "UTC+01:00", QgsRectangle( -17.319, -61.664, 34.688, 82.984 ) );
-  sTimeZones->insert( "UTC+02:00", QgsRectangle( -5.499, -61.703, 41.054, 82.969 ) );
-  sTimeZones->insert( "UTC+03:00", QgsRectangle( 37.499, -61.574, 52.500, 82.954 ) );
-  sTimeZones->insert( "UTC+03:30", QgsRectangle( 44.031, 24.835, 63.333, 39.782 ) );
-  sTimeZones->insert( "UTC+04:00", QgsRectangle( 39.884, -61.529, 67.500, 82.940 ) );
-  sTimeZones->insert( "UTC+04:30", QgsRectangle( 60.517, 29.377, 74.889, 38.491 ) );
-  sTimeZones->insert( "UTC+05:00", QgsRectangle( 67.500, -61.484, 82.499, 82.925 ) );
-  sTimeZones->insert( "UTC+05:30", QgsRectangle( 67.954, 5.7189, 97.395, 35.6745 ) );
-  sTimeZones->insert( "UTC+05:45", QgsRectangle( 80.057, 26.347, 88.201, 30.471 ) );
-  sTimeZones->insert( "UTC+06:00", QgsRectangle( 69.264, -61.439, 97.500, 82.910 ) );
-  sTimeZones->insert( "UTC+06:30", QgsRectangle( 92.172, -12.411, 101.170, 28.547 ) );
-  sTimeZones->insert( "UTC+07:00", QgsRectangle( 97.500, -61.393, 112.500, 82.895 ) );
-  sTimeZones->insert( "UTC+08:00", QgsRectangle( 112.500, -61.348, 127.499, 82.881 ) );
-  sTimeZones->insert( "UTC+08:45", QgsRectangle( 125.500, -32.777, 129.031, -31.299 ) );
-  sTimeZones->insert( "UTC+09:00", QgsRectangle( 127.499, -61.303, 142.500, 82.866 ) );
-  sTimeZones->insert( "UTC+09:30", QgsRectangle( 129.000, -38.274, 142.000, -10.701 ) );
-  sTimeZones->insert( "UTC+10:00", QgsRectangle( 120.000, -61.326, 159.999, 73.113 ) );
-  sTimeZones->insert( "UTC+10:30", QgsRectangle( 158.801, -31.988, 159.515, -31.285 ) );
-  sTimeZones->insert( "UTC+11:00", QgsRectangle( 138.675, -61.213, 172.499, 82.836 ) );
-  sTimeZones->insert( "UTC+12:00", QgsRectangle( 172.499, -61.168, 180.000, 82.822 ) );
-  sTimeZones->insert( "UTC+12:45", QgsRectangle( -177.244, -44.634, -175.541, -43.310 ) );
-  sTimeZones->insert( "UTC+13:00", QgsRectangle( -179.395, -24.163, -170.507, -2.565 ) );
-  sTimeZones->insert( "UTC+14:00", QgsRectangle( -160.609, -11.645, -149.992, 4.900 ) );
-  sTimeZones->insert( "UTC−01:00", QgsRectangle( -31.557, -61.754, -7.500, 83.014 ) );
-  sTimeZones->insert( "UTC−02:00", QgsRectangle( -69.107, -63.093, -10.028, 83.059 ) );
-  sTimeZones->insert( "UTC−03:00", QgsRectangle( -80.000, -64.250, -17.000, 83.043 ) );
-  sTimeZones->insert( "UTC−03:30", QgsRectangle( -60.476, 46.410, -52.323, 53.701 ) );
-  sTimeZones->insert( "UTC−04:00", QgsRectangle( -81.078, -61.547, -50.207, 83.058 ) );
-  sTimeZones->insert( "UTC−05:00", QgsRectangle( -92.268, -58.399, -59.613, 83.081 ) );
-  sTimeZones->insert( "UTC−06:00", QgsRectangle( -110.006, -58.345, -82.181, 83.087 ) );
-  sTimeZones->insert( "UTC−07:00", QgsRectangle( -141.002, -58.292, -89.000, 83.102 ) );
-  sTimeZones->insert( "UTC−08:00", QgsRectangle( -139.061, -58.239, -112.499, 83.117 ) );
-  sTimeZones->insert( "UTC−09:00", QgsRectangle( -173.521, -58.185, -127.499, 83.132 ) );
-  sTimeZones->insert( "UTC−09:30", QgsRectangle( -140.925, -10.754, -138.210, -7.659 ) );
-  sTimeZones->insert( "UTC−10:00", QgsRectangle( -176.216, -58.132, -136.083, 83.147 ) );
-  sTimeZones->insert( "UTC−11:00", QgsRectangle( -178.601, -58.079, -157.499, 83.161 ) );
-  sTimeZones->insert( "UTC−12:00", QgsRectangle( -179.999, -58.025, -172.499, 83.169 ) );
+  sTimeZones->insert( 0, QgsRectangle( -25.013, -61.709, 7.670, 82.999 ) );
+  sTimeZones->insert( 3600, QgsRectangle( -17.319, -61.664, 34.688, 82.984 ) );
+  sTimeZones->insert( 7200, QgsRectangle( -5.499, -61.703, 41.054, 82.969 ) );
+  sTimeZones->insert( 10800, QgsRectangle( 37.499, -61.574, 52.500, 82.954 ) );
+  sTimeZones->insert( 12600, QgsRectangle( 44.031, 24.835, 63.333, 39.782 ) );
+  sTimeZones->insert( 14400, QgsRectangle( 39.884, -61.529, 67.500, 82.940 ) );
+  sTimeZones->insert( 16200, QgsRectangle( 60.517, 29.377, 74.889, 38.491 ) );
+  sTimeZones->insert( 18000, QgsRectangle( 67.500, -61.484, 82.499, 82.925 ) );
+  sTimeZones->insert( 19800, QgsRectangle( 67.954, 5.7189, 97.395, 35.6745 ) );
+  sTimeZones->insert( 20700, QgsRectangle( 80.057, 26.347, 88.201, 30.471 ) );
+  sTimeZones->insert( 21600, QgsRectangle( 69.264, -61.439, 97.500, 82.910 ) );
+  sTimeZones->insert( 23400, QgsRectangle( 92.172, -12.411, 101.170, 28.547 ) );
+  sTimeZones->insert( 25200, QgsRectangle( 97.500, -61.393, 112.500, 82.895 ) );
+  sTimeZones->insert( 28800, QgsRectangle( 112.500, -61.348, 127.499, 82.881 ) );
+  sTimeZones->insert( 31500, QgsRectangle( 125.500, -32.777, 129.031, -31.299 ) );
+  sTimeZones->insert( 32400, QgsRectangle( 127.499, -61.303, 142.500, 82.866 ) );
+  sTimeZones->insert( 34200, QgsRectangle( 129.000, -38.274, 142.000, -10.701 ) );
+  sTimeZones->insert( 36000, QgsRectangle( 120.000, -61.326, 159.999, 73.113 ) );
+  sTimeZones->insert( 37800, QgsRectangle( 158.801, -31.988, 159.515, -31.285 ) );
+  sTimeZones->insert( 39600, QgsRectangle( 138.675, -61.213, 172.499, 82.836 ) );
+  sTimeZones->insert( 43200, QgsRectangle( 172.499, -61.168, 180.000, 82.822 ) );
+  sTimeZones->insert( 45900, QgsRectangle( -177.244, -44.634, -175.541, -43.310 ) );
+  sTimeZones->insert( 46800, QgsRectangle( -179.395, -24.163, -170.507, -2.565 ) );
+  sTimeZones->insert( 50400, QgsRectangle( -160.609, -11.645, -149.992, 4.900 ) );
+  sTimeZones->insert( -3600, QgsRectangle( -31.557, -61.754, -7.500, 83.014 ) );
+  sTimeZones->insert( -7200, QgsRectangle( -69.107, -63.093, -10.028, 83.059 ) );
+  sTimeZones->insert( -10800, QgsRectangle( -80.000, -64.250, -17.000, 83.043 ) );
+  sTimeZones->insert( -12600, QgsRectangle( -60.476, 46.410, -52.323, 53.701 ) );
+  sTimeZones->insert( -14400, QgsRectangle( -81.078, -61.547, -50.207, 83.058 ) );
+  sTimeZones->insert( -18000, QgsRectangle( -92.268, -58.399, -59.613, 83.081 ) );
+  sTimeZones->insert( -21600, QgsRectangle( -110.006, -58.345, -82.181, 83.087 ) );
+  sTimeZones->insert( -25200, QgsRectangle( -141.002, -58.292, -89.000, 83.102 ) );
+  sTimeZones->insert( -28800, QgsRectangle( -139.061, -58.239, -112.499, 83.117 ) );
+  sTimeZones->insert( -32400, QgsRectangle( -173.521, -58.185, -127.499, 83.132 ) );
+  sTimeZones->insert( -34200, QgsRectangle( -140.925, -10.754, -138.210, -7.659 ) );
+  sTimeZones->insert( -36000, QgsRectangle( -176.216, -58.132, -136.083, 83.147 ) );
+  sTimeZones->insert( -39600, QgsRectangle( -178.601, -58.079, -157.499, 83.161 ) );
+  sTimeZones->insert( -43200, QgsRectangle( -179.999, -58.025, -172.499, 83.169 ) );
 }
