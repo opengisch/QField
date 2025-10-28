@@ -163,6 +163,7 @@ QgsRectangle PositioningUtils::createExtentForDevice( const GnssPositionInformat
     PositioningUtils::initTimeZones();
 
     const QString timeZoneName = QTimeZone::systemTimeZone().displayName( QTimeZone::StandardTime, QTimeZone::OffsetName, QLocale::c() );
+    qDebug() << "ZZZ" << timeZoneName;
     if ( sTimeZones->contains( timeZoneName ) )
     {
       extent = sTimeZones->value( timeZoneName );
