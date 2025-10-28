@@ -2444,6 +2444,14 @@ ApplicationWindow {
         property bool jumpedOnce: false
 
         function jumpToLocation() {
+          // Callback to activate follow mode after jump completes
+          const activateFollowMode = function () {
+            if (!gnssButton.followActive) {
+              mapCanvasMap.freeze('follow');
+              gnssButton.followActive = true;
+              gnssButton.followLocation(true);
+            }
+          };
           if (!jumpedOnce) {
             // The scale range and speed range aims at providing an adequate default
             // value for a range of scenarios from people walking to people being driven
@@ -2465,16 +2473,10 @@ ApplicationWindow {
                 targetScale = (scaleMax - scaleMin) * ratio + scaleMin;
               }
             }
-            console.log("targetScale = ", targetScale);
-            mapCanvasMap.jumpTo(positionSource.projectedPosition, targetScale, -1, true);
+            mapCanvasMap.jumpTo(positionSource.projectedPosition, targetScale, -1, true, activateFollowMode);
             jumpedOnce = true;
           } else {
-            mapCanvasMap.jumpTo(positionSource.projectedPosition, -1, -1, true);
-          }
-          if (!followActive) {
-            mapCanvasMap.freeze('follow');
-            followActive = true;
-            followLocation(true);
+            mapCanvasMap.jumpTo(positionSource.projectedPosition, -1, -1, true, activateFollowMode);
           }
         }
 
