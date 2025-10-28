@@ -124,7 +124,7 @@ Item {
   /**
    * Smoothly animates the map to a new center point
    */
-  function jumpTo(point, scale = -1, rotation = -1, handleMargins = false) {
+  function jumpTo(point, scale = -1, rotation = -1, handleMargins = false, callback = null) {
     console.log("- JumpTo", point, scale, rotation, handleMargins);
     const currentCenter = mapCanvasWrapper.mapSettings.center;
     const currentRotation = mapCanvasWrapper.mapSettings.rotation;
@@ -135,6 +135,7 @@ Item {
     jumpDetails.toX = point.x;
     jumpDetails.toY = point.y;
     jumpDetails.toScale = scale;
+    jumpDetails.completedCallback = callback;
     if (rotation !== -1) {
       const rotationDiff = shortestRotationPath(currentRotation, rotation);
       jumpDetails.rotationDelta = rotationDiff;
@@ -164,6 +165,7 @@ Item {
     property double position: 0
     property bool handleMargins: false
     property double rotationDelta: 0  // The actual rotation difference to apply
+    property var completedCallback: null  // Optional callback function to run after jump completes
 
     onPositionChanged: {
       if (!enabled) {
@@ -196,6 +198,10 @@ Item {
       if (position >= 1.0) {
         enabled = false;
         mapArea.unfreeze('jumping');
+        if (completedCallback && typeof completedCallback === 'function') {
+          completedCallback();
+          completedCallback = null;
+        }
       }
     }
 
