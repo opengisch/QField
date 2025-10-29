@@ -3735,7 +3735,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation>Загальний</translation>
+        <translation>Загальні</translation>
     </message>
     <message>
         <source>Positioning</source>
