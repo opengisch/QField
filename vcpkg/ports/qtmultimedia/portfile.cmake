@@ -8,6 +8,7 @@ set(${PORT}_PATCHES
     ffmpeg-compile-def.patch
     ffmpeg.patch
     9c33ede.diff
+    windows-camera.patch
 )
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
