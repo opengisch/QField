@@ -126,12 +126,11 @@ ApplicationWindow {
         if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
           if (featureListForm.visible) {
             featureListForm.hide();
+            event.accepted = true;
           } else if (stateMachine.state === 'measure') {
             mainWindow.closeMeasureTool();
-          } else {
-            mainWindow.close();
+            event.accepted = true;
           }
-          event.accepted = true;
         }
       }
     }
@@ -4773,22 +4772,7 @@ ApplicationWindow {
       displayToast(qsTr("Unlock the screen to close project and app"));
       return;
     }
-    if (!closeAlreadyRequested) {
-      close.accepted = false;
-      closeAlreadyRequested = true;
-      displayToast(qsTr("Press back again to close project and app"));
-      closingTimer.start();
-    } else {
-      close.accepted = true;
-    }
-  }
-
-  Timer {
-    id: closingTimer
-    interval: 2000
-    onTriggered: {
-      closeAlreadyRequested = false;
-    }
+    close.accepted = true;
   }
 
   // ! MODELS !
