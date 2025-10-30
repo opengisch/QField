@@ -130,6 +130,9 @@ ApplicationWindow {
           } else if (stateMachine.state === 'measure') {
             mainWindow.closeMeasureTool();
             event.accepted = true;
+          } else if (Qt.platform.os === "android" || Qt.platform.os === "ios") {
+            mainWindow.visibility = Window.Minimized;
+            event.accepted = true;
           }
         }
       }
