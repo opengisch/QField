@@ -83,6 +83,21 @@ QgsRectangle QgsQuickMapSettings::extent() const
 
 void QgsQuickMapSettings::setExtent( const QgsRectangle &extent, bool handleMargins )
 {
+  if ( applyExtent( mMapSettings, extent, handleMargins ) )
+  {
+    emit extentChanged();
+  }
+}
+
+double QgsQuickMapSettings::computeScaleForExtent( const QgsRectangle &extent, bool handleMargins )
+{
+  QgsMapSettings settings( mMapSettings );
+  applyExtent( settings, extent, handleMargins );
+  return settings.scale();
+}
+
+bool QgsQuickMapSettings::applyExtent( QgsMapSettings &mapSettings, const QgsRectangle &extent, bool handleMargins )
+{
   if ( handleMargins && ( !qgsDoubleNear( mRightMargin, 0.0 ) || !qgsDoubleNear( mBottomMargin, 0.0 ) ) )
   {
     const double rightMargin = mRightMargin * devicePixelRatio();
@@ -121,21 +136,21 @@ void QgsQuickMapSettings::setExtent( const QgsRectangle &extent, bool handleMarg
     QgsRectangle modifiedExtent = extent;
     modifiedExtent.combineExtentWith( outputSizeExtent );
     if ( modifiedExtent.isNull() )
-      return;
+      return false;
 
     // Set the extent to get an updated map units per pixel value
-    const QgsRectangle originalExtent = mMapSettings.extent();
-    mMapSettings.setExtent( modifiedExtent );
-    modifiedExtent = mMapSettings.extent();
+    const QgsRectangle originalExtent = mapSettings.extent();
+    mapSettings.setExtent( modifiedExtent );
+    modifiedExtent = mapSettings.extent();
 
-    const QgsVector delta = QgsPointXY( extent.center() ) - mMapSettings.extent().center();
+    const QgsVector delta = QgsPointXY( extent.center() ) - mapSettings.extent().center();
 
     // Calculate base margin adjustments (split in half for centering)
-    const double baseXAdjustment = -rightMargin * mMapSettings.mapUnitsPerPixel() / 2;
-    const double baseYAdjustment = bottomMargin * mMapSettings.mapUnitsPerPixel() / 2;
+    const double baseXAdjustment = -rightMargin * mapSettings.mapUnitsPerPixel() / 2;
+    const double baseYAdjustment = bottomMargin * mapSettings.mapUnitsPerPixel() / 2;
 
     // Adjust margins based on rotation
-    const double rotationRadians = mMapSettings.rotation() * M_PI / 180.0;
+    const double rotationRadians = mapSettings.rotation() * M_PI / 180.0;
     const double xAdjustment = baseXAdjustment * cos( rotationRadians ) - baseYAdjustment * sin( rotationRadians );
     const double yAdjustment = baseXAdjustment * sin( rotationRadians ) + baseYAdjustment * cos( rotationRadians );
 
@@ -145,18 +160,19 @@ void QgsQuickMapSettings::setExtent( const QgsRectangle &extent, bool handleMarg
     modifiedExtent.setYMaximum( modifiedExtent.yMaximum() + delta.y() - yAdjustment );
 
     if ( originalExtent == modifiedExtent || modifiedExtent.isNull() )
-      return;
+      return false;
 
-    mMapSettings.setExtent( modifiedExtent );
+    mapSettings.setExtent( modifiedExtent );
   }
   else
   {
-    if ( mMapSettings.extent() == extent || extent.isNull() )
-      return;
+    if ( mapSettings.extent() == extent || extent.isNull() )
+      return false;
 
-    mMapSettings.setExtent( extent );
+    mapSettings.setExtent( extent );
   }
-  emit extentChanged();
+
+  return true;
 }
 
 QgsPoint QgsQuickMapSettings::center() const

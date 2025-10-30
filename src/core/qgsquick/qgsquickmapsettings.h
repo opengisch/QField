@@ -204,6 +204,15 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
      */
     Q_INVOKABLE QgsPoint screenToCoordinate( const QPointF &point ) const;
 
+    /**
+     * Compute the scale that corresponds to the specified \a extent.
+     *
+     * \param point A coordinate in pixel / screen coordinates
+     *
+     * \return A scale value
+     */
+    Q_INVOKABLE double computeScaleForExtent( const QgsRectangle &extent, bool handleMargins = false );
+
     //! \copydoc QgsMapSettings::setTransformContext()
     void setTransformContext( const QgsCoordinateTransformContext &context );
 
@@ -356,6 +365,8 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     void onCrsChanged();
 
   private:
+    bool applyExtent( QgsMapSettings &mapSettings, const QgsRectangle &extent, bool handleMargins = false );
+
     QgsProject *mProject = nullptr;
     QgsMapSettings mMapSettings;
     qreal mDevicePixelRatio = 1.0;
