@@ -209,7 +209,7 @@ void GotoLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result,
   }
   else
   {
-    emit mLocatorBridge->requestJumpToPoint( geom.vertexAt( 0 ), true );
+    emit mLocatorBridge->requestJumpToPoint( geom.vertexAt( 0 ), -1.0, true );
 
     mLocatorBridge->geometryHighlighter()->setProperty( "qgsGeometry", geom );
     mLocatorBridge->geometryHighlighter()->setProperty( "crs", mLocatorBridge->mapSettings()->mapSettings().destinationCrs() );
