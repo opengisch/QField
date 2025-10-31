@@ -488,6 +488,14 @@ bool PlatformUtilities::isSystemDarkTheme() const
   return false;
 }
 
+void PlatformUtilities::minimize( QQuickWindow *window ) const
+{
+  if ( window )
+  {
+    window->showMinimized();
+  }
+}
+
 PlatformUtilities *PlatformUtilities::instance()
 {
   return sPlatformUtils;

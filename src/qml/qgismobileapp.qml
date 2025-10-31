@@ -129,7 +129,7 @@ ApplicationWindow {
           } else if (stateMachine.state === 'measure') {
             mainWindow.closeMeasureTool();
           } else {
-            mainWindow.close();
+            platformUtilities.minimize(mainWindow);
           }
           event.accepted = true;
         }

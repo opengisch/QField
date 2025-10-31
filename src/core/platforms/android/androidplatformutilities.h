@@ -85,6 +85,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     void vibrate( int milliseconds ) const override;
 
+    void minimize( QQuickWindow *window ) const override;
+
     QString startPositioningService() const override;
     void stopPositioningService() const override;
 

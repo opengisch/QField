@@ -763,6 +763,20 @@ bool AndroidPlatformUtilities::isSystemDarkTheme() const
   return false;
 }
 
+void AndroidPlatformUtilities::minimize( QQuickWindow * ) const
+{
+  if ( mActivity.isValid() )
+  {
+    runOnAndroidMainThread( [] {
+      auto activity = qtAndroidContext();
+      if ( activity.isValid() )
+      {
+        activity.callMethod<void>( "moveTaskToBack", "(Z)V", true );
+      }
+    } );
+  }
+}
+
 void AndroidPlatformUtilities::vibrate( int milliseconds ) const
 {
   if ( mActivity.isValid() )
