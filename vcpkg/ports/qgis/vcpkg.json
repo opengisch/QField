@@ -99,6 +99,10 @@
           "platform": "linux"
         },
         {
+          "name": "xcb-sm",
+          "platform": "linux"
+        },
+        {
           "name": "xcb-xlib",
           "platform": "linux"
         },

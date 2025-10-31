@@ -123,7 +123,7 @@ jobs:
       - name: 🔨 Prepare build env
         run: |
           sudo apt-get update
-          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libegl1-mesa-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf-archive libgstreamer-gl1.0-0 libgstreamer-plugins-base1.0-0 libfuse2 libcups2-dev nasm libltdl-dev
+          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libsm-dev libegl1-mesa-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf-archive libgstreamer-gl1.0-0 libgstreamer-plugins-base1.0-0 libfuse2 libcups2-dev nasm libltdl-dev
           wget https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-linux-x86_64.sh -O /tmp/cmakeinstall.sh
           chmod +x /tmp/cmakeinstall.sh
           sudo /tmp/cmakeinstall.sh --prefix=/usr/local --exclude-subdir
