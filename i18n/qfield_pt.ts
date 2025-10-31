@@ -276,7 +276,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected.</source>
-        <translation type="unfinished"/>
+        <translation>Não foram detectados periféricos Bluetooth.</translation>
     </message>
     <message>
         <source>Deeper scanning for paired devices</source>
@@ -400,7 +400,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Descrição.</translation>
     </message>
     <message>
         <source>Change color</source>
@@ -1168,7 +1168,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <name>FileDeviceChooser</name>
     <message>
         <source>File path</source>
-        <translation type="unfinished"/>
+        <translation>Caminho do ficheiro</translation>
     </message>
     <message>
         <source>Interval (in milliseconds)</source>
@@ -1302,7 +1302,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
-        <translation type="unfinished"/>
+        <translation>Documentação do QField</translation>
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
@@ -1462,11 +1462,11 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>attribute editing</source>
-        <translation type="unfinished"/>
+        <translation>edição de atributo</translation>
     </message>
     <message>
         <source>geometry editing</source>
-        <translation type="unfinished"/>
+        <translation>edição de geometria</translation>
     </message>
     <message>
         <source>feature deletion</source>
@@ -1542,7 +1542,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"/>
+        <translation>Parar</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -1577,7 +1577,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Created projects</source>
-        <translation type="unfinished"/>
+        <translation>Projectos criados</translation>
     </message>
 </context>
 <context>
@@ -2080,7 +2080,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Local Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Plugins Locais</translation>
     </message>
     <message>
         <source>Available Plugins</source>
@@ -2088,7 +2088,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Search for plugin</source>
-        <translation type="unfinished"/>
+        <translation>Procurar plugin</translation>
     </message>
     <message>
         <source>Fetching available plugins</source>
@@ -2221,7 +2221,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Connection type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de conexão</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2233,7 +2233,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Connection details</source>
-        <translation type="unfinished"/>
+        <translation>Detalhes da conexão</translation>
     </message>
     <message>
         <source>Logs file (NMEA)</source>
@@ -2280,7 +2280,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>grid</source>
-        <translation type="unfinished"/>
+        <translation>grelha</translation>
     </message>
     <message>
         <source>ortho.</source>
@@ -2490,11 +2490,11 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Create Project</source>
-        <translation type="unfinished"/>
+        <translation>Criar projecto</translation>
     </message>
     <message>
         <source>My Project</source>
-        <translation type="unfinished"/>
+        <translation>Meu Projecto</translation>
     </message>
 </context>
 <context>
