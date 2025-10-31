@@ -122,18 +122,15 @@ Item {
   }
 
   /**
-   * Smoothly animates the map to a new center point
+   * Internal helper to setup jump animation parameters
    */
-  function jumpTo(point, scale = -1, rotation = -1, handleMargins = false, callback = null) {
-    console.log("- JumpTo", point, scale, rotation, handleMargins);
+  function _setupJump(scale, rotation, handleMargins, callback) {
     const currentCenter = mapCanvasWrapper.mapSettings.center;
     const currentRotation = mapCanvasWrapper.mapSettings.rotation;
     jumpDetails.fromScale = mapCanvasWrapper.mapSettings.scale;
     jumpDetails.fromRotation = currentRotation;
     jumpDetails.fromX = currentCenter.x;
     jumpDetails.fromY = currentCenter.y;
-    jumpDetails.toX = point.x;
-    jumpDetails.toY = point.y;
     jumpDetails.toScale = scale;
     jumpDetails.completedCallback = callback;
     if (rotation !== -1) {
@@ -150,6 +147,26 @@ Item {
     jumpDetails.position = 1.0;
   }
 
+  /**
+   * Smoothly animates the map to a new center point
+   */
+  function jumpTo(point, scale = -1, rotation = -1, handleMargins = false, callback = null) {
+    console.log("- JumpTo", point, scale, rotation, handleMargins);
+    jumpDetails.positionSource = null;  // Clear any existing binding
+    jumpDetails.toX = point.x;
+    jumpDetails.toY = point.y;
+    _setupJump(scale, rotation, handleMargins, callback);
+  }
+
+  /**
+   * Jump and track a moving target
+   */
+  function jumpToPosition(positionSource, scale = -1, rotation = -1, handleMargins = false, callback = null) {
+    console.log("- jumpToPosition", positionSource, scale, rotation, handleMargins);
+    jumpDetails.positionSource = positionSource;
+    _setupJump(scale, rotation, handleMargins, callback);
+  }
+
   Item {
     id: jumpDetails
 
@@ -162,41 +179,44 @@ Item {
     property double toScale: -1
     property double toX: 0
     property double toY: 0
+    property var positionSource: null  // When set, toX/toY will be ignored
     property double position: 0
     property bool handleMargins: false
-    property double rotationDelta: 0  // The actual rotation difference to apply
-    property var completedCallback: null  // Optional callback function to run after jump completes
+    property double rotationDelta: 0
+    property var completedCallback: null
 
     onPositionChanged: {
       if (!enabled) {
         return;
       }
-      const dx = toX - fromX;
-      const dy = toY - fromY;
+
+      // Use positionSource if available, otherwise use toX/toY
+      const targetX = positionSource ? positionSource.projectedPosition.x : toX;
+      const targetY = positionSource ? positionSource.projectedPosition.y : toY;
+      const dx = targetX - fromX;
+      const dy = targetY - fromY;
       const distance = Math.sqrt(dx * dx + dy * dy);
       if (distance === 0 && toRotation === -1 && toScale === -1) {
         enabled = false;
+        positionSource = null;  // Clear binding
         mapArea.unfreeze('jumping');
         return;
       }
       const progressX = fromX + dx * position;
       const progressY = fromY + dy * position;
-
-      // Handle rotation animation using the calculated delta
       if (toRotation !== -1) {
         const progressRotation = fromRotation + rotationDelta * position;
         mapCanvasWrapper.mapSettings.rotation = progressRotation;
       }
       if (toScale !== -1) {
-        // Handle scale animation
         const progressScale = fromScale + (toScale - fromScale) * position;
         mapCanvasWrapper.zoomScale(Qt.point(progressX, progressY), progressScale, jumpDetails.handleMargins);
       } else {
-        // Handle only position animation
         mapCanvasWrapper.mapSettings.setCenter(Qt.point(progressX, progressY), jumpDetails.handleMargins);
       }
       if (position >= 1.0) {
         enabled = false;
+        positionSource = null;  // Clear binding
         mapArea.unfreeze('jumping');
         if (completedCallback && typeof completedCallback === 'function') {
           completedCallback();
@@ -209,7 +229,7 @@ Item {
       enabled: jumpDetails.enabled
       NumberAnimation {
         easing.type: Easing.InOutQuart
-        duration: 2500
+        duration: 1500
       }
     }
   }

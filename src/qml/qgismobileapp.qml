@@ -108,8 +108,8 @@ ApplicationWindow {
       displayToast(text);
     }
 
-    onRequestJumpToPoint: function (center, handleMargins) {
-      mapCanvasMap.jumpTo(center, -1, -1, handleMargins);
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
     }
   }
 
@@ -2473,10 +2473,10 @@ ApplicationWindow {
                 targetScale = (scaleMax - scaleMin) * ratio + scaleMin;
               }
             }
-            mapCanvasMap.jumpTo(positionSource.projectedPosition, targetScale, -1, true, activateFollowMode);
+            mapCanvasMap.jumpToPosition(positionSource, targetScale, -1, true, activateFollowMode);
             jumpedOnce = true;
           } else {
-            mapCanvasMap.jumpTo(positionSource.projectedPosition, -1, -1, true, activateFollowMode);
+            mapCanvasMap.jumpToPosition(positionSource, -1, -1, true, activateFollowMode);
           }
         }
 
