@@ -108,7 +108,7 @@ Item {
    * Internal helper to setup jump animation parameters
    */
   function _setupJump(scale, rotation, handleMargins, callback) {
-    const currentCenter = mapCanvasWrapper.mapSettings.center;
+    const currentCenter = mapCanvasWrapper.mapSettings.getCenter(true);
     const currentRotation = mapCanvasWrapper.mapSettings.rotation;
     jumpDetails.fromScale = mapCanvasWrapper.mapSettings.scale;
     jumpDetails.fromRotation = currentRotation;
@@ -204,7 +204,7 @@ Item {
       enabled: jumpDetails.enabled
       NumberAnimation {
         easing.type: Easing.InOutQuart
-        duration: 1500
+        duration: 750
       }
     }
   }
