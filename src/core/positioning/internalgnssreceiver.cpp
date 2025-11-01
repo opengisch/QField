@@ -25,6 +25,10 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
 {
   if ( mGeoPositionSource )
   {
+#if defined( Q_OS_ANDROID )
+    mGeoPositionSource->setBackendProperty( QStringLiteral( "useMslAltitude" ), true );
+#endif
+
     mGeoPositionSource->setPreferredPositioningMethods( QGeoPositionInfoSource::AllPositioningMethods );
     mGeoPositionSource->setUpdateInterval( 1000 );
 
