@@ -71,6 +71,7 @@ class BookmarkModel : public QSortFilterProxyModel
 
   signals:
     void mapSettingsChanged();
+    void requestJumpToPoint( const QgsPoint &center, const double &scale = -1.0, bool handleMargins = false ) const;
 
   private:
     QObjectUniquePtr<QgsBookmarkManagerModel> mModel;

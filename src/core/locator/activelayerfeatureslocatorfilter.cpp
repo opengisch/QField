@@ -393,11 +393,12 @@ void ActiveLayerFeaturesLocatorFilter::triggerResultFromAction( const QgsLocator
 
         if ( r.isEmpty() || mLocatorBridge->keepScale() )
         {
-          mLocatorBridge->mapSettings()->setCenter( QgsPoint( r.center() ), true );
+          emit mLocatorBridge->requestJumpToPoint( QgsPoint( r.center() ), -1, true );
         }
         else
         {
-          mLocatorBridge->mapSettings()->setExtent( r, true );
+          const double scale = mLocatorBridge->mapSettings()->computeScaleForExtent( r, true );
+          emit mLocatorBridge->requestJumpToPoint( QgsPoint( r.center() ), scale, true );
         }
 
         mLocatorBridge->geometryHighlighter()->setProperty( "qgsGeometry", geom );

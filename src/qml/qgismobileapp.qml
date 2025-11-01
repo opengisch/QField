@@ -2328,7 +2328,7 @@ ApplicationWindow {
             settings.setValue("/QField/Navigation/FollowIncludeDestination", followIncludeDestination);
             gnssButton.followLocation(true);
           } else {
-            mapCanvasMap.jumpTo(navigation.destination);
+            mapCanvasMap.jumpTo(navigation.destination, -1, -1, true);
           }
         }
 
@@ -2473,10 +2473,10 @@ ApplicationWindow {
                 targetScale = (scaleMax - scaleMin) * ratio + scaleMin;
               }
             }
-            mapCanvasMap.jumpToPosition(positionSource, targetScale, -1, true, activateFollowMode);
+            mapCanvasMap.jumpToPosition(positionSource, targetScale, true, activateFollowMode);
             jumpedOnce = true;
           } else {
-            mapCanvasMap.jumpToPosition(positionSource, -1, -1, true, activateFollowMode);
+            mapCanvasMap.jumpToPosition(positionSource, -1, true, activateFollowMode);
           }
         }
 
@@ -4343,6 +4343,14 @@ ApplicationWindow {
           dashBoard.activeLayer = defaultActiveLayer;
         }
       }
+    }
+  }
+
+  Connections {
+    target: bookmarkModel
+
+    function onRequestJumpToPoint(center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
     }
   }
 
