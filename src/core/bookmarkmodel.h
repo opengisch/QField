@@ -63,6 +63,8 @@ class BookmarkModel : public QSortFilterProxyModel
 
     Q_INVOKABLE QgsCoordinateReferenceSystem getBookmarkCrs( const QString &id );
 
+    Q_INVOKABLE void store();
+
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
     QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
