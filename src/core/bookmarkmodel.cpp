@@ -17,6 +17,7 @@
 
 #include "bookmarkmodel.h"
 
+#include <qgsapplication.h>
 #include <qgscoordinatetransform.h>
 #include <qgsgeometry.h>
 #include <qgsproject.h>
@@ -162,7 +163,11 @@ QString BookmarkModel::addBookmarkAtPoint( QgsPoint point, const QString &name, 
   bookmark.setExtent( QgsReferencedRectangle( extent, mMapSettings->destinationCrs() ) );
   bookmark.setName( name );
   bookmark.setGroup( group );
-  return mManager->addBookmark( bookmark );
+
+  const QString uuid = mManager->addBookmark( bookmark );
+  store();
+
+  return uuid;
 }
 
 void BookmarkModel::updateBookmarkDetails( const QString &id, const QString &name, const QString &group )
@@ -176,6 +181,7 @@ void BookmarkModel::updateBookmarkDetails( const QString &id, const QString &nam
 void BookmarkModel::removeBookmark( const QString &id )
 {
   mManager->removeBookmark( id );
+  store();
 }
 
 QgsPoint BookmarkModel::getBookmarkPoint( const QString &id )
@@ -188,4 +194,26 @@ QgsCoordinateReferenceSystem BookmarkModel::getBookmarkCrs( const QString &id )
 {
   const QgsBookmark bookmark = mManager->bookmarkById( id );
   return bookmark.extent().crs();
+}
+
+void BookmarkModel::store()
+{
+  const QString filePath = QStringLiteral( "%1/bookmarks.xml" ).arg( QgsApplication::qgisSettingsDirPath() );
+  if ( !filePath.isEmpty() )
+  {
+    QFile f( filePath );
+    if ( !f.open( QFile::WriteOnly | QIODevice::Truncate ) )
+    {
+      f.close();
+      return;
+    }
+
+    QDomDocument doc;
+    QDomElement elem = mManager->writeXml( doc );
+    doc.appendChild( elem );
+
+    QTextStream out( &f );
+    doc.save( out, 2 );
+    f.close();
+  }
 }

@@ -14,6 +14,7 @@ QfPopup {
   property string bookmarkId: ''
   property string bookmarkName: ''
   property string bookmarkGroup: ''
+  property bool bookmarkDeleted: false
 
   parent: mainWindow.contentItem
   width: Math.min(350, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
@@ -28,7 +29,15 @@ QfPopup {
     colorContainer.value = bookmarkGroup;
   }
 
-  function saveBookmark() {
+  onAboutToHide: {
+    if (!bookmarkDeleted) {
+      bookmarkModel.store();
+    } else {
+      bookmarkDeleted = false;
+    }
+  }
+
+  function updateBookmark() {
     bookmarkModel.updateBookmarkDetails(bookmarkProperties.bookmarkId, nameField.text, colorContainer.value);
   }
 
@@ -70,7 +79,7 @@ QfPopup {
         text: ''
 
         onTextChanged: {
-          saveBookmark();
+          updateBookmark();
         }
       }
 
@@ -85,7 +94,7 @@ QfPopup {
 
           property string value: ''
           onValueChanged: {
-            saveBookmark();
+            updateBookmark();
           }
 
           Layout.fillWidth: true
@@ -228,6 +237,7 @@ QfPopup {
 
     onAccepted: {
       bookmarkModel.removeBookmark(bookmarkProperties.bookmarkId);
+      bookmarkDeleted = true;
       bookmarkProperties.close();
     }
   }
