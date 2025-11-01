@@ -107,6 +107,10 @@ ApplicationWindow {
     onMessageEmitted: {
       displayToast(text);
     }
+
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+    }
   }
 
   FocusStack {
@@ -2324,7 +2328,7 @@ ApplicationWindow {
             settings.setValue("/QField/Navigation/FollowIncludeDestination", followIncludeDestination);
             gnssButton.followLocation(true);
           } else {
-            mapCanvas.mapSettings.setCenter(navigation.destination);
+            mapCanvasMap.jumpTo(navigation.destination, -1, -1, true);
           }
         }
 
@@ -2439,6 +2443,15 @@ ApplicationWindow {
 
         property bool jumpedOnce: false
 
+        // Callback to activate follow mode after jump completes
+        function activateFollowMode() {
+          if (!gnssButton.followActive) {
+            mapCanvasMap.freeze('follow');
+            gnssButton.followActive = true;
+            gnssButton.followLocation(true);
+          }
+        }
+
         function jumpToLocation() {
           if (!jumpedOnce) {
             // The scale range and speed range aims at providing an adequate default
@@ -2461,15 +2474,10 @@ ApplicationWindow {
                 targetScale = (scaleMax - scaleMin) * ratio + scaleMin;
               }
             }
-            mapCanvasMap.mapCanvasWrapper.zoomScale(positionSource.projectedPosition, targetScale, true);
+            mapCanvasMap.jumpToPosition(positionSource, targetScale, -1, true, activateFollowMode);
             jumpedOnce = true;
           } else {
-            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
-          }
-          if (!followActive) {
-            mapCanvasMap.freeze('follow');
-            followActive = true;
-            followLocation(true);
+            mapCanvasMap.jumpToPosition(positionSource, -1, -1, true, activateFollowMode);
           }
         }
 
@@ -2527,7 +2535,7 @@ ApplicationWindow {
           if (!isNaN(positionSource.orientation) && Math.abs(-positionSource.orientation - mapCanvas.mapSettings.rotation) >= 2) {
             if (gnssButton.followOrientationActive) {
               gnssButton.followActiveSkipRotationChanged = true;
-              mapCanvas.mapSettings.rotation = -positionSource.orientation;
+              mapCanvasMap.jumpToPosition(positionSource, -1, -positionSource.orientation, true, activateFollowMode);
             }
             const triggerRefresh = Math.abs(mapCanvasMap.mapCanvasWrapper.rotation) > 22.5;
             if (triggerRefresh) {
@@ -4336,6 +4344,14 @@ ApplicationWindow {
           dashBoard.activeLayer = defaultActiveLayer;
         }
       }
+    }
+  }
+
+  Connections {
+    target: bookmarkModel
+
+    function onRequestJumpToPoint(center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
     }
   }
 
