@@ -2443,15 +2443,16 @@ ApplicationWindow {
 
         property bool jumpedOnce: false
 
+        // Callback to activate follow mode after jump completes
+        function activateFollowMode() {
+          if (!gnssButton.followActive) {
+            mapCanvasMap.freeze('follow');
+            gnssButton.followActive = true;
+            gnssButton.followLocation(true);
+          }
+        }
+
         function jumpToLocation() {
-          // Callback to activate follow mode after jump completes
-          const activateFollowMode = function () {
-            if (!gnssButton.followActive) {
-              mapCanvasMap.freeze('follow');
-              gnssButton.followActive = true;
-              gnssButton.followLocation(true);
-            }
-          };
           if (!jumpedOnce) {
             // The scale range and speed range aims at providing an adequate default
             // value for a range of scenarios from people walking to people being driven
@@ -2473,10 +2474,10 @@ ApplicationWindow {
                 targetScale = (scaleMax - scaleMin) * ratio + scaleMin;
               }
             }
-            mapCanvasMap.jumpToPosition(positionSource, targetScale, true, activateFollowMode);
+            mapCanvasMap.jumpToPosition(positionSource, targetScale, -1, true, activateFollowMode);
             jumpedOnce = true;
           } else {
-            mapCanvasMap.jumpToPosition(positionSource, -1, true, activateFollowMode);
+            mapCanvasMap.jumpToPosition(positionSource, -1, -1, true, activateFollowMode);
           }
         }
 
@@ -2534,7 +2535,7 @@ ApplicationWindow {
           if (!isNaN(positionSource.orientation) && Math.abs(-positionSource.orientation - mapCanvas.mapSettings.rotation) >= 2) {
             if (gnssButton.followOrientationActive) {
               gnssButton.followActiveSkipRotationChanged = true;
-              mapCanvas.mapSettings.rotation = -positionSource.orientation;
+              mapCanvasMap.jumpToPosition(positionSource, -1, -positionSource.orientation, true, activateFollowMode);
             }
             const triggerRefresh = Math.abs(mapCanvasMap.mapCanvasWrapper.rotation) > 22.5;
             if (triggerRefresh) {

@@ -129,17 +129,17 @@ Item {
    */
   function jumpTo(point, scale = -1, rotation = -1, handleMargins = false, callback = null) {
     jumpDetails.positionSource = null;
-    jumpDetails.toX = point.x;
-    jumpDetails.toY = point.y;
+    jumpDetails.toX = "x" in point ? point.x : 0;
+    jumpDetails.toY = "y" in point ? point.y : 0;
     _setupJump(scale, rotation, handleMargins, callback);
   }
 
   /**
    * Jump and track a moving target
    */
-  function jumpToPosition(positionSource, scale = -1, handleMargins = false, callback = null) {
+  function jumpToPosition(positionSource, scale = -1, rotation = -1, handleMargins = false, callback = null) {
     jumpDetails.positionSource = positionSource;
-    _setupJump(scale, -1, handleMargins, callback);
+    _setupJump(scale, rotation, handleMargins, callback);
   }
 
   Item {
@@ -154,7 +154,7 @@ Item {
     property double toScale: -1
     property double toX: 0
     property double toY: 0
-    property var positionSource: null  // When set, toX/toY will be ignored
+    property var positionSource: null
     property double position: 0
     property bool handleMargins: false
     property var completedCallback: null
@@ -163,26 +163,23 @@ Item {
       if (!enabled) {
         return;
       }
-
-      // Use positionSource if available, otherwise use toX/toY
       const targetX = positionSource ? positionSource.projectedPosition.x : toX;
       const targetY = positionSource ? positionSource.projectedPosition.y : toY;
-      const targetRotation = positionSource ? positionSource.orientation : toRotation;
       const dx = targetX - fromX;
       const dy = targetY - fromY;
       const distance = Math.sqrt(dx * dx + dy * dy);
-      if (distance === 0 && targetRotation === -1 && toScale === -1) {
+      if (distance === 0 && toRotation === -1 && toScale === -1) {
         enabled = false;
-        positionSource = null;  // Clear binding
+        positionSource = null;
         mapArea.unfreeze('jumping');
         return;
       }
+      if (toRotation !== -1) {
+        const progressRotation = fromRotation + (toRotation - fromRotation) * position;
+        mapCanvasWrapper.mapSettings.rotation = progressRotation;
+      }
       const progressX = fromX + dx * position;
       const progressY = fromY + dy * position;
-      // if (targetRotation !== -1) {
-      //   const progressRotation = fromRotation + (targetRotation - fromRotation) * position;
-      //   mapCanvasWrapper.mapSettings.rotation = progressRotation;
-      // }
       if (toScale !== -1) {
         const progressScale = fromScale + (toScale - fromScale) * position;
         mapCanvasWrapper.zoomScale(Qt.point(progressX, progressY), progressScale, jumpDetails.handleMargins);
@@ -191,7 +188,7 @@ Item {
       }
       if (position >= 1.0) {
         enabled = false;
-        positionSource = null;  // Clear binding
+        positionSource = null;
         mapArea.unfreeze('jumping');
         if (completedCallback && typeof completedCallback === 'function') {
           completedCallback();
