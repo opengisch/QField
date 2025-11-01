@@ -105,23 +105,6 @@ Item {
   }
 
   /**
-   * Calculate the shortest rotation path between two angles
-   * Handles the circular nature of angles (0° = 360°)
-   */
-  function shortestRotationPath(fromAngle, toAngle) {
-    // Normalize angles to [0, 360)
-    const from = ((fromAngle % 360) + 360) % 360;
-    const to = ((toAngle % 360) + 360) % 360;
-    const diff = to - from;
-    if (diff > 180) {
-      diff -= 360;
-    } else if (diff < -180) {
-      diff += 360;
-    }
-    return diff;
-  }
-
-  /**
    * Internal helper to setup jump animation parameters
    */
   function _setupJump(scale, rotation, handleMargins, callback) {
@@ -133,13 +116,7 @@ Item {
     jumpDetails.fromY = currentCenter.y;
     jumpDetails.toScale = scale;
     jumpDetails.completedCallback = callback;
-    if (rotation !== -1) {
-      const rotationDiff = shortestRotationPath(currentRotation, rotation);
-      jumpDetails.rotationDelta = rotationDiff;
-      jumpDetails.toRotation = rotation;
-    } else {
-      jumpDetails.toRotation = -1;
-    }
+    jumpDetails.toRotation = rotation;
     jumpDetails.position = 0.0;
     jumpDetails.handleMargins = handleMargins;
     freeze('jumping');
@@ -151,8 +128,7 @@ Item {
    * Smoothly animates the map to a new center point
    */
   function jumpTo(point, scale = -1, rotation = -1, handleMargins = false, callback = null) {
-    console.log("- JumpTo", point, scale, rotation, handleMargins);
-    jumpDetails.positionSource = null;  // Clear any existing binding
+    jumpDetails.positionSource = null;
     jumpDetails.toX = point.x;
     jumpDetails.toY = point.y;
     _setupJump(scale, rotation, handleMargins, callback);
@@ -161,10 +137,9 @@ Item {
   /**
    * Jump and track a moving target
    */
-  function jumpToPosition(positionSource, scale = -1, rotation = -1, handleMargins = false, callback = null) {
-    console.log("- jumpToPosition", positionSource, scale, rotation, handleMargins);
+  function jumpToPosition(positionSource, scale = -1, handleMargins = false, callback = null) {
     jumpDetails.positionSource = positionSource;
-    _setupJump(scale, rotation, handleMargins, callback);
+    _setupJump(scale, -1, handleMargins, callback);
   }
 
   Item {
@@ -182,7 +157,6 @@ Item {
     property var positionSource: null  // When set, toX/toY will be ignored
     property double position: 0
     property bool handleMargins: false
-    property double rotationDelta: 0
     property var completedCallback: null
 
     onPositionChanged: {
@@ -193,10 +167,11 @@ Item {
       // Use positionSource if available, otherwise use toX/toY
       const targetX = positionSource ? positionSource.projectedPosition.x : toX;
       const targetY = positionSource ? positionSource.projectedPosition.y : toY;
+      const targetRotation = positionSource ? positionSource.orientation : toRotation;
       const dx = targetX - fromX;
       const dy = targetY - fromY;
       const distance = Math.sqrt(dx * dx + dy * dy);
-      if (distance === 0 && toRotation === -1 && toScale === -1) {
+      if (distance === 0 && targetRotation === -1 && toScale === -1) {
         enabled = false;
         positionSource = null;  // Clear binding
         mapArea.unfreeze('jumping');
@@ -204,10 +179,10 @@ Item {
       }
       const progressX = fromX + dx * position;
       const progressY = fromY + dy * position;
-      if (toRotation !== -1) {
-        const progressRotation = fromRotation + rotationDelta * position;
-        mapCanvasWrapper.mapSettings.rotation = progressRotation;
-      }
+      // if (targetRotation !== -1) {
+      //   const progressRotation = fromRotation + (targetRotation - fromRotation) * position;
+      //   mapCanvasWrapper.mapSettings.rotation = progressRotation;
+      // }
       if (toScale !== -1) {
         const progressScale = fromScale + (toScale - fromScale) * position;
         mapCanvasWrapper.zoomScale(Qt.point(progressX, progressY), progressScale, jumpDetails.handleMargins);
