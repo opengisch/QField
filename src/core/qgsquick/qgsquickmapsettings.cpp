@@ -180,6 +180,33 @@ QgsPoint QgsQuickMapSettings::center() const
   return QgsPoint( extent().center() );
 }
 
+QgsPoint QgsQuickMapSettings::getCenter( bool handleMargins ) const
+{
+  if ( handleMargins && ( !qgsDoubleNear( mRightMargin, 0.0 ) || !qgsDoubleNear( mBottomMargin, 0.0 ) ) )
+  {
+    // Get current extent
+    QgsRectangle e = mMapSettings.extent();
+
+    // Calculate base margin adjustments (split in half for centering)
+    const double baseXAdjustment = -mRightMargin * devicePixelRatio() * mMapSettings.mapUnitsPerPixel() / 2;
+    const double baseYAdjustment = mBottomMargin * devicePixelRatio() * mMapSettings.mapUnitsPerPixel() / 2;
+
+    // Adjust margins based on rotation
+    const double rotationRadians = mMapSettings.rotation() * M_PI / 180.0;
+    const double xAdjustment = baseXAdjustment * cos( rotationRadians ) - baseYAdjustment * sin( rotationRadians );
+    const double yAdjustment = baseXAdjustment * sin( rotationRadians ) + baseYAdjustment * cos( rotationRadians );
+
+    // Calculate the adjusted center
+    QgsPointXY adjustedCenter = e.center();
+    adjustedCenter.setX( adjustedCenter.x() + xAdjustment );
+    adjustedCenter.setY( adjustedCenter.y() + yAdjustment );
+
+    return QgsPoint( adjustedCenter );
+  }
+
+  return QgsPoint( extent().center() );
+}
+
 void QgsQuickMapSettings::setCenter( const QgsPoint &center, bool handleMargins )
 {
   if ( center.isEmpty() )
