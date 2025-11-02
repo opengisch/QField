@@ -22,7 +22,7 @@ endif()
 if(ANDROID_ABI)
   set(ANDROID_BUILD_TOOLS_VERSION "35.0.1" CACHE STRING "Android build-tools version")
   set(ANDROID_TARGET_PLATFORM 35 CACHE INT "Target Android platform SDK version")
-  set(ANDROID_PLATFORM 26 CACHE INT "Minimum Android platform SDK version")
-  set(ANDROID_PLATFORM_INT 26 CACHE INT "Minimum Android platform SDK version") # Used in build.gradle.in
+  set(ANDROID_PLATFORM 28 CACHE INT "Minimum Android platform SDK version")
+  set(ANDROID_PLATFORM_INT 28 CACHE INT "Minimum Android platform SDK version") # Used in build.gradle.in
   set(ANDROID_CPP_FEATURES "rtti exceptions")
 endif()
