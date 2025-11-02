@@ -4082,6 +4082,10 @@ ApplicationWindow {
     codeReader: codeReader
     featureModel.currentLayer: dashBoard.activeLayer
 
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+    }
+
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 

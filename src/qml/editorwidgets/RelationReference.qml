@@ -77,7 +77,7 @@ EditorWidgetBase {
         geometryHighlighter.geometryWrapper.crs = listModel.currentLayer.crs;
         const extentRect = FeatureUtils.extent(mapCanvas.mapSettings, listModel.currentLayer, feature);
         const scale = mapCanvas.mapSettings.computeScaleForExtent(extentRect, true);
-        mapCanvasMap.jumpTo(extentRect.center, scale, -1, true);
+        requestJumpToPoint(extentRect.center, scale, true);
       }
     }
   }

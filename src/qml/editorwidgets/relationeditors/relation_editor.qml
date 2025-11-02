@@ -72,7 +72,7 @@ RelationEditorBase {
               geometryHighlighter.geometryWrapper.crs = referencingFeatureListModel.relation.referencingLayer.crs;
               const extentRect = FeatureUtils.extent(mapCanvas.mapSettings, referencingFeatureListModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature);
               const scale = mapCanvas.mapSettings.computeScaleForExtent(extentRect, true);
-              mapCanvasMap.jumpTo(extentRect.center, scale, -1, true);
+              relationEditor.requestJumpToPoint(extentRect.center, scale, true);
             } else {
               viewButton.click();
             }

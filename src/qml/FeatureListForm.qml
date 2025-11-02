@@ -416,6 +416,10 @@ Pane {
       }
     }
 
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      featureFormList.requestJumpToPoint(center, scale, handleMargins);
+    }
+
     onCancelled: {
       featureFormList.selection.focusedItemChanged();
       featureForm.model.featureModel.reset();

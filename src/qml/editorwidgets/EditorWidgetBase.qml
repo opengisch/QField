@@ -40,4 +40,10 @@ Item {
    * handler is \c onRequestBarcode.
    */
   signal requestBarcode(var item)
+
+  /**
+   * This signal is emitted when an editor widget is requesting to jump to a specific point on the map.
+   * The corresponding handler is \c onRequestJumpToPoint.
+   */
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
 }
