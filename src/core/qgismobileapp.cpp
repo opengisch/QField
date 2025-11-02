@@ -1479,6 +1479,7 @@ QgisMobileapp::~QgisMobileapp()
   delete mProject;
   delete mAppMissingGridHandler;
 
+  QgsApplication::taskManager()->cancelAll();
   mApp->exitQgis();
   QMetaObject::invokeMethod( mApp, &QgsApplication::quit, Qt::QueuedConnection );
 }
