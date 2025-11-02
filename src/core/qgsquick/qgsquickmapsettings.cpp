@@ -175,11 +175,6 @@ bool QgsQuickMapSettings::applyExtent( QgsMapSettings &mapSettings, const QgsRec
   return true;
 }
 
-QgsPoint QgsQuickMapSettings::center() const
-{
-  return QgsPoint( extent().center() );
-}
-
 QgsPoint QgsQuickMapSettings::getCenter( bool handleMargins ) const
 {
   if ( handleMargins && ( !qgsDoubleNear( mRightMargin, 0.0 ) || !qgsDoubleNear( mBottomMargin, 0.0 ) ) )

@@ -57,7 +57,7 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     /**
      * Geographical coordinate representing the center point of the current extent
      */
-    Q_PROPERTY( QgsPoint center READ center WRITE setCenter NOTIFY extentChanged )
+    Q_PROPERTY( QgsPoint center READ getCenter WRITE setCenter NOTIFY extentChanged )
     /**
      * Geographical coordinates of the rectangle that should be rendered.
      * The actual visible extent used for rendering could be slightly different
@@ -163,10 +163,7 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     QgsProject *project() const;
 
     //! Returns the center point of the current map extent
-    QgsPoint center() const;
-
-    //! Returns the center point of the current map extent
-    Q_INVOKABLE QgsPoint getCenter( bool handleMargins ) const;
+    Q_INVOKABLE QgsPoint getCenter( bool handleMargins = false ) const;
 
     //! Move current map extent to have center point defined by \a center (QgsPoint)
     Q_INVOKABLE void setCenter( const QgsPoint &center, bool handleMargins = false );
