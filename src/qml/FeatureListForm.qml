@@ -53,6 +53,7 @@ Pane {
 
   signal showMessage(string message)
   signal editGeometry
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
 
   function requestCancel() {
     featureForm.requestCancel();
@@ -489,7 +490,7 @@ Pane {
       }
 
       onRequestJumpToPoint: function (center, scale, handleMargins) {
-        mapCanvasMap.jumpTo(center, scale, -1, handleMargins); // direct access to mapCanvasMap ??
+        featureFormList.requestJumpToPoint(center, scale, handleMargins);
       }
     }
 

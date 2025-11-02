@@ -4039,6 +4039,10 @@ ApplicationWindow {
 
     onShowMessage: displayToast(message)
 
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+    }
+
     onEditGeometry: {
       // Set overall selected (i.e. current) layer to that of the feature geometry being edited,
       // important for snapping settings to make sense when set to current layer
