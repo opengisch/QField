@@ -204,7 +204,6 @@ void BookmarkModel::store()
     QFile f( filePath );
     if ( !f.open( QFile::WriteOnly | QIODevice::Truncate ) )
     {
-      f.close();
       return;
     }
 
