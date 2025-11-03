@@ -1389,15 +1389,15 @@ void FlatLayerTreeModelBase::updateCurrentMapTheme()
 
   const QgsMapThemeCollection::MapThemeRecord rec = QgsMapThemeCollection::createThemeFromCurrentState( mLayerTreeModel->rootGroup(), mLayerTreeModel );
   const QStringList mapThemes = QgsProject::instance()->mapThemeCollection()->mapThemes();
-  for ( const QString &grpName : mapThemes )
+
+  // only compare layer records as the legend does not offer collapse info for now
+  // TODO check the whole rec equality whenever the layer tree is a tree and not a list anymore
+  auto match = std::find_if( mapThemes.begin(), mapThemes.end(), [this, &rec]( const QString &name ) {
+    return rec.validLayerRecords() == QgsProject::instance()->mapThemeCollection()->mapThemeState( name ).validLayerRecords();
+  } );
+  if ( match != mapThemes.end() )
   {
-    // only compare layer records as the legend does not offer collapse info for now
-    // TODO check the whole rec equality whenever the layer tree is a tree and not a list anymore
-    if ( rec.validLayerRecords() == QgsProject::instance()->mapThemeCollection()->mapThemeState( grpName ).validLayerRecords() )
-    {
-      mMapTheme = grpName;
-      return;
-    }
+    mMapTheme = *match;
   }
 }
 

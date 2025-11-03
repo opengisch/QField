@@ -302,17 +302,8 @@ void PlatformUtilities::sendCompressedFolderTo( const QString &path ) const
 
 void PlatformUtilities::removeDataset( const QString &path ) const
 {
-  bool allowed = false;
   const QStringList allowedDirectories = QStringList() << applicationDirectory() << additionalApplicationDirectories();
-  for ( const QString &directory : allowedDirectories )
-  {
-    if ( path.startsWith( directory ) )
-    {
-      allowed = true;
-      break;
-    }
-  }
-  if ( allowed )
+  if ( std::any_of( allowedDirectories.begin(), allowedDirectories.end(), [this, &path]( const QString &directory ) { return path.startsWith( directory ); } ) )
   {
     if ( QMessageBox::warning( nullptr,
                                tr( "Removal Confirmation" ),
@@ -327,17 +318,8 @@ void PlatformUtilities::removeDataset( const QString &path ) const
 
 void PlatformUtilities::removeFolder( const QString &path ) const
 {
-  bool allowed = false;
   const QStringList allowedDirectories = QStringList() << applicationDirectory() << additionalApplicationDirectories();
-  for ( const QString &directory : allowedDirectories )
-  {
-    if ( path.startsWith( directory ) )
-    {
-      allowed = true;
-      break;
-    }
-  }
-  if ( allowed )
+  if ( std::any_of( allowedDirectories.begin(), allowedDirectories.end(), [this, &path]( const QString &directory ) { return path.startsWith( directory ); } ) )
   {
     if ( QMessageBox::warning( nullptr,
                                tr( "Removal Confirmation" ),

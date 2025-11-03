@@ -41,14 +41,14 @@ DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
 
     const QJsonObject deltaObject = deltaJson.toObject();
     const QStringList requiredKeys( { "id", "deltafile_id", "created_at", "updated_at", "status" } );
-    for ( const QString &requiredKey : requiredKeys )
+    auto match = std::find_if( requiredKeys.begin(), requiredKeys.end(), [this, &deltaObject]( const QString &key ) {
+      return deltaObject.value( key ).isNull() || deltaObject.value( key ).isUndefined();
+    } );
+    if ( match != requiredKeys.end() )
     {
-      if ( deltaObject.value( requiredKey ).isNull() || deltaObject.value( requiredKey ).isUndefined() )
-      {
-        mIsValid = false;
-        mErrorString = tr( "Expected all array elements to be an object containing a key \"%1\", but the element at #%2 is not" ).arg( requiredKey ).arg( mDeltas.size() );
-        return;
-      }
+      mIsValid = false;
+      mErrorString = tr( "Expected all array elements to be an object containing a key \"%1\", but the element at #%2 is not" ).arg( *match ).arg( mDeltas.size() );
+      return;
     }
 
     Delta delta;

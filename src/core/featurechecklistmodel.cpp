@@ -497,12 +497,9 @@ bool FeatureCheckListModel::filterAcceptsRow( int sourceRow, const QModelIndex &
 
   const QModelIndex index = sourceModel()->index( sourceRow, 0, sourceParent );
   const QString displayText = sourceModel()->data( index, Qt::DisplayRole ).toString().toLower();
-  for ( const QString &searchFragment : searchFragments )
+  if ( std::none_of( searchFragments.begin(), searchFragments.end(), [this, &displayText]( const QString &fragment ) { return displayText.contains( fragment ); } ) )
   {
-    if ( !displayText.contains( searchFragment ) )
-    {
-      return false;
-    }
+    return false;
   }
 
   return true;

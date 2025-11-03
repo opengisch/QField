@@ -1457,20 +1457,20 @@ bool DeltaFileWrapper::isCreatedFeature( QgsVectorLayer *vl, QgsFeature feature 
   const QString pk = feature.attribute( localPkAttrPair.second ).toString();
   const QString layerId = vl->id();
 
-  for ( const QJsonValue &deltaJson : std::as_const( mDeltas ) )
-  {
+  return std::any_of( mDeltas.begin(), mDeltas.end(), [this, &layerId, &pk]( const QJsonValue &deltaJson ) {
     QVariantMap delta = deltaJson.toObject().toVariantMap();
     const QString method = delta.value( QStringLiteral( "method" ) ).toString();
-    if ( method != QStringLiteral( "create" ) )
-      continue;
-
-    const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
-    const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
-    if ( localLayerId == layerId && localPk == pk )
-      return true;
-  }
-
-  return false;
+    if ( method == QStringLiteral( "create" ) )
+    {
+      const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
+      const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
+      if ( localLayerId == layerId && localPk == pk )
+      {
+        return true;
+      }
+    }
+    return false;
+  } );
 }
 
 
@@ -1564,12 +1564,9 @@ bool DeltaFileWrapper::deltaContainsActualChange( const QJsonObject &delta ) con
   const QStringList newDataAttrNames = newData.value( QStringLiteral( "attributes" ) ).toObject().keys();
 
   // the attributes in the `newData` are always going to be a (full) subset of `oldData`
-  for ( const QString &attrName : newDataAttrNames )
+  if ( std::any_of( newDataAttrNames.begin(), newDataAttrNames.end(), [this, &newDataAttrs, &oldDataAttrs]( const QString &name ) { return newDataAttrs.value( name ) != oldDataAttrs.value( name ); } ) )
   {
-    if ( newDataAttrs.value( attrName ) != oldDataAttrs.value( attrName ) )
-    {
-      return true;
-    }
+    return true;
   }
 
   // no "geometry" in `newData` indicates there was no change in geometry
