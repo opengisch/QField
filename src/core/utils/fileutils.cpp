@@ -554,7 +554,7 @@ bool FileUtils::isWithinProjectDirectory( const QString &filePath )
     for ( const QString &segment : pendingSegments )
     {
       //cppcheck-suppress ignoredReturnValue
-      rebuiltDir.cd( segment );
+      ( void ) rebuiltDir.cd( segment );
     }
 
     targetCanonical = rebuiltDir.absoluteFilePath( targetInfo.fileName() );
