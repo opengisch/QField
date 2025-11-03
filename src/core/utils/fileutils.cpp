@@ -383,7 +383,7 @@ void FileUtils::addImageMetadata( const QString &imagePath, const GnssPositionIn
   metadata["Exif.Image.Make"] = QStringLiteral( "QField" );
   metadata["Xmp.tiff.Make"] = QStringLiteral( "QField" );
 
-  for ( const QString key : metadata.keys() )
+  for ( const QString &key : metadata.keys() )
   {
     QgsExifTools::tagImage( imagePath, key, metadata[key] );
   }

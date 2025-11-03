@@ -35,7 +35,7 @@ class MultiFeatureListModelBase : public QAbstractItemModel
     explicit MultiFeatureListModelBase( QObject *parent = nullptr );
 
     //! \copydoc MultiFeatureListModel::setFeatures
-    void setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> requests );
+    void setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> &requests );
 
     //! \copydoc MultiFeatureListModel::appendFeatures
     void appendFeatures( const QList<IdentifyTool::IdentifyResult> &results );

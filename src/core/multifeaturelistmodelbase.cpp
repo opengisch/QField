@@ -38,7 +38,7 @@ MultiFeatureListModelBase::MultiFeatureListModelBase( QObject *parent )
   connect( this, &MultiFeatureListModelBase::modelReset, this, &MultiFeatureListModelBase::countChanged );
 }
 
-void MultiFeatureListModelBase::setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> requests )
+void MultiFeatureListModelBase::setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> &requests )
 {
   beginResetModel();
 

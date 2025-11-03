@@ -36,7 +36,7 @@ MultiFeatureListModel::MultiFeatureListModel( QObject *parent )
   connect( mSourceModel, &MultiFeatureListModelBase::selectedCountChanged, this, &MultiFeatureListModel::adjustFilterToSelectedCount );
 }
 
-void MultiFeatureListModel::setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> requests )
+void MultiFeatureListModel::setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> &requests )
 {
   mSourceModel->setFeatures( requests );
 }

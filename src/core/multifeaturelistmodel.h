@@ -64,7 +64,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     /**
      * Resets the model to contain features found from a list of \a requests.
      */
-    void setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> requests );
+    void setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> &requests );
 
     /**
      * Resets the model to contain features found from a \a vl with the possibility of filtering by a \a filter expression
