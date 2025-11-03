@@ -36,7 +36,7 @@ jobs:
 
   cppcheck-1_9:
     name: cpp check
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v5

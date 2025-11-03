@@ -30,7 +30,7 @@ cppcheck --library=qt.cfg --inline-suppr \
 	-DSIP_INOUT= \
 	-DSIP_OUT= \
 	-DQ_FLAG= \
-	-D_QGIS_VERSION_INT=32600 \
+	-D_QGIS_VERSION_INT=34400 \
 	-j $(nproc) \
 	-isrc/qml \
 	${SCRIPT_DIR}/../src \
