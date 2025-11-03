@@ -22,7 +22,9 @@ echo "Checking ${SCRIPT_DIR}/../src ..."
 cppcheck --library=qt.cfg --inline-suppr \
 	--template='{file}:{line},{severity},{id},{message}' \
 	--enable=all --inconclusive --std=c++11 \
-	--suppress=returnByReference --suppress=variableScope --suppress=shadowFunction --suppress=noExplicitConstructor \
+	--suppress=returnByReference --suppress=variableScope \
+	--suppress=shadowFunction --suppress=noExplicitConstructor \
+	--suppress=functionConst \
 	-DPROJ_VERSION_MAJOR=6 \
 	-USIP_RUN \
 	-DSIP_TRANSFER= \

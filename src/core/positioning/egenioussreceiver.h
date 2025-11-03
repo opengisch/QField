@@ -32,7 +32,7 @@ class EgenioussReceiver : public AbstractGnssReceiver
 
   public:
     explicit EgenioussReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
-    ~EgenioussReceiver();
+    ~EgenioussReceiver() override;
 
     GnssPositionDetails details() const override;
 
