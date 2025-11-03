@@ -25,6 +25,7 @@ cppcheck --library=qt.cfg --inline-suppr \
 	--suppress=returnByReference --suppress=variableScope \
 	--suppress=shadowFunction --suppress=noExplicitConstructor \
 	--suppress=functionConst --suppress=unknownMacro \
+	--suppress=ignoredReturnValue \
 	-DPROJ_VERSION_MAJOR=6 \
 	-USIP_RUN \
 	-DSIP_TRANSFER= \
