@@ -594,7 +594,7 @@ void QgsQuickMapCanvasMap::onLayersChanged()
   mLayerConnections.clear();
 
   const QList<QgsMapLayer *> layers = mMapSettings->layers();
-  for ( QgsMapLayer *layer : layers )
+  for ( const QgsMapLayer *layer : layers )
   {
     mLayerConnections << connect( layer, &QgsMapLayer::repaintRequested, this, &QgsQuickMapCanvasMap::layerRepaintRequested );
   }
@@ -702,7 +702,7 @@ QList<QgsMapLayer *> filterLayersForRender( const QList<QgsMapLayer *> &layers )
   {
     if ( QgsAnnotationLayer *annotationLayer = qobject_cast<QgsAnnotationLayer *>( layer ) )
     {
-      if ( QgsMapLayer *linkedLayer = annotationLayer->linkedVisibilityLayer() )
+      if ( const QgsMapLayer *linkedLayer = annotationLayer->linkedVisibilityLayer() )
       {
         if ( !layers.contains( linkedLayer ) )
           continue;

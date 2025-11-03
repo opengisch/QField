@@ -97,8 +97,10 @@ void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positi
   }
 
   double antennaHeight = 0.0;
-  if ( PositioningSource *positioningSource = qobject_cast<PositioningSource *>( parent() ) )
+  if ( const PositioningSource *positioningSource = qobject_cast<PositioningSource *>( parent() ) )
+  {
     antennaHeight = positioningSource->antennaHeight();
+  }
 
   double elevation = mLastGnssPositionInformation.elevation();
   if ( !qgsDoubleNear( positionInfo.coordinate().altitude(), elevation ) )

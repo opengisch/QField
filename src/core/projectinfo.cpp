@@ -129,7 +129,7 @@ void ProjectInfo::saveTracker( QgsVectorLayer *layer )
   if ( !layer || !mTrackingModel || !mTrackingModel->layerInTracking( layer ) )
     return;
 
-  Tracker *tracker = mTrackingModel->trackerForLayer( layer );
+  const Tracker *tracker = mTrackingModel->trackerForLayer( layer );
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/trackers/%1" ).arg( layer->id() ) );
   mSettings.setValue( "minimumDistance", tracker->minimumDistance() );

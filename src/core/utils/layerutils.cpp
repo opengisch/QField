@@ -163,7 +163,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &atta
 
     case Qgis::GeometryType::Line:
     {
-      QgsSimpleLineSymbolLayer *symbolLayer = new QgsSimpleLineSymbolLayer( QColor( 55, 126, 184 ), 0.6 );
+      QgsSimpleLineSymbolLayer *symbolLayer = new QgsSimpleLineSymbolLayer( QColor( 55, 126, 184 ), 0.6 ); // cppcheck-suppress constVariablePointer
       symbolLayers << symbolLayer;
       symbol = new QgsLineSymbol( symbolLayers );
       break;
@@ -171,7 +171,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &atta
 
     case Qgis::GeometryType::Polygon:
     {
-      QgsSimpleFillSymbolLayer *symbolLayer = new QgsSimpleFillSymbolLayer( QColor( 55, 126, 184, 100 ), DEFAULT_SIMPLEFILL_STYLE, QColor( 55, 126, 184 ), DEFAULT_SIMPLEFILL_BORDERSTYLE, 0.6 );
+      QgsSimpleFillSymbolLayer *symbolLayer = new QgsSimpleFillSymbolLayer( QColor( 55, 126, 184, 100 ), DEFAULT_SIMPLEFILL_STYLE, QColor( 55, 126, 184 ), DEFAULT_SIMPLEFILL_BORDERSTYLE, 0.6 ); // cppcheck-suppress constVariablePointer
       symbolLayers << symbolLayer;
       symbol = new QgsFillSymbol( symbolLayers );
       break;

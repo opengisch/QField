@@ -888,7 +888,7 @@ void AttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName )
   }
 }
 
-void _checkChildrenValidity( QStandardItem *parent, bool &hardValidity, bool &softValidity )
+void _checkChildrenValidity( const QStandardItem *parent, bool &hardValidity, bool &softValidity )
 {
   QStandardItem *item = parent->child( 0, 0 );
   while ( item )
@@ -1049,7 +1049,7 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
     {
       bool hardValidity = true;
       bool softValidity = true;
-      QStandardItem *tab = invisibleRootItem();
+      const QStandardItem *tab = invisibleRootItem();
       _checkChildrenValidity( tab, hardValidity, softValidity );
 
       if ( !hardValidity )

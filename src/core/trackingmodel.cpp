@@ -251,7 +251,7 @@ void TrackingModel::requestTrackingSetup( QgsVectorLayer *layer, bool skipSettin
   mRequestedTrackers << TrackerRequest( layer, skipSettings );
   if ( mRequestedTrackers.size() == 1 )
   {
-    Tracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
+    const Tracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
     if ( tracker )
     {
       emit trackingSetupRequested( index( static_cast<int>( mTrackers.indexOf( tracker ) ), 0 ), mRequestedTrackers.first().skipSettings );
@@ -266,7 +266,7 @@ void TrackingModel::trackingSetupDone()
     mRequestedTrackers.removeFirst();
     if ( !mRequestedTrackers.isEmpty() )
     {
-      Tracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
+      const Tracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
       if ( tracker )
       {
         emit trackingSetupRequested( index( static_cast<int>( mTrackers.indexOf( tracker ) ), 0 ), mRequestedTrackers.first().skipSettings );

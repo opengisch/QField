@@ -824,8 +824,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
       {
-        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
-
+        const QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
         return ( mLayersInTracking.contains( nodeLayer ) );
       }
       return false;
