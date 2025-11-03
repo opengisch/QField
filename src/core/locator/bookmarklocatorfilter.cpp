@@ -50,12 +50,7 @@ void BookmarkLocatorFilter::fetchResults( const QString &string, const QgsLocato
     if ( result.score > 0 )
     {
       result.filter = this;
-#if _QGIS_VERSION_INT >= 33300
       result.setUserData( i );
-#else
-      result.userData = i;
-#endif
-
       emit resultFetched( result );
     }
   }
@@ -68,15 +63,11 @@ void BookmarkLocatorFilter::triggerResult( const QgsLocatorResult &result )
 
 void BookmarkLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int )
 {
-#if _QGIS_VERSION_INT >= 33601
   const int row = result.userData().toInt();
-#else
-  const int row = result.getUserData().toInt();
-#endif
 
   mLocatorBridge->bookmarks()->setExtentFromBookmark( mLocatorBridge->bookmarks()->index( row, 0 ) );
 
-  QgsGeometry geom( mLocatorBridge->bookmarks()->data( mLocatorBridge->bookmarks()->index( row, 0 ), BookmarkModel::BookmarkPoint ).value<QgsGeometry>() );
+  const QgsGeometry geom( mLocatorBridge->bookmarks()->data( mLocatorBridge->bookmarks()->index( row, 0 ), BookmarkModel::BookmarkPoint ).value<QgsGeometry>() );
   mLocatorBridge->geometryHighlighter()->setProperty( "qgsGeometry", geom );
   mLocatorBridge->geometryHighlighter()->setProperty( "crs", mLocatorBridge->mapSettings()->mapSettings().destinationCrs() );
 }

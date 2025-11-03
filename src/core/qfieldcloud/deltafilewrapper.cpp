@@ -384,17 +384,17 @@ QString DeltaFileWrapper::crsByLayerId( const QgsProject *project, const QString
   if ( project && project->mapLayer( layerId ) )
   {
     const QString authid = project->mapLayer( layerId )->crs().authid();
-
     if ( authid.isEmpty() )
+    {
       return QString();
+    }
 
     if ( authid.startsWith( QStringLiteral( "EPSG:" ) ) )
+    {
       return authid;
-#if _QGIS_VERSION_INT >= 33500
+    }
+
     return project->mapLayer( layerId )->crs().toWkt( Qgis::CrsWktVariant::Preferred );
-#else
-    return project->mapLayer( layerId )->crs().toWkt( QgsCoordinateReferenceSystem::WKT_PREFERRED );
-#endif
   }
 
   return QString();
@@ -535,26 +535,15 @@ void DeltaFileWrapper::addPatch( const QgsProject *project, const QString &local
 
     switch ( newFields.fieldOrigin( idx ) )
     {
-#if _QGIS_VERSION_INT >= 33800
       case Qgis::FieldOrigin::Expression:
       case Qgis::FieldOrigin::Edit:
       // TODO probably one day when QField supports editable joins we need to change that, if the other feature change is not a separate delta.
       case Qgis::FieldOrigin::Join:
-#else
-      case QgsFields::OriginExpression:
-      case QgsFields::OriginEdit:
-      // TODO probably one day when QField supports editable joins we need to change that, if the other feature change is not a separate delta.
-      case QgsFields::OriginJoin:
-#endif
         ignoredFields++;
         continue;
-#if _QGIS_VERSION_INT >= 33800
+
       case Qgis::FieldOrigin::Provider:
       case Qgis::FieldOrigin::Unknown:
-#else
-      case QgsFields::OriginProvider:
-      case QgsFields::OriginUnknown:
-#endif
         break;
     }
 
@@ -769,25 +758,14 @@ void DeltaFileWrapper::addCreate( const QgsProject *project, const QString &loca
 
     switch ( newFields.fieldOrigin( idx ) )
     {
-#if _QGIS_VERSION_INT >= 33800
       case Qgis::FieldOrigin::Expression:
       case Qgis::FieldOrigin::Edit:
       // TODO probably one day when QField supports editable joins we need to change that, if the other feature change is not a separate delta.
       case Qgis::FieldOrigin::Join:
-#else
-      case QgsFields::OriginExpression:
-      case QgsFields::OriginEdit:
-      // TODO probably one day when QField supports editable joins we need to change that, if the other feature change is not a separate delta.
-      case QgsFields::OriginJoin:
-#endif
         continue;
-#if _QGIS_VERSION_INT >= 33800
+
       case Qgis::FieldOrigin::Provider:
       case Qgis::FieldOrigin::Unknown:
-#else
-      case QgsFields::OriginProvider:
-      case QgsFields::OriginUnknown:
-#endif
         break;
     }
 

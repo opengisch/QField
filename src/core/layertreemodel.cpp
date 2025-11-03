@@ -1028,12 +1028,10 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         {
           return vectorLayer->isSpatial() && vectorLayer->labeling();
         }
-#if _QGIS_VERSION_INT >= 33299
         else if ( QgsVectorTileLayer *vectorTileLayer = qobject_cast<QgsVectorTileLayer *>( nodeLayer->layer() ) )
         {
           return vectorTileLayer->labeling() ? true : false;
         }
-#endif
       }
 
       return false;
@@ -1049,12 +1047,10 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         {
           return vectorLayer->isSpatial() && vectorLayer->labeling() && vectorLayer->labelsEnabled();
         }
-#if _QGIS_VERSION_INT >= 33299
         else if ( QgsVectorTileLayer *vectorTileLayer = qobject_cast<QgsVectorTileLayer *>( nodeLayer->layer() ) )
         {
           return vectorTileLayer->labeling() && vectorTileLayer->labelsEnabled();
         }
-#endif
       }
 
       return false;
@@ -1088,11 +1084,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         if ( layer && layer->renderer() )
         {
           bool ok = false;
-#if _QGIS_VERSION_INT >= 33500
           const QString ruleKey = symbolNode->data( static_cast<int>( QgsLayerTreeModelLegendNode::CustomRole::RuleKey ) ).toString();
-#else
-          const QString ruleKey = symbolNode->data( QgsLayerTreeModelLegendNode::RuleKeyRole ).toString();
-#endif
           return layer->renderer()->legendKeyToExpression( ruleKey, layer, ok );
         }
       }
@@ -1229,7 +1221,6 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
           emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::LabelsVisible );
           return true;
         }
-#if _QGIS_VERSION_INT >= 33299
         else if ( QgsVectorTileLayer *vectorTileLayer = qobject_cast<QgsVectorTileLayer *>( nodeLayer->layer() ) )
         {
           if ( !vectorTileLayer->labeling() )
@@ -1242,7 +1233,6 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
           emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::LabelsVisible );
           return true;
         }
-#endif
       }
 
       return false;

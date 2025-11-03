@@ -716,11 +716,7 @@ bool FeatureModel::suppressFeatureForm() const
   if ( !mLayer )
     return false;
 
-#if _QGIS_VERSION_INT >= 33100
   return mLayer->editFormConfig().suppress() == Qgis::AttributeFormSuppression::On;
-#else
-  return mLayer->editFormConfig().suppress() == QgsEditFormConfig::FeatureFormSuppress::SuppressOn;
-#endif
 }
 
 void FeatureModel::resetFeature()
