@@ -134,13 +134,11 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVector
     QgsFeatureRequest req;
     req.setFilterRect( r );
     if ( !temporalFilter.isEmpty() )
+    {
       req.setFilterExpression( temporalFilter );
+    }
     req.setLimit( QSettings().value( "/QField/identify/limit", 200 ).toInt() );
-#if _QGIS_VERSION_INT >= 33500
     req.setFlags( Qgis::FeatureRequestFlag::ExactIntersect );
-#else
-    req.setFlags( QgsFeatureRequest::ExactIntersect );
-#endif
 
     QgsAttributeTableConfig config = layer->attributeTableConfig();
     if ( !config.sortExpression().isEmpty() )

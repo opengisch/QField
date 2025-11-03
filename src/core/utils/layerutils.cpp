@@ -238,11 +238,7 @@ QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *lay
     case Qgis::GeometryType::Polygon:
     {
       settings.placement = Qgis::LabelPlacement::AroundPoint;
-#if _QGIS_VERSION_INT >= 33500
       settings.obstacleSettings().setType( QgsLabelObstacleSettings::ObstacleType::PolygonBoundary );
-#else
-      settings.obstacleSettings().setType( QgsLabelObstacleSettings::PolygonBoundary );
-#endif
       break;
     }
 

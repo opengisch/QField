@@ -183,14 +183,13 @@ LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int
 {
   const QModelIndex index = proxyModel()->index( row, 0 );
   if ( !index.isValid() )
+  {
     return nullptr;
-#if _QGIS_VERSION_INT >= 33500
+  }
+
   const QList<QgsLocatorResult::ResultAction> actions = proxyModel()->data( index, static_cast<int>( QgsLocatorModel::CustomRole::ResultActions ) ).value<QList<QgsLocatorResult::ResultAction>>();
-#else
-  const QList<QgsLocatorResult::ResultAction> actions = proxyModel()->data( index, QgsLocatorModel::ResultActionsRole ).value<QList<QgsLocatorResult::ResultAction>>();
-#endif
-  int r = 0;
   LocatorActionsModel *model = new LocatorActionsModel( static_cast<int>( actions.count() ), 1 );
+  int r = 0;
   for ( auto action : actions )
   {
     QStandardItem *item = new QStandardItem( action.text );

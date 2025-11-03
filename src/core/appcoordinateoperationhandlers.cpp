@@ -73,11 +73,7 @@ void AppMissingGridHandler::onMissingRequiredGrid( const QgsCoordinateReferenceS
   if ( !shouldWarnAboutPair( sourceCrs, destinationCrs ) )
     return;
 
-#if _QGIS_VERSION_INT >= 33500
   const QString shortMessage = tr( "No transform available between %1 and %2" ).arg( sourceCrs.userFriendlyIdentifier( Qgis::CrsIdentifierType::ShortString ), destinationCrs.userFriendlyIdentifier( Qgis::CrsIdentifierType::ShortString ) );
-#else
-  const QString shortMessage = tr( "No transform available between %1 and %2" ).arg( sourceCrs.userFriendlyIdentifier( QgsCoordinateReferenceSystem::ShortString ), destinationCrs.userFriendlyIdentifier( QgsCoordinateReferenceSystem::ShortString ) );
-#endif
   QString downloadMessage;
   if ( !grid.url.isEmpty() )
   {
@@ -151,12 +147,7 @@ void AppMissingGridHandler::onMissingGridUsedByContextHandler( const QgsCoordina
   if ( !shouldWarnAboutPairForCurrentProject( sourceCrs, destinationCrs ) )
     return;
 
-#if _QGIS_VERSION_INT >= 33500
   const QString shortMessage = tr( "Cannot use project transform between %1 and %2" ).arg( sourceCrs.userFriendlyIdentifier( Qgis::CrsIdentifierType::ShortString ), destinationCrs.userFriendlyIdentifier( Qgis::CrsIdentifierType::ShortString ) );
-#else
-  const QString shortMessage = tr( "Cannot use project transform between %1 and %2" ).arg( sourceCrs.userFriendlyIdentifier( QgsCoordinateReferenceSystem::ShortString ), destinationCrs.userFriendlyIdentifier( QgsCoordinateReferenceSystem::ShortString ) );
-#endif
-
   QString gridMessage;
   QString downloadMessage;
   for ( const QgsDatumTransform::GridDetails &grid : desired.grids )
@@ -188,12 +179,7 @@ void AppMissingGridHandler::onFallbackOperationOccurred( const QgsCoordinateRefe
   if ( !shouldWarnAboutBallparkPairForCurrentProject( sourceCrs, destinationCrs ) )
     return;
 
-#if _QGIS_VERSION_INT >= 33500
   const QString shortMessage = tr( "Used a ballpark transform from %1 to %2" ).arg( sourceCrs.userFriendlyIdentifier( Qgis::CrsIdentifierType::ShortString ), destinationCrs.userFriendlyIdentifier( Qgis::CrsIdentifierType::ShortString ) );
-#else
-  const QString shortMessage = tr( "Used a ballpark transform from %1 to %2" ).arg( sourceCrs.userFriendlyIdentifier( QgsCoordinateReferenceSystem::ShortString ), destinationCrs.userFriendlyIdentifier( QgsCoordinateReferenceSystem::ShortString ) );
-#endif
-
   QgsMessageLog::logMessage( shortMessage, tr( "projection" ) );
 }
 

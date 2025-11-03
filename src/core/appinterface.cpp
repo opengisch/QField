@@ -244,11 +244,7 @@ void AppInterface::logMessage( const QString &message )
 
 void AppInterface::logRuntimeProfiler()
 {
-#if _QGIS_VERSION_INT >= 33299
   QgsMessageLog::logMessage( QgsApplication::profiler()->asText(), QStringLiteral( "QField" ) );
-#else
-  QgsMessageLog::logMessage( QStringLiteral( "QField must be compiled against QGIS >= 3.34 to support logging of the runtime profiler" ), QStringLiteral( "QField" ) );
-#endif
 }
 
 void AppInterface::sendLog( const QString &message, const QString &cloudUser )

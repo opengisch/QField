@@ -28,21 +28,12 @@ SensorListModel::SensorListModel( QObject *parent )
 QHash<int, QByteArray> SensorListModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
-#if _QGIS_VERSION_INT >= 33500
   roles[static_cast<int>( QgsSensorModel::CustomRole::SensorId )] = "SensorId";
   roles[static_cast<int>( QgsSensorModel::CustomRole::SensorType )] = "SensorType";
   roles[static_cast<int>( QgsSensorModel::CustomRole::SensorName )] = "SensorName";
   roles[static_cast<int>( QgsSensorModel::CustomRole::SensorStatus )] = "SensorStatus";
   roles[static_cast<int>( QgsSensorModel::CustomRole::SensorLastValue )] = "SensorLastValue";
   roles[static_cast<int>( QgsSensorModel::CustomRole::SensorLastTimestamp )] = "SensorLastTimestamp";
-#else
-  roles[QgsSensorModel::SensorId] = "SensorId";
-  roles[QgsSensorModel::SensorType] = "SensorType";
-  roles[QgsSensorModel::SensorName] = "SensorName";
-  roles[QgsSensorModel::SensorStatus] = "SensorStatus";
-  roles[QgsSensorModel::SensorLastValue] = "SensorLastValue";
-  roles[QgsSensorModel::SensorLastTimestamp] = "SensorLastTimestamp";
-#endif
   return roles;
 }
 
@@ -92,11 +83,7 @@ bool SensorListModel::filterAcceptsRow( int source_row, const QModelIndex &sourc
 {
   if ( mShowConnectedOnly )
   {
-#if _QGIS_VERSION_INT >= 33500
     return mSensorModel->data( mSensorModel->index( source_row, 0 ), static_cast<int>( QgsSensorModel::CustomRole::SensorStatus ) ).value<Qgis::DeviceConnectionStatus>() == Qgis::DeviceConnectionStatus::Connected;
-#else
-    return mSensorModel->data( mSensorModel->index( source_row, 0 ), QgsSensorModel::SensorStatus ).value<Qgis::DeviceConnectionStatus>() == Qgis::DeviceConnectionStatus::Connected;
-#endif
   }
 
   return true;

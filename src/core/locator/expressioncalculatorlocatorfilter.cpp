@@ -56,11 +56,7 @@ void ExpressionCalculatorLocatorFilter::fetchResults( const QString &string, con
       QgsLocatorResult result;
       result.filter = this;
       result.displayString = tr( "Copy “%1” to clipboard" ).arg( resultString );
-#if _QGIS_VERSION_INT >= 33300
       result.setUserData( resultString );
-#else
-      result.userData = resultString;
-#endif
       result.score = 1;
       emit resultFetched( result );
     }
@@ -76,16 +72,11 @@ void ExpressionCalculatorLocatorFilter::triggerResult( const QgsLocatorResult &r
 
 void ExpressionCalculatorLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
-#if _QGIS_VERSION_INT >= 33601
-  QString resultString = result.userData().toString();
-#else
-  QString resultString = result.getUserData().toString();
-#endif
-
   switch ( actionId )
   {
     case Normal:
     {
+      const QString resultString = result.userData().toString();
       PlatformUtilities::instance()->copyTextToClipboard( resultString );
     }
   }
