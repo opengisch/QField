@@ -2367,8 +2367,6 @@ void QFieldCloudProject::uploadFiles()
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      const int httpStatus = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
-      const QString errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
       const QString errorMessage = tr( "Network error. Failed to upload file `%1`." ).arg( filePath );
       QgsLogger::debug( errorMessage );
       rawReply->abort();

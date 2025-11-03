@@ -724,7 +724,6 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
   QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
   for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
   {
-    QStandardItem *item = fieldIterator.key();
     const int fidx = fieldIterator.value();
     if ( fidx == fieldIndex || !fields.at( fidx ).defaultValueDefinition().isValid() || !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() )
       continue;

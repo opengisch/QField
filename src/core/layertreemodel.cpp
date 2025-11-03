@@ -625,7 +625,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       QString id;
       if ( QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
-        if ( QgsWmsLegendNode *wmsNode = qobject_cast<QgsWmsLegendNode *>( legendNode ) )
+        if ( qobject_cast<QgsWmsLegendNode *>( legendNode ) )
         {
           QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex.parent() );
           if ( QgsLayerTree::isLayer( node ) )
@@ -639,7 +639,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
             }
           }
         }
-        else if ( QgsImageLegendNode *imageNode = qobject_cast<QgsImageLegendNode *>( legendNode ) )
+        else if ( qobject_cast<QgsImageLegendNode *>( legendNode ) )
         {
           QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex.parent() );
           if ( QgsLayerTree::isLayer( node ) )

@@ -260,7 +260,6 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyRasterLayer( QgsRaster
     {
       // error
       // TODO: better error reporting
-      QString label = layer->subLayers().value( it.key() );
       continue;
     }
 
@@ -309,9 +308,6 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorTileLayer( QgsVe
   {
     return results;
   }
-
-  QMap<QString, QString> commonDerivedAttributes;
-  int featureCount = 0;
 
   try
   {
