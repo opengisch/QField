@@ -73,13 +73,15 @@ DeltaFileWrapper::DeltaFileWrapper( const QString &projectId, const QString &fil
 
     QgsLogger::debug( QStringLiteral( "Loading deltas from %1" ).arg( mFileName ) );
 
-    if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && !deltaFile.open( QIODevice::ReadWrite ) )
+    if ( !deltaFile.open( QIODevice::ReadWrite ) )
     {
       setError( DeltaFileWrapper::ErrorType::IOError, deltaFile.errorString() );
     }
 
     if ( mErrorType == DeltaFileWrapper::ErrorType::NoError )
+    {
       mJsonRoot = QJsonDocument::fromJson( deltaFile.readAll(), &jsonError ).object();
+    }
 
     if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && ( jsonError.error != QJsonParseError::NoError ) )
     {
@@ -87,19 +89,29 @@ DeltaFileWrapper::DeltaFileWrapper( const QString &projectId, const QString &fil
     }
 
     if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && ( !mJsonRoot.value( QStringLiteral( "id" ) ).isString() || mJsonRoot.value( QStringLiteral( "id" ) ).toString().isEmpty() ) )
+    {
       setError( DeltaFileWrapper::ErrorType::JsonFormatIdError );
+    }
 
     if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && ( !mJsonRoot.value( QStringLiteral( "project" ) ).isString() || mJsonRoot.value( QStringLiteral( "project" ) ).toString().isEmpty() ) )
+    {
       setError( DeltaFileWrapper::ErrorType::JsonFormatProjectIdError );
+    }
 
     if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && !mJsonRoot.value( QStringLiteral( "deltas" ) ).isArray() )
+    {
       setError( DeltaFileWrapper::ErrorType::JsonFormatDeltasError );
+    }
 
     if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && ( !mJsonRoot.value( QStringLiteral( "version" ) ).isString() || mJsonRoot.value( QStringLiteral( "version" ) ).toString().isEmpty() ) )
+    {
       setError( DeltaFileWrapper::ErrorType::JsonFormatVersionError );
+    }
 
     if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && mJsonRoot.value( QStringLiteral( "version" ) ) != DeltaFormatVersion )
+    {
       setError( DeltaFileWrapper::ErrorType::JsonIncompatibleVersionError );
+    }
 
     if ( mErrorType == DeltaFileWrapper::ErrorType::NoError )
     {
