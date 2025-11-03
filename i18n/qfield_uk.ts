@@ -1725,7 +1725,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Merge Selected Features</source>
-        <translation>Об&apos;єднати вибрані функції</translation>
+        <translation>Об&apos;єднати вибрані об&apos;єкти</translation>
     </message>
     <message>
         <source>Move Selected Feature(s)</source>
