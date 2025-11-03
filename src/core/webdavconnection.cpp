@@ -821,11 +821,11 @@ QString WebdavConnection::getCommonPath( const QString &addressA, const QString 
 {
   const QStringList pathComponentsA = addressA.split( "/" );
   const QStringList pathComponentsB = addressB.split( "/" );
-  const int minLength = std::min( pathComponentsA.size(), pathComponentsB.size() );
+  const qsizetype minLength = std::min( pathComponentsA.size(), pathComponentsB.size() );
 
   QString commonPath = QStringLiteral( "/" );
 
-  for ( int i = 0; i < minLength; ++i )
+  for ( qsizetype i = 0; i < minLength; ++i )
   {
     if ( pathComponentsA[i] == pathComponentsB[i] )
     {
