@@ -21,7 +21,7 @@ echo "Checking ${SCRIPT_DIR}/../src ..."
 
 cppcheck --library=qt.cfg --inline-suppr \
 	--template='{file}:{line},{severity},{id},{message}' \
-	--enable=all --inconclusive --std=c++11 \
+	--enable=all --inconclusive --std=c++17 \
 	--suppress=returnByReference --suppress=variableScope \
 	--suppress=shadowFunction --suppress=noExplicitConstructor \
 	--suppress=functionConst --suppress=unknownMacro \
