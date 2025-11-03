@@ -105,7 +105,7 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
         const qsizetype row = mFeatures.indexOf( item );
         mSelectedFeatures.removeAll( item );
 
-        QModelIndex index = createIndex( row, 0 );
+        QModelIndex index = createIndex( static_cast<int>( row ), 0 );
         emit dataChanged( index, index, QVector<int>() << MultiFeatureListModel::FeatureSelectedRole );
       }
     }

@@ -82,7 +82,7 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
   QDateTime utcDateTime = positionsInformation.last().utcDateTime();
 
   QList<QgsSatelliteInfo> satellitesInView = positionsInformation.at( 0 ).satellitesInView();
-  int satellitesUsed = satellitesInView.size();
+  int satellitesUsed = static_cast<int>( satellitesInView.size() );
   bool satInfoComplete = positionsInformation.at( 0 ).satInfoComplete();
   QList<int> satPrn = positionsInformation.at( 0 ).satPrn();
   QChar status = positionsInformation.at( 0 ).status();

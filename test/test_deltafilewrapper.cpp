@@ -54,8 +54,8 @@ QJsonArray normalizeDeltasSchema( const QJsonArray &deltasJson )
     if ( !sourceLayerIds.contains( sourceLayerId ) )
       sourceLayerIds.append( sourceLayerId );
 
-    int localLayerIdx = localLayerIds.indexOf( localLayerId ) + 1;
-    int sourceLayerIdx = sourceLayerIds.indexOf( sourceLayerId ) + 1;
+    const qsizetype localLayerIdx = localLayerIds.indexOf( localLayerId ) + 1;
+    const qsizetype sourceLayerIdx = sourceLayerIds.indexOf( sourceLayerId ) + 1;
 
     deltaItem.insert( QStringLiteral( "localLayerId" ), QStringLiteral( "dummyLayerIdL%1" ).arg( localLayerIdx ) );
     deltaItem.insert( QStringLiteral( "sourceLayerId" ), QStringLiteral( "dummyLayerIdS%1" ).arg( sourceLayerIdx ) );

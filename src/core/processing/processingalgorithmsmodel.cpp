@@ -212,10 +212,7 @@ QHash<int, QByteArray> ProcessingAlgorithmsModelBase::roleNames() const
 
 int ProcessingAlgorithmsModelBase::rowCount( const QModelIndex &parent ) const
 {
-  if ( !parent.isValid() )
-    return mAlgorithms.size();
-  else
-    return 0;
+  return !parent.isValid() ? static_cast<int>( mAlgorithms.size() ) : 0;
 }
 
 QVariant ProcessingAlgorithmsModelBase::data( const QModelIndex &index, int role ) const

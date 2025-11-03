@@ -60,7 +60,7 @@ bool QFieldAppAuthRequestHandler::hasPendingAuthRequest() const
     return true;
   }
 
-  int pendingCount = mRealms.size();
+  qsizetype pendingCount = mRealms.size();
   for ( const RealmEntry &realm : mRealms )
   {
     if ( realm.canceled )
@@ -68,6 +68,7 @@ bool QFieldAppAuthRequestHandler::hasPendingAuthRequest() const
       pendingCount--;
     }
   }
+
   return pendingCount > 0;
 }
 
@@ -166,7 +167,7 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
     if ( header.startsWith( "Basic " ) )
     {
       QByteArray authorization( QByteArray::fromBase64( header.mid( 6 ) ) );
-      int pos = authorization.indexOf( ':' );
+      qsizetype pos = authorization.indexOf( ':' );
       if ( pos >= 0 )
       {
         username = authorization.left( pos );

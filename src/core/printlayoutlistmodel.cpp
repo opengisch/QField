@@ -90,10 +90,7 @@ void PrintLayoutListModel::reloadModel()
 
 int PrintLayoutListModel::rowCount( const QModelIndex &parent ) const
 {
-  if ( !parent.isValid() )
-    return mPrintLayouts.size();
-  else
-    return 0;
+  return !parent.isValid() ? static_cast<int>( mPrintLayouts.size() ) : 0;
 }
 
 QVariant PrintLayoutListModel::data( const QModelIndex &index, int role ) const

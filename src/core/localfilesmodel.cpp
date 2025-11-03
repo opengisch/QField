@@ -431,7 +431,7 @@ void LocalFilesModel::setChecked( const int &mIdx, const bool &checked )
     mItems[mIdx].setChecked( checked );
 
     emit inSelectionModeChanged();
-    emit dataChanged( index( 0, 0, QModelIndex() ), index( mItems.size() - 1, 0, QModelIndex() ), { ItemCheckedRole } );
+    emit dataChanged( index( 0, 0, QModelIndex() ), index( static_cast<int>( mItems.size() ) - 1, 0, QModelIndex() ), { ItemCheckedRole } );
   }
 }
 
@@ -442,5 +442,5 @@ void LocalFilesModel::clearSelection()
     item.setChecked( false );
   }
   emit inSelectionModeChanged();
-  emit dataChanged( index( 0, 0, QModelIndex() ), index( mItems.size() - 1, 0, QModelIndex() ), { ItemCheckedRole } );
+  emit dataChanged( index( 0, 0, QModelIndex() ), index( static_cast<int>( mItems.size() ) - 1, 0, QModelIndex() ), { ItemCheckedRole } );
 }

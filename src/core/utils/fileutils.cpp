@@ -775,7 +775,7 @@ bool FileUtils::unzip( const QString &zipFilename, const QString &dir, QStringLi
 
   if ( rc == ZIP_ER_OK && z )
   {
-    const int count = zip_get_num_entries( z, ZIP_FL_UNCHANGED );
+    const long long count = zip_get_num_entries( z, ZIP_FL_UNCHANGED );
     if ( count != -1 )
     {
       struct zip_stat stat;

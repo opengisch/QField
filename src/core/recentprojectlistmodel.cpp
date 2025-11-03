@@ -134,10 +134,7 @@ void RecentProjectListModel::reloadModel()
 
 int RecentProjectListModel::rowCount( const QModelIndex &parent ) const
 {
-  if ( !parent.isValid() )
-    return mRecentProjects.size();
-  else
-    return 0;
+  return !parent.isValid() ? static_cast<int>( mRecentProjects.size() ) : 0;
 }
 
 QVariant RecentProjectListModel::data( const QModelIndex &index, int role ) const

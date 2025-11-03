@@ -474,7 +474,7 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
 
 void QFieldCloudProjectsModel::insertProjects( const QList<QFieldCloudProject *> &projects )
 {
-  int currentCount = mProjects.size();
+  int currentCount = static_cast<int>( mProjects.size() );
   int newProjectsCount = 0;
   for ( QFieldCloudProject *project : projects )
   {
@@ -738,10 +738,7 @@ void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, b
 
 int QFieldCloudProjectsModel::rowCount( const QModelIndex &parent ) const
 {
-  if ( !parent.isValid() )
-    return mProjects.size();
-  else
-    return 0;
+  return !parent.isValid() ? static_cast<int>( mProjects.size() ) : 0;
 }
 
 QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) const
