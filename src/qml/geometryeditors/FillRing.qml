@@ -9,6 +9,7 @@ QfVisibilityFadingRow {
   id: fillRingToolbar
 
   signal finished
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
 
   property FeatureModel featureModel
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
@@ -44,6 +45,9 @@ QfVisibilityFadingRow {
       id: formPopupLoader
       state: 'Add'
       currentLayer: featureModel && featureModel.currentLayer
+      onRequestJumpToPoint: function (center, scale, handleMargins) {
+        fillRingToolbar.requestJumpToPoint(center, scale, handleMargins);
+      }
     }
 
     onConfirmed: {

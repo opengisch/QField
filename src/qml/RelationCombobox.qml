@@ -22,6 +22,8 @@ Item {
   property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopupLoader.item
   readonly property alias searchPopup: searchFeaturePopup
 
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
+
   Component.onCompleted: {
     if (featureListModel && !featureListModel.allowMulti) {
       comboBox.currentIndex = featureListModel.findKey(value);
@@ -651,6 +653,10 @@ Item {
             comboBox._cachedCurrentValue = keyValue;
           }
         }
+      }
+
+      onRequestJumpToPoint: function (center, scale, handleMargins) {
+        relationCombobox.requestJumpToPoint(center, scale, handleMargins);
       }
     }
   }
