@@ -254,7 +254,7 @@ void TrackingModel::requestTrackingSetup( QgsVectorLayer *layer, bool skipSettin
     Tracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
     if ( tracker )
     {
-      emit trackingSetupRequested( index( mTrackers.indexOf( tracker ), 0 ), mRequestedTrackers.first().skipSettings );
+      emit trackingSetupRequested( index( static_cast<int>( mTrackers.indexOf( tracker ) ), 0 ), mRequestedTrackers.first().skipSettings );
     }
   }
 }
@@ -269,7 +269,7 @@ void TrackingModel::trackingSetupDone()
       Tracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
       if ( tracker )
       {
-        emit trackingSetupRequested( index( mTrackers.indexOf( tracker ), 0 ), mRequestedTrackers.first().skipSettings );
+        emit trackingSetupRequested( index( static_cast<int>( mTrackers.indexOf( tracker ) ), 0 ), mRequestedTrackers.first().skipSettings );
       }
     }
   }

@@ -44,7 +44,7 @@ int SerialPortModel::findIndexFromName( const QString &name ) const
 int SerialPortModel::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
-  return mAvailablePorts.size();
+  return static_cast<int>( mAvailablePorts.size() );
 }
 
 QVariant SerialPortModel::data( const QModelIndex &index, int role ) const
