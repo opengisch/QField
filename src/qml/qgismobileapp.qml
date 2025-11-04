@@ -3952,7 +3952,7 @@ ApplicationWindow {
       font: Theme.defaultFont
       enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
       checkable: true
-      checked: positioningSettings.showPositionInformation
+      checked: positioningSettings.positioningCoordinateLock
       indicator.height: 20
       indicator.width: 20
       indicator.implicitHeight: 24
