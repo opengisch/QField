@@ -2420,16 +2420,7 @@ ApplicationWindow {
               positioningSettings.positioningActivated = true;
             } else {
               if (positionSource.projectedPosition.x) {
-                const screenPosition = mapCanvas.mapSettings.coordinateToScreen(positionSource.projectedPosition);
-                const screenDistance = Math.sqrt(Math.pow(screenPosition.x - (mapCanvas.width - mapCanvasMap.rightMargin) / 2, 2) + Math.pow(screenPosition.y - (mapCanvas.height - mapCanvasMap.bottomMargin) / 2, 2));
-                if (jumpedOnce) {
-                  mapCanvasMap.freeze('follow');
-                  followActive = true;
-                  followLocation(true);
-                  displayToast(qsTr("Canvas follows location"));
-                } else {
-                  jumpToLocation();
-                }
+                jumpToLocation();
               } else {
                 displayToast(qsTr("Waiting for location"));
               }
