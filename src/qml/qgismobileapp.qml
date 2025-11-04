@@ -2420,6 +2420,7 @@ ApplicationWindow {
               positioningSettings.positioningActivated = true;
             } else {
               if (positionSource.projectedPosition.x) {
+                displayToast(qsTr("Map canvas follows location"));
                 jumpToLocation();
               } else {
                 displayToast(qsTr("Waiting for location"));
@@ -2440,7 +2441,6 @@ ApplicationWindow {
             mapCanvasMap.freeze('follow');
             gnssButton.followActive = true;
             gnssButton.followLocation(true);
-            displayToast(qsTr("Map canvas follows location"));
           }
         }
 
