@@ -1392,7 +1392,7 @@ void FlatLayerTreeModelBase::updateCurrentMapTheme()
 
   // only compare layer records as the legend does not offer collapse info for now
   // TODO check the whole rec equality whenever the layer tree is a tree and not a list anymore
-  auto match = std::find_if( mapThemes.begin(), mapThemes.end(), [this, &rec]( const QString &name ) {
+  auto match = std::find_if( mapThemes.begin(), mapThemes.end(), [&rec]( const QString &name ) {
     return rec.validLayerRecords() == QgsProject::instance()->mapThemeCollection()->mapThemeState( name ).validLayerRecords();
   } );
   if ( match != mapThemes.end() )

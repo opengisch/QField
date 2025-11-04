@@ -41,7 +41,7 @@ DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
 
     const QJsonObject deltaObject = deltaJson.toObject();
     const QStringList requiredKeys( { "id", "deltafile_id", "created_at", "updated_at", "status" } );
-    auto match = std::find_if( requiredKeys.begin(), requiredKeys.end(), [this, &deltaObject]( const QString &key ) {
+    auto match = std::find_if( requiredKeys.begin(), requiredKeys.end(), [&deltaObject]( const QString &key ) {
       return deltaObject.value( key ).isNull() || deltaObject.value( key ).isUndefined();
     } );
     if ( match != requiredKeys.end() )

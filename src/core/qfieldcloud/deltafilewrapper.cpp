@@ -1457,7 +1457,7 @@ bool DeltaFileWrapper::isCreatedFeature( QgsVectorLayer *vl, QgsFeature feature 
   const QString pk = feature.attribute( localPkAttrPair.second ).toString();
   const QString layerId = vl->id();
 
-  return std::any_of( mDeltas.begin(), mDeltas.end(), [this, &layerId, &pk]( const QJsonValue &deltaJson ) {
+  return std::any_of( mDeltas.begin(), mDeltas.end(), [&layerId, &pk]( const QJsonValue &deltaJson ) {
     QVariantMap delta = deltaJson.toObject().toVariantMap();
     const QString method = delta.value( QStringLiteral( "method" ) ).toString();
     if ( method == QStringLiteral( "create" ) )
@@ -1564,7 +1564,7 @@ bool DeltaFileWrapper::deltaContainsActualChange( const QJsonObject &delta ) con
   const QStringList newDataAttrNames = newData.value( QStringLiteral( "attributes" ) ).toObject().keys();
 
   // the attributes in the `newData` are always going to be a (full) subset of `oldData`
-  if ( std::any_of( newDataAttrNames.begin(), newDataAttrNames.end(), [this, &newDataAttrs, &oldDataAttrs]( const QString &name ) { return newDataAttrs.value( name ) != oldDataAttrs.value( name ); } ) )
+  if ( std::any_of( newDataAttrNames.begin(), newDataAttrNames.end(), [&newDataAttrs, &oldDataAttrs]( const QString &name ) { return newDataAttrs.value( name ) != oldDataAttrs.value( name ); } ) )
   {
     return true;
   }

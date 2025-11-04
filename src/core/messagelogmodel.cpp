@@ -114,7 +114,7 @@ void MessageLogModel::onMessageReceived( const QString &message, const QString &
   }
   else if ( mSuppressedFilters.contains( tag ) )
   {
-    if ( std::any_of( mSuppressedFilters[tag].begin(), mSuppressedFilters[tag].end(), [this, &tag]( const QString &filter ) { return filter == tag; } ) )
+    if ( std::any_of( mSuppressedFilters[tag].begin(), mSuppressedFilters[tag].end(), [&message]( const QString &filter ) { return message.contains( filter ); } ) )
     {
       return;
     }

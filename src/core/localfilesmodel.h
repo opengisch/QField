@@ -183,8 +183,8 @@ class LocalFileItem
     QString format() const { return mFormat; }
     QString path() const { return mPath; }
     qint64 size() const { return mSize; }
-    bool checked() const { return mChecked; }
 
+    bool checked() const { return mChecked; }
     void setChecked( bool checked ) { mChecked = checked; }
 
   private:
