@@ -73,13 +73,15 @@ DeltaFileWrapper::DeltaFileWrapper( const QString &projectId, const QString &fil
 
     QgsLogger::debug( QStringLiteral( "Loading deltas from %1" ).arg( mFileName ) );
 
-    if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && !deltaFile.open( QIODevice::ReadWrite ) )
+    if ( !deltaFile.open( QIODevice::ReadWrite ) )
     {
       setError( DeltaFileWrapper::ErrorType::IOError, deltaFile.errorString() );
     }
 
     if ( mErrorType == DeltaFileWrapper::ErrorType::NoError )
+    {
       mJsonRoot = QJsonDocument::fromJson( deltaFile.readAll(), &jsonError ).object();
+    }
 
     if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && ( jsonError.error != QJsonParseError::NoError ) )
     {
@@ -87,19 +89,29 @@ DeltaFileWrapper::DeltaFileWrapper( const QString &projectId, const QString &fil
     }
 
     if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && ( !mJsonRoot.value( QStringLiteral( "id" ) ).isString() || mJsonRoot.value( QStringLiteral( "id" ) ).toString().isEmpty() ) )
+    {
       setError( DeltaFileWrapper::ErrorType::JsonFormatIdError );
+    }
 
     if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && ( !mJsonRoot.value( QStringLiteral( "project" ) ).isString() || mJsonRoot.value( QStringLiteral( "project" ) ).toString().isEmpty() ) )
+    {
       setError( DeltaFileWrapper::ErrorType::JsonFormatProjectIdError );
+    }
 
     if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && !mJsonRoot.value( QStringLiteral( "deltas" ) ).isArray() )
+    {
       setError( DeltaFileWrapper::ErrorType::JsonFormatDeltasError );
+    }
 
     if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && ( !mJsonRoot.value( QStringLiteral( "version" ) ).isString() || mJsonRoot.value( QStringLiteral( "version" ) ).toString().isEmpty() ) )
+    {
       setError( DeltaFileWrapper::ErrorType::JsonFormatVersionError );
+    }
 
     if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && mJsonRoot.value( QStringLiteral( "version" ) ) != DeltaFormatVersion )
+    {
       setError( DeltaFileWrapper::ErrorType::JsonIncompatibleVersionError );
+    }
 
     if ( mErrorType == DeltaFileWrapper::ErrorType::NoError )
     {
@@ -1445,20 +1457,20 @@ bool DeltaFileWrapper::isCreatedFeature( QgsVectorLayer *vl, QgsFeature feature 
   const QString pk = feature.attribute( localPkAttrPair.second ).toString();
   const QString layerId = vl->id();
 
-  for ( const QJsonValue &deltaJson : std::as_const( mDeltas ) )
-  {
+  return std::any_of( mDeltas.begin(), mDeltas.end(), [&layerId, &pk]( const QJsonValue &deltaJson ) {
     QVariantMap delta = deltaJson.toObject().toVariantMap();
     const QString method = delta.value( QStringLiteral( "method" ) ).toString();
-    if ( method != QStringLiteral( "create" ) )
-      continue;
-
-    const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
-    const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
-    if ( localLayerId == layerId && localPk == pk )
-      return true;
-  }
-
-  return false;
+    if ( method == QStringLiteral( "create" ) )
+    {
+      const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
+      const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
+      if ( localLayerId == layerId && localPk == pk )
+      {
+        return true;
+      }
+    }
+    return false;
+  } );
 }
 
 
@@ -1552,12 +1564,9 @@ bool DeltaFileWrapper::deltaContainsActualChange( const QJsonObject &delta ) con
   const QStringList newDataAttrNames = newData.value( QStringLiteral( "attributes" ) ).toObject().keys();
 
   // the attributes in the `newData` are always going to be a (full) subset of `oldData`
-  for ( const QString &attrName : newDataAttrNames )
+  if ( std::any_of( newDataAttrNames.begin(), newDataAttrNames.end(), [&newDataAttrs, &oldDataAttrs]( const QString &name ) { return newDataAttrs.value( name ) != oldDataAttrs.value( name ); } ) )
   {
-    if ( newDataAttrs.value( attrName ) != oldDataAttrs.value( attrName ) )
-    {
-      return true;
-    }
+    return true;
   }
 
   // no "geometry" in `newData` indicates there was no change in geometry

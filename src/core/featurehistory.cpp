@@ -275,7 +275,7 @@ QMap<QString, FeatureHistory::FeatureModifications> FeatureHistory::reverseModif
   const QStringList layerIds = modificationsByLayerId.keys();
   for ( const QString &layerId : layerIds )
   {
-    QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( mProject->mapLayer( layerId ) );
+    const QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( mProject->mapLayer( layerId ) );
     if ( !vl )
     {
       continue;

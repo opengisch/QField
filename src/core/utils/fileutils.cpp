@@ -383,7 +383,7 @@ void FileUtils::addImageMetadata( const QString &imagePath, const GnssPositionIn
   metadata["Exif.Image.Make"] = QStringLiteral( "QField" );
   metadata["Xmp.tiff.Make"] = QStringLiteral( "QField" );
 
-  for ( const QString key : metadata.keys() )
+  for ( const QString &key : metadata.keys() )
   {
     QgsExifTools::tagImage( imagePath, key, metadata[key] );
   }
@@ -554,7 +554,7 @@ bool FileUtils::isWithinProjectDirectory( const QString &filePath )
     for ( const QString &segment : pendingSegments )
     {
       //cppcheck-suppress ignoredReturnValue
-      rebuiltDir.cd( segment );
+      ( void ) rebuiltDir.cd( segment );
     }
 
     targetCanonical = rebuiltDir.absoluteFilePath( targetInfo.fileName() );
@@ -775,7 +775,7 @@ bool FileUtils::unzip( const QString &zipFilename, const QString &dir, QStringLi
 
   if ( rc == ZIP_ER_OK && z )
   {
-    const int count = zip_get_num_entries( z, ZIP_FL_UNCHANGED );
+    const long long count = zip_get_num_entries( z, ZIP_FL_UNCHANGED );
     if ( count != -1 )
     {
       struct zip_stat stat;

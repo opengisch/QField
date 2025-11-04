@@ -226,7 +226,7 @@ void QgsQuickElevationProfileCanvas::setupLayerConnections( QgsMapLayer *layer, 
   {
     case Qgis::LayerType::Vector:
     {
-      QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer );
+      const QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer );
       if ( isDisconnect )
       {
         disconnect( vl, &QgsVectorLayer::featureAdded, this, &QgsQuickElevationProfileCanvas::regenerateResultsForLayer );
@@ -289,8 +289,10 @@ void QgsQuickElevationProfileCanvas::refresh()
   sources.reserve( layersToGenerate.size() );
   for ( QgsMapLayer *layer : layersToGenerate )
   {
-    if ( QgsAbstractProfileSource *source = dynamic_cast<QgsAbstractProfileSource *>( layer ) )
+    if ( QgsAbstractProfileSource *source = dynamic_cast<QgsAbstractProfileSource *>( layer ) ) // cppcheck-suppress constVariablePointer
+    {
       sources.append( source );
+    }
   }
 
   mCurrentJob = new QgsProfilePlotRenderer( sources, request );

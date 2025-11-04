@@ -45,7 +45,7 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
 
   bool ellipsoidalElevation = false;
   double antennaHeight = 0.0;
-  if ( PositioningSource *positioningSource = qobject_cast<PositioningSource *>( parent() ) )
+  if ( const PositioningSource *positioningSource = qobject_cast<PositioningSource *>( parent() ) )
   {
     ellipsoidalElevation = positioningSource->elevationCorrectionMode() != PositioningSource::ElevationCorrectionMode::OrthometricFromDevice;
     antennaHeight = positioningSource->antennaHeight();

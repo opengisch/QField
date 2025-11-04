@@ -870,7 +870,7 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
             sanitizedGeometry.addPartV2( part.buffer( 0.0, 5 ).constGet()->clone(), Qgis::WkbType ::Polygon );
           }
         }
-        else if ( const QgsCurvePolygon *polygon = qgsgeometry_cast<const QgsCurvePolygon *>( geometry.constGet() ) )
+        else if ( qgsgeometry_cast<const QgsCurvePolygon *>( geometry.constGet() ) )
         {
           sanitizedGeometry = geometry.buffer( 0.0, 5 );
         }

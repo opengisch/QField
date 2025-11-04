@@ -222,15 +222,15 @@ void PositioningSource::setupDevice()
   {
     if ( mDeviceId.startsWith( FileReceiver::identifier + ":" ) )
     {
-      const int prefixLength = FileReceiver::identifier.length() + 1;
-      const int intervalSeparator = mDeviceId.lastIndexOf( ':' );
+      const qsizetype prefixLength = FileReceiver::identifier.length() + 1;
+      const qsizetype intervalSeparator = mDeviceId.lastIndexOf( ':' );
       const QString filePath = mDeviceId.mid( prefixLength, intervalSeparator - prefixLength );
       const int interval = mDeviceId.mid( intervalSeparator + 1 ).toInt();
       mReceiver = std::make_unique<FileReceiver>( filePath, interval, this );
     }
     else if ( mDeviceId.startsWith( TcpReceiver::identifier + ":" ) )
     {
-      const int prefixLength = TcpReceiver::identifier.length() + 1;
+      const qsizetype prefixLength = TcpReceiver::identifier.length() + 1;
       const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
       const QString address = mDeviceId.mid( prefixLength, portSeparator - prefixLength );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
@@ -238,7 +238,7 @@ void PositioningSource::setupDevice()
     }
     else if ( mDeviceId.startsWith( UdpReceiver::identifier + ":" ) )
     {
-      const int prefixLength = UdpReceiver::identifier.length() + 1;
+      const qsizetype prefixLength = UdpReceiver::identifier.length() + 1;
       const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
       const QString address = mDeviceId.mid( prefixLength, portSeparator - prefixLength );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
@@ -246,7 +246,7 @@ void PositioningSource::setupDevice()
     }
     else if ( mDeviceId.startsWith( EgenioussReceiver::identifier + ":" ) )
     {
-      const int prefixLength = EgenioussReceiver::identifier.length() + 1;
+      const qsizetype prefixLength = EgenioussReceiver::identifier.length() + 1;
       const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
       const QString address = mDeviceId.mid( prefixLength, portSeparator - prefixLength );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
@@ -255,7 +255,7 @@ void PositioningSource::setupDevice()
 #ifdef WITH_SERIALPORT
     else if ( mDeviceId.startsWith( SerialPortReceiver::identifier + ":" ) )
     {
-      const int prefixLength = SerialPortReceiver::identifier.length() + 1;
+      const qsizetype prefixLength = SerialPortReceiver::identifier.length() + 1;
       const QString address = mDeviceId.mid( prefixLength );
       mReceiver = std::make_unique<SerialPortReceiver>( address, this );
     }

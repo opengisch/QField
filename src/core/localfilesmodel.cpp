@@ -426,12 +426,24 @@ bool LocalFilesModel::inSelectionMode()
 
 void LocalFilesModel::setChecked( const int &mIdx, const bool &checked )
 {
+  if ( mIdx < 0 || mIdx >= mItems.size() )
+  {
+    return;
+  }
+
+  const bool hadSelection = inSelectionMode();
   if ( mItems[mIdx].checked() != checked )
   {
     mItems[mIdx].setChecked( checked );
 
-    emit inSelectionModeChanged();
-    emit dataChanged( index( 0, 0, QModelIndex() ), index( mItems.size() - 1, 0, QModelIndex() ), { ItemCheckedRole } );
+    const QModelIndex changedIndex = index( mIdx, 0, QModelIndex() );
+    emit dataChanged( changedIndex, changedIndex, { ItemCheckedRole } );
+
+    const bool hasSelection = inSelectionMode();
+    if ( hadSelection != hasSelection )
+    {
+      emit inSelectionModeChanged();
+    }
   }
 }
 
@@ -442,5 +454,5 @@ void LocalFilesModel::clearSelection()
     item.setChecked( false );
   }
   emit inSelectionModeChanged();
-  emit dataChanged( index( 0, 0, QModelIndex() ), index( mItems.size() - 1, 0, QModelIndex() ), { ItemCheckedRole } );
+  emit dataChanged( index( 0, 0, QModelIndex() ), index( static_cast<int>( mItems.size() ) - 1, 0, QModelIndex() ), { ItemCheckedRole } );
 }

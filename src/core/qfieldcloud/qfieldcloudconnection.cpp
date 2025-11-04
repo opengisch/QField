@@ -786,7 +786,7 @@ QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
   mMessage = errorMessage;
 }
 
-int QFieldCloudConnection::uploadPendingAttachments()
+qsizetype QFieldCloudConnection::uploadPendingAttachments()
 {
   if ( mUploadPendingCount > 0 )
     return mUploadPendingCount;

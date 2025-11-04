@@ -1412,7 +1412,7 @@ NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const 
   if ( partialFile.exists() )
   {
     qint64 partialSize = partialFile.size();
-    if ( !fileTransfer.resumableDownload || partialSize < QFIELDCLOUD_MINIMUM_RANGE_HEADER_LENGTH || partialSize > fileTransfer.bytesTotal || ( partialSize == fileTransfer.bytesTotal ) && fileTransfer.etag != FileUtils::fileEtag( fileTransfer.partialFilePath ) )
+    if ( !fileTransfer.resumableDownload || partialSize < QFIELDCLOUD_MINIMUM_RANGE_HEADER_LENGTH || partialSize > fileTransfer.bytesTotal || ( partialSize == fileTransfer.bytesTotal && fileTransfer.etag != FileUtils::fileEtag( fileTransfer.partialFilePath ) ) )
     {
       // Invalid or dirty file; delete and re-download
       partialFile.remove();
@@ -2367,8 +2367,6 @@ void QFieldCloudProject::uploadFiles()
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      const int httpStatus = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
-      const QString errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
       const QString errorMessage = tr( "Network error. Failed to upload file `%1`." ).arg( filePath );
       QgsLogger::debug( errorMessage );
       rawReply->abort();

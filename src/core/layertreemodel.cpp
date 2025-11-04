@@ -625,7 +625,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       QString id;
       if ( QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
-        if ( QgsWmsLegendNode *wmsNode = qobject_cast<QgsWmsLegendNode *>( legendNode ) )
+        if ( qobject_cast<QgsWmsLegendNode *>( legendNode ) )
         {
           QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex.parent() );
           if ( QgsLayerTree::isLayer( node ) )
@@ -639,7 +639,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
             }
           }
         }
-        else if ( QgsImageLegendNode *imageNode = qobject_cast<QgsImageLegendNode *>( legendNode ) )
+        else if ( qobject_cast<QgsImageLegendNode *>( legendNode ) )
         {
           QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex.parent() );
           if ( QgsLayerTree::isLayer( node ) )
@@ -824,8 +824,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
       {
-        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
-
+        const QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
         return ( mLayersInTracking.contains( nodeLayer ) );
       }
       return false;
@@ -1390,15 +1389,15 @@ void FlatLayerTreeModelBase::updateCurrentMapTheme()
 
   const QgsMapThemeCollection::MapThemeRecord rec = QgsMapThemeCollection::createThemeFromCurrentState( mLayerTreeModel->rootGroup(), mLayerTreeModel );
   const QStringList mapThemes = QgsProject::instance()->mapThemeCollection()->mapThemes();
-  for ( const QString &grpName : mapThemes )
+
+  // only compare layer records as the legend does not offer collapse info for now
+  // TODO check the whole rec equality whenever the layer tree is a tree and not a list anymore
+  auto match = std::find_if( mapThemes.begin(), mapThemes.end(), [&rec]( const QString &name ) {
+    return rec.validLayerRecords() == QgsProject::instance()->mapThemeCollection()->mapThemeState( name ).validLayerRecords();
+  } );
+  if ( match != mapThemes.end() )
   {
-    // only compare layer records as the legend does not offer collapse info for now
-    // TODO check the whole rec equality whenever the layer tree is a tree and not a list anymore
-    if ( rec.validLayerRecords() == QgsProject::instance()->mapThemeCollection()->mapThemeState( grpName ).validLayerRecords() )
-    {
-      mMapTheme = grpName;
-      return;
-    }
+    mMapTheme = *match;
   }
 }
 

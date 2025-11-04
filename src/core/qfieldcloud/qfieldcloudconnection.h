@@ -216,7 +216,7 @@ class QFieldCloudConnection : public QObject
      * Uploads any pending attachments linked to the logged in user account.
      * \returns the number of attachments to be uploaded.
      */
-    int uploadPendingAttachments();
+    qsizetype uploadPendingAttachments();
 
   signals:
     void providerChanged();
@@ -231,7 +231,7 @@ class QFieldCloudConnection : public QObject
     void providerConfigurationChanged();
     void userInformationChanged();
     void pendingAttachmentsUploadFinished( const QString &error = QString() );
-    void pendingAttachmentsUploadStatus( const QString &fileName, double fileProgress, int uploadPending );
+    void pendingAttachmentsUploadStatus( const QString &fileName, double fileProgress, qsizetype uploadPending );
     void pendingAttachmentsAdded();
     void error();
 
@@ -266,9 +266,9 @@ class QFieldCloudConnection : public QObject
 
     int mPendingRequests = 0;
 
-    int mUploadPendingCount = 0;
-    int mUploadDoneCount = 0;
-    int mUploadFailingCount = 0;
+    qsizetype mUploadPendingCount = 0;
+    qsizetype mUploadDoneCount = 0;
+    qsizetype mUploadFailingCount = 0;
 
     void setClientHeaders( QNetworkRequest &request );
 };

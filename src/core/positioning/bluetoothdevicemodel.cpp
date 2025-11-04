@@ -147,7 +147,8 @@ void BluetoothDeviceModel::serviceDiscovered( const QBluetoothServiceInfo &servi
   if ( mDiscoveredDevices.contains( serviceDiscovered ) )
     return;
 
-  beginInsertRows( QModelIndex(), mDiscoveredDevices.size(), mDiscoveredDevices.size() );
+  const int index = static_cast<int>( mDiscoveredDevices.size() );
+  beginInsertRows( QModelIndex(), index, index );
 #ifdef Q_OS_ANDROID
   if ( mLocalDevice->pairingStatus( service.device().address() ) != QBluetoothLocalDevice::Unpaired )
   {
@@ -174,8 +175,7 @@ int BluetoothDeviceModel::findIndexFromAddress( const QString &address ) const
 
 int BluetoothDeviceModel::rowCount( const QModelIndex &parent ) const
 {
-  Q_UNUSED( parent )
-  return mDiscoveredDevices.size();
+  return !parent.isValid() ? static_cast<int>( mDiscoveredDevices.size() ) : 0;
 }
 
 QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
@@ -240,7 +240,7 @@ int BluetoothDeviceModel::addDevice( const QString &name, const QString &address
     }
   }
 
-  int index = mDiscoveredDevices.size();
+  const int index = static_cast<int>( mDiscoveredDevices.size() );
   beginInsertRows( QModelIndex(), index, index );
   mDiscoveredDevices << qMakePair( name, address );
   endInsertRows();

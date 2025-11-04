@@ -410,7 +410,7 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   }
 
   const qint64 endTime = QDateTime::currentMSecsSinceEpoch();
-  qInfo() << QStringLiteral( "Tracker position information replay duration: %1ms" ).arg( endTime - startTime );
+  qInfo() << QStringLiteral( "Tracker position information replay duration: %1ms" ).arg( endTime - startTime ); // cppcheck-suppress [knownArgument,duplicateExpression]
 }
 
 void Tracker::suspendUntilReplay()

@@ -93,7 +93,7 @@ class QFieldCloudProject : public QObject
         FileTransfer() = default;
 
         QString fileName;
-        qint64 bytesTotal;
+        qint64 bytesTotal = 0;
         QString projectId;
 
         QString etag;
@@ -497,7 +497,7 @@ class QFieldCloudProject : public QObject
 
         QString id;
         QString projectId;
-        QFieldCloudProject::JobType type;
+        QFieldCloudProject::JobType type = QFieldCloudProject::JobType::Package;
         QFieldCloudProject::JobStatus status = QFieldCloudProject::JobPendingStatus;
     };
 

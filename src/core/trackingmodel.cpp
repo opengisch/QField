@@ -92,9 +92,11 @@ bool TrackingModel::featureInTracking( QgsVectorLayer *layer, const QgsFeatureId
 {
   if ( trackerIterator( layer ) != mTrackers.constEnd() )
   {
-    int listIndex = trackerIterator( layer ) - mTrackers.constBegin();
+    const qsizetype listIndex = trackerIterator( layer ) - mTrackers.constBegin();
     if ( mTrackers[listIndex]->feature().id() == featureId )
+    {
       return true;
+    }
   }
   return false;
 }
@@ -103,7 +105,7 @@ bool TrackingModel::featuresInTracking( QgsVectorLayer *layer, const QList<QgsFe
 {
   if ( trackerIterator( layer ) != mTrackers.constEnd() )
   {
-    int listIndex = trackerIterator( layer ) - mTrackers.constBegin();
+    const qsizetype listIndex = trackerIterator( layer ) - mTrackers.constBegin();
     QgsFeatureId fid = mTrackers[listIndex]->feature().id();
     if ( std::any_of( features.begin(), features.end(), [fid]( const QgsFeature &f ) { return f.id() == fid; } ) )
     {
@@ -133,15 +135,16 @@ void TrackingModel::reset()
 
 QModelIndex TrackingModel::createTracker( QgsVectorLayer *layer )
 {
-  beginInsertRows( QModelIndex(), mTrackers.count(), mTrackers.count() );
+  const int trackersSize = static_cast<int>( mTrackers.size() );
+  beginInsertRows( QModelIndex(), trackersSize, trackersSize );
   mTrackers.append( new Tracker( layer ) );
   endInsertRows();
-  return index( mTrackers.size() - 1, 0 );
+  return index( trackersSize, 0 );
 }
 
 void TrackingModel::startTracker( QgsVectorLayer *layer, const GnssPositionInformation &positionInformation, const QgsPoint &projectedPosition )
 {
-  const int idx = trackerIterator( layer ) - mTrackers.constBegin();
+  const qsizetype idx = trackerIterator( layer ) - mTrackers.constBegin();
   if ( idx >= 0 )
   {
     mTrackers[idx]->start( positionInformation, projectedPosition );
@@ -151,12 +154,12 @@ void TrackingModel::startTracker( QgsVectorLayer *layer, const GnssPositionInfor
 
 void TrackingModel::stopTracker( QgsVectorLayer *layer )
 {
-  const int idx = trackerIterator( layer ) - mTrackers.constBegin();
+  const qsizetype idx = trackerIterator( layer ) - mTrackers.constBegin();
   if ( idx >= 0 )
   {
     mTrackers[idx]->stop();
 
-    beginRemoveRows( QModelIndex(), idx, idx );
+    beginRemoveRows( QModelIndex(), static_cast<int>( idx ), static_cast<int>( idx ) );
     Tracker *tracker = mTrackers.takeAt( idx );
     endRemoveRows();
     delete tracker;
@@ -192,7 +195,7 @@ void TrackingModel::setTrackerVisibility( QgsVectorLayer *layer, bool visible )
 {
   if ( trackerIterator( layer ) != mTrackers.constEnd() )
   {
-    const int idx = trackerIterator( layer ) - mTrackers.constBegin();
+    const qsizetype idx = trackerIterator( layer ) - mTrackers.constBegin();
     mTrackers[idx]->setVisible( visible );
   }
 }
@@ -232,7 +235,8 @@ void TrackingModel::createProjectTrackers( QgsProject *project )
         QgsFeature feature = QgsVectorLayerUtils::createFeature( vl, QgsGeometry(), QgsAttributeMap(), &context );
         tracker->setFeature( feature );
 
-        beginInsertRows( QModelIndex(), mTrackers.count(), mTrackers.count() );
+        const int trackersSize = static_cast<int>( mTrackers.size() );
+        beginInsertRows( QModelIndex(), trackersSize, trackersSize );
         mTrackers.append( tracker );
         endInsertRows();
 
@@ -247,10 +251,10 @@ void TrackingModel::requestTrackingSetup( QgsVectorLayer *layer, bool skipSettin
   mRequestedTrackers << TrackerRequest( layer, skipSettings );
   if ( mRequestedTrackers.size() == 1 )
   {
-    Tracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
+    const Tracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
     if ( tracker )
     {
-      emit trackingSetupRequested( index( mTrackers.indexOf( tracker ), 0 ), mRequestedTrackers.first().skipSettings );
+      emit trackingSetupRequested( index( static_cast<int>( mTrackers.indexOf( tracker ) ), 0 ), mRequestedTrackers.first().skipSettings );
     }
   }
 }
@@ -262,10 +266,10 @@ void TrackingModel::trackingSetupDone()
     mRequestedTrackers.removeFirst();
     if ( !mRequestedTrackers.isEmpty() )
     {
-      Tracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
+      const Tracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
       if ( tracker )
       {
-        emit trackingSetupRequested( index( mTrackers.indexOf( tracker ), 0 ), mRequestedTrackers.first().skipSettings );
+        emit trackingSetupRequested( index( static_cast<int>( mTrackers.indexOf( tracker ) ), 0 ), mRequestedTrackers.first().skipSettings );
       }
     }
   }

@@ -226,7 +226,7 @@ int main( int argc, char **argv )
 
   QLocale locale;
   const QString localeName = locale.name();
-  const int localeTagSeparator = localeName.indexOf( QStringLiteral( "_" ) );
+  const qsizetype localeTagSeparator = localeName.indexOf( QStringLiteral( "_" ) );
   QgsApplication::settingsLocaleUserLocale->setValue( localeName.mid( 0, localeTagSeparator ) );
 
   const QString qfieldFontName( qgetenv( "QFIELD_FONT_NAME" ) );

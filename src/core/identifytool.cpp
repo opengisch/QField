@@ -155,7 +155,7 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVector
     while ( fit.nextFeature( f ) )
       featureList << QgsFeature( f );
   }
-  catch ( QgsCsException &cse )
+  catch ( const QgsCsException &cse )
   {
     Q_UNUSED( cse );
     // catch exception for 'invalid' point and proceed with no features found
@@ -260,7 +260,6 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyRasterLayer( QgsRaster
     {
       // error
       // TODO: better error reporting
-      QString label = layer->subLayers().value( it.key() );
       continue;
     }
 
@@ -309,9 +308,6 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorTileLayer( QgsVe
   {
     return results;
   }
-
-  QMap<QString, QString> commonDerivedAttributes;
-  int featureCount = 0;
 
   try
   {

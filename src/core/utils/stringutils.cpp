@@ -55,13 +55,13 @@ bool StringUtils::fuzzyMatch( const QString &source, const QString &term )
   const QRegularExpression whitespaceRegex( QStringLiteral( "\\W+" ) );
   const QStringList parts = source.split( whitespaceRegex );
   const QStringList termParts = term.split( whitespaceRegex );
-  const int termPartsCount = termParts.length();
-  int lastMatchedTermPartIdx = -1;
-  int matchedTermItems = 0;
+  const qsizetype termPartsCount = termParts.size();
+  qsizetype lastMatchedTermPartIdx = -1;
+  qsizetype matchedTermItems = 0;
 
   for ( const QString &part : parts )
   {
-    for ( int i = lastMatchedTermPartIdx + 1; i < termPartsCount; i++ )
+    for ( qsizetype i = lastMatchedTermPartIdx + 1; i < termPartsCount; i++ )
     {
       if ( part.startsWith( termParts[i], Qt::CaseInsensitive ) )
       {
@@ -119,7 +119,7 @@ const QStringList StringUtils::csvToStringList( const QString &string )
   QStringList values;
   QString value;
   bool inQuote = false;
-  for ( int i = 0; i < string.size(); i++ )
+  for ( qsizetype i = 0; i < string.size(); i++ )
   {
     QChar current = string.at( i );
     if ( !inQuote )
@@ -142,7 +142,7 @@ const QStringList StringUtils::csvToStringList( const QString &string )
     {
       if ( current == '"' )
       {
-        int index = i + 1 < string.size() ? i + 1 : string.size() - 1;
+        qsizetype index = i + 1 < string.size() ? i + 1 : string.size() - 1;
         if ( index != i && string.at( index ) == '"' )
         {
           value += '"';

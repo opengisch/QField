@@ -129,7 +129,7 @@ void ProjectInfo::saveTracker( QgsVectorLayer *layer )
   if ( !layer || !mTrackingModel || !mTrackingModel->layerInTracking( layer ) )
     return;
 
-  Tracker *tracker = mTrackingModel->trackerForLayer( layer );
+  const Tracker *tracker = mTrackingModel->trackerForLayer( layer );
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/trackers/%1" ).arg( layer->id() ) );
   mSettings.setValue( "minimumDistance", tracker->minimumDistance() );
@@ -568,7 +568,7 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
       {
         QgsEditFormConfig config = vlayer->editFormConfig();
         const QStringList fieldNames = rememberedFields.keys();
-        for ( const QString fieldName : fieldNames )
+        for ( const QString &fieldName : fieldNames )
         {
 #if _QGIS_VERSION_INT >= 39900
           config.setReuseLastValuePolicy( vlayer->fields().indexFromName( fieldName ), Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOn );

@@ -724,7 +724,6 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
   QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
   for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
   {
-    QStandardItem *item = fieldIterator.key();
     const int fidx = fieldIterator.value();
     if ( fidx == fieldIndex || !fields.at( fidx ).defaultValueDefinition().isValid() || !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() )
       continue;
@@ -889,7 +888,7 @@ void AttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName )
   }
 }
 
-void _checkChildrenValidity( QStandardItem *parent, bool &hardValidity, bool &softValidity )
+void _checkChildrenValidity( const QStandardItem *parent, bool &hardValidity, bool &softValidity )
 {
   QStandardItem *item = parent->child( 0, 0 );
   while ( item )
@@ -1050,7 +1049,7 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
     {
       bool hardValidity = true;
       bool softValidity = true;
-      QStandardItem *tab = invisibleRootItem();
+      const QStandardItem *tab = invisibleRootItem();
       _checkChildrenValidity( tab, hardValidity, softValidity );
 
       if ( !hardValidity )
