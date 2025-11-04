@@ -392,7 +392,7 @@ Item {
     if (positionLocked) {
       const outOfScreen = crosshairCircle.x + crosshairCircle.width <= 0 || crosshairCircle.x - crosshairCircle.width >= mainWindow.width || crosshairCircle.y + crosshairCircle.height <= 0 || crosshairCircle.y - crosshairCircle.height >= mainWindow.height;
       if (outOfScreen) {
-        mapCanvasMap.jumpTo(positionSource.projectedPosition, true);
+        mapCanvasMap.jumpTo(positionSource.projectedPosition, -1, -1, true);
       }
     }
   }
