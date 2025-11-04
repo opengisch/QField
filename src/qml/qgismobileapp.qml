@@ -2778,6 +2778,10 @@ ApplicationWindow {
         screenHovering: mapCanvasMap.hovered
 
         stateVisible: !screenLocker.enabled && (stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0)
+
+        onRequestJumpToPoint: function (center, scale, handleMargins) {
+          mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+        }
       }
 
       ConfirmationToolbar {

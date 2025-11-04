@@ -71,6 +71,7 @@
         <file>editorwidgets/relationeditors/relation_editor.qml</file>
         <file>editorwidgets/relationeditors/ordered_relation_editor.qml</file>
         <file>geometryeditors/Erase.qml</file>
+        <file>geometryeditors/GeometryEditorBase.qml</file>
         <file>geometryeditors/VertexEditor.qml</file>
         <file>geometryeditors/SplitFeature.qml</file>
         <file>geometryeditors/Reshape.qml</file>

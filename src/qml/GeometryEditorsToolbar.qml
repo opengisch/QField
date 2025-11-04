@@ -37,6 +37,7 @@ QfVisibilityFadingRow {
   spacing: 4
 
   signal editorChanged
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
 
   GeometryEditorsModel {
     id: editors
@@ -136,12 +137,14 @@ QfVisibilityFadingRow {
     function load(qmlSource, iconPath, name) {
       source = qmlSource;
       item.init(geometryEditorsToolbar.featureModel, geometryEditorsToolbar.mapSettings, geometryEditorsToolbar.editorRubberbandModel, geometryEditorsToolbar.editorRenderer);
-      if (toolbarRow.item.screenHovering !== undefined)
+      if (toolbarRow.item.screenHovering !== undefined) {
         toolbarRow.item.screenHovering = geometryEditorsToolbar.screenHovering;
-      if (toolbarRow.item.vertexRubberbandVisible !== undefined)
+      }
+      if (toolbarRow.item.vertexRubberbandVisible !== undefined) {
         vertexRubberband.isVisible = toolbarRow.item.vertexRubberbandVisible;
-      else
+      } else {
         vertexRubberband.isVisible = false;
+      }
       toolbarRow.item.stateVisible = true;
       displayToast(name);
     }
@@ -161,6 +164,10 @@ QfVisibilityFadingRow {
 
     function onFinished() {
       featureModel.vertexModel.clear();
+    }
+
+    function requestJumpToPoint(center, scale, handleMargins) {
+      geometryEditorsToolbar.requestJumpToPoint(center, scale, handleMargins);
     }
   }
 

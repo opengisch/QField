@@ -2,14 +2,12 @@ import QtQuick
 import org.qgis
 import org.qfield
 import Theme
+import "."
 import ".."
 
-QfVisibilityFadingRow {
+GeometryEditorBase {
   id: reshapeToolbar
 
-  signal finished
-
-  property FeatureModel featureModel
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
   readonly property bool blocking: drawPolygonToolbar.isDigitizing

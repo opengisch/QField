@@ -2,15 +2,12 @@ import QtQuick
 import org.qgis
 import org.qfield
 import Theme
+import "."
 import ".."
 
-QfVisibilityFadingRow {
+GeometryEditorBase {
   id: eraseToolbar
 
-  signal finished
-
-  property FeatureModel featureModel
-  property GeometryRenderer editorRenderer
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
   property int size: sizeButton.sizeMedium
