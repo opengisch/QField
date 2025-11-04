@@ -201,7 +201,7 @@ Item {
       enabled: jumpDetails.enabled
       NumberAnimation {
         easing.type: Easing.InOutQuart
-        duration: 750
+        duration: 500
       }
     }
   }
