@@ -89,10 +89,12 @@ void QgsQuickMapCanvasMap::zoomByFactor( const QPointF center, qreal factor, boo
 void QgsQuickMapCanvasMap::zoomScale( const QPointF center, qreal scale, bool handleMargins )
 {
   QgsRectangle extent = mMapSettings->extent();
-  QgsPoint oldCenter( extent.center() );
-  extent += QgsVector( center.x() - oldCenter.x(), center.y() - oldCenter.y() );
+  const double oldScale = mMapSettings->computeScaleForExtent( extent, handleMargins );
+  const QgsPoint oldCenter( extent.center() );
 
-  extent.scale( scale / mMapSettings->scale() );
+  extent += QgsVector( center.x() - oldCenter.x(), center.y() - oldCenter.y() );
+  extent.scale( scale / oldScale );
+
   mMapSettings->setExtent( extent, handleMargins );
 }
 
