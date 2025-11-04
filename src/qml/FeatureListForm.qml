@@ -53,6 +53,7 @@ Pane {
 
   signal showMessage(string message)
   signal editGeometry
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
 
   function requestCancel() {
     featureForm.requestCancel();
@@ -415,6 +416,10 @@ Pane {
       }
     }
 
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      featureFormList.requestJumpToPoint(center, scale, handleMargins);
+    }
+
     onCancelled: {
       featureFormList.selection.focusedItemChanged();
       featureForm.model.featureModel.reset();
@@ -486,6 +491,10 @@ Pane {
 
       onFeatureFormStateRequested: {
         featureFormList.state = "FeatureForm";
+      }
+
+      onRequestJumpToPoint: function (center, scale, handleMargins) {
+        featureFormList.requestJumpToPoint(center, scale, handleMargins);
       }
     }
 

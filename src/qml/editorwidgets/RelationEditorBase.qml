@@ -235,6 +235,10 @@ EditorWidgetBase {
       onOpened: {
         addingIndicator.running = false;
       }
+
+      onRequestJumpToPoint: function (center, scale, handleMargins) {
+        relationEditorBase.requestJumpToPoint(center, scale, handleMargins);
+      }
     }
   }
 

@@ -2,15 +2,11 @@ import QtQuick
 import org.qgis
 import org.qfield
 import Theme
+import "."
 import ".."
 
-QfVisibilityFadingRow {
+GeometryEditorBase {
   id: vertexEditorToolbar
-
-  signal finished
-
-  property FeatureModel featureModel
-  property MapSettings mapSettings
 
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
   property bool vertexRubberbandVisible: true

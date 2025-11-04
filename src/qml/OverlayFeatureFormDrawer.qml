@@ -20,6 +20,8 @@ Drawer {
   property alias codeReader: overlayFeatureForm.codeReader
   property bool isAdding: false
 
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
+
   edge: parent.width < parent.height ? Qt.BottomEdge : Qt.RightEdge
   closePolicy: Popup.NoAutoClose // prevent accidental feature addition when clicking outside of the popup drawer
   focus: visible
@@ -126,6 +128,10 @@ Drawer {
       }
       digitizingToolbar.digitizingLogger.clearCoordinates();
       resetTabs();
+    }
+
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      overlayFeatureFormDrawer.requestJumpToPoint(center, scale, handleMargins);
     }
 
     onToolbarSwiped: direction => {

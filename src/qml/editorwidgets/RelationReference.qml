@@ -7,6 +7,7 @@ import Theme
 import ".."
 
 EditorWidgetBase {
+  id: relationReferenceEditorWidgetBase
   height: childrenRect.height
   anchors {
     left: parent.left
@@ -50,6 +51,10 @@ EditorWidgetBase {
     useSearch: false
     allowAddFeature: config['AllowAddFeatures'] !== undefined && config['AllowAddFeatures'] === true
     relation: _rel
+
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      relationReferenceEditorWidgetBase.requestJumpToPoint(center, scale, handleMargins);
+    }
   }
 
   QfToolButton {
@@ -75,7 +80,9 @@ EditorWidgetBase {
         var feature = listModel.getFeatureFromKeyValue(relationReference.currentKeyValue);
         geometryHighlighter.geometryWrapper.qgsGeometry = feature.geometry;
         geometryHighlighter.geometryWrapper.crs = listModel.currentLayer.crs;
-        mapCanvas.mapSettings.setExtent(FeatureUtils.extent(mapCanvas.mapSettings, listModel.currentLayer, feature), true);
+        const extentRect = FeatureUtils.extent(mapCanvas.mapSettings, listModel.currentLayer, feature);
+        const scale = mapCanvas.mapSettings.computeScaleForExtent(extentRect, true);
+        requestJumpToPoint(extentRect.center, scale, true);
       }
     }
   }

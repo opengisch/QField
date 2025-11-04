@@ -89,10 +89,12 @@ void QgsQuickMapCanvasMap::zoomByFactor( const QPointF center, qreal factor, boo
 void QgsQuickMapCanvasMap::zoomScale( const QPointF center, qreal scale, bool handleMargins )
 {
   QgsRectangle extent = mMapSettings->extent();
-  QgsPoint oldCenter( extent.center() );
-  extent += QgsVector( center.x() - oldCenter.x(), center.y() - oldCenter.y() );
+  const double oldScale = mMapSettings->computeScaleForExtent( extent, handleMargins );
+  const QgsPoint oldCenter( extent.center() );
 
-  extent.scale( scale / mMapSettings->scale() );
+  extent += QgsVector( center.x() - oldCenter.x(), center.y() - oldCenter.y() );
+  extent.scale( scale / oldScale );
+
   mMapSettings->setExtent( extent, handleMargins );
 }
 
@@ -328,20 +330,20 @@ void QgsQuickMapCanvasMap::onTemporalStateChanged()
 void QgsQuickMapCanvasMap::updateTransform( bool skipSmooth )
 {
   const QgsRectangle imageExtent = mImageMapSettings.extent();
-  const QgsRectangle newExtent = mMapSettings->mapSettings().extent();
   const QgsPointXY center = imageExtent.center();
   const QgsPointXY pixelPt = mMapSettings->coordinateToScreen( QgsPoint( center.x(), center.y() ) );
+  const QgsRectangle newExtent = mMapSettings->mapSettings().extent();
 
   if ( mSmooth && !skipSmooth )
   {
-    setProperty( "scale", static_cast<double>( imageExtent.width() ) / newExtent.width() );
+    setProperty( "scale", static_cast<double>( mMapSettings->computeScaleForExtent( imageExtent ) ) / mMapSettings->computeScaleForExtent( newExtent ) );
     setProperty( "rotation", mMapSettings->mapSettings().rotation() - mImageMapSettings.rotation() );
     setProperty( "x", pixelPt.x() - static_cast<qreal>( mMapSettings->outputSize().width() ) / mMapSettings->devicePixelRatio() / 2 );
     setProperty( "y", pixelPt.y() - static_cast<qreal>( mMapSettings->outputSize().height() ) / mMapSettings->devicePixelRatio() / 2 );
   }
   else
   {
-    setScale( static_cast<double>( imageExtent.width() ) / newExtent.width() );
+    setScale( static_cast<double>( mMapSettings->computeScaleForExtent( imageExtent ) ) / mMapSettings->computeScaleForExtent( newExtent ) );
     setRotation( mMapSettings->mapSettings().rotation() - mImageMapSettings.rotation() );
     setX( pixelPt.x() - static_cast<qreal>( mMapSettings->outputSize().width() ) / mMapSettings->devicePixelRatio() / 2 );
     setY( pixelPt.y() - static_cast<qreal>( mMapSettings->outputSize().height() ) / mMapSettings->devicePixelRatio() / 2 );

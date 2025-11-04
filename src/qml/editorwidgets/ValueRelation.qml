@@ -59,6 +59,10 @@ EditorWidgetBase {
     relation: undefined
     layerResolver: layerResolver
     allowAddFeature: currentLayer && currentLayer.customProperty('QFieldSync/allow_value_relation_feature_addition') !== undefined ? currentLayer.customProperty('QFieldSync/allow_value_relation_feature_addition') : false
+
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      valueRelation.requestJumpToPoint(center, scale, handleMargins);
+    }
   }
 
   Column {

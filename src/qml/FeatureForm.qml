@@ -27,6 +27,7 @@ Page {
 
   signal requestGeometry(var item, var layer)
   signal requestBarcode(var item)
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
 
   property DigitizingToolbar digitizingToolbar
   property CodeReader codeReader
@@ -679,6 +680,10 @@ Page {
               function onRequestBarcode(item) {
                 form.codeReader.barcodeRequestedItem = item;
                 form.codeReader.open();
+              }
+
+              function onRequestJumpToPoint(center, scale, handleMargins) {
+                form.requestJumpToPoint(center, scale, handleMargins);
               }
             }
           }

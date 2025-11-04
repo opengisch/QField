@@ -20,6 +20,8 @@ QfPopup {
 
   property var tracker: undefined
 
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
+
   Connections {
     target: trackingModel
 
@@ -581,6 +583,10 @@ QfPopup {
           tracker = undefined;
           trackerSettings.close();
           trackingModel.trackingSetupDone();
+        }
+
+        onRequestJumpToPoint: function (center, scale, handleMargins) {
+          trackInformationPopup.requestJumpToPoint(center, scale, handleMargins);
         }
       }
     }

@@ -104,6 +104,108 @@ Item {
     mapCanvasWrapper.stopRendering();
   }
 
+  /**
+   * Internal helper to setup jump animation parameters
+   */
+  function _setupJump(scale, rotation, handleMargins, callback) {
+    const currentCenter = mapCanvasWrapper.mapSettings.getCenter(true);
+    const currentRotation = mapCanvasWrapper.mapSettings.rotation;
+    jumpDetails.fromScale = mapCanvasWrapper.mapSettings.scale;
+    jumpDetails.fromRotation = currentRotation;
+    jumpDetails.fromX = currentCenter.x;
+    jumpDetails.fromY = currentCenter.y;
+    jumpDetails.toScale = scale;
+    jumpDetails.completedCallback = callback;
+    jumpDetails.toRotation = rotation;
+    jumpDetails.position = 0.0;
+    jumpDetails.handleMargins = handleMargins;
+    freeze('jumping');
+    jumpDetails.enabled = true;
+    jumpDetails.position = 1.0;
+  }
+
+  /**
+   * Smoothly animates the map to a new center point
+   */
+  function jumpTo(point, scale = -1, rotation = -1, handleMargins = false, callback = null) {
+    jumpDetails.positionSource = null;
+    jumpDetails.toX = "x" in point ? point.x : 0;
+    jumpDetails.toY = "y" in point ? point.y : 0;
+    _setupJump(scale, rotation, handleMargins, callback);
+  }
+
+  /**
+   * Jump and track a moving target
+   */
+  function jumpToPosition(positionSource, scale = -1, rotation = -1, handleMargins = false, callback = null) {
+    jumpDetails.positionSource = positionSource;
+    _setupJump(scale, rotation, handleMargins, callback);
+  }
+
+  Item {
+    id: jumpDetails
+
+    property bool enabled: false
+    property double fromRotation: 0
+    property double fromScale: 0
+    property double fromX: 0
+    property double fromY: 0
+    property double toRotation: -1
+    property double toScale: -1
+    property double toX: 0
+    property double toY: 0
+    property var positionSource: null
+    property double position: 0
+    property bool handleMargins: false
+    property var completedCallback: null
+
+    onPositionChanged: {
+      if (!enabled) {
+        return;
+      }
+      const targetX = positionSource ? positionSource.projectedPosition.x : toX;
+      const targetY = positionSource ? positionSource.projectedPosition.y : toY;
+      const dx = targetX - fromX;
+      const dy = targetY - fromY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      if (distance === 0 && toRotation === -1 && toScale === -1) {
+        enabled = false;
+        positionSource = null;
+        mapArea.unfreeze('jumping');
+        return;
+      }
+      if (toRotation !== -1) {
+        const progressRotation = fromRotation + (toRotation - fromRotation) * position;
+        mapCanvasWrapper.mapSettings.rotation = progressRotation;
+      }
+      const progressX = fromX + dx * position;
+      const progressY = fromY + dy * position;
+      if (toScale !== -1) {
+        const progressScale = fromScale + (toScale - fromScale) * position;
+        mapCanvasWrapper.zoomScale(Qt.point(progressX, progressY), progressScale, jumpDetails.handleMargins);
+      } else {
+        mapCanvasWrapper.mapSettings.setCenter(Qt.point(progressX, progressY), jumpDetails.handleMargins);
+      }
+      if (position >= 1.0) {
+        enabled = false;
+        positionSource = null;
+        mapArea.unfreeze('jumping');
+        if (completedCallback && typeof completedCallback === 'function') {
+          completedCallback();
+          completedCallback = null;
+        }
+      }
+    }
+
+    Behavior on position  {
+      enabled: jumpDetails.enabled
+      NumberAnimation {
+        easing.type: Easing.InOutQuart
+        duration: 750
+      }
+    }
+  }
+
   MapCanvasMap {
     id: mapCanvasWrapper
 

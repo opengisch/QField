@@ -3,14 +3,12 @@ import QtQuick.Controls
 import org.qgis
 import org.qfield
 import Theme
+import "."
 import ".."
 
-QfVisibilityFadingRow {
+GeometryEditorBase {
   id: fillRingToolbar
 
-  signal finished
-
-  property FeatureModel featureModel
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
   readonly property bool blocking: drawPolygonToolbar.isDigitizing
@@ -44,6 +42,9 @@ QfVisibilityFadingRow {
       id: formPopupLoader
       state: 'Add'
       currentLayer: featureModel && featureModel.currentLayer
+      onRequestJumpToPoint: function (center, scale, handleMargins) {
+        fillRingToolbar.requestJumpToPoint(center, scale, handleMargins);
+      }
     }
 
     onConfirmed: {

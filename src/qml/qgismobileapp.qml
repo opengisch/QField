@@ -107,6 +107,10 @@ ApplicationWindow {
     onMessageEmitted: {
       displayToast(text);
     }
+
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+    }
   }
 
   FocusStack {
@@ -2324,7 +2328,7 @@ ApplicationWindow {
             settings.setValue("/QField/Navigation/FollowIncludeDestination", followIncludeDestination);
             gnssButton.followLocation(true);
           } else {
-            mapCanvas.mapSettings.setCenter(navigation.destination);
+            mapCanvasMap.jumpTo(navigation.destination, -1, -1, true);
           }
         }
 
@@ -2416,16 +2420,7 @@ ApplicationWindow {
               positioningSettings.positioningActivated = true;
             } else {
               if (positionSource.projectedPosition.x) {
-                const screenPosition = mapCanvas.mapSettings.coordinateToScreen(positionSource.projectedPosition);
-                const screenDistance = Math.sqrt(Math.pow(screenPosition.x - (mapCanvas.width - mapCanvasMap.rightMargin) / 2, 2) + Math.pow(screenPosition.y - (mapCanvas.height - mapCanvasMap.bottomMargin) / 2, 2));
-                if (jumpedOnce) {
-                  mapCanvasMap.freeze('follow');
-                  followActive = true;
-                  followLocation(true);
-                  displayToast(qsTr("Canvas follows location"));
-                } else {
-                  jumpToLocation();
-                }
+                jumpToLocation();
               } else {
                 displayToast(qsTr("Waiting for location"));
               }
@@ -2438,6 +2433,15 @@ ApplicationWindow {
         }
 
         property bool jumpedOnce: false
+
+        // Callback to activate follow mode after jump completes
+        function activateFollowMode() {
+          if (!gnssButton.followActive) {
+            mapCanvasMap.freeze('follow');
+            gnssButton.followActive = true;
+            gnssButton.followLocation(true);
+          }
+        }
 
         function jumpToLocation() {
           if (!jumpedOnce) {
@@ -2461,15 +2465,10 @@ ApplicationWindow {
                 targetScale = (scaleMax - scaleMin) * ratio + scaleMin;
               }
             }
-            mapCanvasMap.mapCanvasWrapper.zoomScale(positionSource.projectedPosition, targetScale, true);
+            mapCanvasMap.jumpToPosition(positionSource, targetScale, -1, true, activateFollowMode);
             jumpedOnce = true;
           } else {
-            mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
-          }
-          if (!followActive) {
-            mapCanvasMap.freeze('follow');
-            followActive = true;
-            followLocation(true);
+            mapCanvasMap.jumpToPosition(positionSource, -1, -1, true, activateFollowMode);
           }
         }
 
@@ -2527,7 +2526,7 @@ ApplicationWindow {
           if (!isNaN(positionSource.orientation) && Math.abs(-positionSource.orientation - mapCanvas.mapSettings.rotation) >= 2) {
             if (gnssButton.followOrientationActive) {
               gnssButton.followActiveSkipRotationChanged = true;
-              mapCanvas.mapSettings.rotation = -positionSource.orientation;
+              mapCanvasMap.jumpToPosition(positionSource, -1, -positionSource.orientation, true, activateFollowMode);
             }
             const triggerRefresh = Math.abs(mapCanvasMap.mapCanvasWrapper.rotation) > 22.5;
             if (triggerRefresh) {
@@ -2770,6 +2769,10 @@ ApplicationWindow {
         screenHovering: mapCanvasMap.hovered
 
         stateVisible: !screenLocker.enabled && (stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0)
+
+        onRequestJumpToPoint: function (center, scale, handleMargins) {
+          mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+        }
       }
 
       ConfirmationToolbar {
@@ -3940,7 +3943,7 @@ ApplicationWindow {
       font: Theme.defaultFont
       enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
       checkable: true
-      checked: positioningSettings.showPositionInformation
+      checked: positioningSettings.positioningCoordinateLock
       indicator.height: 20
       indicator.width: 20
       indicator.implicitHeight: 24
@@ -4031,6 +4034,10 @@ ApplicationWindow {
 
     onShowMessage: displayToast(message)
 
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+    }
+
     onEditGeometry: {
       // Set overall selected (i.e. current) layer to that of the feature geometry being edited,
       // important for snapping settings to make sense when set to current layer
@@ -4069,6 +4076,10 @@ ApplicationWindow {
     digitizingToolbar: digitizingToolbar
     codeReader: codeReader
     featureModel.currentLayer: dashBoard.activeLayer
+
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+    }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
@@ -4339,6 +4350,14 @@ ApplicationWindow {
     }
   }
 
+  Connections {
+    target: bookmarkModel
+
+    function onRequestJumpToPoint(center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+    }
+  }
+
   ProjectInfo {
     id: projectInfo
     objectName: "projectInfo"
@@ -4474,6 +4493,10 @@ ApplicationWindow {
 
   TrackerSettings {
     id: trackerSettings
+
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+    }
   }
 
   QFieldCloudConnection {

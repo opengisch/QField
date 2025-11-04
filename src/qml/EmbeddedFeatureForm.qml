@@ -44,6 +44,7 @@ QfPopup {
 
   signal featureSaved(int id)
   signal featureCancelled
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
 
   parent: mainWindow.contentItem
   closePolicy: form.state === "ReadOnly" ? Popup.CloseOnEscape : Popup.NoAutoClose // prevent accidental feature addition and editing
@@ -84,6 +85,10 @@ QfPopup {
       form.resetTabs();
       formPopup.featureCancelled();
       closePopup();
+    }
+
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      formPopup.requestJumpToPoint(center, scale, handleMargins);
     }
 
     function closePopup() {

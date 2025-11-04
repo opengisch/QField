@@ -70,7 +70,9 @@ RelationEditorBase {
             if (referencingFeatureListModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null && referencingFeatureListModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Unknown) {
               geometryHighlighter.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry;
               geometryHighlighter.geometryWrapper.crs = referencingFeatureListModel.relation.referencingLayer.crs;
-              mapCanvas.mapSettings.setExtent(FeatureUtils.extent(mapCanvas.mapSettings, referencingFeatureListModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature), true);
+              const extentRect = FeatureUtils.extent(mapCanvas.mapSettings, referencingFeatureListModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature);
+              const scale = mapCanvas.mapSettings.computeScaleForExtent(extentRect, true);
+              relationEditor.requestJumpToPoint(extentRect.center, scale, true);
             } else {
               viewButton.click();
             }

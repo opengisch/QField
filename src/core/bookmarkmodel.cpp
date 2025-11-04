@@ -115,7 +115,8 @@ void BookmarkModel::setExtentFromBookmark( const QModelIndex &index )
     return;
   }
 
-  mMapSettings->setExtent( transformedRect, true );
+  const double scale = mMapSettings->computeScaleForExtent( transformedRect, true );
+  emit requestJumpToPoint( QgsPoint( transformedRect.center() ), scale, true );
 }
 
 QString BookmarkModel::addBookmarkAtPoint( QgsPoint point, const QString &name, const QString &group )
