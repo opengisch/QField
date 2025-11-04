@@ -2440,6 +2440,7 @@ ApplicationWindow {
             mapCanvasMap.freeze('follow');
             gnssButton.followActive = true;
             gnssButton.followLocation(true);
+            displayToast(qsTr("Map canvas follows location"));
           }
         }
 
@@ -2525,8 +2526,8 @@ ApplicationWindow {
         function followOrientation() {
           if (!isNaN(positionSource.orientation) && Math.abs(-positionSource.orientation - mapCanvas.mapSettings.rotation) >= 2) {
             if (gnssButton.followOrientationActive) {
+              mapCanvas.mapSettings.rotation = -positionSource.orientation;
               gnssButton.followActiveSkipRotationChanged = true;
-              mapCanvasMap.jumpToPosition(positionSource, -1, -positionSource.orientation, true, activateFollowMode);
             }
             const triggerRefresh = Math.abs(mapCanvasMap.mapCanvasWrapper.rotation) > 22.5;
             if (triggerRefresh) {
