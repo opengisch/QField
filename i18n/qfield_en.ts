@@ -5620,7 +5620,7 @@ project</source>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>Canvas follows location</translation>
+        <translation type="vanished">Canvas follows location</translation>
     </message>
     <message>
         <source>Waiting for location</source>
