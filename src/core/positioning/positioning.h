@@ -381,6 +381,8 @@ class Positioning : public QObject
     bool mAveragedPositionFilterAccuracy = false;
     double mBadAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
     double mExcellentAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
+
+    double mOrientation = 0.0;
 };
 
 #endif // POSITIONING_H

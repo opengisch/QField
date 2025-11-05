@@ -2398,12 +2398,16 @@ ApplicationWindow {
           if (followActive) {
             if (qfieldSettings.enableMapRotation) {
               if (!followOrientationActive) {
-                followOrientationActive = true;
-                followOrientation();
                 if (autoRefollow) {
                   displayToast(qsTr("Map canvas locked to location and compass orientation"));
+                  followOrientationActive = true;
+                  followOrientation();
                 } else {
                   displayToast(qsTr("Map canvas follows location and compass orientation"));
+                  mapCanvasMap.jumpToPosition(positionSource, -1, positionSource.orientation, true, () => {
+                      gnssButton.followOrientation();
+                    });
+                  followOrientationActive = true;
                 }
               } else {
                 followOrientationActive = false;
@@ -2420,7 +2424,6 @@ ApplicationWindow {
               positioningSettings.positioningActivated = true;
             } else {
               if (positionSource.projectedPosition.x) {
-                displayToast(qsTr("Map canvas follows location"));
                 jumpToLocation();
               } else {
                 displayToast(qsTr("Waiting for location"));
@@ -2434,15 +2437,6 @@ ApplicationWindow {
         }
 
         property bool jumpedOnce: false
-
-        // Callback to activate follow mode after jump completes
-        function activateFollowMode() {
-          if (!gnssButton.followActive) {
-            mapCanvasMap.freeze('follow');
-            gnssButton.followActive = true;
-            gnssButton.followLocation(true);
-          }
-        }
 
         function jumpToLocation() {
           if (!jumpedOnce) {
@@ -2466,10 +2460,19 @@ ApplicationWindow {
                 targetScale = (scaleMax - scaleMin) * ratio + scaleMin;
               }
             }
-            mapCanvasMap.jumpToPosition(positionSource, targetScale, -1, true, activateFollowMode);
+            mapCanvasMap.jumpToPosition(positionSource, targetScale, -1, true, () => {
+                gnssButton.followLocation(true);
+              });
             jumpedOnce = true;
           } else {
-            mapCanvasMap.jumpToPosition(positionSource, -1, -1, true, activateFollowMode);
+            mapCanvasMap.jumpToPosition(positionSource, -1, -1, true, () => {
+                gnssButton.followLocation(true);
+              });
+          }
+          if (!gnssButton.followActive) {
+            mapCanvasMap.freeze('follow');
+            gnssButton.followActive = true;
+            displayToast(qsTr("Map canvas follows location"));
           }
         }
 
@@ -2560,6 +2563,9 @@ ApplicationWindow {
         target: mapCanvas.mapSettings
 
         function onExtentChanged() {
+          if (mapCanvasMap.jumping) {
+            return;
+          }
           if (gnssButton.followActive) {
             if (gnssButton.followActiveSkipExtentChanged) {
               gnssButton.followActiveSkipExtentChanged = false;
@@ -2577,6 +2583,9 @@ ApplicationWindow {
         }
 
         function onRotationChanged() {
+          if (mapCanvasMap.jumping) {
+            return;
+          }
           if (gnssButton.followActive && gnssButton.followOrientationActive) {
             if (gnssButton.followActiveSkipRotationChanged) {
               gnssButton.followActiveSkipRotationChanged = false;
