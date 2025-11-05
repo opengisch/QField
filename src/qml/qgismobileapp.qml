@@ -3083,7 +3083,7 @@ ApplicationWindow {
         } else {
           mainMenu.close();
           toast.show(qsTr('No sensor available'), 'info', qsTr('Learn more'), function () {
-              Qt.openUrlExternally('https://docs.qfield.org/how-to/sensors/');
+              Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/sensors/');
             });
         }
         highlighted = false;

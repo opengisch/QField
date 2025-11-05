@@ -795,7 +795,7 @@ Page {
 
         text: qsTr("Storage management help")
         onTriggered: {
-          Qt.openUrlExternally("https://docs.qfield.org/get-started/storage/");
+          Qt.openUrlExternally("https://docs.qfield.org/how-to/project-setup/storage/");
         }
       }
     }
