@@ -214,6 +214,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   // Set QGIS-specific core settings
   QgsSettingsRegistryCore::settingsEnableWMSTilePrefetching->setValue( true );
 
+  // Increase maximum concurrent connections allowed
+  QgsApplication::settingsConnectionPoolMaximumConcurrentConnections->setValue( 10 );
+
   // Set a nicer default hyperlink color to be used in QML Text items
   QPalette palette = app->palette();
   palette.setColor( QPalette::Link, QColor( 128, 204, 40 ) );
