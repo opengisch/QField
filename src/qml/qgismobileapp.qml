@@ -646,7 +646,7 @@ ApplicationWindow {
       isMapRotationEnabled: qfieldSettings.enableMapRotation
       incrementalRendering: true
       quality: qfieldSettings.quality
-      smooth: gnssButton.followActive
+      smooth: gnssButton.followActive && !mapCanvasMap.jumping
       previewJobsEnabled: qfieldSettings.previewJobsEnabled
       forceDeferredLayersRepaint: trackings.count > 0
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
@@ -2439,6 +2439,7 @@ ApplicationWindow {
         property bool jumpedOnce: false
 
         function jumpToLocation() {
+          let targetScale = -1;
           if (!jumpedOnce) {
             // The scale range and speed range aims at providing an adequate default
             // value for a range of scenarios from people walking to people being driven
@@ -2447,7 +2448,7 @@ ApplicationWindow {
             const scaleMax = 144448;
             const speedMin = 2.57; // meters per second
             const speedMax = 140; // meters per second
-            let targetScale = scaleMin;
+            targetScale = scaleMin;
             if (positionSource.positionInformation.speedValid) {
               const speed = positionSource.positionInformation.speed;
               if (speed > speedMax) {
@@ -2460,15 +2461,11 @@ ApplicationWindow {
                 targetScale = (scaleMax - scaleMin) * ratio + scaleMin;
               }
             }
-            mapCanvasMap.jumpToPosition(positionSource, targetScale, -1, true, () => {
-                gnssButton.followLocation(true);
-              });
             jumpedOnce = true;
-          } else {
-            mapCanvasMap.jumpToPosition(positionSource, -1, -1, true, () => {
-                gnssButton.followLocation(true);
-              });
           }
+          mapCanvasMap.jumpToPosition(positionSource, targetScale, -1, true, () => {
+              gnssButton.followLocation(true);
+            });
           if (!gnssButton.followActive) {
             mapCanvasMap.freeze('follow');
             gnssButton.followActive = true;
@@ -2532,7 +2529,7 @@ ApplicationWindow {
               mapCanvas.mapSettings.rotation = -positionSource.orientation;
               gnssButton.followActiveSkipRotationChanged = true;
             }
-            const triggerRefresh = Math.abs(mapCanvasMap.mapCanvasWrapper.rotation) > 22.5;
+            const triggerRefresh = Math.abs(mapCanvasMap.mapCanvasWrapper.rotation) > 60;
             if (triggerRefresh) {
               mapCanvasMap.refresh(true);
             }
