@@ -2404,7 +2404,7 @@ ApplicationWindow {
                   followOrientation();
                 } else {
                   displayToast(qsTr("Map canvas follows location and compass orientation"));
-                  mapCanvasMap.jumpToPosition(positionSource, -1, positionSource.orientation, true, () => {
+                  mapCanvasMap.jumpToPosition(positionSource, -1, -positionSource.orientation, true, () => {
                       gnssButton.followOrientation();
                     });
                   followOrientationActive = true;
@@ -2592,13 +2592,11 @@ ApplicationWindow {
               return;
             }
           }
-          if (gnssButton.followActive) {
+          if (gnssButton.followActive && gnssButton.autoRefollow) {
             mapCanvasMap.unfreeze('follow');
             gnssButton.followActive = false;
             gnssButton.followOrientationActive = false;
-            if (gnssButton.autoRefollow) {
-              showAutoLockToast();
-            }
+            showAutoLockToast();
           } else if (gnssButton.autoRefollow) {
             showAutoLockToast();
           }
