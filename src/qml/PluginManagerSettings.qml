@@ -150,7 +150,7 @@ QfPopup {
         Layout.margins: 20
         visible: pluginsList.count === 0
 
-        text: pluginManager.pluginModel.isRefreshing ? qsTr('Fetching available plugins') : qsTr('No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.<br><br>For more information, %2read the documentation%3.').arg('<a href="#">').arg('<a href="https://docs.qfield.org/how-to/plugins/">').arg('</a>')
+        text: pluginManager.pluginModel.isRefreshing ? qsTr('Fetching available plugins') : qsTr('No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.<br><br>For more information, %2read the documentation%3.').arg('<a href="#">').arg('<a href="https://docs.qfield.org/ro/how-to/advanced-how-tos/plugins/">').arg('</a>')
         font: Theme.defaultFont
         wrapMode: Text.WordWrap
         horizontalAlignment: Text.AlignHCenter

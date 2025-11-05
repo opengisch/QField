@@ -85,7 +85,7 @@ EditorWidgetBase {
         if (externalStorage.type != "") {
           if (config["StorageAuthConfigId"] !== "" && !iface.isAuthenticationConfigurationAvailable(config["StorageAuthConfigId"])) {
             mainWindow.displayToast(qsTr("The external storage's authentication configuration ID is missing, please insure it is imported into QField"), "error", qsTr("Learn more"), function () {
-                Qt.openUrlExternally('https://docs.qfield.org/how-to/authentication/');
+                Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/authentication/');
               });
           } else {
             externalStorage.fetch(value, config["StorageAuthConfigId"]);

@@ -115,7 +115,7 @@ QString QFieldCloudUtils::documentationFromErrorString( const QString &errorStri
 
   if ( errorString.contains( errorCodeOverQuota ) )
   {
-    linkToDocumentation = "https://docs.qfield.org/get-started/storage-qfc/#add-qfieldcloud-storage";
+    linkToDocumentation = "https://docs.qfield.org/get-started/storage-qfc/#adding-qfieldcloud-storage";
   }
 
   return linkToDocumentation;
