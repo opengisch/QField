@@ -104,7 +104,8 @@ class BluetoothDeviceModel : public QAbstractListModel
   private:
     void initiateDiscoveryAgent();
 
-    bool mPermissionChecked = false;
+    bool mBluetoothPermissionChecked = false;
+    bool mLocationPermissionChecked = false;
 
     std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
     std::unique_ptr<QBluetoothServiceDiscoveryAgent> mServiceDiscoveryAgent;

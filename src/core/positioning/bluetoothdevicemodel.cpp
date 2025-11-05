@@ -70,7 +70,8 @@ void BluetoothDeviceModel::initiateDiscoveryAgent()
 
 void BluetoothDeviceModel::startServiceDiscovery()
 {
-  if ( !mPermissionChecked )
+  // Handle Bluetooth permission
+  if ( !mBluetoothPermissionChecked )
   {
     QBluetoothPermission bluetoothPermission;
     bluetoothPermission.setCommunicationModes( QBluetoothPermission::Access );
@@ -80,7 +81,7 @@ void BluetoothDeviceModel::startServiceDiscovery()
       qApp->requestPermission( bluetoothPermission, this, [this]( const QPermission &permission ) {
         if ( permission.status() == Qt::PermissionStatus::Granted )
         {
-          mPermissionChecked = true;
+          mBluetoothPermissionChecked = true;
           startServiceDiscovery();
         }
         else
@@ -93,10 +94,42 @@ void BluetoothDeviceModel::startServiceDiscovery()
     }
     else if ( permissionStatus == Qt::PermissionStatus::Denied )
     {
-      mLastError = tr( "Bluetooth permission denied" );
+      mLastError = tr( "Bluetooth permission is required to scan for bluetooth devices" );
       emit lastErrorChanged( mLastError );
       return;
     }
+  }
+
+  // Handle location permission
+  if ( !mLocationPermissionChecked )
+  {
+    QLocationPermission locationPermission;
+    locationPermission.setAccuracy( QLocationPermission::Precise );
+    Qt::PermissionStatus permissionStatus = qApp->checkPermission( locationPermission );
+
+    if ( permissionStatus == Qt::PermissionStatus::Undetermined )
+    {
+      qApp->requestPermission( locationPermission, this, [this]( const QPermission &permission ) {
+        if ( permission.status() == Qt::PermissionStatus::Granted )
+        {
+          mLocationPermissionChecked = true;
+          startServiceDiscovery();
+        }
+        else
+        {
+          mLastError = tr( "Location permission denied" );
+          emit lastErrorChanged( mLastError );
+        }
+      } );
+      return;
+    }
+    else if ( permissionStatus == Qt::PermissionStatus::Denied )
+    {
+      mLastError = tr( "Location permission is required to scan for bluetooth devices" );
+      emit lastErrorChanged( mLastError );
+      return;
+    }
+    mLocationPermissionChecked = true;
   }
 
   if ( !mServiceDiscoveryAgent )
