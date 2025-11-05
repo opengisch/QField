@@ -41,19 +41,6 @@ Positioning::Positioning( QObject *parent )
   }
 
   connect( QgsApplication::instance(), &QGuiApplication::applicationStateChanged, this, &Positioning::onApplicationStateChanged );
-
-  QTimer *t = new QTimer( this );
-  t->setInterval( 1000 );
-  t->setSingleShot( false );
-  connect( t, &QTimer::timeout, this, [this]() {
-    mOrientation += 5.0;
-    if ( mOrientation >= 360 )
-    {
-      mOrientation = 0;
-    }
-    emit orientationChanged();
-  } );
-  t->start();
 }
 
 void Positioning::setupSource()
@@ -590,7 +577,7 @@ GnssPositionInformation Positioning::positionInformation() const
 
 double Positioning::orientation() const
 {
-  return mOrientation; //isSourceAvailable() ? adjustOrientation( mPositioningSourceReplica->property( "orientation" ).toDouble() ) : std::numeric_limits<double>::quiet_NaN();
+  return isSourceAvailable() ? adjustOrientation( mPositioningSourceReplica->property( "orientation" ).toDouble() ) : std::numeric_limits<double>::quiet_NaN();
 }
 
 double Positioning::adjustOrientation( double orientation ) const
