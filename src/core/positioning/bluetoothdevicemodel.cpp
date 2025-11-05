@@ -174,6 +174,10 @@ void BluetoothDeviceModel::stopServiceDiscovery()
 
 void BluetoothDeviceModel::serviceDiscovered( const QBluetoothServiceInfo &service )
 {
+  qInfo() << QStringLiteral( "Bluetooth service discovered: name %1, address %2, pairing status %3" )
+               .arg( service.device().name() )
+               .arg( service.device().address().toString() )
+               .arg( mLocalDevice->pairingStatus( service.device().address() ) );
   //only list the paired devices so the user has control over it.
   //but in linux (not android) we list unpaired as well, since it needs to repair them later (or pair them at all).
   const QPair<QString, QString> serviceDiscovered = qMakePair( service.device().name(), service.device().address().toString() );
@@ -182,14 +186,7 @@ void BluetoothDeviceModel::serviceDiscovered( const QBluetoothServiceInfo &servi
 
   const int index = static_cast<int>( mDiscoveredDevices.size() );
   beginInsertRows( QModelIndex(), index, index );
-#ifdef Q_OS_ANDROID
-  if ( mLocalDevice->pairingStatus( service.device().address() ) != QBluetoothLocalDevice::Unpaired )
-  {
-    mDiscoveredDevices.append( serviceDiscovered );
-  }
-#else
   mDiscoveredDevices.append( serviceDiscovered );
-#endif
   endInsertRows();
 }
 
