@@ -38,9 +38,11 @@ Item {
 
   property bool interactive: true
   property bool hovered: false
-  property bool pinched: pinchHandler.active
   property bool freehandDigitizing: false
   property bool isMapRotationEnabled: false
+
+  readonly property bool pinched: pinchHandler.active
+  readonly property bool jumping: jumpDetails.enabled
 
   // for signals, type can be "stylus" for any device click or "touch"
 
