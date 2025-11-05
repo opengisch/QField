@@ -142,7 +142,7 @@ void BluetoothDeviceModel::startServiceDiscovery()
     stopServiceDiscovery();
   }
 
-  mServiceDiscoveryAgent->setUuidFilter( QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ) );
+  //mServiceDiscoveryAgent->setUuidFilter( QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ) );
 
   if ( mScanningStatus == FastScanning )
   {
