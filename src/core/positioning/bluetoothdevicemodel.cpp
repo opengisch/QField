@@ -137,6 +137,13 @@ void BluetoothDeviceModel::startServiceDiscovery()
     initiateDiscoveryAgent();
   }
 
+  if ( mLocalDevice->isValid() && mLocalDevice->hostMode() == QBluetoothLocalDevice::HostPoweredOff )
+  {
+    mLastError = tr( "Bluetooth service must be turned on to scan for bluetooth devices" );
+    emit lastErrorChanged( mLastError );
+    return;
+  }
+
   if ( mServiceDiscoveryAgent->isActive() )
   {
     stopServiceDiscovery();
