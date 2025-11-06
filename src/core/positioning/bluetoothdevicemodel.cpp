@@ -142,7 +142,7 @@ void BluetoothDeviceModel::startServiceDiscovery()
     stopServiceDiscovery();
   }
 
-  //mServiceDiscoveryAgent->setUuidFilter( QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ) );
+  mServiceDiscoveryAgent->setUuidFilter( QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ) );
 
   if ( mScanningStatus == FastScanning )
   {
@@ -186,7 +186,14 @@ void BluetoothDeviceModel::serviceDiscovered( const QBluetoothServiceInfo &servi
 
   const int index = static_cast<int>( mDiscoveredDevices.size() );
   beginInsertRows( QModelIndex(), index, index );
+#ifdef Q_OS_ANDROID
+  if ( mLocalDevice->pairingStatus( service.device().address() ) != QBluetoothLocalDevice::Unpaired )
+  {
+    mDiscoveredDevices.append( serviceDiscovered );
+  }
+#else
   mDiscoveredDevices.append( serviceDiscovered );
+#endif
   endInsertRows();
 }
 
