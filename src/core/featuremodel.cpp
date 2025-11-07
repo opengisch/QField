@@ -951,7 +951,11 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
                       const QString sourcePrimaryKeys = mLayer->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).toString();
                       if ( !sourcePrimaryKeys.isEmpty() && mLayer->fields().lookupField( sourcePrimaryKeys ) >= 0 )
                       {
-                        newFeature.setAttribute( mLayer->fields().lookupField( sourcePrimaryKeys ), QVariant() );
+                        const int sourcePrimaryKeysIndex = mLayer->fields().lookupField( sourcePrimaryKeys );
+                        if ( !mLayer->fields().at( sourcePrimaryKeysIndex ).defaultValueDefinition().isValid() )
+                        {
+                          newFeature.setAttribute( mLayer->fields().lookupField( sourcePrimaryKeys ), QVariant() );
+                        }
                       }
                       mLayer->addFeature( newFeature );
                     }

@@ -462,7 +462,11 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, QgsFeature featu
   QString sourcePrimaryKeys = layer->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).toString();
   if ( layer->fields().lookupField( sourcePrimaryKeys ) >= 0 )
   {
-    feature.setAttribute( layer->fields().lookupField( sourcePrimaryKeys ), QVariant() );
+    const int sourcePrimaryKeysIndex = layer->fields().lookupField( sourcePrimaryKeys );
+    if ( !layer->fields().at( sourcePrimaryKeysIndex ).defaultValueDefinition().isValid() )
+    {
+      feature.setAttribute( sourcePrimaryKeysIndex, QVariant() );
+    }
   }
 
   QgsFeature duplicatedFeature;
@@ -515,9 +519,12 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, QgsFeature featu
     if ( !sourcePrimaryKeys.isEmpty() && chl->fields().lookupField( sourcePrimaryKeys ) >= 0 )
     {
       const int sourcePrimaryKeysIndex = chl->fields().lookupField( sourcePrimaryKeys );
-      for ( auto fid : fids )
+      if ( !chl->fields().at( sourcePrimaryKeysIndex ).defaultValueDefinition().isValid() )
       {
-        chl->changeAttributeValue( fid, sourcePrimaryKeysIndex, QVariant() );
+        for ( auto fid : fids )
+        {
+          chl->changeAttributeValue( fid, sourcePrimaryKeysIndex, QVariant() );
+        }
       }
     }
 
