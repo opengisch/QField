@@ -93,16 +93,16 @@ Item {
       model: BluetoothDeviceModel {
         id: bluetoothDeviceModel
 
-        function onModelReset() {
+        onModelReset: {
           bluetoothDeviceComboBox.currentIndex = selectedBluetoothDevice;
         }
 
-        function onLastErrorChanged(lastError) {
+        onLastErrorChanged: lastError => {
           displayToast(qsTr('Scanning error: %1').arg(lastError), 'error');
           console.log(lastError);
         }
 
-        function onScanningStatusChanged(scanningStatus) {
+        onScanningStatusChanged: canningStatus => {
           switch (scanningStatus) {
           case BluetoothDeviceModel.FastScanning:
             displayToast(qsTr('Scanning for paired devices'));

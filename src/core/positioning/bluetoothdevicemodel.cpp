@@ -248,7 +248,9 @@ QHash<int, QByteArray> BluetoothDeviceModel::roleNames() const
 void BluetoothDeviceModel::setScanningStatus( const BluetoothDeviceModel::ScanningStatus scanningStatus )
 {
   if ( mScanningStatus == scanningStatus )
+  {
     return;
+  }
 
   qDebug() << "BluetoothDeviceModel: Status of service discovery changed to: " << scanningStatus;
   mScanningStatus = scanningStatus;
@@ -257,10 +259,12 @@ void BluetoothDeviceModel::setScanningStatus( const BluetoothDeviceModel::Scanni
 
 void BluetoothDeviceModel::setLastError( const QString &lastError )
 {
-  qDebug() << "BluetoothDeviceModel: Service discovery error received: " << lastError;
   if ( mLastError == lastError )
+  {
     return;
+  }
 
+  qDebug() << "BluetoothDeviceModel: Service discovery error received: " << lastError;
   mLastError = lastError;
   emit lastErrorChanged( mLastError );
 }
