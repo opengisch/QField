@@ -270,9 +270,12 @@ GeometryUtils::GeometryOperationResult GeometryUtils::splitFeatureFromRubberband
     if ( !sourcePrimaryKeys.isEmpty() && layer->fields().lookupField( sourcePrimaryKeys ) >= 0 )
     {
       const int sourcePrimaryKeysIndex = layer->fields().lookupField( sourcePrimaryKeys );
-      for ( const QgsFeatureId &createdFeatureId : createdFeatureIds )
+      if ( !layer->fields().at( sourcePrimaryKeysIndex ).defaultValueDefinition().isValid() )
       {
-        layer->changeAttributeValue( createdFeatureId, sourcePrimaryKeysIndex, QVariant() );
+        for ( const QgsFeatureId &createdFeatureId : createdFeatureIds )
+        {
+          layer->changeAttributeValue( createdFeatureId, sourcePrimaryKeysIndex, QVariant() );
+        }
       }
     }
     layer->commitChanges( !wasEditing );
