@@ -19,6 +19,7 @@ QfPopup {
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
   focus: visible
+  closePolicy: Popup.CloseOnEscape
 
   property alias name: positioningDeviceName.text
   property alias type: positioningDeviceType.currentValue
