@@ -1380,7 +1380,11 @@ void FlatLayerTreeModelBase::setMapTheme( const QString &mapTheme )
   mMapTheme = mapTheme;
   emit mapThemeChanged();
 
-  buildMap( mLayerTreeModel );
+  if ( !mapTheme.isEmpty() )
+  {
+    // Setting a map theme likely changes the layer tree structure, rebuild
+    buildMap( mLayerTreeModel );
+  }
 }
 
 void FlatLayerTreeModelBase::updateCurrentMapTheme()
