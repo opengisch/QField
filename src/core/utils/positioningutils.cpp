@@ -65,19 +65,24 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
   if ( positionsInformation.isEmpty() )
     return GnssPositionInformation();
 
-  double latitude = std::numeric_limits<double>::quiet_NaN();
-  double longitude = std::numeric_limits<double>::quiet_NaN();
-  double elevation = std::numeric_limits<double>::quiet_NaN();
-  double speed = std::numeric_limits<double>::quiet_NaN();
-  double direction = std::numeric_limits<double>::quiet_NaN();
-  double pdop = 0;
-  double hdop = 0;
-  double vdop = 0;
-  double hacc = std::numeric_limits<double>::quiet_NaN();
-  double vacc = std::numeric_limits<double>::quiet_NaN();
-  double hvacc = std::numeric_limits<double>::quiet_NaN();
-  double verticalSpeed = std::numeric_limits<double>::quiet_NaN();
-  double magneticVariation = std::numeric_limits<double>::quiet_NaN();
+  std::vector<double> latitude;
+  std::vector<double> longitude;
+  std::vector<double> elevation;
+  std::vector<double> speed;
+  std::vector<double> direction;
+  std::vector<double> pdop;
+  std::vector<double> hdop;
+  std::vector<double> vdop;
+  std::vector<double> hacc;
+  std::vector<double> vacc;
+  std::vector<double> hvacc;
+  std::vector<double> verticalSpeed;
+  std::vector<double> magneticVariation;
+  std::vector<double> orientation;
+  std::vector<double> imuRoll;
+  std::vector<double> imuPitch;
+  std::vector<double> imuHeading;
+  std::vector<double> imuSteering;
 
   QDateTime utcDateTime = positionsInformation.last().utcDateTime();
 
@@ -91,45 +96,109 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
   int quality = positionsInformation.at( 0 ).quality();
   QString sourceName = QStringLiteral( "%1 (%2)" ).arg( positionsInformation.at( 0 ).sourceName(), QObject::tr( "averaged" ) );
 
-  int validPositionsCount = 0;
   for ( const GnssPositionInformation &pi : positionsInformation )
   {
-    if ( !std::isnan( pi.latitude() ) )
-      latitude = !std::isnan( latitude ) ? latitude + pi.latitude() : pi.latitude();
-    if ( !std::isnan( pi.longitude() ) )
-      longitude = !std::isnan( longitude ) ? longitude + pi.longitude() : pi.longitude();
-    if ( !std::isnan( pi.elevation() ) )
-      elevation = !std::isnan( elevation ) ? elevation + pi.elevation() : pi.elevation();
-    if ( !std::isnan( pi.speed() ) )
-      speed = !std::isnan( speed ) ? speed + pi.speed() : pi.speed();
-    if ( !std::isnan( pi.direction() ) )
-      direction = !std::isnan( direction ) ? direction + pi.direction() : pi.direction();
-    pdop += pi.pdop();
-    hdop += pi.hdop();
-    vdop += pi.vdop();
-    if ( !std::isnan( pi.hacc() ) )
-      hacc = !std::isnan( hacc ) ? hacc + pi.hacc() : pi.hacc();
-    if ( !std::isnan( pi.vacc() ) )
-      vacc = !std::isnan( vacc ) ? vacc + pi.vacc() : pi.vacc();
-    if ( !std::isnan( pi.hvacc() ) )
-      hvacc = !std::isnan( hvacc ) ? hvacc + pi.hvacc() : pi.hvacc();
-    if ( !std::isnan( pi.verticalSpeed() ) )
-      verticalSpeed = !std::isnan( verticalSpeed ) ? verticalSpeed + pi.verticalSpeed() : pi.verticalSpeed();
-    if ( !std::isnan( pi.magneticVariation() ) )
-      magneticVariation = !std::isnan( magneticVariation ) ? magneticVariation + pi.magneticVariation() : pi.magneticVariation();
+    if ( std::isnan( pi.latitude() ) )
+    {
+      continue;
+    }
 
-    ++validPositionsCount;
+    if ( !std::isnan( pi.latitude() ) )
+    {
+      latitude.push_back( pi.latitude() );
+    }
+    if ( !std::isnan( pi.longitude() ) )
+    {
+      longitude.push_back( pi.longitude() );
+    }
+    if ( !std::isnan( pi.elevation() ) )
+    {
+      elevation.push_back( pi.elevation() );
+    }
+    if ( !std::isnan( pi.speed() ) )
+    {
+      speed.push_back( pi.speed() );
+    }
+    if ( !std::isnan( pi.direction() ) )
+    {
+      direction.push_back( pi.direction() );
+    }
+    pdop.push_back( pi.pdop() );
+    hdop.push_back( pi.hdop() );
+    vdop.push_back( pi.vdop() );
+    if ( !std::isnan( pi.hacc() ) )
+    {
+      hacc.push_back( pi.hacc() );
+    }
+    if ( !std::isnan( pi.vacc() ) )
+    {
+      vacc.push_back( pi.vacc() );
+    }
+    if ( !std::isnan( pi.hvacc() ) )
+    {
+      hvacc.push_back( pi.hvacc() );
+    }
+    if ( !std::isnan( pi.verticalSpeed() ) )
+    {
+      verticalSpeed.push_back( pi.verticalSpeed() );
+    }
+    if ( !std::isnan( pi.magneticVariation() ) )
+    {
+      magneticVariation.push_back( pi.magneticVariation() );
+    }
+    if ( !std::isnan( pi.orientation() ) )
+    {
+      orientation.push_back( pi.orientation() );
+    }
+
+    if ( pi.imuCorrection() )
+    {
+      if ( !std::isnan( pi.imuRoll() ) )
+      {
+        imuRoll.push_back( pi.imuRoll() );
+      }
+      if ( !std::isnan( pi.imuPitch() ) )
+      {
+        imuPitch.push_back( pi.imuPitch() );
+      }
+      if ( !std::isnan( pi.imuHeading() ) )
+      {
+        imuHeading.push_back( pi.imuHeading() );
+      }
+      if ( !std::isnan( pi.imuSteering() ) )
+      {
+        imuSteering.push_back( pi.imuSteering() );
+      }
+    }
   }
 
-  if ( validPositionsCount == 0 )
+  if ( latitude.empty() )
+  {
     return GnssPositionInformation(); // No valid data to average
+  }
 
-  return GnssPositionInformation( latitude / validPositionsCount, longitude / validPositionsCount, elevation / validPositionsCount,
-                                  speed / validPositionsCount, direction / validPositionsCount, satellitesInView,
-                                  pdop / validPositionsCount, hdop / validPositionsCount, vdop / validPositionsCount,
-                                  hacc / validPositionsCount, vacc / validPositionsCount, utcDateTime,
-                                  fixMode, fixType, quality, satellitesUsed, status, satPrn, satInfoComplete,
-                                  verticalSpeed / validPositionsCount, magneticVariation / validPositionsCount, validPositionsCount, sourceName );
+  const double nan = std::numeric_limits<double>::quiet_NaN();
+  return GnssPositionInformation( std::accumulate( latitude.begin(), latitude.end(), 0.0 ) / latitude.size(),
+                                  std::accumulate( longitude.begin(), longitude.end(), 0.0 ) / longitude.size(),
+                                  elevation.empty() ? nan : std::accumulate( elevation.begin(), elevation.end(), 0.0 ) / elevation.size(),
+                                  speed.empty() ? nan : std::accumulate( speed.begin(), speed.end(), 0.0 ) / speed.size(),
+                                  direction.empty() ? nan : std::accumulate( direction.begin(), direction.end(), 0.0 ) / direction.size(),
+                                  satellitesInView,
+                                  pdop.empty() ? 0.0 : std::accumulate( pdop.begin(), pdop.end(), 0.0 ) / pdop.size(),
+                                  hdop.empty() ? 0.0 : std::accumulate( hdop.begin(), hdop.end(), 0.0 ) / hdop.size(),
+                                  vdop.empty() ? 0.0 : std::accumulate( vdop.begin(), vdop.end(), 0.0 ) / vdop.size(),
+                                  hacc.empty() ? nan : std::accumulate( hacc.begin(), hacc.end(), 0.0 ) / hacc.size(),
+                                  vacc.empty() ? nan : std::accumulate( vacc.begin(), vacc.end(), 0.0 ) / vacc.size(),
+                                  utcDateTime, fixMode, fixType, quality, satellitesUsed, status, satPrn, satInfoComplete,
+                                  verticalSpeed.empty() ? nan : std::accumulate( verticalSpeed.begin(), verticalSpeed.end(), 0.0 ) / verticalSpeed.size(),
+                                  magneticVariation.empty() ? nan : std::accumulate( magneticVariation.begin(), magneticVariation.end(), 0.0 ) / magneticVariation.size(),
+                                  latitude.size(), sourceName,
+                                  !imuRoll.empty(),
+                                  imuRoll.empty() ? nan : std::accumulate( imuRoll.begin(), imuRoll.end(), 0.0 ) / imuRoll.size(),
+                                  imuPitch.empty() ? nan : std::accumulate( imuPitch.begin(), imuPitch.end(), 0.0 ) / imuPitch.size(),
+                                  imuHeading.empty() ? nan : std::accumulate( imuHeading.begin(), imuHeading.end(), 0.0 ) / imuHeading.size(),
+                                  imuSteering.empty() ? nan : std::accumulate( imuSteering.begin(), imuSteering.end(), 0.0 ) / imuSteering.size(),
+                                  orientation.empty() ? nan : std::accumulate( orientation.begin(), orientation.end(), 0.0 ) / orientation.size() );
 }
 
 double PositioningUtils::bearingTrueNorth( const QgsPoint &position, const QgsCoordinateReferenceSystem &crs )
