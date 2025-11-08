@@ -293,6 +293,18 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
         <source>Bluetooth permission denied</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothReceiver</name>
@@ -5538,7 +5550,7 @@ project</source>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>Okvir prati lokaciju</translation>
+        <translation type="vanished">Okvir prati lokaciju</translation>
     </message>
     <message>
         <source>Waiting for location</source>

@@ -293,6 +293,18 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Bluetooth permission denied</source>
         <translation>Gebruik van Bluetooth niet toegestaan </translation>
     </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation>Gebruik van locatiegegevens is niet toegestaan</translation>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothReceiver</name>
@@ -5540,7 +5552,7 @@ project</source>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>Canvas volgt locatie</translation>
+        <translation type="vanished">Canvas volgt locatie</translation>
     </message>
     <message>
         <source>Waiting for location</source>

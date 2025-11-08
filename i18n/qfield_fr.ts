@@ -292,6 +292,18 @@ Cancel to make a minimal device scan instead.</source>
         <source>Bluetooth permission denied</source>
         <translation>Autorisation Bluetooth refusée</translation>
     </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation>Permission de localisation refusée</translation>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothReceiver</name>
@@ -5539,7 +5551,7 @@ project</source>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>Le canevas suit la localisation</translation>
+        <translation type="vanished">Le canevas suit la localisation</translation>
     </message>
     <message>
         <source>Waiting for location</source>

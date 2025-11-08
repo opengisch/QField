@@ -293,6 +293,18 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <source>Bluetooth permission denied</source>
         <translation>Bluetooth povolení odmítnuto</translation>
     </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothReceiver</name>
@@ -5543,7 +5555,7 @@ project</source>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>Čekání na určení polohy...</translation>
+        <translation type="vanished">Čekání na určení polohy...</translation>
     </message>
     <message>
         <source>Waiting for location</source>

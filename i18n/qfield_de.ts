@@ -293,6 +293,18 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
         <source>Bluetooth permission denied</source>
         <translation>Bluetooth Berechtigung verweigert</translation>
     </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation>Standortberechtigung verweigert</translation>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothReceiver</name>
@@ -5540,7 +5552,7 @@ erstellen</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>Kartenausschnitt folgt dem aktuellen Standort</translation>
+        <translation type="vanished">Kartenausschnitt folgt dem aktuellen Standort</translation>
     </message>
     <message>
         <source>Waiting for location</source>

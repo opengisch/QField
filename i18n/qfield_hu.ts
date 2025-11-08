@@ -293,6 +293,18 @@ Cancel to make a minimal device scan instead.</source>
         <source>Bluetooth permission denied</source>
         <translation>Bluetooth engedély megtagadva</translation>
     </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation>Helymeghatározás engedély megtagadva</translation>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothReceiver</name>
@@ -5536,7 +5548,7 @@ project</source>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>A térkép követi a pozíciót</translation>
+        <translation type="vanished">A térkép követi a pozíciót</translation>
     </message>
     <message>
         <source>Waiting for location</source>

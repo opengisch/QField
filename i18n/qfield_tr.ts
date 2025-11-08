@@ -293,6 +293,18 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <source>Bluetooth permission denied</source>
         <translation>Bluetooth izni reddedildi</translation>
     </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothReceiver</name>
@@ -5535,7 +5547,7 @@ project</source>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>Kanvas konumu takip eder</translation>
+        <translation type="vanished">Kanvas konumu takip eder</translation>
     </message>
     <message>
         <source>Waiting for location</source>

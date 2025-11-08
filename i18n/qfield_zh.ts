@@ -293,6 +293,18 @@ Cancel to make a minimal device scan instead.</source>
         <source>Bluetooth permission denied</source>
         <translation>蓝牙权限被拒绝</translation>
     </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation>扫描蓝牙设备需要获取蓝牙权限</translation>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation>定位权限被拒绝</translation>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation>扫描蓝牙设备需要位置权限</translation>
+    </message>
 </context>
 <context>
     <name>BluetoothReceiver</name>
@@ -5541,7 +5553,7 @@ project</source>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>地图跟随位置</translation>
+        <translation type="vanished">地图跟随位置</translation>
     </message>
     <message>
         <source>Waiting for location</source>

@@ -293,6 +293,18 @@ Zrušiť a spraviť minimálny sken.</translation>
         <source>Bluetooth permission denied</source>
         <translation>Povolenie Bluetooth zamietnuté</translation>
     </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation>Povolenie polohy zamietnuté</translation>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothReceiver</name>
@@ -5543,7 +5555,7 @@ project</source>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>Mapové okno nasleduje polohu</translation>
+        <translation type="vanished">Mapové okno nasleduje polohu</translation>
     </message>
     <message>
         <source>Waiting for location</source>

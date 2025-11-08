@@ -293,6 +293,18 @@ Cancel to make a minimal device scan instead.</source>
         <source>Bluetooth permission denied</source>
         <translation>Bluetoothのパーミッションが拒否されました</translation>
     </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation>位置情報関連のパーミッションが拒否されました</translation>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothReceiver</name>
@@ -5538,7 +5550,7 @@ project</source>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>地図上で現在の位置情報を追尾します</translation>
+        <translation type="vanished">地図上で現在の位置情報を追尾します</translation>
     </message>
     <message>
         <source>Waiting for location</source>

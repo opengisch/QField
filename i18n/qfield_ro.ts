@@ -294,6 +294,18 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>Bluetooth permission denied</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothReceiver</name>
@@ -5544,7 +5556,7 @@ project</source>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>Canvasul urmărește locația</translation>
+        <translation type="vanished">Canvasul urmărește locația</translation>
     </message>
     <message>
         <source>Waiting for location</source>

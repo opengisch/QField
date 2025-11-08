@@ -293,6 +293,18 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>Bluetooth permission denied</source>
         <translation>Bluetoothin käyttöoikeus estetty</translation>
     </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation>Kohteen käyttöoikeus estetty</translation>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothReceiver</name>
@@ -5542,7 +5554,7 @@ project</source>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>Karttapohja seuraa sijaintia</translation>
+        <translation type="vanished">Karttapohja seuraa sijaintia</translation>
     </message>
     <message>
         <source>Waiting for location</source>

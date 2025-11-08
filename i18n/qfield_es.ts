@@ -293,6 +293,18 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
         <source>Bluetooth permission denied</source>
         <translation>Denegado el permiso de Bluetooth</translation>
     </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation>Denegado el permiso de ubicación</translation>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BluetoothReceiver</name>
@@ -5540,7 +5552,7 @@ project</source>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>El lienzo sigue la localización</translation>
+        <translation type="vanished">El lienzo sigue la localización</translation>
     </message>
     <message>
         <source>Waiting for location</source>

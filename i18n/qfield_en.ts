@@ -298,6 +298,18 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Bluetooth permission denied</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BluetoothReceiver</name>

@@ -293,6 +293,18 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Bluetooth permission denied</source>
         <translation>Odmowa dostępu do bluetooth</translation>
     </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation>Zezwolenie na Bluetooth jest wymagane do skanowania w poszukiwaniu urządzeń Bluetooth</translation>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation>Odmowa dostępu do lokalizacji</translation>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation>Zezwolenie na lokalizację jest wymagane do skanowania w poszukiwaniu urządzeń Bluetooth</translation>
+    </message>
 </context>
 <context>
     <name>BluetoothReceiver</name>
@@ -5547,7 +5559,7 @@ projekt</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation>Widok mapy podąża za lokalizacją</translation>
+        <translation type="vanished">Widok mapy podąża za lokalizacją</translation>
     </message>
     <message>
         <source>Waiting for location</source>
