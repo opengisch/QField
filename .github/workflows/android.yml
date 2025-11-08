@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - release-**
+      - 33_tmp
   pull_request:
   release:
     types: ['published']
