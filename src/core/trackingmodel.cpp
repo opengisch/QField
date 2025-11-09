@@ -120,7 +120,17 @@ bool TrackingModel::layerInTracking( QgsVectorLayer *layer ) const
   return trackerIterator( layer ) != mTrackers.constEnd();
 }
 
-Tracker *TrackingModel::trackerForLayer( QgsVectorLayer *layer )
+bool TrackingModel::layerInActiveTracking( QgsVectorLayer *layer ) const
+{
+  if ( trackerIterator( layer ) != mTrackers.constEnd() )
+  {
+    const qsizetype idx = trackerIterator( layer ) - mTrackers.constBegin();
+    return mTrackers[idx]->isActive();
+  }
+  return false;
+}
+
+Tracker *TrackingModel::trackerForLayer( QgsVectorLayer *layer ) const
 {
   return *trackerIterator( layer );
 }
@@ -254,7 +264,7 @@ QList<QgsVectorLayer *> TrackingModel::availableLayers( QgsProject *project ) co
     const QVector<QgsVectorLayer *> projectLayers = project->layers<QgsVectorLayer *>();
     for ( QgsVectorLayer *projectLayer : projectLayers )
     {
-      if ( layerInTracking( projectLayer ) || projectLayer->readOnly() )
+      if ( layerInActiveTracking( projectLayer ) || projectLayer->readOnly() )
       {
         continue;
       }

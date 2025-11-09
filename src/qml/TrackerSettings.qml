@@ -119,10 +119,7 @@ QfPopup {
       showBackButton: true
 
       onBack: {
-        if (trackerSettings.tracker !== undefined) {
-          trackingModel.stopTracker(trackerSettings.tracker.vectorLayer);
-          trackerSettings.tracker = undefined;
-        }
+        trackerSettings.tracker = undefined;
         trackerSettings.layer = undefined;
         close();
       }

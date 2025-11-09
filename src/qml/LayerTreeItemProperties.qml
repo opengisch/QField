@@ -50,7 +50,7 @@ QfPopup {
     showFeaturesListButtonVisible = isShowFeaturesListButtonVisible();
     showVisibleFeaturesListDropdownVisible = isShowVisibleFeaturesListDropdownVisible();
     trackingButtonVisible = isTrackingButtonVisible();
-    trackingButtonText = trackingModel.layerInTracking(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)) ? qsTr('Stop tracking') : qsTr('Setup tracking');
+    trackingButtonText = trackingModel.layerInActiveTracking(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)) ? qsTr('Stop tracking') : qsTr('Setup tracking');
 
     // the layer tree model returns -1 for items that do not support the opacity setting
     opacitySliderVisible = layerTree.data(index, FlatLayerTreeModel.Opacity) > -1;
@@ -293,7 +293,7 @@ QfPopup {
           onClicked: {
             const layer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
             popup.close();
-            if (trackingModel.layerInTracking(layer)) {
+            if (trackingModel.layerInActiveTracking(layer)) {
               trackingModel.stopTracker(layer);
               displayToast(qsTr('Track on layer %1 stopped').arg(layer.name));
             } else {
