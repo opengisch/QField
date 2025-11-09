@@ -9,7 +9,7 @@ import Theme
  * \ingroup qml
  */
 QfPopup {
-  id: trackInformationPopup
+  id: trackerSettings
 
   parent: mainWindow.contentItem
   width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
@@ -18,72 +18,46 @@ QfPopup {
   y: (mainWindow.height - height) / 2
   closePolicy: Popup.NoAutoClose
 
+  property var layer: undefined
   property var tracker: undefined
 
-  signal requestJumpToPoint(var center, real scale, bool handleMargins)
-
-  Connections {
-    target: trackingModel
-
-    function onTrackingSetupRequested(trackerIndex, skipSettings) {
-      tracker = trackings.itemAt(trackerIndex.row).tracker;
-      if (!skipSettings) {
-        trackerSettings.open();
-        trackerSettings.focus = true;
+  onLayerChanged: {
+    if (layer !== undefined) {
+      let idx = projectInfo.restoreTracker(layer);
+      if (idx.valid) {
+        trackerSettings.tracker = trackings.itemAt(idx.row).tracker;
+        timeInterval.checked = trackerSettings.tracker.timeInterval > 0;
+        timeIntervalValue.text = trackerSettings.tracker.timeInterval > 0 ? trackerSettings.tracker.timeInterval : positioningSettings.trackerTimeInterval;
+        minimumDistance.checked = trackerSettings.tracker.minimumDistance > 0;
+        minimumDistanceValue.text = trackerSettings.tracker.minimumDistance > 0 ? trackerSettings.tracker.minimumDistance : positioningSettings.trackerMinimumDistance;
+        erroneousDistanceSafeguard.checked = trackerSettings.tracker.maximumDistance > 0;
+        erroneousDistanceValue.text = trackerSettings.tracker.maximumDistance > 0 ? trackerSettings.tracker.maximumDistance : positioningSettings.trackerErroneousDistance;
+        sensorCapture.checked = trackerSettings.tracker.sensorCapture;
+        allConstraints.checked = trackerSettings.tracker.conjunction && (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1;
+        measureComboBox.currentIndex = trackerSettings.tracker.measureType;
       } else {
-        featureModel.resetAttributes();
-        featureModel.applyGeometry();
-        tracker.feature = featureModel.feature;
-        if (embeddedAttributeFormModel.rowCount() > 0 && !featureModel.suppressFeatureForm()) {
-          embeddedFeatureForm.active = true;
-        } else {
-          startTracking();
-        }
+        idx = trackingModel.createTracker(layer);
+        trackerSettings.tracker = trackings.itemAt(idx.row).tracker;
+        trackerSettings.tracker.visible = true;
+        trackerSettings.tracker.minimumDistance = positioningSettings.trackerMinimumDistanceConstraint ? positioningSettings.trackerMinimumDistance : 0;
+        trackerSettings.tracker.timeInterval = positioningSettings.trackerTimeIntervalConstraint ? positioningSettings.trackerTimeInterval : 0;
+        trackerSettings.tracker.maximumDistance = positioningSettings.trackerErroneousDistanceSafeguard ? positioningSettings.trackerErroneousDistance : 0;
+        trackerSettings.tracker.sensorCapture = positioningSettings.trackerSensorCaptureConstraint;
+        trackerSettings.tracker.conjunction = positioningSettings.trackerMeetAllConstraints;
+        trackerSettings.tracker.measureType = positioningSettings.trackerMeasureType;
       }
-    }
-  }
-
-  function startTracking() {
-    trackingModel.startTracker(tracker.vectorLayer, positionSource.positionInformation, positionSource.projectedPosition);
-    displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name));
-    if (featureModel.currentLayer.geometryType === Qgis.GeometryType.Point) {
-      projectInfo.saveTracker(featureModel.currentLayer);
-    }
-    tracker = undefined;
-    trackingModel.trackingSetupDone();
-  }
-
-  function resumeTracking() {
-    trackingModel.startTracker(tracker.vectorLayer, positionSource.positionInformation, positionSource.projectedPosition);
-    displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name));
-    projectInfo.saveTracker(featureModel.currentLayer);
-    tracker = undefined;
-    trackingModel.trackingSetupDone();
-  }
-
-  onTrackerChanged: {
-    if (tracker != undefined) {
-      featureModel.currentLayer = tracker.vectorLayer;
-      timeInterval.checked = tracker.timeInterval > 0;
-      timeIntervalValue.text = tracker.timeInterval > 0 ? tracker.timeInterval : positioningSettings.trackerTimeInterval;
-      minimumDistance.checked = tracker.minimumDistance > 0;
-      minimumDistanceValue.text = tracker.minimumDistance > 0 ? tracker.minimumDistance : positioningSettings.trackerMinimumDistance;
-      erroneousDistanceSafeguard.checked = tracker.maximumDistance > 0;
-      erroneousDistanceValue.text = tracker.maximumDistance > 0 ? tracker.maximumDistance : positioningSettings.trackerErroneousDistance;
-      sensorCapture.checked = tracker.sensorCapture;
-      allConstraints.checked = tracker.conjunction && (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1;
-      measureComboBox.currentIndex = tracker.measureType;
-      resumeTrackingButton.visible = tracker.feature.id >= 0;
+      featureModel.currentLayer = trackerSettings.tracker.vectorLayer;
+      resumeTrackingButton.visible = trackerSettings.tracker.feature.id >= 0;
     }
   }
 
   function applySettings() {
-    tracker.timeInterval = timeIntervalValue.text.length == 0 || !timeInterval.checked ? 0.0 : timeIntervalValue.text;
-    tracker.minimumDistance = minimumDistanceValue.text.length == 0 || !minimumDistance.checked ? 0.0 : minimumDistanceValue.text;
-    tracker.maximumDistance = erroneousDistanceValue.text.length == 0 || !erroneousDistanceSafeguard.checked ? 0.0 : erroneousDistanceValue.text;
-    tracker.sensorCapture = sensorCapture.checked;
-    tracker.conjunction = (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1 && allConstraints.checked;
-    tracker.measureType = measureComboBox.currentIndex;
+    trackerSettings.tracker.timeInterval = timeIntervalValue.text.length === 0 || !timeInterval.checked ? 0.0 : timeIntervalValue.text;
+    trackerSettings.tracker.minimumDistance = minimumDistanceValue.text.length === 0 || !minimumDistance.checked ? 0.0 : minimumDistanceValue.text;
+    trackerSettings.tracker.maximumDistance = erroneousDistanceValue.text.length === 0 || !erroneousDistanceSafeguard.checked ? 0.0 : erroneousDistanceValue.text;
+    trackerSettings.tracker.sensorCapture = sensorCapture.checked;
+    trackerSettings.tracker.conjunction = (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1 && allConstraints.checked;
+    trackerSettings.tracker.measureType = measureComboBox.currentIndex;
   }
 
   Page {
@@ -92,17 +66,18 @@ QfPopup {
     padding: 5
 
     header: QfPageHeader {
-      title: tracker !== undefined && tracker.vectorLayer ? qsTr("Tracking: %1").arg(tracker.vectorLayer.name) : qsTr("Tracking")
+      title: trackerSettings.tracker !== undefined && trackerSettings.tracker !== null && trackerSettings.tracker.vectorLayer ? qsTr("Tracking: %1").arg(trackerSettings.tracker.vectorLayer.name) : qsTr("Tracking")
 
       showApplyButton: false
       showCancelButton: false
       showBackButton: true
 
       onBack: {
-        trackingModel.trackingSetupDone();
-        if (tracker != undefined) {
-          trackingModel.stopTracker(tracker.vectorLayer);
+        if (trackerSettings.tracker !== undefined) {
+          trackingModel.stopTracker(trackerSettings.tracker.vectorLayer);
+          trackerSettings.tracker = undefined;
         }
+        trackerSettings.layer = undefined;
         close();
       }
     }
@@ -480,13 +455,11 @@ QfPopup {
           applySettings();
           featureModel.resetAttributes();
           featureModel.applyGeometry();
-          tracker.feature = featureModel.feature;
-          if (embeddedAttributeFormModel.rowCount() > 0 && !featureModel.suppressFeatureForm()) {
-            embeddedFeatureForm.active = true;
-          } else {
-            startTracking();
-            trackerSettings.close();
-          }
+          trackerSettings.tracker.feature = featureModel.feature;
+          trackingModel.requestTrackingSetup(trackerSettings.layer);
+          trackerSettings.layer = undefined;
+          trackerSettings.tracker = undefined;
+          trackerSettings.close();
         }
       }
 
@@ -504,7 +477,11 @@ QfPopup {
 
         onClicked: {
           applySettings();
-          resumeTracking();
+          displayToast(qsTr('Track on layer %1 resumed').arg(trackerSettings.tracker.vectorLayer.name));
+          trackingModel.startTracker(trackerSettings.tracker.vectorLayer, positionSource.positionInformation, positionSource.projectedPosition);
+          projectInfo.saveTracker(trackerSettings.tracker.vectorLayer);
+          trackerSettings.layer = undefined;
+          trackerSettings.tracker = undefined;
           trackerSettings.close();
         }
       }
@@ -522,73 +499,6 @@ QfPopup {
       positionInformation: appScopesGenerator.positionInformation
       positionLocked: true
       cloudUserInformation: appScopesGenerator.cloudUserInformation
-    }
-  }
-
-  AttributeFormModel {
-    id: embeddedAttributeFormModel
-    featureModel: featureModel
-  }
-
-  Loader {
-    id: embeddedFeatureForm
-
-    sourceComponent: embeddedFeatureFormComponent
-    active: false
-    onLoaded: {
-      item.open();
-      item.forceActiveFocus();
-    }
-  }
-
-  Component {
-    id: embeddedFeatureFormComponent
-
-    QfPopup {
-      id: embeddedFeatureFormPopup
-      parent: mainWindow.contentItem
-
-      x: Theme.popupScreenEdgeHorizontalMargin
-      y: Theme.popupScreenEdgeVerticalMargin
-      width: parent.width - Theme.popupScreenEdgeHorizontalMargin * 2
-      height: parent.height - Theme.popupScreenEdgeVerticalMargin * 2
-      closePolicy: Popup.NoAutoClose
-
-      FeatureForm {
-        id: form
-        model: embeddedAttributeFormModel
-
-        focus: true
-        setupOnly: true
-        embedded: true
-        toolbarVisible: true
-
-        anchors.fill: parent
-
-        state: 'Add'
-
-        onTemporaryStored: {
-          tracker.feature = featureModel.feature;
-          embeddedFeatureFormPopup.close();
-          embeddedFeatureForm.active = false;
-          startTracking();
-          trackerSettings.close();
-        }
-
-        onCancelled: {
-          embeddedFeatureFormPopup.close();
-          embeddedFeatureForm.active = false;
-          embeddedFeatureForm.focus = false;
-          trackingModel.stopTracker(tracker.vectorLayer);
-          tracker = undefined;
-          trackerSettings.close();
-          trackingModel.trackingSetupDone();
-        }
-
-        onRequestJumpToPoint: function (center, scale, handleMargins) {
-          trackInformationPopup.requestJumpToPoint(center, scale, handleMargins);
-        }
-      }
     }
   }
 }

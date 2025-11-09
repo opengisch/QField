@@ -4498,6 +4498,10 @@ ApplicationWindow {
 
   TrackerSettings {
     id: trackerSettings
+  }
+
+  TrackerFeatureForm {
+    id: trackerFeatureForm
 
     onRequestJumpToPoint: function (center, scale, handleMargins) {
       mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
