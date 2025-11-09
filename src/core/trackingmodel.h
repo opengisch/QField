@@ -57,6 +57,8 @@ class TrackingModel : public QAbstractItemModel
     Q_INVOKABLE void startTracker( QgsVectorLayer *layer, const GnssPositionInformation &positionInformation = GnssPositionInformation(), const QgsPoint &projectedPosition = QgsPoint() );
     //! Stops the tracking session of the provided vector \a layer.
     Q_INVOKABLE void stopTracker( QgsVectorLayer *layer );
+    //! Stops all tracking sessions.
+    Q_INVOKABLE void stopTrackers();
     //! Sets whether the tracking session rubber band is \a visible.
     Q_INVOKABLE void setTrackerVisibility( QgsVectorLayer *layer, bool visible );
     //! Returns TRUE if the \a featureId is attached to a vector \a layer tracking session.
@@ -78,9 +80,14 @@ class TrackingModel : public QAbstractItemModel
     void reset();
 
     /**
-     * Returns a list of available \a project layers with which a tracking session can be started.
+     * Returns a list of available \a project vector layers with which a tracking session can be started.
      */
     Q_INVOKABLE QList<QgsVectorLayer *> availableLayers( QgsProject *project ) const;
+
+    /**
+     * Returns the best available \a project vector layer with which a tracking session can be started.
+     */
+    Q_INVOKABLE QgsVectorLayer *bestAvailableLayer( QgsProject *project ) const;
 
     /**
      * Forwards a tracking setup request to the user interface consisting of a settings panel followed by

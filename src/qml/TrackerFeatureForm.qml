@@ -26,11 +26,11 @@ QfPopup {
     target: trackingModel
 
     function onTrackingSetupRequested(trackerIndex, skipSettings) {
-      tracker = trackings.itemAt(trackerIndex.row).tracker;
-      featureModel.currentLayer = tracker.vectorLayer;
+      trackingFeatureForm.tracker = trackings.itemAt(trackerIndex.row).tracker;
+      featureModel.currentLayer = trackingFeatureForm.tracker.vectorLayer;
       featureModel.resetAttributes();
       featureModel.applyGeometry();
-      tracker.feature = featureModel.feature;
+      trackingFeatureForm.tracker.feature = featureModel.feature;
       if (embeddedAttributeFormModel.rowCount() > 0 && !featureModel.suppressFeatureForm()) {
         embeddedFeatureForm.active = true;
       } else {
@@ -40,12 +40,12 @@ QfPopup {
   }
 
   function startTracking() {
-    trackingModel.startTracker(tracker.vectorLayer, positionSource.positionInformation, positionSource.projectedPosition);
-    displayToast(qsTr('Track on layer %1 started').arg(tracker.vectorLayer.name));
+    trackingModel.startTracker(trackingFeatureForm.tracker.vectorLayer, positionSource.positionInformation, positionSource.projectedPosition);
+    displayToast(qsTr('Track on layer %1 started').arg(trackingFeatureForm.tracker.vectorLayer.name));
     if (featureModel.currentLayer.geometryType === Qgis.GeometryType.Point) {
       projectInfo.saveTracker(featureModel.currentLayer);
     }
-    tracker = undefined;
+    trackingFeatureForm.tracker = undefined;
     trackingModel.trackingSetupDone();
   }
 
@@ -106,7 +106,7 @@ QfPopup {
         state: 'Add'
 
         onTemporaryStored: {
-          tracker.feature = featureModel.feature;
+          trackingFeatureForm.tracker.feature = featureModel.feature;
           embeddedFeatureFormPopup.close();
           embeddedFeatureForm.active = false;
           startTracking();
@@ -116,7 +116,7 @@ QfPopup {
           embeddedFeatureFormPopup.close();
           embeddedFeatureForm.active = false;
           embeddedFeatureForm.focus = false;
-          trackingModel.stopTracker(tracker.vectorLayer);
+          trackingModel.stopTracker(trackingFeatureForm.tracker.vectorLayer);
           tracker = undefined;
           trackingModel.trackingSetupDone();
         }

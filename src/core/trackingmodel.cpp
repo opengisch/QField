@@ -132,7 +132,12 @@ bool TrackingModel::layerInActiveTracking( QgsVectorLayer *layer ) const
 
 Tracker *TrackingModel::trackerForLayer( QgsVectorLayer *layer ) const
 {
-  return *trackerIterator( layer );
+  if ( trackerIterator( layer ) != mTrackers.constEnd() )
+  {
+    const qsizetype idx = trackerIterator( layer ) - mTrackers.constBegin();
+    return mTrackers[idx];
+  }
+  return nullptr;
 }
 
 void TrackingModel::reset()
@@ -168,9 +173,22 @@ void TrackingModel::stopTracker( QgsVectorLayer *layer )
   if ( idx >= 0 )
   {
     mTrackers[idx]->stop();
-
     beginRemoveRows( QModelIndex(), static_cast<int>( idx ), static_cast<int>( idx ) );
     Tracker *tracker = mTrackers.takeAt( idx );
+    endRemoveRows();
+    delete tracker;
+    emit layerInTrackingChanged( layer, false );
+  }
+}
+
+void TrackingModel::stopTrackers()
+{
+  while ( !mTrackers.isEmpty() )
+  {
+    QgsVectorLayer *layer = mTrackers[0]->vectorLayer();
+    mTrackers[0]->stop();
+    beginRemoveRows( QModelIndex(), 0, 0 );
+    Tracker *tracker = mTrackers.takeAt( 0 );
     endRemoveRows();
     delete tracker;
     emit layerInTrackingChanged( layer, false );
@@ -279,6 +297,41 @@ QList<QgsVectorLayer *> TrackingModel::availableLayers( QgsProject *project ) co
   }
   std::sort( layers.begin(), layers.end(), []( const QgsVectorLayer *l1, const QgsVectorLayer *l2 ) { return l1->name() < l2->name(); } );
   return layers;
+}
+
+QgsVectorLayer *TrackingModel::bestAvailableLayer( QgsProject *project ) const
+{
+  QList<QgsVectorLayer *> layers = availableLayers( project );
+  if ( !layers.isEmpty() )
+  {
+    QgsVectorLayer *firstLineLayer = nullptr;
+    QgsVectorLayer *firstMatchingNameLayer = nullptr;
+    for ( QgsVectorLayer *layer : layers )
+    {
+      if ( layer->geometryType() == Qgis::GeometryType::Line )
+      {
+        if ( layer->name().contains( QStringLiteral( "track" ), Qt::CaseInsensitive ) )
+        {
+          return layer;
+        }
+
+        if ( !firstLineLayer )
+        {
+          firstLineLayer = layer;
+        }
+      }
+      else
+      {
+        if ( !firstMatchingNameLayer && layer->name().contains( QStringLiteral( "track" ), Qt::CaseInsensitive ) )
+        {
+          firstMatchingNameLayer = layer;
+        }
+      }
+    }
+    return firstMatchingNameLayer ? firstMatchingNameLayer : firstLineLayer ? firstLineLayer
+                                                                            : layers.first();
+  }
+  return nullptr;
 }
 
 void TrackingModel::requestTrackingSetup( QgsVectorLayer *layer, bool skipSettings )

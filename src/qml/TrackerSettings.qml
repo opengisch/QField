@@ -19,7 +19,6 @@ QfPopup {
   closePolicy: Popup.NoAutoClose
 
   property var requestedLayer: undefined
-
   property var layer: undefined
   property var tracker: undefined
 
@@ -69,11 +68,18 @@ QfPopup {
 
   onAboutToShow: {
     const availableLayers = trackingModel.availableLayers(qgisProject);
-    let requestedIndex = -1;
+    let defaultLayer = undefined;
+    if (trackerSettings.requestedLayer !== undefined) {
+      defaultLayer = trackerSettings.requestedLayer;
+      trackerSettings.requestedLayer = undefined;
+    } else {
+      defaultLayer = trackingModel.bestAvailableLayer(qgisProject);
+    }
+    let defaultIndex = -1;
     let index = 0;
     for (const availableLayer of availableLayers) {
-      if (trackerSettings.requestedLayer === availableLayer) {
-        requestedIndex = index;
+      if (defaultLayer === availableLayer) {
+        defaultIndex = index;
       }
       let icon = '';
       switch (availableLayer.geometryType()) {
@@ -94,9 +100,9 @@ QfPopup {
         });
       index++;
     }
-    if (requestedIndex >= 0) {
-      trackerSettings.layer = trackerSettings.requestedLayer;
-      layersComboBox.currentIndex = requestedIndex;
+    if (defaultIndex >= 0) {
+      trackerSettings.layer = defaultLayer;
+      layersComboBox.currentIndex = defaultIndex;
     } else {
       layersComboBox.currentIndex = 0;
     }
@@ -112,14 +118,17 @@ QfPopup {
     padding: 5
 
     header: QfPageHeader {
-      title: trackerSettings.tracker !== undefined && trackerSettings.tracker !== null && trackerSettings.tracker.vectorLayer ? qsTr("Tracking: %1").arg(trackerSettings.tracker.vectorLayer.name) : qsTr("Tracking")
+      title: qsTr("Tracking")
 
       showApplyButton: false
       showCancelButton: false
       showBackButton: true
 
       onBack: {
-        trackerSettings.tracker = undefined;
+        if (trackerSettings.tracker !== undefined) {
+          trackingModel.stopTracker(trackerSettings.tracker.vectorLayer);
+          trackerSettings.tracker = undefined;
+        }
         trackerSettings.layer = undefined;
         close();
       }
@@ -197,6 +206,9 @@ QfPopup {
 
             onCurrentValueChanged: {
               if (trackerSettings.layer !== currentValue) {
+                if (trackerSettings.tracker !== undefined) {
+                  trackingModel.stopTracker(trackerSettings.tracker.vectorLayer);
+                }
                 trackerSettings.layer = currentValue;
               }
             }

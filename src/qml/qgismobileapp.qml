@@ -1241,8 +1241,53 @@ ApplicationWindow {
             }
           }
         ]
+
         onClicked: {
           positioningSettings.showPositionInformation = checked;
+          actionsPieMenu.close();
+        }
+      }
+
+      QfToolButton {
+        id: trackingButton
+        width: actionsPieMenu.bandWidth - 8
+        height: width
+        padding: 2
+        iconSource: Theme.getThemeVectorIcon("directions_walk_24dp")
+        round: true
+        checkable: false
+        checked: false
+        enabled: true
+        iconColor: Theme.light
+        bgcolor: Theme.toolButtonBackgroundColor
+        state: trackings.count ? "On" : "Off"
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 6
+
+        states: [
+          State {
+            name: "Off"
+            PropertyChanges {
+              target: trackingButton
+              iconColor: Theme.light
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+            }
+          },
+          State {
+            name: "On"
+            PropertyChanges {
+              target: trackingButton
+              iconColor: Theme.positionColor
+              bgcolor: Theme.toolButtonBackgroundColor
+            }
+          }
+        ]
+
+        onClicked: {
+          if (trackings.count > 0) {
+            trackingModel.stopTrackers();
+          } else {
+            trackerSettings.open();
+          }
           actionsPieMenu.close();
         }
       }
