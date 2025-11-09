@@ -314,12 +314,9 @@ QgsVectorLayer *TrackingModel::bestAvailableLayer( QgsProject *project ) const
       const QString name = layer->name();
       if ( layer->geometryType() == Qgis::GeometryType::Line )
       {
-        for ( const QString &candidate : sCandidates )
+        if ( std::any_of( sCandidates.begin(), sCandidates.end(), [&name]( const QString &candidate ) { return name.contains( candidate ); } ) )
         {
-          if ( name.contains( candidate, Qt::CaseInsensitive ) )
-          {
-            return layer;
-          }
+          return layer;
         }
 
         if ( !firstLineLayer )
@@ -331,12 +328,9 @@ QgsVectorLayer *TrackingModel::bestAvailableLayer( QgsProject *project ) const
       {
         if ( !firstMatchingNameLayer )
         {
-          for ( const QString &candidate : sCandidates )
+          if ( std::any_of( sCandidates.begin(), sCandidates.end(), [&name]( const QString &candidate ) { return name.contains( candidate ); } ) )
           {
-            if ( name.contains( candidate, Qt::CaseInsensitive ) )
-            {
-              firstMatchingNameLayer = layer;
-            }
+            firstMatchingNameLayer = layer;
           }
         }
       }
