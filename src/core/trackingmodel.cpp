@@ -304,15 +304,22 @@ QgsVectorLayer *TrackingModel::bestAvailableLayer( QgsProject *project ) const
   QList<QgsVectorLayer *> layers = availableLayers( project );
   if ( !layers.isEmpty() )
   {
+    static QStringList sCandidates { QStringLiteral( "track" ),
+                                     QStringLiteral( "suivi" ) };
+
     QgsVectorLayer *firstLineLayer = nullptr;
     QgsVectorLayer *firstMatchingNameLayer = nullptr;
     for ( QgsVectorLayer *layer : layers )
     {
+      const QString name = layer->name();
       if ( layer->geometryType() == Qgis::GeometryType::Line )
       {
-        if ( layer->name().contains( QStringLiteral( "track" ), Qt::CaseInsensitive ) )
+        for ( const QString &candidate : sCandidates )
         {
-          return layer;
+          if ( name.contains( candidate, Qt::CaseInsensitive ) )
+          {
+            return layer;
+          }
         }
 
         if ( !firstLineLayer )
@@ -322,9 +329,15 @@ QgsVectorLayer *TrackingModel::bestAvailableLayer( QgsProject *project ) const
       }
       else
       {
-        if ( !firstMatchingNameLayer && layer->name().contains( QStringLiteral( "track" ), Qt::CaseInsensitive ) )
+        if ( !firstMatchingNameLayer )
         {
-          firstMatchingNameLayer = layer;
+          for ( const QString &candidate : sCandidates )
+          {
+            if ( name.contains( candidate, Qt::CaseInsensitive ) )
+            {
+              firstMatchingNameLayer = layer;
+            }
+          }
         }
       }
     }
