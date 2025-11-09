@@ -115,7 +115,7 @@ bool TrackingModel::featuresInTracking( QgsVectorLayer *layer, const QList<QgsFe
   return false;
 }
 
-bool TrackingModel::layerInTracking( QgsVectorLayer *layer )
+bool TrackingModel::layerInTracking( QgsVectorLayer *layer ) const
 {
   return trackerIterator( layer ) != mTrackers.constEnd();
 }
@@ -244,6 +244,31 @@ void TrackingModel::createProjectTrackers( QgsProject *project )
       }
     }
   }
+}
+
+QList<QgsVectorLayer *> TrackingModel::availableLayers( QgsProject *project ) const
+{
+  QList<QgsVectorLayer *> layers;
+  if ( project )
+  {
+    const QVector<QgsVectorLayer *> projectLayers = project->layers<QgsVectorLayer *>();
+    for ( QgsVectorLayer *projectLayer : projectLayers )
+    {
+      if ( layerInTracking( projectLayer ) || projectLayer->readOnly() )
+      {
+        continue;
+      }
+
+      if ( projectLayer->geometryType() == Qgis::GeometryType::Unknown || projectLayer->geometryType() == Qgis::GeometryType::Null )
+      {
+        continue;
+      }
+
+      layers << projectLayer;
+    }
+  }
+  std::sort( layers.begin(), layers.end(), []( const QgsVectorLayer *l1, const QgsVectorLayer *l2 ) { return l1->name() < l2->name(); } );
+  return layers;
 }
 
 void TrackingModel::requestTrackingSetup( QgsVectorLayer *layer, bool skipSettings )

@@ -18,14 +18,21 @@ QfPopup {
   y: (mainWindow.height - height) / 2
   closePolicy: Popup.NoAutoClose
 
+  property var requestedLayer: undefined
+
   property var layer: undefined
   property var tracker: undefined
 
   onLayerChanged: {
+    trackerSettings.tracker = undefined;
     if (layer !== undefined) {
       let idx = projectInfo.restoreTracker(layer);
       if (idx.valid) {
         trackerSettings.tracker = trackings.itemAt(idx.row).tracker;
+      } else if (trackingModel.trackerForLayer(layer)) {
+        trackerSettings.tracker = trackingModel.trackerForLayer(layer);
+      }
+      if (trackerSettings.tracker !== undefined) {
         timeInterval.checked = trackerSettings.tracker.timeInterval > 0;
         timeIntervalValue.text = trackerSettings.tracker.timeInterval > 0 ? trackerSettings.tracker.timeInterval : positioningSettings.trackerTimeInterval;
         minimumDistance.checked = trackerSettings.tracker.minimumDistance > 0;
@@ -58,6 +65,45 @@ QfPopup {
     trackerSettings.tracker.sensorCapture = sensorCapture.checked;
     trackerSettings.tracker.conjunction = (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) > 1 && allConstraints.checked;
     trackerSettings.tracker.measureType = measureComboBox.currentIndex;
+  }
+
+  onAboutToShow: {
+    const availableLayers = trackingModel.availableLayers(qgisProject);
+    let requestedIndex = -1;
+    let index = 0;
+    for (const availableLayer of availableLayers) {
+      if (trackerSettings.requestedLayer === availableLayer) {
+        requestedIndex = index;
+      }
+      let icon = '';
+      switch (availableLayer.geometryType()) {
+      case Qgis.GeometryType.Point:
+        icon = Theme.getThemeVectorIcon('ic_geometry_point_24dp');
+        break;
+      case Qgis.GeometryType.Line:
+        icon = Theme.getThemeVectorIcon('ic_geometry_line_24dp');
+        break;
+      case Qgis.GeometryType.Polygon:
+        icon = Theme.getThemeVectorIcon('ic_geometry_polygon_24dp');
+        break;
+      }
+      layersModel.append({
+          "name": availableLayer.name,
+          "icon": icon,
+          "layer": availableLayer
+        });
+      index++;
+    }
+    if (requestedIndex >= 0) {
+      trackerSettings.layer = trackerSettings.requestedLayer;
+      layersComboBox.currentIndex = requestedIndex;
+    } else {
+      layersComboBox.currentIndex = 0;
+    }
+  }
+
+  onAboutToHide: {
+    layersModel.clear();
   }
 
   Page {
@@ -105,6 +151,59 @@ QfPopup {
           columns: 2
           columnSpacing: 0
           rowSpacing: 5
+
+          Label {
+            text: qsTr('Layer')
+            font: Theme.strongFont
+            color: Theme.mainTextColor
+            wrapMode: Text.WordWrap
+            Layout.fillWidth: true
+            Layout.topMargin: 5
+            Layout.columnSpan: 2
+          }
+
+          ComboBox {
+            id: layersComboBox
+            model: ListModel {
+              id: layersModel
+            }
+            textRole: 'name'
+            valueRole: 'layer'
+
+            Layout.fillWidth: true
+            Layout.topMargin: 5
+            Layout.columnSpan: 2
+
+            delegate: ItemDelegate {
+              width: layersComboBox.width
+              height: 36
+              icon.width: 24
+              icon.height: 24
+              icon.source: model.icon
+              text: model.name
+              font: Theme.defaultFont
+              highlighted: layersComboBox.highlightedIndex === index
+            }
+
+            contentItem: MenuItem {
+              width: layersComboBox.width
+              height: 36
+
+              icon.width: 24
+              icon.height: 24
+              icon.source: layersComboBox.currentIndex >= 0 ? layersComboBox.model.get(layersComboBox.currentIndex).icon : ''
+              text: layersComboBox.currentText
+              font: Theme.defaultFont
+
+              onClicked: layersComboBox.popup.open()
+            }
+
+            onCurrentValueChanged: {
+              if (trackerSettings.layer !== currentValue) {
+                trackerSettings.layer = currentValue;
+              }
+            }
+          }
 
           Label {
             text: qsTr('Requirement Settings')
