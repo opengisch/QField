@@ -1284,7 +1284,10 @@ ApplicationWindow {
 
         onClicked: {
           if (trackings.count > 0) {
-            trackingModel.stopTrackers();
+            displayToast(qsTr('Tracking active on %n layer(s).', '', trackings.count), 'info', qsTr('Stop all'), function () {
+                displayToast(qsTr('Tracking on %n layer(s) stopped', '', trackings.count));
+                trackingModel.stopTrackers();
+              });
           } else {
             trackerSettings.open();
           }
