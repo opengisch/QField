@@ -4553,6 +4553,8 @@ ApplicationWindow {
 
   TrackerSettings {
     id: trackerSettings
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   TrackerFeatureForm {

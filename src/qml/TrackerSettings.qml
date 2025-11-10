@@ -16,7 +16,8 @@ QfPopup {
   height: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
   x: Theme.popupScreenEdgeHorizontalMargin
   y: (mainWindow.height - height) / 2
-  closePolicy: Popup.NoAutoClose
+  closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+  focus: visible
 
   property alias availableLayersCount: layersComboBox.count
 
@@ -106,6 +107,14 @@ QfPopup {
     }
   }
 
+  onAboutToHide: {
+    if (trackerSettings.tracker !== undefined) {
+      trackingModel.stopTracker(trackerSettings.tracker.vectorLayer);
+      trackerSettings.tracker = undefined;
+    }
+    trackerSettings.layer = undefined;
+  }
+
   Page {
     focus: true
     anchors.fill: parent
@@ -119,11 +128,6 @@ QfPopup {
       showBackButton: true
 
       onBack: {
-        if (trackerSettings.tracker !== undefined) {
-          trackingModel.stopTracker(trackerSettings.tracker.vectorLayer);
-          trackerSettings.tracker = undefined;
-        }
-        trackerSettings.layer = undefined;
         close();
       }
     }
