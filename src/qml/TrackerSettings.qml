@@ -144,7 +144,7 @@ QfPopup {
         ScrollBar.vertical: QfScrollBar {
         }
         contentWidth: trackerSettingsGrid.width
-        contentHeight: trackerSettingsGrid.height
+        contentHeight: trackerSettingsGrid.height + bottomRow.height
         clip: true
 
         GridLayout {
@@ -548,47 +548,60 @@ QfPopup {
           }
         }
       }
+    }
 
-      QfButton {
-        id: startTrackingButton
-        Layout.fillWidth: true
-        Layout.leftMargin: 10
-        Layout.rightMargin: 10
-        text: qsTr("Start tracking")
-        icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
+    Rectangle {
+      id: bottomRow
+      anchors.bottom: parent.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
 
-        onClicked: {
-          applySettingsToTracker();
-          featureModel.resetAttributes();
-          featureModel.applyGeometry();
-          trackerSettings.tracker.feature = featureModel.feature;
-          trackingModel.requestTrackingSetup(trackerSettings.layer);
-          trackerSettings.layer = undefined;
-          trackerSettings.tracker = undefined;
-          trackerSettings.close();
+      height: startTrackingButton.height + (resumeTrackingButton.height.visible ? resumeTrackingButton.height : 0) + 15
+      color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
+
+      Column {
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        width: parent.width
+        spacing: 5
+
+        QfButton {
+          id: startTrackingButton
+          width: parent.width
+          text: qsTr("Start tracking")
+          icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
+
+          onClicked: {
+            applySettingsToTracker();
+            featureModel.resetAttributes();
+            featureModel.applyGeometry();
+            trackerSettings.tracker.feature = featureModel.feature;
+            trackingModel.requestTrackingSetup(trackerSettings.layer);
+            trackerSettings.layer = undefined;
+            trackerSettings.tracker = undefined;
+            trackerSettings.close();
+          }
         }
-      }
 
-      QfButton {
-        id: resumeTrackingButton
-        Layout.fillWidth: true
-        Layout.leftMargin: 10
-        Layout.rightMargin: 10
-        text: qsTr("Resume tracking")
-        icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
-        icon.color: Theme.mainColor
-        bgcolor: "transparent"
-        color: Theme.mainColor
-        visible: false
+        QfButton {
+          id: resumeTrackingButton
+          width: parent.width
+          text: qsTr("Resume tracking")
+          icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
+          icon.color: Theme.mainColor
+          bgcolor: "transparent"
+          color: Theme.mainColor
+          visible: false
 
-        onClicked: {
-          applySettingsToTracker();
-          displayToast(qsTr('Track on layer %1 resumed').arg(trackerSettings.tracker.vectorLayer.name));
-          trackingModel.startTracker(trackerSettings.tracker.vectorLayer, positionSource.positionInformation, positionSource.projectedPosition);
-          projectInfo.saveTracker(trackerSettings.tracker.vectorLayer);
-          trackerSettings.layer = undefined;
-          trackerSettings.tracker = undefined;
-          trackerSettings.close();
+          onClicked: {
+            applySettingsToTracker();
+            displayToast(qsTr('Track on layer %1 resumed').arg(trackerSettings.tracker.vectorLayer.name));
+            trackingModel.startTracker(trackerSettings.tracker.vectorLayer, positionSource.positionInformation, positionSource.projectedPosition);
+            projectInfo.saveTracker(trackerSettings.tracker.vectorLayer);
+            trackerSettings.layer = undefined;
+            trackerSettings.tracker = undefined;
+            trackerSettings.close();
+          }
         }
       }
     }
