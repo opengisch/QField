@@ -41,7 +41,8 @@ Rectangle {
 
   signal backClicked
   signal statusIndicatorClicked
-  signal statusIndicatorSwiped(var direction)
+  signal statusIndicatorDragged(var deltaX, var deltaY)
+  signal statusIndicatorDragReleased
   signal editAttributesButtonClicked
   signal editGeometryButtonClicked
   signal save
@@ -95,6 +96,16 @@ Rectangle {
   }
 
   Rectangle {
+    width: 40
+    height: 5
+    radius: 10
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.top: parent.top
+    anchors.topMargin: 2
+    color: Theme.controlBorderColor
+  }
+
+  Rectangle {
     anchors.fill: parent
     height: toolBar.topMargin + 48
     color: "transparent"
@@ -131,48 +142,38 @@ Rectangle {
       MouseArea {
         anchors.fill: parent
 
-        property real velocity: 0.0
-        property int startX: 0
         property int startY: 0
-        property int lastX: 0
+        property int startX: 0
         property int lastY: 0
-        property int distance: 0
-        property bool isTracing: false
+        property bool isDragging: false
 
         onPressed: mouse => {
-          startX = mouse.x;
           startY = mouse.y;
-          lastX = mouse.x;
-          lastY = mouse.y;
-          velocity = 0;
-          distance = 0;
-          isTracing = true;
+          startX = mouse.x;
+          isDragging = true;
         }
-        onPositionChanged: mouse => {
-          if (!isTracing)
-            return;
-          var currentVelocity = Math.abs(mouse.y - lastY);
-          lastX = mouse.x;
-          lastY = mouse.y;
-          velocity = (velocity + currentVelocity) / 2.0;
-          distance = Math.abs(mouse.y - startY);
-          isTracing = velocity > 15 && distance > parent.height;
+
+        onMouseYChanged: mouse => {
+          if (isDragging) {
+            var deltaY = mouse.y - startY;
+            toolBar.statusIndicatorDragged(0, deltaY);
+          }
         }
+
+        onMouseXChanged: mouse => {
+          if (isDragging) {
+            var deltaX = mouse.x - startX;
+            toolBar.statusIndicatorDragged(deltaX, 0);
+          }
+        }
+
         onReleased: {
-          if (!isTracing) {
-            toolBar.statusIndicatorSwiped(getDirection());
+          if (isDragging) {
+            toolBar.statusIndicatorDragReleased();
+            isDragging = false;
           } else {
             toolBar.statusIndicatorClicked();
           }
-        }
-
-        function getDirection() {
-          var diffX = lastX - startX;
-          var diffY = lastY - startY;
-          if (Math.abs(diffX) > Math.abs(diffY)) {
-            return lastX < startX ? 'left' : 'right';
-          }
-          return lastY < startY ? 'up' : 'down';
         }
       }
     }
