@@ -236,6 +236,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     const QString tracksFilepath = QStringLiteral( "%1/tracks.gpkg" ).arg( createdProjectDir );
 
     QgsFields fields;
+    fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "title" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
     QgsVectorFileWriter::SaveVectorOptions writerOptions;
     QgsVectorFileWriter *writer = QgsVectorFileWriter::create( tracksFilepath, fields, Qgis::WkbType::LineStringZM, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
@@ -243,7 +245,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
     tracksLayer = new QgsVectorLayer( tracksFilepath, tr( "Tracks" ) );
     fields = tracksLayer->fields();
-    LayerUtils::setDefaultRenderer( tracksLayer );
+    LayerUtils::setDefaultRenderer( tracksLayer, nullptr, QString(), QStringLiteral( "color" ) );
 
     // Set a nice display expression for the feature list
     tracksLayer->setDisplayExpression( "'Track #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' )" );
@@ -258,6 +260,27 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     {
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), widgetOptions );
       tracksLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+    }
+
+    // Configure color field
+    fieldIndex = fields.indexOf( QStringLiteral( "color" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Color" ), widgetOptions );
+      tracksLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      tracksLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "'#377eb8'" ), false ) );
+      tracksLayer->setFieldAlias( fieldIndex, tr( "Track color" ) );
+    }
+
+    // Configure note field
+    fieldIndex = fields.indexOf( QStringLiteral( "title" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
+      tracksLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      tracksLayer->setFieldAlias( fieldIndex, tr( "Title" ) );
     }
 
     // Configure time field
@@ -276,13 +299,13 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       tracksLayer->setFieldAlias( fieldIndex, tr( "Time" ) );
     }
 
-    // Skip feature form when launching tracks
-    QgsEditFormConfig formConfig = tracksLayer->editFormConfig();
-    formConfig.setSuppress( Qgis::AttributeFormSuppression::On );
-    tracksLayer->setEditFormConfig( formConfig );
-
     if ( options.value( QStringLiteral( "track_on_launch" ) ).toBool() )
     {
+      // Skip feature form when launching tracks
+      QgsEditFormConfig formConfig = tracksLayer->editFormConfig();
+      formConfig.setSuppress( Qgis::AttributeFormSuppression::On );
+      tracksLayer->setEditFormConfig( formConfig );
+
       // Launch tracks on project opening
       tracksLayer->setCustomProperty( QStringLiteral( "QFieldSync/tracking_session_active" ), true );
       tracksLayer->setCustomProperty( QStringLiteral( "QFieldSync/tracking_time_requirement_active" ), true );

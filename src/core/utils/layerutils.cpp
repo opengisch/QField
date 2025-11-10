@@ -164,6 +164,10 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &atta
     case Qgis::GeometryType::Line:
     {
       QgsSimpleLineSymbolLayer *symbolLayer = new QgsSimpleLineSymbolLayer( QColor( 55, 126, 184 ), 0.6 ); // cppcheck-suppress constVariablePointer
+      if ( !colorField.isEmpty() )
+      {
+        symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::StrokeColor, QgsProperty::fromExpression( QStringLiteral( "if(\"%1\" is not null and \"%1\" != '', \"%1\", @value)" ).arg( colorField ), true ) );
+      }
       symbolLayers << symbolLayer;
       symbol = new QgsLineSymbol( symbolLayers );
       break;
