@@ -124,7 +124,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     QgsFields fields;
     if ( options.value( QStringLiteral( "camera_capture" ) ).toBool() )
     {
-      fields.append( QgsField( QStringLiteral( "camera" ), QMetaType::QString ) );
+      fields.append( QgsField( QStringLiteral( "media" ), QMetaType::QString ) );
     }
     fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "title" ), QMetaType::QString ) );
@@ -137,7 +137,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
     notesLayer = new QgsVectorLayer( notesFilepath, tr( "Notes" ) );
     fields = notesLayer->fields();
-    LayerUtils::setDefaultRenderer( notesLayer, nullptr, options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "camera" ) : QString(), QStringLiteral( "color" ) );
+    LayerUtils::setDefaultRenderer( notesLayer, nullptr, options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "media" ) : QString(), QStringLiteral( "color" ) );
     LayerUtils::setDefaultLabeling( notesLayer );
 
     // Set a nice display expression for the feature list
@@ -206,7 +206,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     if ( options.value( QStringLiteral( "camera_capture" ) ).toBool() )
     {
       // Configure camera field
-      fieldIndex = fields.indexOf( QStringLiteral( "camera" ) );
+      fieldIndex = fields.indexOf( QStringLiteral( "media" ) );
       if ( fieldIndex >= 0 )
       {
         widgetOptions.clear();
@@ -215,8 +215,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
         widgetOptions[QStringLiteral( "FileWidget" )] = true;
         widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
         widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
-        notesLayer->setEditorWidgetSetup( fields.indexOf( QStringLiteral( "camera" ) ), widgetSetup );
-        notesLayer->setFieldAlias( fieldIndex, tr( "Camera" ) );
+        notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+        notesLayer->setFieldAlias( fieldIndex, tr( "Media" ) );
       }
     }
 
