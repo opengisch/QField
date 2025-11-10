@@ -684,8 +684,8 @@ Popup {
     QfMenu {
       id: cameraSelectionMenu
 
-      topMargin: sceneTopMargin
-      bottomMargin: sceneBottomMargin
+      topMargin: mainWindow.sceneTopMargin
+      bottomMargin: mainWindow.sceneBottomMargin
       z: 10000 // 1000s are embedded feature forms, use higher value
 
       Repeater {
@@ -721,8 +721,8 @@ Popup {
     QfMenu {
       id: resolutionSelectionMenu
 
-      topMargin: sceneTopMargin
-      bottomMargin: sceneBottomMargin
+      topMargin: mainWindow.sceneTopMargin
+      bottomMargin: mainWindow.sceneBottomMargin
       z: 10000 // 1000s are embedded feature forms, use higher value
 
       function ratioFromResolution(resolution) {
