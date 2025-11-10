@@ -297,7 +297,7 @@ QfPopup {
               trackingModel.stopTracker(layer);
               displayToast(qsTr('Tracking on layer %1 stopped').arg(layer.name));
             } else {
-              trackerSettings.requestedLayer = layer;
+              trackerSettings.prepareSettings(layer);
               trackerSettings.open();
             }
           }

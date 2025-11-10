@@ -1284,12 +1284,19 @@ ApplicationWindow {
 
         onClicked: {
           if (trackings.count > 0) {
-            displayToast(qsTr('Tracking active on %n layer(s).', '', trackings.count), 'info', qsTr('Stop all'), function () {
+            displayToast(qsTr('Tracking active on %n layer(s)', '', trackings.count), 'info', qsTr('Stop all'), function () {
                 displayToast(qsTr('Tracking on %n layer(s) stopped', '', trackings.count));
                 trackingModel.stopTrackers();
               });
           } else {
-            trackerSettings.open();
+            trackerSettings.prepareSettings();
+            if (trackerSettings.availableLayersCount > 0) {
+              trackerSettings.open();
+            } else {
+              displayToast(qsTr('No compatible layers available to launch tracking'), 'info', qsTr('Learn more'), function () {
+                  Qt.openUrlExternally('https://docs.qfield.org/how-to/navigation-and-positioning/tracking/');
+                });
+            }
           }
           actionsPieMenu.close();
         }

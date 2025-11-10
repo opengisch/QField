@@ -18,10 +18,10 @@ QfPopup {
   y: (mainWindow.height - height) / 2
   closePolicy: Popup.NoAutoClose
 
-  property var requestedLayer: undefined
-  property var layer: undefined
-  property var tracker: undefined
+  property alias availableLayersCount: layersComboBox.count
 
+  property var tracker: undefined
+  property var layer: undefined
   onLayerChanged: {
     trackerSettings.tracker = undefined;
     if (layer !== undefined) {
@@ -57,7 +57,7 @@ QfPopup {
     }
   }
 
-  function applySettings() {
+  function applySettingsToTracker() {
     trackerSettings.tracker.timeInterval = timeIntervalValue.text.length === 0 || !timeInterval.checked ? 0.0 : timeIntervalValue.text;
     trackerSettings.tracker.minimumDistance = minimumDistanceValue.text.length === 0 || !minimumDistance.checked ? 0.0 : minimumDistanceValue.text;
     trackerSettings.tracker.maximumDistance = erroneousDistanceValue.text.length === 0 || !erroneousDistanceSafeguard.checked ? 0.0 : erroneousDistanceValue.text;
@@ -66,15 +66,13 @@ QfPopup {
     trackerSettings.tracker.measureType = measureComboBox.currentIndex;
   }
 
-  onAboutToShow: {
+  function prepareSettings(requestedLayer = undefined) {
     const availableLayers = trackingModel.availableLayers(qgisProject);
-    let defaultLayer = undefined;
-    if (trackerSettings.requestedLayer !== undefined) {
-      defaultLayer = trackerSettings.requestedLayer;
-      trackerSettings.requestedLayer = undefined;
-    } else {
+    let defaultLayer = requestedLayer;
+    if (defaultLayer === undefined) {
       defaultLayer = trackingModel.bestAvailableLayer(qgisProject);
     }
+    layersModel.clear();
     let defaultIndex = -1;
     let index = 0;
     for (const availableLayer of availableLayers) {
@@ -108,10 +106,6 @@ QfPopup {
     }
   }
 
-  onAboutToHide: {
-    layersModel.clear();
-  }
-
   Page {
     focus: true
     anchors.fill: parent
@@ -141,7 +135,7 @@ QfPopup {
       ScrollView {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        padding: 10
+        padding: 5
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
         ScrollBar.vertical: QfScrollBar {
         }
@@ -560,7 +554,7 @@ QfPopup {
         icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
 
         onClicked: {
-          applySettings();
+          applySettingsToTracker();
           featureModel.resetAttributes();
           featureModel.applyGeometry();
           trackerSettings.tracker.feature = featureModel.feature;
@@ -584,7 +578,7 @@ QfPopup {
         visible: false
 
         onClicked: {
-          applySettings();
+          applySettingsToTracker();
           displayToast(qsTr('Track on layer %1 resumed').arg(trackerSettings.tracker.vectorLayer.name));
           trackingModel.startTracker(trackerSettings.tracker.vectorLayer, positionSource.positionInformation, positionSource.projectedPosition);
           projectInfo.saveTracker(trackerSettings.tracker.vectorLayer);
