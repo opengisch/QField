@@ -51,6 +51,8 @@ Pane {
   property bool multiSelection: false
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
   property bool isVertical: parent.width < parent.height || parent.width < 300
+  property real dragHeightAdjustment: 0
+  property real dragWidthAdjustment: 0
 
   property bool canvasOperationRequested: digitizingToolbar.geometryRequested || moveFeaturesToolbar.moveFeaturesRequested || rotateFeaturesToolbar.rotateFeaturesRequested
 
@@ -62,26 +64,39 @@ Pane {
     featureForm.requestCancel();
   }
 
+  property int lastWidth
+
   width: {
     if (props.isVisible || featureFormList.canvasOperationRequested) {
-      if (fullScreenView || parent.width <= parent.height || parent.width < 300) {
-        return parent.width;
+      if (dragWidthAdjustment != 0) {
+        return width = lastWidth - dragWidthAdjustment;
+      } else if (fullScreenView || parent.width <= parent.height || width >= 0.95 * parent.width) {
+        lastWidth = parent.width;
+        return lastWidth;
       } else {
-        return Math.min(Math.max(200, parent.width / 2.25), parent.width);
+        lastWidth = Math.min(Math.max(200, parent.width / 2.25), parent.width);
+        return lastWidth;
       }
     } else {
+      lastWidth = 0;
       return 0;
     }
   }
+  property int lastHeight
+
   height: {
     if (props.isVisible || featureFormList.canvasOperationRequested) {
-      if (fullScreenView || parent.width > parent.height) {
+      if (dragHeightAdjustment != 0) {
+        return height = lastHeight - dragHeightAdjustment;
+      } else if (fullScreenView || parent.width > parent.height || height >= 0.95 * parent.height) {
+        lastHeight = parent.height;
         return parent.height;
       } else {
-        isVertical = true;
-        return Math.min(Math.max(200, parent.height / 2), parent.height);
+        lastHeight = Math.min(Math.max(200, parent.height / 2), parent.height);
+        return lastHeight;
       }
     } else {
+      lastHeight = 0;
       return 0;
     }
   }
@@ -515,11 +530,18 @@ Pane {
       featureFormList.state = "FeatureList";
     }
 
-    onStatusIndicatorSwiped: direction => {
+    onStatusIndicatorDragged: function (deltaX, deltaY) {
+      fullScreenView = false;
       if (isVertical) {
-        if (direction === 'up') {
-          fullScreenView = true;
-        } else if (direction === 'down') {
+        dragHeightAdjustment += deltaY;
+      } else {
+        dragWidthAdjustment += deltaX;
+      }
+    }
+
+    onStatusIndicatorDragReleased: {
+      if (isVertical) {
+        if (featureFormList.height < featureFormList.parent.height * 0.3) {
           if (fullScreenView) {
             fullScreenView = false;
           } else {
@@ -527,11 +549,11 @@ Pane {
               featureFormList.state = 'Hidden';
             }
           }
+        } else if (dragHeightAdjustment < -parent.height * 0.2) {
+          fullScreenView = true;
         }
       } else {
-        if (direction === 'left') {
-          fullScreenView = true;
-        } else if (direction === 'right') {
+        if (featureFormList.width < featureFormList.parent.width * 0.3) {
           if (fullScreenView) {
             fullScreenView = false;
           } else {
@@ -539,8 +561,12 @@ Pane {
               featureFormList.state = 'Hidden';
             }
           }
+        } else if (dragWidthAdjustment < -parent.width * 0.2) {
+          fullScreenView = true;
         }
       }
+      dragHeightAdjustment = 0;
+      dragWidthAdjustment = 0;
     }
 
     onEditAttributesButtonClicked: {
