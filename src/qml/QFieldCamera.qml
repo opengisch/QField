@@ -419,6 +419,7 @@ Popup {
 
               onClicked: {
                 if (cameraItem.state == "PhotoCapture") {
+                  platformUtilities.createDir(qgisProject.homePath, 'DCIM');
                   captureSession.imageCapture.captureToFile(qgisProject.homePath + '/DCIM/');
                   captureFlashAnimation.start();
                   if (positionSource.active) {
