@@ -25,7 +25,6 @@ import Theme
  */
 Rectangle {
   id: toolBar
-
   property string title: qsTr('Features')
 
   property bool multiSelection
@@ -86,24 +85,6 @@ Rectangle {
   ]
 
   state: "Indication"
-
-  Rectangle {
-    id: navigationStatusIndicator
-    anchors.fill: parent
-    height: toolBar.topMargin + 48
-    color: "transparent"
-    clip: true
-  }
-
-  Rectangle {
-    width: 40
-    height: 5
-    radius: 10
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.top: parent.top
-    anchors.topMargin: 2
-    color: Theme.controlBorderColor
-  }
 
   Rectangle {
     anchors.fill: parent

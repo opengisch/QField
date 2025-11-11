@@ -90,7 +90,7 @@ Pane {
         return height = lastHeight - dragHeightAdjustment;
       } else if (fullScreenView || parent.width > parent.height || height >= 0.95 * parent.height) {
         lastHeight = parent.height;
-        return parent.height;
+        return lastHeight;
       } else {
         lastHeight = Math.min(Math.max(200, parent.height / 2), parent.height);
         return lastHeight;
@@ -746,6 +746,32 @@ Pane {
         deleteDialog.show();
       }
     }
+  }
+
+  Rectangle {
+    visible: isVertical
+    width: 40
+    height: 5
+    radius: 10
+
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.top: parent.top
+    anchors.topMargin: featureListToolBar.topMargin + 2
+
+    color: Theme.controlBorderColor
+  }
+
+  Rectangle {
+    visible: !isVertical
+    width: 5
+    height: 80
+    radius: 10
+
+    anchors.verticalCenter: parent.verticalCenter
+    anchors.left: parent.left
+    anchors.leftMargin: 2
+
+    color: Theme.controlBorderColor
   }
 
   Keys.onReleased: event => {
