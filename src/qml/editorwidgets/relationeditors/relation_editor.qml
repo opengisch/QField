@@ -94,7 +94,7 @@ RelationEditorBase {
           topPadding: 5
           bottomPadding: 5
           font: Theme.defaultFont
-          color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
+          color: notEditableInEditMode ? Theme.mainTextDisabledColor : Theme.mainTextColor
           elide: Text.ElideRight
           wrapMode: Text.WordWrap
           text: nmRelationId ? model.nmDisplayString : model.displayString
