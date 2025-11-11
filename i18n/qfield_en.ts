@@ -2593,15 +2593,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Camera</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Tracks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Basemap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Media</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

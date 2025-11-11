@@ -2534,15 +2534,15 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <translation>Nota</translation>
     </message>
     <message>
-        <source>Camera</source>
-        <translation>Cámara</translation>
-    </message>
-    <message>
         <source>Tracks</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Basemap</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Media</source>
         <translation type="unfinished"/>
     </message>
 </context>

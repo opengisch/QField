@@ -2536,15 +2536,15 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Camera</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Tracks</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Basemap</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Media</source>
         <translation type="unfinished"/>
     </message>
 </context>

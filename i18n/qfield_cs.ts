@@ -2538,15 +2538,15 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Camera</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Tracks</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Basemap</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Media</source>
         <translation type="unfinished"/>
     </message>
 </context>

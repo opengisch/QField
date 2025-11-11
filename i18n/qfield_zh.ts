@@ -2532,16 +2532,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>注释</translation>
     </message>
     <message>
-        <source>Camera</source>
-        <translation>相机</translation>
-    </message>
-    <message>
         <source>Tracks</source>
         <translation>跟踪</translation>
     </message>
     <message>
         <source>Basemap</source>
         <translation>底图</translation>
+    </message>
+    <message>
+        <source>Media</source>
+        <translation>介质</translation>
     </message>
 </context>
 <context>

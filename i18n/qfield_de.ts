@@ -2533,16 +2533,16 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <translation>Notiz</translation>
     </message>
     <message>
-        <source>Camera</source>
-        <translation>Kamera</translation>
-    </message>
-    <message>
         <source>Tracks</source>
         <translation>Aufzeichung</translation>
     </message>
     <message>
         <source>Basemap</source>
         <translation>Grundkarte</translation>
+    </message>
+    <message>
+        <source>Media</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

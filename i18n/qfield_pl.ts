@@ -2538,16 +2538,16 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <translation>Notatka</translation>
     </message>
     <message>
-        <source>Camera</source>
-        <translation>Aparat</translation>
-    </message>
-    <message>
         <source>Tracks</source>
         <translation>Ścieżki</translation>
     </message>
     <message>
         <source>Basemap</source>
         <translation>Mapa bazowa</translation>
+    </message>
+    <message>
+        <source>Media</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

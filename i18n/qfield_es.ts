@@ -2536,15 +2536,15 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Camera</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Tracks</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Basemap</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Media</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -2525,16 +2525,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>ຫມາຍເຫດ</translation>
     </message>
     <message>
-        <source>Camera</source>
-        <translation>ກ້ອງຖ່າຍຮູບ</translation>
-    </message>
-    <message>
         <source>Tracks</source>
         <translation>ຕິດຕາມ</translation>
     </message>
     <message>
         <source>Basemap</source>
         <translation>ແຜນທີ່ພື້ນຖານ</translation>
+    </message>
+    <message>
+        <source>Media</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

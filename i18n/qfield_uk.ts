@@ -2538,16 +2538,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Примітка</translation>
     </message>
     <message>
-        <source>Camera</source>
-        <translation>Камера</translation>
-    </message>
-    <message>
         <source>Tracks</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Basemap</source>
         <translation>Базова карта</translation>
+    </message>
+    <message>
+        <source>Media</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
