@@ -84,15 +84,6 @@ EditorWidgetBase {
     }
   }
 
-  Rectangle {
-    visible: !enabled
-    y: label.height - height
-    implicitWidth: 120
-    width: label.width
-    height: 1
-    color: Theme.accentLightColor
-  }
-
   RowLayout {
     anchors.left: parent.left
     anchors.right: parent.right
@@ -104,11 +95,11 @@ EditorWidgetBase {
 
       verticalAlignment: Text.AlignVCenter
       font: Theme.defaultFont
-      color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      color: notEditableInEditMode ? Theme.mainTextDisabledColor : Theme.mainTextColor
       topPadding: 6
       bottomPadding: 6
       rightPadding: 0
-      leftPadding: enabled ? 5 : 0
+      leftPadding: enabled ? 10 : 0
 
       inputMethodHints: Qt.ImhDigitsOnly
 
@@ -128,17 +119,6 @@ EditorWidgetBase {
       }
 
       text: main.currentValue !== undefined ? main.currentValue : ''
-
-      background: Rectangle {
-        id: backgroundRect
-        width: label.width
-        height: label.height
-        border.color: label.activeFocus ? Theme.accentColor : Theme.accentLightColor
-        border.width: label.activeFocus ? 2 : 1
-        color: enabled ? Theme.controlBackgroundAlternateColor : "transparent"
-        radius: 2
-        visible: enabled
-      }
 
       MouseArea {
         enabled: config['calendar_popup'] === undefined || config['calendar_popup']
@@ -206,6 +186,8 @@ EditorWidgetBase {
           valueChangeRequested(undefined, true);
         }
       }
+
+      background.visible: enabled
     }
 
     QfToolButton {

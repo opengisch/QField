@@ -186,6 +186,7 @@ EditorWidgetBase {
       currentIndex: model.keyToIndex(value)
       model: listModel
       textRole: 'value'
+      text.color: notEditableInEditMode ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
       Component.onCompleted: {
         comboBox.popup.z = 10000; // 1000s are embedded feature forms, use a higher value to insure popups always show above embedded feature formes

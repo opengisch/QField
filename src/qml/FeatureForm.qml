@@ -551,7 +551,7 @@ Page {
             font.strikeout: LabelOverrideFont ? LabelFont.strikeout : false
             topPadding: 10
             bottomPadding: 5
-            opacity: (form.state === 'ReadOnly' || !AttributeEditable) || embedded && EditorWidget === 'RelationEditor' ? 0.45 : 1
+            opacity: 1
             color: LabelOverrideColor ? LabelColor : Theme.mainTextColor
           }
 
@@ -603,6 +603,7 @@ Page {
               property bool isAdding: form.state === 'Add'
               property bool isEditing: form.state === 'Edit'
               property bool isEnabled: !!AttributeEditable && form.state !== 'ReadOnly' && !(Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel)
+              property bool notEditableInEditMode: !AttributeEditable && form.state === 'Edit'
               property var value: AttributeValue
               property var config: (EditorWidgetConfig || {})
               property var widget: EditorWidget

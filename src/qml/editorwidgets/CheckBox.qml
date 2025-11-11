@@ -29,7 +29,7 @@ EditorWidgetBase {
     font.pointSize: Theme.defaultFont.pointSize
     font.bold: Theme.defaultFont.bold
     font.italic: isNull
-    color: isEnabled && !isNull ? Theme.mainTextColor : Theme.mainTextDisabledColor
+    color: notEditableInEditMode ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
     text: !isNull ? checkBox.checked ? checkedLabel : uncheckedLabel : isEnabled ? qsTr('NULL') : ''
   }
@@ -94,6 +94,7 @@ EditorWidgetBase {
     implicitWidth: 120
     height: checkBox.activeFocus || checkBox.pressed || checkArea.containsPress ? 2 : 1
     color: checkBox.activeFocus || checkBox.pressed || checkArea.containsPress ? Theme.accentColor : Theme.accentLightColor
+    visible: isEnabled
   }
 
   FontMetrics {

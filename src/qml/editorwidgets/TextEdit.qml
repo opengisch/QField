@@ -20,8 +20,8 @@ EditorWidgetBase {
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: Theme.mainTextColor
-    opacity: 0.45
+    color: notEditableInEditMode ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    opacity: 1
     wrapMode: Text.Wrap
     textFormat: (config['IsMultiline'] === true && config['UseHtml']) || StringUtils.hasLinks(value) ? TextEdit.RichText : TextEdit.AutoText
 
@@ -34,15 +34,12 @@ EditorWidgetBase {
 
   TextField {
     id: textField
-    topPadding: 10
-    bottomPadding: 10
-    rightPadding: 0
-    leftPadding: enabled ? 5 : 0
+    leftPadding: enabled ? 10 : 0
     visible: (config['IsMultiline'] === undefined || config['IsMultiline'] == false) && isEditable
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: Theme.mainTextColor
+    color: notEditableInEditMode ? Theme.mainTextDisabledColor : Theme.mainTextColor
     maximumLength: field != undefined && field.length > 0 ? field.length : -1
     wrapMode: TextInput.Wrap
 
@@ -71,12 +68,6 @@ EditorWidgetBase {
 
     inputMethodHints: field && field.isNumeric ? Qt.ImhFormattedNumbersOnly : Qt.ImhNone
 
-    background: Rectangle {
-      width: parent.width
-      height: parent.height
-      color: "transparent"
-    }
-
     onTextChanged: {
       if (text !== '') {
         if (field.isNumeric) {
@@ -97,10 +88,7 @@ EditorWidgetBase {
 
   TextArea {
     id: textArea
-    topPadding: 10
-    bottomPadding: 10
-    rightPadding: 0
-    leftPadding: enabled ? 5 : 0
+    leftPadding: enabled ? 10 : 0
     height: config['IsMultiline'] === true ? undefined : 0
     visible: config['IsMultiline'] === true && isEditable
     enabled: isEditable
@@ -108,29 +96,14 @@ EditorWidgetBase {
     anchors.right: parent.right
     wrapMode: Text.Wrap
     font: Theme.defaultFont
-    color: Theme.mainTextColor
+    color: notEditableInEditMode ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
     text: value !== undefined ? value : ''
     textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
 
-    background: Rectangle {
-      width: parent.width
-      height: parent.height
-      color: "transparent"
-    }
-
     onTextChanged: {
       valueChangeRequested(text, text == '');
     }
-  }
-
-  Rectangle {
-    anchors.left: parent.left
-    anchors.right: parent.right
-    y: Math.max(textField.height, textArea.height) - height - textField.bottomPadding / 2
-    implicitWidth: 120
-    height: textField.activeFocus || textArea.activeFocus ? 2 : 1
-    color: textField.activeFocus || textArea.activeFocus ? Theme.accentColor : Theme.accentLightColor
   }
 
   FontMetrics {
