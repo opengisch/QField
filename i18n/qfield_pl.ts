@@ -2547,7 +2547,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Media</source>
-        <translation type="unfinished"/>
+        <translation>Media</translation>
     </message>
 </context>
 <context>

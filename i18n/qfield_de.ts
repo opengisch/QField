@@ -107,7 +107,7 @@
     </message>
     <message>
         <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>Dieses Grid ist Teil des &lt;i&gt;%1&lt;/i&gt; Pakets, verfügbar zum Download von &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
+        <translation>Dieses Gitternetz ist Teil des &lt;i&gt;%1&lt;/i&gt; Pakets und steht zum Download von &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt; zur Verfügung.</translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
@@ -295,7 +295,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Bluetooth permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>Berechtigung für Bluetooth wird benötigt, um nach Bluetooth-Geräten suchen zu können</translation>
     </message>
     <message>
         <source>Location permission denied</source>
@@ -303,7 +303,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Location permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>Berechtigung zum Standortzugriff wird benötigt, um nach Bluetooth-Geräten suchen zu können</translation>
     </message>
 </context>
 <context>
@@ -416,7 +416,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Change color</source>
-        <translation type="unfinished"/>
+        <translation>Farbe ändern</translation>
     </message>
 </context>
 <context>
@@ -834,7 +834,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
-        <translation>QFieldCloud Fehler im on-dmand Anhang:</translation>
+        <translation>QFieldCloud Fehler im on-demand Anhang:</translation>
     </message>
 </context>
 <context>
@@ -901,23 +901,23 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Feature Form Menu</source>
-        <translation type="unfinished"/>
+        <translation>Objekt-Formular Menü</translation>
     </message>
     <message>
         <source>Remember All Reusable Values</source>
-        <translation type="unfinished"/>
+        <translation>Merke alle wiederverwendbaren Werte</translation>
     </message>
     <message>
         <source>Forget All Reusable Values</source>
-        <translation type="unfinished"/>
+        <translation>Vergesse alle wiederverwendbaren Werte</translation>
     </message>
     <message>
         <source>Soft constraints were not satisified</source>
-        <translation type="unfinished"/>
+        <translation>Weiche Bedingungen wurden nicht erfüllt</translation>
     </message>
     <message>
         <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
+        <translation>Harte Bedingungen wurden nicht erfüllt</translation>
     </message>
 </context>
 <context>
@@ -1468,7 +1468,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>feature addition</source>
-        <translation>Erstellung von Objekt</translation>
+        <translation>Erstellen von Objekt</translation>
     </message>
     <message>
         <source>attribute editing</source>
@@ -1559,7 +1559,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation>Die Einstellung der Berechtigung für diesen Layer deaktiviert das Hinzufügen von Objekten.&lt;br&gt;</translation>
+        <translation>Die Einstellung der Berechtigung für diesen Layer deaktiviert das Hinzufügen von Objekten.</translation>
     </message>
 </context>
 <context>
@@ -1586,7 +1586,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Created projects</source>
-        <translation>Erstellte Projekte&lt;br&gt;</translation>
+        <translation>Erstellte Projekte</translation>
     </message>
 </context>
 <context>
@@ -1828,7 +1828,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Rotate Feature</source>
-        <translation>Objekt Drehen</translation>
+        <translation>Objekt drehen</translation>
     </message>
     <message>
         <source>Update Attributes from Feature</source>
@@ -1844,7 +1844,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Feature cut into clipboard</source>
-        <translation>Objekt ausgeschnitten</translation>
+        <translation>Objekt wurde in die Zwischenablage ausgeschnitten</translation>
     </message>
 </context>
 <context>
@@ -2431,11 +2431,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Select your basemap</source>
-        <translation>Wählen Sie ihre Grundkarte.</translation>
+        <translation>Wählen Sie ihre Hintergrundkarte.</translation>
     </message>
     <message>
         <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
-        <translation>Entscheiden Sie sich für eine Grundkarte für ihr Projekt. Wählen Sie eine aus den vorgegeben Möglichkeiten oder nutzen sie eine eigen URL.</translation>
+        <translation>Entscheiden Sie sich für eine Hintergrundkarte für ihr Projekt. Wählen Sie eine aus den vorgegeben Möglichkeiten oder nutzen Sie eine eigene URL.</translation>
     </message>
     <message>
         <source>Colorful</source>
@@ -2459,7 +2459,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Custom basemap URL</source>
-        <translation>benutzerdefinierte URL der Grundkarte</translation>
+        <translation>benutzerdefinierte URL der Hintergrundkarte</translation>
     </message>
     <message>
         <source>Take notes?</source>
@@ -2538,11 +2538,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Basemap</source>
-        <translation>Grundkarte</translation>
+        <translation>Hintergrundkarte</translation>
     </message>
     <message>
         <source>Media</source>
-        <translation type="unfinished"/>
+        <translation>Medien</translation>
     </message>
 </context>
 <context>
@@ -3030,11 +3030,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 wird hochgeladen</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n Datei(en) übrig</numerusform><numerusform>%n Datei(en) verbleibend</numerusform></translation>
     </message>
 </context>
 <context>
@@ -3127,7 +3127,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
-        <translation>Dateisystem-Fehler. Anhang konnte nicht geöffnet werden um ihn  in den temporären Speicherort `%1` zu schreiben.</translation>
+        <translation>Dateisystem-Fehler. Anhang konnte nicht geöffnet werden, um ihn in den temporären Speicherort `%1` zu schreiben.</translation>
     </message>
     <message>
         <source>Network error. Failed to download attachment `%1`.</source>
@@ -3147,7 +3147,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>Lokaler Pfad kann für das Hochladen nicht genutzt werden, da es mehrere Projektdateien enthält.</translation>
+        <translation>Lokaler Pfad kann für das Hochladen nicht genutzt werden, da er mehrere Projektdateien enthält.</translation>
     </message>
     <message>
         <source>Local path to upload is missing a valid project file</source>
@@ -3178,7 +3178,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>Dieser QR Code can von Nutzern mit entsprechendem Zugang gescannt werden, um das Projekt herunterzuladen und zu öffnen.</translation>
+        <translation>Dieser QR Code kann von Nutzern mit entsprechendem Zugang gescannt werden, um das Projekt herunterzuladen und zu öffnen.</translation>
     </message>
     <message>
         <source>Synchronize</source>
@@ -3210,7 +3210,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Synchronizing</source>
-        <translation type="unfinished"/>
+        <translation>Synchronisiere</translation>
     </message>
 </context>
 <context>
@@ -3514,11 +3514,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>View Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Projektordner anzeigen</translation>
     </message>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Bist du sicher, dass du `%1` löschen möchtest?</translation>
     </message>
     <message>
         <source>Synchronize</source>
@@ -3533,11 +3533,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <name>QFieldCloudService</name>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 wird hochgeladen</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n Datei(en) übrig</numerusform><numerusform>%n Datei(en) verbleibend</numerusform></translation>
     </message>
 </context>
 <context>
@@ -3653,7 +3653,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <name>QFieldPositioningService</name>
     <message>
         <source>Positioning service running</source>
-        <translation>Positions-Service wird ausgeführt</translation>
+        <translation>Standort-Service wird ausgeführt</translation>
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
@@ -4106,27 +4106,27 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Show zoom controls</source>
-        <translation type="unfinished"/>
+        <translation>Zoomsteuerung anzeigen</translation>
     </message>
     <message>
         <source>Maximize feature form</source>
-        <translation type="unfinished"/>
+        <translation>Maximiere Objekt-Formular</translation>
     </message>
     <message>
         <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
+        <translation>Öffne das Objekt-Formular bei der Auswahl von einzelnen Objekten</translation>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn aktivierte, werden Bereiche direkt auserhalb der sichtbaren Karte teilweise gezeichnet, um beim Zoomen und Bewegen eine Vorschauen zu haben</translation>
     </message>
     <message>
         <source>Enable auto-save mode</source>
-        <translation type="unfinished"/>
+        <translation>Aktiviere automatischen Speicher-Modus</translation>
     </message>
     <message>
         <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn aktiviert, werden neu hinzugefügte Objekte gespeichert, sobald sie eine gültige Geometrie haben und die Bedigungen erfüllt sind, und bearbeitete Attribute werden sofort übernommen.</translation>
     </message>
 </context>
 <context>
@@ -4236,15 +4236,15 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation>Fehler, der Ausgabeordner existiert nicht: &apos;%1&apos;</translation>
+        <translation>Fehler. Der Ausgabeordner existiert nicht: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation>Fehler, der Ausgabeordner ist kein Ordner: &apos;%1&apos;</translation>
+        <translation>Fehler. Der Ausgabeordner ist kein Ordner: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation>Fehler, der Ausgabeordner ist nicht beschreibbar: &apos;%1&apos;</translation>
+        <translation>Fehler. Der Ausgabeordner ist nicht beschreibbar: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Skipped file %1 outside of the directory %2</source>
@@ -4410,7 +4410,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Map printed on %1 using QField</source>
-        <translation>Karte gedruckt auf %1 mithilfe von QField</translation>
+        <translation>Karte mithilfe von QField auf %1 gedruckt</translation>
     </message>
 </context>
 <context>
@@ -4595,7 +4595,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
-        <translation><numerusform>%n Objekt</numerusform><numerusform>%n Objekte</numerusform></translation>
+        <translation><numerusform>%n Objekt</numerusform><numerusform>%n Objekt(e)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -6064,7 +6064,7 @@ erstellen</translation>
     </message>
     <message>
         <source>Import Confirmation</source>
-        <translation>Import Bestätigung</translation>
+        <translation>Import-Bestätigung</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
@@ -6092,7 +6092,7 @@ erstellen</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation>Das Erstellen des Objektes ist fehlgeschlagen, da die Berechtigung um Objekte hinzuzufügen deaktiviert ist.</translation>
+        <translation>Das Erstellen des Objektes ist fehlgeschlagen, da die Berechtigung, um Objekte hinzuzufügen, deaktiviert ist.</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
@@ -6104,7 +6104,7 @@ erstellen</translation>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation>Wechsel zwischen Browser- und Digitalisierungs-Modus. Der Ansichts-Modus ist darauf fokussiert die Karte und Objekte zu betrachtet, während der Digitalisierungs-Modus ermöglicht, Objekte zu erstellen und Geometrien zu bearbeiten.</translation>
+        <translation>Wechsel zwischen Ansichts- und Digitalisierungs-Modus. Der Ansichts-Modus ist darauf fokussiert die Karte und Objekte zu betrachtet, während der Digitalisierungs-Modus ermöglicht, Objekte zu erstellen und Geometrien zu bearbeiten.</translation>
     </message>
     <message>
         <source>Measurement</source>
@@ -6132,7 +6132,7 @@ erstellen</translation>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation>Öffne den Projekt-Ordner um Zugriff auf die Projekt-Dateien, Datenquellen und zugehörige Dokumente zu bekommen. Dies ist hilfreich für die Organisation der Projekt-Ressurcen, um Daten manuell zur QFieldCloud hochzuladen und um Datensätze, Anlagen und Layouts zu teilen.</translation>
+        <translation>Öffne den Projekt-Ordner um Zugriff auf die Projekt-Dateien, Datenquellen und zugehörige Dokumente zu bekommen. Dies ist hilfreich für die Organisation der Projekt-Ressourcen, um Daten manuell zur QFieldCloud hochzuladen und um Datensätze, Anlagen und Layouts zu teilen.</translation>
     </message>
     <message>
         <source>Legend</source>
@@ -6140,7 +6140,7 @@ erstellen</translation>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
-        <translation>Die Legende zeigt die die Map-Layer und ermöglicht die Sichtbarkeit und Transparenz zu verändern &lt;b&gt; indem man lange auf einen Layer drückt um das Einstellungsfenster zu öffnen.&lt;/b&gt; Das Fenster bietet weitere Optionen , wie das Zoomen auf die Layer-Ausdehnung und um Objekte, die im Vektor-Layer enthalten sind, anzuzeigen.</translation>
+        <translation>Die Legende zeigt die Map-Layer und ermöglicht die Sichtbarkeit und Transparenz zu verändern, &lt;b&gt; indem man lange auf einen Layer drückt um das Einstellungsfenster zu öffnen.&lt;/b&gt; Das Fenster bietet weitere Optionen, wie das Zoomen auf die Layer-Ausdehnung und das Anzeigen von Objekte, die im Vektor-Layer enthalten sind.</translation>
     </message>
     <message>
         <source>Copy Feature</source>
@@ -6164,48 +6164,49 @@ erstellen</translation>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
-        <translation>Das Bearbeiten von Multipart-Geometrien ist noch nicht unterstützt.</translation>
+        <translation>Das Bearbeiten von Multipart-Geometrien wird noch nicht unterstützt.</translation>
     </message>
     <message>
         <source>Coordinate cursor locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Koordinaten-Zeiger auf Standort fixiert</translation>
     </message>
     <message>
         <source>Map canvas unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Karten entsperrt</translation>
     </message>
     <message>
         <source>Map canvas locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Karte auf Standort fixiert</translation>
     </message>
     <message>
         <source>Map canvas locked to location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Karte auf Standort und Kompassrichtung fixiert</translation>
     </message>
     <message>
         <source>Map canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Karte folgt dem Standort und der Kompassausrichtung</translation>
     </message>
     <message>
         <source>Map canvas follows location</source>
-        <translation type="unfinished"/>
+        <translation>Karte folgt dem Standort</translation>
     </message>
     <message>
         <source>Lock Coordinate Cursor to Location</source>
-        <translation type="unfinished"/>
+        <translation>Koordinaten-Zeiger an Ort fixieren</translation>
     </message>
     <message>
         <source>Lock Map Canvas to Location</source>
-        <translation type="unfinished"/>
+        <translation>Karte an Ort fixieren</translation>
     </message>
     <message>
         <source>Map canvas lock paused</source>
-        <translation type="unfinished"/>
+        <translation>Kartenverfolgung pausiert</translation>
     </message>
     <message>
         <source>Tap on your location marker
 to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Tippen Sie auf Ihre Standortmarkierung
+um Aktionen anzuzeigen</translation>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
