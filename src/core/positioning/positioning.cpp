@@ -605,7 +605,25 @@ void Positioning::setCoordinateTransformer( QgsQuickCoordinateTransformer *coord
   if ( mCoordinateTransformer == coordinateTransformer )
     return;
 
+  if ( mCoordinateTransformer )
+  {
+    disconnect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::destinationCrsChanged, this, &Positioning::processProjectedPosition );
+    disconnect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::transformContextChanged, this, &Positioning::processProjectedPosition );
+    disconnect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::deltaZChanged, this, &Positioning::processProjectedPosition );
+    disconnect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::skipAltitudeTransformationChanged, this, &Positioning::processProjectedPosition );
+    disconnect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::verticalGridChanged, this, &Positioning::processProjectedPosition );
+  }
+
   mCoordinateTransformer = coordinateTransformer;
+
+  if ( mCoordinateTransformer )
+  {
+    connect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::destinationCrsChanged, this, &Positioning::processProjectedPosition );
+    connect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::transformContextChanged, this, &Positioning::processProjectedPosition );
+    connect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::deltaZChanged, this, &Positioning::processProjectedPosition );
+    connect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::skipAltitudeTransformationChanged, this, &Positioning::processProjectedPosition );
+    connect( mCoordinateTransformer, &QgsQuickCoordinateTransformer::verticalGridChanged, this, &Positioning::processProjectedPosition );
+  }
 
   emit coordinateTransformerChanged();
 }
