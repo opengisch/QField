@@ -582,6 +582,7 @@ Page {
               left: parent.left
               right: fieldMenuButton.left
               top: constraintDescriptionLabel.bottom
+              rightMargin: fieldMenuButton.visible ? 5 : 0
             }
 
             Loader {
@@ -696,6 +697,7 @@ Page {
             anchors {
               right: rememberButton.left
               top: constraintDescriptionLabel.bottom
+              rightMargin: 5
             }
 
             visible: attributeEditorLoader.isEnabled && attributeEditorLoader.item && attributeEditorLoader.item.hasMenu
