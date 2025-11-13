@@ -750,7 +750,7 @@ Pane {
 
   Rectangle {
     visible: isVertical
-    width: 40
+    width: parent.width * 0.3
     height: 5
     radius: 10
 
@@ -764,7 +764,7 @@ Pane {
   Rectangle {
     visible: !isVertical
     width: 5
-    height: 80
+    height: parent.height * 0.3
     radius: 10
 
     anchors.verticalCenter: parent.verticalCenter
