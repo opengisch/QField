@@ -68,7 +68,7 @@ Rectangle {
   anchors.top: parent.top
   anchors.left: parent.left
   anchors.right: parent.right
-  height: toolBar.topMargin + 48
+  height: toolBar.topMargin + 58
   color: Theme.mainBackgroundColor
   clip: true
 
@@ -86,10 +86,12 @@ Rectangle {
 
   state: "Indication"
 
-  Rectangle {
-    anchors.fill: parent
-    height: toolBar.topMargin + 48
-    color: "transparent"
+  Item {
+    anchors {
+      fill: parent
+      topMargin: 5
+      bottomMargin: 5
+    }
     clip: true
 
     Text {
@@ -164,8 +166,7 @@ Rectangle {
     id: nextButton
 
     anchors.left: previousButton.right
-    anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.verticalCenter: parent.verticalCenter
 
     visible: toolBar.state === "Navigation"
     width: visible ? 48 : 0
@@ -198,8 +199,7 @@ Rectangle {
 
     anchors.left: parent.left
     anchors.leftMargin: toolBar.leftMargin
-    anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.verticalCenter: parent.verticalCenter
 
     visible: enabled
     width: visible ? 48 : 0
@@ -232,8 +232,7 @@ Rectangle {
 
     anchors.left: parent.left
     anchors.leftMargin: toolBar.leftMargin
-    anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.verticalCenter: parent.verticalCenter
 
     visible: toolBar.state === "Edit" || toolBar.state === "ProcessingLaunch"
     width: visible ? 48 : 0
@@ -270,8 +269,7 @@ Rectangle {
 
     anchors.right: parent.right
     anchors.rightMargin: toolBar.rightMargin
-    anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.verticalCenter: parent.verticalCenter
 
     visible: !qfieldSettings.autoSave && toolBar.state === "Edit"
     width: visible ? 48 : 0
@@ -300,8 +298,7 @@ Rectangle {
     visible: stateMachine.state === "digitize" && !selection.focusedGeometry.isNull && !featureForm.model.featureModel.geometryEditingLocked && (projectInfo.editRights || editButton.isCreatedCloudFeature) && toolBar.state === "Navigation" && editButton.supportsEditing && projectInfo.editRights
 
     anchors.right: editButton.left
-    anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.verticalCenter: parent.verticalCenter
 
     iconSource: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
     iconColor: Theme.mainTextColor
@@ -337,8 +334,7 @@ Rectangle {
     property bool isCreatedCloudFeature: false
 
     anchors.right: menuButton.left
-    anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.verticalCenter: parent.verticalCenter
 
     visible: toolBar.state === "Navigation" && supportsEditing && !featureForm.model.featureModel.attributeEditingLocked && (projectInfo.editRights || isCreatedCloudFeature)
     width: visible ? 48 : 0
@@ -379,8 +375,7 @@ Rectangle {
 
     anchors.right: parent.right
     anchors.rightMargin: toolBar.rightMargin
-    anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.verticalCenter: parent.verticalCenter
 
     visible: toolBar.state !== "Edit" && toolBar.state !== "Processing" && toolBar.state !== "ProcessingLaunch"
     width: visible ? 48 : 0
@@ -409,8 +404,7 @@ Rectangle {
     id: multiClearButton
 
     anchors.left: saveButton.right
-    anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.verticalCenter: parent.verticalCenter
 
     visible: toolBar.multiSelection && toolBar.model && (toolBar.state === "Processing" || toolBar.state === "ProcessingLaunch" || toolBar.state === "Indication")
     width: visible ? 48 : 0
@@ -435,8 +429,7 @@ Rectangle {
     id: multiSelectCount
 
     anchors.left: multiClearButton.right
-    anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.verticalCenter: parent.verticalCenter
 
     width: (toolBar.state === "Indication" && toolBar.multiSelection && toolBar.model ? 48 : 0)
     visible: width > 0
@@ -454,8 +447,7 @@ Rectangle {
     id: multiEditButton
 
     anchors.right: menuButton.left
-    anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.verticalCenter: parent.verticalCenter
 
     visible: toolBar.state === "Indication" && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
     width: visible ? 48 : 0
