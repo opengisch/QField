@@ -559,9 +559,10 @@ Page {
               left: parent.left
               right: parent.right
               top: fieldLabel.bottom
+              rightMargin: 10
             }
 
-            font.pointSize: fieldLabel.font.pointSize / 3 * 2
+            font.pointSize: fieldLabel.font.pointSize * 0.8
             text: {
               if (ConstraintHardValid && ConstraintSoftValid)
                 return '';
@@ -571,6 +572,7 @@ Page {
             visible: !ConstraintHardValid || !ConstraintSoftValid
             opacity: fieldLabel.opacity
             color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
+            wrapMode: Text.WordWrap
           }
 
           Item {
