@@ -120,6 +120,11 @@ class GnssPositionInformation
 
     Q_ENUM( AccuracyQuality )
 
+    /* !! Adjust PositioningUtils::averagedPositionInformation whenever a new member is added !! */
+
+    /**
+     * GNSSPositionInformation constructor.
+     */
     GnssPositionInformation( double latitude = std::numeric_limits<double>::quiet_NaN(), double longitude = std::numeric_limits<double>::quiet_NaN(), double elevation = std::numeric_limits<double>::quiet_NaN(),
                              double speed = std::numeric_limits<double>::quiet_NaN(), double direction = std::numeric_limits<double>::quiet_NaN(), const QList<QgsSatelliteInfo> &satellitesInView = QList<QgsSatelliteInfo>(),
                              double pdop = 0, double hdop = 0, double vdop = 0,
