@@ -90,10 +90,11 @@ bool TrackingModel::setData( const QModelIndex &index, const QVariant &value, in
 
 bool TrackingModel::featureInTracking( QgsVectorLayer *layer, const QgsFeatureId featureId )
 {
-  if ( trackerIterator( layer ) != mTrackers.constEnd() )
+  auto it = trackerIterator( layer );
+  if ( it != mTrackers.constEnd() )
   {
-    const qsizetype listIndex = trackerIterator( layer ) - mTrackers.constBegin();
-    if ( mTrackers[listIndex]->feature().id() == featureId )
+    const qsizetype idx = it - mTrackers.constBegin();
+    if ( mTrackers[idx]->feature().id() == featureId )
     {
       return true;
     }
@@ -103,10 +104,11 @@ bool TrackingModel::featureInTracking( QgsVectorLayer *layer, const QgsFeatureId
 
 bool TrackingModel::featuresInTracking( QgsVectorLayer *layer, const QList<QgsFeature> &features )
 {
-  if ( trackerIterator( layer ) != mTrackers.constEnd() )
+  auto it = trackerIterator( layer );
+  if ( it != mTrackers.constEnd() )
   {
-    const qsizetype listIndex = trackerIterator( layer ) - mTrackers.constBegin();
-    QgsFeatureId fid = mTrackers[listIndex]->feature().id();
+    const qsizetype idx = it - mTrackers.constBegin();
+    QgsFeatureId fid = mTrackers[idx]->feature().id();
     if ( std::any_of( features.begin(), features.end(), [fid]( const QgsFeature &f ) { return f.id() == fid; } ) )
     {
       return true;
@@ -122,9 +124,10 @@ bool TrackingModel::layerInTracking( QgsVectorLayer *layer ) const
 
 bool TrackingModel::layerInActiveTracking( QgsVectorLayer *layer ) const
 {
-  if ( trackerIterator( layer ) != mTrackers.constEnd() )
+  auto it = trackerIterator( layer );
+  if ( it != mTrackers.constEnd() )
   {
-    const qsizetype idx = trackerIterator( layer ) - mTrackers.constBegin();
+    const qsizetype idx = it - mTrackers.constBegin();
     return mTrackers[idx]->isActive();
   }
   return false;
@@ -132,9 +135,10 @@ bool TrackingModel::layerInActiveTracking( QgsVectorLayer *layer ) const
 
 Tracker *TrackingModel::trackerForLayer( QgsVectorLayer *layer ) const
 {
-  if ( trackerIterator( layer ) != mTrackers.constEnd() )
+  auto it = trackerIterator( layer );
+  if ( it != mTrackers.constEnd() )
   {
-    const qsizetype idx = trackerIterator( layer ) - mTrackers.constBegin();
+    const qsizetype idx = it - mTrackers.constBegin();
     return mTrackers[idx];
   }
   return nullptr;
@@ -159,9 +163,10 @@ QModelIndex TrackingModel::createTracker( QgsVectorLayer *layer )
 
 void TrackingModel::startTracker( QgsVectorLayer *layer, const GnssPositionInformation &positionInformation, const QgsPoint &projectedPosition )
 {
-  const qsizetype idx = trackerIterator( layer ) - mTrackers.constBegin();
-  if ( idx >= 0 )
+  auto it = trackerIterator( layer );
+  if ( it != mTrackers.constEnd() )
   {
+    const qsizetype idx = it - mTrackers.constBegin();
     mTrackers[idx]->start( positionInformation, projectedPosition );
     emit layerInTrackingChanged( layer, true );
   }
@@ -169,9 +174,10 @@ void TrackingModel::startTracker( QgsVectorLayer *layer, const GnssPositionInfor
 
 void TrackingModel::stopTracker( QgsVectorLayer *layer )
 {
-  const qsizetype idx = trackerIterator( layer ) - mTrackers.constBegin();
-  if ( idx >= 0 )
+  auto it = trackerIterator( layer );
+  if ( it != mTrackers.constEnd() )
   {
+    const qsizetype idx = it - mTrackers.constBegin();
     mTrackers[idx]->stop();
     beginRemoveRows( QModelIndex(), static_cast<int>( idx ), static_cast<int>( idx ) );
     Tracker *tracker = mTrackers.takeAt( idx );
@@ -221,9 +227,10 @@ void TrackingModel::suspendUntilReplay()
 
 void TrackingModel::setTrackerVisibility( QgsVectorLayer *layer, bool visible )
 {
-  if ( trackerIterator( layer ) != mTrackers.constEnd() )
+  auto it = trackerIterator( layer );
+  if ( it != mTrackers.constEnd() )
   {
-    const qsizetype idx = trackerIterator( layer ) - mTrackers.constBegin();
+    const qsizetype idx = it - mTrackers.constBegin();
     mTrackers[idx]->setVisible( visible );
   }
 }

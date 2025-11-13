@@ -29,10 +29,10 @@ QfPopup {
       let idx = projectInfo.restoreTracker(layer);
       if (idx.valid) {
         trackerSettings.tracker = trackings.itemAt(idx.row).tracker;
-      } else if (trackingModel.trackerForLayer(layer)) {
+      } else {
         trackerSettings.tracker = trackingModel.trackerForLayer(layer);
       }
-      if (trackerSettings.tracker !== undefined) {
+      if (trackerSettings.tracker !== undefined && trackerSettings.tracker !== null) {
         timeInterval.checked = trackerSettings.tracker.timeInterval > 0;
         timeIntervalValue.text = trackerSettings.tracker.timeInterval > 0 ? trackerSettings.tracker.timeInterval : positioningSettings.trackerTimeInterval;
         minimumDistance.checked = trackerSettings.tracker.minimumDistance > 0;
@@ -556,7 +556,7 @@ QfPopup {
       anchors.left: parent.left
       anchors.right: parent.right
 
-      height: startTrackingButton.height + (resumeTrackingButton.height.visible ? resumeTrackingButton.height : 0) + 15
+      height: startTrackingButton.height + (resumeTrackingButton.visible ? resumeTrackingButton.height : 0) + 15
       color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
 
       Column {

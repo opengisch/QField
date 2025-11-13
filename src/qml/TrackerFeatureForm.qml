@@ -117,7 +117,7 @@ QfPopup {
           embeddedFeatureForm.active = false;
           embeddedFeatureForm.focus = false;
           trackingModel.stopTracker(trackingFeatureForm.tracker.vectorLayer);
-          tracker = undefined;
+          trackingFeatureForm.tracker = undefined;
           trackingModel.trackingSetupDone();
         }
 
