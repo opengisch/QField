@@ -281,10 +281,10 @@ ListView {
             icon.color: Theme.mainTextColor
 
             onClicked: {
-              displayToast(qsTr('This layer is is currently tracking positions.'), 'info', qsTr('Stop'), function () {
-                  if (trackingModel.layerInTracking(VectorLayerPointer)) {
+              displayToast(qsTr('Tracking active on this layer.'), 'info', qsTr('Stop'), function () {
+                  if (trackingModel.layerInActiveTracking(VectorLayerPointer)) {
                     trackingModel.stopTracker(VectorLayerPointer);
-                    displayToast(qsTr('Track on layer %1 stopped').arg(VectorLayerPointer.name));
+                    displayToast(qsTr('Tracking on layer %1 stopped').arg(VectorLayerPointer.name));
                   }
                 });
             }

@@ -1241,8 +1241,63 @@ ApplicationWindow {
             }
           }
         ]
+
         onClicked: {
           positioningSettings.showPositionInformation = checked;
+          actionsPieMenu.close();
+        }
+      }
+
+      QfToolButton {
+        id: trackingButton
+        width: actionsPieMenu.bandWidth - 8
+        height: width
+        padding: 2
+        iconSource: Theme.getThemeVectorIcon("directions_walk_24dp")
+        round: true
+        checkable: false
+        checked: false
+        enabled: true
+        iconColor: Theme.light
+        bgcolor: Theme.toolButtonBackgroundColor
+        state: trackings.count ? "On" : "Off"
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 6
+
+        states: [
+          State {
+            name: "Off"
+            PropertyChanges {
+              target: trackingButton
+              iconColor: Theme.light
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+            }
+          },
+          State {
+            name: "On"
+            PropertyChanges {
+              target: trackingButton
+              iconColor: Theme.positionColor
+              bgcolor: Theme.toolButtonBackgroundColor
+            }
+          }
+        ]
+
+        onClicked: {
+          if (trackings.count > 0) {
+            displayToast(qsTr('Tracking active on %n layer(s)', '', trackings.count), 'info', qsTr('Stop all'), function () {
+                displayToast(qsTr('Tracking on %n layer(s) stopped', '', trackings.count));
+                trackingModel.stopTrackers();
+              });
+          } else {
+            trackerSettings.prepareSettings();
+            if (trackerSettings.availableLayersCount > 0) {
+              trackerSettings.open();
+            } else {
+              displayToast(qsTr('No compatible layers available to launch tracking'), 'info', qsTr('Learn more'), function () {
+                  Qt.openUrlExternally('https://docs.qfield.org/how-to/navigation-and-positioning/tracking/');
+                });
+            }
+          }
           actionsPieMenu.close();
         }
       }
@@ -4498,6 +4553,12 @@ ApplicationWindow {
 
   TrackerSettings {
     id: trackerSettings
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
+  TrackerFeatureForm {
+    id: trackerFeatureForm
 
     onRequestJumpToPoint: function (center, scale, handleMargins) {
       mapCanvasMap.jumpTo(center, scale, -1, handleMargins);

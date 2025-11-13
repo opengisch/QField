@@ -57,6 +57,8 @@ class TrackingModel : public QAbstractItemModel
     Q_INVOKABLE void startTracker( QgsVectorLayer *layer, const GnssPositionInformation &positionInformation = GnssPositionInformation(), const QgsPoint &projectedPosition = QgsPoint() );
     //! Stops the tracking session of the provided vector \a layer.
     Q_INVOKABLE void stopTracker( QgsVectorLayer *layer );
+    //! Stops all tracking sessions.
+    Q_INVOKABLE void stopTrackers();
     //! Sets whether the tracking session rubber band is \a visible.
     Q_INVOKABLE void setTrackerVisibility( QgsVectorLayer *layer, bool visible );
     //! Returns TRUE if the \a featureId is attached to a vector \a layer tracking session.
@@ -64,9 +66,11 @@ class TrackingModel : public QAbstractItemModel
     //! Returns TRUE if the list of \a features is attached to a vector \a layer tracking session.
     Q_INVOKABLE bool featuresInTracking( QgsVectorLayer *layer, const QList<QgsFeature> &features );
     //! Returns TRUE if the vector \a layer has a tracking session.
-    Q_INVOKABLE bool layerInTracking( QgsVectorLayer *layer );
+    Q_INVOKABLE bool layerInTracking( QgsVectorLayer *layer ) const;
+    //! Returns TRUE if the vector \a layer has an active tracking session.
+    Q_INVOKABLE bool layerInActiveTracking( QgsVectorLayer *layer ) const;
     //! Returns the tracker for the vector \a layer if a tracking session is present, otherwise returns NULLPTR.
-    Tracker *trackerForLayer( QgsVectorLayer *layer );
+    Q_INVOKABLE Tracker *trackerForLayer( QgsVectorLayer *layer ) const;
 
     //! Replays a list of position information for all active trackers
     Q_INVOKABLE void replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer = nullptr );
@@ -74,6 +78,16 @@ class TrackingModel : public QAbstractItemModel
     Q_INVOKABLE void suspendUntilReplay();
 
     void reset();
+
+    /**
+     * Returns a list of available \a project vector layers with which a tracking session can be started.
+     */
+    Q_INVOKABLE QList<QgsVectorLayer *> availableLayers( QgsProject *project ) const;
+
+    /**
+     * Returns the best available \a project vector layer with which a tracking session can be started.
+     */
+    Q_INVOKABLE QgsVectorLayer *bestAvailableLayer( QgsProject *project ) const;
 
     /**
      * Forwards a tracking setup request to the user interface consisting of a settings panel followed by
@@ -109,7 +123,7 @@ class TrackingModel : public QAbstractItemModel
     QList<Tracker *> mTrackers;
     QList<TrackerRequest> mRequestedTrackers;
 
-    QList<Tracker *>::const_iterator trackerIterator( QgsVectorLayer *layer )
+    QList<Tracker *>::const_iterator trackerIterator( QgsVectorLayer *layer ) const
     {
       return std::find_if( mTrackers.constBegin(), mTrackers.constEnd(), [layer]( const Tracker *tracker ) { return tracker->vectorLayer() == layer; } );
     }

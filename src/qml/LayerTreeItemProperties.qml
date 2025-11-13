@@ -50,7 +50,7 @@ QfPopup {
     showFeaturesListButtonVisible = isShowFeaturesListButtonVisible();
     showVisibleFeaturesListDropdownVisible = isShowVisibleFeaturesListDropdownVisible();
     trackingButtonVisible = isTrackingButtonVisible();
-    trackingButtonText = trackingModel.layerInTracking(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)) ? qsTr('Stop tracking') : qsTr('Setup tracking');
+    trackingButtonText = trackingModel.layerInActiveTracking(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)) ? qsTr('Stop tracking') : qsTr('Setup tracking');
 
     // the layer tree model returns -1 for items that do not support the opacity setting
     opacitySliderVisible = layerTree.data(index, FlatLayerTreeModel.Opacity) > -1;
@@ -291,28 +291,14 @@ QfPopup {
           icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
 
           onClicked: {
-            var layer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
+            const layer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
             popup.close();
-            if (trackingModel.layerInTracking(layer)) {
+            if (trackingModel.layerInActiveTracking(layer)) {
               trackingModel.stopTracker(layer);
-              displayToast(qsTr('Track on layer %1 stopped').arg(layer.name));
+              displayToast(qsTr('Tracking on layer %1 stopped').arg(layer.name));
             } else {
-              var tracker;
-              var idx = projectInfo.restoreTracker(layer);
-              if (idx.valid) {
-                tracker = trackings.itemAt(idx.row).tracker;
-              } else {
-                idx = trackingModel.createTracker(layer);
-                tracker = trackings.itemAt(idx.row).tracker;
-                tracker.visible = itemVisibleCheckBox.checked;
-                tracker.minimumDistance = positioningSettings.trackerMinimumDistanceConstraint ? positioningSettings.trackerMinimumDistance : 0;
-                tracker.timeInterval = positioningSettings.trackerTimeIntervalConstraint ? positioningSettings.trackerTimeInterval : 0;
-                tracker.maximumDistance = positioningSettings.trackerErroneousDistanceSafeguard ? positioningSettings.trackerErroneousDistance : 0;
-                tracker.sensorCapture = positioningSettings.trackerSensorCaptureConstraint;
-                tracker.conjunction = positioningSettings.trackerMeetAllConstraints;
-                tracker.measureType = positioningSettings.trackerMeasureType;
-              }
-              trackingModel.requestTrackingSetup(layer);
+              trackerSettings.prepareSettings(layer);
+              trackerSettings.open();
             }
           }
         }

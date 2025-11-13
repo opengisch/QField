@@ -237,7 +237,7 @@ Page {
             indicator.implicitHeight: 24
             indicator.implicitWidth: 24
             leftPadding: 1
-            checked: true
+            checked: false
           }
         }
 
