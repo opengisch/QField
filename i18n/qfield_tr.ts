@@ -1432,7 +1432,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>%1 katmandaki izleme durduruldu</translation>
+        <translation type="vanished">%1 katmandaki izleme durduruldu</translation>
     </message>
     <message>
         <source>Read-Only Layer</source>
@@ -1481,6 +1481,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Disabled layer permissions: %1</source>
         <translation>Devre dışı bırakılmış katman izinleri: %1</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1542,20 +1546,24 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This layer is is currently tracking positions.</source>
-        <translation>Bu katman şu anda konumları izliyor.</translation>
-    </message>
-    <message>
         <source>Stop</source>
         <translation>Durdur</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>%1 katmandaki izleme durduruldu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
         <translation>Bu katmanın izin yapılandırması, özellik eklemeyi devre dışı bırakır.</translation>
+    </message>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2538,6 +2546,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Media</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track color</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4776,11 +4788,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
 </context>
 <context>
-    <name>TrackerSettings</name>
+    <name>TrackerFeatureForm</name>
     <message>
-        <source>Tracking: %1</source>
-        <translation>İzleme: %1</translation>
+        <source>Track on layer %1 started</source>
+        <translation>%1 katmanındaki takip başladı</translation>
     </message>
+</context>
+<context>
+    <name>TrackerSettings</name>
     <message>
         <source>Tracking</source>
         <translation>İzleme</translation>
@@ -4895,11 +4910,19 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>%1 katmanındaki takip başladı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resume tracking</source>
         <translation>Takibi devam ettir</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 resumed</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6205,6 +6228,22 @@ to show actions</source>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
         <translation>Bu buton konumlandırma sistemini açıp kapatır. Etkinleştirildiğinde, haritanın üstünde bir konum işareti belirecektir. Butona uzun basmak, ek işlevlerin keşfedilebileceği konumlandırma menüsünü açar.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Tracking active on %n layer(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Stop all</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Tracking on %n layer(s) stopped</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>No compatible layers available to launch tracking</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

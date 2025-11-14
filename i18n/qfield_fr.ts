@@ -1437,7 +1437,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>Suivi de la couche %1 arrêté</translation>
+        <translation type="vanished">Suivi de la couche %1 arrêté</translation>
     </message>
     <message>
         <source>Read-Only Layer</source>
@@ -1486,6 +1486,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Disabled layer permissions: %1</source>
         <translation>Autorisations de couche désactivées: %1</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1548,19 +1552,23 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This layer is is currently tracking positions.</source>
-        <translation>.Cette couche suit actuellement votre position.</translation>
-    </message>
-    <message>
         <source>Stop</source>
         <translation>Arrêt</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>Suivi de la couche %1 arrêté</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2544,6 +2552,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Media</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track color</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4778,11 +4790,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>TrackerSettings</name>
+    <name>TrackerFeatureForm</name>
     <message>
-        <source>Tracking: %1</source>
-        <translation>Suivi : %1</translation>
+        <source>Track on layer %1 started</source>
+        <translation>Suivi de la couche %1 démarré</translation>
     </message>
+</context>
+<context>
+    <name>TrackerSettings</name>
     <message>
         <source>Tracking</source>
         <translation>Suivi</translation>
@@ -4897,11 +4912,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>Suivi de la couche %1 démarré</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resume tracking</source>
         <translation>Reprendre le suivi</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 resumed</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6211,6 +6234,22 @@ to show actions</source>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
         <translation>Ce bouton sélectionne le système de positionnement. Si activé, un marqueur de position apparaîtra sur la carte. Une pression longue du bouton ouvrira le menu de positionnement où des fonctionnalités additionnelles sont accessibles.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Tracking active on %n layer(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Stop all</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Tracking on %n layer(s) stopped</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>No compatible layers available to launch tracking</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

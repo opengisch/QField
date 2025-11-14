@@ -1436,7 +1436,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>Tracking in Layer %1 deaktiviert</translation>
+        <translation type="vanished">Tracking in Layer %1 deaktiviert</translation>
     </message>
     <message>
         <source>Read-Only Layer</source>
@@ -1485,6 +1485,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Disabled layer permissions: %1</source>
         <translation>Deaktiviert Berechtigungen des Layers: %1</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1546,20 +1550,24 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This layer is is currently tracking positions.</source>
-        <translation>Dieser Layer zeichnet momentan die Position auf.</translation>
-    </message>
-    <message>
         <source>Stop</source>
         <translation>Stop</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>Tracking in Layer %1 deaktiviert</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
         <translation>Die Einstellung der Berechtigung für diesen Layer deaktiviert das Hinzufügen von Objekten.</translation>
+    </message>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2543,6 +2551,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Media</source>
         <translation>Medien</translation>
+    </message>
+    <message>
+        <source>Track color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4778,11 +4790,14 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
 </context>
 <context>
-    <name>TrackerSettings</name>
+    <name>TrackerFeatureForm</name>
     <message>
-        <source>Tracking: %1</source>
-        <translation>Tracking: %1</translation>
+        <source>Track on layer %1 started</source>
+        <translation>Tracking für Layer %1 aktiviert</translation>
     </message>
+</context>
+<context>
+    <name>TrackerSettings</name>
     <message>
         <source>Tracking</source>
         <translation>Tracking</translation>
@@ -4897,11 +4912,19 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>Tracking für Layer %1 aktiviert</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resume tracking</source>
         <translation>Tracking abschließen</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 resumed</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6211,6 +6234,22 @@ um Aktionen anzuzeigen</translation>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
         <translation>Diese Schaltfläche schaltet das Positionierungssystem an. Wenn aktiv, erscheint ein Positionsindikator auf der Karte. Ein langer Druck öffnet das Positionierungs-Menü, das weitere Möglichkeiten bietet.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Tracking active on %n layer(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Stop all</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Tracking on %n layer(s) stopped</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>No compatible layers available to launch tracking</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

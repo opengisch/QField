@@ -1434,7 +1434,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>在图层 %1 上的追踪已停止</translation>
+        <translation type="vanished">图层%1的跟踪已停止</translation>
     </message>
     <message>
         <source>Read-Only Layer</source>
@@ -1483,6 +1483,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Disabled layer permissions: %1</source>
         <translation>禁用图层权限: %1</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation>图层%1的跟踪已停止</translation>
     </message>
 </context>
 <context>
@@ -1545,20 +1549,24 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This layer is is currently tracking positions.</source>
-        <translation>该图层当前正在跟踪位置。</translation>
-    </message>
-    <message>
         <source>Stop</source>
         <translation>停止</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>在图层 %1 上的追踪已停止</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
         <translation>该图层的权限配置禁用要素添加。</translation>
+    </message>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation>此图层的跟踪处于活动状态。</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation>图层%1的跟踪已停止</translation>
     </message>
 </context>
 <context>
@@ -2474,7 +2482,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Track your position?</source>
-        <translation>跟踪您的位置？</translation>
+        <translation>是否跟踪您的位置？</translation>
     </message>
     <message>
         <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
@@ -2542,6 +2550,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Media</source>
         <translation>介质</translation>
+    </message>
+    <message>
+        <source>Track color</source>
+        <translation>跟踪颜色</translation>
     </message>
 </context>
 <context>
@@ -4779,11 +4791,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>TrackerSettings</name>
+    <name>TrackerFeatureForm</name>
     <message>
-        <source>Tracking: %1</source>
-        <translation>跟踪: %1</translation>
+        <source>Track on layer %1 started</source>
+        <translation>对图层%1的追踪已启动</translation>
     </message>
+</context>
+<context>
+    <name>TrackerSettings</name>
     <message>
         <source>Tracking</source>
         <translation>跟踪</translation>
@@ -4898,22 +4913,30 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>对图层%1的追踪已启动</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resume tracking</source>
         <translation>继续跟踪</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation>图层</translation>
+    </message>
+    <message>
+        <source>Track on layer %1 resumed</source>
+        <translation>图层%1的跟踪已恢复</translation>
     </message>
 </context>
 <context>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation type="vanished">对图层%1的追踪已启动</translation>
+        <translation type="vanished">图层%1的跟踪已启动</translation>
     </message>
     <message>
         <source>Tracker Settings</source>
-        <translation type="vanished">追踪设置</translation>
+        <translation type="vanished">跟踪设置</translation>
     </message>
     <message>
         <source>Activate time constraint</source>
@@ -6212,6 +6235,22 @@ to show actions</source>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
         <translation>该按钮可以切换到定位系统。启用后，位置标记将显示在地图顶部。长按按钮将打开定位菜单，可以在其中探索其他功能。</translation>
+    </message>
+    <message numerus="yes">
+        <source>Tracking active on %n layer(s)</source>
+        <translation><numerusform>跟踪在%n个图层处于活动状态</numerusform></translation>
+    </message>
+    <message>
+        <source>Stop all</source>
+        <translation>全部停止</translation>
+    </message>
+    <message numerus="yes">
+        <source>Tracking on %n layer(s) stopped</source>
+        <translation><numerusform>已停止%n个图层的跟踪</numerusform></translation>
+    </message>
+    <message>
+        <source>No compatible layers available to launch tracking</source>
+        <translation>没有可用于启动跟踪的兼容图层</translation>
     </message>
 </context>
 <context>

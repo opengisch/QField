@@ -1440,7 +1440,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>Zatrzymano ślad na warstwie %1</translation>
+        <translation type="vanished">Zatrzymano ślad na warstwie %1</translation>
     </message>
     <message>
         <source>Read-Only Layer</source>
@@ -1489,6 +1489,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Disabled layer permissions: %1</source>
         <translation>Wyłączone uprawnienia warstwy: %1</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1551,20 +1555,24 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This layer is is currently tracking positions.</source>
-        <translation>Ta warstwa obecnie śledzi pozycje.</translation>
-    </message>
-    <message>
         <source>Stop</source>
         <translation>Zatrzymaj</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>Zatrzymano ślad na warstwie %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
         <translation>Konfiguracja uprawnień tej warstwy wyłącza dodawanie obiektów.</translation>
+    </message>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2548,6 +2556,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Media</source>
         <translation>Media</translation>
+    </message>
+    <message>
+        <source>Track color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4785,11 +4797,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
 </context>
 <context>
-    <name>TrackerSettings</name>
+    <name>TrackerFeatureForm</name>
     <message>
-        <source>Tracking: %1</source>
-        <translation>Śledzenie: %1</translation>
+        <source>Track on layer %1 started</source>
+        <translation>Rozpoczęto ślad na warstwie %1</translation>
     </message>
+</context>
+<context>
+    <name>TrackerSettings</name>
     <message>
         <source>Tracking</source>
         <translation>Śledzenie</translation>
@@ -4904,11 +4919,19 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>Rozpoczęto ślad na warstwie %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resume tracking</source>
         <translation>Wznów śledzenie</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 resumed</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6218,6 +6241,22 @@ aby wyświetlić działania</translation>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
         <translation>Ten przycisk przełącza system pozycjonowania. Po włączeniu na górze mapy pojawi się znacznik pozycji. Długie naciśnięcie przycisku spowoduje otwarcie menu pozycjonowania, w którym można korzystać z dodatkowych funkcji.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Tracking active on %n layer(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Stop all</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Tracking on %n layer(s) stopped</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>No compatible layers available to launch tracking</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

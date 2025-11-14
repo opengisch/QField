@@ -1430,7 +1430,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>ຕິດຕາມໃນຊັ້ນຂໍ້ມູນ %1 ຢຸດ</translation>
+        <translation type="vanished">ຕິດຕາມໃນຊັ້ນຂໍ້ມູນ %1 ຢຸດ</translation>
     </message>
     <message>
         <source>Read-Only Layer</source>
@@ -1479,6 +1479,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Disabled layer permissions: %1</source>
         <translation>ປິດການອະນຸຍາດຊັ້ນຂໍ້ມູນ: %1</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1538,20 +1542,24 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This layer is is currently tracking positions.</source>
-        <translation>ຊັ້ນນີ້ກຳລັງຕິດຕາມຕຳແໜ່ງຢູ່.</translation>
-    </message>
-    <message>
         <source>Stop</source>
         <translation>ຢຸດ</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>ຕິດຕາມໃນຊັ້ນຂໍ້ມູນ %1 ຢຸດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
         <translation>ການຕັ້ງຄ່າການອະນຸຍາດໃນຊັ້ນນີ້ປິດການເພີ່ມຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2534,6 +2542,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Media</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track color</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4764,11 +4776,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>TrackerSettings</name>
+    <name>TrackerFeatureForm</name>
     <message>
-        <source>Tracking: %1</source>
-        <translation>ການຕິດຕາມ: %1</translation>
+        <source>Track on layer %1 started</source>
+        <translation>ຕິດຕາມໃນຊັ້ນຂໍ້ມູນ %1 ເລີ່ມແລ້ວ</translation>
     </message>
+</context>
+<context>
+    <name>TrackerSettings</name>
     <message>
         <source>Tracking</source>
         <translation>ການຕິດຕາມ</translation>
@@ -4883,11 +4898,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>ຕິດຕາມໃນຊັ້ນຂໍ້ມູນ %1 ເລີ່ມແລ້ວ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resume tracking</source>
         <translation>ສືບຕໍ່ຕິດຕາມ</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 resumed</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6194,6 +6217,22 @@ to show actions</source>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
         <translation>ປຸ່ມນີ້ໃຊ້ເປີດ/ປິດລະບົບກຳນົດຕຳແໜ່ງ. ເມື່ອເປີດນຳໃຊ້ແລ້ວ, ເຄື່ອງໝາຍຕຳແໜ່ງຈະສະແດງຢູ່ເທິງສຸດຂອງແຜນທີ່. ການກົດປຸ່ມຄ້າງໄວ້ຈະເປີດເມນູການກຳນົດຕຳແໜ່ງ ຊຶ່ງທ່ານສາມາດສຳຫຼວດເບິ່ງໜ້າທີ່ເພີ່ມເຕີມໄດ້. </translation>
+    </message>
+    <message numerus="yes">
+        <source>Tracking active on %n layer(s)</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Stop all</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Tracking on %n layer(s) stopped</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>No compatible layers available to launch tracking</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

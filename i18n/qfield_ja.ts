@@ -1434,7 +1434,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>レイヤ %1 の追跡を停止しました</translation>
+        <translation type="vanished">レイヤ %1 の追跡を停止しました</translation>
     </message>
     <message>
         <source>Read-Only Layer</source>
@@ -1483,6 +1483,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Disabled layer permissions: %1</source>
         <translation>レイヤの権限を無効しました: %1</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1545,20 +1549,24 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This layer is is currently tracking positions.</source>
-        <translation>このレイヤーは現在位置を追跡しています。</translation>
-    </message>
-    <message>
         <source>Stop</source>
         <translation>停止</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>レイヤ %1 の追跡を停止しました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
         <translation>権限設定によりこのレイヤーへの地物の追加は無効になっています。</translation>
+    </message>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2541,6 +2549,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Media</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track color</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4779,11 +4791,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
-    <name>TrackerSettings</name>
+    <name>TrackerFeatureForm</name>
     <message>
-        <source>Tracking: %1</source>
-        <translation>トラッキング: %1</translation>
+        <source>Track on layer %1 started</source>
+        <translation>レイヤー %1 の追跡を開始しました</translation>
     </message>
+</context>
+<context>
+    <name>TrackerSettings</name>
     <message>
         <source>Tracking</source>
         <translation>トラッキング</translation>
@@ -4898,11 +4913,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>レイヤー %1 の追跡を開始しました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resume tracking</source>
         <translation>トラッキングをやり直す</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 resumed</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6208,6 +6231,22 @@ to show actions</source>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
         <translation>このボタンは測位システムを切り替えます。有効にすると、地図の上部に位置マーカーが表示されます。このボタンを長押しすると、その他の機能がある測位メニューが表示されます。</translation>
+    </message>
+    <message numerus="yes">
+        <source>Tracking active on %n layer(s)</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Stop all</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Tracking on %n layer(s) stopped</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>No compatible layers available to launch tracking</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

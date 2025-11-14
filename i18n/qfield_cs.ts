@@ -1440,7 +1440,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>Trasa na vrstvě %1 se zastavila</translation>
+        <translation type="vanished">Trasa na vrstvě %1 se zastavila</translation>
     </message>
     <message>
         <source>Read-Only Layer</source>
@@ -1488,6 +1488,10 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1551,19 +1555,23 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This layer is is currently tracking positions.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Stop</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation>Trasa na vrstvě %1 se zastavila</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2547,6 +2555,10 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Media</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track color</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4784,11 +4796,14 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
 </context>
 <context>
-    <name>TrackerSettings</name>
+    <name>TrackerFeatureForm</name>
     <message>
-        <source>Tracking: %1</source>
-        <translation>Sledování: %1</translation>
+        <source>Track on layer %1 started</source>
+        <translation>Začalo trasování ve vrstvě %1 </translation>
     </message>
+</context>
+<context>
+    <name>TrackerSettings</name>
     <message>
         <source>Tracking</source>
         <translation type="unfinished"/>
@@ -4903,10 +4918,18 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>Začalo trasování ve vrstvě %1 </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resume tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 resumed</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6212,6 +6235,22 @@ to show actions</source>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Tracking active on %n layer(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Stop all</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Tracking on %n layer(s) stopped</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>No compatible layers available to launch tracking</source>
         <translation type="unfinished"/>
     </message>
 </context>
