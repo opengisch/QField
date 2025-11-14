@@ -764,6 +764,10 @@ Page {
   }
 
   function confirm() {
+    if (form.state === "ReadOnly") {
+      return;
+    }
+
     //if this is not handled before (e.g. when this is called because the drawer is closed by tipping on the map)
     if (!model.constraintsHardValid) {
       displayToast(qsTr('Constraints not valid'), 'warning');
