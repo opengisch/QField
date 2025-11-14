@@ -1,8 +1,10 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.Material.impl
 import Theme
 
 EditorWidgetBase {
+  id: checkBoxEditorWidgetBase
   height: childrenRect.height
 
   // if the field type is boolean, ignore the configured 'CheckedState' and 'UncheckedState' values and work with true/false always
@@ -26,6 +28,7 @@ EditorWidgetBase {
 
     topPadding: 10
     bottomPadding: 10
+    leftPadding: isEnabled || notEditableInEditMode ? 10 : 0
     font.pointSize: Theme.defaultFont.pointSize
     font.bold: Theme.defaultFont.bold
     font.italic: isNull
@@ -34,12 +37,11 @@ EditorWidgetBase {
     text: !isNull ? checkBox.checked ? checkedLabel : uncheckedLabel : isEnabled ? qsTr('NULL') : ''
   }
 
-  QfSwitch {
+  Switch {
     id: checkBox
     enabled: isEnabled
-    visible: isEnabled
+    visible: isEnabled || notEditableInEditMode
     width: implicitContentWidth
-    small: true
 
     anchors {
       right: parent.right
@@ -58,6 +60,18 @@ EditorWidgetBase {
         return !isNull ? String(value) === config['CheckedState'] : false;
       }
     }
+  }
+
+  MaterialTextContainer {
+    implicitWidth: parent.width
+    implicitHeight: checkBoxEditorWidgetBase.Material.textFieldHeight
+
+    outlineColor: (enabled && checkBoxEditorWidgetBase.hovered) ? checkBoxEditorWidgetBase.Material.primaryTextColor : checkBoxEditorWidgetBase.Material.hintTextColor
+    focusedOutlineColor: checkBoxEditorWidgetBase.Material.accentColor
+    controlHasActiveFocus: checkBoxEditorWidgetBase.activeFocus
+    controlHasText: true
+    horizontalPadding: checkBoxEditorWidgetBase.Material.textFieldHorizontalPadding
+    visible: isEnabled || notEditableInEditMode
   }
 
   MouseArea {
@@ -84,17 +98,6 @@ EditorWidgetBase {
       }
       valueChangeRequested(editedValue, false);
     }
-  }
-
-  Rectangle {
-    id: backgroundRect
-    anchors.left: parent.left
-    anchors.right: parent.right
-    y: checkValue.height - height - checkValue.bottomPadding / 2
-    implicitWidth: 120
-    height: checkBox.activeFocus || checkBox.pressed || checkArea.containsPress ? 2 : 1
-    color: checkBox.activeFocus || checkBox.pressed || checkArea.containsPress ? Theme.accentColor : Theme.accentLightColor
-    visible: isEnabled
   }
 
   FontMetrics {

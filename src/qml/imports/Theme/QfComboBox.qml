@@ -20,7 +20,4 @@ ComboBox {
     horizontalAlignment: Text.AlignLeft
     elide: Text.ElideRight
   }
-
-  background.visible: enabled
-  indicator.visible: enabled
 }

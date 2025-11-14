@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.Material.impl
 import org.qfield
 import Theme
 
@@ -16,6 +17,7 @@ EditorWidgetBase {
     height: !textArea.visible ? textField.height : 0
     topPadding: 10
     bottomPadding: 10
+    leftPadding: enabled || notEditableInEditMode ? 10 : 0
     visible: height !== 0 && !isEditable
     anchors.left: parent.left
     anchors.right: parent.right
@@ -32,6 +34,18 @@ EditorWidgetBase {
     }
   }
 
+  MaterialTextContainer {
+    implicitWidth: parent.width
+    implicitHeight: topItem.Material.textFieldHeight
+
+    outlineColor: (enabled && topItem.hovered) ? topItem.Material.primaryTextColor : topItem.Material.hintTextColor
+    focusedOutlineColor: topItem.Material.accentColor
+    controlHasActiveFocus: topItem.activeFocus
+    controlHasText: true
+    horizontalPadding: topItem.Material.textFieldHorizontalPadding
+    visible: isEnabled || notEditableInEditMode
+  }
+
   TextField {
     id: textField
     leftPadding: enabled ? 10 : 0
@@ -42,6 +56,7 @@ EditorWidgetBase {
     color: notEditableInEditMode ? Theme.mainTextDisabledColor : Theme.mainTextColor
     maximumLength: field != undefined && field.length > 0 ? field.length : -1
     wrapMode: TextInput.Wrap
+    background.visible: enabled || notEditableInEditMode
 
     text: value == null ? '' : value
 
@@ -104,6 +119,7 @@ EditorWidgetBase {
     onTextChanged: {
       valueChangeRequested(text, text == '');
     }
+    background.visible: enabled || notEditableInEditMode
   }
 
   FontMetrics {

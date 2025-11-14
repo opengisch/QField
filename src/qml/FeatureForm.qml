@@ -550,7 +550,7 @@ Page {
             topPadding: 10
             bottomPadding: 5
             opacity: 1
-            color: LabelOverrideColor ? LabelColor : Theme.mainTextColor
+            color: LabelOverrideColor ? LabelColor : !AttributeEditable && form.state === 'Edit' ? Theme.mainTextDisabledColor : Theme.mainTextColor
           }
 
           Label {
