@@ -1,0 +1,86 @@
+From ac0b13a144b099b11008cc8b659886d316e11036 Mon Sep 17 00:00:00 2001
+From: Jani Korteniemi <jani.korteniemi@qt.io>
+Date: Thu, 13 Nov 2025 06:42:33 +0200
+Subject: [PATCH] Android: Use setWindowInsetsAnimationCallback to detect keyboard animation end
+
+Use setWindowInsetsAnimationCallback istead of
+controlWindowInsetsAnimation to update cursorposiion and check for the
+keyboard height at the end of the keyboard show animation.
+Remove controlWindowInsetsAnimation() as in the Android 16 IME
+visiblility was requested twice and it gets cancelled.
+
+Pick-to: dev 6.10 6.8
+Fixes: QTBUG-140897
+Change-Id: Ic62f5e0afa7ab8df4985e5a186035ff33af0ab66
+---
+
+diff --git a/src/android/jar/src/org/qtproject/qt/android/QtInputDelegate.java b/src/android/jar/src/org/qtproject/qt/android/QtInputDelegate.java
+index e0c6c00..ddbe438 100644
+--- a/src/android/jar/src/org/qtproject/qt/android/QtInputDelegate.java
++++ b/src/android/jar/src/org/qtproject/qt/android/QtInputDelegate.java
+@@ -3,6 +3,7 @@
+ 
+ package org.qtproject.qt.android;
+ 
++import java.util.List;
+ import android.app.Activity;
+ import android.content.Context;
+ import android.graphics.Rect;
+@@ -20,8 +21,9 @@
+ import android.view.MotionEvent;
+ import android.view.WindowInsets;
+ import android.view.WindowInsets.Type;
+-import android.view.WindowInsetsAnimationController;
+-import android.view.WindowInsetsAnimationControlListener;
++import android.view.Window;
++import android.view.WindowInsetsAnimation;
++import android.view.WindowInsetsAnimation.Callback;
+ import android.view.WindowManager;
+ import android.view.View;
+ import android.view.ViewTreeObserver;
+@@ -146,24 +148,29 @@
+                               final int inputHints, final int enterKeyType)
+     {
+         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+-            activity.getWindow().getInsetsController().controlWindowInsetsAnimation(
+-                WindowInsets.Type.ime(), -1, null, null,
+-                    new WindowInsetsAnimationControlListener() {
++            Window window = activity.getWindow();
++            View decorView = window.getDecorView();
++            decorView.setWindowInsetsAnimationCallback(
++                new WindowInsetsAnimation.Callback(
++                    WindowInsetsAnimation.Callback.DISPATCH_MODE_CONTINUE_ON_SUBTREE) {
+                         @Override
+-                        public void onCancelled(WindowInsetsAnimationController controller) { }
+-
+-                        @Override
+-                        public void onReady(WindowInsetsAnimationController controller, int types) { }
+-
+-                        @Override
+-                        public void onFinished(WindowInsetsAnimationController controller) {
+-                            QtNativeInputConnection.updateCursorPosition();
+-                            if (m_softInputMode == 0)
+-                                probeForKeyboardHeight(activity, x, y, width, height,
+-                                                       inputHints, enterKeyType);
++                        public WindowInsets onProgress(
++                            WindowInsets insets, List<WindowInsetsAnimation> animationList) {
++                                return insets;
+                         }
+-                    });
+-            activity.getWindow().getInsetsController().show(Type.ime());
++                        @Override
++                        public void onEnd(WindowInsetsAnimation animation) {
++                            decorView.setWindowInsetsAnimationCallback(null);
++                            if ((animation.getTypeMask() & WindowInsets.Type.ime()) == 0) {
++                                QtNativeInputConnection.updateCursorPosition();
++                                if (m_softInputMode == 0) {
++                                    probeForKeyboardHeight(activity, x, y, width, height,
++                                                            inputHints, enterKeyType);
++                                }
++                            }
++                        }
++                });
++            window.getInsetsController().show(Type.ime());
+         } else {
+             if (m_imm == null)
+                 return;
