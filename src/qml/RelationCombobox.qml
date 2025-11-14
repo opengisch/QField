@@ -304,7 +304,7 @@ Item {
       font: Theme.defaultFont
 
       contentItem: Text {
-        leftPadding: enabled ? 10 : 0
+        leftPadding: enabled || notEditableInEditMode ? 10 : 0
         height: fontMetrics.height + 20
         text: comboBox.currentIndex === -1 && value !== undefined ? '(' + value + ')' : comboBox.currentText
         font: comboBox.font
@@ -363,8 +363,8 @@ Item {
         }
       }
 
-      background.visible: enabled
-      indicator.visible: enabled
+      background.visible: enabled || notEditableInEditMode
+      indicator.visible: enabled || notEditableInEditMode
     }
 
     FontMetrics {
