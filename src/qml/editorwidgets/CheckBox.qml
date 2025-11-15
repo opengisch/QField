@@ -28,7 +28,6 @@ EditorWidgetBase {
 
     topPadding: 10
     bottomPadding: 10
-    leftPadding: isEnabled || notEditableInEditMode ? 10 : 0
     font.pointSize: Theme.defaultFont.pointSize
     font.bold: Theme.defaultFont.bold
     font.italic: isNull
@@ -40,7 +39,6 @@ EditorWidgetBase {
   Switch {
     id: checkBox
     enabled: isEnabled
-    visible: isEnabled || notEditableInEditMode
     width: implicitContentWidth
 
     anchors {
@@ -60,18 +58,6 @@ EditorWidgetBase {
         return !isNull ? String(value) === config['CheckedState'] : false;
       }
     }
-  }
-
-  MaterialTextContainer {
-    implicitWidth: parent.width
-    implicitHeight: checkBoxEditorWidgetBase.Material.textFieldHeight
-
-    outlineColor: (enabled && checkBoxEditorWidgetBase.hovered) ? checkBoxEditorWidgetBase.Material.primaryTextColor : checkBoxEditorWidgetBase.Material.hintTextColor
-    focusedOutlineColor: checkBoxEditorWidgetBase.Material.accentColor
-    controlHasActiveFocus: checkBoxEditorWidgetBase.activeFocus
-    controlHasText: true
-    horizontalPadding: checkBoxEditorWidgetBase.Material.textFieldHorizontalPadding
-    visible: isEnabled || notEditableInEditMode
   }
 
   MouseArea {

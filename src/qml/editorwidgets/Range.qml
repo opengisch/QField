@@ -25,7 +25,7 @@ EditorWidgetBase {
 
     TextField {
       id: textField
-      leftPadding: enabled || notEditableInEditMode ? 10 : 0
+      leftPadding: isEnabled || notEditableInEditMode ? 10 : 0
       width: parent.width - decreaseButton.width - increaseButton.width
 
       font: Theme.defaultFont
@@ -37,7 +37,7 @@ EditorWidgetBase {
 
       inputMethodHints: Qt.ImhFormattedNumbersOnly
 
-      background.visible: enabled || notEditableInEditMode
+      background.visible: isEnabled || notEditableInEditMode
 
       onTextChanged: {
         if (text === '' || !isNaN(parseFloat(text))) {

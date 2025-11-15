@@ -99,7 +99,7 @@ EditorWidgetBase {
       topPadding: 6
       bottomPadding: 6
       rightPadding: 0
-      leftPadding: enabled || notEditableInEditMode ? 10 : 0
+      leftPadding: isEnabled || notEditableInEditMode ? 10 : 0
 
       inputMethodHints: Qt.ImhDigitsOnly
 
@@ -187,7 +187,7 @@ EditorWidgetBase {
         }
       }
 
-      background.visible: enabled || notEditableInEditMode
+      background.visible: isEnabled || notEditableInEditMode
     }
 
     QfToolButton {
