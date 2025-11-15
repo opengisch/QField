@@ -22,8 +22,9 @@ Page {
   signal valueChanged(var field, var oldValue, var newValue)
   signal aboutToSave
 
-  signal toolbarSwiped(var direction)
-  signal toolbarClicked
+  signal toolbarDragged(var deltaX, var deltaY)
+  signal toolbarDragAcquired
+  signal toolbarDragReleased
 
   signal requestGeometry(var item, var layer)
   signal requestBarcode(var item)
@@ -914,52 +915,29 @@ Page {
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
 
-        MouseArea {
-          enabled: toolbar.visible
-          anchors.fill: parent
+        DragHandler {
+          enabled: true
+          target: null
+          acceptedButtons: Qt.LeftButton
+          grabPermissions: PointerHandler.CanTakeOverFromAnything
+          dragThreshold: 5
 
-          property real velocity: 0.0
-          property int startX: 0
-          property int startY: 0
-          property int lastX: 0
-          property int lastY: 0
-          property int distance: 0
-          property bool isTracing: false
+          property var oldPos
 
-          onPressed: mouse => {
-            startX = mouse.x;
-            startY = mouse.y;
-            lastX = mouse.x;
-            lastY = mouse.y;
-            velocity = 0;
-            distance = 0;
-            isTracing = true;
-          }
-          onPositionChanged: mouse => {
-            if (!isTracing)
-              return;
-            var currentVelocity = Math.abs(mouse.y - lastY);
-            lastX = mouse.x;
-            lastY = mouse.y;
-            velocity = (velocity + currentVelocity) / 2.0;
-            distance = Math.abs(mouse.y - startY);
-            isTracing = velocity > 15 && distance > parent.height;
-          }
-          onReleased: {
-            if (!isTracing) {
-              form.toolbarSwiped(getDirection());
+          onActiveChanged: {
+            if (active) {
+              form.toolbarDragAcquired();
+              oldPos = centroid.scenePosition;
             } else {
-              form.toolbarClicked();
+              form.toolbarDragReleased();
             }
           }
 
-          function getDirection() {
-            var diffX = lastX - startX;
-            var diffY = lastY - startY;
-            if (Math.abs(diffX) > Math.abs(diffY)) {
-              return lastX < startX ? 'left' : 'right';
+          onCentroidChanged: {
+            if (active && centroid.scenePosition !== oldPos) {
+              form.toolbarDragged(centroid.scenePosition.x - oldPos.x, centroid.scenePosition.y - oldPos.y);
+              oldPos = centroid.scenePosition;
             }
-            return lastY < startY ? 'up' : 'down';
           }
         }
       }
