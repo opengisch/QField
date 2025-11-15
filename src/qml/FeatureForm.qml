@@ -764,13 +764,17 @@ Page {
   }
 
   function confirm() {
+    if (form.state === "ReadOnly") {
+      return;
+    }
+
     //if this is not handled before (e.g. when this is called because the drawer is closed by tipping on the map)
     if (!model.constraintsHardValid) {
-      displayToast(qsTr('Constraints not valid'), 'warning');
+      displayToast(qsTr('Hard constraints not satisfied'), 'error');
       cancel();
       return;
     } else if (!model.constraintsSoftValid) {
-      displayToast(qsTr('Note: soft constraints were not met'));
+      displayToast(qsTr('Soft constraints were not satisified'));
     }
     parent.focus = true;
     if (setupOnly) {
@@ -864,8 +868,8 @@ Page {
         clip: true
 
         iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
-        iconColor: model.featureModel.featureAdditionLocked || !model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
-        bgcolor: model.featureModel.featureAdditionLocked || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : "transparent"
+        iconColor: (form.state === 'Add' && model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
+        bgcolor: (form.state === 'Add' && model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : "transparent"
         borderColor: Theme.mainBackgroundColor
         roundborder: true
         round: true
@@ -887,7 +891,7 @@ Page {
 
         Layout.fillWidth: true
         Layout.preferredHeight: parent.height
-        Layout.leftMargin: !setupOnly && form.model.hasRemembrance ? 48 : 0
+        Layout.leftMargin: form.state === "ReadOnly" || (!setupOnly && form.model.hasRemembrance) ? 48 : 0
         Layout.rightMargin: !setupOnly ? 0 : 48
         objectName: "titleLabel"
 

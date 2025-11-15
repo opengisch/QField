@@ -102,6 +102,9 @@ QfPopup {
   }
 
   onClosed: {
+    if (form.state === "ReadOnly") {
+      return;
+    }
     if (!form.isSaved) {
       form.confirm();
       digitizingToolbar.digitizingLogger.writeCoordinates();
