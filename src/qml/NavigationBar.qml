@@ -41,6 +41,7 @@ Rectangle {
   signal backClicked
   signal statusIndicatorClicked
   signal statusIndicatorDragged(var deltaX, var deltaY)
+  signal statusIndicatorDragAcquired
   signal statusIndicatorDragReleased
   signal editAttributesButtonClicked
   signal editGeometryButtonClicked
@@ -66,6 +67,7 @@ Rectangle {
   signal processingFeatureClicked
 
   anchors.top: parent.top
+  anchors.topMargin: 5
   anchors.left: parent.left
   anchors.right: parent.right
   height: toolBar.topMargin + 58
@@ -89,8 +91,6 @@ Rectangle {
   Item {
     anchors {
       fill: parent
-      topMargin: 5
-      bottomMargin: 5
     }
     clip: true
 
@@ -105,7 +105,7 @@ Rectangle {
       anchors.leftMargin: 0 + balancedMargin + toolBar.leftMargin
       anchors.rightMargin: 0 + balancedMargin + toolBar.rightMargin
       anchors.topMargin: toolBar.topMargin
-      height: parent.height - toolBar.topMargin
+      height: 48
 
       text: {
         if (model && selection && selection.focusedItem > -1 && (toolBar.state === 'Navigation' || toolBar.state === 'Edit')) {
@@ -122,41 +122,37 @@ Rectangle {
       wrapMode: Text.Wrap
       elide: Text.ElideRight
 
+      DragHandler {
+        enabled: true
+        target: null
+        acceptedButtons: Qt.LeftButton
+        grabPermissions: PointerHandler.CanTakeOverFromAnything
+        dragThreshold: 5
+
+        property var oldPos
+
+        onActiveChanged: {
+          if (active) {
+            toolBar.statusIndicatorDragAcquired();
+            oldPos = centroid.scenePosition;
+          } else {
+            toolBar.statusIndicatorDragReleased();
+          }
+        }
+
+        onCentroidChanged: {
+          if (active && centroid.scenePosition !== oldPos) {
+            toolBar.statusIndicatorDragged(centroid.scenePosition.x - oldPos.x, centroid.scenePosition.y - oldPos.y);
+            oldPos = centroid.scenePosition;
+          }
+        }
+      }
+
       MouseArea {
         anchors.fill: parent
 
-        property int startY: 0
-        property int startX: 0
-        property int lastY: 0
-        property bool isDragging: false
-
-        onPressed: mouse => {
-          startY = mouse.y;
-          startX = mouse.x;
-          isDragging = true;
-        }
-
-        onMouseYChanged: mouse => {
-          if (isDragging) {
-            var deltaY = mouse.y - startY;
-            toolBar.statusIndicatorDragged(0, deltaY);
-          }
-        }
-
-        onMouseXChanged: mouse => {
-          if (isDragging) {
-            var deltaX = mouse.x - startX;
-            toolBar.statusIndicatorDragged(deltaX, 0);
-          }
-        }
-
-        onReleased: {
-          if (isDragging) {
-            toolBar.statusIndicatorDragReleased();
-            isDragging = false;
-          } else {
-            toolBar.statusIndicatorClicked();
-          }
+        onClicked: {
+          toolBar.statusIndicatorClicked();
         }
       }
     }
@@ -166,7 +162,8 @@ Rectangle {
     id: nextButton
 
     anchors.left: previousButton.right
-    anchors.verticalCenter: parent.verticalCenter
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     visible: toolBar.state === "Navigation"
     width: visible ? 48 : 0
@@ -199,7 +196,8 @@ Rectangle {
 
     anchors.left: parent.left
     anchors.leftMargin: toolBar.leftMargin
-    anchors.verticalCenter: parent.verticalCenter
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     visible: enabled
     width: visible ? 48 : 0
@@ -232,7 +230,8 @@ Rectangle {
 
     anchors.left: parent.left
     anchors.leftMargin: toolBar.leftMargin
-    anchors.verticalCenter: parent.verticalCenter
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     visible: toolBar.state === "Edit" || toolBar.state === "ProcessingLaunch"
     width: visible ? 48 : 0
@@ -269,7 +268,8 @@ Rectangle {
 
     anchors.right: parent.right
     anchors.rightMargin: toolBar.rightMargin
-    anchors.verticalCenter: parent.verticalCenter
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     visible: !qfieldSettings.autoSave && toolBar.state === "Edit"
     width: visible ? 48 : 0
@@ -298,7 +298,8 @@ Rectangle {
     visible: stateMachine.state === "digitize" && !selection.focusedGeometry.isNull && !featureForm.model.featureModel.geometryEditingLocked && (projectInfo.editRights || editButton.isCreatedCloudFeature) && toolBar.state === "Navigation" && editButton.supportsEditing && projectInfo.editRights
 
     anchors.right: editButton.left
-    anchors.verticalCenter: parent.verticalCenter
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     iconSource: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
     iconColor: Theme.mainTextColor
@@ -334,7 +335,8 @@ Rectangle {
     property bool isCreatedCloudFeature: false
 
     anchors.right: menuButton.left
-    anchors.verticalCenter: parent.verticalCenter
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     visible: toolBar.state === "Navigation" && supportsEditing && !featureForm.model.featureModel.attributeEditingLocked && (projectInfo.editRights || isCreatedCloudFeature)
     width: visible ? 48 : 0
@@ -375,7 +377,8 @@ Rectangle {
 
     anchors.right: parent.right
     anchors.rightMargin: toolBar.rightMargin
-    anchors.verticalCenter: parent.verticalCenter
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     visible: toolBar.state !== "Edit" && toolBar.state !== "Processing" && toolBar.state !== "ProcessingLaunch"
     width: visible ? 48 : 0
@@ -404,7 +407,8 @@ Rectangle {
     id: multiClearButton
 
     anchors.left: saveButton.right
-    anchors.verticalCenter: parent.verticalCenter
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     visible: toolBar.multiSelection && toolBar.model && (toolBar.state === "Processing" || toolBar.state === "ProcessingLaunch" || toolBar.state === "Indication")
     width: visible ? 48 : 0
@@ -429,7 +433,8 @@ Rectangle {
     id: multiSelectCount
 
     anchors.left: multiClearButton.right
-    anchors.verticalCenter: parent.verticalCenter
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     width: (toolBar.state === "Indication" && toolBar.multiSelection && toolBar.model ? 48 : 0)
     visible: width > 0
@@ -447,7 +452,8 @@ Rectangle {
     id: multiEditButton
 
     anchors.right: menuButton.left
-    anchors.verticalCenter: parent.verticalCenter
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
 
     visible: toolBar.state === "Indication" && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
     width: visible ? 48 : 0

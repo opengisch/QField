@@ -51,6 +51,8 @@ Pane {
   property bool multiSelection: false
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
   property bool isVertical: parent.width < parent.height || parent.width < 300
+
+  property bool isDragging: false
   property real dragHeightAdjustment: 0
   property real dragWidthAdjustment: 0
 
@@ -539,7 +541,12 @@ Pane {
       }
     }
 
+    onStatusIndicatorDragAcquired: {
+      isDragging = true;
+    }
+
     onStatusIndicatorDragReleased: {
+      isDragging = false;
       if (isVertical) {
         if (featureFormList.height < featureFormList.parent.height * 0.3) {
           if (fullScreenView) {
@@ -800,6 +807,7 @@ Pane {
   }
 
   Behavior on width  {
+    enabled: !isDragging
     PropertyAnimation {
       duration: parent.width > parent.height ? 250 : 0
       easing.type: Easing.OutQuart
@@ -814,6 +822,7 @@ Pane {
   }
 
   Behavior on height  {
+    enabled: !isDragging
     PropertyAnimation {
       duration: parent.width < parent.height ? 250 : 0
       easing.type: Easing.OutQuart
