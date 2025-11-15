@@ -49,6 +49,10 @@ Pane {
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
   property bool isVertical: parent.width < parent.height || parent.width < 300
 
+  property bool isDragging: false
+  property real dragHeightAdjustment: 0
+  property real dragWidthAdjustment: 0
+
   property bool canvasOperationRequested: digitizingToolbar.geometryRequested || moveFeaturesToolbar.moveFeaturesRequested || rotateFeaturesToolbar.rotateFeaturesRequested
 
   signal showMessage(string message)
@@ -59,26 +63,39 @@ Pane {
     featureForm.requestCancel();
   }
 
+  property int lastWidth
+
   width: {
     if (props.isVisible || featureFormList.canvasOperationRequested) {
-      if (fullScreenView || parent.width <= parent.height || parent.width < 300) {
-        return parent.width;
+      if (dragWidthAdjustment != 0) {
+        return width = lastWidth - dragWidthAdjustment;
+      } else if (fullScreenView || parent.width <= parent.height || width >= 0.95 * parent.width) {
+        lastWidth = parent.width;
+        return lastWidth;
       } else {
-        return Math.min(Math.max(200, parent.width / 2.25), parent.width);
+        lastWidth = Math.min(Math.max(200, parent.width / 2.25), parent.width);
+        return lastWidth;
       }
     } else {
+      lastWidth = 0;
       return 0;
     }
   }
+  property int lastHeight
+
   height: {
     if (props.isVisible || featureFormList.canvasOperationRequested) {
-      if (fullScreenView || parent.width > parent.height) {
-        return parent.height;
+      if (dragHeightAdjustment != 0) {
+        return Math.min(lastHeight - dragHeightAdjustment, parent.height - mainWindow.sceneTopMargin);
+      } else if (fullScreenView || parent.width > parent.height || height >= 0.95 * parent.height) {
+        lastHeight = parent.height - mainWindow.sceneTopMargin ;
+        return lastHeight;
       } else {
-        isVertical = true;
-        return Math.min(Math.max(200, parent.height / 2), parent.height);
+        lastHeight = Math.min(Math.max(200, parent.height / 2), parent.height - mainWindow.sceneTopMargin);
+        return lastHeight;
       }
     } else {
+      lastHeight = 0;
       return 0;
     }
   }
@@ -512,11 +529,23 @@ Pane {
       featureFormList.state = "FeatureList";
     }
 
-    onStatusIndicatorSwiped: direction => {
+    onStatusIndicatorDragged: function (deltaX, deltaY) {
+      fullScreenView = false;
       if (isVertical) {
-        if (direction === 'up') {
-          fullScreenView = true;
-        } else if (direction === 'down') {
+        dragHeightAdjustment += deltaY;
+      } else {
+        dragWidthAdjustment += deltaX;
+      }
+    }
+
+    onStatusIndicatorDragAcquired: {
+      isDragging = true;
+    }
+
+    onStatusIndicatorDragReleased: {
+      isDragging = false;
+      if (isVertical) {
+        if (featureFormList.height < featureFormList.parent.height * 0.3) {
           if (fullScreenView) {
             fullScreenView = false;
           } else {
@@ -524,11 +553,11 @@ Pane {
               featureFormList.state = 'Hidden';
             }
           }
+        } else if (dragHeightAdjustment < -parent.height * 0.2) {
+          fullScreenView = true;
         }
       } else {
-        if (direction === 'left') {
-          fullScreenView = true;
-        } else if (direction === 'right') {
+        if (featureFormList.width < featureFormList.parent.width * 0.3) {
           if (fullScreenView) {
             fullScreenView = false;
           } else {
@@ -536,8 +565,12 @@ Pane {
               featureFormList.state = 'Hidden';
             }
           }
+        } else if (dragWidthAdjustment < -parent.width * 0.2) {
+          fullScreenView = true;
         }
       }
+      dragHeightAdjustment = 0;
+      dragWidthAdjustment = 0;
     }
 
     onEditAttributesButtonClicked: {
@@ -719,6 +752,18 @@ Pane {
     }
   }
 
+  Rectangle {
+    width: parent.width * 0.3
+    height: 5
+    radius: 10
+
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.top: parent.top
+    anchors.topMargin: featureListToolBar.topMargin + 2
+
+    color: Theme.controlBorderColor
+  }
+
   Keys.onReleased: event => {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
       // if visible overlays (such as embedded feature forms) are present, don't take over
@@ -745,6 +790,7 @@ Pane {
   }
 
   Behavior on width  {
+    enabled: !isDragging
     PropertyAnimation {
       duration: parent.width > parent.height ? 250 : 0
       easing.type: Easing.OutQuart
@@ -759,6 +805,7 @@ Pane {
   }
 
   Behavior on height  {
+    enabled: !isDragging
     PropertyAnimation {
       duration: parent.width < parent.height ? 250 : 0
       easing.type: Easing.OutQuart
