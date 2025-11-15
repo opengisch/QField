@@ -1,8 +1,10 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.Material.impl
 import Theme
 
 EditorWidgetBase {
+  id: checkBoxEditorWidgetBase
   height: childrenRect.height
 
   // if the field type is boolean, ignore the configured 'CheckedState' and 'UncheckedState' values and work with true/false always
@@ -29,17 +31,15 @@ EditorWidgetBase {
     font.pointSize: Theme.defaultFont.pointSize
     font.bold: Theme.defaultFont.bold
     font.italic: isNull
-    color: isEnabled && !isNull ? Theme.mainTextColor : Theme.mainTextDisabledColor
+    color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
     text: !isNull ? checkBox.checked ? checkedLabel : uncheckedLabel : isEnabled ? qsTr('NULL') : ''
   }
 
-  QfSwitch {
+  Switch {
     id: checkBox
     enabled: isEnabled
-    visible: isEnabled
     width: implicitContentWidth
-    small: true
 
     anchors {
       right: parent.right
@@ -84,16 +84,6 @@ EditorWidgetBase {
       }
       valueChangeRequested(editedValue, false);
     }
-  }
-
-  Rectangle {
-    id: backgroundRect
-    anchors.left: parent.left
-    anchors.right: parent.right
-    y: checkValue.height - height - checkValue.bottomPadding / 2
-    implicitWidth: 120
-    height: checkBox.activeFocus || checkBox.pressed || checkArea.containsPress ? 2 : 1
-    color: checkBox.activeFocus || checkBox.pressed || checkArea.containsPress ? Theme.accentColor : Theme.accentLightColor
   }
 
   FontMetrics {

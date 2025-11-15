@@ -257,7 +257,7 @@ TestCase {
    * TODO: Test `fieldIsDate = true` too, if the field is a date only -> revert the time zone offset.
    */
   function test_01_dateTime() {
-    const label = dateTime.children[1].children[0];
+    const label = dateTime.children[0].children[0];
     compare(label.text, "2022-01-01");
     const testTimes = ["2023-01-01", "2023-01-01 23:33:56"];
     const displayFormats = ["yyyy-MM-dd", "yyyy-MM.dd", "yyyy-MM-dd HH:mm:ss", "HH:mm:ss", "HH:mm"];
