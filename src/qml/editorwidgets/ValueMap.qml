@@ -187,9 +187,9 @@ EditorWidgetBase {
       model: listModel
       textRole: 'value'
       text.color: notEditableInEditMode ? Theme.mainTextDisabledColor : Theme.mainTextColor
-      background.visible: enabled || notEditableInEditMode
-      indicator.visible: enabled || notEditableInEditMode
-      text.leftPadding: enabled || notEditableInEditMode ? 10 : 0
+      background.visible: isEnabled || notEditableInEditMode
+      indicator.visible: isEnabled || notEditableInEditMode
+      text.leftPadding: isEnabled || notEditableInEditMode ? 10 : 0
 
       Component.onCompleted: {
         comboBox.popup.z = 10000; // 1000s are embedded feature forms, use a higher value to insure popups always show above embedded feature formes

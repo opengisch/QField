@@ -17,7 +17,7 @@ EditorWidgetBase {
     height: !textArea.visible ? textField.height : 0
     topPadding: 10
     bottomPadding: 10
-    leftPadding: enabled || notEditableInEditMode ? 10 : 0
+    leftPadding: isEnabled || notEditableInEditMode ? 10 : 0
     visible: height !== 0 && !isEditable
     anchors.left: parent.left
     anchors.right: parent.right
