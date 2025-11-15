@@ -868,8 +868,8 @@ Page {
         clip: true
 
         iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
-        iconColor: model.featureModel.featureAdditionLocked || !model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
-        bgcolor: model.featureModel.featureAdditionLocked || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : "transparent"
+        iconColor: (form.state === 'Add' && model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
+        bgcolor: (form.state === 'Add' && model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : "transparent"
         borderColor: Theme.mainBackgroundColor
         roundborder: true
         round: true
@@ -891,7 +891,7 @@ Page {
 
         Layout.fillWidth: true
         Layout.preferredHeight: parent.height
-        Layout.leftMargin: !setupOnly && form.model.hasRemembrance ? 48 : 0
+        Layout.leftMargin: form.state === "ReadOnly" || (!setupOnly && form.model.hasRemembrance) ? 48 : 0
         Layout.rightMargin: !setupOnly ? 0 : 48
         objectName: "titleLabel"
 
