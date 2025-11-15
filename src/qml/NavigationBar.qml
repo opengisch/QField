@@ -272,7 +272,7 @@ Rectangle {
         if (featureForm.model.constraintsHardValid) {
           toolBar.save();
         } else {
-          displayToast("Constraints not valid", 'warning');
+          displayToast("Hard constraints not satisfied", 'error');
         }
       }
     }
