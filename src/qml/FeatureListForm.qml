@@ -86,12 +86,12 @@ Pane {
   height: {
     if (props.isVisible || featureFormList.canvasOperationRequested) {
       if (dragHeightAdjustment != 0) {
-        return height = lastHeight - dragHeightAdjustment;
+        return Math.min(lastHeight - dragHeightAdjustment, parent.height - mainWindow.sceneTopMargin);
       } else if (fullScreenView || parent.width > parent.height || height >= 0.95 * parent.height) {
-        lastHeight = parent.height;
+        lastHeight = parent.height - mainWindow.sceneTopMargin ;
         return lastHeight;
       } else {
-        lastHeight = Math.min(Math.max(200, parent.height / 2), parent.height);
+        lastHeight = Math.min(Math.max(200, parent.height / 2), parent.height - mainWindow.sceneTopMargin);
         return lastHeight;
       }
     } else {
@@ -753,7 +753,6 @@ Pane {
   }
 
   Rectangle {
-    visible: isVertical
     width: parent.width * 0.3
     height: 5
     radius: 10
@@ -761,19 +760,6 @@ Pane {
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.top: parent.top
     anchors.topMargin: featureListToolBar.topMargin + 2
-
-    color: Theme.controlBorderColor
-  }
-
-  Rectangle {
-    visible: !isVertical
-    width: 5
-    height: parent.height * 0.3
-    radius: 10
-
-    anchors.verticalCenter: parent.verticalCenter
-    anchors.left: parent.left
-    anchors.leftMargin: 2
 
     color: Theme.controlBorderColor
   }
