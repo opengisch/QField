@@ -95,11 +95,11 @@ EditorWidgetBase {
 
       verticalAlignment: Text.AlignVCenter
       font: Theme.defaultFont
-      color: notEditableInEditMode ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
       topPadding: 6
       bottomPadding: 6
       rightPadding: 0
-      leftPadding: isEnabled || notEditableInEditMode ? 10 : 0
+      leftPadding: isEnabled || (!isEditable && isEditing) ? 10 : 0
 
       inputMethodHints: Qt.ImhDigitsOnly
 
@@ -187,7 +187,7 @@ EditorWidgetBase {
         }
       }
 
-      background.visible: isEnabled || notEditableInEditMode
+      background.visible: isEnabled || (!isEditable && isEditing)
     }
 
     QfToolButton {

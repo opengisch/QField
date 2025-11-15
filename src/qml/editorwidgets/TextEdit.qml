@@ -17,12 +17,12 @@ EditorWidgetBase {
     height: !textArea.visible ? textField.height : 0
     topPadding: 10
     bottomPadding: 10
-    leftPadding: isEnabled || notEditableInEditMode ? 10 : 0
+    leftPadding: isEnabled || (!isEditable && isEditing) ? 10 : 0
     visible: height !== 0 && !isEditable
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: notEditableInEditMode ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
     opacity: 1
     wrapMode: Text.Wrap
     textFormat: (config['IsMultiline'] === true && config['UseHtml']) || StringUtils.hasLinks(value) ? TextEdit.RichText : TextEdit.AutoText
@@ -43,7 +43,7 @@ EditorWidgetBase {
     controlHasActiveFocus: topItem.activeFocus
     controlHasText: true
     horizontalPadding: topItem.Material.textFieldHorizontalPadding
-    visible: isEnabled || notEditableInEditMode
+    visible: isEnabled || (!isEditable && isEditing)
   }
 
   TextField {
@@ -53,10 +53,10 @@ EditorWidgetBase {
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: notEditableInEditMode ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
     maximumLength: field != undefined && field.length > 0 ? field.length : -1
     wrapMode: TextInput.Wrap
-    background.visible: enabled || notEditableInEditMode
+    background.visible: enabled || (!isEditable && isEditing)
 
     text: value == null ? '' : value
 
@@ -111,7 +111,7 @@ EditorWidgetBase {
     anchors.right: parent.right
     wrapMode: Text.Wrap
     font: Theme.defaultFont
-    color: notEditableInEditMode ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
     text: value !== undefined ? value : ''
     textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
@@ -119,7 +119,7 @@ EditorWidgetBase {
     onTextChanged: {
       valueChangeRequested(text, text == '');
     }
-    background.visible: enabled || notEditableInEditMode
+    background.visible: enabled || (!isEditable && isEditing)
   }
 
   FontMetrics {
