@@ -305,7 +305,7 @@ ApplicationWindow {
   }
 
   onCloseMeasureTool: {
-    overlayFeatureFormDrawer.close();
+    overlayFeatureFormDrawer.hide();
     changeMode(stateMachine.lastState);
   }
 
@@ -663,7 +663,7 @@ ApplicationWindow {
         if (pointHandler.clicked(point, type)) {
           return;
         }
-        if (type === "stylus" && (overlayFeatureFormDrawer.opened || (featureListForm.visible && pointHandler.pointInItem(point, featureListForm)))) {
+        if (type === "stylus" && (overlayFeatureFormDrawer.visible || (featureListForm.visible && pointHandler.pointInItem(point, featureListForm)))) {
           return;
         }
         if (!digitizingToolbar.geometryRequested && featureListForm.state == "FeatureFormEdit") {
@@ -732,7 +732,7 @@ ApplicationWindow {
           return;
         }
         if (type === "stylus") {
-          if (overlayFeatureFormDrawer.opened || (featureListForm.visible && pointHandler.pointInItem(point, featureListForm))) {
+          if (overlayFeatureFormDrawer.visible || (featureListForm.visible && pointHandler.pointInItem(point, featureListForm))) {
             return;
           }
 
@@ -2763,7 +2763,7 @@ ApplicationWindow {
           } else {
             if (geometryRequested) {
               if (overlayFeatureFormDrawer.isAdding) {
-                overlayFeatureFormDrawer.open();
+                overlayFeatureFormDrawer.show();
               }
               geometryRequested = false;
             }
@@ -2776,7 +2776,7 @@ ApplicationWindow {
         onConfirmed: {
           if (geometryRequested) {
             if (overlayFeatureFormDrawer.isAdding) {
-              overlayFeatureFormDrawer.open();
+              overlayFeatureFormDrawer.show();
             }
             coordinateLocator.flash();
             digitizingFeature.geometry.applyRubberband();
@@ -2799,7 +2799,7 @@ ApplicationWindow {
             overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry;
             overlayFeatureFormDrawer.featureModel.applyGeometry();
             overlayFeatureFormDrawer.featureModel.resetAttributes();
-            overlayFeatureFormDrawer.open();
+            overlayFeatureFormDrawer.show();
             overlayFeatureFormDrawer.state = "Add";
           } else {
             if (!overlayFeatureFormDrawer.featureForm.featureCreated) {
@@ -4140,12 +4140,30 @@ ApplicationWindow {
     source: featureListForm
   }
 
+  // Blocking interaction with the underlying buttons when adding a feature (overlayFeatureFormDrawer opened)
+  Rectangle {
+    color: Theme.toolButtonBackgroundSemiOpaqueColor
+    anchors.fill: parent
+    visible: overlayFeatureFormDrawer.visible
+
+    MouseArea {
+      anchors.fill: parent
+      onClicked: {
+      }
+    }
+  }
+
   OverlayFeatureFormDrawer {
     id: overlayFeatureFormDrawer
     objectName: "overlayFeatureFormDrawer"
     digitizingToolbar: digitizingToolbar
     codeReader: codeReader
     featureModel.currentLayer: dashBoard.activeLayer
+
+    anchors {
+      right: parent.right
+      bottom: parent.bottom
+    }
 
     onRequestJumpToPoint: function (center, scale, handleMargins) {
       mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
@@ -4781,7 +4799,7 @@ ApplicationWindow {
 
   Toast {
     id: toast
-    bottomSpacing: Math.max(60, mainWindow.sceneBottomMargin, informationDrawer.height, overlayFeatureFormDrawer.opened && !overlayFeatureFormDrawer.fullScreenView && overlayFeatureFormDrawer.y > 0 ? overlayFeatureFormDrawer.height : 0, !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.y > 0 ? featureListForm.height : 0)
+    bottomSpacing: Math.max(60, mainWindow.sceneBottomMargin, informationDrawer.height, overlayFeatureFormDrawer.visible && !overlayFeatureFormDrawer.fullScreenView && overlayFeatureFormDrawer.y > 0 ? overlayFeatureFormDrawer.height : 0, !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.y > 0 ? featureListForm.height : 0)
   }
 
   MouseArea {
