@@ -110,7 +110,7 @@ EditorWidgetBase {
             height: 34
             radius: 4
             color: selected ? isEnabled ? Theme.mainColor : Theme.accentLightColor : "transparent"
-            border.color: isEnabled ? selected ? Theme.mainColor : Theme.accentLightColor : "transparent"
+            border.color: isEnabled ? selected ? Theme.mainColor : valueMap.Material.hintTextColor : "transparent"
             border.width: 1
 
             property bool selected: toggleButtons.selectedIndex == index
@@ -135,7 +135,7 @@ EditorWidgetBase {
               elide: Text.ElideRight
               anchors.centerIn: parent
               font: Theme.defaultFont
-              color: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+              color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
             }
 
             MouseArea {
@@ -165,14 +165,6 @@ EditorWidgetBase {
             }
           }
         }
-      }
-
-      Rectangle {
-        y: flow.height + flow.anchors.topMargin + flow.anchors.bottomMargin - 1
-        visible: !isEnabled
-        width: flow.width
-        height: flow.activeFocus ? 2 : 1
-        color: flow.activeFocus ? Theme.accentColor : Theme.accentLightColor
       }
     }
 
