@@ -25,11 +25,11 @@ EditorWidgetBase {
 
     TextField {
       id: textField
-      leftPadding: isEnabled || notEditableInEditMode ? 10 : 0
+      leftPadding: isEnabled || (!isEditable && isEditing) ? 10 : 0
       width: parent.width - decreaseButton.width - increaseButton.width
 
       font: Theme.defaultFont
-      color: notEditableInEditMode ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
       text: value !== undefined ? value : ''
 
@@ -37,7 +37,7 @@ EditorWidgetBase {
 
       inputMethodHints: Qt.ImhFormattedNumbersOnly
 
-      background.visible: isEnabled || notEditableInEditMode
+      background.visible: isEnabled || (!isEditable && isEditing)
 
       onTextChanged: {
         if (text === '' || !isNaN(parseFloat(text))) {
@@ -180,7 +180,7 @@ EditorWidgetBase {
       verticalAlignment: Text.AlignVCenter
       horizontalAlignment: Text.AlignLeft
       font: Theme.defaultFont
-      color: notEditableInEditMode ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
     }
 
     QfSlider {

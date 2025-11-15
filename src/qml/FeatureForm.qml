@@ -600,9 +600,10 @@ Page {
               // - not in edit mode (ReadOnly)
               // - a relation in multi edit mode
               property bool isAdding: form.state === 'Add'
-              property bool isEditing: form.state === 'Edit'
+              property bool isEditing: form.state !== 'ReadOnly'
               property bool isEnabled: !!AttributeEditable && form.state !== 'ReadOnly' && !(Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel)
-              property bool notEditableInEditMode: !AttributeEditable && form.state === 'Edit'
+              property bool isEditable: !!AttributeEditable && !(Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel)
+
               property var value: AttributeValue
               property var config: (EditorWidgetConfig || {})
               property var widget: EditorWidget

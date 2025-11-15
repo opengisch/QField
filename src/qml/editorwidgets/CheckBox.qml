@@ -31,7 +31,7 @@ EditorWidgetBase {
     font.pointSize: Theme.defaultFont.pointSize
     font.bold: Theme.defaultFont.bold
     font.italic: isNull
-    color: notEditableInEditMode ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
     text: !isNull ? checkBox.checked ? checkedLabel : uncheckedLabel : isEnabled ? qsTr('NULL') : ''
   }
