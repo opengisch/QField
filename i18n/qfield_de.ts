@@ -1488,7 +1488,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Tracking on layer %1 stopped</source>
-        <translation type="unfinished"/>
+        <translation>Tracking auf Layer %1 gestoppt</translation>
     </message>
 </context>
 <context>
@@ -1563,11 +1563,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Tracking active on this layer.</source>
-        <translation type="unfinished"/>
+        <translation>Tracking aktiv auf diesem Layer.</translation>
     </message>
     <message>
         <source>Tracking on layer %1 stopped</source>
-        <translation type="unfinished"/>
+        <translation>Tracking auf Layer %1 gestoppt</translation>
     </message>
 </context>
 <context>
@@ -2554,7 +2554,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Track color</source>
-        <translation type="unfinished"/>
+        <translation>Track-Farbe</translation>
     </message>
 </context>
 <context>
@@ -4920,11 +4920,11 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Layer</source>
-        <translation type="unfinished"/>
+        <translation>Layer</translation>
     </message>
     <message>
         <source>Track on layer %1 resumed</source>
-        <translation type="unfinished"/>
+        <translation>Track auf Layer %1 wiederaufgenommen</translation>
     </message>
 </context>
 <context>
@@ -6237,19 +6237,19 @@ um Aktionen anzuzeigen</translation>
     </message>
     <message numerus="yes">
         <source>Tracking active on %n layer(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Tracking aktiv auf %n Layer(s)</numerusform><numerusform>Tracking auf %n Layer(n) aktiv</numerusform></translation>
     </message>
     <message>
         <source>Stop all</source>
-        <translation type="unfinished"/>
+        <translation>Alle anhalten</translation>
     </message>
     <message numerus="yes">
         <source>Tracking on %n layer(s) stopped</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Tracking auf %n Layer(s) gestoppt</numerusform><numerusform>Tracking auf %n Layer(n) gestoppt</numerusform></translation>
     </message>
     <message>
         <source>No compatible layers available to launch tracking</source>
-        <translation type="unfinished"/>
+        <translation>Keine kompatiblen Layer zum Starten des Trackings verfügbar</translation>
     </message>
 </context>
 <context>
