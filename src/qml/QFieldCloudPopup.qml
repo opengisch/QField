@@ -544,7 +544,6 @@ Popup {
               Layout.preferredWidth: implicitContentWidth
               Layout.alignment: Qt.AlignVCenter
               width: implicitContentWidth
-              small: true
               enabled: !(cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.forceAutoPush)
               checked: !!(cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.autoPushEnabled)
 

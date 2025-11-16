@@ -97,7 +97,7 @@ Item {
       wrapMode: Text.WordWrap
     }
 
-    ComboBox {
+    QfComboBox {
       id: serverUrlComboBox
       Layout.fillWidth: true
       Layout.bottomMargin: 10

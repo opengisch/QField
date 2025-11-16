@@ -107,10 +107,9 @@ ColumnLayout {
               height: variableNameTextAnimator.height
               text: VariableName
               enabled: VariableScope == ExpressionVariableModel.GlobalScope && VariableEditable
-              opacity: enabled ? 1 : 0.45
               font.bold: true
               font.pointSize: Theme.tinyFont.pointSize
-              color: variableNameText.activeFocus ? Theme.mainColor : Theme.mainTextColor
+              color: Theme.mainTextColor
               horizontalAlignment: TextInput.AlignLeft
               verticalAlignment: TextInput.AlignVCenter
 
@@ -136,7 +135,7 @@ ColumnLayout {
             QfSwipeAnimator {
               id: variableValueTextAnimator
               width: table.width - line.anchors.leftMargin * 2 - (canDelete ? deleteVariableButton.width : 0)
-              height: 40
+              height: variableValueText.height
               shouldAutoFlick: (width < variableValueText.implicitWidth) && !dragging && !variableValueText.activeFocus
               contentImplicitWidth: variableValueText.implicitWidth
               contentWidth: variableValueText.implicitWidth
@@ -146,7 +145,6 @@ ColumnLayout {
                 id: variableValueText
                 topPadding: 10
                 bottomPadding: 10
-                leftPadding: 1
                 rightPadding: 1
                 width: Math.max(table.width - line.anchors.leftMargin * 2 - (canDelete ? deleteVariableButton.width : 0), implicitWidth)
                 text: VariableValue
@@ -154,6 +152,7 @@ ColumnLayout {
                 font: Theme.defaultFont
                 horizontalAlignment: TextInput.AlignLeft
                 placeholderText: !variableValueText.activeFocus && displayText === '' ? qsTr("Enter value") : ''
+                color: Theme.mainTextColor
 
                 onTextChanged: {
                   if (enabled && VariableValue != text) {
@@ -164,6 +163,7 @@ ColumnLayout {
                   }
                 }
 
+                background.visible: enabled
                 onCursorRectangleChanged: {
                   variableValueTextAnimator.ensureCursorVisible(cursorRectangle);
                 }

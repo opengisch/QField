@@ -952,7 +952,7 @@ Pane {
         color: Theme.mainTextColor
       }
 
-      ComboBox {
+      QfComboBox {
         id: transferComboBox
         width: transferLabel.width
 

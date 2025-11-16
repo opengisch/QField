@@ -36,7 +36,7 @@ EditorWidgetBase {
     text: !isNull ? checkBox.checked ? checkedLabel : uncheckedLabel : isEnabled ? qsTr('NULL') : ''
   }
 
-  Switch {
+  QfSwitch {
     id: checkBox
     enabled: isEnabled
     width: implicitContentWidth

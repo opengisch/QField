@@ -242,7 +242,7 @@ Item {
       right: parent.right
     }
 
-    ComboBox {
+    QfComboBox {
       id: comboBox
       objectName: "RelationComboBox"
       visible: !enabled || (!useSearch && !useCompleter && (relation !== undefined ? relation.isValid : true))

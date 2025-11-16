@@ -166,7 +166,7 @@ QfPopup {
             Layout.columnSpan: 2
           }
 
-          ComboBox {
+          QfComboBox {
             id: layersComboBox
             model: ListModel {
               id: layersModel
@@ -263,7 +263,17 @@ QfPopup {
             horizontalAlignment: TextInput.AlignHCenter
             Layout.preferredWidth: 60
             Layout.preferredHeight: font.height + 20
+            leftPadding: 0
+            background: Item {
+              implicitWidth: 120
 
+              Rectangle {
+                y: timeIntervalValue.height - height - timeIntervalValue.bottomPadding / 2
+                width: timeIntervalValue.width
+                height: timeIntervalValue.activeFocus ? 2 : 1
+                color: timeIntervalValue.activeFocus ? Theme.mainColor : timeIntervalValue.hovered ? timeIntervalValue.color : Theme.secondaryTextColor
+              }
+            }
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             validator: DoubleValidator {
               locale: 'C'
@@ -333,7 +343,17 @@ QfPopup {
             horizontalAlignment: TextInput.AlignHCenter
             Layout.preferredWidth: 60
             Layout.preferredHeight: font.height + 20
+            leftPadding: 0
+            background: Item {
+              implicitWidth: 120
 
+              Rectangle {
+                y: minimumDistanceValue.height - height - minimumDistanceValue.bottomPadding / 2
+                width: minimumDistanceValue.width
+                height: minimumDistanceValue.activeFocus ? 2 : 1
+                color: minimumDistanceValue.activeFocus ? Theme.mainColor : minimumDistanceValue.hovered ? minimumDistanceValue.color : Theme.secondaryTextColor
+              }
+            }
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             validator: DoubleValidator {
               locale: 'C'
@@ -477,7 +497,17 @@ QfPopup {
             horizontalAlignment: TextInput.AlignHCenter
             Layout.preferredWidth: 60
             Layout.preferredHeight: font.height + 20
+            leftPadding: 0
+            background: Item {
+              implicitWidth: 120
 
+              Rectangle {
+                y: erroneousDistanceValue.height - height - erroneousDistanceValue.bottomPadding / 2
+                width: erroneousDistanceValue.width
+                height: erroneousDistanceValue.activeFocus ? 2 : 1
+                color: erroneousDistanceValue.activeFocus ? Theme.mainColor : erroneousDistanceValue.hovered ? erroneousDistanceValue.color : Theme.secondaryTextColor
+              }
+            }
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             validator: DoubleValidator {
               locale: 'C'
@@ -509,7 +539,7 @@ QfPopup {
             Layout.topMargin: 4
           }
 
-          ComboBox {
+          QfComboBox {
             id: measureComboBox
             enabled: LayerUtils.hasMValue(featureModel.currentLayer)
             Layout.fillWidth: true

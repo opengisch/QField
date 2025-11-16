@@ -295,7 +295,7 @@ Drawer {
       RowLayout {
         width: parent.width
 
-        ComboBox {
+        QfComboBox {
           id: mapThemeComboBox
           Layout.fillWidth: true
           Layout.leftMargin: mainWindow.sceneLeftMargin
@@ -349,31 +349,6 @@ Drawer {
             font.weight: mapThemeComboBox.currentIndex === index ? Font.DemiBold : Font.Normal
             font.pointSize: Theme.tipFont.pointSize
             highlighted: mapThemeComboBox.highlightedIndex == index
-          }
-
-          contentItem: Text {
-            height: 36
-            leftPadding: 8
-            text: mapThemeComboBox.displayText
-            font: Theme.tipFont
-            color: Theme.mainTextColor
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
-            elide: Text.ElideRight
-          }
-
-          background: Item {
-            implicitWidth: 120
-            implicitHeight: 36
-
-            Rectangle {
-              id: backgroundRect
-              anchors.fill: parent
-              border.color: Theme.controlBorderColor
-              border.width: mapThemeComboBox.visualFocus ? 2 : 1
-              color: "transparent"
-              radius: 2
-            }
           }
         }
 
@@ -452,7 +427,7 @@ Drawer {
         onClicked: returnHome()
       }
 
-      Switch {
+      QfSwitch {
         id: modeSwitch
         objectName: "ModeSwitch"
         width: 56 + 36

@@ -9,24 +9,11 @@ TextField {
   echoMode: TextInput.Normal
   passwordMaskDelay: Qt.platform.os === "ios" || Qt.platform.os === "android" ? 1000 : 0
   font: Theme.defaultFont
-  placeholderTextColor: Theme.accentLightColor
   rightPadding: showPasswordButton.visible ? showPasswordButton.width : 0
-  leftPadding: showPasswordButton.visible && horizontalAlignment !== Text.AlignLeft ? rightPadding : 0
+  leftPadding: enabled ? 10: 0
   topPadding: 10
   bottomPadding: 10
   inputMethodHints: Qt.ImhNone
-
-  background: Rectangle {
-    implicitWidth: 120
-    color: "transparent"
-
-    Rectangle {
-      y: textField.height - height - textField.bottomPadding / 2
-      width: textField.width
-      height: textField.activeFocus ? 2 : 1
-      color: textField.activeFocus ? Theme.mainColor : textField.hovered ? textField.color : Theme.secondaryTextColor
-    }
-  }
 
   QfToolButton {
     id: showPasswordButton
