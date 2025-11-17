@@ -84,7 +84,7 @@ The following line will configure the build.
 
 ```sh
 # We call this from the `dev` folder again
-cmake -S QField -B build -GXcode -Tbuildsystem=1 -DWITH_VCPKG=ON
+cmake -S QField -B build -G Xcode -DWITH_VCPKG=ON
 ```
 
 Please note that this will download and build the complete dependency
