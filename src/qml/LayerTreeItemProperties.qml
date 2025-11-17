@@ -73,7 +73,7 @@ QfPopup {
         text: ''
         font: Theme.strongFont
         horizontalAlignment: Text.AlignHCenter
-        wrapMode: Text.WordWrap
+        wrapMode: Text.WrapAnywhere
       }
       QfToolButton {
         id: zoomInButton
