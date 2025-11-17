@@ -265,7 +265,6 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyRasterLayer( QgsRaster
 
     // list of feature stores for a single sublayer
     const QgsFeatureStoreList featureStoreList = result.value<QgsFeatureStoreList>();
-
     for ( const QgsFeatureStore &featureStore : featureStoreList )
     {
       const QgsFeatureList storeFeatures = featureStore.features();
@@ -290,7 +289,7 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyRasterLayer( QgsRaster
         }
 
 
-        results.append( IdentifyResult( layer, feature, !labels.isEmpty() ? QStringLiteral( "%1 - %2" ).arg( labels.join( QStringLiteral( " - " ) ) ) : layer->name() ) );
+        results.append( IdentifyResult( layer, feature, !labels.isEmpty() ? QStringLiteral( "%1 - %2" ).arg( labels.join( QStringLiteral( " - " ) ), layer->name() ) : layer->name() ) );
       }
     }
   }
