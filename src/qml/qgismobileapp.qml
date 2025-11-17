@@ -791,6 +791,10 @@ ApplicationWindow {
         }
       }
 
+      onInteractiveChanged: {
+        platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys && interactive);
+      }
+
       GridRenderer {
         id: gridDecoration
         mapSettings: mapCanvas.mapSettings
@@ -4116,6 +4120,10 @@ ApplicationWindow {
         displayToast(qsTr("Editing of multipart geometry is not supported yet."), 'warning');
         geometryEditingVertexModel.clear();
       }
+    }
+
+    onStateChanged: {
+      platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys && state === "Hidden");
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
