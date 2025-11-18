@@ -1492,7 +1492,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Tracking on layer %1 stopped</source>
-        <translation type="unfinished"/>
+        <translation>Śledzenie na warstwie %1 zostało zatrzymane</translation>
     </message>
 </context>
 <context>
@@ -1568,11 +1568,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Tracking active on this layer.</source>
-        <translation type="unfinished"/>
+        <translation>Śledzenie jest aktywne na tej warstwie.</translation>
     </message>
     <message>
         <source>Tracking on layer %1 stopped</source>
-        <translation type="unfinished"/>
+        <translation>Śledzenie na warstwie %1 zostało zatrzymane</translation>
     </message>
 </context>
 <context>
@@ -2559,7 +2559,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Track color</source>
-        <translation type="unfinished"/>
+        <translation>Kolor śledzenia</translation>
     </message>
 </context>
 <context>
@@ -4927,11 +4927,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Layer</source>
-        <translation type="unfinished"/>
+        <translation>Warstwa</translation>
     </message>
     <message>
         <source>Track on layer %1 resumed</source>
-        <translation type="unfinished"/>
+        <translation>Śledzenie na warstwie %1 zostało wznowione</translation>
     </message>
 </context>
 <context>
@@ -6244,19 +6244,19 @@ aby wyświetlić działania</translation>
     </message>
     <message numerus="yes">
         <source>Tracking active on %n layer(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Śledzenie aktywne na %n warstwie</numerusform><numerusform>Śledzenie aktywne na %n warstwach</numerusform><numerusform>Śledzenie aktywne na %n warstwach</numerusform><numerusform>Śledzenie aktywne na %n warstwach</numerusform></translation>
     </message>
     <message>
         <source>Stop all</source>
-        <translation type="unfinished"/>
+        <translation>Zatrzymaj wszystko</translation>
     </message>
     <message numerus="yes">
         <source>Tracking on %n layer(s) stopped</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Śledzenie na %n warstwie zatrzymane</numerusform><numerusform>Śledzenie na %n warstwach zatrzymane</numerusform><numerusform>Śledzenie na %n warstwach zatrzymane</numerusform><numerusform>Śledzenie na %n warstwach zatrzymane</numerusform></translation>
     </message>
     <message>
         <source>No compatible layers available to launch tracking</source>
-        <translation type="unfinished"/>
+        <translation>Brak zgodnych warstw dostępnych do uruchomienia śledzenia</translation>
     </message>
 </context>
 <context>
