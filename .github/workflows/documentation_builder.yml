@@ -30,7 +30,10 @@ jobs:
         run: pip3 install jinja2 mkdocs ruamel.yaml mkdocs-material mkdoxy doxyqml --break-system-packages
 
       - name: Build documentation
-        run: mkdocs build -f mkdocs.yml
+        run: |
+          mkdocs build -f mkdocs.yml
+          # Beautify Q_INVOKABLE
+          find ./site -type f -name "*.html" -exec sed -i 's/Q_INVOKABLE/<span style="font-weight:bold;">invokable<\/span>/g' {} +
 
       - name: Upload documentation
         uses: actions/upload-artifact@v5
