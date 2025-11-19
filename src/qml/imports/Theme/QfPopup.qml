@@ -3,6 +3,9 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
 
+/**
+ * \ingroup qml
+ */
 Popup {
   id: control
   padding: 5

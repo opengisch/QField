@@ -1,5 +1,8 @@
 import QtQuick
 
+/**
+ * \ingroup qml
+ */
 Item {
   id: root
 

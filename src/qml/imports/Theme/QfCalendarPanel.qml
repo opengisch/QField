@@ -3,6 +3,9 @@ import QtQuick.Dialogs
 import QtQuick.Layouts
 import QtQuick.Controls.Material
 
+/**
+ * \ingroup qml
+ */
 QfDialog {
   id: calendarPopup
   focus: true

@@ -2,6 +2,9 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
+/**
+ * \ingroup qml
+ */
 Rectangle {
   id: expandableGroupBox
   implicitHeight: checked ? header.height + body.childrenRect.height + 20 : 60

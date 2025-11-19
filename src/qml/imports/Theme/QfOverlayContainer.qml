@@ -1,6 +1,9 @@
 import QtQuick
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Rectangle {
   id: container
 

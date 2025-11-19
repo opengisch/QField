@@ -6,6 +6,9 @@ import QtQuick.Controls.Material.impl
 import QtQuick.Effects
 import QtQuick.Shapes
 
+/**
+ * \ingroup qml
+ */
 Button {
   id: button
 
