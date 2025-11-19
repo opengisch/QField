@@ -1,0 +1,23 @@
+site_name: "QField API Documentation"
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - mkdoxy:
+      projects:
+        QField:
+          src-dirs: ./src/
+          full-doc: True
+          doxy-cfg:
+            EXTENSION_MAPPING: "qml=C++"
+            FILTER_PATTERNS: "*.qml=doxyqml"
+            FILE_PATTERNS: "*.cpp *.h* *.qml"
+            RECURSIVE: True
+            SHOW_FILES: False
+
+nav:
+  - Home: index.md
+  - C++ Core Classes: QField/group__core.md
+  - QML Item: QField/group__qml.md

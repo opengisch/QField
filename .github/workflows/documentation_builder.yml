@@ -1,0 +1,39 @@
+name: "📚 API Documentation Builder"
+
+on:
+  push:
+    branches:
+        - master
+  pull_request:
+
+# Allow one concurrent deployment
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: 🐣 Checkout
+        uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Build documentation
+        run: mkdocs build -f mkdocs.yml
+
+      - name: Upload documentation
+        uses: actions/upload-artifact@v5
+        if: ${{ github.event_name == 'pull_request' }}
+        with:
+          name: docs
+          path: site
+          if-no-files-found: error
+
+      - name: Deploy to GitHub Pages
+        if: contains(fromJSON('["push", "workflow_dispatch"]'), github.event_name)
+        run: mkdocs gh-deploy --force
