@@ -827,16 +827,10 @@ Page {
     enabled: false
 
     function onDecoded(string) {
-      const results = UrlUtils.getActionDetails(string);
-      if (results.type !== undefined && results.type === "cloud" && results.project !== undefined && results.project !== "") {
+      const details = UrlUtils.getActionDetails(string);
+      if (details.type !== undefined && details.type === "cloud" && details.project !== undefined && details.project !== "") {
         codeReader.close();
-        let cloudProject = cloudProjectsModel.findProject(requestedProjectDetails);
-        if (cloudProject) {
-          projectDetails.cloudProject = cloudProjectsModel.findProject(projectId);
-          projectsSwipeView.currentIndex = 1;
-        } else {
-          cloudProjectsModel.appendProject(results.project);
-        }
+        prepareProjectRequest(details);
       }
     }
 
@@ -882,9 +876,25 @@ Page {
     displayToast(qsTr("Refreshing projects list"));
   }
 
+  function prepareProjectRequest(details) {
+    if (details.url !== undefined && details.url !== cloudConnection.url) {
+      cloudConnection.url = details.url;
+    }
+    if (details.username !== undefined && details.username !== cloudConnection.username) {
+      cloudConnection.username = cloudConnection.username;
+    }
+    requestedProjectDetails = details.project;
+    if (!visible) {
+      visible = true;
+    } else {
+      prepareCloudScreen();
+    }
+  }
+
   function prepareCloudScreen() {
     if (visible) {
-      if (cloudConnection.status == QFieldCloudConnection.Disconnected) {
+      switch (cloudConnection.status) {
+      case QFieldCloudConnection.Disconnected:
         if (cloudConnection.hasToken || cloudConnection.hasProviderConfiguration) {
           cloudConnection.login();
           if (requestedProjectDetails != "") {
@@ -901,7 +911,13 @@ Page {
           connectionSettings.visible = true;
         }
         cloudConnection.getAuthenticationProviders();
-      } else {
+        break;
+      case QFieldCloudConnection.Connecting:
+        const hasProjects = table.count !== 0;
+        projectsSwipeView.visible = hasProjects;
+        connectionSettings.visible = !hasProjects;
+        break;
+      case QFieldCloudConnection.LoggedIn:
         projectsSwipeView.visible = true;
         connectionSettings.visible = false;
         if (requestedProjectDetails != "") {
@@ -914,6 +930,7 @@ Page {
             cloudProjectsModel.appendProject(requestedProjectDetails);
           }
         }
+        break;
       }
     }
   }
