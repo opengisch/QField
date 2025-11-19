@@ -42,8 +42,7 @@ class QgsLabelingResults;
  * QgsQuickMapCanvasMap's mapSettings
  *
  * \note QML Type: MapCanvasMap
- *
- * \sa QgsQuickMapCanvas
+ * \ingroup core
  *
  */
 class QgsQuickMapCanvasMap : public QQuickItem

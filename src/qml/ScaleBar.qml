@@ -10,6 +10,7 @@ import Theme
 Item {
   id: scaleBar
 
+  /// type:QgsQuickMapSettings
   property alias mapSettings: measurement.mapSettings
   property double lineWidth: 2
 
