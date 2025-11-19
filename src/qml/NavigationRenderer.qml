@@ -13,7 +13,9 @@ Item {
   property var pointIndex: undefined
   property int pointType: NavigationModel.Destination
 
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
+  /// type:QgsGeometryWrapper
   property alias geometryWrapper: geometryWrapper
 
   QgsGeometryWrapper {

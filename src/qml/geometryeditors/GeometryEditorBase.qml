@@ -8,6 +8,7 @@ import ".."
 QfVisibilityFadingRow {
   property FeatureModel featureModel
   property GeometryRenderer editorRenderer
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
 
   signal finished

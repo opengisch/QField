@@ -11,6 +11,7 @@ import Theme
 QfPopup {
   id: temporalProperties
 
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
 
   parent: mainWindow.contentItem

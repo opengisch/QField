@@ -10,7 +10,8 @@ import Theme
 Item {
   id: locationMarker
 
-  property variant location // QgsPoint
+  /// type:QgsPoint
+  property variant location
 
   property point screenLocation
   property real screenAccuracy
@@ -31,6 +32,7 @@ Item {
   property color color: Qt.darker(Theme.positionColor, 1.25)
   property color semiOpaqueColor: Qt.hsla(color.hslHue, color.hslSaturation, color.hslLightness, 0.1)
 
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
 
   function updateScreenLocation() {
