@@ -23,6 +23,12 @@ jobs:
         with:
           python-version: '3.13'
 
+      - name: Install doxygen
+        run: sudo apt install doxygen
+
+      - name: Install mkdocs
+        run: pip3 install jinja2 mkdocs ruamel.yaml mkdocs-material mkdoxy doxyqml --break-system-packages
+
       - name: Build documentation
         run: mkdocs build -f mkdocs.yml
 
