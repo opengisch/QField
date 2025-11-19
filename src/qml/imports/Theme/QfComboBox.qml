@@ -4,6 +4,9 @@ import QtQuick.Controls.impl
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
 
+/**
+ * \ingroup qml
+ */
 ComboBox {
   id: comboBox
 

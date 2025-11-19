@@ -4,6 +4,9 @@ import QtQuick.Controls.Material
 import QtQuick.Layouts
 import Theme
 
+/**
+ * \ingroup qml
+ */
 ToolBar {
   property alias title: titleLabel.text
 

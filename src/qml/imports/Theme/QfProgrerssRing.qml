@@ -2,6 +2,9 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Shapes
 
+/**
+ * \ingroup qml
+ */
 ProgressBar {
   id: control
 

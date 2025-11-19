@@ -3,6 +3,9 @@ import QtQuick.Controls.impl
 import QtQuick.Templates as T
 import Theme
 
+/**
+ * \ingroup qml
+ */
 T.ScrollBar {
   id: control
 

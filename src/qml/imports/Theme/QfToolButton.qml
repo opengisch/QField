@@ -4,6 +4,9 @@ import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
 import Theme 1.0
 
+/**
+ * \ingroup qml
+ */
 RoundButton {
   id: button
 

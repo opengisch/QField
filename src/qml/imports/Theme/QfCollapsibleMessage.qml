@@ -4,6 +4,9 @@ import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
 import Theme
 
+/**
+ * \ingroup qml
+ */
 Item {
   property bool collapsed: true
   property string externalLink: ""

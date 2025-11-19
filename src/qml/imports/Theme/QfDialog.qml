@@ -1,6 +1,9 @@
 import QtQuick
 import QtQuick.Controls
 
+/**
+ * \ingroup qml
+ */
 Dialog {
   visible: false
   modal: true

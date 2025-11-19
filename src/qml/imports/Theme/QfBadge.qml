@@ -1,6 +1,9 @@
 import QtQuick
 import QtQuick.Controls
 
+/**
+ * \ingroup qml
+ */
 Rectangle {
   id: badge
 
