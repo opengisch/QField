@@ -305,9 +305,19 @@ Item {
   Connections {
     target: cloudConnection
 
+    function onUsernameChanged() {
+      usernameField.text = cloudConnection.username;
+    }
+
+    function onUrlChanged() {
+      serverUrlComboBox.currentIndex = serverUrlComboBox.find(cloudConnection.url);
+      serverUrlComboBox.displayText = cloudConnection.url;
+    }
+
     function onStatusChanged() {
-      if (cloudConnection.status === QFieldCloudConnection.LoggedIn)
+      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         usernameField.text = cloudConnection.username;
+      }
     }
 
     function onAvailableProvidersChanged() {
