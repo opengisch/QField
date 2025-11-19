@@ -223,6 +223,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
   private slots:
     void connectionStatusChanged();
     void usernameChanged();
+    void urlChanged();
+
     void projectListReceived();
     void projectReceived();
     void projectCreationReceived();
