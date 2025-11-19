@@ -27,6 +27,12 @@
 class QgsProfilePlotRenderer;
 class QgsElevationProfilePlotItem;
 
+/**
+ * Implements a visual Qt Quick Item that does elevation profile rendering
+ * according to the current project settings and a profile curve geometry.
+ *
+ * \ingroup core
+ */
 class QgsQuickElevationProfileCanvas : public QQuickItem
 {
     Q_OBJECT

@@ -37,8 +37,9 @@ class QgsProject;
  * QgsProject should be attached before it is read.
  *
  * \note QML Type: MapSettings
+ * \ingroup core
  *
- * \sa QgsMapCanvas
+ * \sa QgsQuickMapCanvas
  *
  */
 class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject

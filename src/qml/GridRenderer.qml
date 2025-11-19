@@ -10,6 +10,7 @@ Item {
   id: gridRenderer
 
   property alias enabled: gridModel.enabled
+  /// type:QgsQuickMapSettings
   property alias mapSettings: gridModel.mapSettings
   property alias indeterminate: gridModel.indeterminate
 
