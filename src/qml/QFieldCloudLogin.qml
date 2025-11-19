@@ -309,9 +309,16 @@ Item {
       usernameField.text = cloudConnection.username;
     }
 
+    function onPasswordChanged() {
+      passwordField.text = cloudConnection.password;
+    }
+
     function onUrlChanged() {
+      const index = serverUrlComboBox.find(cloudConnection.url);
+      if (index === -1) {
+        serverUrlComboBox.model = serverUrlComboBox.model.concat(cloudConnection.url);
+      }
       serverUrlComboBox.currentIndex = serverUrlComboBox.find(cloudConnection.url);
-      serverUrlComboBox.displayText = cloudConnection.url;
     }
 
     function onStatusChanged() {

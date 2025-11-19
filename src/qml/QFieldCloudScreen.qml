@@ -881,7 +881,7 @@ Page {
       cloudConnection.url = details.url;
     }
     if (details.username !== undefined && details.username !== cloudConnection.username) {
-      cloudConnection.username = cloudConnection.username;
+      cloudConnection.username = details.username;
     }
     requestedProjectDetails = details.project;
     if (!visible) {

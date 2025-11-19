@@ -395,7 +395,7 @@ void QFieldCloudConnection::logout()
     reply->deleteLater();
   } );
 
-  mPassword.clear();
+  setPassword( QString() );
   invalidateToken();
 
   mAvatarUrl.clear();
