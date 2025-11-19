@@ -37,4 +37,4 @@ plugins:
 nav:
   - Home: index.md
   - C++ Classes: QField/group__core.md
-  - QML Item: QField/group__qml.md
+  - QML Items: QField/group__qml.md
