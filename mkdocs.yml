@@ -2,6 +2,23 @@ site_name: "QField API Documentation"
 
 theme:
   name: material
+  logo: assets/images/qfield_logo_white.svg
+  favicon: assets/images/favicon.ico
+  palette:
+    - scheme: default
+      primary: light green
+      toggle:
+        icon: octicons/moon-24
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      toggle:
+        icon: octicons/sun-24
+        name: Switch to light mode
+
+copyright: Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a
+  href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA
+  4.0</a>
 
 plugins:
   - search
@@ -19,5 +36,5 @@ plugins:
 
 nav:
   - Home: index.md
-  - C++ Core Classes: QField/group__core.md
+  - C++ Classes: QField/group__core.md
   - QML Item: QField/group__qml.md
