@@ -22,9 +22,13 @@ Drawer {
 
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
   property bool allowInteractive: true
+  /// type:bool
   property alias allowActiveLayerChange: legend.allowActiveLayerChange
+  /// type:QgsVectorLayer
   property alias activeLayer: legend.activeLayer
+  /// type:FlatLayerTreeModel
   property alias layerTree: legend.model
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
 
   Component.onCompleted: {

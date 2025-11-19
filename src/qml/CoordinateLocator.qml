@@ -10,6 +10,7 @@ import Theme
 Item {
   id: locator
 
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
   property color mainColor: "#CFD8DC"
   property color highlightColor: "#263238"

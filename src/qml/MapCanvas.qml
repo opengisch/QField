@@ -28,14 +28,23 @@ Item {
   property alias mapCanvasWrapper: mapCanvasWrapper
   /// type:QgsQuickMapSettings
   property alias mapSettings: mapCanvasWrapper.mapSettings
+  /// type:real
   property alias bottomMargin: mapCanvasWrapper.bottomMargin
+  /// type:real
   property alias rightMargin: mapCanvasWrapper.rightMargin
+  /// type:bool
   property alias isRendering: mapCanvasWrapper.isRendering
+  /// type:bool
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
+  /// type:real
   property alias quality: mapCanvasWrapper.quality
+  /// type:bool
   property alias smooth: mapCanvasWrapper.smooth
+  /// type:bool
   property alias previewJobsEnabled: mapCanvasWrapper.previewJobsEnabled
+  /// type:list<int>
   property alias previewJobsQuadrants: mapCanvasWrapper.previewJobsQuadrants
+  /// type:bool
   property alias forceDeferredLayersRepaint: mapCanvasWrapper.forceDeferredLayersRepaint
 
   property bool interactive: true

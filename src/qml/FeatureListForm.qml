@@ -32,6 +32,7 @@ Pane {
   property ProcessingAlgorithm algorithm: processingAlgorithm
 
   property FeatureListModelSelection selection
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
   property DigitizingToolbar digitizingToolbar
   property ConfirmationToolbar moveFeaturesToolbar
@@ -39,7 +40,9 @@ Pane {
   property CodeReader codeReader
 
   property color selectionColor
+  /// type:MultiFeatureListModel
   property alias model: globalFeaturesList.model
+  /// type:FeaturelistExtentController
   property alias extentController: featureListToolBar.extentController
 
   property bool allowEdit

@@ -10,6 +10,7 @@ import Theme
 Repeater {
   id: vertexRubberband
 
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
   property bool isVisible: false
   property bool isCycling: model.currentVertexIndex !== -1

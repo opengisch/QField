@@ -27,6 +27,7 @@ QfVisibilityFadingRow {
   id: geometryEditorsToolbar
 
   property FeatureModel featureModel //<! the feature which has its geometry being edited
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
   property RubberbandModel editorRubberbandModel //<! an additional Rubberband model for the tools (when drawing lines in split or add ring tools)
   property GeometryRenderer editorRenderer

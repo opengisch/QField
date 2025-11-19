@@ -10,6 +10,7 @@ Repeater {
   id: processingAlgorithmPreview
 
   property ProcessingAlgorithm algorithm
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
   property color color: Theme.processingPreview
 
