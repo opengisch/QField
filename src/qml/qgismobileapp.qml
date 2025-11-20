@@ -434,7 +434,7 @@ ApplicationWindow {
 
   Item {
     id: mapCanvas
-    objectName: "mapCanvas"
+    objectName: "mapCanvasContainer"
     clip: true
 
     DragHandler {
@@ -640,8 +640,10 @@ ApplicationWindow {
     /* The map canvas */
     MapCanvas {
       id: mapCanvasMap
+      objectName: "mapCanvas"
 
       property bool isEnabled: !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.visible && !rotateFeaturesToolbar.rotateFeaturesRequested
+
       interactive: isEnabled && !screenLocker.enabled && !snapToCommonAngleMenu.visible
       isMapRotationEnabled: qfieldSettings.enableMapRotation
       incrementalRendering: true

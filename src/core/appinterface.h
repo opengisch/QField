@@ -141,6 +141,11 @@ class AppInterface : public QObject
      */
     Q_INVOKABLE QObject *mapCanvas() const;
 
+    /**
+     * Returns the main map canvas.
+     */
+    Q_INVOKABLE QObject *positioning() const;
+
     static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
     static AppInterface *instance() { return sAppInterface; }
 
