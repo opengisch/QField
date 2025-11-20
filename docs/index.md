@@ -64,7 +64,7 @@ The plugin system is based on Qt’s QML engine, making it fully cross-platform.
 
 ## 🧠 Core Interfaces
 
-QField exposes an `iface` object and a set of utility modules.
+QField exposes an [`iface`](QField/classAppInterface.md) object and a set of utility modules.
 
 ### **Key `iface` functions**
 
