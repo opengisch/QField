@@ -100,16 +100,15 @@ void QFieldCloudConnection::setUrl( const QString &url )
     return;
 
   mUrl = url;
-
   QSettings().setValue( QStringLiteral( "/QFieldCloud/url" ), url );
-
-  emit urlChanged();
 
   if ( mStatus != ConnectionStatus::Disconnected )
   {
     // Disconnect from the previously used endpoint
     logout();
   }
+
+  emit urlChanged();
 }
 
 QString QFieldCloudConnection::defaultUrl()
@@ -164,14 +163,13 @@ void QFieldCloudConnection::setUsername( const QString &username )
 
   mUsername = username;
 
-  emit usernameChanged();
-
-
   if ( mStatus != ConnectionStatus::Disconnected )
   {
     // Disconnect from the previously used username
     logout();
   }
+
+  emit usernameChanged();
 }
 
 QString QFieldCloudConnection::password() const
