@@ -8,7 +8,7 @@ Welcome to the QField API documentation page. QField brings the power of QGIS in
 
 QField offers two types of plugins:
 
-- **Project Plugins** — Activated when a specific QGIS project is opened in QField.  
+- **Project Plugins** — Activated when a specific QGIS project is opened in QField.
 - **App-Wide Plugins** — Loaded at application runtime and active across all projects.
 
 The plugin system is based on Qt’s QML engine, making it fully cross-platform.
@@ -32,10 +32,10 @@ The plugin system is based on Qt’s QML engine, making it fully cross-platform.
 
 ### **Project Plugins**
 
-- Placed next to the project file.  
-- The plugin must have the same filename as the project but use the `.qml` extension.  
-  - Example:  
-    - `birdwatcher.qgz`  
+- Placed next to the project file.
+- The plugin must have the same filename as the project but use the `.qml` extension.
+  - Example:
+    - `birdwatcher.qgz`
     - `birdwatcher.qml`
 - Automatically discovered and included when packaging a project with QFieldSync or QFieldCloud.
 - Ideal for project-based workflows and field campaigns.
@@ -44,7 +44,7 @@ The plugin system is based on Qt’s QML engine, making it fully cross-platform.
 
 - Installed through QField’s plugin manager using a ZIP file URL.
 - A minimal plugin requires:
-  - `main.qml`  
+  - `main.qml`
   - optional `metadata.txt`
 - ZIP file naming can include versions, e.g.:
   - `myplugin-0.2.1.zip`
@@ -54,10 +54,10 @@ The plugin system is based on Qt’s QML engine, making it fully cross-platform.
 
 ## 🔎 What you'll find here
 
-- **C++ Classes**  
+- **C++ Classes**
   Low-level APIs that implement QField's core functionality: map rendering, feature editing, project handling, position tracking, and more. Look for properties and invokable functions to know what is exposed to plugins.
 
-- **QML Items**  
+- **QML Items**
   QML components used to build QField's user interface and tools. These are especially relevant if you are creating custom QML plugins, prototypes, or tailored builds of QField.
 
 ---
@@ -68,12 +68,12 @@ QField exposes an `iface` object and a set of utility modules.
 
 ### **Key `iface` functions**
 
-- `iface.mainWindow()` – access to the main application window  
+- `iface.mainWindow()` – access to the main application window
 - `iface.mapCanvas()` – retrieve the main [map canvas](QField/classMapCanvas.md) and [map settings](QField/classQgsQuickMapSettings.md)
 - `iface.positioning()` – retrieve the [positioning](QField/classPositioning.md) object
 - `iface.addItemToPluginsToolbar(item)` – add custom toolbar buttons overlays in the main window
 - `iface.addItemToDashboardActionsToolbar(item)` – add actions to the side dashboard
-- `iface.addItemToCanvasActionsToolbar(item)` – add actions to the map canvas long-press menu 
+- `iface.addItemToCanvasActionsToolbar(item)` – add actions to the map canvas long-press menu
 - `iface.findItemByObjectName("name")` – access internal QField components using their objectName property
 
 ### **Utility objects**
