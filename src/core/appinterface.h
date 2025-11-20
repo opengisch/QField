@@ -29,6 +29,7 @@ class QgsFeature;
 class QQuickItem;
 
 /**
+ * \brief App interface made available in QML as `iface`.
  * \ingroup core
  */
 class AppInterface : public QObject
@@ -43,26 +44,85 @@ class AppInterface : public QObject
       Q_ASSERT( false );
     }
 
+    /**
+     * Imports a compressed project from a given URL and place the content into the Imported Projects
+     * folder.
+     * \param url the URL where the compressed project ZIP file is
+     * \param loadOnImport set to TRUE to load the project on successful import
+     */
     Q_INVOKABLE void importUrl( const QString &url, bool loadOnImport = false );
 
+    //! Returns TRUE is a project was passed on when launching QField.
     Q_INVOKABLE bool hasProjectOnLaunch() const;
+
+    /**
+     * Loads a project file or standalone dataset.
+     *
+     * \param path the project file (.qgs or .qgz) or standalone dataset path
+     * \param name a project name (if left empty, the project file will be used instead)
+     */
     Q_INVOKABLE bool loadFile( const QString &path, const QString &name = QString() );
+
+    //! Reloads the currently opened project.
     Q_INVOKABLE void reloadProject();
-    Q_INVOKABLE void readProject();
+    //! Removes a given project \a path from the recent projects list.
     Q_INVOKABLE void removeRecentProject( const QString &path );
 
+    /**
+     * Reads a string from the specified scope and key.
+     * \param scope	entry scope (group) name
+     * \param key	entry key name. Keys are '/'-delimited entries, implying a hierarchy of keys and corresponding values
+     * \param def	default value to return if the specified key does not exist within the scope
+     */
     Q_INVOKABLE QString readProjectEntry( const QString &scope, const QString &key, const QString &def = QString() ) const;
+
+    /**
+     * Reads an integer from the specified scope and key.
+     * \param scope	entry scope (group) name
+     * \param key	entry key name. Keys are '/'-delimited entries, implying a hierarchy of keys and corresponding values
+     * \param def	default value to return if the specified key does not exist within the scope
+     */
     Q_INVOKABLE int readProjectNumEntry( const QString &scope, const QString &key, int def = 0 ) const;
+
+    /**
+     * Reads a double from the specified scope and key.
+     * \param scope	entry scope (group) name
+     * \param key	entry key name. Keys are '/'-delimited entries, implying a hierarchy of keys and corresponding values
+     * \param def	default value to return if the specified key does not exist within the scope
+     */
     Q_INVOKABLE double readProjectDoubleEntry( const QString &scope, const QString &key, double def = 0.0 ) const;
+
+    /**
+     * Reads a double from the specified scope and key.
+     * \param scope	entry scope (group) name
+     * \param key	entry key name. Keys are '/'-delimited entries, implying a hierarchy of keys and corresponding values
+     * \param def	default value to return if the specified key does not exist within the scope
+     */
     Q_INVOKABLE bool readProjectBoolEntry( const QString &scope, const QString &key, bool def = false ) const;
 
+    /**
+     * Prints a project layout to PDF.
+     * \param layoutName the layout name
+     */
     Q_INVOKABLE bool print( const QString &layoutName );
+
+    /**
+     * Prints an atlas-driven project layout to PDF.
+     * \param layoutName the layout name
+     * \param featureIds the list of atlas feature IDs
+     */
     Q_INVOKABLE bool printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds );
 
+    /**
+     * Sets the screen drimmer timeout. Dimming can be disabled by setting the timeout to zero.
+     * \param timeoutSeconds timeout in seconds
+     */
     Q_INVOKABLE void setScreenDimmerTimeout( int timeoutSeconds );
 
+    //! Returns a list of available UI translation languages
     Q_INVOKABLE QVariantMap availableLanguages() const;
 
+    //! Returns TRUE if a given \a filename can be opened as a project or standalone dataset.
     Q_INVOKABLE bool isFileExtensionSupported( const QString &filename ) const;
 
     /**
@@ -137,24 +197,26 @@ class AppInterface : public QObject
     Q_INVOKABLE QObject *mainWindow() const;
 
     /**
-     * Returns the main map canvas.
+     * Returns the main map canvas item.
+     * \see MapCanvas
      */
     Q_INVOKABLE QObject *mapCanvas() const;
 
     /**
-     * Returns the main map canvas.
+     * Returns the positioning item.
+     * \see Positioning
      */
     Q_INVOKABLE QObject *positioning() const;
 
+    /// @cond PRIVATE
+    //! Reads the content of the loaded project, called on loadProjectTriggered()
+    Q_INVOKABLE void readProject();
+
     static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
     static AppInterface *instance() { return sAppInterface; }
-
-  public slots:
-    void openFeatureForm();
+    ///@endcond
 
   signals:
-    void openFeatureFormRequested();
-
     /**
      * Emitted when a dataset or project import has been triggered.
      * \param name a indentifier-friendly string (e.g. a file being imported)

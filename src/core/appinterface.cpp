@@ -188,11 +188,6 @@ bool AppInterface::printAtlasFeatures( const QString &layoutName, const QList<lo
   return mApp->printAtlasFeatures( layoutName, featureIds );
 }
 
-void AppInterface::openFeatureForm()
-{
-  emit openFeatureFormRequested();
-}
-
 void AppInterface::setScreenDimmerTimeout( int timeoutSeconds )
 {
   mApp->setScreenDimmerTimeout( timeoutSeconds );
