@@ -38,3 +38,6 @@ nav:
   - Home: index.md
   - C++ Classes: QField/group__core.md
   - QML Items: QField/group__qml.md
+
+markdown_extensions:
+  - attr_list

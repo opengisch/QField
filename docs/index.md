@@ -69,8 +69,8 @@ QField exposes an `iface` object and a set of utility modules.
 ### **Key `iface` functions**
 
 - `iface.mainWindow()` – access to the main application window  
-- `iface.mapCanvas()` – retrieve the main (map canvas)[QField/classMapCanvas] and (map settings)[QField/classQgsQuickMapSettings] 
-- `iface.positioning()` – retrieve the (positioning)[QField/classPositioning] object
+- `iface.mapCanvas()` – retrieve the main [map canvas](QField/classMapCanvas.md) and [map settings](QField/classQgsQuickMapSettings.md)
+- `iface.positioning()` – retrieve the [positioning](QField/classPositioning.md) object
 - `iface.addItemToPluginsToolbar(item)` – add custom toolbar buttons overlays in the main window
 - `iface.addItemToDashboardActionsToolbar(item)` – add actions to the side dashboard
 - `iface.addItemToCanvasActionsToolbar(item)` – add actions to the map canvas long-press menu 
@@ -104,8 +104,8 @@ Item {
 
 ## 📘 Resources
 
-- [Example plugins](https://github.com/topics/qfield-plugin)
-- [Supercharge your fieldwork with QField’s project and app-wide plugins](https://www.opengis.ch/2024/06/18/supercharge-your-fieldwork-with-qfields-project-and-app-wide-plugins/)
+- [Example plugins](https://github.com/topics/qfield-plugin){:target="_blank"}
+- [Supercharge your fieldwork with QField’s project and app-wide plugins](https://www.opengis.ch/2024/06/18/supercharge-your-fieldwork-with-qfields-project-and-app-wide-plugins/){:target="_blank"}
 
 
 ## 🎯 Best Practices
