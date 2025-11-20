@@ -102,6 +102,15 @@ QObject *AppInterface::mapCanvas() const
   return nullptr;
 }
 
+QObject *AppInterface::positioning() const
+{
+  if ( !mApp->rootObjects().isEmpty() )
+  {
+    return mApp->rootObjects().at( 0 )->findChild<QObject *>( "positionSource" );
+  }
+  return nullptr;
+}
+
 void AppInterface::removeRecentProject( const QString &path )
 {
   return mApp->removeRecentProject( path );
