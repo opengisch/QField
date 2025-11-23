@@ -32,23 +32,33 @@ The plugin system is based on Qt’s QML engine, making it fully cross-platform.
 
 ### **Project Plugins**
 
-- Placed next to the project file.
-- The plugin must have the same filename as the project but use the `.qml` extension.
-  - Example:
-    - `birdwatcher.qgz`
-    - `birdwatcher.qml`
-- Automatically discovered and included when packaging a project with QFieldSync or QFieldCloud.
-- Ideal for project-based workflows and field campaigns.
+Project plugins are placed next to the project file. The plugin must have the same filename as the project but use the `.qml` extension. Example:
+
+- `birdwatcher.qgz`
+- `birdwatcher.qml`
+
+These project plugins are automatically discovered and included when packaging a project with QFieldSync or QFieldCloud. They are easy to distrubte through QFieldCloud and are ideal for project-based workflows supporting field campaigns.
 
 ### **App-Wide Plugins**
 
-- Installed through QField’s plugin manager using a ZIP file URL.
-- A minimal plugin requires:
-  - `main.qml`
-  - optional `metadata.txt`
-- ZIP file naming can include versions, e.g.:
-  - `myplugin-0.2.1.zip`
-- Used for enterprise-wide or reusable functionality independent of any single project.
+To develop an app-wide plugin, add a new folder in the QField's app directory's plugins subfolder. Its exact location can be discovered by opening the _About QField_ popup in QField and clicking on the QField app location label at the bottom of the screen.
+
+The created plugin folder must contain a main.qml file which will be used by QField to activate the plugin.
+
+An optional metadata.txt can also be used to provide basic details such as the plugin name, brief description, and author name.
+A sample typical `metadata.txt` content would look like this:
+
+```ini
+[general]
+name=Hello World Plugin
+description=This is simple and brief description.
+author=OPENGIS.ch
+icon=logo.svg
+```
+
+To ship the plugin, compress the content of your plugin folder into a ZIP file. The main.qml must reside at the root of your ZIP file, while the ZIP file name itself should mirror your plugin folder name. The ZIP file name can contain a version suffix - such as 'my-plugin-v1.0.zip' - which QField will remove from the installed plugin folder name. The compressed ZIP file can then be installed in QField's plugin manager via the _Install plugin from URL_ button.
+
+This [QField template plugin](https://github.com/opengisch/qfield-template-plugin) offers a simple skeleton from which you can build plugins from scratch.
 
 ---
 
