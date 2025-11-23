@@ -33,7 +33,7 @@ Item {
 
 ## Change the map canvas center or extent
 
-This code below will re-center the map canvas around a WGS84 point re-projected to match the current project CRS.
+This code below will re-center the map canvas around a WGS84 point reprojected to match the current project CRS by using [`GeometryUtils`](QField/classGeometryUtils.md) functions.
 
 ```qml
 import QtQuick
@@ -113,7 +113,7 @@ Item {
 
 ## Search bar integration
 
-The plugin framework empowers you to integrate custom searches into the QField search bar through the `QFieldLocatorFilter` item which can be added into a plugin's root item:
+The plugin framework empowers you to integrate custom searches into the QField search bar through the [`QFieldLocatorFilter`](QField/classQFieldLocatorFilter.md) item which can be added into a plugin's root item:
 
 ```qml
 QFieldLocatorFilter {
@@ -208,9 +208,9 @@ Item {
 }
 ```
 
-## Geometry highlighter canvas overlay
+## Flash geometries on top of the map canvas
 
-Plugins can make use of QField's geometry highlighter item to flash created or fetched geometries through the following code:
+Plugins can make use of QField's [`GeometryHighlighter`](QField/classGeometryHighlighter.md) item to flash created or fetched geometries through the following code:
 
 ```qml
 import QtQuick
@@ -234,7 +234,7 @@ Item {
 
 ## Add a project variable through dialog input
 
-This example demonstrates how to check for a given project variable on project load and asks the user for a value if not present or empty through ExpressionContextUtils functions. The plugin also uses the projectInfo object to save the variable across sessions.
+This example demonstrates how to check for a given project variable on project load and asks the user for a value if not present or empty through [`ExpressionContextUtils`](QField/classExpressionContextUtils.md) functions. The plugin also uses the projectInfo object to save the variable across sessions.
 
 ```qml
 import QtQuick
