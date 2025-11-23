@@ -8,7 +8,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Pane {
+Drawer {
   id: overlayFeatureFormDrawer
 
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
@@ -27,43 +27,35 @@ Pane {
 
   signal requestJumpToPoint(var center, real scale, bool handleMargins)
 
+  edge: parent.width < parent.height ? Qt.BottomEdge : Qt.RightEdge
+  closePolicy: Popup.NoAutoClose // prevent accidental feature addition when clicking outside of the popup drawer
   focus: visible
 
   property int lastWidth
 
   width: {
-    if (props.isVisible) {
-      if (dragWidthAdjustment != 0) {
-        return lastWidth - dragWidthAdjustment;
-      } else if (fullScreenView || parent.width <= parent.height || width >= 0.95 * parent.width) {
-        lastWidth = parent.width;
-        return lastWidth;
-      } else {
-        lastWidth = Math.min(Math.max(200, parent.width / 2.25), parent.width);
-        return lastWidth;
-      }
+    if (dragWidthAdjustment != 0) {
+      return lastWidth - dragWidthAdjustment;
+    } else if (overlayFeatureFormDrawer.fullScreenView || parent.width < parent.height || parent.width < 300 || width >= 0.95 * parent.width) {
+      lastWidth = parent.width;
+      return lastWidth;
     } else {
-      lastWidth = 0;
-      return 0;
+      lastWidth = Math.min(Math.max(200, parent.width / 2.25), parent.width);
+      return lastWidth;
     }
   }
 
   property int lastHeight
 
   height: {
-    if (props.isVisible) {
-      if (dragHeightAdjustment != 0) {
-        return Math.min(lastHeight - dragHeightAdjustment, parent.height - mainWindow.sceneTopMargin);
-      } else if (fullScreenView || parent.width > parent.height || height >= 0.95 * parent.height) {
-        lastHeight = parent.height - mainWindow.sceneTopMargin;
-        return lastHeight;
-      } else {
-        lastHeight = Math.min(Math.max(200, parent.height / 2), parent.height - mainWindow.sceneTopMargin);
-        return lastHeight;
-      }
+    if (dragHeightAdjustment != 0) {
+      return Math.min(lastHeight - dragHeightAdjustment, parent.height - mainWindow.sceneTopMargin);
+    } else if (overlayFeatureFormDrawer.fullScreenView || parent.width >= parent.height || height >= 0.95 * parent.height) {
+      lastHeight = parent.height;
+      return lastHeight;
     } else {
-      lastHeight = 0;
-      return 0;
+      lastHeight = Math.min(Math.max(200, parent.height / 2), parent.height);
+      return lastHeight;
     }
   }
 
@@ -72,28 +64,20 @@ Pane {
   rightPadding: 0
   bottomPadding: 0
 
-  enabled: true
-  visible: props.isVisible
-
-  QtObject {
-    id: props
-
-    property bool isVisible: false
-  }
+  interactive: false
+  dragMargin: 0
 
   /**
-   * When the form becomes visible, mark as adding
+   * If the save/cancel was initiated by button, the drawer needs to be closed in the end
+   * If the drawer is closed by back key or integrated functionality (by Drawer) it has to save in the end
+   * To make a difference between these scenarios we need position of the drawer and the isSaved flag of the FeatureForm
    */
-  onVisibleChanged: {
-    if (visible) {
-      isAdding = true;
-    } else {
-      onClosed();
-    }
+  onOpened: {
+    isAdding = true;
   }
 
-  function onClosed() {
-    if (digitizingToolbar && !digitizingToolbar.geometryRequested) {
+  onClosed: {
+    if (!digitizingToolbar.geometryRequested) {
       if (!overlayFeatureForm.isSaved) {
         overlayFeatureForm.confirm();
       } else {
@@ -110,7 +94,7 @@ Pane {
 
     function onGeometryRequestedChanged() {
       if (digitizingToolbar.geometryRequested && overlayFeatureFormDrawer.isAdding) {
-        hide(); // note: the digitizing toolbar will re-open the drawer to avoid panel stacking issues
+        overlayFeatureFormDrawer.close(); // note: the digitizing toolbar will re-open the drawer to avoid panel stacking issues
       }
     }
   }
@@ -141,9 +125,9 @@ Pane {
     onConfirmed: {
       displayToast(qsTr("Changes saved"));
       //close drawer if still open
-      if (props.isVisible) {
+      if (overlayFeatureFormDrawer.position > 0) {
         overlayFeatureForm.isSaved = true; //because just saved
-        hide();
+        overlayFeatureFormDrawer.close();
       } else {
         overlayFeatureForm.isSaved = false; //reset
       }
@@ -154,9 +138,9 @@ Pane {
     onCancelled: {
       displayToast(qsTr("Changes discarded"));
       //close drawer if still open
-      if (props.isVisible) {
+      if (overlayFeatureFormDrawer.position > 0) {
         overlayFeatureForm.isSaved = true; //because never changed
-        hide();
+        overlayFeatureFormDrawer.close();
       } else {
         overlayFeatureForm.isSaved = false; //reset
       }
@@ -188,7 +172,7 @@ Pane {
           if (fullScreenView) {
             fullScreenView = false;
           } else {
-            hide();
+            overlayFeatureFormDrawer.close();
           }
         } else if (dragHeightAdjustment < -parent.height * 0.2) {
           fullScreenView = true;
@@ -198,7 +182,7 @@ Pane {
           if (fullScreenView) {
             fullScreenView = false;
           } else {
-            hide();
+            overlayFeatureFormDrawer.close();
           }
         } else if (dragWidthAdjustment < -parent.width * 0.2) {
           fullScreenView = true;
@@ -211,7 +195,7 @@ Pane {
     Keys.onReleased: event => {
       if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
         if (overlayFeatureForm.model.constraintsHardValid || qfieldSettings.autoSave) {
-          hide();
+          overlayFeatureFormDrawer.close();
         } else {
           //block closing to fix constraints or cancel with button
           displayToast(qsTr("Constraints not valid"), 'warning');
@@ -228,17 +212,10 @@ Pane {
 
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.top: parent.top
-    anchors.topMargin: overlayFeatureForm.topMargin + 2
+    anchors.topMargin: overlayFeatureForm.topMargin + 4
 
     color: Theme.controlBorderColor
-  }
-
-  function show() {
-    props.isVisible = true;
-  }
-
-  function hide() {
-    props.isVisible = false;
+    visible: isVertical
   }
 
   Behavior on width  {
@@ -253,5 +230,12 @@ Pane {
       duration: parent.width < parent.height && !isDragging ? 250 : 0
       easing.type: Easing.OutQuart
     }
+  }
+
+  Component.onCompleted: {
+    if (Material.roundedScale) {
+      Material.roundedScale = Material.NotRounded;
+    }
+    close();
   }
 }
