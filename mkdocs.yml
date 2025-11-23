@@ -36,6 +36,7 @@ plugins:
 
 nav:
   - Home: index.md
+  - Code Snippets: snippets.md
   - C++ Classes: QField/group__core.md
   - QML Items: QField/group__qml.md
 

@@ -53,8 +53,8 @@ ApplicationWindow {
 
   property bool sceneLoaded: false
   property bool sceneBorderless: false
-  property double sceneTopMargin: SafeArea.margins.top
-  property double sceneBottomMargin: SafeArea.margins.bottom
+  property double sceneTopMargin: 50//SafeArea.margins.top
+  property double sceneBottomMargin: 50//SafeArea.margins.bottom
   property double sceneLeftMargin: SafeArea.margins.left
   property double sceneRightMargin: SafeArea.margins.right
 
