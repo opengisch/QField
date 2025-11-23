@@ -32,6 +32,7 @@
 #include <qgsmessagelog.h>
 #include <qgspallabeling.h>
 #include <qgsproject.h>
+#include <qgssymbollayerutils.h>
 #include <qgsvectorlayer.h>
 
 
@@ -732,18 +733,50 @@ void QgsQuickMapCanvasMap::clearTemporalCache()
     const QList<QgsMapLayer *> layerList = mMapSettings->mapSettings().layers();
     for ( QgsMapLayer *layer : layerList )
     {
+      bool alreadyInvalidatedThisLayer = false;
+      if ( QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer ) )
+      {
+        if ( vl->renderer() && QgsSymbolLayerUtils::rendererFrameRate( vl->renderer() ) > -1 )
+        {
+          // layer has an animated symbol assigned, so we have to redraw it regardless of whether
+          // or not it has temporal settings
+          mCache->invalidateCacheForLayer( layer );
+          alreadyInvalidatedThisLayer = true;
+          // we can't shortcut and "continue" here, as we still need to check whether the layer
+          // will cause label invalidation using the logic below
+        }
+      }
+
       if ( layer->temporalProperties() && layer->temporalProperties()->isActive() )
       {
         if ( QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer ) )
         {
-          if ( vl->labelsEnabled() || vl->diagramsEnabled() )
+          if ( vl->labelsEnabled() || vl->diagramsEnabled() || ( vl->renderer() && vl->renderer()->flags().testFlag( Qgis::FeatureRendererFlag::AffectsLabeling ) ) )
             invalidateLabels = true;
         }
 
         if ( layer->temporalProperties()->flags() & QgsTemporalProperty::FlagDontInvalidateCachedRendersWhenRangeChanges )
           continue;
 
-        mCache->invalidateCacheForLayer( layer );
+        if ( !alreadyInvalidatedThisLayer )
+        {
+          mCache->invalidateCacheForLayer( layer );
+        }
+      }
+      else if ( QgsGroupLayer *gl = qobject_cast<QgsGroupLayer *>( layer ) )
+      {
+        const QList<QgsMapLayer *> childLayerList = gl->childLayers();
+        for ( QgsMapLayer *childLayer : childLayerList )
+        {
+          if ( childLayer->temporalProperties() && childLayer->temporalProperties()->isActive() )
+          {
+            if ( childLayer->temporalProperties()->flags() & QgsTemporalProperty::FlagDontInvalidateCachedRendersWhenRangeChanges )
+              continue;
+
+            mCache->invalidateCacheForLayer( layer );
+            break;
+          }
+        }
       }
     }
 
