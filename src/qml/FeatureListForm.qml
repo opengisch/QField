@@ -755,18 +755,6 @@ Pane {
     }
   }
 
-  Rectangle {
-    width: parent.width * 0.3
-    height: 5
-    radius: 10
-
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.top: parent.top
-    anchors.topMargin: featureListToolBar.topMargin + 2
-
-    color: Theme.controlBorderColor
-  }
-
   Keys.onReleased: event => {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
       // if visible overlays (such as embedded feature forms) are present, don't take over

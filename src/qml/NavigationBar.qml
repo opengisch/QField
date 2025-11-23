@@ -88,6 +88,18 @@ Rectangle {
 
   state: "Indication"
 
+  Rectangle {
+    width: parent.width * 0.3
+    height: 5
+    radius: 10
+
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
+
+    color: Theme.controlBorderColor
+  }
+
   Item {
     anchors {
       fill: parent
