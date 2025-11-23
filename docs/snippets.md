@@ -283,3 +283,28 @@ Item {
   }
 }
 ```
+
+## Register a map canvas point handler to take over taps
+
+Plugins can take over map canvas taps behavior by registering an handler with the [`MapCanvasPointHandler`](QField/classMapCanvasPointHandler.md) object. The code snippet below will look for features within a given layer and return an attribute instead of showing the features list. Feature iteration is done using functions provided by the [`LayerUtils`](QField/classLayerUtils.md) class.
+
+```qml
+pointHandler.registerHandler("feature_iteration_example", (point, type, interactionType) => {
+  if (interactionType === "clicked") {
+    let mapCanvas = iface.mapCanvas();
+    const tl = mapCanvas.mapSettings.screenToCoordinate(Qt.point(point.x - 4, point.y - 4));
+    const br = mapCanvas.mapSettings.screenToCoordinate(Qt.point(point.x + 4, point.y + 4));
+
+    const rectangle = GeometryUtils.createRectangleFromPoints(tl, br);
+    let it = LayerUtils.createFeatureIteratorFromRectangle(qgisProject.mapLayersByName("my_layer")[0], rectangle);
+    if (it.hasNext()) {
+      const feature = it.next()
+      mainWindow.displayToast("Feature found! It's name is " + feature.attribute("name"))
+    }
+    return true;
+  }
+  return false;
+});
+```
+
+By returning true, we are telling QField that we have taken over the handling and provided the desired action.
