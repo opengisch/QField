@@ -91,10 +91,10 @@ Pane {
       if (dragHeightAdjustment != 0) {
         return Math.min(lastHeight - dragHeightAdjustment, parent.height - mainWindow.sceneTopMargin);
       } else if (fullScreenView || parent.width > parent.height || height >= 0.95 * parent.height) {
-        lastHeight = parent.height - mainWindow.sceneTopMargin ;
+        lastHeight = parent.height;
         return lastHeight;
       } else {
-        lastHeight = Math.min(Math.max(200, parent.height / 2), parent.height - mainWindow.sceneTopMargin);
+        lastHeight = Math.min(Math.max(200, parent.height / 2), parent.height);
         return lastHeight;
       }
     } else {

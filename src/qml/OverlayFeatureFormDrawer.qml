@@ -47,7 +47,7 @@ Pane {
       return 0;
     }
   }
-  
+
   property int lastHeight
 
   height: {
