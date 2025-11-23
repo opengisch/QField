@@ -948,9 +948,13 @@ Page {
           }
 
           onCentroidChanged: {
-            if (active && centroid.scenePosition !== oldPos) {
-              form.toolbarDragged(centroid.scenePosition.x - oldPos.x, centroid.scenePosition.y - oldPos.y);
-              oldPos = centroid.scenePosition;
+            if (active) {
+              var dx = centroid.scenePosition.x - oldPos.x;
+              var dy = centroid.scenePosition.y - oldPos.y;
+              if (dx !== 0 || dy !== 0) {
+                form.toolbarDragged(dx, dy);
+                oldPos = centroid.scenePosition;
+              }
             }
           }
         }

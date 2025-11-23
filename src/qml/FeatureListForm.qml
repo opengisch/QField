@@ -66,12 +66,12 @@ Pane {
     featureForm.requestCancel();
   }
 
-  property int lastWidth
+  property real lastWidth
 
   width: {
     if (props.isVisible || featureFormList.canvasOperationRequested) {
       if (dragWidthAdjustment != 0) {
-        return width = lastWidth - dragWidthAdjustment;
+        return lastWidth - dragWidthAdjustment;
       } else if (fullScreenView || parent.width <= parent.height || width >= 0.95 * parent.width) {
         lastWidth = parent.width;
         return lastWidth;
@@ -84,7 +84,7 @@ Pane {
       return 0;
     }
   }
-  property int lastHeight
+  property real lastHeight
 
   height: {
     if (props.isVisible || featureFormList.canvasOperationRequested) {
@@ -504,6 +504,7 @@ Pane {
     model: globalFeaturesList.model
     selection: featureFormList.selection
     multiSelection: featureFormList.multiSelection
+    isVertical: featureListForm.isVertical
     extentController: FeaturelistExtentController {
       model: globalFeaturesList.model
       selection: featureFormList.selection

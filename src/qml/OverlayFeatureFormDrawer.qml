@@ -31,7 +31,7 @@ Drawer {
   closePolicy: Popup.NoAutoClose // prevent accidental feature addition when clicking outside of the popup drawer
   focus: visible
 
-  property int lastWidth
+  property real lastWidth
 
   width: {
     if (dragWidthAdjustment != 0) {
@@ -45,7 +45,7 @@ Drawer {
     }
   }
 
-  property int lastHeight
+  property real lastHeight
 
   height: {
     if (dragHeightAdjustment != 0) {

@@ -29,6 +29,7 @@ Rectangle {
 
   property bool multiSelection
   property bool allowDelete
+  property bool isVertical: false
 
   property MultiFeatureListModel model
   property FeatureListModelSelection selection
@@ -98,6 +99,7 @@ Rectangle {
     anchors.topMargin: toolBar.topMargin
 
     color: Theme.controlBorderColor
+    visible: toolBar.isVertical
   }
 
   Item {
@@ -153,9 +155,13 @@ Rectangle {
         }
 
         onCentroidChanged: {
-          if (active && centroid.scenePosition !== oldPos) {
-            toolBar.statusIndicatorDragged(centroid.scenePosition.x - oldPos.x, centroid.scenePosition.y - oldPos.y);
-            oldPos = centroid.scenePosition;
+          if (active) {
+            var dx = centroid.scenePosition.x - oldPos.x;
+            var dy = centroid.scenePosition.y - oldPos.y;
+            if (dx !== 0 || dy !== 0) {
+              toolBar.statusIndicatorDragged(centroid.scenePosition.x - oldPos.x, centroid.scenePosition.y - oldPos.y);
+              oldPos = centroid.scenePosition;
+            }
           }
         }
       }
