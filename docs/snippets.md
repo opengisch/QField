@@ -111,7 +111,7 @@ Item {
 }
 ```
 
-## Search bar integration
+## Integrate with the search bar
 
 The plugin framework empowers you to integrate custom searches into the QField search bar through the [`QFieldLocatorFilter`](QField/classQFieldLocatorFilter.md) item which can be added into a plugin's root item:
 
@@ -178,7 +178,7 @@ Item {
 
 This [QField OpenStreetMap Nomination plugin](https://github.com/opengisch/qfield-nominatim-locator) is a good example to learn more about search bar integration.
 
-## Configuration button within the plugin manager
+## Add a plugin configuration button in the plugin manager
 
 For plugins requiring user configuration, QField allows for these to add a configuration button within its plugin manager.
 
