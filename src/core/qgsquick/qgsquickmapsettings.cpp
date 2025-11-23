@@ -21,6 +21,7 @@
 #include <qgsmaplayerstylemanager.h>
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
+#include <qgsprojectelevationproperties.h>
 #include <qgsprojectviewsettings.h>
 
 QgsQuickMapSettings::QgsQuickMapSettings( QObject *parent )
@@ -452,6 +453,8 @@ void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
     {
       foundTheMapCanvas = true;
       mMapSettings.readXml( node );
+
+      mMapSettings.setZRange( QgsDoubleRange( 10, 400 ) );
     }
   }
   if ( !foundTheMapCanvas )
@@ -472,6 +475,7 @@ void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
   emit layersChanged();
   emit backgroundColorChanged();
   emit temporalStateChanged();
+  emit zRangeChanged();
 }
 
 double QgsQuickMapSettings::rotation() const
@@ -545,6 +549,30 @@ void QgsQuickMapSettings::setTemporalEnd( const QDateTime &end )
   const QgsDateTimeRange range = mMapSettings.temporalRange();
   mMapSettings.setTemporalRange( QgsDateTimeRange( range.begin(), end ) );
   emit temporalStateChanged();
+}
+
+double QgsQuickMapSettings::zRangeLower() const
+{
+  return mMapSettings.zRange().lower();
+}
+
+void QgsQuickMapSettings::setZRangeLower( double lower )
+{
+  const QgsDoubleRange zRange( lower, mMapSettings.zRange().upper() );
+  mMapSettings.setZRange( zRange );
+  emit zRangeChanged();
+}
+
+double QgsQuickMapSettings::zRangeUpper() const
+{
+  return mMapSettings.zRange().upper();
+}
+
+void QgsQuickMapSettings::setZRangeUpper( double upper )
+{
+  const QgsDoubleRange zRange( mMapSettings.zRange().lower(), upper );
+  mMapSettings.setZRange( zRange );
+  emit zRangeChanged();
 }
 
 double QgsQuickMapSettings::bottomMargin() const

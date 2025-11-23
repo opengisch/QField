@@ -306,6 +306,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     void onRotationChanged();
     void onLayersChanged();
     void onTemporalStateChanged();
+    void onZRangeChanged();
 
   private:
     /**
@@ -316,6 +317,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     void updateTransform( bool skipSmooth = false );
     void zoomToFullExtent();
     void clearTemporalCache();
+    void clearElevationCache();
 
     std::unique_ptr<QgsQuickMapSettings> mMapSettings;
     bool mPinching = false;

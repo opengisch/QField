@@ -134,6 +134,16 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     Q_PROPERTY( QDateTime temporalEnd READ temporalEnd WRITE setTemporalEnd NOTIFY temporalStateChanged )
 
     /**
+     * The Z range's lower value; if both the lowe and upper value are finite, Z range filtering will occur.
+     */
+    Q_PROPERTY( double zRangeLower READ zRangeLower WRITE setZRangeLower NOTIFY zRangeChanged )
+
+    /**
+     * The Z range's upper value; if both the lowe and upper value are finite, Z range filtering will occur.
+     */
+    Q_PROPERTY( double zRangeUpper READ zRangeUpper WRITE setZRangeUpper NOTIFY zRangeChanged )
+
+    /**
      * The bottom margin used by the map settings when calculating map extent or center.
      */
     Q_PROPERTY( double bottomMargin READ bottomMargin WRITE setBottomMargin NOTIFY bottomMarginChanged )
@@ -311,6 +321,18 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     //! \copydoc QgsQuickMapSettings::temporalEnd
     void setTemporalEnd( const QDateTime &end );
 
+    //! \copydoc QgsQuickMapSettings::zRangeLower
+    double zRangeLower() const;
+
+    //! \copydoc QgsQuickMapSettings::zRangeLower
+    void setZRangeLower( double lower );
+
+    //! \copydoc QgsQuickMapSettings::zRangeUpper
+    double zRangeUpper() const;
+
+    //! \copydoc QgsQuickMapSettings::zRangeUpper
+    void setZRangeUpper( double upper );
+
     //!\copydoc QgsQuickMapSettings::bottomMargin
     double bottomMargin() const;
 
@@ -354,7 +376,11 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     //! \copydoc QgsQuickMapSettings::layers
     void layersChanged();
 
+    //! Emitted when temporal properties are modified.
     void temporalStateChanged();
+
+    //! Emitted when the Z range's lower and upper values are modified.
+    void zRangeChanged();
 
     //!\copydoc QgsQuickMapSettings::bottomMargin
     void bottomMarginChanged();
