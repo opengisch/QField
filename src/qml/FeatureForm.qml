@@ -42,6 +42,7 @@ Page {
   //setupOnly means data would be neither saved nor cleared (feature creation is handled elsewhere like e.g. in the tracking)
   property bool setupOnly: false
   property bool featureCreated: false
+  property bool isVertical: false
 
   property double topMargin: 0.0
   property double leftMargin: 0.0
@@ -845,6 +846,19 @@ Page {
     objectName: "toolbar"
     background: Rectangle {
       color: "transparent"
+    }
+
+    Rectangle {
+      width: parent.width * 0.3
+      height: 5
+      radius: 10
+
+      anchors.horizontalCenter: parent.horizontalCenter
+      anchors.top: parent.top
+      anchors.topMargin: form.topMargin + 4
+
+      color: Theme.controlBorderColor
+      visible: form.isVertical
     }
 
     RowLayout {

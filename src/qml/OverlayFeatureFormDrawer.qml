@@ -108,6 +108,7 @@ Drawer {
     leftMargin: overlayFeatureFormDrawer.x === 0 ? mainWindow.sceneLeftMargin : 0.0
     rightMargin: mainWindow.sceneRightMargin
     bottomMargin: mainWindow.sceneBottomMargin
+    isVertical: overlayFeatureFormDrawer.isVertical
 
     property bool isSaved: false
 
@@ -203,19 +204,6 @@ Drawer {
         event.accepted = true;
       }
     }
-  }
-
-  Rectangle {
-    width: parent.width * 0.3
-    height: 5
-    radius: 10
-
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.top: parent.top
-    anchors.topMargin: overlayFeatureForm.topMargin + 4
-
-    color: Theme.controlBorderColor
-    visible: isVertical
   }
 
   Behavior on width  {
