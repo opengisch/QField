@@ -78,15 +78,7 @@ void QFieldCloudProjectsModel::setCloudConnection( QFieldCloudConnection *cloudC
     connect( mCloudConnection, &QFieldCloudConnection::urlChanged, this, &QFieldCloudProjectsModel::urlChanged );
 
     mUsername = mCloudConnection->username();
-
-    if ( !mProjects.isEmpty() )
-    {
-      beginResetModel();
-      qDeleteAll( mProjects );
-      mProjects.clear();
-      endResetModel();
-    }
-    loadProjects();
+    resetProjects();
   }
 
   emit cloudConnectionChanged();
@@ -366,18 +358,15 @@ void QFieldCloudProjectsModel::connectionStatusChanged()
 void QFieldCloudProjectsModel::usernameChanged()
 {
   mUsername = mCloudConnection->username();
-
-  if ( !mProjects.isEmpty() )
-  {
-    beginResetModel();
-    qDeleteAll( mProjects );
-    mProjects.clear();
-    endResetModel();
-  }
-  loadProjects();
+  resetProjects();
 }
 
 void QFieldCloudProjectsModel::urlChanged()
+{
+  resetProjects();
+}
+
+void QFieldCloudProjectsModel::resetProjects()
 {
   if ( !mProjects.isEmpty() )
   {
@@ -386,6 +375,8 @@ void QFieldCloudProjectsModel::urlChanged()
     mProjects.clear();
     endResetModel();
   }
+
+  // Load locally stored projects
   loadProjects();
 }
 

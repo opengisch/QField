@@ -236,6 +236,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     void loadProjects( const QJsonArray &remoteProjects = QJsonArray(), bool skipLocalProjects = false );
     void insertProjects( const QList<QFieldCloudProject *> &projects );
+    void resetProjects();
 
     inline QString layerFileName( const QgsMapLayer *layer ) const;
 
