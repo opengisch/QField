@@ -100,8 +100,13 @@ void QFieldCloudConnection::setUrl( const QString &url )
     return;
 
   mUrl = url;
-
   QSettings().setValue( QStringLiteral( "/QFieldCloud/url" ), url );
+
+  if ( mStatus != ConnectionStatus::Disconnected )
+  {
+    // Disconnect from the previously used endpoint
+    logout();
+  }
 
   emit urlChanged();
 }
@@ -157,7 +162,12 @@ void QFieldCloudConnection::setUsername( const QString &username )
     return;
 
   mUsername = username;
-  invalidateToken();
+
+  if ( mStatus != ConnectionStatus::Disconnected )
+  {
+    // Disconnect from the previously used username
+    logout();
+  }
 
   emit usernameChanged();
 }
@@ -383,7 +393,7 @@ void QFieldCloudConnection::logout()
     reply->deleteLater();
   } );
 
-  mPassword.clear();
+  setPassword( QString() );
   invalidateToken();
 
   mAvatarUrl.clear();

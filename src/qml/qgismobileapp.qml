@@ -4187,12 +4187,7 @@ ApplicationWindow {
         importPermissionDialog.url = details.import;
         importPermissionDialog.open();
       } else if (details.type === "cloud" && details.project !== undefined && details.project !== "") {
-        qfieldCloudScreen.requestedProjectDetails = details.project;
-        if (!qfieldCloudScreen.visible) {
-          qfieldCloudScreen.visible = true;
-        } else {
-          qfieldCloudScreen.prepareCloudScreen();
-        }
+        qfieldCloudScreen.prepareProjectRequest(details);
       }
     }
 
