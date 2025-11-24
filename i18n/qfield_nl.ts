@@ -853,11 +853,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Ongeldige voorwaarden</translation>
+        <translation type="vanished">Ongeldige voorwaarden</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Opmerking: niet voldaan aan voorwaarden (soft constrains)</translation>
+        <translation type="vanished">Opmerking: niet voldaan aan voorwaarden (soft constrains)</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1934,7 +1934,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Ongeldige voorwaarden</translation>
+        <translation type="vanished">Ongeldige voorwaarden</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

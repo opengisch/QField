@@ -852,11 +852,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>ຂໍ້ຈໍາກັດບໍ່ຖືກຕ້ອງ</translation>
+        <translation type="vanished">ຂໍ້ຈໍາກັດບໍ່ຖືກຕ້ອງ</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>ໝາຍເຫດ: ຂໍ້ຈຳກັດທີ່ອ່ອນໂຍນບໍ່ຕອບສະໜອງໄດ້</translation>
+        <translation type="vanished">ໝາຍເຫດ: ຂໍ້ຈຳກັດທີ່ອ່ອນໂຍນບໍ່ຕອບສະໜອງໄດ້</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1925,7 +1925,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>ຂໍ້ຈໍາກັດບໍ່ຖືກຕ້ອງ</translation>
+        <translation type="vanished">ຂໍ້ຈໍາກັດບໍ່ຖືກຕ້ອງ</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -853,11 +853,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>约束无效</translation>
+        <translation type="vanished">约束无效</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>注意：不满足软约束</translation>
+        <translation type="vanished">注意：不满足软约束</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1932,7 +1932,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>约束无效</translation>
+        <translation type="vanished">约束无效</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation>硬约束未满足</translation>
     </message>
 </context>
 <context>

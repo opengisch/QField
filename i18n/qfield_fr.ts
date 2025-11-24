@@ -852,11 +852,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Contraintes non respectées</translation>
+        <translation type="vanished">Contraintes non respectées</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Note : les contraintes n&apos;ont pas été respectées</translation>
+        <translation type="vanished">Note : les contraintes n&apos;ont pas été respectées</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1935,7 +1935,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Contraintes non respectées</translation>
+        <translation type="vanished">Contraintes non respectées</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

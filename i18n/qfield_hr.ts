@@ -853,11 +853,11 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Ograničenja nisu važeća</translation>
+        <translation type="vanished">Ograničenja nisu važeća</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Bilješka: meka ograničenja nisu udovoljena</translation>
+        <translation type="vanished">Bilješka: meka ograničenja nisu udovoljena</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1936,7 +1936,11 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Ograničenja nevažeča</translation>
+        <translation type="vanished">Ograničenja nevažeča</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

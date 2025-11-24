@@ -853,11 +853,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Nieprawidłowe ograniczenia</translation>
+        <translation type="vanished">Nieprawidłowe ograniczenia</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Uwaga: wymagania oprogramowania nie zostały spełnione</translation>
+        <translation type="vanished">Uwaga: wymagania oprogramowania nie zostały spełnione</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1938,7 +1938,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Nieprawidłowe ograniczenia</translation>
+        <translation type="vanished">Nieprawidłowe ograniczenia</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

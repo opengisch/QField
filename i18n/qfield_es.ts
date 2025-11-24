@@ -853,11 +853,11 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Restricciones no válidas</translation>
+        <translation type="vanished">Restricciones no válidas</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Nota: no se cumplen las restricciones suave</translation>
+        <translation type="vanished">Nota: no se cumplen las restricciones suave</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1936,7 +1936,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Restricciones no válidas</translation>
+        <translation type="vanished">Restricciones no válidas</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

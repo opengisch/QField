@@ -853,11 +853,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Restrições não válidas</translation>
+        <translation type="vanished">Restrições não válidas</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Nota: restrições simples não foram atendidas</translation>
+        <translation type="vanished">Nota: restrições simples não foram atendidas</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1930,7 +1930,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Restrições não válidas</translation>
+        <translation type="vanished">Restrições não válidas</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

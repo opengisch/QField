@@ -853,11 +853,11 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Bedingung ungültig</translation>
+        <translation type="vanished">Bedingung ungültig</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Bemerkung: Weiche Einschränkungen wurden nicht Eingehalten</translation>
+        <translation type="vanished">Bemerkung: Weiche Einschränkungen wurden nicht Eingehalten</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1933,7 +1933,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Bedingung ungültig</translation>
+        <translation type="vanished">Bedingung ungültig</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation>Harte Bedingungen wurden nicht erfüllt</translation>
     </message>
 </context>
 <context>

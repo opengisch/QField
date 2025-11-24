@@ -854,11 +854,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Constrângerile nu sunt valabile</translation>
+        <translation type="vanished">Constrângerile nu sunt valabile</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Notă: restricțiile soft nu au fost îndeplinite</translation>
+        <translation type="vanished">Notă: restricțiile soft nu au fost îndeplinite</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1938,7 +1938,11 @@ Motiv:
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Constrângerile nu sunt valabile</translation>
+        <translation type="vanished">Constrângerile nu sunt valabile</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

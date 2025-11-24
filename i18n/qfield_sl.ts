@@ -852,11 +852,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Omejitve niso veljavne</translation>
+        <translation type="vanished">Omejitve niso veljavne</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Opomba: blage omejitve niso bile izpolnjene</translation>
+        <translation type="vanished">Opomba: blage omejitve niso bile izpolnjene</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1925,7 +1925,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Omejitve niso veljavne</translation>
+        <translation type="vanished">Omejitve niso veljavne</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

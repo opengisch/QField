@@ -853,11 +853,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>As restrições não são válidas</translation>
+        <translation type="vanished">As restrições não são válidas</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Nota: restrições leves não foram tomadas em consideração</translation>
+        <translation type="vanished">Nota: restrições leves não foram tomadas em consideração</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1936,7 +1936,11 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>As restrições não são válidas</translation>
+        <translation type="vanished">As restrições não são válidas</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

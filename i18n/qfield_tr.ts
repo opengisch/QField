@@ -853,11 +853,11 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Kısıtlar geçerli değil</translation>
+        <translation type="vanished">Kısıtlar geçerli değil</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Not: Hafif kısıtlar sağlanmadı</translation>
+        <translation type="vanished">Not: Hafif kısıtlar sağlanmadı</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1929,7 +1929,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Kısıtlar geçerli değil</translation>
+        <translation type="vanished">Kısıtlar geçerli değil</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

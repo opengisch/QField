@@ -853,11 +853,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Ограничения не выполнены</translation>
+        <translation type="vanished">Ограничения не выполнены</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Примечание: мягкие ограничения не соблюдены</translation>
+        <translation type="vanished">Примечание: мягкие ограничения не соблюдены</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1938,7 +1938,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Ограничения не выполнены</translation>
+        <translation type="vanished">Ограничения не выполнены</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -853,11 +853,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Ehdot eivät kelpaa</translation>
+        <translation type="vanished">Ehdot eivät kelpaa</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Huomautus: pehmeät ehdot eivät täyttyneet</translation>
+        <translation type="vanished">Huomautus: pehmeät ehdot eivät täyttyneet</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1934,7 +1934,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Ehdot eivät kelpaa</translation>
+        <translation type="vanished">Ehdot eivät kelpaa</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

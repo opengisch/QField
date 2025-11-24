@@ -853,11 +853,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Érvénytelen korlátozások</translation>
+        <translation type="vanished">Érvénytelen korlátozások</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Megjegyzés: puha korlátozások nem teljesültek</translation>
+        <translation type="vanished">Megjegyzés: puha korlátozások nem teljesültek</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1933,7 +1933,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Hibás korlátozás</translation>
+        <translation type="vanished">Hibás korlátozás</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

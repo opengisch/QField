@@ -853,11 +853,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Restricións non válidas</translation>
+        <translation type="vanished">Restricións non válidas</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Nota: non se cumpriron as restricións suaves</translation>
+        <translation type="vanished">Nota: non se cumpriron as restricións suaves</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1934,7 +1934,11 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Restricións non válidas</translation>
+        <translation type="vanished">Restricións non válidas</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

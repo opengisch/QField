@@ -853,11 +853,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>الحدود غير صالحة</translation>
+        <translation type="vanished">الحدود غير صالحة</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>ملاحظة: لم يتم إيجاد الحدود</translation>
+        <translation type="vanished">ملاحظة: لم يتم إيجاد الحدود</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1930,7 +1930,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>الحدود غير صالحة</translation>
+        <translation type="vanished">الحدود غير صالحة</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

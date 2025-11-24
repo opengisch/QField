@@ -853,11 +853,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Omezení nejsou platná</translation>
+        <translation type="vanished">Omezení nejsou platná</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Poznámka: měkká omezení nebyla splněna</translation>
+        <translation type="vanished">Poznámka: měkká omezení nebyla splněna</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1938,7 +1938,11 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Omezení nejsou platná</translation>
+        <translation type="vanished">Omezení nejsou platná</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

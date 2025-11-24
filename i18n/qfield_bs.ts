@@ -852,11 +852,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Ograničenja nisu validna</translation>
+        <translation type="vanished">Ograničenja nisu validna</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Napomena: ograničenja ne odgovaraju</translation>
+        <translation type="vanished">Napomena: ograničenja ne odgovaraju</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1935,7 +1935,11 @@ Geometrija objekata će se kombinovati u objekat &apos;%1&apos;, koji će zadrž
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Ograničenja nisu validna</translation>
+        <translation type="vanished">Ograničenja nisu validna</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

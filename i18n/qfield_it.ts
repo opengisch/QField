@@ -853,11 +853,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Vincoli non validi</translation>
+        <translation type="vanished">Vincoli non validi</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Nota: i vincoli non sono rispettati</translation>
+        <translation type="vanished">Nota: i vincoli non sono rispettati</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1936,7 +1936,11 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Vincoli non validi</translation>
+        <translation type="vanished">Vincoli non validi</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

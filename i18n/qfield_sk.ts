@@ -853,11 +853,11 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Obmedzenia sú neplatné</translation>
+        <translation type="vanished">Obmedzenia sú neplatné</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation>Poznámka: nestriktné obmedzenia neboli splnené</translation>
+        <translation type="vanished">Poznámka: nestriktné obmedzenia neboli splnené</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -1937,7 +1937,11 @@ Dôvod:
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation>Obmedzenia sú neplatné</translation>
+        <translation type="vanished">Obmedzenia sú neplatné</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
