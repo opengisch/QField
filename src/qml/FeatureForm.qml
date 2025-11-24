@@ -22,8 +22,9 @@ Page {
   signal valueChanged(var field, var oldValue, var newValue)
   signal aboutToSave
 
-  signal toolbarSwiped(var direction)
-  signal toolbarClicked
+  signal toolbarDragged(var deltaX, var deltaY)
+  signal toolbarDragAcquired
+  signal toolbarDragReleased
 
   signal requestGeometry(var item, var layer)
   signal requestBarcode(var item)
@@ -41,6 +42,7 @@ Page {
   //setupOnly means data would be neither saved nor cleared (feature creation is handled elsewhere like e.g. in the tracking)
   property bool setupOnly: false
   property bool featureCreated: false
+  property bool isVertical: false
 
   property double topMargin: 0.0
   property double leftMargin: 0.0
@@ -850,6 +852,18 @@ Page {
       color: "transparent"
     }
 
+    Rectangle {
+      width: parent.width * 0.3
+      height: 5
+      radius: 10
+
+      anchors.horizontalCenter: parent.horizontalCenter
+      anchors.top: parent.top
+      anchors.topMargin: form.topMargin + 4
+
+      color: Theme.controlBorderColor
+    }
+
     RowLayout {
       anchors.fill: parent
       anchors.topMargin: form.topMargin
@@ -918,52 +932,33 @@ Page {
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
 
-        MouseArea {
-          enabled: toolbar.visible
-          anchors.fill: parent
+        DragHandler {
+          enabled: true
+          target: null
+          acceptedButtons: Qt.LeftButton
+          grabPermissions: PointerHandler.CanTakeOverFromAnything
+          dragThreshold: 5
 
-          property real velocity: 0.0
-          property int startX: 0
-          property int startY: 0
-          property int lastX: 0
-          property int lastY: 0
-          property int distance: 0
-          property bool isTracing: false
+          property var oldPos
 
-          onPressed: mouse => {
-            startX = mouse.x;
-            startY = mouse.y;
-            lastX = mouse.x;
-            lastY = mouse.y;
-            velocity = 0;
-            distance = 0;
-            isTracing = true;
-          }
-          onPositionChanged: mouse => {
-            if (!isTracing)
-              return;
-            var currentVelocity = Math.abs(mouse.y - lastY);
-            lastX = mouse.x;
-            lastY = mouse.y;
-            velocity = (velocity + currentVelocity) / 2.0;
-            distance = Math.abs(mouse.y - startY);
-            isTracing = velocity > 15 && distance > parent.height;
-          }
-          onReleased: {
-            if (!isTracing) {
-              form.toolbarSwiped(getDirection());
+          onActiveChanged: {
+            if (active) {
+              form.toolbarDragAcquired();
+              oldPos = centroid.scenePosition;
             } else {
-              form.toolbarClicked();
+              form.toolbarDragReleased();
             }
           }
 
-          function getDirection() {
-            var diffX = lastX - startX;
-            var diffY = lastY - startY;
-            if (Math.abs(diffX) > Math.abs(diffY)) {
-              return lastX < startX ? 'left' : 'right';
+          onCentroidChanged: {
+            if (active) {
+              var dx = centroid.scenePosition.x - oldPos.x;
+              var dy = centroid.scenePosition.y - oldPos.y;
+              if (dx !== 0 || dy !== 0) {
+                form.toolbarDragged(dx, dy);
+                oldPos = centroid.scenePosition;
+              }
             }
-            return lastY < startY ? 'up' : 'down';
           }
         }
       }

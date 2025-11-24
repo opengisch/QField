@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Window
 import org.qfield
+import Theme
 
 /**
  * \ingroup qml
@@ -12,6 +13,10 @@ Drawer {
 
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
   property bool isVertical: parent.width < parent.height || parent.width < 300
+
+  property bool isDragging: false
+  property real dragHeightAdjustment: 0
+  property real dragWidthAdjustment: 0
 
   property alias featureModel: attributeFormModel.featureModel
   property alias state: overlayFeatureForm.state
@@ -26,18 +31,31 @@ Drawer {
   closePolicy: Popup.NoAutoClose // prevent accidental feature addition when clicking outside of the popup drawer
   focus: visible
 
+  property real lastWidth
+
   width: {
-    if (overlayFeatureFormDrawer.fullScreenView || parent.width < parent.height || parent.width < 300) {
-      return parent.width;
+    if (dragWidthAdjustment != 0) {
+      return lastWidth - dragWidthAdjustment;
+    } else if (overlayFeatureFormDrawer.fullScreenView || parent.width < parent.height || parent.width < 300 || width >= 0.95 * parent.width) {
+      lastWidth = parent.width;
+      return lastWidth;
     } else {
-      return Math.min(Math.max(200, parent.width / 2.25), parent.width);
+      lastWidth = Math.min(Math.max(200, parent.width / 2.25), parent.width);
+      return lastWidth;
     }
   }
+
+  property real lastHeight
+
   height: {
-    if (overlayFeatureFormDrawer.fullScreenView || parent.width >= parent.height) {
-      return parent.height;
+    if (dragHeightAdjustment != 0) {
+      return Math.min(lastHeight - dragHeightAdjustment, parent.height - mainWindow.sceneTopMargin);
+    } else if (overlayFeatureFormDrawer.fullScreenView || parent.width >= parent.height || height >= 0.95 * parent.height) {
+      lastHeight = parent.height;
+      return lastHeight;
     } else {
-      return Math.min(Math.max(200, parent.height / 2), parent.height);
+      lastHeight = Math.min(Math.max(200, parent.height / 2), parent.height);
+      return lastHeight;
     }
   }
 
@@ -90,6 +108,7 @@ Drawer {
     leftMargin: overlayFeatureFormDrawer.x === 0 ? mainWindow.sceneLeftMargin : 0.0
     rightMargin: mainWindow.sceneRightMargin
     bottomMargin: mainWindow.sceneBottomMargin
+    isVertical: overlayFeatureFormDrawer.isVertical
 
     property bool isSaved: false
 
@@ -134,24 +153,44 @@ Drawer {
       overlayFeatureFormDrawer.requestJumpToPoint(center, scale, handleMargins);
     }
 
-    onToolbarSwiped: direction => {
+    onToolbarDragged: function (deltaX, deltaY) {
+      fullScreenView = false;
       if (isVertical) {
-        if (direction === 'up') {
-          overlayFeatureFormDrawer.fullScreenView = true;
-        } else if (direction === 'down') {
-          if (overlayFeatureFormDrawer.fullScreenView) {
+        dragHeightAdjustment += deltaY;
+      } else {
+        dragWidthAdjustment += deltaX;
+      }
+    }
+
+    onToolbarDragAcquired: {
+      isDragging = true;
+    }
+
+    onToolbarDragReleased: {
+      isDragging = false;
+      if (isVertical) {
+        if (overlayFeatureFormDrawer.height < overlayFeatureFormDrawer.parent.height * 0.3) {
+          if (fullScreenView) {
             fullScreenView = false;
+          } else {
+            overlayFeatureFormDrawer.close();
           }
+        } else if (dragHeightAdjustment < -parent.height * 0.2) {
+          fullScreenView = true;
         }
       } else {
-        if (direction === 'left') {
-          overlayFeatureFormDrawer.fullScreenView = true;
-        } else if (direction === 'right') {
-          if (overlayFeatureFormDrawer.fullScreenView) {
+        if (overlayFeatureFormDrawer.width < overlayFeatureFormDrawer.parent.width * 0.3) {
+          if (fullScreenView) {
             fullScreenView = false;
+          } else {
+            overlayFeatureFormDrawer.close();
           }
+        } else if (dragWidthAdjustment < -parent.width * 0.2) {
+          fullScreenView = true;
         }
       }
+      dragHeightAdjustment = 0;
+      dragWidthAdjustment = 0;
     }
 
     Keys.onReleased: event => {
@@ -169,14 +208,14 @@ Drawer {
 
   Behavior on width  {
     PropertyAnimation {
-      duration: parent.width > parent.height ? 250 : 0
+      duration: parent.width > parent.height && !isDragging ? 250 : 0
       easing.type: Easing.OutQuart
     }
   }
 
   Behavior on height  {
     PropertyAnimation {
-      duration: parent.width < parent.height ? 250 : 0
+      duration: parent.width < parent.height && !isDragging ? 250 : 0
       easing.type: Easing.OutQuart
     }
   }

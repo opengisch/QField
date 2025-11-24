@@ -25,11 +25,11 @@ import Theme
  */
 Rectangle {
   id: toolBar
-
   property string title: qsTr('Features')
 
   property bool multiSelection
   property bool allowDelete
+  property bool isVertical: false
 
   property MultiFeatureListModel model
   property FeatureListModelSelection selection
@@ -41,7 +41,9 @@ Rectangle {
 
   signal backClicked
   signal statusIndicatorClicked
-  signal statusIndicatorSwiped(var direction)
+  signal statusIndicatorDragged(var deltaX, var deltaY)
+  signal statusIndicatorDragAcquired
+  signal statusIndicatorDragReleased
   signal editAttributesButtonClicked
   signal editGeometryButtonClicked
   signal save
@@ -66,9 +68,10 @@ Rectangle {
   signal processingFeatureClicked
 
   anchors.top: parent.top
+  anchors.topMargin: 5
   anchors.left: parent.left
   anchors.right: parent.right
-  height: toolBar.topMargin + 48
+  height: toolBar.topMargin + 58
   color: Theme.mainBackgroundColor
   clip: true
 
@@ -87,17 +90,21 @@ Rectangle {
   state: "Indication"
 
   Rectangle {
-    id: navigationStatusIndicator
-    anchors.fill: parent
-    height: toolBar.topMargin + 48
-    color: "transparent"
-    clip: true
+    width: parent.width * 0.3
+    height: 5
+    radius: 10
+
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin
+
+    color: Theme.controlBorderColor
   }
 
-  Rectangle {
-    anchors.fill: parent
-    height: toolBar.topMargin + 48
-    color: "transparent"
+  Item {
+    anchors {
+      fill: parent
+    }
     clip: true
 
     Text {
@@ -111,7 +118,7 @@ Rectangle {
       anchors.leftMargin: 0 + balancedMargin + toolBar.leftMargin
       anchors.rightMargin: 0 + balancedMargin + toolBar.rightMargin
       anchors.topMargin: toolBar.topMargin
-      height: parent.height - toolBar.topMargin
+      height: 48
 
       text: {
         if (model && selection && selection.focusedItem > -1 && (toolBar.state === 'Navigation' || toolBar.state === 'Edit')) {
@@ -128,51 +135,41 @@ Rectangle {
       wrapMode: Text.Wrap
       elide: Text.ElideRight
 
+      DragHandler {
+        enabled: true
+        target: null
+        acceptedButtons: Qt.LeftButton
+        grabPermissions: PointerHandler.CanTakeOverFromAnything
+        dragThreshold: 5
+
+        property var oldPos
+
+        onActiveChanged: {
+          if (active) {
+            toolBar.statusIndicatorDragAcquired();
+            oldPos = centroid.scenePosition;
+          } else {
+            toolBar.statusIndicatorDragReleased();
+          }
+        }
+
+        onCentroidChanged: {
+          if (active) {
+            var dx = centroid.scenePosition.x - oldPos.x;
+            var dy = centroid.scenePosition.y - oldPos.y;
+            if (dx !== 0 || dy !== 0) {
+              toolBar.statusIndicatorDragged(centroid.scenePosition.x - oldPos.x, centroid.scenePosition.y - oldPos.y);
+              oldPos = centroid.scenePosition;
+            }
+          }
+        }
+      }
+
       MouseArea {
         anchors.fill: parent
 
-        property real velocity: 0.0
-        property int startX: 0
-        property int startY: 0
-        property int lastX: 0
-        property int lastY: 0
-        property int distance: 0
-        property bool isTracing: false
-
-        onPressed: mouse => {
-          startX = mouse.x;
-          startY = mouse.y;
-          lastX = mouse.x;
-          lastY = mouse.y;
-          velocity = 0;
-          distance = 0;
-          isTracing = true;
-        }
-        onPositionChanged: mouse => {
-          if (!isTracing)
-            return;
-          var currentVelocity = Math.abs(mouse.y - lastY);
-          lastX = mouse.x;
-          lastY = mouse.y;
-          velocity = (velocity + currentVelocity) / 2.0;
-          distance = Math.abs(mouse.y - startY);
-          isTracing = velocity > 15 && distance > parent.height;
-        }
-        onReleased: {
-          if (!isTracing) {
-            toolBar.statusIndicatorSwiped(getDirection());
-          } else {
-            toolBar.statusIndicatorClicked();
-          }
-        }
-
-        function getDirection() {
-          var diffX = lastX - startX;
-          var diffY = lastY - startY;
-          if (Math.abs(diffX) > Math.abs(diffY)) {
-            return lastX < startX ? 'left' : 'right';
-          }
-          return lastY < startY ? 'up' : 'down';
+        onClicked: {
+          toolBar.statusIndicatorClicked();
         }
       }
     }

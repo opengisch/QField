@@ -642,7 +642,7 @@ ApplicationWindow {
       id: mapCanvasMap
       objectName: "mapCanvas"
 
-      property bool isEnabled: !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.visible && !rotateFeaturesToolbar.rotateFeaturesRequested
+      property bool isEnabled: !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.opened && !rotateFeaturesToolbar.rotateFeaturesRequested
 
       interactive: isEnabled && !screenLocker.enabled && !snapToCommonAngleMenu.visible
       isMapRotationEnabled: qfieldSettings.enableMapRotation
@@ -695,7 +695,7 @@ ApplicationWindow {
               }
             }
           } else {
-            if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureListForm.state !== "FeatureFormEdit") {
+            if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.opened && featureListForm.state !== "FeatureFormEdit") {
               identifyTool.isMenuRequest = false;
               identifyTool.identify(point);
             }
@@ -720,7 +720,7 @@ ApplicationWindow {
           if (!positionLocked && (!featureListForm.visible || digitizingToolbar.geometryRequested)) {
             coordinateLocator.sourceLocation = point;
           }
-        } else if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureListForm.state !== "FeatureFormEdit") {
+        } else if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.opened && featureListForm.state !== "FeatureFormEdit") {
           identifyTool.isMenuRequest = false;
           identifyTool.identify(point);
         }
