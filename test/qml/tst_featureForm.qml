@@ -258,15 +258,20 @@ TestCase {
   function test_04_featureForm() {
     featureForm.mSelectedLayer = qgisProject.mapLayersByName('Apiary')[0];
     featureForm.mSelectedFeature = featureForm.mSelectedLayer.getFeature("64");
+    featureForm.state = 'ReadOnly';
     const toolbar = Utils.findChildren(featureForm, "toolbar");
     const fieldItem = Utils.findChildren(featureForm, "fieldRepeater");
     const itemLoader = fieldItem.itemAt(0).children[2].children[0];
     const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + itemLoader.containerName);
     compare(itemLoader.containerName, "Number of Boxes");
+    compare(attributeEditorLoader.isEditable, true);
+    compare(attributeEditorLoader.isEnabled, false);
     compare(attributeEditorLoader.isEditing, false);
     compare(attributeEditorLoader.value, 7);
     featureForm.state = 'Edit';
-    compare(attributeEditorLoader.isEditing, true);
+     compare(attributeEditorLoader.isEditable, true);
+     compare(attributeEditorLoader.isEnabled, true);
+     compare(attributeEditorLoader.isEditing, true);
     attributeEditorLoader.value = 99;
     compare(attributeEditorLoader.value, 99);
   }
