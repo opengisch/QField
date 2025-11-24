@@ -59,7 +59,7 @@ jobs:
 
     steps:
       - name: 🐣 Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           submodules: recursive
 
@@ -237,7 +237,7 @@ jobs:
     if: ${{ ( github.event_name == 'release' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) ) }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
 
       - name: Vars
@@ -282,7 +282,7 @@ jobs:
     if: ${{ github.event_name == 'pull_request' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
 
       - name: Vars
@@ -317,7 +317,7 @@ jobs:
     if: ${{ github.event_name == 'push' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
 
       - name: Vars

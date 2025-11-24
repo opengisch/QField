@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - name: 🐣 Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           submodules: recursive
 
@@ -178,7 +178,7 @@ jobs:
     needs: build
     steps:
       - name: 🐣 Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: 🔨 Prepare build env
         run: |
