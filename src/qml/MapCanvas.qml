@@ -256,7 +256,9 @@ Item {
     id: stylusTapHandler
     enabled: interactive
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything | PointerHandler.ApprovesCancellation
-    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
+    acceptedDevices: !qfieldSettings.mouseAsTouchScreen
+                        ? PointerDevice.Stylus | PointerDevice.Mouse | PointerDevice.TouchPad
+                        : PointerDevice.Stylus
     acceptedButtons: Qt.LeftButton | Qt.RightButton
 
     property bool longPressActive: false
@@ -289,7 +291,9 @@ Item {
     enabled: interactive && !freehandDigitizing
     target: null
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
-    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
+    acceptedDevices: !qfieldSettings.mouseAsTouchScreen
+                        ? PointerDevice.Stylus | PointerDevice.Mouse | PointerDevice.TouchPad
+                        : PointerDevice.Stylus | PointerDevice.TouchPad
     acceptedButtons: Qt.NoButton | Qt.LeftButton
     dragThreshold: 5
 
@@ -352,7 +356,9 @@ Item {
     enabled: interactive && !hovered
     acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
-    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen : PointerDevice.TouchScreen | PointerDevice.Mouse
+    acceptedDevices: !qfieldSettings.mouseAsTouchScreen
+                        ? PointerDevice.TouchScreen
+                        : PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.TouchPad
 
     property bool longPressActive: false
     property bool doublePressed: false
@@ -384,6 +390,7 @@ Item {
           timer.restart();
         } else {
           mapArea.doubleClicked(point.position, "touch");
+          doublePressed = false;
         }
       }
     }
@@ -399,7 +406,9 @@ Item {
     target: null
     acceptedButtons: Qt.NoButton | Qt.LeftButton
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
-    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen : PointerDevice.TouchScreen | PointerDevice.Mouse
+    acceptedDevices: !qfieldSettings.mouseAsTouchScreen
+                        ? PointerDevice.TouchScreen
+                        : PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.TouchPad
     dragThreshold: 5
 
     property var oldPos
