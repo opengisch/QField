@@ -534,6 +534,9 @@ QDateTime QgsQuickMapSettings::temporalBegin() const
 
 void QgsQuickMapSettings::setTemporalBegin( const QDateTime &begin )
 {
+  if ( mMapSettings.temporalRange().begin() == begin )
+    return;
+
   const QgsDateTimeRange range = mMapSettings.temporalRange();
   mMapSettings.setTemporalRange( QgsDateTimeRange( begin, range.end() ) );
   emit temporalStateChanged();
@@ -546,6 +549,9 @@ QDateTime QgsQuickMapSettings::temporalEnd() const
 
 void QgsQuickMapSettings::setTemporalEnd( const QDateTime &end )
 {
+  if ( mMapSettings.temporalRange().end() == end )
+    return;
+
   const QgsDateTimeRange range = mMapSettings.temporalRange();
   mMapSettings.setTemporalRange( QgsDateTimeRange( range.begin(), end ) );
   emit temporalStateChanged();
@@ -558,6 +564,9 @@ double QgsQuickMapSettings::zRangeLower() const
 
 void QgsQuickMapSettings::setZRangeLower( double lower )
 {
+  if ( mMapSettings.zRange().lower() == lower )
+    return;
+
   const QgsDoubleRange zRange( lower, mMapSettings.zRange().upper() );
   mMapSettings.setZRange( zRange );
   emit zRangeChanged();
@@ -570,6 +579,9 @@ double QgsQuickMapSettings::zRangeUpper() const
 
 void QgsQuickMapSettings::setZRangeUpper( double upper )
 {
+  if ( mMapSettings.zRange().upper() == upper )
+    return;
+
   const QgsDoubleRange zRange( mMapSettings.zRange().lower(), upper );
   mMapSettings.setZRange( zRange );
   emit zRangeChanged();

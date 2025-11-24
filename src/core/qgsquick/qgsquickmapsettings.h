@@ -134,12 +134,12 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     Q_PROPERTY( QDateTime temporalEnd READ temporalEnd WRITE setTemporalEnd NOTIFY temporalStateChanged )
 
     /**
-     * The Z range's lower value; if both the lowe and upper value are finite, Z range filtering will occur.
+     * The Z range's lower value; if both the lower and upper value are finite, Z range filtering will occur.
      */
     Q_PROPERTY( double zRangeLower READ zRangeLower WRITE setZRangeLower NOTIFY zRangeChanged )
 
     /**
-     * The Z range's upper value; if both the lowe and upper value are finite, Z range filtering will occur.
+     * The Z range's upper value; if both the lower and upper value are finite, Z range filtering will occur.
      */
     Q_PROPERTY( double zRangeUpper READ zRangeUpper WRITE setZRangeUpper NOTIFY zRangeChanged )
 
