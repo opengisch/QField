@@ -22,7 +22,9 @@
 #include <qgis.h>
 #include <qgsannotationlayer.h>
 #include <qgsexpressioncontextutils.h>
+#include <qgsgrouplayer.h>
 #include <qgslabelingresults.h>
+#include <qgsmaplayerelevationproperties.h>
 #include <qgsmaplayertemporalproperties.h>
 #include <qgsmaprenderercache.h>
 #include <qgsmaprendererparalleljob.h>
@@ -30,6 +32,7 @@
 #include <qgsmessagelog.h>
 #include <qgspallabeling.h>
 #include <qgsproject.h>
+#include <qgssymbollayerutils.h>
 #include <qgsvectorlayer.h>
 
 
@@ -46,6 +49,7 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap( QQuickItem *parent )
   connect( mMapSettings.get(), &QgsQuickMapSettings::rotationChanged, this, &QgsQuickMapCanvasMap::onRotationChanged );
   connect( mMapSettings.get(), &QgsQuickMapSettings::layersChanged, this, &QgsQuickMapCanvasMap::onLayersChanged );
   connect( mMapSettings.get(), &QgsQuickMapSettings::temporalStateChanged, this, &QgsQuickMapCanvasMap::onTemporalStateChanged );
+  connect( mMapSettings.get(), &QgsQuickMapSettings::zRangeChanged, this, &QgsQuickMapCanvasMap::onZRangeChanged );
 
   connect( this, &QgsQuickMapCanvasMap::renderStarting, this, &QgsQuickMapCanvasMap::isRenderingChanged );
   connect( this, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgsQuickMapCanvasMap::isRenderingChanged );
@@ -327,6 +331,15 @@ void QgsQuickMapCanvasMap::onTemporalStateChanged()
   // And trigger a new rendering job
   refresh();
 }
+
+void QgsQuickMapCanvasMap::onZRangeChanged()
+{
+  clearElevationCache();
+
+  // And trigger a new rendering job
+  refresh();
+}
+
 void QgsQuickMapCanvasMap::updateTransform( bool skipSmooth )
 {
   const QgsRectangle imageExtent = mImageMapSettings.extent();
@@ -666,6 +679,49 @@ void QgsQuickMapCanvasMap::refresh( bool ignoreFreeze )
     mRefreshTimer.start( 1 );
 }
 
+void QgsQuickMapCanvasMap::clearElevationCache()
+{
+  if ( mCache )
+  {
+    bool invalidateLabels = false;
+    const QList<QgsMapLayer *> layerList = mMapSettings->mapSettings().layers();
+    for ( QgsMapLayer *layer : layerList )
+    {
+      if ( layer->elevationProperties() && layer->elevationProperties()->hasElevation() )
+      {
+        if ( QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer ) )
+        {
+          if ( vl->labelsEnabled() || vl->diagramsEnabled() || ( vl->renderer() && vl->renderer()->flags().testFlag( Qgis::FeatureRendererFlag::AffectsLabeling ) ) )
+            invalidateLabels = true;
+        }
+
+        if ( layer->elevationProperties()->flags() & QgsMapLayerElevationProperties::FlagDontInvalidateCachedRendersWhenRangeChanges )
+          continue;
+
+        mCache->invalidateCacheForLayer( layer );
+      }
+      else if ( QgsGroupLayer *gl = qobject_cast<QgsGroupLayer *>( layer ) )
+      {
+        const QList<QgsMapLayer *> childLayers = gl->childLayers();
+        auto match = std::find_if( childLayers.begin(), childLayers.end(), []( QgsMapLayer *layer ) {
+          return layer->elevationProperties() && layer->elevationProperties()->hasElevation() && !( layer->elevationProperties()->flags() & QgsMapLayerElevationProperties::FlagDontInvalidateCachedRendersWhenRangeChanges );
+        } );
+        if ( match != childLayers.end() )
+        {
+          mCache->invalidateCacheForLayer( layer );
+          break;
+        }
+      }
+    }
+
+    if ( invalidateLabels )
+    {
+      mCache->clearCacheImage( QStringLiteral( "_labels_" ) );
+      mCache->clearCacheImage( QStringLiteral( "_preview_labels_" ) );
+    }
+  }
+}
+
 void QgsQuickMapCanvasMap::clearTemporalCache()
 {
   if ( mCache )
@@ -674,18 +730,47 @@ void QgsQuickMapCanvasMap::clearTemporalCache()
     const QList<QgsMapLayer *> layerList = mMapSettings->mapSettings().layers();
     for ( QgsMapLayer *layer : layerList )
     {
+      bool alreadyInvalidatedThisLayer = false;
+      if ( QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer ) )
+      {
+        if ( vl->renderer() && QgsSymbolLayerUtils::rendererFrameRate( vl->renderer() ) > -1 )
+        {
+          // layer has an animated symbol assigned, so we have to redraw it regardless of whether
+          // or not it has temporal settings
+          mCache->invalidateCacheForLayer( layer );
+          alreadyInvalidatedThisLayer = true;
+          // we can't shortcut and "continue" here, as we still need to check whether the layer
+          // will cause label invalidation using the logic below
+        }
+      }
+
       if ( layer->temporalProperties() && layer->temporalProperties()->isActive() )
       {
         if ( QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer ) )
         {
-          if ( vl->labelsEnabled() || vl->diagramsEnabled() )
+          if ( vl->labelsEnabled() || vl->diagramsEnabled() || ( vl->renderer() && vl->renderer()->flags().testFlag( Qgis::FeatureRendererFlag::AffectsLabeling ) ) )
             invalidateLabels = true;
         }
 
         if ( layer->temporalProperties()->flags() & QgsTemporalProperty::FlagDontInvalidateCachedRendersWhenRangeChanges )
           continue;
 
-        mCache->invalidateCacheForLayer( layer );
+        if ( !alreadyInvalidatedThisLayer )
+        {
+          mCache->invalidateCacheForLayer( layer );
+        }
+      }
+      else if ( QgsGroupLayer *gl = qobject_cast<QgsGroupLayer *>( layer ) )
+      {
+        const QList<QgsMapLayer *> childLayers = gl->childLayers();
+        auto match = std::find_if( childLayers.begin(), childLayers.end(), []( QgsMapLayer *layer ) {
+          return layer->temporalProperties() && layer->temporalProperties()->isActive() && !( layer->temporalProperties()->flags() & QgsTemporalProperty::FlagDontInvalidateCachedRendersWhenRangeChanges );
+        } );
+        if ( match != childLayers.end() )
+        {
+          mCache->invalidateCacheForLayer( layer );
+          break;
+        }
       }
     }
 
