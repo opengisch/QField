@@ -99,7 +99,6 @@ Rectangle {
     anchors.topMargin: toolBar.topMargin
 
     color: Theme.controlBorderColor
-    visible: toolBar.isVertical
   }
 
   Item {

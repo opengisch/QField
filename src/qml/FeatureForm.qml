@@ -858,7 +858,6 @@ Page {
       anchors.topMargin: form.topMargin + 4
 
       color: Theme.controlBorderColor
-      visible: form.isVertical
     }
 
     RowLayout {
