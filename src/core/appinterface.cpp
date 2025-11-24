@@ -329,7 +329,7 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
       }
 
       QFileInfo fileInfo = QFileInfo( fileName );
-      const QString fileSuffix = fileInfo.completeSuffix().toLower();
+      const QString fileSuffix = fileInfo.suffix().toLower();
       const bool isProjectFile = fileSuffix == QLatin1String( "qgs" ) || fileSuffix == QLatin1String( "qgz" );
 
       QString filePath = QStringLiteral( "%1/%2/%3" ).arg( applicationDirectory, isProjectFile ? QLatin1String( "Imported Projects" ) : QLatin1String( "Imported Datasets" ), fileName );
@@ -337,7 +337,7 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
         int i = 0;
         while ( QFileInfo::exists( filePath ) )
         {
-          filePath = QStringLiteral( "%1/%2/%3_%4.%5" ).arg( applicationDirectory, isProjectFile ? QLatin1String( "Imported Projects" ) : QLatin1String( "Imported Datasets" ), fileInfo.baseName(), QString::number( ++i ), fileSuffix );
+          filePath = QStringLiteral( "%1/%2/%3_%4.%5" ).arg( applicationDirectory, isProjectFile ? QLatin1String( "Imported Projects" ) : QLatin1String( "Imported Datasets" ), fileInfo.completeBaseName(), QString::number( ++i ), fileSuffix );
         }
       }
       QDir( QFileInfo( filePath ).absolutePath() ).mkpath( "." );
@@ -351,6 +351,7 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
         {
           // Check if this is a compressed project and handle accordingly
           QStringList zipFiles = QgsZipUtils::files( filePath );
+          qDebug() << zipFiles;
           const bool isCompressedProject = std::find_if( zipFiles.begin(),
                                                          zipFiles.end(),
                                                          []( const QString &zipFile ) {
