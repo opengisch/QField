@@ -702,17 +702,14 @@ void QgsQuickMapCanvasMap::clearElevationCache()
       }
       else if ( QgsGroupLayer *gl = qobject_cast<QgsGroupLayer *>( layer ) )
       {
-        const QList<QgsMapLayer *> childLayerList = gl->childLayers();
-        for ( QgsMapLayer *childLayer : childLayerList )
+        const QList<QgsMapLayer *> childLayers = gl->childLayers();
+        auto match = std::find_if( childLayers.begin(), childLayers.end(), []( QgsMapLayer *layer ) {
+          return layer->elevationProperties() && layer->elevationProperties()->hasElevation() && !( layer->elevationProperties()->flags() & QgsMapLayerElevationProperties::FlagDontInvalidateCachedRendersWhenRangeChanges );
+        } );
+        if ( match != childLayers.end() )
         {
-          if ( childLayer->elevationProperties() && childLayer->elevationProperties()->hasElevation() )
-          {
-            if ( childLayer->elevationProperties()->flags() & QgsMapLayerElevationProperties::FlagDontInvalidateCachedRendersWhenRangeChanges )
-              continue;
-
-            mCache->invalidateCacheForLayer( layer );
-            break;
-          }
+          mCache->invalidateCacheForLayer( layer );
+          break;
         }
       }
     }
@@ -765,17 +762,14 @@ void QgsQuickMapCanvasMap::clearTemporalCache()
       }
       else if ( QgsGroupLayer *gl = qobject_cast<QgsGroupLayer *>( layer ) )
       {
-        const QList<QgsMapLayer *> childLayerList = gl->childLayers();
-        for ( QgsMapLayer *childLayer : childLayerList )
+        const QList<QgsMapLayer *> childLayers = gl->childLayers();
+        auto match = std::find_if( childLayers.begin(), childLayers.end(), []( QgsMapLayer *layer ) {
+          return layer->temporalProperties() && layer->temporalProperties()->isActive() && !( layer->temporalProperties()->flags() & QgsTemporalProperty::FlagDontInvalidateCachedRendersWhenRangeChanges );
+        } );
+        if ( match != childLayers.end() )
         {
-          if ( childLayer->temporalProperties() && childLayer->temporalProperties()->isActive() )
-          {
-            if ( childLayer->temporalProperties()->flags() & QgsTemporalProperty::FlagDontInvalidateCachedRendersWhenRangeChanges )
-              continue;
-
-            mCache->invalidateCacheForLayer( layer );
-            break;
-          }
+          mCache->invalidateCacheForLayer( layer );
+          break;
         }
       }
     }
