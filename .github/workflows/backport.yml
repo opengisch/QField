@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Backport
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Backport
         uses: m-kuhn/backport@v1.2.7
         with:
