@@ -210,7 +210,7 @@ def test_image_attachment(app, screenshot_path, screenshot_check, extra, process
 
     bounds = app.getBoundingBox("mainWindow/featureForm")
     move_x = bounds[0] + bounds[2] / 2
-    move_y = bounds[1] + 80
+    move_y = bounds[1] + 100
 
     pyautogui.moveTo(move_x, move_y, duration=0.5)
     pyautogui.click(interval=0.5)
