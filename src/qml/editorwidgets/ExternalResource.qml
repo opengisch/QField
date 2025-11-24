@@ -266,8 +266,8 @@ EditorWidgetBase {
     width: parent.width - fileButton.width - cameraButton.width - cameraVideoButton.width - microphoneButton.width - (isEnabled ? 5 : 0)
     height: 48
     visible: !linkField.isVisible
-    color: isEnabled ? Theme.controlBackgroundAlternateColor : "transparent"
-    radius: 2
+    color: !isEnabled ? Theme.controlBackgroundAlternateColor : "transparent"
+    radius: 5
     clip: true
 
     BusyIndicator {
@@ -497,17 +497,6 @@ EditorWidgetBase {
         id: durationLabelMetrics
         font: durationLabel.font
       }
-    }
-
-    Rectangle {
-      color: "transparent"
-      anchors.left: parent.left
-      anchors.right: parent.right
-      height: isEnabled ? parent.height : 1
-      y: isEnabled ? 0 : parent.height - 1
-      border.width: 1
-      border.color: Theme.accentLightColor
-      radius: 2
     }
   }
 

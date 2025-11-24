@@ -143,15 +143,6 @@ RelationEditorBase {
           }
         }
       }
-
-      //bottom line
-      Rectangle {
-        id: bottomLine
-        anchors.bottom: parent.bottom
-        height: 1
-        color: Theme.controlBorderColor
-        width: parent.width
-      }
     }
   }
 }

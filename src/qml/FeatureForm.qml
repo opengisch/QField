@@ -186,6 +186,7 @@ Page {
           Flow {
             id: content
             width: form.width - form.leftMargin - form.rightMargin
+            bottomPadding: 10
 
             SubModel {
               id: contentModel

@@ -269,9 +269,9 @@ TestCase {
     compare(attributeEditorLoader.isEditing, false);
     compare(attributeEditorLoader.value, 7);
     featureForm.state = 'Edit';
-     compare(attributeEditorLoader.isEditable, true);
-     compare(attributeEditorLoader.isEnabled, true);
-     compare(attributeEditorLoader.isEditing, true);
+    compare(attributeEditorLoader.isEditable, true);
+    compare(attributeEditorLoader.isEnabled, true);
+    compare(attributeEditorLoader.isEditing, true);
     attributeEditorLoader.value = 99;
     compare(attributeEditorLoader.value, 99);
   }
