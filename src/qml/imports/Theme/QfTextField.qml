@@ -10,7 +10,7 @@ TextField {
   passwordMaskDelay: Qt.platform.os === "ios" || Qt.platform.os === "android" ? 1000 : 0
   font: Theme.defaultFont
   rightPadding: showPasswordButton.visible ? showPasswordButton.width : 0
-  leftPadding: enabled ? 10: 0
+  leftPadding: enabled ? 10 : 0
   topPadding: 10
   bottomPadding: 10
   inputMethodHints: Qt.ImhNone
