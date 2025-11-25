@@ -745,6 +745,7 @@ Page {
               Layout.preferredWidth: implicitContentWidth
               Layout.alignment: Qt.AlignVCenter
               width: implicitContentWidth
+              small: true
 
               checked: registry.loadProjectOnLaunch
               onCheckedChanged: {

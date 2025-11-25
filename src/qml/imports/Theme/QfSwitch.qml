@@ -4,5 +4,13 @@ import QtQuick.Controls
 /**
  * \ingroup qml
  */
-Switch {
+SwitchDelegate {
+  id: control
+
+  property bool small: false
+
+  implicitWidth: small ? 34 : 48
+  implicitHeight: 30
+  rightPadding: 0
+  background.visible: false
 }
