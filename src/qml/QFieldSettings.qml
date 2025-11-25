@@ -1162,16 +1162,6 @@ Page {
                 Layout.preferredWidth: 60
                 Layout.preferredHeight: font.height + 20
                 leftPadding: 0
-                background: Item {
-                  implicitWidth: 120
-
-                  Rectangle {
-                    y: accuracyBadInput.height - height - accuracyBadInput.bottomPadding / 2
-                    width: accuracyBadInput.width
-                    height: accuracyBadInput.activeFocus ? 2 : 1
-                    color: accuracyBadInput.activeFocus ? Theme.mainColor : accuracyBadInput.hovered ? accuracyBadInput.color : Theme.secondaryTextColor
-                  }
-                }
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 validator: DoubleValidator {
                   locale: 'C'
@@ -1211,16 +1201,6 @@ Page {
                 Layout.preferredWidth: 60
                 Layout.preferredHeight: font.height + 20
                 leftPadding: 0
-                background: Item {
-                  implicitWidth: 120
-
-                  Rectangle {
-                    y: accuracyExcellentInput.height - height - accuracyExcellentInput.bottomPadding / 2
-                    width: accuracyExcellentInput.width
-                    height: accuracyExcellentInput.activeFocus ? 2 : 1
-                    color: accuracyExcellentInput.activeFocus ? Theme.mainColor : accuracyExcellentInput.hovered ? accuracyExcellentInput.color : Theme.secondaryTextColor
-                  }
-                }
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 validator: DoubleValidator {
                   locale: 'C'
@@ -1331,16 +1311,6 @@ Page {
                 Layout.preferredWidth: 60
                 Layout.preferredHeight: font.height + 20
                 leftPadding: 0
-                background: Item {
-                  implicitWidth: 120
-
-                  Rectangle {
-                    y: averagedPositioningMinimumCount.height - height - averagedPositioningMinimumCount.bottomPadding / 2
-                    width: averagedPositioningMinimumCount.width
-                    height: averagedPositioningMinimumCount.activeFocus ? 2 : 1
-                    color: averagedPositioningMinimumCount.activeFocus ? Theme.mainColor : averagedPositioningMinimumCount.hovered ? averagedPositioningMinimumCount.color : Theme.secondaryTextColor
-                  }
-                }
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 validator: IntValidator {
                   locale: 'C'
@@ -1446,16 +1416,6 @@ Page {
                 Layout.preferredWidth: 60
                 Layout.preferredHeight: font.height + 20
                 leftPadding: 0
-                background: Item {
-                  implicitWidth: 120
-
-                  Rectangle {
-                    y: antennaHeightInput.height - height - antennaHeightInput.bottomPadding / 2
-                    width: antennaHeightInput.width
-                    height: antennaHeightInput.activeFocus ? 2 : 1
-                    color: antennaHeightInput.activeFocus ? Theme.mainColor : antennaHeightInput.hovered ? antennaHeightInput.color : Theme.secondaryTextColor
-                  }
-                }
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 validator: DoubleValidator {
                   locale: 'C'

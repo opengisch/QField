@@ -139,7 +139,10 @@ QfPopup {
       ScrollView {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        padding: 5
+        topPadding: 5
+        bottomPadding: 5
+        leftPadding: 5
+        rightPadding: 15 // Considering scroll bar
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
         ScrollBar.vertical: QfScrollBar {
         }
@@ -264,16 +267,6 @@ QfPopup {
             Layout.preferredWidth: 60
             Layout.preferredHeight: font.height + 20
             leftPadding: 0
-            background: Item {
-              implicitWidth: 120
-
-              Rectangle {
-                y: timeIntervalValue.height - height - timeIntervalValue.bottomPadding / 2
-                width: timeIntervalValue.width
-                height: timeIntervalValue.activeFocus ? 2 : 1
-                color: timeIntervalValue.activeFocus ? Theme.mainColor : timeIntervalValue.hovered ? timeIntervalValue.color : Theme.secondaryTextColor
-              }
-            }
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             validator: DoubleValidator {
               locale: 'C'
@@ -344,16 +337,6 @@ QfPopup {
             Layout.preferredWidth: 60
             Layout.preferredHeight: font.height + 20
             leftPadding: 0
-            background: Item {
-              implicitWidth: 120
-
-              Rectangle {
-                y: minimumDistanceValue.height - height - minimumDistanceValue.bottomPadding / 2
-                width: minimumDistanceValue.width
-                height: minimumDistanceValue.activeFocus ? 2 : 1
-                color: minimumDistanceValue.activeFocus ? Theme.mainColor : minimumDistanceValue.hovered ? minimumDistanceValue.color : Theme.secondaryTextColor
-              }
-            }
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             validator: DoubleValidator {
               locale: 'C'
@@ -498,16 +481,6 @@ QfPopup {
             Layout.preferredWidth: 60
             Layout.preferredHeight: font.height + 20
             leftPadding: 0
-            background: Item {
-              implicitWidth: 120
-
-              Rectangle {
-                y: erroneousDistanceValue.height - height - erroneousDistanceValue.bottomPadding / 2
-                width: erroneousDistanceValue.width
-                height: erroneousDistanceValue.activeFocus ? 2 : 1
-                color: erroneousDistanceValue.activeFocus ? Theme.mainColor : erroneousDistanceValue.hovered ? erroneousDistanceValue.color : Theme.secondaryTextColor
-              }
-            }
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             validator: DoubleValidator {
               locale: 'C'
