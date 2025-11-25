@@ -783,7 +783,7 @@ Rectangle {
       id: duplicateFeatureBtn
       text: qsTr('Duplicate Feature')
       icon.source: Theme.getThemeVectorIcon("ic_duplicate_black_24dp")
-      enabled: (projectInfo.insertRights && (!selection.focusedLayer || !selection.focusedLayer.readOnly))
+      enabled: (projectInfo.insertRights && (!selection.focusedLayer || (!selection.focusedLayer.readOnly && !featureForm.model.featureModel.featureAdditionLocked)))
       visible: enabled
 
       font: Theme.defaultFont
