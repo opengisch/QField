@@ -831,6 +831,29 @@ bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
         continue;
       }
 
+      if ( mLayer )
+      {
+        if ( mLayer->editFormConfig().readOnly( idx ) )
+        {
+          // Skip attributes that are marked as read-only
+          continue;
+        }
+
+        QgsProperty property = mLayer->editFormConfig().dataDefinedFieldProperties( field.name() ).property( QgsEditFormConfig::DataDefinedProperty::Editable );
+        if ( property.isActive() )
+        {
+          QgsExpression expression( property.asExpression() );
+          QgsExpressionContext expressionContext = createExpressionContext();
+          expressionContext.setFeature( mFeature );
+          expression.prepare( &expressionContext );
+          if ( !expression.evaluate( &expressionContext ).toBool() )
+          {
+            // Skip attributes who's data-defined editable property returns false
+            continue;
+          }
+        }
+      }
+
       if ( setData( index( idx ), feature.attributes()[i], AttributeValue ) )
       {
         updated = true;
