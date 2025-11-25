@@ -730,7 +730,7 @@ Page {
               bottomPadding: 10
               font: Theme.tipFont
               wrapMode: Text.WordWrap
-              color: reloadOnLaunch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+              color: Theme.mainTextColor
 
               text: registry.defaultProject != '' ? qsTr('Load default project on launch') : qsTr('Load last opened project on launch')
 
