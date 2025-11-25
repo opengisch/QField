@@ -9,10 +9,7 @@ TextField {
   echoMode: TextInput.Normal
   passwordMaskDelay: Qt.platform.os === "ios" || Qt.platform.os === "android" ? 1000 : 0
   font: Theme.defaultFont
-  rightPadding: showPasswordButton.visible ? showPasswordButton.width : 0
-  leftPadding: enabled ? 10 : 0
-  topPadding: 10
-  bottomPadding: 10
+  rightPadding: showPasswordButton.visible ? showPasswordButton.width : 6
   inputMethodHints: Qt.ImhNone
 
   QfToolButton {
