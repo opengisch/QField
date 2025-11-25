@@ -396,11 +396,12 @@ if(WITH_BLUETOOTH)
   target_link_libraries(qfield_core PUBLIC Qt6::Bluetooth)
 endif()
 
-if(WITH_SERIALPORT)
+if(WITH_SERIALPORT AND NOT IOS)
   find_package(
     Qt6
     COMPONENTS SerialPort
     REQUIRED)
+
   target_link_libraries(qfield_core PUBLIC Qt::SerialPort)
 endif()
 
