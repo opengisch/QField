@@ -14,7 +14,7 @@ QtObject {
     "mainBackgroundColorSemiOpaque": "#bb303030",
     "mainTextColor": "#EEEEEE",
     "mainTextDisabledColor": "#73EEEEEE",
-    "secondaryTextColor": "#AAAAAA",
+    "secondaryTextColor": "#BDBDBD",
     "controlBackgroundColor": "#202020",
     "controlBackgroundAlternateColor": "#303030",
     "controlBackgroundDisabledColor": "#33555555",
@@ -37,7 +37,7 @@ QtObject {
     "mainBackgroundColorSemiOpaque": "#bbfafafa",
     "mainTextColor": "#000000",
     "mainTextDisabledColor": "#73000000",
-    "secondaryTextColor": "#999999",
+    "secondaryTextColor": "#757575",
     "controlBackgroundColor": "#ffffff",
     "controlBackgroundAlternateColor": "#e6e6e6",
     "controlBackgroundDisabledColor": "#33555555",
@@ -64,7 +64,7 @@ QtObject {
   property color mainTextColor: "#000000"
   property color mainTextDisabledColor: "#73000000"
 
-  property color secondaryTextColor: "#999999"
+  property color secondaryTextColor: "#757575"
 
   property color controlBackgroundColor: "#ffffff"
   property color controlBackgroundAlternateColor: "#e6e6e6"

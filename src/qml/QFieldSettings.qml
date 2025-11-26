@@ -1159,9 +1159,7 @@ Page {
                 enabled: accuracyIndicator.checked
                 visible: accuracyIndicator.checked
                 horizontalAlignment: TextInput.AlignHCenter
-                Layout.preferredWidth: 60
-                Layout.preferredHeight: font.height + 20
-                leftPadding: 0
+                Layout.preferredWidth: width
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 validator: DoubleValidator {
                   locale: 'C'
@@ -1198,9 +1196,7 @@ Page {
                 enabled: accuracyIndicator.checked
                 visible: accuracyIndicator.checked
                 horizontalAlignment: TextInput.AlignHCenter
-                Layout.preferredWidth: 60
-                Layout.preferredHeight: font.height + 20
-                leftPadding: 0
+                Layout.preferredWidth: width
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 validator: DoubleValidator {
                   locale: 'C'
@@ -1308,9 +1304,7 @@ Page {
                 enabled: averagedPositioning.checked
                 visible: averagedPositioning.checked
                 horizontalAlignment: TextInput.AlignHCenter
-                Layout.preferredWidth: 60
-                Layout.preferredHeight: font.height + 20
-                leftPadding: 0
+                Layout.preferredWidth: width
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 validator: IntValidator {
                   locale: 'C'
@@ -1413,9 +1407,7 @@ Page {
                 width: antennaHeightActivated.width
                 font: Theme.defaultFont
                 horizontalAlignment: TextInput.AlignHCenter
-                Layout.preferredWidth: 60
-                Layout.preferredHeight: font.height + 20
-                leftPadding: 0
+                Layout.preferredWidth: width
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 validator: DoubleValidator {
                   locale: 'C'

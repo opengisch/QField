@@ -264,9 +264,7 @@ QfPopup {
             enabled: timeInterval.checked
             visible: timeInterval.checked
             horizontalAlignment: TextInput.AlignHCenter
-            Layout.preferredWidth: 60
-            Layout.preferredHeight: font.height + 20
-            leftPadding: 0
+            Layout.preferredWidth: width
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             validator: DoubleValidator {
               locale: 'C'
@@ -334,9 +332,7 @@ QfPopup {
             enabled: minimumDistance.checked
             visible: minimumDistance.checked
             horizontalAlignment: TextInput.AlignHCenter
-            Layout.preferredWidth: 60
-            Layout.preferredHeight: font.height + 20
-            leftPadding: 0
+            Layout.preferredWidth: width
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             validator: DoubleValidator {
               locale: 'C'
@@ -478,9 +474,7 @@ QfPopup {
             enabled: erroneousDistanceSafeguard.checked
             visible: erroneousDistanceSafeguard.checked
             horizontalAlignment: TextInput.AlignHCenter
-            Layout.preferredWidth: 60
-            Layout.preferredHeight: font.height + 20
-            leftPadding: 0
+            Layout.preferredWidth: width
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             validator: DoubleValidator {
               locale: 'C'
