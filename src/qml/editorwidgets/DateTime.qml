@@ -43,7 +43,7 @@ EditorWidgetBase {
 
   function formatDateTime(value) {
     // Will handle both null and undefined as date values
-    if (value === null || value === undefined || value === '') {
+    if (FeatureUtils.attributeIsNull(value) || value === '') {
       return qsTr('(no date)');
     } else {
       let displayFormat = config['display_format'];

@@ -32,7 +32,7 @@ EditorWidgetBase {
       font: Theme.defaultFont
       color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
-      text: value !== undefined ? value : ''
+      text: FeatureUtils.attributeIsNull(value) ? '' : value
 
       validator: doubleValidator
 
@@ -177,7 +177,7 @@ EditorWidgetBase {
       width: sliderRow.width / 4
       height: fontMetrics.height + 20
       elide: Text.ElideRight
-      text: value !== undefined && value != '' ? Number(slider.value).toFixed(rangeItem.precision).toLocaleString() + rangeItem.suffix : ''
+      text: !FeatureUtils.attributeIsNull(value) && value != '' ? Number(slider.value).toFixed(rangeItem.precision).toLocaleString() + rangeItem.suffix : ''
       verticalAlignment: Text.AlignVCenter
       horizontalAlignment: Text.AlignLeft
       font: Theme.defaultFont
