@@ -256,6 +256,7 @@ Pane {
   clip: true
 
   WheelHandler {
+    acceptedDevices: PointerDevice.AllDevices
     onWheel: {
     }
   }
