@@ -150,8 +150,8 @@ TestCase {
    */
   function test_01_textEdit() {
     const textReadonlyValue = textEdit.children[0];
-    const textField = textEdit.children[2];
-    const textArea = textEdit.children[3];
+    const textField = textEdit.children[1];
+    const textArea = textEdit.children[2];
     compare(textReadonlyValue.text, "DEFAULT_VALUE");
     compare(textField.text, "DEFAULT_VALUE");
     compare(textArea.text, "DEFAULT_VALUE");
