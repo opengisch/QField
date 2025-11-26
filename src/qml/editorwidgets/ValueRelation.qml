@@ -53,6 +53,11 @@ EditorWidgetBase {
     id: valueRelationCombobox
     featureListModel: config && !listModel.allowMulti ? listModel : null
 
+    anchors {
+      left: parent.left
+      right: parent.right
+    }
+
     useCompleter: !!config['UseCompleter']
     enabled: isEnabled
     visible: !listModel.allowMulti
