@@ -424,6 +424,7 @@ Pane {
     bottomMargin: mainWindow.sceneBottomMargin
     height: parent.height - globalFeaturesList.height
     visible: false
+    isDraggable: true
 
     digitizingToolbar: featureFormList.digitizingToolbar
     codeReader: featureFormList.codeReader

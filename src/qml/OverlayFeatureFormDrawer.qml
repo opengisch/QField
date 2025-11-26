@@ -111,6 +111,7 @@ Drawer {
     rightMargin: mainWindow.sceneRightMargin
     bottomMargin: mainWindow.sceneBottomMargin
     isVertical: overlayFeatureFormDrawer.isVertical
+    isDraggable: true
 
     property bool isSaved: false
 

@@ -43,6 +43,7 @@ Page {
   property bool setupOnly: false
   property bool featureCreated: false
   property bool isVertical: false
+  property bool isDraggable: false
 
   property double topMargin: 0.0
   property double leftMargin: 0.0
@@ -867,6 +868,7 @@ Page {
       anchors.topMargin: form.topMargin + 4
 
       color: Theme.controlBorderColor
+      visible: isDraggable
     }
 
     RowLayout {
