@@ -17,6 +17,19 @@ EditorWidgetBase {
 
   height: childrenRect.height
 
+  Label {
+    id: nullValue
+    anchors.verticalCenter: parent.verticalCenter
+    leftPadding: 0
+    width: parent.width
+
+    font: Theme.defaultFont
+    color: Theme.mainTextDisabledColor
+
+    text: qsTr("NULL")
+    visible: FeatureUtils.attributeIsNull(value) && !isEditing
+  }
+
   Row {
     anchors.left: parent.left
     anchors.right: parent.right

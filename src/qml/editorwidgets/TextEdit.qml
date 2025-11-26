@@ -11,6 +11,19 @@ EditorWidgetBase {
 
   height: childrenRect.height
 
+  Label {
+    id: nullValue
+    anchors.verticalCenter: parent.verticalCenter
+    leftPadding: 0
+    width: parent.width
+
+    font: Theme.defaultFont
+    color: Theme.mainTextDisabledColor
+
+    text: qsTr("Empty")
+    visible: FeatureUtils.attributeIsNull(value) && !isEditing
+  }
+
   // Due to QTextEdit::onLinkActivated does not work on Android & iOS, we need a separate `Text` element to support links https://bugreports.qt.io/browse/QTBUG-38487
   Label {
     id: textReadonlyValue
