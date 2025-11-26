@@ -21,6 +21,7 @@
 #include <qgsexpressioncontextutils.h>
 #include <qgsjsonutils.h>
 #include <qgsproject.h>
+#include <qgsvariantutils.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerutils.h>
 
@@ -122,4 +123,9 @@ QgsField FeatureUtils::createField( const QString &name, FieldType type, const Q
 QgsFields FeatureUtils::createFields( const QList<QgsField> &fields )
 {
   return QgsFields( fields );
+}
+
+bool FeatureUtils::attributeIsNull( const QVariant &value )
+{
+  return QgsVariantUtils::isUnsetAttributeValue( value ) || QgsVariantUtils::isNull( value );
 }
