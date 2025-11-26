@@ -11,19 +11,6 @@ EditorWidgetBase {
 
   height: childrenRect.height
 
-  Label {
-    id: nullValue
-    anchors.verticalCenter: parent.verticalCenter
-    leftPadding: 0
-    width: parent.width
-
-    font: Theme.defaultFont
-    color: Theme.mainTextDisabledColor
-
-    text: qsTr("Empty")
-    visible: FeatureUtils.attributeIsNull(value) && !isEditing
-  }
-
   // Due to QTextEdit::onLinkActivated does not work on Android & iOS, we need a separate `Text` element to support links https://bugreports.qt.io/browse/QTBUG-38487
   Label {
     id: textReadonlyValue
@@ -35,16 +22,22 @@ EditorWidgetBase {
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
     opacity: 1
     wrapMode: Text.Wrap
     textFormat: (config['IsMultiline'] === true && config['UseHtml'] === true) || StringUtils.hasLinks(value) ? TextEdit.RichText : TextEdit.AutoText
 
     text: {
-      if (FeatureUtils.attributeIsNull(value)) {
+      if (isEmpty && !isEditing) {
+        return qsTr("Empty");
+      }
+      else if (isNull && !isEditing) {
+        return qsTr("NULL");
+      }
+      else if (isNull) {
         return '';
       }
-      if (config['IsMultiline'] === true) {
+      else if (config['IsMultiline'] === true) {
         if (config['UseHtml'] === true) {
           return value;
         }
@@ -67,12 +60,23 @@ EditorWidgetBase {
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
     maximumLength: field != undefined && field.length > 0 ? field.length : -1
     wrapMode: TextInput.Wrap
     background.visible: enabled || (!isEditable && isEditing)
 
-    text: FeatureUtils.attributeIsNull(value) ? '' : value
+    text: {
+      if (isEmpty && !isEditing) {
+        return qsTr("Empty");
+      }
+      else if (isNull && !isEditing) {
+        return qsTr("NULL");
+      }
+      else if (isNull) {
+        return '';
+      }
+      return value;
+    }
 
     validator: {
       if (field && field.isNumeric)
@@ -125,9 +129,21 @@ EditorWidgetBase {
     anchors.right: parent.right
     wrapMode: Text.Wrap
     font: Theme.defaultFont
-    color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
-    text: FeatureUtils.attributeIsNull(value) ? '' : value
+    text: {
+      if (isEmpty && !isEditing) {
+        return qsTr("Empty");
+      }
+      else if (isNull && !isEditing) {
+        return qsTr("NULL");
+      }
+      else if (isNull) {
+        return '';
+      }
+      return value;
+    }
+
     textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
 
     onTextChanged: {

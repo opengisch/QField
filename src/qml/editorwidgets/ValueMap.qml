@@ -68,19 +68,6 @@ EditorWidgetBase {
 
   property real currentItemCount: comboBox.count
 
-  Label {
-    id: nullValue
-    anchors.verticalCenter: parent.verticalCenter
-    leftPadding: 0
-    width: parent.width
-
-    font: Theme.defaultFont
-    color: Theme.mainTextDisabledColor
-
-    text: qsTr("NULL")
-    visible: FeatureUtils.attributeIsNull(value) && !isEditing
-  }
-
   ValueMapModel {
     id: listModel
     filterCaseSensitivity: Qt.CaseInsensitive

@@ -10,7 +10,6 @@ EditorWidgetBase {
 
   // if the field type is boolean, ignore the configured 'CheckedState' and 'UncheckedState' values and work with true/false always
   readonly property bool isBool: field.type == 1  // needs type coercion
-  readonly property bool isNull: FeatureUtils.attributeIsNull(value)
   property string checkedLabel: config['TextDisplayMethod'] === 1 && config['CheckedState'] !== null && config['CheckedState'] !== '' ? config['CheckedState'] : qsTr('True')
   property string uncheckedLabel: config['TextDisplayMethod'] === 1 && config['UncheckedState'] !== null && config['UncheckedState'] !== '' ? config['UncheckedState'] : qsTr('False')
 
@@ -29,11 +28,10 @@ EditorWidgetBase {
 
     font.pointSize: Theme.defaultFont.pointSize
     font.bold: Theme.defaultFont.bold
-    font.italic: isNull
     verticalAlignment: Text.AlignVCenter
-    color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
-    text: !isNull ? checkBox.checked ? checkedLabel : uncheckedLabel : isEnabled ? qsTr('NULL') : ''
+    text: isEmpty ? qsTr("Empty") : isNull ? qsTr('NULL') : checkBox.checked ? checkedLabel : uncheckedLabel
   }
 
   QfSwitch {

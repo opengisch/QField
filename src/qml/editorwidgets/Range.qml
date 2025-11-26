@@ -17,19 +17,6 @@ EditorWidgetBase {
 
   height: childrenRect.height
 
-  Label {
-    id: nullValue
-    anchors.verticalCenter: parent.verticalCenter
-    leftPadding: 0
-    width: parent.width
-
-    font: Theme.defaultFont
-    color: Theme.mainTextDisabledColor
-
-    text: qsTr("NULL")
-    visible: FeatureUtils.attributeIsNull(value) && !isEditing
-  }
-
   Row {
     anchors.left: parent.left
     anchors.right: parent.right
@@ -43,9 +30,20 @@ EditorWidgetBase {
       width: parent.width - decreaseButton.width - increaseButton.width - parent.spacing * 2
 
       font: Theme.defaultFont
-      color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
-      text: FeatureUtils.attributeIsNull(value) ? '' : value
+      text: {
+        if (isEmpty && !isEditing) {
+          return qsTr("Empty");
+        }
+        else if (isNull && !isEditing) {
+          return qsTr("NULL");
+        }
+        else if (isNull) {
+          return '';
+        }
+        return value;
+      }
 
       validator: doubleValidator
 
@@ -190,11 +188,22 @@ EditorWidgetBase {
       width: sliderRow.width / 4
       height: fontMetrics.height + 20
       elide: Text.ElideRight
-      text: !FeatureUtils.attributeIsNull(value) && value != '' ? Number(slider.value).toFixed(rangeItem.precision).toLocaleString() + rangeItem.suffix : ''
+      text: {
+        if (isEmpty && !isEditing) {
+          return qsTr("Empty");
+        }
+        else if (isNull && !isEditing) {
+          return qsTr("NULL");
+        }
+        else if (!isNull && value != '') {
+          return Number(slider.value).toFixed(rangeItem.precision).toLocaleString() + rangeItem.suffix;
+        }
+        return '';
+      }
       verticalAlignment: Text.AlignVCenter
       horizontalAlignment: Text.AlignLeft
       font: Theme.defaultFont
-      color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
     }
 
     QfSlider {
