@@ -266,7 +266,7 @@ EditorWidgetBase {
     width: parent.width - fileButton.width - cameraButton.width - cameraVideoButton.width - microphoneButton.width - (isEnabled ? 5 : 0)
     height: 48
     visible: !linkField.isVisible
-    color: Theme.controlBackgroundAlternateColor
+    color: Theme.controlBorderColor
     radius: 5
     clip: true
 
