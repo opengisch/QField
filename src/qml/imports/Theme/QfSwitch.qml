@@ -6,9 +6,4 @@ import QtQuick.Controls
  */
 SwitchDelegate {
   id: control
-
-  property bool small: false
-
-  implicitWidth: small ? 34 : 48
-  implicitHeight: 30
 }

@@ -31,7 +31,6 @@ ProcessingParameterWidgetBase {
 
       anchors.verticalCenter: parent.verticalCenter
       width: implicitContentWidth
-      small: true
 
       checked: value
     }

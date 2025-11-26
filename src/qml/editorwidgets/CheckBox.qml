@@ -40,7 +40,6 @@ EditorWidgetBase {
     id: checkBox
     enabled: isEnabled
     width: implicitContentWidth
-    small: true
 
     anchors {
       right: parent.right
