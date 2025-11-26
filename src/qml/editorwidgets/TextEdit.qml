@@ -17,39 +17,40 @@ EditorWidgetBase {
     height: !textArea.visible ? textField.height : 0
     topPadding: 10
     bottomPadding: 10
-    leftPadding: isEnabled || (!isEditable && isEditing) ? 10 : 0
-    visible: height !== 0 && !isEditable
+    leftPadding: 0
+    visible: height !== 0 && !isEditing
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
     color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
     opacity: 1
     wrapMode: Text.Wrap
-    textFormat: (config['IsMultiline'] === true && config['UseHtml']) || StringUtils.hasLinks(value) ? TextEdit.RichText : TextEdit.AutoText
+    textFormat: (config['IsMultiline'] === true && config['UseHtml'] === true) || StringUtils.hasLinks(value) ? TextEdit.RichText : TextEdit.AutoText
 
-    text: FeatureUtils.attributeIsNull(value) ? '' : config['IsMultiline'] === true ? config['UseHtml'] === true ? value : StringUtils.insertLinks(value) : StringUtils.insertLinks(value).replace(/\n/g, '')
+    text: {
+      if (FeatureUtils.attributeIsNull(value)) {
+        return '';
+      }
+      if (config['IsMultiline'] === true) {
+        if (config['UseHtml'] === true) {
+          return value;
+        }
+        return StringUtils.hasLinks(value) ? StringUtils.insertLinks(value).replace(/\n/g, '<br>') : value;
+      } else {
+        return StringUtils.insertLinks(value).replace(/\n/g, '');
+      }
+    }
 
     onLinkActivated: link => {
       Qt.openUrlExternally(link);
     }
   }
 
-  MaterialTextContainer {
-    implicitWidth: parent.width
-    implicitHeight: topItem.Material.textFieldHeight
-
-    outlineColor: (enabled && topItem.hovered) ? topItem.Material.primaryTextColor : topItem.Material.hintTextColor
-    focusedOutlineColor: topItem.Material.accentColor
-    controlHasActiveFocus: topItem.activeFocus
-    controlHasText: true
-    horizontalPadding: topItem.Material.textFieldHorizontalPadding
-    visible: isEnabled || (!isEditable && isEditing)
-  }
-
   TextField {
     id: textField
-    leftPadding: enabled ? 10 : 0
-    visible: (config['IsMultiline'] === undefined || config['IsMultiline'] == false) && isEditable
+    leftPadding: isEditing ? 10 : 0
+    visible: (config['IsMultiline'] === undefined || config['IsMultiline'] == false) && isEditing
+    enabled: isEditable
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
@@ -103,9 +104,9 @@ EditorWidgetBase {
 
   TextArea {
     id: textArea
-    leftPadding: enabled ? 10 : 0
+    leftPadding: isEditing ? 10 : 0
     height: config['IsMultiline'] === true ? undefined : 0
-    visible: config['IsMultiline'] === true && isEditable
+    visible: config['IsMultiline'] === true && isEditing
     enabled: isEditable
     anchors.left: parent.left
     anchors.right: parent.right
