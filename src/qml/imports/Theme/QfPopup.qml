@@ -8,7 +8,11 @@ import QtQuick.Controls.Material.impl
  */
 Popup {
   id: control
-  padding: 5
+  padding: 0
+  topPadding: 5
+  leftPadding: 0
+  rightPadding: 0
+  bottomPadding: 5
   modal: true
 
   background: Rectangle {

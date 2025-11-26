@@ -110,7 +110,7 @@ EditorWidgetBase {
             height: 34
             radius: 4
             color: selected ? isEnabled ? Theme.mainColor : Theme.accentLightColor : "transparent"
-            border.color: isEnabled ? selected ? Theme.mainColor : Theme.accentLightColor : "transparent"
+            border.color: isEnabled ? selected ? Theme.mainColor : valueMap.Material.hintTextColor : "transparent"
             border.width: 1
 
             property bool selected: toggleButtons.selectedIndex == index
@@ -135,7 +135,7 @@ EditorWidgetBase {
               elide: Text.ElideRight
               anchors.centerIn: parent
               font: Theme.defaultFont
-              color: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+              color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
             }
 
             MouseArea {
@@ -166,14 +166,6 @@ EditorWidgetBase {
           }
         }
       }
-
-      Rectangle {
-        y: flow.height + flow.anchors.topMargin + flow.anchors.bottomMargin - 1
-        visible: !isEnabled
-        width: flow.width
-        height: flow.activeFocus ? 2 : 1
-        color: flow.activeFocus ? Theme.accentColor : Theme.accentLightColor
-      }
     }
 
     QfComboBox {
@@ -186,6 +178,10 @@ EditorWidgetBase {
       currentIndex: model.keyToIndex(value)
       model: listModel
       textRole: 'value'
+      text.color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      background.visible: isEnabled || (!isEditable && isEditing)
+      indicator.visible: isEnabled || (!isEditable && isEditing)
+      text.leftPadding: isEnabled || (!isEditable && isEditing) ? 10 : 0
 
       Component.onCompleted: {
         comboBox.popup.z = 10000; // 1000s are embedded feature forms, use a higher value to insure popups always show above embedded feature formes

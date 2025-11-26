@@ -74,10 +74,11 @@ Pane {
         return lastWidth - dragWidthAdjustment;
       } else if (fullScreenView || parent.width <= parent.height || width >= 0.95 * parent.width) {
         lastWidth = parent.width;
-        return lastWidth;
+        return parent.width;
       } else {
-        lastWidth = Math.min(Math.max(200, parent.width / 2.25), parent.width);
-        return lastWidth;
+        const newWidth = Math.min(Math.max(200, parent.width / 2.25), parent.width);
+        lastWidth = newWidth;
+        return newWidth;
       }
     } else {
       lastWidth = 0;
@@ -92,10 +93,11 @@ Pane {
         return Math.min(lastHeight - dragHeightAdjustment, parent.height - mainWindow.sceneTopMargin);
       } else if (fullScreenView || parent.width > parent.height || height >= 0.95 * parent.height) {
         lastHeight = parent.height;
-        return lastHeight;
+        return parent.height;
       } else {
-        lastHeight = Math.min(Math.max(200, parent.height / 2), parent.height);
-        return lastHeight;
+        const newHeight = Math.min(Math.max(200, parent.height / 2), parent.height);
+        lastHeight = newHeight;
+        return newHeight;
       }
     } else {
       lastHeight = 0;
@@ -422,6 +424,7 @@ Pane {
     bottomMargin: mainWindow.sceneBottomMargin
     height: parent.height - globalFeaturesList.height
     visible: false
+    isDraggable: true
 
     digitizingToolbar: featureFormList.digitizingToolbar
     codeReader: featureFormList.codeReader
@@ -952,7 +955,7 @@ Pane {
         color: Theme.mainTextColor
       }
 
-      ComboBox {
+      QfComboBox {
         id: transferComboBox
         width: transferLabel.width
 

@@ -53,6 +53,11 @@ EditorWidgetBase {
     id: valueRelationCombobox
     featureListModel: config && !listModel.allowMulti ? listModel : null
 
+    anchors {
+      left: parent.left
+      right: parent.right
+    }
+
     useCompleter: !!config['UseCompleter']
     enabled: isEnabled
     visible: !listModel.allowMulti
@@ -60,6 +65,7 @@ EditorWidgetBase {
     layerResolver: layerResolver
     allowAddFeature: currentLayer && currentLayer.customProperty('QFieldSync/allow_value_relation_feature_addition') !== undefined ? currentLayer.customProperty('QFieldSync/allow_value_relation_feature_addition') : false
 
+    displayedTextColor: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
     onRequestJumpToPoint: function (center, scale, handleMargins) {
       valueRelation.requestJumpToPoint(center, scale, handleMargins);
     }
@@ -213,7 +219,7 @@ EditorWidgetBase {
                   topPadding: 4
                   bottomPadding: 4
                   font: Theme.defaultFont
-                  color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
+                  color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
                   text: model.displayString
                   wrapMode: Text.WordWrap
                   elide: Text.ElideRight

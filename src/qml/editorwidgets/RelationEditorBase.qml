@@ -38,6 +38,7 @@ EditorWidgetBase {
     color: "transparent"
     border.color: Theme.controlBorderColor
     border.width: 1
+    radius: 5
     clip: true
 
     Rectangle {
@@ -46,6 +47,10 @@ EditorWidgetBase {
       height: itemHeight
       color: Theme.controlBorderColor
       focus: true
+      topLeftRadius: parent.radius
+      topRightRadius: parent.radius
+      bottomLeftRadius: listView.count === 0 ? parent.radius : 0
+      bottomRightRadius: listView.count === 0 ? parent.radius : 0
 
       Text {
         text: qsTr("%n feature(s)", "", listView.count)

@@ -368,7 +368,7 @@ Page {
                 wrapMode: Text.WordWrap
               }
 
-              ComboBox {
+              QfComboBox {
                 id: renderingQualityComboBox
                 enabled: true
                 Layout.fillWidth: true
@@ -605,7 +605,7 @@ Page {
                 wrapMode: Text.WordWrap
               }
 
-              ComboBox {
+              QfComboBox {
                 id: appearanceComboBox
                 enabled: true
                 Layout.fillWidth: true
@@ -658,7 +658,7 @@ Page {
                 wrapMode: Text.WordWrap
               }
 
-              ComboBox {
+              QfComboBox {
                 id: fontScaleComboBox
                 enabled: true
                 Layout.fillWidth: true
@@ -727,7 +727,7 @@ Page {
                 wrapMode: Text.WordWrap
               }
 
-              ComboBox {
+              QfComboBox {
                 id: languageComboBox
                 enabled: true
                 Layout.fillWidth: true
@@ -855,7 +855,7 @@ Page {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
 
-                ComboBox {
+                QfComboBox {
                   id: positioningDeviceComboBox
                   Layout.fillWidth: true
                   Layout.alignment: Qt.AlignVCenter
@@ -1075,7 +1075,7 @@ Page {
                 wrapMode: Text.WordWrap
               }
 
-              ComboBox {
+              QfComboBox {
                 id: measureComboBox
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
@@ -1159,9 +1159,7 @@ Page {
                 enabled: accuracyIndicator.checked
                 visible: accuracyIndicator.checked
                 horizontalAlignment: TextInput.AlignHCenter
-                Layout.preferredWidth: 60
-                Layout.preferredHeight: font.height + 20
-
+                Layout.preferredWidth: width
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 validator: DoubleValidator {
                   locale: 'C'
@@ -1198,9 +1196,7 @@ Page {
                 enabled: accuracyIndicator.checked
                 visible: accuracyIndicator.checked
                 horizontalAlignment: TextInput.AlignHCenter
-                Layout.preferredWidth: 60
-                Layout.preferredHeight: font.height + 20
-
+                Layout.preferredWidth: width
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 validator: DoubleValidator {
                   locale: 'C'
@@ -1308,9 +1304,7 @@ Page {
                 enabled: averagedPositioning.checked
                 visible: averagedPositioning.checked
                 horizontalAlignment: TextInput.AlignHCenter
-                Layout.preferredWidth: 60
-                Layout.preferredHeight: font.height + 20
-
+                Layout.preferredWidth: width
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 validator: IntValidator {
                   locale: 'C'
@@ -1413,9 +1407,7 @@ Page {
                 width: antennaHeightActivated.width
                 font: Theme.defaultFont
                 horizontalAlignment: TextInput.AlignHCenter
-                Layout.preferredWidth: 60
-                Layout.preferredHeight: font.height + 20
-
+                Layout.preferredWidth: width
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 validator: DoubleValidator {
                   locale: 'C'
@@ -1496,7 +1488,7 @@ Page {
                 Layout.columnSpan: 2
               }
 
-              ComboBox {
+              QfComboBox {
                 id: verticalGridShiftComboBox
                 Layout.fillWidth: true
                 Layout.columnSpan: 2

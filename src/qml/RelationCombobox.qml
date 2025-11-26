@@ -21,6 +21,7 @@ Item {
   property var currentKeyValue: value
   property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopupLoader.item
   readonly property alias searchPopup: searchFeaturePopup
+  property color displayedTextColor: value === undefined || (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
   signal requestJumpToPoint(var center, real scale, bool handleMargins)
 
@@ -38,10 +39,6 @@ Item {
     }
   }
 
-  anchors {
-    left: parent.left
-    right: parent.right
-  }
   height: childrenRect.height
 
   QfPopup {
@@ -241,7 +238,7 @@ Item {
       right: parent.right
     }
 
-    ComboBox {
+    QfComboBox {
       id: comboBox
       objectName: "RelationComboBox"
       visible: !enabled || (!useSearch && !useCompleter && (relation !== undefined ? relation.isValid : true))
@@ -303,14 +300,14 @@ Item {
       font: Theme.defaultFont
 
       contentItem: Text {
-        leftPadding: enabled ? 5 : 0
+        leftPadding: relationCombobox.enabled || (!isEditable && isEditing) ? 10 : 0
         height: fontMetrics.height + 20
         text: comboBox.currentIndex === -1 && value !== undefined ? '(' + value + ')' : comboBox.currentText
         font: comboBox.font
-        color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
+        color: displayedTextColor
       }
 
       popup: Popup {
@@ -362,27 +359,8 @@ Item {
         }
       }
 
-      background: Item {
-        implicitWidth: 120
-        implicitHeight: 36
-
-        Rectangle {
-          visible: !enabled
-          y: comboBox.height - 2
-          width: comboBox.width
-          height: comboBox.activeFocus ? 2 : 1
-          color: comboBox.activeFocus ? Theme.accentColor : Theme.accentLightColor
-        }
-
-        Rectangle {
-          visible: enabled
-          anchors.fill: parent
-          border.color: comboBox.pressed ? Theme.accentColor : Theme.accentLightColor
-          border.width: comboBox.visualFocus ? 2 : 1
-          color: Theme.controlBackgroundAlternateColor
-          radius: 2
-        }
-      }
+      background.visible: relationCombobox.enabled || (!isEditable && isEditing)
+      indicator.visible: relationCombobox.enabled || (!isEditable && isEditing)
     }
 
     FontMetrics {

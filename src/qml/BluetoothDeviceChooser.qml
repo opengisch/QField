@@ -79,7 +79,7 @@ Item {
       wrapMode: Text.WordWrap
     }
 
-    ComboBox {
+    QfComboBox {
       id: bluetoothDeviceComboBox
       Layout.fillWidth: true
       visible: bluetoothDeviceComboBox.count > 0

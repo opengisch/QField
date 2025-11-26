@@ -138,7 +138,7 @@ QfPopup {
         Layout.columnSpan: 2
       }
 
-      ComboBox {
+      QfComboBox {
         id: positioningDeviceType
         Layout.fillWidth: true
         font: Theme.defaultFont

@@ -139,7 +139,10 @@ QfPopup {
       ScrollView {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        padding: 5
+        topPadding: 5
+        bottomPadding: 5
+        leftPadding: 5
+        rightPadding: 15 // Considering scroll bar
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
         ScrollBar.vertical: QfScrollBar {
         }
@@ -166,7 +169,7 @@ QfPopup {
             Layout.columnSpan: 2
           }
 
-          ComboBox {
+          QfComboBox {
             id: layersComboBox
             model: ListModel {
               id: layersModel
@@ -261,9 +264,7 @@ QfPopup {
             enabled: timeInterval.checked
             visible: timeInterval.checked
             horizontalAlignment: TextInput.AlignHCenter
-            Layout.preferredWidth: 60
-            Layout.preferredHeight: font.height + 20
-
+            Layout.preferredWidth: width
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             validator: DoubleValidator {
               locale: 'C'
@@ -331,9 +332,7 @@ QfPopup {
             enabled: minimumDistance.checked
             visible: minimumDistance.checked
             horizontalAlignment: TextInput.AlignHCenter
-            Layout.preferredWidth: 60
-            Layout.preferredHeight: font.height + 20
-
+            Layout.preferredWidth: width
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             validator: DoubleValidator {
               locale: 'C'
@@ -475,9 +474,7 @@ QfPopup {
             enabled: erroneousDistanceSafeguard.checked
             visible: erroneousDistanceSafeguard.checked
             horizontalAlignment: TextInput.AlignHCenter
-            Layout.preferredWidth: 60
-            Layout.preferredHeight: font.height + 20
-
+            Layout.preferredWidth: width
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             validator: DoubleValidator {
               locale: 'C'
@@ -509,7 +506,7 @@ QfPopup {
             Layout.topMargin: 4
           }
 
-          ComboBox {
+          QfComboBox {
             id: measureComboBox
             enabled: LayerUtils.hasMValue(featureModel.currentLayer)
             Layout.fillWidth: true

@@ -89,6 +89,11 @@ class QFIELD_CORE_EXPORT FeatureUtils : public QObject
      * Returns a new a fields gadget.
      */
     static Q_INVOKABLE QgsFields createFields( const QList<QgsField> &fields );
+
+    /**
+     * Returns TRUE if an attribute value is null.
+     */
+    static Q_INVOKABLE bool attributeIsNull( const QVariant &value );
 };
 
 #endif // FEATUREUTILS_H

@@ -47,7 +47,7 @@ Item {
       wrapMode: Text.WordWrap
     }
 
-    ComboBox {
+    QfComboBox {
       id: serialPortComboBox
       Layout.fillWidth: true
       visible: serialPortComboBox.count

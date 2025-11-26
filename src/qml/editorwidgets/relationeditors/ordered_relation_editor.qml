@@ -147,7 +147,7 @@ RelationEditorBase {
             bottomPadding: 5
             leftPadding: featureImage.visible ? 5 : 0
             font: Theme.defaultFont
-            color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
+            color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
             elide: Text.ElideRight
             wrapMode: Text.WordWrap
             text: Description || model.displayString
@@ -237,14 +237,6 @@ RelationEditorBase {
               childMenu.popup(menuButton.x, menuButton.y);
             }
           }
-        }
-
-        Rectangle {
-          id: bottomLine
-          anchors.bottom: parent.bottom
-          height: 1
-          color: Theme.controlBorderColor
-          width: parent.width
         }
       }
 

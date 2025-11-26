@@ -43,6 +43,7 @@ Page {
   property bool setupOnly: false
   property bool featureCreated: false
   property bool isVertical: false
+  property bool isDraggable: false
 
   property double topMargin: 0.0
   property double leftMargin: 0.0
@@ -186,6 +187,7 @@ Page {
           Flow {
             id: content
             width: form.width - form.leftMargin - form.rightMargin
+            bottomPadding: 10
 
             SubModel {
               id: contentModel
@@ -551,8 +553,8 @@ Page {
             font.strikeout: LabelOverrideFont ? LabelFont.strikeout : false
             topPadding: 10
             bottomPadding: 5
-            opacity: (form.state === 'ReadOnly' || !AttributeEditable) || embedded && EditorWidget === 'RelationEditor' ? 0.45 : 1
-            color: LabelOverrideColor ? LabelColor : Theme.mainTextColor
+            opacity: !AttributeEditable && form.state === "Edit" ? (LabelOverrideColor ? 0.5 : 1.0) : 1.0
+            color: LabelOverrideColor ? LabelColor : (!AttributeEditable && form.state === "Edit" ? Theme.mainTextDisabledColor : Theme.mainTextColor)
           }
 
           Label {
@@ -584,6 +586,7 @@ Page {
               left: parent.left
               right: fieldMenuButton.left
               top: constraintDescriptionLabel.bottom
+              rightMargin: fieldMenuButton.visible ? 5 : 0
             }
 
             Loader {
@@ -601,8 +604,10 @@ Page {
               // - not in edit mode (ReadOnly)
               // - a relation in multi edit mode
               property bool isAdding: form.state === 'Add'
-              property bool isEditing: form.state === 'Edit'
+              property bool isEditing: form.state !== 'ReadOnly'
               property bool isEnabled: !!AttributeEditable && form.state !== 'ReadOnly' && !(Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel)
+              property bool isEditable: !!AttributeEditable && !(Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel)
+
               property var value: AttributeValue
               property var config: (EditorWidgetConfig || {})
               property var widget: EditorWidget
@@ -697,6 +702,7 @@ Page {
             anchors {
               right: rememberButton.left
               top: constraintDescriptionLabel.bottom
+              rightMargin: 5
             }
 
             visible: attributeEditorLoader.isEnabled && attributeEditorLoader.item && attributeEditorLoader.item.hasMenu
@@ -862,6 +868,7 @@ Page {
       anchors.topMargin: form.topMargin + 4
 
       color: Theme.controlBorderColor
+      visible: isDraggable
     }
 
     RowLayout {
