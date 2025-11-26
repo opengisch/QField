@@ -21,7 +21,7 @@ Item {
   property var currentKeyValue: value
   property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopupLoader.item
   readonly property alias searchPopup: searchFeaturePopup
-  property color displayedTextColor: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
+  property color displayedTextColor: value === undefined || (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
   signal requestJumpToPoint(var center, real scale, bool handleMargins)
 
