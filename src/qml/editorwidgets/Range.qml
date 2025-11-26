@@ -22,11 +22,12 @@ EditorWidgetBase {
     anchors.right: parent.right
     anchors.top: parent.top
     visible: widgetStyle != "Slider"
+    spacing: 5
 
     TextField {
       id: textField
       leftPadding: isEnabled || (!isEditable && isEditing) ? 10 : 0
-      width: parent.width - decreaseButton.width - increaseButton.width
+      width: parent.width - decreaseButton.width - increaseButton.width - parent.spacing * 2
 
       font: Theme.defaultFont
       color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor

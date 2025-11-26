@@ -20,17 +20,16 @@ EditorWidgetBase {
 
   Label {
     id: checkValue
-    height: fontMetrics.height + 20
+    height: Math.max(48, fontMetrics.height + 20)
     anchors {
       left: parent.left
       right: checkBox.left
     }
 
-    topPadding: 10
-    bottomPadding: 10
     font.pointSize: Theme.defaultFont.pointSize
     font.bold: Theme.defaultFont.bold
     font.italic: isNull
+    verticalAlignment: Text.AlignVCenter
     color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
     text: !isNull ? checkBox.checked ? checkedLabel : uncheckedLabel : isEnabled ? qsTr('NULL') : ''
