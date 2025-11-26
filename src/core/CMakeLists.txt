@@ -396,7 +396,7 @@ if(WITH_BLUETOOTH)
   target_link_libraries(qfield_core PUBLIC Qt6::Bluetooth)
 endif()
 
-if(WITH_SERIALPORT AND NOT IOS)
+if(WITH_SERIALPORT)
   find_package(
     Qt6
     COMPONENTS SerialPort
