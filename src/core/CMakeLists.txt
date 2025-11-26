@@ -401,6 +401,7 @@ if(WITH_SERIALPORT)
     Qt6
     COMPONENTS SerialPort
     REQUIRED)
+
   target_link_libraries(qfield_core PUBLIC Qt::SerialPort)
 endif()
 

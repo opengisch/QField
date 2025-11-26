@@ -8,6 +8,7 @@ vcpkg_from_github(
       stdint.patch
       ucontext64.patch
       exception.patch
+      const-vector.patch
 )
 
 file(COPY ${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt DESTINATION ${SOURCE_PATH})

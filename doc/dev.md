@@ -226,26 +226,47 @@ export PATH="$(brew --prefix flex)/bin:$(brew --prefix bison)/bin:$PATH"
 #
 
 cmake -S . -B build-arm64-ios \
-	-DVCPKG_HOST_TRIPLET=arm64-osx \
-	-DVCPKG_TARGET_TRIPLET=arm64-ios \
-	-DWITH_VCPKG=ON \
-	-DVCPKG_BUILD_TYPE=release \
-	-DCMAKE_SYSTEM_NAME=iOS \
-	-DCMAKE_OSX_SYSROOT=iphoneos \
-	-DCMAKE_OSX_ARCHITECTURES=arm64 \
-	-DCMAKE_SYSTEM_PROCESSOR=aarch64 \
-	-GXcode
+  -DVCPKG_HOST_TRIPLET=arm64-osx \
+  -DVCPKG_TARGET_TRIPLET=arm64-ios \
+  -DWITH_VCPKG=ON \
+  -DVCPKG_BUILD_TYPE=release \
+  -DCMAKE_SYSTEM_NAME=iOS \
+  -DCMAKE_OSX_SYSROOT=iphoneos \
+  -DCMAKE_OSX_ARCHITECTURES=arm64 \
+  -DCMAKE_SYSTEM_PROCESSOR=arm64 \
+  -DWITH_SERIALPORT=OFF \
+  -GXcode
+```
 
-# Then, compile. To install an app on iOS, it must be signed using Xcode tools.
+Verify CMake has generated the project without any errors.
+### Open the generated Xcode project in xcode first with:
+```sh
+open build-arm64-ios/QField.xcodeproj
+```
 
+1. In Xcode:
+
+   - Select the **QField** scheme.
+   - Choose a real iOS device or a connected device as the run target.
+   - Go to the **QField** target -> **Signing & Capabilities** tab.
+   - Set your **Team** and ensure a valid **Bundle Identifier** and signing certificate are configured.
+   - Resolve any provisioning profile issues shown by Xcode if any.
+2. Once signing is set up, build and run QField from Xcode to verify the project compiles and deploys correctly to your device.
+
+### Building from the terminal
+
+After you have successfully built the app from Xcode (and signing is correctly configured), you can build from the command line as usual:
+
+```sh
 cmake --build build-arm64-ios
 ```
+
 
 ## Contribute
 
 Before commiting, install pre-commit to auto-format your code.
 
-```
+```sh
 pip install pre-commit
 pre-commit install
 ```
