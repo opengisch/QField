@@ -49,6 +49,8 @@ EditorWidgetBase {
       focus: true
       topLeftRadius: parent.radius
       topRightRadius: parent.radius
+      bottomLeftRadius: listView.count === 0 ? parent.radius : 0
+      bottomRightRadius: listView.count === 0 ? parent.radius : 0
 
       Text {
         text: qsTr("%n feature(s)", "", listView.count)
