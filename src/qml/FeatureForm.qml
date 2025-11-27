@@ -95,15 +95,17 @@ Page {
 
     QfTabBar {
       id: tabRow
+      objectName: "tabRow"
       visible: form.model.hasTabs
       model: form.model.hasTabs ? form.model : 0
       Layout.fillWidth: true
       Layout.preferredHeight: defaultHeight
-      objectName: "tabRow"
 
       delegate: TabButton {
         id: tabButton
+
         property bool isCurrentIndex: index == tabRow.currentIndex
+
         objectName: "tabRowdDelegate_" + index
         text: Name
         topPadding: 0
@@ -163,7 +165,7 @@ Page {
 
       Repeater {
         // One page per tab in tabbed forms, 1 page in auto forms
-        model: form.model.hasTabs ? form.model : 1
+        model: form.model.hasTabs ? tabRow.count : 1
 
         Flickable {
           id: contentView

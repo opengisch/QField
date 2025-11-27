@@ -219,6 +219,8 @@ void AttributeFormModelBase::resetModel()
     QList<QStandardItem *> containers;
     if ( hasTabs )
     {
+      setHasTabs( true );
+
       const QList<QgsAttributeEditorElement *> children { root->children() };
       int currentTab = 0;
       for ( QgsAttributeEditorElement *element : children )
@@ -240,13 +242,17 @@ void AttributeFormModelBase::resetModel()
           QString visibilityExpression;
           if ( container->visibilityExpression().enabled() )
           {
-            mVisibilityExpressions.append( qMakePair( container->visibilityExpression().data(), item ) );
             visibilityExpression = container->visibilityExpression().data().expression();
           }
 
           buildForm( container, item, visibilityExpression, containers, currentTab, columnCount );
           invisibleRootItem()->appendRow( item );
-          setHasTabs( true );
+
+          if ( !visibilityExpression.isEmpty() )
+          {
+            mVisibilityExpressions.append( qMakePair( container->visibilityExpression().data(), item ) );
+          }
+
           currentTab++;
         }
       }
