@@ -259,6 +259,7 @@ TestCase {
     featureForm.mSelectedLayer = qgisProject.mapLayersByName('Apiary')[0];
     featureForm.mSelectedFeature = featureForm.mSelectedLayer.getFeature("64");
     featureForm.state = 'ReadOnly';
+    wait(500);
     const toolbar = Utils.findChildren(featureForm, "toolbar");
     const fieldItem = Utils.findChildren(featureForm, "fieldRepeater");
     const itemLoader = fieldItem.itemAt(0).children[2].children[0];
