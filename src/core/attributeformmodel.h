@@ -129,7 +129,7 @@ class AttributeFormModel : public QSortFilterProxyModel
     void constraintsSoftValidChanged();
 
   protected:
-    virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
+    virtual bool filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const override;
 
   private:
     AttributeFormModelBase *mSourceModel = nullptr;
