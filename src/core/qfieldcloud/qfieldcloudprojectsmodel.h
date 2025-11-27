@@ -164,9 +164,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Discards the delta records of the current cloud project.
     Q_INVOKABLE bool discardLocalChangesFromCurrentProject();
 
-    //! Refreshes the project file (.qgs, .qgz) outdated status.
-    Q_INVOKABLE void refreshProjectFileOutdatedStatus( const QString &projectId );
-
     //! Returns the model role names.
     QHash<int, QByteArray> roleNames() const override;
 

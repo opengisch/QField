@@ -78,7 +78,7 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( bool isPublic READ isPublic NOTIFY isPublicChanged )
     Q_PROPERTY( bool isFeatured READ isFeatured NOTIFY isFeaturedChanged )
     Q_PROPERTY( bool isOutdated READ isOutdated NOTIFY isOutdatedChanged )
-    Q_PROPERTY( bool projectFileIsOutdated READ projectFileIsOutdated NOTIFY projectFileIsOutdatedChanged )
+    Q_PROPERTY( bool isProjectOutdated READ isProjectOutdated NOTIFY isProjectOutdatedChanged )
 
   public:
     struct FileTransfer
@@ -262,6 +262,9 @@ class QFieldCloudProject : public QObject
     QDateTime dataLastUpdatedAt() const { return mDataLastUpdatedAt; }
     void setDataLastUpdatedAt( const QDateTime &dataLastUpdatedAt );
 
+    QDateTime restrictedDataLastUpdatedAt() const { return mRestrictedDataLastUpdatedAt; }
+    void setRestrictedDataLastUpdatedAt( const QDateTime &restrictedDataLastUpdatedAt );
+
     bool canRepackage() const { return mCanRepackage; }
     void setCanRepackage( bool canRepackage );
 
@@ -271,8 +274,8 @@ class QFieldCloudProject : public QObject
     bool isOutdated() const { return mIsOutdated; }
     void setIsOutdated( bool isOutdated );
 
-    bool projectFileIsOutdated() const { return mProjectFileIsOutdated; }
-    void setProjectFileIsOutdated( bool projectFileIsOutdated );
+    bool isProjectOutdated() const { return mIsProjectOutdated; }
+    void setIsProjectOutdated( bool isProjectOutdated );
 
     ProjectModifications modification() const { return mModification; }
     void setModification( ProjectModification modification );
@@ -333,6 +336,9 @@ class QFieldCloudProject : public QObject
     QDateTime lastLocalDataLastUpdatedAt() const { return mLastLocalDataLastUpdatedAt; }
     void setLastLocalDataLastUpdatedAt( const QDateTime &lastLocalDataLastUpdatedAt );
 
+    QDateTime lastLocalRestrictedDataLastUpdatedAt() const { return mLastLocalRestrictedDataLastUpdatedAt; }
+    void setLastLocalRestrictedDataLastUpdatedAt( const QDateTime &lastLocalRestrictedDataLastUpdatedAt );
+
     QDateTime lastRefreshedAt() const { return mLastRefreshedAt; }
     void setLastRefreshedAt( const QDateTime &lastRefreshedAt );
 
@@ -363,7 +369,6 @@ class QFieldCloudProject : public QObject
     void cancelPush();
 
     void refreshDeltaList();
-    void refreshFileOutdatedStatus();
     void refreshModification();
 
     void removeLocally();
@@ -396,11 +401,12 @@ class QFieldCloudProject : public QObject
     void createdAtChanged();
     void updatedAtChanged();
     void dataLastUpdatedAtChanged();
+    void restrictedDataLastUpdatedAtChanged();
 
     void canRepackageChanged();
     void needsRepackagingChanged();
     void isOutdatedChanged();
-    void projectFileIsOutdatedChanged();
+    void isProjectOutdatedChanged();
 
     void modificationChanged();
     void localPathChanged();
@@ -429,6 +435,7 @@ class QFieldCloudProject : public QObject
     void lastDataLastUpdatedAtChanged();
 
     void lastLocalDataLastUpdatedAtChanged();
+    void lastLocalRestrictedDataLastUpdatedAtChanged();
     void lastRefreshedAtChanged();
     void lastLocalPushDeltasChanged();
 
@@ -520,10 +527,11 @@ class QFieldCloudProject : public QObject
     QDateTime mCreatedAt;
     QDateTime mUpdatedAt;
     QDateTime mDataLastUpdatedAt;
+    QDateTime mRestrictedDataLastUpdatedAt;
     bool mCanRepackage = false;
     bool mNeedsRepackaging = false;
     bool mIsOutdated = false;
-    bool mProjectFileIsOutdated = false;
+    bool mIsProjectOutdated = false;
     ProjectModifications mModification = ProjectModification::NoModification;
     QString mLocalPath;
 
@@ -568,6 +576,7 @@ class QFieldCloudProject : public QObject
     QString mLastLocalPushDeltas;
 
     QDateTime mLastLocalDataLastUpdatedAt;
+    QDateTime mLastLocalRestrictedDataLastUpdatedAt;
     QDateTime mLastRefreshedAt;
 
     bool mForceAutoPush = false;
