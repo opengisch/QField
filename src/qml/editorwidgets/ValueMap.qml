@@ -109,8 +109,8 @@ EditorWidgetBase {
             width: Math.min(flow.width - 16, innerText.width + 16)
             height: 34
             radius: 4
-            color: selected ? isEnabled ? Theme.mainColor : Theme.accentLightColor : "transparent"
-            border.color: isEnabled ? selected ? Theme.mainColor : valueMap.Material.hintTextColor : "transparent"
+            color: selected ? isEditable && isEditing ? Theme.mainColor : Theme.controlBorderColor : "transparent"
+            border.color: "transparent"
             border.width: 1
 
             property bool selected: toggleButtons.selectedIndex == index
@@ -135,7 +135,7 @@ EditorWidgetBase {
               elide: Text.ElideRight
               anchors.centerIn: parent
               font: Theme.defaultFont
-              color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+              color: !isEditable && isEditing ? Theme.mainTextDisabledColor : Theme.mainTextColor
             }
 
             MouseArea {

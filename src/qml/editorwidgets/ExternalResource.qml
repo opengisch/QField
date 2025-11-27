@@ -213,7 +213,7 @@ EditorWidgetBase {
 
     anchors.left: parent.left
     anchors.right: cameraButton.left
-    color: FileUtils.fileExists(prefixToRelativePath + value) ? Theme.mainColor : 'gray'
+    color: FileUtils.fileExists(prefixToRelativePath + value) ? Theme.mainColor : Theme.secondaryTextColor
 
     text: {
       let fieldValue = qsTr('No Value');
@@ -232,13 +232,6 @@ EditorWidgetBase {
     font.underline: FileUtils.fileExists(prefixToRelativePath + value) || FileUtils.fileExists(value)
     verticalAlignment: Text.AlignVCenter
     elide: Text.ElideMiddle
-
-    background: Rectangle {
-      y: linkField.height - height - linkField.bottomPadding / 2
-      implicitWidth: 120
-      height: 1
-      color: Theme.accentLightColor
-    }
 
     MouseArea {
       anchors.fill: parent
