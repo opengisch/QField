@@ -172,7 +172,7 @@ Drawer {
                     return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
                   }
                 case QFieldCloudProject.Idle:
-                  return cloudProjectsModel.currentProject.projectFileIsOutdated ? Theme.getThemeVectorIcon('ic_cloud_attention_24dp') : Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                  return cloudProjectsModel.currentProject.isProjectOutdated ? Theme.getThemeVectorIcon('ic_cloud_attention_24dp') : Theme.getThemeVectorIcon('ic_cloud_active_24dp');
                 default:
                   return Theme.getThemeVectorIcon('ic_cloud_white_24dp');
                 }

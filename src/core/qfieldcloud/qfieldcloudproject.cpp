@@ -150,13 +150,13 @@ void QFieldCloudProject::setIsOutdated( bool isOutdated )
   emit isOutdatedChanged();
 }
 
-void QFieldCloudProject::setProjectFileIsOutdated( bool projectFileIsOutdated )
+void QFieldCloudProject::setIsProjectOutdated( bool isProjectOutdated )
 {
-  if ( mProjectFileIsOutdated == projectFileIsOutdated )
+  if ( mIsProjectOutdated == isProjectOutdated )
     return;
 
-  mProjectFileIsOutdated = projectFileIsOutdated;
-  emit projectFileIsOutdatedChanged();
+  mIsProjectOutdated = isProjectOutdated;
+  emit isProjectOutdatedChanged();
 }
 
 void QFieldCloudProject::setLastRefreshedAt( const QDateTime &lastRefreshedAt )
@@ -199,6 +199,21 @@ void QFieldCloudProject::setDataLastUpdatedAt( const QDateTime &dataLastUpdatedA
   }
 
   emit dataLastUpdatedAtChanged();
+}
+
+void QFieldCloudProject::setRestrictedDataLastUpdatedAt( const QDateTime &restrictedDataLastUpdatedAt )
+{
+  if ( mRestrictedDataLastUpdatedAt == restrictedDataLastUpdatedAt )
+    return;
+
+  mRestrictedDataLastUpdatedAt = restrictedDataLastUpdatedAt;
+
+  if ( mRestrictedDataLastUpdatedAt.isValid() && mLastLocalDataLastUpdatedAt.isValid() )
+  {
+    setIsProjectOutdated( mRestrictedDataLastUpdatedAt > mLastLocalDataLastUpdatedAt );
+  }
+
+  emit restrictedDataLastUpdatedAtChanged();
 }
 
 void QFieldCloudProject::setErrorStatus( ProjectErrorStatus errorStatus )
@@ -407,6 +422,21 @@ void QFieldCloudProject::setLastLocalDataLastUpdatedAt( const QDateTime &lastLoc
   emit lastLocalDataLastUpdatedAtChanged();
 }
 
+void QFieldCloudProject::setLastLocalRestrictedDataLastUpdatedAt( const QDateTime &lastLocalRestrictedDataLastUpdatedAt )
+{
+  if ( mLastLocalRestrictedDataLastUpdatedAt == lastLocalRestrictedDataLastUpdatedAt )
+    return;
+
+  mLastLocalRestrictedDataLastUpdatedAt = lastLocalRestrictedDataLastUpdatedAt;
+
+  if ( mRestrictedDataLastUpdatedAt.isValid() && mLastLocalRestrictedDataLastUpdatedAt.isValid() )
+  {
+    setIsOutdated( mRestrictedDataLastUpdatedAt > mLastLocalRestrictedDataLastUpdatedAt );
+  }
+
+  emit lastLocalRestrictedDataLastUpdatedAtChanged();
+}
+
 void QFieldCloudProject::setThumbnailPath( const QString &thumbnailPath )
 {
   if ( mThumbnailPath == thumbnailPath )
@@ -414,44 +444,6 @@ void QFieldCloudProject::setThumbnailPath( const QString &thumbnailPath )
 
   mThumbnailPath = thumbnailPath;
   emit thumbnailPathChanged();
-}
-
-void QFieldCloudProject::refreshFileOutdatedStatus()
-{
-  NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( mId ) );
-
-  connect( reply, &NetworkReply::finished, reply, [this, reply]() {
-    QNetworkReply *rawReply = reply->currentRawReply();
-    reply->deleteLater();
-
-    if ( rawReply->error() != QNetworkReply::NoError )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1: failed to refresh the project file outdated satus. %2" ).arg( mId, QFieldCloudConnection::errorString( rawReply ) ) );
-      return;
-    }
-
-    const QString lastProjectFileMd5 = QFieldCloudUtils::projectSetting( mId, QStringLiteral( "lastProjectFileMd5" ), QString() ).toString();
-    const QJsonArray files = QJsonDocument::fromJson( rawReply->readAll() ).array();
-    for ( const QJsonValue fileValue : files )
-    {
-      QVariantHash fileDetails = fileValue.toObject().toVariantHash();
-      const QString fileName = fileDetails.value( "name" ).toString().toLower();
-      if ( fileName.endsWith( QStringLiteral( ".qgs" ) ) || fileName.endsWith( QStringLiteral( ".qgz" ) ) )
-      {
-        if ( lastProjectFileMd5.isEmpty() )
-        {
-          // First check, store for future comparison
-          QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastProjectFileMd5" ), fileDetails.value( "md5sum" ).toString() );
-        }
-        else if ( lastProjectFileMd5 != fileDetails.value( "md5sum" ).toString() )
-        {
-          mProjectFileIsOutdated = true;
-          QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "projectFileOudated" ), true );
-          emit projectFileIsOutdatedChanged();
-        }
-      }
-    }
-  } );
 }
 
 void QFieldCloudProject::downloadThumbnail()
@@ -1374,16 +1366,16 @@ void QFieldCloudProject::downloadFilesCompleted()
   setLastLocalExportedAt( QDateTime::currentDateTimeUtc().toString( Qt::ISODate ) );
   setLastLocalExportId( QUuid::createUuid().toString( QUuid::WithoutBraces ) );
   setLastLocalDataLastUpdatedAt( mDataLastUpdatedAt );
+  setLastLocalRestrictedDataLastUpdatedAt( mRestrictedDataLastUpdatedAt );
   setIsOutdated( false );
-  setProjectFileIsOutdated( false );
+  setIsProjectOutdated( false );
 
   QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastExportedAt" ), mLastExportedAt );
   QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastExportId" ), mLastExportId );
   QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalExportedAt" ), mLastLocalExportedAt );
   QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalExportId" ), mLastLocalExportId );
   QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalDataLastUpdatedAt" ), mLastLocalDataLastUpdatedAt );
-  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastProjectFileMd5" ), QString() );
-  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "projectFileOudated" ), false );
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalRestrictedDataLastUpdatedAt" ), mLastLocalDataLastUpdatedAt );
 
   emit downloadFinished();
 }
@@ -2137,6 +2129,7 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   project->mCreatedAt = QDateTime::fromString( details.value( "created_at" ).toString(), Qt::ISODate );
   project->mUpdatedAt = QDateTime::fromString( details.value( "updated_at" ).toString(), Qt::ISODate );
   project->mDataLastUpdatedAt = QDateTime::fromString( details.value( "data_last_updated_at" ).toString(), Qt::ISODate );
+  project->mRestrictedDataLastUpdatedAt = QDateTime::fromString( details.value( "restricted_data_last_updated_at" ).toString(), Qt::ISODate );
   project->mCanRepackage = details.value( "can_repackage" ).toBool();
   project->mNeedsRepackaging = details.value( "needs_repackaging" ).toBool();
   project->mSharedDatasetsProjectId = details.value( "shared_datasets_project_id" ).toString();
@@ -2158,6 +2151,7 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isFeatured" ), project->isFeatured() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isAttachmentDownloadOnDemand" ), project->attachmentsOnDemandEnabled() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "dataLastUpdatedAt" ), project->mDataLastUpdatedAt.toString( Qt::DateFormat::ISODate ) );
+  QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "restrictedDataLastUpdatedAt" ), project->mRestrictedDataLastUpdatedAt.toString( Qt::DateFormat::ISODate ) );
 
   QString username = connection ? connection->username() : QString();
   if ( !username.isEmpty() )
@@ -2197,6 +2191,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   const bool isSharedDatasetsProject = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isSharedDatasetsProject" ) ).toBool();
   const bool isAttachmentDownloadOnDemand = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isAttachmentDownloadOnDemand" ) ).toBool();
   const QDateTime dataLastUpdatedAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( "dataLastUpdatedAt" ) ).toString(), Qt::DateFormat::ISODate );
+  const QDateTime restrictedDataLastUpdatedAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( "restrictedDataLastUpdatedAt" ) ).toString(), Qt::DateFormat::ISODate );
 
   QFieldCloudProject *project = new QFieldCloudProject( id, connection, gpkgFlusher );
   project->mIsPublic = isPublic;
@@ -2211,6 +2206,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   project->mCreatedAt = createdAt;
   project->mUpdatedAt = updatedAt;
   project->mDataLastUpdatedAt = dataLastUpdatedAt;
+  project->mRestrictedDataLastUpdatedAt = restrictedDataLastUpdatedAt;
   project->mCanRepackage = false;
   project->mNeedsRepackaging = false;
   project->mSharedDatasetsProjectId = sharedDatasetsProjectId;
@@ -2237,8 +2233,9 @@ void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, cons
   project->mLastLocalExportedAt = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalExportedAt" ) ).toString();
   project->mLastLocalPushDeltas = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalPushDeltas" ) ).toString();
   project->mLastLocalDataLastUpdatedAt = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalDataLastUpdatedAt" ) ).toDateTime();
+  project->mLastLocalRestrictedDataLastUpdatedAt = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalRestrictedDataLastUpdatedAt" ) ).toDateTime();
   project->mIsOutdated = project->mDataLastUpdatedAt > project->mLastLocalDataLastUpdatedAt;
-  project->mProjectFileIsOutdated = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "projectFileOudated" ), false ).toBool();
+  project->mIsProjectOutdated = project->mRestrictedDataLastUpdatedAt.isValid() && project->mLastLocalRestrictedDataLastUpdatedAt.isValid() && project->mRestrictedDataLastUpdatedAt > project->mLastLocalRestrictedDataLastUpdatedAt;
   project->mAutoPushEnabled = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "autoPushEnabled" ), false ).toBool();
   project->mAutoPushIntervalMins = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "autoPushIntervalMins" ), 30 ).toInt();
 

@@ -261,16 +261,6 @@ void QFieldCloudProjectsModel::removeLocalProject( const QString &projectId )
   }
 }
 
-void QFieldCloudProjectsModel::refreshProjectFileOutdatedStatus( const QString &projectId )
-{
-  const QModelIndex projectIndex = findProjectIndex( projectId );
-  if ( !projectIndex.isValid() )
-    return;
-
-  QFieldCloudProject *project = mProjects[projectIndex.row()];
-  project->refreshFileOutdatedStatus();
-}
-
 QString QFieldCloudProjectsModel::layerFileName( const QgsMapLayer *layer ) const
 {
   return layer->dataProvider()->dataSourceUri().split( '|' )[0];
@@ -524,6 +514,7 @@ void QFieldCloudProjectsModel::insertProjects( const QList<QFieldCloudProject *>
           mProjects[i]->setSharedDatasetsProjectId( project->sharedDatasetsProjectId() );
           mProjects[i]->setIsSharedDatasetsProject( project->isSharedDatasetsProject() );
           mProjects[i]->setDataLastUpdatedAt( project->dataLastUpdatedAt() );
+          mProjects[i]->setRestrictedDataLastUpdatedAt( project->restrictedDataLastUpdatedAt() );
           emit dataChanged( index( i, 0 ), index( i, 0 ) );
 
           delete project;
@@ -545,7 +536,7 @@ void QFieldCloudProjectsModel::insertProjects( const QList<QFieldCloudProject *>
 
 void QFieldCloudProjectsModel::setupProjectConnections( QFieldCloudProject *project )
 {
-  connect( project, &QFieldCloudProject::projectFileIsOutdatedChanged, this, [this] {
+  connect( project, &QFieldCloudProject::isProjectOutdatedChanged, this, [this] {
     const QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     const QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << ProjectFileOutdatedRole );
@@ -616,12 +607,6 @@ void QFieldCloudProjectsModel::setupProjectConnections( QFieldCloudProject *proj
     const QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     const QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << ProjectOutdatedRole );
-  } );
-
-  connect( project, &QFieldCloudProject::projectFileIsOutdatedChanged, this, [this] {
-    const QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
-    const QModelIndex idx = findProjectIndex( p->id() );
-    emit dataChanged( idx, idx, QVector<int>() << ProjectFileOutdatedRole );
   } );
 
   connect( project, &QFieldCloudProject::localPathChanged, this, [this] {
@@ -813,7 +798,7 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
       return project->isOutdated();
 
     case ProjectFileOutdatedRole:
-      return project->projectFileIsOutdated();
+      return project->isProjectOutdated();
 
     case ErrorStatusRole:
       return static_cast<int>( project->errorStatus() );
