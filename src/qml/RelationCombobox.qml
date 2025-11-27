@@ -371,7 +371,7 @@ Item {
     Rectangle {
       id: searchable
       visible: !comboBox.visible
-      height: fontMetrics.height + 12
+      height: searchableText.height + searchableText.topInset + searchableText.bottomInset
       Layout.fillWidth: true
       Layout.topMargin: 5
       Layout.bottomMargin: 5
@@ -383,12 +383,12 @@ Item {
         property string completer: ''
 
         anchors.verticalCenter: parent.verticalCenter
-        topPadding: 0
-        leftPadding: 5
-        rightPadding: 5
-        bottomPadding: 0
+        topPadding: searchableText.topPadding
+        leftPadding: searchableText.leftPadding
+        rightPadding: searchableText.rightPadding
+        bottomPadding: searchableText.bottomPadding
         width: parent.width - dropDownArrowCanvas.width - dropDownArrowCanvas.anchors.rightMargin * 2
-        height: fontMetrics.height + 12
+        height: parent.height
         text: useCompleter ? completer : comboBox.displayText
         font: comboBox.font
         horizontalAlignment: Text.AlignLeft
@@ -406,12 +406,6 @@ Item {
         property string typedFilter: ''
 
         anchors.verticalCenter: parent.verticalCenter
-        topPadding: 0
-        rightPadding: 5
-        leftPadding: 5
-        bottomPadding: 0
-        topInset: 0
-        bottomInset: 0
         width: parent.width - dropDownArrowCanvas.width - dropDownArrowCanvas.anchors.rightMargin * 2
         text: ''
         font: comboBox.font
@@ -423,6 +417,7 @@ Item {
           color: "transparent"
           border.color: "transparent"
           border.width: 0
+          implicitHeight: searchableText.Material.textFieldHeight
         }
 
         inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData
@@ -537,9 +532,9 @@ Item {
         onEnabledChanged: requestPaint()
       }
 
-      border.color: comboBox.pressed ? Theme.accentColor : Theme.accentLightColor
-      border.width: comboBox.visualFocus ? 2 : 1
-      color: Theme.controlBackgroundAlternateColor
+      border.color: searchableText.activeFocus ? Theme.mainColor : searchableText.hovered ? searchableText.Material.primaryTextColor : searchableText.Material.hintTextColor
+      border.width: searchableText.activeFocus ? 2 : 1
+      color: "transparent"
       radius: 2
 
       MouseArea {

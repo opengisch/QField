@@ -8,8 +8,6 @@ QtObject {
   property var darkThemeColors: {
     "mainColor": "#80cc28",
     "mainOverlayColor": "#ffffff",
-    "accentColor": "#4CAF50",
-    "accentLightColor": "#994CAF50",
     "mainBackgroundColor": "#303030",
     "mainBackgroundColorSemiOpaque": "#bb303030",
     "mainTextColor": "#EEEEEE",
@@ -31,8 +29,6 @@ QtObject {
   property var lightThemeColors: {
     "mainColor": "#80cc28",
     "mainOverlayColor": "#ffffff",
-    "accentColor": "#4CAF50",
-    "accentLightColor": "#994CAF50",
     "mainBackgroundColor": "#fafafa",
     "mainBackgroundColorSemiOpaque": "#bbfafafa",
     "mainTextColor": "#000000",
@@ -56,8 +52,6 @@ QtObject {
   property color mainColor: "#80cc28"
   property color mainColorSemiOpaque: "#bb80cc28"
   property color mainOverlayColor: "#ffffff"
-  property color accentColor: "#4CAF50"
-  property color accentLightColor: "#994CAF50"
 
   property color mainBackgroundColor: "#fafafa"
   property color mainBackgroundColorSemiOpaque: "#bbfafafa"

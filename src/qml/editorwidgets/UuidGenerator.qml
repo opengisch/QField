@@ -34,16 +34,6 @@ EditorWidgetBase {
     elide: Text.ElideMiddle
   }
 
-  Rectangle {
-    id: backgroundRect
-    anchors.left: parent.left
-    anchors.right: parent.right
-    y: uuidLabel.height - height - uuidLabel.bottomPadding / 2
-    implicitWidth: 120
-    height: 1
-    color: Theme.accentLightColor
-  }
-
   FontMetrics {
     id: fontMetrics
     font: uuidLabel.font
