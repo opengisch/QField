@@ -1534,14 +1534,15 @@ ApplicationWindow {
       id: titleDecorationBackground
 
       visible: titleDecoration.text != ''
-      anchors.left: parent.left
-      anchors.leftMargin: 56
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 4
+      anchors.left: parent.left
+      anchors.leftMargin: 56 + mainWindow.sceneLeftMargin
+      anchors.right: parent.right
+      anchors.rightMargin: 56 + mainWindow.sceneRightMargin
 
-      width: parent.width - anchors.leftMargin * 2
       height: 48
-      radius: 4
+      radius: 8
 
       color: '#55000000'
 
@@ -1573,13 +1574,13 @@ ApplicationWindow {
       id: copyrightDecorationBackground
 
       visible: copyrightDecoration.text != ''
-
       anchors.left: parent.left
-      anchors.leftMargin: 56
+      anchors.leftMargin: 56 + mainWindow.sceneLeftMargin
+      anchors.right: parent.right
+      anchors.rightMargin: 56 + mainWindow.sceneRightMargin
       anchors.bottom: parent.bottom
       anchors.bottomMargin: parent.height > 400 || stateMachine.state !== "browse" ? 56 : 6
 
-      width: parent.width - anchors.leftMargin * 2
       height: visible ? Math.min(copyrightDecoration.height, 48) : 0
       radius: 4
       clip: true
@@ -1614,9 +1615,10 @@ ApplicationWindow {
       id: imageDecoration
 
       visible: source != ''
-
       anchors.left: parent.left
-      anchors.leftMargin: 56
+      anchors.leftMargin: 56 + mainWindow.sceneLeftMargin
+      anchors.right: parent.right
+      anchors.rightMargin: 56 + mainWindow.sceneRightMargin
       anchors.bottom: copyrightDecorationBackground.top
       anchors.bottomMargin: 4
 
