@@ -36,7 +36,6 @@ EditorWidgetBase {
         if (isEditing) {
           return isNull ? '' : value;
         }
-
         if (isEmpty) {
           return qsTr("Empty");
         } else if (isNull) {
@@ -193,7 +192,6 @@ EditorWidgetBase {
         if (isEditing) {
           return (!isNull && !isEmpty) ? formattedValue : '';
         }
-
         if (isEmpty) {
           return qsTr("Empty");
         } else if (isNull) {

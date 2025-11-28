@@ -7,7 +7,7 @@ import Theme
 EditorWidgetBase {
   id: topItem
 
-  property bool isEditable: isEnabled && LayerUtils.fieldType(field) !== 'QStringList' && LayerUtils.fieldType(field) !== 'QVariantList' && LayerUtils.fieldType(field) !== 'QVariantMap'
+  readonly property bool isEditable: isEnabled && LayerUtils.fieldType(field) !== 'QStringList' && LayerUtils.fieldType(field) !== 'QVariantList' && LayerUtils.fieldType(field) !== 'QVariantMap'
 
   height: childrenRect.height
 
@@ -45,7 +45,6 @@ EditorWidgetBase {
           return formattedValue();
         }
       }
-
       if (isEmpty) {
         return qsTr("Empty");
       } else if (isNull) {
@@ -79,7 +78,6 @@ EditorWidgetBase {
         }
         return value;
       }
-
       if (isEmpty) {
         return qsTr("Empty");
       } else if (isNull) {
@@ -148,7 +146,6 @@ EditorWidgetBase {
         }
         return value;
       }
-
       if (isEmpty) {
         return qsTr("Empty");
       } else if (isNull) {
