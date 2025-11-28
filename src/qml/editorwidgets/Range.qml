@@ -24,18 +24,19 @@ EditorWidgetBase {
     visible: widgetStyle != "Slider"
     spacing: 5
 
-    TextField {
-      id: textField
-      leftPadding: isEnabled || (!isEditable && isEditing) ? 10 : 0
-      width: parent.width - decreaseButton.width - increaseButton.width - parent.spacing * 2
-
+    Label {
+      id: textReadonlyValue
+      height: textField.height
+      width: parent.width
+      topPadding: 10
+      bottomPadding: 10
+      leftPadding: 0
+      visible: !isEditing
       font: Theme.defaultFont
       color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
-
+      opacity: 1
+      wrapMode: Text.Wrap
       text: {
-        if (isEditing) {
-          return isNull ? '' : value;
-        }
         if (isEmpty) {
           return qsTr("Empty");
         } else if (isNull) {
@@ -43,6 +44,18 @@ EditorWidgetBase {
         }
         return value;
       }
+    }
+
+    TextField {
+      id: textField
+      leftPadding: isEnabled || (!isEditable && isEditing) ? 10 : 0
+      width: parent.width - decreaseButton.width - increaseButton.width - parent.spacing * 2
+      visible: isEditing
+
+      font: Theme.defaultFont
+      color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+
+      text: isNull ? '' : value
 
       validator: doubleValidator
 

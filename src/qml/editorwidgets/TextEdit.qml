@@ -22,35 +22,24 @@ EditorWidgetBase {
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    color: isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
     opacity: 1
     wrapMode: Text.Wrap
     textFormat: (config['IsMultiline'] === true && config['UseHtml'] === true) || StringUtils.hasLinks(value) ? TextEdit.RichText : TextEdit.AutoText
 
     text: {
-      const formattedValue = () => {
-        if (config['IsMultiline'] === true) {
-          if (config['UseHtml'] === true) {
-            return value;
-          }
-          return StringUtils.hasLinks(value) ? StringUtils.insertLinks(value).replace(/\n/g, '<br>') : value;
-        } else {
-          return StringUtils.insertLinks(value).replace(/\n/g, '');
-        }
-      };
-      if (isEditing) {
-        if (isNull) {
-          return '';
-        } else {
-          return formattedValue();
-        }
-      }
       if (isEmpty) {
         return qsTr("Empty");
       } else if (isNull) {
         return qsTr("NULL");
+      } else if (config['IsMultiline'] === true) {
+        if (config['UseHtml'] === true) {
+          return value;
+        }
+        return StringUtils.hasLinks(value) ? StringUtils.insertLinks(value).replace(/\n/g, '<br>') : value;
+      } else {
+        return StringUtils.insertLinks(value).replace(/\n/g, '');
       }
-      return formattedValue();
     }
 
     onLinkActivated: link => {
@@ -66,25 +55,12 @@ EditorWidgetBase {
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
     maximumLength: field != undefined && field.length > 0 ? field.length : -1
     wrapMode: TextInput.Wrap
     background.visible: enabled || (!isEditable && isEditing)
 
-    text: {
-      if (isEditing) {
-        if (isNull) {
-          return '';
-        }
-        return value;
-      }
-      if (isEmpty) {
-        return qsTr("Empty");
-      } else if (isNull) {
-        return qsTr("NULL");
-      }
-      return value;
-    }
+    text: FeatureUtils.attributeIsNull(value) ? '' : value
 
     validator: {
       if (field && field.isNumeric)
@@ -137,23 +113,9 @@ EditorWidgetBase {
     anchors.right: parent.right
     wrapMode: Text.Wrap
     font: Theme.defaultFont
-    color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
-    text: {
-      if (isEditing) {
-        if (isNull) {
-          return '';
-        }
-        return value;
-      }
-      if (isEmpty) {
-        return qsTr("Empty");
-      } else if (isNull) {
-        return qsTr("NULL");
-      }
-      return value;
-    }
-
+    text: FeatureUtils.attributeIsNull(value) ? '' : value
     textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
 
     onTextChanged: {
