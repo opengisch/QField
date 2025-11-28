@@ -33,14 +33,14 @@ EditorWidgetBase {
       color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
       text: {
-        if (isEmpty && !isEditing) {
+        if (isEditing) {
+          return isNull ? '' : value;
+        }
+
+        if (isEmpty) {
           return qsTr("Empty");
-        }
-        else if (isNull && !isEditing) {
+        } else if (isNull) {
           return qsTr("NULL");
-        }
-        else if (isNull) {
-          return '';
         }
         return value;
       }
@@ -189,16 +189,17 @@ EditorWidgetBase {
       height: fontMetrics.height + 20
       elide: Text.ElideRight
       text: {
-        if (isEmpty && !isEditing) {
-          return qsTr("Empty");
+        const formattedValue = Number(slider.value).toFixed(rangeItem.precision).toLocaleString() + rangeItem.suffix;
+        if (isEditing) {
+          return (!isNull && !isEmpty) ? formattedValue : '';
         }
-        else if (isNull && !isEditing) {
+
+        if (isEmpty) {
+          return qsTr("Empty");
+        } else if (isNull) {
           return qsTr("NULL");
         }
-        else if (!isNull && value != '') {
-          return Number(slider.value).toFixed(rangeItem.precision).toLocaleString() + rangeItem.suffix;
-        }
-        return '';
+        return formattedValue;
       }
       verticalAlignment: Text.AlignVCenter
       horizontalAlignment: Text.AlignLeft

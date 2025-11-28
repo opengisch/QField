@@ -28,23 +28,30 @@ EditorWidgetBase {
     textFormat: (config['IsMultiline'] === true && config['UseHtml'] === true) || StringUtils.hasLinks(value) ? TextEdit.RichText : TextEdit.AutoText
 
     text: {
-      if (isEmpty && !isEditing) {
-        return qsTr("Empty");
+      const formattedValue = () => {
+        if (config['IsMultiline'] === true) {
+          if (config['UseHtml'] === true) {
+            return value;
+          }
+          return StringUtils.hasLinks(value) ? StringUtils.insertLinks(value).replace(/\n/g, '<br>') : value;
+        } else {
+          return StringUtils.insertLinks(value).replace(/\n/g, '');
+        }
+      };
+      if (isEditing) {
+        if (isNull) {
+          return '';
+        } else {
+          return formattedValue();
+        }
       }
-      else if (isNull && !isEditing) {
+
+      if (isEmpty) {
+        return qsTr("Empty");
+      } else if (isNull) {
         return qsTr("NULL");
       }
-      else if (isNull) {
-        return '';
-      }
-      else if (config['IsMultiline'] === true) {
-        if (config['UseHtml'] === true) {
-          return value;
-        }
-        return StringUtils.hasLinks(value) ? StringUtils.insertLinks(value).replace(/\n/g, '<br>') : value;
-      } else {
-        return StringUtils.insertLinks(value).replace(/\n/g, '');
-      }
+      return formattedValue();
     }
 
     onLinkActivated: link => {
@@ -66,14 +73,17 @@ EditorWidgetBase {
     background.visible: enabled || (!isEditable && isEditing)
 
     text: {
-      if (isEmpty && !isEditing) {
+      if (isEditing) {
+        if (isNull) {
+          return '';
+        }
+        return value;
+      }
+
+      if (isEmpty) {
         return qsTr("Empty");
-      }
-      else if (isNull && !isEditing) {
+      } else if (isNull) {
         return qsTr("NULL");
-      }
-      else if (isNull) {
-        return '';
       }
       return value;
     }
@@ -132,14 +142,17 @@ EditorWidgetBase {
     color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
     text: {
-      if (isEmpty && !isEditing) {
+      if (isEditing) {
+        if (isNull) {
+          return '';
+        }
+        return value;
+      }
+
+      if (isEmpty) {
         return qsTr("Empty");
-      }
-      else if (isNull && !isEditing) {
+      } else if (isNull) {
         return qsTr("NULL");
-      }
-      else if (isNull) {
-        return '';
       }
       return value;
     }
