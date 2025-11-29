@@ -21,7 +21,7 @@ Item {
   property var currentKeyValue: value
   property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopupLoader.item
   readonly property alias searchPopup: searchFeaturePopup
-  property color displayedTextColor: value === undefined || (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+  property color displayedTextColor: FeatureUtils.attributeIsNull(value) || value === "" || (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
   signal requestJumpToPoint(var center, real scale, bool handleMargins)
 
@@ -302,7 +302,15 @@ Item {
       contentItem: Text {
         leftPadding: relationCombobox.enabled || (!isEditable && isEditing) ? 10 : 0
         height: fontMetrics.height + 20
-        text: comboBox.currentIndex === -1 && value !== undefined ? '(' + value + ')' : comboBox.currentText
+        text: {
+          if (!isEditing && value === "") {
+            return qsTr("Empty");
+          } else if (!isEditing && FeatureUtils.attributeIsNull(value)) {
+            return qsTr("NULL");
+          }
+          return comboBox.currentIndex === -1 && value !== undefined ? '(' + value + ')' : comboBox.currentText;
+        }
+
         font: comboBox.font
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter

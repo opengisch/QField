@@ -7,7 +7,7 @@ import Theme
 EditorWidgetBase {
   id: topItem
 
-  property bool isEditable: isEnabled && LayerUtils.fieldType(field) !== 'QStringList' && LayerUtils.fieldType(field) !== 'QVariantList' && LayerUtils.fieldType(field) !== 'QVariantMap'
+  readonly property bool isEditable: isEnabled && LayerUtils.fieldType(field) !== 'QStringList' && LayerUtils.fieldType(field) !== 'QVariantList' && LayerUtils.fieldType(field) !== 'QVariantMap'
 
   height: childrenRect.height
 
@@ -22,16 +22,17 @@ EditorWidgetBase {
     anchors.left: parent.left
     anchors.right: parent.right
     font: Theme.defaultFont
-    color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    color: isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
     opacity: 1
     wrapMode: Text.Wrap
     textFormat: (config['IsMultiline'] === true && config['UseHtml'] === true) || StringUtils.hasLinks(value) ? TextEdit.RichText : TextEdit.AutoText
 
     text: {
-      if (FeatureUtils.attributeIsNull(value)) {
-        return '';
-      }
-      if (config['IsMultiline'] === true) {
+      if (isEmpty) {
+        return qsTr("Empty");
+      } else if (isNull) {
+        return qsTr("NULL");
+      } else if (config['IsMultiline'] === true) {
         if (config['UseHtml'] === true) {
           return value;
         }

@@ -8,6 +8,9 @@ import "Utils.js" as Utils
 TestCase {
   name: "EditorWidgets"
 
+  property bool isEditing: false
+  property bool isEditable: false
+
   Item {
     // mainWindow for widgets
     id: mainWindowItem

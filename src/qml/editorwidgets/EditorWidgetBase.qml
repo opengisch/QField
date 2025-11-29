@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import org.qfield
 import Theme
 
 Item {
@@ -10,6 +11,8 @@ Item {
    */
   property bool isLoaded: false
   property bool hasMenu: false
+  readonly property bool isNull: FeatureUtils.attributeIsNull(value)
+  readonly property bool isEmpty: value === ''
 
   property Menu menu: QfMenu {
     id: itemMenu
