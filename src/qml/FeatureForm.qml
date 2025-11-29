@@ -867,7 +867,7 @@ Page {
 
       anchors.horizontalCenter: parent.horizontalCenter
       anchors.top: parent.top
-      anchors.topMargin: form.topMargin + 4
+      anchors.topMargin: form.topMargin + 6
 
       color: Theme.controlBorderColor
       visible: isDraggable
@@ -875,7 +875,7 @@ Page {
 
     RowLayout {
       anchors.fill: parent
-      anchors.topMargin: form.topMargin
+      anchors.topMargin: form.topMargin + 10
       anchors.leftMargin: form.leftMargin
       anchors.rightMargin: form.rightMargin
 

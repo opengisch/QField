@@ -118,7 +118,6 @@ Rectangle {
       anchors.top: parent.top
       anchors.leftMargin: 0 + balancedMargin + toolBar.leftMargin
       anchors.rightMargin: 0 + balancedMargin + toolBar.rightMargin
-      anchors.topMargin: toolBar.topMargin
       height: 48
 
       text: {
