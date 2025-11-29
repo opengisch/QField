@@ -303,13 +303,14 @@ Item {
         leftPadding: relationCombobox.enabled || (!isEditable && isEditing) ? 10 : 0
         height: fontMetrics.height + 20
         text: {
-          if (value === "") {
+          if (!isEditing && value === "") {
             return qsTr("Empty");
-          } else if (FeatureUtils.attributeIsNull(value)) {
+          } else if (!isEditing && FeatureUtils.attributeIsNull(value)) {
             return qsTr("NULL");
           }
           return comboBox.currentIndex === -1 && value !== undefined ? '(' + value + ')' : comboBox.currentText;
         }
+
         font: comboBox.font
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter

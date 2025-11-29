@@ -213,19 +213,9 @@ EditorWidgetBase {
 
     anchors.left: parent.left
     anchors.right: cameraButton.left
-    color: {
-      if ((!isEditable && isEditing) || isNull || isEmpty) {
-        return Theme.mainTextDisabledColor;
-      }
-      return FileUtils.fileExists(prefixToRelativePath + value) ? Theme.mainColor : Theme.secondaryTextColor;
-    }
+    color: FileUtils.fileExists(prefixToRelativePath + value) ? Theme.mainColor : Theme.mainTextDisabledColor
 
     text: {
-      if (isEmpty) {
-        return qsTr("Empty");
-      } else if (isNull) {
-        return qsTr("NULL");
-      }
       let fieldValue = qsTr('No Value');
       if (hasValue) {
         fieldValue = prefixToRelativePath + currentValue;
