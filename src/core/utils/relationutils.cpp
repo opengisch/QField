@@ -44,3 +44,20 @@ QgsRelation RelationUtils::resolveReferencingRelation( QgsProject *project, QgsV
     return relations.first();
   return QgsRelation();
 }
+
+QgsRelation RelationUtils::createRelation( const QgsProject *project, const QgsVectorLayer *parentLayer, const QString &parentFieldName, const QgsVectorLayer *childLayer, const QString &childFieldName )
+{
+  if ( !project || !parentLayer || !childLayer )
+    return QgsRelation();
+
+  const QString relationId = QStringLiteral( "%1_%2_%3_%4" ).arg( parentLayer->name(), parentFieldName, childLayer->name(), childFieldName );
+
+  QgsRelation relation;
+  relation.setId( relationId );
+  relation.setName( relationId );
+  relation.setReferencedLayer( parentLayer->id() );
+  relation.setReferencingLayer( childLayer->id() );
+  relation.addFieldPair( childFieldName, parentFieldName );
+
+  return relation;
+}
