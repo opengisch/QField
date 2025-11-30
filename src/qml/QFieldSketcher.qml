@@ -299,7 +299,7 @@ Popup {
       id: backButton
 
       anchors.left: parent.left
-      anchors.leftMargin: 5
+      anchors.leftMargin: mainWindow.sceneLeftMargin + 5
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 5
 
@@ -338,7 +338,7 @@ Popup {
       visible: !drawingCanvas.isEmpty
 
       anchors.right: parent.right
-      anchors.rightMargin: 5
+      anchors.rightMargin: mainWindow.sceneRightMargin + 5
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 5
 
