@@ -500,6 +500,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ClipboardManager</name>
@@ -835,6 +839,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
         <translation>QFieldCloud igény szerinti melléklet hiba:</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -4490,6 +4502,17 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
 </context>
 <context>
+    <name>Range</name>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+</context>
+<context>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
@@ -4544,6 +4567,14 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>Invalid relation</source>
         <translation>Hibás reláció</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -4790,6 +4821,14 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>Scan Code</source>
         <translation>Kód szkennelés</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>

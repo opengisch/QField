@@ -500,6 +500,10 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
         <source>NULL</source>
         <translation>NULO</translation>
     </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ClipboardManager</name>
@@ -835,6 +839,14 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
         <translation>Error de adjunto a pedido de QFieldCloud:</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULO</translation>
     </message>
 </context>
 <context>
@@ -4494,6 +4506,17 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
 </context>
 <context>
+    <name>Range</name>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULO</translation>
+    </message>
+</context>
+<context>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
@@ -4548,6 +4571,14 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Invalid relation</source>
         <translation>Relación no válida</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULO</translation>
     </message>
 </context>
 <context>
@@ -4794,6 +4825,14 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Scan Code</source>
         <translation>Escanear código</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULO</translation>
     </message>
 </context>
 <context>

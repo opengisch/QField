@@ -499,6 +499,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>NULL</source>
         <translation>Vide</translation>
     </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ClipboardManager</name>
@@ -834,6 +838,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
         <translation>Erreur lors de l&apos;envoi de la pièce jointe dans QFieldCloud:</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>Vide</translation>
     </message>
 </context>
 <context>
@@ -4491,6 +4503,17 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>Range</name>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>Vide</translation>
+    </message>
+</context>
+<context>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
@@ -4545,6 +4568,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Invalid relation</source>
         <translation>Relation invalide</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>Vide</translation>
     </message>
 </context>
 <context>
@@ -4791,6 +4822,14 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Scan Code</source>
         <translation>Scanner le code</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>Vide</translation>
     </message>
 </context>
 <context>

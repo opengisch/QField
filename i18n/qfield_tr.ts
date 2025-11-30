@@ -500,6 +500,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ClipboardManager</name>
@@ -835,6 +839,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
         <translation>QFieldCloud talep üzerine ekleme hatası: </translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -4489,6 +4501,17 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
 </context>
 <context>
+    <name>Range</name>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+</context>
+<context>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
@@ -4543,6 +4566,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <message>
         <source>Invalid relation</source>
         <translation>Geçersiz ilişki</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -4789,6 +4820,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <message>
         <source>Scan Code</source>
         <translation>QR Kodu Tara</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>

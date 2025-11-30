@@ -500,6 +500,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ClipboardManager</name>
@@ -835,6 +839,14 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
         <translation>QFieldCloud-tilausliitteen virhe:</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -4496,6 +4508,17 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
 </context>
 <context>
+    <name>Range</name>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+</context>
+<context>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
@@ -4550,6 +4573,14 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Invalid relation</source>
         <translation>Virheellinen relaatio</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -4796,6 +4827,14 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Scan Code</source>
         <translation>Skannaa koodi</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
