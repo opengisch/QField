@@ -8,133 +8,90 @@ import "Utils.js" as Utils
 
 TestCase {
   name: "Relations"
-
   /**
-   * Tests creating parent and child memory layers via the API.
+   * Creates parent/child memory layers using the API,
+   * registers a relation between them, inserts features, and validates
+   * relation consistency.
    *
    * Verifies that:
-   * - Layers are created successfully
-   * - Expected fields exist and are indexable
+   * - Layers and fields are created correctly
+   * - Relation is valid and correctly registered in the project
+   * - Parent/child features commit and respect the relation
    */
-  function test_00_createMemoryLayersWithRelation() {
-    // Create parent layer
-    var parentUuidField = FeatureUtils.createField("district_uuid", FeatureUtils.String);
-    var parentNameField = FeatureUtils.createField("district_name", FeatureUtils.String);
-    var parentFields = FeatureUtils.createFields([parentUuidField, parentNameField]);
+  function test_00_fullRelationWorkflow() {
+    // 1) Create parent layer
+    var parentFields = FeatureUtils.createFields([FeatureUtils.createField("district_uuid", FeatureUtils.String), FeatureUtils.createField("district_name", FeatureUtils.String)]);
     var parentLayer = LayerUtils.createMemoryLayer("Districts", parentFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
-    verify(parentLayer !== null);
+    verify(parentLayer !== null, "Parent layer must be created");
     compare(parentLayer.fields.count, 2);
     verify(parentLayer.fields.indexFromName("district_uuid") >= 0);
     verify(parentLayer.fields.indexFromName("district_name") >= 0);
 
-    // Create child Layer
-    var childUuidField = FeatureUtils.createField("village_uuid", FeatureUtils.String);
-    var childNameField = FeatureUtils.createField("village_name", FeatureUtils.String);
-    var parentRefField = FeatureUtils.createField("parent_district_uuid", FeatureUtils.String);
-    var populationField = FeatureUtils.createField("population", FeatureUtils.Int);
-    var childFields = FeatureUtils.createFields([childUuidField, childNameField, parentRefField, populationField]);
+    // 2) Create child layer
+    var childFields = FeatureUtils.createFields([FeatureUtils.createField("village_uuid", FeatureUtils.String), FeatureUtils.createField("village_name", FeatureUtils.String), FeatureUtils.createField("parent_district_uuid", FeatureUtils.String), FeatureUtils.createField("population", FeatureUtils.Int)]);
     var childLayer = LayerUtils.createMemoryLayer("Villages", childFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
-    verify(childLayer !== null);
+    verify(childLayer !== null, "Child layer must be created");
     compare(childLayer.fields.count, 4);
     verify(childLayer.fields.indexFromName("village_uuid") >= 0);
     verify(childLayer.fields.indexFromName("parent_district_uuid") >= 0);
-  }
 
-  /**
-   * Tests creating a relation between two API-generated layers.
-   *
-   * Verifies that:
-   * - The relation is valid
-   * - It references the correct parent and child layers
-   * - It is properly registered in the project's RelationManager
-   */
-  function test_02_createAndRegisterRelation() {
-    // Create parent and child layers
-    var parentUuidField = FeatureUtils.createField("district_uuid", FeatureUtils.String);
-    var parentNameField = FeatureUtils.createField("district_name", FeatureUtils.String);
-    var parentFields = FeatureUtils.createFields([parentUuidField, parentNameField]);
-    var parentLayer = LayerUtils.createMemoryLayer("Districts_Test", parentFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
-    var childUuidField = FeatureUtils.createField("village_uuid", FeatureUtils.String);
-    var childNameField = FeatureUtils.createField("village_name", FeatureUtils.String);
-    var parentRefField = FeatureUtils.createField("parent_district_uuid", FeatureUtils.String);
-    var childFields = FeatureUtils.createFields([childUuidField, childNameField, parentRefField]);
-    var childLayer = LayerUtils.createMemoryLayer("Villages_Test", childFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
-
-    // Add layers to project
+    // 3) Register layers in project
     ProjectUtils.addMapLayer(qgisProject, parentLayer);
     ProjectUtils.addMapLayer(qgisProject, childLayer);
 
-    // Create the relation
+    // 4) Create and register relation
     var relation = RelationUtils.createRelation(qgisProject, parentLayer, "district_uuid", childLayer, "parent_district_uuid");
     verify(relation.isValid, "Relation should be valid");
-    compare(relation.referencedLayer.id, parentLayer.id);
-    compare(relation.referencingLayer.id, childLayer.id);
-
-    // Add relation to project's relation manager
     var relationManager = qgisProject.relationManager;
     relationManager.addRelation(relation);
+    var registeredRelation = relationManager.relation(relation.id);
+    verify(registeredRelation.isValid, "Relation must be retrievable");
+    compare(registeredRelation.referencedLayer.id, parentLayer.id);
+    compare(registeredRelation.referencingLayer.id, childLayer.id);
 
-    // Verify relation was added
-    var retrievedRelation = relationManager.relation(relation.id);
-    verify(retrievedRelation.isValid);
-    compare(retrievedRelation.id, relation.id);
-  }
-
-  /**
-   * Tests relation behavior after inserting features into parent and child layers.
-   *
-   * Verifies that:
-   * - Features commit correctly
-   * - The relation is valid and links the expected layers
-   * - Child features reference the correct parent
-   */
-  function test_03_addFeaturesAndTestRelation() {
-    // Create layers
-    var parentUuidField = FeatureUtils.createField("district_uuid", FeatureUtils.String);
-    var parentNameField = FeatureUtils.createField("district_name", FeatureUtils.String);
-    var parentFields = FeatureUtils.createFields([parentUuidField, parentNameField]);
-    var parentLayer = LayerUtils.createMemoryLayer("Districts_Features", parentFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
-    var childUuidField = FeatureUtils.createField("village_uuid", FeatureUtils.String);
-    var childNameField = FeatureUtils.createField("village_name", FeatureUtils.String);
-    var parentRefField = FeatureUtils.createField("parent_district_uuid", FeatureUtils.String);
-    var childFields = FeatureUtils.createFields([childUuidField, childNameField, parentRefField]);
-    var childLayer = LayerUtils.createMemoryLayer("Villages_Features", childFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
-
-    // Add layers to project first
-    ProjectUtils.addMapLayer(qgisProject, parentLayer);
-    ProjectUtils.addMapLayer(qgisProject, childLayer);
-
-    // Add parent feature
-    var parentFeature = FeatureUtils.createBlankFeature(parentLayer.fields);
+    // 5) Add parent feature
+    var parentFeature = FeatureUtils.createFeature(parentLayer);
     parentFeature.setAttribute(0, "uuid-001");
     parentFeature.setAttribute(1, "Central District");
     parentLayer.startEditing();
-    const r3 = LayerUtils.addFeature(parentLayer, parentFeature);
+    verify(LayerUtils.addFeature(parentLayer, parentFeature), "Parent feature insertion failed");
     parentLayer.commitChanges();
 
-    // Add child features
-    var childFeature1 = FeatureUtils.createBlankFeature(childLayer.fields);
-    childFeature1.setAttribute(0, "village-uuid-001");
-    childFeature1.setAttribute(1, "Village Alpha");
-    childFeature1.setAttribute(2, "uuid-001"); // Reference to parent
-    var childFeature2 = FeatureUtils.createBlankFeature(childLayer.fields);
-    childFeature2.setAttribute(0, "village-uuid-002");
-    childFeature2.setAttribute(1, "Village Beta");
-    childFeature2.setAttribute(2, "uuid-001"); // Reference to parent
+    // 6) Add child features referencing the parent
     childLayer.startEditing();
-    LayerUtils.addFeature(childLayer, childFeature1);
-    LayerUtils.addFeature(childLayer, childFeature2);
+    var child1 = FeatureUtils.createFeature(childLayer);
+    child1.setAttribute(0, "village-uuid-001");
+    child1.setAttribute(1, "Village Alpha");
+    child1.setAttribute(2, "uuid-001");
+    child1.setAttribute(3, 2500);
+    var child2 = FeatureUtils.createFeature(childLayer);
+    child2.setAttribute(0, "village-uuid-002");
+    child2.setAttribute(1, "Village Beta");
+    child2.setAttribute(2, "uuid-001");
+    child2.setAttribute(3, 2555);
+    verify(LayerUtils.addFeature(childLayer, child1), "Child1 insertion failed");
+    verify(LayerUtils.addFeature(childLayer, child2), "Child2 insertion failed");
     childLayer.commitChanges();
 
-    // Create and register relation
-    var relation = RelationUtils.createRelation(qgisProject, parentLayer, "district_uuid", childLayer, "parent_district_uuid");
-    verify(relation.isValid);
-    var relationManager = qgisProject.relationManager;
-    relationManager.addRelation(relation);
-    var retrievedRelation = relationManager.relation(relation.id);
+    // 7) Final relation integrity check
+    var finalRelation = relationManager.relation(relation.id);
+    verify(finalRelation.referencedLayer.id === parentLayer.id);
+    verify(finalRelation.referencingLayer.id === childLayer.id);
+  }
 
-    // Verify the relations
-    verify(retrievedRelation.referencedLayer.id === parentLayer.id);
-    verify(retrievedRelation.referencingLayer.id === childLayer.id);
+  function test_02_featureAttributes() {
+    const parentFeature = qgisProject.mapLayersByName('Districts')[0].getFeature("1");
+    compare(parentFeature.attribute("district_uuid"), "uuid-001");
+    compare(parentFeature.attribute("district_name"), "Central District");
+    const childFeature1 = qgisProject.mapLayersByName('Villages')[0].getFeature("1");
+    compare(childFeature1.attribute("village_uuid"), "village-uuid-001");
+    compare(childFeature1.attribute("village_name"), "Village Alpha");
+    compare(childFeature1.attribute("parent_district_uuid"), "uuid-001");
+    compare(childFeature1.attribute("population"), 2500);
+    const childFeature2 = qgisProject.mapLayersByName('Villages')[0].getFeature("2");
+    compare(childFeature2.attribute("village_uuid"), "village-uuid-002");
+    compare(childFeature2.attribute("village_name"), "Village Beta");
+    compare(childFeature2.attribute("parent_district_uuid"), "uuid-001");
+    compare(childFeature2.attribute("population"), 2555);
   }
 }
