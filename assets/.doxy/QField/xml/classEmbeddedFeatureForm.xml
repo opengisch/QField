@@ -1,0 +1,460 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classEmbeddedFeatureForm" kind="class" language="C++" prot="public">
+    <compoundname>EmbeddedFeatureForm</compoundname>
+    <basecompoundref refid="classTheme_1_1QfPopup" prot="public" virt="non-virtual">Theme::QfPopup</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classEmbeddedFeatureForm_1a05093030ea821bfee7fc23b8c2fbffe6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias EmbeddedFeatureForm::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>EmbeddedFeatureForm::state</qualifiedname>
+        <read>dummyGetter_state_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="11" column="1" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classEmbeddedFeatureForm_1a836b223cfa570bba1efec0390bc7cc0d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias EmbeddedFeatureForm::embeddedLevel</definition>
+        <argsstring></argsstring>
+        <name>embeddedLevel</name>
+        <qualifiedname>EmbeddedFeatureForm::embeddedLevel</qualifiedname>
+        <read>dummyGetter_embeddedLevel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="13" column="1" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classEmbeddedFeatureForm_1ad183bcf8c6f47d1f50bc34991d3adb68" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias EmbeddedFeatureForm::currentLayer</definition>
+        <argsstring></argsstring>
+        <name>currentLayer</name>
+        <qualifiedname>EmbeddedFeatureForm::currentLayer</qualifiedname>
+        <read>dummyGetter_currentLayer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="15" column="1" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classEmbeddedFeatureForm_1a659c292b14c7f717f471542b3b1737a5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias EmbeddedFeatureForm::linkedRelation</definition>
+        <argsstring></argsstring>
+        <name>linkedRelation</name>
+        <qualifiedname>EmbeddedFeatureForm::linkedRelation</qualifiedname>
+        <read>dummyGetter_linkedRelation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="17" column="1" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classEmbeddedFeatureForm_1a720f8f1fdaa14021455e82bca99c4942" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias EmbeddedFeatureForm::linkedRelationOrderingField</definition>
+        <argsstring></argsstring>
+        <name>linkedRelationOrderingField</name>
+        <qualifiedname>EmbeddedFeatureForm::linkedRelationOrderingField</qualifiedname>
+        <read>dummyGetter_linkedRelationOrderingField_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="19" column="1" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classEmbeddedFeatureForm_1a58ca840a1fa1a4c54c2b325eb7bc998f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias EmbeddedFeatureForm::linkedParentFeature</definition>
+        <argsstring></argsstring>
+        <name>linkedParentFeature</name>
+        <qualifiedname>EmbeddedFeatureForm::linkedParentFeature</qualifiedname>
+        <read>dummyGetter_linkedParentFeature_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="21" column="1" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classEmbeddedFeatureForm_1a43df77715dce606eeb10eecf6ec89efc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias EmbeddedFeatureForm::feature</definition>
+        <argsstring></argsstring>
+        <name>feature</name>
+        <qualifiedname>EmbeddedFeatureForm::feature</qualifiedname>
+        <read>dummyGetter_feature_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="23" column="1" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classEmbeddedFeatureForm_1a9b7e70d818f8e464e0b53750f6d0e74d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias EmbeddedFeatureForm::attributeFormModel</definition>
+        <argsstring></argsstring>
+        <name>attributeFormModel</name>
+        <qualifiedname>EmbeddedFeatureForm::attributeFormModel</qualifiedname>
+        <read>dummyGetter_attributeFormModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="25" column="1" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classEmbeddedFeatureForm_1a9fc485e73a217fc57037a8fd48265c6c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias EmbeddedFeatureForm::digitizingToolbar</definition>
+        <argsstring></argsstring>
+        <name>digitizingToolbar</name>
+        <qualifiedname>EmbeddedFeatureForm::digitizingToolbar</qualifiedname>
+        <read>dummyGetter_digitizingToolbar_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="27" column="1" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classEmbeddedFeatureForm_1a4b51ddf631269502e12580080a6f11a5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias EmbeddedFeatureForm::codeReader</definition>
+        <argsstring></argsstring>
+        <name>codeReader</name>
+        <qualifiedname>EmbeddedFeatureForm::codeReader</qualifiedname>
+        <read>dummyGetter_codeReader_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="29" column="1" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classEmbeddedFeatureForm_1a5b7a73d375f6c27f96347e41a51ef207" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var EmbeddedFeatureForm::onAboutToShow</definition>
+        <argsstring></argsstring>
+        <name>onAboutToShow</name>
+        <qualifiedname>EmbeddedFeatureForm::onAboutToShow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="31" column="5" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEmbeddedFeatureForm_1af713776b47df193cd46202b040f69748" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var EmbeddedFeatureForm::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>EmbeddedFeatureForm::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="40" column="5" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEmbeddedFeatureForm_1a1f4ba10eccdc6c3d6b31d1272bc2f702" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var EmbeddedFeatureForm::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>EmbeddedFeatureForm::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="41" column="5" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEmbeddedFeatureForm_1a011d5a0a8cdf34180bfcc80c0ec4ec6d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var EmbeddedFeatureForm::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>EmbeddedFeatureForm::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="43" column="5" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEmbeddedFeatureForm_1a2e3b6a9981444e9d3499fa847980222c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var EmbeddedFeatureForm::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>EmbeddedFeatureForm::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="44" column="5" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEmbeddedFeatureForm_1ae6e2e0a820dd07db40154aace026ee78" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var EmbeddedFeatureForm::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>EmbeddedFeatureForm::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="45" column="5" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEmbeddedFeatureForm_1a1ce6cbe1df13de14d1a2f788f536612b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var EmbeddedFeatureForm::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>EmbeddedFeatureForm::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="46" column="5" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEmbeddedFeatureForm_1a5364a50f9ec006174f6f3ff1559568fb" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var EmbeddedFeatureForm::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <qualifiedname>EmbeddedFeatureForm::z</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="47" column="5" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEmbeddedFeatureForm_1a4685f56bf24a047fb92e93c9208eec04" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var EmbeddedFeatureForm::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>EmbeddedFeatureForm::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="48" column="5" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEmbeddedFeatureForm_1a7a8cf13709e100abe1ce672f0d535dde" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureForm" kindref="compound">FeatureForm</ref></type>
+        <definition>FeatureForm EmbeddedFeatureForm::form</definition>
+        <argsstring></argsstring>
+        <name>form</name>
+        <qualifiedname>EmbeddedFeatureForm::form</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="49" column="13" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEmbeddedFeatureForm_1a86ad00258142b2aa828c686c6a856c23" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var EmbeddedFeatureForm::onClosed</definition>
+        <argsstring></argsstring>
+        <name>onClosed</name>
+        <qualifiedname>EmbeddedFeatureForm::onClosed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="50" column="5" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classEmbeddedFeatureForm_1a71da0fcba0536aca3617814e4886175f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EmbeddedFeatureForm::featureSaved</definition>
+        <argsstring>(int id)</argsstring>
+        <name>featureSaved</name>
+        <qualifiedname>EmbeddedFeatureForm::featureSaved</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="34" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classEmbeddedFeatureForm_1acbf6425cbef168097d3428c3c83206cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EmbeddedFeatureForm::featureCancelled</definition>
+        <argsstring>()</argsstring>
+        <name>featureCancelled</name>
+        <qualifiedname>EmbeddedFeatureForm::featureCancelled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="36" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classEmbeddedFeatureForm_1a5f4deb9b94fa21a9bc4b75c718a6b3ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EmbeddedFeatureForm::requestJumpToPoint</definition>
+        <argsstring>(var center, real scale, bool handleMargins)</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>EmbeddedFeatureForm::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="38" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classEmbeddedFeatureForm_1aacc006cc16addda60a248aab9084e252" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EmbeddedFeatureForm::applyGeometry</definition>
+        <argsstring>(geometry)</argsstring>
+        <name>applyGeometry</name>
+        <qualifiedname>EmbeddedFeatureForm::applyGeometry</qualifiedname>
+        <param>
+          <type>geometry</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/EmbeddedFeatureForm.qml" line="53" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>EmbeddedFeatureForm</label>
+        <link refid="classEmbeddedFeatureForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>EmbeddedFeatureForm</label>
+        <link refid="classEmbeddedFeatureForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/EmbeddedFeatureForm.qml" line="8" column="1" bodyfile="src/qml/EmbeddedFeatureForm.qml" bodystart="8" bodyend="54"/>
+    <listofallmembers>
+      <member refid="classEmbeddedFeatureForm_1aacc006cc16addda60a248aab9084e252" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>applyGeometry</name></member>
+      <member refid="classEmbeddedFeatureForm_1a9b7e70d818f8e464e0b53750f6d0e74d" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>attributeFormModel</name></member>
+      <member refid="classEmbeddedFeatureForm_1a1f4ba10eccdc6c3d6b31d1272bc2f702" prot="private" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>closePolicy</name></member>
+      <member refid="classEmbeddedFeatureForm_1a4b51ddf631269502e12580080a6f11a5" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>codeReader</name></member>
+      <member refid="classEmbeddedFeatureForm_1ad183bcf8c6f47d1f50bc34991d3adb68" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>currentLayer</name></member>
+      <member refid="classEmbeddedFeatureForm_1a9fc485e73a217fc57037a8fd48265c6c" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>digitizingToolbar</name></member>
+      <member refid="classEmbeddedFeatureForm_1a836b223cfa570bba1efec0390bc7cc0d" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>embeddedLevel</name></member>
+      <member refid="classEmbeddedFeatureForm_1a43df77715dce606eeb10eecf6ec89efc" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>feature</name></member>
+      <member refid="classEmbeddedFeatureForm_1acbf6425cbef168097d3428c3c83206cd" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>featureCancelled</name></member>
+      <member refid="classEmbeddedFeatureForm_1a71da0fcba0536aca3617814e4886175f" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>featureSaved</name></member>
+      <member refid="classEmbeddedFeatureForm_1a4685f56bf24a047fb92e93c9208eec04" prot="private" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>focus</name></member>
+      <member refid="classEmbeddedFeatureForm_1a7a8cf13709e100abe1ce672f0d535dde" prot="private" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>form</name></member>
+      <member refid="classEmbeddedFeatureForm_1a2e3b6a9981444e9d3499fa847980222c" prot="private" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>height</name></member>
+      <member refid="classEmbeddedFeatureForm_1a58ca840a1fa1a4c54c2b325eb7bc998f" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>linkedParentFeature</name></member>
+      <member refid="classEmbeddedFeatureForm_1a659c292b14c7f717f471542b3b1737a5" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>linkedRelation</name></member>
+      <member refid="classEmbeddedFeatureForm_1a720f8f1fdaa14021455e82bca99c4942" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>linkedRelationOrderingField</name></member>
+      <member refid="classEmbeddedFeatureForm_1a5b7a73d375f6c27f96347e41a51ef207" prot="private" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>onAboutToShow</name></member>
+      <member refid="classEmbeddedFeatureForm_1a86ad00258142b2aa828c686c6a856c23" prot="private" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>onClosed</name></member>
+      <member refid="classEmbeddedFeatureForm_1af713776b47df193cd46202b040f69748" prot="private" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>parent</name></member>
+      <member refid="classEmbeddedFeatureForm_1a5f4deb9b94fa21a9bc4b75c718a6b3ce" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>requestJumpToPoint</name></member>
+      <member refid="classEmbeddedFeatureForm_1a05093030ea821bfee7fc23b8c2fbffe6" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>state</name></member>
+      <member refid="classEmbeddedFeatureForm_1a011d5a0a8cdf34180bfcc80c0ec4ec6d" prot="private" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>width</name></member>
+      <member refid="classEmbeddedFeatureForm_1ae6e2e0a820dd07db40154aace026ee78" prot="private" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>x</name></member>
+      <member refid="classEmbeddedFeatureForm_1a1ce6cbe1df13de14d1a2f788f536612b" prot="private" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>y</name></member>
+      <member refid="classEmbeddedFeatureForm_1a5364a50f9ec006174f6f3ff1559568fb" prot="private" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

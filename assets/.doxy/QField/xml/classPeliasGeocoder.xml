@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPeliasGeocoder" kind="class" language="C++" prot="public">
+    <compoundname>PeliasGeocoder</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QgsGeocoderInterface</basecompoundref>
+    <includes refid="peliasgeocoder_8h" local="no">peliasgeocoder.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPeliasGeocoder_1a93e9f710a3f1cf14f1b902b949f4de71" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString PeliasGeocoder::mEndpoint</definition>
+        <argsstring></argsstring>
+        <name>mEndpoint</name>
+        <qualifiedname>PeliasGeocoder::mEndpoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/peliasgeocoder.h" line="88" column="13" bodyfile="src/core/peliasgeocoder.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPeliasGeocoder_1aedff29faa3ae3a51421580177c3f265c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PeliasGeocoder::mRequestsPerSecond</definition>
+        <argsstring></argsstring>
+        <name>mRequestsPerSecond</name>
+        <qualifiedname>PeliasGeocoder::mRequestsPerSecond</qualifiedname>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/peliasgeocoder.h" line="89" column="12" bodyfile="src/core/peliasgeocoder.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classPeliasGeocoder_1a89e0efafa1f29dc6dc2b72eec311bf20" prot="private" static="yes" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 PeliasGeocoder::sLastRequestTimestamp</definition>
+        <argsstring></argsstring>
+        <name>sLastRequestTimestamp</name>
+        <qualifiedname>PeliasGeocoder::sLastRequestTimestamp</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/peliasgeocoder.h" line="91" column="19" bodyfile="src/core/peliasgeocoder.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPeliasGeocoder_1a5a950962873dd529dac9fcda8e7cc55a" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PeliasGeocoder::PeliasGeocoder</definition>
+        <argsstring>(const QString &amp;endpoint=QString())</argsstring>
+        <name>PeliasGeocoder</name>
+        <qualifiedname>PeliasGeocoder::PeliasGeocoder</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>endpoint</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for <ref refid="classPeliasGeocoder" kindref="compound">PeliasGeocoder</ref>.</para>
+<para>The <emphasis>endpoint</emphasis> argument is used to specify an endpoint to use for request. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/peliasgeocoder.h" line="42" column="14" bodyfile="src/core/peliasgeocoder.cpp" bodystart="35" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classPeliasGeocoder_1a0f761a2ec6c7d8ba9bd79415b379fdee" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Flags</type>
+        <definition>QgsGeocoderInterface::Flags PeliasGeocoder::flags</definition>
+        <argsstring>() const override</argsstring>
+        <name>flags</name>
+        <qualifiedname>PeliasGeocoder::flags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/peliasgeocoder.h" line="44" column="11" bodyfile="src/core/peliasgeocoder.cpp" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classPeliasGeocoder_1a764d8fe69bb10685b2d737dc1f0eb58e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsFields</type>
+        <definition>QgsFields PeliasGeocoder::appendedFields</definition>
+        <argsstring>() const override</argsstring>
+        <name>appendedFields</name>
+        <qualifiedname>PeliasGeocoder::appendedFields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/peliasgeocoder.h" line="45" column="15" bodyfile="src/core/peliasgeocoder.cpp" bodystart="46" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classPeliasGeocoder_1a5acee438d9558b2819d0658246183eb3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Qgis::WkbType</type>
+        <definition>Qgis::WkbType PeliasGeocoder::wkbType</definition>
+        <argsstring>() const override</argsstring>
+        <name>wkbType</name>
+        <qualifiedname>PeliasGeocoder::wkbType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/peliasgeocoder.h" line="46" column="19" bodyfile="src/core/peliasgeocoder.cpp" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classPeliasGeocoder_1adf450454d2693d5b881958aaabae0d45" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; QgsGeocoderResult &gt;</type>
+        <definition>QList&lt; QgsGeocoderResult &gt; PeliasGeocoder::geocodeString</definition>
+        <argsstring>(const QString &amp;string, const QgsGeocoderContext &amp;context, QgsFeedback *feedback=nullptr) const override</argsstring>
+        <name>geocodeString</name>
+        <qualifiedname>PeliasGeocoder::geocodeString</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const QgsGeocoderContext &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>QgsFeedback *</type>
+          <declname>feedback</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/peliasgeocoder.h" line="47" column="11" bodyfile="src/core/peliasgeocoder.cpp" bodystart="68" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classPeliasGeocoder_1af9d1a7bf092ee90b6a863c2c40cf5ef6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QUrl</type>
+        <definition>QUrl PeliasGeocoder::requestUrl</definition>
+        <argsstring>(const QString &amp;address, const QgsRectangle &amp;bounds=QgsRectangle()) const</argsstring>
+        <name>requestUrl</name>
+        <qualifiedname>PeliasGeocoder::requestUrl</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>const QgsRectangle &amp;</type>
+          <declname>bounds</declname>
+          <defval>QgsRectangle()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the URL generated for geocoding the specified <emphasis>address</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/peliasgeocoder.h" line="52" column="10" bodyfile="src/core/peliasgeocoder.cpp" bodystart="145" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classPeliasGeocoder_1a86fa7dce624172de0dc7d7484c437c1c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsGeocoderResult</type>
+        <definition>QgsGeocoderResult PeliasGeocoder::jsonToResult</definition>
+        <argsstring>(const QVariantMap &amp;json) const</argsstring>
+        <name>jsonToResult</name>
+        <qualifiedname>PeliasGeocoder::jsonToResult</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>json</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts a JSON result returned from the Pelias service to a geocoder result object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/peliasgeocoder.h" line="57" column="23" bodyfile="src/core/peliasgeocoder.cpp" bodystart="162" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="classPeliasGeocoder_1a2d1b46cf91e2b7b1a3cc63a837bab588" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString PeliasGeocoder::endpoint</definition>
+        <argsstring>() const</argsstring>
+        <name>endpoint</name>
+        <qualifiedname>PeliasGeocoder::endpoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the API endpoint used for requests.</para>
+<para><simplesect kind="see"><para><ref refid="classPeliasGeocoder_1a9ac4a60102d7b66ceb9f16e7b5d9dfb2" kindref="member">setEndpoint()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/peliasgeocoder.h" line="64" column="13" bodyfile="src/core/peliasgeocoder.cpp" bodystart="205" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classPeliasGeocoder_1a9ac4a60102d7b66ceb9f16e7b5d9dfb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PeliasGeocoder::setEndpoint</definition>
+        <argsstring>(const QString &amp;endpoint)</argsstring>
+        <name>setEndpoint</name>
+        <qualifiedname>PeliasGeocoder::setEndpoint</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>endpoint</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets a specific API <emphasis>endpoint</emphasis> to use for requests. This is for internal testing purposes only.</para>
+<para><simplesect kind="see"><para><ref refid="classPeliasGeocoder_1a2d1b46cf91e2b7b1a3cc63a837bab588" kindref="member">endpoint()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/peliasgeocoder.h" line="71" column="10" bodyfile="src/core/peliasgeocoder.cpp" bodystart="210" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classPeliasGeocoder_1a724002d7140672cfcc085d932c80542d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double PeliasGeocoder::requestsPerSecond</definition>
+        <argsstring>() const</argsstring>
+        <name>requestsPerSecond</name>
+        <qualifiedname>PeliasGeocoder::requestsPerSecond</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of requests per seconds to the endpoint.</para>
+<para><simplesect kind="see"><para><ref refid="classPeliasGeocoder_1aded1e1cbd9c86a6ae40cf8736fe26eb6" kindref="member">setRequestsPerSecond()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/peliasgeocoder.h" line="78" column="12" bodyfile="src/core/peliasgeocoder.h" bodystart="78" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classPeliasGeocoder_1aded1e1cbd9c86a6ae40cf8736fe26eb6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PeliasGeocoder::setRequestsPerSecond</definition>
+        <argsstring>(double number)</argsstring>
+        <name>setRequestsPerSecond</name>
+        <qualifiedname>PeliasGeocoder::setRequestsPerSecond</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>number</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the <emphasis>number</emphasis> of request per seconds to the endpoint.</para>
+<para><simplesect kind="see"><para><ref refid="classPeliasGeocoder_1a724002d7140672cfcc085d932c80542d" kindref="member">requestsPerSecond()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/peliasgeocoder.h" line="85" column="10" bodyfile="src/core/peliasgeocoder.h" bodystart="85" bodyend="85"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A geocoder which uses the Pelias geocoding API to retrieve results. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This geocoder utilizes the Pelias geocoding API in order to geocode strings from an endpoint server.</para>
+<para><simplesect kind="since"><para>QField 1.9 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PeliasGeocoder</label>
+        <link refid="classPeliasGeocoder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsGeocoderInterface</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>PeliasGeocoder</label>
+        <link refid="classPeliasGeocoder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsGeocoderInterface</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/peliasgeocoder.h" line="34" column="1" bodyfile="src/core/peliasgeocoder.h" bodystart="35" bodyend="92"/>
+    <listofallmembers>
+      <member refid="classPeliasGeocoder_1a764d8fe69bb10685b2d737dc1f0eb58e" prot="public" virt="non-virtual"><scope>PeliasGeocoder</scope><name>appendedFields</name></member>
+      <member refid="classPeliasGeocoder_1a2d1b46cf91e2b7b1a3cc63a837bab588" prot="public" virt="non-virtual"><scope>PeliasGeocoder</scope><name>endpoint</name></member>
+      <member refid="classPeliasGeocoder_1a0f761a2ec6c7d8ba9bd79415b379fdee" prot="public" virt="non-virtual"><scope>PeliasGeocoder</scope><name>flags</name></member>
+      <member refid="classPeliasGeocoder_1adf450454d2693d5b881958aaabae0d45" prot="public" virt="non-virtual"><scope>PeliasGeocoder</scope><name>geocodeString</name></member>
+      <member refid="classPeliasGeocoder_1a86fa7dce624172de0dc7d7484c437c1c" prot="public" virt="non-virtual"><scope>PeliasGeocoder</scope><name>jsonToResult</name></member>
+      <member refid="classPeliasGeocoder_1a93e9f710a3f1cf14f1b902b949f4de71" prot="private" virt="non-virtual"><scope>PeliasGeocoder</scope><name>mEndpoint</name></member>
+      <member refid="classPeliasGeocoder_1aedff29faa3ae3a51421580177c3f265c" prot="private" virt="non-virtual"><scope>PeliasGeocoder</scope><name>mRequestsPerSecond</name></member>
+      <member refid="classPeliasGeocoder_1a5a950962873dd529dac9fcda8e7cc55a" prot="public" virt="non-virtual"><scope>PeliasGeocoder</scope><name>PeliasGeocoder</name></member>
+      <member refid="classPeliasGeocoder_1a724002d7140672cfcc085d932c80542d" prot="public" virt="non-virtual"><scope>PeliasGeocoder</scope><name>requestsPerSecond</name></member>
+      <member refid="classPeliasGeocoder_1af9d1a7bf092ee90b6a863c2c40cf5ef6" prot="public" virt="non-virtual"><scope>PeliasGeocoder</scope><name>requestUrl</name></member>
+      <member refid="classPeliasGeocoder_1a9ac4a60102d7b66ceb9f16e7b5d9dfb2" prot="public" virt="non-virtual"><scope>PeliasGeocoder</scope><name>setEndpoint</name></member>
+      <member refid="classPeliasGeocoder_1aded1e1cbd9c86a6ae40cf8736fe26eb6" prot="public" virt="non-virtual"><scope>PeliasGeocoder</scope><name>setRequestsPerSecond</name></member>
+      <member refid="classPeliasGeocoder_1a89e0efafa1f29dc6dc2b72eec311bf20" prot="private" virt="non-virtual"><scope>PeliasGeocoder</scope><name>sLastRequestTimestamp</name></member>
+      <member refid="classPeliasGeocoder_1a5acee438d9558b2819d0658246183eb3" prot="public" virt="non-virtual"><scope>PeliasGeocoder</scope><name>wkbType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

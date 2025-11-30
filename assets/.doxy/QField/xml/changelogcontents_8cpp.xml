@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="changelogcontents_8cpp" kind="file" language="C++">
+    <compoundname>changelogcontents.cpp</compoundname>
+    <includes refid="changelogcontents_8h" local="yes">changelogcontents.h</includes>
+    <includes local="yes">qfield.h</includes>
+    <includes local="no">QJsonArray</includes>
+    <includes local="no">QJsonDocument</includes>
+    <includes local="no">QJsonObject</includes>
+    <includes local="no">QRegularExpression</includes>
+    <includes local="no">QSettings</includes>
+    <includes local="no">qgsnetworkaccessmanager.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/changelogcontents.cpp</label>
+        <link refid="changelogcontents_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>changelogcontents.h</label>
+        <link refid="changelogcontents_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>QJsonArray</label>
+      </node>
+      <node id="6">
+        <label>QJsonDocument</label>
+      </node>
+      <node id="7">
+        <label>QJsonObject</label>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="8">
+        <label>QRegularExpression</label>
+      </node>
+      <node id="9">
+        <label>QSettings</label>
+      </node>
+      <node id="4">
+        <label>qfield.h</label>
+      </node>
+      <node id="10">
+        <label>qgsnetworkaccessmanager.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>changelogcontents.h<sp/>-<sp/>Changelog</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>Nov<sp/>2020</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2020<sp/>by<sp/>Ivan<sp/>Ivanov</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>ivan@opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;changelogcontents.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfield.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QJsonArray&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QJsonDocument&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QJsonObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QRegularExpression&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QSettings&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsnetworkaccessmanager.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><ref refid="classChangelogContents_1ace9255c1c017400b0a43421b9c4faea5" kindref="member">ChangelogContents::ChangelogContents</ref>(<sp/>QObject<sp/>*parent<sp/>)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>:<sp/>QObject(<sp/>parent<sp/>)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classChangelogContents_1a63eb25a2cb35597f58eea286f0babc67" kindref="member">ChangelogContents::request</ref>()</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>QgsNetworkAccessManager<sp/>*manager<sp/>=<sp/>QgsNetworkAccessManager::instance();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>mMarkdown.clear();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classChangelogContents_1a3e7205e7a66d0c7ed1d5de0826e8a9fa" kindref="member">markdownChanged</ref>();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>mStatus<sp/>=<sp/><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a9e5d7a05deae1e09d94d51a45aaa2161" kindref="member">LoadingStatus</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classChangelogContents_1aa8f10c29c60da8f240ac23f62b0f3a60" kindref="member">statusChanged</ref>();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>QNetworkReply<sp/>*reply<sp/>=<sp/>manager-&gt;get(<sp/>QNetworkRequest(<sp/>QUrl(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;https://api.github.com/repos/opengisch/qfield/releases&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>connect(<sp/>reply,<sp/>&amp;QNetworkReply::finished,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>reply]()<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>QJsonParseError<sp/>error;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>QJsonDocument<sp/>json<sp/>=<sp/>QJsonDocument::fromJson(<sp/>reply-&gt;readAll(),<sp/>&amp;error<sp/>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>error.error<sp/>!=<sp/>QJsonParseError::NoError<sp/>)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mStatus<sp/>=<sp/><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a318d58999b7b342a0a9e400cc9a9d123" kindref="member">ErrorStatus</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classChangelogContents_1aa8f10c29c60da8f240ac23f62b0f3a60" kindref="member">statusChanged</ref>();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>shouldFilterPrereleaseOnly<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>shouldReverseOrder<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>changelog;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>versionNumbersOnly;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;int&gt;<sp/>qfieldVersion<sp/>=<sp/>parseVersion(<sp/>qfield::appVersion<sp/>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;int&gt;<sp/>oldVersion<sp/>=<sp/>parseVersion(<sp/>QSettings().value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/QField/ChangelogVersion&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonArray<sp/>releases<sp/>=<sp/>json.array();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonValue<sp/>&amp;releaseValue<sp/>:<sp/>releases<sp/>)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QVariantMap<sp/>release<sp/>=<sp/>releaseValue.toObject().toVariantMap();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QList&lt;int&gt;<sp/>releaseVersion<sp/>=<sp/>parseVersion(<sp/>release.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;tag_name&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>releaseVersion.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>most<sp/>probably<sp/>developer<sp/>version<sp/>with<sp/>no<sp/>proper<sp/>version<sp/>set</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>qfieldVersion.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qfieldVersion<sp/>=<sp/>releaseVersion;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>qfieldVersion[0]<sp/>!=<sp/>releaseVersion[0]<sp/>||<sp/>qfieldVersion[1]<sp/>!=<sp/>releaseVersion[1]<sp/>)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>first<sp/>loop</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>changelog.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>shouldFilterPrereleaseOnly<sp/>=<sp/>release.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;prerelease&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toBool();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!oldVersion.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>shouldReverseOrder<sp/>=<sp/>oldVersion[0]<sp/>==<sp/>qfieldVersion[0]<sp/>&amp;&amp;<sp/>oldVersion[1]<sp/>==<sp/>qfieldVersion[1];</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>release.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;prerelease&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toBool()<sp/>!=<sp/>shouldFilterPrereleaseOnly<sp/>)</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>versionNumbersOnly.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>versionNumbersOnly<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1.%2.%3&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>releaseVersion[0]<sp/>).arg(<sp/>releaseVersion[1]<sp/>).arg(<sp/>releaseVersion[2]<sp/>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>releaseChangelog<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;\n#\n#<sp/>&quot;</highlight><highlight class="normal"><sp/>)<sp/>+<sp/>release[</highlight><highlight class="stringliteral">&quot;name&quot;</highlight><highlight class="normal">].toString()<sp/>+<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;\n\n&quot;</highlight><highlight class="normal"><sp/>)<sp/>+<sp/>release[</highlight><highlight class="stringliteral">&quot;body&quot;</highlight><highlight class="normal">].toString()<sp/>+<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>changelog<sp/>=<sp/>shouldReverseOrder</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>(<sp/>changelog<sp/>+<sp/>releaseChangelog<sp/>)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(<sp/>releaseChangelog<sp/>+<sp/>changelog<sp/>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>changelog<sp/>+=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal"><sp/>)<sp/>+<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>)<sp/>+<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;Previous<sp/>releases<sp/>on<sp/>GitHub&quot;</highlight><highlight class="normal"><sp/>)<sp/>+<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;](https://github.com/opengisch/qfield/releases)&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>QRegularExpression<sp/>regexpFirstTitle(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;^\n#\n#<sp/>&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>changelog<sp/>=<sp/>changelog.replace(<sp/>regexpFirstTitle,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;\n#<sp/>&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>QRegularExpression<sp/>regexpAllTitles(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;^##(.+)$&quot;</highlight><highlight class="normal"><sp/>),<sp/>QRegularExpression::MultilineOption<sp/>);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>changelog<sp/>=<sp/>changelog.replace(<sp/>regexpAllTitles,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;\n###\n##\\1\n\n\n&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>changelog<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Up<sp/>to<sp/>release<sp/>**&quot;</highlight><highlight class="normal"><sp/>+<sp/>versionNumbersOnly<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;**&quot;</highlight><highlight class="normal"><sp/>+<sp/>changelog;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRegularExpression<sp/>imageMdSyntax(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;!\\[([^\\]]*)\\]\\(([^)]+)\\)&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>changelog<sp/>=<sp/>changelog.replace(<sp/>imageMdSyntax,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;&lt;img<sp/>src=\&quot;\\2\&quot;<sp/>alt=\&quot;\\1\&quot;<sp/>style=\&quot;max-width:100%;<sp/>height:auto;\&quot;<sp/>/&gt;&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(<sp/>Q_OS_ANDROID<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>platformName<sp/>=<sp/>QLatin1String(<sp/></highlight><highlight class="stringliteral">&quot;android&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(<sp/>Q_OS_IOS<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>platformName<sp/>=<sp/>QLatin1String(<sp/></highlight><highlight class="stringliteral">&quot;ios&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(<sp/>Q_OS_WIN<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>platformName<sp/>=<sp/>QLatin1String(<sp/></highlight><highlight class="stringliteral">&quot;windows&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(<sp/>Q_OS_MACOS<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>platformName<sp/>=<sp/>QLatin1String(<sp/></highlight><highlight class="stringliteral">&quot;macos&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(<sp/>Q_OS_LINUX<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>platformName<sp/>=<sp/>QLatin1String(<sp/></highlight><highlight class="stringliteral">&quot;ios&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>platformName<sp/>=<sp/>QString();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>QRegularExpression<sp/>regexpPlatform(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;&lt;!--\\s*platformbegin:\\s*((?!%1).)*--&gt;(.|\r|\n)*?&lt;!--\\s*platformend\\s*--&gt;&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>platformName<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>changelog<sp/>=<sp/>changelog.replace(<sp/>regexpPlatform,<sp/>QString()<sp/>);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>mStatus<sp/>=<sp/><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a2c440112120b3e6347966d2e968cf3c5" kindref="member">SuccessStatus</ref>;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>mMarkdown<sp/>=<sp/>changelog;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classChangelogContents_1aa8f10c29c60da8f240ac23f62b0f3a60" kindref="member">statusChanged</ref>();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classChangelogContents_1a3e7205e7a66d0c7ed1d5de0826e8a9fa" kindref="member">markdownChanged</ref>();</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal">QString<sp/><ref refid="classChangelogContents_1a4de0688f3caa67d14c2a8991075ad5f8" kindref="member">ChangelogContents::markdown</ref>()</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mMarkdown;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944" kindref="member">ChangelogContents::Status</ref><sp/><ref refid="classChangelogContents_1ab4a225c387d4f38ea64dfb429e329a1f" kindref="member">ChangelogContents::status</ref>()</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mStatus;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal">QList&lt;int&gt;<sp/>ChangelogContents::parseVersion(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;version<sp/>)</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/>QRegularExpression<sp/>regexp(<sp/></highlight><highlight class="stringliteral">&quot;^[a-z]*&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/>QString<sp/>cleanVersion<sp/>=<sp/>QString(<sp/>version<sp/>).replace(<sp/>regexp,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>QStringList<sp/>parts<sp/>=<sp/>cleanVersion.split(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>parts.size()<sp/>!=<sp/>3<sp/>)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QList&lt;int&gt;();</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>parts[0].toInt()<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>parts[1].toInt()<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>parts[2].toInt()<sp/>&gt;=<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QList&lt;int&gt;(<sp/>{<sp/>parts[0].toInt(),<sp/>parts[1].toInt(),<sp/>parts[2].toInt()<sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QList&lt;int&gt;();</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/changelogcontents.cpp"/>
+  </compounddef>
+</doxygen>

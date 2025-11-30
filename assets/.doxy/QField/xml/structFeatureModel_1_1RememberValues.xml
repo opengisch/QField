@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structFeatureModel_1_1RememberValues" kind="struct" language="C++" prot="public">
+    <compoundname>FeatureModel::RememberValues</compoundname>
+    <includes refid="featuremodel_8h" local="no">featuremodel.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structFeatureModel_1_1RememberValues_1ae4af1b59acdcf421465cd7fc5c8873e2" prot="public" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature FeatureModel::RememberValues::rememberedFeature</definition>
+        <argsstring></argsstring>
+        <name>rememberedFeature</name>
+        <qualifiedname>FeatureModel::RememberValues::rememberedFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="58" column="20" bodyfile="src/core/featuremodel.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFeatureModel_1_1RememberValues_1aaa11506ef29d49e4bcfdf690d51798c5" prot="public" static="no" mutable="no">
+        <type>QVector&lt; bool &gt;</type>
+        <definition>QVector&lt;bool&gt; FeatureModel::RememberValues::rememberedAttributes</definition>
+        <argsstring></argsstring>
+        <name>rememberedAttributes</name>
+        <qualifiedname>FeatureModel::RememberValues::rememberedAttributes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="59" column="17" bodyfile="src/core/featuremodel.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>keeping the information what attributes are remembered and the last edited feature </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/featuremodel.h" line="56" column="5" bodyfile="src/core/featuremodel.h" bodystart="57" bodyend="60"/>
+    <listofallmembers>
+      <member refid="structFeatureModel_1_1RememberValues_1aaa11506ef29d49e4bcfdf690d51798c5" prot="public" virt="non-virtual"><scope>FeatureModel::RememberValues</scope><name>rememberedAttributes</name></member>
+      <member refid="structFeatureModel_1_1RememberValues_1ae4af1b59acdcf421465cd7fc5c8873e2" prot="public" virt="non-virtual"><scope>FeatureModel::RememberValues</scope><name>rememberedFeature</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

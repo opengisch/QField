@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldCloudLogin" kind="class" language="C++" prot="public">
+    <compoundname>QFieldCloudLogin</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQFieldCloudLogin_1aed4efd91111ae602ad0a74b1b24c7744" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QFieldCloudLogin::hasCredentialsAuthentication</definition>
+        <argsstring></argsstring>
+        <name>hasCredentialsAuthentication</name>
+        <qualifiedname>QFieldCloudLogin::hasCredentialsAuthentication</qualifiedname>
+        <read>dummyGetter_hasCredentialsAuthentication_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="12" column="1" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudLogin_1ac828bc58e1d8ee7e519800fd056eccde" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QFieldCloudLogin::isServerUrlEditingActive</definition>
+        <argsstring></argsstring>
+        <name>isServerUrlEditingActive</name>
+        <qualifiedname>QFieldCloudLogin::isServerUrlEditingActive</qualifiedname>
+        <read>dummyGetter_isServerUrlEditingActive_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="14" column="1" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudLogin_1a8731ec8afefede74ce4ad3c33e08a7c9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QFieldCloudLogin::isVisible</definition>
+        <argsstring></argsstring>
+        <name>isVisible</name>
+        <qualifiedname>QFieldCloudLogin::isVisible</qualifiedname>
+        <read>dummyGetter_isVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="16" column="1" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQFieldCloudLogin_1a5d9cf79a236c1c2a6c9e36653704cbe6" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudLogin::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QFieldCloudLogin::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="18" column="5" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudLogin_1a962ce461fde9e93180a6b926147ad3fc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudLogin::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QFieldCloudLogin::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="19" column="5" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudLogin_1a77bbd6e277333afa7fe0825d6b7ebf1f" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics QFieldCloudLogin::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>QFieldCloudLogin::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="20" column="13" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudLogin_1ada4621f87f8ac1820a9ec981afa9211d" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QFieldCloudLogin::connectionSettings</definition>
+        <argsstring></argsstring>
+        <name>connectionSettings</name>
+        <qualifiedname>QFieldCloudLogin::connectionSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="21" column="14" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudLogin_1a2ba92e5dcffd9abe5979533068b702a6" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image QFieldCloudLogin::logo</definition>
+        <argsstring></argsstring>
+        <name>logo</name>
+        <qualifiedname>QFieldCloudLogin::logo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="22" column="7" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudLogin_1a17fcaf26f69aedd2880aa9f81f49eb1d" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QFieldCloudLogin::loginFeedbackLabel</definition>
+        <argsstring></argsstring>
+        <name>loginFeedbackLabel</name>
+        <qualifiedname>QFieldCloudLogin::loginFeedbackLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="23" column="6" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudLogin_1a89aa64e31958c59e21bcbdd84488caa8" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QFieldCloudLogin::serverUrlLabel</definition>
+        <argsstring></argsstring>
+        <name>serverUrlLabel</name>
+        <qualifiedname>QFieldCloudLogin::serverUrlLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="24" column="6" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudLogin_1a3b4cc7eef72d13fdd9122635dd0f1cb3" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QFieldCloudLogin::serverUrlComboBox</definition>
+        <argsstring></argsstring>
+        <name>serverUrlComboBox</name>
+        <qualifiedname>QFieldCloudLogin::serverUrlComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="25" column="12" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudLogin_1afe346e328b7a6774d0ebcb732e3c6bec" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QFieldCloudLogin::usernameField</definition>
+        <argsstring></argsstring>
+        <name>usernameField</name>
+        <qualifiedname>QFieldCloudLogin::usernameField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="26" column="11" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudLogin_1a1facb18c81eae38a460b08ae1971e557" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QFieldCloudLogin::passwordField</definition>
+        <argsstring></argsstring>
+        <name>passwordField</name>
+        <qualifiedname>QFieldCloudLogin::passwordField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="27" column="11" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudLogin_1a281e9ea97857ff152bc9b6e0b10c97cc" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QFieldCloudLogin::showPasswordButton</definition>
+        <argsstring></argsstring>
+        <name>showPasswordButton</name>
+        <qualifiedname>QFieldCloudLogin::showPasswordButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="28" column="14" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudLogin_1a7e3ecbe4fcef6a650427c464f03037c7" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater QFieldCloudLogin::availableProvidersRepeater</definition>
+        <argsstring></argsstring>
+        <name>availableProvidersRepeater</name>
+        <qualifiedname>QFieldCloudLogin::availableProvidersRepeater</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="29" column="10" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudLogin_1abd9758399f95c99a8a8286cd8daa02fa" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QFieldCloudLogin::cloudRegisterLabel</definition>
+        <argsstring></argsstring>
+        <name>cloudRegisterLabel</name>
+        <qualifiedname>QFieldCloudLogin::cloudRegisterLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="30" column="6" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudLogin_1a4003a2608d1a6b78531c59ec909b65ff" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QFieldCloudLogin::cloudIntroLabel</definition>
+        <argsstring></argsstring>
+        <name>cloudIntroLabel</name>
+        <qualifiedname>QFieldCloudLogin::cloudIntroLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudLogin.qml" line="31" column="6" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QFieldCloudLogin</label>
+        <link refid="classQFieldCloudLogin"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QFieldCloudLogin</label>
+        <link refid="classQFieldCloudLogin"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/QFieldCloudLogin.qml" line="9" column="1" bodyfile="src/qml/QFieldCloudLogin.qml" bodystart="9" bodyend="32"/>
+    <listofallmembers>
+      <member refid="classQFieldCloudLogin_1a7e3ecbe4fcef6a650427c464f03037c7" prot="private" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>availableProvidersRepeater</name></member>
+      <member refid="classQFieldCloudLogin_1a4003a2608d1a6b78531c59ec909b65ff" prot="private" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>cloudIntroLabel</name></member>
+      <member refid="classQFieldCloudLogin_1abd9758399f95c99a8a8286cd8daa02fa" prot="private" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>cloudRegisterLabel</name></member>
+      <member refid="classQFieldCloudLogin_1ada4621f87f8ac1820a9ec981afa9211d" prot="private" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>connectionSettings</name></member>
+      <member refid="classQFieldCloudLogin_1a77bbd6e277333afa7fe0825d6b7ebf1f" prot="private" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>fontMetrics</name></member>
+      <member refid="classQFieldCloudLogin_1aed4efd91111ae602ad0a74b1b24c7744" prot="public" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>hasCredentialsAuthentication</name></member>
+      <member refid="classQFieldCloudLogin_1a962ce461fde9e93180a6b926147ad3fc" prot="private" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>height</name></member>
+      <member refid="classQFieldCloudLogin_1ac828bc58e1d8ee7e519800fd056eccde" prot="public" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>isServerUrlEditingActive</name></member>
+      <member refid="classQFieldCloudLogin_1a8731ec8afefede74ce4ad3c33e08a7c9" prot="public" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>isVisible</name></member>
+      <member refid="classQFieldCloudLogin_1a17fcaf26f69aedd2880aa9f81f49eb1d" prot="private" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>loginFeedbackLabel</name></member>
+      <member refid="classQFieldCloudLogin_1a2ba92e5dcffd9abe5979533068b702a6" prot="private" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>logo</name></member>
+      <member refid="classQFieldCloudLogin_1a1facb18c81eae38a460b08ae1971e557" prot="private" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>passwordField</name></member>
+      <member refid="classQFieldCloudLogin_1a3b4cc7eef72d13fdd9122635dd0f1cb3" prot="private" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>serverUrlComboBox</name></member>
+      <member refid="classQFieldCloudLogin_1a89aa64e31958c59e21bcbdd84488caa8" prot="private" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>serverUrlLabel</name></member>
+      <member refid="classQFieldCloudLogin_1a281e9ea97857ff152bc9b6e0b10c97cc" prot="private" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>showPasswordButton</name></member>
+      <member refid="classQFieldCloudLogin_1afe346e328b7a6774d0ebcb732e3c6bec" prot="private" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>usernameField</name></member>
+      <member refid="classQFieldCloudLogin_1a5d9cf79a236c1c2a6c9e36653704cbe6" prot="private" virt="non-virtual"><scope>QFieldCloudLogin</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

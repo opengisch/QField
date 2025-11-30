@@ -1,0 +1,480 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classScaleBarMeasurement" kind="class" language="C++" prot="public">
+    <compoundname>ScaleBarMeasurement</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classScaleBarMeasurement_1a7db8b91afc3613cee48b176def30cebb" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * ScaleBarMeasurement::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>ScaleBarMeasurement::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="33" column="5" bodyfile="src/core/scalebarmeasurement.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classScaleBarMeasurement_1adacc841d431ffce287cb876b0fd60701" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * ScaleBarMeasurement::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>ScaleBarMeasurement::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="34" column="5" bodyfile="src/core/scalebarmeasurement.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classScaleBarMeasurement_1a8703e6e7a49483f4f7177b07c3857b42" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double ScaleBarMeasurement::screenLength</definition>
+        <argsstring></argsstring>
+        <name>screenLength</name>
+        <qualifiedname>ScaleBarMeasurement::screenLength</qualifiedname>
+        <read>screenLength</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="36" column="5" bodyfile="src/core/scalebarmeasurement.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classScaleBarMeasurement_1ac0532a41fdc98616e9255cb032f28a8e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString ScaleBarMeasurement::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <qualifiedname>ScaleBarMeasurement::label</qualifiedname>
+        <read>label</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="37" column="5" bodyfile="src/core/scalebarmeasurement.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classScaleBarMeasurement_1adfd78c6d29d39806d30c636be465aeb4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double ScaleBarMeasurement::referenceScreenLength</definition>
+        <argsstring></argsstring>
+        <name>referenceScreenLength</name>
+        <qualifiedname>ScaleBarMeasurement::referenceScreenLength</qualifiedname>
+        <read>referenceScreenLength</read>
+        <write>setReferenceScreenLength</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="39" column="5" bodyfile="src/core/scalebarmeasurement.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classScaleBarMeasurement_1a7183d22e71eba0b87450abd784e75e52" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* ScaleBarMeasurement::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>ScaleBarMeasurement::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="71" column="16" bodyfile="src/core/scalebarmeasurement.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScaleBarMeasurement_1ad68a707ece2f4796a8a075c227ae6204" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* ScaleBarMeasurement::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>ScaleBarMeasurement::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="72" column="25" bodyfile="src/core/scalebarmeasurement.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScaleBarMeasurement_1af18c391e73026493560b2d27aa11d96e" prot="private" static="no" mutable="no">
+        <type>QgsDistanceArea</type>
+        <definition>QgsDistanceArea ScaleBarMeasurement::mDistanceArea</definition>
+        <argsstring></argsstring>
+        <name>mDistanceArea</name>
+        <qualifiedname>ScaleBarMeasurement::mDistanceArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="74" column="21" bodyfile="src/core/scalebarmeasurement.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScaleBarMeasurement_1a8f7ae6c4dfdda0099a6088c0c4c30ae1" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ScaleBarMeasurement::mScreenLength</definition>
+        <argsstring></argsstring>
+        <name>mScreenLength</name>
+        <qualifiedname>ScaleBarMeasurement::mScreenLength</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="76" column="12" bodyfile="src/core/scalebarmeasurement.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScaleBarMeasurement_1aa90d9e917e4ad5207b6216f221b5e328" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ScaleBarMeasurement::mLabel</definition>
+        <argsstring></argsstring>
+        <name>mLabel</name>
+        <qualifiedname>ScaleBarMeasurement::mLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="78" column="13" bodyfile="src/core/scalebarmeasurement.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScaleBarMeasurement_1a9b8a3b7eeecaa1fa9b91295c2648feb5" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ScaleBarMeasurement::mReferenceScreenLength</definition>
+        <argsstring></argsstring>
+        <name>mReferenceScreenLength</name>
+        <qualifiedname>ScaleBarMeasurement::mReferenceScreenLength</qualifiedname>
+        <initializer>= 300.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="80" column="12" bodyfile="src/core/scalebarmeasurement.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classScaleBarMeasurement_1a9a3d642cf66d243baab6d895588a8833" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ScaleBarMeasurement::ScaleBarMeasurement</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ScaleBarMeasurement</name>
+        <qualifiedname>ScaleBarMeasurement::ScaleBarMeasurement</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="42" column="14" bodyfile="src/core/scalebarmeasurement.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classScaleBarMeasurement_1a5a6b0219aa178688fd09f5000ac41a0d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double ScaleBarMeasurement::referenceScreenLength</definition>
+        <argsstring>() const</argsstring>
+        <name>referenceScreenLength</name>
+        <qualifiedname>ScaleBarMeasurement::referenceScreenLength</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="44" column="12" bodyfile="src/core/scalebarmeasurement.cpp" bodystart="177" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classScaleBarMeasurement_1afeda478f6b9b1d15d5ccb4c4b99d26a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScaleBarMeasurement::setReferenceScreenLength</definition>
+        <argsstring>(double referenceScreenLength)</argsstring>
+        <name>setReferenceScreenLength</name>
+        <qualifiedname>ScaleBarMeasurement::setReferenceScreenLength</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>referenceScreenLength</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="45" column="10" bodyfile="src/core/scalebarmeasurement.cpp" bodystart="167" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="classScaleBarMeasurement_1a8697356853aeff4d67f150ee49703cc6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double ScaleBarMeasurement::screenLength</definition>
+        <argsstring>() const</argsstring>
+        <name>screenLength</name>
+        <qualifiedname>ScaleBarMeasurement::screenLength</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="47" column="12" bodyfile="src/core/scalebarmeasurement.cpp" bodystart="182" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classScaleBarMeasurement_1a8377fbca24180121e0af0232ed831d68" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ScaleBarMeasurement::label</definition>
+        <argsstring>() const</argsstring>
+        <name>label</name>
+        <qualifiedname>ScaleBarMeasurement::label</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="48" column="13" bodyfile="src/core/scalebarmeasurement.cpp" bodystart="187" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classScaleBarMeasurement_1a94deb680c7112edb0b4627df3f618d6f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * ScaleBarMeasurement::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>ScaleBarMeasurement::project</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="50" column="16" bodyfile="src/core/scalebarmeasurement.cpp" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classScaleBarMeasurement_1a5a949dfb39ffedfe761b767764bc7f66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScaleBarMeasurement::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>ScaleBarMeasurement::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="51" column="10" bodyfile="src/core/scalebarmeasurement.cpp" bodystart="46" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classScaleBarMeasurement_1a3d3bc198cfe69b4407bafff39a7d3ee9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * ScaleBarMeasurement::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>ScaleBarMeasurement::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="53" column="25" bodyfile="src/core/scalebarmeasurement.cpp" bodystart="89" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classScaleBarMeasurement_1a0ca13dc7d04161c41a7e18012b0e1817" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScaleBarMeasurement::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>ScaleBarMeasurement::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="54" column="10" bodyfile="src/core/scalebarmeasurement.cpp" bodystart="69" bodyend="87"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classScaleBarMeasurement_1ab1b78a8de584afe6997bddde80336caf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScaleBarMeasurement::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>ScaleBarMeasurement::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="57" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classScaleBarMeasurement_1af2d8f214dc6beab9b3e5b021cd16514f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScaleBarMeasurement::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>ScaleBarMeasurement::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="58" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classScaleBarMeasurement_1a10ae42556494a601fd25bdd97926176f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScaleBarMeasurement::screenLengthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>screenLengthChanged</name>
+        <qualifiedname>ScaleBarMeasurement::screenLengthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="60" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classScaleBarMeasurement_1a16693826460709f61cd16dceca35f6a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScaleBarMeasurement::labelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>labelChanged</name>
+        <qualifiedname>ScaleBarMeasurement::labelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="61" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classScaleBarMeasurement_1aaf0ff4df0bfb39f3b1103dd306de29c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScaleBarMeasurement::referenceScreenLengthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>referenceScreenLengthChanged</name>
+        <qualifiedname>ScaleBarMeasurement::referenceScreenLengthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="63" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classScaleBarMeasurement_1a7e20a1cd2a3815f5b82a41d9404126d9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScaleBarMeasurement::resetDistanceArea</definition>
+        <argsstring>()</argsstring>
+        <name>resetDistanceArea</name>
+        <qualifiedname>ScaleBarMeasurement::resetDistanceArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="67" column="10" bodyfile="src/core/scalebarmeasurement.cpp" bodystart="28" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="slot" id="classScaleBarMeasurement_1a61e6765880b23a311aede782980e4805" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScaleBarMeasurement::measure</definition>
+        <argsstring>()</argsstring>
+        <name>measure</name>
+        <qualifiedname>ScaleBarMeasurement::measure</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/scalebarmeasurement.h" line="68" column="10" bodyfile="src/core/scalebarmeasurement.cpp" bodystart="94" bodyend="165"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>ScaleBarMeasurement</label>
+        <link refid="classScaleBarMeasurement"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>ScaleBarMeasurement</label>
+        <link refid="classScaleBarMeasurement"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/scalebarmeasurement.h" line="29" column="1" bodyfile="src/core/scalebarmeasurement.h" bodystart="30" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classScaleBarMeasurement_1ac0532a41fdc98616e9255cb032f28a8e" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>label</name></member>
+      <member refid="classScaleBarMeasurement_1a8377fbca24180121e0af0232ed831d68" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>label</name></member>
+      <member refid="classScaleBarMeasurement_1a16693826460709f61cd16dceca35f6a0" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>labelChanged</name></member>
+      <member refid="classScaleBarMeasurement_1adacc841d431ffce287cb876b0fd60701" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>mapSettings</name></member>
+      <member refid="classScaleBarMeasurement_1a3d3bc198cfe69b4407bafff39a7d3ee9" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>mapSettings</name></member>
+      <member refid="classScaleBarMeasurement_1af2d8f214dc6beab9b3e5b021cd16514f" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>mapSettingsChanged</name></member>
+      <member refid="classScaleBarMeasurement_1af18c391e73026493560b2d27aa11d96e" prot="private" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>mDistanceArea</name></member>
+      <member refid="classScaleBarMeasurement_1a61e6765880b23a311aede782980e4805" prot="private" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>measure</name></member>
+      <member refid="classScaleBarMeasurement_1aa90d9e917e4ad5207b6216f221b5e328" prot="private" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>mLabel</name></member>
+      <member refid="classScaleBarMeasurement_1ad68a707ece2f4796a8a075c227ae6204" prot="private" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>mMapSettings</name></member>
+      <member refid="classScaleBarMeasurement_1a7183d22e71eba0b87450abd784e75e52" prot="private" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>mProject</name></member>
+      <member refid="classScaleBarMeasurement_1a9b8a3b7eeecaa1fa9b91295c2648feb5" prot="private" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>mReferenceScreenLength</name></member>
+      <member refid="classScaleBarMeasurement_1a8f7ae6c4dfdda0099a6088c0c4c30ae1" prot="private" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>mScreenLength</name></member>
+      <member refid="classScaleBarMeasurement_1a7db8b91afc3613cee48b176def30cebb" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>project</name></member>
+      <member refid="classScaleBarMeasurement_1a94deb680c7112edb0b4627df3f618d6f" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>project</name></member>
+      <member refid="classScaleBarMeasurement_1ab1b78a8de584afe6997bddde80336caf" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>projectChanged</name></member>
+      <member refid="classScaleBarMeasurement_1adfd78c6d29d39806d30c636be465aeb4" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>referenceScreenLength</name></member>
+      <member refid="classScaleBarMeasurement_1a5a6b0219aa178688fd09f5000ac41a0d" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>referenceScreenLength</name></member>
+      <member refid="classScaleBarMeasurement_1aaf0ff4df0bfb39f3b1103dd306de29c1" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>referenceScreenLengthChanged</name></member>
+      <member refid="classScaleBarMeasurement_1a7e20a1cd2a3815f5b82a41d9404126d9" prot="private" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>resetDistanceArea</name></member>
+      <member refid="classScaleBarMeasurement_1a9a3d642cf66d243baab6d895588a8833" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>ScaleBarMeasurement</name></member>
+      <member refid="classScaleBarMeasurement_1a8703e6e7a49483f4f7177b07c3857b42" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>screenLength</name></member>
+      <member refid="classScaleBarMeasurement_1a8697356853aeff4d67f150ee49703cc6" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>screenLength</name></member>
+      <member refid="classScaleBarMeasurement_1a10ae42556494a601fd25bdd97926176f" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>screenLengthChanged</name></member>
+      <member refid="classScaleBarMeasurement_1a0ca13dc7d04161c41a7e18012b0e1817" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>setMapSettings</name></member>
+      <member refid="classScaleBarMeasurement_1a5a949dfb39ffedfe761b767764bc7f66" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>setProject</name></member>
+      <member refid="classScaleBarMeasurement_1afeda478f6b9b1d15d5ccb4c4b99d26a3" prot="public" virt="non-virtual"><scope>ScaleBarMeasurement</scope><name>setReferenceScreenLength</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

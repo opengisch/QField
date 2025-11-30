@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="QfSwitch_8qml" kind="file" language="C++">
+    <compoundname>QfSwitch.qml</compoundname>
+    <innerclass refid="classTheme_1_1QfSwitch" prot="public">Theme::QfSwitch</innerclass>
+    <innernamespace refid="namespaceTheme">Theme</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>QtQuick.Controls</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">SwitchDelegate<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>id:<sp/>control</highlight></codeline>
+<codeline lineno="9" refid="classTheme_1_1QfSwitch" refkind="compound"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/qml/imports/Theme/QfSwitch.qml"/>
+  </compounddef>
+</doxygen>

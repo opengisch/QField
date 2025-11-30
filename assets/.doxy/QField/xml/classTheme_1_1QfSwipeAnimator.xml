@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfSwipeAnimator" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfSwipeAnimator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Flickable</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfSwipeAnimator_1a5ffe4bf12b11c18489557189612ee107" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfSwipeAnimator::boundsBehavior</definition>
+        <argsstring></argsstring>
+        <name>boundsBehavior</name>
+        <qualifiedname>Theme::QfSwipeAnimator::boundsBehavior</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSwipeAnimator.qml" line="7" column="5" bodyfile="src/qml/imports/Theme/QfSwipeAnimator.qml" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfSwipeAnimator_1a97a78dc980a058b2c197f74c12ba7b01" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfSwipeAnimator::flickableDirection</definition>
+        <argsstring></argsstring>
+        <name>flickableDirection</name>
+        <qualifiedname>Theme::QfSwipeAnimator::flickableDirection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSwipeAnimator.qml" line="8" column="5" bodyfile="src/qml/imports/Theme/QfSwipeAnimator.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfSwipeAnimator_1a6159ca126355cf77807d78cb11e3a433" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfSwipeAnimator::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>Theme::QfSwipeAnimator::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSwipeAnimator.qml" line="9" column="5" bodyfile="src/qml/imports/Theme/QfSwipeAnimator.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfSwipeAnimator_1a3eb52c7d22bbc33ee7d28a53fbfb2a35" prot="private" static="no" mutable="no">
+        <type>SequentialAnimation</type>
+        <definition>SequentialAnimation Theme::QfSwipeAnimator::mainAnim</definition>
+        <argsstring></argsstring>
+        <name>mainAnim</name>
+        <qualifiedname>Theme::QfSwipeAnimator::mainAnim</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSwipeAnimator.qml" line="21" column="21" bodyfile="src/qml/imports/Theme/QfSwipeAnimator.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfSwipeAnimator_1adf4e54f40661d04196184bb023e48b2a" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item Theme::QfSwipeAnimator::containerLayout</definition>
+        <argsstring></argsstring>
+        <name>containerLayout</name>
+        <qualifiedname>Theme::QfSwipeAnimator::containerLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSwipeAnimator.qml" line="22" column="6" bodyfile="src/qml/imports/Theme/QfSwipeAnimator.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfSwipeAnimator_1ad1e430e718f50b4f9e699f77c1b9a405" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real Theme::QfSwipeAnimator::contentImplicitWidth</definition>
+        <argsstring></argsstring>
+        <name>contentImplicitWidth</name>
+        <qualifiedname>Theme::QfSwipeAnimator::contentImplicitWidth</qualifiedname>
+        <read>dummyGetter_contentImplicitWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSwipeAnimator.qml" line="12" column="1" bodyfile="src/qml/imports/Theme/QfSwipeAnimator.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfSwipeAnimator_1a9a1d2f3506554a2b29d6549c1b5579c3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfSwipeAnimator::contents</definition>
+        <argsstring></argsstring>
+        <name>contents</name>
+        <qualifiedname>Theme::QfSwipeAnimator::contents</qualifiedname>
+        <read>dummyGetter_contents_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This is the default property </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSwipeAnimator.qml" line="15" column="1" bodyfile="src/qml/imports/Theme/QfSwipeAnimator.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfSwipeAnimator_1ad57c97819933ee602185a1959e5eabbf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfSwipeAnimator::shouldAutoFlick</definition>
+        <argsstring></argsstring>
+        <name>shouldAutoFlick</name>
+        <qualifiedname>Theme::QfSwipeAnimator::shouldAutoFlick</qualifiedname>
+        <read>dummyGetter_shouldAutoFlick_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSwipeAnimator.qml" line="17" column="1" bodyfile="src/qml/imports/Theme/QfSwipeAnimator.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfSwipeAnimator_1a51cd8e33a27475c3849ec62c29adb5d9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real Theme::QfSwipeAnimator::duration</definition>
+        <argsstring></argsstring>
+        <name>duration</name>
+        <qualifiedname>Theme::QfSwipeAnimator::duration</qualifiedname>
+        <read>dummyGetter_duration_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSwipeAnimator.qml" line="19" column="1" bodyfile="src/qml/imports/Theme/QfSwipeAnimator.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTheme_1_1QfSwipeAnimator_1ab375f202df2110c0ac3b705631ec1685" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfSwipeAnimator::ensureCursorVisible</definition>
+        <argsstring>(cursorRectangle)</argsstring>
+        <name>ensureCursorVisible</name>
+        <qualifiedname>Theme::QfSwipeAnimator::ensureCursorVisible</qualifiedname>
+        <param>
+          <type>cursorRectangle</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSwipeAnimator.qml" line="26" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Flickable</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfSwipeAnimator</label>
+        <link refid="classTheme_1_1QfSwipeAnimator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Flickable</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfSwipeAnimator</label>
+        <link refid="classTheme_1_1QfSwipeAnimator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfSwipeAnimator.qml" line="6" column="1" bodyfile="src/qml/imports/Theme/QfSwipeAnimator.qml" bodystart="6" bodyend="27"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfSwipeAnimator_1a5ffe4bf12b11c18489557189612ee107" prot="private" virt="non-virtual"><scope>Theme::QfSwipeAnimator</scope><name>boundsBehavior</name></member>
+      <member refid="classTheme_1_1QfSwipeAnimator_1a6159ca126355cf77807d78cb11e3a433" prot="private" virt="non-virtual"><scope>Theme::QfSwipeAnimator</scope><name>clip</name></member>
+      <member refid="classTheme_1_1QfSwipeAnimator_1adf4e54f40661d04196184bb023e48b2a" prot="private" virt="non-virtual"><scope>Theme::QfSwipeAnimator</scope><name>containerLayout</name></member>
+      <member refid="classTheme_1_1QfSwipeAnimator_1ad1e430e718f50b4f9e699f77c1b9a405" prot="public" virt="non-virtual"><scope>Theme::QfSwipeAnimator</scope><name>contentImplicitWidth</name></member>
+      <member refid="classTheme_1_1QfSwipeAnimator_1a9a1d2f3506554a2b29d6549c1b5579c3" prot="public" virt="non-virtual"><scope>Theme::QfSwipeAnimator</scope><name>contents</name></member>
+      <member refid="classTheme_1_1QfSwipeAnimator_1a51cd8e33a27475c3849ec62c29adb5d9" prot="public" virt="non-virtual"><scope>Theme::QfSwipeAnimator</scope><name>duration</name></member>
+      <member refid="classTheme_1_1QfSwipeAnimator_1ab375f202df2110c0ac3b705631ec1685" prot="public" virt="non-virtual"><scope>Theme::QfSwipeAnimator</scope><name>ensureCursorVisible</name></member>
+      <member refid="classTheme_1_1QfSwipeAnimator_1a97a78dc980a058b2c197f74c12ba7b01" prot="private" virt="non-virtual"><scope>Theme::QfSwipeAnimator</scope><name>flickableDirection</name></member>
+      <member refid="classTheme_1_1QfSwipeAnimator_1a3eb52c7d22bbc33ee7d28a53fbfb2a35" prot="private" virt="non-virtual"><scope>Theme::QfSwipeAnimator</scope><name>mainAnim</name></member>
+      <member refid="classTheme_1_1QfSwipeAnimator_1ad57c97819933ee602185a1959e5eabbf" prot="public" virt="non-virtual"><scope>Theme::QfSwipeAnimator</scope><name>shouldAutoFlick</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
