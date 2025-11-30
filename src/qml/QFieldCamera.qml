@@ -374,24 +374,24 @@ Popup {
     }
 
     Rectangle {
-      x: cameraItem.isPortraitMode ? 0 : parent.width - 100
-      y: cameraItem.isPortraitMode ? parent.height - 100 : 0
-      width: cameraItem.isPortraitMode ? parent.width : 100
-      height: cameraItem.isPortraitMode ? 100 : parent.height
+      width: cameraItem.isPortraitMode ? parent.width : 100 + mainWindow.sceneBottomMargin
+      height: cameraItem.isPortraitMode ? 100 + mainWindow.sceneRightMargin : parent.height
+      x: cameraItem.isPortraitMode ? 0 : parent.width - width
+      y: cameraItem.isPortraitMode ? parent.height - height : 0
 
       color: Theme.darkGraySemiOpaque
 
       Rectangle {
-        x: cameraItem.isPortraitMode ? 0 : parent.width - 100
-        y: cameraItem.isPortraitMode ? parent.height - 100 - mainWindow.sceneBottomMargin : 0
-        width: cameraItem.isPortraitMode ? parent.width : 100
-        height: cameraItem.isPortraitMode ? 100 + mainWindow.sceneBottomMargin : parent.height
+        width: cameraItem.isPortraitMode ? parent.width : 100 + mainWindow.sceneBottomMargin
+        height: cameraItem.isPortraitMode ? 100 + mainWindow.sceneRightMargin : parent.height
+        x: cameraItem.isPortraitMode ? 0 : parent.width - width
+        y: cameraItem.isPortraitMode ? parent.height - height : 0
 
         color: Theme.darkGraySemiOpaque
 
         Rectangle {
           anchors.top: parent.top
-          width: parent.width
+          width: cameraItem.isPortraitMode ? parent.width : parent.width - mainWindow.sceneRightMargin
           height: cameraItem.isPortraitMode ? parent.height - mainWindow.sceneBottomMargin : parent.height
           color: "transparent"
 
@@ -552,7 +552,7 @@ Popup {
       id: backButton
 
       anchors.left: parent.left
-      anchors.leftMargin: 4
+      anchors.leftMargin: mainWindow.sceneLeftMargin + 4
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 4
 
@@ -580,7 +580,7 @@ Popup {
       name: "cameraSettingsDrawer"
 
       anchors.left: parent.left
-      anchors.leftMargin: 4
+      anchors.leftMargin: mainWindow.sceneLeftMargin + 4
       anchors.top: backButton.bottom
       anchors.topMargin: 4
 
