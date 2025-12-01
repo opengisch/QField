@@ -9,89 +9,89 @@ import "Utils.js" as Utils
 TestCase {
   name: "Relations"
   /**
-   * Creates parent/child memory layers using the API,
+   * Creates referenced/referencing memory layers using the API,
    * registers a relation between them, inserts features, and validates
    * relation consistency.
    *
    * Verifies that:
    * - Layers and fields are created correctly
    * - Relation is valid and correctly registered in the project
-   * - Parent/child features commit and respect the relation
+   * - Referenced/referencing features commit and respect the relation
    */
   function test_00_fullRelationWorkflow() {
-    // 1) Create parent layer
-    var parentFields = FeatureUtils.createFields([FeatureUtils.createField("district_uuid", FeatureUtils.String), FeatureUtils.createField("district_name", FeatureUtils.String)]);
-    var parentLayer = LayerUtils.createMemoryLayer("Districts", parentFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
-    verify(parentLayer !== null, "Parent layer must be created");
-    compare(parentLayer.fields.count, 2);
-    verify(parentLayer.fields.indexFromName("district_uuid") >= 0);
-    verify(parentLayer.fields.indexFromName("district_name") >= 0);
+    // 1) Create referenced layer
+    var referencedFields = FeatureUtils.createFields([FeatureUtils.createField("district_uuid", FeatureUtils.String), FeatureUtils.createField("district_name", FeatureUtils.String)]);
+    var referencedLayer = LayerUtils.createMemoryLayer("Districts", referencedFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
+    verify(referencedLayer !== null, "Referenced layer must be created");
+    compare(referencedLayer.fields.count, 2);
+    verify(referencedLayer.fields.indexFromName("district_uuid") >= 0);
+    verify(referencedLayer.fields.indexFromName("district_name") >= 0);
 
-    // 2) Create child layer
-    var childFields = FeatureUtils.createFields([FeatureUtils.createField("village_uuid", FeatureUtils.String), FeatureUtils.createField("village_name", FeatureUtils.String), FeatureUtils.createField("parent_district_uuid", FeatureUtils.String), FeatureUtils.createField("population", FeatureUtils.Int)]);
-    var childLayer = LayerUtils.createMemoryLayer("Villages", childFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
-    verify(childLayer !== null, "Child layer must be created");
-    compare(childLayer.fields.count, 4);
-    verify(childLayer.fields.indexFromName("village_uuid") >= 0);
-    verify(childLayer.fields.indexFromName("parent_district_uuid") >= 0);
+    // 2) Create referencing layer
+    var referencingFields = FeatureUtils.createFields([FeatureUtils.createField("village_uuid", FeatureUtils.String), FeatureUtils.createField("village_name", FeatureUtils.String), FeatureUtils.createField("parent_district_uuid", FeatureUtils.String), FeatureUtils.createField("population", FeatureUtils.Int)]);
+    var referencingLayer = LayerUtils.createMemoryLayer("Villages", referencingFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
+    verify(referencingLayer !== null, "Referencing layer must be created");
+    compare(referencingLayer.fields.count, 4);
+    verify(referencingLayer.fields.indexFromName("village_uuid") >= 0);
+    verify(referencingLayer.fields.indexFromName("parent_district_uuid") >= 0);
 
     // 3) Register layers in project
-    ProjectUtils.addMapLayer(qgisProject, parentLayer);
-    ProjectUtils.addMapLayer(qgisProject, childLayer);
+    ProjectUtils.addMapLayer(qgisProject, referencedLayer);
+    ProjectUtils.addMapLayer(qgisProject, referencingLayer);
 
     // 4) Create and register relation
-    var relation = RelationUtils.createRelation(qgisProject, parentLayer, "district_uuid", childLayer, "parent_district_uuid");
+    var relation = RelationUtils.createRelation(qgisProject, referencedLayer, "district_uuid", referencingLayer, "parent_district_uuid");
     verify(relation.isValid, "Relation should be valid");
     var relationManager = qgisProject.relationManager;
     relationManager.addRelation(relation);
     var registeredRelation = relationManager.relation(relation.id);
     verify(registeredRelation.isValid, "Relation must be retrievable");
-    compare(registeredRelation.referencedLayer.id, parentLayer.id);
-    compare(registeredRelation.referencingLayer.id, childLayer.id);
+    compare(registeredRelation.referencedLayer.id, referencedLayer.id);
+    compare(registeredRelation.referencingLayer.id, referencingLayer.id);
 
-    // 5) Add parent feature
-    var parentFeature = FeatureUtils.createFeature(parentLayer);
-    parentFeature.setAttribute(0, "uuid-001");
-    parentFeature.setAttribute(1, "Central District");
-    parentLayer.startEditing();
-    verify(LayerUtils.addFeature(parentLayer, parentFeature), "Parent feature insertion failed");
-    parentLayer.commitChanges();
+    // 5) Add referenced feature
+    var referencedFeature = FeatureUtils.createFeature(referencedLayer);
+    referencedFeature.setAttribute(0, "uuid-001");
+    referencedFeature.setAttribute(1, "Central District");
+    referencedLayer.startEditing();
+    verify(LayerUtils.addFeature(referencedLayer, referencedFeature), "Referenced feature insertion failed");
+    referencedLayer.commitChanges();
 
-    // 6) Add child features referencing the parent
-    childLayer.startEditing();
-    var child1 = FeatureUtils.createFeature(childLayer);
+    // 6) Add referencing features
+    referencingLayer.startEditing();
+    var child1 = FeatureUtils.createFeature(referencingLayer);
     child1.setAttribute(0, "village-uuid-001");
     child1.setAttribute(1, "Village Alpha");
     child1.setAttribute(2, "uuid-001");
     child1.setAttribute(3, 2500);
-    var child2 = FeatureUtils.createFeature(childLayer);
+    var child2 = FeatureUtils.createFeature(referencingLayer);
     child2.setAttribute(0, "village-uuid-002");
     child2.setAttribute(1, "Village Beta");
     child2.setAttribute(2, "uuid-001");
     child2.setAttribute(3, 2555);
-    verify(LayerUtils.addFeature(childLayer, child1), "Child1 insertion failed");
-    verify(LayerUtils.addFeature(childLayer, child2), "Child2 insertion failed");
-    childLayer.commitChanges();
+    verify(LayerUtils.addFeature(referencingLayer, child1), "Child1 insertion failed");
+    verify(LayerUtils.addFeature(referencingLayer, child2), "Child2 insertion failed");
+    referencingLayer.commitChanges();
 
     // 7) Final relation integrity check
     var finalRelation = relationManager.relation(relation.id);
-    verify(finalRelation.referencedLayer.id === parentLayer.id);
-    verify(finalRelation.referencingLayer.id === childLayer.id);
+    verify(finalRelation.referencedLayer.id === referencedLayer.id);
+    verify(finalRelation.referencingLayer.id === referencingLayer.id);
   }
 
   function test_02_featureAttributes() {
-    const parentFeature = qgisProject.mapLayersByName('Districts')[0].getFeature("1");
-    compare(parentFeature.attribute("district_uuid"), "uuid-001");
-    compare(parentFeature.attribute("district_name"), "Central District");
-    const childFeature1 = qgisProject.mapLayersByName('Villages')[0].getFeature("1");
-    compare(childFeature1.attribute("village_uuid"), "village-uuid-001");
-    compare(childFeature1.attribute("village_name"), "Village Alpha");
-    compare(childFeature1.attribute("parent_district_uuid"), "uuid-001");
-    compare(childFeature1.attribute("population"), 2500);
-    const childFeature2 = qgisProject.mapLayersByName('Villages')[0].getFeature("2");
-    compare(childFeature2.attribute("village_uuid"), "village-uuid-002");
-    compare(childFeature2.attribute("village_name"), "Village Beta");
-    compare(childFeature2.attribute("parent_district_uuid"), "uuid-001");
-    compare(childFeature2.attribute("population"), 2555);
+    const referencedFeature = qgisProject.mapLayersByName('Districts')[0].getFeature("1");
+    compare(referencedFeature.attribute("district_uuid"), "uuid-001");
+    compare(referencedFeature.attribute("district_name"), "Central District");
+    const referencingFeature1 = qgisProject.mapLayersByName('Villages')[0].getFeature("1");
+    compare(referencingFeature1.attribute("village_uuid"), "village-uuid-001");
+    compare(referencingFeature1.attribute("village_name"), "Village Alpha");
+    compare(referencingFeature1.attribute("parent_district_uuid"), "uuid-001");
+    compare(referencingFeature1.attribute("population"), 2500);
+    const referencingFeature2 = qgisProject.mapLayersByName('Villages')[0].getFeature("2");
+    compare(referencingFeature2.attribute("village_uuid"), "village-uuid-002");
+    compare(referencingFeature2.attribute("village_name"), "Village Beta");
+    compare(referencingFeature2.attribute("parent_district_uuid"), "uuid-001");
+    compare(referencingFeature2.attribute("population"), 2555);
   }
 }
