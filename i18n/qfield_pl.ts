@@ -502,7 +502,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Pusty</translation>
     </message>
 </context>
 <context>
@@ -842,7 +842,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Pusty</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -4513,7 +4513,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>Range</name>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Pusty</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -4578,7 +4578,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Pusty</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -4832,7 +4832,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Pusty</translation>
     </message>
     <message>
         <source>NULL</source>
