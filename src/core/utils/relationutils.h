@@ -33,19 +33,19 @@ class RelationUtils : public QObject
     Q_INVOKABLE QgsRelation resolveReferencingRelation( QgsProject *project, QgsVectorLayer *layer, const QString &fieldName, const QString &relationId );
 
     /**
-     * Creates a relation between parent and child layers.
+     * Creates a relation between referenced and referencing layers.
      * Note: Layers must be added to the project first
      *
      * \param project The QgsProject instance
-     * \param parentLayer The parent (referenced) layer
-     * \param parentFieldName The field name in the parent layer
-     * \param childLayer The child (referencing) layer
-     * \param childFieldName The field name in the child layer that references the parent
+     * \param referencedLayer The referenced (parent) layer
+     * \param referencedFieldName The field name in the referenced layer
+     * \param referencingLayer The referencing (child) layer
+     * \param referencingFieldName The field name in the referencing layer that references the parent
      * \returns A QgsRelation object
      */
     Q_INVOKABLE QgsRelation createRelation( const QgsProject *project,
-                                            const QgsVectorLayer *parentLayer, const QString &parentFieldName,
-                                            const QgsVectorLayer *childLayer, const QString &childFieldName );
+                                            const QgsVectorLayer *referencedLayer, const QString &referencedFieldName,
+                                            const QgsVectorLayer *referencingLayer, const QString &referencingFieldName );
 };
 
 #endif // RELATIONUTILS_H

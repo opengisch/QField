@@ -45,19 +45,19 @@ QgsRelation RelationUtils::resolveReferencingRelation( QgsProject *project, QgsV
   return QgsRelation();
 }
 
-QgsRelation RelationUtils::createRelation( const QgsProject *project, const QgsVectorLayer *parentLayer, const QString &parentFieldName, const QgsVectorLayer *childLayer, const QString &childFieldName )
+QgsRelation RelationUtils::createRelation( const QgsProject *project, const QgsVectorLayer *referencedLayer, const QString &referencedFieldName, const QgsVectorLayer *referencingLayer, const QString &referencingFieldName )
 {
-  if ( !project || !parentLayer || !childLayer )
+  if ( !project || !referencedLayer || !referencingLayer )
     return QgsRelation();
 
-  const QString relationId = QStringLiteral( "%1_%2_%3_%4" ).arg( parentLayer->name(), parentFieldName, childLayer->name(), childFieldName );
+  const QString relationId = QStringLiteral( "%1_%2_%3_%4" ).arg( referencedLayer->id(), referencedFieldName, referencingLayer->id(), referencingFieldName );
 
   QgsRelation relation;
   relation.setId( relationId );
-  relation.setName( relationId );
-  relation.setReferencedLayer( parentLayer->id() );
-  relation.setReferencingLayer( childLayer->id() );
-  relation.addFieldPair( childFieldName, parentFieldName );
+  relation.setName( QStringLiteral( "%1 (%2) <-> %3 (%4)" ).arg( referencedLayer->name(), referencedFieldName, referencingLayer->name(), referencingFieldName ) );
+  relation.setReferencedLayer( referencedLayer->id() );
+  relation.setReferencingLayer( referencingLayer->id() );
+  relation.addFieldPair( referencingFieldName, referencedFieldName );
 
   return relation;
 }
