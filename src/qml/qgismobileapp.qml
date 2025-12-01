@@ -41,7 +41,15 @@ ApplicationWindow {
   id: mainWindow
   objectName: 'mainWindow'
   visible: true
-  flags: Qt.platform.os === "ios" || Qt.platform.os === "android" ? Qt.Window | Qt.ExpandedClientAreaHint | Qt.NoTitleBarBackgroundHint : Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint | (sceneBorderless ? Qt.FramelessWindowHint : 0)
+  flags: {
+    if (Qt.platform.os === "android") {
+      return Qt.Window | Qt.NoTitleBarBackgroundHint;
+    } else if (Qt.platform.os === "ios") {
+      return Qt.Window | Qt.ExpandedClientAreaHint | Qt.NoTitleBarBackgroundHint;
+    } else {
+      return Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint | (sceneBorderless ? Qt.FramelessWindowHint : 0);
+    }
+  }
 
   topPadding: 0
   bottomPadding: 0
