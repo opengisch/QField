@@ -78,6 +78,7 @@ void QFieldCloudProjectsModel::setCloudConnection( QFieldCloudConnection *cloudC
     connect( mCloudConnection, &QFieldCloudConnection::urlChanged, this, &QFieldCloudProjectsModel::urlChanged );
 
     mUsername = mCloudConnection->username();
+    mUrl = mCloudConnection->url();
     resetProjects();
   }
 
@@ -347,12 +348,23 @@ void QFieldCloudProjectsModel::connectionStatusChanged()
 
 void QFieldCloudProjectsModel::usernameChanged()
 {
+  if ( mUsername == mCloudConnection->username() )
+  {
+    return;
+  }
+
   mUsername = mCloudConnection->username();
   resetProjects();
 }
 
 void QFieldCloudProjectsModel::urlChanged()
 {
+  if ( mUrl == mCloudConnection->url() )
+  {
+    return;
+  }
+
+  mUrl = mCloudConnection->url();
   resetProjects();
 }
 
