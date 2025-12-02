@@ -249,6 +249,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     LayerObserver *mLayerObserver = nullptr;
     QgsGpkgFlusher *mGpkgFlusher = nullptr;
     QString mUsername;
+    QString mUrl;
+
     const int mProjectsPerFetch = 250;
 };
 
