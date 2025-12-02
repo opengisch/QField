@@ -305,22 +305,6 @@ Item {
   Connections {
     target: cloudConnection
 
-    function onUsernameChanged() {
-      usernameField.text = cloudConnection.username;
-    }
-
-    function onPasswordChanged() {
-      passwordField.text = cloudConnection.password;
-    }
-
-    function onUrlChanged() {
-      const index = serverUrlComboBox.find(cloudConnection.url);
-      if (index === -1) {
-        serverUrlComboBox.model = serverUrlComboBox.model.concat(cloudConnection.url);
-      }
-      serverUrlComboBox.currentIndex = serverUrlComboBox.find(cloudConnection.url);
-    }
-
     function onStatusChanged() {
       if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         usernameField.text = cloudConnection.username;
@@ -340,6 +324,18 @@ Item {
       }
       qfieldCloudLogin.hasCredentialsAuthentication = credentialAuthenticationAvailable;
       availableProvidersRepeater.model = cloudConnection.availableProviders;
+    }
+  }
+
+  onVisibleChanged: {
+    if (visible) {
+      usernameField.text = cloudConnection.username;
+      passwordField.text = cloudConnection.password;
+      const index = serverUrlComboBox.find(cloudConnection.url);
+      if (index === -1) {
+        serverUrlComboBox.model = serverUrlComboBox.model.concat(cloudConnection.url);
+      }
+      serverUrlComboBox.currentIndex = serverUrlComboBox.find(cloudConnection.url);
     }
   }
 

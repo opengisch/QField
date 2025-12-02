@@ -365,7 +365,6 @@ void QFieldCloudProjectsModel::urlChanged()
   }
 
   mUrl = mCloudConnection->url();
-  resetProjects();
 }
 
 void QFieldCloudProjectsModel::resetProjects()
