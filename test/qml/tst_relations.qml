@@ -73,10 +73,25 @@ TestCase {
     verify(LayerUtils.addFeature(referencingLayer, child2), "Child2 insertion failed");
     referencingLayer.commitChanges();
 
-    // 7) Final relation integrity check
+    // 7) Relation integrity check
     var finalRelation = relationManager.relation(relation.id);
     verify(finalRelation.referencedLayer.id === referencedLayer.id);
     verify(finalRelation.referencingLayer.id === referencingLayer.id);
+
+    // 8) Test relation editor with referenced feature
+    relation_editor.currentLayer = referencedLayer;
+    relation_editor.currentFeature = referencedLayer.getFeature("1");
+    relation_editor.relationId = relation.id;
+    relation_editor.source = '../../src/qml/editorwidgets/relationeditors/relation_editor.qml';
+    wait(200);
+    verify(relation_editor.item !== null);
+    verify(relation_editor.item.relationEditorModel !== null);
+    compare(relation_editor.item.relationEditorModel.feature.id, 1);
+    compare(relation_editor.item.relationEditorModel.rowCount(), 2);
+    const delegate1TextString = relation_editor.item.listView.itemAtIndex(0).children[2].children[0].text;
+    const delegate2TextString = relation_editor.item.listView.itemAtIndex(1).children[2].children[0].text;
+    compare(delegate1TextString, "Village Alpha");
+    compare(delegate2TextString, "Village Beta");
   }
 
   function test_02_featureAttributes() {
@@ -93,5 +108,29 @@ TestCase {
     compare(referencingFeature2.attribute("village_name"), "Village Beta");
     compare(referencingFeature2.attribute("parent_district_uuid"), "uuid-001");
     compare(referencingFeature2.attribute("population"), 2555);
+  }
+
+  Loader {
+    id: relation_editor
+
+    property var mainWindow: Item {
+      id: mainWindowItem
+      property double sceneTopMargin: SafeArea.margins.top
+    }
+
+    property bool isEnabled: false
+    property bool isEditing: false
+    property bool isEditable: false
+
+    property var value: undefined
+    property var config: ({})
+    property string widget: "RelationEditor"
+    property string relationEditorWidget: "relation_editor"
+    property string relationEditorWidgetConfig: `{"buttons":"SaveChildEdits|AddChildFeature|DuplicateChildFeature|DeleteChildFeature|ZoomToChildFeature","show_first_feature":true}`
+    property var field: undefined
+    property string relationId: ""
+    property string nmRelationId: ""
+    property var currentFeature: undefined
+    property var currentLayer: undefined
   }
 }
