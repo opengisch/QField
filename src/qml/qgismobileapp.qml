@@ -2189,7 +2189,7 @@ ApplicationWindow {
                   text: qsTr("%1°").arg(modelData)
                   font: parent.selected ? Theme.strongTipFont : Theme.tipFont
                   anchors.centerIn: parent
-                  color: Theme.mainTextColor
+                  color: parent.selected ? Theme.buttonTextColor : Theme.mainTextColor
                 }
 
                 Ripple {
@@ -2266,7 +2266,7 @@ ApplicationWindow {
                   text: modelData
                   font: parent.selected ? Theme.strongTipFont : Theme.tipFont
                   anchors.centerIn: parent
-                  color: Theme.mainTextColor
+                  color: tolorenceDelegate.selected ? Theme.buttonTextColor : Theme.mainTextColor
                   elide: Text.ElideRight
                   width: parent.width
                   horizontalAlignment: Text.AlignHCenter
