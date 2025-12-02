@@ -284,6 +284,13 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   QgsApplication::fontManager()->enableFontDownloadsForSession();
 
   mProject = QgsProject::instance();
+  connect( mProject, &QgsProject::aboutToBeCleared, this, [this] {
+    if ( !mProjectFilePath.isEmpty() )
+    {
+      mPluginManager->unloadPlugin( PluginManager::findProjectPlugin( mProjectFilePath ) );
+    }
+  } );
+
   mTrackingModel = new TrackingModel();
   mGpkgFlusher = std::make_unique<QgsGpkgFlusher>( mProject );
   mLayerObserver = std::make_unique<LayerObserver>( mProject );
@@ -752,11 +759,11 @@ bool QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
   {
     saveProjectPreviewImage();
 
+    mAuthRequestHandler->clearStoredRealms();
     if ( !mProjectFilePath.isEmpty() )
     {
-      mPluginManager->unloadPlugin( PluginManager::findProjectPlugin( mProjectFilePath ) );
+      mProject->clear();
     }
-    mAuthRequestHandler->clearStoredRealms();
 
     mProjectFilePath = path;
     mProjectFileName = !name.isEmpty() ? name : fi.completeBaseName();
@@ -1443,15 +1450,11 @@ bool QgisMobileapp::event( QEvent *event )
 
 void QgisMobileapp::clearProject()
 {
-  if ( !mProjectFilePath.isEmpty() )
-  {
-    mPluginManager->unloadPlugin( PluginManager::findProjectPlugin( mProjectFilePath ) );
-  }
   mAuthRequestHandler->clearStoredRealms();
 
+  mProject->clear();
   mProjectFileName = QString();
   mProjectFilePath = QString();
-  mProject->clear();
 }
 
 void QgisMobileapp::saveProjectPreviewImage()
