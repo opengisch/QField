@@ -147,14 +147,21 @@ class LayerUtils : public QObject
      */
     static Q_INVOKABLE void selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, Qgis::SelectBehavior behavior = Qgis::SelectBehavior::SetSelection );
 
-    static bool deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool shouldWriteChanges = true );
+    /**
+     * Deletes a vector layer feature, including related features tied to relationships.
+     * \param project the project holding information on relationships
+     * \param layer the layer from which the feature will be deleted
+     * \param fid the feature ID to be deleted
+     * \param shouldWriteChanges set to TRUE to immediately save the edit buffer
+     */
+    static Q_INVOKABLE bool deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool shouldWriteChanges = true );
 
     /**
      * Duplicates a given \a feature within the provided vector \a layer. If successful, the function will
      * return the duplicated feature with attribute values saved updated to match what was saved
      * into the layer dataset.
      */
-    static QgsFeature duplicateFeature( QgsVectorLayer *layer, QgsFeature feature );
+    static Q_INVOKABLE QgsFeature duplicateFeature( QgsVectorLayer *layer, QgsFeature feature );
 
     /**
      * Adds a \a feature into the \a layer.

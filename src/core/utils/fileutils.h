@@ -71,7 +71,7 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
     * \param filePath The path to check
     * \return True if the path is safely within the current project directory
     */
-    static bool isWithinProjectDirectory( const QString &filePath );
+    Q_INVOKABLE static bool isWithinProjectDirectory( const QString &filePath );
 
     /**
     * Reads the entire content of a file and returns it as a byte array.
@@ -109,14 +109,14 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
      * \param imagePath the image file path
      * \param maximumWidthHeight the maximum width and height size
      */
-    Q_INVOKABLE void restrictImageSize( const QString &imagePath, int maximumWidthHeight );
+    Q_INVOKABLE static void restrictImageSize( const QString &imagePath, int maximumWidthHeight );
 
     /**
      * Adds positioning metadata to a given image.
      * \param imagePath the image path
      * \param positionInformation the GNSS position information used to add metadata details
      */
-    Q_INVOKABLE void addImageMetadata( const QString &imagePath, const GnssPositionInformation &positionInformation );
+    Q_INVOKABLE static void addImageMetadata( const QString &imagePath, const GnssPositionInformation &positionInformation );
 
     /**
      * Prints details to a given image.
@@ -124,7 +124,7 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
      * \param text the details text
      * \param project an optional project from which custom stamping settings will be retrieved
      */
-    Q_INVOKABLE void addImageStamp( const QString &imagePath, const QString &text, const QString &textFormat = QString(), Qgis::TextHorizontalAlignment horizontalAlignment = Qgis::TextHorizontalAlignment::Left, const QString &imageDecoration = QString() );
+    Q_INVOKABLE static void addImageStamp( const QString &imagePath, const QString &text, const QString &textFormat = QString(), Qgis::TextHorizontalAlignment horizontalAlignment = Qgis::TextHorizontalAlignment::Left, const QString &imageDecoration = QString() );
 
     static bool copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback = nullptr, bool wipeDestFolder = true );
 
