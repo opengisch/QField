@@ -124,140 +124,156 @@ QfPopup {
       }
     }
 
-    ColumnLayout {
-      spacing: 10
-      width: parent.width
-
-      Label {
-        text: qsTr("Connection type")
-        font: Theme.strongFont
-        color: Theme.mainTextColor
-        wrapMode: Text.WordWrap
-        Layout.fillWidth: true
-        Layout.topMargin: 5
-        Layout.columnSpan: 2
+    ScrollView {
+      topPadding: 0
+      leftPadding: 5
+      rightPadding: 5
+      bottomPadding: 0
+      ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+      ScrollBar.vertical: QfScrollBar {
       }
+      contentWidth: settingsLayout.childrenRect.width
+      contentHeight: settingsLayout.childrenRect.height + positioningDeviceItem.item.childrenRect.height
+      width: parent.width
+      height: parent.height
+      clip: true
 
-      QfComboBox {
-        id: positioningDeviceType
-        Layout.fillWidth: true
-        font: Theme.defaultFont
+      ColumnLayout {
+        id: settingsLayout
+        spacing: 10
+        width: page.width - 20
 
-        popup.font: Theme.defaultFont
-        popup.topMargin: mainWindow.sceneTopMargin
-        popup.bottomMargin: mainWindow.sceneTopMargin
-
-        textRole: "name"
-        valueRole: "value"
-
-        delegate: ItemDelegate {
-          width: positioningDeviceType.width
-          height: 36
-          icon.source: {
-            switch (value) {
-            case PositioningDeviceModel.FileDevice:
-              return Theme.getThemeVectorIcon("ic_file_black_24dp");
-            case PositioningDeviceModel.BluetoothDevice:
-              return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
-            case PositioningDeviceModel.TcpDevice:
-              return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
-            case PositioningDeviceModel.UdpDevice:
-              return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp');
-            case PositioningDeviceModel.SerialPortDevice:
-              return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
-            case PositioningDeviceModel.EgenioussDevice:
-              return Theme.getThemeVectorIcon('ic_egeniouss_receiver_black_24dp');
-            }
-            return '';
-          }
-          icon.width: 24
-          icon.height: 24
-          text: name
-          font: Theme.defaultFont
-          highlighted: positioningDeviceType.highlightedIndex === index
+        Label {
+          text: qsTr("Connection type")
+          font: Theme.strongFont
+          color: Theme.mainTextColor
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+          Layout.topMargin: 5
+          Layout.columnSpan: 2
         }
 
-        contentItem: MenuItem {
-          width: positioningDeviceComboBox.width
-          height: 36
+        QfComboBox {
+          id: positioningDeviceType
+          Layout.fillWidth: true
+          font: Theme.defaultFont
 
-          icon.source: {
+          popup.font: Theme.defaultFont
+          popup.topMargin: mainWindow.sceneTopMargin
+          popup.bottomMargin: mainWindow.sceneTopMargin
+
+          textRole: "name"
+          valueRole: "value"
+
+          delegate: ItemDelegate {
+            width: positioningDeviceType.width
+            height: 36
+            icon.source: {
+              switch (value) {
+              case PositioningDeviceModel.FileDevice:
+                return Theme.getThemeVectorIcon("ic_file_black_24dp");
+              case PositioningDeviceModel.BluetoothDevice:
+                return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
+              case PositioningDeviceModel.TcpDevice:
+                return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
+              case PositioningDeviceModel.UdpDevice:
+                return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp');
+              case PositioningDeviceModel.SerialPortDevice:
+                return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
+              case PositioningDeviceModel.EgenioussDevice:
+                return Theme.getThemeVectorIcon('ic_egeniouss_receiver_black_24dp');
+              }
+              return '';
+            }
+            icon.width: 24
+            icon.height: 24
+            text: name
+            font: Theme.defaultFont
+            highlighted: positioningDeviceType.highlightedIndex === index
+          }
+
+          contentItem: MenuItem {
+            width: positioningDeviceComboBox.width
+            height: 36
+
+            icon.source: {
+              switch (positioningDeviceType.currentValue) {
+              case PositioningDeviceModel.FileDevice:
+                return Theme.getThemeVectorIcon("ic_file_black_24dp");
+              case PositioningDeviceModel.BluetoothDevice:
+                return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
+              case PositioningDeviceModel.TcpDevice:
+                return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
+              case PositioningDeviceModel.UdpDevice:
+                return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp');
+              case PositioningDeviceModel.SerialPortDevice:
+                return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
+              case PositioningDeviceModel.EgenioussDevice:
+                return Theme.getThemeVectorIcon('ic_egeniouss_receiver_black_24dp');
+              }
+              return '';
+            }
+            icon.width: 24
+            icon.height: 24
+
+            text: positioningDeviceType.currentText
+            font: Theme.defaultFont
+
+            onClicked: positioningDeviceType.popup.open()
+          }
+        }
+
+        TextField {
+          id: positioningDeviceName
+          Layout.fillWidth: true
+          font: Theme.defaultFont
+          placeholderText: qsTr("Name") + (displayText === '' ? qsTr(' (leave empty to auto-fill)') : '')
+        }
+
+        Label {
+          text: qsTr("Connection details")
+          font: Theme.strongFont
+          color: Theme.mainTextColor
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+          Layout.topMargin: 5
+          Layout.columnSpan: 2
+        }
+
+        ListModel {
+          id: positioningDeviceTypeModel
+          ListElement {
+            name: qsTr('TCP (NMEA)')
+            value: PositioningDeviceModel.TcpDevice
+          }
+          ListElement {
+            name: qsTr('UDP (NMEA)')
+            value: PositioningDeviceModel.UdpDevice
+          }
+        }
+
+        Loader {
+          id: positioningDeviceItem
+          objectName: "positioningDeviceDetailsLoader"
+          Layout.fillWidth: true
+          Layout.fillHeight: true
+          source: {
             switch (positioningDeviceType.currentValue) {
             case PositioningDeviceModel.FileDevice:
-              return Theme.getThemeVectorIcon("ic_file_black_24dp");
+              return "qrc:/qml/FileDeviceChooser.qml";
             case PositioningDeviceModel.BluetoothDevice:
-              return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
+              return "qrc:/qml/BluetoothDeviceChooser.qml";
             case PositioningDeviceModel.TcpDevice:
-              return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
+              return "qrc:/qml/TcpDeviceChooser.qml";
             case PositioningDeviceModel.UdpDevice:
-              return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp');
+              return "qrc:/qml/UdpDeviceChooser.qml";
             case PositioningDeviceModel.SerialPortDevice:
-              return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
+              return "qrc:/qml/SerialPortDeviceChooser.qml";
             case PositioningDeviceModel.EgenioussDevice:
-              return Theme.getThemeVectorIcon('ic_egeniouss_receiver_black_24dp');
+              return "qrc:/qml/EgenioussDeviceChooser.qml";
             }
             return '';
           }
-          icon.width: 24
-          icon.height: 24
-
-          text: positioningDeviceType.currentText
-          font: Theme.defaultFont
-
-          onClicked: positioningDeviceType.popup.open()
-        }
-      }
-
-      TextField {
-        id: positioningDeviceName
-        Layout.fillWidth: true
-        font: Theme.defaultFont
-        placeholderText: qsTr("Name") + (displayText === '' ? qsTr(' (leave empty to auto-fill)') : '')
-      }
-
-      Label {
-        text: qsTr("Connection details")
-        font: Theme.strongFont
-        color: Theme.mainTextColor
-        wrapMode: Text.WordWrap
-        Layout.fillWidth: true
-        Layout.topMargin: 5
-        Layout.columnSpan: 2
-      }
-
-      ListModel {
-        id: positioningDeviceTypeModel
-        ListElement {
-          name: qsTr('TCP (NMEA)')
-          value: PositioningDeviceModel.TcpDevice
-        }
-        ListElement {
-          name: qsTr('UDP (NMEA)')
-          value: PositioningDeviceModel.UdpDevice
-        }
-      }
-
-      Loader {
-        id: positioningDeviceItem
-        objectName: "positioningDeviceDetailsLoader"
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        source: {
-          switch (positioningDeviceType.currentValue) {
-          case PositioningDeviceModel.FileDevice:
-            return "qrc:/qml/FileDeviceChooser.qml";
-          case PositioningDeviceModel.BluetoothDevice:
-            return "qrc:/qml/BluetoothDeviceChooser.qml";
-          case PositioningDeviceModel.TcpDevice:
-            return "qrc:/qml/TcpDeviceChooser.qml";
-          case PositioningDeviceModel.UdpDevice:
-            return "qrc:/qml/UdpDeviceChooser.qml";
-          case PositioningDeviceModel.SerialPortDevice:
-            return "qrc:/qml/SerialPortDeviceChooser.qml";
-          case PositioningDeviceModel.EgenioussDevice:
-            return "qrc:/qml/EgenioussDeviceChooser.qml";
-          }
-          return '';
         }
       }
     }
