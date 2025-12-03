@@ -14,9 +14,11 @@ TestCase {
    * relation consistency.
    *
    * Verifies that:
-   * - Layers and fields are created correctly
-   * - Relation is valid and correctly registered in the project
-   * - Referenced/referencing features commit and respect the relation
+   * - Correct creation of layers, fields, and feature attributes via the API
+   * - Relation creation, registration, retrieval, and validity checks
+   * - Parent/child feature insertion and relation integrity across commits
+   * - Proper population, sorting, and live updates of the relation editor
+   *   (including addition and deletion of child features)
    */
   function test_00_fullRelationWorkflow() {
     // 1) Create referenced layer
@@ -100,6 +102,31 @@ TestCase {
     compare(delegate1TextString, "Village Beta");
     compare(delegate2TextString, "Village Alpha");
     relation_editor.item.toggleSortAction();
+    delegate1TextString = relation_editor.item.listView.itemAtIndex(0).children[2].children[0].text;
+    delegate2TextString = relation_editor.item.listView.itemAtIndex(1).children[2].children[0].text;
+    compare(delegate1TextString, "Village Alpha");
+    compare(delegate2TextString, "Village Beta");
+
+    // 10) Add a new child feature
+    referencingLayer.startEditing();
+    let child3 = FeatureUtils.createFeature(referencingLayer);
+    child3.setAttribute(0, "village-uuid-003");
+    child3.setAttribute(1, "Village Gamma");
+    child3.setAttribute(2, "uuid-001");
+    child3.setAttribute(3, 3000);
+    verify(LayerUtils.addFeature(referencingLayer, child3), "Child3 insertion failed");
+    referencingLayer.commitChanges();
+    relation_editor.item.relationEditorModel.reload();
+    wait(200);
+    compare(relation_editor.item.relationEditorModel.rowCount(), 3);
+    const delegate3TextString = relation_editor.item.listView.itemAtIndex(2).children[2].children[0].text;
+    compare(delegate3TextString, "Village Gamma");
+
+    // 11) Delete a feature
+    relation_editor.item.deleteDialog.referencingFeatureId = "3";
+    relation_editor.item.deleteDialog.accepted();
+    wait(200);
+    compare(relation_editor.item.relationEditorModel.rowCount(), 2);
     delegate1TextString = relation_editor.item.listView.itemAtIndex(0).children[2].children[0].text;
     delegate2TextString = relation_editor.item.listView.itemAtIndex(1).children[2].children[0].text;
     compare(delegate1TextString, "Village Alpha");
