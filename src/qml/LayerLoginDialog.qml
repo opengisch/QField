@@ -14,6 +14,8 @@ Page {
   property string credentialTitle
   property var inCancelation
 
+  padding: 5
+
   header: QfPageHeader {
     title: qsTr("Credentials Details")
     showBackButton: false

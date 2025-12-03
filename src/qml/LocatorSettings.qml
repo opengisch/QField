@@ -46,9 +46,9 @@ QfPopup {
       ListView {
         id: locatorfiltersList
         width: parent.width
-        height: Math.min(childrenRect.height, mainWindow.height - 160)
-        leftMargin: 6
-        rightMargin: 8
+        height: Math.min(contentHeight, mainWindow.height - 160)
+        leftMargin: 5
+        rightMargin: 5
         clip: true
 
         ScrollBar.vertical: QfScrollBar {
@@ -68,7 +68,6 @@ QfPopup {
             Text {
               Layout.fillWidth: true
               topPadding: 5
-              leftPadding: 5
               text: Name
               font: Theme.defaultFont
               color: Theme.mainTextColor
@@ -76,7 +75,6 @@ QfPopup {
             }
             Text {
               Layout.fillWidth: true
-              leftPadding: 5
               bottomPadding: 5
               text: Description
               font: Theme.tipFont
@@ -86,7 +84,6 @@ QfPopup {
             Text {
               visible: Default ? false : true
               Layout.fillWidth: true
-              leftPadding: 5
               bottomPadding: 5
               text: qsTr('When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.').arg('<b>' + Prefix + '</b>')
               font: Theme.tipFont
