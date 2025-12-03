@@ -26,7 +26,7 @@ QfPopup {
 
   parent: mainWindow.contentItem
   width: Math.min(childrenRect.width, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
-  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 30, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
@@ -196,44 +196,41 @@ QfPopup {
           visible: opacitySliderVisible
 
           QfToolButton {
-            Layout.alignment: Qt.AlignVCenter | Qt.alignHCenter
-            Layout.leftMargin: 3
-            Layout.rightMargin: 1
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+            Layout.preferredWidth: 24
+            Layout.leftMargin: 4
             width: 24
             height: 24
             padding: 0
             enabled: false
+            bgcolor: "transparent"
 
             icon.source: Theme.getThemeVectorIcon("ic_opacity_black_24dp")
             icon.color: Theme.mainTextColor
           }
 
-          ColumnLayout {
-            Layout.alignment: Layout.Center
-            Layout.rightMargin: 6
-            spacing: 0
+          Text {
+            Layout.alignment: Qt.AlignVCenter
+            text: qsTr("Opacity")
+            font: Theme.defaultFont
+            color: Theme.mainTextColor
+          }
 
-            Text {
-              Layout.fillWidth: true
-              text: qsTr("Opacity")
-              font: Theme.defaultFont
-              color: Theme.mainTextColor
-            }
+          QfSlider {
+            id: slider
+            Layout.fillWidth: true
+            Layout.rightMargin: 5
+            Layout.alignment: Qt.AlignVCenter
+            value: index !== undefined ? layerTree.data(index, FlatLayerTreeModel.Opacity) * 100 : 0
+            from: 0
+            to: 100
+            stepSize: 1
+            suffixText: " %"
+            height: 40
 
-            QfSlider {
-              id: slider
-              Layout.fillWidth: true
-              value: index !== undefined ? layerTree.data(index, FlatLayerTreeModel.Opacity) * 100 : 0
-              from: 0
-              to: 100
-              stepSize: 1
-              suffixText: " %"
-              height: 40
-
-              onMoved: function () {
-                layerTree.setData(index, value / 100, FlatLayerTreeModel.Opacity);
-                projectInfo.saveLayerStyle(layerTree.data(index, FlatLayerTreeModel.MapLayerPointer));
-              }
+            onMoved: function () {
+              layerTree.setData(index, value / 100, FlatLayerTreeModel.Opacity);
+              projectInfo.saveLayerStyle(layerTree.data(index, FlatLayerTreeModel.MapLayerPointer));
             }
           }
         }
