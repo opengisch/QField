@@ -20,16 +20,16 @@ TestCase {
    */
   function test_00_fullRelationWorkflow() {
     // 1) Create referenced layer
-    var referencedFields = FeatureUtils.createFields([FeatureUtils.createField("district_uuid", FeatureUtils.String), FeatureUtils.createField("district_name", FeatureUtils.String)]);
-    var referencedLayer = LayerUtils.createMemoryLayer("Districts", referencedFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
+    let referencedFields = FeatureUtils.createFields([FeatureUtils.createField("district_uuid", FeatureUtils.String), FeatureUtils.createField("district_name", FeatureUtils.String)]);
+    let referencedLayer = LayerUtils.createMemoryLayer("Districts", referencedFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
     verify(referencedLayer !== null, "Referenced layer must be created");
     compare(referencedLayer.fields.count, 2);
     verify(referencedLayer.fields.indexFromName("district_uuid") >= 0);
     verify(referencedLayer.fields.indexFromName("district_name") >= 0);
 
     // 2) Create referencing layer
-    var referencingFields = FeatureUtils.createFields([FeatureUtils.createField("village_uuid", FeatureUtils.String), FeatureUtils.createField("village_name", FeatureUtils.String), FeatureUtils.createField("parent_district_uuid", FeatureUtils.String), FeatureUtils.createField("population", FeatureUtils.Int)]);
-    var referencingLayer = LayerUtils.createMemoryLayer("Villages", referencingFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
+    let referencingFields = FeatureUtils.createFields([FeatureUtils.createField("village_uuid", FeatureUtils.String), FeatureUtils.createField("village_name", FeatureUtils.String), FeatureUtils.createField("parent_district_uuid", FeatureUtils.String), FeatureUtils.createField("population", FeatureUtils.Int)]);
+    let referencingLayer = LayerUtils.createMemoryLayer("Villages", referencingFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
     verify(referencingLayer !== null, "Referencing layer must be created");
     compare(referencingLayer.fields.count, 4);
     verify(referencingLayer.fields.indexFromName("village_uuid") >= 0);
@@ -40,17 +40,17 @@ TestCase {
     ProjectUtils.addMapLayer(qgisProject, referencingLayer);
 
     // 4) Create and register relation
-    var relation = RelationUtils.createRelation(qgisProject, referencedLayer, "district_uuid", referencingLayer, "parent_district_uuid");
+    let relation = RelationUtils.createRelation(qgisProject, referencedLayer, "district_uuid", referencingLayer, "parent_district_uuid");
     verify(relation.isValid, "Relation should be valid");
-    var relationManager = qgisProject.relationManager;
+    let relationManager = qgisProject.relationManager;
     relationManager.addRelation(relation);
-    var registeredRelation = relationManager.relation(relation.id);
+    let registeredRelation = relationManager.relation(relation.id);
     verify(registeredRelation.isValid, "Relation must be retrievable");
     compare(registeredRelation.referencedLayer.id, referencedLayer.id);
     compare(registeredRelation.referencingLayer.id, referencingLayer.id);
 
     // 5) Add referenced feature
-    var referencedFeature = FeatureUtils.createFeature(referencedLayer);
+    let referencedFeature = FeatureUtils.createFeature(referencedLayer);
     referencedFeature.setAttribute(0, "uuid-001");
     referencedFeature.setAttribute(1, "Central District");
     referencedLayer.startEditing();
@@ -59,12 +59,12 @@ TestCase {
 
     // 6) Add referencing features
     referencingLayer.startEditing();
-    var child1 = FeatureUtils.createFeature(referencingLayer);
+    let child1 = FeatureUtils.createFeature(referencingLayer);
     child1.setAttribute(0, "village-uuid-001");
     child1.setAttribute(1, "Village Alpha");
     child1.setAttribute(2, "uuid-001");
     child1.setAttribute(3, 2500);
-    var child2 = FeatureUtils.createFeature(referencingLayer);
+    let child2 = FeatureUtils.createFeature(referencingLayer);
     child2.setAttribute(0, "village-uuid-002");
     child2.setAttribute(1, "Village Beta");
     child2.setAttribute(2, "uuid-001");
@@ -74,7 +74,7 @@ TestCase {
     referencingLayer.commitChanges();
 
     // 7) Relation integrity check
-    var finalRelation = relationManager.relation(relation.id);
+    let finalRelation = relationManager.relation(relation.id);
     verify(finalRelation.referencedLayer.id === referencedLayer.id);
     verify(finalRelation.referencingLayer.id === referencingLayer.id);
 
@@ -88,8 +88,20 @@ TestCase {
     verify(relation_editor.item.relationEditorModel !== null);
     compare(relation_editor.item.relationEditorModel.feature.id, 1);
     compare(relation_editor.item.relationEditorModel.rowCount(), 2);
-    const delegate1TextString = relation_editor.item.listView.itemAtIndex(0).children[2].children[0].text;
-    const delegate2TextString = relation_editor.item.listView.itemAtIndex(1).children[2].children[0].text;
+    let delegate1TextString = relation_editor.item.listView.itemAtIndex(0).children[2].children[0].text;
+    let delegate2TextString = relation_editor.item.listView.itemAtIndex(1).children[2].children[0].text;
+    compare(delegate1TextString, "Village Alpha");
+    compare(delegate2TextString, "Village Beta");
+
+    // 9) Sort action
+    relation_editor.item.toggleSortAction();
+    delegate1TextString = relation_editor.item.listView.itemAtIndex(0).children[2].children[0].text;
+    delegate2TextString = relation_editor.item.listView.itemAtIndex(1).children[2].children[0].text;
+    compare(delegate1TextString, "Village Beta");
+    compare(delegate2TextString, "Village Alpha");
+    relation_editor.item.toggleSortAction();
+    delegate1TextString = relation_editor.item.listView.itemAtIndex(0).children[2].children[0].text;
+    delegate2TextString = relation_editor.item.listView.itemAtIndex(1).children[2].children[0].text;
     compare(delegate1TextString, "Village Alpha");
     compare(delegate2TextString, "Village Beta");
   }
