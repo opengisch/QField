@@ -47,7 +47,13 @@ QfPopup {
         id: locatorfiltersList
         width: parent.width
         height: Math.min(childrenRect.height, mainWindow.height - 160)
+        leftMargin: 6
+        rightMargin: 8
         clip: true
+
+        ScrollBar.vertical: QfScrollBar {
+          verticalPadding: 15
+        }
 
         delegate: Rectangle {
           id: rectangle
