@@ -159,7 +159,7 @@ class QFieldCloudUtils : public QObject
     Q_INVOKABLE static void addPendingAttachments( const QString &username, const QString &projectId, const QStringList &fileNames, QFieldCloudConnection *cloudConnection = nullptr, const bool &checkSumCheck = false );
 
     //! Removes a \a fileName for a given \a projectId to the pending attachments list
-    static void removePendingAttachment( const QString &username, const QString &projectId, const QString &fileName );
+    Q_INVOKABLE static void removePendingAttachment( const QString &username, const QString &projectId, const QString &fileName );
 
   private:
     static inline const QString errorCodeOverQuota { QStringLiteral( "over_quota" ) };
