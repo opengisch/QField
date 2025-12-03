@@ -10,6 +10,7 @@ import Theme
  */
 Item {
   width: parent.width
+  height: childrenRect.height
 
   property alias deviceFilePath: filePath.text
   property alias deviceInterval: interval.text

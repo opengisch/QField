@@ -9,6 +9,7 @@ import Theme
  */
 Item {
   width: parent.width
+  height: childrenRect.height
 
   property alias deviceAddress: tcpDeviceAddress.text
   property alias devicePort: tcpDevicePort.text

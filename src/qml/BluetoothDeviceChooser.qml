@@ -14,6 +14,7 @@ Item {
   property bool scannedOnce: false
 
   width: parent.width
+  height: childrenRect.height
 
   property string deviceName: ''
   property string deviceAddress: ''
