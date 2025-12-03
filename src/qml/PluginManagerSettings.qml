@@ -77,9 +77,15 @@ QfPopup {
         Layout.fillWidth: true
         Layout.fillHeight: true
         visible: count > 0
+        leftMargin: 6
+        rightMargin: 8
         clip: true
 
         property var downloadingUuids: []
+
+        ScrollBar.vertical: QfScrollBar {
+          verticalPadding: 15
+        }
 
         model: PluginProxyModel {
           sourceModel: pluginManager.pluginModel
