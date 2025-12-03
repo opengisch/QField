@@ -122,6 +122,9 @@ void PluginManager::unloadPlugin( const QString &pluginPath )
     {
       emit appPluginDisabled( pluginUuid );
     }
+
+    // Clear QML components cache of dynamically loaded items
+    mEngine->clearComponentCache();
   }
 }
 
