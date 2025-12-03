@@ -60,7 +60,7 @@ QfPopup {
     id: popupContent
     width: parent.width
     height: parent.height
-    padding: 5
+    padding: 0
     header: RowLayout {
       id: headerLayout
       spacing: 2
@@ -96,14 +96,13 @@ QfPopup {
     }
 
     ScrollView {
-      padding: 0
+      anchors.fill: parent
+      padding: 5
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
       ScrollBar.vertical: QfScrollBar {
       }
       contentWidth: popupLayout.childrenRect.width
       contentHeight: popupLayout.childrenRect.height
-      width: parent.width
-      height: parent.height
       clip: true
 
       ColumnLayout {

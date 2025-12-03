@@ -31,6 +31,8 @@ QfPopup {
   Page {
     id: browserContainer
     anchors.fill: parent
+    padding: 5
+
     header: QfPageHeader {
       id: pageHeader
       title: browserView && !browserView.loading && browserView.title !== '' ? browserView.title : qsTr("Browser")
