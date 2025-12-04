@@ -135,7 +135,7 @@ EditorWidgetBase {
               elide: Text.ElideRight
               anchors.centerIn: parent
               font: Theme.defaultFont
-              color: !isEditable && isEditing ? Theme.mainTextDisabledColor : Theme.mainTextColor
+              color: !isEditable && isEditing ? Theme.mainTextDisabledColor : selected && isEditing ? Theme.buttonTextColor : Theme.mainTextColor
             }
 
             MouseArea {
