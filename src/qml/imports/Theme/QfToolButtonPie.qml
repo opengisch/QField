@@ -22,7 +22,7 @@ Menu {
 
   QtObject {
     id: internal
-    property int animationDuration: 150
+    property int animationDuration: 75
     property real outerRadius: pieMenu.width / 2
     property real innerRadius: outerRadius - bandWidth
     property real pathRadius: (innerRadius + outerRadius + bandWidth) / 2
