@@ -289,6 +289,7 @@ void FeatureModel::setLinkedFeatureValues()
 {
   beginResetModel();
   mLinkedAttributeIndexes.clear();
+
   const bool parentFeatureIsNew = std::numeric_limits<QgsFeatureId>::min() == mLinkedParentFeature.id();
   const QList<QgsRelation::FieldPair> fieldPairs = mLinkedRelation.fieldPairs();
   for ( QgsRelation::FieldPair fieldPair : fieldPairs )
@@ -303,8 +304,22 @@ void FeatureModel::setLinkedFeatureValues()
     }
     mLinkedAttributeIndexes.append( mFeature.fieldNameIndex( fieldPair.first ) );
   }
-  endResetModel();
 
+  switch ( mLinkedRelation.type() )
+  {
+    case Qgis::RelationshipType::Generated:
+    {
+      const QgsPolymorphicRelation linkedPolymorphicRelation = mLinkedRelation.polymorphicRelation();
+      mFeature.setAttribute( linkedPolymorphicRelation.referencedLayerField(), linkedPolymorphicRelation.layerRepresentation( mLinkedRelation.referencedLayer() ) );
+      mLinkedAttributeIndexes.append( mFeature.fieldNameIndex( linkedPolymorphicRelation.referencedLayerField() ) );
+      break;
+    }
+
+    case Qgis::RelationshipType::Normal:
+      break;
+  }
+
+  endResetModel();
   emit featureChanged();
 }
 
