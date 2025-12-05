@@ -378,7 +378,7 @@ Page {
           }
 
           onPressAndHold: mouse => {
-            if (localFilesModel.currentTitle === "Home") {
+            if (localFilesModel.currentTitle === qsTr("Home")) {
               return;
             }
             const item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);

@@ -422,7 +422,7 @@ Drawer {
         height: 48
         icon.source: Theme.getThemeVectorIcon("ic_home_black_24dp")
         font: Theme.defaultFont
-        text: "Return home"
+        text: qsTr("Return home")
 
         onClicked: returnHome()
       }

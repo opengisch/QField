@@ -113,7 +113,7 @@ Page {
         id: submit
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         Layout.fillWidth: true
-        text: "Submit"
+        text: qsTr("Submit")
         onClicked: _processAuth()
       }
 
