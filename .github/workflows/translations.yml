@@ -7,7 +7,7 @@ on:
 
 jobs:
   translations:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-25.04
     if: ${{ github.repository == 'opengisch/QField' }}
     steps:
       - name: Checkout
@@ -16,7 +16,7 @@ jobs:
       - name: Install Requirements
         run: |
           sudo apt-get update
-          sudo apt-get install -y qttools5-dev-tools
+          sudo apt-get install -y qt6-l10n-tools
           # v1.6.5: 2023-02-16
           curl -OL https://github.com/transifex/cli/releases/download/v1.6.5/tx-linux-amd64.tar.gz
           tar -xvzf tx-linux-amd64.tar.gz
