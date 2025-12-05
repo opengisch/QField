@@ -140,7 +140,7 @@ const QString LocalFilesModel::getCurrentTitleFromPath( const QString &path ) co
 {
   if ( path == QLatin1String( "root" ) )
   {
-    return QStringLiteral( "Home" );
+    return tr( "Home" );
   }
   else if ( path == PlatformUtilities::instance()->applicationDirectory() )
   {
@@ -418,7 +418,7 @@ LocalFileItem LocalFilesModel::get( int index ) const
 
 bool LocalFilesModel::inSelectionMode()
 {
-  if ( currentTitle() == QStringLiteral( "Home" ) )
+  if ( currentTitle() == tr( "Home" ) )
     return false;
 
   return std::any_of( mItems.begin(), mItems.end(), []( const LocalFileItem &item ) { return item.checked(); } );

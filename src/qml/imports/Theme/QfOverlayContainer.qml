@@ -26,7 +26,7 @@ Rectangle {
 
     Text {
       id: title
-      text: "Sensors"
+      text: ""
       font: Theme.strongTipFont
       color: Theme.mainTextColor
       leftPadding: 6
