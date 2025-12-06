@@ -601,6 +601,10 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Legend</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Return home</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -1431,6 +1435,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Credentials Details</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Submit</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LayerObserver</name>
@@ -1666,6 +1674,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Created projects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Home</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
