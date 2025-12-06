@@ -36,15 +36,13 @@ class RelationUtils : public QObject
      * Creates a relation between referenced and referencing layers.
      * Note: Layers must be added to the project first
      *
-     * \param project The QgsProject instance
      * \param referencedLayer The referenced (parent) layer
      * \param referencedFieldName The field name in the referenced layer
      * \param referencingLayer The referencing (child) layer
      * \param referencingFieldName The field name in the referencing layer that references the parent
      * \returns A QgsRelation object
      */
-    Q_INVOKABLE QgsRelation createRelation( const QgsProject *project,
-                                            const QgsVectorLayer *referencedLayer, const QString &referencedFieldName,
+    Q_INVOKABLE QgsRelation createRelation( const QgsVectorLayer *referencedLayer, const QString &referencedFieldName,
                                             const QgsVectorLayer *referencingLayer, const QString &referencingFieldName );
 };
 
