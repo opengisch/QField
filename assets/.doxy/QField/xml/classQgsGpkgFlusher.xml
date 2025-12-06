@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQgsGpkgFlusher" kind="class" language="C++" prot="public">
+    <compoundname>QgsGpkgFlusher</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qgsgpkgflusher_8h" local="no">qgsgpkgflusher.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQgsGpkgFlusher_1a1fb91d8246fccaebde8542646e179bcc" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* QgsGpkgFlusher::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>QgsGpkgFlusher::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.h" line="71" column="16" bodyfile="src/core/qgsgpkgflusher.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsGpkgFlusher_1a386a15cd41e221336ed4eb6af24e28a7" prot="private" static="no" mutable="no">
+        <type>QThread</type>
+        <definition>QThread QgsGpkgFlusher::mFlusherThread</definition>
+        <argsstring></argsstring>
+        <name>mFlusherThread</name>
+        <qualifiedname>QgsGpkgFlusher::mFlusherThread</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.h" line="72" column="13" bodyfile="src/core/qgsgpkgflusher.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsGpkgFlusher_1a94f33068ddf4c3b98f65ddb2d3816dc9" prot="private" static="no" mutable="no">
+        <type><ref refid="classFlusher" kindref="compound">Flusher</ref> *</type>
+        <definition>Flusher* QgsGpkgFlusher::mFlusher</definition>
+        <argsstring></argsstring>
+        <name>mFlusher</name>
+        <qualifiedname>QgsGpkgFlusher::mFlusher</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.h" line="73" column="13" bodyfile="src/core/qgsgpkgflusher.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQgsGpkgFlusher_1ad56b560ec09eb6dfa068a80d1bfde33e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QgsGpkgFlusher::QgsGpkgFlusher</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>QgsGpkgFlusher</name>
+        <qualifiedname>QgsGpkgFlusher::QgsGpkgFlusher</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.h" line="42" column="14" bodyfile="src/core/qgsgpkgflusher.cpp" bodystart="69" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsGpkgFlusher_1a2e8c7ad5986a4c5f2aac7a25098ee50a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QgsGpkgFlusher::~QgsGpkgFlusher</definition>
+        <argsstring>()</argsstring>
+        <name>~QgsGpkgFlusher</name>
+        <qualifiedname>QgsGpkgFlusher::~QgsGpkgFlusher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.h" line="43" column="5" bodyfile="src/core/qgsgpkgflusher.cpp" bodystart="79" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsGpkgFlusher_1a24cdd339fff2fc958f5e261c88793d96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsGpkgFlusher::stop</definition>
+        <argsstring>(const QString &amp;fileName)</argsstring>
+        <name>stop</name>
+        <qualifiedname>QgsGpkgFlusher::stop</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Immediately performs a flush for a given <emphasis>fileName</emphasis> and returns. If the flusher is stopped, flush for that <emphasis>fileName</emphasis> would be ignored. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.h" line="48" column="10" bodyfile="src/core/qgsgpkgflusher.cpp" bodystart="109" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsGpkgFlusher_1a85588f1bbc35f6a8ac3d1141d3b9c7e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsGpkgFlusher::start</definition>
+        <argsstring>(const QString &amp;fileName)</argsstring>
+        <name>start</name>
+        <qualifiedname>QgsGpkgFlusher::start</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reenables scheduling a flush for a given <emphasis>fileName</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.h" line="53" column="10" bodyfile="src/core/qgsgpkgflusher.cpp" bodystart="114" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsGpkgFlusher_1aa84e509ea912c396b2efa02cf376bda6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgsGpkgFlusher::isStopped</definition>
+        <argsstring>(const QString &amp;fileName) const</argsstring>
+        <name>isStopped</name>
+        <qualifiedname>QgsGpkgFlusher::isStopped</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the flusher is stopped for a given <emphasis>fileName</emphasis> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.h" line="58" column="10" bodyfile="src/core/qgsgpkgflusher.cpp" bodystart="119" bodyend="122"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQgsGpkgFlusher_1a93d467df3e29777fa3c303301cef0149" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsGpkgFlusher::requestFlush</definition>
+        <argsstring>(const QString &amp;filename)</argsstring>
+        <name>requestFlush</name>
+        <qualifiedname>QgsGpkgFlusher::requestFlush</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when a file has changed and a flush should be scheduled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.h" line="65" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQgsGpkgFlusher_1a90049c952cdcc8be97f92befe9d5aa8b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsGpkgFlusher::onLayersAdded</definition>
+        <argsstring>(const QList&lt; QgsMapLayer * &gt; &amp;layers)</argsstring>
+        <name>onLayersAdded</name>
+        <qualifiedname>QgsGpkgFlusher::onLayersAdded</qualifiedname>
+        <param>
+          <type>const QList&lt; QgsMapLayer * &gt; &amp;</type>
+          <declname>layers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.h" line="68" column="10" bodyfile="src/core/qgsgpkgflusher.cpp" bodystart="85" bodyend="107"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classQgsGpkgFlusher" kindref="compound">QgsGpkgFlusher</ref> class is attached to a QgsProject. It will make sure that all changes are regularly flushed from the wal file to the gpkg itself on all added layers. It will start a background thread and post an event to it whenever the gpkg has been changed. After a delay of 500ms without any changes the wal file will be flushed. The flusher does not need to be started after initialization. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QgsGpkgFlusher</label>
+        <link refid="classQgsGpkgFlusher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QgsGpkgFlusher</label>
+        <link refid="classQgsGpkgFlusher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qgsgpkgflusher.h" line="37" column="1" bodyfile="src/core/qgsgpkgflusher.h" bodystart="38" bodyend="74"/>
+    <listofallmembers>
+      <member refid="classQgsGpkgFlusher_1aa84e509ea912c396b2efa02cf376bda6" prot="public" virt="non-virtual"><scope>QgsGpkgFlusher</scope><name>isStopped</name></member>
+      <member refid="classQgsGpkgFlusher_1a94f33068ddf4c3b98f65ddb2d3816dc9" prot="private" virt="non-virtual"><scope>QgsGpkgFlusher</scope><name>mFlusher</name></member>
+      <member refid="classQgsGpkgFlusher_1a386a15cd41e221336ed4eb6af24e28a7" prot="private" virt="non-virtual"><scope>QgsGpkgFlusher</scope><name>mFlusherThread</name></member>
+      <member refid="classQgsGpkgFlusher_1a1fb91d8246fccaebde8542646e179bcc" prot="private" virt="non-virtual"><scope>QgsGpkgFlusher</scope><name>mProject</name></member>
+      <member refid="classQgsGpkgFlusher_1a90049c952cdcc8be97f92befe9d5aa8b" prot="private" virt="non-virtual"><scope>QgsGpkgFlusher</scope><name>onLayersAdded</name></member>
+      <member refid="classQgsGpkgFlusher_1ad56b560ec09eb6dfa068a80d1bfde33e" prot="public" virt="non-virtual"><scope>QgsGpkgFlusher</scope><name>QgsGpkgFlusher</name></member>
+      <member refid="classQgsGpkgFlusher_1a93d467df3e29777fa3c303301cef0149" prot="public" virt="non-virtual"><scope>QgsGpkgFlusher</scope><name>requestFlush</name></member>
+      <member refid="classQgsGpkgFlusher_1a85588f1bbc35f6a8ac3d1141d3b9c7e3" prot="public" virt="non-virtual"><scope>QgsGpkgFlusher</scope><name>start</name></member>
+      <member refid="classQgsGpkgFlusher_1a24cdd339fff2fc958f5e261c88793d96" prot="public" virt="non-virtual"><scope>QgsGpkgFlusher</scope><name>stop</name></member>
+      <member refid="classQgsGpkgFlusher_1a2e8c7ad5986a4c5f2aac7a25098ee50a" prot="public" virt="non-virtual"><scope>QgsGpkgFlusher</scope><name>~QgsGpkgFlusher</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,2103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPositioning" kind="class" language="C++" prot="public">
+    <compoundname>Positioning</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="positioning_8h" local="no">positioning.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classPositioning_1ac0c5b75e7d9f062a82715bcb40a4c864" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Positioning::active</definition>
+        <argsstring></argsstring>
+        <name>active</name>
+        <qualifiedname>Positioning::active</qualifiedname>
+        <read>active</read>
+        <write>setActive</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="40" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1a533cd8224aaee0f556e4a35a72a9fa30" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Positioning::valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <qualifiedname>Positioning::valid</qualifiedname>
+        <read>valid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="41" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1a4546825c3c2ce0ddc1246e55cc898473" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Positioning::deviceId</definition>
+        <argsstring></argsstring>
+        <name>deviceId</name>
+        <qualifiedname>Positioning::deviceId</qualifiedname>
+        <read>deviceId</read>
+        <write>setDeviceId</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="43" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1aca58d836aeeb06d1710600c14a7ad6d7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>AbstractGnssReceiver::Capabilities</type>
+        <definition>AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities</definition>
+        <argsstring></argsstring>
+        <name>deviceCapabilities</name>
+        <qualifiedname>Positioning::deviceCapabilities</qualifiedname>
+        <read>deviceCapabilities</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="44" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1a2219e7a57f92fa5c7e35e4f8c4d508bf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Positioning::deviceLastError</definition>
+        <argsstring></argsstring>
+        <name>deviceLastError</name>
+        <qualifiedname>Positioning::deviceLastError</qualifiedname>
+        <read>deviceLastError</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="45" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1a44447d1b969c1cb7d697d1f68161399b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QAbstractSocket::SocketState</type>
+        <definition>QAbstractSocket::SocketState Positioning::deviceSocketState</definition>
+        <argsstring></argsstring>
+        <name>deviceSocketState</name>
+        <qualifiedname>Positioning::deviceSocketState</qualifiedname>
+        <read>deviceSocketState</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="46" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1ae7d00a274702942db5d7d04da3db2219" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Positioning::deviceSocketStateString</definition>
+        <argsstring></argsstring>
+        <name>deviceSocketStateString</name>
+        <qualifiedname>Positioning::deviceSocketStateString</qualifiedname>
+        <read>deviceSocketStateString</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="47" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1ad0eec5265475789bdb831738a179f5b4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickCoordinateTransformer" kindref="compound">QgsQuickCoordinateTransformer</ref> *</type>
+        <definition>QgsQuickCoordinateTransformer * Positioning::coordinateTransformer</definition>
+        <argsstring></argsstring>
+        <name>coordinateTransformer</name>
+        <qualifiedname>Positioning::coordinateTransformer</qualifiedname>
+        <read>coordinateTransformer</read>
+        <write>setCoordinateTransformer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="49" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1aaeea6d799f05e4abe789dea1c1ea8fd0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation Positioning::positionInformation</definition>
+        <argsstring></argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>Positioning::positionInformation</qualifiedname>
+        <read>positionInformation</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="51" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1a2e03468f41b45db9475f458acc1f9843" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint Positioning::sourcePosition</definition>
+        <argsstring></argsstring>
+        <name>sourcePosition</name>
+        <qualifiedname>Positioning::sourcePosition</qualifiedname>
+        <read>sourcePosition</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="53" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1a9ae8c0a6b50bb2e5a12ec27b84f20bfb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint Positioning::projectedPosition</definition>
+        <argsstring></argsstring>
+        <name>projectedPosition</name>
+        <qualifiedname>Positioning::projectedPosition</qualifiedname>
+        <read>projectedPosition</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="54" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1a55142704bbb69bc4f20a9bc51cf6a79b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Positioning::projectedHorizontalAccuracy</definition>
+        <argsstring></argsstring>
+        <name>projectedHorizontalAccuracy</name>
+        <qualifiedname>Positioning::projectedHorizontalAccuracy</qualifiedname>
+        <read>projectedHorizontalAccuracy</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="55" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1a968a8d9d5f9e30fe3e75927e2afa0166" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Positioning::averagedPositionFilterAccuracy</definition>
+        <argsstring></argsstring>
+        <name>averagedPositionFilterAccuracy</name>
+        <qualifiedname>Positioning::averagedPositionFilterAccuracy</qualifiedname>
+        <read>averagedPositionFilterAccuracy</read>
+        <write>setAveragedPositionFilterAccuracy</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="57" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1a19d658fec577f8a3ff2c8ac68f5ee2b5" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Positioning::averagedPosition</definition>
+        <argsstring></argsstring>
+        <name>averagedPosition</name>
+        <qualifiedname>Positioning::averagedPosition</qualifiedname>
+        <read>averagedPosition</read>
+        <write>setAveragedPosition</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="58" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1ae70ebc2bc2f96c0fe7ef962cb7d39de9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Positioning::averagedPositionCount</definition>
+        <argsstring></argsstring>
+        <name>averagedPositionCount</name>
+        <qualifiedname>Positioning::averagedPositionCount</qualifiedname>
+        <read>averagedPositionCount</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="59" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1ab3b93d9cf984bc03d82381c6953c2cc6" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classPositioningSource_1a62f663f81745744d9748c017a05d125f" kindref="member">PositioningSource::ElevationCorrectionMode</ref></type>
+        <definition>PositioningSource::ElevationCorrectionMode Positioning::elevationCorrectionMode</definition>
+        <argsstring></argsstring>
+        <name>elevationCorrectionMode</name>
+        <qualifiedname>Positioning::elevationCorrectionMode</qualifiedname>
+        <read>elevationCorrectionMode</read>
+        <write>setElevationCorrectionMode</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="61" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1aa61eb610f7597c613c9048afead0e27b" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Positioning::antennaHeight</definition>
+        <argsstring></argsstring>
+        <name>antennaHeight</name>
+        <qualifiedname>Positioning::antennaHeight</qualifiedname>
+        <read>antennaHeight</read>
+        <write>setAntennaHeight</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="62" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1a65f1ae389d7ea6ca909bc53b795e2328" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Positioning::orientation</definition>
+        <argsstring></argsstring>
+        <name>orientation</name>
+        <qualifiedname>Positioning::orientation</qualifiedname>
+        <read>orientation</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="64" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1aa63a5a63e8793c76a1107ddcc9b9d55e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Positioning::logging</definition>
+        <argsstring></argsstring>
+        <name>logging</name>
+        <qualifiedname>Positioning::logging</qualifiedname>
+        <read>logging</read>
+        <write>setLogging</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="66" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1a851c2031646625a4104c60a1799f8778" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Positioning::loggingPath</definition>
+        <argsstring></argsstring>
+        <name>loggingPath</name>
+        <qualifiedname>Positioning::loggingPath</qualifiedname>
+        <read>loggingPath</read>
+        <write>setLoggingPath</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="67" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1aba4a78b992b95e357930e13ea93d7258" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Positioning::serviceMode</definition>
+        <argsstring></argsstring>
+        <name>serviceMode</name>
+        <qualifiedname>Positioning::serviceMode</qualifiedname>
+        <read>serviceMode</read>
+        <write>setServiceMode</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="69" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1ad13665ddc699fe2f2ece83b66ff082ca" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Positioning::backgroundMode</definition>
+        <argsstring></argsstring>
+        <name>backgroundMode</name>
+        <qualifiedname>Positioning::backgroundMode</qualifiedname>
+        <read>backgroundMode</read>
+        <write>setBackgroundMode</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="70" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1a289ce68724d911fa02dca62d72a012ff" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Positioning::badAccuracyThreshold</definition>
+        <argsstring></argsstring>
+        <name>badAccuracyThreshold</name>
+        <qualifiedname>Positioning::badAccuracyThreshold</qualifiedname>
+        <read>badAccuracyThreshold</read>
+        <write>setBadAccuracyThreshold</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="72" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioning_1af8f73a0cb387e2e384e7f13280ac4e0b" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Positioning::excellentAccuracyThreshold</definition>
+        <argsstring></argsstring>
+        <name>excellentAccuracyThreshold</name>
+        <qualifiedname>Positioning::excellentAccuracyThreshold</qualifiedname>
+        <read>excellentAccuracyThreshold</read>
+        <write>setExcellentAccuracyThreshold</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="73" column="5" bodyfile="src/core/positioning/positioning.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPositioning_1afd6d22eee499131d92332e2aa9bc548f" prot="private" static="no" mutable="no">
+        <type><ref refid="classPositioningSource" kindref="compound">PositioningSource</ref> *</type>
+        <definition>PositioningSource* Positioning::mPositioningSource</definition>
+        <argsstring></argsstring>
+        <name>mPositioningSource</name>
+        <qualifiedname>Positioning::mPositioningSource</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="356" column="23" bodyfile="src/core/positioning/positioning.h" bodystart="356" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1aed6adaa87df24e1d8795fbf5361f4d28" prot="private" static="no" mutable="no">
+        <type>QRemoteObjectHost</type>
+        <definition>QRemoteObjectHost Positioning::mHost</definition>
+        <argsstring></argsstring>
+        <name>mHost</name>
+        <qualifiedname>Positioning::mHost</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="357" column="23" bodyfile="src/core/positioning/positioning.h" bodystart="357" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1a13fa5921bafd4aed83f0f9fa8c80649e" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QRemoteObjectNode &gt;</type>
+        <definition>std::unique_ptr&lt;QRemoteObjectNode&gt; Positioning::mNode</definition>
+        <argsstring></argsstring>
+        <name>mNode</name>
+        <qualifiedname>Positioning::mNode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="359" column="21" bodyfile="src/core/positioning/positioning.h" bodystart="359" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1a86ac9a0008c127ea75e0cf544b542d46" prot="private" static="no" mutable="no">
+        <type>QSharedPointer&lt; QRemoteObjectDynamicReplica &gt;</type>
+        <definition>QSharedPointer&lt;QRemoteObjectDynamicReplica&gt; Positioning::mPositioningSourceReplica</definition>
+        <argsstring></argsstring>
+        <name>mPositioningSourceReplica</name>
+        <qualifiedname>Positioning::mPositioningSourceReplica</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="360" column="20" bodyfile="src/core/positioning/positioning.h" bodystart="360" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1ac3e80f503d36b9d348ecd8bf7cf33955" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Positioning::mValid</definition>
+        <argsstring></argsstring>
+        <name>mValid</name>
+        <qualifiedname>Positioning::mValid</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="362" column="10" bodyfile="src/core/positioning/positioning.h" bodystart="362" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1a55b547731741a5e96db49f33f293aff7" prot="private" static="no" mutable="no">
+        <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation Positioning::mPositionInformation</definition>
+        <argsstring></argsstring>
+        <name>mPositionInformation</name>
+        <qualifiedname>Positioning::mPositionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="363" column="29" bodyfile="src/core/positioning/positioning.h" bodystart="363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1a56221a6b635813fc4005231681307fda" prot="private" static="no" mutable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap Positioning::mProperties</definition>
+        <argsstring></argsstring>
+        <name>mProperties</name>
+        <qualifiedname>Positioning::mProperties</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="364" column="17" bodyfile="src/core/positioning/positioning.h" bodystart="364" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1a0ffb80481d1de4da3f00386233c11c08" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickCoordinateTransformer" kindref="compound">QgsQuickCoordinateTransformer</ref> *</type>
+        <definition>QgsQuickCoordinateTransformer* Positioning::mCoordinateTransformer</definition>
+        <argsstring></argsstring>
+        <name>mCoordinateTransformer</name>
+        <qualifiedname>Positioning::mCoordinateTransformer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="366" column="35" bodyfile="src/core/positioning/positioning.h" bodystart="366" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1aa24c137d5f3977dc6f3b858a73653222" prot="private" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint Positioning::mSourcePosition</definition>
+        <argsstring></argsstring>
+        <name>mSourcePosition</name>
+        <qualifiedname>Positioning::mSourcePosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="367" column="14" bodyfile="src/core/positioning/positioning.h" bodystart="367" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1a575335cdb31a61574aa1e5661e8a9d3c" prot="private" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint Positioning::mProjectedPosition</definition>
+        <argsstring></argsstring>
+        <name>mProjectedPosition</name>
+        <qualifiedname>Positioning::mProjectedPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="368" column="14" bodyfile="src/core/positioning/positioning.h" bodystart="368" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1a817b53f1aa9905e7b7f1e1353fe3012c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Positioning::mProjectedHorizontalAccuracy</definition>
+        <argsstring></argsstring>
+        <name>mProjectedHorizontalAccuracy</name>
+        <qualifiedname>Positioning::mProjectedHorizontalAccuracy</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="369" column="12" bodyfile="src/core/positioning/positioning.h" bodystart="369" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1a9c66c6e0e025f4fd7c73a691bc5939fa" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Positioning::mInternalPermissionChecked</definition>
+        <argsstring></argsstring>
+        <name>mInternalPermissionChecked</name>
+        <qualifiedname>Positioning::mInternalPermissionChecked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="372" column="10" bodyfile="src/core/positioning/positioning.h" bodystart="372" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1ac6e31b1e922d0085cd71a702900f2088" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Positioning::mBluetoothPermissionChecked</definition>
+        <argsstring></argsstring>
+        <name>mBluetoothPermissionChecked</name>
+        <qualifiedname>Positioning::mBluetoothPermissionChecked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="373" column="10" bodyfile="src/core/positioning/positioning.h" bodystart="373" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1ae971a423cace555eabffa4972472add4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Positioning::mServiceMode</definition>
+        <argsstring></argsstring>
+        <name>mServiceMode</name>
+        <qualifiedname>Positioning::mServiceMode</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="375" column="10" bodyfile="src/core/positioning/positioning.h" bodystart="375" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1a0273484cd526ee1d25c2ae101a6b19d3" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Positioning::mBackgroundMode</definition>
+        <argsstring></argsstring>
+        <name>mBackgroundMode</name>
+        <qualifiedname>Positioning::mBackgroundMode</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="376" column="10" bodyfile="src/core/positioning/positioning.h" bodystart="376" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1a2e5d1a73995c5ede2f3405b0477ec1ea" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Positioning::mAveragedPosition</definition>
+        <argsstring></argsstring>
+        <name>mAveragedPosition</name>
+        <qualifiedname>Positioning::mAveragedPosition</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="378" column="10" bodyfile="src/core/positioning/positioning.h" bodystart="378" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1ac8b47bc3772672ff34cb09dd927d1d4d" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &gt;</type>
+        <definition>QList&lt;GnssPositionInformation&gt; Positioning::mCollectedPositionInformations</definition>
+        <argsstring></argsstring>
+        <name>mCollectedPositionInformations</name>
+        <qualifiedname>Positioning::mCollectedPositionInformations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="379" column="11" bodyfile="src/core/positioning/positioning.h" bodystart="379" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1aa36a20b6f76edb3534e66bc27bee03b0" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Positioning::mAveragedPositionFilterAccuracy</definition>
+        <argsstring></argsstring>
+        <name>mAveragedPositionFilterAccuracy</name>
+        <qualifiedname>Positioning::mAveragedPositionFilterAccuracy</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="381" column="10" bodyfile="src/core/positioning/positioning.h" bodystart="381" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1ae607f07ca777b29453035f5987cf2eff" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Positioning::mBadAccuracyThreshold</definition>
+        <argsstring></argsstring>
+        <name>mBadAccuracyThreshold</name>
+        <qualifiedname>Positioning::mBadAccuracyThreshold</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="382" column="12" bodyfile="src/core/positioning/positioning.h" bodystart="382" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioning_1a1318c37696e1a79896da0b38b5af9c1b" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Positioning::mExcellentAccuracyThreshold</definition>
+        <argsstring></argsstring>
+        <name>mExcellentAccuracyThreshold</name>
+        <qualifiedname>Positioning::mExcellentAccuracyThreshold</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="383" column="12" bodyfile="src/core/positioning/positioning.h" bodystart="383" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPositioning_1a3894edcd59f8922f60f77ce8d0cd5034" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Positioning::Positioning</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>Positioning</name>
+        <qualifiedname>Positioning::Positioning</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="76" column="14" bodyfile="src/core/positioning/positioning.cpp" bodystart="34" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a4c9f566028df0cdac0ccf425c8b4b94c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual Positioning::~Positioning</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Positioning</name>
+        <qualifiedname>Positioning::~Positioning</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="77" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a5ed67cc9e9407e8bb2787e48031551cb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Positioning::active</definition>
+        <argsstring>() const</argsstring>
+        <name>active</name>
+        <qualifiedname>Positioning::active</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when positioning is active. <simplesect kind="see"><para><ref refid="classPositioning_1a395296b28b7eaa4788aadcfa101777f5" kindref="member">setActive</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="83" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="160" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a395296b28b7eaa4788aadcfa101777f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::setActive</definition>
+        <argsstring>(bool active)</argsstring>
+        <name>setActive</name>
+        <qualifiedname>Positioning::setActive</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the positioning <emphasis>active</emphasis> status. <simplesect kind="see"><para>active </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="89" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="165" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a407574998df0b31c0352f4475937deb7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Positioning::valid</definition>
+        <argsstring>() const</argsstring>
+        <name>valid</name>
+        <qualifiedname>Positioning::valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when the positioning device is valid. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="94" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="267" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a9881c45b530f52c3b5c7d592d4e95835" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::setValid</definition>
+        <argsstring>(bool valid)</argsstring>
+        <name>setValid</name>
+        <qualifiedname>Positioning::setValid</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>valid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the positioning device is valid. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="99" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="272" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1ad8172bcb28769537ea08e214e330e6db" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Positioning::deviceId</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceId</name>
+        <qualifiedname>Positioning::deviceId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current positioning device <emphasis>id</emphasis> used to fetch position information. <simplesect kind="see"><para>setDevice </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="105" column="13" bodyfile="src/core/positioning/positioning.cpp" bodystart="296" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a002b814d4f9595c9d378e009015f7a33" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classGnssPositionDetails" kindref="compound">GnssPositionDetails</ref></type>
+        <definition>GnssPositionDetails Positioning::deviceDetails</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceDetails</name>
+        <qualifiedname>Positioning::deviceDetails</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns extra details (such as hdop, vdop, pdop) provided by the positioning device. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="110" column="25" bodyfile="src/core/positioning/positioning.cpp" bodystart="329" bodyend="337"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a9dfb1ee4f6f983334cc2c859f46f8f31" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Positioning::deviceLastError</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceLastError</name>
+        <qualifiedname>Positioning::deviceLastError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns positioning device&apos;s last error string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="115" column="13" bodyfile="src/core/positioning/positioning.cpp" bodystart="314" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1adf4fb7793d0c94e91fcbfd266a7f30fa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QAbstractSocket::SocketState</type>
+        <definition>QAbstractSocket::SocketState Positioning::deviceSocketState</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceSocketState</name>
+        <qualifiedname>Positioning::deviceSocketState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns positioning device&apos;s socket state. <simplesect kind="see"><para>deviceSocketStateString </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="121" column="34" bodyfile="src/core/positioning/positioning.cpp" bodystart="319" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1ab0346637054877b4bee84f480e050f61" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Positioning::deviceSocketStateString</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceSocketStateString</name>
+        <qualifiedname>Positioning::deviceSocketStateString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a string representation of the positioning device&apos;s socket state. <simplesect kind="see"><para>deviceSocketState </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="127" column="13" bodyfile="src/core/positioning/positioning.cpp" bodystart="324" bodyend="327"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a9dcbe4eccfdeeb05a5fc84cc58f4120d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::setDeviceId</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>setDeviceId</name>
+        <qualifiedname>Positioning::setDeviceId</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the positioning device <emphasis>id</emphasis> used to fetch position information. <simplesect kind="note"><para>A blank string will connect the internal positioning device; bluetooth addresses will trigger an NMEA connection to external devices. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="134" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="301" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1aa349715e89bae27be76305acbf9563e5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>AbstractGnssReceiver::Capabilities</type>
+        <definition>AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceCapabilities</name>
+        <qualifiedname>Positioning::deviceCapabilities</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="136" column="40" bodyfile="src/core/positioning/positioning.cpp" bodystart="339" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a1d664d64f40acd58c1b65d8321b06d06" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQgsQuickCoordinateTransformer" kindref="compound">QgsQuickCoordinateTransformer</ref> *</type>
+        <definition>QgsQuickCoordinateTransformer * Positioning::coordinateTransformer</definition>
+        <argsstring>() const</argsstring>
+        <name>coordinateTransformer</name>
+        <qualifiedname>Positioning::coordinateTransformer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the coordinate transformer object used to reproject the position location. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="141" column="35" bodyfile="src/core/positioning/positioning.h" bodystart="141" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1add308ca8e564152c729795416713354d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::setCoordinateTransformer</definition>
+        <argsstring>(QgsQuickCoordinateTransformer *coordinateTransformer)</argsstring>
+        <name>setCoordinateTransformer</name>
+        <qualifiedname>Positioning::setCoordinateTransformer</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickCoordinateTransformer" kindref="compound">QgsQuickCoordinateTransformer</ref> *</type>
+          <declname>coordinateTransformer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the coordinate transformer object used to reproject the position location. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coordinateTransformer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A <ref refid="classQgsQuickCoordinateTransformer" kindref="compound">QgsQuickCoordinateTransformer</ref> object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="147" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="603" bodyend="629"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1acf06988dea0ec443017b48dd7d2fa608" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation Positioning::positionInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>Positioning::positionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> position information object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="152" column="29" bodyfile="src/core/positioning/positioning.cpp" bodystart="573" bodyend="576"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1ad6f92561d8eb133562160d8e0483393f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint Positioning::sourcePosition</definition>
+        <argsstring>() const</argsstring>
+        <name>sourcePosition</name>
+        <qualifiedname>Positioning::sourcePosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the position point in its original WGS84 projection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="157" column="14" bodyfile="src/core/positioning/positioning.cpp" bodystart="631" bodyend="634"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1ae09baa02b8a16b2571f293d7b7bfeb3e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint Positioning::projectedPosition</definition>
+        <argsstring>() const</argsstring>
+        <name>projectedPosition</name>
+        <qualifiedname>Positioning::projectedPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the position point in its destination CRS defined in the coordinate transformer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="162" column="14" bodyfile="src/core/positioning/positioning.cpp" bodystart="636" bodyend="639"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1aa639092dfdd5bc9482615b0ef5e35ec1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Positioning::projectedHorizontalAccuracy</definition>
+        <argsstring>() const</argsstring>
+        <name>projectedHorizontalAccuracy</name>
+        <qualifiedname>Positioning::projectedHorizontalAccuracy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the position horizontal accuracy in the destination CRS&apos; map units. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="167" column="12" bodyfile="src/core/positioning/positioning.cpp" bodystart="641" bodyend="644"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a0cded4c5256d44d52946e34bab8f0e17" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Positioning::averagedPositionFilterAccuracy</definition>
+        <argsstring>() const</argsstring>
+        <name>averagedPositionFilterAccuracy</name>
+        <qualifiedname>Positioning::averagedPositionFilterAccuracy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the average position filter accuracy is enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="172" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="763" bodyend="766"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1ac87eaf6f6ffb4bc85182b537776742bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::setAveragedPositionFilterAccuracy</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setAveragedPositionFilterAccuracy</name>
+        <qualifiedname>Positioning::setAveragedPositionFilterAccuracy</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enables or disables the average position filter accuracy. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="177" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="768" bodyend="775"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a561f2a73ff05c5304d583b848760d93d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Positioning::averagedPosition</definition>
+        <argsstring>() const</argsstring>
+        <name>averagedPosition</name>
+        <qualifiedname>Positioning::averagedPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the position information is averaged from an ongoing stream of incoming positions from the device. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="182" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="363" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a60e035aa5e742e25340a860f94099d53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::setAveragedPosition</definition>
+        <argsstring>(bool averaged)</argsstring>
+        <name>setAveragedPosition</name>
+        <qualifiedname>Positioning::setAveragedPosition</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>averaged</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the position information is <emphasis>averaged</emphasis> from an ongoing stream of incoming positions from the device. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="187" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="368" bodyend="385"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a0b82485f1b39eace0e0b63c83bbd4297" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Positioning::averagedPositionCount</definition>
+        <argsstring>() const</argsstring>
+        <name>averagedPositionCount</name>
+        <qualifiedname>Positioning::averagedPositionCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current number of collected position informations from which the averaged position is calculated. <simplesect kind="note"><para>When averaged position is off, the value is zero. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="193" column="9" bodyfile="src/core/positioning/positioning.cpp" bodystart="358" bodyend="361"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1ad1384b118765a0ac85dedacc242be1ff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classPositioningSource_1a62f663f81745744d9748c017a05d125f" kindref="member">PositioningSource::ElevationCorrectionMode</ref></type>
+        <definition>PositioningSource::ElevationCorrectionMode Positioning::elevationCorrectionMode</definition>
+        <argsstring>() const</argsstring>
+        <name>elevationCorrectionMode</name>
+        <qualifiedname>Positioning::elevationCorrectionMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current elevation correction mode. <simplesect kind="note"><para>Some modes depends on device capabilities. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="199" column="48" bodyfile="src/core/positioning/positioning.cpp" bodystart="526" bodyend="529"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1acc09f55527cf232985d8425e111a7af0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::setElevationCorrectionMode</definition>
+        <argsstring>(PositioningSource::ElevationCorrectionMode elevationCorrectionMode)</argsstring>
+        <name>setElevationCorrectionMode</name>
+        <qualifiedname>Positioning::setElevationCorrectionMode</qualifiedname>
+        <param>
+          <type><ref refid="classPositioningSource_1a62f663f81745744d9748c017a05d125f" kindref="member">PositioningSource::ElevationCorrectionMode</ref></type>
+          <declname>elevationCorrectionMode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current elevation correction mode. <simplesect kind="note"><para>Some modes depends on device capabilities. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="205" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="531" bodyend="542"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a9c1b2f69a4b7c48b6df8cf2298137be3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Positioning::antennaHeight</definition>
+        <argsstring>() const</argsstring>
+        <name>antennaHeight</name>
+        <qualifiedname>Positioning::antennaHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the GNSS device antenna height. This should be the pole height + sensore phase height. <simplesect kind="note"><para>When IMU is active this value is ignored as the device does the correction internally. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="211" column="12" bodyfile="src/core/positioning/positioning.cpp" bodystart="555" bodyend="558"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a1d609ef20eef436af2cd08e776bdc750" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::setAntennaHeight</definition>
+        <argsstring>(double antennaHeight)</argsstring>
+        <name>setAntennaHeight</name>
+        <qualifiedname>Positioning::setAntennaHeight</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>antennaHeight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the GNSS device antenna height. This should be the pole height + sensore phase height. <simplesect kind="note"><para>When IMU is active this value is ignored as the device does the correction internally. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="217" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="560" bodyend="571"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a54c94d95ed7617143f3db63081d18658" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Positioning::orientation</definition>
+        <argsstring>() const</argsstring>
+        <name>orientation</name>
+        <qualifiedname>Positioning::orientation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current device orientation </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="222" column="12" bodyfile="src/core/positioning/positioning.cpp" bodystart="578" bodyend="581"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a7931ef8135bdf8c7b8ec3a628632123d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Positioning::logging</definition>
+        <argsstring>() const</argsstring>
+        <name>logging</name>
+        <qualifiedname>Positioning::logging</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether GNSS devices will log their incoming position stream into a logfile. <simplesect kind="note"><para>Requires a device type with logging capability </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="228" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="398" bodyend="401"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1ab69ddff14762793b324378a7278f96dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::setLogging</definition>
+        <argsstring>(bool logging)</argsstring>
+        <name>setLogging</name>
+        <qualifiedname>Positioning::setLogging</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>logging</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether GNSS devices will log their incoming position stream into a logfile. <simplesect kind="note"><para>Requires a device type with logging capability </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="234" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="403" bodyend="414"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1ac31c69a0422b81ff809c7363b1992c47" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Positioning::loggingPath</definition>
+        <argsstring>() const</argsstring>
+        <name>loggingPath</name>
+        <qualifiedname>Positioning::loggingPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the path where GNSS devices will log their incoming position stream into logfiles. <simplesect kind="note"><para>Requires a device type with logging capability </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="240" column="13" bodyfile="src/core/positioning/positioning.cpp" bodystart="427" bodyend="430"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a4367c43cf78ceb2ca4f1d9f3b8a7d3d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::setLoggingPath</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>setLoggingPath</name>
+        <qualifiedname>Positioning::setLoggingPath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the path where GNSS devices will log their incoming position stream into logfiles. <simplesect kind="note"><para>Requires a device type with logging capability </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="246" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="432" bodyend="443"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1ae124b3dcc948884f8d3340c4ef506141" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Positioning::serviceMode</definition>
+        <argsstring>() const</argsstring>
+        <name>serviceMode</name>
+        <qualifiedname>Positioning::serviceMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the service mode is active. On supported platform, positioning runs into a dedicated service that is not suspended when devices are locked or the application is put suspended. <simplesect kind="see"><para><ref refid="classPositioning_1ad8ea220a33ec9dd04cb1096cb2138781" kindref="member">setServiceMode()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="254" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="445" bodyend="448"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1ad8ea220a33ec9dd04cb1096cb2138781" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::setServiceMode</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setServiceMode</name>
+        <qualifiedname>Positioning::setServiceMode</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the service mode is active. On supported platform, positioning runs into a dedicated service that is not suspended when devices are locked or the application is put suspended. <simplesect kind="see"><para>serviceMode() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="262" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="450" bodyend="463"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a01c33ab31960530502f9964246182f36" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Positioning::backgroundMode</definition>
+        <argsstring>() const</argsstring>
+        <name>backgroundMode</name>
+        <qualifiedname>Positioning::backgroundMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the background mode is active. When activated, position information details will not be signaled but instead saved to disk until deactivated. <simplesect kind="see"><para><ref refid="classPositioning_1a94b172dbf19ad921f3ff887e80063d6e" kindref="member">getBackgroundPositionInformation()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="269" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="465" bodyend="468"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1abd54be478ef5eb0cee33feb3bb74a2b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::setBackgroundMode</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setBackgroundMode</name>
+        <qualifiedname>Positioning::setBackgroundMode</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the background mode is active. When activated, position information details will not be signaled but instead saved to disk until deactivated. <simplesect kind="see"><para><ref refid="classPositioning_1a94b172dbf19ad921f3ff887e80063d6e" kindref="member">getBackgroundPositionInformation()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="276" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="470" bodyend="498"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a94b172dbf19ad921f3ff887e80063d6e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QList&lt; <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &gt;</type>
+        <definition>QList&lt; GnssPositionInformation &gt; Positioning::getBackgroundPositionInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>getBackgroundPositionInformation</name>
+        <qualifiedname>Positioning::getBackgroundPositionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a list of position information collected while background mode is active. <simplesect kind="see"><para>backgroundMode() </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classPositioning_1abd54be478ef5eb0cee33feb3bb74a2b5" kindref="member">setBackgroundMode()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="283" column="23" bodyfile="src/core/positioning/positioning.cpp" bodystart="500" bodyend="513"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a5b30be828da844c659a5c3d6d2521354" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Positioning::badAccuracyThreshold</definition>
+        <argsstring>() const</argsstring>
+        <name>badAccuracyThreshold</name>
+        <qualifiedname>Positioning::badAccuracyThreshold</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the threshold above which accuracy is considered bad. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="288" column="12" bodyfile="src/core/positioning/positioning.h" bodystart="288" bodyend="288"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a8a96a4c0ecf27dd64fa042b369b09218" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::setBadAccuracyThreshold</definition>
+        <argsstring>(double threshold)</argsstring>
+        <name>setBadAccuracyThreshold</name>
+        <qualifiedname>Positioning::setBadAccuracyThreshold</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>threshold</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the threshold above which accuracy is considered bad. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="293" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="745" bodyend="752"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a6033fd41a96b542ffc10aedcc5f8ff39" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Positioning::excellentAccuracyThreshold</definition>
+        <argsstring>() const</argsstring>
+        <name>excellentAccuracyThreshold</name>
+        <qualifiedname>Positioning::excellentAccuracyThreshold</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the threshold below which accuracy is considered excellent. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="298" column="12" bodyfile="src/core/positioning/positioning.h" bodystart="298" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1affa491d44838a4cc4254f0720a3d66a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::setExcellentAccuracyThreshold</definition>
+        <argsstring>(double threshold)</argsstring>
+        <name>setExcellentAccuracyThreshold</name>
+        <qualifiedname>Positioning::setExcellentAccuracyThreshold</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>threshold</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the threshold below which accuracy is considered excellent. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="303" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="754" bodyend="761"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classPositioning_1ac182de57aa5b326919cef2b808f4311f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::activeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>activeChanged</name>
+        <qualifiedname>Positioning::activeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="307" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1a9b3a3fd8efb0fee8d8f23eecbd50cf75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::validChanged</definition>
+        <argsstring>()</argsstring>
+        <name>validChanged</name>
+        <qualifiedname>Positioning::validChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="308" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1a629650b66af6c8be9d6024d2f7714664" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::deviceIdChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deviceIdChanged</name>
+        <qualifiedname>Positioning::deviceIdChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="309" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1ae5de85b8e3a28a1016f6b0647a087892" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::elevationCorrectionModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>elevationCorrectionModeChanged</name>
+        <qualifiedname>Positioning::elevationCorrectionModeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="310" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1abefd35fb47b98f3fb6a825b592853d41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::antennaHeightChanged</definition>
+        <argsstring>()</argsstring>
+        <name>antennaHeightChanged</name>
+        <qualifiedname>Positioning::antennaHeightChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="311" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1a1daeed276f369dc120b8ba07475cd9a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::loggingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>loggingChanged</name>
+        <qualifiedname>Positioning::loggingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="312" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1a6b487012220cd051a624ee66aa04f26f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::loggingPathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>loggingPathChanged</name>
+        <qualifiedname>Positioning::loggingPathChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="313" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1abfde12a0a38dea8f9a0b15e0c86eefdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::positionInformationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>positionInformationChanged</name>
+        <qualifiedname>Positioning::positionInformationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="314" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1a5c88a9edd883f51ba501270ec180f615" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::deviceLastErrorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deviceLastErrorChanged</name>
+        <qualifiedname>Positioning::deviceLastErrorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="317" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1a1a9ac5591cebac406971e04d938918fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::deviceSocketStateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deviceSocketStateChanged</name>
+        <qualifiedname>Positioning::deviceSocketStateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="318" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1a34f18821bc64bc28573bc35cbcef3544" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::deviceSocketStateStringChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deviceSocketStateStringChanged</name>
+        <qualifiedname>Positioning::deviceSocketStateStringChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="319" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1a37a5310a0ad6dad653b0865a2bf22624" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::orientationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>orientationChanged</name>
+        <qualifiedname>Positioning::orientationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="320" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1ab8984d42b02bb018b1c5e24c9b1e9dda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::triggerConnectDevice</definition>
+        <argsstring>()</argsstring>
+        <name>triggerConnectDevice</name>
+        <qualifiedname>Positioning::triggerConnectDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="323" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1a0f63726f53344ab07315b992d95cbab1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::triggerDisconnectDevice</definition>
+        <argsstring>()</argsstring>
+        <name>triggerDisconnectDevice</name>
+        <qualifiedname>Positioning::triggerDisconnectDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="324" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1af94f37d5141b575679fc686518cea183" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::coordinateTransformerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>coordinateTransformerChanged</name>
+        <qualifiedname>Positioning::coordinateTransformerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="327" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1a51f57af2ab2efef6382070a1e1224d62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::projectedPositionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectedPositionChanged</name>
+        <qualifiedname>Positioning::projectedPositionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="328" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1aab4ab944fbf33d0988f2206a963e6723" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::averagedPositionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>averagedPositionChanged</name>
+        <qualifiedname>Positioning::averagedPositionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="329" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1af2c8f09c1e11dbaf4c63216c3e772712" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::averagedPositionCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>averagedPositionCountChanged</name>
+        <qualifiedname>Positioning::averagedPositionCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="330" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1a0d3f40d9f23242af36ed28463cba00c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::averagedPositionFilterAccuracyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>averagedPositionFilterAccuracyChanged</name>
+        <qualifiedname>Positioning::averagedPositionFilterAccuracyChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="331" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1a52e8d760ace8407b2189f38868a04573" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::badAccuracyThresholdChanged</definition>
+        <argsstring>()</argsstring>
+        <name>badAccuracyThresholdChanged</name>
+        <qualifiedname>Positioning::badAccuracyThresholdChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="332" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1a5144a15fc341212ae914ed9a1837b335" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::excellentAccuracyThresholdChanged</definition>
+        <argsstring>()</argsstring>
+        <name>excellentAccuracyThresholdChanged</name>
+        <qualifiedname>Positioning::excellentAccuracyThresholdChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="333" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1ae46d38ac0bf062332f849fa47a86e82b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::serviceModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>serviceModeChanged</name>
+        <qualifiedname>Positioning::serviceModeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="334" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioning_1ac0196b3be13e8f0e6d4d2c9d6a1d8c73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::backgroundModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>backgroundModeChanged</name>
+        <qualifiedname>Positioning::backgroundModeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="335" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classPositioning_1a4acb3bdc1aaa9b86e815ef279b765818" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::onActiveChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onActiveChanged</name>
+        <qualifiedname>Positioning::onActiveChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="338" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="149" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="slot" id="classPositioning_1af8adcfe66ed2f723cdc942b5d06f5de5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::onValidChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onValidChanged</name>
+        <qualifiedname>Positioning::onValidChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="339" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="256" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="slot" id="classPositioning_1a6f58184320ed886f90f0255ed49d570c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::onDeviceIdChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onDeviceIdChanged</name>
+        <qualifiedname>Positioning::onDeviceIdChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="340" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="285" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="slot" id="classPositioning_1ab8044b7a5f144a248ec040e055cf4174" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::onElevationCorrectionModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onElevationCorrectionModeChanged</name>
+        <qualifiedname>Positioning::onElevationCorrectionModeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="341" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="515" bodyend="524"/>
+      </memberdef>
+      <memberdef kind="slot" id="classPositioning_1a2594a9adea2108d3fcf1e6f6fd9801dd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::onAntennaHeightChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onAntennaHeightChanged</name>
+        <qualifiedname>Positioning::onAntennaHeightChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="342" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="544" bodyend="553"/>
+      </memberdef>
+      <memberdef kind="slot" id="classPositioning_1a8ff1847ece995867086a4f8423408949" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::onLoggingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onLoggingChanged</name>
+        <qualifiedname>Positioning::onLoggingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="343" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="387" bodyend="396"/>
+      </memberdef>
+      <memberdef kind="slot" id="classPositioning_1a04fc0ba3190a021ead4fbe37fb21e513" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::onLoggingPathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onLoggingPathChanged</name>
+        <qualifiedname>Positioning::onLoggingPathChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="344" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="416" bodyend="425"/>
+      </memberdef>
+      <memberdef kind="slot" id="classPositioning_1a6b897e4444cec83206cdf51f3b020389" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::onPositionInformationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onPositionInformationChanged</name>
+        <qualifiedname>Positioning::onPositionInformationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="345" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="646" bodyend="719"/>
+      </memberdef>
+      <memberdef kind="slot" id="classPositioning_1ac2ed26b30de987514f3264ed53e4986e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::onApplicationStateChanged</definition>
+        <argsstring>(Qt::ApplicationState state)</argsstring>
+        <name>onApplicationStateChanged</name>
+        <qualifiedname>Positioning::onApplicationStateChanged</qualifiedname>
+        <param>
+          <type>Qt::ApplicationState</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="347" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="111" bodyend="147"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classPositioning_1a6d9223c245e0177d747cfd289770e732" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::setupSource</definition>
+        <argsstring>()</argsstring>
+        <name>setupSource</name>
+        <qualifiedname>Positioning::setupSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="350" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="46" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1ae9d17aaea5d83651eb4264d139796e37" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Positioning::isSourceAvailable</definition>
+        <argsstring>() const</argsstring>
+        <name>isSourceAvailable</name>
+        <qualifiedname>Positioning::isSourceAvailable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="351" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="106" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1ac595adc633dcba460dead9a12b2c2920" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Positioning::processProjectedPosition</definition>
+        <argsstring>()</argsstring>
+        <name>processProjectedPosition</name>
+        <qualifiedname>Positioning::processProjectedPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="353" column="10" bodyfile="src/core/positioning/positioning.cpp" bodystart="721" bodyend="742"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1a6629609e8be86c5c9ce44f2fac5df3eb" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Positioning::adjustOrientation</definition>
+        <argsstring>(double orientation) const</argsstring>
+        <name>adjustOrientation</name>
+        <qualifiedname>Positioning::adjustOrientation</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>orientation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="354" column="12" bodyfile="src/core/positioning/positioning.cpp" bodystart="583" bodyend="601"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioning_1ac4932e3303b44ef2eff9599726029082" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QList&lt; QPair&lt; QString, QVariant &gt; &gt;</type>
+        <definition>virtual QList&lt; QPair&lt; QString, QVariant &gt; &gt; Positioning::details</definition>
+        <argsstring>() const</argsstring>
+        <name>details</name>
+        <qualifiedname>Positioning::details</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioning.h" line="370" column="19" bodyfile="src/core/positioning/positioning.h" bodystart="370" bodyend="370"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class manages the positioning source and offers positioning details. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Positioning</label>
+        <link refid="classPositioning"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Positioning</label>
+        <link refid="classPositioning"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/positioning.h" line="36" column="1" bodyfile="src/core/positioning/positioning.h" bodystart="37" bodyend="384"/>
+    <listofallmembers>
+      <member refid="classPositioning_1ac0c5b75e7d9f062a82715bcb40a4c864" prot="public" virt="non-virtual"><scope>Positioning</scope><name>active</name></member>
+      <member refid="classPositioning_1a5ed67cc9e9407e8bb2787e48031551cb" prot="public" virt="non-virtual"><scope>Positioning</scope><name>active</name></member>
+      <member refid="classPositioning_1ac182de57aa5b326919cef2b808f4311f" prot="public" virt="non-virtual"><scope>Positioning</scope><name>activeChanged</name></member>
+      <member refid="classPositioning_1a6629609e8be86c5c9ce44f2fac5df3eb" prot="private" virt="non-virtual"><scope>Positioning</scope><name>adjustOrientation</name></member>
+      <member refid="classPositioning_1aa61eb610f7597c613c9048afead0e27b" prot="public" virt="non-virtual"><scope>Positioning</scope><name>antennaHeight</name></member>
+      <member refid="classPositioning_1a9c1b2f69a4b7c48b6df8cf2298137be3" prot="public" virt="non-virtual"><scope>Positioning</scope><name>antennaHeight</name></member>
+      <member refid="classPositioning_1abefd35fb47b98f3fb6a825b592853d41" prot="public" virt="non-virtual"><scope>Positioning</scope><name>antennaHeightChanged</name></member>
+      <member refid="classPositioning_1a19d658fec577f8a3ff2c8ac68f5ee2b5" prot="public" virt="non-virtual"><scope>Positioning</scope><name>averagedPosition</name></member>
+      <member refid="classPositioning_1a561f2a73ff05c5304d583b848760d93d" prot="public" virt="non-virtual"><scope>Positioning</scope><name>averagedPosition</name></member>
+      <member refid="classPositioning_1aab4ab944fbf33d0988f2206a963e6723" prot="public" virt="non-virtual"><scope>Positioning</scope><name>averagedPositionChanged</name></member>
+      <member refid="classPositioning_1ae70ebc2bc2f96c0fe7ef962cb7d39de9" prot="public" virt="non-virtual"><scope>Positioning</scope><name>averagedPositionCount</name></member>
+      <member refid="classPositioning_1a0b82485f1b39eace0e0b63c83bbd4297" prot="public" virt="non-virtual"><scope>Positioning</scope><name>averagedPositionCount</name></member>
+      <member refid="classPositioning_1af2c8f09c1e11dbaf4c63216c3e772712" prot="public" virt="non-virtual"><scope>Positioning</scope><name>averagedPositionCountChanged</name></member>
+      <member refid="classPositioning_1a968a8d9d5f9e30fe3e75927e2afa0166" prot="public" virt="non-virtual"><scope>Positioning</scope><name>averagedPositionFilterAccuracy</name></member>
+      <member refid="classPositioning_1a0cded4c5256d44d52946e34bab8f0e17" prot="public" virt="non-virtual"><scope>Positioning</scope><name>averagedPositionFilterAccuracy</name></member>
+      <member refid="classPositioning_1a0d3f40d9f23242af36ed28463cba00c3" prot="public" virt="non-virtual"><scope>Positioning</scope><name>averagedPositionFilterAccuracyChanged</name></member>
+      <member refid="classPositioning_1ad13665ddc699fe2f2ece83b66ff082ca" prot="public" virt="non-virtual"><scope>Positioning</scope><name>backgroundMode</name></member>
+      <member refid="classPositioning_1a01c33ab31960530502f9964246182f36" prot="public" virt="non-virtual"><scope>Positioning</scope><name>backgroundMode</name></member>
+      <member refid="classPositioning_1ac0196b3be13e8f0e6d4d2c9d6a1d8c73" prot="public" virt="non-virtual"><scope>Positioning</scope><name>backgroundModeChanged</name></member>
+      <member refid="classPositioning_1a289ce68724d911fa02dca62d72a012ff" prot="public" virt="non-virtual"><scope>Positioning</scope><name>badAccuracyThreshold</name></member>
+      <member refid="classPositioning_1a5b30be828da844c659a5c3d6d2521354" prot="public" virt="non-virtual"><scope>Positioning</scope><name>badAccuracyThreshold</name></member>
+      <member refid="classPositioning_1a52e8d760ace8407b2189f38868a04573" prot="public" virt="non-virtual"><scope>Positioning</scope><name>badAccuracyThresholdChanged</name></member>
+      <member refid="classPositioning_1ad0eec5265475789bdb831738a179f5b4" prot="public" virt="non-virtual"><scope>Positioning</scope><name>coordinateTransformer</name></member>
+      <member refid="classPositioning_1a1d664d64f40acd58c1b65d8321b06d06" prot="public" virt="non-virtual"><scope>Positioning</scope><name>coordinateTransformer</name></member>
+      <member refid="classPositioning_1af94f37d5141b575679fc686518cea183" prot="public" virt="non-virtual"><scope>Positioning</scope><name>coordinateTransformerChanged</name></member>
+      <member refid="classPositioning_1ac4932e3303b44ef2eff9599726029082" prot="private" virt="virtual"><scope>Positioning</scope><name>details</name></member>
+      <member refid="classPositioning_1aca58d836aeeb06d1710600c14a7ad6d7" prot="public" virt="non-virtual"><scope>Positioning</scope><name>deviceCapabilities</name></member>
+      <member refid="classPositioning_1aa349715e89bae27be76305acbf9563e5" prot="public" virt="non-virtual"><scope>Positioning</scope><name>deviceCapabilities</name></member>
+      <member refid="classPositioning_1a002b814d4f9595c9d378e009015f7a33" prot="public" virt="non-virtual"><scope>Positioning</scope><name>deviceDetails</name></member>
+      <member refid="classPositioning_1a4546825c3c2ce0ddc1246e55cc898473" prot="public" virt="non-virtual"><scope>Positioning</scope><name>deviceId</name></member>
+      <member refid="classPositioning_1ad8172bcb28769537ea08e214e330e6db" prot="public" virt="non-virtual"><scope>Positioning</scope><name>deviceId</name></member>
+      <member refid="classPositioning_1a629650b66af6c8be9d6024d2f7714664" prot="public" virt="non-virtual"><scope>Positioning</scope><name>deviceIdChanged</name></member>
+      <member refid="classPositioning_1a2219e7a57f92fa5c7e35e4f8c4d508bf" prot="public" virt="non-virtual"><scope>Positioning</scope><name>deviceLastError</name></member>
+      <member refid="classPositioning_1a9dfb1ee4f6f983334cc2c859f46f8f31" prot="public" virt="non-virtual"><scope>Positioning</scope><name>deviceLastError</name></member>
+      <member refid="classPositioning_1a5c88a9edd883f51ba501270ec180f615" prot="public" virt="non-virtual"><scope>Positioning</scope><name>deviceLastErrorChanged</name></member>
+      <member refid="classPositioning_1a44447d1b969c1cb7d697d1f68161399b" prot="public" virt="non-virtual"><scope>Positioning</scope><name>deviceSocketState</name></member>
+      <member refid="classPositioning_1adf4fb7793d0c94e91fcbfd266a7f30fa" prot="public" virt="non-virtual"><scope>Positioning</scope><name>deviceSocketState</name></member>
+      <member refid="classPositioning_1a1a9ac5591cebac406971e04d938918fc" prot="public" virt="non-virtual"><scope>Positioning</scope><name>deviceSocketStateChanged</name></member>
+      <member refid="classPositioning_1ae7d00a274702942db5d7d04da3db2219" prot="public" virt="non-virtual"><scope>Positioning</scope><name>deviceSocketStateString</name></member>
+      <member refid="classPositioning_1ab0346637054877b4bee84f480e050f61" prot="public" virt="non-virtual"><scope>Positioning</scope><name>deviceSocketStateString</name></member>
+      <member refid="classPositioning_1a34f18821bc64bc28573bc35cbcef3544" prot="public" virt="non-virtual"><scope>Positioning</scope><name>deviceSocketStateStringChanged</name></member>
+      <member refid="classPositioning_1ab3b93d9cf984bc03d82381c6953c2cc6" prot="public" virt="non-virtual"><scope>Positioning</scope><name>elevationCorrectionMode</name></member>
+      <member refid="classPositioning_1ad1384b118765a0ac85dedacc242be1ff" prot="public" virt="non-virtual"><scope>Positioning</scope><name>elevationCorrectionMode</name></member>
+      <member refid="classPositioning_1ae5de85b8e3a28a1016f6b0647a087892" prot="public" virt="non-virtual"><scope>Positioning</scope><name>elevationCorrectionModeChanged</name></member>
+      <member refid="classPositioning_1af8f73a0cb387e2e384e7f13280ac4e0b" prot="public" virt="non-virtual"><scope>Positioning</scope><name>excellentAccuracyThreshold</name></member>
+      <member refid="classPositioning_1a6033fd41a96b542ffc10aedcc5f8ff39" prot="public" virt="non-virtual"><scope>Positioning</scope><name>excellentAccuracyThreshold</name></member>
+      <member refid="classPositioning_1a5144a15fc341212ae914ed9a1837b335" prot="public" virt="non-virtual"><scope>Positioning</scope><name>excellentAccuracyThresholdChanged</name></member>
+      <member refid="classPositioning_1a94b172dbf19ad921f3ff887e80063d6e" prot="public" virt="non-virtual"><scope>Positioning</scope><name>getBackgroundPositionInformation</name></member>
+      <member refid="classPositioning_1ae9d17aaea5d83651eb4264d139796e37" prot="private" virt="non-virtual"><scope>Positioning</scope><name>isSourceAvailable</name></member>
+      <member refid="classPositioning_1aa63a5a63e8793c76a1107ddcc9b9d55e" prot="public" virt="non-virtual"><scope>Positioning</scope><name>logging</name></member>
+      <member refid="classPositioning_1a7931ef8135bdf8c7b8ec3a628632123d" prot="public" virt="non-virtual"><scope>Positioning</scope><name>logging</name></member>
+      <member refid="classPositioning_1a1daeed276f369dc120b8ba07475cd9a8" prot="public" virt="non-virtual"><scope>Positioning</scope><name>loggingChanged</name></member>
+      <member refid="classPositioning_1a851c2031646625a4104c60a1799f8778" prot="public" virt="non-virtual"><scope>Positioning</scope><name>loggingPath</name></member>
+      <member refid="classPositioning_1ac31c69a0422b81ff809c7363b1992c47" prot="public" virt="non-virtual"><scope>Positioning</scope><name>loggingPath</name></member>
+      <member refid="classPositioning_1a6b487012220cd051a624ee66aa04f26f" prot="public" virt="non-virtual"><scope>Positioning</scope><name>loggingPathChanged</name></member>
+      <member refid="classPositioning_1a2e5d1a73995c5ede2f3405b0477ec1ea" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mAveragedPosition</name></member>
+      <member refid="classPositioning_1aa36a20b6f76edb3534e66bc27bee03b0" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mAveragedPositionFilterAccuracy</name></member>
+      <member refid="classPositioning_1a0273484cd526ee1d25c2ae101a6b19d3" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mBackgroundMode</name></member>
+      <member refid="classPositioning_1ae607f07ca777b29453035f5987cf2eff" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mBadAccuracyThreshold</name></member>
+      <member refid="classPositioning_1ac6e31b1e922d0085cd71a702900f2088" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mBluetoothPermissionChecked</name></member>
+      <member refid="classPositioning_1ac8b47bc3772672ff34cb09dd927d1d4d" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mCollectedPositionInformations</name></member>
+      <member refid="classPositioning_1a0ffb80481d1de4da3f00386233c11c08" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mCoordinateTransformer</name></member>
+      <member refid="classPositioning_1a1318c37696e1a79896da0b38b5af9c1b" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mExcellentAccuracyThreshold</name></member>
+      <member refid="classPositioning_1aed6adaa87df24e1d8795fbf5361f4d28" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mHost</name></member>
+      <member refid="classPositioning_1a9c66c6e0e025f4fd7c73a691bc5939fa" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mInternalPermissionChecked</name></member>
+      <member refid="classPositioning_1a13fa5921bafd4aed83f0f9fa8c80649e" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mNode</name></member>
+      <member refid="classPositioning_1a55b547731741a5e96db49f33f293aff7" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mPositionInformation</name></member>
+      <member refid="classPositioning_1afd6d22eee499131d92332e2aa9bc548f" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mPositioningSource</name></member>
+      <member refid="classPositioning_1a86ac9a0008c127ea75e0cf544b542d46" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mPositioningSourceReplica</name></member>
+      <member refid="classPositioning_1a817b53f1aa9905e7b7f1e1353fe3012c" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mProjectedHorizontalAccuracy</name></member>
+      <member refid="classPositioning_1a575335cdb31a61574aa1e5661e8a9d3c" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mProjectedPosition</name></member>
+      <member refid="classPositioning_1a56221a6b635813fc4005231681307fda" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mProperties</name></member>
+      <member refid="classPositioning_1ae971a423cace555eabffa4972472add4" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mServiceMode</name></member>
+      <member refid="classPositioning_1aa24c137d5f3977dc6f3b858a73653222" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mSourcePosition</name></member>
+      <member refid="classPositioning_1ac3e80f503d36b9d348ecd8bf7cf33955" prot="private" virt="non-virtual"><scope>Positioning</scope><name>mValid</name></member>
+      <member refid="classPositioning_1a4acb3bdc1aaa9b86e815ef279b765818" prot="private" virt="non-virtual"><scope>Positioning</scope><name>onActiveChanged</name></member>
+      <member refid="classPositioning_1a2594a9adea2108d3fcf1e6f6fd9801dd" prot="private" virt="non-virtual"><scope>Positioning</scope><name>onAntennaHeightChanged</name></member>
+      <member refid="classPositioning_1ac2ed26b30de987514f3264ed53e4986e" prot="private" virt="non-virtual"><scope>Positioning</scope><name>onApplicationStateChanged</name></member>
+      <member refid="classPositioning_1a6f58184320ed886f90f0255ed49d570c" prot="private" virt="non-virtual"><scope>Positioning</scope><name>onDeviceIdChanged</name></member>
+      <member refid="classPositioning_1ab8044b7a5f144a248ec040e055cf4174" prot="private" virt="non-virtual"><scope>Positioning</scope><name>onElevationCorrectionModeChanged</name></member>
+      <member refid="classPositioning_1a8ff1847ece995867086a4f8423408949" prot="private" virt="non-virtual"><scope>Positioning</scope><name>onLoggingChanged</name></member>
+      <member refid="classPositioning_1a04fc0ba3190a021ead4fbe37fb21e513" prot="private" virt="non-virtual"><scope>Positioning</scope><name>onLoggingPathChanged</name></member>
+      <member refid="classPositioning_1a6b897e4444cec83206cdf51f3b020389" prot="private" virt="non-virtual"><scope>Positioning</scope><name>onPositionInformationChanged</name></member>
+      <member refid="classPositioning_1af8adcfe66ed2f723cdc942b5d06f5de5" prot="private" virt="non-virtual"><scope>Positioning</scope><name>onValidChanged</name></member>
+      <member refid="classPositioning_1a65f1ae389d7ea6ca909bc53b795e2328" prot="public" virt="non-virtual"><scope>Positioning</scope><name>orientation</name></member>
+      <member refid="classPositioning_1a54c94d95ed7617143f3db63081d18658" prot="public" virt="non-virtual"><scope>Positioning</scope><name>orientation</name></member>
+      <member refid="classPositioning_1a37a5310a0ad6dad653b0865a2bf22624" prot="public" virt="non-virtual"><scope>Positioning</scope><name>orientationChanged</name></member>
+      <member refid="classPositioning_1aaeea6d799f05e4abe789dea1c1ea8fd0" prot="public" virt="non-virtual"><scope>Positioning</scope><name>positionInformation</name></member>
+      <member refid="classPositioning_1acf06988dea0ec443017b48dd7d2fa608" prot="public" virt="non-virtual"><scope>Positioning</scope><name>positionInformation</name></member>
+      <member refid="classPositioning_1abfde12a0a38dea8f9a0b15e0c86eefdb" prot="public" virt="non-virtual"><scope>Positioning</scope><name>positionInformationChanged</name></member>
+      <member refid="classPositioning_1a3894edcd59f8922f60f77ce8d0cd5034" prot="public" virt="non-virtual"><scope>Positioning</scope><name>Positioning</name></member>
+      <member refid="classPositioning_1ac595adc633dcba460dead9a12b2c2920" prot="private" virt="non-virtual"><scope>Positioning</scope><name>processProjectedPosition</name></member>
+      <member refid="classPositioning_1a55142704bbb69bc4f20a9bc51cf6a79b" prot="public" virt="non-virtual"><scope>Positioning</scope><name>projectedHorizontalAccuracy</name></member>
+      <member refid="classPositioning_1aa639092dfdd5bc9482615b0ef5e35ec1" prot="public" virt="non-virtual"><scope>Positioning</scope><name>projectedHorizontalAccuracy</name></member>
+      <member refid="classPositioning_1a9ae8c0a6b50bb2e5a12ec27b84f20bfb" prot="public" virt="non-virtual"><scope>Positioning</scope><name>projectedPosition</name></member>
+      <member refid="classPositioning_1ae09baa02b8a16b2571f293d7b7bfeb3e" prot="public" virt="non-virtual"><scope>Positioning</scope><name>projectedPosition</name></member>
+      <member refid="classPositioning_1a51f57af2ab2efef6382070a1e1224d62" prot="public" virt="non-virtual"><scope>Positioning</scope><name>projectedPositionChanged</name></member>
+      <member refid="classPositioning_1aba4a78b992b95e357930e13ea93d7258" prot="public" virt="non-virtual"><scope>Positioning</scope><name>serviceMode</name></member>
+      <member refid="classPositioning_1ae124b3dcc948884f8d3340c4ef506141" prot="public" virt="non-virtual"><scope>Positioning</scope><name>serviceMode</name></member>
+      <member refid="classPositioning_1ae46d38ac0bf062332f849fa47a86e82b" prot="public" virt="non-virtual"><scope>Positioning</scope><name>serviceModeChanged</name></member>
+      <member refid="classPositioning_1a395296b28b7eaa4788aadcfa101777f5" prot="public" virt="non-virtual"><scope>Positioning</scope><name>setActive</name></member>
+      <member refid="classPositioning_1a1d609ef20eef436af2cd08e776bdc750" prot="public" virt="non-virtual"><scope>Positioning</scope><name>setAntennaHeight</name></member>
+      <member refid="classPositioning_1a60e035aa5e742e25340a860f94099d53" prot="public" virt="non-virtual"><scope>Positioning</scope><name>setAveragedPosition</name></member>
+      <member refid="classPositioning_1ac87eaf6f6ffb4bc85182b537776742bb" prot="public" virt="non-virtual"><scope>Positioning</scope><name>setAveragedPositionFilterAccuracy</name></member>
+      <member refid="classPositioning_1abd54be478ef5eb0cee33feb3bb74a2b5" prot="public" virt="non-virtual"><scope>Positioning</scope><name>setBackgroundMode</name></member>
+      <member refid="classPositioning_1a8a96a4c0ecf27dd64fa042b369b09218" prot="public" virt="non-virtual"><scope>Positioning</scope><name>setBadAccuracyThreshold</name></member>
+      <member refid="classPositioning_1add308ca8e564152c729795416713354d" prot="public" virt="non-virtual"><scope>Positioning</scope><name>setCoordinateTransformer</name></member>
+      <member refid="classPositioning_1a9dcbe4eccfdeeb05a5fc84cc58f4120d" prot="public" virt="non-virtual"><scope>Positioning</scope><name>setDeviceId</name></member>
+      <member refid="classPositioning_1acc09f55527cf232985d8425e111a7af0" prot="public" virt="non-virtual"><scope>Positioning</scope><name>setElevationCorrectionMode</name></member>
+      <member refid="classPositioning_1affa491d44838a4cc4254f0720a3d66a5" prot="public" virt="non-virtual"><scope>Positioning</scope><name>setExcellentAccuracyThreshold</name></member>
+      <member refid="classPositioning_1ab69ddff14762793b324378a7278f96dc" prot="public" virt="non-virtual"><scope>Positioning</scope><name>setLogging</name></member>
+      <member refid="classPositioning_1a4367c43cf78ceb2ca4f1d9f3b8a7d3d7" prot="public" virt="non-virtual"><scope>Positioning</scope><name>setLoggingPath</name></member>
+      <member refid="classPositioning_1ad8ea220a33ec9dd04cb1096cb2138781" prot="public" virt="non-virtual"><scope>Positioning</scope><name>setServiceMode</name></member>
+      <member refid="classPositioning_1a6d9223c245e0177d747cfd289770e732" prot="private" virt="non-virtual"><scope>Positioning</scope><name>setupSource</name></member>
+      <member refid="classPositioning_1a9881c45b530f52c3b5c7d592d4e95835" prot="public" virt="non-virtual"><scope>Positioning</scope><name>setValid</name></member>
+      <member refid="classPositioning_1a2e03468f41b45db9475f458acc1f9843" prot="public" virt="non-virtual"><scope>Positioning</scope><name>sourcePosition</name></member>
+      <member refid="classPositioning_1ad6f92561d8eb133562160d8e0483393f" prot="public" virt="non-virtual"><scope>Positioning</scope><name>sourcePosition</name></member>
+      <member refid="classPositioning_1ab8984d42b02bb018b1c5e24c9b1e9dda" prot="public" virt="non-virtual"><scope>Positioning</scope><name>triggerConnectDevice</name></member>
+      <member refid="classPositioning_1a0f63726f53344ab07315b992d95cbab1" prot="public" virt="non-virtual"><scope>Positioning</scope><name>triggerDisconnectDevice</name></member>
+      <member refid="classPositioning_1a533cd8224aaee0f556e4a35a72a9fa30" prot="public" virt="non-virtual"><scope>Positioning</scope><name>valid</name></member>
+      <member refid="classPositioning_1a407574998df0b31c0352f4475937deb7" prot="public" virt="non-virtual"><scope>Positioning</scope><name>valid</name></member>
+      <member refid="classPositioning_1a9b3a3fd8efb0fee8d8f23eecbd50cf75" prot="public" virt="non-virtual"><scope>Positioning</scope><name>validChanged</name></member>
+      <member refid="classPositioning_1a4c9f566028df0cdac0ccf425c8b4b94c" prot="public" virt="virtual"><scope>Positioning</scope><name>~Positioning</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

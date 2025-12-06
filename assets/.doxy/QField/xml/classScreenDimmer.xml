@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classScreenDimmer" kind="class" language="C++" prot="public">
+    <compoundname>ScreenDimmer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="screendimmer_8h" local="no">screendimmer.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classScreenDimmer_1a6aaff946fb3e4a1e38da9e34d4538bca" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer ScreenDimmer::mTimer</definition>
+        <argsstring></argsstring>
+        <name>mTimer</name>
+        <qualifiedname>ScreenDimmer::mTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/screendimmer.h" line="49" column="12" bodyfile="src/core/screendimmer.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScreenDimmer_1ab8259c7f68f2e97971989e32ae0dd6c2" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ScreenDimmer::mTimeoutSeconds</definition>
+        <argsstring></argsstring>
+        <name>mTimeoutSeconds</name>
+        <qualifiedname>ScreenDimmer::mTimeoutSeconds</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/screendimmer.h" line="51" column="9" bodyfile="src/core/screendimmer.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScreenDimmer_1a1ae67e77f6a2bb7a2faf0ddb9bcea7cb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ScreenDimmer::mSuspend</definition>
+        <argsstring></argsstring>
+        <name>mSuspend</name>
+        <qualifiedname>ScreenDimmer::mSuspend</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/screendimmer.h" line="52" column="10" bodyfile="src/core/screendimmer.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScreenDimmer_1a151168e3f30008f40583731c5d6adf7f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ScreenDimmer::mDimmed</definition>
+        <argsstring></argsstring>
+        <name>mDimmed</name>
+        <qualifiedname>ScreenDimmer::mDimmed</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/screendimmer.h" line="53" column="10" bodyfile="src/core/screendimmer.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classScreenDimmer_1a7148b2646b9820ee91846de05b711e87" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ScreenDimmer::ScreenDimmer</definition>
+        <argsstring>(QgsApplication *app)</argsstring>
+        <name>ScreenDimmer</name>
+        <qualifiedname>ScreenDimmer::ScreenDimmer</qualifiedname>
+        <param>
+          <type>QgsApplication *</type>
+          <declname>app</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/screendimmer.h" line="31" column="14" bodyfile="src/core/screendimmer.cpp" bodystart="21" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classScreenDimmer_1aaac047d56d1fb2c9283fb0e1d4e44971" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScreenDimmer::setTimeout</definition>
+        <argsstring>(int timeoutSeconds)</argsstring>
+        <name>setTimeout</name>
+        <qualifiedname>ScreenDimmer::setTimeout</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>timeoutSeconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets dim timeout as <emphasis>timeoutSeconds</emphasis> in seconds. Disables dim screen if 0. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/screendimmer.h" line="36" column="10" bodyfile="src/core/screendimmer.cpp" bodystart="32" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classScreenDimmer_1a17110a15981fa930901094d9ea7d6ec4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScreenDimmer::setSuspend</definition>
+        <argsstring>(bool suspend)</argsstring>
+        <name>setSuspend</name>
+        <qualifiedname>ScreenDimmer::setSuspend</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>suspend</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Temporarily suspends the screen dimmer when <emphasis>suspend</emphasis> is set to TRUE. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/screendimmer.h" line="41" column="10" bodyfile="src/core/screendimmer.cpp" bodystart="54" bodyend="73"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classScreenDimmer_1a19f0957cc74dd0613fd1f3af54de3804" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ScreenDimmer::eventFilter</definition>
+        <argsstring>(QObject *obj, QEvent *event) override</argsstring>
+        <name>eventFilter</name>
+        <qualifiedname>ScreenDimmer::eventFilter</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>obj</declname>
+        </param>
+        <param>
+          <type>QEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/screendimmer.h" line="44" column="10" bodyfile="src/core/screendimmer.cpp" bodystart="75" bodyend="92"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classScreenDimmer_1ae4686fcd15dc8c04b8e09ddf3e346af7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScreenDimmer::timeout</definition>
+        <argsstring>()</argsstring>
+        <name>timeout</name>
+        <qualifiedname>ScreenDimmer::timeout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/screendimmer.h" line="47" column="10" bodyfile="src/core/screendimmer.cpp" bodystart="94" bodyend="98"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The <ref refid="classScreenDimmer" kindref="compound">ScreenDimmer</ref> class handles dimming of screen brightness. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>ScreenDimmer</label>
+        <link refid="classScreenDimmer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>ScreenDimmer</label>
+        <link refid="classScreenDimmer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/screendimmer.h" line="26" column="1" bodyfile="src/core/screendimmer.h" bodystart="27" bodyend="54"/>
+    <listofallmembers>
+      <member refid="classScreenDimmer_1a19f0957cc74dd0613fd1f3af54de3804" prot="protected" virt="non-virtual"><scope>ScreenDimmer</scope><name>eventFilter</name></member>
+      <member refid="classScreenDimmer_1a151168e3f30008f40583731c5d6adf7f" prot="private" virt="non-virtual"><scope>ScreenDimmer</scope><name>mDimmed</name></member>
+      <member refid="classScreenDimmer_1a1ae67e77f6a2bb7a2faf0ddb9bcea7cb" prot="private" virt="non-virtual"><scope>ScreenDimmer</scope><name>mSuspend</name></member>
+      <member refid="classScreenDimmer_1ab8259c7f68f2e97971989e32ae0dd6c2" prot="private" virt="non-virtual"><scope>ScreenDimmer</scope><name>mTimeoutSeconds</name></member>
+      <member refid="classScreenDimmer_1a6aaff946fb3e4a1e38da9e34d4538bca" prot="private" virt="non-virtual"><scope>ScreenDimmer</scope><name>mTimer</name></member>
+      <member refid="classScreenDimmer_1a7148b2646b9820ee91846de05b711e87" prot="public" virt="non-virtual"><scope>ScreenDimmer</scope><name>ScreenDimmer</name></member>
+      <member refid="classScreenDimmer_1a17110a15981fa930901094d9ea7d6ec4" prot="public" virt="non-virtual"><scope>ScreenDimmer</scope><name>setSuspend</name></member>
+      <member refid="classScreenDimmer_1aaac047d56d1fb2c9283fb0e1d4e44971" prot="public" virt="non-virtual"><scope>ScreenDimmer</scope><name>setTimeout</name></member>
+      <member refid="classScreenDimmer_1ae4686fcd15dc8c04b8e09ddf3e346af7" prot="private" virt="non-virtual"><scope>ScreenDimmer</scope><name>timeout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfCollapsibleMessage" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfCollapsibleMessage</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfCollapsibleMessage_1a502423aaace7d088b49c44431249433a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfCollapsibleMessage::collapsed</definition>
+        <argsstring></argsstring>
+        <name>collapsed</name>
+        <qualifiedname>Theme::QfCollapsibleMessage::collapsed</qualifiedname>
+        <read>dummyGetter_collapsed_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="15" column="1" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfCollapsibleMessage_1a8fc1ff0cf7149996f90c201169b0a40d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Theme::QfCollapsibleMessage::externalLink</definition>
+        <argsstring></argsstring>
+        <name>externalLink</name>
+        <qualifiedname>Theme::QfCollapsibleMessage::externalLink</qualifiedname>
+        <read>dummyGetter_externalLink_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="17" column="1" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfCollapsibleMessage_1a260b79dedbda762a5ee1961c53e1e567" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfCollapsibleMessage::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>Theme::QfCollapsibleMessage::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="19" column="1" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfCollapsibleMessage_1ae39232db6be0175d704130e437f81efa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfCollapsibleMessage::detailsColor</definition>
+        <argsstring></argsstring>
+        <name>detailsColor</name>
+        <qualifiedname>Theme::QfCollapsibleMessage::detailsColor</qualifiedname>
+        <read>dummyGetter_detailsColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="21" column="1" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfCollapsibleMessage_1aee5b866aada04b5ce2b798e176513cbe" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfCollapsibleMessage::font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <qualifiedname>Theme::QfCollapsibleMessage::font</qualifiedname>
+        <read>dummyGetter_font_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="23" column="1" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfCollapsibleMessage_1ae00719657ef15f70dd4e08d31c463e4c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfCollapsibleMessage::titleText</definition>
+        <argsstring></argsstring>
+        <name>titleText</name>
+        <qualifiedname>Theme::QfCollapsibleMessage::titleText</qualifiedname>
+        <read>dummyGetter_titleText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="25" column="1" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfCollapsibleMessage_1add6a764859f599a78ce4b5a7db7a4fa0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfCollapsibleMessage::detailsText</definition>
+        <argsstring></argsstring>
+        <name>detailsText</name>
+        <qualifiedname>Theme::QfCollapsibleMessage::detailsText</qualifiedname>
+        <read>dummyGetter_detailsText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="27" column="1" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfCollapsibleMessage_1ad4a89d2bdb6bfb537ffd4e2e5d82f78e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfCollapsibleMessage::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>Theme::QfCollapsibleMessage::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="29" column="5" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfCollapsibleMessage_1a40b58ad96ca9a7ac35780e89b58b8ce9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfCollapsibleMessage::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>Theme::QfCollapsibleMessage::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="30" column="5" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfCollapsibleMessage_1ad3668ad118d80aaa4df5b3367e94d3eb" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfCollapsibleMessage::implicitHeight</definition>
+        <argsstring></argsstring>
+        <name>implicitHeight</name>
+        <qualifiedname>Theme::QfCollapsibleMessage::implicitHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="31" column="5" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfCollapsibleMessage_1ac653e777dc0a0229829c6d83ffb7a922" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle Theme::QfCollapsibleMessage::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>Theme::QfCollapsibleMessage::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="32" column="11" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfCollapsibleMessage_1aa163463ded02ca3c4f71b13450438ade" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text Theme::QfCollapsibleMessage::titleText</definition>
+        <argsstring></argsstring>
+        <name>titleText</name>
+        <qualifiedname>Theme::QfCollapsibleMessage::titleText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="33" column="6" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfCollapsibleMessage_1af17d749dda78f2ef96ba57ce0cfc1b4c" prot="private" static="no" mutable="no">
+        <type>ToolButton</type>
+        <definition>ToolButton Theme::QfCollapsibleMessage::externalLinkButton</definition>
+        <argsstring></argsstring>
+        <name>externalLinkButton</name>
+        <qualifiedname>Theme::QfCollapsibleMessage::externalLinkButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="34" column="12" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfCollapsibleMessage_1a786bebb9aa6773a561bcfcf8edcac537" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle Theme::QfCollapsibleMessage::separator</definition>
+        <argsstring></argsstring>
+        <name>separator</name>
+        <qualifiedname>Theme::QfCollapsibleMessage::separator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="35" column="11" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfCollapsibleMessage_1abd9e01a4a6af56e32b273841a700618d" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text Theme::QfCollapsibleMessage::detailsText</definition>
+        <argsstring></argsstring>
+        <name>detailsText</name>
+        <qualifiedname>Theme::QfCollapsibleMessage::detailsText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="36" column="6" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfCollapsibleMessage_1ab263d1ffe2c812bbc342a3d3e84e0128" prot="private" static="no" mutable="no">
+        <type>MouseArea</type>
+        <definition>MouseArea Theme::QfCollapsibleMessage::mainMouseArea</definition>
+        <argsstring></argsstring>
+        <name>mainMouseArea</name>
+        <qualifiedname>Theme::QfCollapsibleMessage::mainMouseArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="37" column="11" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfCollapsibleMessage</label>
+        <link refid="classTheme_1_1QfCollapsibleMessage"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfCollapsibleMessage</label>
+        <link refid="classTheme_1_1QfCollapsibleMessage"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfCollapsibleMessage.qml" line="12" column="1" bodyfile="src/qml/imports/Theme/QfCollapsibleMessage.qml" bodystart="12" bodyend="38"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1ac653e777dc0a0229829c6d83ffb7a922" prot="private" virt="non-virtual"><scope>Theme::QfCollapsibleMessage</scope><name>background</name></member>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1ad4a89d2bdb6bfb537ffd4e2e5d82f78e" prot="private" virt="non-virtual"><scope>Theme::QfCollapsibleMessage</scope><name>clip</name></member>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1a502423aaace7d088b49c44431249433a" prot="public" virt="non-virtual"><scope>Theme::QfCollapsibleMessage</scope><name>collapsed</name></member>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1a260b79dedbda762a5ee1961c53e1e567" prot="public" virt="non-virtual"><scope>Theme::QfCollapsibleMessage</scope><name>color</name></member>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1ae39232db6be0175d704130e437f81efa" prot="public" virt="non-virtual"><scope>Theme::QfCollapsibleMessage</scope><name>detailsColor</name></member>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1add6a764859f599a78ce4b5a7db7a4fa0" prot="public" virt="non-virtual"><scope>Theme::QfCollapsibleMessage</scope><name>detailsText</name></member>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1abd9e01a4a6af56e32b273841a700618d" prot="private" virt="non-virtual"><scope>Theme::QfCollapsibleMessage</scope><name>detailsText</name></member>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1a8fc1ff0cf7149996f90c201169b0a40d" prot="public" virt="non-virtual"><scope>Theme::QfCollapsibleMessage</scope><name>externalLink</name></member>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1af17d749dda78f2ef96ba57ce0cfc1b4c" prot="private" virt="non-virtual"><scope>Theme::QfCollapsibleMessage</scope><name>externalLinkButton</name></member>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1aee5b866aada04b5ce2b798e176513cbe" prot="public" virt="non-virtual"><scope>Theme::QfCollapsibleMessage</scope><name>font</name></member>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1a40b58ad96ca9a7ac35780e89b58b8ce9" prot="private" virt="non-virtual"><scope>Theme::QfCollapsibleMessage</scope><name>height</name></member>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1ad3668ad118d80aaa4df5b3367e94d3eb" prot="private" virt="non-virtual"><scope>Theme::QfCollapsibleMessage</scope><name>implicitHeight</name></member>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1ab263d1ffe2c812bbc342a3d3e84e0128" prot="private" virt="non-virtual"><scope>Theme::QfCollapsibleMessage</scope><name>mainMouseArea</name></member>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1a786bebb9aa6773a561bcfcf8edcac537" prot="private" virt="non-virtual"><scope>Theme::QfCollapsibleMessage</scope><name>separator</name></member>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1ae00719657ef15f70dd4e08d31c463e4c" prot="public" virt="non-virtual"><scope>Theme::QfCollapsibleMessage</scope><name>titleText</name></member>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1aa163463ded02ca3c4f71b13450438ade" prot="private" virt="non-virtual"><scope>Theme::QfCollapsibleMessage</scope><name>titleText</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

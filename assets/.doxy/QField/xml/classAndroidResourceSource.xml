@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAndroidResourceSource" kind="class" language="C++" prot="public">
+    <compoundname>AndroidResourceSource</compoundname>
+    <basecompoundref refid="classResourceSource" prot="public" virt="non-virtual">ResourceSource</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAndroidResourceSource_1a4bd11b616146513146028df1c7c2c751" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString AndroidResourceSource::mPrefix</definition>
+        <argsstring></argsstring>
+        <name>mPrefix</name>
+        <qualifiedname>AndroidResourceSource::mPrefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Base directory path for all relative paths. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/androidresourcesource.h" line="41" column="13" bodyfile="src/core/platforms/android/androidresourcesource.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAndroidResourceSource_1a93468ccc783cd314bc32edff5402720c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AndroidResourceSource::AndroidResourceSource</definition>
+        <argsstring>(const QString &amp;prefix, QObject *parent)</argsstring>
+        <name>AndroidResourceSource</name>
+        <qualifiedname>AndroidResourceSource::AndroidResourceSource</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Construct a new <ref refid="classAndroidResourceSource" kindref="compound">AndroidResourceSource</ref> object</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prefix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project folder. Base directory path for all relative paths. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/androidresourcesource.h" line="31" column="14" bodyfile="src/core/platforms/android/androidresourcesource.cpp" bodystart="24" bodyend="30"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classAndroidResourceSource_1a0544f71c7a87641c47a6c6ca1e884ccc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AndroidResourceSource::handleResourceReceived</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>handleResourceReceived</name>
+        <qualifiedname>AndroidResourceSource::handleResourceReceived</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/androidresourcesource.h" line="34" column="10" bodyfile="src/core/platforms/android/androidresourcesource.cpp" bodystart="32" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="slot" id="classAndroidResourceSource_1acf7a9423599a753456e206edcf5d40b1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AndroidResourceSource::handleResourceCanceled</definition>
+        <argsstring>(const QString &amp;message)</argsstring>
+        <name>handleResourceCanceled</name>
+        <qualifiedname>AndroidResourceSource::handleResourceCanceled</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/androidresourcesource.h" line="35" column="10" bodyfile="src/core/platforms/android/androidresourcesource.cpp" bodystart="54" bodyend="63"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AndroidResourceSource</label>
+        <link refid="classAndroidResourceSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="2">
+        <label>ResourceSource</label>
+        <link refid="classResourceSource"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AndroidResourceSource</label>
+        <link refid="classAndroidResourceSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="2">
+        <label>ResourceSource</label>
+        <link refid="classResourceSource"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/platforms/android/androidresourcesource.h" line="21" column="1" bodyfile="src/core/platforms/android/androidresourcesource.h" bodystart="22" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classAndroidResourceSource_1a93468ccc783cd314bc32edff5402720c" prot="public" virt="non-virtual"><scope>AndroidResourceSource</scope><name>AndroidResourceSource</name></member>
+      <member refid="classAndroidResourceSource_1acf7a9423599a753456e206edcf5d40b1" prot="private" virt="non-virtual"><scope>AndroidResourceSource</scope><name>handleResourceCanceled</name></member>
+      <member refid="classAndroidResourceSource_1a0544f71c7a87641c47a6c6ca1e884ccc" prot="private" virt="non-virtual"><scope>AndroidResourceSource</scope><name>handleResourceReceived</name></member>
+      <member refid="classAndroidResourceSource_1a4bd11b616146513146028df1c7c2c751" prot="private" virt="non-virtual"><scope>AndroidResourceSource</scope><name>mPrefix</name></member>
+      <member refid="classResourceSource_1a0d943802115ab0272a9e60a78b5bf8c0" prot="public" virt="non-virtual"><scope>AndroidResourceSource</scope><name>resourceReceived</name></member>
+      <member refid="classResourceSource_1a619bb525c74553c331566eb13aa458bc" prot="public" virt="non-virtual"><scope>AndroidResourceSource</scope><name>ResourceSource</name></member>
+      <member refid="classResourceSource_1a28122c523be31fb01217b8ddbd58a452" prot="public" virt="virtual"><scope>AndroidResourceSource</scope><name>~ResourceSource</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

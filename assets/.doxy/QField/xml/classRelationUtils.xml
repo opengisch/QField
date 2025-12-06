@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classRelationUtils" kind="class" language="C++" prot="public">
+    <compoundname>RelationUtils</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRelationUtils_1ad9577c28c5e42159f7d1c6ca4a170a51" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RelationUtils::RelationUtils</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>RelationUtils</name>
+        <qualifiedname>RelationUtils::RelationUtils</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/relationutils.h" line="31" column="14" bodyfile="src/core/utils/relationutils.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classRelationUtils_1a0bae07cabf7ebe0ccfd064750cbe85d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsRelation</type>
+        <definition>QgsRelation RelationUtils::resolveReferencingRelation</definition>
+        <argsstring>(QgsProject *project, QgsVectorLayer *layer, const QString &amp;fieldName, const QString &amp;relationId)</argsstring>
+        <name>resolveReferencingRelation</name>
+        <qualifiedname>RelationUtils::resolveReferencingRelation</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fieldName</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>relationId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/relationutils.h" line="33" column="29" bodyfile="src/core/utils/relationutils.cpp" bodystart="28" bodyend="46"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>RelationUtils</label>
+        <link refid="classRelationUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>RelationUtils</label>
+        <link refid="classRelationUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/utils/relationutils.h" line="26" column="1" bodyfile="src/core/utils/relationutils.h" bodystart="27" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classRelationUtils_1ad9577c28c5e42159f7d1c6ca4a170a51" prot="public" virt="non-virtual"><scope>RelationUtils</scope><name>RelationUtils</name></member>
+      <member refid="classRelationUtils_1a0bae07cabf7ebe0ccfd064750cbe85d0" prot="public" virt="non-virtual"><scope>RelationUtils</scope><name>resolveReferencingRelation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

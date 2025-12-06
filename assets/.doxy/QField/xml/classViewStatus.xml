@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classViewStatus" kind="class" language="C++" prot="public">
+    <compoundname>ViewStatus</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <derivedcompoundref refid="classAndroidViewStatus" prot="public" virt="non-virtual">AndroidViewStatus</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classViewStatus_1aac57167f8276384440422be797b73685" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ViewStatus::ViewStatus</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ViewStatus</name>
+        <qualifiedname>ViewStatus::ViewStatus</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/viewstatus.h" line="30" column="14" bodyfile="src/core/viewstatus.cpp" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classViewStatus_1a6e9edb67c332a2dafe21070c4d081931" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ViewStatus::~ViewStatus</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ViewStatus</name>
+        <qualifiedname>ViewStatus::~ViewStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/viewstatus.h" line="32" column="13"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classViewStatus_1a037e9dbdacf732779ed6d112feb43fbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ViewStatus::statusReceived</definition>
+        <argsstring>(const QString &amp;statusText)</argsstring>
+        <name>statusReceived</name>
+        <qualifiedname>ViewStatus::statusReceived</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>statusText</declname>
+        </param>
+        <briefdescription>
+<para>This signal is emitted when a status about the view action has been received. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/viewstatus.h" line="36" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classViewStatus_1ae9b772c954bd3cda12dfe3332665d6f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ViewStatus::finished</definition>
+        <argsstring>()</argsstring>
+        <name>finished</name>
+        <qualifiedname>ViewStatus::finished</qualifiedname>
+        <briefdescription>
+<para>This signal is emitted when a view action is finished. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/viewstatus.h" line="39" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>AndroidViewStatus</label>
+        <link refid="classAndroidViewStatus"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>ViewStatus</label>
+        <link refid="classViewStatus"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>ViewStatus</label>
+        <link refid="classViewStatus"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/viewstatus.h" line="25" column="1" bodyfile="src/core/viewstatus.h" bodystart="26" bodyend="40"/>
+    <listofallmembers>
+      <member refid="classViewStatus_1ae9b772c954bd3cda12dfe3332665d6f5" prot="public" virt="non-virtual"><scope>ViewStatus</scope><name>finished</name></member>
+      <member refid="classViewStatus_1a037e9dbdacf732779ed6d112feb43fbf" prot="public" virt="non-virtual"><scope>ViewStatus</scope><name>statusReceived</name></member>
+      <member refid="classViewStatus_1aac57167f8276384440422be797b73685" prot="public" virt="non-virtual"><scope>ViewStatus</scope><name>ViewStatus</name></member>
+      <member refid="classViewStatus_1a6e9edb67c332a2dafe21070c4d081931" prot="public" virt="virtual"><scope>ViewStatus</scope><name>~ViewStatus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,421 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classRange" kind="class" language="C++" prot="public">
+    <compoundname>Range</compoundname>
+    <basecompoundref refid="classEditorWidgetBase" prot="public" virt="non-virtual">EditorWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRange_1ac8c9f89ff22ba1f456306becbea5742b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Range::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>Range::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="6" column="5" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRange_1a81f677d7828d9287c52b825a32706dab" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Range::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>Range::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="23" column="5" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRange_1ab5345bfe749da705e6987a00bc932cee" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label Range::textReadonlyValue</definition>
+        <argsstring></argsstring>
+        <name>textReadonlyValue</name>
+        <qualifiedname>Range::textReadonlyValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="24" column="7" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRange_1af43cc4b5f85702578fb84fe66edef0c5" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField Range::textField</definition>
+        <argsstring></argsstring>
+        <name>textField</name>
+        <qualifiedname>Range::textField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="25" column="11" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRange_1ad88004cab34fd4cfe597db86d7e8fc2d" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton Range::decreaseButton</definition>
+        <argsstring></argsstring>
+        <name>decreaseButton</name>
+        <qualifiedname>Range::decreaseButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="26" column="14" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRange_1acf61ad5705e1ac298d373e59ae129cc2" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton Range::increaseButton</definition>
+        <argsstring></argsstring>
+        <name>increaseButton</name>
+        <qualifiedname>Range::increaseButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="27" column="14" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRange_1a0c320aaf015376228a6e97e55ed40083" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer Range::changeValueTimer</definition>
+        <argsstring></argsstring>
+        <name>changeValueTimer</name>
+        <qualifiedname>Range::changeValueTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="28" column="7" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRange_1acace7fac0b3c9b049549cc18ef26659e" prot="private" static="no" mutable="no">
+        <type>Row</type>
+        <definition>Row Range::sliderRow</definition>
+        <argsstring></argsstring>
+        <name>sliderRow</name>
+        <qualifiedname>Range::sliderRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="37" column="5" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRange_1a5b10e4396ca9dd09600a11ae8b75c689" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text Range::valueLabel</definition>
+        <argsstring></argsstring>
+        <name>valueLabel</name>
+        <qualifiedname>Range::valueLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="38" column="6" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRange_1acf4c8f3404acd3c873f72a5cde6d2a95" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSlider" kindref="compound">QfSlider</ref></type>
+        <definition>QfSlider Range::slider</definition>
+        <argsstring></argsstring>
+        <name>slider</name>
+        <qualifiedname>Range::slider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="39" column="10" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRange_1a4b1a61c2cc7de4995fad97911693bb5c" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics Range::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>Range::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="40" column="13" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRange_1af9e8b295ab5feb48635d868524adbdf2" prot="private" static="no" mutable="no">
+        <type>IntValidator</type>
+        <definition>IntValidator Range::intValidator</definition>
+        <argsstring></argsstring>
+        <name>intValidator</name>
+        <qualifiedname>Range::intValidator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="41" column="14" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRange_1a893489f4ea1350ebfb11c9d0b8bbcef5" prot="private" static="no" mutable="no">
+        <type>DoubleValidator</type>
+        <definition>DoubleValidator Range::doubleValidator</definition>
+        <argsstring></argsstring>
+        <name>doubleValidator</name>
+        <qualifiedname>Range::doubleValidator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="42" column="17" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classRange_1ae87edb2aed4809a4f638d5511f5a8790" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Range::isDouble</definition>
+        <argsstring></argsstring>
+        <name>isDouble</name>
+        <qualifiedname>Range::isDouble</qualifiedname>
+        <read>dummyGetter_isDouble_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="9" column="1" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classRange_1a71ebf61ca0b2046dab25f7f05a36fd22" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Range::widgetStyle</definition>
+        <argsstring></argsstring>
+        <name>widgetStyle</name>
+        <qualifiedname>Range::widgetStyle</qualifiedname>
+        <read>dummyGetter_widgetStyle_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="11" column="1" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classRange_1a5b01808b71cce1eb951a7e8bc32218fc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Range::precision</definition>
+        <argsstring></argsstring>
+        <name>precision</name>
+        <qualifiedname>Range::precision</qualifiedname>
+        <read>dummyGetter_precision_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="13" column="1" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classRange_1ae413c53f13e3199c92029b27915e412f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real Range::min</definition>
+        <argsstring></argsstring>
+        <name>min</name>
+        <qualifiedname>Range::min</qualifiedname>
+        <read>dummyGetter_min_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="15" column="1" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classRange_1ac04f4912c834bacea5583bd07b263e06" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real Range::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <qualifiedname>Range::max</qualifiedname>
+        <read>dummyGetter_max_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="17" column="1" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classRange_1a24dcd55eb904f60b9d90c10c6277271a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real Range::step</definition>
+        <argsstring></argsstring>
+        <name>step</name>
+        <qualifiedname>Range::step</qualifiedname>
+        <read>dummyGetter_step_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="19" column="1" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classRange_1a17fa3fcd5d25605c208ce74a0ec43789" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Range::suffix</definition>
+        <argsstring></argsstring>
+        <name>suffix</name>
+        <qualifiedname>Range::suffix</qualifiedname>
+        <read>dummyGetter_suffix_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="21" column="1" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRange_1abeb8bced086c2cdf90271ea8ad70dc96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Range::decreaseValue</definition>
+        <argsstring>()</argsstring>
+        <name>decreaseValue</name>
+        <qualifiedname>Range::decreaseValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="31" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classRange_1a6895deeb94ff1d30529d4bf048c31682" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Range::increaseValue</definition>
+        <argsstring>()</argsstring>
+        <name>increaseValue</name>
+        <qualifiedname>Range::increaseValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="33" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classRange_1ab2634161ab0be8b1e1f530565aad125a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Range::roundValue</definition>
+        <argsstring>(value, precision)</argsstring>
+        <name>roundValue</name>
+        <qualifiedname>Range::roundValue</qualifiedname>
+        <param>
+          <type>value</type>
+        </param>
+        <param>
+          <type>precision</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Range.qml" line="35" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>Range</label>
+        <link refid="classRange"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>Range</label>
+        <link refid="classRange"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/editorwidgets/Range.qml" line="5" column="1" bodyfile="src/qml/editorwidgets/Range.qml" bodystart="5" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classRange_1a0c320aaf015376228a6e97e55ed40083" prot="private" virt="non-virtual"><scope>Range</scope><name>changeValueTimer</name></member>
+      <member refid="classRange_1ad88004cab34fd4cfe597db86d7e8fc2d" prot="private" virt="non-virtual"><scope>Range</scope><name>decreaseButton</name></member>
+      <member refid="classRange_1abeb8bced086c2cdf90271ea8ad70dc96" prot="public" virt="non-virtual"><scope>Range</scope><name>decreaseValue</name></member>
+      <member refid="classRange_1a893489f4ea1350ebfb11c9d0b8bbcef5" prot="private" virt="non-virtual"><scope>Range</scope><name>doubleValidator</name></member>
+      <member refid="classRange_1ac8c9f89ff22ba1f456306becbea5742b" prot="private" virt="non-virtual"><scope>Range</scope><name>enabled</name></member>
+      <member refid="classRange_1a4b1a61c2cc7de4995fad97911693bb5c" prot="private" virt="non-virtual"><scope>Range</scope><name>fontMetrics</name></member>
+      <member refid="classEditorWidgetBase_1a09df69fe97d43104557cf6b6ff92733d" prot="public" virt="non-virtual"><scope>Range</scope><name>hasMenu</name></member>
+      <member refid="classRange_1a81f677d7828d9287c52b825a32706dab" prot="private" virt="non-virtual"><scope>Range</scope><name>height</name></member>
+      <member refid="classRange_1acf61ad5705e1ac298d373e59ae129cc2" prot="private" virt="non-virtual"><scope>Range</scope><name>increaseButton</name></member>
+      <member refid="classRange_1a6895deeb94ff1d30529d4bf048c31682" prot="public" virt="non-virtual"><scope>Range</scope><name>increaseValue</name></member>
+      <member refid="classRange_1af9e8b295ab5feb48635d868524adbdf2" prot="private" virt="non-virtual"><scope>Range</scope><name>intValidator</name></member>
+      <member refid="classRange_1ae87edb2aed4809a4f638d5511f5a8790" prot="public" virt="non-virtual"><scope>Range</scope><name>isDouble</name></member>
+      <member refid="classEditorWidgetBase_1a5e234aeb8a604b878c0ea42b3666287d" prot="public" virt="non-virtual"><scope>Range</scope><name>isEmpty</name></member>
+      <member refid="classEditorWidgetBase_1a9bf5802500e205dc6689be4e3144d7a9" prot="public" virt="non-virtual"><scope>Range</scope><name>isLoaded</name></member>
+      <member refid="classEditorWidgetBase_1a68f4219d74a2b92e087e85eb77d8cd4c" prot="public" virt="non-virtual"><scope>Range</scope><name>isNull</name></member>
+      <member refid="classRange_1ac04f4912c834bacea5583bd07b263e06" prot="public" virt="non-virtual"><scope>Range</scope><name>max</name></member>
+      <member refid="classEditorWidgetBase_1a7833a10df4c49cd3d197cb1fec54c1b8" prot="public" virt="non-virtual"><scope>Range</scope><name>menu</name></member>
+      <member refid="classRange_1ae413c53f13e3199c92029b27915e412f" prot="public" virt="non-virtual"><scope>Range</scope><name>min</name></member>
+      <member refid="classRange_1a5b01808b71cce1eb951a7e8bc32218fc" prot="public" virt="non-virtual"><scope>Range</scope><name>precision</name></member>
+      <member refid="classEditorWidgetBase_1a85e6ed4c11d34c9e84215dd004e8711c" prot="public" virt="non-virtual"><scope>Range</scope><name>requestBarcode</name></member>
+      <member refid="classEditorWidgetBase_1ae2d3df77c7c98886d2f0bbd18090bd1c" prot="public" virt="non-virtual"><scope>Range</scope><name>requestGeometry</name></member>
+      <member refid="classEditorWidgetBase_1ac9d672c6436f98d79d2a5539cd0b9200" prot="public" virt="non-virtual"><scope>Range</scope><name>requestJumpToPoint</name></member>
+      <member refid="classRange_1ab2634161ab0be8b1e1f530565aad125a" prot="public" virt="non-virtual"><scope>Range</scope><name>roundValue</name></member>
+      <member refid="classRange_1acf4c8f3404acd3c873f72a5cde6d2a95" prot="private" virt="non-virtual"><scope>Range</scope><name>slider</name></member>
+      <member refid="classRange_1acace7fac0b3c9b049549cc18ef26659e" prot="private" virt="non-virtual"><scope>Range</scope><name>sliderRow</name></member>
+      <member refid="classRange_1a24dcd55eb904f60b9d90c10c6277271a" prot="public" virt="non-virtual"><scope>Range</scope><name>step</name></member>
+      <member refid="classRange_1a17fa3fcd5d25605c208ce74a0ec43789" prot="public" virt="non-virtual"><scope>Range</scope><name>suffix</name></member>
+      <member refid="classRange_1af43cc4b5f85702578fb84fe66edef0c5" prot="private" virt="non-virtual"><scope>Range</scope><name>textField</name></member>
+      <member refid="classRange_1ab5345bfe749da705e6987a00bc932cee" prot="private" virt="non-virtual"><scope>Range</scope><name>textReadonlyValue</name></member>
+      <member refid="classEditorWidgetBase_1afa2313f03e3b2887472534cc11ca1572" prot="public" virt="non-virtual"><scope>Range</scope><name>valueChangeRequested</name></member>
+      <member refid="classRange_1a5b10e4396ca9dd09600a11ae8b75c689" prot="private" virt="non-virtual"><scope>Range</scope><name>valueLabel</name></member>
+      <member refid="classRange_1a71ebf61ca0b2046dab25f7f05a36fd22" prot="public" virt="non-virtual"><scope>Range</scope><name>widgetStyle</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

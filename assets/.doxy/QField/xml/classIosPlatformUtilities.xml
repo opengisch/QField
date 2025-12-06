@@ -1,0 +1,624 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classIosPlatformUtilities" kind="class" language="C++" prot="public">
+    <compoundname>IosPlatformUtilities</compoundname>
+    <basecompoundref refid="classPlatformUtilities" prot="public" virt="non-virtual">PlatformUtilities</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classIosPlatformUtilities_1a69c201a97a562fa9ed698be39023c5d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IosPlatformUtilities::IosPlatformUtilities</definition>
+        <argsstring>()</argsstring>
+        <name>IosPlatformUtilities</name>
+        <qualifiedname>IosPlatformUtilities::IosPlatformUtilities</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="29" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1a2ea3bf2b19c85ec7101c050ad6967d98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>PlatformUtilities::Capabilities</type>
+        <definition>PlatformUtilities::Capabilities IosPlatformUtilities::capabilities</definition>
+        <argsstring>() const override</argsstring>
+        <name>capabilities</name>
+        <qualifiedname>IosPlatformUtilities::capabilities</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1acdfee3747ba158fb8c78118bcfe41a85">capabilities</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns flags containing the supported capabilities of the platform. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="31" column="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1a6cda53e1118bbb12de22735503152b61" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void IosPlatformUtilities::afterUpdate</definition>
+        <argsstring>() override</argsstring>
+        <name>afterUpdate</name>
+        <qualifiedname>IosPlatformUtilities::afterUpdate</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1ad53ca492f3dfbdc9a119271067297cfb">afterUpdate</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method can be used to implement platform specific initialization tasks to be performed after an app update. This is implemented for Android to extract app assets to location where it can be accessed via filesystem. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="32" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1a35ff37bedfe851f0264403b2f465e73e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QString</type>
+        <definition>QString IosPlatformUtilities::systemSharedDataLocation</definition>
+        <argsstring>() const override</argsstring>
+        <name>systemSharedDataLocation</name>
+        <qualifiedname>IosPlatformUtilities::systemSharedDataLocation</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1a5b7cceaef89342515d9bb15321b01a23">systemSharedDataLocation</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The path to share data location. Under this path, there should be the app specific directories qgis/ proj/ qfield/ ... Refers to /share or /usr/share on Linux. This path is assumed to be read only. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>By default, assume that we have a layout like this:</para>
+<para>[prefix_path] |<ndash/> bin | |<ndash/> qfield.exe |<ndash/> share | |<ndash/> qfield | | |<ndash/> sample_projects | |<ndash/> proj | | |<ndash/> data | | | |<ndash/> proj.db</para>
+<para><ref refid="classIosPlatformUtilities_1a35ff37bedfe851f0264403b2f465e73e" kindref="member">systemSharedDataLocation()</ref>&apos;s return value will therefore be - relative to qfield.exe - &apos;../share&apos;. However it is possible to override this default logic through a environment variable named QFIELD_SYSTEM_SHARED_DATA_PATH. If present, its value will be used as the return value instead.</para>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="34" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1afe627cc95ed092a29b704ab77558e28d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QString</type>
+        <definition>QString IosPlatformUtilities::applicationDirectory</definition>
+        <argsstring>() const override</argsstring>
+        <name>applicationDirectory</name>
+        <qualifiedname>IosPlatformUtilities::applicationDirectory</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1a0b9f81a24f9a48bab89af8b7865cda4b">applicationDirectory</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The main application directory within which projects and datasets can be imported. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="35" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1a06e433212d3e3d98634e03777c26e81b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QStringList</type>
+        <definition>QStringList IosPlatformUtilities::appDataDirs</definition>
+        <argsstring>() const override</argsstring>
+        <name>appDataDirs</name>
+        <qualifiedname>IosPlatformUtilities::appDataDirs</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1af7ecac1a598bd45b4cf58f105faa792e">appDataDirs</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a list of data directories where user data is searched. User data are pg_service.conf, authentication config, grids, ... </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="36" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1add3b821e95bcc71160307b4ef4dd586a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QStringList</type>
+        <definition>QStringList IosPlatformUtilities::rootDirectories</definition>
+        <argsstring>() const override</argsstring>
+        <name>rootDirectories</name>
+        <qualifiedname>IosPlatformUtilities::rootDirectories</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1a02828986a2b40551a8c97bcc336d0f10">rootDirectories</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A list of root directories (e.g. root of an external storage) when system-wide access is available. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="37" column="17" bodyfile="src/core/platforms/ios/iosplatformutilities.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1a5fd3ff27971f98078cf650d0393d8361" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void IosPlatformUtilities::setScreenLockPermission</definition>
+        <argsstring>(const bool allowLock) override</argsstring>
+        <name>setScreenLockPermission</name>
+        <qualifiedname>IosPlatformUtilities::setScreenLockPermission</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1a88c6ecd1b156d13f94bbc6a672f0a2b6">setScreenLockPermission</reimplements>
+        <param>
+          <type>const bool</type>
+          <declname>allowLock</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the device screen is allowed to go in lock mode. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>allowLock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if set to FALSE, the screen will not be allowed to lock. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="39" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1a3aa7e5ec80fa048c4936ca4e8d1b90ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classResourceSource" kindref="compound">ResourceSource</ref> *</type>
+        <definition>virtual ResourceSource * IosPlatformUtilities::getCameraPicture</definition>
+        <argsstring>(const QString &amp;prefix, const QString &amp;pictureFilePath, const QString &amp;suffix, QObject *parent=nullptr) override</argsstring>
+        <name>getCameraPicture</name>
+        <qualifiedname>IosPlatformUtilities::getCameraPicture</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1a3dfd382a6a2adc77110135bc446da16e">getCameraPicture</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>pictureFilePath</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>suffix</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a picture from camera and copy it to the requested prefix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prefix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project folder </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pictureFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path (including subfolders and name) of the file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The name of the picture or null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="40" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1a1bab18bd91ab1695df28bb21ab0587a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classResourceSource" kindref="compound">ResourceSource</ref> *</type>
+        <definition>virtual ResourceSource * IosPlatformUtilities::getCameraVideo</definition>
+        <argsstring>(const QString &amp;prefix, const QString &amp;videoFilePath, const QString &amp;suffix, QObject *parent=nullptr) override</argsstring>
+        <name>getCameraVideo</name>
+        <qualifiedname>IosPlatformUtilities::getCameraVideo</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1af5b01661b1db28809dfe0641b109753f">getCameraVideo</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>videoFilePath</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>suffix</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a video from camera and copy it to the requested prefix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prefix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project folder </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>videoFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path (including subfolders and name) of the file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The name of the video or null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="44" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1a6ee9c3570ae839db5e1e7e90a7983fac" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classResourceSource" kindref="compound">ResourceSource</ref> *</type>
+        <definition>virtual ResourceSource * IosPlatformUtilities::getGalleryPicture</definition>
+        <argsstring>(const QString &amp;prefix, const QString &amp;pictureFilePath, QObject *parent=nullptr) override</argsstring>
+        <name>getGalleryPicture</name>
+        <qualifiedname>IosPlatformUtilities::getGalleryPicture</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1a53464b6f2db6b9883381cfdbbe3b3b2d">getGalleryPicture</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>pictureFilePath</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a picture from gallery and copy it to the requested prefix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prefix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project folder </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pictureFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path (including subfolders and name) of the file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The name of the picture or null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="49" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1ae5f60a0ac98581780fcb4e86641b9dd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classResourceSource" kindref="compound">ResourceSource</ref> *</type>
+        <definition>virtual ResourceSource * IosPlatformUtilities::getGalleryVideo</definition>
+        <argsstring>(const QString &amp;prefix, const QString &amp;videoFilePath, QObject *parent=nullptr) override</argsstring>
+        <name>getGalleryVideo</name>
+        <qualifiedname>IosPlatformUtilities::getGalleryVideo</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1a02df241ef27ef517ba27022e9814d35d">getGalleryVideo</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>videoFilePath</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a video from gallery and copy it to the requested prefix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prefix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project folder </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>videoFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path (including subfolders and name) of the video </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The name of the video or null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="51" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1a40132ee651ef5e0d0a3e3aaa81bb3ee6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classViewStatus" kindref="compound">ViewStatus</ref> *</type>
+        <definition>virtual ViewStatus * IosPlatformUtilities::open</definition>
+        <argsstring>(const QString &amp;uri, bool editing=false, QObject *parent=nullptr) override</argsstring>
+        <name>open</name>
+        <qualifiedname>IosPlatformUtilities::open</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1afc7f00d2a501edc7fe7fb227aa56ede1">open</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uri</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>editing</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Open the resource (file, image, ...) that is available under <emphasis>uri</emphasis>. The mimetype is detected to indicate the system how the file should be opened. An optional <emphasis>editing</emphasis> parameter can be set to true to indicate to supported systems the resource is expected to be edited. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="52" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1a2bf6f33a08bf1b04984824cb1cb497b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classProjectSource" kindref="compound">ProjectSource</ref> *</type>
+        <definition>virtual ProjectSource * IosPlatformUtilities::openProject</definition>
+        <argsstring>(QObject *parent=nullptr) override</argsstring>
+        <name>openProject</name>
+        <qualifiedname>IosPlatformUtilities::openProject</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1a89a4622669be3433879b12c81d446961">openProject</reimplements>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicates the system that we want to open a project. The system shall show a suitable user interface element (like a filebrowser) to let the user select a project. The call returns immediately and the returned <ref refid="classProjectSource" kindref="compound">ProjectSource</ref> will notify when the project has actually been chosen. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="53" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1a7a9d1f7847fdb162f5ae36c73da99189" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>double IosPlatformUtilities::systemFontPointSize</definition>
+        <argsstring>() const override</argsstring>
+        <name>systemFontPointSize</name>
+        <qualifiedname>IosPlatformUtilities::systemFontPointSize</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1a6684b675f0434d291b19e208ecba8702">systemFontPointSize</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the default system font size. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="55" column="12" bodyfile="src/core/platforms/ios/iosplatformutilities.h" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1a50cdcb6db9f02eecbb5932845ce4a8b5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool IosPlatformUtilities::isSystemDarkTheme</definition>
+        <argsstring>() const override</argsstring>
+        <name>isSystemDarkTheme</name>
+        <qualifiedname>IosPlatformUtilities::isSystemDarkTheme</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1a2cd8a5a4710730fec04efffd7104ea07">isSystemDarkTheme</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE is the system uses a dark theme. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="56" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1a1b62c376d10f7c8aca65548782da2b0d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>Qt::PermissionStatus</type>
+        <definition>Qt::PermissionStatus IosPlatformUtilities::checkCameraPermission</definition>
+        <argsstring>() const override</argsstring>
+        <name>checkCameraPermission</name>
+        <qualifiedname>IosPlatformUtilities::checkCameraPermission</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1af59bcce5edf2989d93fd3ccae9b35566">checkCameraPermission</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="58" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1ae20bcef3dd77a0a1d919fc8b7255e75d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void IosPlatformUtilities::requestCameraPermission</definition>
+        <argsstring>(std::function&lt; void(Qt::PermissionStatus)&gt; func) override</argsstring>
+        <name>requestCameraPermission</name>
+        <qualifiedname>IosPlatformUtilities::requestCameraPermission</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1ad4482fcfba3fd1c37e3d1028a0cc3d03">requestCameraPermission</reimplements>
+        <param>
+          <type>std::function&lt; void(Qt::PermissionStatus)&gt;</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="59" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1ab9fff9fc495f59de875e4ec3ae4e3799" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>Qt::PermissionStatus</type>
+        <definition>virtual Qt::PermissionStatus IosPlatformUtilities::checkMicrophonePermission</definition>
+        <argsstring>() const override</argsstring>
+        <name>checkMicrophonePermission</name>
+        <qualifiedname>IosPlatformUtilities::checkMicrophonePermission</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1a358c4d43bcb001923b443aafb59d7869">checkMicrophonePermission</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="60" column="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosPlatformUtilities_1a9a4b74e7aeb7adf7a61b686faa804501" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void IosPlatformUtilities::requestMicrophonePermission</definition>
+        <argsstring>(std::function&lt; void(Qt::PermissionStatus)&gt; func) override</argsstring>
+        <name>requestMicrophonePermission</name>
+        <qualifiedname>IosPlatformUtilities::requestMicrophonePermission</qualifiedname>
+        <reimplements refid="classPlatformUtilities_1a614d7cb84b3da253a19dd6ed58c81358">requestMicrophonePermission</reimplements>
+        <param>
+          <type>std::function&lt; void(Qt::PermissionStatus)&gt;</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosplatformutilities.h" line="61" column="18"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>IosPlatformUtilities</label>
+        <link refid="classIosPlatformUtilities"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>PlatformUtilities</label>
+        <link refid="classPlatformUtilities"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>IosPlatformUtilities</label>
+        <link refid="classIosPlatformUtilities"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>PlatformUtilities</label>
+        <link refid="classPlatformUtilities"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/platforms/ios/iosplatformutilities.h" line="26" column="1" bodyfile="src/core/platforms/ios/iosplatformutilities.h" bodystart="27" bodyend="62"/>
+    <listofallmembers>
+      <member refid="classPlatformUtilities_1ac534be370723e341f5da8d7ca04260eb" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>additionalApplicationDirectories</name></member>
+      <member refid="classPlatformUtilities_1ab05801edb84c9816582fc8290f17b94ba96fd1a1ee077cd598f96cd0f1ed086df" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>AdjustBrightness</name></member>
+      <member refid="classIosPlatformUtilities_1a6cda53e1118bbb12de22735503152b61" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>afterUpdate</name></member>
+      <member refid="classPlatformUtilities_1a8215522b76f316b14b28b291c1843cdda3e2fed4f09913e9f4beb4e22af8c01bc" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>AllFiles</name></member>
+      <member refid="classIosPlatformUtilities_1a06e433212d3e3d98634e03777c26e81b" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>appDataDirs</name></member>
+      <member refid="classIosPlatformUtilities_1afe627cc95ed092a29b704ab77558e28d" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>applicationDirectory</name></member>
+      <member refid="classPlatformUtilities_1a8215522b76f316b14b28b291c1843cdda487b2456e3d734a13835d4295ffe3f2f" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>AudioFiles</name></member>
+      <member refid="classPlatformUtilities_1a72ec81cc935936b07aa67b1d4ecac50c" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>availableGrids</name></member>
+      <member refid="classIosPlatformUtilities_1a2ea3bf2b19c85ec7101c050ad6967d98" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>capabilities</name></member>
+      <member refid="classPlatformUtilities_1ab4e53f6590aa61a5bf7deff307096d19" prot="public" virt="non-virtual" ambiguityscope="PlatformUtilities::"><scope>IosPlatformUtilities</scope><name>capabilities</name></member>
+      <member refid="classPlatformUtilities_1ab05801edb84c9816582fc8290f17b94b" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>Capability</name></member>
+      <member refid="classIosPlatformUtilities_1a1b62c376d10f7c8aca65548782da2b0d" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>checkCameraPermission</name></member>
+      <member refid="classPlatformUtilities_1a42736927292710893354309a23cfd6c7" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>checkCameraPermissions</name></member>
+      <member refid="classIosPlatformUtilities_1ab9fff9fc495f59de875e4ec3ae4e3799" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>checkMicrophonePermission</name></member>
+      <member refid="classPlatformUtilities_1a53b694b5814d9bc065496094e73f8b22" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>checkMicrophonePermissions</name></member>
+      <member refid="classPlatformUtilities_1a7300d931a3cd7d546ab217e6a0ac1adb" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>checkPositioningPermissions</name></member>
+      <member refid="classPlatformUtilities_1a70058e2eca43bb9f939e128f95f8eb35" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>copyTextToClipboard</name></member>
+      <member refid="classPlatformUtilities_1aa6be5e6d0d504caaf4f96c98aa4a4555" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>createDir</name></member>
+      <member refid="classPlatformUtilities_1ab05801edb84c9816582fc8290f17b94ba5755eec372d49669a34157c58798ba3b" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>CustomExport</name></member>
+      <member refid="classPlatformUtilities_1ab05801edb84c9816582fc8290f17b94bada8a575375be0afb09d43b7cd4bf0ef7" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>CustomImport</name></member>
+      <member refid="classPlatformUtilities_1ab05801edb84c9816582fc8290f17b94baf96bacb40349dd5b51b50348b929b572" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>CustomSend</name></member>
+      <member refid="classPlatformUtilities_1a60a45b57d28f6267acd90bfc7f6c6a12" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>dimBrightness</name></member>
+      <member refid="classPlatformUtilities_1a01de13f625f0c68c311aac193d50b25b" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>executeQfAction</name></member>
+      <member refid="classPlatformUtilities_1aa9c88ebf8352c30f689fdcd71a400a65" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>exportDatasetTo</name></member>
+      <member refid="classPlatformUtilities_1a65728ee9618ee3d47c10aaf7687ce976" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>exportFolderTo</name></member>
+      <member refid="classPlatformUtilities_1ab05801edb84c9816582fc8290f17b94bacff282d590efcfec94c7e0efda3514ee" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>FilePicker</name></member>
+      <member refid="classPlatformUtilities_1a8215522b76f316b14b28b291c1843cdd" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>FileType</name></member>
+      <member refid="classIosPlatformUtilities_1a3aa7e5ec80fa048c4936ca4e8d1b90ec" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>getCameraPicture</name></member>
+      <member refid="classIosPlatformUtilities_1a1bab18bd91ab1695df28bb21ab0587a0" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>getCameraVideo</name></member>
+      <member refid="classPlatformUtilities_1ac3f85b3f496191869fbdf0502cedb8e2" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>getFile</name></member>
+      <member refid="classIosPlatformUtilities_1a6ee9c3570ae839db5e1e7e90a7983fac" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>getGalleryPicture</name></member>
+      <member refid="classIosPlatformUtilities_1ae5f60a0ac98581780fcb4e86641b9dd0" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>getGalleryVideo</name></member>
+      <member refid="classPlatformUtilities_1a0dceba52f240ab0436da34851e6ecf69" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>getTextFromClipboard</name></member>
+      <member refid="classPlatformUtilities_1ac2c6dc7758aa2abc9246a6ce9ae8ee37" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>hasQfAction</name></member>
+      <member refid="classPlatformUtilities_1a8fff12c017183ca36bc743a9c6369d56" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>hasQgsProject</name></member>
+      <member refid="classPlatformUtilities_1a91a1614460a4ed6a262daf67276aa828" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>importDatasets</name></member>
+      <member refid="classPlatformUtilities_1ab15e4946fc2a1ff17197609ac8c81e5f" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>importProjectArchive</name></member>
+      <member refid="classPlatformUtilities_1a2ca9188c997df1e4939f6eca424fd8fd" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>importProjectFolder</name></member>
+      <member refid="classPlatformUtilities_1a1cfee700ad79b89f36364039eb3633e8" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>initSystem</name></member>
+      <member refid="classPlatformUtilities_1a80c8604a0e0cad422411ed450c4f5ddd" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>instance</name></member>
+      <member refid="classIosPlatformUtilities_1a69c201a97a562fa9ed698be39023c5d9" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>IosPlatformUtilities</name></member>
+      <member refid="classIosPlatformUtilities_1a50cdcb6db9f02eecbb5932845ce4a8b5" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>isSystemDarkTheme</name></member>
+      <member refid="classPlatformUtilities_1acd1f7825d78cac17d6a0cf3dcc6ab37d" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>loadQgsProject</name></member>
+      <member refid="classPlatformUtilities_1ab05801edb84c9816582fc8290f17b94baab78421bda478d587d72558d38c815b5" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>NativeCamera</name></member>
+      <member refid="classPlatformUtilities_1ab05801edb84c9816582fc8290f17b94ba503cbf9bf7e881dce6a1053076d1c7ba" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>NativeLocalDataPicker</name></member>
+      <member refid="classPlatformUtilities_1ab05801edb84c9816582fc8290f17b94ba0545709068796aa32ed76dd3b0f1b697" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>NoCapabilities</name></member>
+      <member refid="classIosPlatformUtilities_1a40132ee651ef5e0d0a3e3aaa81bb3ee6" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>open</name></member>
+      <member refid="classIosPlatformUtilities_1a2bf6f33a08bf1b04984824cb1cb497b1" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>openProject</name></member>
+      <member refid="classPlatformUtilities_1ab05801edb84c9816582fc8290f17b94ba8c5db32b6f8e36060cb7a12c2bad5170" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>PositioningService</name></member>
+      <member refid="classPlatformUtilities_1a6a079b92b0ec05e15dbc40099351cb34" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>removeDataset</name></member>
+      <member refid="classPlatformUtilities_1a5910c1004af207c111945dcc141efbae" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>removeFolder</name></member>
+      <member refid="classPlatformUtilities_1a2cabd28e9d1ee035dd63bfae7e5b770c" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>renameFile</name></member>
+      <member refid="classPlatformUtilities_1a7cc9d7ba012397b4f48e02a25853d69d" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>requestBackgroundPositioningPermissions</name></member>
+      <member refid="classIosPlatformUtilities_1ae20bcef3dd77a0a1d919fc8b7255e75d" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>requestCameraPermission</name></member>
+      <member refid="classIosPlatformUtilities_1a9a4b74e7aeb7adf7a61b686faa804501" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>requestMicrophonePermission</name></member>
+      <member refid="classPlatformUtilities_1ad297c748066dcf1d8a828ed6801cfd91" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>requestStoragePermission</name></member>
+      <member refid="classPlatformUtilities_1ace8de58cc6ffec62f777368fb356e758" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>resourceCanceled</name></member>
+      <member refid="classPlatformUtilities_1a65223dfafd90977049a7d5a9be8fe072" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>resourceOpened</name></member>
+      <member refid="classPlatformUtilities_1a259061788f3c46617dea7888b04c95ed" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>resourceReceived</name></member>
+      <member refid="classPlatformUtilities_1a638fcea2c017d1754430248bf7451738" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>restoreBrightness</name></member>
+      <member refid="classPlatformUtilities_1a20fc4f95870c0b2c32db53d26e5ee617" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>rmFile</name></member>
+      <member refid="classIosPlatformUtilities_1add3b821e95bcc71160307b4ef4dd586a" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>rootDirectories</name></member>
+      <member refid="classPlatformUtilities_1aaa078e6c1715b00d0e17f2613633e13c" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>sendCompressedFolderTo</name></member>
+      <member refid="classPlatformUtilities_1aa01b06fe214b023dc7d5d156f9d55bc9" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>sendDatasetTo</name></member>
+      <member refid="classPlatformUtilities_1ab05801edb84c9816582fc8290f17b94ba1d36fb1cf2550e11673389ed21c040f6" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>SentryFramework</name></member>
+      <member refid="classPlatformUtilities_1ac8176acad62d7771aef296236d4f555a" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>setHandleVolumeKeys</name></member>
+      <member refid="classIosPlatformUtilities_1a5fd3ff27971f98078cf650d0393d8361" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>setScreenLockPermission</name></member>
+      <member refid="classPlatformUtilities_1aa2f20884d5e413a76bab88665534cb17" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>startPositioningService</name></member>
+      <member refid="classPlatformUtilities_1ab339758fc214a918d926c662844a4bb0" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>stopPositioningService</name></member>
+      <member refid="classIosPlatformUtilities_1a7a9d1f7847fdb162f5ae36c73da99189" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>systemFontPointSize</name></member>
+      <member refid="classPlatformUtilities_1a0962a50953416044358e4d7f3e108d31" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>systemLocalDataLocation</name></member>
+      <member refid="classIosPlatformUtilities_1a35ff37bedfe851f0264403b2f465e73e" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>systemSharedDataLocation</name></member>
+      <member refid="classPlatformUtilities_1ab05801edb84c9816582fc8290f17b94baa199fad5bc94be0efc25e11fa2a031e8" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>UpdateProjectFromArchive</name></member>
+      <member refid="classPlatformUtilities_1af2f5faabbd004a42c39328423ad12f4a" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>updateProjectFromArchive</name></member>
+      <member refid="classPlatformUtilities_1a5642af98dbd060d41a636a9a95d3e0e8" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>uploadPendingAttachments</name></member>
+      <member refid="classPlatformUtilities_1a69581069b7a449e9524fba25feec7920" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>vibrate</name></member>
+      <member refid="classPlatformUtilities_1ab05801edb84c9816582fc8290f17b94bae6153cd1c53b33cc129f8ac28211f488" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>Vibrate</name></member>
+      <member refid="classPlatformUtilities_1ab05801edb84c9816582fc8290f17b94bad390bc67c75c3ba03d000c8c064c00cb" prot="public" virt="non-virtual"><scope>IosPlatformUtilities</scope><name>VolumeKeys</name></member>
+      <member refid="classPlatformUtilities_1a750823ac26011c5c41b0803da40b486c" prot="public" virt="virtual"><scope>IosPlatformUtilities</scope><name>~PlatformUtilities</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

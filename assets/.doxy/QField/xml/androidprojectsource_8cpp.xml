@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="androidprojectsource_8cpp" kind="file" language="C++">
+    <compoundname>androidprojectsource.cpp</compoundname>
+    <includes refid="androidprojectsource_8h" local="yes">androidprojectsource.h</includes>
+    <includes local="yes">qgsmessagelog.h</includes>
+    <includes local="no">QFile</includes>
+    <includes local="no">QtCore/private/qandroidextras_p.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/platforms/android/androidprojectsource.cpp</label>
+        <link refid="androidprojectsource_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>androidprojectsource.h</label>
+        <link refid="androidprojectsource_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>projectsource.h</label>
+        <link refid="projectsource_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>QFile</label>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="5">
+        <label>QtCore/private/qandroidextras_p.h</label>
+      </node>
+      <node id="6">
+        <label>qgsmessagelog.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>androidprojectsource.cpp<sp/>-<sp/>AndroidProjectSource</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>19.3.2018</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2018<sp/>by<sp/>Matthias<sp/>Kuhn</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>matthias@opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;androidprojectsource.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsmessagelog.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QFile&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtCore/private/qandroidextras_p.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">AndroidProjectSource::AndroidProjectSource(<sp/>QObject<sp/>*parent<sp/>)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>:<sp/><ref refid="classProjectSource" kindref="compound">ProjectSource</ref>(<sp/>parent<sp/>)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>,<sp/>QAndroidActivityResultReceiver()</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AndroidProjectSource::handleActivityResult(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>receiverRequestCode,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>resultCode,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJniObject<sp/>&amp;data<sp/>)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>jint<sp/>RESULT_OK<sp/>=<sp/>QJniObject::getStaticField&lt;jint&gt;(<sp/></highlight><highlight class="stringliteral">&quot;android/app/Activity&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;RESULT_OK&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>receiverRequestCode<sp/>==<sp/>103<sp/>&amp;&amp;<sp/>resultCode<sp/>==<sp/>RESULT_OK<sp/>)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>QJniObject<sp/>uri<sp/>=<sp/>data.callObjectMethod(<sp/></highlight><highlight class="stringliteral">&quot;getData&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;()Landroid/net/Uri;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>path<sp/>=<sp/>uri.callObjectMethod(<sp/></highlight><highlight class="stringliteral">&quot;getPath&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;()Ljava/lang/String;&quot;</highlight><highlight class="normal"><sp/>).toString();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!QFile(<sp/>path<sp/>).exists()<sp/>)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsMessageLog::logMessage(<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;File<sp/>%1<sp/>does<sp/>not<sp/>exist&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>path<sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;QField&quot;</highlight><highlight class="normal"><sp/>),<sp/>Qgis::Warning<sp/>);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classProjectSource_1a2dea7b551dd13f5f0c1f51fcd57215ad" kindref="member">projectOpened</ref>(<sp/>path<sp/>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/platforms/android/androidprojectsource.cpp"/>
+  </compounddef>
+</doxygen>
