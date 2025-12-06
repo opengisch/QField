@@ -62,6 +62,7 @@
       android:clearTaskOnLaunch="false"
       android:label="@APP_NAME@"
       android:icon="@AT@drawable/@APP_ICON@"
+      android:resizeableActivity="true"
       android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density"
       android:exported="true">
 
