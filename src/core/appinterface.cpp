@@ -24,11 +24,15 @@
 #include "sentry_wrapper.h"
 #endif
 
+#include <QCoreApplication>
 #include <QDirIterator>
 #include <QFileInfo>
 #include <QImageReader>
+#include <QLocale>
 #include <QQuickItem>
+#include <QSettings>
 #include <QTemporaryFile>
+#include <QTranslator>
 #include <qgsapplication.h>
 #include <qgsauthmanager.h>
 #include <qgsmessagelog.h>
@@ -225,6 +229,60 @@ QVariantMap AppInterface::availableLanguages() const
     }
   }
   return languages;
+}
+
+void AppInterface::changeLanguage( const QString &languageCode )
+{
+  QSettings settings;
+  settings.setValue( QStringLiteral( "/customLanguage" ), languageCode );
+
+  static QTranslator qfieldTranslator;
+  static QTranslator qtTranslator;
+  static bool translatorsInitialized = false;
+
+  if ( translatorsInitialized )
+  {
+    QCoreApplication::removeTranslator( &qtTranslator );
+    QCoreApplication::removeTranslator( &qfieldTranslator );
+  }
+
+  if ( !languageCode.isEmpty() )
+  {
+    if ( !qfieldTranslator.load( QStringLiteral( "qfield_%1" ).arg( languageCode ), QStringLiteral( ":/i18n/" ), "_" ) )
+    {
+      qWarning() << "Failed to load QField translation for" << languageCode;
+    }
+    if ( !qtTranslator.load( QStringLiteral( "qt_%1" ).arg( languageCode ), QStringLiteral( ":/i18n/" ), "_" ) )
+    {
+      qWarning() << "Failed to load Qt translation for" << languageCode;
+    }
+
+    QCoreApplication::installTranslator( &qtTranslator );
+    QCoreApplication::installTranslator( &qfieldTranslator );
+    translatorsInitialized = true;
+  }
+  else
+  {
+    translatorsInitialized = false;
+  }
+
+  if ( !languageCode.isEmpty() )
+  {
+    QLocale customLocale( languageCode );
+    QLocale::setDefault( customLocale );
+    QgsApplication::setTranslation( languageCode );
+    QgsApplication::setLocale( QLocale() );
+  }
+  else
+  {
+    QLocale systemLocale = QLocale::system();
+    QLocale::setDefault( systemLocale );
+    QgsApplication::setLocale( systemLocale );
+  }
+  if ( mApp )
+  {
+    mApp->retranslate();
+  }
 }
 
 bool AppInterface::isFileExtensionSupported( const QString &filename ) const

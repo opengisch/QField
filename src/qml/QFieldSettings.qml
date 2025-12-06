@@ -715,18 +715,6 @@ Page {
                 wrapMode: Text.WordWrap
               }
 
-              Label {
-                id: languageTip
-                visible: false
-
-                Layout.fillWidth: true
-                text: qsTr("To apply the selected user interface language, QField needs to completely shutdown and restart.")
-                font: Theme.tipFont
-                color: Theme.warningColor
-
-                wrapMode: Text.WordWrap
-              }
-
               QfComboBox {
                 id: languageComboBox
                 enabled: true
@@ -743,8 +731,12 @@ Page {
 
                 onCurrentIndexChanged: {
                   if (currentLanguageCode != undefined) {
-                    settings.setValue("customLanguage", languageCodes[currentIndex]);
-                    languageTip.visible = languageCodes[currentIndex] !== currentLanguageCode;
+                    var newLanguageCode = languageCodes[currentIndex];
+                    if (newLanguageCode !== currentLanguageCode) {
+                      // Change language immediately without restart
+                      iface.changeLanguage(newLanguageCode);
+                      currentLanguageCode = newLanguageCode;
+                    }
                   }
                 }
 
@@ -758,7 +750,6 @@ Page {
                   languageComboBox.model = items.concat(Object.values(languages));
                   languageComboBox.currentIndex = languageCodes.indexOf(customLanguageCode);
                   currentLanguageCode = customLanguageCode || '';
-                  languageTip.visible = false;
                 }
               }
 

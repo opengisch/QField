@@ -122,6 +122,13 @@ class AppInterface : public QObject
     //! Returns a list of available UI translation languages
     Q_INVOKABLE QVariantMap availableLanguages() const;
 
+    /**
+     * Changes the application language to the specified \a languageCode.
+     * This will reload translators and refresh all QML translations without restarting the app.
+     * \param languageCode the language code (e.g., "en", "de")
+     */
+    Q_INVOKABLE void changeLanguage( const QString &languageCode );
+
     //! Returns TRUE if a given \a filename can be opened as a project or standalone dataset.
     Q_INVOKABLE bool isFileExtensionSupported( const QString &filename ) const;
 
