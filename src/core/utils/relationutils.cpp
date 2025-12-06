@@ -45,9 +45,9 @@ QgsRelation RelationUtils::resolveReferencingRelation( QgsProject *project, QgsV
   return QgsRelation();
 }
 
-QgsRelation RelationUtils::createRelation( const QgsProject *project, const QgsVectorLayer *referencedLayer, const QString &referencedFieldName, const QgsVectorLayer *referencingLayer, const QString &referencingFieldName )
+QgsRelation RelationUtils::createRelation( const QgsVectorLayer *referencedLayer, const QString &referencedFieldName, const QgsVectorLayer *referencingLayer, const QString &referencingFieldName )
 {
-  if ( !project || !referencedLayer || !referencingLayer )
+  if ( !referencedLayer || !referencingLayer )
     return QgsRelation();
 
   const QString relationId = QStringLiteral( "%1_%2_%3_%4" ).arg( referencedLayer->id(), referencedFieldName, referencingLayer->id(), referencingFieldName );
