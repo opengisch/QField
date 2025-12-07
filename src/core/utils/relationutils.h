@@ -37,13 +37,13 @@ class RelationUtils : public QObject
      * Note: Layers must be added to the project first
      *
      * \param referencedLayer The referenced (parent) layer
-     * \param referencedFieldName The field name in the referenced layer
      * \param referencingLayer The referencing (child) layer
-     * \param referencingFieldName The field name in the referencing layer that references the parent
+     * \param fieldPairs A map where keys are referenced field names and values are referencing field names
      * \returns A QgsRelation object
      */
-    Q_INVOKABLE QgsRelation createRelation( const QgsVectorLayer *referencedLayer, const QString &referencedFieldName,
-                                            const QgsVectorLayer *referencingLayer, const QString &referencingFieldName );
+    Q_INVOKABLE QgsRelation createRelation( const QgsVectorLayer *referencedLayer,
+                                            const QgsVectorLayer *referencingLayer,
+                                            const QVariantMap &fieldPairs );
 };
 
 #endif // RELATIONUTILS_H
