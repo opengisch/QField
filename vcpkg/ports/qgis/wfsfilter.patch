@@ -1,0 +1,59 @@
+diff --git a/src/core/qgsogcutils.cpp b/src/core/qgsogcutils.cpp
+index 5d8e9f6b056..b49ab380748 100644
+--- a/src/core/qgsogcutils.cpp
++++ b/src/core/qgsogcutils.cpp
+@@ -2091,39 +2091,26 @@ QDomElement QgsOgcUtils::expressionToOgcExpression( const QgsExpression &express
+   if ( !node )
+     return QDomElement();
+ 
+-  switch ( node->nodeType() )
+-  {
+-    case QgsExpressionNode::ntFunction:
+-    case QgsExpressionNode::ntLiteral:
+-    case QgsExpressionNode::ntColumnRef:
+-    case QgsExpressionNode::ntUnaryOperator:
+-    {
+-      QgsOgcUtilsExprToFilter utils( doc, gmlVersion, filterVersion, QString(), QString(), geometryName, srsName, honourAxisOrientation, invertAxisOrientation, fieldNameToXPathMap, namespacePrefixToUriMap );
+-      const QDomElement exprRootElem = utils.expressionNodeToOgcFilter( node, &exp, &context );
+-
+-      if ( errorMessage )
+-        *errorMessage = utils.errorMessage();
++  QgsOgcUtilsExprToFilter utils( doc, gmlVersion, filterVersion, QString(), QString(), geometryName, srsName, honourAxisOrientation, invertAxisOrientation, fieldNameToXPathMap, namespacePrefixToUriMap );
++  const QDomElement exprRootElem = utils.expressionNodeToOgcFilter( node, &exp, &context );
+ 
+-      if ( !exprRootElem.isNull() )
+-      {
+-        if ( requiresFilterElement )
+-        {
+-          QDomElement filterElem = filterElement( doc, gmlVersion, filterVersion, utils.GMLNamespaceUsed() );
++  if ( errorMessage )
++  {
++    *errorMessage = utils.errorMessage();
++  }
+ 
+-          filterElem.appendChild( exprRootElem );
+-          return filterElem;
+-        }
+-        return exprRootElem;
+-      }
+-      break;
+-    }
+-    default:
++  if ( !exprRootElem.isNull() )
++  {
++    if ( requiresFilterElement )
+     {
+-      if ( errorMessage )
+-        *errorMessage = QObject::tr( "Node type not supported in expression translation: %1" ).arg( node->nodeType() );
++      QDomElement filterElem = filterElement( doc, gmlVersion, filterVersion, utils.GMLNamespaceUsed() );
++
++      filterElem.appendChild( exprRootElem );
++      return filterElem;
+     }
++    return exprRootElem;
+   }
+-  // got an error
++
+   return QDomElement();
+ }
+ 
