@@ -687,11 +687,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>マップテーマ</translation>
     </message>
     <message>
-        <location filename="../src/qml/DashBoard.qml" line="425"/>
-        <source>Return home</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Project Folder</source>
         <translation type="unfinished"/>
     </message>
@@ -704,6 +699,11 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/qml/DashBoard.qml" line="371"/>
         <source>Legend</source>
         <translation>凡例</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/DashBoard.qml" line="425"/>
+        <source>Return home</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1332,60 +1332,60 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>FeatureModel</name>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="434"/>
+        <location filename="../src/core/featuremodel.cpp" line="449"/>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
         <translation>値 &quot;％1&quot;％4をフィールド％2（％3）の互換性のある値に変換できませんでした。</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="641"/>
-        <location filename="../src/core/featuremodel.cpp" line="683"/>
+        <location filename="../src/core/featuremodel.cpp" line="656"/>
+        <location filename="../src/core/featuremodel.cpp" line="698"/>
         <source>Cannot update feature</source>
         <translation>地物を更新できません</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="660"/>
+        <location filename="../src/core/featuremodel.cpp" line="675"/>
         <source>Feature %1 could not be fetched after commit</source>
         <translation>コミット後に地物％1を取得できませんでした</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="569"/>
+        <location filename="../src/core/featuremodel.cpp" line="584"/>
         <source>Default value expression for %1:%2 has parser error: %3</source>
         <translation>％1：％2のデフォルト値の式に変換エラーがあります：％3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="573"/>
+        <location filename="../src/core/featuremodel.cpp" line="588"/>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
         <translation>％1：％2のデフォルト値の式には評価エラーがあります：％3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1071"/>
+        <location filename="../src/core/featuremodel.cpp" line="1086"/>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
         <translation>レイヤー &quot;%1&quot;の編集を開始して地物 %2 を作成できません</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1143"/>
+        <location filename="../src/core/featuremodel.cpp" line="1158"/>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
         <translation>レイヤー &quot;%1&quot; は保存されましたが、新しく追加された地物 %2 を読み込めませんでした</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1150"/>
+        <location filename="../src/core/featuremodel.cpp" line="1165"/>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
         <translation>新しく追加された地物 %2 をレイヤー &quot;%1&quot; に保存できませんでした。 原因:
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1156"/>
+        <location filename="../src/core/featuremodel.cpp" line="1171"/>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
         <translation>地物 %2 をレイヤー &quot;%1&quot; に追加できませんでした</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1182"/>
+        <location filename="../src/core/featuremodel.cpp" line="1197"/>
         <source>Could not save changes. Rolling back.</source>
         <translation>編集内容を保存できません。ロールバックします。</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1200"/>
+        <location filename="../src/core/featuremodel.cpp" line="1215"/>
         <source>Cannot start editing</source>
         <translation>編集を開始できません</translation>
     </message>
@@ -1636,14 +1636,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>パスワード</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerLoginDialog.qml" line="116"/>
-        <source>Submit</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/qml/LayerLoginDialog.qml" line="20"/>
         <source>Credentials Details</source>
         <translation>資格情報詳細</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/LayerLoginDialog.qml" line="116"/>
+        <source>Submit</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1930,14 +1930,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>サンプルプロジェクト</translation>
     </message>
     <message>
-        <location filename="../src/core/localfilesmodel.cpp" line="143"/>
-        <location filename="../src/core/localfilesmodel.cpp" line="421"/>
-        <source>Home</source>
+        <location filename="../src/core/localfilesmodel.cpp" line="151"/>
+        <source>Created projects</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/localfilesmodel.cpp" line="151"/>
-        <source>Created projects</source>
+        <location filename="../src/core/localfilesmodel.cpp" line="143"/>
+        <location filename="../src/core/localfilesmodel.cpp" line="421"/>
+        <source>Home</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3198,69 +3198,69 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>QFieldCloudConnection</name>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="736"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="730"/>
         <source>[timeout] The request took too long to finish, please retry.</source>
         <translation>[timeout] リクエストの終了に時間がかかりすぎたので、再試行してください。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="739"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="733"/>
         <source>[aborted] The request has been aborted.</source>
         <translation>[aborted] リクエストが中止されました。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="774"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="768"/>
         <source>Server Error.</source>
         <translation>サーバーエラー。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="775"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="769"/>
         <source>Network Error.</source>
         <translation>ネットワークエラー。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="311"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="305"/>
         <source>Server not found, please check the server URL</source>
         <translation>サーバーが見つかりません、サーバーのURLを確認してください</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="315"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="309"/>
         <source>Timeout error, please retry</source>
         <translation>タイムアウトエラー、再試行してください</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="321"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="315"/>
         <source>Wrong username or password</source>
         <translation>ユーザー名またはパスワードが間違っています</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="325"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="319"/>
         <source>Session expired</source>
         <translation>セッションが切れました</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="350"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="344"/>
         <source>Login temporary unavailable</source>
         <translation>ログインは一時的に利用できません</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="860"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="854"/>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
         <translation>%1` に保存されている添付ファイルのアップロードに失敗しました。理由:
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="290"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="284"/>
         <source>Login error due to unexpected redirect, please retry later</source>
         <translation>予期しないリダイレクトによりログインエラーが発生しました。</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="259"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="253"/>
         <source>Authentication provider missing</source>
         <translation>認証プロバイダーが見つかりません</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="267"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="261"/>
         <source>Password missing</source>
         <translation>パスワードがありません</translation>
     </message>
@@ -5275,62 +5275,62 @@ Cancel to make a minimal device scan instead.</source>
         <translation>認証が必要です</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="73"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="67"/>
         <source>QFieldCloud Unknown Error</source>
         <translation>QFieldCloudの不明なエラー</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="74"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="68"/>
         <source>Status not ok</source>
         <translation>ステータスはOKではありません</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="75"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="69"/>
         <source>Empty content</source>
         <translation>空のコンテンツです</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="76"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="70"/>
         <source>Object not found</source>
         <translation>オブジェクトが見つかりません</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="77"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="71"/>
         <source>API Error</source>
         <translation>APIエラー</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="78"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="72"/>
         <source>Validation Error</source>
         <translation>バリデーション・エラー</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="79"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="73"/>
         <source>Multiple Projects</source>
         <translation>複数のプロジェクト</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="80"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="74"/>
         <source>Invalid delta file</source>
         <translation>無効なデルタファイル</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="81"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="75"/>
         <source>The project does not contain a valid QGIS project file</source>
         <translation>プロジェクトには有効なQGISプロジェクトファイルが含まれていません</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="82"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="76"/>
         <source>Invalid job</source>
         <translation>無効なジョブ</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="83"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="77"/>
         <source>QGIS export failed</source>
         <translation>QGISのエクスポートに失敗しました</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="84"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="78"/>
         <source>QGIS is unable to open the QGIS project</source>
         <translation>QGISがQGISプロジェクトを開けません</translation>
     </message>
@@ -5557,7 +5557,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">プロジェクトファイル 「%1」は存在しません</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="781"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="787"/>
         <source>No project file currently opened</source>
         <translation>最近開かれたプロジェクトファイルはありません</translation>
     </message>
@@ -5570,28 +5570,28 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">フォント %1 をロードしています</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="1209"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="1215"/>
         <source>Project Plugin</source>
         <translation>プロジェクトプラグイン</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="268"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="817"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="274"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="823"/>
         <source>Could not load font: %1</source>
         <translation>フォントをロードできませんでした: %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="753"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="759"/>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
         <translation>プロジェクトをロードできません。ファイル 「%1」は存在しません</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="790"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="796"/>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation>プロジェクトを読み込めません。ファイル 「%1」は存在しません</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="1269"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="1275"/>
         <source>Map printed on %1 using QField</source>
         <translation>QFieldを利用して %1 に地図を印刷しました</translation>
     </message>

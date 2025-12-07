@@ -686,11 +686,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Thème de carte</translation>
     </message>
     <message>
-        <location filename="../src/qml/DashBoard.qml" line="425"/>
-        <source>Return home</source>
-        <translation>Accueil</translation>
-    </message>
-    <message>
         <source>Project Folder</source>
         <translation type="unfinished"/>
     </message>
@@ -703,6 +698,11 @@ Cancel to make a minimal device scan instead.</source>
         <location filename="../src/qml/DashBoard.qml" line="371"/>
         <source>Legend</source>
         <translation>Légende</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/DashBoard.qml" line="425"/>
+        <source>Return home</source>
+        <translation>Accueil</translation>
     </message>
 </context>
 <context>
@@ -1335,60 +1335,60 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
 <context>
     <name>FeatureModel</name>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="434"/>
+        <location filename="../src/core/featuremodel.cpp" line="449"/>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
         <translation>La valeur &quot;%1&quot; %4 ne peut pas être convertie en valeur compatible pour le champ %2(%3).</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="641"/>
-        <location filename="../src/core/featuremodel.cpp" line="683"/>
+        <location filename="../src/core/featuremodel.cpp" line="656"/>
+        <location filename="../src/core/featuremodel.cpp" line="698"/>
         <source>Cannot update feature</source>
         <translation>Actualisation de l&apos;entité impossible</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="660"/>
+        <location filename="../src/core/featuremodel.cpp" line="675"/>
         <source>Feature %1 could not be fetched after commit</source>
         <translation>L&apos;entité %1 n&apos;a pas pu être récupérée après la modification</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="569"/>
+        <location filename="../src/core/featuremodel.cpp" line="584"/>
         <source>Default value expression for %1:%2 has parser error: %3</source>
         <translation>L&apos;expression de valeur par défaut pour %1:%2 contient une erreur syntaxique : %3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="573"/>
+        <location filename="../src/core/featuremodel.cpp" line="588"/>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
         <translation>L&apos;expression de valeur par défaut pour %1:%2 contient une erreur d&apos;évaluation : %3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1071"/>
+        <location filename="../src/core/featuremodel.cpp" line="1086"/>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
         <translation>Impossible d&apos;éditer la couche &quot;%1&quot; pour créer l&apos;entité %2</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1143"/>
+        <location filename="../src/core/featuremodel.cpp" line="1158"/>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
         <translation>La couche &quot;%1&quot; a été sauvegardée mais la nouvelle entitée créée %2 n&apos;a pas pu être récupérée.</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1150"/>
+        <location filename="../src/core/featuremodel.cpp" line="1165"/>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
         <translation>La couche &quot;%1&quot; ne peut pas être sauvegardée avec la nouvelle entité crée %2. Raison:
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1156"/>
+        <location filename="../src/core/featuremodel.cpp" line="1171"/>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
         <translation>L&apos;entité %2 ne peut pas être ajoutée à la couche &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1182"/>
+        <location filename="../src/core/featuremodel.cpp" line="1197"/>
         <source>Could not save changes. Rolling back.</source>
         <translation>Enregistrement des modifications impossible. Retour en arrière.</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1200"/>
+        <location filename="../src/core/featuremodel.cpp" line="1215"/>
         <source>Cannot start editing</source>
         <translation>Édition impossible</translation>
     </message>
@@ -1639,14 +1639,14 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <translation>Mot de passe</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerLoginDialog.qml" line="116"/>
-        <source>Submit</source>
-        <translation>Soumettre</translation>
-    </message>
-    <message>
         <location filename="../src/qml/LayerLoginDialog.qml" line="20"/>
         <source>Credentials Details</source>
         <translation>Détails des certificats</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/LayerLoginDialog.qml" line="116"/>
+        <source>Submit</source>
+        <translation>Soumettre</translation>
     </message>
 </context>
 <context>
@@ -1933,15 +1933,15 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <translation>Projets d&apos;exemple</translation>
     </message>
     <message>
+        <location filename="../src/core/localfilesmodel.cpp" line="151"/>
+        <source>Created projects</source>
+        <translation>Projets créés</translation>
+    </message>
+    <message>
         <location filename="../src/core/localfilesmodel.cpp" line="143"/>
         <location filename="../src/core/localfilesmodel.cpp" line="421"/>
         <source>Home</source>
         <translation>Accueil</translation>
-    </message>
-    <message>
-        <location filename="../src/core/localfilesmodel.cpp" line="151"/>
-        <source>Created projects</source>
-        <translation>Projets créés</translation>
     </message>
 </context>
 <context>
@@ -3005,7 +3005,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <location filename="../src/qml/ProjectCreationScreen.qml" line="194"/>
         <source>Take image and video attachments</source>
-        <translation type="unfinished"/>
+        <translation>Joindre des photo et vidéos</translation>
     </message>
     <message>
         <location filename="../src/qml/ProjectCreationScreen.qml" line="212"/>
@@ -3201,69 +3201,69 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
 <context>
     <name>QFieldCloudConnection</name>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="736"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="730"/>
         <source>[timeout] The request took too long to finish, please retry.</source>
         <translation>[timeout] La demande a pris trop de temps, veuillez réessayer.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="739"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="733"/>
         <source>[aborted] The request has been aborted.</source>
         <translation>[aborted] La demande a été interrompue.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="774"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="768"/>
         <source>Server Error.</source>
         <translation>Erreur de serveur.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="775"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="769"/>
         <source>Network Error.</source>
         <translation>Erreur de réseau.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="311"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="305"/>
         <source>Server not found, please check the server URL</source>
         <translation>Serveur non trouvé, veuillez vérifier l&apos;URL du serveur</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="315"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="309"/>
         <source>Timeout error, please retry</source>
         <translation>Erreur de délai d&apos;attente, veuillez réessayer</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="321"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="315"/>
         <source>Wrong username or password</source>
         <translation>Nom d&apos;utilisateur ou mot de passe erroné</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="325"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="319"/>
         <source>Session expired</source>
         <translation>Session expirée</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="350"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="344"/>
         <source>Login temporary unavailable</source>
         <translation>Connexion temporairement indisponible</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="860"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="854"/>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
         <translation>Impossible d&apos;envoyer la pièce jointe stockée à `%1`, raison:
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="290"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="284"/>
         <source>Login error due to unexpected redirect, please retry later</source>
         <translation>Erreur de connexion due à une redirection inattendue, veuillez réessayer ultérieurement.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="259"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="253"/>
         <source>Authentication provider missing</source>
         <translation>Fournisseur d&apos;authentification absent</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="267"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="261"/>
         <source>Password missing</source>
         <translation>Mot de passe manquant</translation>
     </message>
@@ -5225,7 +5225,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="104"/>
         <source>Show zoom controls</source>
-        <translation>Afficher le boutons du zoom</translation>
+        <translation>Afficher les boutons du zoom</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="163"/>
@@ -5240,7 +5240,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="186"/>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>Si cette option est activée, les zones situées juste à l&apos;extérieur de la partie visible de la carte seront pré-chargées pour faciliter l&apos;affichage lors du zoom et du déplacement.</translation>
+        <translation>Si activé, les zones situées juste à l&apos;extérieur de la partie visible de la carte seront pré-chargées pour faciliter l&apos;affichage lors du zoom et du déplacement.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="191"/>
@@ -5250,7 +5250,7 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="192"/>
         <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>Si cette option est activée, les nouvelles entités sont stockées dès qu&apos;elles ont une géométrie valide et que les contraintes sont remplies. Les attributs modifiés sont validés immédiatement.</translation>
+        <translation>Si activé, les nouvelles entités sont stockées dès qu&apos;elles ont une géométrie valide et que les contraintes sont remplies. Les attributs modifiés sont validés immédiatement.</translation>
     </message>
 </context>
 <context>
@@ -5274,62 +5274,62 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Identification requise</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="73"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="67"/>
         <source>QFieldCloud Unknown Error</source>
         <translation>Erreur inconnue de QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="74"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="68"/>
         <source>Status not ok</source>
         <translation>Statut non conforme</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="75"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="69"/>
         <source>Empty content</source>
         <translation>Contenu vide</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="76"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="70"/>
         <source>Object not found</source>
         <translation>Objet non trouvé</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="77"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="71"/>
         <source>API Error</source>
         <translation>Erreur API</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="78"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="72"/>
         <source>Validation Error</source>
         <translation>Erreur de validation</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="79"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="73"/>
         <source>Multiple Projects</source>
         <translation>Projets multiples</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="80"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="74"/>
         <source>Invalid delta file</source>
         <translation>Fichier delta non valide</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="81"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="75"/>
         <source>The project does not contain a valid QGIS project file</source>
         <translation>Le projet ne contient pas un fichier de projet QGIS valide.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="82"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="76"/>
         <source>Invalid job</source>
         <translation>Travail non valide</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="83"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="77"/>
         <source>QGIS export failed</source>
         <translation>L&apos;exportation de QGIS a échoué</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="84"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="78"/>
         <source>QGIS is unable to open the QGIS project</source>
         <translation>QGIS est incapable d&apos;ouvrir le projet QGIS</translation>
     </message>
@@ -5556,7 +5556,7 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Le fichier de projet &quot;%1&quot; n&apos;existe pas</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="781"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="787"/>
         <source>No project file currently opened</source>
         <translation>Aucun fichier de projet actuellement ouvert</translation>
     </message>
@@ -5569,28 +5569,28 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="vanished">Chargement de la police %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="1209"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="1215"/>
         <source>Project Plugin</source>
         <translation>Extension de projet</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="268"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="817"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="274"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="823"/>
         <source>Could not load font: %1</source>
         <translation>Impossible de charger la police : %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="753"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="759"/>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
         <translation>Impossible de charger le projet, le fichier &quot;%1&quot; n&apos;existe pas</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="790"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="796"/>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation>Impossible de lire le projet, le fichier &quot;%1&quot; n&apos;existe pas</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="1269"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="1275"/>
         <source>Map printed on %1 using QField</source>
         <translation>Carte imprimée sur %1 en utilisant QField</translation>
     </message>

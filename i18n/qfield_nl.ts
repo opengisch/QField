@@ -687,11 +687,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation>Kaart thema</translation>
     </message>
     <message>
-        <location filename="../src/qml/DashBoard.qml" line="425"/>
-        <source>Return home</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Project Folder</source>
         <translation type="unfinished"/>
     </message>
@@ -703,6 +698,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/DashBoard.qml" line="371"/>
         <source>Legend</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/qml/DashBoard.qml" line="425"/>
+        <source>Return home</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1334,60 +1334,60 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
 <context>
     <name>FeatureModel</name>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="434"/>
+        <location filename="../src/core/featuremodel.cpp" line="449"/>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
         <translation>Waarde &quot;%1&quot; %4 kan niet worden geconverteerd naar een compatibele waarde voor veld %2(%3).</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="641"/>
-        <location filename="../src/core/featuremodel.cpp" line="683"/>
+        <location filename="../src/core/featuremodel.cpp" line="656"/>
+        <location filename="../src/core/featuremodel.cpp" line="698"/>
         <source>Cannot update feature</source>
         <translation>Kan object niet bijwerken</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="660"/>
+        <location filename="../src/core/featuremodel.cpp" line="675"/>
         <source>Feature %1 could not be fetched after commit</source>
         <translation>Object %1 kan niet worden opgehaald na commit</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="569"/>
+        <location filename="../src/core/featuremodel.cpp" line="584"/>
         <source>Default value expression for %1:%2 has parser error: %3</source>
         <translation>Standaardwaarde-expressie voor %1:%2 heeft parserfout: %3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="573"/>
+        <location filename="../src/core/featuremodel.cpp" line="588"/>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1071"/>
+        <location filename="../src/core/featuremodel.cpp" line="1086"/>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
         <translation>Kan niet beginnen met bewerken op laag &quot;%1&quot; om object %2 te maken</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1143"/>
+        <location filename="../src/core/featuremodel.cpp" line="1158"/>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
         <translation>Laag &quot;%1&quot; is vastgelegd, maar de nieuw gemaakte object %2 kan niet worden opgehaald</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1150"/>
+        <location filename="../src/core/featuremodel.cpp" line="1165"/>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
         <translation>Laag &quot;%1&quot; kan niet worden vastgelegd met het nieuw gemaakte object %2. Reden:
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1156"/>
+        <location filename="../src/core/featuremodel.cpp" line="1171"/>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
         <translation>Object %2 kon niet worden toegevoegd aan laag &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1182"/>
+        <location filename="../src/core/featuremodel.cpp" line="1197"/>
         <source>Could not save changes. Rolling back.</source>
         <translation>Kan de wijzigingen niet opslaan. Roll back wordt uitgevoerd.</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1200"/>
+        <location filename="../src/core/featuremodel.cpp" line="1215"/>
         <source>Cannot start editing</source>
         <translation>Kan niet beginnen met bewerken</translation>
     </message>
@@ -1638,13 +1638,13 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>Wachtwoord</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerLoginDialog.qml" line="116"/>
-        <source>Submit</source>
+        <location filename="../src/qml/LayerLoginDialog.qml" line="20"/>
+        <source>Credentials Details</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/LayerLoginDialog.qml" line="20"/>
-        <source>Credentials Details</source>
+        <location filename="../src/qml/LayerLoginDialog.qml" line="116"/>
+        <source>Submit</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1932,14 +1932,14 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>Voorbeeldprojecten</translation>
     </message>
     <message>
-        <location filename="../src/core/localfilesmodel.cpp" line="143"/>
-        <location filename="../src/core/localfilesmodel.cpp" line="421"/>
-        <source>Home</source>
+        <location filename="../src/core/localfilesmodel.cpp" line="151"/>
+        <source>Created projects</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/localfilesmodel.cpp" line="151"/>
-        <source>Created projects</source>
+        <location filename="../src/core/localfilesmodel.cpp" line="143"/>
+        <location filename="../src/core/localfilesmodel.cpp" line="421"/>
+        <source>Home</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3200,69 +3200,69 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
 <context>
     <name>QFieldCloudConnection</name>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="736"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="730"/>
         <source>[timeout] The request took too long to finish, please retry.</source>
         <translation>[time-out] Het duurde te lang voordat het verzoek was voltooid. Probeer het opnieuw.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="739"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="733"/>
         <source>[aborted] The request has been aborted.</source>
         <translation>[afgebroken] Het verzoek is afgebroken.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="774"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="768"/>
         <source>Server Error.</source>
         <translation>Server fout.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="775"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="769"/>
         <source>Network Error.</source>
         <translation>Netwerk fout.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="311"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="305"/>
         <source>Server not found, please check the server URL</source>
         <translation>Server niet gevonden, controleer de server-URL</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="315"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="309"/>
         <source>Timeout error, please retry</source>
         <translation>Time-out, probeer a.u.b. opnieuw</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="321"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="315"/>
         <source>Wrong username or password</source>
         <translation>Verkeerde gebruikersnaam of wachtwoord</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="325"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="319"/>
         <source>Session expired</source>
         <translation>Sessie verlopen</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="350"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="344"/>
         <source>Login temporary unavailable</source>
         <translation>Inloggen tijdelijk niet mogelijk</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="860"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="854"/>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
         <translation>Kan bijlage niet uploaden die is opgeslagen op &apos;%1&apos;, reden:
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="290"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="284"/>
         <source>Login error due to unexpected redirect, please retry later</source>
         <translation>Het inloggen is mislukt door een onverwachte doorverwijzing. Probeer het later opnieuw.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="259"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="253"/>
         <source>Authentication provider missing</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="267"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="261"/>
         <source>Password missing</source>
         <translation type="unfinished"/>
     </message>
@@ -5277,62 +5277,62 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation>Verificatie vereist</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="73"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="67"/>
         <source>QFieldCloud Unknown Error</source>
         <translation>QFieldCloud Onbekende Fout</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="74"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="68"/>
         <source>Status not ok</source>
         <translation>Status niet ok</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="75"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="69"/>
         <source>Empty content</source>
         <translation>Lege inhoud</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="76"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="70"/>
         <source>Object not found</source>
         <translation>Object niet gevonden</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="77"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="71"/>
         <source>API Error</source>
         <translation>API fout</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="78"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="72"/>
         <source>Validation Error</source>
         <translation>Validatie fout</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="79"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="73"/>
         <source>Multiple Projects</source>
         <translation>Meerdere projecten</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="80"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="74"/>
         <source>Invalid delta file</source>
         <translation>Ongeldig delta-bestand</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="81"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="75"/>
         <source>The project does not contain a valid QGIS project file</source>
         <translation>Het project bevat geen geldig QGIS project bestand</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="82"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="76"/>
         <source>Invalid job</source>
         <translation>Ongeldige taak</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="83"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="77"/>
         <source>QGIS export failed</source>
         <translation>QGIS export mislukt</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="84"/>
+        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="78"/>
         <source>QGIS is unable to open the QGIS project</source>
         <translation>QGIS kan het QGIS-project niet openen</translation>
     </message>
@@ -5559,7 +5559,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation type="vanished">Projectbestand &quot;%1&quot; bestaat niet</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="781"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="787"/>
         <source>No project file currently opened</source>
         <translation>Momenteel geen projectbestand geopend</translation>
     </message>
@@ -5572,28 +5572,28 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation type="vanished">Lettertype %1 laden</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="1209"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="1215"/>
         <source>Project Plugin</source>
         <translation>Project Plugin</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="268"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="817"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="274"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="823"/>
         <source>Could not load font: %1</source>
         <translation>Kan het lettertype niet laden: %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="753"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="759"/>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
         <translation>Kan project niet laden, bestand &quot;%1&quot; bestaat niet</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="790"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="796"/>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation>Kan project niet lezen, bestand &quot;%1&quot; bestaat niet</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="1269"/>
+        <location filename="../src/core/qgismobileapp.cpp" line="1275"/>
         <source>Map printed on %1 using QField</source>
         <translation>Kaart afgedrukt op %1 met QField</translation>
     </message>
