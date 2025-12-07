@@ -164,7 +164,7 @@ ListView {
 
         Item {
           id: layerVisibility
-          property bool isVisible: Checkable && HasSpatialExtent
+          property bool isVisible: Checkable
           height: 24
           width: visible ? parent.height : 0
           anchors.verticalCenter: parent.verticalCenter
