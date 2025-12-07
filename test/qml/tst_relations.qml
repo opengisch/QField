@@ -42,7 +42,9 @@ TestCase {
     ProjectUtils.addMapLayer(qgisProject, referencingLayer);
 
     // 4) Create and register relation
-    let relation = RelationUtils.createRelation(referencedLayer, "district_uuid", referencingLayer, "parent_district_uuid");
+    let relation = RelationUtils.createRelation(referencedLayer, referencingLayer, {
+        "district_uuid": "parent_district_uuid"
+      });
     verify(relation.isValid, "Relation should be valid");
     let relationManager = qgisProject.relationManager;
     relationManager.addRelation(relation);
