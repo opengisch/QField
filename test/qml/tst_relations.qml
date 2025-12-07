@@ -135,7 +135,7 @@ TestCase {
     compare(delegate2TextString, "Village Beta");
   }
 
-  function test_02_featureAttributes() {
+  function test_01_featureAttributes() {
     const referencedFeature = qgisProject.mapLayersByName('Districts')[0].getFeature("1");
     compare(referencedFeature.attribute("district_uuid"), "uuid-001");
     compare(referencedFeature.attribute("district_name"), "Central District");
