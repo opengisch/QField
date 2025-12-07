@@ -20,6 +20,7 @@
 #include "platformutilities.h"
 #include "qfield.h"
 #include "qgismobileapp.h"
+#include "translatormanager.h"
 #if WITH_SENTRY
 #include "sentry_wrapper.h"
 #endif
@@ -233,38 +234,32 @@ QVariantMap AppInterface::availableLanguages() const
 
 void AppInterface::changeLanguage( const QString &languageCode )
 {
+  if ( languageCode.isEmpty() || !availableLanguages().contains( languageCode ) )
+  {
+    qWarning() << "Language code" << languageCode << "is not available, ignoring language change request";
+    return;
+  }
+
+  QTranslator *qfieldTranslator = TranslatorManager::qfieldTranslator();
+  QTranslator *qtTranslator = TranslatorManager::qtTranslator();
+
+  QCoreApplication::removeTranslator( qtTranslator );
+  QCoreApplication::removeTranslator( qfieldTranslator );
+
+  if ( !qfieldTranslator->load( QStringLiteral( "qfield_%1" ).arg( languageCode ), QStringLiteral( ":/i18n/" ), "_" ) )
+  {
+    qWarning() << "Failed to load QField translation for" << languageCode;
+  }
+  if ( !qtTranslator->load( QStringLiteral( "qt_%1" ).arg( languageCode ), QStringLiteral( ":/i18n/" ), "_" ) )
+  {
+    qWarning() << "Failed to load Qt translation for" << languageCode;
+  }
+
+  QCoreApplication::installTranslator( qtTranslator );
+  QCoreApplication::installTranslator( qfieldTranslator );
+
   QSettings settings;
   settings.setValue( QStringLiteral( "/customLanguage" ), languageCode );
-
-  static QTranslator qfieldTranslator;
-  static QTranslator qtTranslator;
-  static bool translatorsInitialized = false;
-
-  if ( translatorsInitialized )
-  {
-    QCoreApplication::removeTranslator( &qtTranslator );
-    QCoreApplication::removeTranslator( &qfieldTranslator );
-  }
-
-  if ( !languageCode.isEmpty() )
-  {
-    if ( !qfieldTranslator.load( QStringLiteral( "qfield_%1" ).arg( languageCode ), QStringLiteral( ":/i18n/" ), "_" ) )
-    {
-      qWarning() << "Failed to load QField translation for" << languageCode;
-    }
-    if ( !qtTranslator.load( QStringLiteral( "qt_%1" ).arg( languageCode ), QStringLiteral( ":/i18n/" ), "_" ) )
-    {
-      qWarning() << "Failed to load Qt translation for" << languageCode;
-    }
-
-    QCoreApplication::installTranslator( &qtTranslator );
-    QCoreApplication::installTranslator( &qfieldTranslator );
-    translatorsInitialized = true;
-  }
-  else
-  {
-    translatorsInitialized = false;
-  }
 
   if ( !languageCode.isEmpty() )
   {

@@ -125,7 +125,8 @@ class AppInterface : public QObject
     /**
      * Changes the application language to the specified \a languageCode.
      * This will reload translators and refresh all QML translations without restarting the app.
-     * \param languageCode the language code (e.g., "en", "de")
+     * \param languageCode The language code (e.g., "en", "de")
+     * \see availableLanguages
      */
     Q_INVOKABLE void changeLanguage( const QString &languageCode );
 

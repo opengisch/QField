@@ -733,7 +733,6 @@ Page {
                   if (currentLanguageCode != undefined) {
                     var newLanguageCode = languageCodes[currentIndex];
                     if (newLanguageCode !== currentLanguageCode) {
-                      // Change language immediately without restart
                       iface.changeLanguage(newLanguageCode);
                       currentLanguageCode = newLanguageCode;
                     }
@@ -754,7 +753,7 @@ Page {
               }
 
               Label {
-                text: qsTr("Found a missing or incomplete language? %1Join the translator community.%2").arg('<a href="https://www.transifex.com/opengisch/qfield-for-qgis/">').arg('</a>')
+                text: qsTr("Found a missing or incomplete language? %1Join the translator community.%2").arg('<a href="https://explore.transifex.com/opengisch/qfield-for-qgis/">').arg('</a>')
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 textFormat: Qt.RichText
