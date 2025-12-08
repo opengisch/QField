@@ -330,6 +330,7 @@ bool ProcessingAlgorithmParametersModelBase::setData( const QModelIndex &index, 
       if ( mValues[index.row()] != value )
       {
         mValues[index.row()] = value;
+        emit dataChanged( index, index, QList<int>() << ParameterValueRole );
         emit parametersChanged();
       }
       return true;
