@@ -2244,7 +2244,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="756"/>
         <source>Process Feature</source>
-        <translation type="unfinished"/>
+        <translation>Traiter avec un algorithme</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="662"/>
@@ -3005,7 +3005,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <location filename="../src/qml/ProjectCreationScreen.qml" line="194"/>
         <source>Take image and video attachments</source>
-        <translation>Joindre des photo et vidéos</translation>
+        <translation>Joindre des photos et vidéos</translation>
     </message>
     <message>
         <location filename="../src/qml/ProjectCreationScreen.qml" line="212"/>

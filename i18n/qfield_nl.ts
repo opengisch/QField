@@ -24,7 +24,7 @@
     <message>
         <location filename="../src/qml/About.qml" line="194"/>
         <source>Links Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu koppelingen</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="150"/>
@@ -231,7 +231,7 @@
     <message>
         <location filename="../src/qml/editorwidgets/Binary.qml" line="22"/>
         <source>(Blob)</source>
-        <translation type="unfinished"/>
+        <translation>(Blob)</translation>
     </message>
 </context>
 <context>
@@ -335,12 +335,12 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="78"/>
         <source>No Bluetooth devices detected.</source>
-        <translation type="unfinished"/>
+        <translation>Geen Bluetooth-apparaten gedetecteerd.</translation>
     </message>
     <message>
         <location filename="../src/qml/BluetoothDeviceChooser.qml" line="112"/>
         <source>Deeper scanning for paired devices</source>
-        <translation type="unfinished"/>
+        <translation>Dieper scannen voor gekoppelde apparaten</translation>
     </message>
 </context>
 <context>
@@ -357,7 +357,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="98"/>
         <source>Bluetooth permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth-toestemming is vereist om naar bluetooth-apparaten te scannen</translation>
     </message>
     <message>
         <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="121"/>
@@ -367,7 +367,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="129"/>
         <source>Location permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>Locatietoestemming is vereist om naar bluetooth-apparaten te scannen</translation>
     </message>
 </context>
 <context>
@@ -483,12 +483,12 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="78"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Beschrijving</translation>
     </message>
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="137"/>
         <source>Change color</source>
-        <translation type="unfinished"/>
+        <translation>Kleur veranderen</translation>
     </message>
 </context>
 <context>
@@ -587,7 +587,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/editorwidgets/CheckBox.qml" line="34"/>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Leeg</translation>
     </message>
 </context>
 <context>
@@ -1000,7 +1000,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="225"/>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Leeg</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="227"/>
@@ -4684,7 +4684,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <location filename="../src/service/qfieldpositioningservice.cpp" line="97"/>
         <source>Positioning service running</source>
-        <translation type="unfinished"/>
+        <translation>Positioneringsdienst draait</translation>
     </message>
     <message>
         <location filename="../src/service/qfieldpositioningservice.cpp" line="88"/>
@@ -5677,7 +5677,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <location filename="../src/qml/editorwidgets/Range.qml" line="41"/>
         <location filename="../src/qml/editorwidgets/Range.qml" line="209"/>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Leeg</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/Range.qml" line="43"/>
@@ -5752,7 +5752,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/RelationCombobox.qml" line="307"/>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Leeg</translation>
     </message>
     <message>
         <location filename="../src/qml/RelationCombobox.qml" line="309"/>
@@ -6051,7 +6051,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="32"/>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Leeg</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="34"/>
