@@ -262,6 +262,27 @@ def test_offline_project(app, screenshot_path, screenshot_check, extra, process_
     assert screenshot_check("test_offline_project", "test_offline_project", 0.025)
 
 
+@pytest.mark.project_file("test_decorations.qgz")
+def test_decorations(app, screenshot_path, screenshot_check, extra, process_alive):
+    """
+    Starts a test app and check if the title, copyright, grid, and image decorations are
+    displayed in QField
+    """
+    assert app.existsAndVisible("mainWindow")
+
+    # Arbitrary wait period to insure project fully loaded and rendered
+    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
+    time.sleep(8)
+
+    app.takeScreenshot(
+        "mainWindow", os.path.join(screenshot_path, "test_decorations.png")
+    )
+    assert process_alive()
+    extra.append(extras.html('<img src="images/test_decorations.png"/>'))
+
+    assert screenshot_check("test_decorations", "test_decorations", 0.025)
+
+
 @pytest.mark.skipif(
     platform.system() != "Linux",
     reason="PostGIS test requires a docker linux container",
