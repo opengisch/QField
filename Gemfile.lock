@@ -121,7 +121,7 @@ GEM
       apktools (~> 0.7)
       aws-sdk-s3 (~> 1)
       mime-types (~> 3.3)
-    fastlane-plugin-sentry (1.35.0)
+    fastlane-plugin-sentry (1.36.0)
       os (~> 1.1, >= 1.1.4)
     fastlane-sirp (1.0.0)
       sysrandom (~> 1.0)
