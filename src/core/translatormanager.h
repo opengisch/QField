@@ -29,10 +29,20 @@ class TranslatorManager
 {
   public:
     //! Returns the global QField translator instance.
-    static QTranslator *qfieldTranslator();
+    QTranslator *qfieldTranslator();
 
     //! Returns the global Qt framework translator instance.
-    static QTranslator *qtTranslator();
+    QTranslator *qtTranslator();
+
+    //! Returns the singleton instance of TranslatorManager.
+    static TranslatorManager *instance();
+
+  private:
+    TranslatorManager();
+    ~TranslatorManager() = default;
+
+    QTranslator *mQfieldTranslator = nullptr;
+    QTranslator *mQtTranslator = nullptr;
 };
 
 #endif // TRANSLATORMANAGER_H

@@ -17,14 +17,24 @@
 
 #include <QTranslator>
 
+TranslatorManager::TranslatorManager()
+  : mQfieldTranslator( new QTranslator() )
+  , mQtTranslator( new QTranslator() )
+{
+}
+
 QTranslator *TranslatorManager::qfieldTranslator()
 {
-  static QTranslator *translator = new QTranslator();
-  return translator;
+  return mQfieldTranslator;
 }
 
 QTranslator *TranslatorManager::qtTranslator()
 {
-  static QTranslator *translator = new QTranslator();
-  return translator;
+  return mQtTranslator;
+}
+
+TranslatorManager *TranslatorManager::instance()
+{
+  static TranslatorManager *sInstance = new TranslatorManager();
+  return sInstance;
 }

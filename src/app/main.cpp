@@ -189,8 +189,8 @@ int main( int argc, char **argv )
   auto sentryClose = qScopeGuard( [] { sentry_wrapper::close(); } );
 #endif
 
-  QTranslator *qfieldTranslator = TranslatorManager::qfieldTranslator();
-  QTranslator *qtTranslator = TranslatorManager::qtTranslator();
+  QTranslator *qfieldTranslator = TranslatorManager::instance()->qfieldTranslator();
+  QTranslator *qtTranslator = TranslatorManager::instance()->qtTranslator();
   bool qfieldTranslatorLoaded = false;
   bool qtTranslatorLoaded = false;
   if ( !customLanguage.isEmpty() )

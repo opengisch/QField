@@ -240,8 +240,8 @@ void AppInterface::changeLanguage( const QString &languageCode )
     return;
   }
 
-  QTranslator *qfieldTranslator = TranslatorManager::qfieldTranslator();
-  QTranslator *qtTranslator = TranslatorManager::qtTranslator();
+  QTranslator *qfieldTranslator = TranslatorManager::instance()->qfieldTranslator();
+  QTranslator *qtTranslator = TranslatorManager::instance()->qtTranslator();
 
   QCoreApplication::removeTranslator( qtTranslator );
   QCoreApplication::removeTranslator( qfieldTranslator );
