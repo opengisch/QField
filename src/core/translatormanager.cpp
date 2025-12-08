@@ -18,19 +18,19 @@
 #include <QTranslator>
 
 TranslatorManager::TranslatorManager()
-  : mQfieldTranslator( new QTranslator() )
-  , mQtTranslator( new QTranslator() )
+  : mQfieldTranslator( std::make_unique<QTranslator>() )
+  , mQtTranslator( std::make_unique<QTranslator>() )
 {
 }
 
 QTranslator *TranslatorManager::qfieldTranslator()
 {
-  return mQfieldTranslator;
+  return mQfieldTranslator.get();
 }
 
 QTranslator *TranslatorManager::qtTranslator()
 {
-  return mQtTranslator;
+  return mQtTranslator.get();
 }
 
 TranslatorManager *TranslatorManager::instance()

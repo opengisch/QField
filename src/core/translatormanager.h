@@ -17,6 +17,8 @@
 #ifndef TRANSLATORMANAGER_H
 #define TRANSLATORMANAGER_H
 
+#include <memory>
+
 class QTranslator;
 
 /**
@@ -39,10 +41,12 @@ class TranslatorManager
 
   private:
     TranslatorManager();
-    ~TranslatorManager() = default;
 
-    QTranslator *mQfieldTranslator = nullptr;
-    QTranslator *mQtTranslator = nullptr;
+    TranslatorManager( const TranslatorManager & ) = delete;
+    TranslatorManager &operator=( const TranslatorManager & ) = delete;
+
+    std::unique_ptr<QTranslator> mQfieldTranslator;
+    std::unique_ptr<QTranslator> mQtTranslator;
 };
 
 #endif // TRANSLATORMANAGER_H
