@@ -148,7 +148,7 @@ jobs:
 
       - name: 🎭 Sign
         if: ( github.event_name == 'release'  && startsWith(github.ref, 'refs/tags/v') ) || github.event_name == 'workflow_dispatch' && env.ARTIFACT_NAME != null
-        uses: azure/trusted-signing-action@v0.5.10
+        uses: azure/trusted-signing-action@v0.5.11
         with:
           azure-tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           azure-client-id: ${{ secrets.AZURE_CLIENT_ID }}
