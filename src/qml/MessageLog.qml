@@ -11,6 +11,7 @@ Page {
   id: messageLog
 
   property alias model: table.model
+  property int unreadMessagesCount: 0
   property bool unreadMessages: false
 
   signal finished
@@ -212,14 +213,18 @@ Page {
     target: model
 
     function onRowsInserted(parent, first, last) {
-      if (!visible)
-        unreadMessages = true;
+      if (!messageLog.visible) {
+        messageLog.unreadMessages = true;
+        messageLog.unreadMessagesCount += (last - first + 1);
+      }
     }
   }
 
   onVisibleChanged: {
-    if (visible)
+    if (visible) {
       unreadMessages = false;
+      unreadMessagesCount = 0;
+    }
   }
 
   Keys.onReleased: event => {
