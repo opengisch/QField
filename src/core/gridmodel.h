@@ -77,7 +77,7 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     Q_PROPERTY( QList<QList<QPointF>> majorLines READ majorLines NOTIFY majorLinesChanged )
     Q_PROPERTY( QList<QList<QPointF>> minorLines READ minorLines NOTIFY minorLinesChanged )
     Q_PROPERTY( QList<QPointF> markers READ markers NOTIFY markersChanged )
-    Q_PROPERTY( QList<GridAnnotation> annotations READ annotations NOTIFY markersChanged )
+    Q_PROPERTY( QList<GridAnnotation> annotations READ annotations NOTIFY annotationsChanged )
 
     Q_PROPERTY( bool autoColor READ autoColor WRITE setAutoColor NOTIFY autoColorChanged )
     Q_PROPERTY( QColor majorLineColor READ majorLineColor WRITE setMajorLineColor NOTIFY majorLineColorChanged )
