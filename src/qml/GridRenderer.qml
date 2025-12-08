@@ -126,7 +126,7 @@ Item {
 
   Repeater {
     id: annotationsContainer
-    model: gridModel.prepareAnnotations && gridModel.annotations.length > 0
+    model: gridModel.annotations
 
     Rectangle {
       x: modelData.coordinate.x - width / 2
@@ -135,7 +135,7 @@ Item {
       width: 1
       height: 1
 
-      color: lineColor
+      color: majorLineColor
 
       Text {
         id: annotation
