@@ -110,7 +110,7 @@ EditorWidgetBase {
             height: 34
             radius: 4
             color: selected ? isEditable && isEditing ? Theme.mainColor : Theme.controlBorderColor : "transparent"
-            border.color: "transparent"
+            border.color: isEditing ? selected ? Theme.mainColor : Theme.secondaryTextColor : "transparent"
             border.width: 1
 
             property bool selected: toggleButtons.selectedIndex == index
