@@ -165,7 +165,7 @@ Page {
 
       Repeater {
         // One page per tab in tabbed forms, 1 page in auto forms
-        model: form.model.hasTabs ? tabRow.count : 1
+        model: form.model.hasTabs ? form.model : 1
 
         Flickable {
           id: contentView
