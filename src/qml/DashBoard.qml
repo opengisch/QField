@@ -279,13 +279,14 @@ Drawer {
 
       label: Label {
         x: parent.leftPadding
-        y: 2
+        height: 25
         width: parent.availableWidth
         leftPadding: mainWindow.sceneLeftMargin
         text: parent.title
         color: Theme.mainTextColor
         font: Theme.strongTipFont
         elide: Text.ElideRight
+        verticalAlignment: Text.AlignVCenter
       }
 
       background: Rectangle {
@@ -380,13 +381,51 @@ Drawer {
 
       label: Label {
         x: mapThemeContainer.leftPadding
-        y: 2
+        height: 25
         width: parent.availableWidth
         leftPadding: mainWindow.sceneLeftMargin
         text: parent.title
         color: Theme.mainTextColor
         font: Theme.strongTipFont
         elide: Text.ElideRight
+        verticalAlignment: Text.AlignVCenter
+        clip: true
+
+        QfButton {
+          id: toggleAllButton
+
+          property bool allCollapsed: true
+
+          anchors {
+            verticalCenter: parent.verticalCenter
+            right: parent.right
+            rightMargin: 10
+          }
+
+          text: toggleAllButton.allCollapsed ? qsTr('Expand All') : qsTr('Collapse All')
+          bgcolor: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
+          color: Theme.mainTextColor
+          icon.source: toggleAllButton.allCollapsed ? Theme.getThemeVectorIcon('ic_expand_all_24dp') : Theme.getThemeVectorIcon('ic_collapse_all_24dp')
+          icon.width: 14
+          icon.height: 14
+          font.pointSize: 8
+
+          onClicked: {
+            if (!toggleAllButton.allCollapsed) {
+              legend.collapseAll();
+            } else {
+              legend.expandAll();
+            }
+            toggleAllButton.allCollapsed = !toggleAllButton.allCollapsed;
+          }
+        }
+
+        Connections {
+          target: iface
+          function onLoadProjectEnded() {
+            toggleAllButton.visible = legend.hasCollapsible();
+          }
+        }
       }
 
       Legend {
