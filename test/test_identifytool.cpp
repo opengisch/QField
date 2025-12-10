@@ -27,6 +27,11 @@ TEST_CASE( "IdentifyTool" )
     REQUIRE_NOTHROW( tool.identify( point ) );
   }
 
+  SECTION( "deactivation without model does not crash" )
+  {
+    REQUIRE_NOTHROW( tool.setDeactivated( true ) );
+  }
+
   SECTION( "deactivation prevents identification" )
   {
     tool.setMapSettings( &mapSettings );
@@ -36,7 +41,7 @@ TEST_CASE( "IdentifyTool" )
     tool.setDeactivated( true );
     REQUIRE( tool.deactivated() );
 
-    // Should not crash even tho it will try to clear model
+    // Identify should be a no operation when deactivated and must not emit finished
     tool.identify( QPointF( 100, 100 ) );
     REQUIRE( finishedSpy.count() == 0 );
   }
