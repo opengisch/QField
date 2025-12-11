@@ -1774,19 +1774,6 @@ ApplicationWindow {
       spacing: 4
     }
 
-    QfToolButton {
-      id: alertIcon
-      iconSource: Theme.getThemeVectorIcon("ic_alert_black_24dp")
-      round: true
-      bgcolor: "transparent"
-      visible: !screenLocker.enabled && messageLog.unreadMessages
-      anchors.right: pluginsToolbar.right
-      anchors.top: pluginsToolbar.bottom
-      anchors.topMargin: 4
-
-      onClicked: messageLog.visible = true
-    }
-
     Column {
       id: zoomToolbar
       anchors.right: parent.right
@@ -3190,6 +3177,19 @@ ApplicationWindow {
         dashBoard.close();
         messageLog.visible = true;
         highlighted = false;
+      }
+
+      QfBadge {
+        width: 16
+        height: width
+        topMargin: 5
+        rightMargin: 5
+        alignment: QfBadge.Alignment.TopRight
+        visible: messageLog.unreadMessages
+        color: Theme.mainColor
+        badgeText.text: messageLog.unreadMessagesCount >= 10 ? "+" : messageLog.unreadMessagesCount
+        badgeText.color: Theme.light
+        border.color: "transparent"
       }
     }
 
