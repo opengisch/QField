@@ -74,6 +74,20 @@ ListView {
     return false;
   }
 
+  function allCollapsed() {
+    if (!legend.model) {
+      return false;
+    }
+    const rowCount = legend.model.rowCount();
+    for (let i = 0; i < rowCount; i++) {
+      const idx = legend.model.index(i, 0);
+      if (legend.model.data(idx, FlatLayerTreeModel.HasChildren) && !legend.model.data(idx, FlatLayerTreeModel.IsCollapsed)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   delegate: Rectangle {
     id: rectangle
     property int itemPadding: 30 * TreeLevel
