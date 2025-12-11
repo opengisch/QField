@@ -698,7 +698,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/DashBoard.qml" line="371"/>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>Legenda</translation>
     </message>
     <message>
         <location filename="../src/qml/DashBoard.qml" line="425"/>
@@ -1081,7 +1081,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="818"/>
         <source>Feature addition disabled</source>
-        <translation type="unfinished"/>
+        <translation>Object toevoegen uitgeschakeld</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="1023"/>
@@ -1156,7 +1156,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message numerus="yes">
         <location filename="../src/core/featurehistory.cpp" line="487"/>
         <source>Undo deletion of %n feature(s).</source>
-        <translation><numerusform>Verwijdering van %n object(s) ongedaan maken.</numerusform><numerusform>Verwijderen van %n objecten ongedaan maken.</numerusform></translation>
+        <translation><numerusform>Verwijdering van %n object(s) ongedaan maken.</numerusform><numerusform>Verwijderen van %n object(en) ongedaan maken.</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/core/featurehistory.cpp" line="491"/>
@@ -1777,27 +1777,27 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="326"/>
         <source>feature addition</source>
-        <translation type="unfinished"/>
+        <translation>Object toevoegen</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="329"/>
         <source>attribute editing</source>
-        <translation type="unfinished"/>
+        <translation>attribuut bewerken</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="332"/>
         <source>geometry editing</source>
-        <translation type="unfinished"/>
+        <translation>geometrie bewerken</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="335"/>
         <source>feature deletion</source>
-        <translation type="unfinished"/>
+        <translation>object verwijderen</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="337"/>
         <source>Disabled layer permissions: %1</source>
-        <translation type="unfinished"/>
+        <translation>Uitgeschakelde laag bewerkingen: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/LayerTreeItemProperties.qml" line="294"/>
@@ -1889,7 +1889,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/Legend.qml" line="346"/>
         <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation type="unfinished"/>
+        <translation>In de toestemmingsconfiguratie voor deze laag is object toevoegen uitgeschakeld.</translation>
     </message>
     <message>
         <location filename="../src/qml/Legend.qml" line="284"/>
@@ -5108,7 +5108,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="415"/>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation type="unfinished"/>
+        <translation>Een lagere kwaliteit verruilt rendering kwaliteit voor een lager geheugengebruik en kortere rendering tijd.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="1430"/>
@@ -5128,7 +5128,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="133"/>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>Indien ingeschakeld, voegt de volume hoger knop een vertex toe en verwijdert de volume lager knop de laatst toegevoegde vertex van de digitaliseringssessie.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="138"/>
@@ -5153,7 +5153,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="429"/>
         <source>Digitizing &amp; Editing</source>
-        <translation type="unfinished"/>
+        <translation>Digitaliseren en Bewerken</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="460"/>
@@ -5218,12 +5218,12 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="185"/>
         <source>Render preview content around visible map canvas</source>
-        <translation type="unfinished"/>
+        <translation>Teken preview rondom het zichtbare canvas</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="170"/>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation type="unfinished"/>
+        <translation>Indien ingeschakeld, opent het attribuut formulier automatisch wanneer slechts één object geïdentificeerd is en slaat zo de weergave van de objectenlijst over.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="104"/>
@@ -5238,12 +5238,12 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="169"/>
         <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
+        <translation>Open attribuut formulier bij identificatie van één object</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="186"/>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation type="unfinished"/>
+        <translation>Indien ingeschakeld, worden gebieden net buiten het zichtbare canvas gedeeltelijk ingetekend voor een preview tijdens zoomen en verschuiven.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="191"/>
@@ -7612,7 +7612,7 @@ project</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2816"/>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation type="unfinished"/>
+        <translation>Object toevoegen mislukt omdat de functie object toevoegen is uitgeschakeld</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2820"/>
@@ -7667,12 +7667,12 @@ project</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="5070"/>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>Legenda</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="5071"/>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
-        <translation type="unfinished"/>
+        <translation>De legenda toont kaartlagen en u kunt hier de zichtbaarheid en opaciteit van de lagen instellen door &lt;b&gt;lang te drukken op de laagnaam&lt;/b&gt;. De popup heeft verschillende extra functionaliteiten zoals Zoom naar laag en Toon objectenlijst.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="3578"/>
