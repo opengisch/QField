@@ -424,6 +424,7 @@ Drawer {
           target: iface
           function onLoadProjectEnded() {
             toggleAllButton.visible = legend.hasCollapsible();
+            toggleAllButton.allCollapsed = legend.allCollapsed();
           }
         }
       }
