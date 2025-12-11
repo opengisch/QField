@@ -339,12 +339,14 @@ Pane {
         anchors {
           leftMargin: featureFormList.multiSelection ? 50 : 10
           left: parent.left
+          right: parent.right
           verticalCenter: parent.verticalCenter
         }
         font.bold: true
         font.pointSize: Theme.resultFont.pointSize
         color: Theme.mainTextColor
         text: display
+        wrapMode: Text.WordWrap
       }
 
       Rectangle {
