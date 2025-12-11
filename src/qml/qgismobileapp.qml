@@ -3187,7 +3187,7 @@ ApplicationWindow {
         alignment: QfBadge.Alignment.TopRight
         visible: messageLog.unreadMessages
         color: Theme.mainColor
-        badgeText.text: messageLog.unreadMessagesCount
+        badgeText.text: messageLog.unreadMessagesCount >= 10 ? "+" : messageLog.unreadMessagesCount
         badgeText.color: Theme.light
         border.color: "transparent"
       }
