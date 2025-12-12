@@ -139,9 +139,9 @@ FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProj
     {
       mProjectLayersChanged = true;
       emit layersAdded();
-
-      adjustTemporalStateFromAddedLayers( layers );
     }
+
+    adjustTemporalStateFromAddedLayers( layers );
   } );
   connect( mProject, static_cast<void ( QgsProject::* )( const QList<QgsMapLayer *> &layers )>( &QgsProject::layersWillBeRemoved ), this, [this]( const QList<QgsMapLayer *> &layers ) {
     if ( !mFrozen )
@@ -174,7 +174,9 @@ void FlatLayerTreeModelBase::unfreeze( bool resetModel )
   emit isFrozenChanged();
 
   if ( resetModel )
+  {
     buildMap( mLayerTreeModel );
+  }
 }
 
 void FlatLayerTreeModelBase::updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
@@ -406,7 +408,9 @@ void FlatLayerTreeModelBase::clearMap()
 int FlatLayerTreeModelBase::buildMap( QgsLayerTreeModel *model, const QModelIndex &parent, int row, int treeLevel )
 {
   if ( mFrozen )
+  {
     return 0;
+  }
 
   bool reset = false;
   if ( row == 0 )
