@@ -43,7 +43,7 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
   // TODO all of these connects are a bit too much, and I guess not very precise, should be refactored!
 
   QNetworkInformation::loadBackendByFeatures( QNetworkInformation::Feature::Reachability );
-  if ( QNetworkInformation *info = QNetworkInformation::instance() )
+  if ( const QNetworkInformation *info = QNetworkInformation::instance() )
   {
     connect( info, &QNetworkInformation::reachabilityChanged, this, [this]( QNetworkInformation::Reachability ) {
       if ( !networkLooksActive() || mPendingPushes.isEmpty() )
@@ -346,10 +346,7 @@ bool QFieldCloudProjectsModel::networkLooksActive() const
   switch ( info->reachability() )
   {
     case QNetworkInformation::Reachability::Online:
-      return true;
-
-    case QNetworkInformation::Reachability::Unknown:
-      // treat as active to avoid blocking pushes if OS cant tell
+    case QNetworkInformation::Reachability::Unknown: // treat as active to avoid blocking pushes if OS cant tell
       return true;
 
     case QNetworkInformation::Reachability::Disconnected:
