@@ -1294,7 +1294,7 @@ Page {
           color: Theme.secondaryTextColor
         }
 
-        QfComboBox {
+        ComboBox {
           id: importWebdavUrlInput
           Layout.fillWidth: true
           enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
@@ -1342,7 +1342,7 @@ Page {
           color: Theme.secondaryTextColor
         }
 
-        QfComboBox {
+        ComboBox {
           id: importWebdavUserInput
           enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
           Layout.fillWidth: true
