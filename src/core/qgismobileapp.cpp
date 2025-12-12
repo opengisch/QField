@@ -765,11 +765,11 @@ bool QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
   {
     saveProjectPreviewImage();
 
-    mAuthRequestHandler->clearStoredRealms();
     if ( !mProjectFilePath.isEmpty() )
     {
-      mProject->clear();
+      mPluginManager->unloadPlugin( PluginManager::findProjectPlugin( mProjectFilePath ) );
     }
+    mAuthRequestHandler->clearStoredRealms();
 
     mProjectFilePath = path;
     mProjectFileName = !name.isEmpty() ? name : fi.completeBaseName();
