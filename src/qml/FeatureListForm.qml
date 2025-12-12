@@ -95,7 +95,9 @@ Pane {
         lastHeight = parent.height;
         return parent.height;
       } else {
-        const newHeight = Math.min(Math.max(200, parent.height / 2), parent.height);
+        const defaultMin = Math.min(Math.max(200, parent.height / 2), parent.height);
+        const minContentHeight = featureForm.visible ? defaultMin : featureListToolBar.height + (48 * globalFeaturesList.count) + (30 * globalFeaturesList.sectionCount()) + 5;
+        const newHeight = Math.min(minContentHeight, defaultMin);
         lastHeight = newHeight;
         return newHeight;
       }
@@ -399,6 +401,16 @@ Pane {
       }
     }
 
+    function sectionCount() {
+      let sections = {};
+      for (let i = 0; i < globalFeaturesList.model.count; ++i) {
+        const idx = globalFeaturesList.model.index(i, 0);
+        let sectionVal = globalFeaturesList.model.data(idx, MultiFeatureListModel.LayerNameRole);
+        sections[sectionVal] = true;
+      }
+      return Object.keys(sections).length;
+    }
+
     /* bottom border */
     Rectangle {
       anchors.bottom: parent.bottom
@@ -555,7 +567,8 @@ Pane {
     onStatusIndicatorDragReleased: {
       isDragging = false;
       if (isVertical) {
-        if (featureFormList.height < featureFormList.parent.height * 0.3) {
+        const minContentHeight = featureListToolBar.height + 48 + 30;
+        if (featureFormList.height < minContentHeight) {
           if (fullScreenView) {
             fullScreenView = false;
           } else {
