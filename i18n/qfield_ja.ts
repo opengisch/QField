@@ -2011,28 +2011,28 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>MessageLog</name>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="22"/>
+        <location filename="../src/qml/MessageLog.qml" line="23"/>
         <source>Message Logs</source>
         <translation>メッセージログ</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="106"/>
+        <location filename="../src/qml/MessageLog.qml" line="107"/>
         <source>Message text copied</source>
         <translation>メッセージテキストをコピーしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="130"/>
+        <location filename="../src/qml/MessageLog.qml" line="131"/>
         <source>Clear message log</source>
         <translation>メッセージログをクリア</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="135"/>
+        <location filename="../src/qml/MessageLog.qml" line="136"/>
         <source>Message log cleared</source>
         <translation>メッセージログをクリアしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="143"/>
-        <location filename="../src/qml/MessageLog.qml" line="154"/>
+        <location filename="../src/qml/MessageLog.qml" line="144"/>
+        <location filename="../src/qml/MessageLog.qml" line="155"/>
         <source>Send application log</source>
         <translation>アプリのログを送る</translation>
     </message>
@@ -2041,27 +2041,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">アプリのログが送信されています</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="121"/>
+        <location filename="../src/qml/MessageLog.qml" line="122"/>
         <source>Log runtime profiler</source>
         <translation>ログ・ランタイム・プロファイラー</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="185"/>
+        <location filename="../src/qml/MessageLog.qml" line="186"/>
         <source>Type optional details</source>
         <translation>オプションの詳細を入力する</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="193"/>
+        <location filename="../src/qml/MessageLog.qml" line="194"/>
         <source>Include cloud user details</source>
         <translation>クラウドユーザーの詳細を含める</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="176"/>
+        <location filename="../src/qml/MessageLog.qml" line="177"/>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
         <translation>これにより、現在のセッションのログが開発チームに送信されます。これは、要求されたときだけ行う必要があります。</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="207"/>
+        <location filename="../src/qml/MessageLog.qml" line="208"/>
         <source>Your application log is being sent…</source>
         <translation>アプリのログを送信中です...</translation>
     </message>
@@ -6906,37 +6906,37 @@ project</source>
         <translation>面積</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1918"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1905"/>
         <source>Close measure tool</source>
         <translation>計測ツールを非表示にする</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1927"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1914"/>
         <source>Stop editing</source>
         <translation>編集をやめる</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1936"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1923"/>
         <source>Cancel addition</source>
         <translation>追加をキャンセルする</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2034"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
         <source>Topological editing turned on</source>
         <translation>トポロジー編集をオンにする</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2034"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
         <source>Topological editing turned off</source>
         <translation>トポロジー編集をオフにする</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2076"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2063"/>
         <source>Freehand digitizing turned on</source>
         <translation>フリーハンドでの編集をオンにしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2076"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2063"/>
         <source>Freehand digitizing turned off</source>
         <translation>フリーハンドでの編集をオフにしました</translation>
     </message>
@@ -6962,7 +6962,7 @@ project</source>
         <translation type="vanished">地図上で現在の位置情報を追尾します</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2492"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2479"/>
         <source>Waiting for location</source>
         <translation>位置情報を受信しています</translation>
     </message>
@@ -6987,7 +6987,7 @@ project</source>
         <translation type="vanished">地物を保存できませんでした!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3030"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3017"/>
         <source>Main Menu</source>
         <translation>メインメニュー</translation>
     </message>
@@ -7016,12 +7016,12 @@ project</source>
         <translation type="vanished">プロジェクトを開く</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3166"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3153"/>
         <source>Settings</source>
         <translation>設定</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3182"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3169"/>
         <source>Message Log</source>
         <translation>メッセージログ</translation>
     </message>
@@ -7305,7 +7305,7 @@ project</source>
         <translation type="vanished">画像に印刷する</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2965"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2952"/>
         <location filename="../src/qml/qgismobileapp.qml" line="3330"/>
         <source>Printing...</source>
         <translation>印刷しています...</translation>
@@ -7332,45 +7332,45 @@ project</source>
         <translation>地物をコピーしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1997"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1984"/>
         <source>Snapping turned on</source>
         <translation>スナッピングを有効にしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1997"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1984"/>
         <source>Snapping turned off</source>
         <translation>スナッピングを無効にしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2119"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2214"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2106"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2201"/>
         <source>Snap to %1° angle turned on</source>
         <translation>%1°度にスナップがオンになりました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2119"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2106"/>
         <source>Snap to common angle turned off</source>
         <translation>共通アングルへのスナップはオフになりました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2131"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2118"/>
         <source>Relative angle</source>
         <translation>相対角度</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1302"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3153"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3140"/>
         <source>Learn more</source>
         <translation>詳細はこちら</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3111"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3098"/>
         <location filename="../src/qml/qgismobileapp.qml" line="3237"/>
         <source>Sensors</source>
         <translation>センサー</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3153"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3140"/>
         <source>No sensor available</source>
         <translation>使用可能なセンサーがありません</translation>
     </message>
@@ -7523,12 +7523,12 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3054"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3041"/>
         <source>Undo</source>
         <translation>元に戻す</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3080"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3067"/>
         <source>Redo</source>
         <translation>やり直す</translation>
     </message>
@@ -7538,37 +7538,37 @@ project</source>
         <translation>収集した位置情報を再生中です、しばらくお待ちください</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2149"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2136"/>
         <source>Snapping to every</source>
         <translation>全てにスナッピングする</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2189"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2176"/>
         <source>%1°</source>
         <translation>%1°</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2226"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2213"/>
         <source>Snapping tolerance</source>
         <translation>スナッピングの精度</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2247"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
         <source>Narrow</source>
         <translation>狭い</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2247"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
         <source>Normal</source>
         <translation>普通</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2247"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
         <source>Large</source>
         <translation>大きい</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2294"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2281"/>
         <source>Snapping tolerance set to %1</source>
         <translation>スナッピングの精度が %1 に設定</translation>
     </message>
@@ -7603,17 +7603,17 @@ project</source>
         <translation>プラグインをアクティベートする権限を与えますか？</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2813"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2800"/>
         <source>Failed to create feature</source>
         <translation>地物の作成に失敗しました</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2816"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2803"/>
         <source>Failed to create feature due to feature addition permission disabled</source>
         <translation>地物の追加をする権限が無効になっているため、地物を作成できませんでした</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2820"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2807"/>
         <source>Failed to save feature</source>
         <translation>地物の保存に失敗しました</translation>
     </message>
@@ -7714,23 +7714,23 @@ project</source>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1161"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2478"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2465"/>
         <source>Map canvas locked to location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2465"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2452"/>
         <source>Map canvas locked to location and compass orientation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2469"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2456"/>
         <source>Map canvas follows location and compass orientation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2480"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2535"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2467"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
         <source>Map canvas follows location</source>
         <translation type="unfinished"/>
     </message>

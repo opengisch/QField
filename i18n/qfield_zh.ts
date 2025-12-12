@@ -2011,28 +2011,28 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>MessageLog</name>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="22"/>
+        <location filename="../src/qml/MessageLog.qml" line="23"/>
         <source>Message Logs</source>
         <translation>信息日志</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="106"/>
+        <location filename="../src/qml/MessageLog.qml" line="107"/>
         <source>Message text copied</source>
         <translation>信息文本已复制</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="130"/>
+        <location filename="../src/qml/MessageLog.qml" line="131"/>
         <source>Clear message log</source>
         <translation>清除信息日志</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="135"/>
+        <location filename="../src/qml/MessageLog.qml" line="136"/>
         <source>Message log cleared</source>
         <translation>信息日志已清除</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="143"/>
-        <location filename="../src/qml/MessageLog.qml" line="154"/>
+        <location filename="../src/qml/MessageLog.qml" line="144"/>
+        <location filename="../src/qml/MessageLog.qml" line="155"/>
         <source>Send application log</source>
         <translation>发送应用日志</translation>
     </message>
@@ -2041,27 +2041,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">正在发送您的应用日志</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="121"/>
+        <location filename="../src/qml/MessageLog.qml" line="122"/>
         <source>Log runtime profiler</source>
         <translation>日志运行时分析工具</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="185"/>
+        <location filename="../src/qml/MessageLog.qml" line="186"/>
         <source>Type optional details</source>
         <translation>可选类型详细信息</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="193"/>
+        <location filename="../src/qml/MessageLog.qml" line="194"/>
         <source>Include cloud user details</source>
         <translation>包括云用户详细信息</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="176"/>
+        <location filename="../src/qml/MessageLog.qml" line="177"/>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
         <translation>这会将您当前的会话日志发送给开发团队。您只需在被请求时执行此操作即可。</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="207"/>
+        <location filename="../src/qml/MessageLog.qml" line="208"/>
         <source>Your application log is being sent…</source>
         <translation>正在发送应用程序日志…</translation>
     </message>
@@ -6909,37 +6909,37 @@ project</source>
         <translation>面积</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1918"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1905"/>
         <source>Close measure tool</source>
         <translation>关闭测量工具</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1927"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1914"/>
         <source>Stop editing</source>
         <translation>停止编辑</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1936"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1923"/>
         <source>Cancel addition</source>
         <translation>取消添加</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2034"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
         <source>Topological editing turned on</source>
         <translation>拓扑编辑已打开</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2034"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
         <source>Topological editing turned off</source>
         <translation>拓扑编辑已关闭</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2076"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2063"/>
         <source>Freehand digitizing turned on</source>
         <translation>手绘数字化已打开</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2076"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2063"/>
         <source>Freehand digitizing turned off</source>
         <translation>手绘数字化已关闭</translation>
     </message>
@@ -6965,7 +6965,7 @@ project</source>
         <translation type="vanished">地图跟随位置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2492"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2479"/>
         <source>Waiting for location</source>
         <translation>等待位置信息</translation>
     </message>
@@ -6990,7 +6990,7 @@ project</source>
         <translation type="vanished">保存要素失败！</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3030"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3017"/>
         <source>Main Menu</source>
         <translation>主菜单</translation>
     </message>
@@ -7019,12 +7019,12 @@ project</source>
         <translation type="vanished">打开工程</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3166"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3153"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3182"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3169"/>
         <source>Message Log</source>
         <translation>信息日志</translation>
     </message>
@@ -7308,7 +7308,7 @@ project</source>
         <translation type="vanished">输出为图像</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2965"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2952"/>
         <location filename="../src/qml/qgismobileapp.qml" line="3330"/>
         <source>Printing...</source>
         <translation>正在输出...</translation>
@@ -7335,45 +7335,45 @@ project</source>
         <translation>已成功再制要素</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1997"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1984"/>
         <source>Snapping turned on</source>
         <translation>捕捉已打开</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1997"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1984"/>
         <source>Snapping turned off</source>
         <translation>捕捉已关闭</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2119"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2214"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2106"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2201"/>
         <source>Snap to %1° angle turned on</source>
         <translation>捕捉到已打开的 %1° 角</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2119"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2106"/>
         <source>Snap to common angle turned off</source>
         <translation>捕捉到已关闭的公共角</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2131"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2118"/>
         <source>Relative angle</source>
         <translation>相对角度</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1302"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3153"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3140"/>
         <source>Learn more</source>
         <translation>点击了解更多信息</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3111"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3098"/>
         <location filename="../src/qml/qgismobileapp.qml" line="3237"/>
         <source>Sensors</source>
         <translation>传感器</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3153"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3140"/>
         <source>No sensor available</source>
         <translation>无可用传感器</translation>
     </message>
@@ -7526,12 +7526,12 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3054"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3041"/>
         <source>Undo</source>
         <translation>撤消</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3080"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3067"/>
         <source>Redo</source>
         <translation>重做</translation>
     </message>
@@ -7541,37 +7541,37 @@ project</source>
         <translation>重播已收集的位置，请稍等</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2149"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2136"/>
         <source>Snapping to every</source>
         <translation>捕捉全部</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2189"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2176"/>
         <source>%1°</source>
         <translation>%1°</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2226"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2213"/>
         <source>Snapping tolerance</source>
         <translation>捕捉容差</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2247"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
         <source>Narrow</source>
         <translation>限制</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2247"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
         <source>Normal</source>
         <translation>标准</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2247"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
         <source>Large</source>
         <translation>大号</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2294"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2281"/>
         <source>Snapping tolerance set to %1</source>
         <translation>捕捉容差设置为%1</translation>
     </message>
@@ -7606,17 +7606,17 @@ project</source>
         <translation>您是否授权激活该插件？</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2813"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2800"/>
         <source>Failed to create feature</source>
         <translation>创建要素失败</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2816"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2803"/>
         <source>Failed to create feature due to feature addition permission disabled</source>
         <translation>由于要素添加权限已禁用，创建要素失败</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2820"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2807"/>
         <source>Failed to save feature</source>
         <translation>保存要素失败</translation>
     </message>
@@ -7717,23 +7717,23 @@ project</source>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1161"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2478"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2465"/>
         <source>Map canvas locked to location</source>
         <translation>地图画布已锁定位置</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2465"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2452"/>
         <source>Map canvas locked to location and compass orientation</source>
         <translation>地图画布已锁定到位置和指南针方向</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2469"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2456"/>
         <source>Map canvas follows location and compass orientation</source>
         <translation>地图画布遵循位置和指南针方向</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2480"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2535"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2467"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
         <source>Map canvas follows location</source>
         <translation>地图画布跟随位置</translation>
     </message>

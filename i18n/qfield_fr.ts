@@ -2014,28 +2014,28 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
 <context>
     <name>MessageLog</name>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="22"/>
+        <location filename="../src/qml/MessageLog.qml" line="23"/>
         <source>Message Logs</source>
         <translation>Liste des messages</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="106"/>
+        <location filename="../src/qml/MessageLog.qml" line="107"/>
         <source>Message text copied</source>
         <translation>Texte du message copié</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="130"/>
+        <location filename="../src/qml/MessageLog.qml" line="131"/>
         <source>Clear message log</source>
         <translation>Effacer la liste des messages</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="135"/>
+        <location filename="../src/qml/MessageLog.qml" line="136"/>
         <source>Message log cleared</source>
         <translation>Liste des messages effacée</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="143"/>
-        <location filename="../src/qml/MessageLog.qml" line="154"/>
+        <location filename="../src/qml/MessageLog.qml" line="144"/>
+        <location filename="../src/qml/MessageLog.qml" line="155"/>
         <source>Send application log</source>
         <translation>Envoyer le journal d&apos;application</translation>
     </message>
@@ -2044,27 +2044,27 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <translation type="vanished">Le journal d&apos;application est sur le point d&apos;être envoyé</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="121"/>
+        <location filename="../src/qml/MessageLog.qml" line="122"/>
         <source>Log runtime profiler</source>
         <translation>Profileur d&apos;exécution du journal des logs</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="185"/>
+        <location filename="../src/qml/MessageLog.qml" line="186"/>
         <source>Type optional details</source>
         <translation>Saisie des détails optionnels</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="193"/>
+        <location filename="../src/qml/MessageLog.qml" line="194"/>
         <source>Include cloud user details</source>
         <translation>Inclure les détails de l&apos;utilisateur depuis le cloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="176"/>
+        <location filename="../src/qml/MessageLog.qml" line="177"/>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
         <translation>Ceci enverra le log de votre session actuelle à l&apos;équipe de développement. Vous ne devez l&apos;envoyer uniquement que si cela vous a été demandé.</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="207"/>
+        <location filename="../src/qml/MessageLog.qml" line="208"/>
         <source>Your application log is being sent…</source>
         <translation>Le log de votre application est en cours d&apos;envoi ...</translation>
     </message>
@@ -6910,37 +6910,37 @@ projet</translation>
         <translation>Superficie</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1918"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1905"/>
         <source>Close measure tool</source>
         <translation>Fermer l&apos;outil de mesure</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1927"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1914"/>
         <source>Stop editing</source>
         <translation>Arrêter l&apos;édition</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1936"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1923"/>
         <source>Cancel addition</source>
         <translation>Annuler l&apos;addition</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2034"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
         <source>Topological editing turned on</source>
         <translation>Édition topologique activée</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2034"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
         <source>Topological editing turned off</source>
         <translation>Édition topologique désactivée</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2076"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2063"/>
         <source>Freehand digitizing turned on</source>
         <translation>Numérisation à main levée activée</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2076"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2063"/>
         <source>Freehand digitizing turned off</source>
         <translation>Numérisation à main levée désactivée</translation>
     </message>
@@ -6966,7 +6966,7 @@ projet</translation>
         <translation type="vanished">Le canevas suit la localisation</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2492"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2479"/>
         <source>Waiting for location</source>
         <translation>En attente de localisation</translation>
     </message>
@@ -6991,7 +6991,7 @@ projet</translation>
         <translation type="vanished">Échec de l&apos;enregistrement de l&apos;entité !</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3030"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3017"/>
         <source>Main Menu</source>
         <translation>Menu principal</translation>
     </message>
@@ -7020,12 +7020,12 @@ projet</translation>
         <translation type="vanished">Ouvrir un projet</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3166"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3153"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3182"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3169"/>
         <source>Message Log</source>
         <translation>Liste des messages</translation>
     </message>
@@ -7311,7 +7311,7 @@ fermer le projet et quitter l&apos;application</translation>
         <translation type="vanished">Imprimer sur image</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2965"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2952"/>
         <location filename="../src/qml/qgismobileapp.qml" line="3330"/>
         <source>Printing...</source>
         <translation>Impression...</translation>
@@ -7338,45 +7338,45 @@ fermer le projet et quitter l&apos;application</translation>
         <translation>Entité dupliquée avec succès</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1997"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1984"/>
         <source>Snapping turned on</source>
         <translation>Capture activée</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1997"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1984"/>
         <source>Snapping turned off</source>
         <translation>Capture désactivée</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2119"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2214"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2106"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2201"/>
         <source>Snap to %1° angle turned on</source>
         <translation>Accrochage d&apos;angle %1° activé</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2119"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2106"/>
         <source>Snap to common angle turned off</source>
         <translation>Accrochage d&apos;angle désactivé</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2131"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2118"/>
         <source>Relative angle</source>
         <translation>angle relatif</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1302"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3153"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3140"/>
         <source>Learn more</source>
         <translation>En savoir plus</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3111"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3098"/>
         <location filename="../src/qml/qgismobileapp.qml" line="3237"/>
         <source>Sensors</source>
         <translation>Capteurs</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3153"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3140"/>
         <source>No sensor available</source>
         <translation>Pas de capteur disponible</translation>
     </message>
@@ -7529,12 +7529,12 @@ fermer le projet et quitter l&apos;application</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3054"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3041"/>
         <source>Undo</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3080"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3067"/>
         <source>Redo</source>
         <translation>Rétablir</translation>
     </message>
@@ -7544,37 +7544,37 @@ fermer le projet et quitter l&apos;application</translation>
         <translation>Récupération des positions collectées, patienter</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2149"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2136"/>
         <source>Snapping to every</source>
         <translation>S&apos;accroche à tous</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2189"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2176"/>
         <source>%1°</source>
         <translation>%1°</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2226"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2213"/>
         <source>Snapping tolerance</source>
         <translation>Tolérance d&apos;accrochage</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2247"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
         <source>Narrow</source>
         <translation>Étroit</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2247"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
         <source>Normal</source>
         <translation>Normal</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2247"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
         <source>Large</source>
         <translation>Grande</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2294"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2281"/>
         <source>Snapping tolerance set to %1</source>
         <translation>Tolérance d&apos;accrochage paramétrée à %1</translation>
     </message>
@@ -7609,17 +7609,17 @@ fermer le projet et quitter l&apos;application</translation>
         <translation>Accordez vous la permission d&apos;activer le plugin</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2813"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2800"/>
         <source>Failed to create feature</source>
         <translation>Échec de création de l&apos;entité</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2816"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2803"/>
         <source>Failed to create feature due to feature addition permission disabled</source>
         <translation>Échec lors de la création de l&apos;entité car l&apos;ajout d&apos;entité est désactivé</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2820"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2807"/>
         <source>Failed to save feature</source>
         <translation>Échec de sauvegarde de l&apos;entité</translation>
     </message>
@@ -7720,23 +7720,23 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1161"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2478"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2465"/>
         <source>Map canvas locked to location</source>
         <translation>Carte centrée sur la position</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2465"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2452"/>
         <source>Map canvas locked to location and compass orientation</source>
         <translation>Carte bloquée sur position et orientation</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2469"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2456"/>
         <source>Map canvas follows location and compass orientation</source>
         <translation>La carte suit la position et l&apos;orientation</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2480"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2535"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2467"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
         <source>Map canvas follows location</source>
         <translation>La carte suit la position</translation>
     </message>

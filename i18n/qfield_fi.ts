@@ -2013,28 +2013,28 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
 <context>
     <name>MessageLog</name>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="22"/>
+        <location filename="../src/qml/MessageLog.qml" line="23"/>
         <source>Message Logs</source>
         <translation>Viestilokit</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="106"/>
+        <location filename="../src/qml/MessageLog.qml" line="107"/>
         <source>Message text copied</source>
         <translation>Viestin teksti kopioitu</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="130"/>
+        <location filename="../src/qml/MessageLog.qml" line="131"/>
         <source>Clear message log</source>
         <translation>Tyhjennä viestiloki</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="135"/>
+        <location filename="../src/qml/MessageLog.qml" line="136"/>
         <source>Message log cleared</source>
         <translation>Viestiloki tyhjennetty</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="143"/>
-        <location filename="../src/qml/MessageLog.qml" line="154"/>
+        <location filename="../src/qml/MessageLog.qml" line="144"/>
+        <location filename="../src/qml/MessageLog.qml" line="155"/>
         <source>Send application log</source>
         <translation>Lähetä sovelluksen loki</translation>
     </message>
@@ -2043,27 +2043,27 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <translation type="vanished">Sovellutuslokisi lähetetään</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="121"/>
+        <location filename="../src/qml/MessageLog.qml" line="122"/>
         <source>Log runtime profiler</source>
         <translation>Lokita profiloijan suoritusaikaa</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="185"/>
+        <location filename="../src/qml/MessageLog.qml" line="186"/>
         <source>Type optional details</source>
         <translation>Kirjoita valinnaiset tiedot</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="193"/>
+        <location filename="../src/qml/MessageLog.qml" line="194"/>
         <source>Include cloud user details</source>
         <translation>Sisällytä pilvikäyttäjien tiedot</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="176"/>
+        <location filename="../src/qml/MessageLog.qml" line="177"/>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
         <translation>Tämä toiminto lähettää tämän hetkisen session lokitiedot kehittäjäyhteisölle. Sinun tarvitsee tehdä tämä vain, jos sinua on käsketty tekemään niin.</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="207"/>
+        <location filename="../src/qml/MessageLog.qml" line="208"/>
         <source>Your application log is being sent…</source>
         <translation>Sovelluksesi lokitiedot on lähetetty</translation>
     </message>
@@ -6910,37 +6910,37 @@ project</source>
         <translation>Alue</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1918"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1905"/>
         <source>Close measure tool</source>
         <translation>Sulje mittaustyökalu</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1927"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1914"/>
         <source>Stop editing</source>
         <translation>Keskeytä muokkaus</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1936"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1923"/>
         <source>Cancel addition</source>
         <translation>Peruuta lisäys</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2034"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
         <source>Topological editing turned on</source>
         <translation>Topologinen muokkaus päällä</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2034"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
         <source>Topological editing turned off</source>
         <translation>Topologinen muokkaus pois päältä</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2076"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2063"/>
         <source>Freehand digitizing turned on</source>
         <translation>Vapaalla kädellä digitointi päällä</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2076"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2063"/>
         <source>Freehand digitizing turned off</source>
         <translation>Vapaalla kädellä digitointi pois päältä</translation>
     </message>
@@ -6966,7 +6966,7 @@ project</source>
         <translation type="vanished">Karttapohja seuraa sijaintia</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2492"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2479"/>
         <source>Waiting for location</source>
         <translation>Odotetaan sijaintitietoa</translation>
     </message>
@@ -6991,7 +6991,7 @@ project</source>
         <translation type="vanished">Kohteen tallennus epäonnistui!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3030"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3017"/>
         <source>Main Menu</source>
         <translation>Päävalikko</translation>
     </message>
@@ -7020,12 +7020,12 @@ project</source>
         <translation type="vanished">Avaa projekti</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3166"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3153"/>
         <source>Settings</source>
         <translation>Asetukset</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3182"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3169"/>
         <source>Message Log</source>
         <translation>Viestiloki</translation>
     </message>
@@ -7309,7 +7309,7 @@ project</source>
         <translation type="vanished">Tulosta kuva</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2965"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2952"/>
         <location filename="../src/qml/qgismobileapp.qml" line="3330"/>
         <source>Printing...</source>
         <translation>Tulostetaan...</translation>
@@ -7336,45 +7336,45 @@ project</source>
         <translation>Kohde monistettu onnistuneesti</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1997"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1984"/>
         <source>Snapping turned on</source>
         <translation>Tarttuminen päällä</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1997"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="1984"/>
         <source>Snapping turned off</source>
         <translation>Tarttuminen pois päältä</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2119"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2214"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2106"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2201"/>
         <source>Snap to %1° angle turned on</source>
         <translation>Tartu %1° kulmaan päällä</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2119"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2106"/>
         <source>Snap to common angle turned off</source>
         <translation>Tartu yleisimpiin kulmiin pois päältä</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2131"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2118"/>
         <source>Relative angle</source>
         <translation>Relatiivinen kulma</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1302"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3153"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3140"/>
         <source>Learn more</source>
         <translation>Opi lisää</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3111"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3098"/>
         <location filename="../src/qml/qgismobileapp.qml" line="3237"/>
         <source>Sensors</source>
         <translation>Sensorit</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3153"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3140"/>
         <source>No sensor available</source>
         <translation>Sensoria ei käytettävissä</translation>
     </message>
@@ -7527,12 +7527,12 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3054"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3041"/>
         <source>Undo</source>
         <translation>Kumoa</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3080"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="3067"/>
         <source>Redo</source>
         <translation>Tee uudelleen</translation>
     </message>
@@ -7542,37 +7542,37 @@ project</source>
         <translation>Ladataan kerättyjjä sijainteja, odota hetki</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2149"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2136"/>
         <source>Snapping to every</source>
         <translation>Tarttuminen jokaiseen</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2189"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2176"/>
         <source>%1°</source>
         <translation>%1°</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2226"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2213"/>
         <source>Snapping tolerance</source>
         <translation>Tarttumistoleranssi</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2247"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
         <source>Narrow</source>
         <translation>Pieni</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2247"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
         <source>Normal</source>
         <translation>Normaali</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2247"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
         <source>Large</source>
         <translation>Iso</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2294"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2281"/>
         <source>Snapping tolerance set to %1</source>
         <translation>Tarttumistoleranssi on asetettu %1</translation>
     </message>
@@ -7607,17 +7607,17 @@ project</source>
         <translation>Annatko luvan aktivoida lisäosan?</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2813"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2800"/>
         <source>Failed to create feature</source>
         <translation>Kohteen luominen epäonnistui</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2816"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2803"/>
         <source>Failed to create feature due to feature addition permission disabled</source>
         <translation>Kohteen luominen epäonnistui, koska kohteen lisäysoikeus on poistettu käytöstä.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2820"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2807"/>
         <source>Failed to save feature</source>
         <translation>Kohteen tallentaminen epäonnistui</translation>
     </message>
@@ -7718,23 +7718,23 @@ project</source>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1161"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2478"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2465"/>
         <source>Map canvas locked to location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2465"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2452"/>
         <source>Map canvas locked to location and compass orientation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2469"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2456"/>
         <source>Map canvas follows location and compass orientation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2480"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2535"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2467"/>
+        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
         <source>Map canvas follows location</source>
         <translation type="unfinished"/>
     </message>
