@@ -395,6 +395,9 @@ void IdentifyTool::setModel( MultiFeatureListModel *model )
 
 void IdentifyTool::setDeactivated( bool deactivated )
 {
+  if ( mDeactivated == deactivated )
+    return;
+
   if ( deactivated && mModel )
     mModel->clear();
 
