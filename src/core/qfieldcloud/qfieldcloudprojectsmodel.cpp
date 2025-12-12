@@ -46,7 +46,7 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
   if ( const QNetworkInformation *info = QNetworkInformation::instance() )
   {
     connect( info, &QNetworkInformation::reachabilityChanged, this, [this]( QNetworkInformation::Reachability ) {
-      if ( !networkLooksActive() || mPendingPushes.isEmpty() )
+      if ( !isReachableToCloud() || mPendingPushes.isEmpty() )
         return;
 
       // Copying so we dont fight with new entries
@@ -334,10 +334,10 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
   emit dataChanged( projectIndex, projectIndex );
 }
 
-bool QFieldCloudProjectsModel::networkLooksActive() const
+bool QFieldCloudProjectsModel::isReachableToCloud() const
 {
-  QNetworkInformation *info = QNetworkInformation::instance();
-  if ( !info->supports( QNetworkInformation::Feature::Reachability ) )
+  const QNetworkInformation *info = QNetworkInformation::instance();
+  if ( !info || !info->supports( QNetworkInformation::Feature::Reachability ) )
   {
     // No backend or no reachability support, dont change behaviour
     return true;
@@ -369,8 +369,8 @@ void QFieldCloudProjectsModel::projectPush( const QString &projectId, const bool
   if ( !project )
     return;
 
-  //if not active, queue + warn and return
-  if ( !networkLooksActive() )
+  // If the network is not active, queue the push and warn the user.
+  if ( !isReachableToCloud() )
   {
     const bool mergedFlag = mPendingPushes.value( projectId, false ) || shouldDownloadUpdates;
     mPendingPushes.insert( projectId, mergedFlag );

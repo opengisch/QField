@@ -254,7 +254,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     const int mProjectsPerFetch = 250;
 
-    bool networkLooksActive() const;
+    bool isReachableToCloud() const;
     QHash<QString, bool> mPendingPushes;
 };
 
