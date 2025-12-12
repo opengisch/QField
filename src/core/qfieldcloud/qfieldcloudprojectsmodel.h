@@ -20,6 +20,7 @@
 #include "qgsgpkgflusher.h"
 
 #include <QAbstractListModel>
+#include <QHash>
 #include <QJsonArray>
 #include <QNetworkReply>
 #include <QPointer>
@@ -252,6 +253,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QString mUrl;
 
     const int mProjectsPerFetch = 250;
+
+    bool networkLooksActive() const;
+    QHash<QString, bool> mPendingPushes;
 };
 
 /**

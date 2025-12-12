@@ -25,6 +25,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkInformation>
 #include <QNetworkReply>
 #include <QSettings>
 #include <QTemporaryFile>
@@ -40,6 +41,24 @@
 QFieldCloudProjectsModel::QFieldCloudProjectsModel()
 {
   // TODO all of these connects are a bit too much, and I guess not very precise, should be refactored!
+
+  QNetworkInformation::loadBackendByFeatures( QNetworkInformation::Feature::Reachability );
+  if ( QNetworkInformation *info = QNetworkInformation::instance() )
+  {
+    connect( info, &QNetworkInformation::reachabilityChanged, this, [this]( QNetworkInformation::Reachability ) {
+      if ( !networkLooksActive() || mPendingPushes.isEmpty() )
+        return;
+
+      // Copying so we dont fight with new entries
+      const auto pending = mPendingPushes;
+      mPendingPushes.clear();
+
+      for ( auto it = pending.cbegin(); it != pending.cend(); ++it )
+      {
+        projectPush( it.key(), it.value() );
+      }
+    } );
+  }
 
   connect( this, &QFieldCloudProjectsModel::dataChanged, this, [this]( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles ) {
     Q_UNUSED( bottomRight )
@@ -315,6 +334,33 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
   emit dataChanged( projectIndex, projectIndex );
 }
 
+bool QFieldCloudProjectsModel::networkLooksActive() const
+{
+  QNetworkInformation *info = QNetworkInformation::instance();
+  if ( !info->supports( QNetworkInformation::Feature::Reachability ) )
+  {
+    // No backend or no reachability support, dont change behaviour
+    return true;
+  }
+
+  switch ( info->reachability() )
+  {
+    case QNetworkInformation::Reachability::Online:
+      return true;
+
+    case QNetworkInformation::Reachability::Unknown:
+      // treat as active to avoid blocking pushes if OS cant tell
+      return true;
+
+    case QNetworkInformation::Reachability::Disconnected:
+    case QNetworkInformation::Reachability::Local:
+    case QNetworkInformation::Reachability::Site:
+      return false;
+  }
+
+  return true;
+}
+
 void QFieldCloudProjectsModel::projectPush( const QString &projectId, const bool shouldDownloadUpdates )
 {
   const QModelIndex projectIndex = findProjectIndex( projectId );
@@ -323,8 +369,21 @@ void QFieldCloudProjectsModel::projectPush( const QString &projectId, const bool
     return;
 
   QFieldCloudProject *project = mProjects[projectIndex.row()];
+  if ( !project )
+    return;
 
-  if ( !( project->status() == QFieldCloudProject::ProjectStatus::Idle ) )
+  //if not active, queue + warn and return
+  if ( !networkLooksActive() )
+  {
+    const bool mergedFlag = mPendingPushes.value( projectId, false ) || shouldDownloadUpdates;
+    mPendingPushes.insert( projectId, mergedFlag );
+
+    emit warning( tr( "Network is not currently active. "
+                      "We will push the changes automatically once you are back online." ) );
+    return;
+  }
+
+  if ( project->status() != QFieldCloudProject::ProjectStatus::Idle )
     return;
 
   project->push( shouldDownloadUpdates );
