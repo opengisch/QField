@@ -30,6 +30,15 @@ class QTranslator;
 class TranslatorManager
 {
   public:
+    //!  Constructor
+    TranslatorManager();
+
+    //! Copy constructor is deleted (singleton pattern)
+    TranslatorManager( const TranslatorManager & ) = delete;
+
+    //! Assignment operator is deleted (singleton pattern)
+    TranslatorManager &operator=( const TranslatorManager & ) = delete;
+
     //! Returns the global QField translator instance.
     QTranslator *qfieldTranslator();
 
@@ -40,12 +49,7 @@ class TranslatorManager
     static TranslatorManager *instance();
 
   private:
-    TranslatorManager();
-
-    TranslatorManager( const TranslatorManager & ) = delete;
-    TranslatorManager &operator=( const TranslatorManager & ) = delete;
-
-    std::unique_ptr<QTranslator> mQfieldTranslator;
+    std::unique_ptr<QTranslator> mQFieldTranslator;
     std::unique_ptr<QTranslator> mQtTranslator;
 };
 
