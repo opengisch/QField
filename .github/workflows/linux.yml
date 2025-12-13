@@ -24,6 +24,17 @@ jobs:
         with:
           submodules: recursive
 
+      - name: ♻️ Check disk space
+        run: df . -h
+
+      - name: 🧹 Reclaim disk space
+        run: |
+          sudo rm -rf /usr/local/lib/android/
+          sudo rm -rf /opt/ghc
+
+      - name: ♻️ Check disk space
+        run: df . -h
+
       - name: 🌾 Prepare variables
         id: vars
         run: |
