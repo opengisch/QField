@@ -715,18 +715,6 @@ Page {
                 wrapMode: Text.WordWrap
               }
 
-              Label {
-                id: languageTip
-                visible: false
-
-                Layout.fillWidth: true
-                text: qsTr("To apply the selected user interface language, QField needs to completely shutdown and restart.")
-                font: Theme.tipFont
-                color: Theme.warningColor
-
-                wrapMode: Text.WordWrap
-              }
-
               QfComboBox {
                 id: languageComboBox
                 enabled: true
@@ -743,8 +731,11 @@ Page {
 
                 onCurrentIndexChanged: {
                   if (currentLanguageCode != undefined) {
-                    settings.setValue("customLanguage", languageCodes[currentIndex]);
-                    languageTip.visible = languageCodes[currentIndex] !== currentLanguageCode;
+                    var newLanguageCode = languageCodes[currentIndex];
+                    if (newLanguageCode !== currentLanguageCode) {
+                      iface.changeLanguage(newLanguageCode);
+                      currentLanguageCode = newLanguageCode;
+                    }
                   }
                 }
 
@@ -758,12 +749,11 @@ Page {
                   languageComboBox.model = items.concat(Object.values(languages));
                   languageComboBox.currentIndex = languageCodes.indexOf(customLanguageCode);
                   currentLanguageCode = customLanguageCode || '';
-                  languageTip.visible = false;
                 }
               }
 
               Label {
-                text: qsTr("Found a missing or incomplete language? %1Join the translator community.%2").arg('<a href="https://www.transifex.com/opengisch/qfield-for-qgis/">').arg('</a>')
+                text: qsTr("Found a missing or incomplete language? %1Join the translator community.%2").arg('<a href="https://explore.transifex.com/opengisch/qfield-for-qgis/">').arg('</a>')
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 textFormat: Qt.RichText

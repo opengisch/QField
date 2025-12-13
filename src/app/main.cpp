@@ -19,6 +19,7 @@
 #include "platformutilities.h"
 #include "qfield.h"
 #include "qgismobileapp.h"
+#include "translatormanager.h"
 #if WITH_SENTRY
 #include "sentry_wrapper.h"
 #endif
@@ -188,17 +189,17 @@ int main( int argc, char **argv )
   auto sentryClose = qScopeGuard( [] { sentry_wrapper::close(); } );
 #endif
 
-  QTranslator qfieldTranslator;
-  QTranslator qtTranslator;
+  QTranslator *qfieldTranslator = TranslatorManager::instance()->qfieldTranslator();
+  QTranslator *qtTranslator = TranslatorManager::instance()->qtTranslator();
   bool qfieldTranslatorLoaded = false;
   bool qtTranslatorLoaded = false;
   if ( !customLanguage.isEmpty() )
   {
-    qfieldTranslatorLoaded = qfieldTranslator.load( QStringLiteral( "qfield_%1" ).arg( customLanguage ), QStringLiteral( ":/i18n/" ), "_" );
-    qtTranslatorLoaded = qtTranslator.load( QStringLiteral( "qt_%1" ).arg( customLanguage ), QStringLiteral( ":/i18n/" ), "_" );
+    qfieldTranslatorLoaded = qfieldTranslator->load( QStringLiteral( "qfield_%1" ).arg( customLanguage ), QStringLiteral( ":/i18n/" ), "_" );
+    qtTranslatorLoaded = qtTranslator->load( QStringLiteral( "qt_%1" ).arg( customLanguage ), QStringLiteral( ":/i18n/" ), "_" );
   }
-  dummyApp->installTranslator( &qtTranslator );
-  dummyApp->installTranslator( &qfieldTranslator );
+  dummyApp->installTranslator( qtTranslator );
+  dummyApp->installTranslator( qfieldTranslator );
 
   delete dummyApp;
 
@@ -206,13 +207,13 @@ int main( int argc, char **argv )
 
   QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
 
-  if ( !qfieldTranslatorLoaded || qfieldTranslator.isEmpty() )
+  if ( !qfieldTranslatorLoaded || qfieldTranslator->isEmpty() )
   {
-    ( void ) qfieldTranslator.load( QStringLiteral( "qfield_%1" ).arg( QLocale().name() ), QStringLiteral( ":/i18n/" ), "_" );
+    ( void ) qfieldTranslator->load( QStringLiteral( "qfield_%1" ).arg( QLocale().name() ), QStringLiteral( ":/i18n/" ), "_" );
   }
-  if ( !qtTranslatorLoaded || qtTranslator.isEmpty() )
+  if ( !qtTranslatorLoaded || qtTranslator->isEmpty() )
   {
-    ( void ) qtTranslator.load( QStringLiteral( "qt_%1" ).arg( QLocale().name() ), QStringLiteral( ":/i18n/" ), "_" );
+    ( void ) qtTranslator->load( QStringLiteral( "qt_%1" ).arg( QLocale().name() ), QStringLiteral( ":/i18n/" ), "_" );
   }
 
   if ( !customLanguage.isEmpty() )
@@ -354,8 +355,8 @@ int main( int argc, char **argv )
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
   QCoreApplication::setApplicationName( qfield::appName );
 
-  app.installTranslator( &qtTranslator );
-  app.installTranslator( &qfieldTranslator );
+  app.installTranslator( qtTranslator );
+  app.installTranslator( qfieldTranslator );
 
   qputenv( "QT_QUICK_CONTROLS_STYLE", QByteArray( "Material" ) );
   qputenv( "QT_QUICK_CONTROLS_MATERIAL_VARIANT", QByteArray( "Dense" ) );

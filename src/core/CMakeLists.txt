@@ -102,6 +102,7 @@ set(QFIELD_CORE_SRCS
     pluginmanager.cpp
     pluginmodel.cpp
     resourcesource.cpp
+    translatormanager.cpp
     printlayoutlistmodel.cpp
     projectinfo.cpp
     projectsource.cpp
@@ -234,6 +235,7 @@ set(QFIELD_CORE_HDRS
     pluginmanager.h
     pluginmodel.h
     resourcesource.h
+    translatormanager.h
     printlayoutlistmodel.h
     projectinfo.h
     projectsource.h
