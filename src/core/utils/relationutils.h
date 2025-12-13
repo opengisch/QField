@@ -18,6 +18,7 @@
 #define RELATIONUTILS_H
 
 #include <QObject>
+#include <qgspolymorphicrelation.h>
 #include <qgsrelation.h>
 
 /**
@@ -44,6 +45,42 @@ class RelationUtils : public QObject
     Q_INVOKABLE QgsRelation createRelation( const QgsVectorLayer *referencedLayer,
                                             const QgsVectorLayer *referencingLayer,
                                             const QVariantMap &fieldPairs );
+
+    /**
+     * Creates a polymorphic relation between multiple referenced layers and a referencing layer.
+     * Note: Layers must be added to the project first
+     *
+     * \param referencedLayers The list of referenced (parent) layers
+     * \param referencingLayer The referencing (child) layer
+     * \param fieldPairs A map where keys are referenced field names and values are referencing field names
+     * \param referencedLayerField The field name in the child layer that stores the parent layer name
+     * \param referencedLayerExpression The expression to identify the parent layer name (e.g., "@layer_name")
+     * \returns A QgsPolymorphicRelation object
+     */
+    Q_INVOKABLE QgsPolymorphicRelation createPolymorphicRelation( const QVariantList &referencedLayers,
+                                                                  const QgsVectorLayer *referencingLayer,
+                                                                  const QVariantMap &fieldPairs,
+                                                                  const QString &referencedLayerField,
+                                                                  const QString &referencedLayerExpression );
+
+    /**
+     * Creates and adds a polymorphic relation to the project.
+     * This is a convenience function that creates the relation and adds it to the project's relation manager.
+     *
+     * \param project The project to add the relation to
+     * \param referencedLayers The list of referenced (parent) layers
+     * \param referencingLayer The referencing (child) layer
+     * \param fieldPairs A map where keys are referenced field names and values are referencing field names
+     * \param referencedLayerField The field name in the child layer that stores the parent layer name
+     * \param referencedLayerExpression The expression to identify the parent layer name (e.g., "@layer_name")
+     * \returns A QgsPolymorphicRelation object
+     */
+    Q_INVOKABLE QgsPolymorphicRelation addPolymorphicRelation( QgsProject *project,
+                                                               const QVariantList &referencedLayers,
+                                                               const QgsVectorLayer *referencingLayer,
+                                                               const QVariantMap &fieldPairs,
+                                                               const QString &referencedLayerField,
+                                                               const QString &referencedLayerExpression );
 };
 
 #endif // RELATIONUTILS_H
