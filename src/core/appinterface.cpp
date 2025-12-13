@@ -234,7 +234,7 @@ QVariantMap AppInterface::availableLanguages() const
 
 void AppInterface::changeLanguage( const QString &languageCode )
 {
-  if ( languageCode.isEmpty() || !availableLanguages().contains( languageCode ) )
+  if ( !languageCode.isEmpty() && !availableLanguages().contains( languageCode ) )
   {
     qWarning() << "Language code" << languageCode << "is not available, ignoring language change request";
     return;
