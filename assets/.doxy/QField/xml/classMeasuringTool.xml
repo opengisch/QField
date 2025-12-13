@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classMeasuringTool" kind="class" language="C++" prot="public">
+    <compoundname>MeasuringTool</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classMeasuringTool_1a38d4bdc93b8f7f2c880947f6743a0cd0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias MeasuringTool::measuringRubberband</definition>
+        <argsstring></argsstring>
+        <name>measuringRubberband</name>
+        <qualifiedname>MeasuringTool::measuringRubberband</qualifiedname>
+        <read>dummyGetter_measuringRubberband_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MeasuringTool.qml" line="12" column="1" bodyfile="src/qml/MeasuringTool.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMeasuringTool_1a75e8714dfd741b3bdd1601e2bf27d58e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool MeasuringTool::isClosingArea</definition>
+        <argsstring></argsstring>
+        <name>isClosingArea</name>
+        <qualifiedname>MeasuringTool::isClosingArea</qualifiedname>
+        <read>dummyGetter_isClosingArea_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MeasuringTool.qml" line="14" column="1" bodyfile="src/qml/MeasuringTool.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMeasuringTool_1a1d16b7d0cd058aa376181bf33fb1efdb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool MeasuringTool::isArea</definition>
+        <argsstring></argsstring>
+        <name>isArea</name>
+        <qualifiedname>MeasuringTool::isArea</qualifiedname>
+        <read>dummyGetter_isArea_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MeasuringTool.qml" line="16" column="1" bodyfile="src/qml/MeasuringTool.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMeasuringTool_1a133a55e15132496062a61facdf2c2546" prot="private" static="no" mutable="no">
+        <type><ref refid="classMapToScreen" kindref="compound">MapToScreen</ref></type>
+        <definition>MapToScreen MeasuringTool::vertexFirstLastDistance</definition>
+        <argsstring></argsstring>
+        <name>vertexFirstLastDistance</name>
+        <qualifiedname>MeasuringTool::vertexFirstLastDistance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MeasuringTool.qml" line="18" column="13" bodyfile="src/qml/MeasuringTool.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMeasuringTool_1a698e52a26dd309f151bdeb11344af5fa" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater MeasuringTool::vertices</definition>
+        <argsstring></argsstring>
+        <name>vertices</name>
+        <qualifiedname>MeasuringTool::vertices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MeasuringTool.qml" line="19" column="10" bodyfile="src/qml/MeasuringTool.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMeasuringTool_1a2cd3cf20ddfb98c2d7d896d9bdf3add3" prot="private" static="no" mutable="no">
+        <type><ref refid="classRubberband" kindref="compound">Rubberband</ref></type>
+        <definition>Rubberband MeasuringTool::rubberband</definition>
+        <argsstring></argsstring>
+        <name>rubberband</name>
+        <qualifiedname>MeasuringTool::rubberband</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/MeasuringTool.qml" line="20" column="12" bodyfile="src/qml/MeasuringTool.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>MeasuringTool</label>
+        <link refid="classMeasuringTool"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>MeasuringTool</label>
+        <link refid="classMeasuringTool"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/MeasuringTool.qml" line="9" column="1" bodyfile="src/qml/MeasuringTool.qml" bodystart="9" bodyend="21"/>
+    <listofallmembers>
+      <member refid="classMeasuringTool_1a1d16b7d0cd058aa376181bf33fb1efdb" prot="public" virt="non-virtual"><scope>MeasuringTool</scope><name>isArea</name></member>
+      <member refid="classMeasuringTool_1a75e8714dfd741b3bdd1601e2bf27d58e" prot="public" virt="non-virtual"><scope>MeasuringTool</scope><name>isClosingArea</name></member>
+      <member refid="classMeasuringTool_1a38d4bdc93b8f7f2c880947f6743a0cd0" prot="public" virt="non-virtual"><scope>MeasuringTool</scope><name>measuringRubberband</name></member>
+      <member refid="classMeasuringTool_1a2cd3cf20ddfb98c2d7d896d9bdf3add3" prot="private" virt="non-virtual"><scope>MeasuringTool</scope><name>rubberband</name></member>
+      <member refid="classMeasuringTool_1a133a55e15132496062a61facdf2c2546" prot="private" virt="non-virtual"><scope>MeasuringTool</scope><name>vertexFirstLastDistance</name></member>
+      <member refid="classMeasuringTool_1a698e52a26dd309f151bdeb11344af5fa" prot="private" virt="non-virtual"><scope>MeasuringTool</scope><name>vertices</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

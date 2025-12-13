@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAudioRecorder" kind="class" language="C++" prot="public">
+    <compoundname>AudioRecorder</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QMediaRecorder</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classAudioRecorder_1ac47a2e68dd0490d35fc5d2e02ddfa832" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool AudioRecorder::recording</definition>
+        <argsstring></argsstring>
+        <name>recording</name>
+        <qualifiedname>AudioRecorder::recording</qualifiedname>
+        <read>recording</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="31" column="5" bodyfile="src/core/audiorecorder.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classAudioRecorder_1af79d594f97cc3a322016dc67bedb5763" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool AudioRecorder::hasLevel</definition>
+        <argsstring></argsstring>
+        <name>hasLevel</name>
+        <qualifiedname>AudioRecorder::hasLevel</qualifiedname>
+        <read>hasLevel</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="32" column="5" bodyfile="src/core/audiorecorder.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classAudioRecorder_1a3c20af7e2b84a2fd8f324362211edced" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double AudioRecorder::level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <qualifiedname>AudioRecorder::level</qualifiedname>
+        <read>level</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="33" column="5" bodyfile="src/core/audiorecorder.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAudioRecorder_1a5def6a32193d0d764444c4333f61b22f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AudioRecorder::mHasLevel</definition>
+        <argsstring></argsstring>
+        <name>mHasLevel</name>
+        <qualifiedname>AudioRecorder::mHasLevel</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="78" column="10" bodyfile="src/core/audiorecorder.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAudioRecorder_1ad890adbd810420f8c16e94559a396163" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AudioRecorder::mLevel</definition>
+        <argsstring></argsstring>
+        <name>mLevel</name>
+        <qualifiedname>AudioRecorder::mLevel</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="79" column="12" bodyfile="src/core/audiorecorder.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAudioRecorder_1ab2aecccd73336ff5e4b7a2d760011656" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AudioRecorder::AudioRecorder</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>AudioRecorder</name>
+        <qualifiedname>AudioRecorder::AudioRecorder</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="36" column="14" bodyfile="src/core/audiorecorder.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classAudioRecorder_1a6d0d05c8a51443a5b6ee83084f2a6fa9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AudioRecorder::recording</definition>
+        <argsstring>() const</argsstring>
+        <name>recording</name>
+        <qualifiedname>AudioRecorder::recording</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when audio is being recorded. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="41" column="10" bodyfile="src/core/audiorecorder.cpp" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classAudioRecorder_1ace57af1b561a2e3989efd9224cb18e63" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AudioRecorder::hasLevel</definition>
+        <argsstring>() const</argsstring>
+        <name>hasLevel</name>
+        <qualifiedname>AudioRecorder::hasLevel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when audio level/amplitude is available during recording. <simplesect kind="note"><para>this reflects whether a given platform supports QAudioProbe </para>
+</simplesect>
+<simplesect kind="see"><para>level() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="48" column="10" bodyfile="src/core/audiorecorder.cpp" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classAudioRecorder_1abc9ac809832ac441750d66f01da6571b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double AudioRecorder::level</definition>
+        <argsstring>() const</argsstring>
+        <name>level</name>
+        <qualifiedname>AudioRecorder::level</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current level (0.0 to 1.0) of the audio being recorded. <simplesect kind="see"><para>hasLevel() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="54" column="12" bodyfile="src/core/audiorecorder.cpp" bodystart="31" bodyend="34"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classAudioRecorder_1a4032c4bb326f9a5086ee1c7e0c0b694d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioRecorder::recordingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>recordingChanged</name>
+        <qualifiedname>AudioRecorder::recordingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the recording state has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="60" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAudioRecorder_1a5a46482a4a0c0c681de95004a2b20094" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioRecorder::hasLevelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasLevelChanged</name>
+        <qualifiedname>AudioRecorder::hasLevelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted upon successfully setting up the audio probe used to return audio levels. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="65" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAudioRecorder_1a4b1487d5f1badf24cc3e60c04951fcf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioRecorder::levelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>levelChanged</name>
+        <qualifiedname>AudioRecorder::levelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the current audio level being recorded has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="70" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAudioRecorder_1a3fe66ac221de85f63eb63b494215c2ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioRecorder::recordingLoaded</definition>
+        <argsstring>()</argsstring>
+        <name>recordingLoaded</name>
+        <qualifiedname>AudioRecorder::recordingLoaded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when a recorded audio file is finalized and loaded. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="75" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AudioRecorder</label>
+        <link refid="classAudioRecorder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QMediaRecorder</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AudioRecorder</label>
+        <link refid="classAudioRecorder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QMediaRecorder</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/audiorecorder.h" line="27" column="1" bodyfile="src/core/audiorecorder.h" bodystart="28" bodyend="80"/>
+    <listofallmembers>
+      <member refid="classAudioRecorder_1ab2aecccd73336ff5e4b7a2d760011656" prot="public" virt="non-virtual"><scope>AudioRecorder</scope><name>AudioRecorder</name></member>
+      <member refid="classAudioRecorder_1af79d594f97cc3a322016dc67bedb5763" prot="public" virt="non-virtual"><scope>AudioRecorder</scope><name>hasLevel</name></member>
+      <member refid="classAudioRecorder_1ace57af1b561a2e3989efd9224cb18e63" prot="public" virt="non-virtual"><scope>AudioRecorder</scope><name>hasLevel</name></member>
+      <member refid="classAudioRecorder_1a5a46482a4a0c0c681de95004a2b20094" prot="public" virt="non-virtual"><scope>AudioRecorder</scope><name>hasLevelChanged</name></member>
+      <member refid="classAudioRecorder_1a3c20af7e2b84a2fd8f324362211edced" prot="public" virt="non-virtual"><scope>AudioRecorder</scope><name>level</name></member>
+      <member refid="classAudioRecorder_1abc9ac809832ac441750d66f01da6571b" prot="public" virt="non-virtual"><scope>AudioRecorder</scope><name>level</name></member>
+      <member refid="classAudioRecorder_1a4b1487d5f1badf24cc3e60c04951fcf7" prot="public" virt="non-virtual"><scope>AudioRecorder</scope><name>levelChanged</name></member>
+      <member refid="classAudioRecorder_1a5def6a32193d0d764444c4333f61b22f" prot="private" virt="non-virtual"><scope>AudioRecorder</scope><name>mHasLevel</name></member>
+      <member refid="classAudioRecorder_1ad890adbd810420f8c16e94559a396163" prot="private" virt="non-virtual"><scope>AudioRecorder</scope><name>mLevel</name></member>
+      <member refid="classAudioRecorder_1ac47a2e68dd0490d35fc5d2e02ddfa832" prot="public" virt="non-virtual"><scope>AudioRecorder</scope><name>recording</name></member>
+      <member refid="classAudioRecorder_1a6d0d05c8a51443a5b6ee83084f2a6fa9" prot="public" virt="non-virtual"><scope>AudioRecorder</scope><name>recording</name></member>
+      <member refid="classAudioRecorder_1a4032c4bb326f9a5086ee1c7e0c0b694d" prot="public" virt="non-virtual"><scope>AudioRecorder</scope><name>recordingChanged</name></member>
+      <member refid="classAudioRecorder_1a3fe66ac221de85f63eb63b494215c2ae" prot="public" virt="non-virtual"><scope>AudioRecorder</scope><name>recordingLoaded</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

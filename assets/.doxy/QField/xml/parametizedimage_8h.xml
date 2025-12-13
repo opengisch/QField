@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="parametizedimage_8h" kind="file" language="C++">
+    <compoundname>parametizedimage.h</compoundname>
+    <includes local="no">QObject</includes>
+    <includes local="no">QQuickPaintedItem</includes>
+    <includedby refid="parametizedimage_8cpp" local="yes">src/core/parametizedimage.cpp</includedby>
+    <includedby refid="qgismobileapp_8cpp" local="yes">src/core/qgismobileapp.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/parametizedimage.h</label>
+        <link refid="parametizedimage_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="3">
+        <label>QQuickPaintedItem</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classParametizedImage" prot="public">ParametizedImage</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="parametizedimage_8h_1a1d8ef604ba3ec4e155f0ab841f3b6df1" prot="public" static="no">
+        <name>DEFAULT_STROKE_WIDTH</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parametizedimage.h" line="23" column="9" bodyfile="src/core/parametizedimage.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>parametizedimage.h<sp/>-<sp/>ParametizedImage</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>21.05.2024</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2024<sp/>by<sp/>Mathieu<sp/>Pellerin</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mathieu<sp/>(at)<sp/>opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>PARAMETIZEDIMAGE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PARAMETIZEDIMAGE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QQuickPaintedItem&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_STROKE_WIDTH<sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="classParametizedImage" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classParametizedImage" kindref="compound">ParametizedImage</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QQuickPaintedItem</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="classParametizedImage_1af82009bde42139ae27d1deaeaa13174b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classsource" kindref="compound">source</ref><sp/>READ<sp/><ref refid="classsource" kindref="compound">source</ref><sp/>WRITE<sp/><ref refid="classParametizedImage_1a2914c2728bba8aed57050e177d2cb2dd" kindref="member">setSource</ref><sp/>NOTIFY<sp/>sourceChanged<sp/>)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41" refid="classParametizedImage_1a34745f93d9fd903ba708604dce0a58cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QColor<sp/><ref refid="classParametizedImage_1a34745f93d9fd903ba708604dce0a58cc" kindref="member">fillColor</ref><sp/>READ<sp/><ref refid="classParametizedImage_1a34745f93d9fd903ba708604dce0a58cc" kindref="member">fillColor</ref><sp/>WRITE<sp/><ref refid="classParametizedImage_1aeb09cedc861afdb58fcfacea57494341" kindref="member">setFillColor</ref><sp/>NOTIFY<sp/>fillColorChanged<sp/>)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="classParametizedImage_1a7c799ab23eb15a65fe248d37fd642cad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QColor<sp/><ref refid="classParametizedImage_1a7c799ab23eb15a65fe248d37fd642cad" kindref="member">strokeColor</ref><sp/>READ<sp/><ref refid="classParametizedImage_1a7c799ab23eb15a65fe248d37fd642cad" kindref="member">strokeColor</ref><sp/>WRITE<sp/><ref refid="classParametizedImage_1a05a6d1b303a74e8f630567084acf5961" kindref="member">setStrokeColor</ref><sp/>NOTIFY<sp/>strokeColorChanged<sp/>)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="classParametizedImage_1a2edf9ed0973b5dbfd1113a12860207cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classParametizedImage_1a2edf9ed0973b5dbfd1113a12860207cc" kindref="member">strokeWidth</ref><sp/>READ<sp/><ref refid="classParametizedImage_1a2edf9ed0973b5dbfd1113a12860207cc" kindref="member">strokeWidth</ref><sp/>WRITE<sp/><ref refid="classParametizedImage_1a7940e31aef4e5a79340fe4efd0edaf2b" kindref="member">setStrokeWidth</ref><sp/>NOTIFY<sp/>strokeWidthChanged<sp/>)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classParametizedImage" kindref="compound">ParametizedImage</ref>(<sp/>QQuickItem<sp/>*parent<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="classParametizedImage" kindref="compound">ParametizedImage</ref>()<sp/>=<sp/>default;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>paint(<sp/>QPainter<sp/>*painter<sp/>)<sp/>override;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classsource" kindref="compound">source</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classParametizedImage_1a2914c2728bba8aed57050e177d2cb2dd" kindref="member">setSource</ref>(<sp/>const<sp/>QString<sp/>&amp;<ref refid="classsource" kindref="compound">source</ref><sp/>);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/><ref refid="classParametizedImage_1a34745f93d9fd903ba708604dce0a58cc" kindref="member">fillColor</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classParametizedImage_1aeb09cedc861afdb58fcfacea57494341" kindref="member">setFillColor</ref>(<sp/>const<sp/>QColor<sp/>&amp;color<sp/>);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/><ref refid="classParametizedImage_1a7c799ab23eb15a65fe248d37fd642cad" kindref="member">strokeColor</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classParametizedImage_1a05a6d1b303a74e8f630567084acf5961" kindref="member">setStrokeColor</ref>(<sp/>const<sp/>QColor<sp/>&amp;color<sp/>);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classParametizedImage_1a2edf9ed0973b5dbfd1113a12860207cc" kindref="member">strokeWidth</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classParametizedImage_1a7940e31aef4e5a79340fe4efd0edaf2b" kindref="member">setStrokeWidth</ref>(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>width<sp/>);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sourceChanged();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fillColorChanged();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>strokeColorChanged();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>strokeWidthChanged();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>private:</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mIsValid<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mIsRaster<sp/>=<sp/>true;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mSource;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>QSizeF<sp/>mSourceSize;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>mFillColor<sp/>=<sp/>QColor(<sp/>0,<sp/>0,<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>mStrokeColor<sp/>=<sp/>QColor(<sp/>255,<sp/>255,<sp/>255<sp/>);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mStrokeWidth<sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>PARAMETIZEDIMAGE_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/parametizedimage.h"/>
+  </compounddef>
+</doxygen>

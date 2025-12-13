@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classSensorListModel" kind="class" language="C++" prot="public">
+    <compoundname>SensorListModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSortFilterProxyModel</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classSensorListModel_1a29889fa5cb987f825a5f07303f74cb23" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * SensorListModel::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>SensorListModel::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="33" column="5" bodyfile="src/core/sensorlistmodel.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSensorListModel_1acd95870922ed7dcef31aef97ce5eaaab" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool SensorListModel::showConnectedOnly</definition>
+        <argsstring></argsstring>
+        <name>showConnectedOnly</name>
+        <qualifiedname>SensorListModel::showConnectedOnly</qualifiedname>
+        <read>showConnectedOnly</read>
+        <write>setShowConnectedOnly</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="34" column="5" bodyfile="src/core/sensorlistmodel.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classSensorListModel_1ab8317fc075d3eb091716934423be35cb" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* SensorListModel::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>SensorListModel::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="82" column="16" bodyfile="src/core/sensorlistmodel.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSensorListModel_1a7328b431a7fb469072bf63a6505460c8" prot="private" static="no" mutable="no">
+        <type>QObjectUniquePtr&lt; QgsSensorModel &gt;</type>
+        <definition>QObjectUniquePtr&lt;QgsSensorModel&gt; SensorListModel::mSensorModel</definition>
+        <argsstring></argsstring>
+        <name>mSensorModel</name>
+        <qualifiedname>SensorListModel::mSensorModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="83" column="22" bodyfile="src/core/sensorlistmodel.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSensorListModel_1aad421040221605e788f4938176047db0" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SensorListModel::mShowConnectedOnly</definition>
+        <argsstring></argsstring>
+        <name>mShowConnectedOnly</name>
+        <qualifiedname>SensorListModel::mShowConnectedOnly</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="85" column="10" bodyfile="src/core/sensorlistmodel.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSensorListModel_1afec520acec8e6c0a6b528a43d81d610f" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SensorListModel::SensorListModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>SensorListModel</name>
+        <qualifiedname>SensorListModel::SensorListModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="37" column="14" bodyfile="src/core/sensorlistmodel.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classSensorListModel_1ae0c55c45c549926bbfcc30767344ec5a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; SensorListModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>SensorListModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="39" column="11" bodyfile="src/core/sensorlistmodel.cpp" bodystart="28" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classSensorListModel_1a47e419b9e332118c04b07af0dd3c4743" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * SensorListModel::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>SensorListModel::project</qualifiedname>
+        <briefdescription>
+<para>Returns the current project from which sensors are retrieved. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="42" column="16" bodyfile="src/core/sensorlistmodel.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classSensorListModel_1acc5a0f764b7b8b441c42b5c7a3452046" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SensorListModel::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>SensorListModel::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+<para>Sets the project to be used to retrieve sensors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="45" column="10" bodyfile="src/core/sensorlistmodel.cpp" bodystart="45" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classSensorListModel_1a0a092e37f0a2028ec6bcc7ce3f9bec72" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SensorListModel::showConnectedOnly</definition>
+        <argsstring>() const</argsstring>
+        <name>showConnectedOnly</name>
+        <qualifiedname>SensorListModel::showConnectedOnly</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE when the model only shows connected sensors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="48" column="10" bodyfile="src/core/sensorlistmodel.h" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classSensorListModel_1a1811e0abfe00a6cded2459f3b00398fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SensorListModel::setShowConnectedOnly</definition>
+        <argsstring>(bool showConnectedOnly)</argsstring>
+        <name>setShowConnectedOnly</name>
+        <qualifiedname>SensorListModel::setShowConnectedOnly</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>showConnectedOnly</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether the model should only show connected sensors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="51" column="10" bodyfile="src/core/sensorlistmodel.cpp" bodystart="71" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classSensorListModel_1a4a9cafad6249e7da46ea39f0da11d2b3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void SensorListModel::connectSensorId</definition>
+        <argsstring>(const QString &amp;id) const</argsstring>
+        <name>connectSensorId</name>
+        <qualifiedname>SensorListModel::connectSensorId</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Connects a sensor. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The unique ID string of the sensor </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="57" column="22" bodyfile="src/core/sensorlistmodel.cpp" bodystart="92" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classSensorListModel_1abed3e5e892f4537c367bbf9dac37072e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void SensorListModel::disconnectSensorId</definition>
+        <argsstring>(const QString &amp;id) const</argsstring>
+        <name>disconnectSensorId</name>
+        <qualifiedname>SensorListModel::disconnectSensorId</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Disconnects a sensor. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The unique ID string of the sensor </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="63" column="22" bodyfile="src/core/sensorlistmodel.cpp" bodystart="100" bodyend="106"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classSensorListModel_1a64e1e023c3c7307e8aa97c1400673c3c" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SensorListModel::filterAcceptsRow</definition>
+        <argsstring>(int source_row, const QModelIndex &amp;source_parent) const override</argsstring>
+        <name>filterAcceptsRow</name>
+        <qualifiedname>SensorListModel::filterAcceptsRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>source_row</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>source_parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="66" column="10" bodyfile="src/core/sensorlistmodel.cpp" bodystart="82" bodyend="90"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classSensorListModel_1a6265d35d05f2e7989c59337a606378e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SensorListModel::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>SensorListModel::projectChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the current project has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="71" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classSensorListModel_1a813ea137bdc9d2e9929119cca475ce77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SensorListModel::showConnectedOnlyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>showConnectedOnlyChanged</name>
+        <qualifiedname>SensorListModel::showConnectedOnlyChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the show connected only filter has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="74" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classSensorListModel_1ae86b7504c24d65149f0b6ae7533eb5de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SensorListModel::sensorErrorOccurred</definition>
+        <argsstring>(const QString &amp;errorString)</argsstring>
+        <name>sensorErrorOccurred</name>
+        <qualifiedname>SensorListModel::sensorErrorOccurred</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>errorString</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when a sensor error has occurred. An <emphasis>errorString</emphasis> provides details on the error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="77" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classSensorListModel_1aaf832fd40c1842a0f138e8f5745c68ee" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SensorListModel::handleSensorError</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>handleSensorError</name>
+        <qualifiedname>SensorListModel::handleSensorError</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/sensorlistmodel.h" line="80" column="10" bodyfile="src/core/sensorlistmodel.cpp" bodystart="108" bodyend="117"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>SensorListModel</label>
+        <link refid="classSensorListModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>SensorListModel</label>
+        <link refid="classSensorListModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/sensorlistmodel.h" line="29" column="1" bodyfile="src/core/sensorlistmodel.h" bodystart="30" bodyend="86"/>
+    <listofallmembers>
+      <member refid="classSensorListModel_1a4a9cafad6249e7da46ea39f0da11d2b3" prot="public" virt="non-virtual"><scope>SensorListModel</scope><name>connectSensorId</name></member>
+      <member refid="classSensorListModel_1abed3e5e892f4537c367bbf9dac37072e" prot="public" virt="non-virtual"><scope>SensorListModel</scope><name>disconnectSensorId</name></member>
+      <member refid="classSensorListModel_1a64e1e023c3c7307e8aa97c1400673c3c" prot="protected" virt="non-virtual"><scope>SensorListModel</scope><name>filterAcceptsRow</name></member>
+      <member refid="classSensorListModel_1aaf832fd40c1842a0f138e8f5745c68ee" prot="private" virt="non-virtual"><scope>SensorListModel</scope><name>handleSensorError</name></member>
+      <member refid="classSensorListModel_1ab8317fc075d3eb091716934423be35cb" prot="private" virt="non-virtual"><scope>SensorListModel</scope><name>mProject</name></member>
+      <member refid="classSensorListModel_1a7328b431a7fb469072bf63a6505460c8" prot="private" virt="non-virtual"><scope>SensorListModel</scope><name>mSensorModel</name></member>
+      <member refid="classSensorListModel_1aad421040221605e788f4938176047db0" prot="private" virt="non-virtual"><scope>SensorListModel</scope><name>mShowConnectedOnly</name></member>
+      <member refid="classSensorListModel_1a29889fa5cb987f825a5f07303f74cb23" prot="public" virt="non-virtual"><scope>SensorListModel</scope><name>project</name></member>
+      <member refid="classSensorListModel_1a47e419b9e332118c04b07af0dd3c4743" prot="public" virt="non-virtual"><scope>SensorListModel</scope><name>project</name></member>
+      <member refid="classSensorListModel_1a6265d35d05f2e7989c59337a606378e0" prot="public" virt="non-virtual"><scope>SensorListModel</scope><name>projectChanged</name></member>
+      <member refid="classSensorListModel_1ae0c55c45c549926bbfcc30767344ec5a" prot="public" virt="non-virtual"><scope>SensorListModel</scope><name>roleNames</name></member>
+      <member refid="classSensorListModel_1ae86b7504c24d65149f0b6ae7533eb5de" prot="public" virt="non-virtual"><scope>SensorListModel</scope><name>sensorErrorOccurred</name></member>
+      <member refid="classSensorListModel_1afec520acec8e6c0a6b528a43d81d610f" prot="public" virt="non-virtual"><scope>SensorListModel</scope><name>SensorListModel</name></member>
+      <member refid="classSensorListModel_1acc5a0f764b7b8b441c42b5c7a3452046" prot="public" virt="non-virtual"><scope>SensorListModel</scope><name>setProject</name></member>
+      <member refid="classSensorListModel_1a1811e0abfe00a6cded2459f3b00398fa" prot="public" virt="non-virtual"><scope>SensorListModel</scope><name>setShowConnectedOnly</name></member>
+      <member refid="classSensorListModel_1acd95870922ed7dcef31aef97ce5eaaab" prot="public" virt="non-virtual"><scope>SensorListModel</scope><name>showConnectedOnly</name></member>
+      <member refid="classSensorListModel_1a0a092e37f0a2028ec6bcc7ce3f9bec72" prot="public" virt="non-virtual"><scope>SensorListModel</scope><name>showConnectedOnly</name></member>
+      <member refid="classSensorListModel_1a813ea137bdc9d2e9929119cca475ce77" prot="public" virt="non-virtual"><scope>SensorListModel</scope><name>showConnectedOnlyChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

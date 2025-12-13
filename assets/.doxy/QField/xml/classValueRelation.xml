@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classValueRelation" kind="class" language="C++" prot="public">
+    <compoundname>ValueRelation</compoundname>
+    <basecompoundref refid="classEditorWidgetBase" prot="public" virt="non-virtual">EditorWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classValueRelation_1af554a937aed5b80e007699e00b86ecd7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ValueRelation::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>ValueRelation::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueRelation.qml" line="8" column="5" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classValueRelation_1a0bc8d0da3822ded3fb0f2b0bcd614e97" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ValueRelation::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>ValueRelation::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueRelation.qml" line="9" column="5" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classValueRelation_1a2e0d5246f4d1b8d21dd03a7bf1a989c4" prot="private" static="no" mutable="no">
+        <type><ref refid="classLayerResolver" kindref="compound">LayerResolver</ref></type>
+        <definition>LayerResolver ValueRelation::layerResolver</definition>
+        <argsstring></argsstring>
+        <name>layerResolver</name>
+        <qualifiedname>ValueRelation::layerResolver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueRelation.qml" line="10" column="15" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classValueRelation_1a51dfd9e1e3bf60e5864e2fa83067e793" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureCheckListModel" kindref="compound">FeatureCheckListModel</ref></type>
+        <definition>FeatureCheckListModel ValueRelation::listModel</definition>
+        <argsstring></argsstring>
+        <name>listModel</name>
+        <qualifiedname>ValueRelation::listModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueRelation.qml" line="11" column="23" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classValueRelation_1a0c536587ccccd589dc03b5295590739f" prot="private" static="no" mutable="no">
+        <type><ref refid="classRelationCombobox" kindref="compound">RelationCombobox</ref></type>
+        <definition>RelationCombobox ValueRelation::valueRelationCombobox</definition>
+        <argsstring></argsstring>
+        <name>valueRelationCombobox</name>
+        <qualifiedname>ValueRelation::valueRelationCombobox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueRelation.qml" line="12" column="18" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classValueRelation_1a37869d8763e20f5c2ab7b1582fa252ea" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column ValueRelation::valueRelationListComponent</definition>
+        <argsstring></argsstring>
+        <name>valueRelationListComponent</name>
+        <qualifiedname>ValueRelation::valueRelationListComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueRelation.qml" line="13" column="8" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classValueRelation_1a1848d82a5643b2372719e6563ddd4dbc" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSearchBar" kindref="compound">QfSearchBar</ref></type>
+        <definition>QfSearchBar ValueRelation::searchBar</definition>
+        <argsstring></argsstring>
+        <name>searchBar</name>
+        <qualifiedname>ValueRelation::searchBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueRelation.qml" line="14" column="13" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classValueRelation_1a7a4f7b6e7f39ab54a0515b3bc43f6440" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle ValueRelation::valueRelationList</definition>
+        <argsstring></argsstring>
+        <name>valueRelationList</name>
+        <qualifiedname>ValueRelation::valueRelationList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueRelation.qml" line="15" column="11" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classValueRelation_1af98e7a9998ad5e511dc3581d10628a68" prot="private" static="no" mutable="no">
+        <type>GridLayout</type>
+        <definition>GridLayout ValueRelation::valueGridView</definition>
+        <argsstring></argsstring>
+        <name>valueGridView</name>
+        <qualifiedname>ValueRelation::valueGridView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueRelation.qml" line="16" column="12" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classValueRelation_1a5f3b38f221d0fa9279f56fc0921627d2" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater ValueRelation::repeater</definition>
+        <argsstring></argsstring>
+        <name>repeater</name>
+        <qualifiedname>ValueRelation::repeater</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueRelation.qml" line="17" column="10" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>ValueRelation</label>
+        <link refid="classValueRelation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>ValueRelation</label>
+        <link refid="classValueRelation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/editorwidgets/ValueRelation.qml" line="7" column="1" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="7" bodyend="18"/>
+    <listofallmembers>
+      <member refid="classValueRelation_1a0bc8d0da3822ded3fb0f2b0bcd614e97" prot="private" virt="non-virtual"><scope>ValueRelation</scope><name>enabled</name></member>
+      <member refid="classEditorWidgetBase_1a09df69fe97d43104557cf6b6ff92733d" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>hasMenu</name></member>
+      <member refid="classValueRelation_1af554a937aed5b80e007699e00b86ecd7" prot="private" virt="non-virtual"><scope>ValueRelation</scope><name>height</name></member>
+      <member refid="classEditorWidgetBase_1a5e234aeb8a604b878c0ea42b3666287d" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>isEmpty</name></member>
+      <member refid="classEditorWidgetBase_1a9bf5802500e205dc6689be4e3144d7a9" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>isLoaded</name></member>
+      <member refid="classEditorWidgetBase_1a68f4219d74a2b92e087e85eb77d8cd4c" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>isNull</name></member>
+      <member refid="classValueRelation_1a2e0d5246f4d1b8d21dd03a7bf1a989c4" prot="private" virt="non-virtual"><scope>ValueRelation</scope><name>layerResolver</name></member>
+      <member refid="classValueRelation_1a51dfd9e1e3bf60e5864e2fa83067e793" prot="private" virt="non-virtual"><scope>ValueRelation</scope><name>listModel</name></member>
+      <member refid="classEditorWidgetBase_1a7833a10df4c49cd3d197cb1fec54c1b8" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>menu</name></member>
+      <member refid="classValueRelation_1a5f3b38f221d0fa9279f56fc0921627d2" prot="private" virt="non-virtual"><scope>ValueRelation</scope><name>repeater</name></member>
+      <member refid="classEditorWidgetBase_1a85e6ed4c11d34c9e84215dd004e8711c" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>requestBarcode</name></member>
+      <member refid="classEditorWidgetBase_1ae2d3df77c7c98886d2f0bbd18090bd1c" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>requestGeometry</name></member>
+      <member refid="classEditorWidgetBase_1ac9d672c6436f98d79d2a5539cd0b9200" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>requestJumpToPoint</name></member>
+      <member refid="classValueRelation_1a1848d82a5643b2372719e6563ddd4dbc" prot="private" virt="non-virtual"><scope>ValueRelation</scope><name>searchBar</name></member>
+      <member refid="classEditorWidgetBase_1afa2313f03e3b2887472534cc11ca1572" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>valueChangeRequested</name></member>
+      <member refid="classValueRelation_1af98e7a9998ad5e511dc3581d10628a68" prot="private" virt="non-virtual"><scope>ValueRelation</scope><name>valueGridView</name></member>
+      <member refid="classValueRelation_1a0c536587ccccd589dc03b5295590739f" prot="private" virt="non-virtual"><scope>ValueRelation</scope><name>valueRelationCombobox</name></member>
+      <member refid="classValueRelation_1a7a4f7b6e7f39ab54a0515b3bc43f6440" prot="private" virt="non-virtual"><scope>ValueRelation</scope><name>valueRelationList</name></member>
+      <member refid="classValueRelation_1a37869d8763e20f5c2ab7b1582fa252ea" prot="private" virt="non-virtual"><scope>ValueRelation</scope><name>valueRelationListComponent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

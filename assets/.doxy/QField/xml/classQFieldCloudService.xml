@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldCloudService" kind="class" language="C++" prot="public">
+    <compoundname>QFieldCloudService</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAndroidService</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQFieldCloudService_1af1be626cf302a84b7371cd39aa09c879" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classQFieldCloudConnection" kindref="compound">QFieldCloudConnection</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;QFieldCloudConnection&gt; QFieldCloudService::mCloudConnection</definition>
+        <argsstring></argsstring>
+        <name>mCloudConnection</name>
+        <qualifiedname>QFieldCloudService::mCloudConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/service/qfieldcloudservice.h" line="37" column="21" bodyfile="src/service/qfieldcloudservice.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQFieldCloudService_1a902cf0455c4e9fdc80deb3208924194f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QFieldCloudService::QFieldCloudService</definition>
+        <argsstring>(int &amp;argc, char **argv)</argsstring>
+        <name>QFieldCloudService</name>
+        <qualifiedname>QFieldCloudService::QFieldCloudService</qualifiedname>
+        <param>
+          <type>int &amp;</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/service/qfieldcloudservice.h" line="30" column="5" bodyfile="src/service/qfieldcloudservice.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudService_1a05194207bbf2a91bdb111d5b520c74a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QFieldCloudService::~QFieldCloudService</definition>
+        <argsstring>() override</argsstring>
+        <name>~QFieldCloudService</name>
+        <qualifiedname>QFieldCloudService::~QFieldCloudService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/service/qfieldcloudservice.h" line="31" column="5" bodyfile="src/service/qfieldcloudservice.cpp" bodystart="27" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudService_1aacb0f20b47e86ec522055c6c8028eaf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudService::initService</definition>
+        <argsstring>()</argsstring>
+        <name>initService</name>
+        <qualifiedname>QFieldCloudService::initService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/service/qfieldcloudservice.h" line="33" column="10" bodyfile="src/service/qfieldcloudservice.cpp" bodystart="33" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudService_1a68cfa19ca2ef96106cc6461151c50a01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudService::uploadPendingAttachments</definition>
+        <argsstring>()</argsstring>
+        <name>uploadPendingAttachments</name>
+        <qualifiedname>QFieldCloudService::uploadPendingAttachments</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/service/qfieldcloudservice.h" line="34" column="10" bodyfile="src/service/qfieldcloudservice.cpp" bodystart="59" bodyend="62"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAndroidService</label>
+      </node>
+      <node id="1">
+        <label>QFieldCloudService</label>
+        <link refid="classQFieldCloudService"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAndroidService</label>
+      </node>
+      <node id="1">
+        <label>QFieldCloudService</label>
+        <link refid="classQFieldCloudService"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/service/qfieldcloudservice.h" line="25" column="1" bodyfile="src/service/qfieldcloudservice.h" bodystart="26" bodyend="38"/>
+    <listofallmembers>
+      <member refid="classQFieldCloudService_1aacb0f20b47e86ec522055c6c8028eaf3" prot="public" virt="non-virtual"><scope>QFieldCloudService</scope><name>initService</name></member>
+      <member refid="classQFieldCloudService_1af1be626cf302a84b7371cd39aa09c879" prot="private" virt="non-virtual"><scope>QFieldCloudService</scope><name>mCloudConnection</name></member>
+      <member refid="classQFieldCloudService_1a902cf0455c4e9fdc80deb3208924194f" prot="public" virt="non-virtual"><scope>QFieldCloudService</scope><name>QFieldCloudService</name></member>
+      <member refid="classQFieldCloudService_1a68cfa19ca2ef96106cc6461151c50a01" prot="public" virt="non-virtual"><scope>QFieldCloudService</scope><name>uploadPendingAttachments</name></member>
+      <member refid="classQFieldCloudService_1a05194207bbf2a91bdb111d5b520c74a9" prot="public" virt="non-virtual"><scope>QFieldCloudService</scope><name>~QFieldCloudService</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
