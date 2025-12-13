@@ -272,6 +272,7 @@ void AppInterface::changeLanguage( const QString &languageCode )
   {
     QLocale systemLocale = QLocale::system();
     QLocale::setDefault( systemLocale );
+    QgsApplication::setTranslation( systemLocale.name() );
     QgsApplication::setLocale( systemLocale );
   }
   if ( mApp )
