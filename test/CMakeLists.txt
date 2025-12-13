@@ -29,7 +29,21 @@ function(ADD_CATCH2_TEST TESTNAME TESTSRC WITH_CATCH2_MAIN)
       Catch2::Catch2
     )
   endif()
-  catch_discover_tests(${TESTNAME})
+
+  # On macOS with Xcode generator, ad-hoc sign test executables so they can run
+  if(APPLE AND CMAKE_GENERATOR STREQUAL "Xcode")
+    add_custom_command(
+      TARGET ${TESTNAME}
+      POST_BUILD
+      COMMAND /usr/bin/codesign --force --sign - $<TARGET_FILE:${TESTNAME}>
+      COMMENT "Ad-hoc signing Catch2 test executable ${TESTNAME} on macOS/Xcode"
+    )
+  endif()
+
+  # Use Catch2s safer PRE_TEST discovery mode (recommended upstream) - https://github.com/catchorg/Catch2/issues/2411
+  catch_discover_tests(${TESTNAME}
+    DISCOVERY_MODE PRE_TEST
+  )
 endfunction()
 
 macro (ADD_QFIELD_TEST TESTNAME TESTSRC)
@@ -112,5 +126,6 @@ ADD_CATCH2_TEST(referencingfeaturelistmodeltest test_referencingfeaturelistmodel
 ADD_CATCH2_TEST(expressionevaluatortest test_expressionevaluator.cpp TRUE)
 ADD_CATCH2_TEST(appinterfacetest test_appinterface.cpp TRUE)
 ADD_CATCH2_TEST(trackingtest test_tracking.cpp FALSE)
+ADD_CATCH2_TEST(identifytool test_identifytool.cpp TRUE)
 
 ADD_QFIELD_QML_TEST(qmltest test_qml.cpp)
