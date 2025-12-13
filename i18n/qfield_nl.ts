@@ -693,7 +693,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/DashBoard.qml" line="496"/>
         <source>The project is read-only.</source>
-        <translation type="unfinished"/>
+        <translation>Het project is alleen-lezen.</translation>
     </message>
     <message>
         <location filename="../src/qml/DashBoard.qml" line="371"/>
@@ -1223,7 +1223,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="626"/>
         <source>Successfully duplicated feature</source>
-        <translation>Succesvol object gedupliceerd</translation>
+        <translation>Object succesvol gedupliceerd</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureListForm.qml" line="651"/>
@@ -1435,7 +1435,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/FileDeviceChooser.qml" line="69"/>
         <source>Interval (in milliseconds)</source>
-        <translation type="unfinished"/>
+        <translation>Interval (jn milliseconden)</translation>
     </message>
 </context>
 <context>
@@ -1645,7 +1645,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/LayerLoginDialog.qml" line="116"/>
         <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation>Indienen</translation>
     </message>
 </context>
 <context>
@@ -2108,7 +2108,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="504"/>
         <source>Toggle Feature Selection</source>
-        <translation>Objectselectie wisselen</translation>
+        <translation>Objecten selecteren</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="523"/>
@@ -2128,12 +2128,12 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="572"/>
         <source>Duplicate Selected Feature(s)</source>
-        <translation>Geselecteerde objecten(en) dupliceren</translation>
+        <translation>Dupliceer geselecteerde object(en)</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="585"/>
         <source>Delete Selected Feature(s)</source>
-        <translation>Geselecteerde object(en) verwijderen</translation>
+        <translation>Verwijder geselecteerde object(en)</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="617"/>
@@ -2166,7 +2166,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="784"/>
         <source>Duplicate Feature</source>
-        <translation>Dubbel object</translation>
+        <translation>Dupliceer object</translation>
     </message>
     <message>
         <location filename="../src/qml/NavigationBar.qml" line="838"/>
@@ -2558,27 +2558,27 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/PluginManagerSettings.qml" line="57"/>
         <source>Local Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Lokale Plugins</translation>
     </message>
     <message>
         <location filename="../src/qml/PluginManagerSettings.qml" line="57"/>
         <source>Available Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Beschikbare Plugins</translation>
     </message>
     <message>
         <location filename="../src/qml/PluginManagerSettings.qml" line="72"/>
         <source>Search for plugin</source>
-        <translation type="unfinished"/>
+        <translation>Zoek een plugin</translation>
     </message>
     <message>
         <location filename="../src/qml/PluginManagerSettings.qml" line="159"/>
         <source>Fetching available plugins</source>
-        <translation type="unfinished"/>
+        <translation>Beschikbare plugins worden opgehaald</translation>
     </message>
     <message>
         <location filename="../src/qml/PluginManagerSettings.qml" line="159"/>
         <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation type="unfinished"/>
+        <translation>Er zijn nog geen plugins geïnstalleerd, ga naar de %1available plugins%3 tab om er een paar te proberen.&lt;br&gt;&lt;br&gt;Meer informatie, %2read the documentation%3.</translation>
     </message>
 </context>
 <context>
@@ -2665,7 +2665,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/PositioningDeviceSettings.qml" line="106"/>
         <source>Positioning Device Settings</source>
-        <translation type="unfinished"/>
+        <translation>Instellingen Plaatsbepalingsapparaat</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -2939,7 +2939,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <location filename="../src/qml/ProjectCreationScreen.qml" line="19"/>
         <source>Create a new project</source>
-        <translation type="unfinished"/>
+        <translation>Maak een nieuw project</translation>
     </message>
     <message>
         <location filename="../src/qml/ProjectCreationScreen.qml" line="46"/>
@@ -4230,7 +4230,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="654"/>
         <source>Show invalid projects</source>
-        <translation type="unfinished"/>
+        <translation>Toon ongeldige projecten</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="428"/>
@@ -4240,17 +4240,17 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="440"/>
         <source>, has changes locally</source>
-        <translation type="unfinished"/>
+        <translation>, bevat lokale aanpassingen</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="780"/>
         <source>View Project Details</source>
-        <translation type="unfinished"/>
+        <translation>Bekijk Project Details</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="863"/>
         <source>QFieldCloud project details fetching failed</source>
-        <translation type="unfinished"/>
+        <translation>Ophalen van QFieldCloud project details mislukt</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="794"/>
@@ -4260,7 +4260,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="809"/>
         <source>Are you sure you want to remove `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Weet u zeker dat u `%1` wilt verwijderen?</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="711"/>
@@ -5113,7 +5113,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="1430"/>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation type="unfinished"/>
+        <translation>Met deze waarde wordt de Z waarde afkomstig van het plaatsbepalingsapparaat aangepast. Als de waarde 1,6 is ingevuld, dan trekt QField automatisch 1,6 af van elke gemeten waarde. Vul hier de waarde in die hoort bij de antenne hoogte.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="1532"/>
@@ -5233,7 +5233,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="163"/>
         <source>Maximize feature form</source>
-        <translation type="unfinished"/>
+        <translation>Maximaliseer objectformulier</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="169"/>
@@ -6273,7 +6273,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Wanneer beide beperkingen uitgezet zijn, worden hoekpunten toegevoegd zo vaak als dat ze door het plaatsbepalingsapparaat worden geleverd.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -6662,19 +6662,22 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <location filename="../src/qml/WelcomeScreen.qml" line="508"/>
         <source>QFieldCloud
 projects</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud
+projecten</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="508"/>
         <source>Local projects and
  datasets</source>
-        <translation type="unfinished"/>
+        <translation>Lokale projecten en
+ datasets</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="508"/>
         <source>Create new
 project</source>
-        <translation type="unfinished"/>
+        <translation>Maak een nieuw
+project</translation>
     </message>
 </context>
 <context>
@@ -7310,7 +7313,7 @@ project</source>
         <location filename="../src/qml/qgismobileapp.qml" line="2952"/>
         <location filename="../src/qml/qgismobileapp.qml" line="3330"/>
         <source>Printing...</source>
-        <translation>Printing...</translation>
+        <translation>Printen...</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="3299"/>
@@ -7321,17 +7324,17 @@ project</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="364"/>
         <source>Positioning device error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Plaatsbepalingsapparaat error: %1</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="3590"/>
         <source>Duplicate Feature</source>
-        <translation>Dubbel object</translation>
+        <translation>Dupliceer object</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="3605"/>
         <source>Successfully duplicated feature</source>
-        <translation>Succesvol object gedupliceerd</translation>
+        <translation>Object succesvol gedupliceerd</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1984"/>
@@ -7552,7 +7555,7 @@ project</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2213"/>
         <source>Snapping tolerance</source>
-        <translation type="unfinished"/>
+        <translation>Snapping tolerantie</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
@@ -7637,7 +7640,7 @@ project</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="5076"/>
         <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Schakel het meetgereedschap in om afstanden en oppervlakten op de kaart te meten.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="5081"/>

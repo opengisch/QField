@@ -357,7 +357,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <message>
         <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="98"/>
         <source>Bluetooth permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>Se requiere permiso de Bluetooth para buscar dispositivos Bluetooth</translation>
     </message>
     <message>
         <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="121"/>
@@ -367,7 +367,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <message>
         <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="129"/>
         <source>Location permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>Se requiere permiso de ubicación para buscar dispositivos Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -488,7 +488,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <message>
         <location filename="../src/qml/BookmarkProperties.qml" line="137"/>
         <source>Change color</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar color</translation>
     </message>
 </context>
 <context>
@@ -587,7 +587,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <message>
         <location filename="../src/qml/editorwidgets/CheckBox.qml" line="34"/>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vacío</translation>
     </message>
 </context>
 <context>
@@ -703,7 +703,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <message>
         <location filename="../src/qml/DashBoard.qml" line="425"/>
         <source>Return home</source>
-        <translation type="unfinished"/>
+        <translation>Retornar a inicio</translation>
     </message>
 </context>
 <context>
@@ -1000,7 +1000,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <message>
         <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="225"/>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vacío</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="227"/>
@@ -1086,29 +1086,29 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="1023"/>
         <source>Feature Form Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menú de formulario de entidades</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="1029"/>
         <source>Remember All Reusable Values</source>
-        <translation type="unfinished"/>
+        <translation>Recuerde todos los valores reutilizables</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="1039"/>
         <source>Forget All Reusable Values</source>
-        <translation type="unfinished"/>
+        <translation>Olvídate de todos los valores reutilizables</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="787"/>
         <location filename="../src/qml/FeatureForm.qml" line="903"/>
         <source>Soft constraints were not satisified</source>
-        <translation type="unfinished"/>
+        <translation>Las restricciones blandas no se cumplieron</translation>
     </message>
     <message>
         <location filename="../src/qml/FeatureForm.qml" line="783"/>
         <location filename="../src/qml/FeatureForm.qml" line="907"/>
         <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
+        <translation>Restricciones duras no satisfechas</translation>
     </message>
 </context>
 <context>
@@ -1647,7 +1647,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <location filename="../src/qml/LayerLoginDialog.qml" line="116"/>
         <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation>Enviar</translation>
     </message>
 </context>
 <context>
@@ -1942,7 +1942,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <location filename="../src/core/localfilesmodel.cpp" line="143"/>
         <location filename="../src/core/localfilesmodel.cpp" line="421"/>
         <source>Home</source>
-        <translation type="unfinished"/>
+        <translation>Inicio</translation>
     </message>
 </context>
 <context>
@@ -2361,7 +2361,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="205"/>
         <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
+        <translation>Restricciones duras no satisfechas</translation>
     </message>
 </context>
 <context>
@@ -2941,7 +2941,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <location filename="../src/qml/ProjectCreationScreen.qml" line="19"/>
         <source>Create a new project</source>
-        <translation type="unfinished"/>
+        <translation>Crear nuevo proyecto</translation>
     </message>
     <message>
         <location filename="../src/qml/ProjectCreationScreen.qml" line="46"/>
@@ -2951,12 +2951,12 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <location filename="../src/qml/ProjectCreationScreen.qml" line="58"/>
         <source>New project name</source>
-        <translation type="unfinished"/>
+        <translation>Nombre del nuevo proyecto</translation>
     </message>
     <message>
         <location filename="../src/qml/ProjectCreationScreen.qml" line="64"/>
         <source>Select your basemap</source>
-        <translation type="unfinished"/>
+        <translation>Seleccionar mapa base</translation>
     </message>
     <message>
         <location filename="../src/qml/ProjectCreationScreen.qml" line="78"/>
@@ -3041,12 +3041,12 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <location filename="../src/qml/ProjectCreationScreen.qml" line="295"/>
         <source>Create Project</source>
-        <translation type="unfinished"/>
+        <translation>Crear proyecto</translation>
     </message>
     <message>
         <location filename="../src/qml/ProjectCreationScreen.qml" line="299"/>
         <source>My Project</source>
-        <translation type="unfinished"/>
+        <translation>Mi proyecto</translation>
     </message>
 </context>
 <context>
@@ -3054,34 +3054,34 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <location filename="../src/core/utils/projectutils.cpp" line="93"/>
         <source>Created Project</source>
-        <translation type="unfinished"/>
+        <translation>Proyecto creado</translation>
     </message>
     <message>
         <location filename="../src/core/utils/projectutils.cpp" line="138"/>
         <source>Notes</source>
-        <translation type="unfinished"/>
+        <translation>Notas</translation>
     </message>
     <message>
         <location filename="../src/core/utils/projectutils.cpp" line="171"/>
         <location filename="../src/core/utils/projectutils.cpp" line="299"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Tiempo</translation>
     </message>
     <message>
         <location filename="../src/core/utils/projectutils.cpp" line="182"/>
         <source>Marker color</source>
-        <translation type="unfinished"/>
+        <translation>Color de marcador</translation>
     </message>
     <message>
         <location filename="../src/core/utils/projectutils.cpp" line="192"/>
         <location filename="../src/core/utils/projectutils.cpp" line="283"/>
         <source>Title</source>
-        <translation type="unfinished"/>
+        <translation>Título</translation>
     </message>
     <message>
         <location filename="../src/core/utils/projectutils.cpp" line="203"/>
         <source>Note</source>
-        <translation type="unfinished"/>
+        <translation>Nota</translation>
     </message>
     <message>
         <location filename="../src/core/utils/projectutils.cpp" line="246"/>
@@ -3092,7 +3092,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <location filename="../src/core/utils/projectutils.cpp" line="348"/>
         <location filename="../src/core/utils/projectutils.cpp" line="365"/>
         <source>Basemap</source>
-        <translation type="unfinished"/>
+        <translation>Mapa base</translation>
     </message>
     <message>
         <location filename="../src/core/utils/projectutils.cpp" line="219"/>
@@ -4255,7 +4255,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="794"/>
         <source>View Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Ver carpeta del proyecto</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldCloudScreen.qml" line="809"/>
@@ -4377,7 +4377,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="381"/>
         <source>Home</source>
-        <translation type="unfinished"/>
+        <translation>Inicio</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="461"/>
@@ -4387,7 +4387,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="478"/>
         <source>View file</source>
-        <translation type="unfinished"/>
+        <translation>Ver archivo</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="495"/>
@@ -4428,7 +4428,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="648"/>
         <source>Delete file</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar archivo</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="665"/>
@@ -4524,7 +4524,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="937"/>
         <source>Delete file(s)</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar archivo(s)</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="963"/>
@@ -4539,7 +4539,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="976"/>
         <source>Remove File(s)</source>
-        <translation type="unfinished"/>
+        <translation>Remover archivo(s)</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="983"/>
@@ -5228,32 +5228,32 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="104"/>
         <source>Show zoom controls</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar controles de zoom</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="163"/>
         <source>Maximize feature form</source>
-        <translation type="unfinished"/>
+        <translation>Maximizar el formulario de entidades</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="169"/>
         <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
+        <translation>Formulario de características abiertas para la identificación de características individuales</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="186"/>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation type="unfinished"/>
+        <translation>Si está habilitado, las áreas justo fuera de la extensión del lienzo del mapa visible se representarán parcialmente para permitir la vista previa al hacer zoom y desplazarse panorámicamente.</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="191"/>
         <source>Enable auto-save mode</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar el modo de guardado automático</translation>
     </message>
     <message>
         <location filename="../src/qml/QFieldSettings.qml" line="192"/>
         <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation type="unfinished"/>
+        <translation>Si esta opción está habilitada, las características recientemente agregadas se almacenan tan pronto como tienen una geometría válida y se cumplen las restricciones y los atributos editados se confirman inmediatamente.</translation>
     </message>
 </context>
 <context>
@@ -5677,7 +5677,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <location filename="../src/qml/editorwidgets/Range.qml" line="41"/>
         <location filename="../src/qml/editorwidgets/Range.qml" line="209"/>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vacío</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/Range.qml" line="43"/>
@@ -5752,7 +5752,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <location filename="../src/qml/RelationCombobox.qml" line="307"/>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vacío</translation>
     </message>
     <message>
         <location filename="../src/qml/RelationCombobox.qml" line="309"/>
@@ -6051,7 +6051,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="32"/>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vacío</translation>
     </message>
     <message>
         <location filename="../src/qml/editorwidgets/TextEdit.qml" line="34"/>
@@ -6221,12 +6221,12 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <location filename="../src/qml/TrackerSettings.qml" line="159"/>
         <source>Layer</source>
-        <translation type="unfinished"/>
+        <translation>Capa</translation>
     </message>
     <message>
         <location filename="../src/qml/TrackerSettings.qml" line="597"/>
         <source>Track on layer %1 resumed</source>
-        <translation type="unfinished"/>
+        <translation>Se reanudó el recorrido en la capa %1</translation>
     </message>
 </context>
 <context>
@@ -6662,19 +6662,22 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <location filename="../src/qml/WelcomeScreen.qml" line="508"/>
         <source>QFieldCloud
 projects</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud
+proyectos</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="508"/>
         <source>Local projects and
  datasets</source>
-        <translation type="unfinished"/>
+        <translation>Proyectos locales y
+conjuntos de datos</translation>
     </message>
     <message>
         <location filename="../src/qml/WelcomeScreen.qml" line="508"/>
         <source>Create new
 project</source>
-        <translation type="unfinished"/>
+        <translation>Crear nuevo
+proyecto</translation>
     </message>
 </context>
 <context>
@@ -7707,49 +7710,49 @@ project</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1112"/>
         <source>Coordinate cursor locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Cursor de coordenadas bloqueado en la ubicación</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1155"/>
         <source>Map canvas unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Lienzo del mapa desbloqueado</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1161"/>
         <location filename="../src/qml/qgismobileapp.qml" line="2465"/>
         <source>Map canvas locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Lienzo del mapa bloqueado en la ubicación</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2452"/>
         <source>Map canvas locked to location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Lienzo del mapa bloqueado según la ubicación y la orientación de la brújula</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2456"/>
         <source>Map canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>El lienzo del mapa sigue la ubicación y la orientación de la brújula.</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="2467"/>
         <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
         <source>Map canvas follows location</source>
-        <translation type="unfinished"/>
+        <translation>El lienzo del mapa sigue la ubicación</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="4008"/>
         <source>Lock Coordinate Cursor to Location</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear el cursor de coordenadas en la ubicación</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="4026"/>
         <source>Lock Map Canvas to Location</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear el lienzo del mapa a la ubicación</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="4160"/>
         <source>Map canvas lock paused</source>
-        <translation type="unfinished"/>
+        <translation>Bloqueo del lienzo del mapa en pausa</translation>
     </message>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1009"/>
@@ -7770,7 +7773,7 @@ to show actions</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1293"/>
         <source>Stop all</source>
-        <translation type="unfinished"/>
+        <translation>Detener todo</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/qgismobileapp.qml" line="1294"/>
@@ -7780,7 +7783,7 @@ to show actions</source>
     <message>
         <location filename="../src/qml/qgismobileapp.qml" line="1302"/>
         <source>No compatible layers available to launch tracking</source>
-        <translation type="unfinished"/>
+        <translation>No hay capas compatibles disponibles para iniciar el seguimiento</translation>
     </message>
 </context>
 <context>

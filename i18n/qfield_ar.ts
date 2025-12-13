@@ -9,12 +9,12 @@
     <message>
         <location filename="../src/qml/About.qml" line="170"/>
         <source>Support QField</source>
-        <translation>دعم QField</translation>
+        <translation>فريق دعم QField</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="197"/>
         <source>Changelog</source>
-        <translation>ملخص التغيرات</translation>
+        <translation>ملخص التغييرات</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="180"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../src/qml/About.qml" line="194"/>
         <source>Links Menu</source>
-        <translation>قائمة الراوابط</translation>
+        <translation>قائمة الروابط</translation>
     </message>
     <message>
         <location filename="../src/qml/About.qml" line="150"/>
@@ -77,7 +77,7 @@
         <location filename="../src/core/locator/activelayerfeatureslocatorfilter.cpp" line="223"/>
         <location filename="../src/core/locator/activelayerfeatureslocatorfilter.cpp" line="278"/>
         <source>Set feature as destination</source>
-        <translation>ضبط الميزة كمسافة</translation>
+        <translation>ضبط الميزة كهدف</translation>
     </message>
     <message>
         <location filename="../src/core/locator/activelayerfeatureslocatorfilter.cpp" line="340"/>
