@@ -18,6 +18,7 @@ Page {
   property alias fullScreenIdentifyView: registry.fullScreenIdentifyView
   property alias locatorKeepScale: registry.locatorKeepScale
   property alias autoOpenFormSingleIdentify: registry.autoOpenFormSingleIdentify
+  property alias autoZoomToIdentifiedFeature: registry.autoZoomToIdentifiedFeature
   property alias numericalDigitizingInformation: registry.numericalDigitizingInformation
   property alias showBookmarks: registry.showBookmarks
   property alias nativeCamera2: registry.nativeCamera2
@@ -58,6 +59,7 @@ Page {
     property bool fullScreenIdentifyView: false
     property bool locatorKeepScale: false
     property bool autoOpenFormSingleIdentify: false
+    property bool autoZoomToIdentifiedFeature: false
     property bool numericalDigitizingInformation: false
     property bool showBookmarks: true
     property bool nativeCamera2: false
@@ -175,6 +177,12 @@ Page {
       title: qsTr("Fixed scale navigation")
       description: qsTr("When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.")
       settingAlias: "locatorKeepScale"
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr("Auto-zoom to identified features")
+      description: qsTr("When enabled, the map will automatically zoom to show the full extent of all identified features.")
+      settingAlias: "autoZoomToIdentifiedFeature"
       isVisible: true
     }
   }

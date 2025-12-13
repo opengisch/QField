@@ -831,6 +831,9 @@ ApplicationWindow {
           featureListForm.selection.focusedItem = 0;
           featureListForm.state = "FeatureForm";
         }
+        if (qfieldSettings.autoZoomToIdentifiedFeature && !isMenuRequest && featureListForm.model.count > 0) {
+          featureListForm.extentController.zoomToAllFeatures();
+        }
       }
     }
 

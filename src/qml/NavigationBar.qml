@@ -740,9 +740,9 @@ Rectangle {
       leftPadding: Theme.menuItemCheckLeftPadding
 
       checkable: true
-      checked: extentController.autoZoom
+      checked: qfieldSettings.autoZoomToIdentifiedFeature
 
-      onTriggered: extentController.autoZoom = !extentController.autoZoom
+      onTriggered: qfieldSettings.autoZoomToIdentifiedFeature = !qfieldSettings.autoZoomToIdentifiedFeature
     }
 
     MenuSeparator {
