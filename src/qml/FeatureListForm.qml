@@ -338,6 +338,7 @@ Pane {
         id: featureText
         anchors {
           leftMargin: featureFormList.multiSelection ? 50 : 10
+          rightMargin: 10
           left: parent.left
           right: parent.right
           verticalCenter: parent.verticalCenter
