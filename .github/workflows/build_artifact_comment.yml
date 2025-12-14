@@ -4,6 +4,8 @@ on:
   workflow_run:
     workflows:
       - 🐧 Linux
+      - 🍎 MacOS
+      - 🪟 Windows
     types:
       - completed
 
