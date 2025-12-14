@@ -130,6 +130,7 @@ jobs:
       - name: 📦 Upload package
         if: ${{ env.ARTIFACT_NAME != null }}
         uses: actions/upload-artifact@v5
+        id: artifact-linux
         with:
           name: "QField-dev-x64-linux-${{ env.BUILD_TYPE }}"
           path: ${{ env.ARTIFACT_PATHNAME }}
@@ -198,3 +199,14 @@ jobs:
         uses: github/codeql-action/analyze@v4
         with:
           category: "/language:c-cpp"
+
+      - name: Schedule download comment
+        uses: ./.github/actions/post_sticky_comment
+        if: github.event_name == 'pull_request'
+        with:
+          marker: linux
+          body: |
+            ### 🐧 Linux AppImage builds
+            Download [Linux AppImage builds of this PR for testing](${{ steps.artifact-linux.outputs.artifact-url }}).
+            *(Built from commit ${{ github.event.pull_request.head.sha }})*
+          pr: ${{ github.event.number }}
