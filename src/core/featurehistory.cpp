@@ -102,6 +102,14 @@ void FeatureHistory::onBeforeCommitChanges()
   const QgsFeatureIds deletedFids = eb->deletedFeatureIds();
   const QgsFeatureIds changedGeometriesFids = qgis::listToSet( eb->changedGeometries().keys() );
   const QgsFeatureIds changedAttributesFids = qgis::listToSet( eb->changedAttributeValues().keys() );
+  // The feature FIDs will not be valid, we'll nevertheless use a basic layer ID check
+  const QgsFeatureIds addedFids = qgis::listToSet( eb->addedFeatures().keys() );
+
+  if ( deletedFids.isEmpty() && changedGeometriesFids.isEmpty() && changedAttributesFids.isEmpty() && addedFids.isEmpty() )
+  {
+    return;
+  }
+
   // NOTE QgsFeatureIds underlying implementation is QSet, so no need to check if the QgsFeatureId already exists
   QgsFeatureIds changedFids;
   for ( const QgsFeatureId fid : deletedFids )
@@ -130,8 +138,6 @@ void FeatureHistory::onBeforeCommitChanges()
     modifiedFeatures.insert( f.id(), f );
   }
 
-  // The feature FIDs will not be valid, we'll nevertheless use a basic layer ID check
-  const QgsFeatureIds addedFids = qgis::listToSet( eb->addedFeatures().keys() );
   changedFids.unite( addedFids );
 
   qDebug() << "FeatureHistory::onBeforeCommitChanges: vl->id()=" << vl->id() << "changedFids=" << changedFids;
@@ -354,18 +360,18 @@ bool FeatureHistory::applyModifications( QMap<QString, FeatureModifications> &mo
     }
 
     // update features
-    QgsFeatureIds featureIds;
-    for ( const OldNewFeaturePair &pair : undoFeatureModifications.updatedFeatures )
+    if ( !undoFeatureModifications.updatedFeatures.isEmpty() )
     {
-      featureIds.insert( pair.first.id() );
-    }
-
-    for ( OldNewFeaturePair &pair : undoFeatureModifications.updatedFeatures )
-    {
-      if ( !vl->updateFeature( pair.first, true ) )
+      // go through the updated features steps in reverse order
+      auto it = undoFeatureModifications.updatedFeatures.end();
+      while ( it != undoFeatureModifications.updatedFeatures.begin() )
       {
-        QgsMessageLog::logMessage( tr( "Failed to undo update features in layer \"%1\"" ).arg( vl->name() ) );
-        return false;
+        --it;
+        if ( !vl->updateFeature( ( *it ).first, true ) )
+        {
+          QgsMessageLog::logMessage( tr( "Failed to undo update features in layer \"%1\"" ).arg( vl->name() ) );
+          return false;
+        }
       }
     }
 
