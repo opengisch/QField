@@ -218,11 +218,22 @@ jobs:
 
       - name: 📤 Upload app
         uses: actions/upload-artifact@v5
-        id: artifact-mac-qt6
+        id: artifact-macos
         with:
           name: qfield-dmg
           path: |
             *.dmg
+
+      - name: Schedule download comment
+        uses: ./.github/actions/post_sticky_comment
+        if: github.event_name == 'pull_request'
+        with:
+          marker: macos
+          body: |
+            ### 🐧🍎 MacOS DMG universal builds
+            Download [MacOS DMG universal builds of this PR for testing](${{ steps.artifact-macos.outputs.artifact-url }}).
+            *(Built from commit ${{ github.event.pull_request.head.sha }})*
+          pr: ${{ github.event.number }}
 
       - name: 🚀 Upload release asset
         if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
