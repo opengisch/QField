@@ -230,8 +230,8 @@ jobs:
         with:
           marker: macos
           body: |
-            ### 🐧🍎 MacOS DMG universal builds
-            Download [MacOS DMG universal builds of this PR for testing](${{ steps.artifact-macos.outputs.artifact-url }}).
+            ### 🍎 MacOS DMG universal builds
+            Download a [MacOS DMG universal build of this PR for testing](${{ steps.artifact-macos.outputs.artifact-url }}).
             *(Built from commit ${{ github.event.pull_request.head.sha }})*
           pr: ${{ github.event.number }}
 
