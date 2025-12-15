@@ -27,7 +27,7 @@ QModelIndex SubModel::index( int row, int column, const QModelIndex &parent ) co
   if ( !mEnabled || !mModel || parent.isValid() )
     return QModelIndex();
 
-  QModelIndex sourceIndex = mModel->index( row, column, parent.isValid() ? mapToSource( parent ) : QModelIndex( mRootIndex ) );
+  QModelIndex sourceIndex = mModel->index( row, column, QModelIndex( mRootIndex ) );
   return mapFromSource( sourceIndex );
 }
 

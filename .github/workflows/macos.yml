@@ -25,16 +25,18 @@ jobs:
             triplet: x64-osx
             deployment-target: "10.15"
             target-arch: x86_64
+            run-tests: false
           - os: macos-15
             triplet: arm64-osx
             deployment-target: "11.0"
             target-arch: arm64
+            run-tests: true
     name: build (macos)
     runs-on: ${{ matrix.os }}
 
     steps:
       - name: 🐣 Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: recursive
 
@@ -79,7 +81,7 @@ jobs:
           max-size: 200M
 
       - name: 🐍 Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.10'
 
@@ -116,6 +118,7 @@ jobs:
           cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }} | xcbeautify
 
       - name: 🧫 Test
+        if: ${{ matrix.run-tests == true }}
         env:
           PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/${{ matrix.triplet }}/share/proj
           QFIELD_SYSTEM_SHARED_DATA_PATH: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/${{ matrix.triplet }}/share
@@ -133,20 +136,20 @@ jobs:
           gtar -cpvzf qfield-app-${{ matrix.triplet }}.tar.gz staging
 
       - name: 📦 Upload package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: "qfield-app-${{ matrix.triplet }}"
           path: qfield-app-${{ matrix.triplet }}.tar.gz
 
       - name: 📊 Upload test report
-        if: always()
-        uses: actions/upload-artifact@v4
+        if: ${{ matrix.run-tests == true && always() }}
+        uses: actions/upload-artifact@v5
         with:
           name: "test-report-${{ matrix.triplet }}-${{ env.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
 
       - name: 📑 Upload logs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: failure()
         with:
           name: logs-${{ matrix.triplet }}
@@ -156,7 +159,7 @@ jobs:
       - name: 💎 Setup ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2' # Not needed with a .ruby-version file
+          ruby-version: '3.4' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: 📮 Upload debug symbols
@@ -175,14 +178,14 @@ jobs:
     needs: build
     steps:
       - name: 🐣 Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: 🔨 Prepare build env
         run: |
           brew install create-dmg
 
       - name: 📤 Download app
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           pattern: qfield-app-*
           path: |
@@ -214,12 +217,23 @@ jobs:
           ./platform/macos/create_dmg.sh
 
       - name: 📤 Upload app
-        uses: actions/upload-artifact@v4
-        id: artifact-mac-qt6
+        uses: actions/upload-artifact@v5
+        id: artifact-macos
         with:
           name: qfield-dmg
           path: |
             *.dmg
+
+      - name: Schedule download comment
+        uses: ./.github/actions/post_sticky_comment
+        if: github.event_name == 'pull_request'
+        with:
+          marker: macos
+          body: |
+            ### 🍎 MacOS DMG universal builds
+            Download a [MacOS DMG universal build of this PR for testing](${{ steps.artifact-macos.outputs.artifact-url }}).
+            *(Built from commit ${{ github.event.pull_request.head.sha }})*
+          pr: ${{ github.event.number }}
 
       - name: 🚀 Upload release asset
         if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')

@@ -36,7 +36,7 @@ class QFIELD_CORE_EXPORT CoordinateReferenceSystemUtils : public QObject
     static Q_INVOKABLE QgsCoordinateReferenceSystem fromDescription( const QString &definition ) { return QgsCoordinateReferenceSystem( definition ); }
 
     //! Returns an EPGS:4326 WGS84 CRS
-    static Q_INVOKABLE QgsCoordinateReferenceSystem wgs84Crs() { return QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ); }
+    static Q_INVOKABLE QgsCoordinateReferenceSystem wgs84Crs() { return QgsCoordinateReferenceSystem::fromEpsgId( 4326 ); }
 
     /**
      * Returns an invalid CRS

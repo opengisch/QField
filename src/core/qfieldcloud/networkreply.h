@@ -86,7 +86,7 @@ class NetworkReply : public QObject
      * @param bytesReceived
      * @param bytesTotal
      */
-    void downloadProgress( int bytesReceived, int bytesTotal );
+    void downloadProgress( qint64 bytesReceived, qint64 bytesTotal );
 
 
     /**
@@ -95,7 +95,7 @@ class NetworkReply : public QObject
      * @param bytesSent
      * @param bytesTotal
      */
-    void uploadProgress( int bytesSent, int bytesTotal );
+    void uploadProgress( qint64 bytesSent, qint64 bytesTotal );
 
 
     /**

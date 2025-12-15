@@ -8,6 +8,8 @@ import Theme
  */
 Repeater {
   id: bookmarkHighlight
+
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
 
   model: qfieldSettings.showBookmarks ? bookmarkModel : undefined

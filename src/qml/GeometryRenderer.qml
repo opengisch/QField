@@ -7,7 +7,10 @@ import org.qfield
  */
 Item {
   id: geometryRenderer
+
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
+  /// type:QgsGeometryWrapper
   property alias geometryWrapper: geometryWrapper
   property double lineWidth: 3.5
   property color color: "#ff0000"

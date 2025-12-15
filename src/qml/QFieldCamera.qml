@@ -19,6 +19,7 @@ Popup {
 
   property string currentPath: ''
   property var currentPosition: PositioningUtils.createEmptyGnssPositionInformation()
+  property var currentProjectedPosition: undefined
 
   signal finished(string path)
   signal canceled
@@ -47,7 +48,7 @@ Popup {
   onAboutToShow: {
     if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
       cameraPermission.request();
-    } else if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
+    } else if (state == "VideoCapture" && microphonePermission.status === Qt.PermissionStatus.Undetermined) {
       microphonePermission.request();
     }
     recorder.mediaFormat.audioCodec = MediaFormat.AudioCodec.AAC;
@@ -59,7 +60,7 @@ Popup {
     let cameraPicked = false;
     if (cameraSettings.deviceId != '') {
       for (const device of mediaDevices.videoInputs) {
-        if (device.id == cameraSettings.deviceId) {
+        if (device.id === cameraSettings.deviceId) {
           camera.cameraDevice = device;
           cameraPicked = true;
         }
@@ -68,14 +69,14 @@ Popup {
     if (!cameraPicked) {
       camera.cameraDevice = mediaDevices.defaultVideoInput;
     }
-    camera.applyCameraFormat(false);
+    camera.applyCameraFormat();
   }
 
   QfCameraPermission {
     id: cameraPermission
 
     onStatusChanged: {
-      if (microphonePermission.status === Qt.PermissionStatus.Undetermined) {
+      if (state == "VideoCapture" && microphonePermission.status === Qt.PermissionStatus.Undetermined) {
         microphonePermission.request();
       }
     }
@@ -103,7 +104,7 @@ Popup {
   ExpressionEvaluator {
     id: stampExpressionEvaluator
 
-    property string defaultTextTemplate: "[% format_date(now(), 'yyyy-MM-dd @ HH:mm') || if(@gnss_coordinate is not null, format('\n" + qsTr("Latitude") + " %1 | " + qsTr("Longitude") + " %2 | " + qsTr("Altitude") + " %3\n" + qsTr("Speed") + " %4 | " + qsTr("Orientation") + " %5', coalesce(format_number(y(@gnss_coordinate), 7), 'N/A'), coalesce(format_number(x(@gnss_coordinate), 7), 'N/A'), coalesce(format_number(z(@gnss_coordinate), 3) || ' m', 'N/A'), if(@gnss_ground_speed != 'nan', format_number(@gnss_ground_speed, 3) || ' m/s', 'N/A'), if(@gnss_orientation != 'nan', format_number(@gnss_orientation, 1) || ' °', 'N/A')), '') %]"
+    property string defaultTextTemplate: "[% format_date(now(), 'yyyy-MM-dd @ HH:mm') || if(@gnss_coordinate is not null, format('\n" + qsTr("Latitude") + " %1 | " + qsTr("Longitude") + " %2 | " + qsTr("Altitude") + " %3\n" + qsTr("Speed") + " %4 | " + qsTr("Orientation") + " %5', coalesce(format_number(y(@gnss_coordinate), 7), 'N/A'), coalesce(format_number(x(@gnss_coordinate), 7), 'N/A'), coalesce(format_number(@corrected_elevation, 3) || ' ' || @corrected_elevation_unit, 'N/A'), if(@gnss_ground_speed != 'nan', format_number(@gnss_ground_speed, 3) || ' m/s', 'N/A'), if(@gnss_orientation != 'nan', format_number(@gnss_orientation, 1) || ' °', 'N/A')), '') %]"
 
     mode: ExpressionEvaluator.ExpressionTemplateMode
     expressionText: ""
@@ -112,6 +113,11 @@ Popup {
     appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
       positionInformation: currentPosition
       cloudUserInformation: appScopesGenerator.cloudUserInformation
+    }
+
+    variables: {
+      "corrected_elevation": currentProjectedPosition ? currentProjectedPosition.z : currentPosition.altitude,
+      "corrected_elevation_unit": UnitTypes.toAbbreviatedString(positionSource.coordinateTransformer.destinationCrs.mapUnit)
     }
   }
 
@@ -138,16 +144,16 @@ Popup {
         property bool restarting: false
         active: cameraItem.visible && cameraPermission.status === Qt.PermissionStatus.Granted && !restarting
 
-        function applyCameraFormat(restart) {
+        function applyCameraFormat() {
           if (cameraSettings.pixelFormat != 0) {
             let fallbackIndex = -1;
             let i = 0;
             for (let format of camera.cameraDevice.videoFormats) {
-              if (format.resolution == cameraSettings.resolution && format.pixelFormat == cameraSettings.pixelFormat) {
+              if (format.resolution === cameraSettings.resolution && format.pixelFormat === cameraSettings.pixelFormat) {
                 camera.cameraFormat = format;
                 fallbackIndex = -1;
                 break;
-              } else if (format.resolution == cameraSettings.resolution) {
+              } else if (format.resolution === cameraSettings.resolution) {
                 // If we can't match the pixel format and resolution, go for resolution match across devices
                 fallbackIndex = i;
               }
@@ -155,10 +161,6 @@ Popup {
             }
             if (fallbackIndex >= 0) {
               camera.cameraFormat = camera.cameraDevice.videoFormats[fallbackIndex];
-            }
-            if (restart) {
-              camera.restarting = true;
-              camera.restarting = false;
             }
           }
         }
@@ -187,8 +189,11 @@ Popup {
 
         onImageSaved: (requestId, path) => {
           currentPath = path;
-          photoPreview.source = UrlUtils.fromString(path);
+        }
+
+        onPreviewChanged: {
           cameraItem.state = "PhotoPreview";
+          photoPreview.source = imageCapture.preview;
         }
       }
       recorder: MediaRecorder {
@@ -299,7 +304,6 @@ Popup {
     Video {
       id: videoPreview
       anchors.fill: parent
-
       visible: cameraItem.state == "VideoPreview"
 
       loops: MediaPlayer.Infinite
@@ -347,24 +351,47 @@ Popup {
     }
 
     Rectangle {
-      x: cameraItem.isPortraitMode ? 0 : parent.width - 100
-      y: cameraItem.isPortraitMode ? parent.height - 100 : 0
-      width: cameraItem.isPortraitMode ? parent.width : 100
-      height: cameraItem.isPortraitMode ? 100 : parent.height
+      id: captureFlash
+      anchors.fill: parent
+      anchors.margins: 6
+
+      color: "transparent"
+      SequentialAnimation {
+        id: captureFlashAnimation
+        PropertyAnimation {
+          target: captureFlash
+          property: "color"
+          to: "white"
+          duration: 0
+        }
+        PropertyAnimation {
+          target: captureFlash
+          property: "color"
+          to: "transparent"
+          duration: 1000
+        }
+      }
+    }
+
+    Rectangle {
+      width: cameraItem.isPortraitMode ? parent.width : 100 + mainWindow.sceneBottomMargin
+      height: cameraItem.isPortraitMode ? 100 + mainWindow.sceneRightMargin : parent.height
+      x: cameraItem.isPortraitMode ? 0 : parent.width - width
+      y: cameraItem.isPortraitMode ? parent.height - height : 0
 
       color: Theme.darkGraySemiOpaque
 
       Rectangle {
-        x: cameraItem.isPortraitMode ? 0 : parent.width - 100
-        y: cameraItem.isPortraitMode ? parent.height - 100 - mainWindow.sceneBottomMargin : 0
-        width: cameraItem.isPortraitMode ? parent.width : 100
-        height: cameraItem.isPortraitMode ? 100 + mainWindow.sceneBottomMargin : parent.height
+        width: cameraItem.isPortraitMode ? parent.width : 100 + mainWindow.sceneBottomMargin
+        height: cameraItem.isPortraitMode ? 100 + mainWindow.sceneRightMargin : parent.height
+        x: cameraItem.isPortraitMode ? 0 : parent.width - width
+        y: cameraItem.isPortraitMode ? parent.height - height : 0
 
         color: Theme.darkGraySemiOpaque
 
         Rectangle {
           anchors.top: parent.top
-          width: parent.width
+          width: cameraItem.isPortraitMode ? parent.width : parent.width - mainWindow.sceneRightMargin
           height: cameraItem.isPortraitMode ? parent.height - mainWindow.sceneBottomMargin : parent.height
           color: "transparent"
 
@@ -382,7 +409,7 @@ Popup {
               id: captureButton
 
               anchors.centerIn: parent
-              visible: camera.cameraStatus == Camera.ActiveStatus || camera.cameraStatus == Camera.LoadedStatus || camera.cameraStatus == Camera.StandbyStatus
+              visible: camera.cameraStatus === Camera.ActiveStatus || camera.cameraStatus === Camera.LoadedStatus || camera.cameraStatus === Camera.StandbyStatus
 
               round: true
               roundborder: true
@@ -392,14 +419,15 @@ Popup {
 
               onClicked: {
                 if (cameraItem.state == "PhotoCapture") {
+                  platformUtilities.createDir(qgisProject.homePath, 'DCIM');
                   captureSession.imageCapture.captureToFile(qgisProject.homePath + '/DCIM/');
+                  captureFlashAnimation.start();
                   if (positionSource.active) {
                     currentPosition = positionSource.positionInformation;
+                    currentProjectedPosition = positionSource.projectedPosition;
                   } else {
                     currentPosition = PositioningUtils.createEmptyGnssPositionInformation();
-                  }
-                  if (cameraSettings.geoTagging && !positionSource.active) {
-                    displayToast(qsTr("Image geotagging requires positioning to be turned on"), "warning");
+                    currentProjectedPosition = undefined;
                   }
                 } else if (cameraItem.state == "VideoCapture") {
                   if (captureSession.recorder.recorderState === MediaRecorder.StoppedState) {
@@ -524,7 +552,7 @@ Popup {
       id: backButton
 
       anchors.left: parent.left
-      anchors.leftMargin: 4
+      anchors.leftMargin: mainWindow.sceneLeftMargin + 4
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 4
 
@@ -552,7 +580,7 @@ Popup {
       name: "cameraSettingsDrawer"
 
       anchors.left: parent.left
-      anchors.leftMargin: 4
+      anchors.leftMargin: mainWindow.sceneLeftMargin + 4
       anchors.top: backButton.bottom
       anchors.topMargin: 4
 
@@ -656,8 +684,8 @@ Popup {
     QfMenu {
       id: cameraSelectionMenu
 
-      topMargin: sceneTopMargin
-      bottomMargin: sceneBottomMargin
+      topMargin: mainWindow.sceneTopMargin
+      bottomMargin: mainWindow.sceneBottomMargin
       z: 10000 // 1000s are embedded feature forms, use higher value
 
       Repeater {
@@ -679,11 +707,11 @@ Popup {
           indicator.implicitHeight: 24
           indicator.implicitWidth: 24
 
-          onCheckedChanged: {
+          onToggled: {
             if (checked && cameraSettings.deviceId !== modelData.id) {
               cameraSettings.deviceId = modelData.id;
               camera.cameraDevice = modelData;
-              camera.applyCameraFormat(true);
+              camera.applyCameraFormat();
             }
           }
         }
@@ -693,8 +721,8 @@ Popup {
     QfMenu {
       id: resolutionSelectionMenu
 
-      topMargin: sceneTopMargin
-      bottomMargin: sceneBottomMargin
+      topMargin: mainWindow.sceneTopMargin
+      bottomMargin: mainWindow.sceneBottomMargin
       z: 10000 // 1000s are embedded feature forms, use higher value
 
       function ratioFromResolution(resolution) {
@@ -752,11 +780,11 @@ Popup {
           indicator.implicitHeight: 24
           indicator.implicitWidth: 24
 
-          onCheckedChanged: {
+          onToggled: {
             if (checked && (cameraSettings.resolution != resolution || cameraSettings.pixelFormat != pixelFormat)) {
               cameraSettings.resolution = resolution;
               cameraSettings.pixelFormat = pixelFormat;
-              camera.applyCameraFormat(true);
+              camera.applyCameraFormat();
             }
           }
         }

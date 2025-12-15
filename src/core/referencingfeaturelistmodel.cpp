@@ -54,7 +54,7 @@ QModelIndex ReferencingFeatureListModelBase::parent( const QModelIndex &index ) 
 int ReferencingFeatureListModelBase::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
-  return mEntries.size();
+  return static_cast<int>( mEntries.size() );
 }
 
 int ReferencingFeatureListModelBase::columnCount( const QModelIndex &parent ) const

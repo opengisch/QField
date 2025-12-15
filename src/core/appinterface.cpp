@@ -102,6 +102,15 @@ QObject *AppInterface::mapCanvas() const
   return nullptr;
 }
 
+QObject *AppInterface::positioning() const
+{
+  if ( !mApp->rootObjects().isEmpty() )
+  {
+    return mApp->rootObjects().at( 0 )->findChild<QObject *>( "positionSource" );
+  }
+  return nullptr;
+}
+
 void AppInterface::removeRecentProject( const QString &path )
 {
   return mApp->removeRecentProject( path );
@@ -179,11 +188,6 @@ bool AppInterface::printAtlasFeatures( const QString &layoutName, const QList<lo
   return mApp->printAtlasFeatures( layoutName, featureIds );
 }
 
-void AppInterface::openFeatureForm()
-{
-  emit openFeatureFormRequested();
-}
-
 void AppInterface::setScreenDimmerTimeout( int timeoutSeconds )
 {
   mApp->setScreenDimmerTimeout( timeoutSeconds );
@@ -244,11 +248,7 @@ void AppInterface::logMessage( const QString &message )
 
 void AppInterface::logRuntimeProfiler()
 {
-#if _QGIS_VERSION_INT >= 33299
   QgsMessageLog::logMessage( QgsApplication::profiler()->asText(), QStringLiteral( "QField" ) );
-#else
-  QgsMessageLog::logMessage( QStringLiteral( "QField must be compiled against QGIS >= 3.34 to support logging of the runtime profiler" ), QStringLiteral( "QField" ) );
-#endif
 }
 
 void AppInterface::sendLog( const QString &message, const QString &cloudUser )
@@ -305,7 +305,7 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
   temporaryFile->setFileTemplate( QStringLiteral( "%1/XXXXXXXXXXXX" ).arg( applicationDirectory ) );
   temporaryFile->open();
 
-  connect( reply, &QNetworkReply::downloadProgress, this, [this, reply, temporaryFile]( int bytesReceived, int bytesTotal ) {
+  connect( reply, &QNetworkReply::downloadProgress, this, [this, reply, temporaryFile]( qint64 bytesReceived, qint64 bytesTotal ) {
     temporaryFile->write( reply->readAll() );
     if ( bytesTotal != 0 )
     {
@@ -329,7 +329,7 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
       }
 
       QFileInfo fileInfo = QFileInfo( fileName );
-      const QString fileSuffix = fileInfo.completeSuffix().toLower();
+      const QString fileSuffix = fileInfo.suffix().toLower();
       const bool isProjectFile = fileSuffix == QLatin1String( "qgs" ) || fileSuffix == QLatin1String( "qgz" );
 
       QString filePath = QStringLiteral( "%1/%2/%3" ).arg( applicationDirectory, isProjectFile ? QLatin1String( "Imported Projects" ) : QLatin1String( "Imported Datasets" ), fileName );
@@ -337,7 +337,7 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
         int i = 0;
         while ( QFileInfo::exists( filePath ) )
         {
-          filePath = QStringLiteral( "%1/%2/%3_%4.%5" ).arg( applicationDirectory, isProjectFile ? QLatin1String( "Imported Projects" ) : QLatin1String( "Imported Datasets" ), fileInfo.baseName(), QString::number( ++i ), fileSuffix );
+          filePath = QStringLiteral( "%1/%2/%3_%4.%5" ).arg( applicationDirectory, isProjectFile ? QLatin1String( "Imported Projects" ) : QLatin1String( "Imported Datasets" ), fileInfo.completeBaseName(), QString::number( ++i ), fileSuffix );
         }
       }
       QDir( QFileInfo( filePath ).absolutePath() ).mkpath( "." );
@@ -351,6 +351,7 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
         {
           // Check if this is a compressed project and handle accordingly
           QStringList zipFiles = QgsZipUtils::files( filePath );
+          qDebug() << zipFiles;
           const bool isCompressedProject = std::find_if( zipFiles.begin(),
                                                          zipFiles.end(),
                                                          []( const QString &zipFile ) {

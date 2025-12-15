@@ -27,6 +27,8 @@ class QgsVectorLayer;
 class QgsRasterLayer;
 class QgsSymbol;
 
+#define OPENSTREETMAP_URL QStringLiteral( "type=xyz&tilePixelRatio=1&url=https://tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&zmin=0&crs=EPSG3857" )
+
 /**
  * A class providing a feature iterator interface to be used within QML/javascript environment.
  *
@@ -97,11 +99,32 @@ class LayerUtils : public QObject
     * Returns the default symbol for a given layer.
     * \param layer the vector layer used to create the default symbol
     */
-    static QgsSymbol *defaultSymbol( QgsVectorLayer *layer );
+    static QgsSymbol *defaultSymbol( QgsVectorLayer *layer, const QString &attachmentField = QString(), const QString &colorField = QString() );
 
+    /**
+     * Sets the default symbology render for a given \a layer.
+     */
+    static void setDefaultRenderer( QgsVectorLayer *layer, QgsProject *project = nullptr, const QString &attachmentField = QString(), const QString &colorField = QString() );
+
+    /**
+     * Returns the default vector layer labeling for a given \a layer and \a textFormat.
+     */
     static QgsAbstractVectorLayerLabeling *defaultLabeling( QgsVectorLayer *layer, QgsTextFormat textFormat = QgsTextFormat() );
 
+    /**
+     * Sets the default labeling for a given \a layer.
+     */
+    static void setDefaultLabeling( QgsVectorLayer *layer, QgsProject *project = nullptr );
+
+    /**
+     * Creats an online raster elevation layer.
+     */
     static QgsRasterLayer *createOnlineElevationLayer();
+
+    /**
+     * Creates an online basemap layer.
+     */
+    static QgsMapLayer *createBasemap( const QString &style = QString() );
 
     /**
     * Returns TRUE if the vector layer is used as an atlas coverage layer in
@@ -124,14 +147,21 @@ class LayerUtils : public QObject
      */
     static Q_INVOKABLE void selectFeaturesInLayer( QgsVectorLayer *layer, const QList<int> &fids, Qgis::SelectBehavior behavior = Qgis::SelectBehavior::SetSelection );
 
-    static bool deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool shouldWriteChanges = true );
+    /**
+     * Deletes a vector layer feature, including related features tied to relationships.
+     * \param project the project holding information on relationships
+     * \param layer the layer from which the feature will be deleted
+     * \param fid the feature ID to be deleted
+     * \param shouldWriteChanges set to TRUE to immediately save the edit buffer
+     */
+    static Q_INVOKABLE bool deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool shouldWriteChanges = true );
 
     /**
      * Duplicates a given \a feature within the provided vector \a layer. If successful, the function will
      * return the duplicated feature with attribute values saved updated to match what was saved
      * into the layer dataset.
      */
-    static QgsFeature duplicateFeature( QgsVectorLayer *layer, QgsFeature feature );
+    static Q_INVOKABLE QgsFeature duplicateFeature( QgsVectorLayer *layer, QgsFeature feature );
 
     /**
      * Adds a \a feature into the \a layer.
@@ -149,6 +179,43 @@ class LayerUtils : public QObject
      * Returns TRUE if the vector \a layer geometry has an M value.
      */
     Q_INVOKABLE static bool hasMValue( QgsVectorLayer *layer );
+
+    /**
+     * Loads a vector layer.
+     * \param uri the data source uri
+     * \param name the layer name
+     * \param provider the data provider name
+     */
+    Q_INVOKABLE static QgsVectorLayer *loadVectorLayer( const QString &uri, const QString &name = QString(), const QString &provider = QStringLiteral( "ogr" ) );
+
+    /**
+     * Loads a raster layer.
+     * \param uri the data source uri
+     * \param name the layer name
+     * \param provider the data provider name
+     */
+    Q_INVOKABLE static QgsRasterLayer *loadRasterLayer( const QString &uri, const QString &name = QString(), const QString &provider = QStringLiteral( "gdal" ) );
+
+    /**
+     * Attempts to parse a GeoJSON string to a memory vector layer containing the collection of
+     * features. The geometry type will be taken from the first parsed feature.
+     * \param name layer name
+     * \param string the GeoJSON string
+     * \param crs optional layer CRS for layers with geometry
+     */
+    Q_INVOKABLE static QgsVectorLayer *memoryLayerFromJsonString( const QString &name, const QString &string, const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem() );
+
+    /**
+     * Creates a new memory layer using the specified parameters.
+     * \param name layer name
+     * \param fields fields for layer
+     * \param geometryType optional layer geometry type
+     * \param crs optional layer CRS for layers with geometry
+     */
+    Q_INVOKABLE static QgsVectorLayer *createMemoryLayer( const QString &name,
+                                                          const QgsFields &fields = QgsFields(),
+                                                          Qgis::WkbType geometryType = Qgis::WkbType::NoGeometry,
+                                                          const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem() );
 
     /**
      * Returns a feature iterator to get features matching a given \a expression within the provided \a layer.

@@ -10,7 +10,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: codeReader
 
   //! Emitted when a QR code or NFC tag has been decoded/received
@@ -20,15 +20,14 @@ Popup {
 
   property string decodedString: ''
   property var barcodeRequestedItem: undefined //<! when a feature form is requesting a bardcode, this will be set to attribute editor widget which triggered the request
-  property int popupWidth: mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeMargin : mainWindow.height - Theme.popupScreenEdgeMargin
+  property int popupWidth: mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeHorizontalMargin : mainWindow.height - Theme.popupScreenEdgeVerticalMargin
   property bool openedOnce: false
 
   width: popupWidth
-  height: Math.min(mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4), popupWidth + toolBar.height + acceptButton.height)
+  height: Math.min(mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4), popupWidth + toolBar.height + acceptButton.height)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
-  padding: 0
 
   closePolicy: Popup.CloseOnEscape
   dim: true
@@ -106,9 +105,14 @@ Popup {
   Page {
     width: parent.width
     height: parent.height
-    padding: 10
+    padding: 5
     header: ToolBar {
       id: toolBar
+
+      topPadding: 0
+      leftPadding: 0
+      rightPadding: 0
+      bottomPadding: 0
 
       background: Rectangle {
         color: "transparent"

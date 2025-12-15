@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.4
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
-ENV ANDROID_NDK_VERSION=26.3.11579264
+ENV ANDROID_NDK_VERSION=28.2.13676358
 
 # Add apt packages
 
@@ -59,7 +59,7 @@ shopt -s extglob
 mkdir /android-sdk/cmdline-tools/latest
 mv /android-sdk/cmdline-tools/!(latest) /android-sdk/cmdline-tools/latest
 yes | /android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
-/android-sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-35" "build-tools;35.0.0" "platform-tools" "tools" "ndk;${ANDROID_NDK_VERSION}"
+/android-sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-35" "build-tools;35.0.1" "platform-tools" "tools" "ndk;${ANDROID_NDK_VERSION}"
 END_OF_SCRIPT
 
 ENV ANDROID_SDK_ROOT /android-sdk

@@ -22,36 +22,46 @@ EditorWidgetBase {
     anchors.right: parent.right
     anchors.top: parent.top
     visible: widgetStyle != "Slider"
+    spacing: 5
+
+    Label {
+      id: textReadonlyValue
+      height: textField.height
+      width: parent.width
+      topPadding: 10
+      bottomPadding: 10
+      leftPadding: 0
+      visible: !isEditing
+      font: Theme.defaultFont
+      color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      opacity: 1
+      wrapMode: Text.Wrap
+      text: {
+        if (isEmpty) {
+          return qsTr("Empty");
+        } else if (isNull) {
+          return qsTr("NULL");
+        }
+        return value;
+      }
+    }
 
     TextField {
       id: textField
-      height: fontMetrics.height + 20
-      topPadding: 10
-      bottomPadding: 10
-      rightPadding: 0
-      leftPadding: enabled ? 5 : 0
-      width: parent.width - decreaseButton.width - increaseButton.width
+      leftPadding: isEnabled || (!isEditable && isEditing) ? 10 : 0
+      width: parent.width - decreaseButton.width - increaseButton.width - parent.spacing * 2
+      visible: isEditing
 
       font: Theme.defaultFont
-      color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
 
-      text: value !== undefined ? value : ''
+      text: isNull ? '' : value
 
       validator: doubleValidator
 
       inputMethodHints: Qt.ImhFormattedNumbersOnly
 
-      background: Rectangle {
-        implicitWidth: 120
-        color: "transparent"
-
-        Rectangle {
-          y: textField.height - height - textField.bottomPadding / 2
-          width: textField.width
-          height: textField.activeFocus ? 2 : 1
-          color: textField.activeFocus ? Theme.accentColor : Theme.accentLightColor
-        }
-      }
+      background.visible: isEnabled || (!isEditable && isEditing)
 
       onTextChanged: {
         if (text === '' || !isNaN(parseFloat(text))) {
@@ -190,11 +200,22 @@ EditorWidgetBase {
       width: sliderRow.width / 4
       height: fontMetrics.height + 20
       elide: Text.ElideRight
-      text: value !== undefined && value != '' ? Number(slider.value).toFixed(rangeItem.precision).toLocaleString() + rangeItem.suffix : ''
+      text: {
+        const formattedValue = Number(slider.value).toFixed(rangeItem.precision).toLocaleString() + rangeItem.suffix;
+        if (isEditing) {
+          return (!isNull && !isEmpty) ? formattedValue : '';
+        }
+        if (isEmpty) {
+          return qsTr("Empty");
+        } else if (isNull) {
+          return qsTr("NULL");
+        }
+        return formattedValue;
+      }
       verticalAlignment: Text.AlignVCenter
       horizontalAlignment: Text.AlignLeft
       font: Theme.defaultFont
-      color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
     }
 
     QfSlider {
@@ -215,15 +236,6 @@ EditorWidgetBase {
         }
       }
     }
-  }
-
-  Rectangle {
-    y: sliderRow.height - height
-    visible: widgetStyle === "Slider"
-    width: sliderRow.width
-    implicitWidth: 120
-    height: slider.activeFocus ? 2 : 1
-    color: slider.activeFocus ? Theme.accentColor : Theme.accentLightColor
   }
 
   FontMetrics {

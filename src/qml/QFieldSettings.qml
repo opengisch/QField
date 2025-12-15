@@ -14,6 +14,7 @@ Page {
   property alias currentPanel: bar.currentIndex
 
   property alias showScaleBar: registry.showScaleBar
+  property alias showZoomControls: registry.showZoomControls
   property alias fullScreenIdentifyView: registry.fullScreenIdentifyView
   property alias locatorKeepScale: registry.locatorKeepScale
   property alias autoOpenFormSingleIdentify: registry.autoOpenFormSingleIdentify
@@ -53,6 +54,7 @@ Page {
   Settings {
     id: registry
     property bool showScaleBar: true
+    property bool showZoomControls: false
     property bool fullScreenIdentifyView: false
     property bool locatorKeepScale: false
     property bool autoOpenFormSingleIdentify: false
@@ -99,6 +101,12 @@ Page {
       isVisible: true
     }
     ListElement {
+      title: qsTr("Show zoom controls")
+      description: ''
+      settingAlias: "showZoomControls"
+      isVisible: true
+    }
+    ListElement {
       title: qsTr("Show bookmarks")
       description: qsTr("When switched on, user's saved and currently opened project bookmarks will be displayed on the map.")
       settingAlias: "showBookmarks"
@@ -118,12 +126,6 @@ Page {
       title: qsTr("Show digitizing information")
       description: qsTr("When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.")
       settingAlias: "numericalDigitizingInformation"
-      isVisible: true
-    }
-    ListElement {
-      title: qsTr("Fast editing mode")
-      description: qsTr("If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.")
-      settingAlias: "autoSave"
       isVisible: true
     }
     ListElement {
@@ -158,9 +160,15 @@ Page {
   ListModel {
     id: interfaceSettingsModel
     ListElement {
-      title: qsTr("Maximized attribute form")
+      title: qsTr("Maximize feature form")
       description: ''
       settingAlias: "fullScreenIdentifyView"
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr("Open feature form for single feature identification")
+      description: qsTr("When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.")
+      settingAlias: "autoOpenFormSingleIdentify"
       isVisible: true
     }
     ListElement {
@@ -169,20 +177,20 @@ Page {
       settingAlias: "locatorKeepScale"
       isVisible: true
     }
-    ListElement {
-      title: qsTr("Automatically open form for single feature identification")
-      description: qsTr("When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.")
-      settingAlias: "autoOpenFormSingleIdentify"
-      isVisible: true
-    }
   }
 
   ListModel {
     id: advancedSettingsModel
     ListElement {
       title: qsTr("Render preview content around visible map canvas")
-      description: qsTr("If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning")
+      description: qsTr("If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.")
       settingAlias: "previewJobsEnabled"
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr("Enable auto-save mode")
+      description: qsTr("If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.")
+      settingAlias: "autoSave"
       isVisible: true
     }
     ListElement {
@@ -322,18 +330,11 @@ Page {
               Label {
                 text: qsTr('Map Canvas')
                 font: Theme.strongFont
-                color: Theme.mainColor
+                color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
                 Layout.topMargin: 5
                 Layout.columnSpan: 2
-              }
-
-              Rectangle {
-                Layout.fillWidth: true
-                Layout.columnSpan: 2
-                height: 1
-                color: Theme.mainColor
               }
             }
 
@@ -351,6 +352,7 @@ Page {
               Layout.fillWidth: true
               Layout.leftMargin: 20
               Layout.rightMargin: 20
+              Layout.bottomMargin: 0
 
               columns: 2
               columnSpacing: 0
@@ -366,7 +368,7 @@ Page {
                 wrapMode: Text.WordWrap
               }
 
-              ComboBox {
+              QfComboBox {
                 id: renderingQualityComboBox
                 enabled: true
                 Layout.fillWidth: true
@@ -426,18 +428,11 @@ Page {
               Label {
                 text: qsTr('Digitizing & Editing')
                 font: Theme.strongFont
-                color: Theme.mainColor
+                color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
-                Layout.topMargin: 5
+                Layout.topMargin: 10
                 Layout.columnSpan: 2
-              }
-
-              Rectangle {
-                Layout.fillWidth: true
-                Layout.columnSpan: 2
-                height: 1
-                color: Theme.mainColor
               }
             }
 
@@ -455,26 +450,20 @@ Page {
               Layout.fillWidth: true
               Layout.leftMargin: 20
               Layout.rightMargin: 20
+              Layout.bottomMargin: 0
 
               columns: 2
               columnSpacing: 0
-              rowSpacing: 5
+              rowSpacing: 0
 
               Label {
                 text: qsTr('User Interface')
                 font: Theme.strongFont
-                color: Theme.mainColor
+                color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
                 Layout.topMargin: 5
                 Layout.columnSpan: 2
-              }
-
-              Rectangle {
-                Layout.fillWidth: true
-                Layout.columnSpan: 2
-                height: 1
-                color: Theme.mainColor
               }
 
               Label {
@@ -552,12 +541,12 @@ Page {
               Layout.fillWidth: true
               Layout.leftMargin: 20
               Layout.rightMargin: 20
-              Layout.topMargin: 5
               Layout.bottomMargin: 5
+              Layout.topMargin: 5
 
               columns: 1
               columnSpacing: 0
-              rowSpacing: 0
+              rowSpacing: 5
 
               visible: platformUtilities.capabilities & PlatformUtilities.AdjustBrightness
 
@@ -573,7 +562,7 @@ Page {
               QfSlider {
                 id: slider
                 Layout.fillWidth: true
-                value: settings ? settings.value('dimTimeoutSeconds', 40) : 40
+                value: settings ? settings.value('dimTimeoutSeconds', 60) : 60
                 from: 0
                 to: 180
                 stepSize: 10
@@ -600,12 +589,12 @@ Page {
               Layout.fillWidth: true
               Layout.leftMargin: 20
               Layout.rightMargin: 20
+              Layout.bottomMargin: 10
               Layout.topMargin: 5
-              Layout.bottomMargin: 40
 
               columns: 1
               columnSpacing: 0
-              rowSpacing: 5
+              rowSpacing: 10
 
               Label {
                 Layout.fillWidth: true
@@ -616,7 +605,7 @@ Page {
                 wrapMode: Text.WordWrap
               }
 
-              ComboBox {
+              QfComboBox {
                 id: appearanceComboBox
                 enabled: true
                 Layout.fillWidth: true
@@ -669,7 +658,7 @@ Page {
                 wrapMode: Text.WordWrap
               }
 
-              ComboBox {
+              QfComboBox {
                 id: fontScaleComboBox
                 enabled: true
                 Layout.fillWidth: true
@@ -738,7 +727,7 @@ Page {
                 wrapMode: Text.WordWrap
               }
 
-              ComboBox {
+              QfComboBox {
                 id: languageComboBox
                 enabled: true
                 Layout.fillWidth: true
@@ -799,18 +788,11 @@ Page {
               Label {
                 text: qsTr('Advanced')
                 font: Theme.strongFont
-                color: Theme.mainColor
+                color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
                 Layout.topMargin: 5
                 Layout.columnSpan: 2
-              }
-
-              Rectangle {
-                Layout.fillWidth: true
-                Layout.columnSpan: 2
-                height: 1
-                color: Theme.mainColor
               }
             }
 
@@ -873,7 +855,7 @@ Page {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
 
-                ComboBox {
+                QfComboBox {
                   id: positioningDeviceComboBox
                   Layout.fillWidth: true
                   Layout.alignment: Qt.AlignVCenter
@@ -950,11 +932,18 @@ Page {
                     onClicked: positioningDeviceComboBox.popup.open()
                   }
 
+                  Connections {
+                    target: positionSource
+
+                    function onDeviceIdChanged() {
+                      verticalGridShiftComboBox.reload();
+                    }
+                  }
+
                   onCurrentIndexChanged: {
                     var modelIndex = positioningDeviceModel.index(currentIndex, 0);
                     positioningSettings.positioningDevice = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceId);
                     positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
-                    verticalGridShiftComboBox.reload();
                   }
 
                   Component.onCompleted: {
@@ -1086,7 +1075,7 @@ Page {
                 wrapMode: Text.WordWrap
               }
 
-              ComboBox {
+              QfComboBox {
                 id: measureComboBox
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
@@ -1170,9 +1159,7 @@ Page {
                 enabled: accuracyIndicator.checked
                 visible: accuracyIndicator.checked
                 horizontalAlignment: TextInput.AlignHCenter
-                Layout.preferredWidth: 60
-                Layout.preferredHeight: font.height + 20
-
+                Layout.preferredWidth: width
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 validator: DoubleValidator {
                   locale: 'C'
@@ -1209,9 +1196,7 @@ Page {
                 enabled: accuracyIndicator.checked
                 visible: accuracyIndicator.checked
                 horizontalAlignment: TextInput.AlignHCenter
-                Layout.preferredWidth: 60
-                Layout.preferredHeight: font.height + 20
-
+                Layout.preferredWidth: width
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 validator: DoubleValidator {
                   locale: 'C'
@@ -1319,9 +1304,7 @@ Page {
                 enabled: averagedPositioning.checked
                 visible: averagedPositioning.checked
                 horizontalAlignment: TextInput.AlignHCenter
-                Layout.preferredWidth: 60
-                Layout.preferredHeight: font.height + 20
-
+                Layout.preferredWidth: width
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 validator: IntValidator {
                   locale: 'C'
@@ -1424,9 +1407,7 @@ Page {
                 width: antennaHeightActivated.width
                 font: Theme.defaultFont
                 horizontalAlignment: TextInput.AlignHCenter
-                Layout.preferredWidth: 60
-                Layout.preferredHeight: font.height + 20
-
+                Layout.preferredWidth: width
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 validator: DoubleValidator {
                   locale: 'C'
@@ -1507,7 +1488,7 @@ Page {
                 Layout.columnSpan: 2
               }
 
-              ComboBox {
+              QfComboBox {
                 id: verticalGridShiftComboBox
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
@@ -1546,11 +1527,12 @@ Page {
                       "text": qsTr("None"),
                       "value": Positioning.ElevationCorrectionMode.None
                     });
-                  if (positionSource.deviceCapabilities & AbstractGnssReceiver.OrthometricAltitude)
+                  if ((positionSource.deviceCapabilities & AbstractGnssReceiver.OrthometricAltitude) != 0) {
                     verticalGridShiftComboBox.model.append({
                         "text": qsTr("Orthometric from device"),
                         "value": Positioning.ElevationCorrectionMode.OrthometricFromDevice
                       });
+                  }
 
                   // Add geoid files to combobox
                   var geoidFiles = platformUtilities.availableGrids();
@@ -1563,7 +1545,7 @@ Page {
                     verticalGridShiftComboBox.currentIndex = indexOfValue(positioningSettings.elevationCorrectionMode);
                     positioningSettings.verticalGrid = "";
                   } else if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromDevice) {
-                    if (positionSource.deviceCapabilities & AbstractGnssReceiver.OrthometricAltitude)
+                    if ((positionSource.deviceCapabilities & AbstractGnssReceiver.OrthometricAltitude) != 0)
                       verticalGridShiftComboBox.currentIndex = verticalGridShiftComboBox.indexOfValue(positioningSettings.elevationCorrectionMode);
                     else
                       // Orthometric not available -> fallback to None

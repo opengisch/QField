@@ -369,58 +369,6 @@ public class QFieldActivity extends QtActivity {
         });
     }
 
-    @SuppressWarnings("deprecation")
-    private Insets getSafeInsets() {
-        // TODO when updating to Qt >= 6.9, rely on safeAreaMargins
-        View decorView = getWindow().getDecorView();
-        WindowInsets insets = decorView.getRootWindowInsets();
-        Insets safeInsets;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            int types = WindowInsets.Type.displayCutout() |
-                        WindowInsets.Type.systemBars();
-            safeInsets = insets.getInsets(types);
-        } else {
-            int left = 0;
-            int top = 0;
-            int right = 0;
-            int bottom = 0;
-            int visibility = decorView.getSystemUiVisibility();
-            if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
-                left = insets.getSystemWindowInsetLeft();
-                top = insets.getSystemWindowInsetTop();
-                right = insets.getSystemWindowInsetRight();
-                bottom = insets.getSystemWindowInsetBottom();
-            }
-            // Android 9 and 10 emulators don't seem to be able
-            // to handle this, but let's have the logic here anyway
-            DisplayCutout cutout = insets.getDisplayCutout();
-            if (cutout != null) {
-                left = Math.max(left, cutout.getSafeInsetLeft());
-                top = Math.max(top, cutout.getSafeInsetTop());
-                right = Math.max(right, cutout.getSafeInsetRight());
-                bottom = Math.max(bottom, cutout.getSafeInsetBottom());
-            }
-            safeInsets = Insets.of(left, top, right, bottom);
-        }
-        return safeInsets;
-    }
-
-    private double topMargin() {
-        return getSafeInsets().top;
-    }
-
-    private double bottomMargin() {
-        return getSafeInsets().bottom;
-    }
-
-    private double leftMargin() {
-        return getSafeInsets().left;
-    }
-
-    private double rightMargin() {
-        return getSafeInsets().right;
-    }
-
     private void dimBrightness() {
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         originalBrightness = lp.screenBrightness;
@@ -503,9 +451,10 @@ public class QFieldActivity extends QtActivity {
         File primaryExternalFilesDir = getExternalFilesDir(null);
         if (primaryExternalFilesDir != null) {
             String dataDir = primaryExternalFilesDir.getAbsolutePath() + "/";
-            // create import directories
+            // create import and creation directories
             new File(dataDir + "Imported Datasets/").mkdir();
             new File(dataDir + "Imported Projects/").mkdir();
+            new File(dataDir + "Created Projects/").mkdir();
 
             dataDir = dataDir + "QField/";
             // create QField directories

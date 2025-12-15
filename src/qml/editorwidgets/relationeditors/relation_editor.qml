@@ -70,9 +70,11 @@ RelationEditorBase {
             if (referencingFeatureListModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null && referencingFeatureListModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Unknown) {
               geometryHighlighter.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry;
               geometryHighlighter.geometryWrapper.crs = referencingFeatureListModel.relation.referencingLayer.crs;
-              mapCanvas.mapSettings.setExtent(FeatureUtils.extent(mapCanvas.mapSettings, referencingFeatureListModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature), true);
+              const extentRect = FeatureUtils.extent(mapCanvas.mapSettings, referencingFeatureListModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature);
+              const scale = mapCanvas.mapSettings.computeScaleForExtent(extentRect, true);
+              relationEditor.requestJumpToPoint(extentRect.center, scale, true);
             } else {
-              viewButton.onClicked();
+              viewButton.click();
             }
           }
         }
@@ -92,7 +94,7 @@ RelationEditorBase {
           topPadding: 5
           bottomPadding: 5
           font: Theme.defaultFont
-          color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
+          color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
           elide: Text.ElideRight
           wrapMode: Text.WordWrap
           text: nmRelationId ? model.nmDisplayString : model.displayString
@@ -110,6 +112,7 @@ RelationEditorBase {
           bgcolor: 'transparent'
 
           onClicked: {
+            ensureEmbeddedFormLoaded();
             embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
             embeddedPopup.currentLayer = nmRelationId ? referencingFeatureListModel.nmRelation.referencedLayer : referencingFeatureListModel.relation.referencingLayer;
             embeddedPopup.linkedRelation = referencingFeatureListModel.relation;
@@ -139,15 +142,6 @@ RelationEditorBase {
             childMenu.popup(menuButton.x, menuButton.y);
           }
         }
-      }
-
-      //bottom line
-      Rectangle {
-        id: bottomLine
-        anchors.bottom: parent.bottom
-        height: 1
-        color: Theme.controlBorderColor
-        width: parent.width
       }
     }
   }

@@ -35,8 +35,7 @@ PluginModel::PluginModel( PluginManager *manager, QObject *parent )
 
 int PluginModel::rowCount( const QModelIndex &parent ) const
 {
-  Q_UNUSED( parent );
-  return mPlugins.count();
+  return !parent.isValid() ? static_cast<int>( mPlugins.count() ) : 0;
 }
 
 QVariant PluginModel::data( const QModelIndex &index, int role ) const
@@ -228,7 +227,8 @@ void PluginModel::insertPluginsInformation( QMap<QString, PluginInformation> &pl
 
   for ( const PluginInformation &newPluginInformation : pluginsInformation )
   {
-    beginInsertRows( QModelIndex(), mPlugins.size(), mPlugins.size() );
+    const int index = static_cast<int>( mPlugins.size() );
+    beginInsertRows( QModelIndex(), index, index );
     mPlugins.append( newPluginInformation );
     endInsertRows();
   }

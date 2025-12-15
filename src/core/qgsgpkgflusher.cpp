@@ -23,6 +23,8 @@
 #include <QTimer>
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
+#include <qgsprovidermetadata.h>
+#include <qgsproviderregistry.h>
 #include <qgsvectorlayer.h>
 
 #include <sqlite3.h>
@@ -88,27 +90,14 @@ void QgsGpkgFlusher::onLayersAdded( const QList<QgsMapLayer *> &layers )
     if ( vl && vl->dataProvider() )
     {
       QString dataSourceUri = vl->dataProvider()->dataSourceUri();
-
-      QString filePath;
-      if ( dataSourceUri.contains( QStringLiteral( ".sqlite" ), Qt::CaseInsensitive ) )
+      QgsProviderMetadata *metadata = QgsProviderRegistry::instance()->providerMetadata( vl->dataProvider()->name() );
+      const QString filePath = metadata->decodeUri( dataSourceUri ).value( QStringLiteral( "path" ) ).toString();
+      if ( !filePath.endsWith( QStringLiteral( ".gpkg" ), Qt::CaseInsensitive ) && !filePath.endsWith( QStringLiteral( ".sqlite" ), Qt::CaseInsensitive ) )
       {
-        //sqlite source
-        QRegularExpression re( ".*dbname='(?<filepath>[^']*).*" );
-        QRegularExpressionMatch match = re.match( dataSourceUri );
-        if ( match.hasMatch() )
-          filePath = match.captured( QStringLiteral( "filepath" ) );
-      }
-      else if ( dataSourceUri.contains( QStringLiteral( ".gpkg" ), Qt::CaseInsensitive ) )
-      {
-        //gpkg source
-        filePath = dataSourceUri.left( dataSourceUri.indexOf( '|' ) );
-      }
-      else
-      {
-        //other source (e.g. postgres or shape)
         continue;
       }
-      QFileInfo fi( filePath );
+
+      const QFileInfo fi( filePath );
       if ( fi.isFile() )
       {
         connect( vl, &QgsVectorLayer::editingStopped, [this, filePath]() { emit requestFlush( filePath ); } );
@@ -163,6 +152,8 @@ void Flusher::flush( const QString &filename )
   if ( status != SQLITE_OK )
   {
     QgsMessageLog::logMessage( QObject::tr( "There was an error opening the database <b>%1</b>: %2" ).arg( filename, db.errorMessage() ) );
+    if ( !QFileInfo::exists( filename ) )
+      return;
   }
 
   QString error;

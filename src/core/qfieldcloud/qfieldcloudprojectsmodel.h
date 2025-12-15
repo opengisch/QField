@@ -48,6 +48,10 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     //! Returns TRUE whether the model is being refreshed
     Q_PROPERTY( bool isRefreshing READ isRefreshing NOTIFY isRefreshingChanged )
+
+    //! Returns TRUE whether the model is creating a project
+    Q_PROPERTY( bool isCreating READ isCreating NOTIFY isCreatingChanged )
+
     //! Currently busy project ids.
     Q_PROPERTY( QSet<QString> busyProjectIds READ busyProjectIds NOTIFY busyProjectIdsChanged )
 
@@ -76,9 +80,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       DownloadSizeRole,
       PackagingStatusRole,
       PackagedLayerErrorsRole,
-      UploadDeltaProgressRole,
-      UploadDeltaStatusRole,
-      UploadDeltaStatusStringRole,
+      PushDeltaProgressRole,
+      PushDeltaStatusRole,
+      PushDeltaStatusStringRole,
       LocalDeltasCountRole,
       LocalPathRole,
       LastLocalExportedAtRole,
@@ -94,7 +98,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       FetchPublicProjects = QNetworkRequest::User + 1,
       ProjectsFetchOffset = QNetworkRequest::User + 2,
       ResetModel = QNetworkRequest::User + 3,
-      ProjectId = QNetworkRequest::User + 4
+      ProjectId = QNetworkRequest::User + 4,
     };
 
     Q_ENUM( ColumnRole )
@@ -115,6 +119,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     //! Returns TRUE whether the model is being refreshed
     bool isRefreshing() const { return mIsRefreshing; }
+
+    //! Returns TRUE whether the model is being refreshed
+    bool isCreating() const { return mIsCreating; }
 
     //! Returns the cloud project id of the currently opened project.
     QString currentProjectId() const;
@@ -143,7 +150,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     Q_INVOKABLE void refreshProjectsList( bool shouldResetModel = true, bool shouldFetchPublic = false, int projectFetchOffset = 0 );
 
     //! Pushes all local deltas for given \a projectId. If \a shouldDownloadUpdates is true, also calls `downloadProject`.
-    Q_INVOKABLE void projectUpload( const QString &projectId, const bool shouldDownloadUpdates );
+    Q_INVOKABLE void projectPush( const QString &projectId, const bool shouldDownloadUpdates );
 
     //! Retreives the delta list for a given \a projectId.
     Q_INVOKABLE void refreshProjectDeltaList( const QString &projectId );
@@ -156,12 +163,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     //! Discards the delta records of the current cloud project.
     Q_INVOKABLE bool discardLocalChangesFromCurrentProject();
-
-    //! Updates the project modification for given \a projectId.
-    Q_INVOKABLE void refreshProjectModification( const QString &projectId );
-
-    //! Refreshes the project file (.qgs, .qgz) outdated status.
-    Q_INVOKABLE void refreshProjectFileOutdatedStatus( const QString &projectId );
 
     //! Returns the model role names.
     QHash<int, QByteArray> roleNames() const override;
@@ -187,29 +188,43 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Fetches a cloud project for a given \a projectId and appends it to the model.
     Q_INVOKABLE void appendProject( const QString &projectId );
 
+    /**
+     * Transform a locally-stored project into a cloud project by uploading its content to the
+     * QFieldCloud server.
+     *
+     * The converted project will then be removed from the local storage in favor of a newly packaged
+     * cloud project downloaded from the server.
+     */
+    Q_INVOKABLE void createProject( const QString name );
+
   signals:
     void cloudConnectionChanged();
     void layerObserverChanged();
     void isRefreshingChanged();
+    void isCreatingChanged();
     void currentProjectIdChanged();
     void currentProjectChanged();
     void busyProjectIdsChanged();
     void gpkgFlusherChanged();
     void warning( const QString &message );
 
+    void projectCreated( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
     void projectAppended( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
     void projectDownloaded( const QString &projectId, const QString &projectName, const bool hasError = false, const QString &errorString = QString() );
     void pushFinished( const QString &projectId, bool isDownloadingProject, bool hasError = false, const QString &errorString = QString() );
 
     void deltaListModelChanged();
 
+    void projectUploaded( const QString &projectId );
+
   private slots:
     void connectionStatusChanged();
     void usernameChanged();
+    void urlChanged();
+
     void projectListReceived();
     void projectReceived();
-
-    void layerObserverLayerEdited( const QString &layerId );
+    void projectCreationReceived();
 
   private:
     void setupProjectConnections( QFieldCloudProject *project );
@@ -218,6 +233,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     void loadProjects( const QJsonArray &remoteProjects = QJsonArray(), bool skipLocalProjects = false );
     void insertProjects( const QList<QFieldCloudProject *> &projects );
+    void resetProjects();
 
     inline QString layerFileName( const QgsMapLayer *layer ) const;
 
@@ -225,6 +241,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     QFieldCloudConnection *mCloudConnection = nullptr;
 
     bool mIsRefreshing = false;
+    bool mIsCreating = false;
 
     QString mCurrentProjectId;
     QPointer<QFieldCloudProject> mCurrentProject;
@@ -232,6 +249,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     LayerObserver *mLayerObserver = nullptr;
     QgsGpkgFlusher *mGpkgFlusher = nullptr;
     QString mUsername;
+    QString mUrl;
+
     const int mProjectsPerFetch = 250;
 };
 

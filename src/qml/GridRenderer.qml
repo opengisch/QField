@@ -10,34 +10,46 @@ Item {
   id: gridRenderer
 
   property alias enabled: gridModel.enabled
+  /// type:QgsQuickMapSettings
   property alias mapSettings: gridModel.mapSettings
+  property alias indeterminate: gridModel.indeterminate
 
   property alias xInterval: gridModel.xInterval
   property alias yInterval: gridModel.yInterval
   property alias xOffset: gridModel.xOffset
   property alias yOffset: gridModel.yOffset
 
+  property alias autoColor: gridModel.autoColor
+  property alias majorLineColor: gridModel.majorLineColor
+  property alias minorLineColor: gridModel.minorLineColor
+  property alias markerColor: gridModel.markerColor
+
+  property alias annotationColor: gridModel.annotationColor
+  property alias annotationOutlineColor: gridModel.annotationOutlineColor
+  property alias annotationHasOutline: gridModel.annotationHasOutline
+  property alias annotationPrecision: gridModel.annotationPrecision
+
   property alias prepareLines: gridModel.prepareLines
-  property color lineColor: "#000000"
-
   property alias prepareMarkers: gridModel.prepareMarkers
-  property color markerColor: "#000000"
-
   property alias prepareAnnotations: gridModel.prepareAnnotations
-  property int annotationPrecision: 0
-  property color annotationColor: "#000000"
-  property bool annotationHasOutline: false
-  property color annotationOutlineColor: "#ffffff"
 
   GridModel {
     id: gridModel
 
-    onLinesChanged: {
+    onMajorLinesChanged: {
       let svgPath = "";
-      for (const line of lines) {
+      for (const line of majorLines) {
         svgPath += "M " + (line[0].x) + " " + (line[0].y) + " L " + (line[1].x) + " " + (line[1].y) + " ";
       }
-      lineSvgPath.path = svgPath;
+      majorLineSvgPath.path = svgPath;
+    }
+
+    onMinorLinesChanged: {
+      let svgPath = "";
+      for (const line of minorLines) {
+        svgPath += "M " + (line[0].x) + " " + (line[0].y) + " L " + (line[1].x) + " " + (line[1].y) + " ";
+      }
+      minorLineSvgPath.path = svgPath;
     }
 
     onMarkersChanged: {
@@ -50,13 +62,13 @@ Item {
   }
 
   Shape {
-    id: linesContainer
-    visible: gridModel.lines.length > 0
+    id: minorLinesContainer
+    visible: gridModel.prepareLines && gridModel.minorLines.length > 0
     anchors.fill: parent
 
     ShapePath {
-      id: linesPath
-      strokeColor: lineColor
+      id: minorLinesPath
+      strokeColor: minorLineColor
       strokeWidth: 1
       strokeStyle: ShapePath.SolidLine
       fillColor: "transparent"
@@ -64,7 +76,28 @@ Item {
       capStyle: ShapePath.RoundCap
 
       PathSvg {
-        id: lineSvgPath
+        id: minorLineSvgPath
+        path: ""
+      }
+    }
+  }
+
+  Shape {
+    id: majorLinesContainer
+    visible: gridModel.prepareLines && gridModel.majorLines.length > 0
+    anchors.fill: parent
+
+    ShapePath {
+      id: majorLinesPath
+      strokeColor: majorLineColor
+      strokeWidth: 1
+      strokeStyle: ShapePath.SolidLine
+      fillColor: "transparent"
+      joinStyle: ShapePath.RoundJoin
+      capStyle: ShapePath.RoundCap
+
+      PathSvg {
+        id: majorLineSvgPath
         path: ""
       }
     }
@@ -72,7 +105,7 @@ Item {
 
   Shape {
     id: markersContainer
-    visible: gridModel.markers.length > 0
+    visible: gridModel.prepareMarkers && gridModel.markers.length > 0
     anchors.fill: parent
 
     ShapePath {
@@ -102,7 +135,7 @@ Item {
       width: 1
       height: 1
 
-      color: lineColor
+      color: majorLineColor
 
       Text {
         id: annotation

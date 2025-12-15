@@ -18,6 +18,7 @@
 #include "expressioncontextutils.h"
 #include "featuremodel.h"
 #include "layerutils.h"
+#include "qgsquickmapsettings.h"
 #include "vertexmodel.h"
 
 #include <QJSValue>
@@ -143,7 +144,11 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
       const QgsEditFormConfig config = mLayer->editFormConfig();
       for ( int i = 0; i < layer->fields().size(); i++ )
       {
+#if _QGIS_VERSION_INT >= 39900
+        ( *sRememberings )[mLayer].rememberedAttributes << ( config.reuseLastValuePolicy( i ) == Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOn );
+#else
         ( *sRememberings )[mLayer].rememberedAttributes << config.reuseLastValue( i );
+#endif
       }
     }
 
@@ -284,6 +289,7 @@ void FeatureModel::setLinkedFeatureValues()
 {
   beginResetModel();
   mLinkedAttributeIndexes.clear();
+
   const bool parentFeatureIsNew = std::numeric_limits<QgsFeatureId>::min() == mLinkedParentFeature.id();
   const QList<QgsRelation::FieldPair> fieldPairs = mLinkedRelation.fieldPairs();
   for ( QgsRelation::FieldPair fieldPair : fieldPairs )
@@ -298,8 +304,22 @@ void FeatureModel::setLinkedFeatureValues()
     }
     mLinkedAttributeIndexes.append( mFeature.fieldNameIndex( fieldPair.first ) );
   }
-  endResetModel();
 
+  switch ( mLinkedRelation.type() )
+  {
+    case Qgis::RelationshipType::Generated:
+    {
+      const QgsPolymorphicRelation linkedPolymorphicRelation = mLinkedRelation.polymorphicRelation();
+      mFeature.setAttribute( linkedPolymorphicRelation.referencedLayerField(), linkedPolymorphicRelation.layerRepresentation( mLinkedRelation.referencedLayer() ) );
+      mLinkedAttributeIndexes.append( mFeature.fieldNameIndex( linkedPolymorphicRelation.referencedLayerField() ) );
+      break;
+    }
+
+    case Qgis::RelationshipType::Normal:
+      break;
+  }
+
+  endResetModel();
   emit featureChanged();
 }
 
@@ -450,7 +470,15 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
         ( *sRememberings )[mLayer].rememberedAttributes[index.row()] = value.toBool();
 
         QgsEditFormConfig config = mLayer->editFormConfig();
+#if _QGIS_VERSION_INT >= 39900
+        if ( config.reuseLastValuePolicy( index.row() ) == Qgis::AttributeFormReuseLastValuePolicy::NotAllowed )
+        {
+          return false;
+        }
+        config.setReuseLastValuePolicy( index.row(), value.toBool() ? Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOn : Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOff );
+#else
         config.setReuseLastValue( index.row(), value.toBool() );
+#endif
         mLayer->setEditFormConfig( config );
 
         emit dataChanged( index, index, QVector<int>() << role );
@@ -703,11 +731,7 @@ bool FeatureModel::suppressFeatureForm() const
   if ( !mLayer )
     return false;
 
-#if _QGIS_VERSION_INT >= 33100
   return mLayer->editFormConfig().suppress() == Qgis::AttributeFormSuppression::On;
-#else
-  return mLayer->editFormConfig().suppress() == QgsEditFormConfig::FeatureFormSuppress::SuppressOn;
-#endif
 }
 
 void FeatureModel::resetFeature()
@@ -822,6 +846,29 @@ bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
         continue;
       }
 
+      if ( mLayer )
+      {
+        if ( mLayer->editFormConfig().readOnly( idx ) )
+        {
+          // Skip attributes that are marked as read-only
+          continue;
+        }
+
+        QgsProperty property = mLayer->editFormConfig().dataDefinedFieldProperties( field.name() ).property( QgsEditFormConfig::DataDefinedProperty::Editable );
+        if ( property.isActive() )
+        {
+          QgsExpression expression( property.asExpression() );
+          QgsExpressionContext expressionContext = createExpressionContext();
+          expressionContext.setFeature( mFeature );
+          expression.prepare( &expressionContext );
+          if ( !expression.evaluate( &expressionContext ).toBool() )
+          {
+            // Skip attributes who's data-defined editable property returns false
+            continue;
+          }
+        }
+      }
+
       if ( setData( index( idx ), feature.attributes()[i], AttributeValue ) )
       {
         updated = true;
@@ -838,65 +885,135 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
 
   QString error;
   QgsGeometry geometry = fromVertexModel ? mVertexModel->geometry() : mGeometry->asQgsGeometry();
-
-  if ( fromVertexModel && mProject && mProject->topologicalEditing() )
+  QgsFeatureIds modifiedFeatureIds;
+  if ( mProject && mProject->topologicalEditing() && fromVertexModel )
   {
-    applyVertexModelTopography();
+    // Overall geometry topology not applied until we conduct further modifications, including overlap avoidance
+    modifiedFeatureIds = applyVertexModelTopography();
   }
 
-  if ( QgsWkbTypes::geometryType( geometry.wkbType() ) == Qgis::GeometryType::Polygon )
+  switch ( QgsWkbTypes::geometryType( geometry.wkbType() ) )
   {
-    if ( !geometry.isGeosValid() )
-    {
-      // Remove any invalid intersection in polygon geometry
-      QgsGeometry sanitizedGeometry;
-      if ( QgsGeometryCollection *collection = qgsgeometry_cast<QgsGeometryCollection *>( geometry.get() ) )
+    case Qgis::GeometryType::Polygon:
+      if ( !geometry.isGeosValid() )
       {
-        QgsGeometryPartIterator parts = collection->parts();
-        while ( parts.hasNext() )
+        // Remove any invalid intersection in polygon geometry
+        QgsGeometry sanitizedGeometry;
+        if ( const QgsGeometryCollection *collection = qgsgeometry_cast<const QgsGeometryCollection *>( geometry.constGet() ) )
         {
-          QgsGeometry part( parts.next() );
-          sanitizedGeometry.addPartV2( part.buffer( 0.0, 5 ).constGet()->clone(), Qgis::WkbType ::Polygon );
+          QgsGeometryConstPartIterator parts = collection->parts();
+          while ( parts.hasNext() )
+          {
+            QgsGeometry part( parts.next()->clone() );
+            sanitizedGeometry.addPartV2( part.buffer( 0.0, 5 ).constGet()->clone(), Qgis::WkbType ::Polygon );
+          }
+        }
+        else if ( qgsgeometry_cast<const QgsCurvePolygon *>( geometry.constGet() ) )
+        {
+          sanitizedGeometry = geometry.buffer( 0.0, 5 );
+        }
+
+        if ( !sanitizedGeometry.isNull() && sanitizedGeometry.constGet()->isValid( error ) )
+        {
+          geometry = sanitizedGeometry;
+        }
+
+        // PSA: calling makeValid() wipes out M values
+        geometry = geometry.makeValid();
+      }
+
+      if ( mProject )
+      {
+        QList<QgsVectorLayer *> intersectionLayers;
+        switch ( mProject->avoidIntersectionsMode() )
+        {
+          case Qgis::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
+            intersectionLayers.append( mLayer );
+            break;
+          case Qgis::AvoidIntersectionsMode::AvoidIntersectionsLayers:
+            intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
+            break;
+          case Qgis::AvoidIntersectionsMode::AllowIntersections:
+            break;
+        }
+        if ( !intersectionLayers.isEmpty() )
+        {
+          if ( mFeature.id() != FID_NULL )
+          {
+            if ( !modifiedFeatureIds.contains( mFeature.id() ) )
+            {
+              modifiedFeatureIds << mFeature.id();
+            }
+          }
+
+          QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
+          ignoredFeature.insert( mLayer, modifiedFeatureIds );
+          geometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
+
+          if ( fromVertexModel && !modifiedFeatureIds.isEmpty() )
+          {
+            if ( !modifiedFeatureIds.contains( mFeature.id() ) || modifiedFeatureIds.size() >= 2 )
+            {
+              mLayer->startEditing();
+
+              if ( mFeature.id() != FID_NULL )
+              {
+                modifiedFeatureIds.remove( mFeature.id() );
+              }
+
+              QgsFeature modifiedFeature;
+              const QgsFeatureRequest request = QgsFeatureRequest().setFilterFids( modifiedFeatureIds );
+              QgsFeatureIterator it = mLayer->getFeatures( modifiedFeatureIds );
+              while ( it.nextFeature( modifiedFeature ) )
+              {
+                QgsGeometry modifiedGeometry = modifiedFeature.geometry();
+                if ( !modifiedGeometry.isGeosValid() )
+                {
+                  // PSA: calling makeValid() wipes out M values
+                  modifiedGeometry = modifiedGeometry.makeValid();
+                }
+                Qgis::GeometryOperationResult result = modifiedGeometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
+                if ( result != Qgis::GeometryOperationResult::NothingHappened )
+                {
+                  if ( QgsWkbTypes::isMultiType( modifiedGeometry.wkbType() ) && !QgsWkbTypes::isMultiType( mLayer->wkbType() ) )
+                  {
+                    QVector<QgsGeometry> modifiedGeometryCollection = modifiedGeometry.asGeometryCollection();
+                    QVector<QgsGeometry>::iterator largestModifiedFeature = std::max_element( modifiedGeometryCollection.begin(), modifiedGeometryCollection.end(), []( const QgsGeometry &a, const QgsGeometry &b ) -> bool {
+                      return a.area() < b.area();
+                    } );
+                    modifiedGeometry = *largestModifiedFeature;
+                    modifiedGeometryCollection.erase( largestModifiedFeature );
+                    for ( QgsGeometry &modifiedGeometryFromCollection : modifiedGeometryCollection )
+                    {
+                      QgsFeature newFeature = QgsVectorLayerUtils::createFeature( mLayer, modifiedGeometryFromCollection, modifiedFeature.attributes().toMap() );
+                      const QString sourcePrimaryKeys = mLayer->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).toString();
+                      if ( !sourcePrimaryKeys.isEmpty() && mLayer->fields().lookupField( sourcePrimaryKeys ) >= 0 )
+                      {
+                        const int sourcePrimaryKeysIndex = mLayer->fields().lookupField( sourcePrimaryKeys );
+                        if ( !mLayer->fields().at( sourcePrimaryKeysIndex ).defaultValueDefinition().isValid() )
+                        {
+                          newFeature.setAttribute( mLayer->fields().lookupField( sourcePrimaryKeys ), QVariant() );
+                        }
+                      }
+                      mLayer->addFeature( newFeature );
+                    }
+                  }
+                  mLayer->changeGeometry( modifiedFeature.id(), modifiedGeometry );
+                }
+              }
+
+              mLayer->commitChanges();
+            }
+          }
         }
       }
-      else if ( QgsCurvePolygon *polygon = qgsgeometry_cast<QgsCurvePolygon *>( geometry.get() ) )
-      {
-        sanitizedGeometry = geometry.buffer( 0.0, 5 );
-      }
+      break;
 
-      if ( !sanitizedGeometry.isNull() && sanitizedGeometry.constGet()->isValid( error ) )
-      {
-        geometry = sanitizedGeometry;
-      }
-
-      // PSA: calling makeValid() wipes out M values
-      geometry = geometry.makeValid();
-    }
-
-    if ( mProject )
-    {
-      QList<QgsVectorLayer *> intersectionLayers;
-      switch ( mProject->avoidIntersectionsMode() )
-      {
-        case Qgis::AvoidIntersectionsMode::AvoidIntersectionsCurrentLayer:
-          intersectionLayers.append( mLayer );
-          break;
-        case Qgis::AvoidIntersectionsMode::AvoidIntersectionsLayers:
-          intersectionLayers = QgsProject::instance()->avoidIntersectionsLayers();
-          break;
-        case Qgis::AvoidIntersectionsMode::AllowIntersections:
-          break;
-      }
-      if ( !intersectionLayers.isEmpty() )
-      {
-        QHash<QgsVectorLayer *, QSet<QgsFeatureId>> ignoredFeature;
-        if ( mFeature.id() != FID_NULL )
-        {
-          ignoredFeature.insert( mLayer, QSet<QgsFeatureId>() << mFeature.id() );
-        }
-        geometry.avoidIntersectionsV2( intersectionLayers, ignoredFeature );
-      }
-    }
+    case Qgis::GeometryType::Line:
+    case Qgis::GeometryType::Point:
+    case Qgis::GeometryType::Unknown:
+    case Qgis::GeometryType::Null:
+      break;
   }
 
   if ( geometry.wkbType() != Qgis::WkbType::Unknown && mLayer && mLayer->geometryOptions()->geometryPrecision() == 0.0 )
@@ -906,6 +1023,11 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
     deduplicatedGeometry.removeDuplicateNodes( 0.00000001 );
     if ( deduplicatedGeometry.constGet()->isValid( error ) )
       geometry = deduplicatedGeometry;
+  }
+
+  if ( mProject && mProject->topologicalEditing() )
+  {
+    applyGeometryTopography( geometry );
   }
 
   mFeature.setGeometry( geometry );
@@ -996,36 +1118,7 @@ bool FeatureModel::create()
     {
       if ( mProject && mProject->topologicalEditing() && !mFeature.geometry().isEmpty() )
       {
-        const double searchRadius = mLayer ? QgsVectorLayerEditUtils::getTopologicalSearchRadius( mLayer ) : 0.0;
-        QgsRectangle bbox = mFeature.geometry().boundingBox();
-        bbox.grow( searchRadius );
-
-        QgsFeature dummyFeature;
-        const QgsFeatureRequest request = QgsFeatureRequest().setNoAttributes().setFlags( Qgis::FeatureRequestFlag::NoGeometry ).setLimit( 1 ).setFilterRect( bbox );
-        const QVector<QgsVectorLayer *> vectorLayers = mProject->layers<QgsVectorLayer *>();
-        for ( QgsVectorLayer *vectorLayer : vectorLayers )
-        {
-          if ( vectorLayer->readOnly() )
-            continue;
-
-          if ( vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ), false ).toBool() )
-            continue;
-
-          if ( vectorLayer != mLayer )
-          {
-            if ( !vectorLayer->getFeatures( request ).nextFeature( dummyFeature ) )
-              continue;
-
-            vectorLayer->startEditing();
-          }
-
-          vectorLayer->addTopologicalPoints( mFeature.geometry() );
-
-          if ( vectorLayer != mLayer )
-          {
-            vectorLayer->commitChanges( true );
-          }
-        }
+        applyGeometryTopography( mFeature.geometry() );
       }
 
       if ( commit() )
@@ -1144,63 +1237,51 @@ void FeatureModel::applyGeometryToVertexModel()
   mVertexModel->setGeometry( mFeature.geometry() );
 }
 
-// a filter to gather all matches at the same place
-// taken from QGIS' qgsvectortool.cpp
-class MatchCollectingFilter : public QgsPointLocator::MatchFilter
+void FeatureModel::applyGeometryTopography( const QgsGeometry &geometry )
 {
-  public:
-    QList<QgsPointLocator::Match> matches;
+  const double searchRadius = mLayer ? QgsVectorLayerEditUtils::getTopologicalSearchRadius( mLayer ) : 0.0;
+  QgsRectangle bbox = geometry.boundingBox();
+  bbox.grow( searchRadius );
 
-    MatchCollectingFilter() {}
+  QgsFeature dummyFeature;
+  const QgsFeatureRequest request = QgsFeatureRequest().setNoAttributes().setFlags( Qgis::FeatureRequestFlag::NoGeometry ).setLimit( 1 ).setFilterRect( bbox );
+  const QVector<QgsVectorLayer *> vectorLayers = mProject->layers<QgsVectorLayer *>();
+  for ( QgsVectorLayer *vectorLayer : vectorLayers )
+  {
+    if ( vectorLayer->readOnly() )
+      continue;
 
-    bool acceptMatch( const QgsPointLocator::Match &match ) override
+    if ( vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() || vectorLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ), false ).toBool() )
+      continue;
+
+    bool requiresCommit = !vectorLayer->editBuffer();
+    if ( vectorLayer != mLayer )
     {
-      if ( match.distance() > 0 )
-        return false;
-
-      // there may be multiple points at the same location, but we get only one
-      // result... the locator API needs a new method verticesInRect()
-      QgsFeature f;
-      match.layer()->getFeatures( QgsFeatureRequest( match.featureId() ).setNoAttributes() ).nextFeature( f );
-      QgsGeometry matchGeom = f.geometry();
-      bool isPolygon = matchGeom.type() == Qgis::GeometryType::Polygon;
-      QgsVertexId polygonRingVid;
-      QgsVertexId vid;
-      QgsPoint pt;
-      while ( matchGeom.constGet()->nextVertex( vid, pt ) )
-      {
-        int vindex = matchGeom.vertexNrFromVertexId( vid );
-        if ( pt.x() == match.point().x() && pt.y() == match.point().y() )
-        {
-          if ( isPolygon )
-          {
-            // for polygons we need to handle the case where the first vertex is matching because the
-            // last point will have the same coordinates and we would have a duplicate match which
-            // would make subsequent code behave incorrectly (topology editing mode would add a single
-            // vertex twice)
-            if ( vid.vertex == 0 )
-            {
-              polygonRingVid = vid;
-            }
-            else if ( vid.ringEqual( polygonRingVid ) && vid.vertex == matchGeom.constGet()->vertexCount( vid.part, vid.ring ) - 1 )
-            {
-              continue;
-            }
-          }
-
-          QgsPointLocator::Match extra_match( match.type(), match.layer(), match.featureId(),
-                                              0, match.point(), vindex );
-          matches.append( extra_match );
-        }
-      }
-      return true;
+      if ( !vectorLayer->getFeatures( request ).nextFeature( dummyFeature ) )
+        continue;
     }
-};
 
-void FeatureModel::applyVertexModelTopography()
+    if ( requiresCommit )
+    {
+      vectorLayer->startEditing();
+    }
+
+    vectorLayer->addTopologicalPoints( geometry );
+
+    if ( requiresCommit )
+    {
+      vectorLayer->commitChanges( true );
+    }
+  }
+}
+
+QgsFeatureIds FeatureModel::applyVertexModelTopography()
 {
+  QgsFeatureIds modifiedFeatureIds;
   if ( !mVertexModel )
-    return;
+  {
+    return modifiedFeatureIds;
+  }
 
   const QVector<QgsPoint> pointsAdded = mVertexModel->verticesAdded();
   const QVector<QPair<QgsPoint, QgsPoint>> pointsMoved = mVertexModel->verticesMoved();
@@ -1227,6 +1308,13 @@ void FeatureModel::applyVertexModelTopography()
     bbox.combineExtentWith( pointBbox );
   }
 
+  QMetaObject::Connection connection = connect( mLayer, &QgsVectorLayer::geometryChanged, this, [&modifiedFeatureIds]( QgsFeatureId fid, const QgsGeometry & ) {
+    if ( !modifiedFeatureIds.contains( fid ) )
+    {
+      modifiedFeatureIds << fid;
+    }
+  } );
+
   QgsFeature dummyFeature;
   const QgsFeatureRequest request = QgsFeatureRequest().setNoAttributes().setFlags( Qgis::FeatureRequestFlag::NoGeometry ).setLimit( 1 ).setFilterRect( bbox );
   const QVector<QgsVectorLayer *> vectorLayers = mProject ? mProject->layers<QgsVectorLayer *>() : QVector<QgsVectorLayer *>() << mLayer;
@@ -1252,29 +1340,31 @@ void FeatureModel::applyVertexModelTopography()
     }
 
     QgsPointLocator loc( vectorLayer );
+    const double tol = QgsTolerance::vertexSearchRadius( vectorLayer, mVertexModel->mapSettings()->mapSettings() );
     for ( const auto &point : pointsMoved )
     {
-      MatchCollectingFilter filter;
-      loc.nearestVertex( point.first, 0, &filter );
-      for ( int i = 0; i < filter.matches.size(); i++ )
+      QgsPointLocator::MatchList matches = loc.verticesInRect( point.first, tol );
+      for ( int i = 0; i < matches.size(); i++ )
       {
-        vectorLayer->moveVertex( point.second, filter.matches.at( i ).featureId(), filter.matches.at( i ).vertexIndex() );
+        vectorLayer->moveVertex( point.second, matches.at( i ).featureId(), matches.at( i ).vertexIndex() );
       }
     }
 
     for ( const auto &point : pointsDeleted )
     {
-      MatchCollectingFilter filter;
-      loc.nearestVertex( point, 0, &filter );
-      for ( int i = 0; i < filter.matches.size(); i++ )
+      QgsPointLocator::MatchList matches = loc.verticesInRect( point, tol );
+      for ( int i = 0; i < matches.size(); i++ )
       {
-        vectorLayer->deleteVertex( filter.matches.at( i ).featureId(), filter.matches.at( i ).vertexIndex() );
+        vectorLayer->deleteVertex( matches.at( i ).featureId(), matches.at( i ).vertexIndex() );
       }
     }
 
-    vectorLayer->addTopologicalPoints( mFeature.geometry() );
     vectorLayer->commitChanges( true );
   }
+
+  disconnect( connection );
+
+  return modifiedFeatureIds;
 }
 
 QVector<bool> FeatureModel::rememberedAttributes() const

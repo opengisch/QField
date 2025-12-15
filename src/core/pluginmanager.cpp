@@ -122,6 +122,9 @@ void PluginManager::unloadPlugin( const QString &pluginPath )
     {
       emit appPluginDisabled( pluginUuid );
     }
+
+    // Clear QML components cache of dynamically loaded items
+    mEngine->clearComponentCache();
   }
 }
 
@@ -219,7 +222,7 @@ void PluginManager::restoreAppPlugins()
   {
     const QString uuid = settings.value( QStringLiteral( "%1/uuid" ).arg( pluginKey ) ).toString();
     const PluginInformation pluginInformation = mPluginModel->pluginInformation( uuid );
-    if ( settings.value( QStringLiteral( "%1/userEnabled" ).arg( pluginKey ), false ).toBool() || pluginInformation.remotelyAvailable )
+    if ( settings.value( QStringLiteral( "%1/userEnabled" ).arg( pluginKey ), false ).toBool() )
     {
       if ( mPluginModel->hasPluginInformation( uuid ) )
       {
@@ -330,7 +333,7 @@ void PluginManager::installFromUrl( const QString &url )
   emit installTriggered( request.url().fileName() );
 
   QNetworkReply *reply = manager->get( request );
-  connect( reply, &QNetworkReply::downloadProgress, this, [this]( int bytesReceived, int bytesTotal ) {
+  connect( reply, &QNetworkReply::downloadProgress, this, [this]( qint64 bytesReceived, qint64 bytesTotal ) {
     if ( bytesTotal != 0 )
     {
       emit installProgress( static_cast<double>( bytesReceived ) / bytesTotal );
@@ -370,7 +373,7 @@ void PluginManager::installFromUrl( const QString &url )
           bool pluginDirectoryWithinZip = false;
           QString pluginDirectoryName;
           QStringList zipFiles = QgsZipUtils::files( filePath );
-          if ( zipFiles.at( 0 ).indexOf( '/' ) >= 0 )
+          if ( !zipFiles.isEmpty() && !zipFiles.contains( "main.qml" ) && zipFiles.at( 0 ).indexOf( '/' ) >= 0 )
           {
             pluginDirectoryName = zipFiles.at( 0 ).mid( 0, zipFiles.at( 0 ).indexOf( '/' ) );
             pluginDirectoryWithinZip = true;

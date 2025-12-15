@@ -22,11 +22,13 @@ Page {
   signal valueChanged(var field, var oldValue, var newValue)
   signal aboutToSave
 
-  signal toolbarSwiped(var direction)
-  signal toolbarClicked
+  signal toolbarDragged(var deltaX, var deltaY)
+  signal toolbarDragAcquired
+  signal toolbarDragReleased
 
   signal requestGeometry(var item, var layer)
   signal requestBarcode(var item)
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
 
   property DigitizingToolbar digitizingToolbar
   property CodeReader codeReader
@@ -40,6 +42,8 @@ Page {
   //setupOnly means data would be neither saved nor cleared (feature creation is handled elsewhere like e.g. in the tracking)
   property bool setupOnly: false
   property bool featureCreated: false
+  property bool isVertical: false
+  property bool isDraggable: false
 
   property double topMargin: 0.0
   property double leftMargin: 0.0
@@ -91,15 +95,17 @@ Page {
 
     QfTabBar {
       id: tabRow
+      objectName: "tabRow"
       visible: form.model.hasTabs
       model: form.model.hasTabs ? form.model : 0
       Layout.fillWidth: true
       Layout.preferredHeight: defaultHeight
-      objectName: "tabRow"
 
       delegate: TabButton {
         id: tabButton
+
         property bool isCurrentIndex: index == tabRow.currentIndex
+
         objectName: "tabRowdDelegate_" + index
         text: Name
         topPadding: 0
@@ -136,7 +142,7 @@ Page {
           width: paintedWidth
           height: parent.height
           text: tabButton.text
-          color: !tabButton.enabled ? Theme.darkGray : tabButton.down ? Qt.darker(Theme.mainColor, 1.5) : Theme.mainColor
+          color: !tabButton.enabled ? Theme.mainTextDisabledColor : tabButton.down ? Qt.darker(Theme.mainColor, 1.5) : isCurrentIndex ? Theme.mainColor : Theme.mainTextColor
           font.pointSize: Theme.tipFont.pointSize
           font.weight: isCurrentIndex ? Font.DemiBold : Font.Normal
 
@@ -183,6 +189,7 @@ Page {
           Flow {
             id: content
             width: form.width - form.leftMargin - form.rightMargin
+            bottomPadding: 10
 
             SubModel {
               id: contentModel
@@ -198,6 +205,34 @@ Page {
               delegate: fieldItem
             }
           }
+        }
+      }
+    }
+  }
+
+  Component {
+    id: spacerContainer
+
+    Item {
+      height: childrenRect.height
+      anchors {
+        left: parent.left
+        right: parent.right
+        leftMargin: 12
+        rightMargin: 12
+      }
+
+      Item {
+        width: parent.width
+        height: 36
+
+        Rectangle {
+          anchors.centerIn: parent
+          width: parent.width * 0.66
+          height: 3
+          radius: 1
+          color: Theme.controlBackgroundAlternateColor
+          visible: containerName !== ""
         }
       }
     }
@@ -468,14 +503,29 @@ Page {
           property var labelColor: LabelColor
           property string itemType: Type
 
-          active: (Type === 'container' && GroupIndex !== undefined && GroupIndex.valid) || ((Type === 'text' || Type === 'html' || Type === 'qml') && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel)
+          active: (Type === 'container' && GroupIndex !== undefined && GroupIndex.valid) || ((Type === 'text' || Type === 'html' || Type === 'qml' || Type === 'spacer') && form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel)
           height: status == Loader.Ready ? item.childrenRect.height : 0
           anchors {
             left: parent.left
             right: parent.right
           }
 
-          sourceComponent: Type === 'container' && GroupIndex !== undefined && GroupIndex.valid ? innerContainer : Type === 'qml' ? qmlContainer : Type === 'html' ? htmlContainer : Type === 'text' ? textContainer : dummyContainer
+          sourceComponent: {
+            if (Type === 'container') {
+              if (GroupIndex !== undefined && GroupIndex.valid) {
+                return innerContainer;
+              }
+            } else if (Type === 'qml') {
+              return qmlContainer;
+            } else if (Type === 'html') {
+              return htmlContainer;
+            } else if (Type === 'text') {
+              return textContainer;
+            } else if (Type === 'spacer') {
+              return spacerContainer;
+            }
+            return dummyContainer;
+          }
         }
 
         Item {
@@ -505,8 +555,8 @@ Page {
             font.strikeout: LabelOverrideFont ? LabelFont.strikeout : false
             topPadding: 10
             bottomPadding: 5
-            opacity: (form.state === 'ReadOnly' || !AttributeEditable) || embedded && EditorWidget === 'RelationEditor' ? 0.45 : 1
-            color: LabelOverrideColor ? LabelColor : Theme.mainTextColor
+            opacity: !AttributeEditable && form.state === "Edit" ? (LabelOverrideColor ? 0.5 : 1.0) : 1.0
+            color: LabelOverrideColor ? LabelColor : (!AttributeEditable && form.state !== "ReadOnly" ? Theme.mainTextDisabledColor : Theme.mainTextColor)
           }
 
           Label {
@@ -515,9 +565,10 @@ Page {
               left: parent.left
               right: parent.right
               top: fieldLabel.bottom
+              rightMargin: 10
             }
 
-            font.pointSize: fieldLabel.font.pointSize / 3 * 2
+            font.pointSize: fieldLabel.font.pointSize * 0.8
             text: {
               if (ConstraintHardValid && ConstraintSoftValid)
                 return '';
@@ -527,6 +578,7 @@ Page {
             visible: !ConstraintHardValid || !ConstraintSoftValid
             opacity: fieldLabel.opacity
             color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
+            wrapMode: Text.WordWrap
           }
 
           Item {
@@ -534,8 +586,9 @@ Page {
             height: attributeEditorLoader.childrenRect.height
             anchors {
               left: parent.left
-              right: menuButton.left
+              right: fieldMenuButton.left
               top: constraintDescriptionLabel.bottom
+              rightMargin: fieldMenuButton.visible ? 5 : 0
             }
 
             Loader {
@@ -553,8 +606,10 @@ Page {
               // - not in edit mode (ReadOnly)
               // - a relation in multi edit mode
               property bool isAdding: form.state === 'Add'
-              property bool isEditing: form.state === 'Edit'
+              property bool isEditing: form.state !== 'ReadOnly'
               property bool isEnabled: !!AttributeEditable && form.state !== 'ReadOnly' && !(Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel)
+              property bool isEditable: !!AttributeEditable && !(Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel)
+
               property var value: AttributeValue
               property var config: (EditorWidgetConfig || {})
               property var widget: EditorWidget
@@ -637,14 +692,19 @@ Page {
                 form.codeReader.barcodeRequestedItem = item;
                 form.codeReader.open();
               }
+
+              function onRequestJumpToPoint(center, scale, handleMargins) {
+                form.requestJumpToPoint(center, scale, handleMargins);
+              }
             }
           }
 
           QfToolButton {
-            id: menuButton
+            id: fieldMenuButton
             anchors {
               right: rememberButton.left
               top: constraintDescriptionLabel.bottom
+              rightMargin: 5
             }
 
             visible: attributeEditorLoader.isEnabled && attributeEditorLoader.item && attributeEditorLoader.item.hasMenu
@@ -656,13 +716,13 @@ Page {
             bgcolor: "transparent"
 
             onClicked: {
-              attributeEditorLoader.item.menu.popup(menuButton.x, menuButton.y);
+              attributeEditorLoader.item.menu.popup(fieldMenuButton.x, fieldMenuButton.y);
             }
           }
 
           QfToolButton {
             id: rememberButton
-            visible: form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
+            visible: !!CanRememberValue && form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
             width: visible ? 48 : 0
 
             iconSource: Theme.getThemeVectorIcon("ic_pin_black_24dp")
@@ -672,7 +732,7 @@ Page {
             anchors {
               right: parent.right
               top: constraintDescriptionLabel.bottom
-              verticalCenter: menuButton.verticalCenter
+              verticalCenter: fieldMenuButton.verticalCenter
               rightMargin: visible ? 0 : 10
             }
 
@@ -714,13 +774,17 @@ Page {
   }
 
   function confirm() {
+    if (form.state === "ReadOnly") {
+      return;
+    }
+
     //if this is not handled before (e.g. when this is called because the drawer is closed by tipping on the map)
     if (!model.constraintsHardValid) {
-      displayToast(qsTr('Constraints not valid'), 'warning');
+      displayToast(qsTr('Hard constraints not satisfied'), 'error');
       cancel();
       return;
     } else if (!model.constraintsSoftValid) {
-      displayToast(qsTr('Note: soft constraints were not met'));
+      displayToast(qsTr('Soft constraints were not satisified'));
     }
     parent.focus = true;
     if (setupOnly) {
@@ -783,60 +847,85 @@ Page {
   /** The title toolbar **/
   header: ToolBar {
     id: toolbar
+
+    topPadding: 0
+    leftPadding: 0
+    rightPadding: 0
+    bottomPadding: 0
+
     height: visible ? form.topMargin + 48 : 0
     visible: form.state === 'Add'
     objectName: "toolbar"
     background: Rectangle {
-      color: model.featureModel.featureAdditionLocked || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : Theme.mainColor
+      color: "transparent"
+    }
+
+    Rectangle {
+      width: parent.width * 0.3
+      height: 5
+      radius: 10
+
+      anchors.horizontalCenter: parent.horizontalCenter
+      anchors.top: parent.top
+      anchors.topMargin: form.topMargin + 6
+
+      color: Theme.controlBorderColor
+      visible: isDraggable
     }
 
     RowLayout {
       anchors.fill: parent
-      anchors.topMargin: form.topMargin
+      anchors.topMargin: form.topMargin + 10
       anchors.leftMargin: form.leftMargin
       anchors.rightMargin: form.rightMargin
-      Layout.margins: 0
 
       QfToolButton {
         id: saveButton
 
-        Layout.alignment: Qt.AlignTop | Qt.AlignLeft
+        property bool isVisible: form.state === 'Add' || form.state === 'Edit'
 
-        visible: (form.state === 'Add' || form.state === 'Edit')
+        Layout.alignment: Qt.AlignTop | Qt.AlignLeft
+        visible: isVisible
         width: 48
         height: 48
         clip: true
 
         iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
-        iconColor: Theme.mainOverlayColor
-        opacity: model.constraintsHardValid ? 1.0 : 0.3
+        iconColor: (form.state === 'Add' && model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
+        bgcolor: (form.state === 'Add' && model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : "transparent"
+        borderColor: Theme.mainBackgroundColor
+        roundborder: true
+        round: true
 
         onClicked: {
           if (model.constraintsHardValid) {
             if (!model.constraintsSoftValid) {
-              displayToast(qsTr('Note: soft constraints were not met'));
+              displayToast(qsTr('Soft constraints were not satisified'));
             }
             confirm();
           } else {
-            displayToast(qsTr('Constraints not valid'), 'warning');
+            displayToast(qsTr('Hard constraints not satisfied'), 'error');
           }
         }
       }
 
       Text {
         id: titleLabel
+
         Layout.fillWidth: true
         Layout.preferredHeight: parent.height
+        Layout.leftMargin: form.state === "ReadOnly" || (!setupOnly && form.model.hasRemembrance) ? 48 : 0
+        Layout.rightMargin: !setupOnly ? 0 : 48
         objectName: "titleLabel"
 
         font: Theme.strongFont
-        color: Theme.mainOverlayColor
+        color: Theme.mainTextColor
 
         text: {
           const featureModel = model.featureModel;
           var currentLayer = featureModel ? featureModel.currentLayer : null;
           var layerName = 'N/A';
-          if (currentLayer != null)
+          if (currentLayer !== null)
             layerName = currentLayer.name;
           if (form.state === 'Add')
             qsTr('Add feature on %1').arg(layerName);
@@ -852,52 +941,33 @@ Page {
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
 
-        MouseArea {
-          enabled: toolbar.visible
-          anchors.fill: parent
+        DragHandler {
+          enabled: true
+          target: null
+          acceptedButtons: Qt.LeftButton
+          grabPermissions: PointerHandler.CanTakeOverFromAnything
+          dragThreshold: 5
 
-          property real velocity: 0.0
-          property int startX: 0
-          property int startY: 0
-          property int lastX: 0
-          property int lastY: 0
-          property int distance: 0
-          property bool isTracing: false
+          property var oldPos
 
-          onPressed: mouse => {
-            startX = mouse.x;
-            startY = mouse.y;
-            lastX = mouse.x;
-            lastY = mouse.y;
-            velocity = 0;
-            distance = 0;
-            isTracing = true;
-          }
-          onPositionChanged: mouse => {
-            if (!isTracing)
-              return;
-            var currentVelocity = Math.abs(mouse.y - lastY);
-            lastX = mouse.x;
-            lastY = mouse.y;
-            velocity = (velocity + currentVelocity) / 2.0;
-            distance = Math.abs(mouse.y - startY);
-            isTracing = velocity > 15 && distance > parent.height;
-          }
-          onReleased: {
-            if (!isTracing) {
-              form.toolbarSwiped(getDirection());
+          onActiveChanged: {
+            if (active) {
+              form.toolbarDragAcquired();
+              oldPos = centroid.scenePosition;
             } else {
-              form.toolbarClicked();
+              form.toolbarDragReleased();
             }
           }
 
-          function getDirection() {
-            var diffX = lastX - startX;
-            var diffY = lastY - startY;
-            if (Math.abs(diffX) > Math.abs(diffY)) {
-              return lastX < startX ? 'left' : 'right';
+          onCentroidChanged: {
+            if (active) {
+              var dx = centroid.scenePosition.x - oldPos.x;
+              var dy = centroid.scenePosition.y - oldPos.y;
+              if (dx !== 0 || dy !== 0) {
+                form.toolbarDragged(dx, dy);
+                oldPos = centroid.scenePosition;
+              }
             }
-            return lastY < startY ? 'up' : 'down';
           }
         }
       }
@@ -905,15 +975,16 @@ Page {
       QfToolButton {
         id: closeButton
 
-        Layout.alignment: Qt.AlignTop | Qt.AlignRight
+        property bool isVisible: !setupOnly
 
-        width: 49
+        Layout.alignment: Qt.AlignTop | Qt.AlignRight
+        width: 48
         height: 48
         clip: true
-        visible: !setupOnly
+        visible: isVisible
 
         iconSource: form.state === 'Add' ? Theme.getThemeVectorIcon('ic_delete_forever_white_24dp') : Theme.getThemeVectorIcon('ic_close_white_24dp')
-        iconColor: Theme.mainOverlayColor
+        iconColor: Theme.mainTextColor
 
         onClicked: {
           Qt.inputMethod.hide();
@@ -924,6 +995,54 @@ Page {
           }
         }
       }
+
+      QfToolButton {
+        id: featureFormMenuButton
+
+        property bool isVisible: !setupOnly && form.model.hasRemembrance
+
+        Layout.alignment: Qt.AlignTop | Qt.AlignRight
+
+        width: 48
+        height: 48
+        clip: true
+        visible: isVisible
+
+        iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+        iconColor: Theme.mainTextColor
+
+        onClicked: {
+          featureFormMenu.popup(featureFormMenuButton.x + featureFormMenuButton.width - featureFormMenuButton.width, featureFormMenuButton.y);
+        }
+      }
+    }
+  }
+
+  QfMenu {
+    id: featureFormMenu
+    title: qsTr("Feature Form Menu")
+
+    topMargin: mainWindow.sceneTopMargin
+    bottomMargin: mainWindow.sceneBottomMargin
+
+    MenuItem {
+      text: qsTr('Remember All Reusable Values')
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+
+      onTriggered: form.model.activateAllRememberValues()
+    }
+
+    MenuItem {
+      text: qsTr('Forget All Reusable Values')
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+
+      onTriggered: form.model.deactivateAllRememberValues()
     }
   }
 

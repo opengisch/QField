@@ -21,13 +21,4 @@ EditorWidgetBase {
 
     text: qsTr('(Blob)')
   }
-
-  Rectangle {
-    anchors.left: parent.left
-    anchors.right: parent.right
-    y: binaryValue.height - height - binaryValue.bottomPadding / 2
-    implicitWidth: 120
-    height: 1
-    color: Theme.accentLightColor
-  }
 }

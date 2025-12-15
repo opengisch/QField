@@ -182,6 +182,13 @@ class QFieldCloudConnection : public QObject
      */
     NetworkReply *post( const QString &endpoint, const QVariantMap &params = QVariantMap(), const QStringList &fileNames = QStringList() );
 
+    /**
+     * Sends a post \a request with the given \a parameters to the given \a endpoint.
+     *
+     * If this connection is not logged in, will return nullptr.
+     * The returned reply needs to be deleted by the caller.
+     */
+    NetworkReply *post( QNetworkRequest &request, const QString &endpoint, const QVariantMap &params = QVariantMap(), const QStringList &fileNames = QStringList() );
 
     /**
      * Sends a get request to the given \a endpoint. Query can be passed via \a params, empty by default.
@@ -209,7 +216,7 @@ class QFieldCloudConnection : public QObject
      * Uploads any pending attachments linked to the logged in user account.
      * \returns the number of attachments to be uploaded.
      */
-    int uploadPendingAttachments();
+    qsizetype uploadPendingAttachments();
 
   signals:
     void providerChanged();
@@ -223,7 +230,9 @@ class QFieldCloudConnection : public QObject
     void tokenChanged();
     void providerConfigurationChanged();
     void userInformationChanged();
-    void pendingAttachmentsUploadFinished();
+    void pendingAttachmentsUploadFinished( const QString &error = QString() );
+    void pendingAttachmentsUploadStatus( const QString &fileName, double fileProgress, qsizetype uploadPending );
+    void pendingAttachmentsAdded();
     void error();
 
     void loginFailed( const QString &reason );
@@ -257,8 +266,9 @@ class QFieldCloudConnection : public QObject
 
     int mPendingRequests = 0;
 
-    int mUploadPendingCount = 0;
-    int mUploadFailingCount = 0;
+    qsizetype mUploadPendingCount = 0;
+    qsizetype mUploadDoneCount = 0;
+    qsizetype mUploadFailingCount = 0;
 
     void setClientHeaders( QNetworkRequest &request );
 };

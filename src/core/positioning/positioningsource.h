@@ -45,9 +45,6 @@ class PositioningSource : public QObject
 
     Q_PROPERTY( GnssPositionInformation positionInformation READ positionInformation NOTIFY positionInformationChanged )
 
-    Q_PROPERTY( bool averagedPosition READ averagedPosition WRITE setAveragedPosition NOTIFY averagedPositionChanged )
-    Q_PROPERTY( int averagedPositionCount READ averagedPositionCount NOTIFY averagedPositionCountChanged )
-
     Q_PROPERTY( ElevationCorrectionMode elevationCorrectionMode READ elevationCorrectionMode WRITE setElevationCorrectionMode NOTIFY elevationCorrectionModeChanged )
     Q_PROPERTY( double antennaHeight READ antennaHeight WRITE setAntennaHeight NOTIFY antennaHeightChanged )
 
@@ -121,7 +118,7 @@ class PositioningSource : public QObject
      * Returns the current positioning device.
      * \see deviceId
      */
-    AbstractGnssReceiver *device() const { return mReceiver; }
+    AbstractGnssReceiver *device() const { return mReceiver.get(); }
 
     /**
      * Returns extra details (such as hdop, vdop, pdop) provided by the positioning device.
@@ -149,22 +146,6 @@ class PositioningSource : public QObject
      * Returns a GnssPositionInformation position information object.
      */
     GnssPositionInformation positionInformation() const { return mPositionInformation; };
-
-    /**
-     * Returns whether the position information is averaged from an ongoing stream of incoming positions from the device.
-     */
-    bool averagedPosition() const { return mAveragedPosition; }
-
-    /**
-     * Sets whether the position information is \a averaged from an ongoing stream of incoming positions from the device.
-     */
-    void setAveragedPosition( bool averaged );
-
-    /**
-     * Returns the current number of collected position informations from which the averaged position is calculated.
-     * \note When averaged position is off, the value is zero.
-     */
-    int averagedPositionCount() const { return static_cast<int>( mCollectedPositionInformations.size() ); }
 
     /**
      * Returns the current elevation correction mode.
@@ -326,8 +307,6 @@ class PositioningSource : public QObject
     void deviceSocketStateChanged();
     void deviceSocketStateStringChanged();
     void positionInformationChanged();
-    void averagedPositionChanged();
-    void averagedPositionCountChanged();
     void elevationCorrectionModeChanged();
     void antennaHeightChanged();
     void orientationChanged();
@@ -367,9 +346,6 @@ class PositioningSource : public QObject
     bool mValid = false;
 
     GnssPositionInformation mPositionInformation;
-    QList<GnssPositionInformation> mCollectedPositionInformations;
-
-    bool mAveragedPosition = false;
 
     ElevationCorrectionMode mElevationCorrectionMode = ElevationCorrectionMode::None;
     double mAntennaHeight = 0.0;
@@ -388,7 +364,7 @@ class PositioningSource : public QObject
     qint64 mNtripBytesSent = 0;
     qint64 mNtripBytesReceived = 0;
 
-    AbstractGnssReceiver *mReceiver = nullptr;
+    std::unique_ptr<AbstractGnssReceiver> mReceiver;
     std::unique_ptr<NtripClient> mNtripClient;
 
     QCompass mCompass;

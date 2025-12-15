@@ -99,6 +99,7 @@
 #include "processingalgorithm.h"
 #include "processingalgorithmparametersmodel.h"
 #include "processingalgorithmsmodel.h"
+#include "processingutils.h"
 #include "projectinfo.h"
 #include "projectsimageprovider.h"
 #include "projectsource.h"
@@ -213,6 +214,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   // Set QGIS-specific core settings
   QgsSettingsRegistryCore::settingsEnableWMSTilePrefetching->setValue( true );
 
+  // Increase maximum concurrent connections allowed
+  QgsApplication::settingsConnectionPoolMaximumConcurrentConnections->setValue( 10 );
+
   // Set a nicer default hyperlink color to be used in QML Text items
   QPalette palette = app->palette();
   palette.setColor( QPalette::Link, QColor( 128, 204, 40 ) );
@@ -230,6 +234,12 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     mScreenDimmer = std::make_unique<ScreenDimmer>( app );
     mScreenDimmer->setTimeout( settings.value( QStringLiteral( "dimTimeoutSeconds" ), 40 ).toInt() );
   }
+
+  QgsNetworkAccessManager::settingsNetworkTimeout->setValue( 60 * 1000 );
+
+  // we cannot use "/" as separator, since QGIS puts a suffix QGIS/31700 anyway
+  const QString userAgent = QStringLiteral( "qfield|%1|%2|%3|" ).arg( qfield::appVersion, qfield::appVersionStr.normalized( QString::NormalizationForm_KD ), qfield::gitRev );
+  settings.setValue( QStringLiteral( "/qgis/networkAndProxy/userAgent" ), userAgent );
 
   AppInterface::setInstance( mIface );
 
@@ -280,6 +290,13 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   QgsApplication::fontManager()->enableFontDownloadsForSession();
 
   mProject = QgsProject::instance();
+  connect( mProject, &QgsProject::aboutToBeCleared, this, [this] {
+    if ( !mProjectFilePath.isEmpty() )
+    {
+      mPluginManager->unloadPlugin( PluginManager::findProjectPlugin( mProjectFilePath ) );
+    }
+  } );
+
   mTrackingModel = new TrackingModel();
   mGpkgFlusher = std::make_unique<QgsGpkgFlusher>( mProject );
   mLayerObserver = std::make_unique<LayerObserver>( mProject );
@@ -287,6 +304,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mClipboardManager = std::make_unique<ClipboardManager>( this );
   mFlatLayerTree = new FlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
+  mAsyncLegendImageProvider = new AsyncLegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mLocalFilesImageProvider = new LocalFilesImageProvider();
   mProjectsImageProvider = new ProjectsImageProvider();
   mBarcodeImageProvider = new BarcodeImageProvider();
@@ -326,6 +344,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
   mMapCanvas->mapSettings()->setProject( mProject );
   mBookmarkModel->setMapSettings( mMapCanvas->mapSettings() );
+  mAsyncLegendImageProvider->setMapSettings( mMapCanvas->mapSettings() );
 
   mFlatLayerTree->layerTreeModel()->setLegendMapViewData( mMapCanvas->mapSettings()->mapSettings().mapUnitsPerPixel(),
                                                           static_cast<int>( std::round( mMapCanvas->mapSettings()->outputDpi() ) ), mMapCanvas->mapSettings()->mapSettings().scale() );
@@ -420,6 +439,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterUncreatableType<QgsRelationManager>( "org.qgis", 1, 0, "RelationManager", "The relation manager is available from the QgsProject. Try `qgisProject.relationManager`" );
   qmlRegisterUncreatableType<QgsWkbTypes>( "org.qgis", 1, 0, "QgsWkbTypes", "" );
   qmlRegisterUncreatableType<QgsMapLayer>( "org.qgis", 1, 0, "MapLayer", "" );
+  qmlRegisterUncreatableType<QgsRasterLayer>( "org.qgis", 1, 0, "RasterLayer", "" );
   qmlRegisterUncreatableType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayerStatic", "" );
 
   // Register QgsQuick QML types
@@ -524,7 +544,8 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterUncreatableType<QAbstractSocket>( "org.qfield", 1, 0, "QAbstractSocket", "" );
   qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
   qmlRegisterUncreatableType<Tracker>( "org.qfield", 1, 0, "Tracker", "" );
-  qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
+  qmlRegisterUncreatableType<GnssPositionInformation>( "org.qfield", 1, 0, "GnssPositionInformation", "Access to enums and properties only; cannot instantiate in QML." );
+
   qRegisterMetaType<GnssPositionDetails>( "GnssPositionDetails" );
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
 
@@ -549,6 +570,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   REGISTER_SINGLETON( "org.qfield", UrlUtils, "UrlUtils" );
   REGISTER_SINGLETON( "org.qfield", QFieldCloudUtils, "QFieldCloudUtils" );
   REGISTER_SINGLETON( "org.qfield", PositioningUtils, "PositioningUtils" );
+  REGISTER_SINGLETON( "org.qfield", ProcessingUtils, "ProcessingUtils" );
   REGISTER_SINGLETON( "org.qfield", ProjectUtils, "ProjectUtils" );
   REGISTER_SINGLETON( "org.qfield", CoordinateReferenceSystemUtils, "CoordinateReferenceSystemUtils" );
 
@@ -603,6 +625,7 @@ void QgisMobileapp::registerGlobalVariables()
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
   rootContext()->setContextProperty( "trackingModel", mTrackingModel );
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
+  addImageProvider( QLatin1String( "asynclegend" ), mAsyncLegendImageProvider );
   addImageProvider( QLatin1String( "localfiles" ), mLocalFilesImageProvider );
   addImageProvider( QLatin1String( "projects" ), mProjectsImageProvider );
   addImageProvider( QLatin1String( "barcode" ), mBarcodeImageProvider );
@@ -1030,8 +1053,7 @@ void QgisMobileapp::readProjectFile()
           mProject->clear();
 
           // Add a default basemap
-          QgsRasterLayer *layer = new QgsRasterLayer( QStringLiteral( "type=xyz&tilePixelRatio=1&url=https://tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&zmin=0&crs=EPSG3857" ), QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
-          mProject->addMapLayers( QList<QgsMapLayer *>() << layer );
+          mProject->addMapLayers( QList<QgsMapLayer *>() << LayerUtils::createBasemap() );
         }
       }
 
@@ -1074,46 +1096,12 @@ void QgisMobileapp::readProjectFile()
       vlayer->loadDefaultStyle( ok );
       if ( !ok )
       {
-        bool hasSymbol = true;
-        Qgis::SymbolType symbolType;
-        switch ( vlayer->geometryType() )
-        {
-          case Qgis::GeometryType::Point:
-            symbolType = Qgis::SymbolType::Marker;
-            break;
-          case Qgis::GeometryType::Line:
-            symbolType = Qgis::SymbolType::Line;
-            break;
-          case Qgis::GeometryType::Polygon:
-            symbolType = Qgis::SymbolType::Fill;
-            break;
-          case Qgis::GeometryType::Unknown:
-            hasSymbol = false;
-            break;
-          case Qgis::GeometryType::Null:
-            hasSymbol = false;
-            break;
-        }
-
-        if ( hasSymbol )
-        {
-          QgsSymbol *symbol = mProject->styleSettings()->defaultSymbol( symbolType );
-          if ( !symbol )
-            symbol = LayerUtils::defaultSymbol( vlayer );
-          QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
-          vlayer->setRenderer( renderer );
-        }
+        LayerUtils::setDefaultRenderer( vlayer, mProject );
       }
 
       if ( !vlayer->labeling() )
       {
-        QgsTextFormat textFormat = mProject->styleSettings()->defaultTextFormat();
-        QgsAbstractVectorLayerLabeling *labeling = LayerUtils::defaultLabeling( vlayer, textFormat );
-        if ( labeling )
-        {
-          vlayer->setLabeling( labeling );
-          vlayer->setLabelsEnabled( vlayer->geometryType() == Qgis::GeometryType::Point );
-        }
+        LayerUtils::setDefaultLabeling( vlayer, mProject );
       }
 
       const QgsFields fields = vlayer->fields();
@@ -1468,15 +1456,11 @@ bool QgisMobileapp::event( QEvent *event )
 
 void QgisMobileapp::clearProject()
 {
-  if ( !mProjectFilePath.isEmpty() )
-  {
-    mPluginManager->unloadPlugin( PluginManager::findProjectPlugin( mProjectFilePath ) );
-  }
   mAuthRequestHandler->clearStoredRealms();
 
+  mProject->clear();
   mProjectFileName = QString();
   mProjectFilePath = QString();
-  mProject->clear();
 }
 
 void QgisMobileapp::saveProjectPreviewImage()
@@ -1507,6 +1491,7 @@ QgisMobileapp::~QgisMobileapp()
   delete mProject;
   delete mAppMissingGridHandler;
 
+  QgsApplication::taskManager()->cancelAll();
   mApp->exitQgis();
   QMetaObject::invokeMethod( mApp, &QgsApplication::quit, Qt::QueuedConnection );
 }

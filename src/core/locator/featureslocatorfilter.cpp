@@ -64,11 +64,9 @@ QStringList FeaturesLocatorFilter::prepare( const QString &string, const QgsLoca
     QgsFeatureRequest req;
     req.setSubsetOfAttributes( expression.referencedAttributeIndexes( layer->fields() ).values() );
     if ( !expression.needsGeometry() )
-#if _QGIS_VERSION_INT >= 33500
+    {
       req.setFlags( Qgis::FeatureRequestFlag::NoGeometry );
-#else
-      req.setFlags( QgsFeatureRequest::NoGeometry );
-#endif
+    }
     QString enhancedSearch = string;
     enhancedSearch.replace( " ", "%" );
     req.setFilterExpression( QStringLiteral( "%1 ILIKE '%%2%'" ).arg( layer->displayExpression(), enhancedSearch ) );
@@ -112,14 +110,10 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
 
       result.displayString = preparedLayer->expression.evaluate( &( preparedLayer->context ) ).toString();
 
-#if _QGIS_VERSION_INT >= 33300
       result.setUserData( QVariantList() << f.id() << preparedLayer->layerId );
-#else
-      result.userData = QVariantList() << f.id() << preparedLayer->layerId;
-#endif
       result.icon = preparedLayer->layerIcon;
       result.score = static_cast<double>( string.length() ) / result.displayString.size();
-      result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_baseline-list_white_24dp.svg" ) );
+      result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_baseline-list_white_24dp.svg?color=mainColor" ) );
       if ( preparedLayer->layerGeometryType != Qgis::GeometryType::Null && preparedLayer->layerGeometryType != Qgis::GeometryType::Unknown )
       {
         result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as destination" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
@@ -144,13 +138,9 @@ void FeaturesLocatorFilter::triggerResult( const QgsLocatorResult &result )
 
 void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
-#if _QGIS_VERSION_INT >= 33601
-  QVariantList dataList = result.userData().toList();
-#else
-  QVariantList dataList = result.getUserData().toList();
-#endif
-  QgsFeatureId fid = dataList.at( 0 ).toLongLong();
-  QString layerId = dataList.at( 1 ).toString();
+  const QVariantList dataList = result.userData().toList();
+  const QgsFeatureId fid = dataList.at( 0 ).toLongLong();
+  const QString layerId = dataList.at( 1 ).toString();
   QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( QgsProject::instance()->mapLayer( layerId ) );
   if ( !layer )
     return;
@@ -236,9 +226,14 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
     }
 
     if ( r.isEmpty() || mLocatorBridge->keepScale() )
-      mLocatorBridge->mapSettings()->setCenter( QgsPoint( r.center() ), true );
+    {
+      emit mLocatorBridge->requestJumpToPoint( QgsPoint( r.center() ), -1, true );
+    }
     else
-      mLocatorBridge->mapSettings()->setExtent( r, true );
+    {
+      const double scale = mLocatorBridge->mapSettings()->computeScaleForExtent( r, true );
+      emit mLocatorBridge->requestJumpToPoint( QgsPoint( r.center() ), scale, true );
+    }
 
 
     mLocatorBridge->geometryHighlighter()->setProperty( "qgsGeometry", geom );

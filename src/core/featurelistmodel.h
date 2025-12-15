@@ -241,7 +241,7 @@ class FeatureListModel : public QAbstractItemModel
         QVariant key;
         QVariant group;
         QgsFeatureId fid;
-        double fuzzyScore;
+        double fuzzyScore = 0.0;
     };
 
     /**

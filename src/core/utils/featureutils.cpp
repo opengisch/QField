@@ -21,6 +21,7 @@
 #include <qgsexpressioncontextutils.h>
 #include <qgsjsonutils.h>
 #include <qgsproject.h>
+#include <qgsvariantutils.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerutils.h>
 
@@ -78,12 +79,11 @@ QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLa
 {
   if ( mapSettings && layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
   {
-    QgsCoordinateTransform transf( layer->crs(), mapSettings->destinationCrs(), mapSettings->mapSettings().transformContext() );
+    QgsCoordinateTransform ct( layer->crs(), mapSettings->destinationCrs(), mapSettings->mapSettings().transformContext() );
     QgsGeometry geom( feature.geometry() );
     if ( !geom.isNull() )
     {
-      geom.transform( transf );
-
+      geom.transform( ct );
       QgsRectangle extent;
       if ( geom.type() == Qgis::GeometryType::Point && geom.constGet()->partCount() == 1 )
       {
@@ -113,4 +113,19 @@ QList<QgsFeature> FeatureUtils::featuresFromJsonString( const QString &string )
 {
   const QgsFields fields = QgsJsonUtils::stringToFields( string );
   return QgsJsonUtils::stringToFeatureList( string, fields );
+}
+
+QgsField FeatureUtils::createField( const QString &name, FieldType type, const QString &typeName, int length, int precision, const QString &comment )
+{
+  return QgsField( name, static_cast<QMetaType::Type>( type ), typeName, length, precision, comment );
+}
+
+QgsFields FeatureUtils::createFields( const QList<QgsField> &fields )
+{
+  return QgsFields( fields );
+}
+
+bool FeatureUtils::attributeIsNull( const QVariant &value )
+{
+  return QgsVariantUtils::isUnsetAttributeValue( value ) || QgsVariantUtils::isNull( value );
 }

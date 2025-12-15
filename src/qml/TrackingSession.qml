@@ -16,6 +16,19 @@ Item {
   Component.onCompleted: {
     tracker.rubberbandModel = rubberbandModel;
     tracker.featureModel = featureModel;
+    tracker.filterAccuracy = positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement;
+  }
+
+  Connections {
+    target: positioningSettings
+
+    function onAccuracyIndicatorChanged() {
+      tracker.filterAccuracy = positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement;
+    }
+
+    function onAccuracyRequirementChanged() {
+      tracker.filterAccuracy = positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement;
+    }
   }
 
   Connections {

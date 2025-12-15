@@ -25,11 +25,11 @@ import Theme
  */
 Rectangle {
   id: toolBar
-
   property string title: qsTr('Features')
 
   property bool multiSelection
   property bool allowDelete
+  property bool isVertical: false
 
   property MultiFeatureListModel model
   property FeatureListModelSelection selection
@@ -41,7 +41,9 @@ Rectangle {
 
   signal backClicked
   signal statusIndicatorClicked
-  signal statusIndicatorSwiped(var direction)
+  signal statusIndicatorDragged(var deltaX, var deltaY)
+  signal statusIndicatorDragAcquired
+  signal statusIndicatorDragReleased
   signal editAttributesButtonClicked
   signal editGeometryButtonClicked
   signal save
@@ -66,10 +68,11 @@ Rectangle {
   signal processingFeatureClicked
 
   anchors.top: parent.top
+  anchors.topMargin: 5
   anchors.left: parent.left
   anchors.right: parent.right
-  height: toolBar.topMargin + 48
-
+  height: toolBar.topMargin + 58
+  color: Theme.mainBackgroundColor
   clip: true
 
   states: [
@@ -87,28 +90,35 @@ Rectangle {
   state: "Indication"
 
   Rectangle {
-    id: navigationStatusIndicator
-    anchors.fill: parent
+    width: parent.width * 0.3
+    height: 5
+    radius: 10
 
-    height: toolBar.topMargin + 48
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.top: parent.top
+    anchors.topMargin: toolBar.topMargin + 1
 
-    color: (featureForm.model.constraintsHardValid && featureForm.model.constraintsSoftValid) || toolBar.state !== "Edit" ? Theme.mainColor : !featureForm.model.constraintsHardValid ? Theme.errorColor : Theme.warningColor
+    color: Theme.controlBorderColor
+  }
 
+  Item {
+    anchors {
+      fill: parent
+      topMargin: toolBar.topMargin + 5
+    }
     clip: true
-    focus: true
 
     Text {
-      // Insure that the text is always visually centered by using the same left and right margi
+      // Insure that the text is always visually centered by using the same left and right margin
       property double balancedMargin: Math.max((saveButton.visible ? saveButton.width : 0) + (previousButton.visible ? previousButton.width : 0) + (nextButton.visible ? nextButton.width : 0) + (multiClearButton.visible ? multiClearButton.width : 0), (cancelButton.visible ? cancelButton.width : 0) + (editButton.visible ? editButton.width : 0) + (editGeomButton.visible ? editGeomButton.width : 0) + (multiEditButton.visible ? multiEditButton.width : 0) + (menuButton.visible ? menuButton.width : 0))
       font: Theme.strongFont
-      color: Theme.mainOverlayColor
+      color: Theme.mainTextColor
       anchors.left: parent.left
       anchors.right: parent.right
       anchors.top: parent.top
       anchors.leftMargin: 0 + balancedMargin + toolBar.leftMargin
       anchors.rightMargin: 0 + balancedMargin + toolBar.rightMargin
-      anchors.topMargin: toolBar.topMargin
-      height: parent.height - toolBar.topMargin
+      height: 48
 
       text: {
         if (model && selection && selection.focusedItem > -1 && (toolBar.state === 'Navigation' || toolBar.state === 'Edit')) {
@@ -125,51 +135,41 @@ Rectangle {
       wrapMode: Text.Wrap
       elide: Text.ElideRight
 
+      DragHandler {
+        enabled: true
+        target: null
+        acceptedButtons: Qt.LeftButton
+        grabPermissions: PointerHandler.CanTakeOverFromAnything
+        dragThreshold: 5
+
+        property var oldPos
+
+        onActiveChanged: {
+          if (active) {
+            toolBar.statusIndicatorDragAcquired();
+            oldPos = centroid.scenePosition;
+          } else {
+            toolBar.statusIndicatorDragReleased();
+          }
+        }
+
+        onCentroidChanged: {
+          if (active) {
+            var dx = centroid.scenePosition.x - oldPos.x;
+            var dy = centroid.scenePosition.y - oldPos.y;
+            if (dx !== 0 || dy !== 0) {
+              toolBar.statusIndicatorDragged(centroid.scenePosition.x - oldPos.x, centroid.scenePosition.y - oldPos.y);
+              oldPos = centroid.scenePosition;
+            }
+          }
+        }
+      }
+
       MouseArea {
         anchors.fill: parent
 
-        property real velocity: 0.0
-        property int startX: 0
-        property int startY: 0
-        property int lastX: 0
-        property int lastY: 0
-        property int distance: 0
-        property bool isTracing: false
-
-        onPressed: mouse => {
-          startX = mouse.x;
-          startY = mouse.y;
-          lastX = mouse.x;
-          lastY = mouse.y;
-          velocity = 0;
-          distance = 0;
-          isTracing = true;
-        }
-        onPositionChanged: mouse => {
-          if (!isTracing)
-            return;
-          var currentVelocity = Math.abs(mouse.y - lastY);
-          lastX = mouse.x;
-          lastY = mouse.y;
-          velocity = (velocity + currentVelocity) / 2.0;
-          distance = Math.abs(mouse.y - startY);
-          isTracing = velocity > 15 && distance > parent.height;
-        }
-        onReleased: {
-          if (!isTracing) {
-            toolBar.statusIndicatorSwiped(getDirection());
-          } else {
-            toolBar.statusIndicatorClicked();
-          }
-        }
-
-        function getDirection() {
-          var diffX = lastX - startX;
-          var diffY = lastY - startY;
-          if (Math.abs(diffX) > Math.abs(diffY)) {
-            return lastX < startX ? 'left' : 'right';
-          }
-          return lastY < startY ? 'up' : 'down';
+        onClicked: {
+          toolBar.statusIndicatorClicked();
         }
       }
     }
@@ -180,17 +180,17 @@ Rectangle {
 
     anchors.left: previousButton.right
     anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.topMargin: toolBar.topMargin + 5
 
-    visible: toolBar.state == "Navigation"
+    visible: toolBar.state === "Navigation"
     width: visible ? 48 : 0
     height: 48
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_chevron_right_white_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconColor: Theme.mainTextColor
 
-    enabled: (toolBar.state == "Navigation")
+    enabled: toolBar.state === "Navigation"
 
     onClicked: {
       if (toolBar.model && (selection.focusedItem + 1) < toolBar.model.count) {
@@ -214,17 +214,17 @@ Rectangle {
     anchors.left: parent.left
     anchors.leftMargin: toolBar.leftMargin
     anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.topMargin: toolBar.topMargin + 5
 
     visible: enabled
     width: visible ? 48 : 0
     height: 48
     clip: true
 
-    iconSource: toolBar.state == "Navigation" ? Theme.getThemeVectorIcon("ic_chevron_left_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconSource: toolBar.state === "Navigation" ? Theme.getThemeVectorIcon("ic_chevron_left_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
+    iconColor: Theme.mainTextColor
 
-    enabled: toolBar.state != "Edit" && !toolBar.multiSelection
+    enabled: toolBar.state !== "Edit" && !toolBar.multiSelection
 
     onClicked: {
       if (toolBar.model && (selection.focusedItem > 0)) {
@@ -248,25 +248,28 @@ Rectangle {
     anchors.left: parent.left
     anchors.leftMargin: toolBar.leftMargin
     anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.topMargin: toolBar.topMargin + 5
 
-    visible: toolBar.state == "Edit" || toolBar.state == "ProcessingLaunch"
+    visible: toolBar.state === "Edit" || toolBar.state === "ProcessingLaunch"
     width: visible ? 48 : 0
     height: 48
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconColor: !featureForm.model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
+    bgcolor: !featureForm.model.constraintsHardValid ? Theme.errorColor : !featureForm.model.constraintsSoftValid ? Theme.warningColor : "transparent"
+    borderColor: Theme.mainBackgroundColor
+    roundborder: true
+    round: true
 
-    opacity: featureForm.model.constraintsHardValid ? 1.0 : 0.3
     onClicked: {
-      if (toolBar.state == "ProcessingLaunch") {
+      if (toolBar.state === "ProcessingLaunch") {
         processingRunClicked();
       } else {
         if (featureForm.model.constraintsHardValid) {
           toolBar.save();
         } else {
-          displayToast("Constraints not valid", 'warning');
+          displayToast("Hard constraints not satisfied", 'error');
         }
       }
     }
@@ -283,15 +286,15 @@ Rectangle {
     anchors.right: parent.right
     anchors.rightMargin: toolBar.rightMargin
     anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.topMargin: toolBar.topMargin + 5
 
-    visible: !qfieldSettings.autoSave && toolBar.state == "Edit"
+    visible: !qfieldSettings.autoSave && toolBar.state === "Edit"
     width: visible ? 48 : 0
     height: 48
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconColor: Theme.mainTextColor
 
     onClicked: {
       toolBar.cancel();
@@ -309,14 +312,14 @@ Rectangle {
 
     property bool readOnly: false
 
-    visible: stateMachine.state === "digitize" && !selection.focusedGeometry.isNull && !featureForm.model.featureModel.geometryEditingLocked && (projectInfo.editRights || editButton.isCreatedCloudFeature) && toolBar.state == "Navigation" && editButton.supportsEditing && projectInfo.editRights
+    visible: stateMachine.state === "digitize" && !selection.focusedGeometry.isNull && !featureForm.model.featureModel.geometryEditingLocked && (projectInfo.editRights || editButton.isCreatedCloudFeature) && toolBar.state === "Navigation" && editButton.supportsEditing && projectInfo.editRights
 
     anchors.right: editButton.left
     anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.topMargin: toolBar.topMargin + 5
 
     iconSource: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconColor: Theme.mainTextColor
 
     width: visible ? 48 : 0
     height: 48
@@ -350,7 +353,7 @@ Rectangle {
 
     anchors.right: menuButton.left
     anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.topMargin: toolBar.topMargin + 5
 
     visible: toolBar.state === "Navigation" && supportsEditing && !featureForm.model.featureModel.attributeEditingLocked && (projectInfo.editRights || isCreatedCloudFeature)
     width: visible ? 48 : 0
@@ -358,7 +361,7 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconColor: Theme.mainTextColor
 
     onClicked: {
       toolBar.editAttributesButtonClicked();
@@ -392,20 +395,20 @@ Rectangle {
     anchors.right: parent.right
     anchors.rightMargin: toolBar.rightMargin
     anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.topMargin: toolBar.topMargin + 5
 
-    visible: toolBar.state != "Edit" && toolBar.state != "Processing" && toolBar.state != "ProcessingLaunch"
+    visible: toolBar.state !== "Edit" && toolBar.state !== "Processing" && toolBar.state !== "ProcessingLaunch"
     width: visible ? 48 : 0
     height: 48
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconColor: Theme.mainTextColor
 
     onClicked: {
-      if (toolBar.state == "Indication") {
+      if (toolBar.state === "Indication") {
         featureListMenu.popup(menuButton.x + menuButton.width - featureListMenu.width, menuButton.y);
-      } else if (toolBar.state == "Navigation") {
+      } else if (toolBar.state === "Navigation") {
         featureMenu.popup(menuButton.x + menuButton.width - featureMenu.width, menuButton.y);
       }
     }
@@ -422,7 +425,7 @@ Rectangle {
 
     anchors.left: saveButton.right
     anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.topMargin: toolBar.topMargin + 5
 
     visible: toolBar.multiSelection && toolBar.model && (toolBar.state === "Processing" || toolBar.state === "ProcessingLaunch" || toolBar.state === "Indication")
     width: visible ? 48 : 0
@@ -430,7 +433,7 @@ Rectangle {
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconColor: Theme.mainTextColor
 
     enabled: (toolBar.multiSelection && toolBar.model)
 
@@ -448,14 +451,14 @@ Rectangle {
 
     anchors.left: multiClearButton.right
     anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.topMargin: toolBar.topMargin + 5
 
-    width: (toolBar.state == "Indication" && toolBar.multiSelection && toolBar.model ? 48 : 0)
+    width: (toolBar.state === "Indication" && toolBar.multiSelection && toolBar.model ? 48 : 0)
     visible: width > 0
     height: 48
     verticalAlignment: Text.AlignVCenter
     font: Theme.strongFont
-    color: Theme.mainOverlayColor
+    color: Theme.mainTextColor
 
     text: model.selectedFeatures.length < 100 ? model.selectedFeatures.length : '99+'
 
@@ -467,15 +470,15 @@ Rectangle {
 
     anchors.right: menuButton.left
     anchors.top: parent.top
-    anchors.topMargin: toolBar.topMargin
+    anchors.topMargin: toolBar.topMargin + 5
 
-    visible: toolBar.state == "Indication" && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
+    visible: toolBar.state === "Indication" && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
     width: visible ? 48 : 0
     height: 48
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
-    iconColor: Theme.mainOverlayColor
+    iconColor: Theme.mainTextColor
 
     enabled: toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
 
@@ -631,6 +634,25 @@ Rectangle {
         height: 48
         width: 48
         round: true
+        iconSource: Theme.getThemeVectorIcon("ic_cut_black_24dp")
+        iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
+
+        onClicked: {
+          clipboardManager.copyFeatureToClipboard(featureForm.model.featureModel.currentLayer, featureForm.model.featureModel.feature.id, true, true);
+          mainWindow.displayToast(qsTr('Feature cut into clipboard'));
+          featureMenu.close();
+          selection.focusedItem = -1;
+          backClicked();
+          backClicked(); // Second back to close the features list
+        }
+      }
+
+      QfToolButton {
+        anchors.verticalCenter: parent.verticalCenter
+        height: 48
+        width: 48
+        round: true
         iconSource: Theme.getThemeVectorIcon("ic_copy_black_24dp")
         iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
         bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
@@ -761,7 +783,7 @@ Rectangle {
       id: duplicateFeatureBtn
       text: qsTr('Duplicate Feature')
       icon.source: Theme.getThemeVectorIcon("ic_duplicate_black_24dp")
-      enabled: (projectInfo.insertRights && (!selection.focusedLayer || !selection.focusedLayer.readOnly))
+      enabled: (projectInfo.insertRights && (!selection.focusedLayer || (!selection.focusedLayer.readOnly && !featureForm.model.featureModel.featureAdditionLocked)))
       visible: enabled
 
       font: Theme.defaultFont

@@ -129,7 +129,7 @@ void ProjectInfo::saveTracker( QgsVectorLayer *layer )
   if ( !layer || !mTrackingModel || !mTrackingModel->layerInTracking( layer ) )
     return;
 
-  Tracker *tracker = mTrackingModel->trackerForLayer( layer );
+  const Tracker *tracker = mTrackingModel->trackerForLayer( layer );
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/trackers/%1" ).arg( layer->id() ) );
   mSettings.setValue( "minimumDistance", tracker->minimumDistance() );
@@ -376,7 +376,11 @@ void ProjectInfo::saveLayerRememberedFields( QgsMapLayer *layer )
   const QgsFields fields = vlayer->fields();
   for ( int i = 0; i < fields.size(); i++ )
   {
+#if _QGIS_VERSION_INT >= 39900
+    rememberedFields.insert( fields.at( i ).name(), config.reuseLastValuePolicy( i ) == Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOn );
+#else
     rememberedFields.insert( fields.at( i ).name(), config.reuseLastValue( i ) );
+#endif
   }
 
   const bool isDataset = QgsProject::instance()->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
@@ -410,7 +414,12 @@ void ProjectInfo::setStateMode( const QString &mode )
 
 QString ProjectInfo::stateMode() const
 {
-  return mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/stateMode" ).arg( mFilePath ), QStringLiteral( "browse" ) ).toString();
+  if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/stateMode" ).arg( mFilePath ) ) )
+  {
+    return mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/stateMode" ).arg( mFilePath ), QStringLiteral( "browse" ) ).toString();
+  }
+
+  return QgsProject::instance()->readEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "initialMapMode" ), QStringLiteral( "browse" ) );
 }
 
 void ProjectInfo::setActiveLayer( QgsMapLayer *layer )
@@ -427,7 +436,15 @@ void ProjectInfo::setActiveLayer( QgsMapLayer *layer )
 
 QgsMapLayer *ProjectInfo::activeLayer() const
 {
-  const QString layerId = mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ).toString();
+  QString layerId;
+  if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ) )
+  {
+    layerId = mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ).toString();
+  }
+  else
+  {
+    layerId = QgsProject::instance()->readEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "initialActiveLayer" ) );
+  }
   return !layerId.isEmpty() ? QgsProject::instance()->mapLayer( layerId ) : nullptr;
 }
 
@@ -551,9 +568,13 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
       {
         QgsEditFormConfig config = vlayer->editFormConfig();
         const QStringList fieldNames = rememberedFields.keys();
-        for ( const QString fieldName : fieldNames )
+        for ( const QString &fieldName : fieldNames )
         {
+#if _QGIS_VERSION_INT >= 39900
+          config.setReuseLastValuePolicy( vlayer->fields().indexFromName( fieldName ), Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOn );
+#else
           config.setReuseLastValue( vlayer->fields().indexFromName( fieldName ), rememberedFields[fieldName].toBool() );
+#endif
         }
         vlayer->setEditFormConfig( config );
       }

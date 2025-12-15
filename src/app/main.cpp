@@ -155,10 +155,8 @@ int main( int argc, char **argv )
       profileDir.rmdir( QStringLiteral( "fonts" ) );
       profileDir.rename( QStringLiteral( "fonts-disabled" ), QStringLiteral( "fonts" ) );
 
-      service.execute();
-      service.exit( 0 );
-
-      return 0;
+      service.initService();
+      return service.exec();
     }
     else if ( strcmp( argv[1], "--positioningservice" ) == 0 )
     {
@@ -209,9 +207,13 @@ int main( int argc, char **argv )
   QgsApplication app( argc, argv, true, profilePath, QStringLiteral( "mobile" ) );
 
   if ( !qfieldTranslatorLoaded || qfieldTranslator.isEmpty() )
+  {
     ( void ) qfieldTranslator.load( QStringLiteral( "qfield_%1" ).arg( QLocale().name() ), QStringLiteral( ":/i18n/" ), "_" );
+  }
   if ( !qtTranslatorLoaded || qtTranslator.isEmpty() )
+  {
     ( void ) qtTranslator.load( QStringLiteral( "qt_%1" ).arg( QLocale().name() ), QStringLiteral( ":/i18n/" ), "_" );
+  }
 
   if ( !customLanguage.isEmpty() )
   {
@@ -221,6 +223,11 @@ int main( int argc, char **argv )
     // Set locale to emit QgsApplication's localeChanged signal
     QgsApplication::setLocale( QLocale() );
   }
+
+  QLocale locale;
+  const QString localeName = locale.name();
+  const qsizetype localeTagSeparator = localeName.indexOf( QStringLiteral( "_" ) );
+  QgsApplication::settingsLocaleUserLocale->setValue( localeName.mid( 0, localeTagSeparator ) );
 
   const QString qfieldFontName( qgetenv( "QFIELD_FONT_NAME" ) );
   if ( !qfieldFontName.isEmpty() )

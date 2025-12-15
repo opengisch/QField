@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="done_unpacking_msg">Klaar met uitpakken, start QGIS.</string>
-    <string name="unpacking_title">QField is zich aan het klaarmaken</string>
+    <string name="done_unpacking_msg">Uitpakken gereed, start QGIS.</string>
+    <string name="unpacking_title">QField start op</string>
     <string name="unpacking_msg">Deze eenmalige actie zal een kort moment duren</string>
     <string name="unpacking_msg_following">Bijna klaar, hou vol!</string>
     <string name="use_internal_storage">Gebruik Interne Opslag</string>
@@ -64,4 +64,6 @@
     <string name="export_operation_unsupported">Uw apparaat ondersteunt deze exportbewerking niet.</string>
     <string name="processing_message">Verwerking...</string>
     <string name="positioning_title">Positie</string>
-    </resources>
+    <string name="positioning_running">Positioneringsdienst draait</string>
+    <string name="copy_to_clipboard">Kopiëren naar klembord</string>
+</resources>

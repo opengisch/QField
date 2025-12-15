@@ -17,7 +17,6 @@
 #include "deltafilewrapper.h"
 #include "deltalistmodel.h"
 #include "fileutils.h"
-#include "layerobserver.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudproject.h"
 #include "qfieldcloudutils.h"
@@ -41,11 +40,6 @@ QFieldCloudProject::QFieldCloudProject( const QString &id, QFieldCloudConnection
   {
     mUsername = mCloudConnection->username();
   }
-}
-
-QFieldCloudProject::~QFieldCloudProject()
-{
-  delete mDeltaListModel;
 }
 
 void QFieldCloudProject::setSharedDatasetsProjectId( const QString &id )
@@ -156,13 +150,13 @@ void QFieldCloudProject::setIsOutdated( bool isOutdated )
   emit isOutdatedChanged();
 }
 
-void QFieldCloudProject::setProjectFileIsOutdated( bool projectFileIsOutdated )
+void QFieldCloudProject::setIsProjectOutdated( bool isProjectOutdated )
 {
-  if ( mProjectFileIsOutdated == projectFileIsOutdated )
+  if ( mIsProjectOutdated == isProjectOutdated )
     return;
 
-  mProjectFileIsOutdated = projectFileIsOutdated;
-  emit projectFileIsOutdatedChanged();
+  mIsProjectOutdated = isProjectOutdated;
+  emit isProjectOutdatedChanged();
 }
 
 void QFieldCloudProject::setLastRefreshedAt( const QDateTime &lastRefreshedAt )
@@ -198,7 +192,28 @@ void QFieldCloudProject::setDataLastUpdatedAt( const QDateTime &dataLastUpdatedA
     return;
 
   mDataLastUpdatedAt = dataLastUpdatedAt;
+
+  if ( mDataLastUpdatedAt.isValid() && mLastLocalDataLastUpdatedAt.isValid() )
+  {
+    setIsOutdated( mDataLastUpdatedAt > mLastLocalDataLastUpdatedAt );
+  }
+
   emit dataLastUpdatedAtChanged();
+}
+
+void QFieldCloudProject::setRestrictedDataLastUpdatedAt( const QDateTime &restrictedDataLastUpdatedAt )
+{
+  if ( mRestrictedDataLastUpdatedAt == restrictedDataLastUpdatedAt )
+    return;
+
+  mRestrictedDataLastUpdatedAt = restrictedDataLastUpdatedAt;
+
+  if ( mRestrictedDataLastUpdatedAt.isValid() && mLastLocalDataLastUpdatedAt.isValid() )
+  {
+    setIsProjectOutdated( mRestrictedDataLastUpdatedAt > mLastLocalDataLastUpdatedAt );
+  }
+
+  emit restrictedDataLastUpdatedAtChanged();
 }
 
 void QFieldCloudProject::setErrorStatus( ProjectErrorStatus errorStatus )
@@ -255,22 +270,22 @@ void QFieldCloudProject::setDeltaFileId( const QString &deltaFileId )
   emit deltaFileIdChanged();
 }
 
-void QFieldCloudProject::setDeltaFileUploadStatus( DeltaFileStatus deltaFileUploadStatus )
+void QFieldCloudProject::setDeltaFilePushStatus( DeltaFileStatus deltaFilePushStatus )
 {
-  if ( mDeltaFileUploadStatus == deltaFileUploadStatus )
+  if ( mDeltaFilePushStatus == deltaFilePushStatus )
     return;
 
-  mDeltaFileUploadStatus = deltaFileUploadStatus;
-  emit deltaFileUploadStatusChanged();
+  mDeltaFilePushStatus = deltaFilePushStatus;
+  emit deltaFilePushStatusChanged();
 }
 
-void QFieldCloudProject::setDeltaFileUploadStatusString( const QString &deltaFileUploadStatusString )
+void QFieldCloudProject::setDeltaFilePushStatusString( const QString &deltaFilePushStatusString )
 {
-  if ( mDeltaFileUploadStatusString == deltaFileUploadStatusString )
+  if ( mDeltaFilePushStatusString == deltaFilePushStatusString )
     return;
 
-  mDeltaFileUploadStatusString = deltaFileUploadStatusString;
-  emit deltaFileUploadStatusStringChanged();
+  mDeltaFilePushStatusString = deltaFilePushStatusString;
+  emit deltaFilePushStatusStringChanged();
 }
 
 void QFieldCloudProject::setDeltaLayersToDownload( const QStringList &deltaLayersToDownload )
@@ -398,7 +413,28 @@ void QFieldCloudProject::setLastLocalDataLastUpdatedAt( const QDateTime &lastLoc
     return;
 
   mLastLocalDataLastUpdatedAt = lastLocalDataLastUpdatedAt;
+
+  if ( mDataLastUpdatedAt.isValid() && mLastLocalDataLastUpdatedAt.isValid() )
+  {
+    setIsOutdated( mDataLastUpdatedAt > mLastLocalDataLastUpdatedAt );
+  }
+
   emit lastLocalDataLastUpdatedAtChanged();
+}
+
+void QFieldCloudProject::setLastLocalRestrictedDataLastUpdatedAt( const QDateTime &lastLocalRestrictedDataLastUpdatedAt )
+{
+  if ( mLastLocalRestrictedDataLastUpdatedAt == lastLocalRestrictedDataLastUpdatedAt )
+    return;
+
+  mLastLocalRestrictedDataLastUpdatedAt = lastLocalRestrictedDataLastUpdatedAt;
+
+  if ( mRestrictedDataLastUpdatedAt.isValid() && mLastLocalRestrictedDataLastUpdatedAt.isValid() )
+  {
+    setIsOutdated( mRestrictedDataLastUpdatedAt > mLastLocalRestrictedDataLastUpdatedAt );
+  }
+
+  emit lastLocalRestrictedDataLastUpdatedAtChanged();
 }
 
 void QFieldCloudProject::setThumbnailPath( const QString &thumbnailPath )
@@ -408,44 +444,6 @@ void QFieldCloudProject::setThumbnailPath( const QString &thumbnailPath )
 
   mThumbnailPath = thumbnailPath;
   emit thumbnailPathChanged();
-}
-
-void QFieldCloudProject::refreshFileOutdatedStatus()
-{
-  NetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( mId ) );
-
-  connect( reply, &NetworkReply::finished, reply, [this, reply]() {
-    QNetworkReply *rawReply = reply->currentRawReply();
-    reply->deleteLater();
-
-    if ( rawReply->error() != QNetworkReply::NoError )
-    {
-      QgsLogger::debug( QStringLiteral( "Project %1: failed to refresh the project file outdated satus. %2" ).arg( mId, QFieldCloudConnection::errorString( rawReply ) ) );
-      return;
-    }
-
-    const QString lastProjectFileMd5 = QFieldCloudUtils::projectSetting( mId, QStringLiteral( "lastProjectFileMd5" ), QString() ).toString();
-    const QJsonArray files = QJsonDocument::fromJson( rawReply->readAll() ).array();
-    for ( const QJsonValue fileValue : files )
-    {
-      QVariantHash fileDetails = fileValue.toObject().toVariantHash();
-      const QString fileName = fileDetails.value( "name" ).toString().toLower();
-      if ( fileName.endsWith( QStringLiteral( ".qgs" ) ) || fileName.endsWith( QStringLiteral( ".qgz" ) ) )
-      {
-        if ( lastProjectFileMd5.isEmpty() )
-        {
-          // First check, store for future comparison
-          QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastProjectFileMd5" ), fileDetails.value( "md5sum" ).toString() );
-        }
-        else if ( lastProjectFileMd5 != fileDetails.value( "md5sum" ).toString() )
-        {
-          mProjectFileIsOutdated = true;
-          QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "projectFileOudated" ), true );
-          emit projectFileIsOutdatedChanged();
-        }
-      }
-    }
-  } );
 }
 
 void QFieldCloudProject::downloadThumbnail()
@@ -532,7 +530,7 @@ void QFieldCloudProject::downloadAttachmentConnections( const QString &fileKey )
     return;
   }
 
-  connect( reply, &NetworkReply::downloadProgress, reply, [this, reply, fileKey]( int bytesReceived, int bytesTotal ) {
+  connect( reply, &NetworkReply::downloadProgress, reply, [this, reply, fileKey]( qint64 bytesReceived, qint64 bytesTotal ) {
     QNetworkReply *rawReply = reply->currentRawReply();
     if ( !rawReply )
     {
@@ -835,7 +833,7 @@ void QFieldCloudProject::download()
     {
       const QJsonObject fileObject = fileValue.toObject();
 
-      const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
+      const qint64 fileSize = fileObject.value( QStringLiteral( "size" ) ).toInteger();
       const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
       const QString projectFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId, fileName );
       // NOTE the cloud API is giving the false impression that the file keys `md5sum` is having a MD5 or another checksum.
@@ -931,7 +929,7 @@ void QFieldCloudProject::download()
             const QString fileName = fileObject.value( QStringLiteral( "name" ) ).toString();
             if ( localizedDatasetsFileNames.contains( fileName ) )
             {
-              const int fileSize = fileObject.value( QStringLiteral( "size" ) ).toInt();
+              const qint64 fileSize = fileObject.value( QStringLiteral( "size" ) ).toInteger();
               const QString absoluteFileName = QStringLiteral( "%1/%2/%3/%4" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mSharedDatasetsProjectId, fileName );
               // NOTE the cloud API is giving the false impression that the file keys `md5sum` is having a MD5 or another checksum.
               // This actually is an Object Storage (S3) implementation specific ETag.
@@ -949,9 +947,11 @@ void QFieldCloudProject::download()
               }
 
               if ( cloudEtag == localEtag )
+              {
                 continue;
+              }
 
-              prepareDownloadTransfer( mId, fileName, fileSize, cloudEtag );
+              prepareDownloadTransfer( mSharedDatasetsProjectId, fileName, fileSize, cloudEtag );
             }
           }
           emit downloadBytesTotalChanged();
@@ -983,7 +983,7 @@ void QFieldCloudProject::download()
   } );
 }
 
-void QFieldCloudProject::prepareDownloadTransfer( const QString &projectId, const QString &fileName, int fileSize, const QString &cloudEtag )
+void QFieldCloudProject::prepareDownloadTransfer( const QString &projectId, const QString &fileName, qint64 fileSize, const QString &cloudEtag )
 {
   const QString fileKey = QStringLiteral( "%1/%2" ).arg( projectId, fileName );
   const QString projectDir = QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, projectId );
@@ -1004,7 +1004,7 @@ void QFieldCloudProject::prepareDownloadTransfer( const QString &projectId, cons
       QFile::remove( dir.filePath( partFile ) );
     }
   }
-  mDownloadBytesTotal += std::max( fileSize, 0 );
+  mDownloadBytesTotal += std::max( fileSize, static_cast<qint64>( 0 ) );
 }
 
 void QFieldCloudProject::updateActiveFilesToDownload()
@@ -1154,7 +1154,7 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
     downloadFileConnections( fileKey );
   } );
 
-  connect( reply, &NetworkReply::downloadProgress, reply, [this, reply, fileKey]( int bytesReceived, int bytesTotal ) {
+  connect( reply, &NetworkReply::downloadProgress, reply, [this, reply, fileKey]( qint64 bytesReceived, qint64 bytesTotal ) {
     QNetworkReply *rawReply = reply->currentRawReply();
     if ( !rawReply )
     {
@@ -1200,7 +1200,8 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
     mDownloadBytesReceived -= mDownloadFileTransfers[fileKey].bytesTransferred;
     mDownloadBytesReceived += bytesReceived;
     mDownloadFileTransfers[fileKey].bytesTransferred = bytesReceived;
-    mDownloadProgress = std::clamp( ( static_cast<double>( mDownloadBytesReceived ) / std::max( mDownloadBytesTotal, 1 ) ), 0., 1. );
+
+    mDownloadProgress = std::clamp( ( static_cast<double>( mDownloadBytesReceived ) / std::max( mDownloadBytesTotal, static_cast<qint64>( 1 ) ) ), 0., 1. );
 
     emit downloadBytesReceivedChanged();
     emit downloadProgressChanged();
@@ -1231,6 +1232,29 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
+      const int httpStatus = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+      if ( httpStatus == 416 && mDownloadFileTransfers[fileKey].retryCount < 3 )
+      {
+        mDownloadFileTransfers[fileKey].resumableDownload = false;
+        mDownloadFileTransfers[fileKey].retryCount++;
+
+        NetworkReply *newReply = downloadFile(
+          mDownloadFileTransfers[fileKey].projectId,
+          mDownloadFileTransfers[fileKey].fileName,
+          true,
+          true );
+
+        if ( newReply )
+        {
+          mDownloadFileTransfers[fileKey].networkReply = newReply;
+          newReply->setParent( reply );
+          downloadFileConnections( fileKey );
+        }
+
+        reply->abort();
+        return;
+      }
+
       hasError = true;
       errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
       errorMessage = tr( "Network error. Failed to download file `%1`." ).arg( fileKey );
@@ -1240,7 +1264,7 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
     {
       mDownloadBytesReceived -= mDownloadFileTransfers[fileKey].bytesTransferred;
       mDownloadBytesReceived += mDownloadFileTransfers[fileKey].bytesTotal;
-      mDownloadProgress = std::clamp( ( static_cast<double>( mDownloadBytesReceived ) / std::max( mDownloadBytesTotal, 1 ) ), 0., 1. );
+      mDownloadProgress = std::clamp( ( static_cast<double>( mDownloadBytesReceived ) / std::max( mDownloadBytesTotal, static_cast<qint64>( 1 ) ) ), 0., 1. );
 
       emit downloadBytesReceivedChanged();
       emit downloadProgressChanged();
@@ -1274,13 +1298,18 @@ void QFieldCloudProject::downloadFilesCompleted()
   QgsLogger::debug( QStringLiteral( "Project %1: All files downloaded." ).arg( mId ) );
   Q_ASSERT( mActiveFilesToDownload.size() == 0 );
 
-  QDir projectPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
+  if ( !mDeltaFileWrapper )
+  {
+    setupDeltaFileWrapper();
+  }
+
+  const QDir projectPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
   const bool currentProjectReloadNeeded = QgsProject::instance()->homePath().startsWith( projectPath.absolutePath() );
   QStringList gpkgFileNames;
   if ( currentProjectReloadNeeded )
   {
     // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
-    QDirIterator it( projectPath.absolutePath(), { QStringLiteral( "*.gpkg" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
+    QDirIterator it( projectPath.absolutePath(), { QStringLiteral( "*.gpkg" ), QStringLiteral( "*.sqlite" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
     while ( it.hasNext() )
     {
       gpkgFileNames << it.nextFileInfo().absoluteFilePath();
@@ -1337,16 +1366,16 @@ void QFieldCloudProject::downloadFilesCompleted()
   setLastLocalExportedAt( QDateTime::currentDateTimeUtc().toString( Qt::ISODate ) );
   setLastLocalExportId( QUuid::createUuid().toString( QUuid::WithoutBraces ) );
   setLastLocalDataLastUpdatedAt( mDataLastUpdatedAt );
+  setLastLocalRestrictedDataLastUpdatedAt( mRestrictedDataLastUpdatedAt );
   setIsOutdated( false );
-  setProjectFileIsOutdated( false );
+  setIsProjectOutdated( false );
 
   QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastExportedAt" ), mLastExportedAt );
   QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastExportId" ), mLastExportId );
   QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalExportedAt" ), mLastLocalExportedAt );
   QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalExportId" ), mLastLocalExportId );
   QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalDataLastUpdatedAt" ), mLastLocalDataLastUpdatedAt );
-  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastProjectFileMd5" ), QString() );
-  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "projectFileOudated" ), false );
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalRestrictedDataLastUpdatedAt" ), mLastLocalRestrictedDataLastUpdatedAt );
 
   emit downloadFinished();
 }
@@ -1375,7 +1404,7 @@ NetworkReply *QFieldCloudProject::downloadFile( const QString &projectId, const 
   if ( partialFile.exists() )
   {
     qint64 partialSize = partialFile.size();
-    if ( partialSize < QFIELDCLOUD_MINIMUM_RANGE_HEADER_LENGTH || partialSize > fileTransfer.bytesTotal || ( partialSize == fileTransfer.bytesTotal ) && fileTransfer.etag != FileUtils::fileEtag( fileTransfer.partialFilePath ) )
+    if ( !fileTransfer.resumableDownload || partialSize < QFIELDCLOUD_MINIMUM_RANGE_HEADER_LENGTH || partialSize > fileTransfer.bytesTotal || ( partialSize == fileTransfer.bytesTotal && fileTransfer.etag != FileUtils::fileEtag( fileTransfer.partialFilePath ) ) )
     {
       // Invalid or dirty file; delete and re-download
       partialFile.remove();
@@ -1468,16 +1497,14 @@ void QFieldCloudProject::logFailedDownload( const QString &fileKey, const QStrin
   emit downloadFinished( trimmedMessage );
 }
 
-void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownloadUpdates )
+void QFieldCloudProject::push( bool shouldDownloadUpdates )
 {
   if ( mStatus != ProjectStatus::Idle )
   {
     return;
   }
 
-  DeltaFileWrapper *deltaFileWrapper = layerObserver->deltaFileWrapper();
-
-  if ( shouldDownloadUpdates && deltaFileWrapper->count() == 0 )
+  if ( shouldDownloadUpdates && mDeltaFileWrapper->count() == 0 )
   {
     setStatus( ProjectStatus::Idle );
     packageAndDownload();
@@ -1489,28 +1516,28 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
     return;
   }
 
-  if ( !layerObserver->deltaFileWrapper()->toFile() )
+  if ( !mDeltaFileWrapper->toFile() )
   {
     return;
   }
 
-  if ( deltaFileWrapper->hasError() )
+  if ( mDeltaFileWrapper->hasError() )
   {
-    QgsMessageLog::logMessage( QStringLiteral( "The delta file has an error: %1" ).arg( deltaFileWrapper->errorString() ) );
+    QgsMessageLog::logMessage( QStringLiteral( "The delta file has an error: %1" ).arg( mDeltaFileWrapper->errorString() ) );
     return;
   }
 
-  deltaFileWrapper->setIsPushing( true );
+  mDeltaFileWrapper->setIsPushing( true );
 
-  setStatus( ProjectStatus::Uploading );
-  setDeltaFileId( deltaFileWrapper->id() );
-  setDeltaFileUploadStatus( DeltaLocalStatus );
-  setDeltaFileUploadStatusString( QString() );
-  mUploadDeltaProgress = 0.0;
+  setStatus( ProjectStatus::Pushing );
+  setDeltaFileId( mDeltaFileWrapper->id() );
+  setDeltaFilePushStatus( DeltaLocalStatus );
+  setDeltaFilePushStatusString( QString() );
+  mPushDeltaProgress = 0.0;
 
-  emit uploadDeltaProgressChanged();
+  emit pushDeltaProgressChanged();
 
-  refreshModification( layerObserver );
+  refreshModification();
 
   // //////////
   // prepare attachment files to be uploaded
@@ -1518,7 +1545,7 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
 
   const QFileInfo projectInfo( QFieldCloudUtils::localProjectFilePath( mUsername, mId ) );
   const QDir projectDir( projectInfo.absolutePath() );
-  const QStringList attachmentFileNames = deltaFileWrapper->attachmentFileNames().keys();
+  const QStringList attachmentFileNames = mDeltaFileWrapper->attachmentFileNames().keys();
 
   for ( const QString &fileName : attachmentFileNames )
   {
@@ -1543,11 +1570,11 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
     QFieldCloudUtils::addPendingAttachments( mUsername, mId, { absoluteFilePath } );
   }
 
-  QString deltaFileToUpload = deltaFileWrapper->toFileForUpload();
+  QString deltaFileToUpload = mDeltaFileWrapper->toFileForPush();
 
   if ( deltaFileToUpload.isEmpty() )
   {
-    deltaFileWrapper->setIsPushing( false );
+    mDeltaFileWrapper->setIsPushing( false );
     setStatus( ProjectStatus::Idle );
     return;
   }
@@ -1559,12 +1586,12 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
 
   Q_ASSERT( deltasCloudReply );
 
-  connect( deltasCloudReply, &NetworkReply::uploadProgress, this, [this]( int bytesSent, int bytesTotal ) {
-    mUploadDeltaProgress = std::clamp( ( static_cast<double>( bytesSent ) / bytesTotal ), 0., 1. );
-    emit uploadDeltaProgressChanged();
+  connect( deltasCloudReply, &NetworkReply::uploadProgress, this, [this]( qint64 bytesSent, qint64 bytesTotal ) {
+    mPushDeltaProgress = std::clamp( ( static_cast<double>( bytesSent ) / bytesTotal ), 0., 1. );
+    emit pushDeltaProgressChanged();
   } );
 
-  connect( deltasCloudReply, &NetworkReply::finished, this, [this, deltasCloudReply, layerObserver]() {
+  connect( deltasCloudReply, &NetworkReply::finished, this, [this, deltasCloudReply]() {
     QNetworkReply *deltasReply = deltasCloudReply->currentRawReply();
     deltasCloudReply->deleteLater();
 
@@ -1574,33 +1601,33 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
     // if there is an error, cannot continue sync
     if ( deltasReply->error() != QNetworkReply::NoError )
     {
-      setDeltaFileUploadStatusString( QFieldCloudConnection::errorString( deltasReply ) );
+      setDeltaFilePushStatusString( QFieldCloudConnection::errorString( deltasReply ) );
       // TODO check why exactly we failed
       // maybe the project does not exist, then create it?
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to upload delta file, reason:\n%1\n%2" ).arg( deltasReply->errorString(), mDeltaFileUploadStatusString ) );
+      QgsMessageLog::logMessage( QStringLiteral( "Failed to upload delta file, reason:\n%1\n%2" ).arg( deltasReply->errorString(), mDeltaFilePushStatusString ) );
 
-      layerObserver->deltaFileWrapper()->setIsPushing( false );
+      mDeltaFileWrapper->setIsPushing( false );
 
-      cancelUpload();
+      cancelPush();
       return;
     }
 
-    mUploadDeltaProgress = 1.0;
-    setDeltaFileUploadStatus( DeltaPendingStatus );
-    setDeltaLayersToDownload( layerObserver->deltaFileWrapper()->deltaLayerIds() );
+    mPushDeltaProgress = 1.0;
+    setDeltaFilePushStatus( DeltaPendingStatus );
+    setDeltaLayersToDownload( mDeltaFileWrapper->deltaLayerIds() );
 
-    emit uploadDeltaProgressChanged();
+    emit pushDeltaProgressChanged();
 
-    emit networkDeltaUploaded();
+    emit networkDeltaPushed();
   } );
 
 
   // //////////
   // 2) delta successfully uploaded
   // //////////
-  QObject *networkDeltaUploadedParent = new QObject( this ); // we need this to unsubscribe
-  connect( this, &QFieldCloudProject::networkDeltaUploaded, networkDeltaUploadedParent, [this, networkDeltaUploadedParent, layerObserver, shouldDownloadUpdates]() {
-    delete networkDeltaUploadedParent;
+  QObject *networkDeltaPushedParent = new QObject( this ); // we need this to unsubscribe
+  connect( this, &QFieldCloudProject::networkDeltaPushed, networkDeltaPushedParent, [this, networkDeltaPushedParent, shouldDownloadUpdates]() {
+    delete networkDeltaPushedParent;
 
     if ( shouldDownloadUpdates )
     {
@@ -1614,21 +1641,27 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
       setStatus( ProjectStatus::Idle );
       setLastLocalPushDeltas( QDateTime::currentDateTimeUtc().toString( Qt::ISODate ) );
 
-      QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalPushDeltas" ), mLastLocalPushDeltas );
-
-      DeltaFileWrapper *deltaFileWrapper = layerObserver->deltaFileWrapper();
-      deltaFileWrapper->reset();
-      deltaFileWrapper->resetId();
-      deltaFileWrapper->setIsPushing( false );
-
-      if ( !deltaFileWrapper->toFile() )
+      if ( !isOutdated() )
       {
-        QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file after delta push. %1" ).arg( deltaFileWrapper->errorString() ) );
+        // If we are not in an outdated state, avoid falling into outdated state due to our own data change
+        setLastLocalDataLastUpdatedAt( QDateTime::currentDateTimeUtc().addSecs( 60 * 2 ) );
+        QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalDataLastUpdatedAt" ), mLastLocalDataLastUpdatedAt );
       }
 
-      emit uploadFinished( false );
+      QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalPushDeltas" ), mLastLocalPushDeltas );
 
-      refreshData( ProjectRefreshReason::DeltaUploaded );
+      mDeltaFileWrapper->reset();
+      mDeltaFileWrapper->resetId();
+      mDeltaFileWrapper->setIsPushing( false );
+
+      if ( !mDeltaFileWrapper->toFile() )
+      {
+        QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file after delta push. %1" ).arg( mDeltaFileWrapper->errorString() ) );
+      }
+
+      emit pushFinished( false );
+
+      refreshData( ProjectRefreshReason::DeltaPushed );
     }
   } );
 
@@ -1636,10 +1669,8 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
   // 3) new delta status received. Never give up to get a successful status.
   // //////////
   QObject *networkDeltaStatusCheckedParent = new QObject( this ); // we need this to unsubscribe
-  connect( this, &QFieldCloudProject::networkDeltaStatusChecked, networkDeltaStatusCheckedParent, [this, networkDeltaStatusCheckedParent, layerObserver, shouldDownloadUpdates]() {
-    DeltaFileWrapper *deltaFileWrapper = layerObserver->deltaFileWrapper();
-
-    switch ( mDeltaFileUploadStatus )
+  connect( this, &QFieldCloudProject::networkDeltaStatusChecked, networkDeltaStatusCheckedParent, [this, networkDeltaStatusCheckedParent, shouldDownloadUpdates]() {
+    switch ( mDeltaFilePushStatus )
     {
       case DeltaLocalStatus:
         // delta file should be already sent!!!
@@ -1654,13 +1685,15 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
 
       case DeltaErrorStatus:
         delete networkDeltaStatusCheckedParent;
-        deltaFileWrapper->resetId();
-        deltaFileWrapper->setIsPushing( false );
+        mDeltaFileWrapper->resetId();
+        mDeltaFileWrapper->setIsPushing( false );
 
-        if ( !deltaFileWrapper->toFile() )
+        if ( !mDeltaFileWrapper->toFile() )
+        {
           QgsMessageLog::logMessage( QStringLiteral( "Failed update committed delta file." ) );
+        }
 
-        cancelUpload();
+        cancelPush();
         return;
 
       case DeltaConflictStatus:
@@ -1668,12 +1701,14 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
       case DeltaAppliedStatus:
         delete networkDeltaStatusCheckedParent;
 
-        deltaFileWrapper->reset();
-        deltaFileWrapper->resetId();
-        deltaFileWrapper->setIsPushing( false );
+        mDeltaFileWrapper->reset();
+        mDeltaFileWrapper->resetId();
+        mDeltaFileWrapper->setIsPushing( false );
 
-        if ( !deltaFileWrapper->toFile() )
-          QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file. %1" ).arg( deltaFileWrapper->errorString() ) );
+        if ( !mDeltaFileWrapper->toFile() )
+        {
+          QgsMessageLog::logMessage( QStringLiteral( "Failed to reset delta file. %1" ).arg( mDeltaFileWrapper->errorString() ) );
+        }
 
         mModification ^= LocalModification;
         mModification |= RemoteModification;
@@ -1686,26 +1721,26 @@ void QFieldCloudProject::upload( LayerObserver *layerObserver, bool shouldDownlo
         // download the updated files, so the files are for sure the same on the client and on the server
         if ( shouldDownloadUpdates )
         {
-          emit uploadFinished( true, QString() );
+          emit pushFinished( true, QString() );
           packageAndDownload();
         }
         else
         {
           emit statusChanged();
-          emit uploadFinished( false, QString() );
+          emit pushFinished( false, QString() );
 
-          refreshData( ProjectRefreshReason::DeltaUploaded );
+          refreshData( ProjectRefreshReason::DeltaPushed );
         }
     }
   } );
 }
 
-void QFieldCloudProject::cancelUpload()
+void QFieldCloudProject::cancelPush()
 {
   setStatus( ProjectStatus::Idle );
-  setErrorStatus( UploadErrorStatus );
+  setErrorStatus( PushErrorStatus );
 
-  emit uploadFinished( false, mDeltaFileUploadStatusString );
+  emit pushFinished( false, mDeltaFilePushStatusString );
 
   return;
 }
@@ -1764,7 +1799,7 @@ void QFieldCloudProject::startJob( JobType type )
 
 void QFieldCloudProject::getDeltaStatus()
 {
-  setDeltaFileUploadStatusString( QString() );
+  setDeltaFilePushStatusString( QString() );
 
   NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/%2/" ).arg( mId, mDeltaFileId ) );
   connect( deltaStatusReply, &NetworkReply::finished, this, [this, deltaStatusReply]() {
@@ -1776,9 +1811,9 @@ void QFieldCloudProject::getDeltaStatus()
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      setDeltaFileUploadStatus( DeltaErrorStatus );
+      setDeltaFilePushStatus( DeltaErrorStatus );
       // TODO this is oversimplification. e.g. 404 error is when the requested delta file id is not existant
-      setDeltaFileUploadStatusString( QFieldCloudConnection::errorString( rawReply ) );
+      setDeltaFilePushStatusString( QFieldCloudConnection::errorString( rawReply ) );
 
       emit networkDeltaStatusChecked();
       return;
@@ -1788,24 +1823,24 @@ void QFieldCloudProject::getDeltaStatus()
     DeltaListModel deltaListModel( doc );
     if ( !deltaListModel.isValid() )
     {
-      setDeltaFileUploadStatus( DeltaErrorStatus );
-      setDeltaFileUploadStatusString( deltaListModel.errorString() );
+      setDeltaFilePushStatus( DeltaErrorStatus );
+      setDeltaFilePushStatusString( deltaListModel.errorString() );
 
       emit networkDeltaStatusChecked();
       return;
     }
 
-    setDeltaFileUploadStatusString( QString() );
+    setDeltaFilePushStatusString( QString() );
 
     if ( !deltaListModel.allHaveFinalStatus() )
     {
-      setDeltaFileUploadStatus( DeltaPendingStatus );
+      setDeltaFilePushStatus( DeltaPendingStatus );
 
       emit networkDeltaStatusChecked();
       return;
     }
 
-    setDeltaFileUploadStatus( DeltaAppliedStatus );
+    setDeltaFilePushStatus( DeltaAppliedStatus );
 
     emit networkDeltaStatusChecked();
   } );
@@ -1923,11 +1958,11 @@ QString QFieldCloudProject::getJobTypeAsString( JobType jobType )
   return QString();
 }
 
-void QFieldCloudProject::refreshModification( LayerObserver *layerObserver )
+void QFieldCloudProject::refreshModification()
 {
   ProjectModifications oldModifications = mModification;
 
-  if ( layerObserver->deltaFileWrapper()->count() > 0 )
+  if ( mDeltaFileWrapper && mDeltaFileWrapper->count() > 0 )
   {
     mModification |= LocalModification;
   }
@@ -1989,7 +2024,6 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
     setNeedsRepackaging( projectData.value( "needs_repackaging" ).toBool() );
     setLastRefreshedAt( QDateTime::currentDateTimeUtc() );
     setDataLastUpdatedAt( QDateTime::fromString( projectData.value( "data_last_updated_at" ).toString(), Qt::ISODate ) );
-    setIsOutdated( mLastLocalDataLastUpdatedAt.isValid() ? mDataLastUpdatedAt > mLastLocalDataLastUpdatedAt : false );
 
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "name" ), mName );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "owner" ), mOwner );
@@ -2002,6 +2036,7 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "isFeatured" ), mIsFeatured );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "canRepackage" ), mCanRepackage );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "needsRepackaging" ), mNeedsRepackaging );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "dataLastUpdatedAt" ), mDataLastUpdatedAt.toString( Qt::DateFormat::ISODate ) );
 
     emit dataRefreshed( reason );
   } );
@@ -2011,8 +2046,7 @@ void QFieldCloudProject::refreshDeltaList()
 {
   if ( mDeltaListModel )
   {
-    delete mDeltaListModel;
-    mDeltaListModel = nullptr;
+    mDeltaListModel.reset();
     emit deltaListModelChanged();
   }
 
@@ -2030,7 +2064,7 @@ void QFieldCloudProject::refreshDeltaList()
     }
 
     const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
-    mDeltaListModel = new DeltaListModel( doc );
+    mDeltaListModel.reset( new DeltaListModel( doc ) );
     emit deltaListModelChanged();
   } );
 }
@@ -2064,6 +2098,13 @@ void QFieldCloudProject::removeLocally()
   {
     dir.removeRecursively();
 
+    if ( mDeltaFileWrapper )
+    {
+      mDeltaFileWrapper.reset();
+      emit deltasCountChanged();
+      emit deltaFileWrapperChanged();
+    }
+
     setLocalPath( QString() );
     setModification( NoModification );
     mCheckout = mCheckout & ~LocalCheckout;
@@ -2088,6 +2129,7 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   project->mCreatedAt = QDateTime::fromString( details.value( "created_at" ).toString(), Qt::ISODate );
   project->mUpdatedAt = QDateTime::fromString( details.value( "updated_at" ).toString(), Qt::ISODate );
   project->mDataLastUpdatedAt = QDateTime::fromString( details.value( "data_last_updated_at" ).toString(), Qt::ISODate );
+  project->mRestrictedDataLastUpdatedAt = QDateTime::fromString( details.value( "restricted_data_last_updated_at" ).toString(), Qt::ISODate );
   project->mCanRepackage = details.value( "can_repackage" ).toBool();
   project->mNeedsRepackaging = details.value( "needs_repackaging" ).toBool();
   project->mSharedDatasetsProjectId = details.value( "shared_datasets_project_id" ).toString();
@@ -2108,6 +2150,8 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isPublic" ), project->isPublic() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isFeatured" ), project->isFeatured() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isAttachmentDownloadOnDemand" ), project->attachmentsOnDemandEnabled() );
+  QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "dataLastUpdatedAt" ), project->mDataLastUpdatedAt.toString( Qt::DateFormat::ISODate ) );
+  QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "restrictedDataLastUpdatedAt" ), project->mRestrictedDataLastUpdatedAt.toString( Qt::DateFormat::ISODate ) );
 
   QString username = connection ? connection->username() : QString();
   if ( !username.isEmpty() )
@@ -2146,6 +2190,8 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   const QString sharedDatasetsProjectId = QFieldCloudUtils::projectSetting( id, QStringLiteral( "sharedDatasetsProjectId" ) ).toString();
   const bool isSharedDatasetsProject = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isSharedDatasetsProject" ) ).toBool();
   const bool isAttachmentDownloadOnDemand = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isAttachmentDownloadOnDemand" ) ).toBool();
+  const QDateTime dataLastUpdatedAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( "dataLastUpdatedAt" ) ).toString(), Qt::DateFormat::ISODate );
+  const QDateTime restrictedDataLastUpdatedAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( "restrictedDataLastUpdatedAt" ) ).toString(), Qt::DateFormat::ISODate );
 
   QFieldCloudProject *project = new QFieldCloudProject( id, connection, gpkgFlusher );
   project->mIsPublic = isPublic;
@@ -2159,7 +2205,8 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   project->mStatus = status == "failed" ? ProjectStatus::Failing : ProjectStatus::Idle;
   project->mCreatedAt = createdAt;
   project->mUpdatedAt = updatedAt;
-  project->mDataLastUpdatedAt = QDateTime();
+  project->mDataLastUpdatedAt = dataLastUpdatedAt;
+  project->mRestrictedDataLastUpdatedAt = restrictedDataLastUpdatedAt;
   project->mCanRepackage = false;
   project->mNeedsRepackaging = false;
   project->mSharedDatasetsProjectId = sharedDatasetsProjectId;
@@ -2172,7 +2219,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
     project->mLocalPath = QFieldCloudUtils::localProjectFilePath( username, project->mId );
   }
 
-  QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, project->mId ) );
+  const QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, project->mId ) );
   restoreLocalSettings( project, localPath );
 
   return project;
@@ -2180,23 +2227,204 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
 
 void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, const QDir &localPath )
 {
-  project->mDeltasCount = DeltaFileWrapper( QgsProject::instance(), QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ).count();
   project->mLastExportId = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastExportId" ) ).toString();
   project->mLastExportedAt = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastExportedAt" ) ).toString();
   project->mLastLocalExportId = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalExportId" ) ).toString();
   project->mLastLocalExportedAt = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalExportedAt" ) ).toString();
   project->mLastLocalPushDeltas = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalPushDeltas" ) ).toString();
   project->mLastLocalDataLastUpdatedAt = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalDataLastUpdatedAt" ) ).toDateTime();
+  project->mLastLocalRestrictedDataLastUpdatedAt = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalRestrictedDataLastUpdatedAt" ) ).toDateTime();
   project->mIsOutdated = project->mDataLastUpdatedAt > project->mLastLocalDataLastUpdatedAt;
-  project->mProjectFileIsOutdated = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "projectFileOudated" ), false ).toBool();
+  project->mIsProjectOutdated = project->mRestrictedDataLastUpdatedAt.isValid() && project->mLastLocalRestrictedDataLastUpdatedAt.isValid() && project->mRestrictedDataLastUpdatedAt > project->mLastLocalRestrictedDataLastUpdatedAt;
   project->mAutoPushEnabled = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "autoPushEnabled" ), false ).toBool();
   project->mAutoPushIntervalMins = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "autoPushIntervalMins" ), 30 ).toInt();
 
   // generate local export id if not present. Possible reasons for missing localExportId are:
   // - the cloud project download aborted halfway
   // - the local settings were somehow deleted, but not the project itself (unlikely)
-  if ( project->lastLocalExportId().isEmpty() )
+  if ( !project->lastLocalExportId().isEmpty() )
+  {
+    project->setupDeltaFileWrapper();
+  }
+  else
   {
     project->mLocalPath.clear();
   }
 };
+
+void QFieldCloudProject::setupDeltaFileWrapper()
+{
+  const QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
+  mDeltaFileWrapper.reset( new DeltaFileWrapper( mId, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ) );
+
+  connect( mDeltaFileWrapper.get(), &DeltaFileWrapper::countChanged, this, [this]() {
+    refreshModification();
+    emit deltasCountChanged();
+  } );
+
+  emit deltaFileWrapperChanged();
+  refreshModification();
+  emit deltasCountChanged();
+}
+
+void QFieldCloudProject::uploadLocalPath( QString localPath, bool deleteAfterSuccessfulUpload )
+{
+  QFileInfo localInfo( localPath );
+  if ( !localInfo.exists() )
+  {
+    emit uploadFinished( tr( "Local path doesn't exist" ) );
+    return;
+  }
+
+  if ( localInfo.isFile() )
+  {
+    localPath = localInfo.absolutePath();
+  }
+
+  QFileInfo projectFileInfo;
+  QDirIterator projectDirIterator( localPath, { "*.qgs", "*.qgz" }, QDir::Files, QDirIterator::Subdirectories );
+  while ( projectDirIterator.hasNext() )
+  {
+    projectDirIterator.next();
+    if ( projectFileInfo.exists() )
+    {
+      emit uploadFinished( tr( "Local path to upload cannot be used as it has multiple project files" ) );
+      return;
+    }
+    projectFileInfo = projectDirIterator.fileInfo();
+  }
+
+  if ( !projectFileInfo.exists() && projectFileInfo.size() > 0 )
+  {
+    emit uploadFinished( tr( "Local path to upload is missing a valid project file" ) );
+    return;
+  }
+
+  mUploadFilesFailed = 0;
+  mUploadBytesTotal = 0;
+  mUploadBytesSent = 0;
+  mUploadProgress = 0.0;
+
+  QDir localDir( localPath );
+  QDirIterator localDirIterator( localPath, QDir::Files, QDirIterator::Subdirectories );
+  while ( localDirIterator.hasNext() )
+  {
+    localDirIterator.next();
+    QFileInfo localFileInfo = localDirIterator.fileInfo();
+    mUploadFileTransfers.insert( localFileInfo.absoluteFilePath(), QFieldCloudProject::FileTransfer( localDir.relativeFilePath( localFileInfo.absoluteFilePath() ), localFileInfo.size(), mId, QString() ) );
+    mUploadBytesTotal += localFileInfo.size();
+  }
+
+  if ( !mUploadFileTransfers.isEmpty() )
+  {
+    emit uploadBytesTotalChanged();
+    emit uploadBytesSentChanged();
+    emit uploadProgressChanged();
+
+    setStatus( ProjectStatus::Uploading );
+
+    mUploadLocalPath = localPath;
+    mUploadDeleteAfterSuccessfulUpload = deleteAfterSuccessfulUpload;
+
+    uploadFiles();
+  }
+}
+
+void QFieldCloudProject::uploadFiles()
+{
+  if ( mUploadFileTransfers.isEmpty() )
+  {
+    if ( mStatus == ProjectStatus::Uploading )
+    {
+      setStatus( ProjectStatus::Idle );
+    }
+    return;
+  }
+
+  QString filePath = mUploadFileTransfers.lastKey();
+  QFieldCloudProject::FileTransfer &fileTransfer = mUploadFileTransfers.last();
+
+  NetworkReply *reply = mCloudConnection->post( QStringLiteral( "/api/v1/files/%1/%2/" ).arg( fileTransfer.projectId, fileTransfer.fileName ), QVariantMap(), QStringList( { filePath } ) );
+  fileTransfer.networkReply = reply;
+  connect( reply, &NetworkReply::finished, this, [this, reply, filePath]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+
+    Q_ASSERT( reply->isFinished() );
+    Q_ASSERT( rawReply );
+
+    // this is most probably the redirected request, nothing to do with this reply anymore, just ignore it
+    if ( mUploadFileTransfers[filePath].networkReply != reply )
+    {
+      return;
+    }
+
+    rawReply->deleteLater();
+
+    const QString projectId = mUploadFileTransfers[filePath].projectId;
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      const QString errorMessage = tr( "Network error. Failed to upload file `%1`." ).arg( filePath );
+      QgsLogger::debug( errorMessage );
+      rawReply->abort();
+
+      if ( mUploadFileTransfers[filePath].retryCount++ <= 3 )
+      {
+        uploadFiles();
+        return;
+      }
+      else
+      {
+        mUploadFilesFailed++;
+      }
+    }
+    else
+    {
+      QgsLogger::debug( QStringLiteral( "Project %1, file `%2`: uploaded" ).arg( projectId, filePath ) );
+    }
+
+    mUploadBytesSent += mUploadFileTransfers[filePath].bytesTotal;
+    mUploadProgress = std::clamp( ( static_cast<double>( mUploadBytesSent ) / std::max( mUploadBytesTotal, static_cast<qint64>( 1 ) ) ), 0., 1. );
+    emit uploadBytesSentChanged();
+    emit uploadProgressChanged();
+
+    mUploadFileTransfers.remove( filePath );
+    if ( mUploadFileTransfers.isEmpty() )
+    {
+      setStatus( ProjectStatus::Idle );
+      if ( mUploadDeleteAfterSuccessfulUpload && mUploadFilesFailed == 0 )
+      {
+        const QString currentProjectLocalPath = FileUtils::absolutePath( QgsProject::instance()->fileName() );
+        if ( mUploadLocalPath == currentProjectLocalPath )
+        {
+          // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
+          QDirIterator it( mUploadLocalPath, { QStringLiteral( "*.gpkg" ), QStringLiteral( "*.sqlite" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
+          QStringList gpkgFileNames;
+          while ( it.hasNext() )
+          {
+            gpkgFileNames << it.nextFileInfo().absoluteFilePath();
+          }
+
+          QgsProject::instance()->clear();
+          if ( mGpkgFlusher )
+          {
+            for ( const QString &fileName : gpkgFileNames )
+            {
+              mGpkgFlusher->stop( fileName );
+            }
+          }
+
+          QgsProject::instance()->clear();
+          QDir uploadLocalDir( mUploadLocalPath );
+          uploadLocalDir.removeRecursively();
+        }
+      }
+
+      emit uploadFinished( mUploadFilesFailed > 0 ? tr( "One or more files could not be uploaded" ) : QString() );
+    }
+    else
+    {
+      uploadFiles();
+    }
+  } );
+}

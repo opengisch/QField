@@ -4,8 +4,6 @@
 # add_qt_ios_app help you deploy iOs application with Qt.
 #
 
-cmake_minimum_required(VERSION 3.0.0 FATAL_ERROR)
-
 # find the Qt root directory might break in future release
 # Dependant on Qt6
 if(NOT Qt6Core_DIR)

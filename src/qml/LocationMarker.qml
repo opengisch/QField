@@ -10,39 +10,44 @@ import Theme
 Item {
   id: locationMarker
 
-  property variant location // QgsPoint
+  /// type:QgsPoint
+  property variant location
+
+  property point screenLocation
+  property real screenAccuracy
+  readonly property bool isOnMapCanvas: screenLocation.x > 0 && screenLocation.x < mapCanvas.width && screenLocation.y > 0 && screenLocation.y < mapCanvas.height
+
+  property bool bubbleVisible: false
+  property string bubbleText: ""
+  property color bubbleTextColor: Theme.mainTextColor
+  property color bubbleColor: Theme.mainBackgroundColorSemiOpaque
+  property var bubbleAction: undefined
 
   property real accuracy: 0
   property real direction: -1 // A -1 value indicates absence of movement direction information
   property real speed: -1 // A -1 value indicates absence of speed information
   property real orientation: -1 // A -1 value indicates absence of compass orientation
 
+  property color strokeColor: "white"
   property color color: Qt.darker(Theme.positionColor, 1.25)
   property color semiOpaqueColor: Qt.hsla(color.hslHue, color.hslSaturation, color.hslLightness, 0.1)
 
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
 
-  QtObject {
-    id: props
-
-    property point screenLocation
-    property real screenAccuracy
-
-    property bool isOnMapCanvas: screenLocation.x > 0 && screenLocation.x < mapCanvas.width && screenLocation.y > 0 && screenLocation.y < mapCanvas.height
-  }
   function updateScreenLocation() {
-    props.screenLocation = mapSettings.coordinateToScreen(location);
-    props.screenAccuracy = accuracy / mapSettings.mapUnitsPerPoint;
+    screenLocation = mapSettings.coordinateToScreen(location);
+    screenAccuracy = accuracy / mapSettings.mapUnitsPerPoint;
   }
 
   Rectangle {
     id: accuracyMarker
-    visible: props.screenAccuracy > 0.0
-    width: props.screenAccuracy * 2
-    height: props.screenAccuracy * 2
+    visible: screenAccuracy > 0.0
+    width: screenAccuracy * 2
+    height: screenAccuracy * 2
 
-    x: props.screenLocation.x - width / 2
-    y: props.screenLocation.y - height / 2
+    x: screenLocation.x - width / 2
+    y: screenLocation.y - height / 2
 
     radius: width / 2
 
@@ -58,8 +63,8 @@ Item {
     height: 48
     opacity: 0.6
 
-    x: props.screenLocation.x - width / 2
-    y: props.screenLocation.y - height
+    x: screenLocation.x - width / 2
+    y: screenLocation.y - height
 
     rotation: orientation + mapSettings.rotation
     transformOrigin: Item.Bottom
@@ -149,21 +154,75 @@ Item {
     }
   }
 
+  Item {
+    id: locationMarkerBubbleMessage
+    width: Math.min(bubbleMessage.implicitWidth + 14, locationMarker.parent.width - 80)
+    height: bubbleMessage.height + pointerToLocationMarker.height + 10
+    visible: locationMarker.bubbleVisible
+    anchors.horizontalCenter: movementMarker.horizontalCenter
+    anchors.top: movementMarker.bottom
+    anchors.topMargin: -10
+
+    Shape {
+      id: pointerToLocationMarker
+      anchors.top: parent.top
+      anchors.horizontalCenter: parent.horizontalCenter
+      rotation: 180
+
+      ShapePath {
+        fillColor: locationMarker.bubbleColor
+        strokeWidth: 0
+        strokeColor: locationMarker.bubbleColor
+        PathSvg {
+          path: "M 0 0 L 20 0 L 10 10 Z"
+        }
+      }
+    }
+
+    Rectangle {
+      width: parent.width
+      height: parent.height - pointerToLocationMarker.height
+      anchors.top: pointerToLocationMarker.bottom
+
+      color: locationMarker.bubbleColor
+      radius: 4
+      clip: true
+
+      Text {
+        id: bubbleMessage
+        font: Theme.tipFont
+        wrapMode: Text.WordWrap
+        color: locationMarker.bubbleTextColor
+        text: locationMarker.bubbleText
+
+        anchors.centerIn: parent
+        horizontalAlignment: Text.AlignHCenter
+      }
+
+      MouseArea {
+        anchors.fill: parent
+        onPressed: {
+          locationMarker.bubbleAction();
+        }
+      }
+    }
+  }
+
   Shape {
     id: movementMarker
-    visible: speed > 0 && props.isOnMapCanvas
+    visible: speed > 0 && isOnMapCanvas
     width: 26
     height: 26
 
-    x: props.screenLocation.x - width / 2
-    y: props.screenLocation.y - height / 2
+    x: screenLocation.x - width / 2
+    y: screenLocation.y - height / 2
 
     rotation: direction + mapSettings.rotation
     transformOrigin: Item.Center
 
     ShapePath {
       strokeWidth: 3
-      strokeColor: "white"
+      strokeColor: locationMarker.strokeColor
       strokeStyle: ShapePath.SolidLine
       fillColor: locationMarker.color
       joinStyle: ShapePath.MiterJoin
@@ -199,13 +258,13 @@ Item {
 
   Rectangle {
     id: positionMarker
-    visible: !movementMarker.visible && props.isOnMapCanvas
+    visible: !movementMarker.visible && isOnMapCanvas
 
-    width: 13
-    height: 13
+    width: 14
+    height: 14
 
-    x: props.screenLocation.x - width / 2
-    y: props.screenLocation.y - height / 2
+    x: screenLocation.x - width / 2
+    y: screenLocation.y - height / 2
 
     radius: width / 2
 
@@ -225,22 +284,22 @@ Item {
 
   Shape {
     id: edgeMarker
-    visible: !props.isOnMapCanvas
+    visible: !isOnMapCanvas
     width: 20
     height: 24
 
-    x: Math.min(mapCanvas.width - width, Math.max(0, props.screenLocation.x - width / 2))
-    y: Math.min(mapCanvas.height - width, Math.max(0, props.screenLocation.y - width / 2))
+    x: Math.min(mapCanvas.width - width, Math.max(0, screenLocation.x - width / 2))
+    y: Math.min(mapCanvas.height - width, Math.max(0, screenLocation.y - width / 2))
 
     transform: Rotation {
       origin.x: edgeMarker.width / 2
       origin.y: edgeMarker.width / 2
-      angle: -(Math.atan2(mapCanvas.width / 2 - props.screenLocation.x, mapCanvas.height / 2 - props.screenLocation.y) / Math.PI) * 180
+      angle: -(Math.atan2(mapCanvas.width / 2 - screenLocation.x, mapCanvas.height / 2 - screenLocation.y) / Math.PI) * 180
     }
 
     ShapePath {
       strokeWidth: 3
-      strokeColor: "white"
+      strokeColor: locationMarker.strokeColor
       strokeStyle: ShapePath.SolidLine
       fillColor: locationMarker.color
       joinStyle: ShapePath.MiterJoin

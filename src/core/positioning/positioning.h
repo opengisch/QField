@@ -54,6 +54,7 @@ class Positioning : public QObject
     Q_PROPERTY( QgsPoint projectedPosition READ projectedPosition NOTIFY positionInformationChanged )
     Q_PROPERTY( double projectedHorizontalAccuracy READ projectedHorizontalAccuracy NOTIFY positionInformationChanged )
 
+    Q_PROPERTY( bool averagedPositionFilterAccuracy READ averagedPositionFilterAccuracy WRITE setAveragedPositionFilterAccuracy NOTIFY averagedPositionFilterAccuracyChanged )
     Q_PROPERTY( bool averagedPosition READ averagedPosition WRITE setAveragedPosition NOTIFY averagedPositionChanged )
     Q_PROPERTY( int averagedPositionCount READ averagedPositionCount NOTIFY averagedPositionCountChanged )
 
@@ -65,6 +66,7 @@ class Positioning : public QObject
     Q_PROPERTY( bool logging READ logging WRITE setLogging NOTIFY loggingChanged )
     Q_PROPERTY( QString loggingPath READ loggingPath WRITE setLoggingPath NOTIFY loggingPathChanged )
 
+    Q_PROPERTY( bool serviceMode READ serviceMode WRITE setServiceMode NOTIFY serviceModeChanged )
     Q_PROPERTY( bool backgroundMode READ backgroundMode WRITE setBackgroundMode NOTIFY backgroundModeChanged )
     Q_PROPERTY( bool enableNtripClient READ enableNtripClient WRITE setEnableNtripClient NOTIFY enableNtripClientChanged )
     Q_PROPERTY( QString ntripHost READ ntripHost WRITE setNtripHost NOTIFY ntripHostChanged )
@@ -75,6 +77,9 @@ class Positioning : public QObject
     Q_PROPERTY( QString ntripStatus READ ntripStatus NOTIFY ntripStatusChanged )
     Q_PROPERTY( qint64 ntripBytesSent READ ntripBytesSent NOTIFY ntripBytesSentChanged )
     Q_PROPERTY( qint64 ntripBytesReceived READ ntripBytesReceived NOTIFY ntripBytesReceivedChanged )
+
+    Q_PROPERTY( double badAccuracyThreshold READ badAccuracyThreshold WRITE setBadAccuracyThreshold NOTIFY badAccuracyThresholdChanged )
+    Q_PROPERTY( double excellentAccuracyThreshold READ excellentAccuracyThreshold WRITE setExcellentAccuracyThreshold NOTIFY excellentAccuracyThresholdChanged )
 
   public:
     explicit Positioning( QObject *parent = nullptr );
@@ -171,6 +176,16 @@ class Positioning : public QObject
     double projectedHorizontalAccuracy() const;
 
     /**
+     * Returns whether the average position filter accuracy is enabled.
+     */
+    bool averagedPositionFilterAccuracy() const;
+
+    /**
+     * Enables or disables the average position filter accuracy.
+     */
+    void setAveragedPositionFilterAccuracy( bool enabled );
+
+    /**
      * Returns whether the position information is averaged from an ongoing stream of incoming positions from the device.
      */
     bool averagedPosition() const;
@@ -240,6 +255,22 @@ class Positioning : public QObject
     void setLoggingPath( const QString &path );
 
     /**
+     * Returns TRUE if the service mode is active. On supported platform, positioning runs
+     * into a dedicated service that is not suspended when devices are locked or the application
+     * is put suspended.
+     * \see setServiceMode()
+     */
+    bool serviceMode() const;
+
+    /**
+     * Sets whether the service mode is active. On supported platform, positioning runs
+     * into a dedicated service that is not suspended when devices are locked or the application
+     * is put suspended.
+     * \see serviceMode()
+     */
+    void setServiceMode( bool enabled );
+
+    /**
      * Returns TRUE if the background mode is active. When activated, position information details
      * will not be signaled but instead saved to disk until deactivated.
      * \see getBackgroundPositionInformation()
@@ -251,7 +282,7 @@ class Positioning : public QObject
      * will not be signaled but instead saved to disk until deactivated.
      * \see getBackgroundPositionInformation()
      */
-    void setBackgroundMode( bool backgroundMode );
+    void setBackgroundMode( bool enabled );
 
     /**
      * Returns TRUE if the NTRIP client is enabled.
@@ -335,24 +366,42 @@ class Positioning : public QObject
      */
     Q_INVOKABLE QList<GnssPositionInformation> getBackgroundPositionInformation() const;
 
+    /**
+     * Returns the threshold above which accuracy is considered bad.
+     */
+    double badAccuracyThreshold() const { return mBadAccuracyThreshold; }
+
+    /**
+     * Sets the threshold above which accuracy is considered bad.
+     */
+    void setBadAccuracyThreshold( double threshold );
+
+    /**
+     * Returns the threshold below which accuracy is considered excellent.
+     */
+    double excellentAccuracyThreshold() const { return mExcellentAccuracyThreshold; }
+
+    /**
+     * Sets the threshold below which accuracy is considered excellent.
+     */
+    void setExcellentAccuracyThreshold( double threshold );
+
   signals:
+    // Signals from positioning source properties cached locally and forwarded onwards
     void activeChanged();
     void validChanged();
     void deviceIdChanged();
+    void elevationCorrectionModeChanged();
+    void antennaHeightChanged();
+    void loggingChanged();
+    void loggingPathChanged();
+    void positionInformationChanged();
+
+    // Signals from positioning source properties forwarded onwards but not cached
     void deviceLastErrorChanged();
     void deviceSocketStateChanged();
     void deviceSocketStateStringChanged();
-    void coordinateTransformerChanged();
-    void positionInformationChanged();
-    void averagedPositionChanged();
-    void averagedPositionCountChanged();
-    void projectedPositionChanged();
-    void elevationCorrectionModeChanged();
-    void antennaHeightChanged();
     void orientationChanged();
-    void loggingChanged();
-    void loggingPathChanged();
-    void backgroundModeChanged();
     void enableNtripClientChanged();
     void ntripHostChanged();
     void ntripPortChanged();
@@ -363,28 +412,49 @@ class Positioning : public QObject
     void ntripBytesSentChanged();
     void ntripBytesReceivedChanged();
 
+    // Signals forwarded to positioning source
     void triggerConnectDevice();
     void triggerDisconnectDevice();
 
+    // Positioning signal
+    void coordinateTransformerChanged();
+    void projectedPositionChanged();
+    void averagedPositionChanged();
+    void averagedPositionCountChanged();
+    void averagedPositionFilterAccuracyChanged();
+    void badAccuracyThresholdChanged();
+    void excellentAccuracyThresholdChanged();
+    void serviceModeChanged();
+    void backgroundModeChanged();
+
   private slots:
+    void onActiveChanged();
+    void onValidChanged();
+    void onDeviceIdChanged();
+    void onElevationCorrectionModeChanged();
+    void onAntennaHeightChanged();
+    void onLoggingChanged();
+    void onLoggingPathChanged();
+    void onPositionInformationChanged();
+
     void onApplicationStateChanged( Qt::ApplicationState state );
-    void processGnssPositionInformation();
-    void processProjectedPosition();
 
   private:
     void setupSource();
     bool isSourceAvailable() const;
 
+    void processProjectedPosition();
     double adjustOrientation( double orientation ) const;
-
-    bool mValid = true;
 
     PositioningSource *mPositioningSource = nullptr;
     QRemoteObjectHost mHost;
-    QRemoteObjectNode mNode;
+
+    std::unique_ptr<QRemoteObjectNode> mNode;
     QSharedPointer<QRemoteObjectDynamicReplica> mPositioningSourceReplica; //skip-keyword-check
 
+    bool mValid = true;
     GnssPositionInformation mPositionInformation;
+    QVariantMap mProperties;
 
     QgsQuickCoordinateTransformer *mCoordinateTransformer = nullptr;
     QgsPoint mSourcePosition;
@@ -395,9 +465,15 @@ class Positioning : public QObject
     bool mInternalPermissionChecked = false;
     bool mBluetoothPermissionChecked = false;
 
+    bool mServiceMode = false;
     bool mBackgroundMode = false;
 
-    QVariantMap mPropertiesToSync;
+    bool mAveragedPosition = false;
+    QList<GnssPositionInformation> mCollectedPositionInformations;
+
+    bool mAveragedPositionFilterAccuracy = false;
+    double mBadAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
+    double mExcellentAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();
 };
 
 #endif // POSITIONING_H

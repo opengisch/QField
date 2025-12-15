@@ -90,9 +90,13 @@ class QFieldCloudUtils : public QObject
     /**
      * Returns the path to the local cloud directory.
      * By default inside the user profile unless overwritten with setLocalCloudDirectory
+     * \note The returned path will never have have a trailing '/' or '\' .
      */
     static const QString localCloudDirectory();
 
+    /**
+     * Returns the file path to the locally-stored cloud project file.
+     */
     static const QString localProjectFilePath( const QString &username, const QString &projectId );
 
     /**
@@ -104,10 +108,14 @@ class QFieldCloudUtils : public QObject
     static bool isCloudAction( const QgsMapLayer *layer );
 
     /**
-     * Returns the cloud project id.
+     * Returns the cloud project ID for a given file path.
      *
-     * @param fileName file name of the project to be checked
-     * @return const QString either UUID-like string or a null string in case of failure
+     * This function checks if the given file path is under the QField local cloud
+     * directory. If it is, it extracts and returns the project ID (UUID-like string)
+     * from the path. Otherwise, it returns a null QString.
+     *
+     * @param fileName Full path to a file or directory inside a cloud project
+     * @return QString Project ID if found; otherwise, an empty string
      */
     Q_INVOKABLE static const QString getProjectId( const QString &fileName );
 
@@ -151,12 +159,12 @@ class QFieldCloudUtils : public QObject
     Q_INVOKABLE static void addPendingAttachments( const QString &username, const QString &projectId, const QStringList &fileNames, QFieldCloudConnection *cloudConnection = nullptr, const bool &checkSumCheck = false );
 
     //! Removes a \a fileName for a given \a projectId to the pending attachments list
-    static void removePendingAttachment( const QString &username, const QString &projectId, const QString &fileName );
+    Q_INVOKABLE static void removePendingAttachment( const QString &username, const QString &projectId, const QString &fileName );
 
   private:
     static inline const QString errorCodeOverQuota { QStringLiteral( "over_quota" ) };
 
-    static void writeToAttachmentsFile( const QString &username, const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck );
+    static void writeToAttachmentsFile( const QString &username, const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QFieldCloudConnection *cloudConnection = nullptr );
 
     static void writeFilesFromDirectory( const QString &dirPath, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream );
 

@@ -1,0 +1,15 @@
+diff --git a/Sources/Sentry/include/SentryThreadMetadataCache.hpp b/Sources/Sentry/include/SentryThreadMetadataCache.hpp
+index c707b5d..74050c6 100644
+--- a/Sources/Sentry/include/SentryThreadMetadataCache.hpp
++++ b/Sources/Sentry/include/SentryThreadMetadataCache.hpp
+@@ -66,8 +66,8 @@ namespace profiling {
+             ThreadHandle::NativeHandle handle;
+             ThreadMetadata metadata;
+         };
+-        std::vector<const ThreadHandleMetadataPair> threadMetadataCache_;
+-        std::vector<const QueueMetadata> queueMetadataCache_;
++        std::vector<ThreadHandleMetadataPair> threadMetadataCache_;
++        std::vector<QueueMetadata> queueMetadataCache_;
+     };
+ 
+ } // namespace profiling

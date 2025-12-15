@@ -68,10 +68,7 @@ void PositioningDeviceModel::reloadModel()
 
 int PositioningDeviceModel::rowCount( const QModelIndex &parent ) const
 {
-  if ( !parent.isValid() )
-    return mDevices.size();
-  else
-    return 0;
+  return !parent.isValid() ? static_cast<int>( mDevices.size() ) : 0;
 }
 
 QVariant PositioningDeviceModel::data( const QModelIndex &index, int role ) const
@@ -123,7 +120,7 @@ int PositioningDeviceModel::addDevice( const Type &type, const QString &name, co
 
   settings.endGroup();
 
-  const int index = mDevices.size();
+  const int index = static_cast<int>( mDevices.size() );
   beginInsertRows( QModelIndex(), index, index );
   Device device( type, uniqueName, deviceSettings );
   mDevices << device;

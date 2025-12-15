@@ -7,7 +7,9 @@ import org.qfield
  */
 Repeater {
   id: featureListSelectionHighlight
+
   property FeatureListModelSelection selectionModel
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
   property double translateX: 0.0
   property double translateY: 0.0

@@ -104,25 +104,6 @@ void PositioningSource::setValid( bool valid )
   emit validChanged();
 }
 
-void PositioningSource::setAveragedPosition( bool averaged )
-{
-  if ( mAveragedPosition == averaged )
-    return;
-
-  mAveragedPosition = averaged;
-  if ( mAveragedPosition )
-  {
-    mCollectedPositionInformations << mPositionInformation;
-  }
-  else
-  {
-    mCollectedPositionInformations.clear();
-  }
-
-  emit averagedPositionCountChanged();
-  emit averagedPositionChanged();
-}
-
 void PositioningSource::setLogging( bool logging )
 {
   if ( mLogging == logging )
@@ -331,13 +312,13 @@ void PositioningSource::setupDevice()
   {
     mReceiver->disconnectDevice();
     mReceiver->stopLogging();
-    disconnect( mReceiver, &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &PositioningSource::lastGnssPositionInformationChanged );
-    disconnect( mReceiver, &AbstractGnssReceiver::lastErrorChanged, this, &PositioningSource::deviceLastErrorChanged );
-    disconnect( mReceiver, &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::deviceSocketStateChanged );
-    disconnect( mReceiver, &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::onDeviceSocketStateChanged );
-    disconnect( mReceiver, &AbstractGnssReceiver::socketStateStringChanged, this, &PositioningSource::deviceSocketStateStringChanged );
+    disconnect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &PositioningSource::lastGnssPositionInformationChanged );
+    disconnect( mReceiver.get(), &AbstractGnssReceiver::lastErrorChanged, this, &PositioningSource::deviceLastErrorChanged );
+    disconnect( mReceiver.get(), &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::deviceSocketStateChanged );
+    disconnect( mReceiver.get(), &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::onDeviceSocketStateChanged );
+    disconnect( mReceiver.get(), &AbstractGnssReceiver::socketStateStringChanged, this, &PositioningSource::deviceSocketStateStringChanged );
     mReceiver->deleteLater();
-    mReceiver = nullptr;
+    mReceiver.reset();
 
     // Stop NTRIP client when receiver is being replaced
     stopNtripClient();
@@ -346,54 +327,54 @@ void PositioningSource::setupDevice()
   if ( mDeviceId.isEmpty() )
   {
     // Using internal receiver - NTRIP client not needed
-    mReceiver = new InternalGnssReceiver( this );
+    mReceiver = std::make_unique<InternalGnssReceiver>( this );
   }
   else
   {
     if ( mDeviceId.startsWith( FileReceiver::identifier + ":" ) )
     {
-      const int prefixLength = FileReceiver::identifier.length() + 1;
-      const int intervalSeparator = mDeviceId.lastIndexOf( ':' );
+      const qsizetype prefixLength = FileReceiver::identifier.length() + 1;
+      const qsizetype intervalSeparator = mDeviceId.lastIndexOf( ':' );
       const QString filePath = mDeviceId.mid( prefixLength, intervalSeparator - prefixLength );
       const int interval = mDeviceId.mid( intervalSeparator + 1 ).toInt();
-      mReceiver = new FileReceiver( filePath, interval, this );
+      mReceiver = std::make_unique<FileReceiver>( filePath, interval, this );
     }
     else if ( mDeviceId.startsWith( TcpReceiver::identifier + ":" ) )
     {
-      const int prefixLength = TcpReceiver::identifier.length() + 1;
+      const qsizetype prefixLength = TcpReceiver::identifier.length() + 1;
       const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
       const QString address = mDeviceId.mid( prefixLength, portSeparator - prefixLength );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
-      mReceiver = new TcpReceiver( address, port, this );
+      mReceiver = std::make_unique<TcpReceiver>( address, port, this );
     }
     else if ( mDeviceId.startsWith( UdpReceiver::identifier + ":" ) )
     {
-      const int prefixLength = UdpReceiver::identifier.length() + 1;
+      const qsizetype prefixLength = UdpReceiver::identifier.length() + 1;
       const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
       const QString address = mDeviceId.mid( prefixLength, portSeparator - prefixLength );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
-      mReceiver = new UdpReceiver( address, port, this );
+      mReceiver = std::make_unique<UdpReceiver>( address, port, this );
     }
     else if ( mDeviceId.startsWith( EgenioussReceiver::identifier + ":" ) )
     {
-      const int prefixLength = EgenioussReceiver::identifier.length() + 1;
+      const qsizetype prefixLength = EgenioussReceiver::identifier.length() + 1;
       const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
       const QString address = mDeviceId.mid( prefixLength, portSeparator - prefixLength );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
-      mReceiver = new EgenioussReceiver( address, port, this );
+      mReceiver = std::make_unique<EgenioussReceiver>( address, port, this );
     }
 #ifdef WITH_SERIALPORT
     else if ( mDeviceId.startsWith( SerialPortReceiver::identifier + ":" ) )
     {
-      const int prefixLength = SerialPortReceiver::identifier.length() + 1;
+      const qsizetype prefixLength = SerialPortReceiver::identifier.length() + 1;
       const QString address = mDeviceId.mid( prefixLength );
-      mReceiver = new SerialPortReceiver( address, this );
+      mReceiver = std::make_unique<SerialPortReceiver>( address, this );
     }
 #endif
     else
     {
 #ifdef WITH_BLUETOOTH
-      mReceiver = new BluetoothReceiver( mDeviceId, this );
+      mReceiver = std::make_unique<BluetoothReceiver>( mDeviceId, this );
 
       // Start NTRIP client if enabled for Bluetooth receivers
       if ( mEnableNtripClient )
@@ -406,11 +387,11 @@ void PositioningSource::setupDevice()
 
   // Reset the position information to insure no cross contamination between receiver types
   lastGnssPositionInformationChanged( GnssPositionInformation() );
-  connect( mReceiver, &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &PositioningSource::lastGnssPositionInformationChanged );
-  connect( mReceiver, &AbstractGnssReceiver::lastErrorChanged, this, &PositioningSource::deviceLastErrorChanged );
-  connect( mReceiver, &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::deviceSocketStateChanged );
-  connect( mReceiver, &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::onDeviceSocketStateChanged );
-  connect( mReceiver, &AbstractGnssReceiver::socketStateStringChanged, this, &PositioningSource::deviceSocketStateStringChanged );
+  connect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &PositioningSource::lastGnssPositionInformationChanged );
+  connect( mReceiver.get(), &AbstractGnssReceiver::lastErrorChanged, this, &PositioningSource::deviceLastErrorChanged );
+  connect( mReceiver.get(), &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::deviceSocketStateChanged );
+  connect( mReceiver.get(), &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::onDeviceSocketStateChanged );
+  connect( mReceiver.get(), &AbstractGnssReceiver::socketStateStringChanged, this, &PositioningSource::deviceSocketStateStringChanged );
   setValid( mReceiver->valid() );
 
   emit deviceChanged();
@@ -462,24 +443,11 @@ void PositioningSource::lastGnssPositionInformationChanged( const GnssPositionIn
                                                      lastGnssPositionInformation.imuHeading(),
                                                      lastGnssPositionInformation.imuSteering(),
                                                      mOrientation );
-
-  if ( mAveragedPosition )
-  {
-    mCollectedPositionInformations << positionInformation;
-    mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations );
-  }
-  else
-  {
-    mPositionInformation = positionInformation;
-  }
+  mPositionInformation = positionInformation;
 
   if ( !mBackgroundMode )
   {
     emit positionInformationChanged();
-    if ( mAveragedPosition )
-    {
-      emit averagedPositionCountChanged();
-    }
   }
   else
   {

@@ -2,15 +2,11 @@ import QtQuick
 import org.qgis
 import org.qfield
 import Theme
+import "."
 import ".."
 
-QfVisibilityFadingRow {
+GeometryEditorBase {
   id: vertexEditorToolbar
-
-  signal finished
-
-  property FeatureModel featureModel
-  property MapSettings mapSettings
 
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
   property bool vertexRubberbandVisible: true
@@ -105,7 +101,7 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: removeVertexButton
-    iconSource: Theme.getThemeVectorIcon("ic_remove_vertex_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_remove_white_24dp")
     iconColor: Theme.toolButtonColor
     round: true
     visible: featureModel && featureModel.vertexModel.canRemoveVertex
@@ -127,7 +123,7 @@ QfVisibilityFadingRow {
     round: true
     enabled: !screenHovering && featureModel && featureModel.vertexModel.canAddVertex && featureModel.vertexModel.editingMode !== VertexModel.AddVertex
     bgcolor: enabled ? Theme.darkGray : Theme.darkGraySemiOpaque
-    iconSource: Theme.getThemeVectorIcon("ic_add_vertex_white_24dp")
+    iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
     iconColor: enabled ? Theme.toolButtonColor : Theme.toolButtonBackgroundSemiOpaqueColor
 
     onClicked: {
@@ -189,7 +185,7 @@ QfVisibilityFadingRow {
     mapSettings: mapSettings
 
     positionInformation: positionSource.positionInformation
-    positionLocked: gnssLockButton.checked
+    positionLocked: coordinateLocator.positionLocked
     topSnappingResult: coordinateLocator.topSnappingResult
     cloudUserInformation: projectInfo.cloudUserInformation
   }

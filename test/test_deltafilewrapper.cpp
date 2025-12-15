@@ -54,8 +54,8 @@ QJsonArray normalizeDeltasSchema( const QJsonArray &deltasJson )
     if ( !sourceLayerIds.contains( sourceLayerId ) )
       sourceLayerIds.append( sourceLayerId );
 
-    int localLayerIdx = localLayerIds.indexOf( localLayerId ) + 1;
-    int sourceLayerIdx = sourceLayerIds.indexOf( sourceLayerId ) + 1;
+    const qsizetype localLayerIdx = localLayerIds.indexOf( localLayerId ) + 1;
+    const qsizetype sourceLayerIdx = sourceLayerIds.indexOf( sourceLayerId ) + 1;
 
     deltaItem.insert( QStringLiteral( "localLayerId" ), QStringLiteral( "dummyLayerIdL%1" ).arg( localLayerIdx ) );
     deltaItem.insert( QStringLiteral( "sourceLayerId" ), QStringLiteral( "dummyLayerIdS%1" ).arg( sourceLayerIdx ) );
@@ -146,6 +146,7 @@ TEST_CASE( "DeltaFileWrapper" )
   REQUIRE( projectFile.flush() );
 
   project->setFileName( projectFile.fileName() );
+  const QString projectId = QFieldCloudUtils::getProjectId( project->fileName() );
 
   QFile attachmentFile( QStringLiteral( "%1/%2" ).arg( projectDir.path(), QStringLiteral( "attachment.jpg" ) ) );
   const char *fileContents = "кирилица"; // SHA 256 71055d022f50027387eae32426a1857d6e2fa2d416d64753b63470db7f00f239
@@ -225,7 +226,7 @@ TEST_CASE( "DeltaFileWrapper" )
         )"""" );
     REQUIRE( tmpDeltaFile.write( correctExistingContents.toUtf8() ) );
     tmpDeltaFile.flush();
-    DeltaFileWrapper correctExistingDfw( project, tmpDeltaFile.fileName() );
+    DeltaFileWrapper correctExistingDfw( projectId, tmpDeltaFile.fileName() );
     REQUIRE( correctExistingDfw.errorType() == DeltaFileWrapper::ErrorType::NoError );
     QJsonDocument correctExistingDoc = normalizeSchema( correctExistingDfw.toString() );
     REQUIRE( !correctExistingDoc.isNull() );
@@ -236,10 +237,10 @@ TEST_CASE( "DeltaFileWrapper" )
   SECTION( "NoErrorNonExistingFile" )
   {
     QString fileName( workDir.filePath( QUuid::createUuid().toString() ) );
-    DeltaFileWrapper dfw( project, fileName );
+    DeltaFileWrapper dfw( projectId, fileName );
     REQUIRE( dfw.errorType() == DeltaFileWrapper::ErrorType::NoError );
     REQUIRE( QFileInfo::exists( fileName ) );
-    DeltaFileWrapper validNonexistingFileCheckDfw( project, fileName );
+    DeltaFileWrapper validNonexistingFileCheckDfw( projectId, fileName );
     QFile deltaFile( fileName );
     REQUIRE( deltaFile.open( QIODevice::ReadOnly ) );
     QJsonDocument fileContents = normalizeSchema( deltaFile.readAll() );
@@ -259,7 +260,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "ErrorInvalidName" )
   {
-    DeltaFileWrapper dfw( project, "" );
+    DeltaFileWrapper dfw( projectId, "" );
     REQUIRE( dfw.errorType() == DeltaFileWrapper::ErrorType::IOError );
   }
 
@@ -268,7 +269,7 @@ TEST_CASE( "DeltaFileWrapper" )
   {
     REQUIRE( tmpDeltaFile.write( R""""( asd )"""" ) );
     tmpDeltaFile.flush();
-    DeltaFileWrapper dfw( project, tmpDeltaFile.fileName() );
+    DeltaFileWrapper dfw( projectId, tmpDeltaFile.fileName() );
     REQUIRE( dfw.errorType() == DeltaFileWrapper::ErrorType::JsonParseError );
   }
 
@@ -277,7 +278,7 @@ TEST_CASE( "DeltaFileWrapper" )
   {
     REQUIRE( tmpDeltaFile.write( R""""({"version":5,"files":[],"id":"11111111-1111-1111-1111-111111111111","project":"projectId","deltas":[]})"""" ) );
     tmpDeltaFile.flush();
-    DeltaFileWrapper dfw( project, tmpDeltaFile.fileName() );
+    DeltaFileWrapper dfw( projectId, tmpDeltaFile.fileName() );
     REQUIRE( dfw.errorType() == DeltaFileWrapper::ErrorType::JsonFormatVersionError );
   }
 
@@ -286,7 +287,7 @@ TEST_CASE( "DeltaFileWrapper" )
   {
     REQUIRE( tmpDeltaFile.write( R""""({"version":"","files":[],"id":"11111111-1111-1111-1111-111111111111","project":"projectId","deltas":[]})"""" ) );
     tmpDeltaFile.flush();
-    DeltaFileWrapper emptyVersionDfw( project, tmpDeltaFile.fileName() );
+    DeltaFileWrapper emptyVersionDfw( projectId, tmpDeltaFile.fileName() );
     REQUIRE( emptyVersionDfw.errorType() == DeltaFileWrapper::ErrorType::JsonFormatVersionError );
   }
 
@@ -295,7 +296,7 @@ TEST_CASE( "DeltaFileWrapper" )
   {
     REQUIRE( tmpDeltaFile.write( R""""({"version":"2.0","files":[],"id":"11111111-1111-1111-1111-111111111111","project":"projectId","deltas":[]})"""" ) );
     tmpDeltaFile.flush();
-    DeltaFileWrapper wrongVersionNumberDfw( project, tmpDeltaFile.fileName() );
+    DeltaFileWrapper wrongVersionNumberDfw( projectId, tmpDeltaFile.fileName() );
     REQUIRE( wrongVersionNumberDfw.errorType() == DeltaFileWrapper::ErrorType::JsonIncompatibleVersionError );
   }
 
@@ -304,7 +305,7 @@ TEST_CASE( "DeltaFileWrapper" )
   {
     REQUIRE( tmpDeltaFile.write( R""""({"version":"2.0","files":[],"id": 5,"project":"projectId","deltas":[]})"""" ) );
     tmpDeltaFile.flush();
-    DeltaFileWrapper wrongIdTypeDfw( project, tmpDeltaFile.fileName() );
+    DeltaFileWrapper wrongIdTypeDfw( projectId, tmpDeltaFile.fileName() );
     REQUIRE( wrongIdTypeDfw.errorType() == DeltaFileWrapper::ErrorType::JsonFormatIdError );
   }
 
@@ -313,7 +314,7 @@ TEST_CASE( "DeltaFileWrapper" )
   {
     REQUIRE( tmpDeltaFile.write( R""""({"version":"2.0","files":[],"id": "","project":"projectId","deltas":[]})"""" ) );
     tmpDeltaFile.flush();
-    DeltaFileWrapper emptyIdDfw( project, tmpDeltaFile.fileName() );
+    DeltaFileWrapper emptyIdDfw( projectId, tmpDeltaFile.fileName() );
     REQUIRE( emptyIdDfw.errorType() == DeltaFileWrapper::ErrorType::JsonFormatIdError );
   }
 
@@ -322,7 +323,7 @@ TEST_CASE( "DeltaFileWrapper" )
   {
     REQUIRE( tmpDeltaFile.write( R""""({"version":"2.0","files":[],"id": "11111111-1111-1111-1111-111111111111","project":5,"deltas":[]})"""" ) );
     tmpDeltaFile.flush();
-    DeltaFileWrapper wrongProjectIdTypeDfw( project, tmpDeltaFile.fileName() );
+    DeltaFileWrapper wrongProjectIdTypeDfw( projectId, tmpDeltaFile.fileName() );
     REQUIRE( wrongProjectIdTypeDfw.errorType() == DeltaFileWrapper::ErrorType::JsonFormatProjectIdError );
   }
 
@@ -331,7 +332,7 @@ TEST_CASE( "DeltaFileWrapper" )
   {
     REQUIRE( tmpDeltaFile.write( R""""({"version":"2.0","files":[],"id": "11111111-1111-1111-1111-111111111111","project":"","deltas":[]})"""" ) );
     tmpDeltaFile.flush();
-    DeltaFileWrapper emptyProjectIdDfw( project, tmpDeltaFile.fileName() );
+    DeltaFileWrapper emptyProjectIdDfw( projectId, tmpDeltaFile.fileName() );
     REQUIRE( emptyProjectIdDfw.errorType() == DeltaFileWrapper::ErrorType::JsonFormatProjectIdError );
   }
 
@@ -340,7 +341,7 @@ TEST_CASE( "DeltaFileWrapper" )
   {
     REQUIRE( tmpDeltaFile.write( R""""({"version":"2.0","files":[],"id": "11111111-1111-1111-1111-111111111111","project":"projectId","deltas":{}})"""" ) );
     tmpDeltaFile.flush();
-    DeltaFileWrapper wrongDeltasTypeDfw( project, tmpDeltaFile.fileName() );
+    DeltaFileWrapper wrongDeltasTypeDfw( projectId, tmpDeltaFile.fileName() );
     REQUIRE( wrongDeltasTypeDfw.errorType() == DeltaFileWrapper::ErrorType::JsonFormatDeltasError );
   }
 
@@ -348,14 +349,14 @@ TEST_CASE( "DeltaFileWrapper" )
   SECTION( "FileName" )
   {
     QString fileName( QFileInfo( workDir.filePath( QUuid::createUuid().toString() ) ).absoluteFilePath() );
-    DeltaFileWrapper dfw( project, fileName );
+    DeltaFileWrapper dfw( projectId, fileName );
     REQUIRE( dfw.fileName() == fileName );
   }
 
 
   SECTION( "Id" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
 
     REQUIRE( !QUuid::fromString( dfw.id() ).isNull() );
   }
@@ -363,8 +364,8 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "Reset" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
-    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), QgsFeature() );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), QgsFeature() );
 
     REQUIRE( getDeltasArray( dfw.toString() ).size() == 1 );
 
@@ -372,7 +373,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
     REQUIRE( getDeltasArray( dfw.toString() ).size() == 0 );
 
-    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), QgsFeature() );
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), QgsFeature() );
 
     REQUIRE( getDeltasArray( dfw.toString() ).size() == 1 );
   }
@@ -380,11 +381,11 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "ResetId" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
 
     REQUIRE( getDeltasArray( dfw.toString() ).size() == 0 );
 
-    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), QgsFeature() );
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), QgsFeature() );
 
     const QString dfwId = dfw.id();
     dfw.resetId();
@@ -396,17 +397,17 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "ToString" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFields fields;
     fields.append( QgsField( "fid", QMetaType::Int, "integer" ) );
 
     QgsFeature f1( fields, 100 );
     f1.setAttribute( "fid", 100 );
-    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f1 );
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f1 );
 
     QgsFeature f2( fields, 101 );
     f2.setAttribute( "fid", 101 );
-    dfw.addDelete( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f2 );
+    dfw.addDelete( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f2 );
 
     QJsonDocument doc = normalizeSchema( dfw.toString() );
 
@@ -463,17 +464,17 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "ToJson" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFields fields;
     fields.append( QgsField( "fid", QMetaType::Int, "integer" ) );
 
     QgsFeature f1( fields, 100 );
     f1.setAttribute( "fid", 100 );
-    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f1 );
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f1 );
 
     QgsFeature f2( fields, 101 );
     f2.setAttribute( "fid", 101 );
-    dfw.addDelete( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f2 );
+    dfw.addDelete( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f2 );
 
     QJsonDocument doc = normalizeSchema( QString( dfw.toJson() ) );
 
@@ -530,7 +531,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "ProjectId" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
 
     REQUIRE( dfw.projectId() == QStringLiteral( "TEST_PROJECT_ID" ) );
   }
@@ -538,11 +539,11 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "IsDirty" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
 
     REQUIRE( dfw.isDirty() == false );
 
-    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), QgsFeature() );
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), QgsFeature() );
 
     REQUIRE( dfw.isDirty() == true );
     REQUIRE( dfw.toFile() );
@@ -556,15 +557,15 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "Count" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
 
     REQUIRE( dfw.count() == 0 );
 
-    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), QgsFeature() );
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), QgsFeature() );
 
     REQUIRE( dfw.count() == 1 );
 
-    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), QgsFeature() );
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), QgsFeature() );
 
     REQUIRE( dfw.count() == 2 );
   }
@@ -572,7 +573,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "Deltas" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
 
     REQUIRE( QJsonDocument( dfw.deltas() ) == QJsonDocument::fromJson( "[]" ) );
 
@@ -581,7 +582,7 @@ TEST_CASE( "DeltaFileWrapper" )
     QgsFeature f1( fields, 100 );
     f1.setAttribute( "fid", 100 );
 
-    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f1 );
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f1 );
 
     QJsonDocument expectedDoc = QJsonDocument::fromJson( R""""(
         [
@@ -609,7 +610,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
     QgsFeature f2( fields, 101 );
     f2.setAttribute( "fid", 101 );
-    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f2 );
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f2 );
 
     expectedDoc = QJsonDocument::fromJson( R""""(
         [
@@ -658,8 +659,8 @@ TEST_CASE( "DeltaFileWrapper" )
   SECTION( "ToFile" )
   {
     QString fileName = workDir.filePath( QUuid::createUuid().toString() );
-    DeltaFileWrapper dfw1( project, fileName );
-    dfw1.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), QgsFeature() );
+    DeltaFileWrapper dfw1( projectId, fileName );
+    dfw1.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), QgsFeature() );
 
     REQUIRE( !dfw1.hasError() );
     REQUIRE( getDeltasArray( dfw1.toString() ).size() == 1 );
@@ -674,9 +675,9 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "Append" )
   {
-    DeltaFileWrapper dfw1( project, workDir.filePath( QUuid::createUuid().toString() ) );
-    DeltaFileWrapper dfw2( project, workDir.filePath( QUuid::createUuid().toString() ) );
-    dfw1.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), QgsFeature( QgsFields(), 100 ) );
+    DeltaFileWrapper dfw1( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw2( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
+    dfw1.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), QgsFeature( QgsFields(), 100 ) );
     dfw2.append( &dfw1 );
 
     REQUIRE( dfw2.count() == 1 );
@@ -685,7 +686,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "AttachmentFieldNames" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
 
     QStringList attachmentFields = dfw.attachmentFieldNames( project, layer->id() );
 
@@ -784,7 +785,7 @@ TEST_CASE( "DeltaFileWrapper" )
                                 .toUtf8() ) );
     REQUIRE( deltaFile.flush() );
 
-    DeltaFileWrapper dfw( project, deltaFile.fileName() );
+    DeltaFileWrapper dfw( projectId, deltaFile.fileName() );
 
     REQUIRE( !dfw.hasError() );
 
@@ -799,7 +800,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "AddCreate" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFeature f( layer->fields(), 100 );
     f.setAttribute( QStringLiteral( "fid" ), 100 );
     f.setAttribute( QStringLiteral( "dbl" ), 3.14 );
@@ -809,7 +810,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
     // Check if creates delta of a feature with a geometry and existing attachment
     f.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
-    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f );
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f );
 
     QJsonDocument expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -848,7 +849,7 @@ TEST_CASE( "DeltaFileWrapper" )
     QgsFeature f2 = QgsFeature( f );
     f2.setAttribute( QStringLiteral( "attachment" ), attachmentFileName2 );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f, f2, false );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f, f2, false );
 
     expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -887,7 +888,7 @@ TEST_CASE( "DeltaFileWrapper" )
     QgsFeature f3 = QgsFeature( f2 );
     f3.setGeometry( QgsGeometry( new QgsPoint( 5.4, 3.2 ) ) );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f2, f3, false );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f2, f3, false );
 
     expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -932,7 +933,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
     // Check if creates delta of a feature with a geometry and existing attachment
     f.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
-    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f );
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f );
 
     expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -967,7 +968,7 @@ TEST_CASE( "DeltaFileWrapper" )
     f2 = QgsFeature( f );
     f2.setAttribute( QStringLiteral( "attachment" ), attachmentFileName2 );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f, f2, false );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f, f2, false );
 
     expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -1008,7 +1009,7 @@ TEST_CASE( "DeltaFileWrapper" )
     dfw.reset();
     f.setGeometry( QgsGeometry() );
     f.setAttribute( QStringLiteral( "attachment" ), workDir.filePath( QUuid::createUuid().toString() ) );
-    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f );
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f );
 
     expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -1054,7 +1055,7 @@ TEST_CASE( "DeltaFileWrapper" )
     f1.setAttribute( QStringLiteral( "fid" ), 101 );
     f1.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
 
-    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f1 );
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f1 );
 
     expectedDoc = QJsonDocument::fromJson( R""""(
         [
@@ -1084,7 +1085,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "AddPatch" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFeature oldFeature( layer->fields(), 100 );
     oldFeature.setAttribute( QStringLiteral( "dbl" ), 3.14 );
     oldFeature.setAttribute( QStringLiteral( "int" ), 42 );
@@ -1103,7 +1104,7 @@ TEST_CASE( "DeltaFileWrapper" )
     oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
     newFeature.setGeometry( QgsGeometry( new QgsPoint( 23.398819, 41.7672147 ) ) );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
 
     QJsonDocument expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -1155,7 +1156,7 @@ TEST_CASE( "DeltaFileWrapper" )
     newFeature.setAttribute( QStringLiteral( "attachment" ), workDir.filePath( QUuid::createUuid().toString() ) );
     oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
 
     expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -1204,7 +1205,7 @@ TEST_CASE( "DeltaFileWrapper" )
     newFeature.setGeometry( QgsGeometry() );
     oldFeature.setGeometry( QgsGeometry() );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature );
 
     // Patch geometry only, switch store snapshot on
     dfw.reset();
@@ -1217,7 +1218,7 @@ TEST_CASE( "DeltaFileWrapper" )
     oldFeature.setAttribute( QStringLiteral( "attachment" ), QVariant() );
     oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, true );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, true );
 
     expectedDoc = QJsonDocument::fromJson( R""""(
         [
@@ -1260,7 +1261,7 @@ TEST_CASE( "DeltaFileWrapper" )
     oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
     newFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
 
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == QJsonDocument::fromJson( "[]" ) );
 
@@ -1273,7 +1274,7 @@ TEST_CASE( "DeltaFileWrapper" )
     newFeature.setAttribute( QStringLiteral( "attachment" ), QVariant() );
     oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, true );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, true );
 
     expectedDoc = QJsonDocument::fromJson( R""""(
         [
@@ -1324,7 +1325,7 @@ TEST_CASE( "DeltaFileWrapper" )
     oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
     newFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
 
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == QJsonDocument::fromJson( "[]" ) );
 
@@ -1338,7 +1339,7 @@ TEST_CASE( "DeltaFileWrapper" )
     oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
     newFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
 
     expectedDoc = QJsonDocument::fromJson( R""""(
         [
@@ -1380,7 +1381,7 @@ TEST_CASE( "DeltaFileWrapper" )
     // test attachment addition to make sure the file checksum is added
     newerFeature.setAttribute( QStringLiteral( "attachment" ), attachmentFileName );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), newFeature, newerFeature, false );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), newFeature, newerFeature, false );
 
     expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -1429,7 +1430,7 @@ TEST_CASE( "DeltaFileWrapper" )
     // test attachment addition on top of a pre-existing attachment patch to make sure the file checksum is added
     newestFeature.setAttribute( QStringLiteral( "attachment" ), attachmentFileName2 );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), newerFeature, newestFeature, false );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), newerFeature, newestFeature, false );
 
     expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -1475,7 +1476,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "AddDeleteWithStringPk" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFeature f( layer->fields(), 100 );
     f.setAttribute( QStringLiteral( "fid" ), 100 );
     f.setAttribute( QStringLiteral( "dbl" ), 3.14 );
@@ -1484,7 +1485,7 @@ TEST_CASE( "DeltaFileWrapper" )
     f.setAttribute( QStringLiteral( "attachment" ), workDir.filePath( QUuid::createUuid().toString() ) );
     f.setGeometry( QgsGeometry() );
 
-    dfw.addDelete( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "str" ), f );
+    dfw.addDelete( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "str" ), f );
 
     QJsonDocument expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
           [
@@ -1522,7 +1523,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "AddDelete" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFeature f( layer->fields(), 100 );
     f.setAttribute( QStringLiteral( "fid" ), 100 );
     f.setAttribute( QStringLiteral( "dbl" ), 3.14 );
@@ -1534,7 +1535,7 @@ TEST_CASE( "DeltaFileWrapper" )
     f.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
     // ? why this is not working, as QgsPoint is QgsAbstractGeometry and there is example in the docs? https://qgis.org/api/classQgsFeature.html#a14dcfc99b476b613c21b8c35840ff388
     // f.setGeometry( QgsPoint( 25.9657, 43.8356 ) );
-    dfw.addDelete( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f );
+    dfw.addDelete( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f );
 
     QJsonDocument expectedDoc = QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -1574,7 +1575,7 @@ TEST_CASE( "DeltaFileWrapper" )
     dfw.reset();
     f.setGeometry( QgsGeometry() );
     f.setAttribute( QStringLiteral( "attachment" ), workDir.filePath( QUuid::createUuid().toString() ) );
-    dfw.addDelete( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f );
+    dfw.addDelete( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f );
 
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -1619,7 +1620,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
     f1.setAttribute( QStringLiteral( "fid" ), 101 );
     f1.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
-    dfw.addDelete( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f1 );
+    dfw.addDelete( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f1 );
 
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == QJsonDocument::fromJson( R""""(
         [
@@ -1647,7 +1648,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "MultipleDeltaAdd" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFields fields;
     fields.append( QgsField( "dbl", QMetaType::Double, "double" ) );
     fields.append( QgsField( "int", QMetaType::Int, "integer" ) );
@@ -1668,9 +1669,9 @@ TEST_CASE( "DeltaFileWrapper" )
     QgsFeature f3( fields, 102 );
     f3.setAttribute( QStringLiteral( "fid" ), 102 );
 
-    dfw.addCreate( QStringLiteral( "dummyLayerId1" ), QStringLiteral( "dummyLayerId1" ), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f1 );
-    dfw.addDelete( QStringLiteral( "dummyLayerId2" ), QStringLiteral( "dummyLayerId2" ), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f2 );
-    dfw.addDelete( QStringLiteral( "dummyLayerId1" ), QStringLiteral( "dummyLayerId1" ), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f3 );
+    dfw.addCreate( project, QStringLiteral( "dummyLayerId1" ), QStringLiteral( "dummyLayerId1" ), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f1 );
+    dfw.addDelete( project, QStringLiteral( "dummyLayerId2" ), QStringLiteral( "dummyLayerId2" ), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f2 );
+    dfw.addDelete( project, QStringLiteral( "dummyLayerId1" ), QStringLiteral( "dummyLayerId1" ), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f3 );
 
     QJsonDocument doc = normalizeSchema( dfw.toString() );
 
@@ -1858,7 +1859,7 @@ TEST_CASE( "DeltaFileWrapper" )
                                 .toUtf8() ) );
     REQUIRE( deltaFile.flush() );
 
-    DeltaFileWrapper dfw( project, deltaFile.fileName() );
+    DeltaFileWrapper dfw( projectId, deltaFile.fileName() );
 
     // make sure there is a single feature with id 1
     QgsFeature f0;
@@ -1867,7 +1868,7 @@ TEST_CASE( "DeltaFileWrapper" )
     REQUIRE( it0.nextFeature( f0 ) );
     REQUIRE( layer->featureCount() == 1 );
 
-    REQUIRE( dfw.apply() );
+    REQUIRE( dfw.apply( project ) );
 
     REQUIRE( layer->featureCount() == 2 );
 
@@ -2011,7 +2012,7 @@ TEST_CASE( "DeltaFileWrapper" )
                                 .toUtf8() ) );
     REQUIRE( deltaFile.flush() );
 
-    DeltaFileWrapper dfw( project, deltaFile.fileName() );
+    DeltaFileWrapper dfw( projectId, deltaFile.fileName() );
 
     // make sure there is a single feature with id 1
     QgsFeature f0;
@@ -2019,7 +2020,7 @@ TEST_CASE( "DeltaFileWrapper" )
     REQUIRE( it0.nextFeature( f0 ) );
     REQUIRE( layer->featureCount() == 1 );
 
-    REQUIRE( dfw.apply() );
+    REQUIRE( dfw.apply( project ) );
 
     REQUIRE( layer->featureCount() == 2 );
 
@@ -2048,7 +2049,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
     // ^^^ the same as apply above
 
-    dfw.applyReversed();
+    dfw.applyReversed( project );
 
     QgsFeature f4;
     QgsFeatureIterator it4 = layer->getFeatures( QgsFeatureRequest( QgsExpression( " fid = 100 OR fid = 102 " ) ) );
@@ -2078,7 +2079,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
     REQUIRE( layer->addJoin( ji ) );
 
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFeature f( layer->fields(), 2 );
     f.setAttribute( QStringLiteral( "fid" ), 2 );
     f.setAttribute( QStringLiteral( "dbl" ), 3.14 );
@@ -2093,7 +2094,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
     QgsFeature savedFeat = layer->getFeature( 2 );
 
-    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), savedFeat );
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), savedFeat );
 
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -2131,7 +2132,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "AddCreateWithExpressionField" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFields fields = layer->fields();
     QgsField expressionField( QStringLiteral( "expression" ), QMetaType::QString, QStringLiteral( "text" ) );
 
@@ -2150,7 +2151,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
     QgsFeature savedFeat = layer->getFeature( 2 );
 
-    dfw.addCreate( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), savedFeat );
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), savedFeat );
 
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -2197,7 +2198,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
     REQUIRE( layer->addJoin( ji ) );
 
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFields fields = layer->fields();
     QgsField expressionField( QStringLiteral( "expression" ), QMetaType::QString, QStringLiteral( "text" ) );
 
@@ -2212,7 +2213,7 @@ TEST_CASE( "DeltaFileWrapper" )
     oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
     newFeature.setGeometry( QgsGeometry( new QgsPoint( 23.398819, 41.7672147 ) ) );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
 
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == QJsonDocument::fromJson( QStringLiteral( R""""(
         [
@@ -2254,7 +2255,7 @@ TEST_CASE( "DeltaFileWrapper" )
 
   SECTION( "AddPatchWithExpressionField" )
   {
-    DeltaFileWrapper dfw( project, workDir.filePath( QUuid::createUuid().toString() ) );
+    DeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
     QgsFields fields = layer->fields();
     QgsField expressionField( QStringLiteral( "expression" ), QMetaType::QString, QStringLiteral( "text" ) );
 
@@ -2272,7 +2273,7 @@ TEST_CASE( "DeltaFileWrapper" )
     oldFeature.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
     newFeature.setGeometry( QgsGeometry( new QgsPoint( 23.398819, 41.7672147 ) ) );
 
-    dfw.addPatch( layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature, false );
 
     REQUIRE( QJsonDocument( getDeltasArray( dfw.toString() ) ) == QJsonDocument::fromJson( QStringLiteral( R""""(
         [

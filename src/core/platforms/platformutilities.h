@@ -55,6 +55,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
       VolumeKeys = 1 << 8,                //!< Volume keys handling support
       Vibrate = 1 << 9,                   //!< Haptic feedback / vibration support
       UpdateProjectFromArchive = 1 << 10, //!< Update local project from a ZIP archive support
+      PositioningService = 1 << 11,       //!< Positioning service support
     };
     Q_DECLARE_FLAGS( Capabilities, Capability )
     Q_FLAGS( Capabilities )
@@ -291,11 +292,6 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE virtual QString getTextFromClipboard() const;
 
     /**
-     * Returns margins ("top", "right", "bottom", "left") within which interactive elements should not be drawn.
-     */
-    Q_INVOKABLE virtual QVariantMap sceneMargins( QQuickWindow *window ) const;
-
-    /**
      * Returns the default system font size.
      */
     Q_INVOKABLE virtual double systemFontPointSize() const;
@@ -315,14 +311,13 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual void vibrate( int milliseconds ) const { Q_UNUSED( milliseconds ) }
 
-
     /**
-     * Starts a positioning service on supported platforms.
+     * Starts a positioning service on supported platforms and returns the remote object URL.
      */
-    virtual void startPositioningService() const {}
+    virtual QString startPositioningService() const { return QString(); }
 
     /**
-     * Starts a positioning service on supported platforms.
+     * Stops a positioning service on supported platforms.
      */
     virtual void stopPositioningService() const {}
 

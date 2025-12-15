@@ -24,6 +24,7 @@
 #include <qgsattributeeditorhtmlelement.h>
 #include <qgsattributeeditorqmlelement.h>
 #include <qgsattributeeditorrelation.h>
+#include <qgsattributeeditorspacerelement.h>
 #include <qgsattributeeditortextelement.h>
 #include <qgsdatetimefieldformatter.h>
 #include <qgseditorwidgetsetup.h>
@@ -80,6 +81,7 @@ QHash<int, QByteArray> AttributeFormModelBase::roleNames() const
   roles[AttributeFormModel::EditorWidgetConfig] = "EditorWidgetConfig";
   roles[AttributeFormModel::RelationEditorWidget] = "RelationEditorWidget";
   roles[AttributeFormModel::RelationEditorWidgetConfig] = "RelationEditorWidgetConfig";
+  roles[AttributeFormModel::CanRememberValue] = "CanRememberValue";
   roles[AttributeFormModel::RememberValue] = "RememberValue";
   roles[AttributeFormModel::Field] = "Field";
   roles[AttributeFormModel::RelationId] = "RelationId";
@@ -190,6 +192,7 @@ void AttributeFormModelBase::resetModel()
   setConstraintsHardValid( true );
   setConstraintsSoftValid( true );
   setHasTabs( false );
+  setHasRemembrance( false );
 
   if ( !mFeatureModel )
     return;
@@ -199,11 +202,7 @@ void AttributeFormModelBase::resetModel()
   if ( mLayer )
   {
     QgsAttributeEditorContainer *root;
-#if _QGIS_VERSION_INT >= 33100
     if ( mLayer->editFormConfig().layout() == Qgis::AttributeFormLayout::DragAndDrop )
-#else
-    if ( mLayer->editFormConfig().layout() == QgsEditFormConfig::TabLayout )
-#endif
     {
       root = mLayer->editFormConfig().invisibleRootContainer();
       mTemporaryContainer.reset();
@@ -214,25 +213,19 @@ void AttributeFormModelBase::resetModel()
       mTemporaryContainer.reset( root );
     }
 
-#if _QGIS_VERSION_INT >= 33100
     const bool hasTabs = !root->children().isEmpty() && Qgis::AttributeEditorType::Container == root->children().first()->type();
-#else
-    const bool hasTabs = !root->children().isEmpty() && QgsAttributeEditorElement::AeTypeContainer == root->children().first()->type();
-#endif
 
     invisibleRootItem()->setColumnCount( 1 );
     QList<QStandardItem *> containers;
     if ( hasTabs )
     {
+      setHasTabs( true );
+
       const QList<QgsAttributeEditorElement *> children { root->children() };
       int currentTab = 0;
       for ( QgsAttributeEditorElement *element : children )
       {
-#if _QGIS_VERSION_INT >= 33100
         if ( element->type() == Qgis::AttributeEditorType::Container )
-#else
-        if ( element->type() == QgsAttributeEditorElement::AeTypeContainer )
-#endif
         {
           QgsAttributeEditorContainer *container = static_cast<QgsAttributeEditorContainer *>( element );
           const int columnCount = container->columnCount();
@@ -249,13 +242,17 @@ void AttributeFormModelBase::resetModel()
           QString visibilityExpression;
           if ( container->visibilityExpression().enabled() )
           {
-            mVisibilityExpressions.append( qMakePair( container->visibilityExpression().data(), item ) );
             visibilityExpression = container->visibilityExpression().data().expression();
           }
 
           buildForm( container, item, visibilityExpression, containers, currentTab, columnCount );
           invisibleRootItem()->appendRow( item );
-          setHasTabs( true );
+
+          if ( !visibilityExpression.isEmpty() )
+          {
+            mVisibilityExpressions.append( qMakePair( container->visibilityExpression().data(), item ) );
+          }
+
           currentTab++;
         }
       }
@@ -299,7 +296,6 @@ void AttributeFormModelBase::applyParentDefaultValues()
     QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
     for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
     {
-      QStandardItem *item = fieldIterator.key();
       const int fidx = fieldIterator.value();
       if ( !fields.at( fidx ).defaultValueDefinition().isValid() || ( !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() && !featureIsNew ) )
         continue;
@@ -316,6 +312,54 @@ void AttributeFormModelBase::applyParentDefaultValues()
         }
       }
     }
+  }
+}
+
+void AttributeFormModelBase::applyRelationshipDefaultValues()
+{
+  const bool featureIsNew = std::numeric_limits<QgsFeatureId>::min() == mFeatureModel->feature().id();
+  QgsFields fields = mFeatureModel->feature().fields();
+  mExpressionContext.setFields( fields );
+  mExpressionContext.setFeature( mFeatureModel->feature() );
+  mExpressionContext.clearCachedValues();
+
+  QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
+  {
+    const int fidx = fieldIterator.value();
+    if ( !fields.at( fidx ).defaultValueDefinition().isValid() || ( !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() && !featureIsNew ) )
+      continue;
+
+    if ( fields.at( fidx ).defaultValueDefinition().expression().indexOf( "relation_aggregate(" ) > -1 )
+    {
+      QgsExpression exp( fields.at( fidx ).defaultValueDefinition().expression() );
+      exp.prepare( &mExpressionContext );
+      const QVariant defaultValue = exp.evaluate( &mExpressionContext );
+      const bool success = mFeatureModel->setData( mFeatureModel->index( fidx ), defaultValue, FeatureModel::AttributeValue );
+      if ( success )
+      {
+        synchronizeFieldValue( fidx, defaultValue );
+        updateVisibilityAndConstraints( fidx );
+      }
+    }
+  }
+}
+
+void AttributeFormModelBase::activateAllRememberValues()
+{
+  QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
+  {
+    setData( fieldIterator.key()->index(), true, AttributeFormModel::RememberValue );
+  }
+}
+
+void AttributeFormModelBase::deactivateAllRememberValues()
+{
+  QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
+  {
+    setData( fieldIterator.key()->index(), false, AttributeFormModel::RememberValue );
   }
 }
 
@@ -450,6 +494,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
     item->setData( QModelIndex(), AttributeFormModel::GroupIndex );
     item->setData( true, AttributeFormModel::ConstraintHardValid );
     item->setData( true, AttributeFormModel::ConstraintSoftValid );
+    item->setData( false, AttributeFormModel::CanRememberValue );
 
     QgsAttributeEditorElement::LabelStyle labelStyle = element->labelStyle();
     item->setData( labelStyle.overrideColor, AttributeFormModel::LabelOverrideColor );
@@ -459,11 +504,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
 
     switch ( element->type() )
     {
-#if _QGIS_VERSION_INT >= 33100
       case Qgis::AttributeEditorType::Container:
-#else
-      case QgsAttributeEditorElement::AeTypeContainer:
-#endif
       {
         QString visibilityExpression = parentVisibilityExpressions;
         QgsAttributeEditorContainer *innerContainer = static_cast<QgsAttributeEditorContainer *>( element );
@@ -494,11 +535,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         break;
       }
 
-#if _QGIS_VERSION_INT >= 33100
       case Qgis::AttributeEditorType::Field:
-#else
-      case QgsAttributeEditorElement::AeTypeField:
-#endif
       {
         QgsAttributeEditorField *editorField = static_cast<QgsAttributeEditorField *>( element );
 
@@ -516,6 +553,16 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ) && setup.type() != QStringLiteral( "Binary" ), AttributeFormModel::AttributeEditable );
         item->setData( setup.type(), AttributeFormModel::EditorWidget );
         item->setData( setup.config(), AttributeFormModel::EditorWidgetConfig );
+#if _QGIS_VERSION_INT >= 39900
+        const bool canRemember = mLayer->editFormConfig().reuseLastValuePolicy( fieldIndex ) != Qgis::AttributeFormReuseLastValuePolicy::NotAllowed;
+        item->setData( canRemember, AttributeFormModel::CanRememberValue );
+        if ( canRemember )
+        {
+          setHasRemembrance( true );
+        }
+#else
+        item->setData( true, AttributeFormModel::CanRememberValue );
+#endif
         item->setData( mFeatureModel->rememberedAttributes().at( fieldIndex ) ? Qt::Checked : Qt::Unchecked, AttributeFormModel::RememberValue );
         item->setData( QgsField( field ), AttributeFormModel::Field );
         item->setData( "field", AttributeFormModel::ElementType );
@@ -561,16 +608,12 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         break;
       }
 
-#if _QGIS_VERSION_INT >= 33100
       case Qgis::AttributeEditorType::Relation:
-#else
-      case QgsAttributeEditorElement::AeTypeRelation:
-#endif
       {
         QgsAttributeEditorRelation *editorRelation = static_cast<QgsAttributeEditorRelation *>( element );
         const QgsRelation relation = editorRelation->relation();
 
-        item->setData( !editorRelation->label().isEmpty() ? editorRelation->label() : relation.name(), AttributeFormModel::Name );
+        item->setData( element->showLabel() ? !editorRelation->label().isEmpty() ? editorRelation->label() : relation.name() : QString(), AttributeFormModel::Name );
         item->setData( true, AttributeFormModel::AttributeEditable );
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( "relation", AttributeFormModel::ElementType );
@@ -588,11 +631,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         break;
       }
 
-#if _QGIS_VERSION_INT >= 33100
       case Qgis::AttributeEditorType::QmlElement:
-#else
-      case QgsAttributeEditorElement::AeTypeQmlElement:
-#endif
       {
         QgsAttributeEditorQmlElement *qmlElement = static_cast<QgsAttributeEditorQmlElement *>( element );
 
@@ -609,11 +648,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         break;
       }
 
-#if _QGIS_VERSION_INT >= 33100
       case Qgis::AttributeEditorType::HtmlElement:
-#else
-      case QgsAttributeEditorElement::AeTypeHtmlElement:
-#endif
       {
         QgsAttributeEditorHtmlElement *htmlElement = static_cast<QgsAttributeEditorHtmlElement *>( element );
 
@@ -629,7 +664,6 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         break;
       }
 
-#if _QGIS_VERSION_INT >= 33100
       case Qgis::AttributeEditorType::TextElement:
       {
         QgsAttributeEditorTextElement *textElement = static_cast<QgsAttributeEditorTextElement *>( element );
@@ -645,13 +679,23 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         mEditorWidgetCodes.insert( item, textElement->text() );
         break;
       }
-      case Qgis::AttributeEditorType::Action:
+
       case Qgis::AttributeEditorType::SpacerElement:
+      {
+        QgsAttributeEditorSpacerElement *spacerElement = static_cast<QgsAttributeEditorSpacerElement *>( element );
+
+        item->setData( "spacer", AttributeFormModel::ElementType );
+        item->setData( spacerElement->drawLine() ? QStringLiteral( "-" ) : QString(), AttributeFormModel::Name );
+        item->setData( true, AttributeFormModel::CurrentlyVisible );
+        item->setData( false, AttributeFormModel::AttributeEditable );
+        item->setData( false, AttributeFormModel::AttributeAllowEdit );
+
+        parent->appendRow( item );
+        break;
+      }
+
+      case Qgis::AttributeEditorType::Action:
       case Qgis::AttributeEditorType::Invalid:
-#else
-      case QgsAttributeEditorElement::AeTypeInvalid:
-      case QgsAttributeEditorElement::AeTypeAction:
-#endif
         // TODO: implement
         delete item;
         break;
@@ -686,7 +730,6 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
   QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
   for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
   {
-    QStandardItem *item = fieldIterator.key();
     const int fidx = fieldIterator.value();
     if ( fidx == fieldIndex || !fields.at( fidx ).defaultValueDefinition().isValid() || !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() )
       continue;
@@ -696,7 +739,9 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
 
     // avoid cost of value update if expression doesn't contain the field which triggered the default values update
     if ( !exp.referencedColumns().contains( fieldName ) && !exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+    {
       continue;
+    }
 
     const QVariant defaultValue = exp.evaluate( &mExpressionContext );
     const QVariant previousValue = mFeatureModel->data( mFeatureModel->index( fidx ), FeatureModel::AttributeValue );
@@ -849,7 +894,7 @@ void AttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName )
   }
 }
 
-void _checkChildrenValidity( QStandardItem *parent, bool &hardValidity, bool &softValidity )
+void _checkChildrenValidity( const QStandardItem *parent, bool &hardValidity, bool &softValidity )
 {
   QStandardItem *item = parent->child( 0, 0 );
   while ( item )
@@ -1010,7 +1055,7 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
     {
       bool hardValidity = true;
       bool softValidity = true;
-      QStandardItem *tab = invisibleRootItem();
+      const QStandardItem *tab = invisibleRootItem();
       _checkChildrenValidity( tab, hardValidity, softValidity );
 
       if ( !hardValidity )
@@ -1082,11 +1127,7 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int fieldIndex )
     }
 
     //when it's a provider field with default value clause, take Textedit
-#if _QGIS_VERSION_INT >= 33800
     if ( fields.fieldOrigin( fieldIndex ) == Qgis::FieldOrigin::Provider )
-#else
-    if ( fields.fieldOrigin( fieldIndex ) == QgsFields::OriginProvider )
-#endif
     {
       const int providerOrigin = fields.fieldOriginIndex( fieldIndex );
       if ( !mLayer->dataProvider()->defaultValueClause( providerOrigin ).isEmpty() )
@@ -1149,6 +1190,20 @@ void AttributeFormModelBase::setHasTabs( bool hasTabs )
 
   mHasTabs = hasTabs;
   emit hasTabsChanged();
+}
+
+bool AttributeFormModelBase::hasRemembrance() const
+{
+  return mHasRemembrance;
+}
+
+void AttributeFormModelBase::setHasRemembrance( bool hasRemembrance )
+{
+  if ( hasRemembrance == mHasRemembrance )
+    return;
+
+  mHasRemembrance = hasRemembrance;
+  emit hasRemembranceChanged();
 }
 
 bool AttributeFormModelBase::save()

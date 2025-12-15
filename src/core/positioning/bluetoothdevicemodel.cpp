@@ -60,6 +60,7 @@ void BluetoothDeviceModel::initiateDiscoveryAgent()
     }
     else
     {
+      setLastError( mServiceDiscoveryAgent->errorString() );
       setScanningStatus( Failed );
     }
   } );
@@ -70,7 +71,8 @@ void BluetoothDeviceModel::initiateDiscoveryAgent()
 
 void BluetoothDeviceModel::startServiceDiscovery()
 {
-  if ( !mPermissionChecked )
+  // Handle Bluetooth permission
+  if ( !mBluetoothPermissionChecked )
   {
     QBluetoothPermission bluetoothPermission;
     bluetoothPermission.setCommunicationModes( QBluetoothPermission::Access );
@@ -80,7 +82,7 @@ void BluetoothDeviceModel::startServiceDiscovery()
       qApp->requestPermission( bluetoothPermission, this, [this]( const QPermission &permission ) {
         if ( permission.status() == Qt::PermissionStatus::Granted )
         {
-          mPermissionChecked = true;
+          mBluetoothPermissionChecked = true;
           startServiceDiscovery();
         }
         else
@@ -93,10 +95,42 @@ void BluetoothDeviceModel::startServiceDiscovery()
     }
     else if ( permissionStatus == Qt::PermissionStatus::Denied )
     {
-      mLastError = tr( "Bluetooth permission denied" );
+      mLastError = tr( "Bluetooth permission is required to scan for bluetooth devices" );
       emit lastErrorChanged( mLastError );
       return;
     }
+  }
+
+  // Handle location permission
+  if ( !mLocationPermissionChecked )
+  {
+    QLocationPermission locationPermission;
+    locationPermission.setAccuracy( QLocationPermission::Precise );
+    Qt::PermissionStatus permissionStatus = qApp->checkPermission( locationPermission );
+
+    if ( permissionStatus == Qt::PermissionStatus::Undetermined )
+    {
+      qApp->requestPermission( locationPermission, this, [this]( const QPermission &permission ) {
+        if ( permission.status() == Qt::PermissionStatus::Granted )
+        {
+          mLocationPermissionChecked = true;
+          startServiceDiscovery();
+        }
+        else
+        {
+          mLastError = tr( "Location permission denied" );
+          emit lastErrorChanged( mLastError );
+        }
+      } );
+      return;
+    }
+    else if ( permissionStatus == Qt::PermissionStatus::Denied )
+    {
+      mLastError = tr( "Location permission is required to scan for bluetooth devices" );
+      emit lastErrorChanged( mLastError );
+      return;
+    }
+    mLocationPermissionChecked = true;
   }
 
   if ( !mServiceDiscoveryAgent )
@@ -141,13 +175,18 @@ void BluetoothDeviceModel::stopServiceDiscovery()
 
 void BluetoothDeviceModel::serviceDiscovered( const QBluetoothServiceInfo &service )
 {
+  qInfo() << QStringLiteral( "Bluetooth service discovered: name %1, address %2, pairing status %3" )
+               .arg( service.device().name() )
+               .arg( service.device().address().toString() )
+               .arg( mLocalDevice->pairingStatus( service.device().address() ) );
   //only list the paired devices so the user has control over it.
   //but in linux (not android) we list unpaired as well, since it needs to repair them later (or pair them at all).
   const QPair<QString, QString> serviceDiscovered = qMakePair( service.device().name(), service.device().address().toString() );
   if ( mDiscoveredDevices.contains( serviceDiscovered ) )
     return;
 
-  beginInsertRows( QModelIndex(), mDiscoveredDevices.size(), mDiscoveredDevices.size() );
+  const int index = static_cast<int>( mDiscoveredDevices.size() );
+  beginInsertRows( QModelIndex(), index, index );
 #ifdef Q_OS_ANDROID
   if ( mLocalDevice->pairingStatus( service.device().address() ) != QBluetoothLocalDevice::Unpaired )
   {
@@ -174,8 +213,7 @@ int BluetoothDeviceModel::findIndexFromAddress( const QString &address ) const
 
 int BluetoothDeviceModel::rowCount( const QModelIndex &parent ) const
 {
-  Q_UNUSED( parent )
-  return mDiscoveredDevices.size();
+  return !parent.isValid() ? static_cast<int>( mDiscoveredDevices.size() ) : 0;
 }
 
 QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
@@ -183,8 +221,7 @@ QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
   switch ( role )
   {
     case Qt::DisplayRole:
-      return QStringLiteral( "%1%2" ).arg( mDiscoveredDevices.at( index.row() ).first,
-                                           index.row() > 0 ? QStringLiteral( " (%2)" ).arg( mDiscoveredDevices.at( index.row() ).second ) : QString() );
+      return QStringLiteral( "%1 (%2)" ).arg( mDiscoveredDevices.at( index.row() ).first, mDiscoveredDevices.at( index.row() ).second );
       break;
 
     case DeviceAddressRole:
@@ -211,7 +248,9 @@ QHash<int, QByteArray> BluetoothDeviceModel::roleNames() const
 void BluetoothDeviceModel::setScanningStatus( const BluetoothDeviceModel::ScanningStatus scanningStatus )
 {
   if ( mScanningStatus == scanningStatus )
+  {
     return;
+  }
 
   qDebug() << "BluetoothDeviceModel: Status of service discovery changed to: " << scanningStatus;
   mScanningStatus = scanningStatus;
@@ -220,10 +259,12 @@ void BluetoothDeviceModel::setScanningStatus( const BluetoothDeviceModel::Scanni
 
 void BluetoothDeviceModel::setLastError( const QString &lastError )
 {
-  qDebug() << "BluetoothDeviceModel: Service discovery error received: " << lastError;
   if ( mLastError == lastError )
+  {
     return;
+  }
 
+  qDebug() << "BluetoothDeviceModel: Service discovery error received: " << lastError;
   mLastError = lastError;
   emit lastErrorChanged( mLastError );
 }
@@ -241,7 +282,7 @@ int BluetoothDeviceModel::addDevice( const QString &name, const QString &address
     }
   }
 
-  int index = mDiscoveredDevices.size();
+  const int index = static_cast<int>( mDiscoveredDevices.size() );
   beginInsertRows( QModelIndex(), index, index );
   mDiscoveredDevices << qMakePair( name, address );
   endInsertRows();

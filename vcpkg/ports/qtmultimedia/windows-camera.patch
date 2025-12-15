@@ -1,0 +1,114 @@
+diff --git a/src/plugins/multimedia/ffmpeg/qffmpegmediaintegration.cpp b/src/plugins/multimedia/ffmpeg/qffmpegmediaintegration.cpp
+index 2ad85fa48..b58431b32 100644
+--- a/src/plugins/multimedia/ffmpeg/qffmpegmediaintegration.cpp
++++ b/src/plugins/multimedia/ffmpeg/qffmpegmediaintegration.cpp
+@@ -208,7 +208,7 @@ QMaybe<QPlatformCamera *> QFFmpegMediaIntegration::createCamera(QCamera *camera)
+ #elif QT_CONFIG(linux_v4l)
+     return new QV4L2Camera(camera);
+ #elif defined(Q_OS_WINDOWS)
+-    return new QWindowsCamera(camera);
++    return new QFFmpeg::QWindowsCamera(camera);
+ #else
+     Q_UNUSED(camera);
+     return { unexpect, notAvailable };
+diff --git a/src/plugins/multimedia/ffmpeg/qwindowscamera.cpp b/src/plugins/multimedia/ffmpeg/qwindowscamera.cpp
+index c635c19d8..da36d07cf 100644
+--- a/src/plugins/multimedia/ffmpeg/qwindowscamera.cpp
++++ b/src/plugins/multimedia/ffmpeg/qwindowscamera.cpp
+@@ -23,6 +23,10 @@ QT_BEGIN_NAMESPACE
+ 
+ using namespace QWindowsMultimediaUtils;
+ 
++namespace QFFmpeg {
++
++namespace {
++
+ class CameraReaderCallback : public QComObject<IMFSourceReaderCallback>
+ {
+ public:
+@@ -44,8 +48,8 @@ private:
+     QMutex m_mutex;
+ };
+ 
+-static ComPtr<IMFSourceReader> createCameraReader(IMFMediaSource *mediaSource,
+-                                                             const ComPtr<CameraReaderCallback> &callback)
++ComPtr<IMFSourceReader> createCameraReader(IMFMediaSource *mediaSource,
++                                           const ComPtr<CameraReaderCallback> &callback)
+ {
+     ComPtr<IMFSourceReader> sourceReader;
+     ComPtr<IMFAttributes> readerAttributes;
+@@ -64,7 +68,7 @@ static ComPtr<IMFSourceReader> createCameraReader(IMFMediaSource *mediaSource,
+     return sourceReader;
+ }
+ 
+-static ComPtr<IMFMediaSource> createCameraSource(const QString &deviceId)
++ComPtr<IMFMediaSource> createCameraSource(const QString &deviceId)
+ {
+     ComPtr<IMFMediaSource> mediaSource;
+     ComPtr<IMFAttributes> sourceAttributes;
+@@ -86,7 +90,7 @@ static ComPtr<IMFMediaSource> createCameraSource(const QString &deviceId)
+     return mediaSource;
+ }
+ 
+-static int calculateVideoFrameStride(IMFMediaType *videoType, int width)
++int calculateVideoFrameStride(IMFMediaType *videoType, int width)
+ {
+     Q_ASSERT(videoType);
+ 
+@@ -103,7 +107,7 @@ static int calculateVideoFrameStride(IMFMediaType *videoType, int width)
+     return 0;
+ }
+ 
+-static bool setCameraReaderFormat(IMFSourceReader *sourceReader, IMFMediaType *videoType)
++bool setCameraReaderFormat(IMFSourceReader *sourceReader, IMFMediaType *videoType)
+ {
+     Q_ASSERT(sourceReader);
+     Q_ASSERT(videoType);
+@@ -116,8 +120,7 @@ static bool setCameraReaderFormat(IMFSourceReader *sourceReader, IMFMediaType *v
+     return SUCCEEDED(hr);
+ }
+ 
+-static ComPtr<IMFMediaType> findVideoType(IMFSourceReader *reader,
+-                                                     const QCameraFormat &format)
++ComPtr<IMFMediaType> findVideoType(IMFSourceReader *reader, const QCameraFormat &format)
+ {
+     for (DWORD i = 0;; ++i) {
+         ComPtr<IMFMediaType> candidate;
+@@ -146,6 +149,8 @@ static ComPtr<IMFMediaType> findVideoType(IMFSourceReader *reader,
+     return {};
+ }
+ 
++} // namespace
++
+ class ActiveCamera {
+ public:
+     static std::unique_ptr<ActiveCamera> create(QWindowsCamera &wc, const QCameraDevice &device, const QCameraFormat &format)
+@@ -330,4 +335,6 @@ bool QWindowsCamera::setCameraFormat(const QCameraFormat &format)
+     return ok;
+ }
+ 
++}// namespace QFFmpeg
++
+ QT_END_NAMESPACE
+diff --git a/src/plugins/multimedia/ffmpeg/qwindowscamera_p.h b/src/plugins/multimedia/ffmpeg/qwindowscamera_p.h
+index a1d33a2ba..d6cced56e 100644
+--- a/src/plugins/multimedia/ffmpeg/qwindowscamera_p.h
++++ b/src/plugins/multimedia/ffmpeg/qwindowscamera_p.h
+@@ -20,6 +20,8 @@
+ 
+ QT_BEGIN_NAMESPACE
+ 
++namespace QFFmpeg {
++
+ class ActiveCamera;
+ 
+ class QWindowsCamera : public QPlatformCamera
+@@ -40,6 +42,8 @@ private:
+     std::unique_ptr<ActiveCamera> m_active;
+ };
+ 
++} // namespace QFFmpeg
++
+ QT_END_NAMESPACE
+ 
+ #endif //QWINDOWSCAMERA_H

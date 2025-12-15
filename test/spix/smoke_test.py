@@ -210,7 +210,7 @@ def test_image_attachment(app, screenshot_path, screenshot_check, extra, process
 
     bounds = app.getBoundingBox("mainWindow/featureForm")
     move_x = bounds[0] + bounds[2] / 2
-    move_y = bounds[1] + 80
+    move_y = bounds[1] + 100
 
     pyautogui.moveTo(move_x, move_y, duration=0.5)
     pyautogui.click(interval=0.5)
@@ -251,7 +251,7 @@ def test_offline_project(app, screenshot_path, screenshot_check, extra, process_
 
     # Arbitrary wait period to insure project fully loaded and rendered
     app.invokeMethod("mainWindow/toursController", "blockGuides", [])
-    time.sleep(4)
+    time.sleep(8)
 
     app.takeScreenshot(
         "mainWindow", os.path.join(screenshot_path, "test_offline_project.png")
@@ -260,6 +260,27 @@ def test_offline_project(app, screenshot_path, screenshot_check, extra, process_
     extra.append(extras.html('<img src="images/test_offline_project.png"/>'))
 
     assert screenshot_check("test_offline_project", "test_offline_project", 0.025)
+
+
+@pytest.mark.project_file("test_decorations.qgz")
+def test_decorations(app, screenshot_path, screenshot_check, extra, process_alive):
+    """
+    Starts a test app and check if the title, copyright, grid, and image decorations are
+    displayed in QField
+    """
+    assert app.existsAndVisible("mainWindow")
+
+    # Arbitrary wait period to insure project fully loaded and rendered
+    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
+    time.sleep(8)
+
+    app.takeScreenshot(
+        "mainWindow", os.path.join(screenshot_path, "test_decorations.png")
+    )
+    assert process_alive()
+    extra.append(extras.html('<img src="images/test_decorations.png"/>'))
+
+    assert screenshot_check("test_decorations", "test_decorations", 0.025)
 
 
 @pytest.mark.skipif(

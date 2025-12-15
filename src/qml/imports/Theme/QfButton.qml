@@ -3,7 +3,12 @@ import QtQuick.Controls
 import QtQuick.Controls.impl
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
+import QtQuick.Effects
+import QtQuick.Shapes
 
+/**
+ * \ingroup qml
+ */
 Button {
   id: button
 
@@ -12,6 +17,8 @@ Button {
   property alias radius: backgroundRectangle.radius
   property alias borderColor: backgroundRectangle.border.color
   property bool dropdown: false
+  property real progressValue: 0.0
+  property bool showProgress: false
 
   signal dropdownClicked
 
@@ -34,6 +41,7 @@ Button {
     radius: 12
     border.width: 1
     border.color: !parent.enabled ? Theme.controlBackgroundDisabledColor : button.bgcolor != "#00000000" ? button.bgcolor : button.color
+    clip: true
 
     Ripple {
       clip: true
@@ -43,6 +51,63 @@ Button {
       anchor: parent
       active: button.down
       color: Theme.darkTheme ? "#22000000" : button.bgcolor == "#ffffff" || button.bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
+    }
+
+    Loader {
+      active: showProgress
+      sourceComponent: progressValue == 0.0 ? indeterminateProgressComponent : progressComponent
+    }
+
+    Component {
+      id: progressComponent
+      Rectangle {
+        width: Math.max(24, backgroundRectangle.width * progressValue)
+        height: backgroundRectangle.height
+        topLeftRadius: backgroundRectangle.radius
+        bottomLeftRadius: backgroundRectangle.radius
+        topRightRadius: width >= backgroundRectangle.width - 24 ? 24 : 0
+        bottomRightRadius: width >= backgroundRectangle.width - 24 ? 24 : 0
+        color: Theme.mainColor
+        clip: true
+
+        Behavior on width  {
+          NumberAnimation {
+            duration: 200
+          }
+        }
+      }
+    }
+    Component {
+      id: indeterminateProgressComponent
+      Item {
+        width: backgroundRectangle.width
+        height: backgroundRectangle.height
+        clip: true
+
+        Rectangle {
+          id: bar
+          width: parent.width * 0.3
+          height: parent.height
+          radius: backgroundRectangle.radius
+          color: Theme.mainColor
+          opacity: 0.9
+          SequentialAnimation on x  {
+            loops: Animation.Infinite
+            NumberAnimation {
+              from: -bar.width
+              to: parent.width
+              duration: 2000
+              easing.type: Easing.Linear
+            }
+            NumberAnimation {
+              from: parent.width
+              to: -bar.width
+              duration: 2000
+              easing.type: Easing.Linear
+            }
+          }
+        }
+      }
     }
   }
 
@@ -68,40 +133,35 @@ Button {
     anchors.verticalCenter: parent.verticalCenter
     visible: button.dropdown
 
-    width: 36
     height: parent.height
+    width: height
 
     color: "transparent"
 
-    Rectangle {
-      anchors.left: parent.left
-      anchors.verticalCenter: parent.verticalCenter
-
-      width: 1.5
-      height: parent.height - 16
-      opacity: button.enabled ? 1 : 0.25
-
-      color: button.color
-    }
-
-    Canvas {
+    Shape {
       id: dropdownArrow
       anchors.centerIn: parent
-      implicitWidth: 40
-      implicitHeight: 40
+      width: 20
+      height: 20
       visible: true
       opacity: button.enabled ? 1 : 0.25
 
-      onPaint: {
-        var ctx = getContext("2d");
-        ctx.fillStyle = button.color;
-        ctx.strokeStyle = button.color;
-        ctx.lineWidth = 1;
-        ctx.moveTo(14, 15);
-        ctx.lineTo(width - 16, 15);
-        ctx.lineTo((width / 2) - 1, height - 15);
-        ctx.stroke();
-        ctx.fill();
+      ShapePath {
+        strokeWidth: 2
+        strokeColor: button.color
+        fillColor: "transparent"
+
+        startX: dropdownArrow.width * 0.25
+        startY: dropdownArrow.height * 0.35
+
+        PathLine {
+          x: dropdownArrow.width * 0.5
+          y: dropdownArrow.height * 0.55
+        }
+        PathLine {
+          x: dropdownArrow.width * 0.75
+          y: dropdownArrow.height * 0.35
+        }
       }
     }
 

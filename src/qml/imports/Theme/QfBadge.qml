@@ -1,6 +1,9 @@
 import QtQuick
 import QtQuick.Controls
 
+/**
+ * \ingroup qml
+ */
 Rectangle {
   id: badge
 
@@ -12,6 +15,7 @@ Rectangle {
   }
 
   property alias badgeText: inText
+  property bool enableGradient: false
   property int alignment: QfBadge.Alignment.TopRight
 
   property int topMargin: 2
@@ -20,7 +24,7 @@ Rectangle {
   property int rightMargin: 2
 
   width: 12
-  height: 12
+  height: width
   radius: width / 2
 
   border.width: 1.5
@@ -44,5 +48,31 @@ Rectangle {
     font.pointSize: Math.max(8, height > 0 ? (text.length === 1 ? height / 2 : height / 2.2) : 8)
     horizontalAlignment: Qt.AlignHCenter
     verticalAlignment: Qt.AlignVCenter
+    rotation: enableGradient ? -parent.rotation : 0
+    // font.bold: true // maybe!
+  }
+
+  gradient: enableGradient ? greenBlueGradient : undefined
+  rotation: enableGradient ? 45 : 0
+
+  Gradient {
+    id: greenBlueGradient
+    orientation: Gradient.Horizontal
+    GradientStop {
+      position: 0.0
+      color: Theme.mainColor
+    }
+    GradientStop {
+      position: 0.4999
+      color: Theme.mainColor
+    }
+    GradientStop {
+      position: 0.5
+      color: Theme.cloudColor
+    }
+    GradientStop {
+      position: 1.0
+      color: Theme.cloudColor
+    }
   }
 }

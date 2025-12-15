@@ -123,6 +123,7 @@ if(TRUE) # Should possibly have a "static only" check
   _qgis_core_add_dependency(GDAL::GDAL GDAL)
 
   _qgis_core_add_dependency(draco::draco draco)
+
   find_package(exiv2 CONFIG REQUIRED)
   target_link_libraries(QGIS::Core INTERFACE Exiv2::exiv2lib)
   _qgis_core_add_dependency(libzip::zip libzip)

@@ -38,6 +38,7 @@ EditorWidgetBase {
     color: "transparent"
     border.color: Theme.controlBorderColor
     border.width: 1
+    radius: 5
     clip: true
 
     Rectangle {
@@ -46,14 +47,10 @@ EditorWidgetBase {
       height: itemHeight
       color: Theme.controlBorderColor
       focus: true
-
-      property bool entryEnabled: isEnabled && isActionEnabled('AddChildFeature')
-
-      onEntryEnabledChanged: {
-        if (entryEnabled && !constraintsHardValid) {
-          displayToast(qsTr('Ensure constraints are met'));
-        }
-      }
+      topLeftRadius: parent.radius
+      topRightRadius: parent.radius
+      bottomLeftRadius: listView.count === 0 ? parent.radius : 0
+      bottomRightRadius: listView.count === 0 ? parent.radius : 0
 
       Text {
         text: qsTr("%n feature(s)", "", listView.count)
@@ -66,7 +63,6 @@ EditorWidgetBase {
         font: Theme.strongTipFont
         opacity: enabled ? 1 : 0.45
         color: Theme.mainTextColor
-        enabled: headerEntry.entryEnabled
       }
 
       Row {
@@ -82,7 +78,7 @@ EditorWidgetBase {
           id: addButton
           width: parent.height
           height: parent.height
-          enabled: constraintsHardValid && headerEntry.entryEnabled
+          enabled: isEnabled
           visible: enabled
 
           round: false
@@ -205,30 +201,49 @@ EditorWidgetBase {
         displayToast(qsTr("Failed to delete referencing feature"), 'error');
       }
       visible = false;
+      form.model.applyRelationshipDefaultValues();
     }
     onRejected: {
       visible = false;
     }
   }
 
-  property EmbeddedFeatureForm embeddedPopup: EmbeddedFeatureForm {
-    embeddedLevel: form.embeddedLevel + 1
-    digitizingToolbar: form.digitizingToolbar
-    codeReader: form.codeReader
+  property EmbeddedFeatureForm embeddedPopup: embeddedPopupLoader.item
 
-    onFeatureCancelled: {
-      if (autoSave) {
-        relationEditorModel.reload();
+  function ensureEmbeddedFormLoaded() {
+    if (!embeddedPopupLoader.active) {
+      embeddedPopupLoader.active = true;
+    }
+  }
+
+  Loader {
+    id: embeddedPopupLoader
+    active: false
+
+    sourceComponent: EmbeddedFeatureForm {
+      embeddedLevel: form.embeddedLevel + 1
+      digitizingToolbar: form.digitizingToolbar
+      codeReader: form.codeReader
+
+      onFeatureCancelled: {
+        if (autoSave) {
+          relationEditorModel.reload();
+        }
       }
-    }
 
-    onFeatureSaved: id => {
-      relationEditorModel.featureFocus = id;
-      relationEditorModel.reload();
-    }
+      onFeatureSaved: id => {
+        relationEditorModel.featureFocus = id;
+        relationEditorModel.reload();
+        form.model.applyRelationshipDefaultValues();
+      }
 
-    onOpened: {
-      addingIndicator.running = false;
+      onOpened: {
+        addingIndicator.running = false;
+      }
+
+      onRequestJumpToPoint: function (center, scale, handleMargins) {
+        relationEditorBase.requestJumpToPoint(center, scale, handleMargins);
+      }
     }
   }
 
@@ -409,6 +424,7 @@ EditorWidgetBase {
   }
 
   function showAddFeaturePopup(geometry) {
+    ensureEmbeddedFormLoaded();
     embeddedPopup.state = 'Add';
     embeddedPopup.currentLayer = relationEditorModel.relation.referencingLayer;
     embeddedPopup.linkedParentFeature = relationEditorModel.feature;

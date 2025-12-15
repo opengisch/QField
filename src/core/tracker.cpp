@@ -191,6 +191,13 @@ void Tracker::positionReceived()
     return;
   }
 
+  if ( mSkipBadPositionReceived )
+  {
+    // Occurs when filterAccuracy property is true and the received position accuracy quality was determined to be bad
+    mSkipBadPositionReceived = false;
+    return;
+  }
+
   if ( !qgsDoubleNear( mTimeInterval, 0.0 ) )
   {
     mTimeIntervalFulfilled = mRubberbandModel->vertexCount() == 1 || ( ( mLastDevicePositionTimestampMSecsSinceEpoch - mLastVertexPositionTimestampMSecsSinceEpoch ) >= mTimeInterval * 1000 );
@@ -306,6 +313,11 @@ void Tracker::processPositionInformation( const GnssPositionInformation &positio
   if ( !mIsActive && !mIsReplaying )
     return;
 
+  if ( mFilterAccuracy && positionInformation.accuracyQuality() == GnssPositionInformation::AccuracyBad )
+  {
+    mSkipBadPositionReceived = true;
+  }
+
   mLastDevicePositionTimestampMSecsSinceEpoch = positionInformation.utcDateTime().toMSecsSinceEpoch();
 
   double measureValue = 0.0;
@@ -358,6 +370,9 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
   for ( const GnssPositionInformation &positionInformation : positionInformationList )
   {
+    if ( mFilterAccuracy && positionInformation.accuracyQuality() == GnssPositionInformation::AccuracyBad )
+      continue;
+
     if ( isPointGeometry && mFeatureModel->appExpressionContextScopesGenerator() )
     {
       mFeatureModel->appExpressionContextScopesGenerator()->setPositionInformation( positionInformation );
@@ -395,7 +410,7 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   }
 
   const qint64 endTime = QDateTime::currentMSecsSinceEpoch();
-  qInfo() << QStringLiteral( "Tracker position information replay duration: %1ms" ).arg( endTime - startTime );
+  qInfo() << QStringLiteral( "Tracker position information replay duration: %1ms" ).arg( endTime - startTime ); // cppcheck-suppress [knownArgument,duplicateExpression]
 }
 
 void Tracker::suspendUntilReplay()
@@ -443,4 +458,18 @@ void Tracker::rubberbandModelVertexCountChanged()
       }
     }
   }
+}
+
+bool Tracker::filterAccuracy() const
+{
+  return mFilterAccuracy;
+}
+
+void Tracker::setFilterAccuracy( bool enabled )
+{
+  if ( mFilterAccuracy == enabled )
+    return;
+
+  mFilterAccuracy = enabled;
+  emit filterAccuracyChanged();
 }

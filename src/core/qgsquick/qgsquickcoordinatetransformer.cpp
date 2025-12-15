@@ -98,6 +98,9 @@ void QgsQuickCoordinateTransformer::setSourceCrs( const QgsCoordinateReferenceSy
 
 void QgsQuickCoordinateTransformer::setTransformContext( const QgsCoordinateTransformContext &context )
 {
+  if ( mCoordinateTransform.context() == context )
+    return;
+
   mCoordinateTransform.setContext( context );
   emit transformContextChanged();
 }

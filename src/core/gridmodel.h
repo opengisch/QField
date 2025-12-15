@@ -61,6 +61,7 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     Q_OBJECT
 
     Q_PROPERTY( bool enabled READ enabled WRITE setEnabled NOTIFY enabledChanged )
+    Q_PROPERTY( bool indeterminate READ indeterminate WRITE setIndeterminate NOTIFY indeterminateChanged )
 
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
 
@@ -70,11 +71,23 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     Q_PROPERTY( double yOffset READ yOffset WRITE setYOffset NOTIFY yOffsetChanged )
 
     Q_PROPERTY( bool prepareLines READ prepareLines WRITE setPrepareLines NOTIFY prepareLinesChanged )
-    Q_PROPERTY( QList<QList<QPointF>> lines READ lines NOTIFY gridChanged )
     Q_PROPERTY( bool prepareMarkers READ prepareMarkers WRITE setPrepareMarkers NOTIFY prepareMarkersChanged )
-    Q_PROPERTY( QList<QPointF> markers READ markers NOTIFY gridChanged )
     Q_PROPERTY( bool prepareAnnotations READ prepareAnnotations WRITE setPrepareAnnotations NOTIFY prepareAnnotationsChanged )
-    Q_PROPERTY( QList<GridAnnotation> annotations READ annotations NOTIFY gridChanged )
+
+    Q_PROPERTY( QList<QList<QPointF>> majorLines READ majorLines NOTIFY majorLinesChanged )
+    Q_PROPERTY( QList<QList<QPointF>> minorLines READ minorLines NOTIFY minorLinesChanged )
+    Q_PROPERTY( QList<QPointF> markers READ markers NOTIFY markersChanged )
+    Q_PROPERTY( QList<GridAnnotation> annotations READ annotations NOTIFY annotationsChanged )
+
+    Q_PROPERTY( bool autoColor READ autoColor WRITE setAutoColor NOTIFY autoColorChanged )
+    Q_PROPERTY( QColor majorLineColor READ majorLineColor WRITE setMajorLineColor NOTIFY majorLineColorChanged )
+    Q_PROPERTY( QColor minorLineColor READ minorLineColor WRITE setMinorLineColor NOTIFY minorLineColorChanged )
+    Q_PROPERTY( QColor markerColor READ markerColor WRITE setMarkerColor NOTIFY markerColorChanged )
+
+    Q_PROPERTY( QColor annotationColor READ annotationColor WRITE setAnnotationColor NOTIFY annotationColorChanged )
+    Q_PROPERTY( QColor annotationOutlineColor READ annotationOutlineColor WRITE setAnnotationOutlineColor NOTIFY annotationOutlineColorChanged )
+    Q_PROPERTY( bool annotationHasOutline READ annotationHasOutline WRITE setAnnotationHasOutline NOTIFY annotationHasOutlineChanged )
+    Q_PROPERTY( int annotationPrecision READ annotationPrecision WRITE setAnnotationPrecision NOTIFY annotationPrecisionChanged )
 
   public:
     //! Default constructor
@@ -85,6 +98,18 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
 
     //! Sets whether grid elements will be prepared
     void setEnabled( bool enabled );
+
+    /**
+     * Returns TRUE when grid will adopt an indeterminate behavior
+     * and ignore the interval and offset values.
+     */
+    bool indeterminate() const { return mIndeterminate; }
+
+    /**
+     * Sets whether the grid will adopt an indeterminate behavior
+     * and ignore the interval and offset values.
+     */
+    void setIndeterminate( bool indeterminate );
 
     //! Returns the map settings object
     QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
@@ -122,8 +147,11 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     //! Sets whether grid lines will be prepared
     void setPrepareLines( bool prepare );
 
-    //! Returns the grid lines
-    QList<QList<QPointF>> lines() const { return mLines; }
+    //! Returns the grid major lines
+    QList<QList<QPointF>> majorLines() const { return mMajorLines; }
+
+    //! Returns the grid minor lines
+    QList<QList<QPointF>> minorLines() const { return mMinorLines; }
 
     //! Returns whether grid markers will be prepared
     bool prepareMarkers() const { return mPrepareMarkers; }
@@ -143,9 +171,66 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     //! Returns the grid annotations
     QList<GridAnnotation> annotations() const { return mAnnotations; }
 
+    /**
+     * Returns whether grid line and marker colors will be automatically assigned to
+     * colors derived from the map canvas background color.
+     */
+    bool autoColor() const { return mAutoColor; }
+
+    /**
+     * Set whether grid line and marker colors will be automatically assigned to
+     * colors derived from the map canvas background color.
+     */
+    void setAutoColor( bool autoColor );
+
+    //! Returns the grid major line color.
+    QColor majorLineColor() const { return mMajorLineColor; }
+
+    //! Sets the grid major line color.
+    void setMajorLineColor( const QColor &color );
+
+    //! Returns the grid minor line color.
+    QColor minorLineColor() const { return mMinorLineColor; }
+
+    //! Sets the grid minor line color.
+    void setMinorLineColor( const QColor &color );
+
+    //! Returns the grid marker color.
+    QColor markerColor() const { return mMarkerColor; }
+
+    //! Sets the grid marker color.
+    void setMarkerColor( const QColor &color );
+
+    //! Returns the grid annotation text color.
+    QColor annotationColor() const { return mAnnotationColor; }
+
+    //! Sets the grid annotation text color.
+    void setAnnotationColor( const QColor &color );
+
+    //! Returns the grid annotation text outline color.
+    QColor annotationOutlineColor() const { return mAnnotationOutlineColor; }
+
+    //! Sets the grid annotation text outline color.
+    void setAnnotationOutlineColor( const QColor &color );
+
+    //! Returns whether annotation text have an outline color.
+    bool annotationHasOutline() const { return mAnnotationHasOutline; }
+
+    //! Sets whether annotation text have an outline color.
+    void setAnnotationHasOutline( bool hasOutline );
+
+    //! Returns the annotation text decimal precision.
+    int annotationPrecision() const { return mAnnotationPrecision; }
+
+    //! Sets the annotation text decimal precision.
+    void setAnnotationPrecision( int precision );
+
   signals:
     //! Emitted when the grid enabled setting has changed
     void enabledChanged();
+
+    //! Emitted when the grid indeterminate setting has changed
+    void indeterminateChanged();
 
     //! Emitted when the map settings object has changed
     void mapSettingsChanged();
@@ -171,27 +256,76 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     //! Emitted when grid annotations preparation setting has changed
     void prepareAnnotationsChanged();
 
-    //! Emitted when the grid lines, markers, and/or annotations have changed
-    void gridChanged();
+    //! Emitted when the grid major lines have changed
+    void majorLinesChanged();
+
+    //! Emitted when the grid minor lines have changed
+    void minorLinesChanged();
+
+    //! Emitted when the grid markers have changed
+    void markersChanged();
+
+    //! Emitted when the grid annotations have changed
+    void annotationsChanged();
+
+    //! Emitted when the grid line and marker colors are automatically assigned
+    void autoColorChanged();
+
+    //! Emitted when the grid major line color has changed
+    void majorLineColorChanged();
+
+    //! Emitted when the grid minor line color has changed
+    void minorLineColorChanged();
+
+    //! Emitted when the grid marker color has changed
+    void markerColorChanged();
+
+    //! Emitted when the grid annotation text color has changed
+    void annotationColorChanged();
+
+    //! Emitted when the grid annotation text outline color has changed
+    void annotationOutlineColorChanged();
+
+    //! Emitted when the grid annotation text outline visibility has changed
+    void annotationHasOutlineChanged();
+
+    //! Emitted when the grid annotation text decimal precision has changed
+    void annotationPrecisionChanged();
 
   private:
+    void clear();
     void update();
+    void updateColors();
 
     bool mEnabled = false;
 
     QgsQuickMapSettings *mMapSettings = nullptr;
 
-    double mXInterval = 2500.0;
-    double mYInterval = 2500.0;
+    bool mIndeterminate = false;
+    double mIndeterminateInterval = 0.0;
+
+    double mXInterval = 0.0;
+    double mYInterval = 0.0;
     double mXOffset = 0.0;
     double mYOffset = 0.0;
 
     bool mPrepareLines = false;
-    QList<QList<QPointF>> mLines;
+    QList<QList<QPointF>> mMajorLines;
+    QList<QList<QPointF>> mMinorLines;
     bool mPrepareMarkers = false;
     QList<QPointF> mMarkers;
     bool mPrepareAnnotations = false;
     QList<GridAnnotation> mAnnotations;
+
+    bool mAutoColor = false;
+    QColor mMajorLineColor = QColor( 0, 0, 0, 100 );
+    QColor mMinorLineColor = QColor( 0, 0, 0, 20 );
+    QColor mMarkerColor = QColor( 0, 0, 0, 100 );
+
+    QColor mAnnotationColor = QColor( 0, 0, 0 );
+    QColor mAnnotationOutlineColor = QColor( 255, 255, 255, 100 );
+    bool mAnnotationHasOutline = false;
+    int mAnnotationPrecision = 0;
 
     QLocale mLocale;
 };

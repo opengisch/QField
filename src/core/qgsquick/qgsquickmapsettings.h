@@ -37,8 +37,9 @@ class QgsProject;
  * QgsProject should be attached before it is read.
  *
  * \note QML Type: MapSettings
+ * \ingroup core
  *
- * \sa QgsMapCanvas
+ * \sa QgsQuickMapCanvas
  *
  */
 class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
@@ -57,7 +58,7 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     /**
      * Geographical coordinate representing the center point of the current extent
      */
-    Q_PROPERTY( QgsPoint center READ center WRITE setCenter NOTIFY extentChanged )
+    Q_PROPERTY( QgsPoint center READ getCenter WRITE setCenter NOTIFY extentChanged )
     /**
      * Geographical coordinates of the rectangle that should be rendered.
      * The actual visible extent used for rendering could be slightly different
@@ -133,6 +134,16 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     Q_PROPERTY( QDateTime temporalEnd READ temporalEnd WRITE setTemporalEnd NOTIFY temporalStateChanged )
 
     /**
+     * The Z range's lower value; if both the lower and upper value are finite, Z range filtering will occur.
+     */
+    Q_PROPERTY( double zRangeLower READ zRangeLower WRITE setZRangeLower NOTIFY zRangeChanged )
+
+    /**
+     * The Z range's upper value; if both the lower and upper value are finite, Z range filtering will occur.
+     */
+    Q_PROPERTY( double zRangeUpper READ zRangeUpper WRITE setZRangeUpper NOTIFY zRangeChanged )
+
+    /**
      * The bottom margin used by the map settings when calculating map extent or center.
      */
     Q_PROPERTY( double bottomMargin READ bottomMargin WRITE setBottomMargin NOTIFY bottomMarginChanged )
@@ -163,10 +174,21 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     QgsProject *project() const;
 
     //! Returns the center point of the current map extent
-    QgsPoint center() const;
+    Q_INVOKABLE QgsPoint getCenter( bool handleMargins = false ) const;
 
-    //! Move current map extent to have center point defined by \a center
+    /**
+     * Move current map extent to have center point defined by center
+     * \param center a QgsPoint center point
+     * \param handleMargins set to TRUE for margins to be considered when recentering
+     */
     Q_INVOKABLE void setCenter( const QgsPoint &center, bool handleMargins = false );
+
+    /**
+     * Move current map extent to have center point defined by center
+     * \param center a QPointF center point
+     * \param handleMargins set to TRUE for margins to be considered when recentering
+     */
+    Q_INVOKABLE void setCenter( const QPointF &center, bool handleMargins = false );
 
     //! Move current map extent to have center point defined by \a layer. Optionally only pan to the layer if \a shouldZoom is false.
     Q_INVOKABLE void setCenterToLayer( QgsMapLayer *layer, bool shouldZoom = true );
@@ -203,6 +225,15 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
      * \return A coordinate in map coordinates
      */
     Q_INVOKABLE QgsPoint screenToCoordinate( const QPointF &point ) const;
+
+    /**
+     * Compute the scale that corresponds to the specified \a extent.
+     *
+     * \param point A coordinate in pixel / screen coordinates
+     *
+     * \return A scale value
+     */
+    Q_INVOKABLE double computeScaleForExtent( const QgsRectangle &extent, bool handleMargins = false );
 
     //! \copydoc QgsMapSettings::setTransformContext()
     void setTransformContext( const QgsCoordinateTransformContext &context );
@@ -290,6 +321,18 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     //! \copydoc QgsQuickMapSettings::temporalEnd
     void setTemporalEnd( const QDateTime &end );
 
+    //! \copydoc QgsQuickMapSettings::zRangeLower
+    double zRangeLower() const;
+
+    //! \copydoc QgsQuickMapSettings::zRangeLower
+    void setZRangeLower( double lower );
+
+    //! \copydoc QgsQuickMapSettings::zRangeUpper
+    double zRangeUpper() const;
+
+    //! \copydoc QgsQuickMapSettings::zRangeUpper
+    void setZRangeUpper( double upper );
+
     //!\copydoc QgsQuickMapSettings::bottomMargin
     double bottomMargin() const;
 
@@ -333,7 +376,11 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     //! \copydoc QgsQuickMapSettings::layers
     void layersChanged();
 
+    //! Emitted when temporal properties are modified.
     void temporalStateChanged();
+
+    //! Emitted when the Z range's lower and upper values are modified.
+    void zRangeChanged();
 
     //!\copydoc QgsQuickMapSettings::bottomMargin
     void bottomMarginChanged();
@@ -356,6 +403,8 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     void onCrsChanged();
 
   private:
+    bool applyExtent( QgsMapSettings &mapSettings, const QgsRectangle &extent, bool handleMargins = false );
+
     QgsProject *mProject = nullptr;
     QgsMapSettings mMapSettings;
     qreal mDevicePixelRatio = 1.0;

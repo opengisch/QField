@@ -13,8 +13,8 @@ QfDialog {
   property alias packagedLayersListViewModel: packagedLayersListView.model
 
   parent: mainWindow.contentItem
-  width: mainWindow.width - Theme.popupScreenEdgeMargin * 2
-  height: Math.min(300 + packagedLayersListView.contentHeight, mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+  width: mainWindow.width - Theme.popupScreenEdgeVerticalMargin * 2
+  height: Math.min(300 + packagedLayersListView.contentHeight, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
 
   title: qsTr("QFieldCloud had troubles packaging your project")
 

@@ -16,6 +16,7 @@
 
 #include "layertreemodel.h"
 
+#include <qgscolorramplegendnode.h>
 #include <qgslayernotesutils.h>
 #include <qgslayertree.h>
 #include <qgslayertreemodel.h>
@@ -34,6 +35,8 @@ FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *pro
   , mSourceModel( new FlatLayerTreeModelBase( layerTree, project, parent ) )
 {
   setSourceModel( mSourceModel );
+  connect( mSourceModel, &FlatLayerTreeModelBase::layersAdded, this, &FlatLayerTreeModel::layersAdded );
+  connect( mSourceModel, &FlatLayerTreeModelBase::layersRemoved, this, &FlatLayerTreeModel::layersRemoved );
   connect( mSourceModel, &FlatLayerTreeModelBase::mapThemeChanged, this, &FlatLayerTreeModel::mapThemeChanged );
   connect( mSourceModel, &FlatLayerTreeModelBase::isTemporalChanged, this, &FlatLayerTreeModel::isTemporalChanged );
   connect( mSourceModel, &FlatLayerTreeModelBase::isFrozenChanged, this, &FlatLayerTreeModel::isFrozenChanged );
@@ -121,11 +124,35 @@ FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProj
   mLayerTreeModel = new QgsLayerTreeModel( layerTree, this );
   mLayerTreeModel->setFlag( QgsLayerTreeModel::ShowLegendAsTree, true );
   QAbstractProxyModel::setSourceModel( mLayerTreeModel );
-  connect( mProject, &QgsProject::aboutToBeCleared, this, [this] { mFrozen++; clearMap(); } );
-  connect( mProject, &QgsProject::cleared, this, [this] { mFrozen--; } );
-  connect( mProject, &QgsProject::readProject, this, [this] { buildMap( mLayerTreeModel ); } );
-  connect( mProject, &QgsProject::layersAdded, this, &FlatLayerTreeModelBase::adjustTemporalStateFromAddedLayers );
-  connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, [this]( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles ) { updateMap( topLeft, bottomRight, roles ); } );
+  connect( mProject, &QgsProject::aboutToBeCleared, this, [this] {
+    mFrozen++;
+    clearMap();
+  } );
+  connect( mProject, &QgsProject::cleared, this, [this] {
+    mFrozen--;
+  } );
+  connect( mProject, &QgsProject::readProject, this, [this] {
+    buildMap( mLayerTreeModel );
+  } );
+  connect( mProject, &QgsProject::layersAdded, this, [this]( const QList<QgsMapLayer *> &layers ) {
+    if ( !mFrozen )
+    {
+      mProjectLayersChanged = true;
+      emit layersAdded();
+    }
+
+    adjustTemporalStateFromAddedLayers( layers );
+  } );
+  connect( mProject, static_cast<void ( QgsProject::* )( const QList<QgsMapLayer *> &layers )>( &QgsProject::layersWillBeRemoved ), this, [this]( const QList<QgsMapLayer *> &layers ) {
+    if ( !mFrozen )
+    {
+      mProjectLayersChanged = true;
+      emit layersRemoved();
+    }
+  } );
+  connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, [this]( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles ) {
+    updateMap( topLeft, bottomRight, roles );
+  } );
   connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, &FlatLayerTreeModelBase::removeFromMap );
   connect( mLayerTreeModel, &QAbstractItemModel::rowsInserted, this, &FlatLayerTreeModelBase::insertInMap );
 }
@@ -147,7 +174,9 @@ void FlatLayerTreeModelBase::unfreeze( bool resetModel )
   emit isFrozenChanged();
 
   if ( resetModel )
+  {
     buildMap( mLayerTreeModel );
+  }
 }
 
 void FlatLayerTreeModelBase::updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
@@ -167,6 +196,13 @@ void FlatLayerTreeModelBase::insertInMap( const QModelIndex &parent, int first, 
 {
   if ( mFrozen )
     return;
+
+  if ( mProjectLayersChanged )
+  {
+    mProjectLayersChanged = false;
+    buildMap( mLayerTreeModel );
+    return;
+  }
 
   bool resetNeeded = false;
   for ( int i = 0; first + i <= last; i++ )
@@ -254,6 +290,13 @@ void FlatLayerTreeModelBase::removeFromMap( const QModelIndex &parent, int first
 {
   if ( mFrozen )
     return;
+
+  if ( mProjectLayersChanged )
+  {
+    mProjectLayersChanged = false;
+    buildMap( mLayerTreeModel );
+    return;
+  }
 
   int removedAt = -1;
   if ( first == 0 )
@@ -365,7 +408,9 @@ void FlatLayerTreeModelBase::clearMap()
 int FlatLayerTreeModelBase::buildMap( QgsLayerTreeModel *model, const QModelIndex &parent, int row, int treeLevel )
 {
   if ( mFrozen )
+  {
     return 0;
+  }
 
   bool reset = false;
   if ( row == 0 )
@@ -397,6 +442,13 @@ int FlatLayerTreeModelBase::buildMap( QgsLayerTreeModel *model, const QModelInde
           continue;
       }
 
+      QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->index2legendNode( index );
+      if ( qobject_cast<QgsColorRampLegendNode *>( legendNode ) || qobject_cast<QgsDataDefinedSizeLegendNode *>( legendNode ) )
+      {
+        // Skip unsupported legend types
+        continue;
+      }
+
       if ( node && !node->isExpanded() )
         mCollapsedItems << index;
 
@@ -412,8 +464,11 @@ int FlatLayerTreeModelBase::buildMap( QgsLayerTreeModel *model, const QModelInde
           QgsRasterLayer *rasterLayer = qobject_cast<QgsRasterLayer *>( nodeLayer->layer() );
           if ( rasterLayer && rasterLayer->dataProvider() && rasterLayer->dataProvider()->name() == QStringLiteral( "wms" ) )
           {
-            // WMS layers have no legend items, skip those.
-            continue;
+            if ( rasterLayer->source().contains( QStringLiteral( "type=xyz" ), Qt::CaseInsensitive ) )
+            {
+              // XYZ layers have no legend items, skip those.
+              continue;
+            }
           }
         }
         row = buildMap( model, index, row, treeLevel + 1 );
@@ -572,25 +627,55 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
     case FlatLayerTreeModel::LegendImage:
     {
       QString id;
-      if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex ) )
+      if ( QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
-        id += QStringLiteral( "legend" );
-        id += '/' + sym->layerNode()->layerId();
-        QStringList legendParts;
-        QModelIndex currentIndex = sourceIndex;
-        while ( sym )
+        if ( qobject_cast<QgsWmsLegendNode *>( legendNode ) )
         {
-          legendParts << QString::number( currentIndex.internalId() );
-          currentIndex = currentIndex.parent();
-          sym = mLayerTreeModel->index2legendNode( currentIndex );
+          QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex.parent() );
+          if ( QgsLayerTree::isLayer( node ) )
+          {
+            QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+            QgsRasterLayer *rasterLayer = qobject_cast<QgsRasterLayer *>( nodeLayer->layer() );
+            if ( rasterLayer && rasterLayer->dataProvider() && rasterLayer->dataProvider()->supportsLegendGraphic() )
+            {
+              id += QStringLiteral( "image://asynclegend/layer" );
+              id += '/' + nodeLayer->layerId();
+            }
+          }
         }
-        std::reverse( legendParts.begin(), legendParts.end() );
-        id += '/' + legendParts.join( QStringLiteral( "~__~" ) );
+        else if ( qobject_cast<QgsImageLegendNode *>( legendNode ) )
+        {
+          QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex.parent() );
+          if ( QgsLayerTree::isLayer( node ) )
+          {
+            QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
+            QgsMapLayer *layer = qobject_cast<QgsMapLayer *>( nodeLayer->layer() );
+            if ( layer && !layer->legendPlaceholderImage().isEmpty() )
+            {
+              id += QStringLiteral( "image://legend/image" );
+              id += '/' + nodeLayer->layerId();
+            }
+          }
+        }
+        else
+        {
+          id += QStringLiteral( "image://legend/legend" );
+          id += '/' + legendNode->layerNode()->layerId();
+          QStringList legendParts;
+          QModelIndex currentIndex = sourceIndex;
+          while ( legendNode )
+          {
+            legendParts << QString::number( currentIndex.internalId() );
+            currentIndex = currentIndex.parent();
+            legendNode = qobject_cast<QgsSymbolLegendNode *>( mLayerTreeModel->index2legendNode( currentIndex ) );
+          }
+          std::reverse( legendParts.begin(), legendParts.end() );
+          id += '/' + legendParts.join( QStringLiteral( "~__~" ) );
+        }
       }
       else
       {
         QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
-
         if ( QgsLayerTree::isLayer( node ) )
         {
           QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
@@ -599,7 +684,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
             QgsVectorLayer *vectorLayer = qobject_cast<QgsVectorLayer *>( nodeLayer->layer() );
             if ( vectorLayer && vectorLayer->geometryType() != Qgis::GeometryType::Null )
             {
-              id += QStringLiteral( "layer" );
+              id += QStringLiteral( "image://legend/layer" );
               id += '/' + nodeLayer->layerId();
             }
           }
@@ -612,11 +697,22 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
-        return QStringLiteral( "layer" );
+      {
+        return FlatLayerTreeModel::Layer;
+      }
       else if ( QgsLayerTree::isGroup( node ) )
-        return QStringLiteral( "group" );
-      else
-        return QStringLiteral( "legend" );
+      {
+        return FlatLayerTreeModel::Group;
+      }
+      else if ( QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->index2legendNode( sourceIndex ) )
+      {
+        if ( qobject_cast<QgsWmsLegendNode *>( legendNode ) || qobject_cast<QgsImageLegendNode *>( legendNode ) )
+        {
+          return FlatLayerTreeModel::Image;
+        }
+      }
+
+      return FlatLayerTreeModel::Legend;
     }
 
     case FlatLayerTreeModel::LayerType:
@@ -683,9 +779,9 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
           name += QStringLiteral( " [%1]" ).arg( count );
         }
       }
-      else if ( QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex ) )
+      else if ( QgsLayerTreeModelLegendNode *symbol = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
-        name = sym->data( Qt::DisplayRole ).toString();
+        name = symbol->data( Qt::DisplayRole ).toString();
       }
 
       return name;
@@ -732,8 +828,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
       {
-        QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
-
+        const QgsLayerTreeLayer *nodeLayer = QgsLayerTree::toLayer( node );
         return ( mLayersInTracking.contains( nodeLayer ) );
       }
       return false;
@@ -936,12 +1031,10 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         {
           return vectorLayer->isSpatial() && vectorLayer->labeling();
         }
-#if _QGIS_VERSION_INT >= 33299
         else if ( QgsVectorTileLayer *vectorTileLayer = qobject_cast<QgsVectorTileLayer *>( nodeLayer->layer() ) )
         {
           return vectorTileLayer->labeling() ? true : false;
         }
-#endif
       }
 
       return false;
@@ -957,12 +1050,10 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         {
           return vectorLayer->isSpatial() && vectorLayer->labeling() && vectorLayer->labelsEnabled();
         }
-#if _QGIS_VERSION_INT >= 33299
         else if ( QgsVectorTileLayer *vectorTileLayer = qobject_cast<QgsVectorTileLayer *>( nodeLayer->layer() ) )
         {
           return vectorTileLayer->labeling() && vectorTileLayer->labelsEnabled();
         }
-#endif
       }
 
       return false;
@@ -996,11 +1087,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         if ( layer && layer->renderer() )
         {
           bool ok = false;
-#if _QGIS_VERSION_INT >= 33500
           const QString ruleKey = symbolNode->data( static_cast<int>( QgsLayerTreeModelLegendNode::CustomRole::RuleKey ) ).toString();
-#else
-          const QString ruleKey = symbolNode->data( QgsLayerTreeModelLegendNode::RuleKeyRole ).toString();
-#endif
           return layer->renderer()->legendKeyToExpression( ruleKey, layer, ok );
         }
       }
@@ -1071,6 +1158,17 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return QString();
     }
 
+    case FlatLayerTreeModel::Checkable:
+    {
+      QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->index2legendNode( sourceIndex );
+      if ( legendNode )
+      {
+        return ( legendNode->flags() & Qt::ItemIsUserCheckable ) ? true : false;
+      }
+
+      return true;
+    }
+
     default:
       return QAbstractProxyModel::data( index, role );
   }
@@ -1126,7 +1224,6 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
           emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::LabelsVisible );
           return true;
         }
-#if _QGIS_VERSION_INT >= 33299
         else if ( QgsVectorTileLayer *vectorTileLayer = qobject_cast<QgsVectorTileLayer *>( nodeLayer->layer() ) )
         {
           if ( !vectorTileLayer->labeling() )
@@ -1139,7 +1236,6 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
           emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::LabelsVisible );
           return true;
         }
-#endif
       }
 
       return false;
@@ -1256,6 +1352,7 @@ QHash<int, QByteArray> FlatLayerTreeModelBase::roleNames() const
   roleNames[FlatLayerTreeModel::SnappingEnabled] = "SnappingEnabled";
   roleNames[FlatLayerTreeModel::HasNotes] = "HasNotes";
   roleNames[FlatLayerTreeModel::Notes] = "Notes";
+  roleNames[FlatLayerTreeModel::Checkable] = "Checkable";
   return roleNames;
 }
 
@@ -1287,7 +1384,11 @@ void FlatLayerTreeModelBase::setMapTheme( const QString &mapTheme )
   mMapTheme = mapTheme;
   emit mapThemeChanged();
 
-  buildMap( mLayerTreeModel );
+  if ( !mapTheme.isEmpty() )
+  {
+    // Setting a map theme likely changes the layer tree structure, rebuild
+    buildMap( mLayerTreeModel );
+  }
 }
 
 void FlatLayerTreeModelBase::updateCurrentMapTheme()
@@ -1296,15 +1397,15 @@ void FlatLayerTreeModelBase::updateCurrentMapTheme()
 
   const QgsMapThemeCollection::MapThemeRecord rec = QgsMapThemeCollection::createThemeFromCurrentState( mLayerTreeModel->rootGroup(), mLayerTreeModel );
   const QStringList mapThemes = QgsProject::instance()->mapThemeCollection()->mapThemes();
-  for ( const QString &grpName : mapThemes )
+
+  // only compare layer records as the legend does not offer collapse info for now
+  // TODO check the whole rec equality whenever the layer tree is a tree and not a list anymore
+  auto match = std::find_if( mapThemes.begin(), mapThemes.end(), [&rec]( const QString &name ) {
+    return rec.validLayerRecords() == QgsProject::instance()->mapThemeCollection()->mapThemeState( name ).validLayerRecords();
+  } );
+  if ( match != mapThemes.end() )
   {
-    // only compare layer records as the legend does not offer collapse info for now
-    // TODO check the whole rec equality whenever the layer tree is a tree and not a list anymore
-    if ( rec.validLayerRecords() == QgsProject::instance()->mapThemeCollection()->mapThemeState( grpName ).validLayerRecords() )
-    {
-      mMapTheme = grpName;
-      return;
-    }
+    mMapTheme = *match;
   }
 }
 

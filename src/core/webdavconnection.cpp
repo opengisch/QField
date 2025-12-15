@@ -370,7 +370,7 @@ void WebdavConnection::getWebdavItems()
     temporaryFile->setFileTemplate( QStringLiteral( "%1%2.XXXXXXXXXXXX" ).arg( mProcessLocalPath, itemPath.mid( mProcessRemotePath.size() ) ) );
     temporaryFile->open();
 
-    connect( reply, &QNetworkReply::downloadProgress, this, [this, reply, temporaryFile]( int bytesReceived, int bytesTotal ) {
+    connect( reply, &QNetworkReply::downloadProgress, this, [this, reply, temporaryFile]( qint64 bytesReceived, qint64 bytesTotal ) {
       mCurrentBytesProcessed = bytesReceived;
       emit progressChanged();
 
@@ -605,7 +605,7 @@ void WebdavConnection::putLocalItems()
     QNetworkReply *reply = mWebdavConnection.put( remoteItemPath, file );
     file->setParent( reply );
 
-    connect( reply, &QNetworkReply::uploadProgress, this, [this, reply]( int bytesSent, int bytesTotal ) {
+    connect( reply, &QNetworkReply::uploadProgress, this, [this, reply]( qint64 bytesSent, qint64 bytesTotal ) {
       mCurrentBytesProcessed = bytesSent;
       emit progressChanged();
     } );
@@ -821,11 +821,11 @@ QString WebdavConnection::getCommonPath( const QString &addressA, const QString 
 {
   const QStringList pathComponentsA = addressA.split( "/" );
   const QStringList pathComponentsB = addressB.split( "/" );
-  const int minLength = std::min( pathComponentsA.size(), pathComponentsB.size() );
+  const qsizetype minLength = std::min( pathComponentsA.size(), pathComponentsB.size() );
 
   QString commonPath = QStringLiteral( "/" );
 
-  for ( int i = 0; i < minLength; ++i )
+  for ( qsizetype i = 0; i < minLength; ++i )
   {
     if ( pathComponentsA[i] == pathComponentsB[i] )
     {

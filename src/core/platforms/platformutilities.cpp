@@ -108,6 +108,7 @@ void PlatformUtilities::afterUpdate()
   }
 
   QDir applicationDir( applicationDirectory() );
+  applicationDir.mkpath( QStringLiteral( "Created Projects" ) );
   applicationDir.mkpath( QStringLiteral( "Imported Projects" ) );
   applicationDir.mkpath( QStringLiteral( "Imported Datasets" ) );
 }
@@ -301,17 +302,8 @@ void PlatformUtilities::sendCompressedFolderTo( const QString &path ) const
 
 void PlatformUtilities::removeDataset( const QString &path ) const
 {
-  bool allowed = false;
   const QStringList allowedDirectories = QStringList() << applicationDirectory() << additionalApplicationDirectories();
-  for ( const QString &directory : allowedDirectories )
-  {
-    if ( path.startsWith( directory ) )
-    {
-      allowed = true;
-      break;
-    }
-  }
-  if ( allowed )
+  if ( std::any_of( allowedDirectories.begin(), allowedDirectories.end(), [&path]( const QString &directory ) { return path.startsWith( directory ); } ) )
   {
     if ( QMessageBox::warning( nullptr,
                                tr( "Removal Confirmation" ),
@@ -326,17 +318,8 @@ void PlatformUtilities::removeDataset( const QString &path ) const
 
 void PlatformUtilities::removeFolder( const QString &path ) const
 {
-  bool allowed = false;
   const QStringList allowedDirectories = QStringList() << applicationDirectory() << additionalApplicationDirectories();
-  for ( const QString &directory : allowedDirectories )
-  {
-    if ( path.startsWith( directory ) )
-    {
-      allowed = true;
-      break;
-    }
-  }
-  if ( allowed )
+  if ( std::any_of( allowedDirectories.begin(), allowedDirectories.end(), [&path]( const QString &directory ) { return path.startsWith( directory ); } ) )
   {
     if ( QMessageBox::warning( nullptr,
                                tr( "Removal Confirmation" ),
@@ -465,24 +448,6 @@ void PlatformUtilities::copyTextToClipboard( const QString &string ) const
 QString PlatformUtilities::getTextFromClipboard() const
 {
   return QGuiApplication::clipboard()->text();
-}
-
-QVariantMap PlatformUtilities::sceneMargins( QQuickWindow *window ) const
-{
-  QVariantMap margins;
-  margins[QLatin1String( "top" )] = 0.0;
-  margins[QLatin1String( "right" )] = 0.0;
-  margins[QLatin1String( "bottom" )] = 0.0;
-  margins[QLatin1String( "left" )] = 0.0;
-
-  QPlatformWindow *platformWindow = static_cast<QPlatformWindow *>( window->handle() );
-  if ( platformWindow )
-  {
-    margins[QLatin1String( "top" )] = platformWindow->safeAreaMargins().top();
-    margins[QLatin1String( "bottom" )] = platformWindow->safeAreaMargins().bottom();
-  }
-
-  return margins;
 }
 
 double PlatformUtilities::systemFontPointSize() const

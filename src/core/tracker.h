@@ -56,6 +56,8 @@ class Tracker : public QObject
 
     Q_PROPERTY( QDateTime startPositionTimestamp READ startPositionTimestamp WRITE setStartPositionTimestamp NOTIFY startPositionTimestampChanged )
 
+    Q_PROPERTY( bool filterAccuracy READ filterAccuracy WRITE setFilterAccuracy NOTIFY filterAccuracyChanged )
+
   public:
     enum MeasureType
     {
@@ -155,6 +157,12 @@ class Tracker : public QObject
 
     void suspendUntilReplay();
 
+    //! Returns TRUE if GNSS accuracy filtering is enabled
+    bool filterAccuracy() const;
+
+    //! Sets whether GNSS accuracy filtering is enabled
+    void setFilterAccuracy( bool enabled );
+
   signals:
     void isActiveChanged();
     void isSuspendedChanged();
@@ -175,6 +183,8 @@ class Tracker : public QObject
     void featureChanged();
 
     void startPositionTimestampChanged();
+
+    void filterAccuracyChanged();
 
   private slots:
     void positionReceived();
@@ -202,11 +212,13 @@ class Tracker : public QObject
     bool mMinimumDistanceFulfilled = false;
     bool mSensorCaptureFulfilled = false;
     bool mSkipPositionReceived = false;
+    bool mSkipBadPositionReceived = false;
 
     QPointer<QgsVectorLayer> mVectorLayer;
     QgsFeature mFeature;
 
     bool mVisible = true;
+    bool mFilterAccuracy = false;
 
     QDateTime mStartPositionTimestamp;
     qint64 mLastDevicePositionTimestampMSecsSinceEpoch = 0;

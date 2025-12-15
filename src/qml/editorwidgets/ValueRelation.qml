@@ -15,10 +15,10 @@ EditorWidgetBase {
   LayerResolver {
     id: layerResolver
 
-    layerId: config['Layer']
-    layerName: config['LayerName']
-    layerSource: config['LayerSource']
-    layerProviderName: config['LayerProviderName']
+    layerId: config['Layer'] !== undefined ? config['Layer'] : ''
+    layerName: config['LayerName'] !== undefined ? config['LayerName'] : ''
+    layerSource: config['LayerSource'] !== undefined ? config['LayerSource'] : ''
+    layerProviderName: config['LayerProviderName'] !== undefined ? config['LayerProviderName'] : ''
     project: qgisProject
   }
 
@@ -51,12 +51,24 @@ EditorWidgetBase {
 
   RelationCombobox {
     id: valueRelationCombobox
-    featureListModel: listModel
+    featureListModel: config && !listModel.allowMulti ? listModel : null
+
+    anchors {
+      left: parent.left
+      right: parent.right
+    }
 
     useCompleter: !!config['UseCompleter']
     enabled: isEnabled
     visible: !listModel.allowMulti
     relation: undefined
+    layerResolver: layerResolver
+    allowAddFeature: currentLayer && currentLayer.customProperty('QFieldSync/allow_value_relation_feature_addition') !== undefined ? currentLayer.customProperty('QFieldSync/allow_value_relation_feature_addition') : false
+
+    displayedTextColor: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      valueRelation.requestJumpToPoint(center, scale, handleMargins);
+    }
   }
 
   Column {
@@ -69,6 +81,7 @@ EditorWidgetBase {
 
     QfSearchBar {
       id: searchBar
+      objectName: "ValueRelationSearchBar"
       width: parent.width
       height: 40
       visible: enabled
@@ -103,16 +116,18 @@ EditorWidgetBase {
 
         GridLayout {
           id: valueGridView
+          objectName: "ValueRelationGridView"
           anchors.left: parent.left
           anchors.right: parent.right
           anchors.top: parent.top
-          columns: config['NofColumns'] ? Math.min(config['NofColumns'], parent.width / 100) : 1
+          columns: config['NofColumns'] && !listModel.groupField === "" ? Math.min(config['NofColumns'], parent.width / 100) : 1
           columnSpacing: 1
           rowSpacing: 0
 
           Repeater {
             id: repeater
             model: listModel.allowMulti ? listModel : 0
+            objectName: "ValueRelationRepeater"
 
             delegate: Item {
               id: listItem
@@ -120,7 +135,8 @@ EditorWidgetBase {
               Layout.fillHeight: true
               Layout.minimumHeight: Math.max(valueText.height, valueRelationList.itemHeight) + (header.visible ? header.height : 0)
 
-              property string groupFieldVal: groupFieldValue ? groupFieldValue : ""
+              property var groupFieldVal: groupFieldValue ? groupFieldValue : ""
+              property bool selected: model.checked
               property alias headerItem: header
 
               // Check if any item in the current row has a visible header item.
@@ -142,10 +158,12 @@ EditorWidgetBase {
                 id: header
 
                 property bool isVisible: listModel.groupField && groupFieldValue !== "" && (index === 0 || (index > 0 ? groupFieldValue !== repeater.itemAt(index - 1).groupFieldVal : false))
+                property int visibleHeight: listModel.displayGroupName ? groupFieldValueText.height + 2 : 4
 
                 visible: isVisible
                 width: parent.width
-                height: visible ? groupFieldValueText.height + 2 : 0
+                height: isVisible ? visibleHeight : 0
+
                 color: Theme.controlBorderColor
                 border.color: Theme.controlBorderColor
                 border.width: 1
@@ -170,7 +188,7 @@ EditorWidgetBase {
                 id: checkBoxRow
                 width: parent.width
                 anchors.top: header.bottom
-                anchors.topMargin: !header.visible && rowContainsHeader ? groupFieldValueText.height + 2 : 0
+                anchors.topMargin: !header.visible && rowContainsHeader ? header.visibleHeight : 0
                 anchors.bottom: parent.bottom
                 color: Theme.mainBackgroundColor
 
@@ -201,7 +219,7 @@ EditorWidgetBase {
                   topPadding: 4
                   bottomPadding: 4
                   font: Theme.defaultFont
-                  color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
+                  color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
                   text: model.displayString
                   wrapMode: Text.WordWrap
                   elide: Text.ElideRight

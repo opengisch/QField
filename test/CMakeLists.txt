@@ -3,9 +3,14 @@ find_package(Catch2 3 REQUIRED)
 include(CTest)
 include(Catch)
 
+set(CMAKE_AUTORCC ON)
+
 # Set WITH_CATCH2_MAIN to TRUE when qgis or qfield specific initialization is NOT needed
 function(ADD_CATCH2_TEST TESTNAME TESTSRC WITH_CATCH2_MAIN)
-  add_executable(${TESTNAME} ${TESTSRC})
+  set(TESTSOURCES
+      ${TESTSRC} ${CMAKE_SOURCE_DIR}/images/images.qrc
+  )
+  add_executable(${TESTNAME} ${TESTSOURCES})
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
   target_link_libraries(${TESTNAME} PRIVATE
     qfield_core
@@ -24,11 +29,28 @@ function(ADD_CATCH2_TEST TESTNAME TESTSRC WITH_CATCH2_MAIN)
       Catch2::Catch2
     )
   endif()
-  catch_discover_tests(${TESTNAME})
+
+  # On macOS with Xcode generator, ad-hoc sign test executables so they can run
+  if(APPLE AND CMAKE_GENERATOR STREQUAL "Xcode")
+    add_custom_command(
+      TARGET ${TESTNAME}
+      POST_BUILD
+      COMMAND /usr/bin/codesign --force --sign - $<TARGET_FILE:${TESTNAME}>
+      COMMENT "Ad-hoc signing Catch2 test executable ${TESTNAME} on macOS/Xcode"
+    )
+  endif()
+
+  # Use Catch2s safer PRE_TEST discovery mode (recommended upstream) - https://github.com/catchorg/Catch2/issues/2411
+  catch_discover_tests(${TESTNAME}
+    DISCOVERY_MODE PRE_TEST
+  )
 endfunction()
 
 macro (ADD_QFIELD_TEST TESTNAME TESTSRC)
-  add_executable(${TESTNAME} ${TESTSRC})
+  set(TESTSOURCES
+      ${TESTSRC} ${CMAKE_SOURCE_DIR}/images/images.qrc
+  )
+  add_executable(${TESTNAME} ${TESTSOURCES})
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
   target_link_libraries(${TESTNAME} PRIVATE
     qfield_core
@@ -41,8 +63,11 @@ macro (ADD_QFIELD_TEST TESTNAME TESTSRC)
 endmacro (ADD_QFIELD_TEST)
 
 macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
+  set(TESTSOURCES
+      ${TESTSRC} ${CMAKE_SOURCE_DIR}/images/images.qrc
+  )
   file(GLOB test_qmlfiles "${CMAKE_CURRENT_SOURCE_DIR}/qml/*.qml")
-  add_executable(${TESTNAME} ${TESTSRC} ${test_qmlfiles})
+  add_executable(${TESTNAME} ${TESTSOURCES} ${test_qmlfiles})
   # This should be in src/qml/CMakeLists.txt but that's not possible with Qt5. Retry with Qt6
   # Same is in src/app/CMakeLists.txt
   # https://bugreports.qt.io/browse/QTBUG-80847
@@ -101,5 +126,6 @@ ADD_CATCH2_TEST(referencingfeaturelistmodeltest test_referencingfeaturelistmodel
 ADD_CATCH2_TEST(expressionevaluatortest test_expressionevaluator.cpp TRUE)
 ADD_CATCH2_TEST(appinterfacetest test_appinterface.cpp TRUE)
 ADD_CATCH2_TEST(trackingtest test_tracking.cpp FALSE)
+ADD_CATCH2_TEST(identifytool test_identifytool.cpp TRUE)
 
 ADD_QFIELD_QML_TEST(qmltest test_qml.cpp)

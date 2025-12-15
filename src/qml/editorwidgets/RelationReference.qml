@@ -7,6 +7,7 @@ import Theme
 import ".."
 
 EditorWidgetBase {
+  id: relationReferenceEditorWidgetBase
   height: childrenRect.height
   anchors {
     left: parent.left
@@ -38,70 +39,73 @@ EditorWidgetBase {
     }
   }
 
-  RelationCombobox {
-    id: relationReference
-    featureListModel: listModel
+  RowLayout {
     anchors {
       left: parent.left
       right: parent.right
-      rightMargin: viewButton.width + openFormButton.width + 4
-    }
-    enabled: isEnabled
-    useSearch: false
-    allowAddFeature: config['AllowAddFeatures'] !== undefined && config['AllowAddFeatures'] === true
-    relation: _rel
-  }
-
-  QfToolButton {
-    id: viewButton
-
-    enabled: relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
-    anchors {
-      right: openFormButton.left
       top: parent.top
     }
+    spacing: 5
 
-    property bool isVisible: listModel.currentLayer !== undefined && listModel.currentLayer.geometryType() !== Qgis.GeometryType.Unknown && listModel.currentLayer.geometryType() !== Qgis.GeometryType.Null
-    visible: isVisible
-    width: isVisible && enabled ? 48 : 0
-    height: 48
+    RelationCombobox {
+      id: relationReference
+      featureListModel: listModel
+      Layout.fillWidth: true
 
-    iconSource: Theme.getThemeVectorIcon("ic_view_black_24dp")
-    iconColor: Theme.mainTextColor
-    bgcolor: "transparent"
+      enabled: isEnabled
+      useSearch: false
+      allowAddFeature: config['AllowAddFeatures'] !== undefined && config['AllowAddFeatures'] === true
+      relation: _rel
 
-    onClicked: {
-      if (listModel.currentLayer !== undefined) {
-        var feature = listModel.getFeatureFromKeyValue(relationReference.currentKeyValue);
-        geometryHighlighter.geometryWrapper.qgsGeometry = feature.geometry;
-        geometryHighlighter.geometryWrapper.crs = listModel.currentLayer.crs;
-        mapCanvas.mapSettings.setExtent(FeatureUtils.extent(mapCanvas.mapSettings, listModel.currentLayer, feature), true);
+      onRequestJumpToPoint: function (center, scale, handleMargins) {
+        relationReferenceEditorWidgetBase.requestJumpToPoint(center, scale, handleMargins);
       }
     }
-  }
 
-  QfToolButton {
-    id: openFormButton
+    QfToolButton {
+      id: viewButton
 
-    enabled: showOpenFormButton && relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
-    anchors {
-      right: parent.right
-      top: parent.top
+      property bool isVisible: listModel.currentLayer !== undefined && listModel.currentLayer !== null && listModel.currentLayer.geometryType() !== Qgis.GeometryType.Unknown && listModel.currentLayer.geometryType() !== Qgis.GeometryType.Null
+      visible: isVisible
+      enabled: relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
+      width: isVisible && enabled ? 48 : 0
+      height: 48
+
+      iconSource: Theme.getThemeVectorIcon("ic_view_black_24dp")
+      iconColor: Theme.mainTextColor
+      bgcolor: "transparent"
+
+      onClicked: {
+        if (listModel.currentLayer !== undefined) {
+          var feature = listModel.getFeatureFromKeyValue(relationReference.currentKeyValue);
+          geometryHighlighter.geometryWrapper.qgsGeometry = feature.geometry;
+          geometryHighlighter.geometryWrapper.crs = listModel.currentLayer.crs;
+          const extentRect = FeatureUtils.extent(mapCanvas.mapSettings, listModel.currentLayer, feature);
+          const scale = mapCanvas.mapSettings.computeScaleForExtent(extentRect, true);
+          requestJumpToPoint(extentRect.center, scale, true);
+        }
+      }
     }
 
-    width: enabled ? 48 : 0
-    height: 48
+    QfToolButton {
+      id: openFormButton
 
-    iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : Theme.getThemeVectorIcon('ic_baseline-list_white_24dp')
-    iconColor: Theme.mainTextColor
-    bgcolor: "transparent"
+      enabled: showOpenFormButton && relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
+      width: enabled ? 48 : 0
+      height: 48
 
-    onClicked: {
-      if (relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== '') {
-        relationReference.embeddedFeatureForm.state = isEnabled ? 'Edit' : 'ReadOnly';
-        relationReference.embeddedFeatureForm.currentLayer = listModel.currentLayer;
-        relationReference.embeddedFeatureForm.feature = listModel.getFeatureFromKeyValue(relationReference.currentKeyValue);
-        relationReference.embeddedFeatureForm.open();
+      iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : Theme.getThemeVectorIcon('ic_baseline-list_white_24dp')
+      iconColor: Theme.mainTextColor
+      bgcolor: "transparent"
+
+      onClicked: {
+        if (relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== '') {
+          relationReference.ensureEmbeddedFormLoaded();
+          relationReference.embeddedFeatureForm.state = isEnabled ? 'Edit' : 'ReadOnly';
+          relationReference.embeddedFeatureForm.currentLayer = listModel.currentLayer;
+          relationReference.embeddedFeatureForm.feature = listModel.getFeatureFromKeyValue(relationReference.currentKeyValue);
+          relationReference.embeddedFeatureForm.open();
+        }
       }
     }
   }

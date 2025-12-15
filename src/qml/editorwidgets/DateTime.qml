@@ -43,7 +43,7 @@ EditorWidgetBase {
 
   function formatDateTime(value) {
     // Will handle both null and undefined as date values
-    if (value == null || value === '') {
+    if (FeatureUtils.attributeIsNull(value) || value === '') {
       return qsTr('(no date)');
     } else {
       let displayFormat = config['display_format'];
@@ -71,22 +71,17 @@ EditorWidgetBase {
           return Qt.formatDateTime(value, displayFormat);
         }
       } else {
-        const date = Date.fromLocaleString(Qt.locale(), value, config['field_format']);
+        const date = Date.fromLocaleString(Qt.locale(), value, !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'] !== undefined ? config['field_format'] : '');
         if (date.toString() === "Invalid Date") {
-          return Qt.formatDateTime(value, displayFormat);
+          try {
+            return Qt.formatDateTime(value, displayFormat);
+          } catch (e) {
+            return qsTr('(no date)');
+          }
         }
         return Qt.formatDateTime(date, displayFormat);
       }
     }
-  }
-
-  Rectangle {
-    visible: !enabled
-    y: label.height - height
-    implicitWidth: 120
-    width: label.width
-    height: 1
-    color: Theme.accentLightColor
   }
 
   RowLayout {
@@ -100,11 +95,11 @@ EditorWidgetBase {
 
       verticalAlignment: Text.AlignVCenter
       font: Theme.defaultFont
-      color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
       topPadding: 6
       bottomPadding: 6
       rightPadding: 0
-      leftPadding: enabled ? 5 : 0
+      leftPadding: isEnabled || (!isEditable && isEditing) ? 10 : 0
 
       inputMethodHints: Qt.ImhDigitsOnly
 
@@ -123,29 +118,18 @@ EditorWidgetBase {
         "";
       }
 
-      text: main.currentValue
-
-      background: Rectangle {
-        id: backgroundRect
-        width: label.width
-        height: label.height
-        border.color: label.activeFocus ? Theme.accentColor : Theme.accentLightColor
-        border.width: label.activeFocus ? 2 : 1
-        color: enabled ? Theme.controlBackgroundAlternateColor : "transparent"
-        radius: 2
-        visible: enabled
-      }
+      text: main.currentValue !== undefined ? main.currentValue : ''
 
       MouseArea {
         enabled: config['calendar_popup'] === undefined || config['calendar_popup']
         anchors.fill: parent
         onClicked: {
-          var usedDate = new Date();
+          let usedDate = new Date();
           if (value !== undefined && value != '') {
             usedDate = value;
           }
           if (!(usedDate instanceof Date)) {
-            usedDate = Date.fromLocaleString(Qt.locale(), label.text, config['display_format']);
+            usedDate = Date.fromLocaleString(Qt.locale(), label.text, !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['display_format']);
           }
           todayButton.forceActiveFocus();
           calendarPanel.selectedDate = usedDate;
@@ -154,10 +138,10 @@ EditorWidgetBase {
       }
 
       onTextEdited: {
-        var newDate = Date.fromLocaleString(Qt.locale(), label.text, config['display_format']);
+        let newDate = Date.fromLocaleString(Qt.locale(), label.text, !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['display_format']);
         if (newDate.toLocaleString() !== "") {
           if (!main.isDateTimeType) {
-            newDate = Qt.formatDateTime(newDate, config['field_format']);
+            newDate = Qt.formatDateTime(newDate, !!config['field_iso_format'] ? Qt.ISODate : config['field_format']);
           }
           valueChangeRequested(newDate, newDate === undefined);
         } else {
@@ -169,8 +153,8 @@ EditorWidgetBase {
         if (activeFocus) {
           // getting focus => placing cursor at proper position
           // TODO: make it work on empty value
-          var mytext = label.text;
-          var cur = label.cursorPosition;
+          const mytext = label.text;
+          let cur = label.cursorPosition;
           while (cur > 0) {
             if (!mytext.charAt(cur - 1).match("[0-9]"))
               break;
@@ -179,7 +163,7 @@ EditorWidgetBase {
           label.cursorPosition = cur;
         } else {
           // leaving field => if invalid, clear
-          var newDate = Date.fromLocaleString(Qt.locale(), label.text, config['display_format']);
+          let newDate = Date.fromLocaleString(Qt.locale(), label.text, !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['display_format']);
           if (newDate.toLocaleString() === "") {
             label.text = qsTr('(no date)');
           }
@@ -202,6 +186,8 @@ EditorWidgetBase {
           valueChangeRequested(undefined, true);
         }
       }
+
+      background.visible: isEnabled || (!isEditable && isEditing)
     }
 
     QfToolButton {
@@ -213,12 +199,11 @@ EditorWidgetBase {
       iconColor: Theme.mainTextColor
 
       onClicked: {
+        const currentDate = new Date();
         if (main.isDateTimeType) {
-          var currentDateTime = new Date();
-          valueChangeRequested(currentDateTime, false);
+          valueChangeRequested(currentDate, false);
         } else {
-          var currentDate = new Date();
-          var textDate = Qt.formatDateTime(currentDate, config['field_format']);
+          const textDate = Qt.formatDateTime(currentDate, !!config['field_iso_format'] ? Qt.ISODate : config['field_format']);
           valueChangeRequested(textDate, false);
         }
         displayToast(qsTr('Date value set to today.'));
@@ -233,15 +218,15 @@ EditorWidgetBase {
 
   QfCalendarPanel {
     id: calendarPanel
-    showTimePicker: main.fieldIsDateTime || main.fieldIsTime || (main.fieldIsString && config['field_format_overwrite'] && config['field_format'].includes("HH:mm")) || (main.fieldIsString && !config['field_format_overwrite'])
-    showDatePicker: main.fieldIsDate || main.fieldIsDateTime || (main.fieldIsString && config['field_format_overwrite'] && (config['field_format'].includes("yyyy-MM") || config['field_format'].includes("yyyy.MM"))) || (main.fieldIsString && !config['field_format_overwrite'])
+    showTimePicker: main.fieldIsDateTime || main.fieldIsTime || (main.fieldIsString && config['field_format_overwrite'] && (config['field_format'].includes("HH:mm") || !!config['field_iso_format'])) || (main.fieldIsString && !config['field_format_overwrite'])
+    showDatePicker: main.fieldIsDate || main.fieldIsDateTime || (main.fieldIsString && config['field_format_overwrite'] && (config['field_format'].includes("yyyy-MM") || config['field_format'].includes("yyyy.MM") || !!config['field_iso_format'])) || (main.fieldIsString && !config['field_format_overwrite'])
 
     onDateTimePicked: date => {
       if (main.isDateTimeType) {
         valueChangeRequested(date, date === undefined);
       } else {
-        var textDate = Qt.formatDateTime(date, config['field_format']);
-        valueChangeRequested(date, date === undefined);
+        const textDate = Qt.formatDateTime(date, !!config['field_iso_format'] ? Qt.ISODate : config['field_format']);
+        valueChangeRequested(textDate, date === undefined);
       }
     }
   }

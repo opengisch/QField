@@ -8,50 +8,46 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: popup
 
-  property alias title: titleLabel.text
+  property alias title: pageHader.title
   property alias notes: notesText.text
 
   parent: mainWindow.contentItem
-  width: Math.min(childrenRect.width, mainWindow.width - Theme.popupScreenEdgeMargin)
-  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+  width: Math.min(450, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
+  height: Math.min(popupLayout.childrenRect.height + pageHader.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
-  padding: 0
-  modal: true
-  closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+  closePolicy: Popup.CloseOnEscape
   focus: visible
 
   Page {
     id: popupContent
     width: parent.width
     height: parent.height
-    padding: 10
+    padding: 5
 
-    header: RowLayout {
-      id: headerLayout
-      spacing: 2
-      Label {
-        id: titleLabel
-        Layout.fillWidth: true
-        Layout.leftMargin: 10
-        topPadding: 10
-        bottomPadding: 10
-        text: ""
-        font: Theme.strongFont
-        horizontalAlignment: Text.AlignLeft
-        wrapMode: Text.WordWrap
+    header: QfPageHeader {
+      id: pageHader
+      showBackButton: true
+      showCancelButton: false
+      showMenuButton: false
+      showApplyButton: false
+
+      title: ""
+
+      onBack: {
+        popup.close();
       }
     }
 
     ScrollView {
-      padding: 0
+      padding: 5
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
       ScrollBar.vertical: QfScrollBar {
       }
-      contentWidth: popupLayout.childrenRect.width
+      contentWidth: popupLayout.width
       contentHeight: popupLayout.childrenRect.height
       height: parent.height
       clip: true
@@ -59,19 +55,20 @@ Popup {
       ColumnLayout {
         id: popupLayout
         width: popupContent.width - 20
-        spacing: 4
+        spacing: 0
 
         Text {
           id: notesText
           Layout.fillWidth: true
-          rightPadding: 10
-          bottomPadding: 15
+          Layout.leftMargin: 5
+          Layout.rightMargin: 5
 
           wrapMode: Text.WordWrap
           textFormat: Text.RichText
           text: ""
-          font: Theme.tipFont
+          font: Theme.defaultFont
           color: Theme.mainTextColor
+          clip: true
         }
       }
     }

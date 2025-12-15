@@ -12,8 +12,8 @@ Page {
   id: qfieldCloudScreen
 
   signal finished
+  signal viewProjectFolder(string projectPath)
 
-  property LayerObserver layerObserver
   property string requestedProjectDetails: ""
 
   leftPadding: mainWindow.sceneLeftMargin
@@ -34,8 +34,12 @@ Page {
 
     onFinished: {
       if (connectionSettings.visible) {
-        connectionSettings.visible = false;
-        projectsSwipeView.visible = true;
+        if (cloudConnection.status === QFieldCloudConnection.LoggedIn || table.count > 0) {
+          connectionSettings.visible = false;
+          projectsSwipeView.visible = true;
+        } else {
+          parent.finished();
+        }
       } else if (projectsSwipeView.currentIndex === 1) {
         projectDetails.cloudProject = undefined;
         projectsSwipeView.currentIndex = 0;
@@ -56,7 +60,7 @@ Page {
       id: connectionInformation
       spacing: 2
       Layout.fillWidth: true
-      visible: cloudConnection.status === QFieldCloudConnection.LoggedIn || table.count > 0
+      visible: (cloudConnection.status === QFieldCloudConnection.LoggedIn || table.count > 0) && projectsSwipeView.currentIndex !== 1
 
       Label {
         Layout.fillWidth: true
@@ -191,15 +195,6 @@ Page {
           model: [qsTr("My Projects"), qsTr("Community")]
           Layout.fillWidth: true
           Layout.preferredHeight: defaultHeight
-          delegate: TabButton {
-            text: modelData
-            height: filterBar.defaultHeight
-            width: projects.width / filterBar.count
-            font: Theme.defaultFont
-            onClicked: {
-              filterBar.currentIndex = index;
-            }
-          }
         }
 
         QfSearchBar {
@@ -209,12 +204,9 @@ Page {
           placeHolderText: qsTr("Search for project")
         }
 
-        Rectangle {
+        Item {
           Layout.fillWidth: true
           Layout.fillHeight: true
-          color: Theme.controlBackgroundColor
-          border.color: Theme.controlBorderColor
-          border.width: 1
 
           ListView {
             id: table
@@ -243,6 +235,7 @@ Page {
             anchors.margins: 1
             section.property: "Owner"
             section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
+            spacing: -1
             section.delegate: Component {
               Rectangle {
                 width: parent.width
@@ -276,7 +269,7 @@ Page {
             }
 
             delegate: Rectangle {
-              id: rectangle
+              id: projectDelegate
 
               property bool isPressed: false
               property string projectId: Id
@@ -284,17 +277,20 @@ Page {
               property string projectName: Name
               property string projectLocalPath: LocalPath
               property int status: Status
+              property int localDeltasCount: LocalDeltasCount
+              property bool projectOutdated: ProjectOutdated
 
               width: parent ? parent.width : undefined
               height: line.height
-              color: "transparent"
+              color: Theme.controlBackgroundColor
+              border.color: Theme.controlBorderColor
+              border.width: 1
+              radius: 2
 
               ProgressBar {
                 anchors.bottom: line.bottom
-                anchors.bottomMargin: -4
                 anchors.left: line.left
-                anchors.leftMargin: line.leftPadding
-                width: line.width - 20
+                anchors.right: parent.right
                 height: 6
                 indeterminate: PackagingStatus !== QFieldCloudProject.PackagingFinishedStatus && DownloadProgress === 0.0
                 value: DownloadProgress
@@ -322,7 +318,7 @@ Page {
                       switch (Status) {
                       case QFieldCloudProject.ProjectStatus.Downloading:
                         return Theme.getThemeVectorIcon('ic_cloud_project_download_48dp');
-                      case QFieldCloudProject.ProjectStatus.Uploading:
+                      case QFieldCloudProject.ProjectStatus.Pushing:
                         return Theme.getThemeVectorIcon('ic_cloud_project_upload_48dp');
                       case QFieldCloudProject.ProjectStatus.Failing:
                         return Theme.getThemeVectorIcon('ic_cloud_project_failed_48dp');
@@ -365,7 +361,7 @@ Page {
 
                 ColumnLayout {
                   id: inner
-                  width: rectangle.width - type.width - menuButton.width - 16
+                  width: projectDelegate.width - type.width - menuButton.width - 16
 
                   Text {
                     id: projectTitle
@@ -374,9 +370,8 @@ Page {
                     leftPadding: 3
                     text: Name
                     font.pointSize: Theme.tipFont.pointSize
-                    font.underline: true
-                    color: Theme.mainColor
-                    opacity: rectangle.isPressed ? 0.8 : 1
+                    color: Theme.mainTextColor
+                    opacity: projectDelegate.isPressed ? 0.8 : 1
                     wrapMode: Text.Wrap
                   }
                   Text {
@@ -408,7 +403,7 @@ Page {
                             }
                           }
                           break;
-                        case QFieldCloudProject.Uploading:
+                        case QFieldCloudProject.Pushing:
                           status = qsTr('Uploading…');
                           break;
                         default:
@@ -420,7 +415,7 @@ Page {
                         case QFieldCloudProject.DownloadErrorStatus:
                           status = qsTr('Downloading error. ') + ErrorString;
                           break;
-                        case QFieldCloudProject.UploadErrorStatus:
+                        case QFieldCloudProject.PushErrorStatus:
                           status = qsTr('Uploading error. ') + ErrorString;
                           break;
                         }
@@ -449,36 +444,71 @@ Page {
                     }
                     visible: text != ""
                     font.pointSize: Theme.tipFont.pointSize - 2
-                    font.italic: true
                     color: Theme.secondaryTextColor
                     wrapMode: Text.WordWrap
                   }
                 }
 
-                QfToolButton {
-                  id: menuButton
-                  round: true
-                  opacity: 0.5
+                Item {
                   width: 48
                   height: 48
-
                   anchors.verticalCenter: line.verticalCenter
 
-                  bgcolor: "transparent"
-                  iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-                  iconColor: Theme.mainTextColor
+                  QfToolButton {
+                    id: downloadActionButton
 
-                  onClicked: mouse => {
-                    let gc = mapToItem(qfieldCloudScreen, 0, 0);
-                    projectActions.projectId = Id;
-                    projectActions.projectOwner = Owner;
-                    projectActions.projectName = Name;
-                    projectActions.projectLocalPath = LocalPath;
-                    downloadProject.visible = LocalPath === '' && Status !== QFieldCloudProject.ProjectStatus.Downloading;
-                    openProject.visible = LocalPath !== '';
-                    removeProject.visible = LocalPath !== '';
-                    cancelDownloadProject.visible = Status === QFieldCloudProject.ProjectStatus.Downloading;
-                    projectActions.popup(gc.x + width - projectActions.width, gc.y - height);
+                    visible: LocalPath === ''
+                    iconSource: Status === QFieldCloudProject.ProjectStatus.Downloading ? Theme.getThemeVectorIcon("ic_clear_white_24dp") : Theme.getThemeVectorIcon("ic_download_white_24dp")
+                    iconColor: Status === QFieldCloudProject.ProjectStatus.Downloading ? Theme.mainTextColor : Theme.mainColor
+                    opacity: Status === QFieldCloudProject.ProjectStatus.Downloading ? 0.5 : 1
+
+                    onClicked: {
+                      if (Status === QFieldCloudProject.ProjectStatus.Downloading) {
+                        cloudProjectsModel.projectCancelDownload(Id);
+                      } else {
+                        cloudProjectsModel.projectPackageAndDownload(Id);
+                      }
+                    }
+                  }
+
+                  QfToolButton {
+                    id: menuButton
+                    round: true
+                    opacity: 0.5
+                    width: 48
+                    height: 48
+                    visible: LocalPath !== ''
+
+                    bgcolor: "transparent"
+                    iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+                    iconColor: Theme.mainTextColor
+
+                    onClicked: mouse => {
+                      projectActions.projectId = Id;
+                      projectActions.projectOwner = Owner;
+                      projectActions.projectName = Name;
+                      projectActions.projectLocalPath = LocalPath;
+                      projectActions.localDeltasCount = projectDelegate.localDeltasCount;
+                      projectActions.projectOutdated = projectDelegate.projectOutdated;
+                      openProject.visible = LocalPath !== '';
+                      viewProjectFolder.visible = LocalPath !== '';
+                      removeProject.visible = LocalPath !== '';
+                      const gc = mapToItem(qfieldCloudScreen, 0, 0);
+                      projectActions.popup(gc.x + width - projectActions.width, gc.y - height);
+                    }
+                  }
+
+                  QfBadge {
+                    alignment: QfBadge.Alignment.TopRight
+                    visible: showSync || showPush
+                    color: showSync ? Theme.mainColor : Theme.cloudColor
+                    topMargin: 5
+                    rightMargin: 5
+                    enableGradient: showSync && showPush
+                    width: 14
+
+                    readonly property bool showSync: LocalPath !== '' && projectDelegate.projectOutdated
+                    readonly property bool showPush: projectDelegate.localDeltasCount > 0
                   }
                 }
               }
@@ -534,16 +564,16 @@ Page {
               }
 
               onPressAndHold: mouse => {
-                var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
-                if (item) {
+                const item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
+                if (item && item.projectLocalPath !== "") {
                   projectActions.projectId = item.projectId;
                   projectActions.projectOwner = item.projectOwner;
                   projectActions.projectName = item.projectName;
                   projectActions.projectLocalPath = item.projectLocalPath;
-                  downloadProject.visible = item.projectLocalPath === '' && item.status !== QFieldCloudProject.ProjectStatus.Downloading;
+                  projectActions.localDeltasCount = item.localDeltasCount;
+                  projectActions.projectOutdated = item.projectOutdated;
                   openProject.visible = item.projectLocalPath !== '';
                   removeProject.visible = item.projectLocalPath !== '';
-                  cancelDownloadProject.visible = item.status === QFieldCloudProject.ProjectStatus.Downloading;
                   projectActions.popup(mouse.x, mouse.y);
                 }
               }
@@ -582,273 +612,15 @@ Page {
         }
       }
 
-      ColumnLayout {
+      QFieldCloudProjectDetails {
         id: projectDetails
-        spacing: 10
 
-        property var cloudProject: undefined
-
-        onCloudProjectChanged: {
-          if (cloudProject != undefined) {
-            cloudProject.downloadThumbnail();
-          } else {
-            projectsSwipeView.currentIndex = 0;
-          }
+        onSynchronize: {
+          cloudProjectsModel.projectPush(projectDetails.cloudProject.id, true);
         }
 
-        ColumnLayout {
-          id: projectDetailsLayout
-          Layout.fillWidth: true
-          Layout.fillHeight: true
-          spacing: 10
-
-          RowLayout {
-            Layout.fillWidth: true
-            spacing: 10
-
-            Rectangle {
-              id: projectDetailsThumbnailRect
-              width: 48
-              height: 48
-              border.color: Theme.mainBackgroundColor
-              border.width: 1
-              radius: width / 2
-              clip: true
-
-              Image {
-                id: projectDetailsThumbnail
-                anchors.fill: parent
-                anchors.margins: 1
-                fillMode: Image.PreserveAspectFit
-                smooth: true
-                source: projectDetails.cloudProject != undefined && projectDetails.cloudProject.thumbnailPath !== "" ? 'file://' + projectDetails.cloudProject.thumbnailPath : ""
-                visible: source !== "" && status === Image.Ready
-                width: 48
-                height: 48
-                sourceSize.width: width * screen.devicePixelRatio
-                sourceSize.height: height * screen.devicePixelRatio
-                layer.enabled: true
-                layer.effect: QfOpacityMask {
-                  maskSource: roundMask
-                }
-              }
-            }
-
-            Text {
-              id: projectDetailsName
-              Layout.fillWidth: true
-              font.pointSize: Theme.titleFont.pointSize * 1.25
-              font.bold: true
-              color: Theme.mainTextColor
-              wrapMode: Text.Wrap
-
-              text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.name : ""
-            }
-          }
-
-          ScrollView {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            contentWidth: width
-            contentHeight: projectDetailsBodyLayout.height
-            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-            ScrollBar.vertical: QfScrollBar {
-            }
-
-            ColumnLayout {
-              id: projectDetailsBodyLayout
-              width: parent.width - 10
-              spacing: 10
-
-              ColumnLayout {
-                Layout.fillWidth: true
-                spacing: 5
-
-                Text {
-                  id: projectDetailsDescriptionLabel
-                  Layout.fillWidth: true
-                  font: Theme.strongFont
-                  color: Theme.mainTextColor
-
-                  text: qsTr("Description")
-                }
-
-                Text {
-                  id: projectDetailsDescription
-                  Layout.fillWidth: true
-                  font: Theme.defaultFont
-                  color: Theme.secondaryTextColor
-                  wrapMode: Text.WordWrap
-                  textFormat: Text.MarkdownText
-
-                  text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.description.trim() : ""
-
-                  onLinkActivated: link => {
-                    Qt.openUrlExternally(link);
-                  }
-                }
-              }
-
-              ColumnLayout {
-                Layout.fillWidth: true
-                spacing: 5
-
-                Text {
-                  id: projectDetailsOwnerLabel
-                  Layout.fillWidth: true
-                  font: Theme.strongFont
-                  color: Theme.mainTextColor
-
-                  text: qsTr("Owner")
-                }
-
-                Text {
-                  id: projectDetailsOwner
-                  Layout.fillWidth: true
-                  font: Theme.defaultFont
-                  color: Theme.secondaryTextColor
-                  wrapMode: Text.WordWrap
-
-                  text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.owner : ""
-                }
-              }
-
-              ColumnLayout {
-                Layout.fillWidth: true
-                spacing: 5
-
-                Text {
-                  id: projectDetailsCreationDateLabel
-                  Layout.fillWidth: true
-                  font: Theme.strongFont
-                  color: Theme.mainTextColor
-
-                  text: qsTr("Creation date")
-                }
-
-                Text {
-                  id: projectDetailsCreationDate
-                  Layout.fillWidth: true
-                  font: Theme.defaultFont
-                  color: Theme.secondaryTextColor
-                  wrapMode: Text.WordWrap
-
-                  text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.createdAt : ""
-                }
-              }
-
-              ColumnLayout {
-                Layout.fillWidth: true
-                spacing: 5
-
-                Text {
-                  id: projectDetailsUpdateDateLabel
-                  Layout.fillWidth: true
-                  font: Theme.strongFont
-                  color: Theme.mainTextColor
-
-                  text: qsTr("Latest update date")
-                }
-
-                Text {
-                  id: projectDetailsUpdateDate
-                  Layout.fillWidth: true
-                  font: Theme.defaultFont
-                  color: Theme.secondaryTextColor
-                  wrapMode: Text.WordWrap
-
-                  text: projectDetails.cloudProject != undefined ? projectDetails.cloudProject.updatedAt : ""
-                }
-              }
-
-              ColumnLayout {
-                Layout.topMargin: 20
-                Layout.bottomMargin: 20
-                Layout.preferredWidth: projectDetailsCodeContainer.desiredWidth
-                Layout.alignment: Qt.AlignHCenter
-                spacing: 5
-
-                Rectangle {
-                  id: projectDetailsCodeContainer
-
-                  property int desiredWidth: Math.min(mainWindow.width - 40, 250)
-                  Layout.preferredWidth: desiredWidth
-                  Layout.preferredHeight: desiredWidth
-
-                  color: "transparent"
-                  radius: 4
-                  border.width: 1
-                  border.color: Theme.mainTextColor
-
-                  Image {
-                    anchors.fill: parent
-                    fillMode: Image.PreserveAspectFit
-
-                    sourceSize.width: projectDetailsCodeContainer.desiredWidth * Screen.devicePixelRatio
-                    sourceSize.height: projectDetailsCodeContainer.desiredWidth * Screen.devicePixelRatio
-                    source: projectDetails.cloudProject != undefined ? "image://barcode/?text=" + encodeURIComponent(UrlUtils.createActionUrl("qfield", "cloud", {
-                          "project": projectDetails.cloudProject.id
-                        })) + "&color=%2380cc28" : ""
-                  }
-                }
-
-                Text {
-                  id: projectDetailsCodeLabel
-                  Layout.preferredWidth: projectDetailsCodeContainer.desiredWidth - 20
-                  font: Theme.tinyFont
-                  color: Theme.secondaryTextColor
-                  wrapMode: Text.WordWrap
-                  horizontalAlignment: Text.AlignHCenter
-
-                  text: qsTr("This QR code can be scanned for users with the appropriate access to download and open this project")
-                }
-              }
-            }
-          }
-        }
-
-        QfButton {
-          id: downloadProjectBtn
-          Layout.fillWidth: true
-          text: {
-            if (projectDetails.cloudProject != undefined && projectDetails.cloudProject.status === QFieldCloudProject.ProjectStatus.Downloading) {
-              if (projectDetails.cloudProject.packagingStatus === QFieldCloudProject.PackagingBusyStatus) {
-                return qsTr("QFieldCloud is packaging project, hold tight");
-              } else {
-                if (projectDetails.cloudProject.downloadProgress > 0) {
-                  return qsTr("Downloading project") + " (%1%)".arg(Math.round(projectDetails.cloudProject.downloadProgress * 100));
-                } else {
-                  return qsTr("Downloading project");
-                }
-              }
-            }
-            return qsTr("Download project");
-          }
-          visible: projectDetails.cloudProject != undefined && projectDetails.cloudProject.localPath === ""
-          enabled: projectDetails.cloudProject != undefined && projectDetails.cloudProject.status !== QFieldCloudProject.ProjectStatus.Downloading
-
-          onClicked: {
-            if (projectDetails.cloudProject != undefined) {
-              displayToast(qsTr("Downloading project %1").arg(projectDetails.cloudProject.name));
-              cloudProjectsModel.projectPackageAndDownload(projectDetails.cloudProject.id);
-            }
-          }
-        }
-
-        QfButton {
-          id: openProjectBtn
-          Layout.fillWidth: true
-          text: qsTr("Open project")
-          visible: projectDetails.cloudProject != undefined && projectDetails.cloudProject.localPath !== ""
-
-          onClicked: {
-            if (projectDetails.cloudProject != undefined) {
-              qfieldCloudScreen.visible = false;
-              iface.loadFile(projectDetails.cloudProject.localPath);
-            }
-            projectsSwipeView.currentIndex = 0;
-            projectDetails.cloudProject = undefined;
-          }
+        onPushChanges: {
+          cloudProjectsModel.projectPush(projectDetails.cloudProject.id, false);
         }
       }
     }
@@ -899,44 +671,13 @@ Page {
     property string projectOwner: ''
     property string projectName: ''
     property string projectLocalPath: ''
+    property int localDeltasCount: 0
+    property bool projectOutdated: false
 
     title: qsTr('Project Actions')
 
     topMargin: mainWindow.sceneTopMargin
     bottomMargin: mainWindow.sceneBottomMargin
-
-    MenuItem {
-      id: viewProjectDetails
-
-      font: Theme.defaultFont
-      width: parent.width
-      height: visible ? 48 : 0
-      leftPadding: Theme.menuItemLeftPadding
-
-      text: qsTr("View Project Details")
-      onTriggered: {
-        projectDetails.cloudProject = cloudProjectsModel.findProject(projectActions.projectId);
-        projectsSwipeView.currentIndex = 1;
-      }
-    }
-
-    MenuSeparator {
-      width: parent.width
-    }
-
-    MenuItem {
-      id: downloadProject
-
-      font: Theme.defaultFont
-      width: parent.width
-      height: visible ? 48 : 0
-      leftPadding: Theme.menuItemLeftPadding
-
-      text: qsTr("Download Project")
-      onTriggered: {
-        cloudProjectsModel.projectPackageAndDownload(projectActions.projectId);
-      }
-    }
 
     MenuItem {
       id: openProject
@@ -955,6 +696,61 @@ Page {
       }
     }
 
+    MenuSeparator {
+      width: parent.width
+    }
+
+    MenuItem {
+      id: syncProject
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+
+      text: qsTr("Synchronize")
+      onTriggered: {
+        cloudProjectsModel.projectPush(projectActions.projectId, true);
+      }
+
+      QfBadge {
+        width: 16
+        height: width
+        topMargin: 5
+        rightMargin: 5
+        alignment: QfBadge.Alignment.TopRight
+        visible: projectActions.projectOutdated
+        color: Theme.mainColor
+        border.color: "transparent"
+      }
+    }
+    MenuItem {
+      id: pushProject
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+      enabled: projectActions.localDeltasCount > 0
+
+      text: qsTr("Push changes")
+      onTriggered: {
+        cloudProjectsModel.projectPush(projectActions.projectId, false);
+      }
+
+      QfBadge {
+        width: 16
+        height: width
+        topMargin: 5
+        rightMargin: 5
+        alignment: QfBadge.Alignment.TopRight
+        visible: projectActions.localDeltasCount > 0
+        color: Theme.cloudColor
+        badgeText.text: projectActions.localDeltasCount
+        badgeText.color: Theme.light
+        border.color: "transparent"
+      }
+    }
     MenuItem {
       id: removeProject
 
@@ -965,25 +761,63 @@ Page {
 
       text: qsTr("Remove Stored Project")
       onTriggered: {
-        cloudProjectsModel.removeLocalProject(projectActions.projectId);
-        iface.removeRecentProject(projectActions.projectLocalPath);
-        welcomeScreen.model.reloadModel();
-        if (projectActions.projectLocalPath === qgisProject.fileName) {
-          iface.clearProject();
-        }
+        confirmRemoveDialog.open();
       }
     }
 
+    MenuSeparator {
+      width: parent.width
+    }
+
     MenuItem {
-      id: cancelDownloadProject
+      id: viewProjectDetails
+
       font: Theme.defaultFont
       width: parent.width
       height: visible ? 48 : 0
       leftPadding: Theme.menuItemLeftPadding
-      text: qsTr("Cancel Project Download")
+
+      text: qsTr("View Project Details")
       onTriggered: {
-        cloudProjectsModel.projectCancelDownload(projectActions.projectId);
+        projectDetails.cloudProject = cloudProjectsModel.findProject(projectActions.projectId);
+        projectsSwipeView.currentIndex = 1;
       }
+    }
+    MenuItem {
+      id: viewProjectFolder
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+
+      text: qsTr("View Project Folder")
+      onTriggered: {
+        qfieldCloudScreen.viewProjectFolder(projectActions.projectLocalPath);
+      }
+    }
+  }
+
+  QfDialog {
+    id: confirmRemoveDialog
+    parent: mainWindow.contentItem
+    title: removeProject.text
+
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: qsTr("Are you sure you want to remove `%1`?").arg(projectActions.projectName)
+    }
+    onAccepted: {
+      cloudProjectsModel.removeLocalProject(projectActions.projectId);
+      iface.removeRecentProject(projectActions.projectLocalPath);
+      welcomeScreen.model.reloadModel();
+      if (projectActions.projectLocalPath === qgisProject.fileName) {
+        iface.clearProject();
+      }
+    }
+    onRejected: {
+      visible = false;
     }
   }
 
@@ -993,16 +827,10 @@ Page {
     enabled: false
 
     function onDecoded(string) {
-      const results = UrlUtils.getActionDetails(string);
-      if (results.type !== undefined && results.type === "cloud" && results.project !== undefined && results.project !== "") {
+      const details = UrlUtils.getActionDetails(string);
+      if (details.type !== undefined && details.type === "cloud" && details.project !== undefined && details.project !== "") {
         codeReader.close();
-        let cloudProject = cloudProjectsModel.findProject(requestedProjectDetails);
-        if (cloudProject) {
-          projectDetails.cloudProject = cloudProjectsModel.findProject(projectId);
-          projectsSwipeView.currentIndex = 1;
-        } else {
-          cloudProjectsModel.appendProject(results.project);
-        }
+        prepareProjectRequest(details);
       }
     }
 
@@ -1048,9 +876,25 @@ Page {
     displayToast(qsTr("Refreshing projects list"));
   }
 
+  function prepareProjectRequest(details) {
+    if (details.url !== undefined && details.url !== cloudConnection.url) {
+      cloudConnection.url = details.url;
+    }
+    if (details.username !== undefined && details.username !== cloudConnection.username) {
+      cloudConnection.username = details.username;
+    }
+    requestedProjectDetails = details.project;
+    if (!visible) {
+      visible = true;
+    } else {
+      prepareCloudScreen();
+    }
+  }
+
   function prepareCloudScreen() {
     if (visible) {
-      if (cloudConnection.status == QFieldCloudConnection.Disconnected) {
+      switch (cloudConnection.status) {
+      case QFieldCloudConnection.Disconnected:
         if (cloudConnection.hasToken || cloudConnection.hasProviderConfiguration) {
           cloudConnection.login();
           if (requestedProjectDetails != "") {
@@ -1067,7 +911,13 @@ Page {
           connectionSettings.visible = true;
         }
         cloudConnection.getAuthenticationProviders();
-      } else {
+        break;
+      case QFieldCloudConnection.Connecting:
+        const hasProjects = table.count !== 0;
+        projectsSwipeView.visible = hasProjects;
+        connectionSettings.visible = !hasProjects;
+        break;
+      case QFieldCloudConnection.LoggedIn:
         projectsSwipeView.visible = true;
         connectionSettings.visible = false;
         if (requestedProjectDetails != "") {
@@ -1080,6 +930,7 @@ Page {
             cloudProjectsModel.appendProject(requestedProjectDetails);
           }
         }
+        break;
       }
     }
   }

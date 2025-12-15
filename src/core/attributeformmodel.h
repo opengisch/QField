@@ -30,7 +30,8 @@ class AttributeFormModel : public QSortFilterProxyModel
     Q_OBJECT
 
     Q_PROPERTY( FeatureModel *featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
-    Q_PROPERTY( bool hasTabs READ hasTabs WRITE setHasTabs NOTIFY hasTabsChanged )
+    Q_PROPERTY( bool hasTabs READ hasTabs NOTIFY hasTabsChanged )
+    Q_PROPERTY( bool hasRemembrance READ hasRemembrance NOTIFY hasRemembranceChanged )
     Q_PROPERTY( bool constraintsHardValid READ constraintsHardValid NOTIFY constraintsHardValidChanged )
     Q_PROPERTY( bool constraintsSoftValid READ constraintsSoftValid NOTIFY constraintsSoftValidChanged )
 
@@ -45,6 +46,7 @@ class AttributeFormModel : public QSortFilterProxyModel
       EditorWidgetConfig,
       RelationEditorWidget,
       RelationEditorWidgetConfig,
+      CanRememberValue,
       RememberValue,
       Field,
       RelationId,
@@ -73,7 +75,7 @@ class AttributeFormModel : public QSortFilterProxyModel
     explicit AttributeFormModel( QObject *parent = nullptr );
 
     bool hasTabs() const;
-    void setHasTabs( bool hasTabs );
+    bool hasRemembrance() const;
 
     FeatureModel *featureModel() const;
     void setFeatureModel( FeatureModel *featureModel );
@@ -109,15 +111,25 @@ class AttributeFormModel : public QSortFilterProxyModel
     //! Applies default values linked to a parent feature
     Q_INVOKABLE void applyParentDefaultValues();
 
+    //! Applies default values linked to relationships
+    Q_INVOKABLE void applyRelationshipDefaultValues();
+
+    //! Activate all available value that can be remembered and reused.
+    Q_INVOKABLE void activateAllRememberValues();
+
+    //! Deactivate all available value that can be remembered and reused.
+    Q_INVOKABLE void deactivateAllRememberValues();
+
   signals:
     void featureModelChanged();
     void hasTabsChanged();
+    void hasRemembranceChanged();
     void featureChanged();
     void constraintsHardValidChanged();
     void constraintsSoftValidChanged();
 
   protected:
-    virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
+    virtual bool filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const override;
 
   private:
     AttributeFormModelBase *mSourceModel = nullptr;

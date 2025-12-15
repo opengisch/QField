@@ -26,12 +26,13 @@ import Theme
 /**
  * \ingroup qml
  */
-Rectangle {
+Pane {
   id: featureFormList
 
   property ProcessingAlgorithm algorithm: processingAlgorithm
 
   property FeatureListModelSelection selection
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
   property DigitizingToolbar digitizingToolbar
   property ConfirmationToolbar moveFeaturesToolbar
@@ -39,7 +40,9 @@ Rectangle {
   property CodeReader codeReader
 
   property color selectionColor
+  /// type:MultiFeatureListModel
   property alias model: globalFeaturesList.model
+  /// type:FeaturelistExtentController
   property alias extentController: featureListToolBar.extentController
 
   property bool allowEdit
@@ -49,35 +52,55 @@ Rectangle {
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
   property bool isVertical: parent.width < parent.height || parent.width < 300
 
+  property bool isDragging: false
+  property real dragHeightAdjustment: 0
+  property real dragWidthAdjustment: 0
+
   property bool canvasOperationRequested: digitizingToolbar.geometryRequested || moveFeaturesToolbar.moveFeaturesRequested || rotateFeaturesToolbar.rotateFeaturesRequested
 
   signal showMessage(string message)
   signal editGeometry
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
 
   function requestCancel() {
     featureForm.requestCancel();
   }
 
+  property real lastWidth
+
   width: {
     if (props.isVisible || featureFormList.canvasOperationRequested) {
-      if (fullScreenView || parent.width <= parent.height || parent.width < 300) {
+      if (dragWidthAdjustment != 0) {
+        return lastWidth - dragWidthAdjustment;
+      } else if (fullScreenView || parent.width <= parent.height || width >= 0.95 * parent.width) {
+        lastWidth = parent.width;
         return parent.width;
       } else {
-        return Math.min(Math.max(200, parent.width / 2.25), parent.width);
+        const newWidth = Math.min(Math.max(200, parent.width / 2.25), parent.width);
+        lastWidth = newWidth;
+        return newWidth;
       }
     } else {
+      lastWidth = 0;
       return 0;
     }
   }
+  property real lastHeight
+
   height: {
     if (props.isVisible || featureFormList.canvasOperationRequested) {
-      if (fullScreenView || parent.width > parent.height) {
+      if (dragHeightAdjustment != 0) {
+        return Math.min(lastHeight - dragHeightAdjustment, parent.height - mainWindow.sceneTopMargin);
+      } else if (fullScreenView || parent.width > parent.height || height >= 0.95 * parent.height) {
+        lastHeight = parent.height;
         return parent.height;
       } else {
-        isVertical = true;
-        return Math.min(Math.max(200, parent.height / 2), parent.height);
+        const newHeight = Math.min(Math.max(200, parent.height / 2), parent.height);
+        lastHeight = newHeight;
+        return newHeight;
       }
     } else {
+      lastHeight = 0;
       return 0;
     }
   }
@@ -85,6 +108,11 @@ Rectangle {
   anchors.bottomMargin: featureFormList.canvasOperationRequested ? featureFormList.height : 0
   anchors.rightMargin: featureFormList.canvasOperationRequested ? -featureFormList.width : 0
   opacity: featureFormList.canvasOperationRequested ? 0.5 : 1
+
+  topPadding: 0
+  leftPadding: 0
+  rightPadding: 0
+  bottomPadding: 0
 
   enabled: !featureFormList.canvasOperationRequested
   visible: props.isVisible
@@ -225,11 +253,10 @@ Rectangle {
     }
   ]
   state: "Hidden"
-
-  color: Theme.mainBackgroundColor
   clip: true
 
   WheelHandler {
+    acceptedDevices: PointerDevice.AllDevices
     onWheel: {
     }
   }
@@ -284,7 +311,6 @@ Rectangle {
         left: parent ? parent.left : undefined
         right: parent ? parent.right : undefined
       }
-      focus: true
       height: Math.max(48, featureText.height)
       color: "transparent"
 
@@ -399,6 +425,7 @@ Rectangle {
     bottomMargin: mainWindow.sceneBottomMargin
     height: parent.height - globalFeaturesList.height
     visible: false
+    isDraggable: true
 
     digitizingToolbar: featureFormList.digitizingToolbar
     codeReader: featureFormList.codeReader
@@ -413,7 +440,9 @@ Rectangle {
       }
     }
 
-    focus: true
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      featureFormList.requestJumpToPoint(center, scale, handleMargins);
+    }
 
     onCancelled: {
       featureFormList.selection.focusedItemChanged();
@@ -479,6 +508,7 @@ Rectangle {
     model: globalFeaturesList.model
     selection: featureFormList.selection
     multiSelection: featureFormList.multiSelection
+    isVertical: featureListForm.isVertical
     extentController: FeaturelistExtentController {
       model: globalFeaturesList.model
       selection: featureFormList.selection
@@ -486,6 +516,10 @@ Rectangle {
 
       onFeatureFormStateRequested: {
         featureFormList.state = "FeatureForm";
+      }
+
+      onRequestJumpToPoint: function (center, scale, handleMargins) {
+        featureFormList.requestJumpToPoint(center, scale, handleMargins);
       }
     }
 
@@ -503,11 +537,23 @@ Rectangle {
       featureFormList.state = "FeatureList";
     }
 
-    onStatusIndicatorSwiped: direction => {
+    onStatusIndicatorDragged: function (deltaX, deltaY) {
+      fullScreenView = false;
       if (isVertical) {
-        if (direction === 'up') {
-          fullScreenView = true;
-        } else if (direction === 'down') {
+        dragHeightAdjustment += deltaY;
+      } else {
+        dragWidthAdjustment += deltaX;
+      }
+    }
+
+    onStatusIndicatorDragAcquired: {
+      isDragging = true;
+    }
+
+    onStatusIndicatorDragReleased: {
+      isDragging = false;
+      if (isVertical) {
+        if (featureFormList.height < featureFormList.parent.height * 0.3) {
           if (fullScreenView) {
             fullScreenView = false;
           } else {
@@ -515,11 +561,11 @@ Rectangle {
               featureFormList.state = 'Hidden';
             }
           }
+        } else if (dragHeightAdjustment < -parent.height * 0.2) {
+          fullScreenView = true;
         }
       } else {
-        if (direction === 'left') {
-          fullScreenView = true;
-        } else if (direction === 'right') {
+        if (featureFormList.width < featureFormList.parent.width * 0.3) {
           if (fullScreenView) {
             fullScreenView = false;
           } else {
@@ -527,8 +573,12 @@ Rectangle {
               featureFormList.state = 'Hidden';
             }
           }
+        } else if (dragWidthAdjustment < -parent.width * 0.2) {
+          fullScreenView = true;
         }
       }
+      dragHeightAdjustment = 0;
+      dragWidthAdjustment = 0;
     }
 
     onEditAttributesButtonClicked: {
@@ -736,6 +786,7 @@ Rectangle {
   }
 
   Behavior on width  {
+    enabled: !isDragging
     PropertyAnimation {
       duration: parent.width > parent.height ? 250 : 0
       easing.type: Easing.OutQuart
@@ -750,6 +801,7 @@ Rectangle {
   }
 
   Behavior on height  {
+    enabled: !isDragging
     PropertyAnimation {
       duration: parent.width < parent.height ? 250 : 0
       easing.type: Easing.OutQuart
@@ -904,7 +956,7 @@ Rectangle {
         color: Theme.mainTextColor
       }
 
-      ComboBox {
+      QfComboBox {
         id: transferComboBox
         width: transferLabel.width
 

@@ -17,66 +17,51 @@ Item {
   property bool useSearch: false
   property bool allowAddFeature: false
   property var relation: undefined
+  property var layerResolver: undefined
+  property var currentKeyValue: value
+  property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopupLoader.item
+  readonly property alias searchPopup: searchFeaturePopup
+  property color displayedTextColor: FeatureUtils.attributeIsNull(value) || value === "" || (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
 
   Component.onCompleted: {
-    if (!featureListModel.addNull) {
+    if (featureListModel && !featureListModel.allowMulti) {
       comboBox.currentIndex = featureListModel.findKey(value);
       invalidWarning.visible = relation !== undefined ? !(relation.isValid) : false;
     }
   }
 
   onCurrentKeyValueChanged: {
-    if (!featureListModel.addNull) {
+    if (featureListModel && !featureListModel.allowMulti) {
       comboBox._cachedCurrentValue = currentKeyValue;
       comboBox.currentIndex = featureListModel.findKey(currentKeyValue);
     }
   }
 
-  anchors {
-    left: parent.left
-    right: parent.right
-  }
   height: childrenRect.height
 
-  property var currentKeyValue: value
-  property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopup
-
-  EmbeddedFeatureForm {
-    id: addFeaturePopup
-
-    embeddedLevel: form.embeddedLevel + 1
-    digitizingToolbar: form.digitizingToolbar
-    codeReader: form.codeReader
-
-    onFeatureSaved: {
-      const referencedValue = addFeaturePopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
-      const index = featureListModel.findKey(referencedValue);
-      if (index < 0) {
-        // model not yet reloaded - keep the value and set it onModelReset
-        comboBox._cachedCurrentValue = referencedValue;
-      } else {
-        comboBox.currentIndex = index;
-      }
-    }
-  }
-
-  Popup {
+  QfPopup {
     id: searchFeaturePopup
 
+    readonly property int minimumHeight: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+
     parent: mainWindow.contentItem
-    width: mainWindow.width - Theme.popupScreenEdgeMargin * 2
-    height: mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
-    x: Theme.popupScreenEdgeMargin
+    width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
+    height: minimumHeight > 0 ? minimumHeight : 200
+    x: Theme.popupScreenEdgeHorizontalMargin
     y: (mainWindow.height - height) / 2
     z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
-    padding: 0
-    modal: true
     closePolicy: Popup.CloseOnEscape
     focus: visible
 
     onOpened: {
       if (searchableText.typedFilter != '') {
         searchBar.setSearchTerm(searchableText.typedFilter);
+      }
+      if (searchableText.focus) {
+        searchableText.text = '';
+        searchableText.focus = false;
       }
       if (resultsList.contentHeight > resultsList.height) {
         searchBar.focusOnTextField();
@@ -91,6 +76,7 @@ Item {
 
     Page {
       anchors.fill: parent
+      padding: 5
 
       header: QfPageHeader {
         title: fieldLabel
@@ -130,7 +116,7 @@ Item {
         clip: true
         ScrollBar.vertical: QfScrollBar {
         }
-        section.property: featureListModel.groupField != "" ? "groupFieldValue" : ""
+        section.property: featureListModel ? featureListModel.groupField != "" ? "groupFieldValue" : "" : ""
         section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
         section.delegate: Component {
           Rectangle {
@@ -233,7 +219,6 @@ Item {
             if (!item)
               return;
             item.performClick();
-            model.checked = !model.checked;
             if (!resultsList.model.allowMulti) {
               searchFeaturePopup.close();
             }
@@ -253,8 +238,9 @@ Item {
       right: parent.right
     }
 
-    ComboBox {
+    QfComboBox {
       id: comboBox
+      objectName: "RelationComboBox"
       visible: !enabled || (!useSearch && !useCompleter && (relation !== undefined ? relation.isValid : true))
       Layout.fillWidth: true
 
@@ -265,6 +251,8 @@ Item {
       valueRole: 'keyFieldValue'
 
       onCurrentIndexChanged: {
+        if (searchFeaturePopup.opened)
+          return;
         const newValue = featureListModel.dataFromRowIndex(currentIndex, FeatureListModel.KeyFieldRole);
         if (newValue !== currentKeyValue) {
           valueChangeRequested(newValue, false);
@@ -273,7 +261,7 @@ Item {
 
       Connections {
         target: featureListModel
-        enabled: !featureListModel.addNull
+        enabled: featureListModel ? !featureListModel.allowMulti : false
 
         function onModelReset() {
           comboBox.currentIndex = featureListModel.findKey(comboBox._cachedCurrentValue);
@@ -312,14 +300,22 @@ Item {
       font: Theme.defaultFont
 
       contentItem: Text {
-        leftPadding: enabled ? 5 : 0
+        leftPadding: relationCombobox.enabled || (!isEditable && isEditing) ? 10 : 0
         height: fontMetrics.height + 20
-        text: comboBox.currentIndex == -1 && value !== undefined ? '(' + value + ')' : comboBox.currentText
+        text: {
+          if (!isEditing && value === "") {
+            return qsTr("Empty");
+          } else if (!isEditing && FeatureUtils.attributeIsNull(value)) {
+            return qsTr("NULL");
+          }
+          return comboBox.currentIndex === -1 && value !== undefined ? '(' + value + ')' : comboBox.currentText;
+        }
+
         font: comboBox.font
-        color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
+        color: displayedTextColor
       }
 
       popup: Popup {
@@ -344,7 +340,7 @@ Item {
           implicitHeight: Math.min(mainWindow.height - mainWindow.sceneTopMargin - mainWindow.sceneTopMargin, contentHeight)
           currentIndex: comboBox.highlightedIndex
 
-          section.property: featureListModel.groupField != "" ? "groupFieldValue" : ""
+          section.property: featureListModel ? featureListModel.groupField != "" ? "groupFieldValue" : "" : ""
           section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
           section.delegate: Component {
             Rectangle {
@@ -371,27 +367,8 @@ Item {
         }
       }
 
-      background: Item {
-        implicitWidth: 120
-        implicitHeight: 36
-
-        Rectangle {
-          visible: !enabled
-          y: comboBox.height - 2
-          width: comboBox.width
-          height: comboBox.activeFocus ? 2 : 1
-          color: comboBox.activeFocus ? Theme.accentColor : Theme.accentLightColor
-        }
-
-        Rectangle {
-          visible: enabled
-          anchors.fill: parent
-          border.color: comboBox.pressed ? Theme.accentColor : Theme.accentLightColor
-          border.width: comboBox.visualFocus ? 2 : 1
-          color: Theme.controlBackgroundAlternateColor
-          radius: 2
-        }
-      }
+      background.visible: relationCombobox.enabled || (!isEditable && isEditing)
+      indicator.visible: relationCombobox.enabled || (!isEditable && isEditing)
     }
 
     FontMetrics {
@@ -402,7 +379,7 @@ Item {
     Rectangle {
       id: searchable
       visible: !comboBox.visible
-      height: fontMetrics.height + 12
+      height: searchableText.height + searchableText.topInset + searchableText.bottomInset
       Layout.fillWidth: true
       Layout.topMargin: 5
       Layout.bottomMargin: 5
@@ -414,12 +391,12 @@ Item {
         property string completer: ''
 
         anchors.verticalCenter: parent.verticalCenter
-        topPadding: 0
-        leftPadding: 5
-        rightPadding: 5
-        bottomPadding: 0
+        topPadding: searchableText.topPadding
+        leftPadding: searchableText.leftPadding
+        rightPadding: searchableText.rightPadding
+        bottomPadding: searchableText.bottomPadding
         width: parent.width - dropDownArrowCanvas.width - dropDownArrowCanvas.anchors.rightMargin * 2
-        height: fontMetrics.height + 12
+        height: parent.height
         text: useCompleter ? completer : comboBox.displayText
         font: comboBox.font
         horizontalAlignment: Text.AlignLeft
@@ -437,12 +414,6 @@ Item {
         property string typedFilter: ''
 
         anchors.verticalCenter: parent.verticalCenter
-        topPadding: 0
-        rightPadding: 5
-        leftPadding: 5
-        bottomPadding: 0
-        topInset: 0
-        bottomInset: 0
         width: parent.width - dropDownArrowCanvas.width - dropDownArrowCanvas.anchors.rightMargin * 2
         text: ''
         font: comboBox.font
@@ -454,6 +425,7 @@ Item {
           color: "transparent"
           border.color: "transparent"
           border.width: 0
+          implicitHeight: searchableText.Material.textFieldHeight
         }
 
         inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData
@@ -568,9 +540,9 @@ Item {
         onEnabledChanged: requestPaint()
       }
 
-      border.color: comboBox.pressed ? Theme.accentColor : Theme.accentLightColor
-      border.width: comboBox.visualFocus ? 2 : 1
-      color: Theme.controlBackgroundAlternateColor
+      border.color: searchableText.activeFocus ? Theme.mainColor : searchableText.hovered ? searchableText.Material.primaryTextColor : searchableText.Material.hintTextColor
+      border.width: searchableText.activeFocus ? 2 : 1
+      color: "transparent"
       radius: 2
 
       MouseArea {
@@ -586,6 +558,7 @@ Item {
 
     QfToolButton {
       id: searchButton
+      objectName: "OpenSearchFeaturePopupButton"
 
       Layout.preferredWidth: enabled ? 48 : 0
       Layout.preferredHeight: 48
@@ -603,6 +576,7 @@ Item {
 
     QfToolButton {
       id: addFeatureButton
+      objectName: "AddFeatureButton"
 
       Layout.preferredWidth: comboBox.enabled ? 48 : 0
       Layout.preferredHeight: 48
@@ -612,11 +586,14 @@ Item {
       iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
       iconColor: Theme.mainTextColor
 
-      visible: enabled && allowAddFeature && relation !== undefined && relation.isValid
+      visible: enabled && allowAddFeature && (layerResolver !== undefined || (relation !== undefined && relation.isValid))
 
       onClicked: {
-        if (relationCombobox.relation.referencedLayer.geometryType() !== Qgis.GeometryType.Null) {
+        if (relationCombobox.relation !== undefined && relationCombobox.relation.referencedLayer.geometryType() !== Qgis.GeometryType.Null) {
           requestGeometry(relationCombobox, relationCombobox.relation.referencedLayer);
+          return;
+        } else if (relationCombobox.layerResolver !== undefined && relationCombobox.layerResolver.currentLayer.geometryType() !== Qgis.GeometryType.Null) {
+          requestGeometry(relationCombobox, relationCombobox.layerResolver.currentLayer);
           return;
         }
         showAddFeaturePopup();
@@ -631,21 +608,36 @@ Item {
     }
   }
 
-  EmbeddedFeatureForm {
-    id: embeddedPopup
+  Loader {
+    id: embeddedPopupLoader
+    active: false
 
-    embeddedLevel: form.embeddedLevel + 1
-    digitizingToolbar: form.digitizingToolbar
-    codeReader: form.codeReader
+    sourceComponent: EmbeddedFeatureForm {
+      id: embeddedPopup
 
-    onFeatureSaved: {
-      const referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
-      const index = featureListModel.findKey(referencedValue);
-      if ((featureListModel.addNull && index < 1) || index < 0) {
-        // model not yet reloaded - keep the value and set it onModelReset
-        comboBox._cachedCurrentValue = referencedValue;
-      } else {
-        comboBox.currentIndex = index;
+      embeddedLevel: form.embeddedLevel + 1
+      digitizingToolbar: form.digitizingToolbar
+      codeReader: form.codeReader
+
+      onFeatureSaved: {
+        // model not yet reloaded - keep the value in _cachedCurrentValue and set it onModelReset
+        if (relationCombobox.relation !== undefined) {
+          const referencedValue = embeddedPopup.attributeFormModel.attribute(relationCombobox.relation.resolveReferencedField(field.name));
+          const index = featureListModel.findKey(referencedValue);
+          if ((featureListModel.addNull && index < 1) || index < 0) {
+            comboBox._cachedCurrentValue = referencedValue;
+          }
+        } else {
+          const keyValue = embeddedPopup.attributeFormModel.attribute(relationCombobox.featureListModel.keyField);
+          const index = featureListModel.findKey(keyValue);
+          if ((featureListModel.addNull && index < 1) || index < 0) {
+            comboBox._cachedCurrentValue = keyValue;
+          }
+        }
+      }
+
+      onRequestJumpToPoint: function (center, scale, handleMargins) {
+        relationCombobox.requestJumpToPoint(center, scale, handleMargins);
       }
     }
   }
@@ -654,12 +646,24 @@ Item {
     showAddFeaturePopup(geometry);
   }
 
-  function showAddFeaturePopup(geometry) {
-    embeddedPopup.state = 'Add';
-    embeddedPopup.currentLayer = relationCombobox.relation ? relationCombobox.relation.referencedLayer : null;
-    if (geometry !== undefined) {
-      embeddedPopup.applyGeometry(geometry);
+  function ensureEmbeddedFormLoaded() {
+    if (!embeddedPopupLoader.active) {
+      embeddedPopupLoader.active = true;
     }
-    embeddedPopup.open();
+  }
+
+  function showAddFeaturePopup(geometry) {
+    ensureEmbeddedFormLoaded();
+    embeddedFeatureForm.state = 'Add';
+    embeddedFeatureForm.currentLayer = null;
+    if (relationCombobox.relation !== undefined) {
+      embeddedFeatureForm.currentLayer = relationCombobox.relation.referencedLayer;
+    } else if (relationCombobox.layerResolver !== undefined) {
+      embeddedFeatureForm.currentLayer = relationCombobox.layerResolver.currentLayer;
+    }
+    if (geometry !== undefined) {
+      embeddedFeatureForm.applyGeometry(geometry);
+    }
+    embeddedFeatureForm.open();
   }
 }

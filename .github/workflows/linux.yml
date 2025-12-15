@@ -20,9 +20,20 @@ jobs:
 
     steps:
       - name: 🐣 Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: recursive
+
+      - name: ♻️ Check disk space
+        run: df . -h
+
+      - name: 🧹 Reclaim disk space
+        run: |
+          sudo rm -rf /usr/local/lib/android/
+          sudo rm -rf /opt/ghc
+
+      - name: ♻️ Check disk space
+        run: df . -h
 
       - name: 🌾 Prepare variables
         id: vars
@@ -36,7 +47,7 @@ jobs:
       - name: 💎 Setup ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2' # Not needed with a .ruby-version file
+          ruby-version: '3.4' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: 🐩 Install CMake and Ninja
@@ -47,7 +58,7 @@ jobs:
       - name: 🔨 Prepare build env
         run: |
           sudo apt-get update
-          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libegl1-mesa libegl1-mesa-dev libgl1-mesa-dev libglu1-mesa-dev mesa-common-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev libxrandr-dev libxxf86vm-dev autoconf-archive libgstreamer-gl1.0-0 libgstreamer-plugins-base1.0-0 libfuse2 libpulse-dev libcups2-dev nasm python3-tk
+          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libsm-dev libegl1-mesa libegl1-mesa-dev libgl1-mesa-dev libglu1-mesa-dev mesa-common-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev libxrandr-dev libxxf86vm-dev autoconf-archive libgstreamer-gl1.0-0 libgstreamer-plugins-base1.0-0 libfuse2 libpulse-dev libcups2-dev nasm python3-tk
           wget https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-linux-x86_64.sh -O /tmp/cmakeinstall.sh
           chmod +x /tmp/cmakeinstall.sh
           sudo /tmp/cmakeinstall.sh --prefix=/usr/local --exclude-subdir
@@ -85,7 +96,7 @@ jobs:
                 -D LINUXDEPLOY_EXECUTABLE=${{ env.BUILD_ROOT }}/linuxdeploy-x86_64.AppImage
 
       - name: 📑 Upload dep build logs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: failure()
         with:
           name: build-logs-x64-linux
@@ -93,7 +104,7 @@ jobs:
             build/**/*.log
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
+        uses: github/codeql-action/init@v4
         with:
           languages: 'c-cpp'
 
@@ -101,7 +112,7 @@ jobs:
         run: |
           xvfb-run cmake --build build --config ${{ env.BUILD_TYPE }}
 
-      - uses: ZedThree/clang-tidy-review@v0.21.0
+      - uses: ZedThree/clang-tidy-review@v0.22.2
         id: review
         if: github.event_name == 'pull_request'
         with:
@@ -118,7 +129,8 @@ jobs:
 
       - name: 📦 Upload package
         if: ${{ env.ARTIFACT_NAME != null }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
+        id: artifact-linux
         with:
           name: "QField-dev-x64-linux-${{ env.BUILD_TYPE }}"
           path: ${{ env.ARTIFACT_PATHNAME }}
@@ -152,7 +164,7 @@ jobs:
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" down
 
       - name: 📑 Upload package logs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: failure()
         with:
           name: package-logs-x64-linux
@@ -160,7 +172,7 @@ jobs:
 
       - name: 📊 Upload test report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: "test-report-x64-linux-${{ env.BUILD_TYPE }}"
           path: "build/report"
@@ -184,6 +196,17 @@ jobs:
           bundle exec fastlane run sentry_debug_files_upload path:build
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
+        uses: github/codeql-action/analyze@v4
         with:
           category: "/language:c-cpp"
+
+      - name: Schedule download comment
+        uses: ./.github/actions/post_sticky_comment
+        if: github.event_name == 'pull_request'
+        with:
+          marker: linux
+          body: |
+            ### 🐧 Linux AppImage builds
+            Download a [Linux AppImage build of this PR for testing](${{ steps.artifact-linux.outputs.artifact-url }}).
+            *(Built from commit ${{ github.event.pull_request.head.sha }})*
+          pr: ${{ github.event.number }}

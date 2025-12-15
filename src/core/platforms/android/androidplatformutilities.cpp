@@ -82,7 +82,7 @@ AndroidPlatformUtilities::AndroidPlatformUtilities()
 
 PlatformUtilities::Capabilities AndroidPlatformUtilities::capabilities() const
 {
-  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera | AdjustBrightness | CustomImport | CustomExport | CustomSend | FilePicker | VolumeKeys | UpdateProjectFromArchive;
+  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera | AdjustBrightness | CustomImport | CustomExport | CustomSend | FilePicker | VolumeKeys | UpdateProjectFromArchive | PositioningService;
 #ifdef WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -736,23 +736,6 @@ void AndroidPlatformUtilities::setHandleVolumeKeys( const bool handle )
   }
 }
 
-QVariantMap AndroidPlatformUtilities::sceneMargins( QQuickWindow *window ) const
-{
-  Q_UNUSED( window )
-
-  double topMargin = std::abs( static_cast<double>( mActivity.callMethod<jdouble>( "topMargin" ) ) ) / QGuiApplication::primaryScreen()->devicePixelRatio();
-  double bottomMargin = std::abs( static_cast<double>( mActivity.callMethod<jdouble>( "bottomMargin" ) ) ) / QGuiApplication::primaryScreen()->devicePixelRatio();
-  double leftMargin = std::abs( static_cast<double>( mActivity.callMethod<jdouble>( "leftMargin" ) ) ) / QGuiApplication::primaryScreen()->devicePixelRatio();
-  double rightMargin = std::abs( static_cast<double>( mActivity.callMethod<jdouble>( "rightMargin" ) ) ) / QGuiApplication::primaryScreen()->devicePixelRatio();
-
-  QVariantMap margins;
-  margins[QLatin1String( "top" )] = topMargin;
-  margins[QLatin1String( "right" )] = rightMargin;
-  margins[QLatin1String( "bottom" )] = bottomMargin;
-  margins[QLatin1String( "left" )] = leftMargin;
-  return margins;
-}
-
 void AndroidPlatformUtilities::uploadPendingAttachments( QFieldCloudConnection *connection ) const
 {
   // Request notification permission
@@ -799,7 +782,7 @@ void AndroidPlatformUtilities::requestBackgroundPositioningPermissions()
   checkAndAcquirePermissions( { QStringLiteral( "android.permission.ACCESS_BACKGROUND_LOCATION" ) } );
 }
 
-void AndroidPlatformUtilities::startPositioningService() const
+QString AndroidPlatformUtilities::startPositioningService() const
 {
   if ( qtAndroidSkdVersion() >= 33 )
   {
@@ -812,6 +795,7 @@ void AndroidPlatformUtilities::startPositioningService() const
                                       "startQFieldPositioningService",
                                       "(Landroid/content/Context;)V",
                                       qtAndroidContext().object() );
+  return QStringLiteral( "localabstract:" APP_PACKAGE_NAME "replica" );
 }
 
 void AndroidPlatformUtilities::stopPositioningService() const

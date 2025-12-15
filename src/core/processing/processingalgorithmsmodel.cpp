@@ -158,7 +158,7 @@ void ProcessingAlgorithmsModelBase::addProvider( QgsProcessingProvider *provider
   const QList<const QgsProcessingAlgorithm *> algorithms = provider->algorithms();
   for ( const QgsProcessingAlgorithm *algorithm : algorithms )
   {
-    const static QStringList sSupportedParameters = { QStringLiteral( "number" ), QStringLiteral( "distance" ), QStringLiteral( "enum" ), QStringLiteral( "boolean" ), QStringLiteral( "sink" ), QStringLiteral( "source" ) };
+    const static QStringList sSupportedParameters = { QStringLiteral( "number" ), QStringLiteral( "area" ), QStringLiteral( "distance" ), QStringLiteral( "enum" ), QStringLiteral( "boolean" ), QStringLiteral( "sink" ), QStringLiteral( "source" ) };
     const QgsProcessingFeatureBasedAlgorithm *featureBasedAlgorithm = dynamic_cast<const QgsProcessingFeatureBasedAlgorithm *>( algorithm );
     if ( algorithm->flags() & Qgis::ProcessingAlgorithmFlag::SupportsInPlaceEdits )
     {
@@ -212,10 +212,7 @@ QHash<int, QByteArray> ProcessingAlgorithmsModelBase::roleNames() const
 
 int ProcessingAlgorithmsModelBase::rowCount( const QModelIndex &parent ) const
 {
-  if ( !parent.isValid() )
-    return mAlgorithms.size();
-  else
-    return 0;
+  return !parent.isValid() ? static_cast<int>( mAlgorithms.size() ) : 0;
 }
 
 QVariant ProcessingAlgorithmsModelBase::data( const QModelIndex &index, int role ) const

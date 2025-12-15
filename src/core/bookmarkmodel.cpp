@@ -17,6 +17,7 @@
 
 #include "bookmarkmodel.h"
 
+#include <qgsapplication.h>
 #include <qgscoordinatetransform.h>
 #include <qgsgeometry.h>
 #include <qgsproject.h>
@@ -38,44 +39,24 @@ QVariant BookmarkModel::data( const QModelIndex &index, int role ) const
   switch ( role )
   {
     case BookmarkModel::BookmarkId:
-#if _QGIS_VERSION_INT >= 33500
       return mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Id ) );
-#else
-      return mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleId );
-#endif
 
     case BookmarkModel::BookmarkName:
-#if _QGIS_VERSION_INT >= 33500
       return mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Name ) );
-#else
-      return mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleName );
-#endif
 
     case BookmarkModel::BookmarkGroup:
-#if _QGIS_VERSION_INT >= 33500
       return mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) );
-#else
-      return mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleGroup );
-#endif
 
     case BookmarkModel::BookmarkPoint:
     {
-#if _QGIS_VERSION_INT >= 33500
-      QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
-#else
-      QgsReferencedRectangle rect = mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleExtent ).value<QgsReferencedRectangle>();
-#endif
-      QgsGeometry geom( new QgsPoint( rect.center() ) );
+      const QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
+      const QgsGeometry geom( new QgsPoint( rect.center() ) );
       return geom;
     }
 
     case BookmarkModel::BookmarkCrs:
     {
-#if _QGIS_VERSION_INT >= 33500
-      QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
-#else
-      QgsReferencedRectangle rect = mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleExtent ).value<QgsReferencedRectangle>();
-#endif
+      const QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
       return rect.crs();
     }
 
@@ -116,12 +97,7 @@ void BookmarkModel::setExtentFromBookmark( const QModelIndex &index )
   if ( !sourceIndex.isValid() || !mMapSettings )
     return;
 
-#if _QGIS_VERSION_INT >= 33500
-  QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
-#else
-  QgsReferencedRectangle rect = mModel->data( sourceIndex, QgsBookmarkManagerModel::RoleExtent ).value<QgsReferencedRectangle>();
-#endif
-
+  const QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
   QgsCoordinateTransform transform( rect.crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
   QgsRectangle transformedRect;
   try
@@ -139,7 +115,8 @@ void BookmarkModel::setExtentFromBookmark( const QModelIndex &index )
     return;
   }
 
-  mMapSettings->setExtent( transformedRect, true );
+  const double scale = mMapSettings->computeScaleForExtent( transformedRect, true );
+  emit requestJumpToPoint( QgsPoint( transformedRect.center() ), scale, true );
 }
 
 QString BookmarkModel::addBookmarkAtPoint( QgsPoint point, const QString &name, const QString &group )
@@ -162,7 +139,11 @@ QString BookmarkModel::addBookmarkAtPoint( QgsPoint point, const QString &name, 
   bookmark.setExtent( QgsReferencedRectangle( extent, mMapSettings->destinationCrs() ) );
   bookmark.setName( name );
   bookmark.setGroup( group );
-  return mManager->addBookmark( bookmark );
+
+  const QString uuid = mManager->addBookmark( bookmark );
+  store();
+
+  return uuid;
 }
 
 void BookmarkModel::updateBookmarkDetails( const QString &id, const QString &name, const QString &group )
@@ -176,6 +157,7 @@ void BookmarkModel::updateBookmarkDetails( const QString &id, const QString &nam
 void BookmarkModel::removeBookmark( const QString &id )
 {
   mManager->removeBookmark( id );
+  store();
 }
 
 QgsPoint BookmarkModel::getBookmarkPoint( const QString &id )
@@ -188,4 +170,25 @@ QgsCoordinateReferenceSystem BookmarkModel::getBookmarkCrs( const QString &id )
 {
   const QgsBookmark bookmark = mManager->bookmarkById( id );
   return bookmark.extent().crs();
+}
+
+void BookmarkModel::store()
+{
+  const QString filePath = QStringLiteral( "%1/bookmarks.xml" ).arg( QgsApplication::qgisSettingsDirPath() );
+  if ( !filePath.isEmpty() )
+  {
+    QFile f( filePath );
+    if ( !f.open( QFile::WriteOnly | QIODevice::Truncate ) )
+    {
+      return;
+    }
+
+    QDomDocument doc;
+    QDomElement elem = mManager->writeXml( doc );
+    doc.appendChild( elem );
+
+    QTextStream out( &f );
+    doc.save( out, 2 );
+    f.close();
+  }
 }

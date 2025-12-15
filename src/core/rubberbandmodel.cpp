@@ -29,7 +29,7 @@ RubberbandModel::RubberbandModel( QObject *parent )
 
 int RubberbandModel::vertexCount() const
 {
-  return mPointList.size();
+  return static_cast<int>( mPointList.size() );
 }
 
 bool RubberbandModel::isEmpty() const
@@ -149,7 +149,7 @@ void RubberbandModel::removeVertices( int index, int count, bool keepLast )
 
   if ( mCurrentCoordinateIndex >= mPointList.size() )
   {
-    setCurrentCoordinateIndex( mPointList.size() - 1 );
+    setCurrentCoordinateIndex( static_cast<int>( mPointList.size() - 1 ) );
   }
 
   emit verticesRemoved( index, count );
@@ -333,7 +333,7 @@ void RubberbandModel::removeVertex()
 
 void RubberbandModel::reset( bool keepLast )
 {
-  removeVertices( 0, mPointList.size() - ( keepLast ? 1 : 0 ), keepLast );
+  removeVertices( 0, static_cast<int>( mPointList.size() ) - ( keepLast ? 1 : 0 ), keepLast );
 
   mFrozen = false;
   emit frozenChanged();
@@ -373,9 +373,9 @@ void RubberbandModel::setDataFromGeometry( QgsGeometry geometry, const QgsCoordi
   // the GNSS position) will not replace the last vertex from the passed geometry
   mPointList << mPointList.last();
 
-  mCurrentCoordinateIndex = mPointList.size() - 1;
+  mCurrentCoordinateIndex = static_cast<int>( mPointList.size() ) - 1;
 
-  emit verticesInserted( 0, mPointList.size() );
+  emit verticesInserted( 0, static_cast<int>( mPointList.size() ) );
   emit vertexCountChanged();
 }
 

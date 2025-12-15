@@ -9,6 +9,9 @@
     </qresource>
     <qresource prefix="/pictures">
         <file alias="qfield-love.png">pictures/qfield-love.png</file>
+        <file>pictures/colorful.jpg</file>
+        <file>pictures/dark.jpg</file>
+        <file>pictures/lightgray.jpg</file>
     </qresource>
     <qresource prefix="/">
         <file>themes/qfield/nodpi/ic_text_black_24dp.svg</file>
@@ -30,13 +33,14 @@
         <file>themes/qfield/nodpi/ic_udp_receiver_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_serial_port_receiver_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_copy_black_24dp.svg</file>
-        <file>themes/qfield/nodpi/ic_content_cut_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_cut_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_book_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_paste_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_lock_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_lock_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_lock_open_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_lock_open_green_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_marker_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_measurement_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_folder_open_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_project_folder_black_24dp.svg</file>
@@ -47,6 +51,7 @@
         <file>themes/qfield/nodpi/ic_create_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_clear_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_add_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_add_bookmark_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_add_vertex_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_remove_vertex_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_menu_white_24dp.svg</file>
@@ -116,8 +121,8 @@
         <file>themes/qfield/nodpi/ic_topology_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_freehand_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_clear_black_18dp.svg</file>
-        <file>themes/qfield/nodpi/ic_location_locked_active_white_24dp.svg</file>
-        <file>themes/qfield/nodpi/ic_location_locked_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_location_canvas_lock_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_location_cursor_lock_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_qr_code_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_nfc_code_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_note_white_24dp.svg</file>
@@ -147,6 +152,9 @@
         <file>themes/qfield/nodpi/ic_legend_collapsed_state_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_legend_collapsed_state_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_group_18dp.svg</file>
+        <file>themes/qfield/nodpi/ic_geometry_point_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_geometry_line_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_geometry_polygon_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_vectorlayer_point_18dp.svg</file>
         <file>themes/qfield/nodpi/ic_vectorlayer_line_18dp.svg</file>
         <file>themes/qfield/nodpi/ic_vectorlayer_polygon_18dp.svg</file>

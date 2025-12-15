@@ -16,7 +16,9 @@ Item {
   property string bookmarkGroup: ''
   property bool bookmarkUser: false
 
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
+  /// type:QgsGeometryWrapper
   property alias geometryWrapper: geometryWrapper
 
   QgsGeometryWrapper {
@@ -147,7 +149,7 @@ Item {
                 }
               }
               return false;
-            });
+            }, MapCanvasPointHandler.Priority.Low);
         }
 
         Component.onDestruction: {

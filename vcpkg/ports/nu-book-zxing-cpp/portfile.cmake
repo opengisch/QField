@@ -3,15 +3,16 @@ vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO zxing-cpp/zxing-cpp
-    REF "v${VERSION}"
-    SHA512 f1de8df783061a152a18cd9102ac0c579c40c76ab4a5ba9f30bcb8ddb532f3fac08736840a631adbf7c30a7fa00ce8d65625c8cd695288620601708e8f256a53
+    REF 49ed86df028496335bf080ffd16c0b187421b9f5
+    SHA512 035c4a07630e0136af6e30200fdefea2bcdfc44f23fcdf1047bd1641ae0fde3ed2b01054a1a0eaf27c74341d94f733dea58b0300af77e10361955b403cb8509f
     HEAD_REF master
+    PATCHES
+        cxx17.patch
 )
 
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
     OPTIONS
-        -DBUILD_BLACKBOX_TESTS=OFF
         -DBUILD_EXAMPLES=OFF
 )
 

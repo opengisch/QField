@@ -18,6 +18,8 @@
 
 #include <QAbstractListModel>
 
+class LocalFileItem;
+
 /**
  * \ingroup core
  */
@@ -34,11 +36,11 @@ class LocalFilesModel : public QAbstractListModel
   public:
     enum ItemMetaType
     {
+      Favorite,
       Folder,
       File,
       Project,
       Dataset,
-      Favorite,
     };
     Q_ENUM( ItemMetaType )
 
@@ -53,29 +55,6 @@ class LocalFilesModel : public QAbstractListModel
       OtherFile,
     };
     Q_ENUM( ItemType )
-
-    struct Item
-    {
-        Item() = default;
-
-        Item( ItemMetaType metaType, ItemType type, const QString &title, const QString &format, const QString &path, qint64 size = 0, const bool checked = false )
-          : metaType( metaType )
-          , type( type )
-          , title( title )
-          , format( format )
-          , path( path )
-          , size( size )
-          , checked( checked )
-        {}
-
-        ItemMetaType metaType = ItemMetaType::Folder;
-        ItemType type = ItemType::SimpleFolder;
-        QString title;
-        QString format;
-        QString path;
-        qint64 size = 0;
-        bool checked;
-    };
 
     enum Role
     {
@@ -99,6 +78,9 @@ class LocalFilesModel : public QAbstractListModel
 
     int rowCount( const QModelIndex &parent ) const override;
     QVariant data( const QModelIndex &index, int role ) const override;
+
+    //! Returns the LocalFileItem at the given \a index
+    Q_INVOKABLE LocalFileItem get( int index ) const;
 
     //! Resets the model and sets the first navigation history item to root
     Q_INVOKABLE void resetToRoot();
@@ -156,9 +138,64 @@ class LocalFilesModel : public QAbstractListModel
     const QString getCurrentTitleFromPath( const QString &path ) const;
 
     QStringList mHistory;
-    QList<Item> mItems;
+    QList<LocalFileItem> mItems;
 
     QStringList mFavorites;
+
+    QString mCreatedProjectsPath;
+    QString mImportedProjectsPath;
+    QString mImportedDatasetsPath;
+    QString mSampleProjectsPath;
 };
 
+
+/**
+ * \ingroup core
+ */
+class LocalFileItem
+{
+    Q_GADGET
+
+    Q_PROPERTY( LocalFilesModel::ItemMetaType metaType READ metaType CONSTANT )
+    Q_PROPERTY( LocalFilesModel::ItemType type READ type CONSTANT )
+    Q_PROPERTY( QString title READ title CONSTANT )
+    Q_PROPERTY( QString format READ format CONSTANT )
+    Q_PROPERTY( QString path READ path CONSTANT )
+    Q_PROPERTY( qint64 size READ size CONSTANT )
+    Q_PROPERTY( bool checked READ checked CONSTANT )
+
+  public:
+    LocalFileItem() = default;
+
+    LocalFileItem( LocalFilesModel::ItemMetaType metaType, LocalFilesModel::ItemType type, const QString &title, const QString &format, const QString &path, qint64 size = 0, bool checked = false )
+      : mMetaType( metaType )
+      , mType( type )
+      , mTitle( title )
+      , mFormat( format )
+      , mPath( path )
+      , mSize( size )
+      , mChecked( checked )
+    {}
+
+    LocalFilesModel::ItemMetaType metaType() const { return mMetaType; }
+    LocalFilesModel::ItemType type() const { return mType; }
+    QString title() const { return mTitle; }
+    QString format() const { return mFormat; }
+    QString path() const { return mPath; }
+    qint64 size() const { return mSize; }
+
+    bool checked() const { return mChecked; }
+    void setChecked( bool checked ) { mChecked = checked; }
+
+  private:
+    LocalFilesModel::ItemMetaType mMetaType = LocalFilesModel::ItemMetaType::Folder;
+    LocalFilesModel::ItemType mType = LocalFilesModel::ItemType::SimpleFolder;
+    QString mTitle;
+    QString mFormat;
+    QString mPath;
+    qint64 mSize = 0;
+    bool mChecked = false;
+};
+
+Q_DECLARE_METATYPE( LocalFileItem )
 #endif // LOCALFILESMODEL_H

@@ -29,6 +29,7 @@
  * It requires connection of transformation context from mapSettings, source position and source CRS to
  * calculate projected position in desired destination CRS.
  *
+ * \ingroup core
  * \note QML Type: CoordinateTransformer
  *
  */

@@ -166,7 +166,7 @@ class FeatureCheckListModel : public QSortFilterProxyModel
     Q_INVOKABLE QgsFeature getFeatureFromKeyValue( const QVariant &value ) const;
 
     /**
-    * Returns the first feature matching the key  \a id.
+    * Returns the first feature matching the feature  \a id.
     */
     Q_INVOKABLE QgsFeature getFeatureById( QgsFeatureId id ) const;
 
@@ -308,14 +308,19 @@ class FeatureCheckListModel : public QSortFilterProxyModel
     bool filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const override;
 
     /**
-     * Compares two items for sorting.
-     * Items are ordered based on:
-     *   - Whether checked items are sorted first (if enabled).
-     *   - Whether display strings start with the search term (if a search term is active).
-     *   - Fuzzy matching score with the search term (higher score means a closer match).
-     *   - Alphabetical order (if all other criteria are equal).
+     * Compares two items for sorting in the feature check list.
      *
-     * The function prioritizes these criteria in the order listed.
+     * Sorting priority:
+     * 1. Null placeholder (if addNull() is enabled).
+     * 2. Grouping by groupField() (empty groups first, then alphabetically).
+     * 3. Checked-first (if mSortCheckedFirst is enabled and no search term).
+     * 4. Search relevance (startsWith + fuzzy score if search term is active).
+     * 5. Value-based alphabetical ordering (if orderByValue() is enabled).
+     * 6. Key-based fallback (empty keys first, then alphabetically by key).
+     *
+     * @param left  The model index of the left item.
+     * @param right The model index of the right item.
+     * @return      True if the left item should appear before the right item.
      */
     bool lessThan( const QModelIndex &left, const QModelIndex &right ) const override;
 

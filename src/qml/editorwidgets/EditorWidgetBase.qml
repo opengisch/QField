@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import org.qfield
 import Theme
 
 Item {
@@ -10,6 +11,8 @@ Item {
    */
   property bool isLoaded: false
   property bool hasMenu: false
+  readonly property bool isNull: FeatureUtils.attributeIsNull(value)
+  readonly property bool isEmpty: value === ''
 
   property Menu menu: QfMenu {
     id: itemMenu
@@ -40,4 +43,10 @@ Item {
    * handler is \c onRequestBarcode.
    */
   signal requestBarcode(var item)
+
+  /**
+   * This signal is emitted when an editor widget is requesting to jump to a specific point on the map.
+   * The corresponding handler is \c onRequestJumpToPoint.
+   */
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
 }

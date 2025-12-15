@@ -8,16 +8,14 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: popup
 
   property alias locatorFiltersModel: locatorfiltersList.model
 
-  width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeMargin)
+  width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
-  padding: 0
-  modal: true
   closePolicy: Popup.CloseOnEscape
   parent: Overlay.overlay
   focus: visible
@@ -26,7 +24,7 @@ Popup {
     id: page
     width: parent.width
     height: locatorfiltersList.height + 60
-    padding: 10
+    padding: 5
     header: QfPageHeader {
       id: pageHeader
       title: qsTr("Search Bar Settings")
@@ -48,8 +46,14 @@ Popup {
       ListView {
         id: locatorfiltersList
         width: parent.width
-        height: Math.min(childrenRect.height, mainWindow.height - 160)
+        height: Math.min(contentHeight, mainWindow.height - 160)
+        leftMargin: 5
+        rightMargin: 5
         clip: true
+
+        ScrollBar.vertical: QfScrollBar {
+          verticalPadding: 15
+        }
 
         delegate: Rectangle {
           id: rectangle
@@ -64,7 +68,6 @@ Popup {
             Text {
               Layout.fillWidth: true
               topPadding: 5
-              leftPadding: 5
               text: Name
               font: Theme.defaultFont
               color: Theme.mainTextColor
@@ -72,7 +75,6 @@ Popup {
             }
             Text {
               Layout.fillWidth: true
-              leftPadding: 5
               bottomPadding: 5
               text: Description
               font: Theme.tipFont
@@ -82,7 +84,6 @@ Popup {
             Text {
               visible: Default ? false : true
               Layout.fillWidth: true
-              leftPadding: 5
               bottomPadding: 5
               text: qsTr('When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.').arg('<b>' + Prefix + '</b>')
               font: Theme.tipFont

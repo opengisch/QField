@@ -8,16 +8,15 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: popup
 
   property alias model: deltaList.model
 
-  width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeMargin * 2)
+  width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2)
   height: page.height
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
-  padding: 0
 
   onOpened: function () {
     if (cloudProjectsModel.currentProjectId) {
@@ -32,11 +31,16 @@ Popup {
   Page {
     id: page
     width: parent.width
-    height: Math.min(deltaList.contentHeight + toolBar.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
-    padding: 10
+    height: Math.min(deltaList.contentHeight + toolBar.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+    padding: 5
     header: ToolBar {
       id: toolBar
       height: 48
+
+      topPadding: 0
+      leftPadding: 0
+      rightPadding: 0
+      bottomPadding: 0
 
       background: Rectangle {
         color: "transparent"

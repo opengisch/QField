@@ -97,10 +97,9 @@ Item {
       wrapMode: Text.WordWrap
     }
 
-    ComboBox {
+    QfComboBox {
       id: serverUrlComboBox
-      Layout.preferredWidth: parent.width - showPasswordButton.width * 2
-      Layout.alignment: Qt.AlignHCenter
+      Layout.fillWidth: true
       Layout.bottomMargin: 10
       visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (prefixUrlWithProtocol(cloudConnection.url) !== cloudConnection.defaultUrl || isServerUrlEditingActive)
       enabled: visible
@@ -131,7 +130,7 @@ Item {
         visible: cloudConnection.status === QFieldCloudConnection.Disconnected
         enabled: visible
         font: Theme.defaultFont
-        horizontalAlignment: Text.AlignHCenter
+        horizontalAlignment: Text.AlignLeft
 
         text: parent.displayText
         onTextChanged: {
@@ -167,12 +166,11 @@ Item {
     TextField {
       id: usernameField
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
-      Layout.preferredWidth: parent.width - showPasswordButton.width * 2
-      Layout.alignment: Qt.AlignHCenter
+      Layout.fillWidth: true
       visible: cloudConnection.status === QFieldCloudConnection.Disconnected && qfieldCloudLogin.hasCredentialsAuthentication
       enabled: visible
       font: Theme.defaultFont
-      horizontalAlignment: Text.AlignHCenter
+      horizontalAlignment: Text.AlignLeft
       placeholderText: qsTr("Username or email")
 
       onTextChanged: text = text.replace(/\s+/g, '')
@@ -182,14 +180,15 @@ Item {
     TextField {
       id: passwordField
       echoMode: TextInput.Password
+      passwordMaskDelay: Qt.platform.os === "ios" || Qt.platform.os === "android" ? 1000 : 0
       inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
-      Layout.preferredWidth: parent.width - showPasswordButton.width * 2
-      Layout.alignment: Qt.AlignHCenter
+      Layout.fillWidth: true
       Layout.bottomMargin: 10
+      rightPadding: 50
       visible: cloudConnection.status === QFieldCloudConnection.Disconnected && qfieldCloudLogin.hasCredentialsAuthentication
       enabled: visible
       font: Theme.defaultFont
-      horizontalAlignment: Text.AlignHCenter
+      horizontalAlignment: Text.AlignLeft
       placeholderText: qsTr("Password")
 
       Keys.onReturnPressed: loginFormSumbitHandler()
@@ -203,7 +202,7 @@ Item {
         visible: (!!linkedField.echoMode && linkedField.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
         iconSource: linkedField.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
         iconColor: Theme.mainColor
-        anchors.left: linkedField.right
+        anchors.right: linkedField.right
         anchors.verticalCenter: linkedField.verticalCenter
         opacity: linkedField.text.length > 0 ? 1 : 0.25
 
@@ -307,8 +306,9 @@ Item {
     target: cloudConnection
 
     function onStatusChanged() {
-      if (cloudConnection.status === QFieldCloudConnection.LoggedIn)
+      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         usernameField.text = cloudConnection.username;
+      }
     }
 
     function onAvailableProvidersChanged() {
@@ -324,6 +324,18 @@ Item {
       }
       qfieldCloudLogin.hasCredentialsAuthentication = credentialAuthenticationAvailable;
       availableProvidersRepeater.model = cloudConnection.availableProviders;
+    }
+  }
+
+  onVisibleChanged: {
+    if (visible) {
+      usernameField.text = cloudConnection.username;
+      passwordField.text = cloudConnection.password;
+      const index = serverUrlComboBox.find(cloudConnection.url);
+      if (index === -1) {
+        serverUrlComboBox.model = serverUrlComboBox.model.concat(cloudConnection.url);
+      }
+      serverUrlComboBox.currentIndex = serverUrlComboBox.find(cloudConnection.url);
     }
   }
 

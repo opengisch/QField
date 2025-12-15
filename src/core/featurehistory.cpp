@@ -54,7 +54,6 @@ void FeatureHistory::addLayerListeners()
   for ( QgsMapLayer *layer : layers )
   {
     QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer );
-
     if ( !vl )
     {
       continue;
@@ -89,14 +88,12 @@ void FeatureHistory::onBeforeCommitChanges()
   }
 
   QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( sender() );
-
   if ( !vl )
   {
     return;
   }
 
   QgsVectorLayerEditBuffer *eb = vl->editBuffer();
-
   if ( !eb )
   {
     return;
@@ -107,7 +104,6 @@ void FeatureHistory::onBeforeCommitChanges()
   const QgsFeatureIds changedAttributesFids = qgis::listToSet( eb->changedAttributeValues().keys() );
   // NOTE QgsFeatureIds underlying implementation is QSet, so no need to check if the QgsFeatureId already exists
   QgsFeatureIds changedFids;
-
   for ( const QgsFeatureId fid : deletedFids )
     changedFids.insert( fid );
 
@@ -134,9 +130,13 @@ void FeatureHistory::onBeforeCommitChanges()
     modifiedFeatures.insert( f.id(), f );
   }
 
-  qInfo() << "FeatureHistory::onBeforeCommitChanges: vl->id()=" << vl->id() << "changedFids=" << changedFids;
+  // The feature FIDs will not be valid, we'll nevertheless use a basic layer ID check
+  const QgsFeatureIds addedFids = qgis::listToSet( eb->addedFeatures().keys() );
+  changedFids.unite( addedFids );
 
-  // NOTE no need to keep track of added features, as they are always present in the layer after commit
+  qDebug() << "FeatureHistory::onBeforeCommitChanges: vl->id()=" << vl->id() << "changedFids=" << changedFids;
+
+  mTempModifiedFeatureIdsByLayerId[vl->id()].unite( changedFids );
   mTempModifiedFeaturesByLayerId.insert( vl->id(), modifiedFeatures );
 }
 
@@ -149,13 +149,12 @@ void FeatureHistory::onCommittedFeaturesAdded( const QString &localLayerId, cons
   }
 
   QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( sender() );
-
-  if ( !vl )
+  if ( !vl || !mTempModifiedFeatureIdsByLayerId.keys().contains( vl->id() ) )
   {
     return;
   }
 
-  qDebug() << "FeatureHistory::onCommittedFeaturesAdded: adding create committed features";
+  qDebug() << "FeatureHistory::onCommittedFeaturesAdded: adding committed features added";
 
   FeatureModifications modifications = mTempHistoryStep.take( vl->id() );
 
@@ -175,7 +174,21 @@ void FeatureHistory::onCommittedFeaturesRemoved( const QString &layerId, const Q
     return;
   }
 
-  mTempDeletedFeatureIdsByLayerId.insert( layerId, deletedFeatureIds );
+  qDebug() << "FeatureHistory::onCommittedFeaturesRemoved: adding committed features removed";
+
+  QgsFeatureIds fids;
+  for ( const QgsFeatureId &fid : deletedFeatureIds )
+  {
+    if ( !mTempModifiedFeatureIdsByLayerId[layerId].contains( fid ) )
+      continue;
+
+    fids << fid;
+  }
+
+  if ( !fids.isEmpty() )
+  {
+    mTempDeletedFeatureIdsByLayerId.insert( layerId, deletedFeatureIds );
+  }
 }
 
 void FeatureHistory::onAfterCommitChanges()
@@ -186,7 +199,6 @@ void FeatureHistory::onAfterCommitChanges()
   }
 
   QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( sender() );
-
   if ( !vl )
   {
     return;
@@ -249,6 +261,7 @@ void FeatureHistory::onTimerTimeout()
   mTimer.stop();
   mUndoHistory.append( mTempHistoryStep );
   mTempHistoryStep.clear();
+  mTempModifiedFeatureIdsByLayerId.clear();
   mRedoHistory.clear();
 
   emit isUndoAvailableChanged();
@@ -262,8 +275,7 @@ QMap<QString, FeatureHistory::FeatureModifications> FeatureHistory::reverseModif
   const QStringList layerIds = modificationsByLayerId.keys();
   for ( const QString &layerId : layerIds )
   {
-    QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( mProject->mapLayer( layerId ) );
-
+    const QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( mProject->mapLayer( layerId ) );
     if ( !vl )
     {
       continue;
@@ -303,7 +315,6 @@ bool FeatureHistory::applyModifications( QMap<QString, FeatureModifications> &mo
   for ( const QString &layerId : layerIds )
   {
     QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( mProject->mapLayer( layerId ) );
-
     if ( !vl )
     {
       continue;

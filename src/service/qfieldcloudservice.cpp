@@ -15,32 +15,48 @@
  ***************************************************************************/
 
 #include "qfield_android.h"
-#include "qfieldcloudconnection.h"
 #include "qfieldcloudservice.h"
 
-#include <QSettings>
+#include <QTimer>
 
 QFieldCloudService::QFieldCloudService( int &argc, char **argv )
   : QAndroidService( argc, argv )
 {
 }
 
-void QFieldCloudService::execute()
+QFieldCloudService::~QFieldCloudService()
 {
-  QSettings settings;
-  QEventLoop loop( this );
-  QFieldCloudConnection connection;
-  QObject::connect( &connection, &QFieldCloudConnection::pendingAttachmentsUploadFinished, &loop, &QEventLoop::quit );
-  int pendingAttachments = connection.uploadPendingAttachments();
-  if ( pendingAttachments > 0 )
-  {
-    loop.exec();
-  }
-
   QJniObject activity = QCoreApplication::instance()->nativeInterface<QNativeInterface::QAndroidApplication>()->context();
   activity.callMethod<void>( "stopSelf" );
 }
 
-QFieldCloudService::~QFieldCloudService()
+void QFieldCloudService::initService()
 {
+  mCloudConnection.reset( new QFieldCloudConnection() );
+
+  QObject::connect( mCloudConnection.get(), &QFieldCloudConnection::pendingAttachmentsUploadStatus, this, [=]( const QString &fileName, double fileProgress, int uploadPending ) {
+    qInfo() << "about to trigger notification message" << fileName;
+    QString messageString = tr( "Uploading %1" ).arg( fileName );
+    if ( uploadPending > 0 )
+    {
+      messageString += QStringLiteral( " — " ) + tr( "%n file(s) remaining", "", uploadPending );
+    }
+    const QJniObject message = QJniObject::fromString( messageString );
+    const int progress = static_cast<int>( fileProgress * 100 );
+    QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldCloudService",
+                                        "triggerShowNotification",
+                                        "(Ljava/lang/String;I)V",
+                                        message.object<jstring>(),
+                                        progress );
+  } );
+  QObject::connect( mCloudConnection.get(), &QFieldCloudConnection::pendingAttachmentsUploadFinished, this, [=]() {
+    exit();
+  } );
+
+  QTimer::singleShot( 1000, [=] { uploadPendingAttachments(); } );
+}
+
+void QFieldCloudService::uploadPendingAttachments()
+{
+  mCloudConnection->uploadPendingAttachments();
 }

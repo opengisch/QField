@@ -85,7 +85,7 @@ EditorWidgetBase {
         if (externalStorage.type != "") {
           if (config["StorageAuthConfigId"] !== "" && !iface.isAuthenticationConfigurationAvailable(config["StorageAuthConfigId"])) {
             mainWindow.displayToast(qsTr("The external storage's authentication configuration ID is missing, please insure it is imported into QField"), "error", qsTr("Learn more"), function () {
-                Qt.openUrlExternally('https://docs.qfield.org/how-to/authentication/');
+                Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/authentication/');
               });
           } else {
             externalStorage.fetch(value, config["StorageAuthConfigId"]);
@@ -213,9 +213,19 @@ EditorWidgetBase {
 
     anchors.left: parent.left
     anchors.right: cameraButton.left
-    color: FileUtils.fileExists(prefixToRelativePath + value) ? Theme.mainColor : 'gray'
+    color: {
+      if ((!isEditable && isEditing) || isNull || isEmpty) {
+        return Theme.mainTextDisabledColor;
+      }
+      return FileUtils.fileExists(prefixToRelativePath + value) ? Theme.mainColor : Theme.secondaryTextColor;
+    }
 
     text: {
+      if (isEmpty) {
+        return qsTr("Empty");
+      } else if (isNull) {
+        return qsTr("NULL");
+      }
       let fieldValue = qsTr('No Value');
       if (hasValue) {
         fieldValue = prefixToRelativePath + currentValue;
@@ -232,13 +242,6 @@ EditorWidgetBase {
     font.underline: FileUtils.fileExists(prefixToRelativePath + value) || FileUtils.fileExists(value)
     verticalAlignment: Text.AlignVCenter
     elide: Text.ElideMiddle
-
-    background: Rectangle {
-      y: linkField.height - height - linkField.bottomPadding / 2
-      implicitWidth: 120
-      height: 1
-      color: Theme.accentLightColor
-    }
 
     MouseArea {
       anchors.fill: parent
@@ -266,9 +269,19 @@ EditorWidgetBase {
     width: parent.width - fileButton.width - cameraButton.width - cameraVideoButton.width - microphoneButton.width - (isEnabled ? 5 : 0)
     height: 48
     visible: !linkField.isVisible
-    color: isEnabled ? Theme.controlBackgroundAlternateColor : "transparent"
-    radius: 2
+    color: Theme.controlBorderColor
+    radius: 5
     clip: true
+
+    Rectangle {
+      id: roundMask
+      anchors.fill: parent
+      anchors.margins: 1
+      radius: mediaFrame.radius
+      color: "white"
+      visible: false
+      layer.enabled: true
+    }
 
     BusyIndicator {
       id: fetchingIndicator
@@ -298,6 +311,11 @@ EditorWidgetBase {
 
       source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
       cache: false
+
+      layer.enabled: true
+      layer.effect: QfOpacityMask {
+        maskSource: roundMask
+      }
 
       Image {
         id: geoTagBadge
@@ -344,6 +362,8 @@ EditorWidgetBase {
           visible: isVideo
           anchors.fill: parent
 
+          muted: false
+          volume: 1.0
           source: player.sourceUrl
 
           onHasVideoChanged: {
@@ -495,17 +515,6 @@ EditorWidgetBase {
         id: durationLabelMetrics
         font: durationLabel.font
       }
-    }
-
-    Rectangle {
-      color: "transparent"
-      anchors.left: parent.left
-      anchors.right: parent.right
-      height: isEnabled ? parent.height : 1
-      y: isEnabled ? 0 : parent.height - 1
-      border.width: 1
-      border.color: Theme.accentLightColor
-      radius: 2
     }
   }
 

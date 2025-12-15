@@ -8,23 +8,22 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: temporalProperties
 
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
 
   parent: mainWindow.contentItem
-  width: Math.min(350, mainWindow.width - Theme.popupScreenEdgeMargin)
+  width: Math.min(350, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
-  padding: 0
-  modal: true
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
   focus: visible
 
   Page {
     width: parent.width
-    padding: 10
+    padding: 5
     header: QfPageHeader {
       id: pageHeader
       title: qsTr("Temporal Properties")

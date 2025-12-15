@@ -166,6 +166,7 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
     void searchRequested( const QString &text );
     void searchTextChangeRequested( const QString &text );
     void locatorFiltersChanged();
+    void requestJumpToPoint( const QgsPoint &center, const double &scale = -1.0, bool handleMargins = false );
 
   public slots:
     Q_INVOKABLE void triggerResultAtRow( const int row, const int id = -1 );

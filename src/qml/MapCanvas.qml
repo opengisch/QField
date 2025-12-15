@@ -24,23 +24,36 @@ import org.qgis
  */
 Item {
   id: mapArea
+  /// type:QgsQuickMapCanvasMap
   property alias mapCanvasWrapper: mapCanvasWrapper
+  /// type:QgsQuickMapSettings
   property alias mapSettings: mapCanvasWrapper.mapSettings
+  /// type:real
   property alias bottomMargin: mapCanvasWrapper.bottomMargin
+  /// type:real
   property alias rightMargin: mapCanvasWrapper.rightMargin
+  /// type:bool
   property alias isRendering: mapCanvasWrapper.isRendering
+  /// type:bool
   property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
+  /// type:real
   property alias quality: mapCanvasWrapper.quality
+  /// type:bool
   property alias smooth: mapCanvasWrapper.smooth
+  /// type:bool
   property alias previewJobsEnabled: mapCanvasWrapper.previewJobsEnabled
+  /// type:list<int>
   property alias previewJobsQuadrants: mapCanvasWrapper.previewJobsQuadrants
+  /// type:bool
   property alias forceDeferredLayersRepaint: mapCanvasWrapper.forceDeferredLayersRepaint
 
   property bool interactive: true
   property bool hovered: false
-  property bool pinched: pinchHandler.active
   property bool freehandDigitizing: false
   property bool isMapRotationEnabled: false
+
+  readonly property bool pinched: pinchHandler.active
+  readonly property bool jumping: jumpDetails.enabled
 
   // for signals, type can be "stylus" for any device click or "touch"
 
@@ -89,11 +102,11 @@ Item {
   }
 
   function zoomIn(point) {
-    mapCanvasWrapper.zoom(point, 0.67);
+    mapCanvasWrapper.zoomByFactor(point, 0.67);
   }
 
   function zoomOut(point) {
-    mapCanvasWrapper.zoom(point, 1.5);
+    mapCanvasWrapper.zoomByFactor(point, 1.5);
   }
 
   function refresh(ignoreFreeze) {
@@ -102,6 +115,108 @@ Item {
 
   function stopRendering() {
     mapCanvasWrapper.stopRendering();
+  }
+
+  /**
+   * Internal helper to setup jump animation parameters
+   */
+  function _setupJump(scale, rotation, handleMargins, callback) {
+    const currentCenter = mapCanvasWrapper.mapSettings.getCenter(true);
+    const currentRotation = mapCanvasWrapper.mapSettings.rotation;
+    jumpDetails.fromScale = mapCanvasWrapper.mapSettings.scale;
+    jumpDetails.fromRotation = currentRotation;
+    jumpDetails.fromX = currentCenter.x;
+    jumpDetails.fromY = currentCenter.y;
+    jumpDetails.toScale = scale;
+    jumpDetails.completedCallback = callback;
+    jumpDetails.toRotation = rotation;
+    jumpDetails.position = 0.0;
+    jumpDetails.handleMargins = handleMargins;
+    freeze('jumping');
+    jumpDetails.enabled = true;
+    jumpDetails.position = 1.0;
+  }
+
+  /**
+   * Smoothly animates the map to a new center point
+   */
+  function jumpTo(point, scale = -1, rotation = -1, handleMargins = false, callback = null) {
+    jumpDetails.positionSource = null;
+    jumpDetails.toX = "x" in point ? point.x : 0;
+    jumpDetails.toY = "y" in point ? point.y : 0;
+    _setupJump(scale, rotation, handleMargins, callback);
+  }
+
+  /**
+   * Jump and track a moving target
+   */
+  function jumpToPosition(positionSource, scale = -1, rotation = -1, handleMargins = false, callback = null) {
+    jumpDetails.positionSource = positionSource;
+    _setupJump(scale, rotation, handleMargins, callback);
+  }
+
+  Item {
+    id: jumpDetails
+
+    property bool enabled: false
+    property double fromRotation: 0
+    property double fromScale: 0
+    property double fromX: 0
+    property double fromY: 0
+    property double toRotation: -1
+    property double toScale: -1
+    property double toX: 0
+    property double toY: 0
+    property var positionSource: null
+    property double position: 0
+    property bool handleMargins: false
+    property var completedCallback: null
+
+    onPositionChanged: {
+      if (!enabled) {
+        return;
+      }
+      const targetX = positionSource ? positionSource.projectedPosition.x : toX;
+      const targetY = positionSource ? positionSource.projectedPosition.y : toY;
+      const dx = targetX - fromX;
+      const dy = targetY - fromY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      if (distance === 0 && toRotation === -1 && toScale === -1) {
+        enabled = false;
+        positionSource = null;
+        mapArea.unfreeze('jumping');
+        return;
+      }
+      if (toRotation !== -1) {
+        const progressRotation = fromRotation + (toRotation - fromRotation) * position;
+        mapCanvasWrapper.mapSettings.rotation = progressRotation;
+      }
+      const progressX = fromX + dx * position;
+      const progressY = fromY + dy * position;
+      if (toScale !== -1) {
+        const progressScale = fromScale + (toScale - fromScale) * position;
+        mapCanvasWrapper.zoomScale(Qt.point(progressX, progressY), progressScale, jumpDetails.handleMargins);
+      } else {
+        mapCanvasWrapper.mapSettings.setCenter(Qt.point(progressX, progressY), jumpDetails.handleMargins);
+      }
+      if (position >= 1.0) {
+        enabled = false;
+        positionSource = null;
+        mapArea.unfreeze('jumping');
+        if (completedCallback && typeof completedCallback === 'function') {
+          completedCallback();
+          completedCallback = null;
+        }
+      }
+    }
+
+    Behavior on position  {
+      enabled: jumpDetails.enabled
+      NumberAnimation {
+        easing.type: Easing.InOutQuart
+        duration: 500
+      }
+    }
   }
 
   MapCanvasMap {
@@ -141,7 +256,7 @@ Item {
     id: stylusTapHandler
     enabled: interactive
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything | PointerHandler.ApprovesCancellation
-    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
+    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse | PointerDevice.TouchPad : PointerDevice.Stylus
     acceptedButtons: Qt.LeftButton | Qt.RightButton
 
     property bool longPressActive: false
@@ -174,7 +289,7 @@ Item {
     enabled: interactive && !freehandDigitizing
     target: null
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
-    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
+    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse | PointerDevice.TouchPad : PointerDevice.Stylus | PointerDevice.TouchPad
     acceptedButtons: Qt.NoButton | Qt.LeftButton
     dragThreshold: 5
 
@@ -209,7 +324,7 @@ Item {
     onCentroidChanged: {
       if (active) {
         if (isZooming) {
-          mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60));
+          mapCanvasWrapper.zoomByFactor(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60));
           oldTranslationY = translation.y;
         } else if (isPanning) {
           mapCanvasWrapper.pan(centroid.position, oldPos);
@@ -228,7 +343,6 @@ Item {
 
     onTriggered: {
       mainTapHandler.doublePressed = false;
-      mapArea.clicked(tapPoint, "touch");
       confirmedClicked(tapPoint);
     }
   }
@@ -238,7 +352,7 @@ Item {
     enabled: interactive && !hovered
     acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
-    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen : PointerDevice.TouchScreen | PointerDevice.Mouse
+    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen : PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.TouchPad
 
     property bool longPressActive: false
     property bool doublePressed: false
@@ -270,6 +384,7 @@ Item {
           timer.restart();
         } else {
           mapArea.doubleClicked(point.position, "touch");
+          doublePressed = false;
         }
       }
     }
@@ -285,7 +400,7 @@ Item {
     target: null
     acceptedButtons: Qt.NoButton | Qt.LeftButton
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
-    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen : PointerDevice.TouchScreen | PointerDevice.Mouse
+    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen : PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.TouchPad
     dragThreshold: 5
 
     property var oldPos
@@ -319,7 +434,7 @@ Item {
     onCentroidChanged: {
       if (active) {
         if (isZooming) {
-          mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60));
+          mapCanvasWrapper.zoomByFactor(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60));
           oldTranslationY = translation.y;
         } else if (isPanning) {
           mapCanvasWrapper.pan(centroid.position, oldPos);
@@ -354,7 +469,7 @@ Item {
 
     onTranslationChanged: {
       if (active) {
-        mapCanvasWrapper.zoom(zoomCenter, Math.pow(0.8, (oldTranslationY - translation.y) / 60));
+        mapCanvasWrapper.zoomByFactor(zoomCenter, Math.pow(0.8, (oldTranslationY - translation.y) / 60));
       }
       oldTranslationY = translation.y;
     }
@@ -486,7 +601,7 @@ Item {
     }
 
     onActiveScaleChanged: {
-      mapCanvasWrapper.zoom(pinchHandler.centroid.position, oldScale / pinchHandler.activeScale);
+      mapCanvasWrapper.zoomByFactor(pinchHandler.centroid.position, oldScale / pinchHandler.activeScale);
       mapCanvasWrapper.pan(pinchHandler.centroid.position, oldPos);
       oldScale = pinchHandler.activeScale;
     }
@@ -495,6 +610,7 @@ Item {
   WheelHandler {
     enabled: interactive
     target: null
+    acceptedDevices: PointerDevice.AllDevices
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
     onWheel: event => {

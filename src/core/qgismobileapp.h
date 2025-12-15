@@ -50,6 +50,7 @@ class LayerTreeMapCanvasBridge;
 class FlatLayerTreeModel;
 class LayerTreeModel;
 class LegendImageProvider;
+class AsyncLegendImageProvider;
 class LocalFilesImageProvider;
 class ProjectsImageProvider;
 class TrackingModel;
@@ -227,6 +228,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     QPointer<QgsQuickMapCanvasMap> mMapCanvas;
     bool mFirstRenderingFlag;
     LegendImageProvider *mLegendImageProvider = nullptr;
+    AsyncLegendImageProvider *mAsyncLegendImageProvider = nullptr;
     LocalFilesImageProvider *mLocalFilesImageProvider = nullptr;
     ProjectsImageProvider *mProjectsImageProvider = nullptr;
     BarcodeImageProvider *mBarcodeImageProvider = nullptr;

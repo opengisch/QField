@@ -8,7 +8,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: popup
 
   property var layerTree
@@ -25,12 +25,10 @@ Popup {
   property bool opacitySliderVisible: false
 
   parent: mainWindow.contentItem
-  width: Math.min(childrenRect.width, mainWindow.width - Theme.popupScreenEdgeMargin)
-  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+  width: Math.min(childrenRect.width, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
+  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
-  padding: 0
-  modal: true
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
   focus: visible
 
@@ -45,14 +43,14 @@ Popup {
     updateCredits();
     itemVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.Visible);
     itemLabelsVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.LabelsVisible);
-    expandCheckBox.text = layerTree.data(index, FlatLayerTreeModel.Type) === 'group' ? qsTr('Expand group') : qsTr('Expand legend item');
+    expandCheckBox.text = layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Group ? qsTr('Expand group') : qsTr('Expand legend item');
     expandCheckBox.checked = !layerTree.data(index, FlatLayerTreeModel.IsCollapsed);
     reloadDataButtonVisible = layerTree.data(index, FlatLayerTreeModel.CanReloadData);
     zoomToButtonVisible = layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent);
     showFeaturesListButtonVisible = isShowFeaturesListButtonVisible();
     showVisibleFeaturesListDropdownVisible = isShowVisibleFeaturesListDropdownVisible();
     trackingButtonVisible = isTrackingButtonVisible();
-    trackingButtonText = trackingModel.layerInTracking(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)) ? qsTr('Stop tracking') : qsTr('Setup tracking');
+    trackingButtonText = trackingModel.layerInActiveTracking(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)) ? qsTr('Stop tracking') : qsTr('Setup tracking');
 
     // the layer tree model returns -1 for items that do not support the opacity setting
     opacitySliderVisible = layerTree.data(index, FlatLayerTreeModel.Opacity) > -1;
@@ -62,20 +60,20 @@ Popup {
     id: popupContent
     width: parent.width
     height: parent.height
-    padding: 10
+    padding: 0
     header: RowLayout {
       id: headerLayout
       spacing: 2
       Label {
         id: titleLabel
         Layout.fillWidth: true
-        Layout.leftMargin: 10
+        Layout.leftMargin: reloadDataButtonVisible ? zoomInButton.width + headerLayout.spacing : 0
         topPadding: 10
         bottomPadding: 10
         text: ''
         font: Theme.strongFont
-        horizontalAlignment: Text.AlignLeft
-        wrapMode: Text.WordWrap
+        horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.WrapAnywhere
       }
       QfToolButton {
         id: zoomInButton
@@ -98,18 +96,18 @@ Popup {
     }
 
     ScrollView {
-      padding: 0
+      anchors.fill: parent
+      padding: 5
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
       ScrollBar.vertical: QfScrollBar {
       }
       contentWidth: popupLayout.childrenRect.width
       contentHeight: popupLayout.childrenRect.height
-      height: parent.height
       clip: true
 
       ColumnLayout {
         id: popupLayout
-        width: popupContent.width - 20
+        width: popupContent.width - 10
         spacing: 4
 
         FontMetrics {
@@ -153,7 +151,7 @@ Popup {
           text: qsTr('Show on map')
           font: Theme.defaultFont
           // visible for all layer tree items but nonspatial layers
-          visible: index && layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent) ? true : false
+          visible: index && layerTree.data(index, FlatLayerTreeModel.Checkable) && layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent) ? true : false
           indicator.height: 16
           indicator.width: 16
           indicator.implicitHeight: 24
@@ -197,44 +195,41 @@ Popup {
           visible: opacitySliderVisible
 
           QfToolButton {
-            Layout.alignment: Qt.AlignVCenter | Qt.alignHCenter
-            Layout.leftMargin: 3
-            Layout.rightMargin: 1
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+            Layout.preferredWidth: 24
+            Layout.leftMargin: 4
             width: 24
             height: 24
             padding: 0
             enabled: false
+            bgcolor: "transparent"
 
             icon.source: Theme.getThemeVectorIcon("ic_opacity_black_24dp")
             icon.color: Theme.mainTextColor
           }
 
-          ColumnLayout {
-            Layout.alignment: Layout.Center
-            Layout.rightMargin: 6
-            spacing: 0
+          Text {
+            Layout.alignment: Qt.AlignVCenter
+            text: qsTr("Opacity")
+            font: Theme.defaultFont
+            color: Theme.mainTextColor
+          }
 
-            Text {
-              Layout.fillWidth: true
-              text: qsTr("Opacity")
-              font: Theme.defaultFont
-              color: Theme.mainTextColor
-            }
+          QfSlider {
+            id: slider
+            Layout.fillWidth: true
+            Layout.rightMargin: 5
+            Layout.alignment: Qt.AlignVCenter
+            value: index !== undefined ? layerTree.data(index, FlatLayerTreeModel.Opacity) * 100 : 0
+            from: 0
+            to: 100
+            stepSize: 1
+            suffixText: " %"
+            height: 40
 
-            QfSlider {
-              id: slider
-              Layout.fillWidth: true
-              value: index !== undefined ? layerTree.data(index, FlatLayerTreeModel.Opacity) * 100 : 0
-              from: 0
-              to: 100
-              stepSize: 1
-              suffixText: " %"
-              height: 40
-
-              onMoved: function () {
-                layerTree.setData(index, value / 100, FlatLayerTreeModel.Opacity);
-                projectInfo.saveLayerStyle(layerTree.data(index, FlatLayerTreeModel.MapLayerPointer));
-              }
+            onMoved: function () {
+              layerTree.setData(index, value / 100, FlatLayerTreeModel.Opacity);
+              projectInfo.saveLayerStyle(layerTree.data(index, FlatLayerTreeModel.MapLayerPointer));
             }
           }
         }
@@ -243,7 +238,7 @@ Popup {
           id: zoomToButton
           Layout.fillWidth: true
           Layout.topMargin: 5
-          text: index ? layerTree.data(index, FlatLayerTreeModel.Type) === 'group' ? qsTr('Zoom to group') : layerTree.data(index, FlatLayerTreeModel.Type) === 'legend' ? qsTr('Zoom to parent layer') : qsTr('Zoom to layer') : ''
+          text: index ? layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Group ? qsTr('Zoom to group') : layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Legend && layerTree.data(index, FlatLayerTreeModel.LayerType) === "vectorlayer" ? qsTr('Zoom to parent layer') : qsTr('Zoom to layer') : ''
           visible: zoomToButtonVisible
           icon.source: Theme.getThemeVectorIcon('zoom_out_map_24dp')
 
@@ -269,7 +264,7 @@ Popup {
             } else {
               var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
               var filter = layerTree.data(index, FlatLayerTreeModel.FilterExpression);
-              featureForm.model.setFeatures(vl, filter);
+              featureListForm.model.setFeatures(vl, filter);
               if (layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)) {
                 mapCanvas.mapSettings.extent = layerTree.nodeExtent(index, mapCanvas.mapSettings);
               }
@@ -292,28 +287,14 @@ Popup {
           icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
 
           onClicked: {
-            var layer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
-            close();
-            if (trackingModel.layerInTracking(layer)) {
+            const layer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
+            popup.close();
+            if (trackingModel.layerInActiveTracking(layer)) {
               trackingModel.stopTracker(layer);
-              displayToast(qsTr('Track on layer %1 stopped').arg(layer.name));
+              displayToast(qsTr('Tracking on layer %1 stopped').arg(layer.name));
             } else {
-              var tracker;
-              var idx = projectInfo.restoreTracker(layer);
-              if (idx.valid) {
-                tracker = trackings.itemAt(idx.row).tracker;
-              } else {
-                idx = trackingModel.createTracker(layer);
-                tracker = trackings.itemAt(idx.row).tracker;
-                tracker.visible = itemVisibleCheckBox.checked;
-                tracker.minimumDistance = positioningSettings.trackerMinimumDistanceConstraint ? positioningSettings.trackerMinimumDistance : 0;
-                tracker.timeInterval = positioningSettings.trackerTimeIntervalConstraint ? positioningSettings.trackerTimeInterval : 0;
-                tracker.maximumDistance = positioningSettings.trackerErroneousDistanceSafeguard ? positioningSettings.trackerErroneousDistance : 0;
-                tracker.sensorCapture = positioningSettings.trackerSensorCaptureConstraint;
-                tracker.conjunction = positioningSettings.trackerMeetAllConstraints;
-                tracker.measureType = positioningSettings.trackerMeasureType;
-              }
-              trackingModel.requestTrackingSetup(layer);
+              trackerSettings.prepareSettings(layer);
+              trackerSettings.open();
             }
           }
         }
@@ -397,7 +378,7 @@ Popup {
         } else {
           var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
           var filter = layerTree.data(index, FlatLayerTreeModel.FilterExpression);
-          featureForm.model.setFeatures(vl, filter, mapCanvas.mapSettings.visibleExtent);
+          featureListForm.model.setFeatures(vl, filter, mapCanvas.mapSettings.visibleExtent);
         }
         close();
         dashBoard.visible = false;
@@ -420,13 +401,13 @@ Popup {
   function updateTitle() {
     if (index === undefined)
       return;
-    var title = layerTree.data(index, Qt.Name);
-    var type = layerTree.data(index, FlatLayerTreeModel.Type);
-    var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
+    const type = layerTree.data(index, FlatLayerTreeModel.Type);
+    const vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
+    let title = layerTree.data(index, Qt.Name);
     if (vl) {
-      if (type === 'legend') {
+      if (type === FlatLayerTreeModel.Legend) {
         title += ' (' + vl.name + ')';
-      } else if (type === 'layer' && layerTree.data(index, FlatLayerTreeModel.IsValid)) {
+      } else if (type === FlatLayerTreeModel.Layer && layerTree.data(index, FlatLayerTreeModel.IsValid)) {
         var count = layerTree.data(index, FlatLayerTreeModel.FeatureCount);
         if (count !== undefined && count >= 0) {
           var countSuffix = ' [' + count + ']';
@@ -435,7 +416,7 @@ Popup {
         }
       }
     }
-    titleLabel.text = title;
+    titleLabel.text = title !== undefined ? title : "";
   }
 
   function updateCredits() {
@@ -452,7 +433,7 @@ Popup {
   function isTrackingButtonVisible() {
     if (!index)
       return false;
-    return layerTree.data(index, FlatLayerTreeModel.Type) === 'layer' && !layerTree.data(index, FlatLayerTreeModel.ReadOnly) && layerTree.data(index, FlatLayerTreeModel.Trackable);
+    return layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Layer && !layerTree.data(index, FlatLayerTreeModel.ReadOnly) && layerTree.data(index, FlatLayerTreeModel.Trackable);
   }
 
   function isShowFeaturesListButtonVisible() {

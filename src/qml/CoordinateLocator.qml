@@ -10,6 +10,7 @@ import Theme
 Item {
   id: locator
 
+  /// type:QgsQuickMapSettings
   property MapSettings mapSettings
   property color mainColor: "#CFD8DC"
   property color highlightColor: "#263238"
@@ -392,7 +393,7 @@ Item {
     if (positionLocked) {
       const outOfScreen = crosshairCircle.x + crosshairCircle.width <= 0 || crosshairCircle.x - crosshairCircle.width >= mainWindow.width || crosshairCircle.y + crosshairCircle.height <= 0 || crosshairCircle.y - crosshairCircle.height >= mainWindow.height;
       if (outOfScreen) {
-        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+        mapCanvasMap.jumpTo(positionSource.projectedPosition, -1, -1, true);
       }
     }
   }

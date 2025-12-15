@@ -79,7 +79,7 @@ RelationEditorBase {
             geometryHighlighter.geometryWrapper.crs = orderedRelationModel.relation.referencingLayer.crs;
             mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings, orderedRelationModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature);
           } else {
-            viewButton.onClicked();
+            viewButton.click();
           }
         }
       }
@@ -147,7 +147,7 @@ RelationEditorBase {
             bottomPadding: 5
             leftPadding: featureImage.visible ? 5 : 0
             font: Theme.defaultFont
-            color: !isEnabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
+            color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
             elide: Text.ElideRight
             wrapMode: Text.WordWrap
             text: Description || model.displayString
@@ -165,6 +165,7 @@ RelationEditorBase {
             bgcolor: 'transparent'
 
             onClicked: {
+              ensureEmbeddedFormLoaded();
               embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
               embeddedPopup.currentLayer = orderedRelationModel.relation.referencingLayer;
               embeddedPopup.linkedRelation = orderedRelationModel.relation;
@@ -236,14 +237,6 @@ RelationEditorBase {
               childMenu.popup(menuButton.x, menuButton.y);
             }
           }
-        }
-
-        Rectangle {
-          id: bottomLine
-          anchors.bottom: parent.bottom
-          height: 1
-          color: Theme.controlBorderColor
-          width: parent.width
         }
       }
 

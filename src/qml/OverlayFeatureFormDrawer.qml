@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Window
 import org.qfield
+import Theme
 
 /**
  * \ingroup qml
@@ -13,6 +14,10 @@ Drawer {
   property bool fullScreenView: qfieldSettings.fullScreenIdentifyView
   property bool isVertical: parent.width < parent.height || parent.width < 300
 
+  property bool isDragging: false
+  property real dragHeightAdjustment: 0
+  property real dragWidthAdjustment: 0
+
   property alias featureModel: attributeFormModel.featureModel
   property alias state: overlayFeatureForm.state
   property alias featureForm: overlayFeatureForm
@@ -20,24 +25,46 @@ Drawer {
   property alias codeReader: overlayFeatureForm.codeReader
   property bool isAdding: false
 
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
+
   edge: parent.width < parent.height ? Qt.BottomEdge : Qt.RightEdge
   closePolicy: Popup.NoAutoClose // prevent accidental feature addition when clicking outside of the popup drawer
   focus: visible
 
+  property real lastWidth: 0
+
   width: {
-    if (overlayFeatureFormDrawer.fullScreenView || parent.width < parent.height || parent.width < 300) {
+    if (dragWidthAdjustment != 0) {
+      return lastWidth - dragWidthAdjustment;
+    } else if (overlayFeatureFormDrawer.fullScreenView || parent.width < parent.height || parent.width < 300 || width >= 0.95 * parent.width) {
+      lastWidth = parent.width;
       return parent.width;
     } else {
-      return Math.min(Math.max(200, parent.width / 2.25), parent.width);
+      const newWidth = Math.min(Math.max(200, parent.width / 2.25), parent.width);
+      lastWidth = newWidth;
+      return newWidth;
     }
   }
+
+  property real lastHeight
+
   height: {
-    if (overlayFeatureFormDrawer.fullScreenView || parent.width >= parent.height) {
+    if (dragHeightAdjustment != 0) {
+      return Math.min(lastHeight - dragHeightAdjustment, parent.height - mainWindow.sceneTopMargin);
+    } else if (overlayFeatureFormDrawer.fullScreenView || parent.width >= parent.height || height >= 0.95 * parent.height) {
+      lastHeight = parent.height;
       return parent.height;
     } else {
-      return Math.min(Math.max(200, parent.height / 2), parent.height);
+      const newHeight = Math.min(Math.max(200, parent.height / 2), parent.height);
+      lastHeight = newHeight;
+      return newHeight;
     }
   }
+
+  topPadding: 0
+  leftPadding: 0
+  rightPadding: 0
+  bottomPadding: 0
 
   interactive: false
   dragMargin: 0
@@ -83,6 +110,8 @@ Drawer {
     leftMargin: overlayFeatureFormDrawer.x === 0 ? mainWindow.sceneLeftMargin : 0.0
     rightMargin: mainWindow.sceneRightMargin
     bottomMargin: mainWindow.sceneBottomMargin
+    isVertical: overlayFeatureFormDrawer.isVertical
+    isDraggable: true
 
     property bool isSaved: false
 
@@ -123,24 +152,48 @@ Drawer {
       resetTabs();
     }
 
-    onToolbarSwiped: direction => {
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      overlayFeatureFormDrawer.requestJumpToPoint(center, scale, handleMargins);
+    }
+
+    onToolbarDragged: function (deltaX, deltaY) {
+      fullScreenView = false;
       if (isVertical) {
-        if (direction === 'up') {
-          overlayFeatureFormDrawer.fullScreenView = true;
-        } else if (direction === 'down') {
-          if (overlayFeatureFormDrawer.fullScreenView) {
+        dragHeightAdjustment += deltaY;
+      } else {
+        dragWidthAdjustment += deltaX;
+      }
+    }
+
+    onToolbarDragAcquired: {
+      isDragging = true;
+    }
+
+    onToolbarDragReleased: {
+      isDragging = false;
+      if (isVertical) {
+        if (overlayFeatureFormDrawer.height < overlayFeatureFormDrawer.parent.height * 0.3) {
+          if (fullScreenView) {
             fullScreenView = false;
+          } else {
+            overlayFeatureFormDrawer.close();
           }
+        } else if (dragHeightAdjustment < -parent.height * 0.2) {
+          fullScreenView = true;
         }
       } else {
-        if (direction === 'left') {
-          overlayFeatureFormDrawer.fullScreenView = true;
-        } else if (direction === 'right') {
-          if (overlayFeatureFormDrawer.fullScreenView) {
+        if (overlayFeatureFormDrawer.width < overlayFeatureFormDrawer.parent.width * 0.3) {
+          if (fullScreenView) {
             fullScreenView = false;
+          } else {
+            overlayFeatureFormDrawer.close();
           }
+        } else if (dragWidthAdjustment < -parent.width * 0.2) {
+          fullScreenView = true;
         }
       }
+      dragHeightAdjustment = 0;
+      dragWidthAdjustment = 0;
     }
 
     Keys.onReleased: event => {
@@ -149,7 +202,7 @@ Drawer {
           overlayFeatureFormDrawer.close();
         } else {
           //block closing to fix constraints or cancel with button
-          displayToast(qsTr("Constraints not valid"), 'warning');
+          displayToast(qsTr("Hard constraints not satisfied"), 'error');
         }
         event.accepted = true;
       }
@@ -158,14 +211,14 @@ Drawer {
 
   Behavior on width  {
     PropertyAnimation {
-      duration: parent.width > parent.height ? 250 : 0
+      duration: parent.width > parent.height && !isDragging ? 250 : 0
       easing.type: Easing.OutQuart
     }
   }
 
   Behavior on height  {
     PropertyAnimation {
-      duration: parent.width < parent.height ? 250 : 0
+      duration: parent.width < parent.height && !isDragging ? 250 : 0
       easing.type: Easing.OutQuart
     }
   }

@@ -4,11 +4,15 @@ import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
 import Theme 1.0
 
+/**
+ * \ingroup qml
+ */
 RoundButton {
   id: button
 
   property alias iconSource: button.icon.source
   property alias iconColor: button.icon.color
+  property alias statusBadge: badge
   property string bottomRightIndicatorText: ''
   property string bottomRightIndicatorBgColor: Theme.cloudColor
   property string bottomRightIndicatorFgColor: Theme.light
@@ -36,7 +40,7 @@ RoundButton {
     border.width: round && roundborder ? height / 6 : 1
     border.color: button.borderColor
     color: 'transparent'
-    radius: round ? height / 2 : 0
+    radius: round ? height / 2 : roundborder ? 12 : 0
     clip: true
 
     Behavior on color  {
@@ -65,6 +69,7 @@ RoundButton {
   font: Theme.tipFont
 
   QfBadge {
+    id: badge
     alignment: QfBadge.Alignment.BottomRight
 
     z: 2
@@ -72,7 +77,7 @@ RoundButton {
     height: width
     visible: bottomRightIndicatorText
     color: bottomRightIndicatorBgColor
-    border.color: Theme.mainColor
+    border.color: Theme.mainBackgroundColor
     border.width: 2
 
     badgeText.color: bottomRightIndicatorFgColor

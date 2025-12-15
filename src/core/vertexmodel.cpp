@@ -62,7 +62,9 @@ void VertexModel::setCrs( const QgsCoordinateReferenceSystem &crs )
     return;
 
   mCrs = crs;
+  beginResetModel();
   refreshGeometry();
+  endResetModel();
   emit crsChanged();
 }
 
@@ -487,6 +489,7 @@ void VertexModel::clear()
   setEditingMode( NoEditing );
   mVertices.clear();
   mVerticesDeleted.clear();
+  mOriginalGeometry = QgsGeometry();
   updateCanRemoveVertex();
   updateCanAddVertex();
   emit vertexCountChanged();
@@ -707,7 +710,13 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
 
   addToHistory( mMode == AddVertex ? VertexAddition : VertexMove );
 
+  if ( mMode == AddVertex )
+  {
+    vertex.originalPoint = vertex.point;
+  }
+
   vertex.point = QgsPoint( point.x(), point.y() );
+
   if ( QgsWkbTypes::hasZ( mGeometryWkbType ) )
   {
     vertex.point.addZValue( QgsWkbTypes::hasZ( point.wkbType() ) ? point.z() : 0 );
@@ -853,8 +862,22 @@ QVector<QgsPoint> VertexModel::verticesAdded() const
   {
     if ( mHistory[i].type == VertexAddition )
     {
-      vertices << mHistory[i].vertex.point;
+      QgsPoint point = mHistory[i].vertex.point;
+      point.transform( mTransform, Qgis::TransformDirection::Reverse );
+      vertices << point;
     }
+  }
+  return vertices;
+}
+
+QVector<QgsPoint> VertexModel::verticesDeleted() const
+{
+  QVector<QgsPoint> vertices;
+  for ( const QgsPoint &vertexDeleted : mVerticesDeleted )
+  {
+    QgsPoint point = vertexDeleted;
+    point.transform( mTransform, Qgis::TransformDirection::Reverse );
+    vertices << point;
   }
   return vertices;
 }
@@ -869,7 +892,13 @@ QVector<QPair<QgsPoint, QgsPoint>> VertexModel::verticesMoved() const
     if ( vertex.originalPoint.isEmpty() )
       continue;
     if ( vertex.point != vertex.originalPoint )
-      vertices << qMakePair( vertex.originalPoint, vertex.point );
+    {
+      QgsPoint originalPoint = vertex.originalPoint;
+      QgsPoint point = vertex.point;
+      originalPoint.transform( mTransform, Qgis::TransformDirection::Reverse );
+      point.transform( mTransform, Qgis::TransformDirection::Reverse );
+      vertices << qMakePair( originalPoint, point );
+    }
   }
   return vertices;
 }

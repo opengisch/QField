@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="done_unpacking_msg">Entpacken abgeschlossen. QGIS wird gestartet.</string>
-    <string name="unpacking_title">QField startet</string>
+    <string name="unpacking_title">QField wird gestartet</string>
     <string name="unpacking_msg">Diese einmalige Aktion dauert einen Moment</string>
     <string name="unpacking_msg_following">Fast fertig, dranbleiben!</string>
     <string name="use_internal_storage">Internen Speicher verwenden</string>
@@ -64,4 +64,6 @@
     <string name="export_operation_unsupported">Ihr Gerät unterstützt diesen Exportvorgang nicht.</string>
     <string name="processing_message">Verarbeitung...</string>
     <string name="positioning_title">Positionierung</string>
-    </resources>
+    <string name="positioning_running">Positions-Service wird ausgeführt</string>
+    <string name="copy_to_clipboard">In die Zwischenablage kopieren</string>
+</resources>

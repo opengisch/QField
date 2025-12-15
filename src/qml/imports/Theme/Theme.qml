@@ -8,34 +8,32 @@ QtObject {
   property var darkThemeColors: {
     "mainColor": "#80cc28",
     "mainOverlayColor": "#ffffff",
-    "accentColor": "#4CAF50",
-    "accentLightColor": "#994CAF50",
     "mainBackgroundColor": "#303030",
     "mainBackgroundColorSemiOpaque": "#bb303030",
     "mainTextColor": "#EEEEEE",
     "mainTextDisabledColor": "#73EEEEEE",
-    "secondaryTextColor": "#AAAAAA",
+    "secondaryTextColor": "#BDBDBD",
     "controlBackgroundColor": "#202020",
-    "controlBackgroundAlternateColor": "#202020",
+    "controlBackgroundAlternateColor": "#303030",
     "controlBackgroundDisabledColor": "#33555555",
     "controlBorderColor": "#404040",
     "buttonTextColor": "#202020",
     "toolButtonColor": "#ffffff",
     "toolButtonBackgroundColor": Theme.darkGray,
     "toolButtonBackgroundSemiOpaqueColor": Theme.darkGraySemiOpaque,
-    "scrollBarBackgroundColor": "#bb303030"
+    "scrollBarBackgroundColor": "#bb303030",
+    "groupBoxBackgroundColor": "#2a2a2e",
+    "groupBoxSurfaceColor": "#343437"
   }
 
   property var lightThemeColors: {
     "mainColor": "#80cc28",
     "mainOverlayColor": "#ffffff",
-    "accentColor": "#4CAF50",
-    "accentLightColor": "#994CAF50",
     "mainBackgroundColor": "#fafafa",
     "mainBackgroundColorSemiOpaque": "#bbfafafa",
     "mainTextColor": "#000000",
     "mainTextDisabledColor": "#73000000",
-    "secondaryTextColor": "#999999",
+    "secondaryTextColor": "#757575",
     "controlBackgroundColor": "#ffffff",
     "controlBackgroundAlternateColor": "#e6e6e6",
     "controlBackgroundDisabledColor": "#33555555",
@@ -44,22 +42,23 @@ QtObject {
     "toolButtonColor": "#ffffff",
     "toolButtonBackgroundColor": Theme.darkGray,
     "toolButtonBackgroundSemiOpaqueColor": Theme.darkGraySemiOpaque,
-    "scrollBarBackgroundColor": "#aaffffff"
+    "scrollBarBackgroundColor": "#aaffffff",
+    "groupBoxBackgroundColor": "#f2f0f5",
+    "groupBoxSurfaceColor": "#e4e1e8"
   }
 
   property bool darkTheme: false
 
   property color mainColor: "#80cc28"
+  property color mainColorSemiOpaque: "#bb80cc28"
   property color mainOverlayColor: "#ffffff"
-  property color accentColor: "#4CAF50"
-  property color accentLightColor: "#994CAF50"
 
   property color mainBackgroundColor: "#fafafa"
   property color mainBackgroundColorSemiOpaque: "#bbfafafa"
   property color mainTextColor: "#000000"
   property color mainTextDisabledColor: "#73000000"
 
-  property color secondaryTextColor: "#999999"
+  property color secondaryTextColor: "#757575"
 
   property color controlBackgroundColor: "#ffffff"
   property color controlBackgroundAlternateColor: "#e6e6e6"
@@ -74,12 +73,16 @@ QtObject {
 
   property color scrollBarBackgroundColor: "#aaffffff"
 
+  property color groupBoxBackgroundColor: "#f2f0f5"
+  property color groupBoxSurfaceColor: "#e4e1e8"
+
   property color darkRed: "#c0392b"
   property color darkGray: "#212121"
-  property color darkGraySemiOpaque: "#4D212121"
+  property color darkGraySemiOpaque: "#4d212121"
   property color gray: "#888888"
   property color lightGray: "#dddddd"
   property color lightestGray: "#eeeeee"
+  property color lightestGraySemiOpaque: "#e0eeeeee"
   property color light: "#ffffff"
 
   property color errorColor: darkTheme ? "#df3422" : "#c0392b"
@@ -152,8 +155,13 @@ QtObject {
       "pointSize": systemFontPointSize * fontScale * 1.25,
       "weight": Font.Normal
     })
+  property font strongTitleFont: Qt.font({
+      "pointSize": systemFontPointSize * fontScale * 1.25,
+      "weight": Font.Bold
+    })
 
-  readonly property int popupScreenEdgeMargin: 40
+  readonly property int popupScreenEdgeVerticalMargin: 40
+  readonly property int popupScreenEdgeHorizontalMargin: 20
 
   readonly property int menuItemIconlessLeftPadding: 52
   readonly property int menuItemLeftPadding: 12
@@ -214,7 +222,8 @@ QtObject {
     } else {
       darkTheme = appearance === 'dark';
     }
-    Material.theme = darkTheme ? "Dark" : "Light";
+    Application.styleHints.colorScheme = Theme.darkTheme ? Qt.ColorScheme.Dark : Qt.ColorScheme.Light;
+    Material.theme = Theme.darkTheme ? Material.Dark : Material.Light;
     applyColors(darkTheme ? Theme.darkThemeColors : Theme.lightThemeColors);
     mainBackgroundColor = Material.backgroundColor;
     mainTextColor = Material.foreground;

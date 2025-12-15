@@ -14,6 +14,7 @@ Item {
   property bool scannedOnce: false
 
   width: parent.width
+  height: childrenRect.height
 
   property string deviceName: ''
   property string deviceAddress: ''
@@ -79,7 +80,7 @@ Item {
       wrapMode: Text.WordWrap
     }
 
-    ComboBox {
+    QfComboBox {
       id: bluetoothDeviceComboBox
       Layout.fillWidth: true
       visible: bluetoothDeviceComboBox.count > 0
@@ -92,30 +93,17 @@ Item {
       textRole: 'display'
       model: BluetoothDeviceModel {
         id: bluetoothDeviceModel
-      }
 
-      property string selectedBluetoothDevice
-
-      onCurrentIndexChanged: {
-        var modelIndex = bluetoothDeviceModel.index(currentIndex, 0);
-        deviceName = bluetoothDeviceModel.data(modelIndex, BluetoothDeviceModel.DeviceNameRole);
-        deviceAddress = bluetoothDeviceModel.data(modelIndex, BluetoothDeviceModel.DeviceAddressRole);
-        selectedBluetoothDevice = bluetoothDeviceAddress.text;
-      }
-
-      Connections {
-        target: bluetoothDeviceModel
-
-        function onModelReset() {
+        onModelReset: {
           bluetoothDeviceComboBox.currentIndex = selectedBluetoothDevice;
         }
 
-        function onLastErrorChanged(lastError) {
+        onLastErrorChanged: lastError => {
           displayToast(qsTr('Scanning error: %1').arg(lastError), 'error');
           console.log(lastError);
         }
 
-        function onScanningStatusChanged(scanningStatus) {
+        onScanningStatusChanged: canningStatus => {
           switch (scanningStatus) {
           case BluetoothDeviceModel.FastScanning:
             displayToast(qsTr('Scanning for paired devices'));
@@ -138,6 +126,15 @@ Item {
             break;
           }
         }
+      }
+
+      property string selectedBluetoothDevice
+
+      onCurrentIndexChanged: {
+        var modelIndex = bluetoothDeviceModel.index(currentIndex, 0);
+        deviceName = bluetoothDeviceModel.data(modelIndex, BluetoothDeviceModel.DeviceNameRole);
+        deviceAddress = bluetoothDeviceModel.data(modelIndex, BluetoothDeviceModel.DeviceAddressRole);
+        selectedBluetoothDevice = bluetoothDeviceAddress.text;
       }
     }
 

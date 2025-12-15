@@ -14,24 +14,26 @@
  *                                                                         *
  ***************************************************************************/
 #include "legendimageprovider.h"
+#include "qgsapplication.h"
+#include "qgsimagecache.h"
 
+#include <QQuickTextureFactory>
 #include <qgslayertree.h>
 #include <qgslayertreelayer.h>
 #include <qgslayertreemodel.h>
 #include <qgslayertreemodellegendnode.h>
 #include <qgsproject.h>
+#include <qgsrasterlayer.h>
 
 LegendImageProvider::LegendImageProvider( QgsLayerTreeModel *layerTreeModel )
   : QQuickImageProvider( Pixmap )
   , mLayerTreeModel( layerTreeModel )
   , mRootNode( layerTreeModel->rootGroup() )
 {
-  mLayerTreeModel->setFlag( QgsLayerTreeModel::ShowLegendAsTree, true );
 }
 
-QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, const QSize &requestedSize )
+QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *, const QSize & )
 {
-  Q_UNUSED( size )
   const int iconSize = mLayerTreeModel->scaleIconSize( 16 );
 
   // the id is passed on as an encoded URL string which needs decoding
@@ -86,11 +88,9 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, cons
       }
     }
   }
-
-  if ( idParts.value( 0 ) == QStringLiteral( "layer" ) )
+  else if ( idParts.value( 0 ) == QStringLiteral( "layer" ) )
   {
     QgsLayerTreeLayer *layerNode = mRootNode->findLayer( idParts.value( 1 ) );
-
     if ( layerNode )
     {
       QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->legendNodeEmbeddedInParent( layerNode );
@@ -118,6 +118,118 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *size, cons
       }
     }
   }
+  else if ( idParts.value( 0 ) == QStringLiteral( "image" ) )
+  {
+    QgsLayerTreeLayer *layerNode = mRootNode->findLayer( idParts.value( 1 ) );
+    if ( layerNode )
+    {
+      QgsMapLayer *mapLayer = layerNode->layer();
+      if ( mapLayer && !mapLayer->legendPlaceholderImage().isEmpty() )
+      {
+        bool fitsInCache = false;
+        const QImage image = QgsApplication::imageCache()->pathAsImage( mapLayer->legendPlaceholderImage(), QSize(), false, 1.0, fitsInCache );
+        return QPixmap::fromImage( image );
+      }
+    }
+  }
 
-  return QPixmap( requestedSize );
+  return QPixmap( QSize( iconSize, iconSize ) );
+}
+
+
+AsyncLegendImageProvider::AsyncLegendImageProvider( QgsLayerTreeModel *layerTreeModel )
+  : mLayerTreeModel( layerTreeModel )
+  , mRootNode( layerTreeModel->rootGroup() )
+{
+}
+
+void AsyncLegendImageProvider::setMapSettings( QgsQuickMapSettings *mapSettings )
+{
+  mMapSettings = mapSettings;
+}
+
+QQuickImageResponse *AsyncLegendImageProvider::requestImageResponse( const QString &id, const QSize &requestedSize )
+{
+  // the id is passed on as an encoded URL string which needs decoding
+  const QString decodedId = QUrl::fromPercentEncoding( id.toUtf8() );
+  QStringList idParts = decodedId.split( '/' ).mid( 0, 2 );
+  idParts << decodedId.section( '/', 2 );
+
+  if ( idParts.value( 0 ) == QStringLiteral( "layer" ) )
+  {
+    QgsLayerTreeLayer *layerNode = mRootNode->findLayer( idParts.value( 1 ) );
+    if ( layerNode )
+    {
+      QgsRasterLayer *rasterLayer = qobject_cast<QgsRasterLayer *>( layerNode->layer() );
+      if ( rasterLayer && rasterLayer->dataProvider() && rasterLayer->dataProvider()->supportsLegendGraphic() )
+      {
+        QgsMapSettings mapSettings;
+        if ( mMapSettings )
+        {
+          mapSettings = mMapSettings->mapSettings();
+        }
+        AsyncLegendImageResponse *response = new AsyncLegendImageResponse( rasterLayer->dataProvider()->clone(), mMapSettings ? &mapSettings : nullptr );
+        return response;
+      }
+    }
+  }
+
+  AsyncLegendImageResponse *response = new AsyncLegendImageResponse();
+  return response;
+}
+
+
+AsyncLegendImageResponse::AsyncLegendImageResponse( QgsRasterDataProvider *dataProvider, const QgsMapSettings *mapSettings )
+  : mDataProvider( dataProvider )
+{
+  if ( dataProvider )
+  {
+    mFetcher.reset( mDataProvider->getLegendGraphicFetcher( mapSettings ) );
+    if ( mFetcher )
+    {
+      mFetcher->setParent( nullptr );
+      connect( mFetcher.get(), &QgsImageFetcher::finish, this, &AsyncLegendImageResponse::handleFinish );
+      connect( mFetcher.get(), &QgsImageFetcher::error, this, &AsyncLegendImageResponse::handleError );
+      mFetcher->start();
+      return;
+    }
+  }
+
+  mImage = QImage();
+  emit finished();
+}
+
+void AsyncLegendImageResponse::handleFinish( const QImage &image )
+{
+  if ( !mFetcher )
+  {
+    // invalid signal, QGIS tells us it must be coming after error
+    return;
+  }
+
+  mImage = image;
+  emit finished();
+
+  mFetcher->deleteLater();
+  mFetcher.release();
+}
+
+void AsyncLegendImageResponse::handleError( const QString & )
+{
+  if ( !mFetcher )
+  {
+    // invalid signal, QGIS tells us it must be coming after finish
+    return;
+  }
+
+  mImage = QImage();
+  emit finished();
+
+  mFetcher->deleteLater();
+  mFetcher.release();
+}
+
+QQuickTextureFactory *AsyncLegendImageResponse::textureFactory() const
+{
+  return QQuickTextureFactory::textureFactoryForImage( mImage );
 }

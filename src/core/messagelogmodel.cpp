@@ -114,17 +114,13 @@ void MessageLogModel::onMessageReceived( const QString &message, const QString &
   }
   else if ( mSuppressedFilters.contains( tag ) )
   {
-    for ( const QString &filter : mSuppressedFilters[tag] )
+    if ( std::any_of( mSuppressedFilters[tag].begin(), mSuppressedFilters[tag].end(), [&message]( const QString &filter ) { return message.contains( filter ); } ) )
     {
-      if ( message.contains( filter, Qt::CaseInsensitive ) )
-      {
-        return;
-      }
+      return;
     }
   }
 
   beginInsertRows( QModelIndex(), 0, 0 );
   mMessages.prepend( LogMessage( tag, message, level ) );
-  qDebug() << "Nes message " << tag << " : " << message;
   endInsertRows();
 }

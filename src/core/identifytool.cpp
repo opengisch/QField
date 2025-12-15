@@ -134,13 +134,11 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVector
     QgsFeatureRequest req;
     req.setFilterRect( r );
     if ( !temporalFilter.isEmpty() )
+    {
       req.setFilterExpression( temporalFilter );
+    }
     req.setLimit( QSettings().value( "/QField/identify/limit", 200 ).toInt() );
-#if _QGIS_VERSION_INT >= 33500
     req.setFlags( Qgis::FeatureRequestFlag::ExactIntersect );
-#else
-    req.setFlags( QgsFeatureRequest::ExactIntersect );
-#endif
 
     QgsAttributeTableConfig config = layer->attributeTableConfig();
     if ( !config.sortExpression().isEmpty() )
@@ -157,7 +155,7 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorLayer( QgsVector
     while ( fit.nextFeature( f ) )
       featureList << QgsFeature( f );
   }
-  catch ( QgsCsException &cse )
+  catch ( const QgsCsException &cse )
   {
     Q_UNUSED( cse );
     // catch exception for 'invalid' point and proceed with no features found
@@ -262,13 +260,11 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyRasterLayer( QgsRaster
     {
       // error
       // TODO: better error reporting
-      QString label = layer->subLayers().value( it.key() );
       continue;
     }
 
     // list of feature stores for a single sublayer
     const QgsFeatureStoreList featureStoreList = result.value<QgsFeatureStoreList>();
-
     for ( const QgsFeatureStore &featureStore : featureStoreList )
     {
       const QgsFeatureList storeFeatures = featureStore.features();
@@ -293,7 +289,7 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyRasterLayer( QgsRaster
         }
 
 
-        results.append( IdentifyResult( layer, feature, !labels.isEmpty() ? QStringLiteral( "%1 - %2" ).arg( labels.join( QStringLiteral( " - " ) ) ) : layer->name() ) );
+        results.append( IdentifyResult( layer, feature, !labels.isEmpty() ? QStringLiteral( "%1 - %2" ).arg( labels.join( QStringLiteral( " - " ) ), layer->name() ) : layer->name() ) );
       }
     }
   }
@@ -311,9 +307,6 @@ QList<IdentifyTool::IdentifyResult> IdentifyTool::identifyVectorTileLayer( QgsVe
   {
     return results;
   }
-
-  QMap<QString, QString> commonDerivedAttributes;
-  int featureCount = 0;
 
   try
   {
@@ -402,8 +395,12 @@ void IdentifyTool::setModel( MultiFeatureListModel *model )
 
 void IdentifyTool::setDeactivated( bool deactivated )
 {
-  if ( deactivated )
+  if ( mDeactivated == deactivated )
+    return;
+
+  if ( deactivated && mModel )
     mModel->clear();
+
   mDeactivated = deactivated;
 }
 

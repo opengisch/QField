@@ -9,6 +9,7 @@ import Theme
  */
 Item {
   width: parent.width
+  height: childrenRect.height
 
   property string deviceName: ''
   property string deviceAddress: ''
@@ -47,7 +48,7 @@ Item {
       wrapMode: Text.WordWrap
     }
 
-    ComboBox {
+    QfComboBox {
       id: serialPortComboBox
       Layout.fillWidth: true
       visible: serialPortComboBox.count

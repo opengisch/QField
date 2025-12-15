@@ -1,33 +1,52 @@
 import QtQuick
 
+/**
+ * \ingroup qml
+ */
 Item {
   id: root
+
+  // Priority enum for handler registration
+  enum Priority {
+    Low,
+    Normal = 50,
+    High = 100
+  }
 
   function pointInItem(point, item) {
     const itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
     return point.x >= itemCoordinates.x && point.x <= itemCoordinates.x + item.width && point.y >= itemCoordinates.y && point.y <= itemCoordinates.y + item.height;
   }
 
-  // Dictionary to store registered handlers
-  property var handlers: ({})
+  // Array to store registered handlers with priorities
+  property var handlers: ([])
 
-  // Register a new handler
-  function registerHandler(name, handler) {
-    if (handlers[name]) {
+  // Register a new handler with priority (higher priority = executed first)
+  function registerHandler(name, handler, priority = MapCanvasPointHandler.Priority.Normal) {
+    const existingIndex = handlers.findIndex(h => h.name === name);
+    if (existingIndex !== -1) {
       console.warn("Handler with name " + name + " already exists");
       return false;
     }
-    handlers[name] = handler;
+    handlers.push({
+        "name": name,
+        "handler": handler,
+        "priority": priority
+      });
+
+    // Sort handlers by priority (descending - highest first)
+    handlers.sort((a, b) => b.priority - a.priority);
     return true;
   }
 
   // Deregister a handler
   function deregisterHandler(name) {
-    if (!handlers[name]) {
+    const index = handlers.findIndex(h => h.name === name);
+    if (index === -1) {
       console.warn("Handler with name " + name + " does not exist");
       return false;
     }
-    delete handlers[name];
+    handlers.splice(index, 1);
     return true;
   }
 
@@ -48,9 +67,8 @@ Item {
 
   // Helper function to process any type of interaction
   function processInteraction(point, type, interactionType) {
-    // Check if any registered handler wants to handle this interaction
-    for (var name in handlers) {
-      if (handlers[name](point, type, interactionType)) {
+    for (const handler of handlers) {
+      if (handler.handler(point, type, interactionType)) {
         return true;
       }
     }

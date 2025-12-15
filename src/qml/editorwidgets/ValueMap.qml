@@ -109,8 +109,8 @@ EditorWidgetBase {
             width: Math.min(flow.width - 16, innerText.width + 16)
             height: 34
             radius: 4
-            color: selected ? isEnabled ? Theme.mainColor : Theme.accentLightColor : "transparent"
-            border.color: isEnabled ? selected ? Theme.mainColor : Theme.accentLightColor : "transparent"
+            color: selected ? isEditable && isEditing ? Theme.mainColor : Theme.controlBorderColor : "transparent"
+            border.color: isEditing ? selected ? Theme.mainColor : Theme.secondaryTextColor : "transparent"
             border.width: 1
 
             property bool selected: toggleButtons.selectedIndex == index
@@ -135,7 +135,7 @@ EditorWidgetBase {
               elide: Text.ElideRight
               anchors.centerIn: parent
               font: Theme.defaultFont
-              color: isEnabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+              color: !isEditable && isEditing ? Theme.mainTextDisabledColor : selected && isEditing ? Theme.buttonTextColor : Theme.mainTextColor
             }
 
             MouseArea {
@@ -166,14 +166,6 @@ EditorWidgetBase {
           }
         }
       }
-
-      Rectangle {
-        y: flow.height + flow.anchors.topMargin + flow.anchors.bottomMargin - 1
-        visible: !isEnabled
-        width: flow.width
-        height: flow.activeFocus ? 2 : 1
-        color: flow.activeFocus ? Theme.accentColor : Theme.accentLightColor
-      }
     }
 
     QfComboBox {
@@ -186,6 +178,10 @@ EditorWidgetBase {
       currentIndex: model.keyToIndex(value)
       model: listModel
       textRole: 'value'
+      text.color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      background.visible: isEnabled || (!isEditable && isEditing)
+      indicator.visible: isEnabled || (!isEditable && isEditing)
+      text.leftPadding: isEnabled || (!isEditable && isEditing) ? 10 : 0
 
       Component.onCompleted: {
         comboBox.popup.z = 10000; // 1000s are embedded feature forms, use a higher value to insure popups always show above embedded feature formes
@@ -240,17 +236,15 @@ EditorWidgetBase {
       }
     }
 
-    Popup {
+    QfPopup {
       id: searchFeaturePopup
 
       parent: mainWindow.contentItem
-      width: mainWindow.width - Theme.popupScreenEdgeMargin * 2
-      height: mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
-      x: Theme.popupScreenEdgeMargin
+      width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
+      height: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+      x: Theme.popupScreenEdgeHorizontalMargin
       y: (mainWindow.height - height) / 2
       z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
-      padding: 0
-      modal: true
       closePolicy: Popup.CloseOnEscape
       focus: visible
 
@@ -266,6 +260,7 @@ EditorWidgetBase {
 
       Page {
         anchors.fill: parent
+        padding: 5
 
         header: QfPageHeader {
           title: fieldLabel

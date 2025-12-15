@@ -6,6 +6,7 @@
   <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -61,8 +62,7 @@
       android:clearTaskOnLaunch="false"
       android:label="@APP_NAME@"
       android:icon="@AT@drawable/@APP_ICON@"
-      android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation"
-      android:theme="@style/AppTheme"
+      android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density"
       android:exported="true">
 
       <intent-filter>
@@ -296,7 +296,7 @@
     <meta-data android:name="io.sentry.environment" android:value="@SENTRY_ENV@" />
     <meta-data android:name="io.sentry.auto-init" android:value="false" />
 
-    <service android:process=":qt_service" android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldCloudService">
+    <service android:process=":qt_service" android:name="ch.opengis.@APP_PACKAGE_NAME@.QFieldCloudService" android:foregroundServiceType="dataSync">
       <meta-data android:name="android.app.arguments" android:value="--cloudservice"/>
       <meta-data android:name="android.app.lib_name" android:value="@string/lib_name"/>
       <meta-data android:name="android.app.repository" android:value="default"/>

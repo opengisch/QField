@@ -77,8 +77,6 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     void setHandleVolumeKeys( const bool handle ) override;
 
-    QVariantMap sceneMargins( QQuickWindow *window ) const override;
-
     double systemFontPointSize() const override { return 16.0; }
 
     void uploadPendingAttachments( QFieldCloudConnection *connection ) const override;
@@ -87,7 +85,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     void vibrate( int milliseconds ) const override;
 
-    void startPositioningService() const override;
+    QString startPositioningService() const override;
     void stopPositioningService() const override;
 
     void requestBackgroundPositioningPermissions() override;

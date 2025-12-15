@@ -21,6 +21,7 @@
 #include <qgsmaplayerstylemanager.h>
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
+#include <qgsprojectelevationproperties.h>
 #include <qgsprojectviewsettings.h>
 
 QgsQuickMapSettings::QgsQuickMapSettings( QObject *parent )
@@ -83,6 +84,21 @@ QgsRectangle QgsQuickMapSettings::extent() const
 
 void QgsQuickMapSettings::setExtent( const QgsRectangle &extent, bool handleMargins )
 {
+  if ( applyExtent( mMapSettings, extent, handleMargins ) )
+  {
+    emit extentChanged();
+  }
+}
+
+double QgsQuickMapSettings::computeScaleForExtent( const QgsRectangle &extent, bool handleMargins )
+{
+  QgsMapSettings settings( mMapSettings );
+  applyExtent( settings, extent, handleMargins );
+  return settings.scale();
+}
+
+bool QgsQuickMapSettings::applyExtent( QgsMapSettings &mapSettings, const QgsRectangle &extent, bool handleMargins )
+{
   if ( handleMargins && ( !qgsDoubleNear( mRightMargin, 0.0 ) || !qgsDoubleNear( mBottomMargin, 0.0 ) ) )
   {
     const double rightMargin = mRightMargin * devicePixelRatio();
@@ -121,21 +137,21 @@ void QgsQuickMapSettings::setExtent( const QgsRectangle &extent, bool handleMarg
     QgsRectangle modifiedExtent = extent;
     modifiedExtent.combineExtentWith( outputSizeExtent );
     if ( modifiedExtent.isNull() )
-      return;
+      return false;
 
     // Set the extent to get an updated map units per pixel value
-    const QgsRectangle originalExtent = mMapSettings.extent();
-    mMapSettings.setExtent( modifiedExtent );
-    modifiedExtent = mMapSettings.extent();
+    const QgsRectangle originalExtent = mapSettings.extent();
+    mapSettings.setExtent( modifiedExtent );
+    modifiedExtent = mapSettings.extent();
 
-    const QgsVector delta = QgsPointXY( extent.center() ) - mMapSettings.extent().center();
+    const QgsVector delta = QgsPointXY( extent.center() ) - mapSettings.extent().center();
 
     // Calculate base margin adjustments (split in half for centering)
-    const double baseXAdjustment = -rightMargin * mMapSettings.mapUnitsPerPixel() / 2;
-    const double baseYAdjustment = bottomMargin * mMapSettings.mapUnitsPerPixel() / 2;
+    const double baseXAdjustment = -rightMargin * mapSettings.mapUnitsPerPixel() / 2;
+    const double baseYAdjustment = bottomMargin * mapSettings.mapUnitsPerPixel() / 2;
 
     // Adjust margins based on rotation
-    const double rotationRadians = mMapSettings.rotation() * M_PI / 180.0;
+    const double rotationRadians = mapSettings.rotation() * M_PI / 180.0;
     const double xAdjustment = baseXAdjustment * cos( rotationRadians ) - baseYAdjustment * sin( rotationRadians );
     const double yAdjustment = baseXAdjustment * sin( rotationRadians ) + baseYAdjustment * cos( rotationRadians );
 
@@ -145,22 +161,45 @@ void QgsQuickMapSettings::setExtent( const QgsRectangle &extent, bool handleMarg
     modifiedExtent.setYMaximum( modifiedExtent.yMaximum() + delta.y() - yAdjustment );
 
     if ( originalExtent == modifiedExtent || modifiedExtent.isNull() )
-      return;
+      return false;
 
-    mMapSettings.setExtent( modifiedExtent );
+    mapSettings.setExtent( modifiedExtent );
   }
   else
   {
-    if ( mMapSettings.extent() == extent || extent.isNull() )
-      return;
+    if ( mapSettings.extent() == extent || extent.isNull() )
+      return false;
 
-    mMapSettings.setExtent( extent );
+    mapSettings.setExtent( extent );
   }
-  emit extentChanged();
+
+  return true;
 }
 
-QgsPoint QgsQuickMapSettings::center() const
+QgsPoint QgsQuickMapSettings::getCenter( bool handleMargins ) const
 {
+  if ( handleMargins && ( !qgsDoubleNear( mRightMargin, 0.0 ) || !qgsDoubleNear( mBottomMargin, 0.0 ) ) )
+  {
+    // Get current extent
+    QgsRectangle e = mMapSettings.extent();
+
+    // Calculate base margin adjustments (split in half for centering)
+    const double baseXAdjustment = -mRightMargin * devicePixelRatio() * mMapSettings.mapUnitsPerPixel() / 2;
+    const double baseYAdjustment = mBottomMargin * devicePixelRatio() * mMapSettings.mapUnitsPerPixel() / 2;
+
+    // Adjust margins based on rotation
+    const double rotationRadians = mMapSettings.rotation() * M_PI / 180.0;
+    const double xAdjustment = baseXAdjustment * cos( rotationRadians ) - baseYAdjustment * sin( rotationRadians );
+    const double yAdjustment = baseXAdjustment * sin( rotationRadians ) + baseYAdjustment * cos( rotationRadians );
+
+    // Calculate the adjusted center
+    QgsPointXY adjustedCenter = e.center();
+    adjustedCenter.setX( adjustedCenter.x() + xAdjustment );
+    adjustedCenter.setY( adjustedCenter.y() + yAdjustment );
+
+    return QgsPoint( adjustedCenter );
+  }
+
   return QgsPoint( extent().center() );
 }
 
@@ -196,6 +235,11 @@ void QgsQuickMapSettings::setCenter( const QgsPoint &center, bool handleMargins 
   }
 
   setExtent( e );
+}
+
+void QgsQuickMapSettings::setCenter( const QPointF &center, bool handleMargins )
+{
+  return setCenter( QgsPoint( center ), handleMargins );
 }
 
 void QgsQuickMapSettings::setCenterToLayer( QgsMapLayer *layer, bool shouldZoom )
@@ -409,6 +453,8 @@ void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
     {
       foundTheMapCanvas = true;
       mMapSettings.readXml( node );
+
+      mMapSettings.setZRange( QgsDoubleRange( 10, 400 ) );
     }
   }
   if ( !foundTheMapCanvas )
@@ -427,7 +473,9 @@ void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
   emit outputSizeChanged();
   emit outputDpiChanged();
   emit layersChanged();
+  emit backgroundColorChanged();
   emit temporalStateChanged();
+  emit zRangeChanged();
 }
 
 double QgsQuickMapSettings::rotation() const
@@ -486,6 +534,9 @@ QDateTime QgsQuickMapSettings::temporalBegin() const
 
 void QgsQuickMapSettings::setTemporalBegin( const QDateTime &begin )
 {
+  if ( mMapSettings.temporalRange().begin() == begin )
+    return;
+
   const QgsDateTimeRange range = mMapSettings.temporalRange();
   mMapSettings.setTemporalRange( QgsDateTimeRange( begin, range.end() ) );
   emit temporalStateChanged();
@@ -498,9 +549,42 @@ QDateTime QgsQuickMapSettings::temporalEnd() const
 
 void QgsQuickMapSettings::setTemporalEnd( const QDateTime &end )
 {
+  if ( mMapSettings.temporalRange().end() == end )
+    return;
+
   const QgsDateTimeRange range = mMapSettings.temporalRange();
   mMapSettings.setTemporalRange( QgsDateTimeRange( range.begin(), end ) );
   emit temporalStateChanged();
+}
+
+double QgsQuickMapSettings::zRangeLower() const
+{
+  return mMapSettings.zRange().lower();
+}
+
+void QgsQuickMapSettings::setZRangeLower( double lower )
+{
+  if ( mMapSettings.zRange().lower() == lower )
+    return;
+
+  const QgsDoubleRange zRange( lower, mMapSettings.zRange().upper() );
+  mMapSettings.setZRange( zRange );
+  emit zRangeChanged();
+}
+
+double QgsQuickMapSettings::zRangeUpper() const
+{
+  return mMapSettings.zRange().upper();
+}
+
+void QgsQuickMapSettings::setZRangeUpper( double upper )
+{
+  if ( mMapSettings.zRange().upper() == upper )
+    return;
+
+  const QgsDoubleRange zRange( mMapSettings.zRange().lower(), upper );
+  mMapSettings.setZRange( zRange );
+  emit zRangeChanged();
 }
 
 double QgsQuickMapSettings::bottomMargin() const

@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: 🐣 Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           submodules: recursive
@@ -36,7 +36,6 @@ jobs:
       - name: Reclaim disk space
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
-          rm -rf /Applications/Xcode_14*
           rm -rf /Applications/Xcode_15*
           rm -rf /Users/runner/Library/Android/sdk
 
@@ -56,7 +55,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
-          ruby-version: '3.2' # Not needed with a .ruby-version file
+          ruby-version: '3.4' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: 🍭 Setup XCode
@@ -68,6 +67,8 @@ jobs:
       - name: 🍹 Prepare ios build env
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
+          xcrun simctl list > /dev/null
+          xcodebuild -downloadPlatform iOS -buildVersion 18.2
           brew uninstall cmake
           # Workaround GitHub Actions Python issues
           brew unlink python && brew link --overwrite python
@@ -86,7 +87,7 @@ jobs:
           cmakeVersion: 3.31.6
 
       - name: 🐍 Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           python-version: '3.11'
@@ -137,7 +138,7 @@ jobs:
                 -D WITH_CCACHE=ON
 
       - name: 📑 Upload Dep Build Logs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: failure()
         with:
           name: build-logs-${{ env.TRIPLET }}
@@ -167,7 +168,7 @@ jobs:
           bundle exec fastlane ios upload_s3 ipa:/Users/runner/builddir/qfieldIpa/QField.ipa
 
       - name: 📤 Upload qfield Ipa
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           name: qfield-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa

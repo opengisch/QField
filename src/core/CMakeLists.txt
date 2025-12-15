@@ -7,6 +7,7 @@ set(QFIELD_CORE_SRCS
     utils/geometryutils.cpp
     utils/layerutils.cpp
     utils/positioningutils.cpp
+    utils/processingutils.cpp
     utils/projectutils.cpp
     utils/qfieldcloudutils.cpp
     utils/relationutils.cpp
@@ -45,6 +46,9 @@ set(QFIELD_CORE_SRCS
     processing/processingalgorithm.cpp
     processing/processingalgorithmparametersmodel.cpp
     processing/processingalgorithmsmodel.cpp
+    qfieldcloud/deltafilewrapper.cpp
+    qfieldcloud/deltalistmodel.cpp
+    qfieldcloud/layerobserver.cpp
     qfieldcloud/networkmanager.cpp
     qfieldcloud/networkreply.cpp
     qfieldcloud/qfieldcloudconnection.cpp
@@ -62,8 +66,6 @@ set(QFIELD_CORE_SRCS
     bookmarkmodel.cpp
     clipboardmanager.cpp
     changelogcontents.cpp
-    deltafilewrapper.cpp
-    deltalistmodel.cpp
     digitizinglogger.cpp
     distancearea.cpp
     drawingcanvas.cpp
@@ -81,7 +83,6 @@ set(QFIELD_CORE_SRCS
     geometryeditorsmodel.cpp
     gridmodel.cpp
     identifytool.cpp
-    layerobserver.cpp
     featurehistory.cpp
     layerresolver.cpp
     layertreemapcanvasbridge.cpp
@@ -139,6 +140,7 @@ set(QFIELD_CORE_HDRS
     utils/geometryutils.h
     utils/layerutils.h
     utils/positioningutils.h
+    utils/processingutils.h
     utils/projectutils.h
     utils/qfieldcloudutils.h
     utils/relationutils.h
@@ -175,6 +177,9 @@ set(QFIELD_CORE_HDRS
     processing/processingalgorithm.h
     processing/processingalgorithmparametersmodel.h
     processing/processingalgorithmsmodel.h
+    qfieldcloud/deltafilewrapper.h
+    qfieldcloud/deltalistmodel.h
+    qfieldcloud/layerobserver.h
     qfieldcloud/networkmanager.h
     qfieldcloud/networkreply.h
     qfieldcloud/qfieldcloudconnection.h
@@ -192,8 +197,6 @@ set(QFIELD_CORE_HDRS
     bookmarkmodel.h
     clipboardmanager.h
     changelogcontents.h
-    deltafilewrapper.h
-    deltalistmodel.h
     digitizinglogger.h
     distancearea.h
     drawingcanvas.h
@@ -212,7 +215,6 @@ set(QFIELD_CORE_HDRS
     geometryeditorsmodel.h
     gridmodel.h
     identifytool.h
-    layerobserver.h
     featurehistory.h
     layerresolver.h
     layertreemapcanvasbridge.h
@@ -401,6 +403,7 @@ if(WITH_SERIALPORT)
     Qt6
     COMPONENTS SerialPort
     REQUIRED)
+
   target_link_libraries(qfield_core PUBLIC Qt::SerialPort)
 endif()
 

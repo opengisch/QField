@@ -1,5 +1,8 @@
 import QtQuick
 
+/**
+ * \ingroup qml
+ */
 Row {
   id: visibilityFadingRow
   property bool stateVisible: false

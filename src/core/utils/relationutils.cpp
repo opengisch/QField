@@ -44,3 +44,28 @@ QgsRelation RelationUtils::resolveReferencingRelation( QgsProject *project, QgsV
     return relations.first();
   return QgsRelation();
 }
+
+QgsRelation RelationUtils::createRelation( const QgsVectorLayer *referencedLayer, const QgsVectorLayer *referencingLayer, const QVariantMap &fieldPairs )
+{
+  if ( !referencedLayer || !referencingLayer || fieldPairs.isEmpty() )
+    return QgsRelation();
+
+  QStringList fieldPairStrings;
+  for ( QVariantMap::const_iterator it = fieldPairs.constBegin(); it != fieldPairs.constEnd(); ++it )
+  {
+    fieldPairStrings.append( QStringLiteral( "%1_%2" ).arg( it.key(), it.value().toString() ) );
+  }
+  const QString relationId = QStringLiteral( "%1_%2_%3" ).arg( referencedLayer->id(), fieldPairStrings.join( "_" ), referencingLayer->id() );
+
+  QgsRelation relation;
+  relation.setId( relationId );
+  relation.setName( QStringLiteral( "%1 (%2) <-> %3 (%4)" ).arg( referencedLayer->name(), fieldPairs.constBegin().key(), referencingLayer->name(), fieldPairs.constBegin().value().toString() ) );
+  relation.setReferencedLayer( referencedLayer->id() );
+  relation.setReferencingLayer( referencingLayer->id() );
+
+  for ( QVariantMap::const_iterator it = fieldPairs.constBegin(); it != fieldPairs.constEnd(); ++it )
+  {
+    relation.addFieldPair( it.value().toString(), it.key() );
+  }
+  return relation;
+}

@@ -1,5 +1,5 @@
-set(QGIS_REF final-3_44_1)
-set(QGIS_SHA512 4865065b4df00fa2d0d56a98f61da812fd83b4a93e46577eb49ecdcca74e82d1db90b13fd923242d202c306766981df49cf4113eb9050cbeab5c4aa1ae4fc8d6)
+set(QGIS_REF e0c3959ffc57116664d48f4b687686d0360c6c89)
+set(QGIS_SHA512 07120e1754e1bcfd5a4f05a3225e266d8cc11525f85d933b50677c3aefff35b3d2b9c73db61795233eca8f472c631d509034d02461173095b4f7bbd66d88b641)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -15,6 +15,7 @@ vcpkg_from_github(
         crssync-no-install.patch
         include-qthread.patch
         processing.patch # Needed to avoid link issue with tinygltf (ATM embedded into QGIS) and _GEOSQueryCallback defined multiple times
+        wfsfilter.patch
 )
 
 

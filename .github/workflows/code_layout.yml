@@ -15,7 +15,7 @@ jobs:
   #    runs-on: ubuntu-latest
   #    steps:
   #      - name: Checkout
-  #        uses: actions/checkout@v4
+  #        uses: actions/checkout@v6
   #      - name: Install Requirements
   #        run: |
   #          sudo apt install -y \
@@ -30,16 +30,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Run Banned Keywords Test
         run: ./scripts/test_banned_keywords.sh
 
   cppcheck-1_9:
     name: cpp check
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install Requirements
         run: |

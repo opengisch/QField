@@ -10,7 +10,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: audioRecorder
 
   signal finished(string path)
@@ -18,14 +18,13 @@ Popup {
 
   property bool preRecording: true
   property bool hasRecordedClip: player.duration > 0
-  property int popupWidth: Math.min(400, mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeMargin : mainWindow.height - Theme.popupScreenEdgeMargin)
+  property int popupWidth: Math.min(400, mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeVerticalMargin : mainWindow.height - Theme.popupScreenEdgeVerticalMargin)
 
   width: popupWidth
-  height: Math.min(mainWindow.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4), popupWidth + toolBar.height + recordButton.height)
+  height: Math.min(mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4), popupWidth + toolBar.height + recordButton.height)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
-  padding: 0
   parent: mainWindow.contentItem
 
   closePolicy: Popup.CloseOnEscape
@@ -45,12 +44,22 @@ Popup {
     id: microphonePermission
   }
 
-  CaptureSession {
-    id: captureSession
-    audioInput: AudioInput {
-    }
-    recorder: AudioRecorder {
-      id: recorder
+  AudioRecorder {
+    id: recorder
+  }
+
+  Loader {
+    id: captureSessionLoader
+    active: microphonePermission.status !== Qt.PermissionStatus.Undetermined
+
+    property AudioRecorder audioRecorder: recorder
+
+    sourceComponent: Component {
+      CaptureSession {
+        audioInput: AudioInput {
+        }
+        recorder: audioRecorder
+      }
     }
   }
 
@@ -73,15 +82,16 @@ Popup {
   Video {
     id: player
 
-    visible: false
+    property bool loaded: false
 
     anchors.left: parent.left
     anchors.top: parent.top
-
+    visible: false
     width: parent.width
     height: parent.height - 54
 
-    property bool loaded: false
+    muted: false
+    volume: 1.0
 
     onDurationChanged: {
       if (duration > 0 && !loaded) {
@@ -103,6 +113,11 @@ Popup {
     padding: 10
     header: ToolBar {
       id: toolBar
+
+      topPadding: 0
+      leftPadding: 0
+      rightPadding: 0
+      bottomPadding: 0
 
       background: Rectangle {
         color: "transparent"

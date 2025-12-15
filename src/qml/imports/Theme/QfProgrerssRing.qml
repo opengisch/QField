@@ -1,6 +1,10 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Shapes
 
+/**
+ * \ingroup qml
+ */
 ProgressBar {
   id: control
 
@@ -9,39 +13,42 @@ ProgressBar {
   property color color: Theme.mainColor
   property color backgroundColor: Theme.lightGray
 
-  background: Rectangle {
-    implicitWidth: control.size
-    implicitHeight: control.size
-    radius: control.width / 2
-    color: "transparent"
-    border.color: control.backgroundColor
-    border.width: control.strokeWidth
+  implicitWidth: control.size
+  implicitHeight: control.size
+
+  background: Shape {
+    anchors.fill: parent
+    ShapePath {
+      strokeWidth: control.strokeWidth
+      strokeColor: control.backgroundColor
+      fillColor: "transparent"
+
+      PathAngleArc {
+        centerX: control.width / 2
+        centerY: control.height / 2
+        radiusX: control.width / 2 - control.strokeWidth / 2
+        radiusY: radiusX
+        startAngle: 0
+        sweepAngle: 360
+      }
+    }
   }
 
-  onVisualPositionChanged: {
-    canvas.requestPaint();
-  }
+  contentItem: Shape {
+    anchors.fill: parent
+    ShapePath {
+      strokeWidth: control.strokeWidth
+      strokeColor: control.color
+      fillColor: "transparent"
+      capStyle: ShapePath.RoundCap
 
-  contentItem: Item {
-    Canvas {
-      id: canvas
-      anchors.fill: parent
-      antialiasing: true
-      renderTarget: Canvas.Image
-      property real radius: control.width / 2 - control.strokeWidth / 2
-
-      onPaint: {
-        var ctx = canvas.getContext("2d");
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.save();
-        ctx.lineWidth = control.strokeWidth;
-        ctx.strokeStyle = control.color;
-        ctx.lineCap = "round";
-        ctx.beginPath();
-        ctx.arc(width / 2, height / 2, radius, -0.5 * Math.PI, -0.5 * Math.PI + control.visualPosition * 2 * Math.PI);
-        ctx.stroke();
-        ctx.closePath();
-        ctx.restore();
+      PathAngleArc {
+        centerX: control.width / 2
+        centerY: control.height / 2
+        radiusX: control.width / 2 - control.strokeWidth / 2
+        radiusY: radiusX
+        startAngle: -90
+        sweepAngle: control.visualPosition * 360
       }
     }
   }

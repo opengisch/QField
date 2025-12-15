@@ -35,13 +35,6 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
   public:
     explicit FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
 
-    void updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles );
-    int buildMap( QgsLayerTreeModel *model, const QModelIndex &parent = QModelIndex(), int row = 0, int treeLevel = 0 );
-    void clearMap();
-
-    void removeFromMap( const QModelIndex &parent, int first, int last );
-    void insertInMap( const QModelIndex &parent, int first, int last );
-
     void setSourceModel( QAbstractItemModel *sourceModel ) override;
     QModelIndex mapToSource( const QModelIndex &proxyIndex ) const override;
     QModelIndex mapFromSource( const QModelIndex &sourceIndex ) const override;
@@ -87,11 +80,20 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     Q_INVOKABLE QgsRectangle nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer );
 
   signals:
+    void layersAdded();
+    void layersRemoved();
     void mapThemeChanged();
     void isTemporalChanged();
     void isFrozenChanged();
 
   private:
+    void updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles );
+    int buildMap( QgsLayerTreeModel *model, const QModelIndex &parent = QModelIndex(), int row = 0, int treeLevel = 0 );
+    void clearMap();
+
+    void removeFromMap( const QModelIndex &parent, int first, int last );
+    void insertInMap( const QModelIndex &parent, int first, int last );
+
     void featureCountChanged();
     void updateTemporalState();
     void adjustTemporalStateFromAddedLayers( const QList<QgsMapLayer *> &layers );
@@ -107,8 +109,9 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
     QList<QgsLayerTreeLayer *> mLayersInTracking;
 
     bool mIsTemporal = false;
-
     int mFrozen = 0;
+
+    bool mProjectLayersChanged = false;
 };
 
 /**
@@ -155,8 +158,18 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
       SnappingEnabled,
       HasNotes,
       Notes,
+      Checkable,
     };
     Q_ENUM( Roles )
+
+    enum Types
+    {
+      Layer,
+      Group,
+      Image,
+      Legend,
+    };
+    Q_ENUM( Types )
 
     explicit FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
 
@@ -192,6 +205,8 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
     Q_INVOKABLE QgsRectangle nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer = 0.02 );
 
   signals:
+    void layersAdded();
+    void layersRemoved();
     void mapThemeChanged();
     void isTemporalChanged();
     void isFrozenChanged();

@@ -8,7 +8,7 @@ import Theme
 /**
  * \ingroup qml
  */
-Popup {
+QfPopup {
   id: browserPanel
 
   signal cancel
@@ -20,18 +20,19 @@ Popup {
   property bool fullscreen: false
   property bool clearCookiesOnOpen: false
 
-  width: mainWindow.width - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin * 2)
-  height: mainWindow.height - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin * 2)
-  x: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin
-  y: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeMargin
-  padding: 0
-  modal: true
+  width: mainWindow.width - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeHorizontalMargin * 2)
+  height: mainWindow.height - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeVerticalMargin * 2)
+  x: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeVerticalMargin
+  y: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeVerticalMargin
+  padding: fullscreen ? 0 : 5
   closePolicy: Popup.CloseOnEscape
   focus: visible
 
   Page {
     id: browserContainer
     anchors.fill: parent
+    padding: 5
+
     header: QfPageHeader {
       id: pageHeader
       title: browserView && !browserView.loading && browserView.title !== '' ? browserView.title : qsTr("Browser")
@@ -64,10 +65,17 @@ Popup {
     }
   }
 
+  onAboutToHide: {
+    iface.setScreenDimmerTimeout(settings.value('dimTimeoutSeconds', 60));
+  }
+
   onAboutToShow: {
+    // Disable dimming to avoid dark screens while browsing
+    iface.setScreenDimmerTimeout(0);
+
     // Reset tracked cookies
     browserCookies = [];
-    if (url != '') {
+    if (url !== '') {
       if (browserView === undefined) {
         // avoid cost of WevView creation until needed
         browserView = Qt.createQmlObject('import QtWebView

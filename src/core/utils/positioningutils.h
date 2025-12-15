@@ -46,9 +46,9 @@ class QFIELD_CORE_EXPORT PositioningUtils : public QObject
     static Q_INVOKABLE GnssPositionInformation createEmptyGnssPositionInformation();
 
     /**
-     * Returns an average GnssPositionInformation from a list of position information
+     * Returns an average GnssPositionInformation from a list of position information.
      */
-    static GnssPositionInformation averagedPositionInformation( const QList<GnssPositionInformation> &positionsInformation );
+    static Q_INVOKABLE GnssPositionInformation averagedPositionInformation( const QList<GnssPositionInformation> &positionsInformation );
 
     /**
      * Returns an average GnssPositionInformation from a list of position information
@@ -59,6 +59,16 @@ class QFIELD_CORE_EXPORT PositioningUtils : public QObject
      * Returns the true north bearing from a given position and CRS
      */
     static Q_INVOKABLE double bearingTrueNorth( const QgsPoint &position, const QgsCoordinateReferenceSystem &crs );
+
+    /**
+     * Returns a reasonable default extent derived from a device's timezone and positioning if available.
+     */
+    static Q_INVOKABLE QgsRectangle createExtentForDevice( const GnssPositionInformation &positionInformation, const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem::fromEpsgId( 4326 ) );
+
+  private:
+    static void initTimeZones();
+    //! \note not available in Python bindings
+    static void buildTimeZones();
 };
 
 #endif // POSITIONINGUTILS_H

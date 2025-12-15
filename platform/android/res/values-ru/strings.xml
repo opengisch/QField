@@ -64,4 +64,5 @@
     <string name="export_operation_unsupported">Ваше устройство не поддерживает эту операцию экспорта.</string>
     <string name="processing_message">Обработка...</string>
     <string name="positioning_title">Местоположение</string>
+    <string name="positioning_running">Сервис позиционирования работает</string>
     </resources>

@@ -16,9 +16,12 @@
 
 #include "layerutils.h"
 
+#include <QQmlEngine>
 #include <QScopeGuard>
 #include <qgsfillsymbol.h>
 #include <qgsfillsymbollayer.h>
+#include <qgshuesaturationfilter.h>
+#include <qgsjsonutils.h>
 #include <qgslabelobstaclesettings.h>
 #include <qgslayoutatlas.h>
 #include <qgslayoutmanager.h>
@@ -27,10 +30,12 @@
 #include <qgsmaplayerelevationproperties.h>
 #include <qgsmarkersymbol.h>
 #include <qgsmarkersymbollayer.h>
+#include <qgsmemoryproviderutils.h>
 #include <qgsmessagelog.h>
 #include <qgspallabeling.h>
 #include <qgsprintlayout.h>
 #include <qgsproject.h>
+#include <qgsprojectstylesettings.h>
 #include <qgsrasterlayer.h>
 #include <qgsrasterlayerelevationproperties.h>
 #include <qgssinglesymbolrenderer.h>
@@ -47,28 +52,122 @@ LayerUtils::LayerUtils( QObject *parent )
 {
 }
 
-QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
+void LayerUtils::setDefaultRenderer( QgsVectorLayer *layer, QgsProject *project, const QString &attachmentField, const QString &colorField )
+{
+  if ( !layer )
+    return;
+
+  bool hasSymbol = true;
+  Qgis::SymbolType symbolType = Qgis::SymbolType::Marker;
+  switch ( layer->geometryType() )
+  {
+    case Qgis::GeometryType::Point:
+      symbolType = Qgis::SymbolType::Marker;
+      break;
+    case Qgis::GeometryType::Line:
+      symbolType = Qgis::SymbolType::Line;
+      break;
+    case Qgis::GeometryType::Polygon:
+      symbolType = Qgis::SymbolType::Fill;
+      break;
+    case Qgis::GeometryType::Unknown:
+    case Qgis::GeometryType::Null:
+    default:
+      hasSymbol = false;
+      break;
+  }
+
+  if ( !hasSymbol )
+  {
+    return;
+  }
+
+  QgsSymbol *symbol = project ? project->styleSettings()->defaultSymbol( symbolType ) : nullptr;
+  if ( !symbol )
+  {
+    symbol = LayerUtils::defaultSymbol( layer, attachmentField, colorField );
+  }
+
+  QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
+  layer->setRenderer( renderer );
+}
+
+QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &attachmentField, const QString &colorField )
 {
   QgsSymbol *symbol = nullptr;
 
   if ( !layer )
+  {
     return symbol;
+  }
 
   QgsSymbolLayerList symbolLayers;
   switch ( layer->geometryType() )
   {
     case Qgis::GeometryType::Point:
     {
-      QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 255, 0, 0, 100 ), QColor( 255, 0, 0 ) );
-      symbolLayer->setStrokeWidth( 0.6 );
-      symbolLayers << symbolLayer;
+      if ( !attachmentField.isEmpty() )
+      {
+        QgsSymbolLayerList subSymbolLayers;
+        QgsRasterMarkerSymbolLayer *rasterMarkerSymbolLayer = new QgsRasterMarkerSymbolLayer( QString(), 2.6, 0.0 );
+        rasterMarkerSymbolLayer->setSize( 6.0 );
+        rasterMarkerSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( "scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value )" ), true ) );
+        rasterMarkerSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Name, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000, @project_folder || '/' || \"%1\", '')" ).arg( attachmentField ), true ) );
+        subSymbolLayers << rasterMarkerSymbolLayer;
+
+        QgsCentroidFillSymbolLayer *centroidFillSymbolLayer = new QgsCentroidFillSymbolLayer();
+        centroidFillSymbolLayer->setClipPoints( true );
+        centroidFillSymbolLayer->setSubSymbol( new QgsMarkerSymbol( subSymbolLayers ) );
+        subSymbolLayers.clear();
+        subSymbolLayers << centroidFillSymbolLayer;
+
+        QgsFilledMarkerSymbolLayer *fillSymbolLayer = new QgsFilledMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0 );
+        fillSymbolLayer->setSize( 2.4 );
+        if ( !colorField.isEmpty() )
+        {
+          fillSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::StrokeColor, QgsProperty::fromExpression( QStringLiteral( "if(\"%1\" is not null and \"%1\" != '', \"%1\", @value)" ).arg( colorField ), true ) );
+        }
+        fillSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000 and \"%1\" is not null and \"%1\" != '', scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value ), @value)" ).arg( attachmentField ), true ) );
+        fillSymbolLayer->setSubSymbol( new QgsFillSymbol( subSymbolLayers ) );
+        symbolLayers << fillSymbolLayer;
+
+        QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 55, 126, 184, 100 ), QColor( 55, 126, 184 ) );
+        symbolLayer->setSize( 2.4 );
+        symbolLayer->setStrokeWidth( 0.6 );
+        if ( !colorField.isEmpty() )
+        {
+          symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::FillColor, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000 and \"%1\" is not null and \"%1\" != '', '255,0,0,0', if(\"%2\" is not null and \"%2\" != '', set_color_part(\"%2\", 'alpha', 100), @value))" ).arg( attachmentField, colorField ), true ) );
+          symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::StrokeColor, QgsProperty::fromExpression( QStringLiteral( "if(\"%1\" is not null and \"%1\" != '', \"%1\", @value)" ).arg( colorField ), true ) );
+        }
+        else
+        {
+          symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::FillColor, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000 and \"%1\" is not null and \"%1\" != '', '255,0,0,0', @value))" ).arg( attachmentField ), true ) );
+        }
+        symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000 and \"%1\" is not null and \"%1\" != '', scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value ), @value)" ).arg( attachmentField ), true ) );
+        symbolLayers << symbolLayer;
+      }
+      else
+      {
+        QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 55, 126, 184, 100 ), QColor( 55, 126, 184 ) );
+        symbolLayer->setStrokeWidth( 0.6 );
+        if ( !colorField.isEmpty() )
+        {
+          symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::FillColor, QgsProperty::fromExpression( QStringLiteral( "if(\"%1\" is not null and \"%1\" != '', set_color_part(\"%1\", 'alpha', 100), @value)" ).arg( colorField ), true ) );
+        }
+        symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::StrokeColor, QgsProperty::fromExpression( QStringLiteral( "if(\"%1\" is not null and \"%1\" != '', \"%1\", @value)" ).arg( colorField ), true ) );
+        symbolLayers << symbolLayer;
+      }
       symbol = new QgsMarkerSymbol( symbolLayers );
       break;
     }
 
     case Qgis::GeometryType::Line:
     {
-      QgsSimpleLineSymbolLayer *symbolLayer = new QgsSimpleLineSymbolLayer( QColor( 255, 0, 0 ), 0.6 );
+      QgsSimpleLineSymbolLayer *symbolLayer = new QgsSimpleLineSymbolLayer( QColor( 55, 126, 184 ), 0.6 ); // cppcheck-suppress constVariablePointer
+      if ( !colorField.isEmpty() )
+      {
+        symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::StrokeColor, QgsProperty::fromExpression( QStringLiteral( "if(\"%1\" is not null and \"%1\" != '', \"%1\", @value)" ).arg( colorField ), true ) );
+      }
       symbolLayers << symbolLayer;
       symbol = new QgsLineSymbol( symbolLayers );
       break;
@@ -76,7 +175,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
 
     case Qgis::GeometryType::Polygon:
     {
-      QgsSimpleFillSymbolLayer *symbolLayer = new QgsSimpleFillSymbolLayer( QColor( 255, 0, 0, 100 ), DEFAULT_SIMPLEFILL_STYLE, QColor( 255, 0, 0 ), DEFAULT_SIMPLEFILL_BORDERSTYLE, 0.6 );
+      QgsSimpleFillSymbolLayer *symbolLayer = new QgsSimpleFillSymbolLayer( QColor( 55, 126, 184, 100 ), DEFAULT_SIMPLEFILL_STYLE, QColor( 55, 126, 184 ), DEFAULT_SIMPLEFILL_BORDERSTYLE, 0.6 ); // cppcheck-suppress constVariablePointer
       symbolLayers << symbolLayer;
       symbol = new QgsFillSymbol( symbolLayers );
       break;
@@ -89,17 +188,38 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer )
   return symbol;
 }
 
+void LayerUtils::setDefaultLabeling( QgsVectorLayer *layer, QgsProject *project )
+{
+  QgsTextFormat textFormat = project ? project->styleSettings()->defaultTextFormat() : QgsTextFormat();
+  textFormat.setSize( 8 );
+  textFormat.setSizeUnit( Qgis::RenderUnit::Points );
+  textFormat.buffer().setEnabled( true );
+  textFormat.buffer().setSize( 0.5 );
+  textFormat.buffer().setSizeUnit( Qgis::RenderUnit::Millimeters );
+  textFormat.buffer().setColor( QColor( 255, 255, 255, 150 ) );
+  QgsAbstractVectorLayerLabeling *labeling = LayerUtils::defaultLabeling( layer, textFormat );
+  if ( labeling )
+  {
+    layer->setLabeling( labeling );
+    layer->setLabelsEnabled( layer->geometryType() == Qgis::GeometryType::Point );
+  }
+}
+
 QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *layer, QgsTextFormat textFormat )
 {
   QgsAbstractVectorLayerLabeling *labeling = nullptr;
 
   if ( !layer )
+  {
     return labeling;
+  }
 
   bool foundFriendlyIdentifier = true;
   QString fieldName = QgsVectorLayerUtils::guessFriendlyIdentifierField( layer->fields(), &foundFriendlyIdentifier );
   if ( !foundFriendlyIdentifier )
+  {
     return labeling;
+  }
 
   QgsPalLayerSettings settings;
   settings.fieldName = fieldName;
@@ -122,11 +242,7 @@ QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *lay
     case Qgis::GeometryType::Polygon:
     {
       settings.placement = Qgis::LabelPlacement::AroundPoint;
-#if _QGIS_VERSION_INT >= 33500
       settings.obstacleSettings().setType( QgsLabelObstacleSettings::ObstacleType::PolygonBoundary );
-#else
-      settings.obstacleSettings().setType( QgsLabelObstacleSettings::PolygonBoundary );
-#endif
       break;
     }
 
@@ -163,6 +279,27 @@ QgsRasterLayer *LayerUtils::createOnlineElevationLayer()
   elevationProperties->setEnabled( true );
   elevationProperties->setProfileSymbology( Qgis::ProfileSurfaceSymbology::FillBelow );
   elevationProperties->profileFillSymbol()->setColor( QColor( 130, 130, 130 ) );
+  return layer;
+}
+
+QgsMapLayer *LayerUtils::createBasemap( const QString &style )
+{
+  QgsRasterLayer *layer = nullptr;
+  if ( style.compare( QStringLiteral( "lightgray" ) ) == 0 )
+  {
+    layer = new QgsRasterLayer( OPENSTREETMAP_URL, QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
+    layer->hueSaturationFilter()->setGrayscaleMode( QgsHueSaturationFilter::GrayscaleLightness );
+  }
+  else if ( style.compare( QStringLiteral( "darkgray" ) ) == 0 )
+  {
+    layer = new QgsRasterLayer( OPENSTREETMAP_URL, QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
+    layer->hueSaturationFilter()->setGrayscaleMode( QgsHueSaturationFilter::GrayscaleLightness );
+    layer->hueSaturationFilter()->setInvertColors( true );
+  }
+  else
+  {
+    layer = new QgsRasterLayer( OPENSTREETMAP_URL, QStringLiteral( "OpenStreetMap" ), QLatin1String( "wms" ) );
+  }
   return layer;
 }
 
@@ -329,7 +466,11 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, QgsFeature featu
   QString sourcePrimaryKeys = layer->customProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ) ).toString();
   if ( layer->fields().lookupField( sourcePrimaryKeys ) >= 0 )
   {
-    feature.setAttribute( layer->fields().lookupField( sourcePrimaryKeys ), QVariant() );
+    const int sourcePrimaryKeysIndex = layer->fields().lookupField( sourcePrimaryKeys );
+    if ( !layer->fields().at( sourcePrimaryKeysIndex ).defaultValueDefinition().isValid() )
+    {
+      feature.setAttribute( sourcePrimaryKeysIndex, QVariant() );
+    }
   }
 
   QgsFeature duplicatedFeature;
@@ -382,9 +523,12 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, QgsFeature featu
     if ( !sourcePrimaryKeys.isEmpty() && chl->fields().lookupField( sourcePrimaryKeys ) >= 0 )
     {
       const int sourcePrimaryKeysIndex = chl->fields().lookupField( sourcePrimaryKeys );
-      for ( auto fid : fids )
+      if ( !chl->fields().at( sourcePrimaryKeysIndex ).defaultValueDefinition().isValid() )
       {
-        chl->changeAttributeValue( fid, sourcePrimaryKeysIndex, QVariant() );
+        for ( auto fid : fids )
+        {
+          chl->changeAttributeValue( fid, sourcePrimaryKeysIndex, QVariant() );
+        }
       }
     }
 
@@ -400,6 +544,45 @@ bool LayerUtils::hasMValue( QgsVectorLayer *layer )
     return false;
 
   return QgsWkbTypes::hasM( layer->wkbType() );
+}
+
+QgsVectorLayer *LayerUtils::loadVectorLayer( const QString &uri, const QString &name, const QString &provider )
+{
+  QgsVectorLayer *layer = new QgsVectorLayer( uri, name, provider );
+  QQmlEngine::setObjectOwnership( layer, QQmlEngine::CppOwnership );
+  return layer;
+}
+
+QgsRasterLayer *LayerUtils::loadRasterLayer( const QString &uri, const QString &name, const QString &provider )
+{
+  QgsRasterLayer *layer = new QgsRasterLayer( uri, name, provider );
+  QQmlEngine::setObjectOwnership( layer, QQmlEngine::CppOwnership );
+  return layer;
+}
+
+QgsVectorLayer *LayerUtils::memoryLayerFromJsonString( const QString &name, const QString &string, const QgsCoordinateReferenceSystem &crs )
+{
+  const QgsFields fields = QgsJsonUtils::stringToFields( string );
+  QgsFeatureList features = QgsJsonUtils::stringToFeatureList( string, fields );
+  if ( features.isEmpty() )
+  {
+    return nullptr;
+  }
+
+  QgsVectorLayer *layer = LayerUtils::createMemoryLayer( name, fields, features[0].geometry().wkbType(), crs );
+  if ( QgsVectorDataProvider *dataProvider = layer->dataProvider() )
+  {
+    dataProvider->addFeatures( features );
+  }
+  return layer;
+}
+
+QgsVectorLayer *LayerUtils::createMemoryLayer( const QString &name, const QgsFields &fields, Qgis::WkbType geometryType, const QgsCoordinateReferenceSystem &crs )
+{
+  QgsVectorLayer *layer = QgsMemoryProviderUtils::createMemoryLayer( name, fields, geometryType, crs );
+  QQmlEngine::setObjectOwnership( layer, QQmlEngine::CppOwnership );
+  LayerUtils::setDefaultRenderer( layer );
+  return layer;
 }
 
 FeatureIterator LayerUtils::createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression )

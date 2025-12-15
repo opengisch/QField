@@ -13,11 +13,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "appinterface.h"
 #include "qfield.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudutils.h"
 
+#include <QDirIterator>
 #include <QFile>
 #include <QHttpMultiPart>
 #include <QJsonDocument>
@@ -43,12 +43,6 @@ QFieldCloudConnection::QFieldCloudConnection()
   , mProvider( QSettings().value( QStringLiteral( "/QFieldCloud/provider" ) ).toString() )
   , mProviderConfigId( QSettings().value( QStringLiteral( "/QFieldCloud/providerConfigId" ) ).toString() )
 {
-  QgsNetworkAccessManager::instance()->setTimeout( 60 * 60 * 1000 );
-  QgsNetworkAccessManager::instance()->setTransferTimeout( 5 * 60 * 1000 );
-  // we cannot use "/" as separator, since QGIS puts a suffix QGIS/31700 anyway
-  const QString userAgent = QStringLiteral( "qfield|%1|%2|%3|" ).arg( qfield::appVersion, qfield::appVersionStr.normalized( QString::NormalizationForm_KD ), qfield::gitRev );
-  QgsSettings().setValue( QStringLiteral( "/qgis/networkAndProxy/userAgent" ), userAgent );
-
   if ( !QgsApplication::authManager()->availableAuthMethodConfigs().contains( mProviderConfigId ) )
   {
     mProviderConfigId.clear();
@@ -100,8 +94,13 @@ void QFieldCloudConnection::setUrl( const QString &url )
     return;
 
   mUrl = url;
-
   QSettings().setValue( QStringLiteral( "/QFieldCloud/url" ), url );
+
+  if ( mStatus != ConnectionStatus::Disconnected )
+  {
+    // Disconnect from the previously used endpoint
+    logout();
+  }
 
   emit urlChanged();
 }
@@ -157,7 +156,12 @@ void QFieldCloudConnection::setUsername( const QString &username )
     return;
 
   mUsername = username;
-  invalidateToken();
+
+  if ( mStatus != ConnectionStatus::Disconnected )
+  {
+    // Disconnect from the previously used username
+    logout();
+  }
 
   emit usernameChanged();
 }
@@ -294,7 +298,7 @@ void QFieldCloudConnection::login( const QString &password )
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      int httpCode = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+      const int httpCode = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
 
       if ( rawReply->error() == QNetworkReply::HostNotFoundError )
       {
@@ -383,7 +387,7 @@ void QFieldCloudConnection::logout()
     reply->deleteLater();
   } );
 
-  mPassword.clear();
+  setPassword( QString() );
   invalidateToken();
 
   mAvatarUrl.clear();
@@ -418,7 +422,14 @@ QFieldCloudConnection::ConnectionState QFieldCloudConnection::state() const
 
 NetworkReply *QFieldCloudConnection::post( const QString &endpoint, const QVariantMap &params, const QStringList &fileNames )
 {
-  QNetworkRequest request( mUrl + endpoint );
+  QNetworkRequest request;
+  return post( request, endpoint, params, fileNames );
+}
+
+NetworkReply *QFieldCloudConnection::post( QNetworkRequest &request, const QString &endpoint, const QVariantMap &params, const QStringList &fileNames )
+{
+  request.setUrl( mUrl + endpoint );
+
   QByteArray requestBody = QJsonDocument( QJsonObject::fromVariantMap( params ) ).toJson();
   setAuthenticationDetails( request );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
@@ -779,7 +790,7 @@ QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
   mMessage = errorMessage;
 }
 
-int QFieldCloudConnection::uploadPendingAttachments()
+qsizetype QFieldCloudConnection::uploadPendingAttachments()
 {
   if ( mUploadPendingCount > 0 )
     return mUploadPendingCount;
@@ -792,6 +803,7 @@ int QFieldCloudConnection::uploadPendingAttachments()
   }
 
   mUploadPendingCount = attachments.size();
+  mUploadDoneCount = 0;
   mUploadFailingCount = 0;
   processPendingAttachments();
   return mUploadPendingCount;
@@ -819,8 +831,15 @@ void QFieldCloudConnection::processPendingAttachments()
     const QString apiPath = projectDir.relativeFilePath( it.value() );
     NetworkReply *attachmentCloudReply = post( QStringLiteral( "/api/v1/files/%1/%2/" ).arg( it.key(), apiPath ), QVariantMap(), QStringList( { it.value() } ) );
 
-    QString projectId = it.key();
-    QString fileName = it.value();
+    const QString projectId = it.key();
+    const QString fileName = it.value();
+    const QString statusName = QStringLiteral( "%1:%2" ).arg( QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "name" ), QString() ).toString(), apiPath );
+    emit pendingAttachmentsUploadStatus( statusName, 0.0, mUploadPendingCount - 1 );
+
+    connect( attachmentCloudReply, &NetworkReply::uploadProgress, this, [this, statusName]( qint64 bytesSent, qint64 bytesTotal ) {
+      emit pendingAttachmentsUploadStatus( statusName, bytesTotal > 0 ? static_cast<double>( bytesSent ) / bytesTotal : 0, mUploadPendingCount - 1 );
+    } );
+
     connect( attachmentCloudReply, &NetworkReply::finished, this, [this, attachmentCloudReply, fileName, projectId]() {
       QNetworkReply *attachmentReply = attachmentCloudReply->currentRawReply();
       attachmentCloudReply->deleteLater();
@@ -857,19 +876,19 @@ void QFieldCloudConnection::processPendingAttachments()
 
       if ( httpCode != 201 && httpCode != 404 )
       {
-        qInfo() << QStringLiteral( "Attachment project ID: %1" ).arg( projectId );
-        qInfo() << QStringLiteral( "Attachment file name: %1" ).arg( fileName );
-        qInfo() << QStringLiteral( "Attachment reply HTTP status code: %1" ).arg( httpCode );
+        qDebug() << QStringLiteral( "Attachment project ID: %1 %2 %3" ).arg( projectId ).arg( fileName ).arg( httpCode );
+
         for ( const QByteArray &header : attachmentReply->rawHeaderList() )
         {
-          qInfo() << QStringLiteral( "Attachment reply header: %1 => %2" ).arg( header ).arg( attachmentReply->rawHeader( header ) );
+          qDebug() << QStringLiteral( "Attachment reply header: %1 => %2" ).arg( header ).arg( attachmentReply->rawHeader( header ) );
         }
-        qInfo() << QStringLiteral( "Attachment reply content: %1" ).arg( attachmentReply->readAll() );
-        AppInterface::instance()->sendLog( QStringLiteral( "QFieldCloud file upload HTTP code oddity!" ), QString() );
+
+        qDebug() << QStringLiteral( "Attachment reply content: %1" ).arg( attachmentReply->readAll() );
       }
 
       QFieldCloudUtils::removePendingAttachment( mUsername, projectId, fileName );
       mUploadPendingCount--;
+      mUploadDoneCount++;
       mUploadFailingCount = 0;
 
       if ( mUploadPendingCount > 0 )

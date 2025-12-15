@@ -41,47 +41,28 @@ ApplicationWindow {
   id: mainWindow
   objectName: 'mainWindow'
   visible: true
-  flags: Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | (sceneBorderless ? Qt.FramelessWindowHint : 0) | (Qt.platform.os === "ios" || Qt.platform.os === "android" ? Qt.MaximizeUsingFullscreenGeometryHint : 0) | (Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint : 0)
+  flags: Qt.platform.os === "ios" || Qt.platform.os === "android" ? Qt.ExpandedClientAreaHint | Qt.NoTitleBarBackgroundHint : Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint | (sceneBorderless ? Qt.FramelessWindowHint : 0)
 
-  Material.theme: Theme.darkTheme ? "Dark" : "Light"
+  topPadding: 0
+  bottomPadding: 0
+  leftPadding: 0
+  rightPadding: 0
+
+  Material.theme: Theme.darkTheme ? Material.Dark : Material.Light
   Material.accent: Theme.mainColor
 
   property bool sceneLoaded: false
   property bool sceneBorderless: false
-  property double sceneTopMargin: platformUtilities.sceneMargins(mainWindow)["top"]
-  property double sceneBottomMargin: platformUtilities.sceneMargins(mainWindow)["bottom"]
-  property double sceneLeftMargin: platformUtilities.sceneMargins(mainWindow)["left"]
-  property double sceneRightMargin: platformUtilities.sceneMargins(mainWindow)["right"]
+  property double sceneTopMargin: SafeArea.margins.top
+  property double sceneBottomMargin: SafeArea.margins.bottom
+  property double sceneLeftMargin: SafeArea.margins.left
+  property double sceneRightMargin: SafeArea.margins.right
 
   onSceneLoadedChanged: {
     // This requires the scene to be fully loaded not to crash due to possibility of
     // a thread blocking permission request being thrown
     if (positioningSettings.positioningActivated) {
       positionSource.active = true;
-    }
-    refreshSceneMargins.triggered();
-  }
-
-  Connections {
-    target: Screen
-
-    function onOrientationChanged() {
-      refreshSceneMargins.start();
-    }
-  }
-
-  Timer {
-    id: refreshSceneMargins
-    running: false
-    repeat: false
-    interval: 50
-
-    onTriggered: {
-      const margins = platformUtilities.sceneMargins(mainWindow);
-      mainWindow.sceneTopMargin = margins["top"];
-      mainWindow.sceneBottomMargin = margins["bottom"];
-      mainWindow.sceneLeftMargin = margins["left"];
-      mainWindow.sceneRightMargin = margins["right"];
     }
   }
 
@@ -117,7 +98,7 @@ ApplicationWindow {
 
     activeLayer: dashBoard.activeLayer
     bookmarks: bookmarkModel
-    featureListController: featureForm.extentController
+    featureListController: featureListForm.extentController
     mapSettings: mapCanvas.mapSettings
     navigation: navigation
     geometryHighlighter: geometryHighlighter.geometryWrapper
@@ -125,6 +106,10 @@ ApplicationWindow {
 
     onMessageEmitted: {
       displayToast(text);
+    }
+
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
     }
   }
 
@@ -143,8 +128,8 @@ ApplicationWindow {
     Keys.onReleased: event => {
       if (event.modifiers === Qt.NoModifier) {
         if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
-          if (featureForm.visible) {
-            featureForm.hide();
+          if (featureListForm.visible) {
+            featureListForm.hide();
           } else if (stateMachine.state === 'measure') {
             mainWindow.closeMeasureTool();
           } else {
@@ -206,7 +191,7 @@ ApplicationWindow {
     enabled: keyHandler.focus || welcomeScreen.focus
     sequence: "Ctrl+O"
     onActivated: {
-      welcomeScreen.openLocalDataPicker();
+      welcomeScreen.showLocalDataPicker();
     }
   }
 
@@ -331,7 +316,11 @@ ApplicationWindow {
     id: positionSource
     objectName: "positionSource"
 
+    serviceMode: trackings.count > 0// && (platformUtilities.capabilities & PlatformUtilities.PositioningService)
     deviceId: positioningSettings.positioningDevice
+    badAccuracyThreshold: positioningSettings.accuracyBad
+    excellentAccuracyThreshold: positioningSettings.accuracyExcellent
+    averagedPositionFilterAccuracy: positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement
 
     property bool jumpToPosition: false
     property bool currentness: false
@@ -374,7 +363,7 @@ ApplicationWindow {
       if (active) {
         if (jumpToPosition && positionSource.projectedPosition.x) {
           jumpToPosition = false;
-          mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+          gnssButton.jumpToLocation();
         }
         bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
@@ -463,13 +452,13 @@ ApplicationWindow {
 
   Item {
     id: mapCanvas
-    objectName: "mapCanvas"
+    objectName: "mapCanvasContainer"
     clip: true
 
     DragHandler {
       id: freehandHandler
       property bool isDigitizing: false
-      enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen && ((!featureForm.visible && digitizingToolbar.digitizingAllowed) || digitizingToolbar.geometryRequested)
+      enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen && ((!featureListForm.visible && digitizingToolbar.digitizingAllowed) || digitizingToolbar.geometryRequested)
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
       dragThreshold: 0
@@ -524,8 +513,8 @@ ApplicationWindow {
         if (active) {
           let newPositionX = pressClickX + translation.x;
           let newPositionY = pressClickY + translation.y;
-          screenCenterX = mapCanvas.mapSettings.coordinateToScreen(featureForm.extentController.getCentroidFromSelected()).x;
-          screenCenterY = mapCanvas.mapSettings.coordinateToScreen(featureForm.extentController.getCentroidFromSelected()).y;
+          screenCenterX = mapCanvas.mapSettings.coordinateToScreen(featureListForm.extentController.getCentroidFromSelected()).x;
+          screenCenterY = mapCanvas.mapSettings.coordinateToScreen(featureListForm.extentController.getCentroidFromSelected()).y;
           let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX);
           if (angle != 0) {
             moveAndRotateFeaturesHighlight.originX = screenCenterX;
@@ -538,7 +527,7 @@ ApplicationWindow {
 
     HoverHandler {
       id: hoverHandler
-      enabled: !(positionSource.active && positioningSettings.positioningCoordinateLock) && (!digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen)
+      enabled: !digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
       grabPermissions: PointerHandler.TakeOverForbidden
 
@@ -658,22 +647,32 @@ ApplicationWindow {
       color: mapCanvas.mapSettings.backgroundColor
     }
 
+    GridRenderer {
+      mapSettings: mapCanvas.mapSettings
+      enabled: !gridDecoration.enabled
+      indeterminate: true
+      prepareLines: true
+      autoColor: true
+    }
+
     /* The map canvas */
     MapCanvas {
       id: mapCanvasMap
+      objectName: "mapCanvas"
 
-      property bool isEnabled: !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.visible && !rotateFeaturesToolbar.rotateFeaturesRequested
+      property bool isEnabled: !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.opened && !rotateFeaturesToolbar.rotateFeaturesRequested
+
       interactive: isEnabled && !screenLocker.enabled && !snapToCommonAngleMenu.visible
       isMapRotationEnabled: qfieldSettings.enableMapRotation
       incrementalRendering: true
       quality: qfieldSettings.quality
-      smooth: gnssButton.followActive
+      smooth: gnssButton.followActive && !mapCanvasMap.jumping
       previewJobsEnabled: qfieldSettings.previewJobsEnabled
       forceDeferredLayersRepaint: trackings.count > 0
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
 
-      rightMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? !featureForm.fullScreenView && !featureForm.canvasOperationRequested && featureForm.x > 0 ? featureForm.width : 0 : 0
-      bottomMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? Math.max(informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0, !featureForm.fullScreenView && !featureForm.canvasOperationRequested && featureForm.y > 0 ? featureForm.height : 0) : 0
+      rightMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.x > 0 ? featureListForm.width : 0 : 0
+      bottomMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? Math.max(informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0, !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.y > 0 ? featureListForm.height : 0) : 0
 
       anchors.fill: parent
 
@@ -682,10 +681,10 @@ ApplicationWindow {
         if (pointHandler.clicked(point, type)) {
           return;
         }
-        if (type === "stylus" && (overlayFeatureFormDrawer.opened || (featureForm.visible && pointHandler.pointInItem(point, featureForm)))) {
+        if (type === "stylus" && (overlayFeatureFormDrawer.opened || (featureListForm.visible && pointHandler.pointInItem(point, featureListForm)))) {
           return;
         }
-        if (!digitizingToolbar.geometryRequested && featureForm.state == "FeatureFormEdit") {
+        if (!digitizingToolbar.geometryRequested && featureListForm.state == "FeatureFormEdit") {
           return;
         }
         if (locatorItem.state == "on") {
@@ -698,7 +697,7 @@ ApplicationWindow {
           }
 
           // Check if geometry editor is taking over
-          const positionLocked = positionSource.active && positioningSettings.positioningCoordinateLock;
+          const positionLocked = positionSource.active && coordinateLocator.positionLocked;
           if (geometryEditorsToolbar.stateVisible) {
             if (!positionLocked) {
               geometryEditorsToolbar.canvasClicked(point, type);
@@ -706,7 +705,7 @@ ApplicationWindow {
             return;
           }
           if ((stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) || stateMachine.state === "measure") {
-            if (!positionLocked && (!featureForm.visible || digitizingToolbar.geometryRequested)) {
+            if (!positionLocked && (!featureListForm.visible || digitizingToolbar.geometryRequested)) {
               if (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Point || Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Null) {
                 digitizingToolbar.confirm();
               } else {
@@ -714,7 +713,7 @@ ApplicationWindow {
               }
             }
           } else {
-            if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state !== "FeatureFormEdit") {
+            if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.opened && featureListForm.state !== "FeatureFormEdit") {
               identifyTool.isMenuRequest = false;
               identifyTool.identify(point);
             }
@@ -723,8 +722,12 @@ ApplicationWindow {
       }
 
       onConfirmedClicked: point => {
+        // Check if any registered handlers want to handle this tap
+        if (pointHandler.clicked(point, "touch")) {
+          return;
+        }
         // Check if geometry editor is taking over
-        const positionLocked = positionSource.active && positioningSettings.positioningCoordinateLock;
+        const positionLocked = positionSource.active && coordinateLocator.positionLocked;
         if (geometryEditorsToolbar.stateVisible) {
           if (!positionLocked) {
             geometryEditorsToolbar.canvasClicked(point, '');
@@ -732,10 +735,10 @@ ApplicationWindow {
           return;
         }
         if (qfieldSettings.fingerTapDigitizing && ((stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) || stateMachine.state === "measure")) {
-          if (!positionLocked && (!featureForm.visible || digitizingToolbar.geometryRequested)) {
+          if (!positionLocked && (!featureListForm.visible || digitizingToolbar.geometryRequested)) {
             coordinateLocator.sourceLocation = point;
           }
-        } else if (!featureForm.canvasOperationRequested && !overlayFeatureFormDrawer.visible && featureForm.state !== "FeatureFormEdit") {
+        } else if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.opened && featureListForm.state !== "FeatureFormEdit") {
           identifyTool.isMenuRequest = false;
           identifyTool.identify(point);
         }
@@ -747,7 +750,7 @@ ApplicationWindow {
           return;
         }
         if (type === "stylus") {
-          if (overlayFeatureFormDrawer.opened || (featureForm.visible && pointHandler.pointInItem(point, featureForm))) {
+          if (overlayFeatureFormDrawer.opened || (featureListForm.visible && pointHandler.pointInItem(point, featureListForm))) {
             return;
           }
 
@@ -804,8 +807,12 @@ ApplicationWindow {
           return;
         }
         if (type === "touch") {
-          mapCanvasWrapper.zoom(Qt.point(point.x, point.y), 0.8);
+          mapCanvasWrapper.zoomByFactor(Qt.point(point.x, point.y), 0.8);
         }
+      }
+
+      onInteractiveChanged: {
+        platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys && interactive);
       }
 
       GridRenderer {
@@ -834,13 +841,13 @@ ApplicationWindow {
       property bool isMenuRequest: false
 
       mapSettings: mapCanvas.mapSettings
-      model: isMenuRequest ? canvasMenuFeatureListModel : featureForm.model
+      model: isMenuRequest ? canvasMenuFeatureListModel : featureListForm.model
       searchRadiusMm: 3
 
       onIdentifyFinished: {
-        if (qfieldSettings.autoOpenFormSingleIdentify && !isMenuRequest && !featureForm.multiSelection && featureForm.model.count === 1) {
-          featureForm.selection.focusedItem = 0;
-          featureForm.state = "FeatureForm";
+        if (qfieldSettings.autoOpenFormSingleIdentify && !isMenuRequest && !featureListForm.multiSelection && featureListForm.model.count === 1) {
+          featureListForm.selection.focusedItem = 0;
+          featureListForm.state = "FeatureForm";
         }
       }
     }
@@ -977,7 +984,7 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.activeLayer
       positionInformation: positionSource.positionInformation
-      positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
+      positionLocked: positionSource.active && (positioningSettings.positioningCoordinateLock || gnssButton.followActive)
       rubberbandModel: geometryEditorsToolbar.stateVisible ? geometryEditorsToolbar.editorRubberbandModel : digitizingToolbar.rubberbandModel
       averagedPosition: positionSource.averagedPosition
       averagedPositionCount: positionSource.averagedPositionCount
@@ -1001,6 +1008,330 @@ ApplicationWindow {
       direction: positionSource.positionInformation && positionSource.positionInformation.directionValid ? positionSource.positionInformation.direction : -1
       speed: positionSource.positionInformation && positionSource.positionInformation.speedValid ? positionSource.positionInformation.speed : -1
       orientation: !isNaN(positionSource.orientation) ? positionSource.orientation + positionSource.bearingTrueNorth < 0 ? 360 + positionSource.orientation + positionSource.bearingTrueNorth : positionSource.orientation + positionSource.bearingTrueNorth : -1
+
+      Component.onCompleted: {
+        pointHandler.registerHandler("LocationMarker", (point, type, interactionType) => {
+            if (!locationMarker.visible || !locationMarker.isOnMapCanvas || interactionType !== "clicked") {
+              return false;
+            }
+            const dx = point.x - locationMarker.screenLocation.x;
+            const dy = point.y - locationMarker.screenLocation.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance > 25) {
+              return false;
+            }
+            openPieMenu(point);
+            return true;
+          }, MapCanvasPointHandler.Priority.High);
+        if (!settings.valueBool("/QField/pieMenuOpenedOnce", false)) {
+          bubbleText = qsTr("Tap on your location marker\nto show actions");
+          bubbleVisible = Qt.binding(() => locationMarker.isOnMapCanvas && locationMarker.visible && !mapCanvasTour.visible);
+          bubbleAction = () => {
+            openPieMenu(locationMarker.screenLocation);
+          };
+        }
+      }
+
+      function openPieMenu(point) {
+        if (actionsPieMenu.tooCloseToLeft) {
+          actionsPieMenu.x = actionsPieMenu.minimumDistanceToScreenEdge;
+        } else if (actionsPieMenu.tooCloseToRight) {
+          actionsPieMenu.x = mainWindow.width - actionsPieMenu.width - actionsPieMenu.minimumDistanceToScreenEdge;
+        } else {
+          actionsPieMenu.x = locationMarker.screenLocation.x - actionsPieMenu.menuHalfSize;
+        }
+        if (actionsPieMenu.tooCloseToTop) {
+          actionsPieMenu.y = actionsPieMenu.minimumDistanceToScreenEdge;
+        } else if (actionsPieMenu.tooCloseToBottom) {
+          actionsPieMenu.y = mainWindow.height - actionsPieMenu.height - informationDrawer.height - actionsPieMenu.minimumDistanceToScreenEdge;
+        } else {
+          actionsPieMenu.y = locationMarker.screenLocation.y - actionsPieMenu.menuHalfSize;
+        }
+        actionsPieMenu.open();
+      }
+    }
+
+    QfToolButtonPie {
+      id: actionsPieMenu
+
+      readonly property int minimumDistanceToScreenEdge: 80
+      readonly property real menuHalfSize: actionsPieMenu.width / 2
+
+      readonly property bool tooCloseToLeft: locationMarker.screenLocation.x - menuHalfSize - minimumDistanceToScreenEdge < 0
+      readonly property bool tooCloseToRight: locationMarker.screenLocation.x + menuHalfSize + minimumDistanceToScreenEdge > mainWindow.width
+      readonly property bool tooCloseToTop: locationMarker.screenLocation.y - menuHalfSize - minimumDistanceToScreenEdge < 0
+      readonly property bool tooCloseToBottom: locationMarker.screenLocation.y + menuHalfSize + minimumDistanceToScreenEdge + informationDrawer.height > mainWindow.height
+      readonly property bool nearToEdge: tooCloseToLeft || tooCloseToRight || tooCloseToTop || tooCloseToBottom
+
+      readonly property bool locationMarkerOutSidePieMenu: {
+        if (!visible)
+          return true;
+        const dx = actionsPieMenu.x + (actionsPieMenu.width / 2) - locationMarker.screenLocation.x;
+        const dy = actionsPieMenu.y + (actionsPieMenu.height / 2) - locationMarker.screenLocation.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        return distance > 20;
+      }
+
+      readonly property int segmentAngle: 360 / actionsPieMenu.numberOfButtons
+
+      width: Math.min(150, mapCanvasMap.width / 3)
+      height: width
+
+      targetPoint: locationMarker.screenLocation
+      showConnectionLine: visible && (nearToEdge || locationMarkerOutSidePieMenu)
+
+      QfToolButton {
+        id: gnssCursorLockButton
+        width: actionsPieMenu.bandWidth - 8
+        height: width
+        padding: 2
+        round: true
+        checkable: true
+        checked: positioningSettings.positioningCoordinateLock
+        state: checked ? "On" : "Off"
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle
+        iconSource: Theme.getThemeVectorIcon("ic_location_cursor_lock_white_24dp")
+        opacity: enabled ? 1 : 0.4
+
+        states: [
+          State {
+            name: "Off"
+            PropertyChanges {
+              target: gnssCursorLockButton
+              iconColor: Theme.light
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+            }
+          },
+          State {
+            name: "On"
+            PropertyChanges {
+              target: gnssCursorLockButton
+              iconColor: Theme.positionColor
+              bgcolor: Theme.toolButtonBackgroundColor
+            }
+          }
+        ]
+
+        onClicked: {
+          if (positioningSettings.positioningCoordinateLock) {
+            positioningSettings.positioningCoordinateLock = false;
+            // deactivate any active averaged position collection
+            positionSource.averagedPosition = false;
+            displayToast(qsTr("Coordinate cursor unlocked"));
+          } else {
+            if (stateMachine.state === "browse") {
+              mainWindow.changeMode("digitize");
+            }
+            if (freehandButton.freehandDigitizing) {
+              // deactivate freehand digitizing when cursor locked is on
+              freehandButton.clicked();
+            }
+            positioningSettings.positioningCoordinateLock = true;
+            displayToast(qsTr("Coordinate cursor locked to location"));
+          }
+          actionsPieMenu.close();
+        }
+      }
+
+      QfToolButton {
+        id: gnssCanvasLockButton
+        width: actionsPieMenu.bandWidth - 8
+        height: width
+        padding: 2
+        round: true
+        checkable: true
+        checked: gnssButton.autoRefollow
+        state: checked ? "On" : "Off"
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 2
+        iconSource: Theme.getThemeVectorIcon("ic_location_canvas_lock_white_24dp")
+
+        states: [
+          State {
+            name: "Off"
+            PropertyChanges {
+              target: gnssCanvasLockButton
+              iconColor: Theme.light
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+            }
+          },
+          State {
+            name: "On"
+            PropertyChanges {
+              target: gnssCanvasLockButton
+              iconColor: Theme.positionColor
+              bgcolor: Theme.toolButtonBackgroundColor
+            }
+          }
+        ]
+
+        onClicked: {
+          if (gnssButton.autoRefollow) {
+            mapCanvasMap.unfreeze('follow');
+            gnssButton.autoRefollow = false;
+            gnssButton.followActive = false;
+            gnssButton.followOrientationActive = false;
+            displayToast(qsTr("Map canvas unlocked"));
+          } else {
+            mapCanvasMap.freeze('follow');
+            gnssButton.autoRefollow = true;
+            gnssButton.followActive = true;
+            gnssButton.followLocation(true);
+            displayToast(qsTr("Map canvas locked to location"));
+          }
+          actionsPieMenu.close();
+        }
+      }
+
+      QfToolButton {
+        id: addBookmarkAtCurrentLocationButton
+        width: actionsPieMenu.bandWidth - 8
+        height: width
+        padding: 2
+        iconSource: Theme.getThemeVectorIcon("ic_add_bookmark_black_24dp")
+        round: true
+        checkable: false
+        checked: false
+        enabled: true
+        iconColor: Theme.light
+        bgcolor: Theme.toolButtonBackgroundColor
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 3
+        onClicked: {
+          var name = qsTr('My location') + ' (' + new Date().toLocaleString() + ')';
+          var group = 'blue';
+          var id = bookmarkModel.addBookmarkAtPoint(positionSource.projectedPosition, name, group);
+          if (id !== '') {
+            bookmarkProperties.bookmarkId = id;
+            bookmarkProperties.bookmarkName = name;
+            bookmarkProperties.bookmarkGroup = group;
+            bookmarkProperties.open();
+          }
+          actionsPieMenu.close();
+        }
+      }
+
+      QfToolButton {
+        id: copyCurrentLocationButton
+        width: actionsPieMenu.bandWidth - 8
+        height: width
+        padding: 2
+        iconSource: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+        round: true
+        checkable: false
+        checked: false
+        enabled: true
+        iconColor: Theme.light
+        bgcolor: Theme.toolButtonBackgroundColor
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 4
+        onClicked: {
+          var point = GeometryUtils.reprojectPoint(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs);
+          var coordinates = StringUtils.pointInformation(point, projectInfo.coordinateDisplayCrs);
+          coordinates += ' (' + qsTr('Accuracy') + ' ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr("N/A")) + ')';
+          platformUtilities.copyTextToClipboard(coordinates);
+          displayToast(qsTr('Current location copied to clipboard'));
+          actionsPieMenu.close();
+        }
+      }
+
+      QfToolButton {
+        id: showGnssInformation
+        width: actionsPieMenu.bandWidth - 8
+        height: width
+        padding: 2
+        iconSource: Theme.getThemeVectorIcon("ic_info_white_24dp")
+        round: true
+        checkable: true
+        checked: positioningSettings.showPositionInformation
+        enabled: true
+        iconColor: Theme.light
+        bgcolor: Theme.toolButtonBackgroundColor
+        state: checked ? "On" : "Off"
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 5
+
+        states: [
+          State {
+            name: "Off"
+            PropertyChanges {
+              target: showGnssInformation
+              iconColor: Theme.light
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+            }
+          },
+          State {
+            name: "On"
+            PropertyChanges {
+              target: showGnssInformation
+              iconColor: Theme.positionColor
+              bgcolor: Theme.toolButtonBackgroundColor
+            }
+          }
+        ]
+
+        onClicked: {
+          positioningSettings.showPositionInformation = checked;
+          actionsPieMenu.close();
+        }
+      }
+
+      QfToolButton {
+        id: trackingButton
+        width: actionsPieMenu.bandWidth - 8
+        height: width
+        padding: 2
+        iconSource: Theme.getThemeVectorIcon("directions_walk_24dp")
+        round: true
+        checkable: false
+        checked: false
+        enabled: true
+        iconColor: Theme.light
+        bgcolor: Theme.toolButtonBackgroundColor
+        state: trackings.count ? "On" : "Off"
+        visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 6
+
+        states: [
+          State {
+            name: "Off"
+            PropertyChanges {
+              target: trackingButton
+              iconColor: Theme.light
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+            }
+          },
+          State {
+            name: "On"
+            PropertyChanges {
+              target: trackingButton
+              iconColor: Theme.positionColor
+              bgcolor: Theme.toolButtonBackgroundColor
+            }
+          }
+        ]
+
+        onClicked: {
+          if (trackings.count > 0) {
+            displayToast(qsTr('Tracking active on %n layer(s)', '', trackings.count), 'info', qsTr('Stop all'), function () {
+                displayToast(qsTr('Tracking on %n layer(s) stopped', '', trackings.count));
+                trackingModel.stopTrackers();
+              });
+          } else {
+            trackerSettings.prepareSettings();
+            if (trackerSettings.availableLayersCount > 0) {
+              trackerSettings.open();
+            } else {
+              displayToast(qsTr('No compatible layers available to launch tracking'), 'info', qsTr('Learn more'), function () {
+                  Qt.openUrlExternally('https://docs.qfield.org/how-to/navigation-and-positioning/tracking/');
+                });
+            }
+          }
+          actionsPieMenu.close();
+        }
+      }
+
+      Component.onCompleted: {
+        onOpened.connect(() => {
+            settings.setValue("/QField/pieMenuOpenedOnce", true);
+            locationMarker.bubbleVisible = false;
+          });
+      }
     }
 
     /* Rubberband for vertices  */
@@ -1025,7 +1356,7 @@ ApplicationWindow {
       id: featureListHighlight
       visible: !moveFeaturesToolbar.moveFeaturesRequested && !rotateFeaturesToolbar.rotateFeaturesRequested
 
-      selectionModel: featureForm.selection
+      selectionModel: featureListForm.selection
       mapSettings: mapCanvas.mapSettings
 
       color: "yellow"
@@ -1040,7 +1371,7 @@ ApplicationWindow {
       visible: moveFeaturesToolbar.moveFeaturesRequested || rotateFeaturesToolbar.rotateFeaturesRequested
       showSelectedOnly: true
 
-      selectionModel: featureForm.selection
+      selectionModel: featureListForm.selection
       mapSettings: mapCanvas.mapSettings
 
       // take rotation into account
@@ -1074,7 +1405,7 @@ ApplicationWindow {
 
     ProcessingAlgorithmPreview {
       id: processingAlgorithmPreview
-      algorithm: featureForm.algorithm
+      algorithm: featureListForm.algorithm
       mapSettings: mapCanvas.mapSettings
     }
   }
@@ -1221,14 +1552,15 @@ ApplicationWindow {
       id: titleDecorationBackground
 
       visible: titleDecoration.text != ''
-      anchors.left: parent.left
-      anchors.leftMargin: 56
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 4
+      anchors.left: parent.left
+      anchors.leftMargin: 56 + mainWindow.sceneLeftMargin
+      anchors.right: parent.right
+      anchors.rightMargin: 56 + mainWindow.sceneRightMargin
 
-      width: parent.width - anchors.leftMargin * 2
       height: 48
-      radius: 4
+      radius: 8
 
       color: '#55000000'
 
@@ -1260,13 +1592,13 @@ ApplicationWindow {
       id: copyrightDecorationBackground
 
       visible: copyrightDecoration.text != ''
-
       anchors.left: parent.left
-      anchors.leftMargin: 56
+      anchors.leftMargin: 56 + mainWindow.sceneLeftMargin
+      anchors.right: parent.right
+      anchors.rightMargin: 56 + mainWindow.sceneRightMargin
       anchors.bottom: parent.bottom
       anchors.bottomMargin: parent.height > 400 || stateMachine.state !== "browse" ? 56 : 6
 
-      width: parent.width - anchors.leftMargin * 2
       height: visible ? Math.min(copyrightDecoration.height, 48) : 0
       radius: 4
       clip: true
@@ -1301,9 +1633,10 @@ ApplicationWindow {
       id: imageDecoration
 
       visible: source != ''
-
       anchors.left: parent.left
-      anchors.leftMargin: 56
+      anchors.leftMargin: 56 + mainWindow.sceneLeftMargin
+      anchors.right: parent.right
+      anchors.rightMargin: 56 + mainWindow.sceneRightMargin
       anchors.bottom: copyrightDecorationBackground.top
       anchors.bottomMargin: 4
 
@@ -1434,7 +1767,7 @@ ApplicationWindow {
 
       onClicked: {
         if (gnssButton.followActive && gnssButton.followOrientationActive) {
-          gnssButton.onClicked();
+          gnssButton.click();
         }
         mapCanvas.mapSettings.rotation = 0;
       }
@@ -1459,19 +1792,6 @@ ApplicationWindow {
       spacing: 4
     }
 
-    QfToolButton {
-      id: alertIcon
-      iconSource: Theme.getThemeVectorIcon("ic_alert_black_24dp")
-      round: true
-      bgcolor: "transparent"
-      visible: !screenLocker.enabled && messageLog.unreadMessages
-      anchors.right: pluginsToolbar.right
-      anchors.top: pluginsToolbar.bottom
-      anchors.topMargin: 4
-
-      onClicked: messageLog.visible = true
-    }
-
     Column {
       id: zoomToolbar
       anchors.right: parent.right
@@ -1479,7 +1799,7 @@ ApplicationWindow {
       anchors.bottom: parent.bottom
       anchors.bottomMargin: (parent.height - zoomToolbar.height / 2) / 2
       spacing: 8
-      visible: !screenLocker.enabled && (locationToolbar.height + digitizingToolbarContainer.height) / (digitizingToolbarContainer.y) < 0.41
+      visible: qfieldSettings.showZoomControls && (!screenLocker.enabled && (locationToolbar.height + digitizingToolbarContainer.height) / (digitizingToolbarContainer.y) < 0.41)
 
       QfToolButton {
         id: zoomInButton
@@ -1497,7 +1817,7 @@ ApplicationWindow {
           if (gnssButton.followActive) {
             gnssButton.followActiveSkipExtentChanged = true;
           }
-          mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + mapCanvas.width / 2, mapCanvas.y + mapCanvas.height / 2));
+          mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + (mapCanvas.width - mapCanvasMap.rightMargin) / 2, mapCanvas.y + (mapCanvas.height - mapCanvasMap.bottomMargin) / 2));
           if (gnssButton.followActive) {
             // Trigger a mao redraw
             gnssButton.followLocation(true);
@@ -1520,7 +1840,7 @@ ApplicationWindow {
           if (gnssButton.followActive) {
             gnssButton.followActiveSkipExtentChanged = true;
           }
-          mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + mapCanvas.width / 2, mapCanvas.y + mapCanvas.height / 2));
+          mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + (mapCanvas.width - mapCanvasMap.rightMargin) / 2, mapCanvas.y + (mapCanvas.height - mapCanvasMap.bottomMargin) / 2));
           if (gnssButton.followActive) {
             // Trigger a mao redraw
             gnssButton.followLocation(true);
@@ -1545,8 +1865,8 @@ ApplicationWindow {
       onStateChanged: {
         if (state == "off") {
           focus = false;
-          if (featureForm.visible) {
-            featureForm.focus = true;
+          if (featureListForm.visible) {
+            featureListForm.focus = true;
           } else {
             keyHandler.focus = true;
           }
@@ -1587,8 +1907,12 @@ ApplicationWindow {
 
         QfBadge {
           alignment: QfBadge.Alignment.TopRight
-          visible: cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
-          color: Theme.cloudColor
+          visible: showSync || showPush
+          color: showSync ? Theme.mainColor : Theme.cloudColor
+          enableGradient: showSync && showPush
+
+          readonly property bool showSync: cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.isOutdated : false
+          readonly property bool showPush: cloudProjectsModel.layerObserver.deltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
         }
       }
 
@@ -1722,7 +2046,7 @@ ApplicationWindow {
           height: visible ? 40 : 0
           padding: 2
           round: true
-          visible: hoverHandler.hasBeenHovered && !(positionSource.active && positioningSettings.positioningCoordinateLock) && stateMachine.state === "digitize" && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid && (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line)) || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
+          visible: hoverHandler.hasBeenHovered && !(positionSource.active && coordinateLocator.positionLocked) && stateMachine.state === "digitize" && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid && (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line)) || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
           iconSource: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
           iconColor: Theme.toolButtonColor
           bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
@@ -1870,7 +2194,7 @@ ApplicationWindow {
                   text: qsTr("%1°").arg(modelData)
                   font: parent.selected ? Theme.strongTipFont : Theme.tipFont
                   anchors.centerIn: parent
-                  color: Theme.mainTextColor
+                  color: parent.selected ? Theme.buttonTextColor : Theme.mainTextColor
                 }
 
                 Ripple {
@@ -1947,7 +2271,7 @@ ApplicationWindow {
                   text: modelData
                   font: parent.selected ? Theme.strongTipFont : Theme.tipFont
                   anchors.centerIn: parent
-                  color: Theme.mainTextColor
+                  color: tolorenceDelegate.selected ? Theme.buttonTextColor : Theme.mainTextColor
                   elide: Text.ElideRight
                   width: parent.width
                   horizontalAlignment: Text.AlignHCenter
@@ -2072,7 +2396,7 @@ ApplicationWindow {
             settings.setValue("/QField/Navigation/FollowIncludeDestination", followIncludeDestination);
             gnssButton.followLocation(true);
           } else {
-            mapCanvas.mapSettings.setCenter(navigation.destination);
+            mapCanvasMap.jumpTo(navigation.destination, -1, -1, true);
           }
         }
 
@@ -2082,61 +2406,6 @@ ApplicationWindow {
 
         Component.onCompleted: {
           followIncludeDestination = settings.valueBool("/QField/Navigation/FollowIncludeDestination", true);
-        }
-      }
-
-      QfToolButton {
-        id: gnssLockButton
-        anchors.right: parent.right
-        state: positionSource.active && positioningSettings.positioningCoordinateLock ? "On" : "Off"
-        visible: gnssButton.state === "On" && (stateMachine.state === "digitize" || stateMachine.state === 'measure')
-        round: true
-        checkable: true
-        checked: positioningSettings.positioningCoordinateLock
-
-        states: [
-          State {
-            name: "Off"
-            PropertyChanges {
-              target: gnssLockButton
-              iconSource: Theme.getThemeVectorIcon("ic_location_locked_white_24dp")
-              iconColor: Theme.toolButtonColor
-              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
-            }
-          },
-          State {
-            name: "On"
-            PropertyChanges {
-              target: gnssLockButton
-              iconSource: Theme.getThemeVectorIcon("ic_location_locked_active_white_24dp")
-              iconColor: Theme.positionColor
-              bgcolor: Theme.toolButtonBackgroundColor
-            }
-          }
-        ]
-
-        onCheckedChanged: {
-          if (gnssButton.state === "On") {
-            if (checked) {
-              if (freehandButton.freehandDigitizing) {
-                // deactivate freehand digitizing when cursor locked is on
-                freehandButton.clicked();
-              }
-              displayToast(qsTr("Coordinate cursor now locked to position"));
-              if (positionSource.positionInformation.latitudeValid) {
-                var screenLocation = mapCanvas.mapSettings.coordinateToScreen(locationMarker.location);
-                if (screenLocation.x < 0 || screenLocation.x > mainWindow.width || screenLocation.y < 0 || screenLocation.y > mainWindow.height) {
-                  mapCanvas.mapSettings.setCenter(positionSource.projectedPosition);
-                }
-              }
-              positioningSettings.positioningCoordinateLock = true;
-            } else {
-              displayToast(qsTr("Coordinate cursor unlocked"));
-              positioningSettings.positioningCoordinateLock = false;
-              // deactivate any active averaged position collection
-              positionSource.averagedPosition = false;
-            }
-          }
         }
       }
 
@@ -2197,12 +2466,24 @@ ApplicationWindow {
           if (followActive) {
             if (qfieldSettings.enableMapRotation) {
               if (!followOrientationActive) {
-                followOrientationActive = true;
-                followOrientation();
-                displayToast(qsTr("Canvas follows location and compass orientation"));
+                if (autoRefollow) {
+                  displayToast(qsTr("Map canvas locked to location and compass orientation"));
+                  followOrientationActive = true;
+                  followOrientation();
+                } else {
+                  displayToast(qsTr("Map canvas follows location and compass orientation"));
+                  mapCanvasMap.jumpToPosition(positionSource, -1, -positionSource.orientation, true, () => {
+                      gnssButton.followOrientation();
+                    });
+                  followOrientationActive = true;
+                }
               } else {
                 followOrientationActive = false;
-                displayToast(qsTr("Canvas follows location"));
+                if (autoRefollow) {
+                  displayToast(qsTr("Map canvas locked to location"));
+                } else {
+                  displayToast(qsTr("Map canvas follows location"));
+                }
               }
             }
           } else {
@@ -2211,14 +2492,9 @@ ApplicationWindow {
               positioningSettings.positioningActivated = true;
             } else {
               if (positionSource.projectedPosition.x) {
-                mapCanvasMap.freeze('follow');
-                followActive = true;
-                followLocation(true);
-                displayToast(qsTr("Canvas follows location"));
+                jumpToLocation();
               } else {
                 displayToast(qsTr("Waiting for location"));
-                mapCanvasMap.freeze('follow');
-                followActive = true;
               }
             }
           }
@@ -2226,6 +2502,43 @@ ApplicationWindow {
 
         onPressAndHold: {
           gnssMenu.popup(locationToolbar.x + locationToolbar.width - gnssMenu.width, locationToolbar.y + locationToolbar.height - gnssMenu.height);
+        }
+
+        property bool jumpedOnce: false
+
+        function jumpToLocation() {
+          let targetScale = -1;
+          if (!jumpedOnce) {
+            // The scale range and speed range aims at providing an adequate default
+            // value for a range of scenarios from people walking to people being driven
+            // in trains
+            const scaleMin = 9028;
+            const scaleMax = 144448;
+            const speedMin = 2.57; // meters per second
+            const speedMax = 140; // meters per second
+            targetScale = scaleMin;
+            if (positionSource.positionInformation.speedValid) {
+              const speed = positionSource.positionInformation.speed;
+              if (speed > speedMax) {
+                targetScale = scaleMax;
+              } else if (speed < speedMin) {
+                targetScale = scaleMin;
+              } else {
+                const exp = 2;
+                const ratio = (Math.pow(speed - speedMin, exp) - 1) / (Math.pow(speedMax - speedMin, exp) - 1);
+                targetScale = (scaleMax - scaleMin) * ratio + scaleMin;
+              }
+            }
+            jumpedOnce = true;
+          }
+          mapCanvasMap.jumpToPosition(positionSource, targetScale, -1, true, () => {
+              gnssButton.followLocation(true);
+            });
+          if (!gnssButton.followActive) {
+            mapCanvasMap.freeze('follow');
+            gnssButton.followActive = true;
+            displayToast(qsTr("Map canvas follows location"));
+          }
         }
 
         property int followLocationMinScale: 125
@@ -2281,10 +2594,10 @@ ApplicationWindow {
         function followOrientation() {
           if (!isNaN(positionSource.orientation) && Math.abs(-positionSource.orientation - mapCanvas.mapSettings.rotation) >= 2) {
             if (gnssButton.followOrientationActive) {
-              gnssButton.followActiveSkipRotationChanged = true;
               mapCanvas.mapSettings.rotation = -positionSource.orientation;
+              gnssButton.followActiveSkipRotationChanged = true;
             }
-            const triggerRefresh = Math.abs(mapCanvasMap.mapCanvasWrapper.rotation) > 22.5;
+            const triggerRefresh = Math.abs(mapCanvasMap.mapCanvasWrapper.rotation) > 60;
             if (triggerRefresh) {
               mapCanvasMap.refresh(true);
             }
@@ -2293,8 +2606,21 @@ ApplicationWindow {
 
         QfBadge {
           alignment: QfBadge.Alignment.TopRight
-          visible: positioningSettings.accuracyIndicator && gnssButton.state === "On"
-          color: !positionSource.positionInformation || !positionSource.positionInformation.haccValid || positionSource.positionInformation.hacc > positioningSettings.accuracyBad ? Theme.accuracyBad : positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent ? Theme.accuracyTolerated : Theme.accuracyExcellent
+          visible: positioningSettings.accuracyIndicator && gnssButton.state === "On" && positionSource.positionInformation.accuracyQuality != GnssPositionInformation.AccuracyUndetermined
+          color: {
+            if (!positionSource.positionInformation || !positionSource.positionInformation.haccValid)
+              return Theme.accuracyBad;
+            switch (positionSource.positionInformation.accuracyQuality) {
+            case GnssPositionInformation.AccuracyExcellent:
+              return Theme.accuracyExcellent;
+            case GnssPositionInformation.AccuracyOk:
+              return Theme.accuracyTolerated;
+            case GnssPositionInformation.AccuracyBad:
+            case GnssPositionInformation.AccuracyUndetermined:
+            default:
+              return Theme.accuracyBad;
+            }
+          }
         }
       }
 
@@ -2302,6 +2628,9 @@ ApplicationWindow {
         target: mapCanvas.mapSettings
 
         function onExtentChanged() {
+          if (mapCanvasMap.jumping) {
+            return;
+          }
           if (gnssButton.followActive) {
             if (gnssButton.followActiveSkipExtentChanged) {
               gnssButton.followActiveSkipExtentChanged = false;
@@ -2309,8 +2638,9 @@ ApplicationWindow {
               mapCanvasMap.unfreeze('follow');
               gnssButton.followActive = false;
               gnssButton.followOrientationActive = false;
-              gnssButton.autoRefollow = true;
-              showAutoLockToast();
+              if (gnssButton.autoRefollow) {
+                showAutoLockToast();
+              }
             }
           } else if (gnssButton.autoRefollow) {
             showAutoLockToast();
@@ -2318,17 +2648,19 @@ ApplicationWindow {
         }
 
         function onRotationChanged() {
+          if (mapCanvasMap.jumping) {
+            return;
+          }
           if (gnssButton.followActive && gnssButton.followOrientationActive) {
             if (gnssButton.followActiveSkipRotationChanged) {
               gnssButton.followActiveSkipRotationChanged = false;
               return;
             }
           }
-          if (gnssButton.followActive) {
+          if (gnssButton.followActive && gnssButton.autoRefollow) {
             mapCanvasMap.unfreeze('follow');
             gnssButton.followActive = false;
             gnssButton.followOrientationActive = false;
-            gnssButton.autoRefollow = true;
             showAutoLockToast();
           } else if (gnssButton.autoRefollow) {
             showAutoLockToast();
@@ -2510,6 +2842,10 @@ ApplicationWindow {
         screenHovering: mapCanvasMap.hovered
 
         stateVisible: !screenLocker.enabled && (stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0)
+
+        onRequestJumpToPoint: function (center, scale, handleMargins) {
+          mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+        }
       }
 
       ConfirmationToolbar {
@@ -2537,8 +2873,8 @@ ApplicationWindow {
 
         function initializeMoveFeatures() {
           moveFeaturesRequested = true;
-          if (featureForm && featureForm.selection.model.selectedCount === 1) {
-            featureForm.extentController.zoomToSelected();
+          if (featureListForm && featureListForm.selection.model.selectedCount === 1) {
+            featureListForm.extentController.zoomToSelected();
           }
           startPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y);
           moveAndRotateFeaturesHighlight.rotationDegrees = 0;
@@ -2568,8 +2904,8 @@ ApplicationWindow {
 
         function initializeRotateFeatures() {
           rotateFeaturesRequested = true;
-          if (featureForm && featureForm.selection.model.selectedCount === 1) {
-            featureForm.extentController.zoomToSelected();
+          if (featureListForm && featureListForm.selection.model.selectedCount === 1) {
+            featureListForm.extentController.zoomToSelected();
           }
           moveAndRotateFeaturesHighlight.rotationDegrees = 0;
         }
@@ -2619,7 +2955,7 @@ ApplicationWindow {
     }
 
     onToggleMeasurementTool: {
-      if (featureForm.state === "ProcessingAlgorithmForm") {
+      if (featureListForm.state === "ProcessingAlgorithmForm") {
         cancelAlgorithmDialog.visible = true;
       } else {
         activateMeasurementMode();
@@ -2655,7 +2991,7 @@ ApplicationWindow {
       for (var i = 0; i < layerTree.rowCount(); i++) {
         var index = layerTree.index(i, 0);
         if (firstEditableLayer === null) {
-          if (layerTree.data(index, FlatLayerTreeModel.Type) === 'layer' && layerTree.data(index, FlatLayerTreeModel.ReadOnly) === false && layerTree.data(index, FlatLayerTreeModel.FeatureAdditionLocked) === false) {
+          if (layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Layer && layerTree.data(index, FlatLayerTreeModel.ReadOnly) === false && layerTree.data(index, FlatLayerTreeModel.FeatureAdditionLocked) === false) {
             firstEditableLayer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
           }
         }
@@ -2785,20 +3121,32 @@ ApplicationWindow {
       leftPadding: Theme.menuItemLeftPadding
       rightPadding: 40
 
-      arrow: Canvas {
-        x: parent.width - width
-        y: (parent.height - height) / 2
-        implicitWidth: 40
-        implicitHeight: 40
+      arrow: Shape {
+        id: sensorItemArrowShape
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.rightMargin: width / 2
+        width: 20
+        height: 20
+        visible: true
         opacity: sensorListInstantiator.count > 0 ? 1 : 0
-        onPaint: {
-          var ctx = getContext("2d");
-          ctx.strokeStyle = Theme.mainColor;
-          ctx.lineWidth = 1;
-          ctx.moveTo(15, 15);
-          ctx.lineTo(width - 15, height / 2);
-          ctx.lineTo(15, height - 15);
-          ctx.stroke();
+
+        ShapePath {
+          strokeWidth: 2
+          strokeColor: Theme.mainColor
+          fillColor: "transparent"
+
+          startX: sensorItemArrowShape.width * 0.35
+          startY: sensorItemArrowShape.height * 0.25
+
+          PathLine {
+            x: sensorItemArrowShape.width * 0.65
+            y: sensorItemArrowShape.height * 0.5
+          }
+          PathLine {
+            x: sensorItemArrowShape.width * 0.35
+            y: sensorItemArrowShape.height * 0.75
+          }
         }
       }
 
@@ -2808,7 +3156,7 @@ ApplicationWindow {
         } else {
           mainMenu.close();
           toast.show(qsTr('No sensor available'), 'info', qsTr('Learn more'), function () {
-              Qt.openUrlExternally('https://docs.qfield.org/how-to/sensors/');
+              Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/sensors/');
             });
         }
         highlighted = false;
@@ -2847,6 +3195,19 @@ ApplicationWindow {
         dashBoard.close();
         messageLog.visible = true;
         highlighted = false;
+      }
+
+      QfBadge {
+        width: 16
+        height: width
+        topMargin: 5
+        rightMargin: 5
+        alignment: QfBadge.Alignment.TopRight
+        visible: messageLog.unreadMessages
+        color: Theme.mainColor
+        badgeText.text: messageLog.unreadMessagesCount >= 10 ? "+" : messageLog.unreadMessagesCount
+        badgeText.color: Theme.light
+        border.color: "transparent"
       }
     }
 
@@ -3034,6 +3395,31 @@ ApplicationWindow {
     skipFirstRow: true
     minimumRowWidth: canvasMenuActionsToolbar.childrenRect.width + 4
 
+    // Tweak the default delegate to align left padding and height of submenu items
+    delegate: MenuItem {
+      leftPadding: Theme.menuItemLeftPadding
+      height: 48
+    }
+
+    readonly property bool isPasteMenuVisible: clipboardManager ? clipboardManager.holdsFeature : false
+
+    onIsPasteMenuVisibleChanged: {
+      updatePasteMenuVisibility();
+    }
+
+    function updatePasteMenuVisibility() {
+      for (let i = 0; i < canvasMenu.count; i++) {
+        if (canvasMenu.itemAt(i).text === pasteIntoLayers.title) {
+          canvasMenu.itemAt(i).height = isPasteMenuVisible ? 48 : 0;
+          canvasMenu.itemAt(i).visible = isPasteMenuVisible;
+        }
+      }
+    }
+
+    Component.onCompleted: {
+      updatePasteMenuVisibility();
+    }
+
     Row {
       id: canvasMenuActionsToolbar
       objectName: "canvasMenuActionsToolbar"
@@ -3073,7 +3459,7 @@ ApplicationWindow {
     MenuItem {
       id: addBookmarkItem
       text: qsTr("Add Bookmark")
-      icon.source: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_add_bookmark_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
@@ -3138,7 +3524,7 @@ ApplicationWindow {
     }
 
     MenuSeparator {
-      enabled: canvasMenuFeatureListInstantiator.count > 0 || pasteIntoLayers.parent.visible
+      enabled: canvasMenuFeatureListInstantiator.count > 0 || canvasMenu.isPasteMenuVisible
       width: parent.width
       visible: enabled
       height: enabled ? undefined : 0
@@ -3165,8 +3551,6 @@ ApplicationWindow {
         font: Theme.defaultFont
 
         icon.source: iconForGeometry(feature.geometry.type)
-        icon.width: 18 * screen.devicePixelRatio
-        icon.height: 18 * screen.devicePixelRatio
 
         MenuItem {
           text: qsTr('Layer:') + ' ' + layerName
@@ -3190,9 +3574,21 @@ ApplicationWindow {
           height: 48
 
           onTriggered: {
-            featureForm.model.setFeatures(menu.featureLayer, '@id = ' + menu.fid);
-            featureForm.selection.focusedItem = 0;
-            featureForm.state = "FeatureForm";
+            featureListForm.model.setFeatures(menu.featureLayer, '@id = ' + menu.fid);
+            featureListForm.selection.focusedItem = 0;
+            featureListForm.state = "FeatureForm";
+          }
+        }
+
+        MenuItem {
+          text: qsTr('Cut Feature')
+          font: Theme.defaultFont
+          icon.source: Theme.getThemeVectorIcon("ic_cut_black_24dp")
+          leftPadding: Theme.menuItemLeftPadding
+          height: 48
+
+          onTriggered: {
+            clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true, true);
           }
         }
 
@@ -3209,18 +3605,6 @@ ApplicationWindow {
         }
 
         MenuItem {
-          text: qsTr('Cut Feature')
-          font: Theme.defaultFont
-          icon.source: Theme.getThemeVectorIcon("ic_content_cut_24dp")
-          leftPadding: Theme.menuItemLeftPadding
-          height: 48
-
-          onTriggered: {
-            clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true, true);
-          }
-        }
-
-        MenuItem {
           text: qsTr('Duplicate Feature')
           font: Theme.defaultFont
           enabled: projectInfo.insertRights
@@ -3229,15 +3613,15 @@ ApplicationWindow {
           height: 48
 
           onTriggered: {
-            featureForm.model.setFeatures(menu.featureLayer, '@id = ' + menu.fid);
-            featureForm.selection.focusedItem = 0;
-            featureForm.multiSelection = true;
-            featureForm.selection.toggleSelectedItem(0);
-            featureForm.state = "FeatureList";
-            if (featureForm.model.canDuplicateSelection) {
-              if (featureForm.selection.model.duplicateFeature(featureForm.selection.focusedLayer, featureForm.selection.focusedFeature)) {
+            featureListForm.model.setFeatures(menu.featureLayer, '@id = ' + menu.fid);
+            featureListForm.selection.focusedItem = 0;
+            featureListForm.multiSelection = true;
+            featureListForm.selection.toggleSelectedItem(0);
+            featureListForm.state = "FeatureList";
+            if (featureListForm.model.canDuplicateSelection) {
+              if (featureListForm.selection.model.duplicateFeature(featureListForm.selection.focusedLayer, featureListForm.selection.focusedFeature)) {
                 displayToast(qsTr('Successfully duplicated feature'));
-                featureForm.selection.focusedItem = -1;
+                featureListForm.selection.focusedItem = -1;
                 moveFeaturesToolbar.initializeMoveFeatures();
                 return;
               }
@@ -3248,11 +3632,18 @@ ApplicationWindow {
       }
 
       onObjectAdded: (index, object) => {
-        canvasMenu.insertMenu(canvasMenu.contentData.length - 2, object);
+        canvasMenu.insertMenu(canvasMenu.contentData.length - 3, object);
       }
       onObjectRemoved: (index, object) => {
         canvasMenu.removeMenu(object);
       }
+    }
+
+    MenuSeparator {
+      enabled: canvasMenuFeatureListInstantiator.count > 0 && canvasMenu.isPasteMenuVisible
+      width: parent.width
+      visible: enabled
+      height: enabled ? undefined : 0
     }
 
     QfMenu {
@@ -3261,47 +3652,38 @@ ApplicationWindow {
       topMargin: sceneTopMargin
       bottomMargin: sceneBottomMargin
 
-      title: "Paste Into Layer"
+      title: qsTr("Paste Into Layer")
       font: Theme.defaultFont
 
       icon.source: Theme.getThemeVectorIcon("ic_paste_black_24dp")
       icon.color: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
-      icon.width: 18 * screen.devicePixelRatio
-      icon.height: 18 * screen.devicePixelRatio
 
       onAboutToShow: {
-        // Populate just once
-        if (layersModel.count === 0) {
-          const mapLayers = ProjectUtils.mapLayers(qgisProject);
-          for (let layerId in mapLayers) {
-            const layer = mapLayers[layerId];
-            const geometryType = typeof layer.geometryType === 'function' ? layer.geometryType() : -1;
-            const hasGeometry = [0, 1, 2].includes(geometryType); // 0 = Point & 1 = Line & 2 = Polygon
-            if (layer.supportsEditing && !layer.readOnly && hasGeometry) {
-              layersModel.append({
-                  "LayerType": geometryType,
-                  "Layer": layer
-                });
+        layersModel.clear();
+        const feature = clipboardManager.pasteFeatureFromClipboard();
+        const featureGeometryType = feature.geometry.type;
+        const mapLayers = ProjectUtils.mapLayers(qgisProject);
+        for (let layerId in mapLayers) {
+          const layer = mapLayers[layerId];
+          if (layer.type === Qgis.LayerType.Vector) {
+            const layerGeometryType = layer.geometryType();
+            if (layerGeometryType !== Qgis.GeometryType.Null && layerGeometryType !== Qgis.GeometryType.Unknown && (featureGeometryType !== Qgis.GeometryType.Point || layerGeometryType === Qgis.GeometryType.Point)) {
+              if (layer.supportsEditing && !layer.readOnly) {
+                layersModel.append({
+                    "LayerType": layerGeometryType,
+                    "Layer": layer
+                  });
+              }
             }
           }
         }
-      }
-
-      readonly property bool visibleMenu: clipboardManager ? clipboardManager.holdsFeature : false
-
-      onVisibleMenuChanged: updateVisibility()
-      Component.onCompleted: updateVisibility()
-
-      function updateVisibility() {
-        parent.height = visibleMenu ? parent.implicitHeight : 0;
-        pasteIntoLayers.parent.visible = visibleMenu;
       }
 
       Repeater {
         model: ListModel {
           id: layersModel
         }
-        height: Math.min(count * 48, 8 * 48)
+
         delegate: MenuItem {
           text: Layer.name
           font: Theme.defaultFont
@@ -3310,8 +3692,6 @@ ApplicationWindow {
           leftPadding: Theme.menuItemLeftPadding
 
           icon.source: iconForGeometry(LayerType)
-          icon.width: 18 * screen.devicePixelRatio
-          icon.height: 18 * screen.devicePixelRatio
 
           onTriggered: {
             if (Layer) {
@@ -3332,11 +3712,11 @@ ApplicationWindow {
   function iconForGeometry(type) {
     switch (type) {
     case Qgis.GeometryType.Point:
-      return Theme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
+      return Theme.getThemeVectorIcon('ic_geometry_point_24dp');
     case Qgis.GeometryType.Line:
-      return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
+      return Theme.getThemeVectorIcon('ic_geometry_line_24dp');
     case Qgis.GeometryType.Polygon:
-      return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
+      return Theme.getThemeVectorIcon('ic_geometry_polygon_24dp');
     default:
       return Theme.getThemeVectorIcon('ic_info_white_24dp');
     }
@@ -3359,20 +3739,31 @@ ApplicationWindow {
       leftPadding: Theme.menuItemLeftPadding
       rightPadding: 40
 
-      arrow: Canvas {
-        x: parent.width - width
-        y: (parent.height - height) / 2
-        implicitWidth: 40
-        implicitHeight: 40
+      arrow: Shape {
+        id: preciseViewArrowShape
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.rightMargin: width / 2
+        width: 20
+        height: 20
         visible: true
-        onPaint: {
-          var ctx = getContext("2d");
-          ctx.strokeStyle = Theme.mainColor;
-          ctx.lineWidth = 1;
-          ctx.moveTo(15, 15);
-          ctx.lineTo(width - 15, height / 2);
-          ctx.lineTo(15, height - 15);
-          ctx.stroke();
+
+        ShapePath {
+          strokeWidth: 2
+          strokeColor: Theme.mainColor
+          fillColor: "transparent"
+
+          startX: preciseViewArrowShape.width * 0.35
+          startY: preciseViewArrowShape.height * 0.25
+
+          PathLine {
+            x: preciseViewArrowShape.width * 0.65
+            y: preciseViewArrowShape.height * 0.5
+          }
+          PathLine {
+            x: preciseViewArrowShape.width * 0.35
+            y: preciseViewArrowShape.height * 0.75
+          }
         }
       }
 
@@ -3595,7 +3986,8 @@ ApplicationWindow {
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged: positioningSettings.positioningActivated = checked
+
+      onTriggered: positioningSettings.positioningActivated = checked
     }
 
     MenuItem {
@@ -3610,7 +4002,8 @@ ApplicationWindow {
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged: positioningSettings.showPositionInformation = checked
+
+      onTriggered: positioningSettings.showPositionInformation = checked
     }
 
     MenuItem {
@@ -3645,37 +4038,51 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("Center to Location")
+      text: qsTr("Lock Coordinate Cursor to Location")
       height: 48
-      leftPadding: Theme.menuItemIconlessLeftPadding
+      leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
+      enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+      checkable: true
+      checked: positioningSettings.positioningCoordinateLock
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
 
       onTriggered: {
-        mapCanvas.mapSettings.setCenter(positionSource.projectedPosition, true);
+        gnssCursorLockButton.click();
+      }
+    }
+
+    MenuItem {
+      text: qsTr("Lock Map Canvas to Location")
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+      font: Theme.defaultFont
+      enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
+      checkable: true
+      checked: gnssButton.autoRefollow
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+
+      onTriggered: {
+        gnssCanvasLockButton.click();
       }
     }
 
     MenuItem {
       text: qsTr("Add Bookmark at Location")
-      icon.source: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
+      icon.source: Theme.getThemeVectorIcon("ic_add_bookmark_black_24dp")
       height: 48
       leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
+      enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
 
       onTriggered: {
-        if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
-          displayToast(qsTr('Current location unknown'));
-          return;
-        }
-        var name = qsTr('My location') + ' (' + new Date().toLocaleString() + ')';
-        var group = 'blue';
-        var id = bookmarkModel.addBookmarkAtPoint(positionSource.projectedPosition, name, group);
-        if (id !== '') {
-          bookmarkProperties.bookmarkId = id;
-          bookmarkProperties.bookmarkName = name;
-          bookmarkProperties.bookmarkGroup = group;
-          bookmarkProperties.open();
-        }
+        addBookmarkAtCurrentLocationButton.click();
       }
     }
 
@@ -3685,24 +4092,17 @@ ApplicationWindow {
       leftPadding: Theme.menuItemLeftPadding
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+      enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
 
       onTriggered: {
-        if (!positioningSettings.positioningActivated || positionSource.positionInformation === undefined || !positionSource.positionInformation.latitudeValid) {
-          displayToast(qsTr('Current location unknown'));
-          return;
-        }
-        var point = GeometryUtils.reprojectPoint(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs);
-        var coordinates = StringUtils.pointInformation(point, projectInfo.coordinateDisplayCrs);
-        coordinates += ' (' + qsTr('Accuracy') + ' ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr("N/A")) + ')';
-        platformUtilities.copyTextToClipboard(coordinates);
-        displayToast(qsTr('Current location copied to clipboard'));
+        copyCurrentLocationButton.click();
       }
     }
   }
 
   /* The feature form */
   FeatureListForm {
-    id: featureForm
+    id: featureListForm
     objectName: "featureForm"
 
     mapSettings: mapCanvas.mapSettings
@@ -3726,56 +4126,53 @@ ApplicationWindow {
 
     selection: FeatureListModelSelection {
       id: featureListModelSelection
-      model: featureForm.model
+      model: featureListForm.model
     }
+
+    extentController.keepScale: qfieldSettings.locatorKeepScale
 
     selectionColor: "#ff7777"
 
     onShowMessage: displayToast(message)
 
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+    }
+
     onEditGeometry: {
       // Set overall selected (i.e. current) layer to that of the feature geometry being edited,
       // important for snapping settings to make sense when set to current layer
-      if (dashBoard.activeLayer != featureForm.selection.focusedLayer) {
-        dashBoard.activeLayer = featureForm.selection.focusedLayer;
+      if (dashBoard.activeLayer != featureListForm.selection.focusedLayer) {
+        dashBoard.activeLayer = featureListForm.selection.focusedLayer;
         displayToast(qsTr("Current layer switched to the one holding the selected geometry."));
       }
-      geometryEditingFeature.vertexModel.geometry = featureForm.selection.focusedGeometry;
-      geometryEditingFeature.vertexModel.crs = featureForm.selection.focusedLayer.crs;
-      geometryEditingFeature.currentLayer = featureForm.selection.focusedLayer;
-      geometryEditingFeature.feature = featureForm.selection.focusedFeature;
-      if (!geometryEditingVertexModel.editingAllowed) {
-        displayToast(qsTr("Editing of multi geometry layer is not supported yet."));
-        geometryEditingVertexModel.clear();
+      geometryEditingFeature.vertexModel.geometry = featureListForm.selection.focusedGeometry;
+      geometryEditingFeature.vertexModel.crs = featureListForm.selection.focusedLayer.crs;
+      geometryEditingFeature.currentLayer = featureListForm.selection.focusedLayer;
+      geometryEditingFeature.feature = featureListForm.selection.focusedFeature;
+      if (geometryEditingVertexModel.editingAllowed) {
+        featureListForm.state = "Hidden";
+        geometryEditorsToolbar.init();
       } else {
-        featureForm.state = "Hidden";
+        displayToast(qsTr("Editing of multipart geometry is not supported yet."), 'warning');
+        geometryEditingVertexModel.clear();
       }
-      geometryEditorsToolbar.init();
+    }
+
+    onStateChanged: {
+      platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys && state === "Hidden");
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
-
-    //that the focus is set by selecting the empty space
-    MouseArea {
-      anchors.fill: parent
-      propagateComposedEvents: true
-      enabled: !parent.activeFocus
-
-      //onPressed because onClicked shall be handled in underlying MouseArea
-      onPressed: mouse => {
-        parent.focus = true;
-        mouse.accepted = false;
-      }
-    }
   }
 
   QfDropShadow {
-    anchors.fill: featureForm
+    anchors.fill: featureListForm
     horizontalOffset: mainWindow.width >= mainWindow.height ? -2 : 0
     verticalOffset: mainWindow.width < mainWindow.height ? -2 : 0
     radius: 6.0
     color: "#80000000"
-    source: featureForm
+    source: featureListForm
   }
 
   OverlayFeatureFormDrawer {
@@ -3785,16 +4182,20 @@ ApplicationWindow {
     codeReader: codeReader
     featureModel.currentLayer: dashBoard.activeLayer
 
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+    }
+
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   function showAutoLockToast() {
-    displayToast(qsTr('Follow location paused'), 'info', qsTr('Unlock'), () => {
+    displayToast(qsTr('Map canvas lock paused'), 'info', qsTr('Unlock'), () => {
         gnssButton.autoRefollow = false;
       }, true, () => {
-        if (positionSource.active) {
-          gnssButton.followActive = true;
+        if (positionSource.active && gnssButton.autoRefollow) {
           mapCanvasMap.freeze('follow');
+          gnssButton.followActive = true;
           gnssButton.followLocation(true);
         }
       });
@@ -3821,12 +4222,7 @@ ApplicationWindow {
         importPermissionDialog.url = details.import;
         importPermissionDialog.open();
       } else if (details.type === "cloud" && details.project !== undefined && details.project !== "") {
-        qfieldCloudScreen.requestedProjectDetails = details.project;
-        if (!qfieldCloudScreen.visible) {
-          qfieldCloudScreen.visible = true;
-        } else {
-          qfieldCloudScreen.prepareCloudScreen();
-        }
+        qfieldCloudScreen.prepareProjectRequest(details);
       }
     }
 
@@ -3887,6 +4283,8 @@ ApplicationWindow {
       qfieldLocalDataPickerScreen.focus = false;
       welcomeScreen.visible = false;
       welcomeScreen.focus = false;
+      projectCreationScreen.visible = false;
+      projectCreationScreen.focus = false;
       if (changelogPopup.visible)
         changelogPopup.close();
       dashBoard.layerTree.freeze();
@@ -3904,6 +4302,7 @@ ApplicationWindow {
       mapCanvasMap.unfreeze('projectload');
       busyOverlay.state = "hidden";
       dashBoard.layerTree.unfreeze(true);
+      gnssButton.jumpedOnce = false;
       if (qfieldAuthRequestHandler.hasPendingAuthRequest) {
         qfieldAuthRequestHandler.handleLayerLogins();
       } else {
@@ -3960,7 +4359,7 @@ ApplicationWindow {
       gridDecoration.xOffset = gridDecorationConfiguration["xOffset"];
       gridDecoration.yOffset = gridDecorationConfiguration["yOffset"];
       gridDecoration.prepareLines = gridDecorationConfiguration["hasLines"];
-      gridDecoration.lineColor = gridDecorationConfiguration["lineColor"];
+      gridDecoration.majorLineColor = gridDecorationConfiguration["lineColor"];
       gridDecoration.prepareMarkers = gridDecorationConfiguration["hasMarkers"];
       gridDecoration.markerColor = gridDecorationConfiguration["markerColor"];
       gridDecoration.prepareAnnotations = gridDecorationConfiguration["hasAnnotations"];
@@ -3972,7 +4371,6 @@ ApplicationWindow {
       recentProjectListModel.reloadModel();
       const cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName);
       cloudProjectsModel.currentProjectId = cloudProjectId;
-      cloudProjectsModel.refreshProjectModification(cloudProjectId);
       if (cloudProjectsModel.currentProject) {
         const forceAutoPush = iface.readProjectBoolEntry("qfieldsync", "forceAutoPush", false);
         if (forceAutoPush) {
@@ -4008,7 +4406,6 @@ ApplicationWindow {
         }
         if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
           projectInfo.cloudUserInformation = cloudConnection.userInformation;
-          cloudProjectsModel.refreshProjectFileOutdatedStatus(cloudProjectId);
         } else {
           projectInfo.restoreCloudUserInformation();
         }
@@ -4049,6 +4446,14 @@ ApplicationWindow {
           dashBoard.activeLayer = defaultActiveLayer;
         }
       }
+    }
+  }
+
+  Connections {
+    target: bookmarkModel
+
+    function onRequestJumpToPoint(center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
     }
   }
 
@@ -4142,15 +4547,13 @@ ApplicationWindow {
       parent: Overlay.overlay
     }
 
-    Popup {
+    QfPopup {
       id: loginDialogPopup
       parent: Overlay.overlay
-      width: parent.width - Theme.popupScreenEdgeMargin * 2
-      height: parent.height - Math.max(Theme.popupScreenEdgeMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
-      x: Theme.popupScreenEdgeMargin
+      width: parent.width - Theme.popupScreenEdgeHorizontalMargin * 2
+      height: parent.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+      x: Theme.popupScreenEdgeHorizontalMargin
       y: (mainWindow.height - height) / 2
-      padding: 0
-      modal: true
       closePolicy: Popup.CloseOnEscape
 
       LayerLoginDialog {
@@ -4189,6 +4592,16 @@ ApplicationWindow {
 
   TrackerSettings {
     id: trackerSettings
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
+  TrackerFeatureForm {
+    id: trackerFeatureForm
+
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+    }
   }
 
   QFieldCloudConnection {
@@ -4210,7 +4623,6 @@ ApplicationWindow {
         var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName);
         if (cloudProjectId) {
           projectInfo.cloudUserInformation = userInformation;
-          cloudProjectsModel.refreshProjectFileOutdatedStatus(cloudProjectId);
         }
       }
       previousStatus = cloudConnection.status;
@@ -4270,7 +4682,7 @@ ApplicationWindow {
 
     anchors.fill: parent
 
-    onOpenLocalDataPicker: {
+    onShowLocalDataPicker: {
       qfieldLocalDataPickerScreen.projectFolderView = false;
       qfieldLocalDataPickerScreen.model.resetToRoot();
       qfieldLocalDataPickerScreen.visible = true;
@@ -4283,6 +4695,36 @@ ApplicationWindow {
     onShowSettings: {
       qfieldSettings.reset();
       qfieldSettings.visible = true;
+    }
+
+    onShowProjectCreationScreen: {
+      projectCreationScreen.show();
+    }
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
+  ProjectCreationScreen {
+    id: projectCreationScreen
+    visible: false
+    focus: visible
+
+    width: parent.width
+    height: parent.height
+
+    onTriggerConnection: {
+      qfieldCloudPopup.pendingAction = "connect";
+      qfieldCloudPopup.show();
+    }
+
+    onTriggerCloudify: (title, path) => {
+      iface.clearProject();
+      cloudProjectsModel.currentProjectId = "";
+      qfieldCloudPopup.cloudify(title, FileUtils.absolutePath(path));
+    }
+
+    onTriggerProjectLoad: (title, path) => {
+      iface.loadFile(path, title);
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
@@ -4300,6 +4742,12 @@ ApplicationWindow {
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
+
+    onViewProjectFolder: projectPath => {
+      qfieldLocalDataPickerScreen.projectFolderView = true;
+      qfieldLocalDataPickerScreen.model.resetToPath(projectPath);
+      qfieldLocalDataPickerScreen.visible = true;
+    }
   }
 
   QFieldCloudPopup {
@@ -4361,6 +4809,7 @@ ApplicationWindow {
 
   Toast {
     id: toast
+    bottomSpacing: Math.max(60, mainWindow.sceneBottomMargin, informationDrawer.height, overlayFeatureFormDrawer.opened && !overlayFeatureFormDrawer.fullScreenView && overlayFeatureFormDrawer.y > 0 ? overlayFeatureFormDrawer.height : 0, !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.y > 0 ? featureListForm.height : 0)
   }
 
   MouseArea {
@@ -4392,7 +4841,7 @@ ApplicationWindow {
     id: appScopesGenerator
 
     positionInformation: positionSource.positionInformation
-    positionLocked: positionSource.active && positioningSettings.positioningCoordinateLock
+    positionLocked: positionSource.active && coordinateLocator.positionLocked
     cloudUserInformation: projectInfo.cloudUserInformation
   }
 
@@ -4496,7 +4945,7 @@ ApplicationWindow {
     parent: mainWindow.contentItem
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
 
-    width: Math.min(mainWindow.width - Theme.popupScreenEdgeMargin * 2, 400)
+    width: Math.min(mainWindow.width - Theme.popupScreenEdgeVerticalMargin * 2, 400)
 
     property string url: ""
     property string serverName: ""
@@ -4534,7 +4983,7 @@ ApplicationWindow {
     parent: mainWindow.contentItem
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
 
-    width: Math.min(mainWindow.width - Theme.popupScreenEdgeMargin * 2, 400)
+    width: Math.min(mainWindow.width - Theme.popupScreenEdgeVerticalMargin * 2, 400)
 
     property string pluginName: ""
     property bool isProjectPlugin: false
@@ -4588,7 +5037,7 @@ ApplicationWindow {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
     onAccepted: {
-      featureForm.state = "Hidden";
+      featureListForm.state = "Hidden";
       mentMode();
     }
     onDiscarded: {
@@ -4626,11 +5075,6 @@ ApplicationWindow {
         "title": qsTr("Search"),
         "description": qsTr("The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more."),
         "target": () => [locatorItem]
-      }, {
-        "type": "information",
-        "title": qsTr("Zoom"),
-        "description": qsTr("In addition to the pinch gesture, these buttons help you quickly zoom in and out."),
-        "target": () => [zoomToolbar]
       }]
 
     function startOnFreshRun() {
