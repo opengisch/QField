@@ -543,7 +543,7 @@ void PositioningSource::startNtripClient()
 
     // Connect to receiver if it supports RTK corrections
 #ifdef WITH_BLUETOOTH
-    if ( auto bluetoothReceiver = dynamic_cast<BluetoothReceiver *>( mReceiver ) )
+    if ( auto bluetoothReceiver = dynamic_cast<BluetoothReceiver *>( mReceiver.get() ) )
     {
       connect( mNtripClient.get(), &NtripClient::correctionDataReceived, bluetoothReceiver, &BluetoothReceiver::onCorrectionDataReceived );
     }
