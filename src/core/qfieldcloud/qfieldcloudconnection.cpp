@@ -60,6 +60,78 @@ QFieldCloudConnection::QFieldCloudConnection()
     mTokenConfigId.clear();
     QSettings().remove( "/QFieldCloud/tokenConfigId" );
   }
+
+  QNetworkInformation::loadBackendByFeatures( QNetworkInformation::Feature::Reachability );
+  mNetworkInfo = QNetworkInformation::instance();
+
+  if ( mNetworkInfo )
+  {
+    connect( mNetworkInfo, &QNetworkInformation::reachabilityChanged, this,
+             [this]( QNetworkInformation::Reachability ) {
+               emit reachabilityToCloudChanged();
+               tryFlushQueuedProjectPushes();
+             } );
+  }
+}
+
+
+void QFieldCloudConnection::queueProjectPush( const QString &projectId, const bool shouldDownloadUpdates )
+{
+  if ( projectId.isEmpty() )
+    return;
+
+  // merge flag so "true" wins
+  mQueuedProjectPushes[projectId] = mQueuedProjectPushes.value( projectId, false ) || shouldDownloadUpdates;
+
+  tryFlushQueuedProjectPushes();
+}
+
+void QFieldCloudConnection::tryFlushQueuedProjectPushes()
+{
+  if ( mIsFlushingQueuedProjectPushes )
+    return;
+
+  if ( mQueuedProjectPushes.isEmpty() )
+    return;
+
+  if ( status() != ConnectionStatus::LoggedIn )
+    return;
+
+  if ( !isReachableToCloud() )
+    return;
+
+  mIsFlushingQueuedProjectPushes = true;
+
+  const auto queued = mQueuedProjectPushes;
+  mQueuedProjectPushes.clear();
+
+  for ( auto it = queued.cbegin(); it != queued.cend(); ++it )
+    emit queuedProjectPush( it.key(), it.value() );
+
+  mIsFlushingQueuedProjectPushes = false;
+}
+
+bool QFieldCloudConnection::isReachableToCloud() const
+{
+  if ( !mNetworkInfo || !mNetworkInfo->supports( QNetworkInformation::Feature::Reachability ) )
+  {
+    // No backend or no reachability support, dont change behaviour
+    return true;
+  }
+
+  switch ( mNetworkInfo->reachability() )
+  {
+    case QNetworkInformation::Reachability::Online:
+    case QNetworkInformation::Reachability::Unknown:
+      return true;
+
+    case QNetworkInformation::Reachability::Disconnected:
+    case QNetworkInformation::Reachability::Local:
+    case QNetworkInformation::Reachability::Site:
+      return false;
+  }
+
+  return true;
 }
 
 QMap<QString, QString> QFieldCloudConnection::sErrors = QMap<QString, QString>(

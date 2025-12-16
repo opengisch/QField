@@ -25,7 +25,6 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkInformation>
 #include <QNetworkReply>
 #include <QSettings>
 #include <QTemporaryFile>
@@ -41,25 +40,6 @@
 QFieldCloudProjectsModel::QFieldCloudProjectsModel()
 {
   // TODO all of these connects are a bit too much, and I guess not very precise, should be refactored!
-
-  QNetworkInformation::loadBackendByFeatures( QNetworkInformation::Feature::Reachability );
-  if ( const QNetworkInformation *info = QNetworkInformation::instance() )
-  {
-    connect( info, &QNetworkInformation::reachabilityChanged, this, [this]( QNetworkInformation::Reachability ) {
-      if ( !isReachableToCloud() || mPendingPushes.isEmpty() )
-        return;
-
-      // Copying so we dont fight with new entries
-      const auto pending = mPendingPushes;
-      mPendingPushes.clear();
-
-      for ( auto it = pending.cbegin(); it != pending.cend(); ++it )
-      {
-        projectPush( it.key(), it.value() );
-      }
-    } );
-  }
-
   connect( this, &QFieldCloudProjectsModel::dataChanged, this, [this]( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles ) {
     Q_UNUSED( bottomRight )
     Q_UNUSED( roles )
@@ -67,6 +47,9 @@ QFieldCloudProjectsModel::QFieldCloudProjectsModel()
     if ( roles.isEmpty() || roles.contains( StatusRole ) )
     {
       emit busyProjectIdsChanged();
+
+      if ( mCloudConnection )
+        mCloudConnection->tryFlushQueuedProjectPushes();
     }
   } );
 }
@@ -86,6 +69,7 @@ void QFieldCloudProjectsModel::setCloudConnection( QFieldCloudConnection *cloudC
     disconnect( mCloudConnection, &QFieldCloudConnection::statusChanged, this, &QFieldCloudProjectsModel::connectionStatusChanged );
     disconnect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, &QFieldCloudProjectsModel::usernameChanged );
     disconnect( mCloudConnection, &QFieldCloudConnection::urlChanged, this, &QFieldCloudProjectsModel::urlChanged );
+    disconnect( mCloudConnection, &QFieldCloudConnection::queuedProjectPush, this, &QFieldCloudProjectsModel::projectPush );
   }
 
   mCloudConnection = cloudConnection;
@@ -95,10 +79,12 @@ void QFieldCloudProjectsModel::setCloudConnection( QFieldCloudConnection *cloudC
     connect( mCloudConnection, &QFieldCloudConnection::statusChanged, this, &QFieldCloudProjectsModel::connectionStatusChanged );
     connect( mCloudConnection, &QFieldCloudConnection::usernameChanged, this, &QFieldCloudProjectsModel::usernameChanged );
     connect( mCloudConnection, &QFieldCloudConnection::urlChanged, this, &QFieldCloudProjectsModel::urlChanged );
+    connect( mCloudConnection, &QFieldCloudConnection::queuedProjectPush, this, &QFieldCloudProjectsModel::projectPush );
 
     mUsername = mCloudConnection->username();
     mUrl = mCloudConnection->url();
     resetProjects();
+    mCloudConnection->tryFlushQueuedProjectPushes();
   }
 
   emit cloudConnectionChanged();
@@ -334,30 +320,6 @@ void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &project
   emit dataChanged( projectIndex, projectIndex );
 }
 
-bool QFieldCloudProjectsModel::isReachableToCloud() const
-{
-  const QNetworkInformation *info = QNetworkInformation::instance();
-  if ( !info || !info->supports( QNetworkInformation::Feature::Reachability ) )
-  {
-    // No backend or no reachability support, dont change behaviour
-    return true;
-  }
-
-  switch ( info->reachability() )
-  {
-    case QNetworkInformation::Reachability::Online:
-    case QNetworkInformation::Reachability::Unknown: // treat as active to avoid blocking pushes if OS cant tell
-      return true;
-
-    case QNetworkInformation::Reachability::Disconnected:
-    case QNetworkInformation::Reachability::Local:
-    case QNetworkInformation::Reachability::Site:
-      return false;
-  }
-
-  return true;
-}
-
 void QFieldCloudProjectsModel::projectPush( const QString &projectId, const bool shouldDownloadUpdates )
 {
   const QModelIndex projectIndex = findProjectIndex( projectId );
@@ -370,10 +332,10 @@ void QFieldCloudProjectsModel::projectPush( const QString &projectId, const bool
     return;
 
   // If the network is not active, queue the push and warn the user.
-  if ( !isReachableToCloud() )
+  if ( !mCloudConnection || !mCloudConnection->isReachableToCloud() )
   {
-    const bool mergedFlag = mPendingPushes.value( projectId, false ) || shouldDownloadUpdates;
-    mPendingPushes.insert( projectId, mergedFlag );
+    if ( mCloudConnection )
+      mCloudConnection->queueProjectPush( projectId, shouldDownloadUpdates );
 
     emit warning( tr( "Network is not currently active. "
                       "We will push the changes automatically once you are back online." ) );
@@ -381,7 +343,11 @@ void QFieldCloudProjectsModel::projectPush( const QString &projectId, const bool
   }
 
   if ( project->status() != QFieldCloudProject::ProjectStatus::Idle )
+  {
+    // if user requested push while busy, schedule it
+    mCloudConnection->queueProjectPush( projectId, shouldDownloadUpdates );
     return;
+  }
 
   project->push( shouldDownloadUpdates );
 }

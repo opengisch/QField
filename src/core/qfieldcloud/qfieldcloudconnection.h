@@ -20,7 +20,9 @@
 #include "networkreply.h"
 #include "qfieldcloudutils.h"
 
+#include <QHash>
 #include <QJsonDocument>
+#include <QNetworkInformation>
 #include <QObject>
 #include <QVariantMap>
 
@@ -218,6 +220,10 @@ class QFieldCloudConnection : public QObject
      */
     qsizetype uploadPendingAttachments();
 
+    bool isReachableToCloud() const;
+    void queueProjectPush( const QString &projectId, bool shouldDownloadUpdates );
+    void tryFlushQueuedProjectPushes();
+
   signals:
     void providerChanged();
     void usernameChanged();
@@ -239,6 +245,9 @@ class QFieldCloudConnection : public QObject
 
     void availableProvidersChanged();
     void isFetchingAvailableProvidersChanged();
+
+    void reachabilityToCloudChanged();
+    void queuedProjectPush( const QString &projectId, bool shouldDownloadUpdates );
 
   private:
     void setStatus( ConnectionStatus status );
@@ -271,6 +280,11 @@ class QFieldCloudConnection : public QObject
     qsizetype mUploadFailingCount = 0;
 
     void setClientHeaders( QNetworkRequest &request );
+
+    QHash<QString, bool> mQueuedProjectPushes;
+    bool mIsFlushingQueuedProjectPushes = false;
+
+    const QNetworkInformation *mNetworkInfo = nullptr;
 };
 
 #endif // QFIELDCLOUDCONNECTION_H
