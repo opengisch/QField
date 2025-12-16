@@ -19,6 +19,8 @@ Page {
   signal finished(var loading)
 
   focus: visible
+  leftPadding: mainWindow.sceneLeftMargin
+  rightPadding: mainWindow.sceneRightMargin
 
   onVisibleChanged: {
     if (visible) {

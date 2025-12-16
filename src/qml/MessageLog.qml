@@ -18,6 +18,8 @@ Page {
 
   visible: false
   focus: visible
+  leftPadding: mainWindow.sceneLeftMargin
+  rightPadding: mainWindow.sceneRightMargin
 
   header: QfPageHeader {
     title: qsTr('Message Logs')
