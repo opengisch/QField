@@ -221,7 +221,7 @@ class QFieldCloudConnection : public QObject
     qsizetype uploadPendingAttachments();
 
     bool isReachableToCloud() const;
-    void queueProjectPush( const QString &projectId, bool shouldDownloadUpdates );
+    void queueProjectPush( const QString &projectId, const bool shouldDownloadUpdates );
     void tryFlushQueuedProjectPushes();
 
   signals:
@@ -247,7 +247,7 @@ class QFieldCloudConnection : public QObject
     void isFetchingAvailableProvidersChanged();
 
     void reachabilityToCloudChanged();
-    void queuedProjectPush( const QString &projectId, bool shouldDownloadUpdates );
+    void queuedProjectPush( const QString &projectId, const bool shouldDownloadUpdates );
 
   private:
     void setStatus( ConnectionStatus status );

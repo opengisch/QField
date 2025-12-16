@@ -227,6 +227,7 @@ void QFieldCloudConnection::setUsername( const QString &username )
   if ( mUsername == username )
     return;
 
+  mQueuedProjectPushes.clear();
   mUsername = username;
 
   if ( mStatus != ConnectionStatus::Disconnected )
@@ -675,6 +676,7 @@ void QFieldCloudConnection::setToken( const QByteArray &token )
 
 void QFieldCloudConnection::invalidateToken()
 {
+  mQueuedProjectPushes.clear();
   if ( mToken.isNull() )
     return;
 
