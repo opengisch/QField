@@ -71,7 +71,12 @@ EditorWidgetBase {
           return Qt.formatDateTime(value, displayFormat);
         }
       } else {
-        const date = Date.fromLocaleString(Qt.locale(), value, !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'] !== undefined ? config['field_format'] : '');
+        let dateFormat = config['display_format'] !== undefined ? config['display_format'] : '';
+        if (!!config['field_format_overwrite']) {
+          console.log('!!!');
+          dateFormat = !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'];
+        }
+        const date = Date.fromLocaleString(Qt.locale(), value, dateFormat);
         if (date.toString() === "Invalid Date") {
           try {
             return Qt.formatDateTime(value, displayFormat);
@@ -203,7 +208,11 @@ EditorWidgetBase {
         if (main.isDateTimeType) {
           valueChangeRequested(currentDate, false);
         } else {
-          const textDate = Qt.formatDateTime(currentDate, !!config['field_iso_format'] ? Qt.ISODate : config['field_format']);
+          let dateFormat = config['display_format'] !== undefined ? config['display_format'] : '';
+          if (!!config['field_format_overwrite']) {
+            dateFormat = !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'];
+          }
+          const textDate = Qt.formatDateTime(currentDate, dateFormat);
           valueChangeRequested(textDate, false);
         }
         displayToast(qsTr('Date value set to today.'));
@@ -225,7 +234,11 @@ EditorWidgetBase {
       if (main.isDateTimeType) {
         valueChangeRequested(date, date === undefined);
       } else {
-        const textDate = Qt.formatDateTime(date, !!config['field_iso_format'] ? Qt.ISODate : config['field_format']);
+        let dateFormat = config['display_format'] !== undefined ? config['display_format'] : '';
+        if (!!config['field_format_overwrite']) {
+          dateFormat = !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'];
+        }
+        const textDate = Qt.formatDateTime(date, dateFormat);
         valueChangeRequested(textDate, date === undefined);
       }
     }
