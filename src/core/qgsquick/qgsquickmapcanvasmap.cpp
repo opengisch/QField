@@ -342,21 +342,19 @@ void QgsQuickMapCanvasMap::onZRangeChanged()
 
 void QgsQuickMapCanvasMap::updateTransform( bool skipSmooth )
 {
-  const QgsRectangle imageExtent = mImageMapSettings.extent();
-  const QgsPointXY center = imageExtent.center();
+  const QgsPointXY center = mImageMapSettings.extent().center();
   const QgsPointXY pixelPt = mMapSettings->coordinateToScreen( QgsPoint( center.x(), center.y() ) );
-  const QgsRectangle newExtent = mMapSettings->mapSettings().extent();
 
   if ( mSmooth && !skipSmooth )
   {
-    setProperty( "scale", static_cast<double>( mMapSettings->computeScaleForExtent( imageExtent ) ) / mMapSettings->computeScaleForExtent( newExtent ) );
+    setProperty( "scale", mImageMapSettings.mapUnitsPerPixel() / mMapSettings->mapSettings().mapUnitsPerPixel() );
     setProperty( "rotation", mMapSettings->mapSettings().rotation() - mImageMapSettings.rotation() );
     setProperty( "x", pixelPt.x() - static_cast<qreal>( mMapSettings->outputSize().width() ) / mMapSettings->devicePixelRatio() / 2 );
     setProperty( "y", pixelPt.y() - static_cast<qreal>( mMapSettings->outputSize().height() ) / mMapSettings->devicePixelRatio() / 2 );
   }
   else
   {
-    setScale( static_cast<double>( mMapSettings->computeScaleForExtent( imageExtent ) ) / mMapSettings->computeScaleForExtent( newExtent ) );
+    setScale( mImageMapSettings.mapUnitsPerPixel() / mMapSettings->mapSettings().mapUnitsPerPixel() );
     setRotation( mMapSettings->mapSettings().rotation() - mImageMapSettings.rotation() );
     setX( pixelPt.x() - static_cast<qreal>( mMapSettings->outputSize().width() ) / mMapSettings->devicePixelRatio() / 2 );
     setY( pixelPt.y() - static_cast<qreal>( mMapSettings->outputSize().height() ) / mMapSettings->devicePixelRatio() / 2 );
