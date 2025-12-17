@@ -709,13 +709,13 @@ Cancel to make a minimal device scan instead.</source>
     <name>DateTime</name>
     <message>
         <location filename="../src/qml/editorwidgets/DateTime.qml" line="47"/>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="79"/>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="168"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="84"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="173"/>
         <source>(no date)</source>
         <translation>(ບໍ່ມີວັນທີ)</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="209"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="218"/>
         <source>Date value set to today.</source>
         <translation>ຄ່າວັນທີທີ່ຕັ້ງເປັນມື້ນີ້</translation>
     </message>
@@ -1113,87 +1113,87 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>FeatureHistory</name>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="339"/>
+        <location filename="../src/core/featurehistory.cpp" line="345"/>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
         <translation>ການຍົກເລີກຄຸນສົມບັດທີ່ສ້າງຂຶ້ນໃນຊັ້ນແຜນທີ່ &quot;%1&quot; ລົ້ມເຫລວ</translation>
     </message>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="352"/>
+        <location filename="../src/core/featurehistory.cpp" line="358"/>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
         <translation>ການຍົກເລີກຄຸນສົມບັດທີ່ຖືກລົບໃນຊັ້ນແຜນທີ່ &quot;%1&quot; ລົ້ມເຫລວ</translation>
     </message>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="367"/>
+        <location filename="../src/core/featurehistory.cpp" line="372"/>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
         <translation>ການຍົກເລີກອັບເດດຄຸນສົມບັດໃນຊັ້ນແຜນທີ່ &quot;%1&quot; ລົ້ມເຫລວ</translation>
     </message>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="374"/>
+        <location filename="../src/core/featurehistory.cpp" line="380"/>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
         <translation>ການຢືນຢັນການຍົກເລີກການແກ້ໄຂຄຸນສົມບັດໃນຊັ້ນແຜນທີ່ &apos;%1&apos; ລົ້ມເຫລວ</translation>
     </message>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="378"/>
+        <location filename="../src/core/featurehistory.cpp" line="384"/>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
         <translation>ການມ້ວນຄືນການຍົກເລີກການແກ້ໄຂຄຸນສົມບັດໃນຊັ້ນແຜນທີ່ &apos;%1&apos; ລົ້ມເຫລວ</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="483"/>
+        <location filename="../src/core/featurehistory.cpp" line="489"/>
         <source>Undo creation of %n feature(s) on layer %1.</source>
         <translation><numerusform>ຍົກເລີກການສ້າງຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1.</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="483"/>
+        <location filename="../src/core/featurehistory.cpp" line="489"/>
         <source>Undo creation of %n feature(s).</source>
         <translation><numerusform>ຍົກເລີກການສ້າງ %n ຄຸນສົມບັດ.</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="487"/>
+        <location filename="../src/core/featurehistory.cpp" line="493"/>
         <source>Undo deletion of %n feature(s) on layer %1.</source>
         <translation><numerusform>ຍົກເລີກການລົບຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1.</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="487"/>
+        <location filename="../src/core/featurehistory.cpp" line="493"/>
         <source>Undo deletion of %n feature(s).</source>
         <translation><numerusform>ຍົກເລີກການລົບຄຸນສົມບັດ %n.</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="491"/>
+        <location filename="../src/core/featurehistory.cpp" line="497"/>
         <source>Undo modifications on %n feature(s) on layer %1.</source>
         <translation><numerusform>ຍົກເລີກການດັດ​ແກ້​ຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1.</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="491"/>
+        <location filename="../src/core/featurehistory.cpp" line="497"/>
         <source>Undo modifications on %n feature(s).</source>
         <translation><numerusform>ຍົກເລີກການດັດ​ແກ້​ຄຸນສົມບັດ %n</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="533"/>
+        <location filename="../src/core/featurehistory.cpp" line="539"/>
         <source>Redo creation of %n feature(s) on layer %1</source>
         <translation><numerusform>​ເຮັດຄືນການສ້າງຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="533"/>
+        <location filename="../src/core/featurehistory.cpp" line="539"/>
         <source>Redo creation of %n feature(s)</source>
         <translation><numerusform>​ສ້າງຄືນຄຸນສົມບັດ %n </numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="537"/>
+        <location filename="../src/core/featurehistory.cpp" line="543"/>
         <source>Redo deletion of %n feature(s) on layer %1</source>
         <translation><numerusform>​ລົບຄືນຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="537"/>
+        <location filename="../src/core/featurehistory.cpp" line="543"/>
         <source>Redo deletion of %n feature(s)</source>
         <translation><numerusform>​ລົບຄືນຄຸນສົມບັດ %n</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="541"/>
+        <location filename="../src/core/featurehistory.cpp" line="547"/>
         <source>Redo modifications on %n feature(s) on layer %1</source>
         <translation><numerusform>​ດັດ​ແກ້​ຄືນຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="541"/>
+        <location filename="../src/core/featurehistory.cpp" line="547"/>
         <source>Redo modifications on %n feature(s)</source>
         <translation><numerusform>​ດັດ​ແກ້​ຄືນຄຸນສົມບັດ %n</numerusform></translation>
     </message>
@@ -2004,28 +2004,28 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>MessageLog</name>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="23"/>
+        <location filename="../src/qml/MessageLog.qml" line="25"/>
         <source>Message Logs</source>
         <translation>ບັນທຶກຂໍ້ຄວາມ</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="107"/>
+        <location filename="../src/qml/MessageLog.qml" line="109"/>
         <source>Message text copied</source>
         <translation>ສຳເນົາຂໍ້ຄວາມແລ້ວ</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="131"/>
+        <location filename="../src/qml/MessageLog.qml" line="133"/>
         <source>Clear message log</source>
         <translation>ລົບບັນທຶກຂໍ້ຄວາມ</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="136"/>
+        <location filename="../src/qml/MessageLog.qml" line="138"/>
         <source>Message log cleared</source>
         <translation>ລົບບັນທຶກຂໍ້ຄວາມແລ້ວ</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="144"/>
-        <location filename="../src/qml/MessageLog.qml" line="155"/>
+        <location filename="../src/qml/MessageLog.qml" line="146"/>
+        <location filename="../src/qml/MessageLog.qml" line="157"/>
         <source>Send application log</source>
         <translation>ສົ່ງບັນທຶກຄໍາຮ້ອງສະຫມັກ</translation>
     </message>
@@ -2034,27 +2034,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">ບັນທຶກການສະໝັກຂອງທ່ານກຳລັງຖືກສົ່ງໄປ</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="122"/>
+        <location filename="../src/qml/MessageLog.qml" line="124"/>
         <source>Log runtime profiler</source>
         <translation>ບັນທຶກໂປຣໄຟລ runtime</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="186"/>
+        <location filename="../src/qml/MessageLog.qml" line="188"/>
         <source>Type optional details</source>
         <translation>ພິມລາຍລະອຽດທາງເລືອກ</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="194"/>
+        <location filename="../src/qml/MessageLog.qml" line="196"/>
         <source>Include cloud user details</source>
         <translation>ລວມເອົາລາຍລະອຽດຜູ້ໃຊ້ຄລາວ</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="177"/>
+        <location filename="../src/qml/MessageLog.qml" line="179"/>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
         <translation>ນີ້ຈະສົ່ງບັນທຶກຂອງການເຊື່ອມຕໍ່ປັດຈຸບັນຂອງທ່ານໄປຫາທີມງານພັດທະນາ. ທ່ານພຽງແຕ່ຕ້ອງການເຮັດສິ່ງນີ້ເມື່ອທ່ານຖືກຮ້ອງຂໍ.</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="208"/>
+        <location filename="../src/qml/MessageLog.qml" line="210"/>
         <source>Your application log is being sent…</source>
         <translation>ບັນທຶກການສະໝັກຂອງທ່ານກຳລັງຖືກສົ່ງ...</translation>
     </message>
@@ -4307,128 +4307,128 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="30"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="32"/>
         <source>Project Folder</source>
         <translation>ໂຟນເດີໂຄງການ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="30"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="32"/>
         <source>Local Projects &amp; Datasets</source>
         <translation>ໂຄງການ ແລະ ຊຸດຂໍ້ມູນທ້ອງຖິ່ນ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="141"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="143"/>
         <source>Folders</source>
         <translation>ໂຟນເດີ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="143"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="145"/>
         <source>Projects</source>
         <translation>ໂຄງການ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="145"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="147"/>
         <source>Datasets</source>
         <translation>ຊຸດຂໍ້ມູນ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="147"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="149"/>
         <source>Files</source>
         <translation>ໄຟລ໌</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="149"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="151"/>
         <source>Favorites</source>
         <translation>ລາຍການທີ່ມັກ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="262"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="264"/>
         <source>Project file</source>
         <translation>ໄຟລ໌ໂຄງການ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="265"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="267"/>
         <source>Vector dataset</source>
         <translation>ຊຸດຂໍ້ມູນ Vector</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="268"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="270"/>
         <source>Raster dataset</source>
         <translation>ຊຸດຂໍ້ມູນ Raster</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="381"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="383"/>
         <source>Home</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="461"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="463"/>
         <source>Item Actions</source>
         <translation>ລາຍ​ການການດໍາເນີນການ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="478"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="480"/>
         <source>View file</source>
         <translation>ເບິ່ງໄຟລ໌</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="495"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="497"/>
         <source>Send to...</source>
         <translation>ສົ່ງໄປ...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="511"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="513"/>
         <source>Push to QFieldCloud</source>
         <translation>ຍູ້ໄປທີ່ QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="529"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="573"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="531"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="575"/>
         <source>Export to folder...</source>
         <translation>ສົ່ງອອກໄປໂຟນເດີ...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="546"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="548"/>
         <source>Add to favorites</source>
         <translation>ເພີ່ມເຂົ້າໃນລາຍການທີ່ມັກ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="546"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="548"/>
         <source>Remove from favorites</source>
         <translation>ເອົາ​ອອກ​ຈາກລາຍການທີ່ມັກ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="605"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="607"/>
         <source>Upload folder to WebDAV server</source>
         <translation>ອັບໂຫລດໂຟນເດີໄປໃສ່ເຊີບເວີ WebDAV</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="623"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="625"/>
         <source>Download folder from WebDAV server</source>
         <translation>ດາວໂຫລດໂຟນເດີຈາກເຊີບເວີ WebDAV</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="648"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="650"/>
         <source>Delete file</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="665"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="667"/>
         <source>Remove dataset</source>
         <translation>ເອົາຊຸດຂໍ້ມູນອອກ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="682"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="684"/>
         <source>Remove folder</source>
         <translation>ເອົາໂຟນເດີອອກ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="693"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="695"/>
         <source>Import Actions</source>
         <translation>ນຳເຂົ້າການດໍາເນີນການ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="589"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="591"/>
         <source>Send compressed folder to...</source>
         <translation>ສົ່ງໂຟນເດີທີ່ຖືກບີບອັດໄປ...</translation>
     </message>
@@ -4437,226 +4437,226 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="vanished">ເອົາໂຟນເດີໂຄງການອອກ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="709"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="711"/>
         <source>Import project from folder</source>
         <translation>ນໍາເຂົ້າໂຄງການຈາກໂຟນເດີ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="725"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="727"/>
         <source>Import project from ZIP</source>
         <translation>ນໍາເຂົ້າໂຄງການຈາກ ZIP</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="741"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="743"/>
         <source>Import dataset(s)</source>
         <translation>ນຳເຂົ້າຊຸດຂໍ້ມູນ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="762"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1012"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="764"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1014"/>
         <source>Import URL</source>
         <translation>ນຳເຂົ້າ URL</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="777"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1228"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="779"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1230"/>
         <source>Import WebDAV folder</source>
         <translation>ນໍາເຂົ້າໂຟນເດີ WebDAV</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="796"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="798"/>
         <source>Storage management help</source>
         <translation>ຊ່ວຍການຄຸ້ມຄອງການເກັບຮັກສາ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="806"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="808"/>
         <source>Project Actions</source>
         <translation>ການດໍາເນີນການໂຄງການ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="822"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="824"/>
         <source>Update project from ZIP</source>
         <translation>ອັບເດດໂຄງການຈາກ ZIP</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="838"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="840"/>
         <source>Upload project to WebDAV</source>
         <translation>ອັບໂຫຼດໂຄງການໃສ່ WebDAV</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="856"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="858"/>
         <source>Download project from WebDAV</source>
         <translation>ດາວໂຫລດໂຄງການຈາກ WebDAV</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="883"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="885"/>
         <source>Upload file(s) to WebDAV</source>
         <translation>ອັບໂຫຼດໄຟລ໌ໃສ່ WebDAV</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="907"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="909"/>
         <source>Push file(s) to QFieldCloud</source>
         <translation>ຍູ້ໄຟລ໌ໄປຫາ QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="921"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="923"/>
         <source>Please select one or more files to push to QFieldCloud.</source>
         <translation>ກະລຸນາເລືອກໜຶ່ງ ຫຼືຫຼາຍໄຟລ໌ເພື່ອຍູ້ໄປທີ່ QFieldCloud.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="937"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="939"/>
         <source>Delete file(s)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="963"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="965"/>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>&apos;%1&apos; ກຳລັງຖືກອັບໂຫລດໄປໃສ່ QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="967"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="969"/>
         <source>Items being uploaded to QFieldCloud</source>
         <translation>ລາຍການກຳລັງຖືກອັບໂຫຼດໃສ່ QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="976"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="978"/>
         <source>Remove File(s)</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="983"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="985"/>
         <source>Are you sure you want to remove %n files?</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="997"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="999"/>
         <source>%n file(s) deleted successfully</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="999"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1001"/>
         <source>Failed to delete %n file(s)</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1034"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1036"/>
         <source>Type a URL below to download and import the project or dataset:</source>
         <translation>ພິມ URL ຂ້າງລຸ່ມນີ້ເພື່ອດາວໂຫລດ ແລະ ນໍາເຂົ້າໂຄງການ ຫຼືຊຸດຂໍ້ມູນ:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1062"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1064"/>
         <source>Importing WebDAV folder</source>
         <translation>ກຳລັງນຳເຂົ້າໂຟນເດີ WebDAV</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1072"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1074"/>
         <source>Downloading WebDAV folder</source>
         <translation>ກຳລັງດາວໂຫຼດໂຟນເດີ WebDAV</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1086"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1088"/>
         <source>Uploading WebDAV folder</source>
         <translation>ກຳລັງອັບໂຫລດໂຟນເດີ WebDAV</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1102"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1104"/>
         <source>WebDAV error: </source>
         <translation>ຄວາມຜິດພາດ WebDAV:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1129"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1131"/>
         <source>WebDAV upload</source>
         <translation>ອັບໂຫຼດ WebDAV</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1129"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1131"/>
         <source>WebDAV download</source>
         <translation>ດາວໂຫຼດ WebDAV</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1158"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1160"/>
         <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
         <translation>ທ່ານກຳລັງຈະອັບໂຫລດເນື້ອຫາທີ່ຖືກແກ້ໄຂໄປໃສ່ %1 ໂດຍໃຊ້ຜູ້ໃຊ້ %2. ຄຳສັ່ງນີ້ຈະຂຽນທັບຂໍ້ມູນທີ່ເກັບໄວ້ຈາກໄລຍະໄກ, ທ່ານແນ່ໃຈບໍ່ວ່າແມ່ນສິ່ງທີ່ທ່ານຕ້ອງການເຮັດ.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1158"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1160"/>
         <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
         <translation>ທ່ານກຳລັງຈະດາວໂຫຼດເນື້ອຫາທີ່ຖືກແກ້ໄຂໄປໃສ່ %1 ໂດຍໃຊ້ຜູ້ໃຊ້ %2. ຄຳສັ່ງນີ້ຈະຂຽນທັບຂໍ້ມູນທີ່ເກັບໄວ້ຈາກໄລຍະໄກ, ທ່ານແນ່ໃຈບໍ່ວ່າແມ່ນສິ່ງທີ່ທ່ານຕ້ອງການເຮັດ.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1169"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1171"/>
         <source>Password</source>
         <translation>ລະຫັດຜ່ານ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1169"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1171"/>
         <source>Password (leave empty to use remembered)</source>
         <translation>ລະຫັດຜ່ານ (ປ່ອຍໃຫ້ຫວ່າງເພື່ອໃຊ້ອັນທີ່ບັນ​ທຶກ​ໄວ້​ແລ້ວ)</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1207"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1424"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1209"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1426"/>
         <source>Remember password</source>
         <translation>ຈື່ລະຫັດຜ່ານ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1282"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1284"/>
         <source>Type the WebDAV details below to import a remote folder:</source>
         <translation>ພິມລາຍລະອຽດ WebDAV ຂ້າງລຸ່ມນີ້ເພື່ອນໍາເຂົ້າໂຟນເດີທາງໄກ:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1291"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1293"/>
         <source>WebDAV server URL</source>
         <translation>WebDAV ເຊີບເວີ URL</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1339"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1341"/>
         <source>User and password</source>
         <translation>ຜູ້ໃຊ້ ແລະ ລະຫັດຜ່ານ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1385"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1387"/>
         <source>leave empty to use remembered</source>
         <translation>ປ່ອຍໃຫ້ຫວ່າງເພື່ອໃຊ້ອັນທີ່ບັນ​ທຶກ​ໄວ້​ແລ້ວ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1434"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1436"/>
         <source>Fetching remote folders</source>
         <translation>ກຳລັງດຶງເອົາໂຟນເດີທາງໄກ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1434"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1436"/>
         <source>Fetch remote folders</source>
         <translation>ດຶງເອົາໂຟນເດີທາງໄກ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1460"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1462"/>
         <source>Select the remote folder to import:</source>
         <translation>ເລືອກໂຟນເດີທາງໄກເພື່ອນໍາເຂົ້າ:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1606"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1641"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1608"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1643"/>
         <source>root folder</source>
         <translation>ໂຟນເດີຮາກ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1617"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1619"/>
         <source>Available locally in ‘%1’</source>
         <translation>ມີຢູ່ໃນເຄື່ອງໃນ &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1659"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1661"/>
         <source>Imported folder name</source>
         <translation>ຊື່ໂຟນເດີທີ່ນໍາເຂົ້າ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1686"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1688"/>
         <source>Confirm</source>
         <translation>ຢືນຢັນ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1707"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1709"/>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
         <translation>ທ່ານກຳລັງຈະລຶບລາຍການ WebDAV ທີ່ບັນທຶກໄວ້, ດຳເນີນການຕໍ່ບໍ?</translation>
     </message>

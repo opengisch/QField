@@ -710,13 +710,13 @@ Cancel to make a minimal device scan instead.</source>
     <name>DateTime</name>
     <message>
         <location filename="../src/qml/editorwidgets/DateTime.qml" line="47"/>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="79"/>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="168"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="84"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="173"/>
         <source>(no date)</source>
         <translation>(日付がありません)</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="209"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="218"/>
         <source>Date value set to today.</source>
         <translation>日付は本日の値が設定されます。</translation>
     </message>
@@ -1114,87 +1114,87 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>FeatureHistory</name>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="339"/>
+        <location filename="../src/core/featurehistory.cpp" line="345"/>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
         <translation>レイヤ &quot;%1&quot; に作成された地物の取り消しに失敗しました。</translation>
     </message>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="352"/>
+        <location filename="../src/core/featurehistory.cpp" line="358"/>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
         <translation>レイヤ &quot;%1&quot; で削除された地物の取り消しに失敗しました。</translation>
     </message>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="367"/>
+        <location filename="../src/core/featurehistory.cpp" line="372"/>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
         <translation>レイヤ &quot;%1&quot; で更新された地物の取り消しに失敗しました。</translation>
     </message>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="374"/>
+        <location filename="../src/core/featurehistory.cpp" line="380"/>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
         <translation>レイヤ &quot;%1&quot; に編集された地物のコミットに失敗しました。</translation>
     </message>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="378"/>
+        <location filename="../src/core/featurehistory.cpp" line="384"/>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
         <translation>レイヤ &quot;%1&quot; に編集された地物のロールバックに失敗しました。</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="483"/>
+        <location filename="../src/core/featurehistory.cpp" line="489"/>
         <source>Undo creation of %n feature(s) on layer %1.</source>
         <translation><numerusform>レイヤー %1 への %n 地物の作成をもとに戻す。</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="483"/>
+        <location filename="../src/core/featurehistory.cpp" line="489"/>
         <source>Undo creation of %n feature(s).</source>
         <translation><numerusform>%n 地物の作成をもとに戻す。</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="487"/>
+        <location filename="../src/core/featurehistory.cpp" line="493"/>
         <source>Undo deletion of %n feature(s) on layer %1.</source>
         <translation><numerusform>レイヤー %1 への %n 地物の削除をもとに戻す。</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="487"/>
+        <location filename="../src/core/featurehistory.cpp" line="493"/>
         <source>Undo deletion of %n feature(s).</source>
         <translation><numerusform>%n 地物の削除をもとに戻す。</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="491"/>
+        <location filename="../src/core/featurehistory.cpp" line="497"/>
         <source>Undo modifications on %n feature(s) on layer %1.</source>
         <translation><numerusform>レイヤー %1 への %n 地物の修正をもとに戻す。</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="491"/>
+        <location filename="../src/core/featurehistory.cpp" line="497"/>
         <source>Undo modifications on %n feature(s).</source>
         <translation><numerusform>%n 地物の修正をもとに戻す。</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="533"/>
+        <location filename="../src/core/featurehistory.cpp" line="539"/>
         <source>Redo creation of %n feature(s) on layer %1</source>
         <translation><numerusform>レイヤー %1 への %n 地物の作成をやり直す。</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="533"/>
+        <location filename="../src/core/featurehistory.cpp" line="539"/>
         <source>Redo creation of %n feature(s)</source>
         <translation><numerusform>%n 地物の作成をやり直す。</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="537"/>
+        <location filename="../src/core/featurehistory.cpp" line="543"/>
         <source>Redo deletion of %n feature(s) on layer %1</source>
         <translation><numerusform>レイヤー %1 への %n 地物の削除をやり直す。</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="537"/>
+        <location filename="../src/core/featurehistory.cpp" line="543"/>
         <source>Redo deletion of %n feature(s)</source>
         <translation><numerusform>%n 地物の削除をやり直す。</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="541"/>
+        <location filename="../src/core/featurehistory.cpp" line="547"/>
         <source>Redo modifications on %n feature(s) on layer %1</source>
         <translation><numerusform>レイヤー %1 への %n 地物の修正をやり直す。</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="541"/>
+        <location filename="../src/core/featurehistory.cpp" line="547"/>
         <source>Redo modifications on %n feature(s)</source>
         <translation><numerusform>%n 地物の修正をやり直す。</numerusform></translation>
     </message>
@@ -2011,28 +2011,28 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>MessageLog</name>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="23"/>
+        <location filename="../src/qml/MessageLog.qml" line="25"/>
         <source>Message Logs</source>
         <translation>メッセージログ</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="107"/>
+        <location filename="../src/qml/MessageLog.qml" line="109"/>
         <source>Message text copied</source>
         <translation>メッセージテキストをコピーしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="131"/>
+        <location filename="../src/qml/MessageLog.qml" line="133"/>
         <source>Clear message log</source>
         <translation>メッセージログをクリア</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="136"/>
+        <location filename="../src/qml/MessageLog.qml" line="138"/>
         <source>Message log cleared</source>
         <translation>メッセージログをクリアしました</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="144"/>
-        <location filename="../src/qml/MessageLog.qml" line="155"/>
+        <location filename="../src/qml/MessageLog.qml" line="146"/>
+        <location filename="../src/qml/MessageLog.qml" line="157"/>
         <source>Send application log</source>
         <translation>アプリのログを送る</translation>
     </message>
@@ -2041,27 +2041,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">アプリのログが送信されています</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="122"/>
+        <location filename="../src/qml/MessageLog.qml" line="124"/>
         <source>Log runtime profiler</source>
         <translation>ログ・ランタイム・プロファイラー</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="186"/>
+        <location filename="../src/qml/MessageLog.qml" line="188"/>
         <source>Type optional details</source>
         <translation>オプションの詳細を入力する</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="194"/>
+        <location filename="../src/qml/MessageLog.qml" line="196"/>
         <source>Include cloud user details</source>
         <translation>クラウドユーザーの詳細を含める</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="177"/>
+        <location filename="../src/qml/MessageLog.qml" line="179"/>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
         <translation>これにより、現在のセッションのログが開発チームに送信されます。これは、要求されたときだけ行う必要があります。</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="208"/>
+        <location filename="../src/qml/MessageLog.qml" line="210"/>
         <source>Your application log is being sent…</source>
         <translation>アプリのログを送信中です...</translation>
     </message>
@@ -4323,128 +4323,128 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="30"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="32"/>
         <source>Project Folder</source>
         <translation>プロジェクトフォルダ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="30"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="32"/>
         <source>Local Projects &amp; Datasets</source>
         <translation>ローカルプロジェクト&amp;データセット</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="141"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="143"/>
         <source>Folders</source>
         <translation>フォルダ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="143"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="145"/>
         <source>Projects</source>
         <translation>プロジェクト</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="145"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="147"/>
         <source>Datasets</source>
         <translation>データセット</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="147"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="149"/>
         <source>Files</source>
         <translation>ファイル</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="149"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="151"/>
         <source>Favorites</source>
         <translation>お気に入り</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="262"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="264"/>
         <source>Project file</source>
         <translation>プロジェクトファイル</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="265"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="267"/>
         <source>Vector dataset</source>
         <translation>ベクターデータセット</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="268"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="270"/>
         <source>Raster dataset</source>
         <translation>ラスターデータセット</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="381"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="383"/>
         <source>Home</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="461"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="463"/>
         <source>Item Actions</source>
         <translation>アイテムのアクション</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="478"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="480"/>
         <source>View file</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="495"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="497"/>
         <source>Send to...</source>
         <translation>送信...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="511"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="513"/>
         <source>Push to QFieldCloud</source>
         <translation>QFieldCloudにプッシュ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="529"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="573"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="531"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="575"/>
         <source>Export to folder...</source>
         <translation>フォルダの出力先...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="546"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="548"/>
         <source>Add to favorites</source>
         <translation>お気に入りに追加</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="546"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="548"/>
         <source>Remove from favorites</source>
         <translation>お気に入りから削除</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="605"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="607"/>
         <source>Upload folder to WebDAV server</source>
         <translation>WebDAVサーバーにフォルダをアップロード</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="623"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="625"/>
         <source>Download folder from WebDAV server</source>
         <translation>WebDAVサーバーからフォルダをダウンロード</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="648"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="650"/>
         <source>Delete file</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="665"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="667"/>
         <source>Remove dataset</source>
         <translation>データセットを削除</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="682"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="684"/>
         <source>Remove folder</source>
         <translation>フォルダを削除</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="693"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="695"/>
         <source>Import Actions</source>
         <translation>インポートのアクション</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="589"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="591"/>
         <source>Send compressed folder to...</source>
         <translation>圧縮フォルダの送信先...</translation>
     </message>
@@ -4453,226 +4453,226 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="vanished">プロジェクトフォルダを削除</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="709"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="711"/>
         <source>Import project from folder</source>
         <translation>プロジェクトをフォルダからインポート</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="725"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="727"/>
         <source>Import project from ZIP</source>
         <translation>プロジェクトをZIPファイルからインポート</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="741"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="743"/>
         <source>Import dataset(s)</source>
         <translation>データセットをインポート</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="762"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1012"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="764"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1014"/>
         <source>Import URL</source>
         <translation>URLをインポートする</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="777"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1228"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="779"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1230"/>
         <source>Import WebDAV folder</source>
         <translation>WebDAVフォルダをインポート</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="796"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="798"/>
         <source>Storage management help</source>
         <translation>ストレージ管理に関するヘルプ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="806"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="808"/>
         <source>Project Actions</source>
         <translation>プロジェクトのアクション</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="822"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="824"/>
         <source>Update project from ZIP</source>
         <translation>ZIPファイルからプロジェクトを更新する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="838"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="840"/>
         <source>Upload project to WebDAV</source>
         <translation>プロジェクトをWebDAVにアップロード</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="856"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="858"/>
         <source>Download project from WebDAV</source>
         <translation>WebDAVからプロジェクトをダウンロード</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="883"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="885"/>
         <source>Upload file(s) to WebDAV</source>
         <translation>WebDAVへファイルをアップロード</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="907"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="909"/>
         <source>Push file(s) to QFieldCloud</source>
         <translation>QFieldCloudにファイルをプッシュ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="921"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="923"/>
         <source>Please select one or more files to push to QFieldCloud.</source>
         <translation>QFieldCloudにプッシュするファイルを一つ以上選択してください。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="937"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="939"/>
         <source>Delete file(s)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="963"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="965"/>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>‘%1’がQFieldCloudにアップロードされてします</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="967"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="969"/>
         <source>Items being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="976"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="978"/>
         <source>Remove File(s)</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="983"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="985"/>
         <source>Are you sure you want to remove %n files?</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="997"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="999"/>
         <source>%n file(s) deleted successfully</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="999"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1001"/>
         <source>Failed to delete %n file(s)</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1034"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1036"/>
         <source>Type a URL below to download and import the project or dataset:</source>
         <translation>プロジェクトまたはデータセットをダウンロードしてインポートするには、次にURLを入力してください:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1062"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1064"/>
         <source>Importing WebDAV folder</source>
         <translation>WebDAVフォルダをインポートしています</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1072"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1074"/>
         <source>Downloading WebDAV folder</source>
         <translation>WebDAVフォルダをダウンロードしています</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1086"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1088"/>
         <source>Uploading WebDAV folder</source>
         <translation>WebDAVフォルダをアップロードしています</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1102"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1104"/>
         <source>WebDAV error: </source>
         <translation>WebDAVエラー: </translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1129"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1131"/>
         <source>WebDAV upload</source>
         <translation>WebDAVアップロード</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1129"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1131"/>
         <source>WebDAV download</source>
         <translation>WebDAVダウンロード</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1158"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1160"/>
         <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
         <translation>ユーザー &lt;b&gt;%2&lt;/b&gt;として修正したコンテンツを&lt;b&gt;%1&lt;/b&gt;へアップロードしようとしています。&lt;br&gt;&lt;br&gt;この操作はリモートで保存されたデータを上書きします。ご注意ください。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1158"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1160"/>
         <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
         <translation>ユーザー &lt;b&gt;%2&lt;/b&gt;として修正したコンテンツを&lt;b&gt;%1&lt;/b&gt;からダウンロードしようとしています。&lt;br&gt;&lt;br&gt;この操作はローカルで保存されたデータを上書きします。ご注意ください。</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1169"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1171"/>
         <source>Password</source>
         <translation>パスワード</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1169"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1171"/>
         <source>Password (leave empty to use remembered)</source>
         <translation>パスワード（記憶したものを使う場合は空欄にしてください）</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1207"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1424"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1209"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1426"/>
         <source>Remember password</source>
         <translation>パスワードを記憶する</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1282"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1284"/>
         <source>Type the WebDAV details below to import a remote folder:</source>
         <translation>下にWebDAVの詳細を入力してリモートフォルダをインポート:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1291"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1293"/>
         <source>WebDAV server URL</source>
         <translation>WebDAVサーバーURL</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1339"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1341"/>
         <source>User and password</source>
         <translation>ユーザーとパスワード</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1385"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1387"/>
         <source>leave empty to use remembered</source>
         <translation>記憶したものを使う場合は空欄にしてください</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1434"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1436"/>
         <source>Fetching remote folders</source>
         <translation>リモートフォルダを取得しています</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1434"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1436"/>
         <source>Fetch remote folders</source>
         <translation>リモートフォルダを取得</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1460"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1462"/>
         <source>Select the remote folder to import:</source>
         <translation>インポートするリモートフォルダを選択:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1606"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1641"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1608"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1643"/>
         <source>root folder</source>
         <translation>ルートフォルダ</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1617"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1619"/>
         <source>Available locally in ‘%1’</source>
         <translation>‘%1’でローカル上で利用可能</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1659"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1661"/>
         <source>Imported folder name</source>
         <translation>インポートしたフォルダ名</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1686"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1688"/>
         <source>Confirm</source>
         <translation>確認</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1707"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1709"/>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
         <translation>保存されたWebDAVのアイテムを削除しようとしています。削除しますか？</translation>
     </message>

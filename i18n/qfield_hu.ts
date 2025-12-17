@@ -710,13 +710,13 @@ Cancel to make a minimal device scan instead.</source>
     <name>DateTime</name>
     <message>
         <location filename="../src/qml/editorwidgets/DateTime.qml" line="47"/>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="79"/>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="168"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="84"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="173"/>
         <source>(no date)</source>
         <translation>(nincs dátum)</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="209"/>
+        <location filename="../src/qml/editorwidgets/DateTime.qml" line="218"/>
         <source>Date value set to today.</source>
         <translation>Dátum beállítás a mai napra.</translation>
     </message>
@@ -1114,87 +1114,87 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>FeatureHistory</name>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="339"/>
+        <location filename="../src/core/featurehistory.cpp" line="345"/>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
         <translation>Nem sikerült új elemet hozzáadni &quot;%1&quot; réteghez.</translation>
     </message>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="352"/>
+        <location filename="../src/core/featurehistory.cpp" line="358"/>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
         <translation>Nem sikerült az elemtörlés visszavonása a &quot;%1&quot; rétegen</translation>
     </message>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="367"/>
+        <location filename="../src/core/featurehistory.cpp" line="372"/>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
         <translation>Nem sikerült az elemek aktualizálása a &quot;%1&quot; rétegen</translation>
     </message>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="374"/>
+        <location filename="../src/core/featurehistory.cpp" line="380"/>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
         <translation>Nem sikerült véglegesíteni az elem módosítás visszavonását a &quot;%1&quot; rétegen</translation>
     </message>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="378"/>
+        <location filename="../src/core/featurehistory.cpp" line="384"/>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
         <translation>Nem sikerült visszaállítani az elem módosításait a &quot;%1&quot; rétegben</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="483"/>
+        <location filename="../src/core/featurehistory.cpp" line="489"/>
         <source>Undo creation of %n feature(s) on layer %1.</source>
         <translation><numerusform>%n elem létrehozásának visszavonása a %1 rétegen.</numerusform><numerusform>%n elem létrehozásának visszavonása a %1 rétegen.</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="483"/>
+        <location filename="../src/core/featurehistory.cpp" line="489"/>
         <source>Undo creation of %n feature(s).</source>
         <translation><numerusform>%n elem létrehozásának visszavonása.</numerusform><numerusform>%n elem létrehozásának visszavonása.</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="487"/>
+        <location filename="../src/core/featurehistory.cpp" line="493"/>
         <source>Undo deletion of %n feature(s) on layer %1.</source>
         <translation><numerusform>%n elem törlésének visszavonása a %1 rétegen.</numerusform><numerusform>%n elem törlésének visszavonása a %1 rétegen.</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="487"/>
+        <location filename="../src/core/featurehistory.cpp" line="493"/>
         <source>Undo deletion of %n feature(s).</source>
         <translation><numerusform>%n elem törlésének visszavonása.</numerusform><numerusform>%n elem törlésének visszavonása.</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="491"/>
+        <location filename="../src/core/featurehistory.cpp" line="497"/>
         <source>Undo modifications on %n feature(s) on layer %1.</source>
         <translation><numerusform>%n elem módosításának visszavonása a %1 rétegen.</numerusform><numerusform>%n elem módosításának visszavonása a %1 rétegen.</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="491"/>
+        <location filename="../src/core/featurehistory.cpp" line="497"/>
         <source>Undo modifications on %n feature(s).</source>
         <translation><numerusform>%n elem módosításának visszavonása.</numerusform><numerusform>%n elem módosításának visszavonása.</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="533"/>
+        <location filename="../src/core/featurehistory.cpp" line="539"/>
         <source>Redo creation of %n feature(s) on layer %1</source>
         <translation><numerusform>%n elem létrehozása újra a %1 rétegen</numerusform><numerusform>%n elem létrehozása újra a %1 rétegen</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="533"/>
+        <location filename="../src/core/featurehistory.cpp" line="539"/>
         <source>Redo creation of %n feature(s)</source>
         <translation><numerusform>%n elem létrehozása újra</numerusform><numerusform>%n elem létrehozása újra</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="537"/>
+        <location filename="../src/core/featurehistory.cpp" line="543"/>
         <source>Redo deletion of %n feature(s) on layer %1</source>
         <translation><numerusform>%n elem törlése újra a %1 rétegen</numerusform><numerusform>%n elem törlése újra a %1 rétegen</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="537"/>
+        <location filename="../src/core/featurehistory.cpp" line="543"/>
         <source>Redo deletion of %n feature(s)</source>
         <translation><numerusform>%n elem törlése újra</numerusform><numerusform>%n elem törlése újra</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="541"/>
+        <location filename="../src/core/featurehistory.cpp" line="547"/>
         <source>Redo modifications on %n feature(s) on layer %1</source>
         <translation><numerusform>%n elem módosítása újra a %1 rétegen</numerusform><numerusform>%n elem módosítása újra a %1 rétegen</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="541"/>
+        <location filename="../src/core/featurehistory.cpp" line="547"/>
         <source>Redo modifications on %n feature(s)</source>
         <translation><numerusform>%n elem módosítása újra</numerusform><numerusform>%n elem módosítása újra</numerusform></translation>
     </message>
@@ -2012,28 +2012,28 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
 <context>
     <name>MessageLog</name>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="23"/>
+        <location filename="../src/qml/MessageLog.qml" line="25"/>
         <source>Message Logs</source>
         <translation>Üzenetnaplók</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="107"/>
+        <location filename="../src/qml/MessageLog.qml" line="109"/>
         <source>Message text copied</source>
         <translation>Üzenet szöveget másoltam</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="131"/>
+        <location filename="../src/qml/MessageLog.qml" line="133"/>
         <source>Clear message log</source>
         <translation>Üzenet napló kiürítése</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="136"/>
+        <location filename="../src/qml/MessageLog.qml" line="138"/>
         <source>Message log cleared</source>
         <translation>Üzenet naplót kiürítettem</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="144"/>
-        <location filename="../src/qml/MessageLog.qml" line="155"/>
+        <location filename="../src/qml/MessageLog.qml" line="146"/>
+        <location filename="../src/qml/MessageLog.qml" line="157"/>
         <source>Send application log</source>
         <translation>Naplófájl küldése.</translation>
     </message>
@@ -2042,27 +2042,27 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation type="vanished">Naplófájl küldése folyamatban van.</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="122"/>
+        <location filename="../src/qml/MessageLog.qml" line="124"/>
         <source>Log runtime profiler</source>
         <translation>Futtás jellemzőinek rögzítése</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="186"/>
+        <location filename="../src/qml/MessageLog.qml" line="188"/>
         <source>Type optional details</source>
         <translation>Írja be az opcionális részleteket</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="194"/>
+        <location filename="../src/qml/MessageLog.qml" line="196"/>
         <source>Include cloud user details</source>
         <translation>Adja meg a felhő felhasználó adatait</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="177"/>
+        <location filename="../src/qml/MessageLog.qml" line="179"/>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
         <translation>Ez elküldi az aktuális munkamenetének naplóját a fejlesztőcsapatnak. Ezt csak akkor szükséges megtennie, ha erre kérik.</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="208"/>
+        <location filename="../src/qml/MessageLog.qml" line="210"/>
         <source>Your application log is being sent…</source>
         <translation>Az alkalmazás napló küldése...</translation>
     </message>
@@ -4319,128 +4319,128 @@ name(string), owner(string), description(string), user_role(string), is_public(b
 <context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="30"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="32"/>
         <source>Project Folder</source>
         <translation>Projekt mappa</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="30"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="32"/>
         <source>Local Projects &amp; Datasets</source>
         <translation>Helyi projektek és adathalmazok</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="141"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="143"/>
         <source>Folders</source>
         <translation>Mappák</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="143"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="145"/>
         <source>Projects</source>
         <translation>Projektek</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="145"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="147"/>
         <source>Datasets</source>
         <translation>Adathalmazok</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="147"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="149"/>
         <source>Files</source>
         <translation>Fájlok</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="149"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="151"/>
         <source>Favorites</source>
         <translation>Kedvencek</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="262"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="264"/>
         <source>Project file</source>
         <translation>Projektfájl</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="265"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="267"/>
         <source>Vector dataset</source>
         <translation>Vektor adathalmaz</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="268"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="270"/>
         <source>Raster dataset</source>
         <translation>Raszter adathalmaz</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="381"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="383"/>
         <source>Home</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="461"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="463"/>
         <source>Item Actions</source>
         <translation>Elem műveletek</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="478"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="480"/>
         <source>View file</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="495"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="497"/>
         <source>Send to...</source>
         <translation>Küldés...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="511"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="513"/>
         <source>Push to QFieldCloud</source>
         <translation>Feltöltés a QFieldCloud-ra</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="529"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="573"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="531"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="575"/>
         <source>Export to folder...</source>
         <translation>Exportálás mappába...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="546"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="548"/>
         <source>Add to favorites</source>
         <translation>Hozzáadás a Kedvencekhez</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="546"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="548"/>
         <source>Remove from favorites</source>
         <translation>Eltávolítás a Kedvencek közül</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="605"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="607"/>
         <source>Upload folder to WebDAV server</source>
         <translation>Mappa feltöltése WebDAV szerverre</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="623"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="625"/>
         <source>Download folder from WebDAV server</source>
         <translation>Mappa letöltése WebDAV szerverről</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="648"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="650"/>
         <source>Delete file</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="665"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="667"/>
         <source>Remove dataset</source>
         <translation>Adathalmaz eltávolítása</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="682"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="684"/>
         <source>Remove folder</source>
         <translation>Mappa eltávolítása</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="693"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="695"/>
         <source>Import Actions</source>
         <translation>Import műveletek</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="589"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="591"/>
         <source>Send compressed folder to...</source>
         <translation>Tömörített mappa küldése...</translation>
     </message>
@@ -4449,226 +4449,226 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation type="vanished">Projekt mappa eltávolítása</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="709"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="711"/>
         <source>Import project from folder</source>
         <translation>Projekt importálása mappából</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="725"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="727"/>
         <source>Import project from ZIP</source>
         <translation>Projekt importálása ZIP-ből</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="741"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="743"/>
         <source>Import dataset(s)</source>
         <translation>Adathalmaz(ok) importálása</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="762"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1012"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="764"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1014"/>
         <source>Import URL</source>
         <translation>URL importálása</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="777"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1228"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="779"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1230"/>
         <source>Import WebDAV folder</source>
         <translation>WebDAV mappa import</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="796"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="798"/>
         <source>Storage management help</source>
         <translation>Tárhelykezelési súgó</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="806"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="808"/>
         <source>Project Actions</source>
         <translation>Projekt műveletek</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="822"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="824"/>
         <source>Update project from ZIP</source>
         <translation>Projekt aktualizálása ZIP-ből</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="838"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="840"/>
         <source>Upload project to WebDAV</source>
         <translation>Projekt feltöltése WebDAV-ra</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="856"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="858"/>
         <source>Download project from WebDAV</source>
         <translation>Projekt letöltése WebDAV-ról</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="883"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="885"/>
         <source>Upload file(s) to WebDAV</source>
         <translation>Fájl(ok) feltöltése WebDAV-ra</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="907"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="909"/>
         <source>Push file(s) to QFieldCloud</source>
         <translation>Fájl(ok) elküldése a QFieldCloudba</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="921"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="923"/>
         <source>Please select one or more files to push to QFieldCloud.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="937"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="939"/>
         <source>Delete file(s)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="963"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="965"/>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>‘%1’ a QFieldCloud-ra való feltöltés alatt</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="967"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="969"/>
         <source>Items being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="976"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="978"/>
         <source>Remove File(s)</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="983"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="985"/>
         <source>Are you sure you want to remove %n files?</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="997"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="999"/>
         <source>%n file(s) deleted successfully</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="999"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1001"/>
         <source>Failed to delete %n file(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1034"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1036"/>
         <source>Type a URL below to download and import the project or dataset:</source>
         <translation>Írd az URL címet alább a projekt, vagy adathalmaz importálásához</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1062"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1064"/>
         <source>Importing WebDAV folder</source>
         <translation>WebDAV mappa importálása</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1072"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1074"/>
         <source>Downloading WebDAV folder</source>
         <translation>WebDAV mappa letöltése</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1086"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1088"/>
         <source>Uploading WebDAV folder</source>
         <translation>WebDAV mappa feltöltése</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1102"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1104"/>
         <source>WebDAV error: </source>
         <translation>WebDAV hiba:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1129"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1131"/>
         <source>WebDAV upload</source>
         <translation>WebDAV feltöltés</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1129"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1131"/>
         <source>WebDAV download</source>
         <translation>WebDAV letöltés</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1158"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1160"/>
         <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
         <translation>Módosított tartalmat fog feltölteni &lt;b&gt;%1&lt;/b&gt;-be mint &lt;b&gt;%2&lt;/b&gt; felhasználó. &lt;br&gt;&lt;br&gt;Ez a művelet felülírja a távol tárolt tartalmat, győződjön meg róla, hogy ezt akarja csinálni.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1158"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1160"/>
         <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1169"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1171"/>
         <source>Password</source>
         <translation>Jelszó</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1169"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1171"/>
         <source>Password (leave empty to use remembered)</source>
         <translation>Jelszó (hagyja üresen a megjegyzett használatához)</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1207"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1424"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1209"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1426"/>
         <source>Remember password</source>
         <translation>Jelszó megjegyzése</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1282"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1284"/>
         <source>Type the WebDAV details below to import a remote folder:</source>
         <translation>Írja be a WebDAV adatokat a távoli mappa importhoz:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1291"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1293"/>
         <source>WebDAV server URL</source>
         <translation>WebDAV szerver URL</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1339"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1341"/>
         <source>User and password</source>
         <translation>Felhasználó és jelszó</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1385"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1387"/>
         <source>leave empty to use remembered</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1434"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1436"/>
         <source>Fetching remote folders</source>
         <translation>Távoli mappák lekérése</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1434"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1436"/>
         <source>Fetch remote folders</source>
         <translation>Távoli mappák lekérése</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1460"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1462"/>
         <source>Select the remote folder to import:</source>
         <translation>Válassza ki az importálandó távoli mappát:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1606"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1641"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1608"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1643"/>
         <source>root folder</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1617"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1619"/>
         <source>Available locally in ‘%1’</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1659"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1661"/>
         <source>Imported folder name</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1686"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1688"/>
         <source>Confirm</source>
         <translation>Megerősít</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1707"/>
+        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1709"/>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
         <translation>Egy mentett WebDAV-elemet készül eltávolítani, folytatja?</translation>
     </message>
