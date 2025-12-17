@@ -347,14 +347,14 @@ void QgsQuickMapCanvasMap::updateTransform( bool skipSmooth )
 
   if ( mSmooth && !skipSmooth )
   {
-    setProperty( "scale", mImageMapSettings.mapUnitsPerPixel() / mMapSettings->mapSettings().mapUnitsPerPixel() );
+    setProperty( "scale", ( mImageMapSettings.mapUnitsPerPixel() * mQuality ) / mMapSettings->mapSettings().mapUnitsPerPixel() );
     setProperty( "rotation", mMapSettings->mapSettings().rotation() - mImageMapSettings.rotation() );
     setProperty( "x", pixelPt.x() - static_cast<qreal>( mMapSettings->outputSize().width() ) / mMapSettings->devicePixelRatio() / 2 );
     setProperty( "y", pixelPt.y() - static_cast<qreal>( mMapSettings->outputSize().height() ) / mMapSettings->devicePixelRatio() / 2 );
   }
   else
   {
-    setScale( mImageMapSettings.mapUnitsPerPixel() / mMapSettings->mapSettings().mapUnitsPerPixel() );
+    setScale( ( mImageMapSettings.mapUnitsPerPixel() * mQuality ) / mMapSettings->mapSettings().mapUnitsPerPixel() );
     setRotation( mMapSettings->mapSettings().rotation() - mImageMapSettings.rotation() );
     setX( pixelPt.x() - static_cast<qreal>( mMapSettings->outputSize().width() ) / mMapSettings->devicePixelRatio() / 2 );
     setY( pixelPt.y() - static_cast<qreal>( mMapSettings->outputSize().height() ) / mMapSettings->devicePixelRatio() / 2 );
