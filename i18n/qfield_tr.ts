@@ -2,37 +2,30 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../src/qml/About.qml" line="126"/>
         <source>Developed by</source>
         <translation>Geliştiren</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="170"/>
         <source>Support QField</source>
         <translation>QField Destek</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="197"/>
         <source>Changelog</source>
         <translation>Değişiklik Günlüğü</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="180"/>
         <source>Documentation</source>
         <translation>Belgeler</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="194"/>
         <source>Links Menu</source>
         <translation>Bağlantılar Menüsü</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="150"/>
         <source>QField app directories</source>
         <translation>QField uygulama dizinleri</translation>
     </message>
     <message>
-        <location filename="../src/qml/About.qml" line="150"/>
         <source>QField app directory</source>
         <translation>QField uygulama dizini</translation>
     </message>
@@ -40,22 +33,18 @@
 <context>
     <name>AbstractGnssReceiver</name>
     <message>
-        <location filename="../src/core/positioning/abstractgnssreceiver.cpp" line="30"/>
         <source>Connecting…</source>
         <translation>Bağlanıyor...</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/abstractgnssreceiver.cpp" line="33"/>
         <source>Successfully connected</source>
         <translation>Bağlantı başarılı</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/abstractgnssreceiver.cpp" line="35"/>
         <source>Disconnected</source>
         <translation>Bağlantı kesildi</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/abstractgnssreceiver.cpp" line="37"/>
         <source>Socket state %1</source>
         <translation>Soket durumu %1</translation>
     </message>
@@ -63,35 +52,26 @@
 <context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
-        <location filename="../src/core/locator/activelayerfeatureslocatorfilter.cpp" line="195"/>
         <source>Limit the search to the field &apos;%1&apos;</source>
         <translation>Aramayı &apos;%1&apos; alanıyla sınırlayın</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/activelayerfeatureslocatorfilter.cpp" line="220"/>
-        <location filename="../src/core/locator/activelayerfeatureslocatorfilter.cpp" line="275"/>
         <source>Open form</source>
         <translation>Form aç</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/activelayerfeatureslocatorfilter.cpp" line="223"/>
-        <location filename="../src/core/locator/activelayerfeatureslocatorfilter.cpp" line="278"/>
         <source>Set feature as destination</source>
         <translation>Nesneyi hedef olarak ayarla</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/activelayerfeatureslocatorfilter.cpp" line="340"/>
-        <location filename="../src/core/locator/activelayerfeatureslocatorfilter.cpp" line="350"/>
         <source>Feature has no geometry</source>
         <translation>Nesneye ait geometri yoktur</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/activelayerfeatureslocatorfilter.h" line="58"/>
         <source>Features from active layer</source>
         <translation>Etkin katmandaki nesneler</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/activelayerfeatureslocatorfilter.h" line="59"/>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
         <translation>Etkin katmandaki eşleşen özniteliklere sahip nesnelerin bir listesini döndürür. Eşleşmeyi tek bir öznitelikle sınırlamak için, adının önüne &apos;@&apos; eklenerek tanımlanması gerekir.</translation>
     </message>
@@ -99,7 +79,6 @@
 <context>
     <name>AndroidProjectSource</name>
     <message>
-        <location filename="../src/core/platforms/android/androidprojectsource.cpp" line="39"/>
         <source>File %1 does not exist</source>
         <translation>%1 adlı dosya yoktur.</translation>
     </message>
@@ -107,70 +86,50 @@
 <context>
     <name>AppMissingGridHandler</name>
     <message>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="76"/>
         <source>No transform available between %1 and %2</source>
         <translation>%1 ile %2 arasında dönüşüm mevcut değil</translation>
     </message>
     <message>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="82"/>
         <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
         <translation>Bu karelaj, &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt; adresinden indirilebilen “&lt;i&gt;%1&lt;/i&gt;” paketinin bir parçasıdır.</translation>
     </message>
     <message>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="86"/>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="112"/>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="166"/>
         <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
         <translation>Bu karelaj &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt; adresinden indirilebilir.</translation>
     </message>
     <message>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="89"/>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="132"/>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="142"/>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="173"/>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="183"/>
         <source>projection</source>
         <translation>projeksiyon</translation>
     </message>
     <message>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="103"/>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="157"/>
         <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
         <translation>Bu dönüşüm, sistemde kullanılamayan &quot;%1&quot; grid dosyasını gerektirir.</translation>
     </message>
     <message>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="108"/>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="162"/>
         <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
         <translation>Bu grid &lt;i&gt;%1&lt;/i&gt; paketinin bir parçasıdır, &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;dan indirilebilir.</translation>
     </message>
     <message>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="125"/>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Geçerli dönüşüm “&lt;i&gt;%1&lt;/i&gt;” %2 metre doğruluğa sahipken, tercih edilen dönüşüm “&lt;i&gt;%3&lt;/i&gt;” %4 metre doğruluğa sahiptir.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="127"/>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Geçerli dönüşüm “&lt;i&gt;%1&lt;/i&gt;” bilinmeyen bir doğruluğa sahipken, tercih edilen dönüşüm “&lt;i&gt;%2&lt;/i&gt;” %3 metre doğruluğa sahiptir.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="129"/>
         <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
         <translation>&lt;p&gt; &lt;i&gt;%1&lt;/i&gt; ve &lt;i&gt;%2&lt;/i&gt; arasındaki tercih edilen dönüşüm sistemde kullanılamaz.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="140"/>
         <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
         <translation> &lt;i&gt;%1&lt;/i&gt; ve&lt;i&gt;%2&lt;/i&gt; arasında dönüşüm sağlanamaz.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="150"/>
         <source>Cannot use project transform between %1 and %2</source>
         <translation>%1 ile %2 arasında proje dönüşümü kullanılamaz</translation>
     </message>
     <message>
-        <location filename="../src/core/appcoordinateoperationhandlers.cpp" line="182"/>
         <source>Used a ballpark transform from %1 to %2</source>
         <translation>%1&apos;den %2&apos;ye bir ballpark dönüşümü kullanıldı</translation>
     </message>
@@ -178,17 +137,14 @@
 <context>
     <name>AttributeFormModelBase</name>
     <message>
-        <location filename="../src/core/attributeformmodelbase.cpp" line="579"/>
         <source>Expression constraint</source>
         <translation>Koşul kısıtlaması</translation>
     </message>
     <message>
-        <location filename="../src/core/attributeformmodelbase.cpp" line="583"/>
         <source>Not NULL</source>
         <translation>BOŞ değil</translation>
     </message>
     <message>
-        <location filename="../src/core/attributeformmodelbase.cpp" line="587"/>
         <source>Unique</source>
         <translation>Benzersiz</translation>
     </message>
@@ -196,12 +152,10 @@
 <context>
     <name>BadLayerItem</name>
     <message>
-        <location filename="../src/qml/BadLayerItem.qml" line="21"/>
         <source>Unable to load some layers</source>
         <translation>Bazı katmanlar yüklenememiştir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/BadLayerItem.qml" line="43"/>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
         <translation>Aşağıdaki katmanlar yüklenememiştir. Lütfen QGIS projenizi yeniden yapılandırın.</translation>
     </message>
@@ -210,7 +164,6 @@
         <translation type="vanished">QField&apos;daki &apos;Portable Project&apos; bölümünü inceleyerek daha fazla bilgiye erişebilirsiniz.</translation>
     </message>
     <message>
-        <location filename="../src/qml/BadLayerItem.qml" line="111"/>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
         <translation>Daha fazla yardım için %1Portable Project%2 dokümantasyon sayfasını kontrol edebilirsiniz.</translation>
     </message>
@@ -229,7 +182,6 @@
 <context>
     <name>Binary</name>
     <message>
-        <location filename="../src/qml/editorwidgets/Binary.qml" line="22"/>
         <source>(Blob)</source>
         <translation>(Blob)</translation>
     </message>
@@ -241,27 +193,22 @@
         <translation type="vanished">Konumlandırma cihazı kullanımda:</translation>
     </message>
     <message>
-        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="109"/>
         <source>Scanning for paired devices</source>
         <translation>Eşleştirilmiş cihazlar taranıyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="115"/>
         <source>Scanning failed: %1</source>
         <translation>Tarama başarısız: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="118"/>
         <source>Scanning done</source>
         <translation>Tarama tamamlandı</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="120"/>
         <source>%n device(s) found</source>
         <translation><numerusform>%n cihaz(lar) bulundu</numerusform><numerusform>%n cihaz(lar) bulundu</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="125"/>
         <source>Scanning canceled</source>
         <translation>Tarama iptal edildi</translation>
     </message>
@@ -300,12 +247,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Cihazdan ortometrik yüksekliği kullan</translation>
     </message>
     <message>
-        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="78"/>
         <source>Select the Bluetooth device from the list below:</source>
         <translation>Aşağıdaki listeden Bluetooth cihazını seçin:</translation>
     </message>
     <message>
-        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="147"/>
         <source>Bluetooth device name:</source>
         <translation>Bluetooth cihaz adı:</translation>
     </message>
@@ -314,12 +259,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Geçerli değil</translation>
     </message>
     <message>
-        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="157"/>
         <source>Bluetooth device address:</source>
         <translation> Bluetooth cihaz adresi:</translation>
     </message>
     <message>
-        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="58"/>
         <source>Scan for nearby devices</source>
         <translation>Yakındaki cihazları tara</translation>
     </message>
@@ -328,17 +271,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Bluetooth cihazı algılanmadı, yakındaki cihazları taramak için yeniden tarayın.</translation>
     </message>
     <message>
-        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="102"/>
         <source>Scanning error: %1</source>
         <translation>Tarama hatası: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="78"/>
         <source>No Bluetooth devices detected.</source>
         <translation>Bluetooth cihazı tespit edilemedi</translation>
     </message>
     <message>
-        <location filename="../src/qml/BluetoothDeviceChooser.qml" line="112"/>
         <source>Deeper scanning for paired devices</source>
         <translation>Daha derin tarama için eşleştirilmiş cihazlar</translation>
     </message>
@@ -350,22 +290,18 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Dahili cihaz</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="90"/>
         <source>Bluetooth permission denied</source>
         <translation>Bluetooth izni reddedildi</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="98"/>
         <source>Bluetooth permission is required to scan for bluetooth devices</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="121"/>
         <source>Location permission denied</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/positioning/bluetoothdevicemodel.cpp" line="129"/>
         <source>Location permission is required to scan for bluetooth devices</source>
         <translation type="unfinished"/>
     </message>
@@ -420,12 +356,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>BookmarkLocatorFilter</name>
     <message>
-        <location filename="../src/core/locator/bookmarklocatorfilter.h" line="45"/>
         <source>Spatial bookmarks</source>
         <translation>Mekansal Yerimleri</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/bookmarklocatorfilter.h" line="46"/>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
         <translation>Uygulayıcı ve şu anda açık proje yer imleri ile eşleşen isimlerin bir listesini döndürür.</translation>
     </message>
@@ -433,7 +367,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>BookmarkProperties</name>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="49"/>
         <source>Bookmark Properties</source>
         <translation>Yer İşareti Özellikleri</translation>
     </message>
@@ -466,27 +399,22 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="220"/>
         <source>Bookmark details copied to clipboard</source>
         <translation>Panoya kopyalanan yer işareti ayrıntıları</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="231"/>
         <source>Remove bookmark</source>
         <translation>Yer işaretini kaldır</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="235"/>
         <source>You are about to remove a bookmark, proceed?</source>
         <translation>Bir yer işaretini kaldırmak üzeresiniz, devam edilsin mi?</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="78"/>
         <source>Description</source>
         <translation>Açıklama</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkProperties.qml" line="137"/>
         <source>Change color</source>
         <translation>Renk değiştir</translation>
     </message>
@@ -494,12 +422,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>BookmarkRenderer</name>
     <message>
-        <location filename="../src/qml/BookmarkRenderer.qml" line="134"/>
         <source>Bookmark: %1</source>
         <translation>Yer imi: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/BookmarkRenderer.qml" line="143"/>
         <source>Project bookmarks cannot be edited</source>
         <translation>Proje yer imleri düzenlenemez</translation>
     </message>
@@ -507,7 +433,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>BrowserPanel</name>
     <message>
-        <location filename="../src/qml/BrowserPanel.qml" line="38"/>
         <source>Browser</source>
         <translation>Tarayıcı</translation>
     </message>
@@ -534,27 +459,22 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>Changelog</name>
     <message>
-        <location filename="../src/qml/Changelog.qml" line="27"/>
         <source>What&apos;s new in QField</source>
         <translation>QField&apos;daki yenilikler</translation>
     </message>
     <message>
-        <location filename="../src/qml/Changelog.qml" line="85"/>
         <source>Error while fetching changelog, try again later.</source>
         <translation>Değişiklik günlüğü alınırken hata oluştu, lütfen daha sonra tekrar deneyin.</translation>
     </message>
     <message>
-        <location filename="../src/qml/Changelog.qml" line="108"/>
         <source>Support QField</source>
         <translation>QField Destek</translation>
     </message>
     <message>
-        <location filename="../src/qml/Changelog.qml" line="136"/>
         <source>Check the latest QField changes on </source>
         <translation>En son QField değişikliklerini şuradan kontrol edin</translation>
     </message>
     <message>
-        <location filename="../src/qml/Changelog.qml" line="136"/>
         <source>QField releases page</source>
         <translation>QField sürümleri sayfası</translation>
     </message>
@@ -562,7 +482,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>ChangelogContents</name>
     <message>
-        <location filename="../src/core/changelogcontents.cpp" line="106"/>
         <source>Previous releases on GitHub</source>
         <translation>GitHub&apos;daki önceki sürümler</translation>
     </message>
@@ -570,22 +489,18 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>CheckBox</name>
     <message>
-        <location filename="../src/qml/editorwidgets/CheckBox.qml" line="13"/>
         <source>True</source>
         <translation>Doğru</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/CheckBox.qml" line="14"/>
         <source>False</source>
         <translation>Yanlış</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/CheckBox.qml" line="34"/>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/CheckBox.qml" line="34"/>
         <source>Empty</source>
         <translation type="unfinished"/>
     </message>
@@ -593,58 +508,46 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>ClipboardManager</name>
     <message>
-        <location filename="../src/core/clipboardmanager.cpp" line="98"/>
-        <location filename="../src/core/clipboardmanager.cpp" line="99"/>
         <source>Geometry</source>
         <translation>Geometri</translation>
     </message>
     <message>
-        <location filename="../src/core/clipboardmanager.cpp" line="193"/>
         <source>Paste failed: no destination layer provided</source>
         <translation>Yapıştırma başarısız oldu: hedef katman sağlanmadı</translation>
     </message>
     <message>
-        <location filename="../src/core/clipboardmanager.cpp" line="199"/>
         <source>Cut operation: source and destination layers are the same, skipping paste.</source>
         <translation>Kesme işlemi: kaynak ve hedef katmanlar aynı, yapıştırma atlanıyor.</translation>
     </message>
     <message>
-        <location filename="../src/core/clipboardmanager.cpp" line="206"/>
         <source>Paste failed: clipboard feature is invalid</source>
         <translation>Yapıştırma başarısız oldu: panodaki özellik geçersiz</translation>
     </message>
     <message>
-        <location filename="../src/core/clipboardmanager.cpp" line="216"/>
         <source>Cut failed: could not start editing on source layer %1</source>
         <translation>Kesme işlemi başarısız oldu: kaynak katman %1 üzerinde düzenleme başlatılamadı</translation>
     </message>
     <message>
-        <location filename="../src/core/clipboardmanager.cpp" line="221"/>
         <source>Cut failed: could not delete original feature from source layer %1</source>
         <translation>Kesme işlemi başarısız oldu: kaynak katman %1 üzerindeki orijinal özellik silinemedi</translation>
     </message>
     <message>
-        <location filename="../src/core/clipboardmanager.cpp" line="231"/>
         <source>Paste failed: no compatible features could be created</source>
         <translation>Yapıştırma başarısız oldu: uyumlu özellikler oluşturulamadı</translation>
     </message>
     <message>
-        <location filename="../src/core/clipboardmanager.cpp" line="241"/>
         <source>Paste failed: could not start editing on layer %1</source>
         <translation>Yapıştırma başarısız oldu: katman %1 üzerinde düzenleme başlatılamadı</translation>
     </message>
     <message>
-        <location filename="../src/core/clipboardmanager.cpp" line="254"/>
         <source>Paste failed: could not add feature to layer %1</source>
         <translation>Yapıştırma başarısız oldu: katman %1 üzerine özellik eklenemedi</translation>
     </message>
     <message>
-        <location filename="../src/core/clipboardmanager.cpp" line="266"/>
         <source>Paste failed: commitChanges failed on layer %1</source>
         <translation>Yapıştırma başarısız oldu: katman %1 üzerinde commitChanges başarısız oldu</translation>
     </message>
     <message>
-        <location filename="../src/core/clipboardmanager.cpp" line="277"/>
         <source>Cut commit failed on source layer %1</source>
         <translation>Kesme işlemi başarısız oldu: kaynak katman %1 üzerinde commitChanges başarısız oldu</translation>
     </message>
@@ -659,17 +562,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>CodeReader</name>
     <message>
-        <location filename="../src/qml/CodeReader.qml" line="96"/>
         <source>NFC text tag detected</source>
         <translation>NFC metin etiketi algılandı</translation>
     </message>
     <message>
-        <location filename="../src/qml/CodeReader.qml" line="130"/>
         <source>Code Reader</source>
         <translation>Kod Okuyucu</translation>
     </message>
     <message>
-        <location filename="../src/qml/CodeReader.qml" line="518"/>
         <source>Center your device on a code</source>
         <translation>Cihazınızı kodun üzerine ortalayın</translation>
     </message>
@@ -677,12 +577,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>DashBoard</name>
     <message>
-        <location filename="../src/qml/DashBoard.qml" line="57"/>
         <source>The layer %1 is read only.</source>
         <translation>%1 adlı katman sadece okunabilir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/DashBoard.qml" line="272"/>
         <source>Map Theme</source>
         <translation>Harita teması</translation>
     </message>
@@ -691,17 +589,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/DashBoard.qml" line="496"/>
         <source>The project is read-only.</source>
         <translation>Proje sadece okunabilir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/DashBoard.qml" line="371"/>
         <source>Legend</source>
         <translation>Açıklama</translation>
     </message>
     <message>
-        <location filename="../src/qml/DashBoard.qml" line="425"/>
         <source>Return home</source>
         <translation type="unfinished"/>
     </message>
@@ -709,14 +604,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>DateTime</name>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="47"/>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="84"/>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="173"/>
         <source>(no date)</source>
         <translation>(tarih yok)</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/DateTime.qml" line="218"/>
         <source>Date value set to today.</source>
         <translation>Tarih&apos;i bugün olarak belirleyin</translation>
     </message>
@@ -740,22 +631,18 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>DeltaListModel</name>
     <message>
-        <location filename="../src/core/qfieldcloud/deltalistmodel.cpp" line="28"/>
         <source>Expected the json document to be an array of delta status</source>
         <translation>JSON belgesinin bir delta durumu dizisi olması bekleniyor</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/deltalistmodel.cpp" line="38"/>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
         <translation>Tüm dizi elemanlarının bir nesne olması bekleniyordu, ancak #%1 numaralı eleman bir nesne değil</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/deltalistmodel.cpp" line="50"/>
         <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
         <translation>Tüm dizi elemanlarının &quot;%1&quot; anahtarını içeren bir nesne olması bekleniyordu, ancak #%2 numaralı eleman bunu içermiyor</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/deltalistmodel.cpp" line="77"/>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
         <translation>$%2 için tanınmayan durum &quot;%1&quot;</translation>
     </message>
@@ -763,27 +650,22 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>DigitizingLogger</name>
     <message>
-        <location filename="../src/core/digitizinglogger.cpp" line="193"/>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
         <translation>Sayısallaştırma kaydedicisinin %2 alanı için varsayılan değer ifadesinde bir ayrıştırma hatası var: %3</translation>
     </message>
     <message>
-        <location filename="../src/core/digitizinglogger.cpp" line="197"/>
         <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
         <translation>Sayısallaştırma kaydedicisinin %2 alanı için varsayılan değer ifadesinde bir değerlendirme hatası var: %3</translation>
     </message>
     <message>
-        <location filename="../src/core/digitizinglogger.cpp" line="228"/>
         <source>Digitizing logs layer feature addition failed</source>
         <translation>Sayısallaştırma kayıtları katmanına özellik ekleme başarısız oldu</translation>
     </message>
     <message>
-        <location filename="../src/core/digitizinglogger.cpp" line="234"/>
         <source>Digitizing logs layer change commits failed</source>
         <translation>Sayısallaştırma kayıtları katmanındaki değişiklikleri işleme başarısız oldu</translation>
     </message>
     <message>
-        <location filename="../src/core/digitizinglogger.cpp" line="243"/>
         <source>Digitizing logs layer editing failed</source>
         <translation>Sayısallaştırma kayıtları katmanını düzenleme başarısız oldu</translation>
     </message>
@@ -791,22 +673,18 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>DigitizingToolbar</name>
     <message>
-        <location filename="../src/qml/DigitizingToolbar.qml" line="274"/>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
         <translation>Konum doğruluğu minimum gereksinimi karşılamıyor, köşe noktası eklenmedi</translation>
     </message>
     <message>
-        <location filename="../src/qml/DigitizingToolbar.qml" line="254"/>
         <source>Cancel digitizing</source>
         <translation>Sayısallaştırmayı iptal et</translation>
     </message>
     <message>
-        <location filename="../src/qml/DigitizingToolbar.qml" line="205"/>
         <source>The collected positions count does not meet the requirement</source>
         <translation>Toplanan konum sayısı gereksinimi karşılamıyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/DigitizingToolbar.qml" line="258"/>
         <source>Should the digitized geometry be discarded?</source>
         <translation>Sayısallaştırma geometrinin silinmesi gerekiyor mu?</translation>
     </message>
@@ -814,7 +692,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>DrawingTemplateModel</name>
     <message>
-        <location filename="../src/core/drawingtemplatemodel.cpp" line="92"/>
         <source>Blank</source>
         <translation>Boş</translation>
     </message>
@@ -822,7 +699,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>EditorWidgetBase</name>
     <message>
-        <location filename="../src/qml/editorwidgets/EditorWidgetBase.qml" line="19"/>
         <source>Item Menu</source>
         <translation>Öğe Menüsü</translation>
     </message>
@@ -838,52 +714,42 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/positioning/egenioussreceiver.cpp" line="124"/>
         <source>Received data is too short to process</source>
         <translation>Alınan veri işlenemeyecek kadar az</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/egenioussreceiver.cpp" line="129"/>
         <source>Invalid start byte</source>
         <translation>Geçersiz başlangıç baytı</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/egenioussreceiver.cpp" line="138"/>
         <source>Received data is too short to contain the payload</source>
         <translation>Alınan veri yükü içerecek kadar uzun değil</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/egenioussreceiver.cpp" line="144"/>
         <source>Failed to parse JSON</source>
         <translation>JSON ayrıştırılamadı.</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/egenioussreceiver.cpp" line="176"/>
         <source>Could not find the remote host</source>
         <translation>Uzak ana bilgisayar bulunamadı</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/egenioussreceiver.cpp" line="179"/>
         <source>Attempt to read or write from socket returned an error</source>
         <translation>Soketten okuma veya yazma denemesi bir hata döndürdü</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/egenioussreceiver.cpp" line="182"/>
         <source>The connection was refused by the remote host</source>
         <translation>Bağlantı uzak sistem tarafından reddedildi</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/egenioussreceiver.cpp" line="185"/>
         <source>TCP receiver error (%1)</source>
         <translation>TCP alıcı hatası (%1)</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/egenioussreceiver.cpp" line="63"/>
         <source>Failed to start egeniouss server.</source>
         <translation>Egeniouss sunucusu başlatılamadı.</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/egenioussreceiver.cpp" line="88"/>
         <source>Failed to stop egeniouss server.</source>
         <translation>Egeniouss sunucusu durdurulamadı.</translation>
     </message>
@@ -891,12 +757,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>ElevationProfile</name>
     <message>
-        <location filename="../src/qml/ElevationProfile.qml" line="115"/>
         <source>Digitize a path to render the elevation profile</source>
         <translation>Boy profilini oluşturmak için bir yol sayısallaştırın</translation>
     </message>
     <message>
-        <location filename="../src/qml/ElevationProfile.qml" line="115"/>
         <source>Rendering elevation profile…</source>
         <translation>Boy profili oluşturuluyor...</translation>
     </message>
@@ -904,12 +768,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>Erase</name>
     <message>
-        <location filename="../src/qml/geometryeditors/Erase.qml" line="71"/>
         <source>The geometry could not be modified into multiple parts</source>
         <translation>Geometri birden fazla parçaya dönüştürülemedi</translation>
     </message>
     <message>
-        <location filename="../src/qml/geometryeditors/Erase.qml" line="73"/>
         <source>The geometry could not be modified</source>
         <translation>Geometri değiştirilemedi</translation>
     </message>
@@ -917,17 +779,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
-        <location filename="../src/core/locator/expressioncalculatorlocatorfilter.cpp" line="58"/>
         <source>Copy “%1” to clipboard</source>
         <translation>&quot;%1” panoya kopyala</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/expressioncalculatorlocatorfilter.h" line="46"/>
         <source>Calculator</source>
         <translation>Hesap Makinesi</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/expressioncalculatorlocatorfilter.h" line="47"/>
         <source>Returns the value of an expression typed in the search bar.</source>
         <translation>Arama çubuğuna yazılan bir ifadenin değerini döndürür.</translation>
     </message>
@@ -935,7 +794,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>ExpressionVariableModel</name>
     <message>
-        <location filename="../src/core/expressionvariablemodel.cpp" line="196"/>
         <source>Not Available</source>
         <translation>Mevcut Değil</translation>
     </message>
@@ -943,67 +801,54 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>ExternalResource</name>
     <message>
-        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="229"/>
         <source>No Value</source>
         <translation>Değer yok</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="701"/>
         <source>Cannot handle this file type</source>
         <translation>Bu dosya türü işlenemez</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="803"/>
         <source>Take a photo</source>
         <translation>Fotoğraf çek</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="815"/>
         <source>Take a video</source>
         <translation>Video çek</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="827"/>
         <source>Record an audio clip</source>
         <translation>Ses kaydı yap</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="844"/>
         <source>Attach a gallery item</source>
         <translation>Galeri öğesi ekle</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="856"/>
         <source>Attach a file</source>
         <translation>Dosya ekle</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="873"/>
         <source>Draw a sketch</source>
         <translation>Çizim yap</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="87"/>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
         <translation>Harici depolamanın kimlik doğrulama yapılandırma kimliği eksik, lütfen QField&apos;a aktarıldığından emin olun</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="87"/>
         <source>Learn more</source>
         <translation>Daha fazla bilgi edinin</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="719"/>
         <source>QFieldCloud on-demand attachment error: </source>
         <translation>QFieldCloud talep üzerine ekleme hatası: </translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="225"/>
         <source>Empty</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/ExternalResource.qml" line="227"/>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
@@ -1011,17 +856,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>FeatureForm</name>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="752"/>
         <source>Value applied</source>
         <translation>Değer uygulandı</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="752"/>
         <source>Value skipped</source>
         <translation>Değer geçildi</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="752"/>
         <source> (click to toggle)</source>
         <translation>(geçiş yapmak için tıklayın)</translation>
     </message>
@@ -1034,79 +876,62 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Not: Hafif kısıtlar sağlanmadı</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="825"/>
         <source>Unable to save changes</source>
         <translation>Değişiklikler kaydedilemiyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="931"/>
         <source>Add feature on %1</source>
         <translation>Kayıt ekle %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="933"/>
         <source>Edit feature on %1</source>
         <translation>Kayıt güncelle %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="935"/>
         <source>View feature on %1</source>
         <translation>Kayıt gör %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="1053"/>
         <source>Cancel editing</source>
         <translation>Düzenlemeyi iptal et</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="1057"/>
         <source>You are about to dismiss the new feature, proceed?</source>
         <translation>Yeni özelliği iptal etmek üzeresiniz, devam edilsin mi?</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="1057"/>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation> Düzenleme modundan çıkmak üzeresiniz, yapılan değişiklikler kaybolacak. Devam edilsin mi?</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="742"/>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
         <translation>Bu alan için en son girilen değer hatırlanacak ve yeni özellikler oluşturulurken tekrar kullanılacak</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="744"/>
         <source>The last entered value for this field will not be reused when creating new features</source>
         <translation>Bu alan için en son girilen değer, yeni özellikler oluşturulurken tekrar kullanılmayacak.</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="818"/>
         <source>Feature addition disabled</source>
         <translation>Özellik ekleme devre dışı</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="1023"/>
         <source>Feature Form Menu</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="1029"/>
         <source>Remember All Reusable Values</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="1039"/>
         <source>Forget All Reusable Values</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="787"/>
-        <location filename="../src/qml/FeatureForm.qml" line="903"/>
         <source>Soft constraints were not satisified</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/FeatureForm.qml" line="783"/>
-        <location filename="../src/qml/FeatureForm.qml" line="907"/>
         <source>Hard constraints not satisfied</source>
         <translation type="unfinished"/>
     </message>
@@ -1114,87 +939,70 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>FeatureHistory</name>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="345"/>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
         <translation>&quot;%1&quot; katmanında oluşturulan özellikleri geri alma başarısız oldu.</translation>
     </message>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="358"/>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
         <translation>&quot;%1&quot; katmanında silinen özellikleri geri alma başarısız oldu</translation>
     </message>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="372"/>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
         <translation> &quot;%1&quot; katmanında güncellenen özellikleri geri alma başarısız oldu</translation>
     </message>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="380"/>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
         <translation>&quot;%1&quot; katmanında özellik değişikliğini geri alma işlemi başarısız oldu</translation>
     </message>
     <message>
-        <location filename="../src/core/featurehistory.cpp" line="384"/>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
         <translation>&quot;%1&quot; katmanında özellik değişikliklerini geri alma işlemini geri döndürme başarısız oldu</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="489"/>
         <source>Undo creation of %n feature(s) on layer %1.</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="489"/>
         <source>Undo creation of %n feature(s).</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="493"/>
         <source>Undo deletion of %n feature(s) on layer %1.</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="493"/>
         <source>Undo deletion of %n feature(s).</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="497"/>
         <source>Undo modifications on %n feature(s) on layer %1.</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="497"/>
         <source>Undo modifications on %n feature(s).</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="539"/>
         <source>Redo creation of %n feature(s) on layer %1</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="539"/>
         <source>Redo creation of %n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="543"/>
         <source>Redo deletion of %n feature(s) on layer %1</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="543"/>
         <source>Redo deletion of %n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="547"/>
         <source>Redo modifications on %n feature(s) on layer %1</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/featurehistory.cpp" line="547"/>
         <source>Redo modifications on %n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
@@ -1202,17 +1010,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>FeatureListForm</name>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="586"/>
         <source>Stop tracking this feature to edit attributes</source>
         <translation>Öznitelikleri düzenlemek için bu objeyi takip etmeyi bırakın</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="594"/>
         <source>Stop tracking this feature to edit geometry</source>
         <translation>Geometriyi düzenlemek için bu objeyi takip etmeyi bırakın</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="603"/>
         <source>Changes saved</source>
         <translation>Değişiklikler kaydedildi</translation>
     </message>
@@ -1221,38 +1026,30 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Son değişiklikler uygulanmadı</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="626"/>
         <source>Successfully duplicated feature</source>
         <translation>Özellik başarıyla çoğaltıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="651"/>
-        <location filename="../src/qml/FeatureListForm.qml" line="756"/>
         <source>A number of features are being tracked, stop tracking to delete those</source>
         <translation>Bir dizi özellik izleniyor, bunları silmek için izlemeyi durdurun</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="683"/>
         <source>A number of features are being tracked, stop tracking to merge those</source>
         <translation>Bir dizi obje takip ediliyor, bunları birleştirmek için takibi durdurun</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="748"/>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
         <translation>Seçilen özellikler başarıyla çoğaltıldı, liste yeni oluşturulan özellikleri gösterecek şekilde güncellendi</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="853"/>
         <source>No feature at this position</source>
         <translation>Bu konumda bir kayıt yoktur.</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="901"/>
         <source>Merge feature(s)</source>
         <translation>Obje(leri) birleştir</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="905"/>
         <source>Should the %n feature(s) selected really be merge?
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
@@ -1260,69 +1057,55 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="914"/>
         <source>Successfully merged %n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="916"/>
         <source>Failed to merge %n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="1001"/>
         <source>Delete feature(s)</source>
         <translation>Obje(leri) sil</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="1005"/>
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="1017"/>
         <source>Successfully deleted %n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/FeatureListForm.qml" line="1025"/>
         <source>Failed to delete %n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="452"/>
-        <location filename="../src/qml/FeatureListForm.qml" line="1051"/>
         <source>Changes discarded</source>
         <translation>Değişiklikler ihmal edildi</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="937"/>
         <source>Transfer Feature Attributes</source>
         <translation>Özellik Niteliklerini Aktar</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="953"/>
         <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
         <translation>Aşağıda, niteliklerin o anda açık olan özelliğe aktarılacağı bir özellik seçin.</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="976"/>
         <source>Feature attributes transferred</source>
         <translation>Özellik nitelikleri aktarıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="978"/>
         <source>No feature attributes were transferred</source>
         <translation>Hiçbir özellik niteliği aktarılmadı</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="164"/>
         <source>Features</source>
         <translation>Objeler</translation>
     </message>
     <message>
-        <location filename="../src/qml/FeatureListForm.qml" line="229"/>
         <source>Processing Algorithms</source>
         <translation>İşlem Algoritmaları</translation>
     </message>
@@ -1330,60 +1113,48 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>FeatureModel</name>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="449"/>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
         <translation>Değer &quot;%1&quot; %4 uygun türe - %2(%3) - dönüştürülememiştir. </translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="656"/>
-        <location filename="../src/core/featuremodel.cpp" line="698"/>
         <source>Cannot update feature</source>
         <translation>Kayıt güncellenemiştir</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="675"/>
         <source>Feature %1 could not be fetched after commit</source>
         <translation>Kayıt %1 getirilememiştir</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="584"/>
         <source>Default value expression for %1:%2 has parser error: %3</source>
         <translation>%1 için varsayılan değer: %2 - derleyici hatası: %3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="588"/>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
         <translation>%1 için varsayılan değer: %2 - değerlendirme hatası: %3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1086"/>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
         <translation>%2 objesini oluştumak için &quot;%1&quot; katmanının düzenlenmesi başlatılamadı</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1158"/>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
         <translation>&quot;%1&quot; katmanı tamamlandı, ancak yeni oluşturulan %2 objesi yüklenemedi</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1165"/>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
         <translation>&quot;%1&quot; katmanı, yeni oluşturulan %2 objesiyle işlenemiyor. Nedeni:
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1171"/>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
         <translation>%2 objesi &quot;%1&quot; katmanına eklenemedi</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1197"/>
         <source>Could not save changes. Rolling back.</source>
         <translation>Değişiklikler kaydedilememiştir. Geriye alınıyor.</translation>
     </message>
     <message>
-        <location filename="../src/core/featuremodel.cpp" line="1215"/>
         <source>Cannot start editing</source>
         <translation>Güncellemeye başlanamadı.</translation>
     </message>
@@ -1391,12 +1162,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>FeaturesLocatorFilter</name>
     <message>
-        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="116"/>
         <source>Open form</source>
         <translation>Form aç</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="119"/>
         <source>Set feature as destination</source>
         <translation>Özelliği hedef olarak ayarla</translation>
     </message>
@@ -1405,18 +1174,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Özelliği gezinme olarak ayarla</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="174"/>
-        <location filename="../src/core/locator/featureslocatorfilter.cpp" line="184"/>
         <source>Feature has no geometry</source>
         <translation>Kayıdın geometrisi yoktur.</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/featureslocatorfilter.h" line="63"/>
         <source>Features in all layers</source>
         <translation>Tüm katmanlardaki objeler</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/featureslocatorfilter.h" line="64"/>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
         <translation>Uygun görüntü adıyla tüm aranabilir katmanlar arasında bir özellik listesi döndürür.</translation>
     </message>
@@ -1424,12 +1189,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>FileDeviceChooser</name>
     <message>
-        <location filename="../src/qml/FileDeviceChooser.qml" line="47"/>
         <source>File path</source>
         <translation>Dosya yolu</translation>
     </message>
     <message>
-        <location filename="../src/qml/FileDeviceChooser.qml" line="69"/>
         <source>Interval (in milliseconds)</source>
         <translation>Aralık (milisaniye cinsinden)</translation>
     </message>
@@ -1437,37 +1200,30 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>FillRing</name>
     <message>
-        <location filename="../src/qml/geometryeditors/FillRing.qml" line="56"/>
         <source>The ring is not closed</source>
         <translation>Halka kapatılmamıştır</translation>
     </message>
     <message>
-        <location filename="../src/qml/geometryeditors/FillRing.qml" line="58"/>
         <source>The ring is not valid</source>
         <translation>Halka geçerli değildir</translation>
     </message>
     <message>
-        <location filename="../src/qml/geometryeditors/FillRing.qml" line="60"/>
         <source>The ring crosses existing rings (it is not disjoint)</source>
         <translation>Halka mevcut halkaları kesiyor (ayrık değildir)</translation>
     </message>
     <message>
-        <location filename="../src/qml/geometryeditors/FillRing.qml" line="62"/>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
         <translation>Halka, içine oturacak mevcut bir halka bulamıyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/geometryeditors/FillRing.qml" line="64"/>
         <source>Unknown error when creating the ring</source>
         <translation>Halkayı oluştururken bilinmeyen hata</translation>
     </message>
     <message>
-        <location filename="../src/qml/geometryeditors/FillRing.qml" line="79"/>
         <source>Fill ring</source>
         <translation>Halkayı doldur</translation>
     </message>
     <message>
-        <location filename="../src/qml/geometryeditors/FillRing.qml" line="83"/>
         <source>Would you like to fill the ring with a new polygon?</source>
         <translation>Halkayı yeni bir poligonla doldurmak ister misiniz?</translation>
     </message>
@@ -1506,7 +1262,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>FinlandLocatorFilter</name>
     <message>
-        <location filename="../src/core/locator/finlandlocatorfilter.cpp" line="27"/>
         <source>Finnish address search</source>
         <translation>Fin adres araması</translation>
     </message>
@@ -1514,27 +1269,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>GeometryEditorsToolbar</name>
     <message>
-        <location filename="../src/qml/GeometryEditorsToolbar.qml" line="48"/>
         <source>Vertex Tool</source>
         <translation>Kırık Aracı</translation>
     </message>
     <message>
-        <location filename="../src/qml/GeometryEditorsToolbar.qml" line="49"/>
         <source>Split Tool</source>
         <translation>Bölme Aracı</translation>
     </message>
     <message>
-        <location filename="../src/qml/GeometryEditorsToolbar.qml" line="50"/>
         <source>Reshape Tool</source>
         <translation>Yeniden Şekillendirme Aracı</translation>
     </message>
     <message>
-        <location filename="../src/qml/GeometryEditorsToolbar.qml" line="52"/>
         <source>Fill Ring Tool</source>
         <translation>Halka Doldurma Aracı</translation>
     </message>
     <message>
-        <location filename="../src/qml/GeometryEditorsToolbar.qml" line="51"/>
         <source>Erase Tool</source>
         <translation>Silme Aracı</translation>
     </message>
@@ -1546,8 +1296,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Git %1 %2 (Harita CRS)</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/gotolocatorfilter.cpp" line="154"/>
-        <location filename="../src/core/locator/gotolocatorfilter.cpp" line="186"/>
         <source>Set navigation point</source>
         <translation>Gezinme noktasını ayarla</translation>
     </message>
@@ -1556,22 +1304,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Git %1° %2° (WGS84)</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/gotolocatorfilter.h" line="47"/>
         <source>Go to coordinate</source>
         <translation>Koordinata git</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/gotolocatorfilter.cpp" line="151"/>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
         <translation>Git %1%2 %3%4 (Harita CRS, %5)</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/gotolocatorfilter.cpp" line="183"/>
         <source>Go to %1°N %2°E (%3)</source>
         <translation>Git %1°N %2°E (%3)</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/gotolocatorfilter.h" line="48"/>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
         <translation>Arama çubuğuna yazılan bir X ve Y koordinat çiftinden - veya WGS84 enlem ve boylamdan - bir nokta döndürür.</translation>
     </message>
@@ -1579,12 +1323,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>HelpLocatorFilter</name>
     <message>
-        <location filename="../src/core/locator/helplocatorfilter.h" line="45"/>
         <source>QField Documentation</source>
         <translation>QField Belgeleri</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/helplocatorfilter.h" line="46"/>
         <source>Returns QField documentation pages matching terms.</source>
         <translation>QField belgeleri sayfalarını eşleşen terimleri döndürür.</translation>
     </message>
@@ -1592,27 +1334,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>InformationDrawer</name>
     <message>
-        <location filename="../src/qml/InformationDrawer.qml" line="54"/>
         <source>Navigation</source>
         <translation>Gezinme</translation>
     </message>
     <message>
-        <location filename="../src/qml/InformationDrawer.qml" line="67"/>
         <source>Positioning</source>
         <translation>Konumlandırma</translation>
     </message>
     <message>
-        <location filename="../src/qml/InformationDrawer.qml" line="82"/>
         <source>Precise view</source>
         <translation>Kesin görünüm</translation>
     </message>
     <message>
-        <location filename="../src/qml/InformationDrawer.qml" line="95"/>
         <source>Sensors</source>
         <translation>Sensörler</translation>
     </message>
     <message>
-        <location filename="../src/qml/InformationDrawer.qml" line="106"/>
         <source>Elevation profile</source>
         <translation>Yükseklik profili</translation>
     </message>
@@ -1624,22 +1361,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Kayıt bilgisi</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerLoginDialog.qml" line="70"/>
         <source>Username</source>
         <translation>Kullanıcı adı</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerLoginDialog.qml" line="83"/>
         <source>Password</source>
         <translation>Parola</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerLoginDialog.qml" line="20"/>
         <source>Credentials Details</source>
         <translation>Kimlik Bilgileri</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerLoginDialog.qml" line="116"/>
         <source>Submit</source>
         <translation type="unfinished"/>
     </message>
@@ -1647,12 +1380,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>LayerObserver</name>
     <message>
-        <location filename="../src/core/qfieldcloud/layerobserver.cpp" line="332"/>
         <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
         <translation>Katman &quot;%1&quot; içinde yerel bir birincil anahtar sütunu bulunamadı</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/layerobserver.cpp" line="338"/>
         <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
         <translation>Katman &quot;%1&quot; içinde kaynak birincil anahtar sütunu bulunamadı</translation>
     </message>
@@ -1660,58 +1391,46 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="46"/>
         <source>Expand group</source>
         <translation>Grubu Genişlet</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="46"/>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="136"/>
         <source>Expand legend item</source>
         <translation>Lejant öğesini genişlet</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="53"/>
         <source>Stop tracking</source>
         <translation>Takibi durdur</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="53"/>
         <source>Setup tracking</source>
         <translation>İzleme ayarları</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="126"/>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Bu katman geçersiz. Bunun nedeni bir ağ sorunu, eksik bir dosya veya projenin yanlış yapılandırılması olabilir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="151"/>
         <source>Show on map</source>
         <translation>Haritada göster</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="173"/>
         <source>Show labels</source>
         <translation>Etiketleri göster</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="213"/>
         <source>Opacity</source>
         <translation>Saydamlık</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="241"/>
         <source>Zoom to group</source>
         <translation>Gruba yaklaş</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="241"/>
         <source>Zoom to parent layer</source>
         <translation>Üst katmana yaklaş</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="241"/>
         <source>Zoom to layer</source>
         <translation>Katmana yaklaş</translation>
     </message>
@@ -1720,18 +1439,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Veriyi yeniden yükle</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="93"/>
         <source>Reload of layer %1 triggered</source>
         <translation>%1 katmanının yeniden yüklenmesi tetiklendi</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="257"/>
         <source>Show features list</source>
         <translation>Objeleri listede göster</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="263"/>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="377"/>
         <source>The layer has no features</source>
         <translation>Katmanın özelliği yok</translation>
     </message>
@@ -1756,47 +1471,38 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Bu katman, objelerin eklenmesini ve silinmesinin yanı sıra mevcut özelliklerin geometrilerini değiştirmeyi devre dışı bırakan &quot;Geometrileri Kilitle&quot; olarak yapılandırılmıştır.</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="369"/>
         <source>Show visible features list</source>
         <translation>Görünür özellikler listesini göster</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="366"/>
         <source>Show Features Menu</source>
         <translation>Özellikler Menüsünü Göster</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="322"/>
         <source>Read-only layer</source>
         <translation>Salt okunur katman</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="326"/>
         <source>feature addition</source>
         <translation>özellik ekleme</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="329"/>
         <source>attribute editing</source>
         <translation>öznitelik düzenleme</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="332"/>
         <source>geometry editing</source>
         <translation>geometri düzenleme</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="335"/>
         <source>feature deletion</source>
         <translation>özellik silme</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="337"/>
         <source>Disabled layer permissions: %1</source>
         <translation>Devre dışı bırakılmış katman izinleri: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/LayerTreeItemProperties.qml" line="294"/>
         <source>Tracking on layer %1 stopped</source>
         <translation type="unfinished"/>
     </message>
@@ -1804,48 +1510,37 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>LayerUtils</name>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="361"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="449"/>
         <source>Cannot start editing, no layer</source>
         <translation>Katman yok, düzenlenemez</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="369"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="461"/>
         <source>Cannot start editing</source>
         <translation>Güncellemeye başlanamadı.</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="393"/>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
         <translation>&quot;%1&quot; katmanındaki %2 objesinin silinmesi işlenemiyor.</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="413"/>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
         <translation>&quot;%1&quot; katmanındaki silme işlemi gerçekleştirilemiyor. Sebep:
 %3</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="422"/>
         <source>Cannot delete feature %1</source>
         <translation>%1 objesi silinemez</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="435"/>
-        <location filename="../src/core/utils/layerutils.cpp" line="438"/>
         <source>Cannot rollback layer changes in layer %1</source>
         <translation>%1 katmanındaki değişiklikler geri alınamaz</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="455"/>
         <source>Cannot copy invalid feature</source>
         <translation>Geçersiz özelliği kopyalamak mümkün değil</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/layerutils.cpp" line="490"/>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
         <translation>Katman &quot;%1&quot; içinde yeni özellik eklenemiyor. Sebep:
@@ -1859,12 +1554,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>Legend</name>
     <message>
-        <location filename="../src/qml/Legend.qml" line="324"/>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
         <translation>Bu katman geçersiz. Bunun nedeni bir ağ sorunu, eksik bir dosya veya projenin yanlış yapılandırılması olabilir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/Legend.qml" line="344"/>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
         <translation>Bu katman, obje eklemeyi, silmeyi ve düzenlemeyi devre dışı bırakan &quot;Salt Okunur&quot; olarak yapılandırılmıştır.</translation>
     </message>
@@ -1873,7 +1566,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/Legend.qml" line="284"/>
         <source>Stop</source>
         <translation>Durdur</translation>
     </message>
@@ -1882,17 +1574,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/Legend.qml" line="346"/>
         <source>The permissions configuration of this layer disables feature addition.</source>
         <translation>Bu katmanın izin yapılandırması, özellik eklemeyi devre dışı bırakır.</translation>
     </message>
     <message>
-        <location filename="../src/qml/Legend.qml" line="284"/>
         <source>Tracking active on this layer.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/Legend.qml" line="287"/>
         <source>Tracking on layer %1 stopped</source>
         <translation type="unfinished"/>
     </message>
@@ -1900,40 +1589,30 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>LocalFilesModel</name>
     <message>
-        <location filename="../src/core/localfilesmodel.cpp" line="147"/>
-        <location filename="../src/core/localfilesmodel.cpp" line="256"/>
         <source>QField files directory</source>
         <translation>QField dosyaları dizini</translation>
     </message>
     <message>
-        <location filename="../src/core/localfilesmodel.cpp" line="155"/>
         <source>Imported projects</source>
         <translation>İçe aktarılan projeler</translation>
     </message>
     <message>
-        <location filename="../src/core/localfilesmodel.cpp" line="159"/>
         <source>Imported datasets</source>
         <translation>İçe aktarılan veri setleri</translation>
     </message>
     <message>
-        <location filename="../src/core/localfilesmodel.cpp" line="167"/>
-        <location filename="../src/core/localfilesmodel.cpp" line="265"/>
         <source>Additional files directory</source>
         <translation>Ek dosyalar dizini</translation>
     </message>
     <message>
-        <location filename="../src/core/localfilesmodel.cpp" line="163"/>
         <source>Sample projects</source>
         <translation>Örnek projeler</translation>
     </message>
     <message>
-        <location filename="../src/core/localfilesmodel.cpp" line="151"/>
         <source>Created projects</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/localfilesmodel.cpp" line="143"/>
-        <location filename="../src/core/localfilesmodel.cpp" line="421"/>
         <source>Home</source>
         <translation type="unfinished"/>
     </message>
@@ -1957,7 +1636,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Finlandiya içindeki konum ve adreslerin eşleşen terimlere sahip bir listesini verir</translation>
     </message>
     <message>
-        <location filename="../src/core/locator/locatormodelsuperbridge.cpp" line="389"/>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
         <translation>Konumlarınız için arama filtreleri etkinleştirildi, ayarlar panelinden sonuçları özelleştirin</translation>
     </message>
@@ -1969,12 +1647,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Arama...</translation>
     </message>
     <message>
-        <location filename="../src/qml/LocatorItem.qml" line="237"/>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
         <translation>Etkin katman içinde özellikleri aramak için, lejandın üzerinden bir vektör katmanı seçin.</translation>
     </message>
     <message>
-        <location filename="../src/qml/LocatorItem.qml" line="434"/>
         <source>Activate a vector layer in the legend first to use this functionality</source>
         <translation>Bu işlevselliği kullanmak için önce lejandaki bir vektör katmanını etkinleştirin</translation>
     </message>
@@ -1990,17 +1666,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Öneki olmadan çalıştır</translation>
     </message>
     <message>
-        <location filename="../src/qml/LocatorSettings.qml" line="30"/>
         <source>Search Bar Settings</source>
         <translation>Arama Çubuğu Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/qml/LocatorSettings.qml" line="88"/>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
         <translation>Devre dışı bırakıldığında, bu yer bulucu filtresi arama çubuğuna %1 önekini yazarak hala kullanılabilir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/LocatorSettings.qml" line="97"/>
         <source>Enable %1 locator by default</source>
         <translation>%1 yer bulucusunu varsayılan olarak etkinleştir</translation>
     </message>
@@ -2008,28 +1681,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>MessageLog</name>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="25"/>
         <source>Message Logs</source>
         <translation>Kayıt logları</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="109"/>
         <source>Message text copied</source>
         <translation>Mesaj kopyalandı</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="133"/>
         <source>Clear message log</source>
         <translation>Mesaj günlüğünü temizle</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="138"/>
         <source>Message log cleared</source>
         <translation>Mesaj günlüğü temizlendi</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="146"/>
-        <location filename="../src/qml/MessageLog.qml" line="157"/>
         <source>Send application log</source>
         <translation>Uygulama günlüğünü gönder</translation>
     </message>
@@ -2038,27 +1705,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Uygulama günlüğünüz gönderiliyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="124"/>
         <source>Log runtime profiler</source>
         <translation>Çalışma zamanı profilini günlüğe kaydet</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="188"/>
         <source>Type optional details</source>
         <translation>İsteğe bağlı ayrıntıları girin</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="196"/>
         <source>Include cloud user details</source>
         <translation>Bulut kullanıcı ayrıntılarını dahil et</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="179"/>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
         <translation>Bu, mevcut oturumunuzun bir günlüğünü geliştirme ekibine gönderecektir. Bunu yalnızca sizden istendiğinde yapmanız gerekir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/MessageLog.qml" line="210"/>
         <source>Your application log is being sent…</source>
         <translation>Uygulama günlüğünüz gönderiliyor…</translation>
     </message>
@@ -2066,24 +1728,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>MultiFeatureListModelBase</name>
     <message>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="628"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="680"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="766"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="807"/>
         <source>Cannot start editing</source>
         <translation>Güncellemeye başlanamadı.</translation>
     </message>
     <message>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="660"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="702"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="793"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="833"/>
         <source>Cannot rollback layer changes in layer %1</source>
         <translation>%1 katmanındaki değişiklikler geri alınamaz</translation>
     </message>
     <message>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="779"/>
-        <location filename="../src/core/multifeaturelistmodelbase.cpp" line="820"/>
         <source>Cannot change geometry of feature %1 in %2</source>
         <translation>Özellik %1&apos;in geometrisi %2&apos;de değiştirilemez</translation>
     </message>
@@ -2091,47 +1743,38 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="28"/>
         <source>Features</source>
         <translation>Objeler</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="498"/>
         <source>Feature List Menu</source>
         <translation>Obje Liste Menüsü</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="504"/>
         <source>Toggle Feature Selection</source>
         <translation>Obje Seçimini Değiştir</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="523"/>
         <source>Print Atlas Feature(s) to PDF</source>
         <translation>Atlas Obje(ler)ini PDF&apos;e Yazdır</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="546"/>
         <source>Merge Selected Features</source>
         <translation>Seçili Objeleri Birleştir</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="559"/>
         <source>Move Selected Feature(s)</source>
         <translation>Seçili Obje(ler)i Taşı</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="572"/>
         <source>Duplicate Selected Feature(s)</source>
         <translation>Seçili Obje(ler)i Çoğalt</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="585"/>
         <source>Delete Selected Feature(s)</source>
         <translation>Seçili Obje(ler)i Sil</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="617"/>
         <source>Feature Menu</source>
         <translation>Obje Menüsü</translation>
     </message>
@@ -2140,12 +1783,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Atlas Objesini PDF&apos;e Yazdır</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="725"/>
         <source>Zoom to Feature</source>
         <translation>Objeye Yakınlaş</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="736"/>
         <source>Auto-Zoom to Feature</source>
         <translation>Objeye Otomatik Yakınlaş</translation>
     </message>
@@ -2154,22 +1795,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Objeyi Hedef Olarak Belirle</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="770"/>
         <source>Move Feature</source>
         <translation>Objeyi Taşı</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="784"/>
         <source>Duplicate Feature</source>
         <translation>Objeyi Çoğalt</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="838"/>
         <source>Delete Feature</source>
         <translation>Obje Sil</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="865"/>
         <source>Select template below</source>
         <translation>Aşağıdan şablon seçin</translation>
     </message>
@@ -2190,63 +1827,50 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Atlas Objesini Resim Olarak Yazdır</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="857"/>
         <source>Print Atlas Feature(s)</source>
         <translation>Atlas Obje(ler)ini Yazdır</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="890"/>
-        <location filename="../src/qml/NavigationBar.qml" line="930"/>
         <source>Printing...</source>
         <translation>Yazdırılıyor...</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="920"/>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Atlas obje(ler)i başarıyla yazdırıldı ve proje klasörünüze yerleştirildi</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="680"/>
         <source>Feature attributes updated from clipboard</source>
         <translation>Özellik öznitelikleri panodan güncellendi</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="682"/>
         <source>No feature attributes were updated from clipboard</source>
         <translation>Panodan hiç özellik özniteliği güncellenmedi</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="715"/>
         <source>Feature set as navigation destination</source>
         <translation>Obje navigasyon hedefi olarak belirlendi</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="603"/>
         <source>Process Selected Feature(s)</source>
         <translation>Seçili Obje(ler)i İşle</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="798"/>
         <source>Rotate Feature</source>
         <translation>Objeyi Döndür</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="824"/>
         <source>Update Attributes from Feature</source>
         <translation>Öznitelikleri Özellikten Güncelle</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="756"/>
         <source>Process Feature</source>
         <translation>Özelliği İşle</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="662"/>
         <source>Feature copied to clipboard</source>
         <translation>Özellik panoya kopyalandı</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationBar.qml" line="643"/>
         <source>Feature cut into clipboard</source>
         <translation>Özellik panoya alındı</translation>
     </message>
@@ -2258,8 +1882,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Enlem</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="149"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="177"/>
         <source>X</source>
         <translation>X</translation>
     </message>
@@ -2272,36 +1894,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Merkez</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="149"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="177"/>
         <source>Lon</source>
         <translation>Boylam</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="149"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="177"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="149"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="177"/>
         <source>Lat</source>
         <translation>Enlem</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="205"/>
         <source>Dist.</source>
         <translation>Mesafe</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="212"/>
-        <location filename="../src/qml/NavigationInformationView.qml" line="240"/>
         <source>N/A</source>
         <translation>Geçerli değil</translation>
     </message>
     <message>
-        <location filename="../src/qml/NavigationInformationView.qml" line="233"/>
         <source>Bearing</source>
         <translation>Yön</translation>
     </message>
@@ -2309,24 +1921,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>OrderedRelationModel</name>
     <message>
-        <location filename="../src/core/orderedrelationmodel.cpp" line="152"/>
         <source>Cannot start editing</source>
         <translation>Güncellemeye başlanamadı.</translation>
     </message>
     <message>
-        <location filename="../src/core/orderedrelationmodel.cpp" line="166"/>
-        <location filename="../src/core/orderedrelationmodel.cpp" line="178"/>
-        <location filename="../src/core/orderedrelationmodel.cpp" line="221"/>
         <source>Cannot rollback layer changes in layer %1</source>
         <translation>%1 katmanındaki değişiklikler geri alınamaz</translation>
     </message>
     <message>
-        <location filename="../src/core/orderedrelationmodel.cpp" line="175"/>
         <source>Cannot commit layer changes in layer %1.</source>
         <translation>%1 katmanındaki değişiklikler katmana işlenemez.</translation>
     </message>
     <message>
-        <location filename="../src/core/orderedrelationmodel.cpp" line="218"/>
         <source>Cannot update features ordering</source>
         <translation>Özellik sıralaması güncellenemedi</translation>
     </message>
@@ -2334,12 +1940,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>OverlayFeatureFormDrawer</name>
     <message>
-        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="130"/>
         <source>Changes saved</source>
         <translation>Değişiklikler kaydedildi</translation>
     </message>
     <message>
-        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="143"/>
         <source>Changes discarded</source>
         <translation>Değişiklikler ihmal edilmiştir.</translation>
     </message>
@@ -2352,7 +1956,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Kısıtlar geçerli değil</translation>
     </message>
     <message>
-        <location filename="../src/qml/OverlayFeatureFormDrawer.qml" line="205"/>
         <source>Hard constraints not satisfied</source>
         <translation type="unfinished"/>
     </message>
@@ -2372,52 +1975,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Görüntü galeriye kaydedilemedi</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="417"/>
         <source>Open File</source>
         <translation>Dosya Aç</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="419"/>
         <source>All Supported Files</source>
         <translation>Desteklenen Tüm Dosyalar</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="419"/>
         <source>QGIS Project Files</source>
         <translation>QGIS Proje Dosyaları</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="419"/>
         <source>Vector Datasets</source>
         <translation>Vektör Verisetleri</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="419"/>
         <source>Raster Datasets</source>
         <translation>Raster Verisetleri</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="367"/>
         <source>Failed to save file resource</source>
         <translation>Dosya kaynağı kaydedilemedi</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="375"/>
         <source>Select Image File</source>
         <translation>Görüntü Dosyasını Seç</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="376"/>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
         <translation>Tüm görüntüler (*.jpg *.jpeg *.png *.bmp);;JPEG görüntüleri (*.jpg *.jpeg);;PNG görüntüleri (*.jpg *.jpeg);;BMP görüntüleri (*.bmp)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="382"/>
         <source>Select Video File</source>
         <translation>Video Dosyasını Seç</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="383"/>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
         <translation>Tüm videolar (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</translation>
     </message>
@@ -2426,33 +2019,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Ses dosyaları (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="398"/>
         <source>All files (*.*)</source>
         <translation>Tüm dosyalar (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="402"/>
         <source>Select File</source>
         <translation>Dosya Seç</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="393"/>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
         <translation>Ses dosyaları (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="309"/>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="325"/>
         <source>Removal Confirmation</source>
         <translation>Kaldırma Onayı</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="310"/>
         <source>The dataset will be deleted, proceed with removal?</source>
         <translation>Veri kümesi silinecek, kaldırmaya devam edilsin mi?</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/platformutilities.cpp" line="326"/>
         <source>The project folder will be deleted, proceed with removal?</source>
         <translation>Proje klasörü silinecek, kaldırmaya devam edilsin mi?</translation>
     </message>
@@ -2460,17 +2046,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PluginItem</name>
     <message>
-        <location filename="../src/qml/PluginItem.qml" line="128"/>
         <source>Authored by %1%2%3</source>
         <translation>Yazan %1%2%3</translation>
     </message>
     <message>
-        <location filename="../src/qml/PluginItem.qml" line="147"/>
         <source>Uninstall version %1</source>
         <translation>Uninstall sürüm %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/PluginItem.qml" line="147"/>
         <source>Uninstall plugin</source>
         <translation>Uninstall eklentisi</translation>
     </message>
@@ -2478,32 +2061,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PluginManager</name>
     <message>
-        <location filename="../src/core/pluginmanager.cpp" line="425"/>
         <source>The downloaded zip file could not be decompressed</source>
         <translation>İndirilen zip dosyası açılmadı</translation>
     </message>
     <message>
-        <location filename="../src/core/pluginmanager.cpp" line="430"/>
         <source>The downloaded zip file does not contain the required main.qml plugin file</source>
         <translation>İndirilen zip dosyası gerekli main.qml eklenti dosyasını içermiyor</translation>
     </message>
     <message>
-        <location filename="../src/core/pluginmanager.cpp" line="436"/>
         <source>Can&apos;t save the downloaded file</source>
         <translation>İndirilen dosya kaydedilemiyor</translation>
     </message>
     <message>
-        <location filename="../src/core/pluginmanager.cpp" line="441"/>
         <source>Download file is not an zipped plugin</source>
         <translation>İndirilen dosya ziplenmiş bir eklenti değil</translation>
     </message>
     <message>
-        <location filename="../src/core/pluginmanager.cpp" line="446"/>
         <source>Network error</source>
         <translation>Ağ hatası</translation>
     </message>
     <message>
-        <location filename="../src/core/pluginmanager.cpp" line="397"/>
         <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
         <translation>İstenen eklenti URL&apos;si mevcut eklentiler listesinde bulunmaktadır, lütfen indirme düğmesi aracılığıyla yükleyin</translation>
     </message>
@@ -2511,67 +2088,54 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PluginManagerSettings</name>
     <message>
-        <location filename="../src/qml/PluginManagerSettings.qml" line="35"/>
         <source>Plugins</source>
         <translation>Eklentiler</translation>
     </message>
     <message>
-        <location filename="../src/qml/PluginManagerSettings.qml" line="185"/>
         <source>Install plugin from URL</source>
         <translation>URL&apos;den eklenti yükle</translation>
     </message>
     <message>
-        <location filename="../src/qml/PluginManagerSettings.qml" line="215"/>
         <source>Clear remembered permissions</source>
         <translation>Hatırlanan izinleri temizle</translation>
     </message>
     <message>
-        <location filename="../src/qml/PluginManagerSettings.qml" line="299"/>
         <source>Type a URL below to download and install a plugin:</source>
         <translation>Bir URL girin ve eklentiyi indirin ve yükleyin:</translation>
     </message>
     <message>
-        <location filename="../src/qml/PluginManagerSettings.qml" line="365"/>
         <source>Installing %1</source>
         <translation>Yükleniyor %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/PluginManagerSettings.qml" line="338"/>
         <source>Are you sure you want to uninstall `%1`?</source>
         <translation> `%1` kaldırmak istediğinizden emin misiniz?</translation>
     </message>
     <message>
-        <location filename="../src/qml/PluginManagerSettings.qml" line="265"/>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
         <translation>Yukarıda gösterilen yazar bilgileri eklenti tarafından kendiliğinden bildirilmiştir ve bağımsız olarak doğrulanmamıştır. Lütfen eklentinin kaynağına güvendiğinizden emin olun.</translation>
     </message>
     <message>
-        <location filename="../src/qml/PluginManagerSettings.qml" line="212"/>
         <source>Plugins management menu</source>
         <translation>Eklenti yönetim menüsü</translation>
     </message>
     <message>
-        <location filename="../src/qml/PluginManagerSettings.qml" line="57"/>
         <source>Local Plugins</source>
         <translation>Yerel Eklentiler</translation>
     </message>
     <message>
-        <location filename="../src/qml/PluginManagerSettings.qml" line="57"/>
         <source>Available Plugins</source>
         <translation>Mevcut Eklentiler</translation>
     </message>
     <message>
-        <location filename="../src/qml/PluginManagerSettings.qml" line="72"/>
         <source>Search for plugin</source>
         <translation>Eklenti ara</translation>
     </message>
     <message>
-        <location filename="../src/qml/PluginManagerSettings.qml" line="159"/>
         <source>Fetching available plugins</source>
         <translation>Mevcut eklentiler alınıyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/PluginManagerSettings.qml" line="159"/>
         <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
         <translation>Henüz hiç eklenti yüklenmedi, hemen denemek için %1mevcut eklentiler%3 sekmesine geçin.&lt;br&gt;&lt;br&gt;Daha fazla bilgi için, %2belgelere bakın%3.</translation>
     </message>
@@ -2650,7 +2214,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PositioningDeviceModel</name>
     <message>
-        <location filename="../src/core/positioning/positioningdevicemodel.cpp" line="51"/>
         <source>Internal device</source>
         <translation>Dahili cihaz</translation>
     </message>
@@ -2658,7 +2221,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PositioningDeviceSettings</name>
     <message>
-        <location filename="../src/qml/PositioningDeviceSettings.qml" line="106"/>
         <source>Positioning Device Settings</source>
         <translation>Konumlandırma Cihazı Ayarları</translation>
     </message>
@@ -2679,53 +2241,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositioningDeviceSettings.qml" line="67"/>
         <source>Bluetooth (NMEA)</source>
         <translation>Bluetooth (NMEA)</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositioningDeviceSettings.qml" line="246"/>
         <source>TCP (NMEA)</source>
         <translation>TCP (NMEA)</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositioningDeviceSettings.qml" line="250"/>
         <source>UDP (NMEA)</source>
         <translation>UDP (NMEA)</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositioningDeviceSettings.qml" line="73"/>
         <source>Serial port (NMEA)</source>
         <translation>Seri port (NMEA)</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositioningDeviceSettings.qml" line="51"/>
-        <location filename="../src/qml/PositioningDeviceSettings.qml" line="85"/>
         <source>Egeniouss</source>
         <translation>Egeniouss</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositioningDeviceSettings.qml" line="147"/>
         <source>Connection type</source>
         <translation>Bağlantı türü</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositioningDeviceSettings.qml" line="230"/>
         <source>Name</source>
         <translation>İsim</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositioningDeviceSettings.qml" line="230"/>
         <source> (leave empty to auto-fill)</source>
         <translation> (otomatik doldurmak için boş bırakın)</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositioningDeviceSettings.qml" line="234"/>
         <source>Connection details</source>
         <translation>Bağlantı ayrıntıları</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositioningDeviceSettings.qml" line="79"/>
         <source>Logs file (NMEA)</source>
         <translation>Günlük dosyası (NMEA)</translation>
     </message>
@@ -2733,72 +2284,50 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PositioningInformationModel</name>
     <message>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="34"/>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="277"/>
         <source>Altitude</source>
         <translation>Yükseklik</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="35"/>
         <source>Speed</source>
         <translation>Hız</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="36"/>
         <source>H. Accuracy</source>
         <translation>Yatay doğruluk</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="37"/>
         <source>V. Accuracy</source>
         <translation>Dikey doğruluk</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="49"/>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="55"/>
         <source>Lon</source>
         <translation>Boylam</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="49"/>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="55"/>
         <source>X</source>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="50"/>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="54"/>
         <source>Lat</source>
         <translation>Enlem</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="50"/>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="54"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="70"/>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="82"/>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="112"/>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="117"/>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="122"/>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="127"/>
         <source>N/A</source>
         <translation>Geçerli değil</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="96"/>
         <source>grid</source>
         <translation>ızgara</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="100"/>
         <source>ortho.</source>
         <translation>ortho.</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/positioninginformationmodel.cpp" line="104"/>
         <source>ant.</source>
         <translation>ant.</translation>
     </message>
@@ -2814,7 +2343,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">X</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositioningInformationView.qml" line="86"/>
         <source>N/A</source>
         <translation>Geçerli değil</translation>
     </message>
@@ -2870,12 +2398,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PositioningPreciseView</name>
     <message>
-        <location filename="../src/qml/PositioningPreciseView.qml" line="426"/>
         <source>Dist.</source>
         <translation>Mesafe</translation>
     </message>
     <message>
-        <location filename="../src/qml/PositioningPreciseView.qml" line="450"/>
         <source>Positioning accuracy too low for this precision level</source>
         <translation>Bu hassasiyet seviyesi için konumlandırma doğruluğu çok düşük</translation>
     </message>
@@ -2883,7 +2409,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PositioningSettings</name>
     <message>
-        <location filename="../src/qml/PositioningSettings.qml" line="12"/>
         <source>Internal device</source>
         <translation>Dahili cihaz</translation>
     </message>
@@ -2891,27 +2416,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>ProcessingAlgorithmForm</name>
     <message>
-        <location filename="../src/qml/ProcessingAlgorithmForm.qml" line="40"/>
         <source>General Parameters</source>
         <translation>Genel Parametreler</translation>
     </message>
     <message>
-        <location filename="../src/qml/ProcessingAlgorithmForm.qml" line="40"/>
         <source>Advanced Parameters</source>
         <translation>Gelişmiş Parametreler</translation>
     </message>
     <message>
-        <location filename="../src/qml/ProcessingAlgorithmForm.qml" line="40"/>
         <source>Help</source>
         <translation>Yardım</translation>
     </message>
     <message>
-        <location filename="../src/qml/ProcessingAlgorithmForm.qml" line="127"/>
         <source>There are no general parameters attached to this algorithm.</source>
         <translation>Bu algoritmaya bağlı genel parametre yoktur.</translation>
     </message>
     <message>
-        <location filename="../src/qml/ProcessingAlgorithmForm.qml" line="168"/>
         <source>Algorithm description</source>
         <translation>Algoritma açıklaması</translation>
     </message>
@@ -2919,12 +2439,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>ProcessingAlgorithmsList</name>
     <message>
-        <location filename="../src/qml/ProcessingAlgorithmsList.qml" line="34"/>
         <source>Favorites</source>
         <translation>Favoriler</translation>
     </message>
     <message>
-        <location filename="../src/qml/ProcessingAlgorithmsList.qml" line="34"/>
         <source>All Algorithms</source>
         <translation>Tüm Algoritmalar</translation>
     </message>
@@ -2932,112 +2450,90 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>ProjectCreationScreen</name>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="19"/>
         <source>Create a new project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="46"/>
         <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="58"/>
         <source>New project name</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="64"/>
         <source>Select your basemap</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="78"/>
         <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="94"/>
         <source>Colorful</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="98"/>
         <source>Darkgray</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="102"/>
         <source>Lightgray</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="106"/>
         <source>Blank</source>
         <translation>Boş</translation>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="110"/>
         <source>Custom</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="153"/>
         <source>Custom basemap URL</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="173"/>
         <source>Take notes?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="185"/>
         <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="194"/>
         <source>Take image and video attachments</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="212"/>
         <source>Track your position?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="224"/>
         <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="233"/>
         <source>Begin tracking automatically</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="251"/>
         <source>Backup &amp; collaborate?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="261"/>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="261"/>
         <source>Learn more about QFieldCloud here</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="295"/>
         <source>Create Project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/ProjectCreationScreen.qml" line="299"/>
         <source>My Project</source>
         <translation type="unfinished"/>
     </message>
@@ -3045,55 +2541,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>ProjectUtils</name>
     <message>
-        <location filename="../src/core/utils/projectutils.cpp" line="93"/>
         <source>Created Project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/utils/projectutils.cpp" line="138"/>
         <source>Notes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/utils/projectutils.cpp" line="171"/>
-        <location filename="../src/core/utils/projectutils.cpp" line="299"/>
         <source>Time</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/utils/projectutils.cpp" line="182"/>
         <source>Marker color</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/utils/projectutils.cpp" line="192"/>
-        <location filename="../src/core/utils/projectutils.cpp" line="283"/>
         <source>Title</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/utils/projectutils.cpp" line="203"/>
         <source>Note</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/utils/projectutils.cpp" line="246"/>
         <source>Tracks</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/utils/projectutils.cpp" line="348"/>
-        <location filename="../src/core/utils/projectutils.cpp" line="365"/>
         <source>Basemap</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/utils/projectutils.cpp" line="219"/>
         <source>Media</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/utils/projectutils.cpp" line="273"/>
         <source>Track color</source>
         <translation type="unfinished"/>
     </message>
@@ -3101,17 +2584,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>QFieldAppAuthRequestHandler</name>
     <message>
-        <location filename="../src/core/qfieldappauthrequesthandler.cpp" line="241"/>
         <source>Please enter credentials for database</source>
         <translation>Lütfen veritabanı için kimlik bilgilerini girin</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldappauthrequesthandler.cpp" line="244"/>
         <source>at host</source>
         <translation>sunucuda</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldappauthrequesthandler.cpp" line="248"/>
         <source>at service</source>
         <translation>serviste</translation>
     </message>
@@ -3119,7 +2599,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>QFieldAudioRecorder</name>
     <message>
-        <location filename="../src/qml/QFieldAudioRecorder.qml" line="135"/>
         <source>Audio Recorder</source>
         <translation>Ses Kaydedici</translation>
     </message>
@@ -3127,67 +2606,54 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>QFieldCamera</name>
     <message>
-        <location filename="../src/qml/QFieldCamera.qml" line="661"/>
         <source>Geotagging enabled</source>
         <translation>Coğrafi etiketleme etkin</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCamera.qml" line="661"/>
         <source>Geotagging disabled</source>
         <translation>Coğrafi etiketleme devre dışı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCamera.qml" line="679"/>
         <source>Grid enabled</source>
         <translation>Izgara etkin</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCamera.qml" line="679"/>
         <source>Grid disabled</source>
         <translation>Izgara devre dışı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCamera.qml" line="698"/>
         <source>front</source>
         <translation>ön</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCamera.qml" line="698"/>
         <source>back</source>
         <translation>arka</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCamera.qml" line="643"/>
         <source>Details stamping enabled</source>
         <translation>Ayrıntı damgalama etkin</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCamera.qml" line="107"/>
         <source>Latitude</source>
         <translation>Enlem</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCamera.qml" line="107"/>
         <source>Longitude</source>
         <translation>Boylam</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCamera.qml" line="107"/>
         <source>Altitude</source>
         <translation>Yükseklik</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCamera.qml" line="107"/>
         <source>Speed</source>
         <translation>Hız</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCamera.qml" line="107"/>
         <source>Orientation</source>
         <translation>Yönlendirme</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCamera.qml" line="643"/>
         <source>Details stamping disabled</source>
         <translation>Ayrıntı damgalama devre dışı</translation>
     </message>
@@ -3195,69 +2661,56 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>QFieldCloudConnection</name>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="730"/>
         <source>[timeout] The request took too long to finish, please retry.</source>
         <translation>[zaman aşımı] İstek tamamlanması için çok uzun sürdü, lütfen tekrar deneyin.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="733"/>
         <source>[aborted] The request has been aborted.</source>
         <translation>[iptal edildi] İstek iptal edildi.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="768"/>
         <source>Server Error.</source>
         <translation>Sunucu Hatası.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="769"/>
         <source>Network Error.</source>
         <translation>Ağ Hatası.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="305"/>
         <source>Server not found, please check the server URL</source>
         <translation>Sunucu bulunamadı, lütfen sunucu URL&apos;sini kontrol edin</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="309"/>
         <source>Timeout error, please retry</source>
         <translation>Zaman aşımı hatası, lütfen tekrar deneyin</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="315"/>
         <source>Wrong username or password</source>
         <translation>Yanlış kullanıcı adı veya parola</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="319"/>
         <source>Session expired</source>
         <translation>Oturum süresi doldu</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="344"/>
         <source>Login temporary unavailable</source>
         <translation>Giriş geçici olarak kullanılamıyor</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="854"/>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
         <translation>Başarısız oldu. Ek `%1` konumunda saklandı, sebep:
 %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="284"/>
         <source>Login error due to unexpected redirect, please retry later</source>
         <translation>Beklenmedik yönlendirme nedeniyle giriş hatası, lütfen daha sonra tekrar deneyin</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="253"/>
         <source>Authentication provider missing</source>
         <translation>Kimlik doğrulama sağlayıcısı eksik</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="261"/>
         <source>Password missing</source>
         <translation>Parola eksik</translation>
     </message>
@@ -3265,17 +2718,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
-        <location filename="../src/qml/QFieldCloudDeltaHistory.qml" line="54"/>
         <source>Push History</source>
         <translation>Gönderim Geçmişi</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudDeltaHistory.qml" line="54"/>
         <source>Loading…</source>
         <translation>Yükleniyor...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudDeltaHistory.qml" line="88"/>
         <source>No changes have been pushed yet!</source>
         <translation>Henüz hiçbir değişiklik gönderilmedi!</translation>
     </message>
@@ -3287,49 +2737,40 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Giriş başarısız oldu</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="62"/>
         <source>Failed to sign in</source>
         <translation>Oturum açma başarısız oldu</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="93"/>
         <source>Server URL
 (Leave empty to use the default server)</source>
         <translation>Sunucu URL&apos;si
 (Varsayılan sunucuyu kullanmak için boş bırakın)</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="174"/>
         <source>Username or email</source>
         <translation>Kullanıcı adı veya e-posta</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="192"/>
         <source>Password</source>
         <translation>Parola</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="222"/>
         <source>Sign out</source>
         <translation>Oturumu kapat</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="222"/>
         <source>Signing in, please wait</source>
         <translation>Oturum açılıyor, lütfen bekleyin</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="222"/>
         <source>Sign in</source>
         <translation>Oturum aç</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="264"/>
         <source>New user?</source>
         <translation>Yeni kullanıcı?</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="264"/>
         <source>Register an account</source>
         <translation>Bir hesap oluştur</translation>
     </message>
@@ -3346,27 +2787,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Giriş yap</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="286"/>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
         <translation>QGIS&apos;ten cihazlarınıza proje aktarmanın en kolay yolu!</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="286"/>
         <source>Learn more about QFieldCloud</source>
         <translation>QFieldCloud hakkında daha fazla bilgi edinin</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="54"/>
         <source>QFieldCloud</source>
         <translation>QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="231"/>
         <source>or</source>
         <translation>veya</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudLogin.qml" line="245"/>
         <source>Sign in using %1</source>
         <translation>%1 kullanarak oturum aç</translation>
     </message>
@@ -3382,12 +2818,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">QFieldCloud&apos;da bazı katmanlar doğru bir şekilde paketlenmemiştir. Bu katmanlar yanlış yapılandırılmış olabilir veya veri kaynakları QFieldCloud sunucusundan erişilemez durumdadır.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="19"/>
         <source>QFieldCloud had troubles packaging your project</source>
         <translation>QFieldCloud, projenizi paketlerken sorunlar yaşadı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPackageLayersFeedback.qml" line="27"/>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
         <translation>QFieldCloud&apos;da bazı katmanlar doğru bir şekilde paketlenmemiştir. Bu katmanlar yanlış yapılandırılmış olabilir veya veri kaynakları QFieldCloud sunucusundan erişilemez durumdadır. Lütfen qfield.cloud web sitesinde en son paketleme işinin günlüklerini kontrol edin.</translation>
     </message>
@@ -3395,7 +2829,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>QFieldCloudPopup</name>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="30"/>
         <source>QFieldCloud</source>
         <translation>QFieldCloud</translation>
     </message>
@@ -3408,7 +2841,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="393"/>
         <source>Learn more about QFieldCloud</source>
         <translation>QFieldCloud hakkında daha fazla bilgi edinin</translation>
     </message>
@@ -3417,17 +2849,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Buluttan bağlantı kesildi.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="87"/>
         <source>Connecting to the cloud.</source>
         <translation>Buluta bağlanıyor.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="90"/>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
         <translation>Merhaba &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="164"/>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
         <translation>Bu QFieldCloud projesi ilk olarak başka bir bulut hesabıyla indirildi. Lütfen bu proje için QFieldCloud işlevselliğini kullanmak üzere orijinal hesapla oturum açın.</translation>
     </message>
@@ -3456,53 +2885,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Bir ağ hatası oluştu, lütfen tekrar deneyin.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="419"/>
         <source>There is/are %n local change(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="419"/>
         <source>There are no local changes</source>
         <translation>Yerel değişiklik yok</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="421"/>
         <source>The locally stored cloud project has been corrupted</source>
         <translation>Yerel olarak saklanan bulut projesi bozuldu</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="433"/>
         <source>Synchronize</source>
         <translation>Senkranize Et</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="446"/>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
         <translation>Değiştirilen tüm özelliklerle birlikte projeyi senkronize edin ve QFieldCloud&apos;dan uygulanan tüm değişikliklerle güncellenmiş projeyi indirin.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="456"/>
         <source>Push changes</source>
         <translation>Değişiklikleri Gönder</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="469"/>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
         <translation>Projenin tamamını güncellemeden yalnızca yerel özellikleri ve resimleri buluta göndererek internet bant genişliğinden tasarruf edin.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="480"/>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="817"/>
         <source>Revert local changes</source>
         <translation>Yerel değişiklikleri geri al</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="480"/>
         <source>Reset project</source>
         <translation>Projeyi sıfırla</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="497"/>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
         <translation>Yerel katmanlardaki tüm değiştirilmiş özellikleri geri al. Bu değişiklikleri geri yükleyemezsiniz.</translation>
     </message>
@@ -3511,7 +2929,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="vanished">Yerel bulut katmanlarındaki tüm değiştirilmiş özellikleri geri al. Bu değişiklikleri geri yükleyemezsiniz.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="497"/>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
@@ -3520,47 +2937,38 @@ While you can still view and use the project, it is strongly recommended to rese
 Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri kaybını önlemek için sıfırlamanız şiddetle önerilir, çünkü yapılan değişikliklerin hiçbiri buluta geri gönderilmeyecektir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="599"/>
         <source>Last synchronized just now</source>
         <translation>Son senkronizasyon az önce yapıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="601"/>
         <source>Last synchronized %1 minutes ago</source>
         <translation>Son senkronizasyon %1 dakika önce yapıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="603"/>
         <source>Last synchronized at %1</source>
         <translation>Son senkronizasyon %1&apos;de yapıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="605"/>
         <source>Last synchronized on %1</source>
         <translation>Son senkronizasyon %1&apos;de yapıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="613"/>
         <source>Last changes pushed just now</source>
         <translation>Son değişiklikler az önce gönderildi</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="615"/>
         <source>Last changes pushed %1 minutes ago</source>
         <translation>Son değişiklikler %1 dakika önce gönderildi</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="617"/>
         <source>Last changes pushed at %1</source>
         <translation>Son değişiklikler %1&apos;de gönderildi</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="619"/>
         <source>Last changes pushed on %1</source>
         <translation>Son değişiklikler %1&apos;de gönderildi</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="621"/>
         <source>No changes pushed yet</source>
         <translation>Henüz değişiklik gönderilmedi</translation>
     </message>
@@ -3569,123 +2977,98 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="821"/>
         <source>Should local changes be reverted?</source>
         <translation>Yerel değişiklikler geri alınmalı mı?</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="840"/>
         <source>Reset cloud project</source>
         <translation>Bulut projesini sıfırla</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="844"/>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
         <translation>Son uyarı, bulut projesini sıfırlamak yerel değişiklikleri silecektir, devam etmek istediğinizden emin misiniz?</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="867"/>
         <source>Connecting cloud</source>
         <translation>Bulut ile bağlantı kuruluyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="885"/>
         <source>Local changes reverted</source>
         <translation>Yerel değişiklikler geri alındı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="887"/>
         <source>Failed to revert changes</source>
         <translation>Değişiklikleri geri alma işlemi başarısız oldu</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="890"/>
         <source>No changes to revert</source>
         <translation>Geri alınacak değişiklik yok</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="869"/>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
         <translation>Bu projenin bulutta güncellenmiş bir proje dosyası var, senkronize olmanız önerilir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="871"/>
         <source>This project has updated data on the cloud, you should synchronize.</source>
         <translation>Bu projenin bulutta güncellenmiş verileri var, senkronize olmalısınız.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="201"/>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>QFieldCloud, sizin için en son verileri paketliyor; bu biraz zaman alabilir, lütfen bekleyin</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="205"/>
         <source>Downloading, %1% of %2 fetched</source>
         <translation>İndiriliyor, %1% / %2 alındı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="207"/>
         <source>Downloading, %1% fetched</source>
         <translation>İndiriliyor, %1% alındı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="210"/>
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>QFieldCloud ile bağlantı kuruluyor, proje indiriliyor</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="526"/>
         <source>Automatically push changes every %n minute(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="533"/>
         <source>The current project does not allow for auto-push to be turned off</source>
         <translation>Mevcut proje, otomatik gönderimin kapatılmasına izin vermiyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="393"/>
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
         <translation>Projeleri QFieldCloud&apos;da saklamak, kesintisiz senkronizasyon, çevrimdışı düzenleme ve ekip yönetimi sunar.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="216"/>
         <source>Pushing changes, %1%…</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="218"/>
         <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="360"/>
         <source>Uploading the current project to QFieldCloud.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="360"/>
         <source>The current project is not stored on QFieldCloud.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="371"/>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="373"/>
         <source>Cloudifying project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="376"/>
         <source>Cloudify!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="736"/>
         <source>Uploading %1</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/QFieldCloudPopup.qml" line="738"/>
         <source>%n file(s) remaining</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
@@ -3693,39 +3076,30 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
 <context>
     <name>QFieldCloudProject</name>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="696"/>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
         <translation>Pakete alma işlemi başarısız oldu `%1`. %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="740"/>
         <source>Failed to refresh the latest info for `%1`: %2</source>
         <translation>Başarısız oldu en son bilgileri yenilemek için `%1`: %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="816"/>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="968"/>
         <source>Failed to get latest package data.</source>
         <translation>En son paket verilerini alma işlemi başarısız oldu.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="827"/>
         <source>Latest package data response error.</source>
         <translation>En son paket verileri yanıt hatası.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="847"/>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="945"/>
         <source>Latest package data structure error.</source>
         <translation>En son paket verileri yapı hatası.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="899"/>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
         <translation>Proje %1: Paketlenmiş katman `%2` geçerli değil. Hata kodu %3, hata mesajı: %4</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="507"/>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
         <translation>Geçici dosya açılamadı `%1`, sebep:
@@ -3740,107 +3114,86 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="1260"/>
         <source>Network error. Failed to download file `%1`.</source>
         <translation>Ağ hatası. Dosya `%1` indirilemedi.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="1331"/>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
         <translation>İndirilen dosyalardan bazılarını cihazınıza kopyalama işlemi başarısız oldu. Lütfen cihazınızdaki depolama alanını kontrol edin.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="1489"/>
         <source>Project `%1`, file `%2`: %3</source>
         <translation>Proje `%1`, dosya `%2`: %3</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="1490"/>
         <source>System message: </source>
         <translation> Sistem mesajı: </translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="1492"/>
         <source> (see more in the QField error log)…</source>
         <translation> (QField hata günlüğünde daha fazla bilgi için bakın)…</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="1788"/>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
         <translation>Görev oluşturma tamamlandı, ancak sunucu yanıtı gerekli alanları içermiyor: id(string)</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="1862"/>
         <source>Getting job status, but no `%2` job triggered yet.</source>
         <translation>Görev durumunu alırken, henüz `%2` görevi tetiklenmedi.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="1899"/>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
         <translation>job(%1) durum yanıtı beklenen tüm anahtarları içermiyor: durum(string)</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="1920"/>
         <source>Job(%1) finished with a failed status.</source>
         <translation>Job(%1) başarısız bir durumla tamamlandı.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="2010"/>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
         <translation>proje(%1) tetikleme yanıtı, beklenen tüm anahtarları içermiyor: ad(string), sahip(string), açıklama(string), kullanıcı_rolü(string), kamu(bool), yeniden_paketleme_yeteneği(bool), yeniden_paketleme_gereksinimi(bool)</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="2087"/>
         <source>aborted</source>
         <translation>iptal edildi</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="550"/>
         <source>File system error. Failed to write attachment to temporary location `%1`.</source>
         <translation>Dosya sistemi hatası. Geçici `%1` konumuna ek dosya yazma işlemi başarısız oldu.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="558"/>
         <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
         <translation>Dosya sistemi hatası. Geçici `%1` konumunda ek dosya yazma işlemi açılamadı.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="579"/>
         <source>Network error. Failed to download attachment `%1`.</source>
         <translation>Ağ hatası. Ek dosya `%1` indirilemedi.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="1178"/>
         <source>File system error. Failed to write to partial file `%1`.</source>
         <translation>Dosya sistemi hatası. Kısmi dosya `%1` yazma işlemi başarısız oldu.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="1187"/>
         <source>File system error. Failed to open partial file `%1`.</source>
         <translation>Dosya sistemi hatası. Kısmi dosya `%1` açma işlemi başarısız oldu.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="2275"/>
         <source>Local path doesn&apos;t exist</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="2291"/>
         <source>Local path to upload cannot be used as it has multiple project files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="2299"/>
         <source>Local path to upload is missing a valid project file</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="2367"/>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudproject.cpp" line="2423"/>
         <source>One or more files could not be uploaded</source>
         <translation type="unfinished"/>
     </message>
@@ -3848,64 +3201,50 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
 <context>
     <name>QFieldCloudProjectDetails</name>
     <message>
-        <location filename="../src/qml/QFieldCloudProjectDetails.qml" line="115"/>
         <source>Owner</source>
         <translation>Sahibi</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudProjectDetails.qml" line="139"/>
         <source>Creation date</source>
         <translation>Oluşturulma tarihi</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudProjectDetails.qml" line="163"/>
         <source>Latest update date</source>
         <translation>Son güncelleme tarihi</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudProjectDetails.qml" line="206"/>
         <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
         <translation>Bu QR kodu, bu projeyi indirmek ve açmak için uygun erişime sahip kullanıcılar tarafından taranabilir</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudProjectDetails.qml" line="231"/>
         <source>Synchronize</source>
         <translation>Senkranize Et</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudProjectDetails.qml" line="246"/>
         <source>Push changes</source>
         <translation>Değişiklikleri Gönder</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudProjectDetails.qml" line="263"/>
         <source>QFieldCloud is packaging project, hold tight</source>
         <translation>QFieldCloud, projeyi paketliyor, lütfen bekleyin</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudProjectDetails.qml" line="266"/>
-        <location filename="../src/qml/QFieldCloudProjectDetails.qml" line="268"/>
         <source>Downloading project</source>
         <translation>Proje indiriliyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudProjectDetails.qml" line="272"/>
         <source>Download project</source>
         <translation>Projeyi indir</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudProjectDetails.qml" line="279"/>
         <source>Downloading project %1</source>
         <translation>Proje %1 indiriliyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudProjectDetails.qml" line="288"/>
         <source>Open project</source>
         <translation>Projeyi aç</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudProjectDetails.qml" line="226"/>
-        <location filename="../src/qml/QFieldCloudProjectDetails.qml" line="228"/>
         <source>Synchronizing</source>
         <translation type="unfinished"/>
     </message>
@@ -3973,7 +3312,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="vanished">İş(%1) başarısız bir durumla tamamlandı.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudprojectsmodel.cpp" line="309"/>
         <source>Project busy.</source>
         <translation>Proje meşgul.</translation>
     </message>
@@ -4042,12 +3380,10 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="vanished">İndirilen dosyaların bazılarını cihazınıza kopyalamayı başaramadı. Cihaz depolamanızı kontrol edin.</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudprojectsmodel.cpp" line="956"/>
         <source>Project creation requires a name</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudprojectsmodel.cpp" line="1040"/>
         <source>Cloud project could not be created.</source>
         <translation type="unfinished"/>
     </message>
@@ -4055,32 +3391,26 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
 <context>
     <name>QFieldCloudScreen</name>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="23"/>
         <source>QFieldCloud Projects</source>
         <translation>QFieldCloud Projeleri</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="71"/>
         <source>Disconnected from the cloud.</source>
         <translation>Buluttan bağlantı kesildi.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="74"/>
         <source>Connecting to the cloud.</source>
         <translation>Buluta bağlanıyor.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="77"/>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
         <translation>Merhaba &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="195"/>
         <source>My Projects</source>
         <translation>Projelerim</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="195"/>
         <source>Community</source>
         <translation>Topluluk</translation>
     </message>
@@ -4097,22 +3427,18 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="vanished">QFieldCloud, sizin için en son verileri hazırlıyor. Bu biraz zaman alabilir, lütfen bekleyin…</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="407"/>
         <source>Uploading…</source>
         <translation>Yükleniyor…</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="416"/>
         <source>Downloading error. </source>
         <translation>İndirme hatası. </translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="419"/>
         <source>Uploading error. </source>
         <translation>Yükleme hatası. </translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="425"/>
         <source>Available locally, missing on the cloud</source>
         <translation>Yerel olarak mevcut, bulutta eksik</translation>
     </message>
@@ -4121,9 +3447,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="vanished">Bulutta mevcut, yerel olarak eksik</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="383"/>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="425"/>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="431"/>
         <source>Available locally</source>
         <translation>Yerel olarak mevcut</translation>
     </message>
@@ -4140,12 +3463,10 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="vanished">Projeyi İndir</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="690"/>
         <source>Open Project</source>
         <translation>Projeyi Aç</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="762"/>
         <source>Remove Stored Project</source>
         <translation>Kaydedilmiş Projeyi Kaldır</translation>
     </message>
@@ -4158,13 +3479,10 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="vanished">Ek eylemler menüsü için bir bulut projesinin üzerine basılı tutun.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="591"/>
         <source>Refresh projects list</source>
         <translation>Projeler listesini yenile</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="521"/>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="876"/>
         <source>Refreshing projects list</source>
         <translation>Projeler listesi yenileniyor</translation>
     </message>
@@ -4173,97 +3491,78 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="vanished">Hiç proje bulunamadı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="677"/>
         <source>Project Actions</source>
         <translation>Proje Eylemleri</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="433"/>
         <source>, updated data available on the cloud</source>
         <translation>, bulutta güncellenmiş veriler mevcut</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="393"/>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>QFieldCloud, sizin için en son verileri paketliyor; bu biraz zaman alabilir, lütfen bekleyin</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="397"/>
         <source>Downloading, %1% of %2 fetched</source>
         <translation>İndiriliyor, %1% / %2 alındı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="399"/>
         <source>Downloading, %1% fetched</source>
         <translation>İndiriliyor, %1% alındı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="402"/>
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>Proje indirmek için QFieldCloud ile iletişime geçiliyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="521"/>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
         <translation>Hiç bulut projesi bulunamadı. Başlamak için %1belgeyi okuyun%2.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="204"/>
         <source>Search for project</source>
         <translation>Proje ara</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="634"/>
         <source>Sign out</source>
         <translation>Çıkış yap</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="634"/>
         <source>Sign in</source>
         <translation>Oturum aç</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="654"/>
         <source>Show invalid projects</source>
         <translation>Geçersiz projeleri göster</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="428"/>
         <source>Available on the cloud</source>
         <translation>Bulutta mevcut</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="440"/>
         <source>, has changes locally</source>
         <translation>, yerel olarak değişiklikler var</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="780"/>
         <source>View Project Details</source>
         <translation>Proje Detaylarını Görüntüle</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="863"/>
         <source>QFieldCloud project details fetching failed</source>
         <translation>QFieldCloud proje detayları alınamadı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="794"/>
         <source>View Project Folder</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="809"/>
         <source>Are you sure you want to remove `%1`?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="711"/>
         <source>Synchronize</source>
         <translation>Senkranize Et</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldCloudScreen.qml" line="736"/>
         <source>Push changes</source>
         <translation>Değişiklikleri Gönder</translation>
     </message>
@@ -4271,12 +3570,10 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
 <context>
     <name>QFieldCloudService</name>
     <message>
-        <location filename="../src/service/qfieldcloudservice.cpp" line="39"/>
         <source>Uploading %1</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location filename="../src/service/qfieldcloudservice.cpp" line="42"/>
         <source>%n file(s) remaining</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
@@ -4284,17 +3581,14 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
 <context>
     <name>QFieldCloudUtils</name>
     <message>
-        <location filename="../src/core/utils/qfieldcloudutils.cpp" line="102"/>
         <source>A server error has occured, please try again.</source>
         <translation>Bir sunucu hatası oluştu, lütfen tekrar deneyin.</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/qfieldcloudutils.cpp" line="102"/>
         <source>A network error has occured, please try again.</source>
         <translation>Bir ağ hatası oluştu, lütfen tekrar deneyin.</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/qfieldcloudutils.cpp" line="106"/>
         <source>Your account&apos;s available storage is full.</source>
         <translation>Hesabınızdaki kullanılabilir depolama alanı doludur.</translation>
     </message>
@@ -4302,17 +3596,14 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
 <context>
     <name>QFieldGuide</name>
     <message>
-        <location filename="../src/qml/QFieldGuide.qml" line="19"/>
         <source>Finish</source>
         <translation>Bitir</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldGuide.qml" line="20"/>
         <source>Next</source>
         <translation>İleri</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldGuide.qml" line="21"/>
         <source>Previous</source>
         <translation>Geri</translation>
     </message>
@@ -4320,128 +3611,54 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
 <context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="32"/>
         <source>Project Folder</source>
         <translation>Proje Klasörü</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="32"/>
         <source>Local Projects &amp; Datasets</source>
         <translation>Yerel Projeler ve Veri Setleri</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="143"/>
         <source>Folders</source>
         <translation>Klasörler</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="145"/>
         <source>Projects</source>
         <translation>Projeler</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="147"/>
         <source>Datasets</source>
         <translation>Veri Setleri</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="149"/>
-        <source>Files</source>
-        <translation>Dosyalar</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="151"/>
         <source>Favorites</source>
         <translation>Favoriler</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="264"/>
         <source>Project file</source>
         <translation>Proje dosyası</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="267"/>
         <source>Vector dataset</source>
         <translation>Vektör veri seti</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="270"/>
         <source>Raster dataset</source>
         <translation>Raster veri seti</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="383"/>
-        <source>Home</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="463"/>
-        <source>Item Actions</source>
-        <translation>Öğe Eylemleri</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="480"/>
-        <source>View file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="497"/>
         <source>Send to...</source>
         <translation>Gönder...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="513"/>
-        <source>Push to QFieldCloud</source>
-        <translation>QFieldCloud&apos;a Gönder</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="531"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="575"/>
         <source>Export to folder...</source>
         <translation>Klasöre Dışa Aktar...</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="548"/>
-        <source>Add to favorites</source>
-        <translation>Favorilere ekle</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="548"/>
-        <source>Remove from favorites</source>
-        <translation>Favorilerden kaldır</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="607"/>
-        <source>Upload folder to WebDAV server</source>
-        <translation>WebDAV sunucusuna klasör yükle</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="625"/>
-        <source>Download folder from WebDAV server</source>
-        <translation>WebDAV sunucusundan klasör indir</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="650"/>
-        <source>Delete file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="667"/>
         <source>Remove dataset</source>
         <translation>Veri setini kaldır</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="684"/>
-        <source>Remove folder</source>
-        <translation>Klasörü kaldır</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="695"/>
-        <source>Import Actions</source>
-        <translation>İçe Aktarma Eylemleri</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="591"/>
         <source>Send compressed folder to...</source>
         <translation>Sıkıştırılmış klasörü gönder...</translation>
     </message>
@@ -4450,226 +3667,226 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="vanished">Proje klasörünü kaldır</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="711"/>
         <source>Import project from folder</source>
         <translation>Klasörden proje içe aktar</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="727"/>
         <source>Import project from ZIP</source>
         <translation>ZIP dosyasından proje içe aktar</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="743"/>
         <source>Import dataset(s)</source>
         <translation>Veri seti(ler)ini içe aktar</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="764"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1014"/>
-        <source>Import URL</source>
-        <translation>İçe Aktarma URL&apos;si</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="779"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1230"/>
-        <source>Import WebDAV folder</source>
-        <translation>WebDAV klasörünü içe aktar</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="798"/>
         <source>Storage management help</source>
         <translation>Depolama yönetimi yardımı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="808"/>
-        <source>Project Actions</source>
-        <translation>Proje Eylemleri</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="824"/>
-        <source>Update project from ZIP</source>
-        <translation>ZIP dosyasından projeyi güncelle</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="840"/>
-        <source>Upload project to WebDAV</source>
-        <translation>Projeyi WebDAV&apos;a yükle</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="858"/>
-        <source>Download project from WebDAV</source>
-        <translation>Projeyi WebDAV&apos;dan indir</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="885"/>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>WebDAV&apos;a dosya(lar) yükle</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="909"/>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>QFieldCloud&apos;a dosya(lar) gönder</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="923"/>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Lütfen QFieldCloud&apos;a göndermek için bir veya daha fazla dosya seçin.</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="939"/>
-        <source>Delete file(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="965"/>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>‘%1’ QFieldCloud&apos;a yükleniyor</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="969"/>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="978"/>
-        <source>Remove File(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="985"/>
-        <source>Are you sure you want to remove %n files?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="999"/>
-        <source>%n file(s) deleted successfully</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1001"/>
-        <source>Failed to delete %n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1036"/>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Aşağıya bir URL girin ve projeyi veya veri setini indirin ve içe aktarın:</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1064"/>
-        <source>Importing WebDAV folder</source>
-        <translation>WebDAV klasörü içe aktarılıyor</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1074"/>
-        <source>Downloading WebDAV folder</source>
-        <translation>WebDAV klasörü indiriliyor</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1088"/>
-        <source>Uploading WebDAV folder</source>
-        <translation>WebDAV klasörü yükleniyor</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1104"/>
-        <source>WebDAV error: </source>
-        <translation>WebDAV hatası: </translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1131"/>
-        <source>WebDAV upload</source>
-        <translation>WebDAV yüklemesi</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1131"/>
-        <source>WebDAV download</source>
-        <translation>WebDAV indirmesi</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1160"/>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>Değiştirilmiş içeriği &lt;b&gt;%1&lt;/b&gt; konumuna yüklemek üzeresiniz. Kullanıcı: &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Bu işlem, uzakta depolanan verileri üzerine yazacaktır, lütfen bunu yapmak istediğinizden emin olun.</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1160"/>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>Değiştirilmiş içeriği &lt;b&gt;%1&lt;/b&gt; konumundan indirmek üzeresiniz. Kullanıcı: &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Bu işlem, yerel olarak depolanan verileri üzerine yazacaktır, lütfen bunu yapmak istediğinizden emin olun.</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1171"/>
         <source>Password</source>
         <translation>Parola</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1171"/>
+        <source>Files</source>
+        <translation>Dosyalar</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation>Öğe Eylemleri</translation>
+    </message>
+    <message>
+        <source>View file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation>QFieldCloud&apos;a Gönder</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Favorilere ekle</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>Favorilerden kaldır</translation>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation>WebDAV sunucusuna klasör yükle</translation>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation>WebDAV sunucusundan klasör indir</translation>
+    </message>
+    <message>
+        <source>Delete file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove folder</source>
+        <translation>Klasörü kaldır</translation>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation>İçe Aktarma Eylemleri</translation>
+    </message>
+    <message>
+        <source>Import URL</source>
+        <translation>İçe Aktarma URL&apos;si</translation>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation>WebDAV klasörünü içe aktar</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Proje Eylemleri</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation>ZIP dosyasından projeyi güncelle</translation>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation>Projeyi WebDAV&apos;a yükle</translation>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation>Projeyi WebDAV&apos;dan indir</translation>
+    </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation>WebDAV&apos;a dosya(lar) yükle</translation>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation>QFieldCloud&apos;a dosya(lar) gönder</translation>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation>Lütfen QFieldCloud&apos;a göndermek için bir veya daha fazla dosya seçin.</translation>
+    </message>
+    <message>
+        <source>Delete file(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation>‘%1’ QFieldCloud&apos;a yükleniyor</translation>
+    </message>
+    <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove File(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Are you sure you want to remove %n files?</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) deleted successfully</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to delete %n file(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and import the project or dataset:</source>
+        <translation>Aşağıya bir URL girin ve projeyi veya veri setini indirin ve içe aktarın:</translation>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation>WebDAV klasörü içe aktarılıyor</translation>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation>WebDAV klasörü indiriliyor</translation>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation>WebDAV klasörü yükleniyor</translation>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation>WebDAV hatası: </translation>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation>WebDAV yüklemesi</translation>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation>WebDAV indirmesi</translation>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation>Değiştirilmiş içeriği &lt;b&gt;%1&lt;/b&gt; konumuna yüklemek üzeresiniz. Kullanıcı: &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Bu işlem, uzakta depolanan verileri üzerine yazacaktır, lütfen bunu yapmak istediğinizden emin olun.</translation>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation>Değiştirilmiş içeriği &lt;b&gt;%1&lt;/b&gt; konumundan indirmek üzeresiniz. Kullanıcı: &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Bu işlem, yerel olarak depolanan verileri üzerine yazacaktır, lütfen bunu yapmak istediğinizden emin olun.</translation>
+    </message>
+    <message>
         <source>Password (leave empty to use remembered)</source>
         <translation>Parola (hatırlananı kullanmak için boş bırakın)</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1209"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1426"/>
         <source>Remember password</source>
         <translation>Parolayı hatırla</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1284"/>
         <source>Type the WebDAV details below to import a remote folder:</source>
         <translation>Aşağıya WebDAV bilgilerini girin ve uzak bir klasörü içe aktarın:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1293"/>
         <source>WebDAV server URL</source>
         <translation>WebDAV sunucu URL&apos;si</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1341"/>
         <source>User and password</source>
         <translation>Kullanıcı ve parola</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1387"/>
         <source>leave empty to use remembered</source>
         <translation>Hatırlananı kullanmak için boş bırakın</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1436"/>
         <source>Fetching remote folders</source>
         <translation>Uzak klasörler alınıyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1436"/>
         <source>Fetch remote folders</source>
         <translation>Uzak klasörleri al</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1462"/>
         <source>Select the remote folder to import:</source>
         <translation>İçe aktarılacak uzak klasörü seçin:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1608"/>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1643"/>
         <source>root folder</source>
         <translation>kök dizin</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1619"/>
         <source>Available locally in ‘%1’</source>
         <translation>‘%1’ konumunda yerel olarak mevcut</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1661"/>
         <source>Imported folder name</source>
         <translation>İçe aktarılan klasör adı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1688"/>
         <source>Confirm</source>
         <translation>Onayla</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldLocalDataPickerScreen.qml" line="1709"/>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
         <translation>Kaydedilmiş bir WebDAV öğesini kaldırmak üzeresiniz, devam etmek istiyor musunuz?</translation>
     </message>
@@ -4677,17 +3894,14 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
 <context>
     <name>QFieldPositioningService</name>
     <message>
-        <location filename="../src/service/qfieldpositioningservice.cpp" line="97"/>
         <source>Positioning service running</source>
         <translation>Konumlandırma servisi çalışıyor</translation>
     </message>
     <message>
-        <location filename="../src/service/qfieldpositioningservice.cpp" line="88"/>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
         <translation>Enlem %1 | Boylam %2 | Yükseklik %3 m | Hız %4 m/s | Yön %5°</translation>
     </message>
     <message>
-        <location filename="../src/service/qfieldpositioningservice.cpp" line="106"/>
         <source>Positioning service stopped</source>
         <translation>Konumlandırma servisi durduruldu</translation>
     </message>
@@ -4695,7 +3909,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
 <context>
     <name>QFieldSettings</name>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="98"/>
         <source>Show scale bar</source>
         <translation>Ölçek çubuğunu göster</translation>
     </message>
@@ -4704,42 +3917,34 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="vanished">Maksimum öznitelik formu</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="175"/>
         <source>Fixed scale navigation</source>
         <translation>Düzeltilmiş ölçek navigasyonu</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="176"/>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
         <translation>Düzeltilmiş ölçek navigasyonu aktif olduğunda, arama sonucuna odaklanır. Düzeltilmiş ölçek navigasyonu aktif olmadığından, ilgili kayıda yakınlaşılır da.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="126"/>
         <source>Show digitizing information</source>
         <translation>Sayısallaştırma bilgisini gösterin.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="127"/>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
         <translation>Açıldığında, yeni objeler sayısallaştırılırken veya ölçme aracı kullanılırken enlem ve boylam gibi koordinat bilgileri haritanın üzerine yerleştirilir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="110"/>
         <source>Show bookmarks</source>
         <translation>Yer imlerini göster</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="111"/>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
         <translation>Aktif olduğunda, kullanıcının kaydedilmiş ve şu anda açık olan proje yer imleri haritada görüntülenecektir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="197"/>
         <source>Use native camera</source>
         <translation>Cihaz kamerasını kullan</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="198"/>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
         <translation>Devre dışı bırakılırsa, QField cihazdaki kamera uygulaması yerine minimalist bir dahili kamera kullanır.&lt;br&gt;İpucu: Bu seçeneği etkinleştirin ve coğrafi etiketli fotoğraflar oluşturmak için açık kamera uygulamasını yükleyin.</translation>
     </message>
@@ -4752,7 +3957,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="vanished">Etkinleştirilirse, obje geçerli bir geometriye sahip olduktan sonra saklanır ve kısıtlamalar yerine getirilir ve öznitelikler hemen uygulanır.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="556"/>
         <source>Dim screen when idling</source>
         <translation>Ekranı boşta iken karart</translation>
     </message>
@@ -4761,7 +3965,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="vanished">Etkinleştirildiğinde, ekran parlaklığı 20 saniye boyunca etkinlik olmadığında azaltılacaktır.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="144"/>
         <source>Consider mouse as a touchscreen device</source>
         <translation>Fareyi bir dokunmatik ekran cihazı olarak düşünün</translation>
     </message>
@@ -4770,32 +3973,26 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="vanished">Devre dışı bırakılırsa, fare dijital bir kalem görevi görür.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="203"/>
         <source>Send anonymized metrics</source>
         <translation>Anonimleştirilmiş metrikleri gönder</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="204"/>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
         <translation>Etkinleştirildiğinde, anonimleştirilmiş metrikler toplanacak ve QField&apos;ı herkes için geliştirmeye yardımcı olmak üzere gönderilecektir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="237"/>
         <source>General</source>
         <translation>Genel</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="237"/>
         <source>Positioning</source>
         <translation>Konumlandırma</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="237"/>
         <source>Variables</source>
         <translation>Değişkenler</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="470"/>
         <source>Customize search bar</source>
         <translation>Arama çubuğunu özelleştir</translation>
     </message>
@@ -4804,22 +4001,18 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="vanished">Arayüz dili:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="723"/>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
         <translation>Seçilen arayüz dilini uygulamak için QField&apos;ın tamamen kapanması ve yeniden başlatılması gerekir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="755"/>
         <source>system</source>
         <translation>sistem</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="766"/>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
         <translation>Eksik veya tamamlanmamış bir dil mi buldunuz? %1Çevirmen topluluğuna katılın.%2</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="847"/>
         <source>Positioning device in use:</source>
         <translation>Konumlandırma cihazı kullanımda:</translation>
     </message>
@@ -4858,7 +4051,6 @@ Cancel to make a minimal device scan instead.</source>
 Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1016"/>
         <source>Connected to %1</source>
         <translation>%1&apos;e bağlandı</translation>
     </message>
@@ -4867,7 +4059,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">%1&apos;e bağlan</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1020"/>
         <source>Connecting to %1</source>
         <translation>%1&apos;e bağlanılıyor</translation>
     </message>
@@ -4876,12 +4067,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Cihazdan ortometrik yüksekliği kullan</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1045"/>
         <source>Show position information</source>
         <translation>Konum bilgisi göster</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1122"/>
         <source>Activate accuracy indicator</source>
         <translation>Doğruluk göstergesini etkinleştirin</translation>
     </message>
@@ -4902,32 +4091,26 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Doğruluk göstergesi etkinleştirildiğinde, konum düğmesine bir rozet eklenir ve doğruluk değeri kötü değerin altındaysa &lt;span %1&gt;kırmızı&lt;/span&gt; mükemmelden düşükse, &lt;span %2&gt;sarı&lt;/span&gt; veya &lt;span %3&gt;yeşil&lt;/span&gt; renkte olur.&lt;br&gt;&lt;br&gt;Ayrıca, bir doğruluk kısıtlama modu da açılıp kapatılabilir. İmleci hatalı eşiğin üzerinde bir doğruluk değerine sahip konumlara koordine etmek için kilitlendiğinde köşe eklemesini kısıtlar.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1267"/>
         <source>Enable averaged positioning requirement</source>
         <translation>Averaj konumlandırma gereksinimini etkinleştir</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1290"/>
         <source>Minimum number of positions collected</source>
         <translation>Toplanan minimum konum sayısı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1327"/>
         <source>Automatically end collection when minimum number is met</source>
         <translation>Minimum sayıya ulaşıldığında toplama işlemini otomatik olarak sonlandır</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1355"/>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
         <translation>Etkinleştirildiğinde, konum kilitlenmiş bir imleç ile köşe dijitalleştirme yalnızca toplanan minimum konum sayısından bir ortalama konum kabul edecektir. Ortalama konumlar kullanılarak dijitalleştirme, ekle düğmesine basılı tutularak yapılır ve bu, basılı tutma işlemi bırakılana kadar konumları toplar. Doğruluk gereksinimi ayarları etkinleştirildiğinde dikkate alınır.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1369"/>
         <source>Antenna height compensation</source>
         <translation>Anten yükseklik telafisi</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1392"/>
         <source>Antenna height [m]</source>
         <translation>Anten yüksekliği [m]</translation>
     </message>
@@ -4936,317 +4119,254 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Konumlandırma cihazından kaydedilen Z değerleri bu değer ile düzeltilecektir. 1.6 değeri girilirse, bu kaydedilen her değer için -1.6 düzeltme ile sonuçlanacaktır.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1444"/>
         <source>Skip altitude correction</source>
         <translation>Yükseklik düzeltmesini atlayın.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1468"/>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
         <translation>Yüksekliği, konumlandırma cihazının bildirdiği şekilde kullanın. Koordinat sistemi dönüşümünün gerektirebileceği herhangi bir yükseklik düzeltmesini atlayın.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1482"/>
         <source>Vertical grid shift in use:</source>
         <translation>Kullanımda dikey grid kaydırması:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1527"/>
         <source>None</source>
         <translation>Yok</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1574"/>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
         <translation>Yükseklik doğruluğunu artırmak için dikey grid kaydırması kullanılır.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1652"/>
         <source>QField Settings</source>
         <translation>QField Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="580"/>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
         <translation>Ekran parlaklığının pil ömrünü korumak için kısılmadan önceki hareketsizlik süresi (saniye cinsinden).</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1071"/>
         <source>Measure (M) value attached to vertices:</source>
         <translation>Vertex&apos;lere eklenen Ölçü (M) değeri:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1092"/>
         <source>Timestamp (milliseconds since epoch)</source>
         <translation>Zaman damgası (epoch&apos;tan itibaren milisaniye)</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1092"/>
         <source>Ground speed</source>
         <translation>Yer hızı</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1092"/>
         <source>Bearing</source>
         <translation>Yön</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1092"/>
         <source>Horizontal accuracy</source>
         <translation>Yatay doğruluk</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1092"/>
         <source>Vertical accuracy</source>
         <translation>Dikey doğruluk</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1092"/>
         <source>PDOP</source>
         <translation>PDOP</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1092"/>
         <source>HDOP</source>
         <translation>HDOP</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1092"/>
         <source>VDOP</source>
         <translation>VDOP</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1108"/>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
         <translation>Koordinat imleci mevcut konuma kilitlendiğinde özellikleri dijitalleştirirken, yukarıda seçilen ölçüm türü, M boyutu varsa geometriye eklenecektir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="962"/>
         <source>Add</source>
         <translation>Eklemek</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="979"/>
         <source>Edit</source>
         <translation>Düzenlemek</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="996"/>
         <source>Remove</source>
         <translation>Çıkarmak</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1018"/>
         <source>Connect to %1</source>
         <translation>%1&apos;e bağlan</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="621"/>
         <source>Follow system appearance</source>
         <translation>Sistem görünümünü takip et</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="625"/>
         <source>Light theme</source>
         <translation>Açık tema</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="629"/>
         <source>Dark theme</source>
         <translation>Koyu tema</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="674"/>
         <source>Tiny</source>
         <translation>Minik</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="678"/>
         <source>Normal</source>
         <translation>Normal</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="682"/>
         <source>Large</source>
         <translation>Büyük</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="686"/>
         <source>Extra-large</source>
         <translation>Ekstra büyük</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1584"/>
         <source>Log NMEA sentences from device to file</source>
         <translation>Aygıttan dosyaya NMEA cümlelerini kaydet</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="364"/>
         <source>Map canvas rendering quality:</source>
         <translation>Harita tuvali işleme kalitesi:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="385"/>
         <source>Best quality</source>
         <translation>En iyi kalite</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="389"/>
         <source>Lower quality</source>
         <translation>Daha düşük kalite</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="393"/>
         <source>Lowest quality</source>
         <translation>En düşük kalite</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="415"/>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
         <translation>Daha düşük bir kalite, daha düşük bellek kullanımı ve işleme süresi lehine işleme hassasiyetinden feragat eder.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1430"/>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
         <translation>Bu değer, konumlandırma cihazından kaydedilen Z değerlerini düzeltecektir. 1.6 değeri girilirse, QField otomatik olarak her kaydedilen değerden 1.6 çıkaracaktır. Etkili anten yüksekliğini, yani direk uzunluğu + anten faz merkezi ofsetini girdiğinizden emin olun.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1532"/>
         <source>Orthometric from device</source>
         <translation>Aygıttan ortometrik</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="132"/>
         <source>Use volume keys to digitize</source>
         <translation>Sayısallaştırma için ses tuşlarını kullan</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="133"/>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
         <translation>Etkinleştirildiğinde, cihazın ses açma tuşuna basmak bir köşe eklerken, ses kısma tuşuna basmak sayısallaştırma oturumları sırasında son girilen köşeyi kaldıracaktır.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="138"/>
         <source>Allow finger tap on canvas to add vertices</source>
         <translation>Tuval üzerinde parmakla dokunarak köşe eklemeye izin ver</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="139"/>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
         <translation>Etkinleştirildiğinde, harita tuvaline parmakla dokunmak, dokunulan konumda bir köşe ekleyecektir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="145"/>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>Etkinleştirildiğinde, fare parmak gibi davranacaktır. Devre dışı bırakıldığında, fare kalem davranışını yansıtacaktır.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="331"/>
         <source>Map Canvas</source>
         <translation>Harita Tuvali</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="429"/>
         <source>Digitizing &amp; Editing</source>
         <translation>Sayısallaştırma ve Düzenleme</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="460"/>
         <source>User Interface</source>
         <translation>Kullanıcı Arayüzü</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="601"/>
         <source>Appearance:</source>
         <translation>Görünüm:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="654"/>
         <source>Font size:</source>
         <translation>Yazı tipi boyutu:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="711"/>
         <source>Language:</source>
         <translation>Dil:</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="789"/>
         <source>Advanced</source>
         <translation>Gelişmiş</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="501"/>
         <source>Manage plugins</source>
         <translation>Eklentileri yönet</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="116"/>
         <source>Enable map rotation</source>
         <translation>Harita döndürmeyi etkinleştir</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="117"/>
         <source>When switched on, the map can be rotated by the user.</source>
         <translation>Etkinleştirildiğinde, harita kullanıcı tarafından döndürülebilir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1145"/>
         <source>Bad accuracy threshold [m]</source>
         <translation>Kötü doğruluk eşiği [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1182"/>
         <source>Excellent accuracy threshold [m]</source>
         <translation>Harika doğruluk eşiği [m]</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1219"/>
         <source>Enforce accuracy requirement</source>
         <translation>Doğruluk gereksinimini zorla</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="1247"/>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
         <translation>Doğruluk göstergesi etkinleştirildiğinde, konum düğmesine bir rozet eklenir ve doğruluk değeri &lt;i&gt;kötü&lt;/i&gt; değerinden daha kötü ise &lt;span %1&gt;kırmızı&lt;/span&gt; renkte, &lt;i&gt;harika&lt;/i&gt; değerinden daha düşükse &lt;span %2&gt;sarı&lt;/span&gt; renkte veya &lt;span %3&gt;yeşil&lt;/span&gt; renkte olur.&lt;br&gt;&lt;br&gt;Ayrıca, doğruluk kısıtlama modu açılabilir, bu da koordinat imlecine kilitlendiğinde köşe eklemeyi kötü eşik değerinden daha kötü bir doğruluk değerine sahip konumlarla sınırlar.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="185"/>
         <source>Render preview content around visible map canvas</source>
         <translation>Görünür harita tuvali etrafında önizleme içeriğini işleyin</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="170"/>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
         <translation>Etkinleştirildiğinde, yalnızca bir özellik tanımlandığında özellik formu otomatik olarak açılacaktır; bu, özellik listesinin atlanması anlamına gelir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="104"/>
         <source>Show zoom controls</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="163"/>
         <source>Maximize feature form</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="169"/>
         <source>Open feature form for single feature identification</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="186"/>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="191"/>
         <source>Enable auto-save mode</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/QFieldSettings.qml" line="192"/>
         <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
         <translation type="unfinished"/>
     </message>
@@ -5254,7 +4374,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>QFieldSketcher</name>
     <message>
-        <location filename="../src/qml/QFieldSketcher.qml" line="226"/>
         <source>Select drawing template</source>
         <translation>Çizim şablonunu seç</translation>
     </message>
@@ -5262,167 +4381,134 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/core/digitizinglogger.cpp" line="176"/>
         <source>Digitizing Logger</source>
         <translation>Sayısallaştırma Günlüğü</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldappauthrequesthandler.cpp" line="184"/>
         <source>Authentication required</source>
         <translation>Doğrulama gerekli</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="67"/>
         <source>QFieldCloud Unknown Error</source>
         <translation>QFieldCloud Bilinmeyen Hata</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="68"/>
         <source>Status not ok</source>
         <translation>Durum uygun değil</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="69"/>
         <source>Empty content</source>
         <translation>Boş içerik</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="70"/>
         <source>Object not found</source>
         <translation>Öğe bulunamadı</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="71"/>
         <source>API Error</source>
         <translation>API Hatası</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="72"/>
         <source>Validation Error</source>
         <translation>Doğrulama Hatası</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="73"/>
         <source>Multiple Projects</source>
         <translation>Birden Fazla Proje</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="74"/>
         <source>Invalid delta file</source>
         <translation>Geçersiz delta dosyası</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="75"/>
         <source>The project does not contain a valid QGIS project file</source>
         <translation>Proje geçerli bir QGIS proje dosyası içermiyor</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="76"/>
         <source>Invalid job</source>
         <translation>Geçersiz iş</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="77"/>
         <source>QGIS export failed</source>
         <translation>QGIS dışa aktarma başarısız oldu</translation>
     </message>
     <message>
-        <location filename="../src/core/qfieldcloud/qfieldcloudconnection.cpp" line="78"/>
         <source>QGIS is unable to open the QGIS project</source>
         <translation>QGIS proje dosyasını açamıyor</translation>
     </message>
     <message>
-        <location filename="../src/core/qgsgpkgflusher.cpp" line="154"/>
         <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
         <translation>Veritabanı açılırken hata oluştu &lt;b&gt;%1&lt;/b&gt;: %2</translation>
     </message>
     <message>
-        <location filename="../src/core/qgsgpkgflusher.cpp" line="169"/>
         <source>Could not flush database %1 (%3) </source>
         <translation>Veritabanı temizlenemedi %1 (%3) </translation>
     </message>
     <message>
-        <location filename="../src/core/utils/expressioncontextutils.cpp" line="43"/>
         <source>Position</source>
         <translation>Konum</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/expressioncontextutils.cpp" line="79"/>
         <source>Map Tool Capture</source>
         <translation>Harita Yakalama Aracı </translation>
     </message>
     <message>
-        <location filename="../src/core/utils/expressioncontextutils.cpp" line="100"/>
         <source>Cloud User Info</source>
         <translation>Bulut Kullanıcı Bilgisi</translation>
     </message>
     <message>
-        <location filename="../src/core/platforms/android/androidplatformutilities.cpp" line="102"/>
         <source>Please wait while QField installation finalizes.</source>
         <translation>Lütfen QField kurulumu tamamlanırken bekleyin.</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/positioningutils.cpp" line="97"/>
         <source>averaged</source>
         <translation>ortalama alındı</translation>
     </message>
     <message>
-        <location filename="../src/core/navigation.cpp" line="221"/>
         <source>centroid</source>
         <translation>merkez</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/fileutils.cpp" line="748"/>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
         <translation>Hata zip dosyası mevcut değil: &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/fileutils.cpp" line="753"/>
         <source>Error zip filename is empty</source>
         <translation>Hata zip dosyası adı boş</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/fileutils.cpp" line="758"/>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
         <translation>Hata çıktı dizini mevcut değil: &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/fileutils.cpp" line="763"/>
         <source>Error output dir is not a directory: &apos;%1&apos;</source>
         <translation>Hata çıktı dizini bir dizin değil: &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/fileutils.cpp" line="768"/>
         <source>Error output dir is not writable: &apos;%1&apos;</source>
         <translation>Hata çıktı dizini yazılabilir değil: &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/fileutils.cpp" line="802"/>
         <source>Skipped file %1 outside of the directory %2</source>
         <translation>Dosya %1 dizin %2 dışında atlandı</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/fileutils.cpp" line="810"/>
         <source>Failed to create a subdirectory %1/%2</source>
         <translation>Alt dizin %1/%2 oluşturulamadı</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/fileutils.cpp" line="816"/>
         <source>Could not write to %1</source>
         <translation>Dosyaya yazılamadı %1</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/fileutils.cpp" line="828"/>
         <source>Error reading file: &apos;%1&apos;</source>
         <translation>Dosya okunurken hata oluştu: &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/fileutils.cpp" line="836"/>
         <source>Error getting files: &apos;%1&apos;</source>
         <translation>Dosyalar alınırken hata oluştu: &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/core/utils/fileutils.cpp" line="844"/>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
         <translation>Zip arşivi açılamadı: &apos;%1&apos; (Hata kodu: %2)</translation>
     </message>
@@ -5430,7 +4516,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>QfActionButton</name>
     <message>
-        <location filename="../src/qml/imports/Theme/QfActionButton.qml" line="14"/>
         <source>close</source>
         <translation>kapat</translation>
     </message>
@@ -5454,62 +4539,50 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/imports/Theme/QfCalendarPanel.qml" line="70"/>
         <source>January</source>
         <translation>Ocak</translation>
     </message>
     <message>
-        <location filename="../src/qml/imports/Theme/QfCalendarPanel.qml" line="70"/>
         <source>February</source>
         <translation>Şubat</translation>
     </message>
     <message>
-        <location filename="../src/qml/imports/Theme/QfCalendarPanel.qml" line="70"/>
         <source>March</source>
         <translation>Mart</translation>
     </message>
     <message>
-        <location filename="../src/qml/imports/Theme/QfCalendarPanel.qml" line="70"/>
         <source>April</source>
         <translation>Nisan</translation>
     </message>
     <message>
-        <location filename="../src/qml/imports/Theme/QfCalendarPanel.qml" line="70"/>
         <source>May</source>
         <translation>Mayıs</translation>
     </message>
     <message>
-        <location filename="../src/qml/imports/Theme/QfCalendarPanel.qml" line="70"/>
         <source>June</source>
         <translation>Haziran</translation>
     </message>
     <message>
-        <location filename="../src/qml/imports/Theme/QfCalendarPanel.qml" line="70"/>
         <source>July</source>
         <translation>Temmuz</translation>
     </message>
     <message>
-        <location filename="../src/qml/imports/Theme/QfCalendarPanel.qml" line="70"/>
         <source>August</source>
         <translation>Ağustos</translation>
     </message>
     <message>
-        <location filename="../src/qml/imports/Theme/QfCalendarPanel.qml" line="70"/>
         <source>September</source>
         <translation>Eylül</translation>
     </message>
     <message>
-        <location filename="../src/qml/imports/Theme/QfCalendarPanel.qml" line="70"/>
         <source>October</source>
         <translation>Ekimin</translation>
     </message>
     <message>
-        <location filename="../src/qml/imports/Theme/QfCalendarPanel.qml" line="70"/>
         <source>November</source>
         <translation>Kasım</translation>
     </message>
     <message>
-        <location filename="../src/qml/imports/Theme/QfCalendarPanel.qml" line="70"/>
         <source>December</source>
         <translation>Aralık</translation>
     </message>
@@ -5524,7 +4597,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>QfSearchBar</name>
     <message>
-        <location filename="../src/qml/imports/Theme/QfSearchBar.qml" line="13"/>
         <source>Search</source>
         <translation>Arama</translation>
     </message>
@@ -5532,17 +4604,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>QfTimeItem</name>
     <message>
-        <location filename="../src/qml/imports/Theme/QfTimeItem.qml" line="19"/>
         <source>Hours</source>
         <translation>Saat</translation>
     </message>
     <message>
-        <location filename="../src/qml/imports/Theme/QfTimeItem.qml" line="26"/>
         <source>Minutes</source>
         <translation>Dakika</translation>
     </message>
     <message>
-        <location filename="../src/qml/imports/Theme/QfTimeItem.qml" line="35"/>
         <source>Seconds</source>
         <translation>Saniye</translation>
     </message>
@@ -5554,7 +4623,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">&quot;%1&quot; proje dosyası mevcut değil</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="787"/>
         <source>No project file currently opened</source>
         <translation>Şu anda açık proje dosyası yok</translation>
     </message>
@@ -5567,28 +4635,22 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Font yükleniyor %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="1215"/>
         <source>Project Plugin</source>
         <translation>Proje Eklentisi</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="274"/>
-        <location filename="../src/core/qgismobileapp.cpp" line="823"/>
         <source>Could not load font: %1</source>
         <translation>Font yüklenemedi: %1</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="759"/>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
         <translation>Proje yüklenemedi, dosya &quot;%1&quot; mevcut değil</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="796"/>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
         <translation>Proje okunamıyor, dosya &quot;%1&quot; mevcut değil</translation>
     </message>
     <message>
-        <location filename="../src/core/qgismobileapp.cpp" line="1275"/>
         <source>Map printed on %1 using QField</source>
         <translation>%1 üzerinde QField kullanılarak harita yazdırıldı</translation>
     </message>
@@ -5596,57 +4658,46 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>QgsGpsInformation</name>
     <message>
-        <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="139"/>
         <source>Simulation mode</source>
         <translation>Simülasyon modu</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="142"/>
         <source>Manual input mode</source>
         <translation>Manuel giriş modu</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="145"/>
         <source>Estimated</source>
         <translation>Tahmini</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="148"/>
         <source>Float RTK</source>
         <translation>Float RTK</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="151"/>
         <source>Fixed RTK</source>
         <translation>Sabit RTK</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="154"/>
         <source>PPS</source>
         <translation>PPS</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="157"/>
         <source>DGPS</source>
         <translation>DGPS</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="160"/>
         <source>Autonomous</source>
         <translation>Otonom</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="163"/>
         <source>Invalid</source>
         <translation>Geçersiz</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="166"/>
         <source>Unknown (%1)</source>
         <translation>Bilinmeyen (%1)</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/gnsspositioninformation.cpp" line="170"/>
         <source> + IMU</source>
         <translation> + IMU</translation>
     </message>
@@ -5654,7 +4705,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
-        <location filename="../src/core/qgsquick/qgsquickmapcanvasmap.cpp" line="211"/>
         <source>Rendering</source>
         <translation>İşleniyor</translation>
     </message>
@@ -5669,14 +4719,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>Range</name>
     <message>
-        <location filename="../src/qml/editorwidgets/Range.qml" line="41"/>
-        <location filename="../src/qml/editorwidgets/Range.qml" line="209"/>
         <source>Empty</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/Range.qml" line="43"/>
-        <location filename="../src/qml/editorwidgets/Range.qml" line="211"/>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
@@ -5707,28 +4753,22 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>ReferencingFeatureListModelBase</name>
     <message>
-        <location filename="../src/core/referencingfeaturelistmodel.cpp" line="224"/>
         <source>Invalid referencing layer</source>
         <translation>Geçersiz referans katmanı</translation>
     </message>
     <message>
-        <location filename="../src/core/referencingfeaturelistmodel.cpp" line="230"/>
         <source>Cannot start editing</source>
         <translation>Güncellemeye başlanamadı.</translation>
     </message>
     <message>
-        <location filename="../src/core/referencingfeaturelistmodel.cpp" line="239"/>
         <source>Cannot delete feature</source>
         <translation>Obje silinemez</translation>
     </message>
     <message>
-        <location filename="../src/core/referencingfeaturelistmodel.cpp" line="242"/>
-        <location filename="../src/core/referencingfeaturelistmodel.cpp" line="252"/>
         <source>Cannot rollback layer changes in layer %1</source>
         <translation>%1 katmanındaki değişiklikler geri alınamaz</translation>
     </message>
     <message>
-        <location filename="../src/core/referencingfeaturelistmodel.cpp" line="249"/>
         <source>Cannot commit layer changes in layer %1.</source>
         <translation>%1 katmanındaki değişiklikler katmana işlenemez.</translation>
     </message>
@@ -5740,17 +4780,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Arama...</translation>
     </message>
     <message>
-        <location filename="../src/qml/RelationCombobox.qml" line="606"/>
         <source>Invalid relation</source>
         <translation>Geçersiz ilişki</translation>
     </message>
     <message>
-        <location filename="../src/qml/RelationCombobox.qml" line="307"/>
         <source>Empty</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/RelationCombobox.qml" line="309"/>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
@@ -5758,84 +4795,66 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="134"/>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
         <translation>Alt özellik eklenemiyor: üst özellik tüm kısıtlamaları karşılamalı ve kaydedilebilmelidir</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="141"/>
         <source>Adding child feature in layer %1</source>
         <translation>% 1 katmanına alt obje ekleniyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="149"/>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
         <translation>Alt özellik eklenemiyor: üst ve alt özellikleri bağlayan nitelik değeri ayarlanmamış</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="190"/>
         <source>Unlink Feature</source>
         <translation>Bağlantıyı Kes</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="190"/>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="311"/>
         <source>Delete Feature</source>
         <translation>Obje Sil</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="195"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
         <translation>&lt;b&gt;%3&lt;/b&gt; katmanının &lt;b&gt;%1 (%2)&lt;/b&gt; özelliğinin bağlantısı kaldırılsın mı? &lt;i&gt;(Bağlantı &lt;b&gt;%4&lt;/b&gt; katmanındaki silinecek)&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="195"/>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
         <translation>&lt;b&gt;%3 katmanındaki&lt;/b&gt;&lt;b&gt;%1 (%2)&lt;/b&gt; objesi silinmeli mi?</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="201"/>
         <source>Failed to delete referencing feature</source>
         <translation>Referans objesi silinemedi</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="252"/>
         <source>Child Menu</source>
         <translation>Alt Menü</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="276"/>
         <source>Copy Feature Attributes</source>
         <translation>Özellik Niteliklerini Kopyala</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="293"/>
         <source>Print Atlas Feature to PDF</source>
         <translation>Atlas Objesini PDF&apos;e Yazdır</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="335"/>
         <source>Print Atlas Feature(s)</source>
         <translation>Atlas Objesi(leri) Yazdır</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="343"/>
         <source>Select template below</source>
         <translation>Aşağıdan şablon seçin</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="368"/>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="403"/>
         <source>Printing...</source>
         <translation>Yazdırılıyor...</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="391"/>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation>Atlas özelliği(leri) başarıyla yazdırıldı ve proje klasörünüze yerleştirildi</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/editorwidgets/RelationEditorBase.qml" line="56"/>
         <source>%n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
@@ -5843,7 +4862,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>Reshape</name>
     <message>
-        <location filename="../src/qml/geometryeditors/Reshape.qml" line="47"/>
         <source>The geometry could not be reshaped</source>
         <translation>Geometri yeniden şekillendirilemedi</translation>
     </message>
@@ -5858,8 +4876,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>ScaleBarMeasurement</name>
     <message>
-        <location filename="../src/core/scalebarmeasurement.cpp" line="132"/>
-        <location filename="../src/core/scalebarmeasurement.cpp" line="154"/>
         <source>Unknown</source>
         <translation>Bilinmeyen</translation>
     </message>
@@ -5867,7 +4883,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>SensorInformationView</name>
     <message>
-        <location filename="../src/qml/SensorInformationView.qml" line="66"/>
         <source>N/A</source>
         <translation>Geçerli değil</translation>
     </message>
@@ -5875,27 +4890,22 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>SerialPortDeviceChooser</name>
     <message>
-        <location filename="../src/qml/SerialPortDeviceChooser.qml" line="45"/>
         <source>Select the serial port from the list below:</source>
         <translation>Listeden seri portu seçin:</translation>
     </message>
     <message>
-        <location filename="../src/qml/SerialPortDeviceChooser.qml" line="45"/>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
         <translation>Hiçbir seri port tespit edilmedi, bir cihaz bağlandığında listeyi yenileyin.</translation>
     </message>
     <message>
-        <location filename="../src/qml/SerialPortDeviceChooser.qml" line="79"/>
         <source>Refresh list</source>
         <translation>Listeyi yenile</translation>
     </message>
     <message>
-        <location filename="../src/qml/SerialPortDeviceChooser.qml" line="92"/>
         <source>Serial port display name:</source>
         <translation>Seri port görüntü adı:</translation>
     </message>
     <message>
-        <location filename="../src/qml/SerialPortDeviceChooser.qml" line="102"/>
         <source>Serial port address:</source>
         <translation>Seri port adresi:</translation>
     </message>
@@ -5903,22 +4913,18 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>SerialPortReceiver</name>
     <message>
-        <location filename="../src/core/positioning/serialportreceiver.cpp" line="74"/>
         <source>Could not find the serial port device</source>
         <translation>Seri port cihazı bulunamadı</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/serialportreceiver.cpp" line="77"/>
         <source>Attempt to read from the serial port returned an error</source>
         <translation>Seri porttan okuma denemesi bir hata döndürdü</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/serialportreceiver.cpp" line="80"/>
         <source>The connection was refused due to not having enough permission</source>
         <translation>Bağlantı yeterli izin olmadan reddedildi</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/serialportreceiver.cpp" line="83"/>
         <source>Serial port receiver error (%1)</source>
         <translation>Seri port alıcı hatası (%1)</translation>
     </message>
@@ -5926,7 +4932,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>SplitFeature</name>
     <message>
-        <location filename="../src/qml/geometryeditors/SplitFeature.qml" line="44"/>
         <source>Feature could not be split</source>
         <translation>Obje bölünemedi</translation>
     </message>
@@ -5956,12 +4961,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Port:</translation>
     </message>
     <message>
-        <location filename="../src/qml/TcpDeviceChooser.qml" line="43"/>
         <source>IP address</source>
         <translation>IP adresi</translation>
     </message>
     <message>
-        <location filename="../src/qml/TcpDeviceChooser.qml" line="52"/>
         <source>Port</source>
         <translation>Port</translation>
     </message>
@@ -5985,12 +4988,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Soket durumu %1</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/tcpreceiver.cpp" line="88"/>
         <source>Could not find the remote host</source>
         <translation>Uzak ana bilgisayar bulunamadı</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/tcpreceiver.cpp" line="91"/>
         <source>Attempt to read or write from socket returned an error</source>
         <translation>Soketten okuma veya yazma denemesi bir hata döndürdü</translation>
     </message>
@@ -6003,12 +5004,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">UDP alıcı hatası (%1)</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/tcpreceiver.cpp" line="94"/>
         <source>The connection was refused by the remote host</source>
         <translation>Bağlantı uzak sistem tarafından reddedildi</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/tcpreceiver.cpp" line="97"/>
         <source>TCP receiver error (%1)</source>
         <translation>TCP alıcı hatası (%1)</translation>
     </message>
@@ -6016,12 +5015,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>TemporalProperties</name>
     <message>
-        <location filename="../src/qml/TemporalProperties.qml" line="29"/>
         <source>Temporal Properties</source>
         <translation>Zamansal Özellikler</translation>
     </message>
     <message>
-        <location filename="../src/qml/TemporalProperties.qml" line="50"/>
         <source>Enable temporal filter</source>
         <translation>Zamansal filtreyi etkinleştir</translation>
     </message>
@@ -6029,27 +5026,22 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>TextEdit</name>
     <message>
-        <location filename="../src/qml/editorwidgets/TextEdit.qml" line="145"/>
         <source>Copy Text</source>
         <translation>Metni Kopyala</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/TextEdit.qml" line="159"/>
         <source>Paste Text</source>
         <translation>Metni Yapıştır</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/TextEdit.qml" line="180"/>
         <source>Scan Code</source>
         <translation>QR Kodu Tara</translation>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/TextEdit.qml" line="32"/>
         <source>Empty</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/editorwidgets/TextEdit.qml" line="34"/>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
@@ -6057,7 +5049,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>TrackerFeatureForm</name>
     <message>
-        <location filename="../src/qml/TrackerFeatureForm.qml" line="44"/>
         <source>Track on layer %1 started</source>
         <translation>%1 katmanındaki takip başladı</translation>
     </message>
@@ -6065,142 +5056,114 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>TrackerSettings</name>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="124"/>
         <source>Tracking</source>
         <translation>İzleme</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="215"/>
         <source>Requirement Settings</source>
         <translation>Gereksinim Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="225"/>
         <source>Time requirement</source>
         <translation>Zaman gereksinimi</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="247"/>
         <source>Minimum time [sec]</source>
         <translation>Minimum zaman [sn]</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="275"/>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
         <translation>Etkinleştirildiğinde, son ve yeni vertex arasındaki zaman, yapılandırılmış minimum değeri karşıladığında vertex eklemeleri gerçekleşecektir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="287"/>
         <source>Distance requirement</source>
         <translation>Mesafe gereksinimi</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="315"/>
         <source>Minimum distance [%1]</source>
         <translation>Minimum mesafe [%1]</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="343"/>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
         <translation>Etkinleştirildiğinde, son ve yeni vertex arasındaki mesafe, yapılandırılmış minimum değeri karşıladığında vertex eklemeleri gerçekleşecektir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="355"/>
         <source>Sensor data requirement</source>
         <translation>Sensor verisi gereksinimi</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="377"/>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
         <translation>Etkinleştirildiğinde, vertex eklemeleri, sensörler yeni verileri yakaladığında gerçekleşecektir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="389"/>
         <source>Wait for all active requirements</source>
         <translation>Tüm etkin gereksinimlerin karşılanmasını bekle</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="411"/>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
         <translation>Etkinleştirildiğinde, vertexler yalnızca tüm etkin gereksinimler karşılandığında kaydedilecektir. Devre dışı bırakıldığında, bireysel gereksinimlerin karşılanması vertex eklemelerini tetikleyecektir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="425"/>
         <source>General Settings</source>
         <translation>Genel Ayarlar</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="435"/>
         <source>Erroneous distance safeguard</source>
         <translation>Hatalı mesafe koruması</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="457"/>
         <source>Maximum tolerated distance [%1]</source>
         <translation>Maximum tolere edilen mesafe [%1]</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="485"/>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
         <translation>Etkinleştirildiğinde, vertex eklemesi, son ve yeni vertex arasındaki mesafe yapılandırılmış maksimum değerden büyük olduğunda gerçekleşmeyecektir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="496"/>
         <source>Measure (M) value attached to vertices:</source>
         <translation>Vertexlere ekli M (ölçüm) değeri:</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="520"/>
         <source>Elapsed time (seconds since start of tracking)</source>
         <translation>Geçen süre (takip başlangıcından itibaren saniye)</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="520"/>
         <source>Timestamp (milliseconds since epoch)</source>
         <translation>Zaman damgası (epoch&apos;tan itibaren milisaniye)</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="520"/>
         <source>Ground speed</source>
         <translation>Yer hızı</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="520"/>
         <source>Bearing</source>
         <translation>Yön</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="520"/>
         <source>Horizontal accuracy</source>
         <translation>Yatay doğruluk</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="520"/>
         <source>Vertical accuracy</source>
         <translation>Dikey doğruluk</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="520"/>
         <source>PDOP</source>
         <translation>PDOP</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="520"/>
         <source>HDOP</source>
         <translation>HDOP</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="520"/>
         <source>VDOP</source>
         <translation>VDOP</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="536"/>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
         <translation>Ölçüm işlevselliğini etkinleştirmek için, takip oturumu için kullanılan vektör katmanının geometri türünün bir M boyutuna sahip olduğundan emin olun.</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="570"/>
         <source>Start tracking</source>
         <translation>Takibi başlat</translation>
     </message>
@@ -6209,17 +5172,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="588"/>
         <source>Resume tracking</source>
         <translation>Takibi devam ettir</translation>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="159"/>
         <source>Layer</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/TrackerSettings.qml" line="597"/>
         <source>Track on layer %1 resumed</source>
         <translation type="unfinished"/>
     </message>
@@ -6401,12 +5361,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Port:</translation>
     </message>
     <message>
-        <location filename="../src/qml/UdpDeviceChooser.qml" line="43"/>
         <source>Address</source>
         <translation>Adres</translation>
     </message>
     <message>
-        <location filename="../src/qml/UdpDeviceChooser.qml" line="52"/>
         <source>Port</source>
         <translation>Port</translation>
     </message>
@@ -6430,12 +5388,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Soket durumu %1</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/udpreceiver.cpp" line="115"/>
         <source>Could not find the remote host</source>
         <translation>Uzak ana bilgisayar bulunamadı</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/udpreceiver.cpp" line="118"/>
         <source>Attempt to read or write from socket returned an error</source>
         <translation>Soketten okuma veya yazma denemesi bir hata döndürdü</translation>
     </message>
@@ -6444,12 +5400,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Bağlantı uzak sistem tarafından reddedildi</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/udpreceiver.cpp" line="124"/>
         <source>UDP receiver error (%1)</source>
         <translation>UDP alıcı hatası (%1)</translation>
     </message>
     <message>
-        <location filename="../src/core/positioning/udpreceiver.cpp" line="121"/>
         <source>The connection was refused by the remote host</source>
         <translation>Bağlantı uzak sistem tarafından reddedildi</translation>
     </message>
@@ -6468,22 +5422,18 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">İsim giriniz</translation>
     </message>
     <message>
-        <location filename="../src/qml/VariableEditor.qml" line="154"/>
         <source>Enter value</source>
         <translation>Değer giriniz</translation>
     </message>
     <message>
-        <location filename="../src/qml/VariableEditor.qml" line="197"/>
         <source>Add a new variable</source>
         <translation>Yeni bir değişken ekle</translation>
     </message>
     <message>
-        <location filename="../src/qml/VariableEditor.qml" line="63"/>
         <source>Global variables</source>
         <translation>Global değişkenler</translation>
     </message>
     <message>
-        <location filename="../src/qml/VariableEditor.qml" line="63"/>
         <source>Project variables</source>
         <translation>Proje değişkenleri</translation>
     </message>
@@ -6491,7 +5441,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>VertexEditor</name>
     <message>
-        <location filename="../src/qml/geometryeditors/VertexEditor.qml" line="36"/>
         <source>Failed to save feature!</source>
         <translation>Obje kaydedilemedi!</translation>
     </message>
@@ -6506,13 +5455,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>WebdavConnection</name>
     <message>
-        <location filename="../src/core/webdavconnection.cpp" line="406"/>
         <source>Failed to download file %1 due to network error (%2)</source>
         <translation>Dosya %1 indirilirken ağ hatası nedeniyle başarısız oldu (%2)</translation>
     </message>
     <message>
-        <location filename="../src/core/webdavconnection.cpp" line="591"/>
-        <location filename="../src/core/webdavconnection.cpp" line="619"/>
         <source>Failed to upload file %1 due to network error (%2)</source>
         <translation>Dosya %1 yüklenirken ağ hatası nedeniyle başarısız oldu (%2)</translation>
     </message>
@@ -6520,17 +5466,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>WelcomeScreen</name>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="143"/>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
         <translation>Bunu duyduğumuza üzüldük. Yorum yapmak veya destek almak için aşağıdaki butona tıklayın.</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="161"/>
         <source>Reach out</source>
         <translation>İletişime geç</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="200"/>
         <source>Hey there, how do you like your experience with QField so far?</source>
         <translation>Merhaba, QField deneyiminizden şu ana kadar memnun musunuz?</translation>
     </message>
@@ -6539,27 +5482,22 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Harika! Aşağıdaki butona tıklayarak mağazada bir yorum bırakmanızı çok isteriz.</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="283"/>
         <source>Rate us</source>
         <translation>Bizi değerlendir</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="350"/>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
         <translation>Anonimleştirilmiş metrik toplama devre dışı bırakıldı. Ayarlar panelinden tekrar etkinleştirebilirsiniz.</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="386"/>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
         <translation>Herkes için kararlılığı artırmak amacıyla QField anonimleştirilmiş metrikler toplar ve gönderir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="403"/>
         <source>I agree</source>
         <translation>Kabul ediyorum</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="417"/>
         <source>I prefer not</source>
         <translation>Tercih etmiyorum</translation>
     </message>
@@ -6572,12 +5510,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Yerel dosyayı aç</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="522"/>
         <source>Recent Projects</source>
         <translation>Son Projeler</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="596"/>
         <source>Last session</source>
         <translation>Son oturum</translation>
     </message>
@@ -6590,7 +5526,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">Temel Harita Projesi</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="712"/>
         <source>Remove from Recent Projects</source>
         <translation>Son Projelerden Kaldır</translation>
     </message>
@@ -6599,74 +5534,60 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation type="vanished">QField&apos;a hoş geldiniz. Bu uygulamayı ilk kez mi kullanıyorsunuz? Aşağıda listelenen örnek projeleri deneyin.</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="927"/>
         <source>Welcome back to QField.</source>
         <translation>QField&apos;a tekrar hoşgeldiniz.</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="599"/>
         <source>Default project</source>
         <translation>Varsayılan proje</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="602"/>
         <source>Base map</source>
         <translation>Taban harita</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="675"/>
         <source>Default Project</source>
         <translation>Varsayılan Proje</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="692"/>
         <source>Individual Datasets Base Map</source>
         <translation>Bireysel Veri Setleri Taban Haritası</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="735"/>
         <source>Load default project on launch</source>
         <translation>Başlangıçta varsayılan projeyi yükle</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="735"/>
         <source>Load last opened project on launch</source>
         <translation>Başlangıçta son açılan projeyi yükle</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="659"/>
         <source>Recent Project Actions</source>
         <translation>Son Proje Eylemleri</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="923"/>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
         <translation>QField&apos;a hoş geldiniz. Bu uygulamayı ilk kez mi kullanıyorsunuz? Aşağıda listelenen örnek projeleri deneyin.</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="265"/>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>Harika! Aşağıdaki butona tıklayarak bir değerlendirme bırakmanızı çok isteriz.</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="772"/>
         <source>Return to map</source>
         <translation>Haritaya dön</translation>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="508"/>
         <source>QFieldCloud
 projects</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="508"/>
         <source>Local projects and
  datasets</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/WelcomeScreen.qml" line="508"/>
         <source>Create new
 project</source>
         <translation type="unfinished"/>
@@ -6675,67 +5596,54 @@ project</source>
 <context>
     <name>area</name>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/area.qml" line="57"/>
         <source>square degrees</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/area.qml" line="57"/>
         <source>&lt;unknown&gt;</source>
         <translation>&lt;bilinmeyen&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/area.qml" line="70"/>
         <source>sqr. meters</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/area.qml" line="74"/>
         <source>sqr. kilometers</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/area.qml" line="78"/>
         <source>sqr. feet</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/area.qml" line="82"/>
         <source>sqr. yards</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/area.qml" line="86"/>
         <source>sqr. miles</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/area.qml" line="90"/>
         <source>hectares</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/area.qml" line="94"/>
         <source>acres</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/area.qml" line="98"/>
         <source>sqr. nautical miles</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/area.qml" line="102"/>
         <source>sqr. centimeters</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/area.qml" line="106"/>
         <source>sqr. millimeters</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/area.qml" line="110"/>
         <source>sqr. inches</source>
         <translation type="unfinished"/>
     </message>
@@ -6743,12 +5651,10 @@ project</source>
 <context>
     <name>boolean</name>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/boolean.qml" line="26"/>
         <source>True</source>
         <translation>Doğru</translation>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/boolean.qml" line="26"/>
         <source>False</source>
         <translation>Yanlış</translation>
     </message>
@@ -6756,57 +5662,46 @@ project</source>
 <context>
     <name>distance</name>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/distance.qml" line="57"/>
         <source>degrees</source>
         <translation>derece</translation>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/distance.qml" line="57"/>
         <source>&lt;unknown&gt;</source>
         <translation>&lt;bilinmeyen&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/distance.qml" line="70"/>
         <source>meters</source>
         <translation>metre</translation>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/distance.qml" line="74"/>
         <source>kilometers</source>
         <translation>kilometre</translation>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/distance.qml" line="78"/>
         <source>feet</source>
         <translation>fit</translation>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/distance.qml" line="82"/>
         <source>yards</source>
         <translation>yard</translation>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/distance.qml" line="86"/>
         <source>miles</source>
         <translation>mil</translation>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/distance.qml" line="90"/>
         <source>nautical miles</source>
         <translation>deniz mili</translation>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/distance.qml" line="94"/>
         <source>centimeters</source>
         <translation>santimetre</translation>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/distance.qml" line="98"/>
         <source>millimeters</source>
         <translation>milimetre</translation>
     </message>
     <message>
-        <location filename="../src/qml/processingparameterwidgets/distance.qml" line="102"/>
         <source>inches</source>
         <translation>inç</translation>
     </message>
@@ -6849,91 +5744,70 @@ project</source>
 <context>
     <name>qgismobileapp</name>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="287"/>
         <source>You are now in browse mode</source>
         <translation>Şimdi göz atma modundasınız</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="294"/>
         <source>You are now in digitize mode on layer %1</source>
         <translation>%1 katmanında sayısallaştırma modundasınız</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="296"/>
         <source>You are now in digitize mode</source>
         <translation>Şimdi sayısallaştırma modundasınız</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="302"/>
         <source>You are now in measure mode</source>
         <translation>Şimdi ölçme modundasınız</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1667"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1669"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3366"/>
         <source>Lon</source>
         <translation>Boylam</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1667"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="1669"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3368"/>
         <source>Lat</source>
         <translation>Enlem</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1671"/>
         <source>Segment</source>
         <translation>Segment</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1671"/>
         <source>Perimeter</source>
         <translation>Çevre</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1671"/>
         <source>Length</source>
         <translation>Uzunluk</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1671"/>
         <source>Area</source>
         <translation>Alan</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1905"/>
         <source>Close measure tool</source>
         <translation>Ölçme aracını kapat</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1914"/>
         <source>Stop editing</source>
         <translation>Düzenlemeyi durdur</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1923"/>
         <source>Cancel addition</source>
         <translation>Eklemeyi iptal et</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
         <source>Topological editing turned on</source>
         <translation>Topolojik düzenleme açıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2021"/>
         <source>Topological editing turned off</source>
         <translation>Topolojik düzenleme kapatıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2063"/>
         <source>Freehand digitizing turned on</source>
         <translation>Serbest çizim sayısallaştırma açıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2063"/>
         <source>Freehand digitizing turned off</source>
         <translation>Serbest çizim sayısallaştırma kapatıldı</translation>
     </message>
@@ -6942,7 +5816,6 @@ project</source>
         <translation type="vanished">Koordinat imleci konumuna kilitlendi</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1102"/>
         <source>Coordinate cursor unlocked</source>
         <translation>Koordinat imlecinin kilidi açıldı</translation>
     </message>
@@ -6959,7 +5832,6 @@ project</source>
         <translation type="vanished">Kanvas konumu takip eder</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2479"/>
         <source>Waiting for location</source>
         <translation>Konum bekleniyor</translation>
     </message>
@@ -6984,7 +5856,6 @@ project</source>
         <translation type="vanished">Obje kaydedilemedi!</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3017"/>
         <source>Main Menu</source>
         <translation>Ana Menü</translation>
     </message>
@@ -7013,17 +5884,14 @@ project</source>
         <translation type="vanished">Proje aç</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3153"/>
         <source>Settings</source>
         <translation>Ayarlar</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3169"/>
         <source>Message Log</source>
         <translation>Mesaj Günlüğü</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3216"/>
         <source>About QField</source>
         <translation>QField Hakkında</translation>
     </message>
@@ -7032,7 +5900,6 @@ project</source>
         <translation type="vanished">Aşağıdan şablon seçin</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="403"/>
         <source>Activating positioning service</source>
         <translation>Konumlandırma hizmeti aktifleştiriliyor</translation>
     </message>
@@ -7041,17 +5908,14 @@ project</source>
         <translation type="vanished">QField&apos;ın konumu kullanmak için izni yok</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3358"/>
         <source>Map Canvas Options</source>
         <translation>Harita Kanvas Seçenekleri</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3443"/>
         <source>Add Bookmark</source>
         <translation>Yer İşareti Ekle</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3464"/>
         <source>Set as Destination</source>
         <translation>Hedef olarak ayarla</translation>
     </message>
@@ -7060,7 +5924,6 @@ project</source>
         <translation type="vanished">Koordinatlara Yer İmleri Ekle</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3450"/>
         <source>Untitled bookmark</source>
         <translation>Adsız yer imi</translation>
     </message>
@@ -7081,13 +5944,10 @@ project</source>
         <translation type="vanished">Y</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3433"/>
         <source>Coordinates copied to clipboard</source>
         <translation>Koordinatlar panoya kopyalandı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3717"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3777"/>
         <source>Precise View Settings</source>
         <translation>Hassas Görünüm Ayarları</translation>
     </message>
@@ -7116,7 +5976,6 @@ project</source>
         <translation type="vanished">10m Hassasiyet</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3908"/>
         <source>Always Show Precise View</source>
         <translation>Her zaman kesin görünümü göster</translation>
     </message>
@@ -7125,22 +5984,18 @@ project</source>
         <translation type="vanished">Merkezden Konuma</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4044"/>
         <source>Add Bookmark at Location</source>
         <translation>Konuma Yer İmleri Ekle</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4057"/>
         <source>Copy Location Coordinates</source>
         <translation>Konum Koordinatlarını Kopyala</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4581"/>
         <source>Signed out</source>
         <translation>Oturum kapatıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4585"/>
         <source>Signed in</source>
         <translation>Oturum açıldı</translation>
     </message>
@@ -7149,48 +6004,34 @@ project</source>
         <translation type="vanished">Hedef Olarak Ayarla</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3709"/>
         <source>Navigation Options</source>
         <translation>Navigasyon Seçenekleri</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3764"/>
         <source>Clear Destination</source>
         <translation>Hedefi Temizle</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3785"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3802"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3819"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3836"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3853"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3870"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3887"/>
         <source>%1 Precision</source>
         <translation>%1 Hassasiyet</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3923"/>
         <source>Enable Audio Proximity Feedback</source>
         <translation>Ses Yakınlık Geri Bildirimini Etkinleştir</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3940"/>
         <source>Positioning Options</source>
         <translation>Konumlandırma Seçenekleri</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3960"/>
         <source>Enable Positioning</source>
         <translation>Konumlandırmayı Aç</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3976"/>
         <source>Show Position Information</source>
         <translation>Konum Bilgilerini Göster</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3992"/>
         <source>Positioning Settings</source>
         <translation>Konumlandırma ayarları</translation>
     </message>
@@ -7207,7 +6048,6 @@ project</source>
         <translation type="vanished">Geçerli konum bilinmiyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1181"/>
         <source>My location</source>
         <translation>Benim konumum</translation>
     </message>
@@ -7216,22 +6056,18 @@ project</source>
         <translation type="vanished">Geçerli Konumu Kopyala</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1210"/>
         <source>Accuracy</source>
         <translation>Doğruluk</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1210"/>
         <source>N/A</source>
         <translation>Geçerli değil</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1212"/>
         <source>Current location copied to clipboard</source>
         <translation>Geçerli konum panoya kopyalandı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4114"/>
         <source>Current layer switched to the one holding the selected geometry.</source>
         <translation>Mevcut katman, seçili geometriyi tutan katmana aktarıldı.</translation>
     </message>
@@ -7240,7 +6076,6 @@ project</source>
         <translation type="vanished">Çoklu geometri katmanının düzenlenmesi henüz desteklenmemektedir.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4260"/>
         <source>Loading %1</source>
         <translation>Yükleniyor %1</translation>
     </message>
@@ -7249,7 +6084,6 @@ project</source>
         <translation type="vanished">Oturum kapatıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4583"/>
         <source>Connecting...</source>
         <translation>Bağlanıyor...</translation>
     </message>
@@ -7258,27 +6092,22 @@ project</source>
         <translation type="vanished">Oturum açıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4609"/>
         <source>Project %1 failed to download</source>
         <translation>Proje %1 indirilemedi</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4609"/>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
         <translation>Proje %1 başarıyla indirildi, şimdi açılabilir durumda</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4614"/>
         <source>Changes failed to reach QFieldCloud: %1</source>
         <translation>Değişiklikler QFieldCloud&apos;a ulaşılamadı: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4618"/>
         <source>Changes successfully pushed to QFieldCloud</source>
         <translation>Değişiklikler başarıyla QFieldCloud&apos;a yüklendi</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4873"/>
         <source>Press back again to close project and app</source>
         <translation>Proje ve uygulamayı kapatmak için geri tuşuna birkez daha basın</translation>
     </message>
@@ -7287,13 +6116,10 @@ project</source>
         <translation type="vanished">Konumlandırma hatası: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1671"/>
         <source>Azimuth</source>
         <translation>Azimut</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3197"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3496"/>
         <source>Lock Screen</source>
         <translation>Ekranı Kilitle</translation>
     </message>
@@ -7302,72 +6128,54 @@ project</source>
         <translation type="vanished">Resim Olarak Yazdır</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2952"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3330"/>
         <source>Printing...</source>
         <translation>Yazdırılıyor...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3299"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="5080"/>
         <source>Print</source>
         <translation>Yazdır</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="364"/>
         <source>Positioning device error: %1</source>
         <translation>Konumlandırma cihazı hatası: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3590"/>
         <source>Duplicate Feature</source>
         <translation>Özelliği Çoğalt</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3605"/>
         <source>Successfully duplicated feature</source>
         <translation>Özellik başarıyla çoğaltıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1984"/>
         <source>Snapping turned on</source>
         <translation>Snap açıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1984"/>
         <source>Snapping turned off</source>
         <translation>Snap kapatıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2106"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2201"/>
         <source>Snap to %1° angle turned on</source>
         <translation>%1° açıda snap açıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2106"/>
         <source>Snap to common angle turned off</source>
         <translation>Ortak açıya snap kapatıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2118"/>
         <source>Relative angle</source>
         <translation>Göreceli açı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1302"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3140"/>
         <source>Learn more</source>
         <translation>Daha fazla bilgi edinin</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3098"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="3237"/>
         <source>Sensors</source>
         <translation>Sensörler</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3140"/>
         <source>No sensor available</source>
         <translation>Hiçbir sensör mevcut değil</translation>
     </message>
@@ -7376,142 +6184,114 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3243"/>
         <source>Select sensor below</source>
         <translation>Aşağıdan sensör seçin</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3259"/>
         <source>Sensor error: %1</source>
         <translation>Sensör hatası: %1</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3273"/>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
         <translation>Sensör &apos;%1&apos; kesiliyor...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3277"/>
         <source>Connecting sensor &apos;%1&apos;...</source>
         <translation>Sensör &apos;%1&apos; bağlanıyor...</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3305"/>
         <source>Select layout below</source>
         <translation>Aşağıdan düzen seçin</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3538"/>
         <source>Layer:</source>
         <translation>Katman:</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3543"/>
         <source>Feature:</source>
         <translation>Özellik:</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3552"/>
         <source>Open Feature Form</source>
         <translation>Özellik Formunu Aç</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3611"/>
         <source>Feature duplication not available</source>
         <translation>Özellik çoğaltma mevcut değil</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4217"/>
         <source>Importing %1</source>
         <translation>%1 içe aktarılıyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4238"/>
         <source>Import URL failed</source>
         <translation>İçe aktarma URL&apos;si başarısız oldu</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4966"/>
         <source>Do you grant permission to activate `%1`?</source>
         <translation>%1&apos;i etkinleştirmek için izin veriyor musunuz?</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4971"/>
         <source>Remember my choice</source>
         <translation>Seçimimi hatırla</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1407"/>
         <source>Position has trespassed into ‘%1’</source>
         <translation>Konum ‘%1’ içine girmiştir</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1410"/>
         <source>Position outside areas after leaving ‘%1’</source>
         <translation>‘%1’ alanını terk ettikten sonra konum dışarıda</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1414"/>
         <source>Position entered into ‘%1’</source>
         <translation>Konum ‘%1’ içine girmiştir</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1417"/>
         <source>Position left from ‘%1’</source>
         <translation>Konum ‘%1’ alanından çıkmıştır</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3481"/>
         <source>Enable Map Rotation</source>
         <translation>Harita Döndürmeyi Etkinleştir</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5032"/>
         <source>Dashboard</source>
         <translation>Gösterge Paneli</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5033"/>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
         <translation>Bu buton gösterge panelini açar. Gösterge paneli ile lejand ile etkileşimde bulunabilir, harita temasını değiştirebilir veya düzenleme modunu etkinleştirerek dijitalleştirmeye başlayabilirsiniz. Butona uzun basmak, ana menüye hızlı erişim sağlar.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5037"/>
         <source>Positioning</source>
         <translation>Konumlandırma</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5042"/>
         <source>Search</source>
         <translation>Arama</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5043"/>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
         <translation>Arama çubuğu, projeniz içindeki özellikleri hızlı bir şekilde bulmanızı, yazılmış bir enlem ve boylam noktasına atlamanızı ve çok daha fazlasını sağlar.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4998"/>
         <source>Cancel algorithm operation</source>
         <translation>Algoritma işlemini iptal et</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5002"/>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
         <translation>Devam etmek için devam etmekte olan algoritma işlemini iptal etmek üzeresiniz?</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4867"/>
         <source>Unlock the screen to close project and app</source>
         <translation>Ekranı kilidini açarak projeyi ve uygulamayı kapatın</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="169"/>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
         <translation>Sınırları olmayan mod etkinleştirildi, pencereyi taşımak ve boyutlandırmak için sol üst ve sağ alt köşeyi kullanın</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="269"/>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation>Göz atma moduna geçmeden önce dijitalleştirme özelliğini tamamlayın veya iptal edin</translation>
     </message>
@@ -7520,260 +6300,207 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3041"/>
         <source>Undo</source>
         <translation>Geri Al</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3067"/>
         <source>Redo</source>
         <translation>Yinele</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="372"/>
         <source>Replaying collected positions, hold on</source>
         <translation>Toplanan konumları yeniden oynatıyor, lütfen bekleyin</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2136"/>
         <source>Snapping to every</source>
         <translation>Her birine yapıştırılıyor</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2176"/>
         <source>%1°</source>
         <translation>%1°</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2213"/>
         <source>Snapping tolerance</source>
         <translation>Yapıştırma toleransı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
         <source>Narrow</source>
         <translation>Dar</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
         <source>Normal</source>
         <translation>Normal</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2234"/>
         <source>Large</source>
         <translation>Büyük</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2281"/>
         <source>Snapping tolerance set to %1</source>
         <translation>Yapıştırma toleransı %1 olarak ayarlandı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4929"/>
         <source>Import Confirmation</source>
         <translation>İçe Aktarma Onayı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4937"/>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
         <translation>QField&apos;a &lt;b&gt;%2&lt;/b&gt; içinden &lt;b&gt;%1&lt;/b&gt; içe aktarmak istiyor musunuz?</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4959"/>
         <source>Plugin Permission</source>
         <translation>Eklenti İzni</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4160"/>
         <source>Unlock</source>
         <translation>Kilidi Aç</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4959"/>
         <source> Project Plugin</source>
         <translation> Proje Eklentisi</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4966"/>
         <source>Do you grant permission to activate the plugin?</source>
         <translation>Eklentiyi etkinleştirmek için izin veriyor musunuz?</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2800"/>
         <source>Failed to create feature</source>
         <translation>Özellik oluşturulamadı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2803"/>
         <source>Failed to create feature due to feature addition permission disabled</source>
         <translation>Özellik ekleme izni devre dışı olduğu için özellik oluşturulamadı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2807"/>
         <source>Failed to save feature</source>
         <translation>Özellik kaydedilemedi</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5065"/>
         <source>Digitizing toggle</source>
         <translation>Dijitalleştirme geçişi</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5066"/>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
         <translation>Tarayıcı ve dijitalleştirme modları arasında geçiş yapın. Tarayıcı modu, haritayı ve özelliklerini görüntüleme konusunda en iyi deneyimi sunmaya odaklanırken, dijitalleştirme modu, özellikler oluşturmanıza ve geometrileri düzenlemenize olanak tanır.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5075"/>
         <source>Measurement</source>
         <translation>Ölçüm</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5076"/>
         <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
         <translation>Harita üzerindeki mesafeleri ve alanları hesaplamak için ölçüm aracını açıp kapatın.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5081"/>
         <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
         <translation>Yapılandırılmış proje yazdırma ve atlas düzenlerini kullanarak harita tuvalini PDF&apos;ye aktarın.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5085"/>
         <source>QFieldCloud</source>
         <translation>QFieldCloud</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5086"/>
         <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
         <translation>Bir bulut projesi açıldığında değişiklikleri QFieldCloud&apos;a itmek, senkronize etmek veya geri almak için kullanın.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5090"/>
         <source>Project folder</source>
         <translation>Proje klasörü</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5091"/>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
         <translation>Proje klasörünü açarak proje dosyalarına, veri kaynaklarına ve ilgili belgelere erişin. Proje kaynaklarını yönetmek, verileri QFieldCloud&apos;a manuel olarak yüklemek ve veri setlerini, ekleri ve düzenleri paylaşmak için kullanışlıdır.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5070"/>
         <source>Legend</source>
         <translation>Açıklama</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5071"/>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
         <translation>Açıklama, harita katmanlarını gösterir ve &lt;b&gt;bir katmana uzun basarak özellikler açılır penceresini açma&lt;/b&gt; işlemiyle görünürlük ve opasite özelliklerini değiştirme olanağı tanır. Açılır pencere, katman kapsamına yakınlaştırma ve vektör katmanları içindeki özellikleri görüntüleme gibi ek işlevler sunar.</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3578"/>
         <source>Copy Feature</source>
         <translation>Özelliği Kopyala</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3566"/>
         <source>Cut Feature</source>
         <translation>Özelliği Kes</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3682"/>
         <source>Feature pasted successfully</source>
         <translation>Özellik başarıyla yapıştırıldı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3684"/>
         <source>Failed to paste feature into layer</source>
         <translation>Özellik katmana yapıştırılamadı</translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="3637"/>
         <source>Paste Into Layer</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4124"/>
         <source>Editing of multipart geometry is not supported yet.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1112"/>
         <source>Coordinate cursor locked to location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1155"/>
         <source>Map canvas unlocked</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1161"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2465"/>
         <source>Map canvas locked to location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2452"/>
         <source>Map canvas locked to location and compass orientation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2456"/>
         <source>Map canvas follows location and compass orientation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="2467"/>
-        <location filename="../src/qml/qgismobileapp.qml" line="2522"/>
         <source>Map canvas follows location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4008"/>
         <source>Lock Coordinate Cursor to Location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4026"/>
         <source>Lock Map Canvas to Location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="4160"/>
         <source>Map canvas lock paused</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1009"/>
         <source>Tap on your location marker
 to show actions</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="5038"/>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
         <translation>Bu buton konumlandırma sistemini açıp kapatır. Etkinleştirildiğinde, haritanın üstünde bir konum işareti belirecektir. Butona uzun basmak, ek işlevlerin keşfedilebileceği konumlandırma menüsünü açar.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/qgismobileapp.qml" line="1293"/>
         <source>Tracking active on %n layer(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1293"/>
         <source>Stop all</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/qgismobileapp.qml" line="1294"/>
         <source>Tracking on %n layer(s) stopped</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/qgismobileapp.qml" line="1302"/>
         <source>No compatible layers available to launch tracking</source>
         <translation type="unfinished"/>
     </message>
