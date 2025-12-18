@@ -109,7 +109,7 @@ endif()
 
 add_definitions(-DTEST_DATA_DIR="${TEST_DATA_DIR}")
 
-if (NOT WIN32)
+if (WITH_UNITTESTS)
   ADD_CATCH2_TEST(layerobservertest test_layerobserver.cpp FALSE)
   ADD_CATCH2_TEST(featureutilstest test_featureutils.cpp TRUE)
   ADD_CATCH2_TEST(featuremodeltest test_featuremodel.cpp TRUE)
@@ -128,6 +128,6 @@ if (NOT WIN32)
   ADD_CATCH2_TEST(appinterfacetest test_appinterface.cpp TRUE)
   ADD_CATCH2_TEST(trackingtest test_tracking.cpp FALSE)
   ADD_CATCH2_TEST(identifytool test_identifytool.cpp TRUE)
-endif()
 
-ADD_QFIELD_QML_TEST(qmltest test_qml.cpp)
+  ADD_QFIELD_QML_TEST(qmltest test_qml.cpp)
+endif()

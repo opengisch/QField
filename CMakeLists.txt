@@ -83,12 +83,6 @@ set(WITH_NFC
     ON
     CACHE BOOL "Enable NFC support")
 
-set(WITH_SPIX FALSE CACHE BOOL "Compile with Spix for testing")
-
-if (WITH_SPIX)
-  find_package(Spix REQUIRED)
-endif ()
-
 set(SENTRY_DSN "" CACHE STRING "The sentry dsn for logging purpose. If not set, sentry will be disabled")
 set(SENTRY_ENV "" CACHE STRING "The sentry environment for logging purpose.")
 mark_as_advanced(SENTRY_DSN SENTRY_ENV)
@@ -144,8 +138,9 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "iOS")
   message(STATUS "QT_HOST_PATH: ${QT_HOST_PATH}")
 endif()
 
-set (TEST_DATA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test/testdata")
-set(ENABLE_TESTS CACHE BOOL "Build unit tests")
+set(ENABLE_TESTS CACHE BOOL "Enable tests")
+set(WITH_UNITTESTS TRUE CACHE BOOL "Enable unit tests")
+set(WITH_SPIX FALSE CACHE BOOL "Compile with Spix for testing")
 
 if(MSVC)
   add_definitions(-D_USE_MATH_DEFINES)
@@ -171,6 +166,14 @@ else()
 endif()
 file(MAKE_DIRECTORY "${SHARE_DIR}")
 
+if(WITH_SENTRY)
+  add_subdirectory(src/sentry)
+endif()
+
+if (WITH_SPIX)
+  find_package(Spix REQUIRED)
+endif ()
+
 add_subdirectory(src/core)
 add_subdirectory(src/qml)
 if (ANDROID)
@@ -178,11 +181,9 @@ if (ANDROID)
 endif()
 add_subdirectory(src/app)
 
-if(WITH_SENTRY)
-  add_subdirectory(src/sentry)
-endif()
-
 if (ENABLE_TESTS)
+  set (TEST_DATA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test/testdata")
+
   find_package(Qt6 COMPONENTS Test QuickTest)
   enable_testing()
   add_subdirectory(test)
