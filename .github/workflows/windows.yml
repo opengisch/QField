@@ -83,6 +83,7 @@ jobs:
                 -D VCPKG_HOST_TRIPLET="x64-windows-static" \
                 -D WITH_VCPKG=ON \
                 -D WITH_SPIX=ON \
+                -D WITH_UNITTESTS=OFF \
                 -D WITH_NFC=OFF \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
