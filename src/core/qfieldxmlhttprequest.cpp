@@ -16,13 +16,6 @@ email                : kaustuv (at) opengis.ch
 
 #include "qfieldxmlhttprequest.h"
 
-#include <networkmanager.h>
-#include <networkreply.h>
-
-#include <fileutils.h>
-#include <qfieldcloudutils.h>
-#include <urlutils.h>
-
 #include <QDebug>
 #include <QDir>
 #include <QFile>
@@ -35,6 +28,12 @@ email                : kaustuv (at) opengis.ch
 #include <QJsonValue>
 #include <QNetworkReply>
 #include <QTimer>
+#include <qfieldcloudutils.h>
+
+#include <fileutils.h>
+#include <networkmanager.h>
+#include <networkreply.h>
+#include <urlutils.h>
 
 QFieldXmlHttpRequest::QFieldXmlHttpRequest( QObject *parent )
   : QObject( parent )
@@ -478,9 +477,9 @@ QByteArray QFieldXmlHttpRequest::bodyToBytes( const QVariant &body, QString *out
 
   // JSON-encode other variants (map/list/primitive wrapped).
   const QJsonValue jv = QJsonValue::fromVariant( body );
-  QJsonDocument doc = jv.isObject() ? QJsonDocument( jv.toObject() )
-                      : jv.isArray()  ? QJsonDocument( jv.toArray() )
-                                     : QJsonDocument( QJsonObject{ { QStringLiteral( "value" ), jv } } );
+  QJsonDocument doc = jv.isObject()  ? QJsonDocument( jv.toObject() )
+                      : jv.isArray() ? QJsonDocument( jv.toArray() )
+                                     : QJsonDocument( QJsonObject { { QStringLiteral( "value" ), jv } } );
 
   if ( outContentType )
     *outContentType = QStringLiteral( "application/json" );
