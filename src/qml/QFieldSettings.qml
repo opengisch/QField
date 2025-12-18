@@ -295,11 +295,11 @@ Page {
 
     SwipeView {
       id: swipeView
-      width: mainWindow.width
       currentIndex: bar.currentIndex
       Layout.fillHeight: true
       Layout.fillWidth: true
       onCurrentIndexChanged: bar.currentIndex = swipeView.currentIndex
+      clip: true
 
       Item {
         ScrollView {
@@ -316,7 +316,7 @@ Page {
 
           ColumnLayout {
             id: generalSettingsGrid
-            width: parent.parent.width
+            width: swipeView.width
 
             GridLayout {
               Layout.fillWidth: true
@@ -339,7 +339,7 @@ Page {
             }
 
             ListView {
-              Layout.preferredWidth: mainWindow.width
+              Layout.fillWidth: true
               Layout.preferredHeight: childrenRect.height
               interactive: false
 
@@ -437,7 +437,7 @@ Page {
             }
 
             ListView {
-              Layout.preferredWidth: mainWindow.width
+              Layout.fillWidth: true
               Layout.preferredHeight: childrenRect.height
               interactive: false
 
@@ -528,7 +528,7 @@ Page {
             }
 
             ListView {
-              Layout.preferredWidth: mainWindow.width
+              Layout.fillWidth: true
               Layout.preferredHeight: childrenRect.height
               interactive: false
 
@@ -797,7 +797,7 @@ Page {
             }
 
             ListView {
-              Layout.preferredWidth: mainWindow.width
+              Layout.fillWidth: true
               Layout.preferredHeight: childrenRect.height
               interactive: false
 
