@@ -69,3 +69,50 @@ QgsRelation RelationUtils::createRelation( const QgsVectorLayer *referencedLayer
   }
   return relation;
 }
+
+QgsPolymorphicRelation RelationUtils::createPolymorphicRelation( const QVariantList &referencedLayers, const QgsVectorLayer *referencingLayer, const QVariantMap &fieldPairs, const QString &referencedLayerField, const QString &referencedLayerExpression )
+{
+  if ( referencedLayers.isEmpty() || !referencingLayer || fieldPairs.isEmpty() )
+    return QgsPolymorphicRelation();
+
+  QgsPolymorphicRelation relation;
+
+  relation.setReferencingLayer( referencingLayer->id() );
+  relation.setReferencedLayerField( referencedLayerField );
+  relation.setReferencedLayerExpression( referencedLayerExpression );
+
+  for ( QVariantMap::const_iterator it = fieldPairs.constBegin(); it != fieldPairs.constEnd(); ++it )
+  {
+    relation.addFieldPair( it.value().toString(), it.key() );
+  }
+
+  QStringList layerIds;
+  QStringList layerNames;
+  for ( const QVariant &layerVariant : referencedLayers )
+  {
+    const QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( layerVariant.value<QObject *>() );
+    if ( layer )
+    {
+      layerIds.append( layer->id() );
+      layerNames.append( layer->name() );
+    }
+  }
+
+  relation.setReferencedLayerIds( layerIds );
+  relation.generateId();
+  relation.setName( QStringLiteral( "%1 <-> %2 (polymorphic)" ).arg( layerNames.join( "," ), referencingLayer->name() ) );
+
+  return relation;
+}
+
+QgsPolymorphicRelation RelationUtils::addPolymorphicRelation( QgsProject *project, const QVariantList &referencedLayers, const QgsVectorLayer *referencingLayer, const QVariantMap &fieldPairs, const QString &referencedLayerField, const QString &referencedLayerExpression )
+{
+  const QgsPolymorphicRelation relation = createPolymorphicRelation( referencedLayers, referencingLayer, fieldPairs, referencedLayerField, referencedLayerExpression );
+
+  if ( relation.isValid() && project )
+  {
+    project->relationManager()->addPolymorphicRelation( relation );
+  }
+
+  return relation;
+}
