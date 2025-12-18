@@ -127,7 +127,8 @@ set(QFIELD_CORE_SRCS
     valuemapmodelbase.cpp
     vertexmodel.cpp
     viewstatus.cpp
-    webdavconnection.cpp)
+    webdavconnection.cpp
+    qfieldxmlhttprequest.cpp)
 
 set(QFIELD_CORE_HDRS
     platforms/platformutilities.h
@@ -260,6 +261,7 @@ set(QFIELD_CORE_HDRS
     vertexmodel.h
     viewstatus.h
     webdavconnection.h
+    qfieldxmlhttprequest.h
     ${CMAKE_CURRENT_BINARY_DIR}/qfield.h)
 
 list(APPEND QFIELD_CORE_SRCS permissions.cpp)
