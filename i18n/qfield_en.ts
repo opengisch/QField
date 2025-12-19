@@ -3877,7 +3877,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation>To apply the selected user interface language, QField needs to completely shutdown and restart.</translation>
+        <translation type="vanished">To apply the selected user interface language, QField needs to completely shutdown and restart.</translation>
     </message>
     <message>
         <source>system</source>
