@@ -1,8 +1,6 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import QtQuick.Controls.Material
-import QtQuick.Controls.Material.impl
 import org.qfield
 import org.qgis
 import Theme
@@ -82,89 +80,39 @@ EditorWidgetBase {
       right: parent.right
     }
 
-    Item {
+    QfToggleButtonGroup {
       id: toggleButtons
       Layout.fillWidth: true
-      Layout.minimumHeight: flow.height + flow.anchors.topMargin + flow.anchors.bottomMargin
+      Layout.minimumHeight: toggleButtons.height
 
-      property real selectedIndex: comboBox.currentIndex
       property string currentSelectedKey: ""
       property string currentSelectedValue: ""
 
-      Flow {
-        id: flow
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.topMargin: 6
-        anchors.bottomMargin: 6
-        spacing: 8
+      model: comboBox.model
+      textRole: "value"
+      selectedIndex: comboBox.currentIndex
+      editing: isEditing
+      editable: isEditable
+      enabled: isEnabled
 
-        Repeater {
-          id: repeater
-          model: comboBox.model
-
-          delegate: Rectangle {
-            id: item
-            width: Math.min(flow.width - 16, innerText.width + 16)
-            height: 34
-            radius: 4
-            color: selected ? isEditable && isEditing ? Theme.mainColor : Theme.controlBorderColor : "transparent"
-            border.color: isEditing ? selected ? Theme.mainColor : Theme.secondaryTextColor : "transparent"
-            border.width: 1
-
-            property bool selected: toggleButtons.selectedIndex == index
-
-            Component.onCompleted: {
-              if (selected) {
-                toggleButtons.currentSelectedKey = key;
-                toggleButtons.currentSelectedValue = value;
-              }
-            }
-
-            Behavior on color {
-              ColorAnimation {
-                duration: 150
-              }
-            }
-
-            Text {
-              id: innerText
-              width: Math.min(flow.width - 32, implicitWidth)
-              text: value
-              elide: Text.ElideRight
-              anchors.centerIn: parent
-              font: Theme.defaultFont
-              color: !isEditable && isEditing ? Theme.mainTextDisabledColor : selected && isEditing ? Theme.buttonTextColor : Theme.mainTextColor
-            }
-
-            MouseArea {
-              id: mouseArea
-              anchors.fill: parent
-              onClicked: {
-                if (toggleButtons.selectedIndex != index) {
-                  comboBox.currentIndex = index;
-                  toggleButtons.currentSelectedKey = key;
-                  toggleButtons.currentSelectedValue = value;
-                } else {
-                  comboBox.currentIndex = -1;
-                  toggleButtons.currentSelectedKey = "";
-                  toggleButtons.currentSelectedValue = "";
-                }
-                valueChangeRequested(toggleButtons.currentSelectedKey, false);
-              }
-
-              Ripple {
-                clip: true
-                width: parent.width
-                height: parent.height
-                pressed: mouseArea.pressed
-                anchor: parent
-                color: Theme.darkTheme ? "#22ffffff" : "#22000000"
-              }
-            }
-          }
+      onItemCompleted: function (index, itemModel, selected) {
+        if (selected) {
+          toggleButtons.currentSelectedKey = itemModel.key;
+          toggleButtons.currentSelectedValue = itemModel.value;
         }
+      }
+
+      onItemClicked: function (index, itemModel) {
+        if (selectedIndex != index) {
+          comboBox.currentIndex = index;
+          toggleButtons.currentSelectedKey = itemModel.key;
+          toggleButtons.currentSelectedValue = itemModel.value;
+        } else {
+          comboBox.currentIndex = -1;
+          toggleButtons.currentSelectedKey = "";
+          toggleButtons.currentSelectedValue = "";
+        }
+        valueChangeRequested(toggleButtons.currentSelectedKey, false);
       }
     }
 

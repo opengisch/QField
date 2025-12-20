@@ -9,8 +9,49 @@ import ".."
 EditorWidgetBase {
   id: valueRelation
 
-  height: (Number(config['AllowMulti']) !== 1 ? valueRelationCombobox.height : valueRelationListComponent.height) + 4
+  height: state === "toggleButtonsView" ? toggleButtons.height + 4 : (Number(config['AllowMulti']) !== 1 ? valueRelationCombobox.height : valueRelationListComponent.height) + 4
   enabled: true
+
+  // Toggle button threshold - reuse the same property as ValueMap
+  readonly property int toggleButtonsThreshold: currentLayer && currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') !== undefined ? currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') : 0
+
+  // Check groupping ???
+  property bool canUseToggleButtons: !listModel.allowMulti && valueRelationCombobox.count > 0 && valueRelationCombobox.count < toggleButtonsThreshold
+
+  state: canUseToggleButtons ? "toggleButtonsView" : "defaultView"
+
+  states: [
+    State {
+      name: "toggleButtonsView"
+      PropertyChanges {
+        target: toggleButtons
+        visible: true
+      }
+      PropertyChanges {
+        target: valueRelationCombobox
+        visible: false
+      }
+      PropertyChanges {
+        target: valueRelationListComponent
+        visible: false
+      }
+    },
+    State {
+      name: "defaultView"
+      PropertyChanges {
+        target: toggleButtons
+        visible: false
+      }
+      PropertyChanges {
+        target: valueRelationCombobox
+        visible: !listModel.allowMulti
+      }
+      PropertyChanges {
+        target: valueRelationListComponent
+        visible: listModel.allowMulti
+      }
+    }
+  ]
 
   LayerResolver {
     id: layerResolver
@@ -46,6 +87,31 @@ EditorWidgetBase {
 
     onListUpdated: {
       valueChangeRequested(attributeValue, attributeValue === "");
+    }
+  }
+
+  QfToggleButtonGroup {
+    id: toggleButtons
+    anchors.left: parent.left
+    anchors.right: parent.right
+    visible: false
+
+    model: valueRelation.canUseToggleButtons ? listModel : null
+    textRole: "displayString"
+    editing: isEditing
+    editable: isEditable
+    enabled: isEnabled
+
+    onItemCompleted: function (index, itemModel, selected) {
+      if (itemModel.checked) {
+        selectedIndex = index;
+      }
+    }
+
+    onItemClicked: function (index, itemModel) {
+      const newValue = listModel.dataFromRowIndex(index, FeatureListModel.KeyFieldRole);
+      valueChangeRequested(newValue, false);
+      selectedIndex = index;
     }
   }
 
