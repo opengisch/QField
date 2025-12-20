@@ -117,10 +117,12 @@ void FeatureListExtentController::zoomToAllFeatures() const
       if ( geom.isNull() )
         continue;
 
-      if ( geom.type() != Qgis::GeometryType::Point )
+      if ( geom.type() != Qgis::GeometryType::Point || geom.constGet()->partCount() > 1 )
         hasNonPointGeometry = true;
 
-      const QgsRectangle extent = geom.boundingBox();
+      const QgsRectangle extent = FeatureUtils::extent( mMapSettings, layer, feature );
+      if ( extent.isNull() )
+        continue;
 
       if ( combinedExtent.isNull() )
         combinedExtent = extent;

@@ -180,8 +180,8 @@ Page {
       isVisible: true
     }
     ListElement {
-      title: qsTr("Auto-zoom to identified features")
-      description: qsTr("When enabled, the map will automatically zoom to show the full extent of all identified features.")
+      title: qsTr("Auto-zoom to identified feature(s)")
+      description: qsTr("When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.")
       settingAlias: "autoZoomToIdentifiedFeature"
       isVisible: true
     }
