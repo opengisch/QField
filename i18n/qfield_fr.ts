@@ -4005,7 +4005,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation>Pour appliquer la langue sélectionnée à l&apos;interface, QField doit être complètement fermé et relancé.</translation>
+        <translation type="vanished">Pour appliquer la langue sélectionnée à l&apos;interface, QField doit être complètement fermé et relancé.</translation>
     </message>
     <message>
         <source>system</source>
@@ -5612,11 +5612,11 @@ projet</translation>
     </message>
     <message>
         <source>sqr. meters</source>
-        <translation type="unfinished"/>
+        <translation>mètres carrés</translation>
     </message>
     <message>
         <source>sqr. kilometers</source>
-        <translation type="unfinished"/>
+        <translation>kilomètres carrés</translation>
     </message>
     <message>
         <source>sqr. feet</source>
@@ -5632,7 +5632,7 @@ projet</translation>
     </message>
     <message>
         <source>hectares</source>
-        <translation type="unfinished"/>
+        <translation>hectares</translation>
     </message>
     <message>
         <source>acres</source>
@@ -5644,11 +5644,11 @@ projet</translation>
     </message>
     <message>
         <source>sqr. centimeters</source>
-        <translation type="unfinished"/>
+        <translation>centimètres carrés</translation>
     </message>
     <message>
         <source>sqr. millimeters</source>
-        <translation type="unfinished"/>
+        <translation>millimètres carrés</translation>
     </message>
     <message>
         <source>sqr. inches</source>
