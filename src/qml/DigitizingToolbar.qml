@@ -13,6 +13,8 @@ QfVisibilityFadingRow {
   property RubberbandModel rubberbandModel
   property MapSettings mapSettings
 
+  property bool cogoEnabled: false
+
   property bool showConfirmButton: true //<! if the geometry type is point, it will never be shown
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
@@ -26,6 +28,9 @@ QfVisibilityFadingRow {
   readonly property bool isDigitizing: rubberbandModel ? rubberbandModel.vertexCount > 1 : false //!< Readonly
 
   property bool geometryValid: false
+
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
+  signal requestPosition(var item)
 
   spacing: 4
 
@@ -76,14 +81,19 @@ QfVisibilityFadingRow {
     cloudUserInformation: projectInfo.cloudUserInformation
   }
 
-  CogoToolbar {
-    id: cogoToolbar
+  CogoTools {
+    id: cogoTools
+    enabled: digitizingToolbar.cogoEnabled
 
     mapSettings: digitizingToolbar.mapSettings
     cogoContainer: informationDrawer.cogoContainer
 
     onRequestJumpToPoint: function (center, scale, handleMargins) {
-      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+      digitizingToolbar.requestJumpToPoint(center, scale, handleMargins);
+    }
+
+    onRequestPosition: function (item) {
+      digitizingToolbar.requestPosition(item);
     }
   }
 

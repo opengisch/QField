@@ -1946,6 +1946,43 @@ ApplicationWindow {
         visible: stateMachine.state === "digitize" && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point)
 
         QfToolButton {
+          id: cogoButton
+          width: 40
+          height: 40
+          padding: 2
+          round: true
+          state: digitizingToolbar.cogoEnabled ? "On" : "Off"
+          iconSource: Theme.getThemeVectorIcon("ic_cogo_white_24dp")
+          iconColor: Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+
+          states: [
+            State {
+
+              name: "Off"
+              PropertyChanges {
+                target: cogoButton
+                iconColor: Theme.toolButtonColor
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+              }
+            },
+            State {
+              name: "On"
+              PropertyChanges {
+                target: cogoButton
+                iconColor: Theme.mainColor
+                bgcolor: Theme.toolButtonBackgroundColor
+              }
+            }
+          ]
+
+          onClicked: {
+            digitizingToolbar.cogoEnabled = !digitizingToolbar.cogoEnabled;
+            displayToast(digitizingToolbar.cogoEnabled ? qsTr("COGO digitizing turned on") : qsTr("COGO digitizing turned off"));
+          }
+        }
+
+        QfToolButton {
           id: snappingButton
           width: 40
           height: 40
@@ -2811,6 +2848,14 @@ ApplicationWindow {
             digitizingFeature.resetFeature();
           }
           coordinateLocator.sourceLocation = undefined;
+        }
+
+        onRequestJumpToPoint: function (center, scale, handleMargins) {
+          mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+        }
+
+        onRequestPosition: function (item) {
+          item.requestedPositionReceived(positionSource.projectedPosition);
         }
       }
 

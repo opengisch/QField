@@ -4,25 +4,38 @@ import QtQuick.Layouts
 import Theme
 import org.qgis
 import org.qfield
-import "."
 
-CogoBase {
-  title: qsTr("Point at XZ")
+CogoParameterWidgetBase {
+  id: pointParameter
+
+  width: parent.width
+  height: childrenRect.height
 
   GridLayout {
     anchors {
       left: parent.left
-      leftMargin: 10
       right: parent.right
-      rightMargin: 10
     }
-    columns: 3
+    columns: 2
 
     Label {
-      Layout.fillWidth: false
+      Layout.fillWidth: true
       color: Theme.secondaryTextColor
       font: Theme.tipFont
-      text: qsTr("X")
+      text: (label ? label + ": " : "") + qsTr("X")
+    }
+
+    QfToolButton {
+      Layout.rowSpan: 4
+
+      iconSource: Theme.getThemeVectorIcon("ic_location_valid_white_24dp")
+      iconColor: Theme.positionColor
+      bgcolor: "transparent"
+      round: true
+
+      onClicked: {
+        requestPosition(pointParameter);
+      }
     }
 
     QfTextField {
@@ -31,20 +44,11 @@ CogoBase {
       font: Theme.tipFont
     }
 
-    QfToolButton {
-      Layout.rowSpan: 2
-
-      iconSource: Theme.getThemeVectorIcon("ic_location_valid_white_24dp")
-      iconColor: Theme.positionColor
-      bgcolor: "transparent"
-      round: true
-    }
-
     Label {
       Layout.fillWidth: false
       color: Theme.secondaryTextColor
       font: Theme.tipFont
-      text: qsTr("Y")
+      text: (label ? label + ": " : "") + qsTr("Y")
     }
 
     QfTextField {
@@ -52,5 +56,10 @@ CogoBase {
       Layout.fillWidth: true
       font: Theme.tipFont
     }
+  }
+
+  function requestedPositionReceived(position) {
+    xField.text = position.x;
+    yField.text = position.y;
   }
 }

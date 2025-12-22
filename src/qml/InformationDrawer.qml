@@ -53,8 +53,9 @@ Item {
 
     Item {
       id: cogoOverlayContainer
+      enabled: false
       width: parent.width
-      height: childrenRect.height
+      height: enabled ? childrenRect.height : 0
     }
 
     QfOverlayContainer {
