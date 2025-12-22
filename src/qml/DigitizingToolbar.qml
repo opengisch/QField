@@ -76,6 +76,17 @@ QfVisibilityFadingRow {
     cloudUserInformation: projectInfo.cloudUserInformation
   }
 
+  CogoToolbar {
+    id: cogoToolbar
+
+    mapSettings: digitizingToolbar.mapSettings
+    cogoContainer: informationDrawer.cogoContainer
+
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+    }
+  }
+
   QfToolButton {
     id: cancelButton
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")

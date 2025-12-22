@@ -52,5 +52,33 @@ CogoBase {
       Layout.fillWidth: true
       font: Theme.tipFont
     }
+
+    Label {
+      Layout.fillWidth: false
+      color: Theme.secondaryTextColor
+      font: Theme.tipFont
+      text: qsTr("Angle")
+    }
+
+    QfTextField {
+      id: angleField
+      Layout.fillWidth: true
+      Layout.columnSpan: 2
+      font: Theme.tipFont
+    }
+
+    Label {
+      Layout.fillWidth: false
+      color: Theme.secondaryTextColor
+      font: Theme.tipFont
+      text: qsTr("Distance")
+    }
+
+    QfTextField {
+      id: distanceField
+      Layout.fillWidth: true
+      Layout.columnSpan: 2
+      font: Theme.tipFont
+    }
   }
 }
