@@ -77,6 +77,10 @@
         <file>geometryeditors/Reshape.qml</file>
         <file>geometryeditors/FillRing.qml</file>
         <file>GeometryEditorsToolbar.qml</file>
+        <file>cogo/CogoBase.qml</file>
+        <file>cogo/PointAtXZ.qml</file>
+        <file>cogo/PointAtAngleDistance.qml</file>
+        <file>CogoToolbar.qml</file>
         <file>qgismobileapp.qml</file>
         <file>Legend.qml</file>
         <file>TemporalProperties.qml</file>

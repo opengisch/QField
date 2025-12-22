@@ -22,6 +22,9 @@ Item {
     }
   }
 
+  // COGO
+  property alias cogoContainer: cogoOverlayContainer
+
   // SensorInformationView
   property bool sensorInformationViewEnabled: sensorInformationView.activeSensors > 0
 
@@ -47,6 +50,12 @@ Item {
     leftPadding: 5
     rightPadding: 5
     spacing: 8
+
+    Item {
+      id: cogoOverlayContainer
+      width: parent.width
+      height: childrenRect.height
+    }
 
     QfOverlayContainer {
       visible: navigationInformationViewEnabled

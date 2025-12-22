@@ -2830,6 +2830,19 @@ ApplicationWindow {
         }
       }
 
+      CogoToolbar {
+        id: cogoToolbar
+
+        stateVisible: true
+
+        mapSettings: mapCanvas.mapSettings
+        cogoContainer: informationDrawer.cogoContainer
+
+        onRequestJumpToPoint: function (center, scale, handleMargins) {
+          mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+        }
+      }
+
       ConfirmationToolbar {
         id: moveFeaturesToolbar
 
