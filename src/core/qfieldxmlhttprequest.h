@@ -1,5 +1,5 @@
 /***************************************************************************
-qfieldxmlhttprequest.h - XMLHTTPREQUEST
+qfieldxmlhttprequest.h - QFIELDXMLHTTPREQUEST
 
 begin                : 15.12.2025
 copyright            : (C) 2025 by Kaustuv Pokharel
@@ -105,6 +105,9 @@ class QFieldXmlHttpRequest : public QObject
 
     explicit QFieldXmlHttpRequest( QObject *parent = nullptr );
     ~QFieldXmlHttpRequest() override;
+
+    Q_INVOKABLE static QFieldXmlHttpRequest *newRequest( QObject *parent = nullptr );
+
 
     /**
    * \brief Prepares the request. Must be called before send().

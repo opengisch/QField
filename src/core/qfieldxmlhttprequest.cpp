@@ -1,5 +1,5 @@
 /***************************************************************************
-qfieldxmlhttprequest.cpp - XMLHTTPREQUEST
+qfieldxmlhttprequest.cpp - QFIELDXMLHTTPREQUEST
 
 ---------------------
 begin                : 15.12.2025
@@ -44,6 +44,11 @@ QFieldXmlHttpRequest::~QFieldXmlHttpRequest()
 {
   // Destructor must be silent (no QML callbacks / no signals).
   cleanupReply( /*abortNetwork=*/true );
+}
+
+QFieldXmlHttpRequest *QFieldXmlHttpRequest::newRequest( QObject *parent )
+{
+  return new QFieldXmlHttpRequest( parent );
 }
 
 void QFieldXmlHttpRequest::setTimeout( int ms )
