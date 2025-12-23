@@ -49,4 +49,7 @@ Settings {
 
   property bool geofencingPreventDigitizingDuringAlert: false
   property bool egenioussEnabled: false
+
+  // Position follow mode: 0 = position only, 1 = position + compass, 2 = position + movement direction
+  property int positionFollowMode: 0
 }
