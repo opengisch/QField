@@ -32,6 +32,7 @@
 #include "appcoordinateoperationhandlers.h"
 #include "bookmarkmodel.h"
 #include "clipboardmanager.h"
+#include "cogoregistry.h"
 #include "drawingtemplatemodel.h"
 #include "pluginmanager.h"
 #include "qfield_core_export.h"
@@ -249,6 +250,8 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     MessageLogModel *mMessageLogModel = nullptr;
 
     PluginManager *mPluginManager = nullptr;
+
+    std::unique_ptr<CogoRegistry> mCogoRegistry;
 
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
     QgsCoordinateReferenceSystem mCrsFactory;

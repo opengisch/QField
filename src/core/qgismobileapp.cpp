@@ -45,6 +45,9 @@
 #include "barcodedecoder.h"
 #include "barcodeimageprovider.h"
 #include "changelogcontents.h"
+#include "cogoexecutor.h"
+#include "cogooperationsmodel.h"
+#include "cogoregistry.h"
 #include "coordinatereferencesystemutils.h"
 #include "deltafilewrapper.h"
 #include "deltalistmodel.h"
@@ -227,6 +230,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   QDesktopServices::setUrlHandler( QStringLiteral( "qfield" ), mUrlHandler.get(), "handleUrl" );
 
   mMessageLogModel = new MessageLogModel( this );
+
+  mCogoRegistry.reset( new CogoRegistry() );
+  CogoRegistry::setInstance( mCogoRegistry.get() );
 
   QSettings settings;
   if ( PlatformUtilities::instance()->capabilities() & PlatformUtilities::AdjustBrightness )
@@ -475,6 +481,8 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<GridModel>( "org.qfield", 1, 0, "GridModel" );
   qmlRegisterUncreatableType<GridAnnotation>( "org.qfield", 1, 0, "GridAnnotation", "" );
 
+  qmlRegisterType<CogoExecutor>( "org.qfield", 1, 0, "CogoExecutor" );
+  qmlRegisterType<CogoOperationsModel>( "org.qfield", 1, 0, "CogoOperationsModel" );
   qmlRegisterType<Geofencer>( "org.qfield", 1, 0, "Geofencer" );
   qmlRegisterType<DigitizingLogger>( "org.qfield", 1, 0, "DigitizingLogger" );
   qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
