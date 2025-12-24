@@ -125,6 +125,8 @@ class CogoOperationPointAtIntersectionCircles : public CogoOperation
     QString displayName() const override { return QObject::tr( "Point at Circles' Intersection" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_intersection_circles_white_24dp" ); }
     QList<CogoParameter> parameters() const override;
+    bool checkReadiness( const QVariantMap &parameters ) const override;
+    bool execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const override;
 };
 
 #endif // COGOOPERATION_H

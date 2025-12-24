@@ -129,10 +129,78 @@ bool CogoOperationPointAtDistanceAngle::execute( const QVariantMap &parameters, 
 QList<CogoParameter> CogoOperationPointAtIntersectionCircles::parameters() const
 {
   QList<CogoParameter> parameters;
-  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ), QStringLiteral( "Circle #1" ) )
-             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance" ), QStringLiteral( "Circle #1: Radius" ) )
-             << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ), QStringLiteral( "Circle #2" ) )
-             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance" ), QStringLiteral( "Circle #2: Radius" ) )
-             << CogoParameter( QStringLiteral( "enum" ), QStringLiteral( "distance" ), QStringLiteral( "Candidate" ), { { QStringLiteral( "options" ), QStringList() << QStringLiteral( "A" ) << QStringLiteral( "B" ) } } );
+  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point1" ), QStringLiteral( "Circle #1" ) )
+             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance1" ), QStringLiteral( "Circle #1: Radius" ) )
+             << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point2" ), QStringLiteral( "Circle #2" ) )
+             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance2" ), QStringLiteral( "Circle #2: Radius" ) )
+             << CogoParameter( QStringLiteral( "enum" ), QStringLiteral( "candidate" ), QStringLiteral( "Candidate" ), { { QStringLiteral( "options" ), QStringList() << QStringLiteral( "A" ) << QStringLiteral( "B" ) } } );
   return parameters;
+}
+
+bool CogoOperationPointAtIntersectionCircles::checkReadiness( const QVariantMap &parameters ) const
+{
+  if ( !parameters.contains( QStringLiteral( "point1" ) ) || !parameters.contains( QStringLiteral( "distance1" ) ) || !parameters.contains( QStringLiteral( "point2" ) ) || !parameters.contains( QStringLiteral( "distance2" ) ) || !parameters.contains( QStringLiteral( "candidate" ) ) )
+  {
+    return false;
+  }
+
+  if ( !parameters[QStringLiteral( "point1" )].canConvert<QgsPoint>() || !parameters[QStringLiteral( "point2" )].canConvert<QgsPoint>() )
+  {
+    return false;
+  }
+
+  QgsPoint point = parameters[QStringLiteral( "point1" )].value<QgsPoint>();
+  if ( point.isEmpty() )
+  {
+    return false;
+  }
+
+  point = parameters[QStringLiteral( "point2" )].value<QgsPoint>();
+  if ( point.isEmpty() )
+  {
+    return false;
+  }
+
+  bool ok;
+  double value = parameters[QStringLiteral( "distance1" )].toDouble( &ok );
+  if ( !ok )
+  {
+    return false;
+  }
+
+  value = parameters[QStringLiteral( "distance2" )].toDouble( &ok );
+  if ( !ok )
+  {
+    return false;
+  }
+
+  const QString candidate = parameters[QStringLiteral( "candidate" )].toString();
+  if ( candidate.isEmpty() )
+  {
+    return false;
+  }
+
+  return true;
+}
+
+bool CogoOperationPointAtIntersectionCircles::execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const
+{
+  if ( !rubberbandModel || !checkReadiness( parameters ) )
+  {
+    return false;
+  }
+
+  const QgsPoint point1 = parameters[QStringLiteral( "point1" )].value<QgsPoint>();
+  const QgsPoint point2 = parameters[QStringLiteral( "point2" )].value<QgsPoint>();
+  const double distance1 = parameters[QStringLiteral( "distance1" )].toDouble();
+  const double distance2 = parameters[QStringLiteral( "distance2" )].toDouble();
+  const QString candidate = parameters[QStringLiteral( "candidate" )].toString();
+
+  QgsPointXY candidateA;
+  QgsPointXY candidateB;
+  QgsGeometryUtils::circleCircleIntersections( point1, distance1, point2, distance2, candidateA, candidateB );
+
+  rubberbandModel->addVertexFromPoint( QgsPoint( candidate == QStringLiteral( "B" ) ? candidateB : candidateA ) );
+
+  return true;
 }
