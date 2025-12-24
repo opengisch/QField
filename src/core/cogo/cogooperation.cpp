@@ -118,8 +118,8 @@ bool CogoOperationPointAtDistanceAngle::execute( const QVariantMap &parameters, 
   const double angleDegree = parameters[QStringLiteral( "angle" )].toDouble() - 90.0;
   const double angleRadian = angleDegree * M_PI / 180;
 
-  const double x = point.x() + ( distance * std::cos( angleRadian ) );
-  const double y = point.y() + ( distance * std::sin( angleRadian ) );
+  const double x = point.x() + ( distance * std::cos( -angleRadian ) );
+  const double y = point.y() + ( distance * std::sin( -angleRadian ) );
 
   rubberbandModel->addVertexFromPoint( QgsPoint( x, y ) );
 
