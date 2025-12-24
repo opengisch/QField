@@ -15,7 +15,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "cogooperation.h"
 #include "cogooperationsmodel.h"
 #include "cogoregistry.h"
 
@@ -24,6 +23,8 @@ CogoOperationsModel::CogoOperationsModel( QObject *parent )
   : QAbstractListModel( parent )
 {
   connect( CogoRegistry::instance(), &CogoRegistry::operationAdded, this, [=]() { buildModel(); } );
+
+  buildModel();
 }
 
 void CogoOperationsModel::buildModel()
@@ -33,9 +34,29 @@ void CogoOperationsModel::buildModel()
   endResetModel();
 }
 
+QVariantMap CogoOperationsModel::get( int row ) const
+{
+  QVariantMap data;
+  const QModelIndex idx = index( row, 0 );
+  if ( !idx.isValid() )
+  {
+    return data;
+  }
+
+  const QHash<int, QByteArray> roles = roleNames();
+  QHashIterator<int, QByteArray> it( roles );
+  while ( it.hasNext() )
+  {
+    it.next();
+    data[it.value()] = idx.data( it.key() );
+  }
+
+  return data;
+}
+
 int CogoOperationsModel::rowCount( const QModelIndex &parent ) const
 {
-  return !parent.isValid() ? static_cast<int>( mOperationNames.count() ) : 0;
+  return !parent.isValid() ? static_cast<int>( mOperationNames.size() ) : 0;
 }
 
 QVariant CogoOperationsModel::data( const QModelIndex &index, int role ) const
@@ -58,6 +79,12 @@ QVariant CogoOperationsModel::data( const QModelIndex &index, int role ) const
 
     case DisplayNameRole:
       return operation->displayName();
+
+    case IconRole:
+      return operation->icon();
+
+    case ParametersRole:
+      return QVariant::fromValue<QList<CogoParameter>>( operation->parameters() );
   }
 
   return QVariant();

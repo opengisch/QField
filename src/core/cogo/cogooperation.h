@@ -21,6 +21,31 @@
 #include <QObject>
 #include <QString>
 
+
+/**
+ * \ingroup core
+ */
+class CogoParameter
+{
+    Q_GADGET
+
+    Q_PROPERTY( QString type MEMBER type )
+    Q_PROPERTY( QString name MEMBER name )
+    Q_PROPERTY( QString label MEMBER label )
+
+  public:
+    explicit CogoParameter( const QString &type = QString(), const QString &name = QString(), const QString &label = QString() )
+      : type( type )
+      , name( name )
+      , label( label )
+    {}
+
+    QString type;
+    QString name;
+    QString label;
+};
+
+
 /**
  * \ingroup core
  */
@@ -30,14 +55,20 @@ class CogoOperation
     CogoOperation() {}
     ~CogoOperation() = default;
 
-    virtual QString name() const { return QStringLiteral(); }
+    virtual QString name() const { return QString(); }
 
-    virtual QString displayName() const { return QStringLiteral(); }
+    virtual QString displayName() const { return QString(); }
+
+    virtual QString icon() const { return QString(); }
+
+    virtual QList<CogoParameter> parameters() const { return QList<CogoParameter>(); }
 
     virtual bool checkReadiness( const QVariantMap &parameters ) const { return false; }
 
     virtual bool execute( const QVariantMap &parameters ) const { return false; }
 };
+Q_DECLARE_METATYPE( CogoOperation )
+Q_DECLARE_METATYPE( CogoParameter )
 
 
 /**
@@ -51,6 +82,8 @@ class CogoOperationPointAtXYZ : public CogoOperation
 
     QString name() const override { return QStringLiteral( "point_at_xyz" ); }
     QString displayName() const override { return QObject::tr( "Point at XYZ" ); }
+    QString icon() const override { return QStringLiteral( "ic_cogo_xy_white_24dp" ); }
+    QList<CogoParameter> parameters() const override;
 };
 
 
@@ -65,6 +98,8 @@ class CogoOperationPointAtDistanceAngle : public CogoOperation
 
     QString name() const override { return QStringLiteral( "point_at_distance_angle" ); }
     QString displayName() const override { return QObject::tr( "Point at Distance/Angle" ); }
+    QString icon() const override { return QStringLiteral( "ic_cogo_angle_distance_white_24dp" ); }
+    QList<CogoParameter> parameters() const override;
 };
 
 
@@ -79,6 +114,8 @@ class CogoOperationPointAtIntersectionCircles : public CogoOperation
 
     QString name() const override { return QStringLiteral( "point_at_intersection_circles" ); }
     QString displayName() const override { return QObject::tr( "Point at Circles' Intersection" ); }
+    QString icon() const override { return QStringLiteral( "ic_cogo_intersection_circles_white_24dp" ); }
+    QList<CogoParameter> parameters() const override;
 };
 
 #endif // COGOOPERATION_H

@@ -42,9 +42,10 @@ Item {
   visible: enabled
 
   onEnabledChanged: {
-    if (enabled && toolsModel.currentIndex == -1) {
-      toolsModel.currentIndex = 0;
-      cogoTool.load(toolsModel.get(0).parameters, toolsModel.get(0).name);
+    if (enabled && cogoOperationsModel.currentIndex == -1) {
+      cogoOperationsModel.currentIndex = 0;
+      const operationData = cogoOperationsModel.get(0);
+      cogoTool.load(operationData.Parameters, operationData.Name);
     }
     if (cogoContainer !== undefined) {
       cogoContainer.enabled = enabled;
@@ -76,81 +77,23 @@ Item {
       }
     }
 
-    ListModel {
-      id: toolsModel
-
-      property int currentIndex: -1
-
-      ListElement {
-        name: qsTr("Point at XY")
-        iconPath: "ic_cogo_xy_white_24dp"
-        parameters: [
-          ListElement {
-            parameterName: "point"
-            parameterType: "point"
-          }
-        ]
-      }
-      ListElement {
-        name: qsTr("Point at Angle/Distance")
-        iconPath: "ic_cogo_angle_distance_white_24dp"
-        parameters: [
-          ListElement {
-            parameterName: "point"
-            parameterType: "point"
-          },
-          ListElement {
-            parameterName: "distance"
-            parameterType: "distance"
-          },
-          ListElement {
-            parameterName: "angle"
-            parameterType: "angle"
-          }
-        ]
-      }
-      ListElement {
-        name: qsTr("Point at Circle's Intersection")
-        iconPath: "ic_cogo_intersection_circles_white_24dp"
-        parameters: [
-          ListElement {
-            parameterName: "point1"
-            parameterType: "point"
-            parameterLabel: "Circle #1"
-          },
-          ListElement {
-            parameterName: "distance1"
-            parameterType: "distance"
-            parameterLabel: "Circle #1: Radius"
-          },
-          ListElement {
-            parameterName: "point2"
-            parameterType: "point"
-            parameterLabel: "Circle #2"
-          },
-          ListElement {
-            parameterName: "distance2"
-            parameterType: "distance"
-            parameterLabel: "Circle #2: Radius"
-          }
-        ]
-      }
-    }
-
     Repeater {
-      model: toolsModel
+      model: CogoOperationsModel {
+        id: cogoOperationsModel
+        property int currentIndex: -1
+      }
       delegate: QfToolButton {
         width: 40
         height: 40
         padding: 2
         round: true
-        bgcolor: toolsModel.currentIndex === index ? Theme.toolButtonBackgroundColor : Theme.toolButtonBackgroundSemiOpaqueColor
-        iconSource: Theme.getThemeVectorIcon(iconPath)
-        iconColor: toolsModel.currentIndex === index ? Theme.mainColor : Theme.toolButtonColor
+        bgcolor: cogoOperationsModel.currentIndex === index ? Theme.toolButtonBackgroundColor : Theme.toolButtonBackgroundSemiOpaqueColor
+        iconSource: Theme.getThemeVectorIcon(Icon)
+        iconColor: cogoOperationsModel.currentIndex === index ? Theme.mainColor : Theme.toolButtonColor
 
         onClicked: {
-          toolsModel.currentIndex = index;
-          cogoTool.load(parameters, name);
+          cogoOperationsModel.currentIndex = index;
+          cogoTool.load(Parameters, DisplayName);
         }
       }
     }

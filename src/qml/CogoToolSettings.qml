@@ -43,12 +43,12 @@ QfOverlayContainer {
         Loader {
           id: parameter
 
-          property string label: parameterLabel !== undefined ? parameterLabel : ""
-          property string name: parameterName
+          property string label: modelData.label
+          property string name: modelData.name
 
           y: 2
           width: parent.width
-          source: "cogoparameterwidgets/" + parameterType + ".qml"
+          source: "cogoparameterwidgets/" + modelData.type + ".qml"
         }
 
         Connections {

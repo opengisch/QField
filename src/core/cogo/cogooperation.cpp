@@ -16,3 +16,32 @@
  ***************************************************************************/
 
 #include "cogooperation.h"
+
+
+QList<CogoParameter> CogoOperationPointAtXYZ::parameters() const
+{
+  QList<CogoParameter> parameters;
+  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ) );
+  return parameters;
+}
+
+
+QList<CogoParameter> CogoOperationPointAtDistanceAngle::parameters() const
+{
+  QList<CogoParameter> parameters;
+  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ) )
+             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance" ) )
+             << CogoParameter( QStringLiteral( "angle" ), QStringLiteral( "angle" ) );
+  return parameters;
+}
+
+
+QList<CogoParameter> CogoOperationPointAtIntersectionCircles::parameters() const
+{
+  QList<CogoParameter> parameters;
+  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ), QStringLiteral( "Circle #1" ) )
+             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance" ), QStringLiteral( "Circle #1: Radius" ) )
+             << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ), QStringLiteral( "Circle #2" ) )
+             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance" ), QStringLiteral( "Circle #2: Radius" ) );
+  return parameters;
+}

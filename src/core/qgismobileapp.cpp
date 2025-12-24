@@ -46,6 +46,7 @@
 #include "barcodeimageprovider.h"
 #include "changelogcontents.h"
 #include "cogoexecutor.h"
+#include "cogooperation.h"
 #include "cogooperationsmodel.h"
 #include "cogoregistry.h"
 #include "coordinatereferencesystemutils.h"
@@ -483,6 +484,8 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 
   qmlRegisterType<CogoExecutor>( "org.qfield", 1, 0, "CogoExecutor" );
   qmlRegisterType<CogoOperationsModel>( "org.qfield", 1, 0, "CogoOperationsModel" );
+  qmlRegisterUncreatableType<CogoParameter>( "org.qfield", 1, 0, "CogoParameter", "" );
+
   qmlRegisterType<Geofencer>( "org.qfield", 1, 0, "Geofencer" );
   qmlRegisterType<DigitizingLogger>( "org.qfield", 1, 0, "DigitizingLogger" );
   qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
