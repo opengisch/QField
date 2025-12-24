@@ -47,6 +47,7 @@ QfOverlayContainer {
 
           property string label: modelData !== undefined ? modelData.label : ""
           property string name: modelData !== undefined ? modelData.name : ""
+          property var configuration: modelData !== undefined ? modelData.config : []
 
           y: 2
           width: parent.width

@@ -34,17 +34,20 @@ class CogoParameter
     Q_PROPERTY( QString type MEMBER type )
     Q_PROPERTY( QString name MEMBER name )
     Q_PROPERTY( QString label MEMBER label )
+    Q_PROPERTY( QVariantMap config MEMBER config )
 
   public:
-    explicit CogoParameter( const QString &type = QString(), const QString &name = QString(), const QString &label = QString() )
+    explicit CogoParameter( const QString &type = QString(), const QString &name = QString(), const QString &label = QString(), const QVariantMap &config = QVariantMap() )
       : type( type )
       , name( name )
       , label( label )
+      , config( config )
     {}
 
     QString type;
     QString name;
     QString label;
+    QVariantMap config;
 };
 
 

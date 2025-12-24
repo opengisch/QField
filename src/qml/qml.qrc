@@ -78,9 +78,10 @@
         <file>geometryeditors/FillRing.qml</file>
         <file>GeometryEditorsToolbar.qml</file>
         <file>cogoparameterwidgets/CogoParameterWidgetBase.qml</file>
-        <file>cogoparameterwidgets/point.qml</file>
-        <file>cogoparameterwidgets/distance.qml</file>
         <file>cogoparameterwidgets/angle.qml</file>
+        <file>cogoparameterwidgets/distance.qml</file>
+        <file>cogoparameterwidgets/enum.qml</file>
+        <file>cogoparameterwidgets/point.qml</file>
         <file>CogoOperations.qml</file>
         <file>CogoOperationSettings.qml</file>
         <file>qgismobileapp.qml</file>
