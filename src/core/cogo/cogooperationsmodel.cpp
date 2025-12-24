@@ -54,6 +54,11 @@ QVariantMap CogoOperationsModel::get( int row ) const
   return data;
 }
 
+QVariantMap CogoOperationsModel::get( const QString &name ) const
+{
+  return get( mOperationNames.indexOf( name ) );
+}
+
 int CogoOperationsModel::rowCount( const QModelIndex &parent ) const
 {
   return !parent.isValid() ? static_cast<int>( mOperationNames.size() ) : 0;

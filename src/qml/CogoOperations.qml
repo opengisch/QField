@@ -42,10 +42,12 @@ Item {
   visible: enabled
 
   onEnabledChanged: {
-    if (enabled && cogoOperationsModel.currentIndex == -1) {
-      cogoOperationsModel.currentIndex = 0;
-      const operationData = cogoOperationsModel.get(0);
-      cogoOperationSettings.load(operationData.Parameters, operationData.Name);
+    if (enabled && cogoOperationSettings.name === "") {
+      const lastUsed = settings.value("/QField/CogoOperationLastUsed", "point_at_xyz");
+      const operationData = cogoOperationsModel.get(lastUsed);
+      cogoOperationSettings.name = operationData.Name;
+      cogoOperationSettings.parameters = operationData.Parameters;
+      cogoOperationSettings.title = operationData.DisplayName;
       cogoOperationSettings.visible = true;
     } else {
       cogoOperationSettings.visible = false;
@@ -80,20 +82,22 @@ Item {
     Repeater {
       model: CogoOperationsModel {
         id: cogoOperationsModel
-        property int currentIndex: -1
       }
       delegate: QfToolButton {
         width: 40
         height: 40
         padding: 2
         round: true
-        bgcolor: cogoOperationsModel.currentIndex === index ? Theme.toolButtonBackgroundColor : Theme.toolButtonBackgroundSemiOpaqueColor
+        bgcolor: cogoOperationSettings.name === Name ? Theme.toolButtonBackgroundColor : Theme.toolButtonBackgroundSemiOpaqueColor
         iconSource: Theme.getThemeVectorIcon(Icon)
-        iconColor: cogoOperationsModel.currentIndex === index ? Theme.mainColor : Theme.toolButtonColor
+        iconColor: cogoOperationSettings.name === Name ? Theme.mainColor : Theme.toolButtonColor
 
         onClicked: {
-          cogoOperationsModel.currentIndex = index;
-          cogoOperationSettings.load(Parameters, DisplayName);
+          settings.setValue("/QField/CogoOperationLastUsed", Name);
+          cogoOperationSettings.name = Name;
+          cogoOperationSettings.parameters = Parameters;
+          cogoOperationSettings.title = DisplayName;
+          displayToast(DisplayName);
         }
       }
     }

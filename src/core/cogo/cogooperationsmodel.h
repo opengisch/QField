@@ -44,6 +44,7 @@ class CogoOperationsModel : public QAbstractListModel
     void buildModel();
 
     Q_INVOKABLE QVariantMap get( int row ) const;
+    Q_INVOKABLE QVariantMap get( const QString &name ) const;
 
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
     QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;

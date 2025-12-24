@@ -97,6 +97,12 @@ QfVisibilityFadingRow {
     }
   }
 
+  CogoExecutor {
+    id: cogoExecutor
+    name: informationDrawer.cogoOperationSettings.name
+    parameters: informationDrawer.cogoOperationSettings.parameterValues
+  }
+
   QfToolButton {
     id: cancelButton
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")

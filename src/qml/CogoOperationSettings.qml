@@ -5,9 +5,11 @@ import org.qgis
 import org.qfield
 
 QfOverlayContainer {
-  id: cogoSettings
+  id: cogoOperationSettings
 
-  property var parameters: [{}]
+  property string name: ""
+  property var parameters: []
+  property var parameterValues: [{}]
 
   signal requestJumpToPoint(var center, real scale, bool handleMargins)
   signal requestPosition(var item)
@@ -17,18 +19,18 @@ QfOverlayContainer {
 
   Rectangle {
     width: parent.width
-    height: cogoSettingsView.height
+    height: cogoOperationSettingsView.height
     color: Theme.mainBackgroundColorSemiOpaque
 
     ListView {
-      id: cogoSettingsView
+      id: cogoOperationSettingsView
       anchors {
         left: parent.left
         right: parent.right
       }
       ScrollBar.vertical: QfScrollBar {
       }
-      model: cogoSettings.parameters
+      model: cogoOperationSettings.parameters
       height: Math.min(mainWindow.height / 2, contentHeight + 10)
       topMargin: 5
       leftMargin: 10
@@ -43,8 +45,8 @@ QfOverlayContainer {
         Loader {
           id: parameter
 
-          property string label: modelData.label
-          property string name: modelData.name
+          property string label: modelData !== undefined ? modelData.label : ""
+          property string name: modelData !== undefined ? modelData.name : ""
 
           y: 2
           width: parent.width
@@ -55,16 +57,10 @@ QfOverlayContainer {
           target: parameter.item
 
           function onRequestPosition(item) {
-            cogoSettings.requestPosition(item);
+            cogoOperationSettings.requestPosition(item);
           }
         }
       }
     }
-  }
-
-  function load(params, name) {
-    title = name;
-    parameters = params;
-    displayToast(name);
   }
 }
