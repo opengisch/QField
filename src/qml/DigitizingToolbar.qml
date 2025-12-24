@@ -101,6 +101,10 @@ QfVisibilityFadingRow {
     id: cogoExecutor
     name: informationDrawer.cogoOperationSettings.name
     parameters: informationDrawer.cogoOperationSettings.parameterValues
+
+    onParametersChanged: {
+      console.log('111');
+    }
   }
 
   QfToolButton {

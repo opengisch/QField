@@ -17,6 +17,9 @@
 
 #include "cogooperation.h"
 
+#include <QMap>
+#include <QVariant>
+#include <qgspoint.h>
 
 QList<CogoParameter> CogoOperationPointAtXYZ::parameters() const
 {
@@ -25,6 +28,18 @@ QList<CogoParameter> CogoOperationPointAtXYZ::parameters() const
   return parameters;
 }
 
+bool CogoOperationPointAtXYZ::checkReadiness( const QVariantMap &parameters ) const
+{
+  if ( parameters.contains( QStringLiteral( "point" ) ) )
+  {
+    if ( parameters[QStringLiteral( "point" )].canConvert<QgsPoint>() )
+    {
+      const QgsPoint point = parameters[QStringLiteral( "point" )].value<QgsPoint>();
+      return !point.isEmpty();
+    }
+  }
+  return false;
+}
 
 QList<CogoParameter> CogoOperationPointAtDistanceAngle::parameters() const
 {

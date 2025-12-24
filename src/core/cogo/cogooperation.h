@@ -84,6 +84,7 @@ class CogoOperationPointAtXYZ : public CogoOperation
     QString displayName() const override { return QObject::tr( "Point at XYZ" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_xy_white_24dp" ); }
     QList<CogoParameter> parameters() const override;
+    bool checkReadiness( const QVariantMap &parameters ) const override;
 };
 
 

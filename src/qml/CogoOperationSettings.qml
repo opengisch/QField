@@ -9,7 +9,7 @@ QfOverlayContainer {
 
   property string name: ""
   property var parameters: []
-  property var parameterValues: [{}]
+  property var parameterValues: ({})
 
   signal requestJumpToPoint(var center, real scale, bool handleMargins)
   signal requestPosition(var item)
@@ -55,6 +55,12 @@ QfOverlayContainer {
 
         Connections {
           target: parameter.item
+
+          function onValueChangeRequested(value) {
+            let pv = cogoOperationSettings.parameterValues;
+            pv[parameter.name] = value;
+            cogoOperationSettings.parameterValues = pv;
+          }
 
           function onRequestPosition(item) {
             cogoOperationSettings.requestPosition(item);

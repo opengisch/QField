@@ -42,6 +42,10 @@ CogoParameterWidgetBase {
       id: xField
       Layout.fillWidth: true
       font: Theme.tipFont
+
+      onTextEdited: {
+        processValue();
+      }
     }
 
     Label {
@@ -55,11 +59,32 @@ CogoParameterWidgetBase {
       id: yField
       Layout.fillWidth: true
       font: Theme.tipFont
+
+      onTextEdited: {
+        processValue();
+      }
+    }
+  }
+
+  function processValue() {
+    const x = parseFloat(xField.text);
+    const y = parseFloat(yField.text);
+    if (!isNaN(x) && !isNaN(y)) {
+      valueChangeRequested(GeometryUtils.point(x, y));
+    } else {
+      valueChangeRequested(undefined);
     }
   }
 
   function requestedPositionReceived(position) {
-    xField.text = position.x;
-    yField.text = position.y;
+    if (position.isValid) {
+      xField.text = position.x;
+      yField.text = position.y;
+      processValue();
+    } else {
+      xField.text = "";
+      yField.text = "";
+      processValue();
+    }
   }
 }

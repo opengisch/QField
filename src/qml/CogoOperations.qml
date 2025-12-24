@@ -97,6 +97,7 @@ Item {
           cogoOperationSettings.name = Name;
           cogoOperationSettings.parameters = Parameters;
           cogoOperationSettings.title = DisplayName;
+          cogoOperationSettings.parameterValues = [{}];
           displayToast(DisplayName);
         }
       }
