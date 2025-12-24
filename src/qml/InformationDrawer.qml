@@ -23,7 +23,7 @@ Item {
   }
 
   // COGO
-  property alias cogoContainer: cogoOverlayContainer
+  property alias cogoOperationSettings: cogoOperationSettings
 
   // SensorInformationView
   property bool sensorInformationViewEnabled: sensorInformationView.activeSensors > 0
@@ -51,11 +51,9 @@ Item {
     rightPadding: 5
     spacing: 8
 
-    Item {
-      id: cogoOverlayContainer
-      enabled: false
-      width: parent.width
-      height: enabled ? childrenRect.height : 0
+    CogoOperationSettings {
+      id: cogoOperationSettings
+      visible: false
     }
 
     QfOverlayContainer {

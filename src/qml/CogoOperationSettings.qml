@@ -61,4 +61,10 @@ QfOverlayContainer {
       }
     }
   }
+
+  function load(params, name) {
+    title = name;
+    parameters = params;
+    displayToast(name);
+  }
 }

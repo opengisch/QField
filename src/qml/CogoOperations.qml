@@ -13,7 +13,7 @@ Item {
   property MapSettings mapSettings
   property RubberbandModel rubberbandModel //<! the rubberband model attached to the ferature model to build its geometry
 
-  property var cogoContainer: undefined
+  property var cogoOperationSettings: undefined
 
   signal requestJumpToPoint(var center, real scale, bool handleMargins)
   signal requestPosition(var item)
@@ -45,10 +45,10 @@ Item {
     if (enabled && cogoOperationsModel.currentIndex == -1) {
       cogoOperationsModel.currentIndex = 0;
       const operationData = cogoOperationsModel.get(0);
-      cogoOperationLoader.load(operationData.Parameters, operationData.Name);
-    }
-    if (cogoContainer !== undefined) {
-      cogoContainer.enabled = enabled;
+      cogoOperationSettings.load(operationData.Parameters, operationData.Name);
+      cogoOperationSettings.visible = true;
+    } else {
+      cogoOperationSettings.visible = false;
     }
   }
 
@@ -93,47 +93,9 @@ Item {
 
         onClicked: {
           cogoOperationsModel.currentIndex = index;
-          cogoOperationLoader.load(Parameters, DisplayName);
+          cogoOperationSettings.load(Parameters, DisplayName);
         }
       }
-    }
-  }
-
-  Loader {
-    id: cogoOperationLoader
-
-    property string cogoName: [{}]
-    property var cogoParameters: [{}]
-
-    active: cogoOperations.enabled
-    parent: cogoContainer
-    width: parent.width
-
-    sourceComponent: Component {
-      id: cogoSettings
-
-      CogoOperationSettings {
-        title: cogoName
-        parameters: cogoParameters
-      }
-    }
-
-    Connections {
-      target: cogoOperationLoader.item
-
-      function onRequestJumpToPoint(center, scale, handleMargins) {
-        cogoOperations.requestJumpToPoint(center, scale, handleMargins);
-      }
-
-      function onRequestPosition(item) {
-        cogoOperations.requestPosition(item);
-      }
-    }
-
-    function load(parameters, name) {
-      cogoName = name;
-      cogoParameters = parameters;
-      displayToast(name);
     }
   }
 }

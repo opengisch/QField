@@ -86,7 +86,7 @@ QfVisibilityFadingRow {
     enabled: digitizingToolbar.cogoEnabled
 
     mapSettings: digitizingToolbar.mapSettings
-    cogoContainer: informationDrawer.cogoContainer
+    cogoOperationSettings: informationDrawer.cogoOperationSettings
 
     onRequestJumpToPoint: function (center, scale, handleMargins) {
       digitizingToolbar.requestJumpToPoint(center, scale, handleMargins);
