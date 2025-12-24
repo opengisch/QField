@@ -14,6 +14,7 @@ QfVisibilityFadingRow {
   property MapSettings mapSettings
 
   property bool cogoEnabled: false
+  property var cogoOperationSettings: undefined
 
   property bool showConfirmButton: true //<! if the geometry type is point, it will never be shown
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
@@ -86,7 +87,11 @@ QfVisibilityFadingRow {
     enabled: digitizingToolbar.cogoEnabled
 
     mapSettings: digitizingToolbar.mapSettings
-    cogoOperationSettings: informationDrawer.cogoOperationSettings
+    cogoOperationSettings: digitizingToolbar.cogoOperationSettings
+
+    onEnabledChanged: {
+      digitizingToolbar.cogoOperationSettings.visible = enabled;
+    }
 
     onRequestJumpToPoint: function (center, scale, handleMargins) {
       digitizingToolbar.requestJumpToPoint(center, scale, handleMargins);
@@ -102,10 +107,6 @@ QfVisibilityFadingRow {
     name: informationDrawer.cogoOperationSettings.name
     parameters: informationDrawer.cogoOperationSettings.parameterValues
     rubberbandModel: digitizingToolbar.rubberbandModel
-
-    onIsReadyChanged: {
-      console.log('ready?' + (isReady ? "yes" : "no"));
-    }
   }
 
   QfToolButton {
@@ -259,9 +260,7 @@ QfVisibilityFadingRow {
     onClicked: {
       if (cogoEnabled) {
         if (cogoExecutor.isReady) {
-          console.log('executing...');
           const success = cogoExecutor.execute();
-          console.log('success?' + (success ? "yes" : "no"));
           if (success && Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point) {
             confirm();
           }

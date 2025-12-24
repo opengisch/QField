@@ -49,7 +49,6 @@ Item {
       cogoOperationSettings.parameters = operationData.Parameters;
       cogoOperationSettings.title = operationData.DisplayName;
     }
-    cogoOperationSettings.visible = enabled;
   }
 
   Container {

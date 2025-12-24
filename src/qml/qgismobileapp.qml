@@ -876,7 +876,7 @@ ApplicationWindow {
 
       model: RubberbandModel {
         frozen: false
-        currentCoordinate: coordinateLocator.currentCoordinate
+        currentCoordinate: digitizingToolbar.cogoEnabled ? GeometryUtils.emptyPoint() : coordinateLocator.currentCoordinate
         measureValue: {
           if (coordinateLocator.positionLocked) {
             switch (positioningSettings.digitizingMeasureType) {
@@ -2720,6 +2720,8 @@ ApplicationWindow {
         showConfirmButton: stateMachine.state === "digitize"
         screenHovering: mapCanvasMap.hovered
 
+        cogoOperationSettings: informationDrawer.cogoOperationSettings
+
         digitizingLogger.type: stateMachine.state === 'measure' ? '' : 'add'
 
         FeatureModel {
@@ -2820,6 +2822,7 @@ ApplicationWindow {
           }
           if (digitizingRubberband.model.geometryType === Qgis.GeometryType.Null) {
             digitizingRubberband.model.reset();
+            digitizingRubberband.model.frozen = digitizingToolbar.cogoEnabled;
           } else {
             coordinateLocator.flash();
             digitizingFeature.geometry.applyRubberband();
@@ -2851,6 +2854,7 @@ ApplicationWindow {
               }
             }
             digitizingRubberband.model.reset();
+            digitizingRubberband.model.frozen = digitizingToolbar.cogoEnabled;
             digitizingFeature.resetFeature();
           }
           coordinateLocator.sourceLocation = undefined;
