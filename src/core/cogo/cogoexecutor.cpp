@@ -51,6 +51,15 @@ void CogoExecutor::setParameters( const QVariantMap &parameters )
   checkReadiness();
 }
 
+void CogoExecutor::setRubberbandModel( RubberbandModel *rubberbandModel )
+{
+  if ( mRubberbandModel == rubberbandModel )
+    return;
+
+  mRubberbandModel = rubberbandModel;
+  emit rubberbandModelChanged();
+}
+
 void CogoExecutor::checkReadiness()
 {
   bool isReady = false;
@@ -64,4 +73,19 @@ void CogoExecutor::checkReadiness()
     mIsReady = isReady;
     emit isReadyChanged();
   }
+}
+
+bool CogoExecutor::execute()
+{
+  if ( !mRubberbandModel )
+  {
+    return false;
+  }
+
+  if ( CogoOperation *operation = CogoRegistry::instance()->operation( mName ) )
+  {
+    return operation->execute( mParameters, mRubberbandModel );
+  }
+
+  return false;
 }

@@ -48,10 +48,8 @@ Item {
       cogoOperationSettings.name = operationData.Name;
       cogoOperationSettings.parameters = operationData.Parameters;
       cogoOperationSettings.title = operationData.DisplayName;
-      cogoOperationSettings.visible = true;
-    } else {
-      cogoOperationSettings.visible = false;
     }
+    cogoOperationSettings.visible = enabled;
   }
 
   Container {
@@ -97,7 +95,7 @@ Item {
           cogoOperationSettings.name = Name;
           cogoOperationSettings.parameters = Parameters;
           cogoOperationSettings.title = DisplayName;
-          cogoOperationSettings.parameterValues = [{}];
+          cogoOperationSettings.parameterValues = {};
           displayToast(DisplayName);
         }
       }

@@ -18,6 +18,8 @@
 #ifndef COGOEXECUTOR_H
 #define COGOEXECUTOR_H
 
+#include "rubberbandmodel.h"
+
 #include <QMap>
 #include <QObject>
 #include <QVariant>
@@ -33,23 +35,29 @@ class CogoExecutor : public QObject
     Q_PROPERTY( QVariantMap parameters READ parameters WRITE setParameters NOTIFY parametersChanged )
     Q_PROPERTY( bool isReady READ isReady NOTIFY isReadyChanged )
 
+    Q_PROPERTY( RubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
+
   public:
     explicit CogoExecutor( QObject *parent = nullptr );
 
     QString name() const { return mName; }
-
     void setName( const QString &name );
 
     QVariantMap parameters() const { return mParameters; }
-
     void setParameters( const QVariantMap &parameters );
 
     bool isReady() const { return mIsReady; }
+
+    RubberbandModel *rubberbandModel() const { return mRubberbandModel; }
+    void setRubberbandModel( RubberbandModel *rubberbandModel );
+
+    Q_INVOKABLE bool execute();
 
   signals:
     void nameChanged();
     void parametersChanged();
     void isReadyChanged();
+    void rubberbandModelChanged();
 
   private:
     void checkReadiness();
@@ -57,6 +65,8 @@ class CogoExecutor : public QObject
     QString mName;
     QVariantMap mParameters;
     bool mIsReady = false;
+
+    RubberbandModel *mRubberbandModel = nullptr;
 };
 
 Q_DECLARE_METATYPE( CogoExecutor )

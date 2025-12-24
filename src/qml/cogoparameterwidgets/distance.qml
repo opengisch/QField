@@ -29,6 +29,19 @@ CogoParameterWidgetBase {
       id: distanceField
       Layout.fillWidth: true
       font: Theme.tipFont
+
+      onTextEdited: {
+        processValue();
+      }
+    }
+  }
+
+  function processValue() {
+    const distance = parseFloat(distanceField.text);
+    if (!isNaN(distance)) {
+      valueChangeRequested(distance);
+    } else {
+      valueChangeRequested(undefined);
     }
   }
 }

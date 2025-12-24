@@ -440,7 +440,7 @@ ApplicationWindow {
     DragHandler {
       id: freehandHandler
       property bool isDigitizing: false
-      enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.rubberbandModel.frozen && ((!featureListForm.visible && digitizingToolbar.digitizingAllowed) || digitizingToolbar.geometryRequested)
+      enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.cogoEnabled && !digitizingToolbar.rubberbandModel.frozen && ((!featureListForm.visible && digitizingToolbar.digitizingAllowed) || digitizingToolbar.geometryRequested)
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
       dragThreshold: 0
@@ -687,6 +687,9 @@ ApplicationWindow {
             return;
           }
           if ((stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) || stateMachine.state === "measure") {
+            if (digitizingToolbar.cogoEnabled) {
+              return;
+            }
             if (!positionLocked && (!featureListForm.visible || digitizingToolbar.geometryRequested)) {
               if (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Point || Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Null) {
                 digitizingToolbar.confirm();
@@ -741,6 +744,9 @@ ApplicationWindow {
             return;
           }
           if (stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) {
+            if (digitizingToolbar.cogoEnabled) {
+              return;
+            }
             // the sourceLocation test checks if a (stylus) hover is active
             if ((Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Line && currentRubberband.model.vertexCount >= 2) || (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Polygon && currentRubberband.model.vertexCount >= 2)) {
               digitizingToolbar.addVertex();
@@ -961,7 +967,7 @@ ApplicationWindow {
       objectName: "coordinateLocator"
       anchors.fill: parent
       anchors.bottomMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0 : 0
-      visible: stateMachine.state === "digitize" || stateMachine.state === 'measure'
+      visible: (stateMachine.state === "digitize" || stateMachine.state === 'measure') && !digitizingToolbar.cogoEnabled
       highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.activeLayer

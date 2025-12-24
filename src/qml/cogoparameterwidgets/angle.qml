@@ -29,6 +29,19 @@ CogoParameterWidgetBase {
       id: angleField
       Layout.fillWidth: true
       font: Theme.tipFont
+
+      onTextEdited: {
+        processValue();
+      }
+    }
+  }
+
+  function processValue() {
+    const angle = parseFloat(angleField.text);
+    if (!isNaN(angle)) {
+      valueChangeRequested(angle);
+    } else {
+      valueChangeRequested(undefined);
     }
   }
 }

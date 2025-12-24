@@ -101,9 +101,10 @@ QfVisibilityFadingRow {
     id: cogoExecutor
     name: informationDrawer.cogoOperationSettings.name
     parameters: informationDrawer.cogoOperationSettings.parameterValues
+    rubberbandModel: digitizingToolbar.rubberbandModel
 
-    onParametersChanged: {
-      console.log('111');
+    onIsReadyChanged: {
+      console.log('ready?' + (isReady ? "yes" : "no"));
     }
   }
 
@@ -128,9 +129,8 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: confirmButton
-    iconSource: {
-      Theme.getThemeVectorIcon("ic_check_white_24dp");
-    }
+    enabled: !cogoEnabled || cogoExecutor.isReady
+    iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
     visible: {
       if (!showConfirmButton) {
         false;
@@ -139,7 +139,7 @@ QfVisibilityFadingRow {
       }
     }
     round: true
-    bgcolor: Theme.mainColor
+    bgcolor: !enabled ? Theme.toolButtonBackgroundSemiOpaqueColor : Theme.mainColor
 
     onClicked: {
       dashBoard.shouldReturnHome = false;
@@ -185,7 +185,7 @@ QfVisibilityFadingRow {
   QfToolButton {
     id: addVertexButton
     round: true
-    enabled: !screenHovering
+    enabled: (cogoEnabled && cogoExecutor.isReady) || (!cogoEnabled && !screenHovering)
     bgcolor: {
       if (!enabled) {
         Theme.toolButtonBackgroundSemiOpaqueColor;
@@ -216,7 +216,7 @@ QfVisibilityFadingRow {
     }
 
     onPressAndHold: {
-      if (coordinateLocator && coordinateLocator.positionLocked) {
+      if (!cogoEnabled && coordinateLocator && coordinateLocator.positionLocked) {
         if (!checkAccuracyRequirement()) {
           return;
         }
@@ -257,6 +257,17 @@ QfVisibilityFadingRow {
     }
 
     onClicked: {
+      if (cogoEnabled) {
+        if (cogoExecutor.isReady) {
+          console.log('executing...');
+          const success = cogoExecutor.execute();
+          console.log('success?' + (success ? "yes" : "no"));
+          if (success && Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point) {
+            confirm();
+          }
+        }
+        return;
+      }
       if (!checkAccuracyRequirement()) {
         return;
       }

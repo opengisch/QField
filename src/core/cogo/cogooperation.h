@@ -18,6 +18,8 @@
 #ifndef COGOOPERATION_H
 #define COGOOPERATION_H
 
+#include "rubberbandmodel.h"
+
 #include <QObject>
 #include <QString>
 
@@ -65,7 +67,7 @@ class CogoOperation
 
     virtual bool checkReadiness( const QVariantMap &parameters ) const { return false; }
 
-    virtual bool execute( const QVariantMap &parameters ) const { return false; }
+    virtual bool execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const { return false; }
 };
 Q_DECLARE_METATYPE( CogoOperation )
 Q_DECLARE_METATYPE( CogoParameter )
@@ -85,6 +87,7 @@ class CogoOperationPointAtXYZ : public CogoOperation
     QString icon() const override { return QStringLiteral( "ic_cogo_xy_white_24dp" ); }
     QList<CogoParameter> parameters() const override;
     bool checkReadiness( const QVariantMap &parameters ) const override;
+    bool execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const override;
 };
 
 
@@ -101,6 +104,8 @@ class CogoOperationPointAtDistanceAngle : public CogoOperation
     QString displayName() const override { return QObject::tr( "Point at Distance/Angle" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_angle_distance_white_24dp" ); }
     QList<CogoParameter> parameters() const override;
+    bool checkReadiness( const QVariantMap &parameters ) const override;
+    bool execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const override;
 };
 
 
