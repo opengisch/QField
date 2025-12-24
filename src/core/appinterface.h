@@ -27,6 +27,7 @@ class QgisMobileapp;
 class QgsRectangle;
 class QgsFeature;
 class QQuickItem;
+class QFieldXmlHttpRequest;
 
 /**
  * \brief App interface made available in QML as `iface`.
@@ -207,6 +208,8 @@ class AppInterface : public QObject
      * \see Positioning
      */
     Q_INVOKABLE QObject *positioning() const;
+
+    Q_INVOKABLE QObject *createHttpRequest( bool autoDelete = false ) const;
 
     /// @cond PRIVATE
     //! Reads the content of the loaded project, called on loadProjectTriggered()

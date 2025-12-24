@@ -19,6 +19,7 @@
 #include "fileutils.h"
 #include "platformutilities.h"
 #include "qfield.h"
+#include "qfieldxmlhttprequest.h"
 #include "qgismobileapp.h"
 #if WITH_SENTRY
 #include "sentry_wrapper.h"
@@ -41,6 +42,21 @@ AppInterface *AppInterface::sAppInterface = nullptr;
 AppInterface::AppInterface( QgisMobileapp *app )
   : mApp( app )
 {
+}
+
+QObject *AppInterface::createHttpRequest( bool autoDelete ) const
+{
+  auto *req = new QFieldXmlHttpRequest();
+  req->setAutoDelete( autoDelete );
+
+  // explicitly mark QML ownership when possible
+  QObject *root = ( !mApp->rootObjects().isEmpty() ) ? mApp->rootObjects().at( 0 ) : nullptr;
+  if ( root && qmlEngine( root ) )
+  {
+    QQmlEngine::setObjectOwnership( req, QQmlEngine::JavaScriptOwnership );
+  }
+
+  return req;
 }
 
 QObject *AppInterface::findItemByObjectName( const QString &name ) const

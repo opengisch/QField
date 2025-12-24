@@ -30,6 +30,7 @@ email                : kaustuv (at) opengis.ch
 #include <QTimer>
 #include <qfieldcloudutils.h>
 
+#include <algorithm>
 #include <fileutils.h>
 #include <networkmanager.h>
 #include <networkreply.h>
@@ -42,7 +43,7 @@ QFieldXmlHttpRequest::QFieldXmlHttpRequest( QObject *parent )
 
 QFieldXmlHttpRequest::~QFieldXmlHttpRequest()
 {
-  // Destructor must be silent (no QML callbacks / no signals).
+  // Destructor must be silent (no QML callbacks / no signals)
   cleanupReply( /*abortNetwork=*/true );
 }
 
@@ -53,7 +54,30 @@ QFieldXmlHttpRequest *QFieldXmlHttpRequest::newRequest( QObject *parent )
 
 void QFieldXmlHttpRequest::setTimeout( int ms )
 {
-  mTimeoutMs = ms > 0 ? ms : 0;
+  const int v = ms > 0 ? ms : 0;
+  if ( mTimeoutMs == v )
+    return;
+
+  mTimeoutMs = v;
+  emit timeoutChanged();
+}
+
+void QFieldXmlHttpRequest::setAutoDelete( bool v )
+{
+  if ( mAutoDelete == v )
+    return;
+
+  mAutoDelete = v;
+  emit autoDeleteChanged();
+}
+
+void QFieldXmlHttpRequest::maybeAutoDelete()
+{
+  if ( !mAutoDelete )
+    return;
+
+  // Defer so QML callbacks finish first
+  QTimer::singleShot( 0, this, &QObject::deleteLater );
 }
 
 bool QFieldXmlHttpRequest::containsNewlines( const QString &s )
@@ -66,6 +90,39 @@ bool QFieldXmlHttpRequest::isOpen() const
   return !mMethod.isEmpty() && mUrl.isValid();
 }
 
+QString QFieldXmlHttpRequest::normalizeHeaderName( const QString &s )
+{
+  return s.trimmed().toLower();
+}
+
+void QFieldXmlHttpRequest::collectResponseHeaders( QNetworkReply *rawReply )
+{
+  if ( !rawReply )
+    return;
+
+  const auto pairs = rawReply->rawHeaderPairs();
+  for ( const auto &p : pairs )
+  {
+    const QString key = QString::fromUtf8( p.first ).trimmed().toLower();
+    const QString val = QString::fromUtf8( p.second ).trimmed();
+    if ( !key.isEmpty() )
+      mResponseHeaders.insert( key, val );
+  }
+}
+
+QString QFieldXmlHttpRequest::getResponseHeader( const QString &name ) const
+{
+  return mResponseHeaders.value( normalizeHeaderName( name ) );
+}
+
+QString QFieldXmlHttpRequest::getAllResponseHeaders() const
+{
+  QString out;
+  for ( auto it = mResponseHeaders.constBegin(); it != mResponseHeaders.constEnd(); ++it )
+    out += it.key() + QStringLiteral( ": " ) + it.value() + QStringLiteral( "\r\n" );
+  return out;
+}
+
 void QFieldXmlHttpRequest::clearResponse()
 {
   mStatus = 0;
@@ -74,6 +131,10 @@ void QFieldXmlHttpRequest::clearResponse()
   mResponseText.clear();
   mResponseType.clear();
   mResponseUrl.clear();
+
+  mResponseHeaders.clear();
+  mLastError = QNetworkReply::NoError;
+  mLastErrorString.clear();
 }
 
 void QFieldXmlHttpRequest::resetForNewRequest()
@@ -87,7 +148,7 @@ void QFieldXmlHttpRequest::resetForNewRequest()
 void QFieldXmlHttpRequest::cleanupReply( bool abortNetwork )
 {
   // Raw reply hooks can outlive the wrapper when redirects/retries occur,
-  // so disconnect them first to avoid late signals touching freed state.
+  // so disconnect them first to avoid late signals touching freed state
   for ( const auto &c : std::as_const( mRawConnections ) )
     disconnect( c );
   mRawConnections.clear();
@@ -222,8 +283,8 @@ void QFieldXmlHttpRequest::startRequest( const QVariant &body )
   {
     if ( wantsMultipart )
     {
-      // Important: if caller set "multipart/form-data" manually, it likely misses the required boundary.
-      // Let QHttpMultiPart/QNetworkAccessManager generate the final Content-Type with boundary.
+      // Note: if caller set "multipart/form-data" manually, it likely misses the required boundary
+      // Let QHttpMultiPart/QNetworkAccessManager generate the final Content-Type with boundary
       if ( forceMultipart )
         mRequest.setHeader( QNetworkRequest::ContentTypeHeader, QVariant() );
 
@@ -237,7 +298,7 @@ void QFieldXmlHttpRequest::startRequest( const QVariant &body )
       mReply = isPost ? NetworkManager::post( mRequest, mp )
                       : NetworkManager::put( mRequest, mp );
 
-      // Keep multipart + devices alive for the duration of the request.
+      // Keep multipart and devices alive for the duration of the request
       if ( mReply )
         mp->setParent( mReply );
       else
@@ -251,7 +312,7 @@ void QFieldXmlHttpRequest::startRequest( const QVariant &body )
       if ( body.isValid() && !body.isNull() )
         payload = bodyToBytes( body, &inferredContentType );
 
-      // Only infer Content-Type if caller didn't set one.
+      // Only infer content-Type if caller didn't set one
       if ( mRequest.header( QNetworkRequest::ContentTypeHeader ).isNull() && !inferredContentType.isEmpty() )
         mRequest.setHeader( QNetworkRequest::ContentTypeHeader, inferredContentType );
 
@@ -271,19 +332,28 @@ void QFieldXmlHttpRequest::startRequest( const QVariant &body )
 
 void QFieldXmlHttpRequest::abort()
 {
+  if ( mFinalized )
+    return;
+
   if ( !mReply )
     return;
 
   mAborted = true;
-  mReply->abort();
+
+  cleanupReply( /*abortNetwork=*/true );
+  clearResponse();
+
+  setReadyState( Done );
+  emit responseChanged();
 
   call( mOnAborted );
-  finalizeAsError( QStringLiteral( "{\"detail\":\"Operation aborted\"}" ) );
+  call( mOnLoadEnd );
+  maybeAutoDelete();
 }
 
 void QFieldXmlHttpRequest::hookReply( NetworkReply *reply )
 {
-  // During redirects/retries, NetworkReply may swap out the underlying QNetworkReply instance.
+  // During redirects/retries, NetworkReply may swap out the underlying QNetworkReply instance
   connect( reply, &NetworkReply::currentRawReplyChanged, this, [this]() {
     if ( !mReply )
       return;
@@ -306,38 +376,43 @@ void QFieldXmlHttpRequest::hookReply( NetworkReply *reply )
     if ( mFinalized )
       return;
 
-    // Timeout and cancel are handled as special events to match QML expectations.
+    if ( mAborted )
+      return;
+
     if ( err == QNetworkReply::TimeoutError )
     {
-      if ( !mTimedOut )
-      {
-        mTimedOut = true;
-        call( mOnTimeout );
-      }
+      if ( mTimedOut )
+        return;
+
+      mTimedOut = true;
+
+      cleanupReply( /*abortNetwork=*/true );
+      clearResponse();
+
+      setReadyState( Done );
+      emit responseChanged();
+
+      call( mOnTimeout );
+      call( mOnLoadEnd );
+      maybeAutoDelete();
       return;
     }
 
+    // Abort path is handled by abort() directly
     if ( err == QNetworkReply::OperationCanceledError )
-    {
-      if ( !mAborted )
-      {
-        mAborted = true;
-        call( mOnAborted );
-      }
       return;
-    }
 
-    const QString msg = ( mReply && mReply->currentRawReply() )
-                          ? mReply->currentRawReply()->errorString()
-                          : QString();
-    call( mOnError, { int( err ), msg } );
+    mLastError = err;
+    mLastErrorString = ( mReply && mReply->currentRawReply() )
+                         ? mReply->currentRawReply()->errorString()
+                         : QString();
   } );
 
   connect( reply, &NetworkReply::finished, this, [this]() {
     finalizeFromRawReply();
   } );
 
-  // Hook current raw reply immediately so readyState transitions work even without redirects.
+  // Hook current raw reply immediately so readyState transitions work even without redirects
   hookRawReply( reply->currentRawReply() );
 
   if ( mTimeoutMs > 0 )
@@ -348,13 +423,23 @@ void QFieldXmlHttpRequest::hookReply( NetworkReply *reply )
       if ( serial != mRequestSerial )
         return;
 
-      if ( !mReply || mFinalized || mReply->isFinished() )
+      if ( mFinalized || mAborted || mTimedOut )
+        return;
+
+      if ( !mReply || mReply->isFinished() )
         return;
 
       mTimedOut = true;
-      mReply->abort();
+
+      cleanupReply( /*abortNetwork=*/true );
+      clearResponse();
+
+      setReadyState( Done );
+      emit responseChanged();
+
       call( mOnTimeout );
-      finalizeAsError( QStringLiteral( "{\"detail\":\"Operation timed out\"}" ) );
+      call( mOnLoadEnd );
+      maybeAutoDelete();
     } );
   }
 }
@@ -369,16 +454,24 @@ void QFieldXmlHttpRequest::hookRawReply( QNetworkReply *rawReply )
   mRawConnections.clear();
 
   mRawReply = rawReply;
+
+  // Keep only final response headers.
+  mResponseHeaders.clear();
+
   if ( !mRawReply )
     return;
+
+  // Try collect immediately (in case metaDataChanged already fired before we got here).
+  collectResponseHeaders( mRawReply );
 
   // metaDataChanged -> headers are ready.
   mRawConnections << connect( mRawReply, &QNetworkReply::metaDataChanged, this, [this]() {
     if ( mReadyState < HeadersReceived )
       setReadyState( HeadersReceived );
+
+    collectResponseHeaders( mRawReply );
   } );
 
-  // readyRead -> body data is available.
   mRawConnections << connect( mRawReply, &QNetworkReply::readyRead, this, [this]() {
     if ( mReadyState < HeadersReceived )
       setReadyState( HeadersReceived );
@@ -403,6 +496,9 @@ void QFieldXmlHttpRequest::finalizeFromRawReply()
 
     mResponseUrl = raw->url();
     mResponseType = raw->header( QNetworkRequest::ContentTypeHeader ).toString();
+
+    // Ensure headers are captured (some servers might delay them).
+    collectResponseHeaders( raw );
 
     // Note: readAll() buffers the entire body in memory. This is acceptable for our intended usage.
     const QByteArray bytes = raw->readAll();
@@ -445,6 +541,22 @@ void QFieldXmlHttpRequest::finalizeFromRawReply()
 
   setReadyState( Done );
   emit responseChanged();
+
+  // XHR: HTTP errors (404/500) still go through onload; user checks status.
+  // Only true network failures (status==0 / no response) go to onerror.
+  if ( mStatus == 0 )
+  {
+    const int code = ( mLastError != QNetworkReply::NoError ) ? int( mLastError ) : int( QNetworkReply::UnknownNetworkError );
+    const QString msg = !mLastErrorString.isEmpty() ? mLastErrorString : QStringLiteral( "Network error" );
+    call( mOnError, { code, msg } );
+  }
+  else
+  {
+    call( mOnLoad );
+  }
+
+  call( mOnLoadEnd );
+  maybeAutoDelete();
 }
 
 void QFieldXmlHttpRequest::finalizeAsError( const QString &msg, bool emitResponse )
@@ -463,6 +575,10 @@ void QFieldXmlHttpRequest::finalizeAsError( const QString &msg, bool emitRespons
   setReadyState( Done );
   if ( emitResponse )
     emit responseChanged();
+
+  call( mOnError, { int( QNetworkReply::UnknownNetworkError ), msg } );
+  call( mOnLoadEnd );
+  maybeAutoDelete();
 }
 
 QByteArray QFieldXmlHttpRequest::bodyToBytes( const QVariant &body, QString *outContentType ) const
@@ -504,28 +620,28 @@ bool QFieldXmlHttpRequest::bodyContainsFileUrls( const QVariant &body ) const
   if ( body.canConvert<QVariantList>() )
   {
     const QVariantList lst = body.toList();
-    for ( const QVariant &v : lst )
-      if ( v.typeId() == QMetaType::QString && isFileUrlString( v.toString() ) )
-        return true;
+    return std::any_of( lst.cbegin(), lst.cend(), [&isFileUrlString]( const QVariant &v ) {
+      return v.typeId() == QMetaType::QString && isFileUrlString( v.toString() );
+    } );
   }
 
   if ( body.canConvert<QVariantMap>() )
   {
     const QVariantMap m = body.toMap();
-    for ( auto it = m.constBegin(); it != m.constEnd(); ++it )
-    {
-      const QVariant v = it.value();
+    return std::any_of( m.cbegin(), m.cend(), [&isFileUrlString]( const QVariant &v ) {
       if ( v.typeId() == QMetaType::QString && isFileUrlString( v.toString() ) )
         return true;
 
       if ( v.canConvert<QVariantList>() )
       {
         const QVariantList lst = v.toList();
-        for ( const QVariant &lv : lst )
-          if ( lv.typeId() == QMetaType::QString && isFileUrlString( lv.toString() ) )
-            return true;
+        return std::any_of( lst.cbegin(), lst.cend(), [&isFileUrlString]( const QVariant &lv ) {
+          return lv.typeId() == QMetaType::QString && isFileUrlString( lv.toString() );
+        } );
       }
-    }
+
+      return false;
+    } );
   }
 
   return false;
@@ -614,8 +730,8 @@ QHttpMultiPart *QFieldXmlHttpRequest::buildMultipart( const QVariant &body ) con
 
   for ( auto it = m.constBegin(); it != m.constEnd(); ++it )
   {
-    const QString key = it.key();
-    const QVariant val = it.value();
+    const QString &key = it.key();
+    const QVariant &val = it.value();
 
     if ( val.canConvert<QVariantList>() )
     {
@@ -662,7 +778,7 @@ QHttpMultiPart *QFieldXmlHttpRequest::buildMultipart( const QVariant &body ) con
   return mp;
 }
 
-void QFieldXmlHttpRequest::call( QJSValue cb, const QJSValueList &args )
+void QFieldXmlHttpRequest::call( const QJSValue &cb, const QJSValueList &args )
 {
   if ( !cb.isCallable() )
     return;

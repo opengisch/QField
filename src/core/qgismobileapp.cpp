@@ -111,7 +111,6 @@
 #include "qfieldcloudutils.h"
 #include "qfieldlocatorfilter.h"
 #include "qfieldurlhandler.h"
-#include "qfieldxmlhttprequest.h"
 #include "qgismobileapp.h"
 #include "qgsgeometrywrapper.h"
 #include "qgsproviderregistry.h"
@@ -506,7 +505,6 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<FeatureCheckListModel>( "org.qfield", 1, 0, "FeatureCheckListModel" );
   qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
   qmlRegisterType<ExpressionEvaluator>( "org.qfield", 1, 0, "ExpressionEvaluator" );
-  qmlRegisterType<QFieldXmlHttpRequest>( "org.qfield", 1, 0, "QfieldHttpRequest" );
 #ifdef WITH_BLUETOOTH
   qmlRegisterType<BluetoothDeviceModel>( "org.qfield", 1, 0, "BluetoothDeviceModel" );
   qmlRegisterType<BluetoothReceiver>( "org.qfield", 1, 0, "BluetoothReceiver" );
