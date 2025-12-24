@@ -6,7 +6,7 @@ import org.qfield
 import Theme
 
 Item {
-  id: cogoTools
+  id: cogoOperations
 
   property FeatureModel featureModel //<! the feature which has its geometry being edited
   /// type:QgsQuickMapSettings
@@ -20,8 +20,8 @@ Item {
 
   // returns true if handled
   function canvasClicked(point, type) {
-    if (cogoTool.item) {
-      return cogoTool.item.canvasClicked(point, type);
+    if (cogoOperationLoader.item) {
+      return cogoOperationLoader.item.canvasClicked(point, type);
     } else {
       return false;
     }
@@ -29,14 +29,14 @@ Item {
 
   // returns true if handled
   function canvasLongPressed(point, type) {
-    if (cogoTool.item) {
-      return cogoTool.item.canvasLongPressed(point, type);
+    if (cogoOperationLoader.item) {
+      return cogoOperationLoader.item.canvasLongPressed(point, type);
     } else {
       return false;
     }
   }
 
-  width: content.contentWidth + cogoToolsContainer.spacing * 2
+  width: content.contentWidth + cogoOperationsContainer.spacing * 2
   height: 48
   enabled: false
   visible: enabled
@@ -45,7 +45,7 @@ Item {
     if (enabled && cogoOperationsModel.currentIndex == -1) {
       cogoOperationsModel.currentIndex = 0;
       const operationData = cogoOperationsModel.get(0);
-      cogoTool.load(operationData.Parameters, operationData.Name);
+      cogoOperationLoader.load(operationData.Parameters, operationData.Name);
     }
     if (cogoContainer !== undefined) {
       cogoContainer.enabled = enabled;
@@ -53,7 +53,7 @@ Item {
   }
 
   Container {
-    id: cogoToolsContainer
+    id: cogoOperationsContainer
     anchors.fill: parent
     spacing: 4
     clip: true
@@ -70,7 +70,7 @@ Item {
         height: 46
         x: 4
         y: 4
-        model: cogoToolsContainer.contentModel
+        model: cogoOperationsContainer.contentModel
         snapMode: ListView.SnapToItem
         orientation: ListView.Horizontal
         spacing: 4
@@ -93,40 +93,40 @@ Item {
 
         onClicked: {
           cogoOperationsModel.currentIndex = index;
-          cogoTool.load(Parameters, DisplayName);
+          cogoOperationLoader.load(Parameters, DisplayName);
         }
       }
     }
   }
 
   Loader {
-    id: cogoTool
+    id: cogoOperationLoader
 
     property string cogoName: [{}]
     property var cogoParameters: [{}]
 
-    active: cogoTools.enabled
+    active: cogoOperations.enabled
     parent: cogoContainer
     width: parent.width
 
     sourceComponent: Component {
       id: cogoSettings
 
-      CogoToolSettings {
+      CogoOperationSettings {
         title: cogoName
         parameters: cogoParameters
       }
     }
 
     Connections {
-      target: cogoTool.item
+      target: cogoOperationLoader.item
 
       function onRequestJumpToPoint(center, scale, handleMargins) {
-        cogoTools.requestJumpToPoint(center, scale, handleMargins);
+        cogoOperations.requestJumpToPoint(center, scale, handleMargins);
       }
 
       function onRequestPosition(item) {
-        cogoTools.requestPosition(item);
+        cogoOperations.requestPosition(item);
       }
     }
 

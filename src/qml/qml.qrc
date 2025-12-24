@@ -81,8 +81,8 @@
         <file>cogoparameterwidgets/point.qml</file>
         <file>cogoparameterwidgets/distance.qml</file>
         <file>cogoparameterwidgets/angle.qml</file>
-        <file>CogoTools.qml</file>
-        <file>CogoToolSettings.qml</file>
+        <file>CogoOperations.qml</file>
+        <file>CogoOperationSettings.qml</file>
         <file>qgismobileapp.qml</file>
         <file>Legend.qml</file>
         <file>TemporalProperties.qml</file>

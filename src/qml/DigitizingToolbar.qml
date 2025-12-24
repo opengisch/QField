@@ -81,8 +81,8 @@ QfVisibilityFadingRow {
     cloudUserInformation: projectInfo.cloudUserInformation
   }
 
-  CogoTools {
-    id: cogoTools
+  CogoOperations {
+    id: cogoOperations
     enabled: digitizingToolbar.cogoEnabled
 
     mapSettings: digitizingToolbar.mapSettings
