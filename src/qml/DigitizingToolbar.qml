@@ -161,8 +161,9 @@ QfVisibilityFadingRow {
     repeat: true
 
     onTriggered: {
-      if (!rubberbandModel || rubberbandModel.vertexCount == 0)
+      if (!rubberbandModel || rubberbandModel.vertexCount == 0) {
         stop();
+      }
       removeVertex();
       if (interval > 100)
         interval = interval * 0.8;
@@ -268,8 +269,16 @@ QfVisibilityFadingRow {
       if (cogoEnabled) {
         if (cogoExecutor.isReady) {
           const success = cogoExecutor.execute();
-          if (success && Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point) {
-            confirm();
+          if (success) {
+            // Reset the parameter values
+            cogoOperationSettings.parameterValues = {};
+            let params = cogoOperationSettings.parameters;
+            cogoOperationSettings.parameters = params;
+            // Recenter to last added vertex
+            mapSettings.setCenter(rubberbandModel.lastCoordinate, true);
+            if (Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point) {
+              confirm();
+            }
           }
         }
         return;
