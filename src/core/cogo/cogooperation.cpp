@@ -42,7 +42,7 @@ QList<CogoVisualGuide> CogoOperationPointAtXYZ::visualGuides( const QVariantMap 
   {
     QgsPoint point = parameters[QStringLiteral( "point" )].value<QgsPoint>();
     QPointF screenPoint = mapSettings->coordinateToScreen( point );
-    guides << CogoVisualGuide( CogoVisualGuide::Point, { { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), POINT_DEFAULT_SIZE * RESULT_SIZE_FACTOR } } );
+    guides << CogoVisualGuide( CogoVisualGuide::Point, { { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), SIZE_POINT * SIZE_RESULT_FACTOR } }, COLOR_RESULT );
   }
 
   return guides;
@@ -117,13 +117,13 @@ QList<CogoVisualGuide> CogoOperationPointAtDistanceAngle::visualGuides( const QV
       const QPointF screenNewPoint = mapSettings->coordinateToScreen( QgsPoint( x, y ) );
       const QPolygonF screenPolygon( QList<QPointF>() << screenPoint << screenNewPoint );
 
-      guides << CogoVisualGuide( CogoVisualGuide::Line, { { QStringLiteral( "polyline" ), screenPolygon }, { QStringLiteral( "size" ), LINE_DEFAULT_SIZE } } );
-      guides << CogoVisualGuide( CogoVisualGuide::Point, { { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), POINT_DEFAULT_SIZE } } );
-      guides << CogoVisualGuide( CogoVisualGuide::Point, { { QStringLiteral( "point" ), screenNewPoint }, { QStringLiteral( "size" ), POINT_DEFAULT_SIZE * RESULT_SIZE_FACTOR } } );
+      guides << CogoVisualGuide( CogoVisualGuide::Line, { { QStringLiteral( "polyline" ), screenPolygon }, { QStringLiteral( "size" ), SIZE_LINE } } );
+      guides << CogoVisualGuide( CogoVisualGuide::Point, { { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), SIZE_POINT } } );
+      guides << CogoVisualGuide( CogoVisualGuide::Point, { { QStringLiteral( "point" ), screenNewPoint }, { QStringLiteral( "size" ), SIZE_POINT * SIZE_RESULT_FACTOR } }, COLOR_RESULT );
     }
     else
     {
-      guides << CogoVisualGuide( CogoVisualGuide::Point, { { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), POINT_DEFAULT_SIZE } } );
+      guides << CogoVisualGuide( CogoVisualGuide::Point, { { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), SIZE_POINT } } );
     }
   }
 
@@ -187,11 +187,11 @@ bool CogoOperationPointAtDistanceAngle::execute( const QVariantMap &parameters, 
 QList<CogoParameter> CogoOperationPointAtIntersectionCircles::parameters() const
 {
   QList<CogoParameter> parameters;
-  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point1" ), QStringLiteral( "Circle #1" ) )
-             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance1" ), QStringLiteral( "Circle #1: Radius" ) )
-             << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point2" ), QStringLiteral( "Circle #2" ) )
-             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance2" ), QStringLiteral( "Circle #2: Radius" ) )
-             << CogoParameter( QStringLiteral( "enum" ), QStringLiteral( "candidate" ), QStringLiteral( "Candidate" ), { { QStringLiteral( "options" ), QStringList() << QStringLiteral( "A" ) << QStringLiteral( "B" ) } } );
+  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point1" ), QStringLiteral( "Circle #1" ), COLOR_GROUP_1 )
+             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance1" ), QStringLiteral( "Circle #1: Radius" ), COLOR_GROUP_1 )
+             << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point2" ), QStringLiteral( "Circle #2" ), COLOR_GROUP_2 )
+             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance2" ), QStringLiteral( "Circle #2: Radius" ), COLOR_GROUP_2 )
+             << CogoParameter( QStringLiteral( "enum" ), QStringLiteral( "candidate" ), QStringLiteral( "Candidate" ), Qt::transparent, { { QStringLiteral( "options" ), QStringList() << QStringLiteral( "A" ) << QStringLiteral( "B" ) } } );
   return parameters;
 }
 
@@ -215,7 +215,7 @@ QList<CogoVisualGuide> CogoOperationPointAtIntersectionCircles::visualGuides( co
   {
     point1 = parameters[QStringLiteral( "point1" )].value<QgsPoint>();
     QPointF screenPoint = mapSettings->coordinateToScreen( point1 );
-    guides << CogoVisualGuide( CogoVisualGuide::Point, { { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), POINT_DEFAULT_SIZE } } );
+    guides << CogoVisualGuide( CogoVisualGuide::Point, { { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), SIZE_POINT } }, COLOR_GROUP_1 );
 
     if ( parameters.contains( QStringLiteral( "distance1" ) ) )
     {
@@ -223,7 +223,7 @@ QList<CogoVisualGuide> CogoOperationPointAtIntersectionCircles::visualGuides( co
       if ( distance1Ok )
       {
         const double radius = distance1 / mapSettings->mapUnitsPerPoint();
-        guides << CogoVisualGuide( CogoVisualGuide::Circle, { { QStringLiteral( "center" ), screenPoint }, { QStringLiteral( "radius" ), radius }, { QStringLiteral( "size" ), LINE_DEFAULT_SIZE } } );
+        guides << CogoVisualGuide( CogoVisualGuide::Circle, { { QStringLiteral( "center" ), screenPoint }, { QStringLiteral( "radius" ), radius }, { QStringLiteral( "size" ), SIZE_LINE } }, COLOR_GROUP_1 );
       }
     }
   }
@@ -232,7 +232,7 @@ QList<CogoVisualGuide> CogoOperationPointAtIntersectionCircles::visualGuides( co
   {
     point2 = parameters[QStringLiteral( "point2" )].value<QgsPoint>();
     QPointF screenPoint = mapSettings->coordinateToScreen( point2 );
-    guides << CogoVisualGuide( CogoVisualGuide::Point, { { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), POINT_DEFAULT_SIZE } } );
+    guides << CogoVisualGuide( CogoVisualGuide::Point, { { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), SIZE_POINT } }, COLOR_GROUP_2 );
 
     if ( parameters.contains( QStringLiteral( "distance2" ) ) )
     {
@@ -240,7 +240,7 @@ QList<CogoVisualGuide> CogoOperationPointAtIntersectionCircles::visualGuides( co
       if ( distance2Ok )
       {
         const double radius = distance2 / mapSettings->mapUnitsPerPoint();
-        guides << CogoVisualGuide( CogoVisualGuide::Circle, { { QStringLiteral( "center" ), screenPoint }, { QStringLiteral( "radius" ), radius }, { QStringLiteral( "size" ), LINE_DEFAULT_SIZE } } );
+        guides << CogoVisualGuide( CogoVisualGuide::Circle, { { QStringLiteral( "center" ), screenPoint }, { QStringLiteral( "radius" ), radius }, { QStringLiteral( "size" ), SIZE_LINE } }, COLOR_GROUP_2 );
       }
     }
   }
@@ -255,22 +255,22 @@ QList<CogoVisualGuide> CogoOperationPointAtIntersectionCircles::visualGuides( co
     if ( !candidateA.isEmpty() )
     {
       QPointF screenPoint = mapSettings->coordinateToScreen( QgsPoint( candidateA ) );
-      const double size = POINT_DEFAULT_SIZE * ( isCandidateA ? RESULT_SIZE_FACTOR : 1.0 );
-      guides << CogoVisualGuide( CogoVisualGuide::Point, { { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), size } } );
-      const double labelSize = LABEL_DEFAULT_SIZE * ( isCandidateA ? RESULT_SIZE_FACTOR : 1.0 );
+      const double size = SIZE_POINT * ( isCandidateA ? SIZE_RESULT_FACTOR : 1.0 );
+      guides << CogoVisualGuide( CogoVisualGuide::Point, { { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), size } }, COLOR_RESULT );
+      const double labelSize = SIZE_LABEL * ( isCandidateA ? SIZE_RESULT_FACTOR : 1.0 );
       screenPoint.setX( screenPoint.x() + size / 2 + 4 );
       screenPoint.setY( screenPoint.y() + size / 2 + 4 );
-      guides << CogoVisualGuide( CogoVisualGuide::Label, { { QStringLiteral( "text" ), QStringLiteral( "A" ) }, { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), labelSize } } );
+      guides << CogoVisualGuide( CogoVisualGuide::Label, { { QStringLiteral( "text" ), QStringLiteral( "A" ) }, { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), labelSize } }, COLOR_RESULT, QColor( 255, 255, 255 ) );
     }
     if ( !candidateB.isEmpty() )
     {
       QPointF screenPoint = mapSettings->coordinateToScreen( QgsPoint( candidateB ) );
-      const double size = POINT_DEFAULT_SIZE * ( isCandidateA ? 1.0 : RESULT_SIZE_FACTOR );
-      guides << CogoVisualGuide( CogoVisualGuide::Point, { { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), size } } );
-      const double labelSize = LABEL_DEFAULT_SIZE * ( isCandidateA ? 1.0 : RESULT_SIZE_FACTOR );
+      const double size = SIZE_POINT * ( isCandidateA ? 1.0 : SIZE_RESULT_FACTOR );
+      guides << CogoVisualGuide( CogoVisualGuide::Point, { { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), size } }, COLOR_RESULT );
+      const double labelSize = SIZE_LABEL * ( isCandidateA ? 1.0 : SIZE_RESULT_FACTOR );
       screenPoint.setX( screenPoint.x() + size / 2 + 4 );
       screenPoint.setY( screenPoint.y() + size / 2 + 4 );
-      guides << CogoVisualGuide( CogoVisualGuide::Label, { { QStringLiteral( "text" ), QStringLiteral( "B" ) }, { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), labelSize } } );
+      guides << CogoVisualGuide( CogoVisualGuide::Label, { { QStringLiteral( "text" ), QStringLiteral( "B" ) }, { QStringLiteral( "point" ), screenPoint }, { QStringLiteral( "size" ), labelSize } }, COLOR_RESULT, QColor( 255, 255, 255 ) );
     }
   }
 

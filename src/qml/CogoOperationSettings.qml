@@ -45,9 +45,10 @@ QfOverlayContainer {
         Loader {
           id: parameter
 
-          property string label: modelData !== undefined ? modelData.label : ""
-          property string name: modelData !== undefined ? modelData.name : ""
-          property var configuration: modelData !== undefined ? modelData.config : []
+          property string parameterName: modelData !== undefined ? modelData.name : ""
+          property string parameterLabel: modelData !== undefined ? modelData.label : ""
+          property color parameterColor: modelData !== undefined ? modelData.color : "#00000000"
+          property var parameterConfiguration: modelData !== undefined ? modelData.config : []
 
           y: 2
           width: parent.width
@@ -59,7 +60,7 @@ QfOverlayContainer {
 
           function onValueChangeRequested(value) {
             let pv = cogoOperationSettings.parameterValues;
-            pv[parameter.name] = value;
+            pv[parameter.parameterName] = value;
             cogoOperationSettings.parameterValues = pv;
           }
 

@@ -18,11 +18,21 @@ CogoParameterWidgetBase {
     }
     columns: 2
 
-    Label {
-      Layout.fillWidth: true
-      color: Theme.secondaryTextColor
-      font: Theme.tipFont
-      text: (label ? label + ": " : "") + qsTr("X")
+    RowLayout {
+      Rectangle {
+        visible: parameterColor != "#00000000"
+        width: 10
+        height: 10
+        radius: 5
+        color: parameterColor
+      }
+
+      Label {
+        Layout.fillWidth: true
+        color: Theme.secondaryTextColor
+        font: Theme.tipFont
+        text: (parameterLabel ? parameterLabel + ": " : "") + qsTr("X")
+      }
     }
 
     QfToolButton {
@@ -48,11 +58,21 @@ CogoParameterWidgetBase {
       }
     }
 
-    Label {
-      Layout.fillWidth: false
-      color: Theme.secondaryTextColor
-      font: Theme.tipFont
-      text: (label ? label + ": " : "") + qsTr("Y")
+    RowLayout {
+      Rectangle {
+        visible: parameterColor != "#00000000"
+        width: 10
+        height: 10
+        radius: 5
+        color: parameterColor
+      }
+
+      Label {
+        Layout.fillWidth: true
+        color: Theme.secondaryTextColor
+        font: Theme.tipFont
+        text: (parameterLabel ? parameterLabel + ": " : "") + qsTr("Y")
+      }
     }
 
     QfTextField {

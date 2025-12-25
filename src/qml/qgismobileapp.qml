@@ -1398,7 +1398,8 @@ ApplicationWindow {
     }
 
     CogoOperationPreview {
-      id: cogoOperationRenderer
+      id: cogoOperationPreview
+      visible: digitizingToolbar.cogoEnabled
     }
   }
 
@@ -2725,7 +2726,7 @@ ApplicationWindow {
         screenHovering: mapCanvasMap.hovered
 
         cogoOperationSettings: informationDrawer.cogoOperationSettings
-        cogoOperationPreview: cogoOperationRenderer
+        cogoOperationPreview: cogoOperationPreview
 
         digitizingLogger.type: stateMachine.state === 'measure' ? '' : 'add'
 

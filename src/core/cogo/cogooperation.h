@@ -25,10 +25,17 @@
 #include <QObject>
 #include <QString>
 
-#define LABEL_DEFAULT_SIZE 14
-#define LINE_DEFAULT_SIZE 2
-#define POINT_DEFAULT_SIZE 10
-#define RESULT_SIZE_FACTOR 1.8
+#define SIZE_LABEL 14
+#define SIZE_LINE 2
+#define SIZE_POINT 10
+#define SIZE_RESULT_FACTOR 1.8
+
+#define COLOR_NEUTRAL QColor( 127, 127, 127 )
+#define COLOR_GROUP_1 QColor( 228, 26, 28 )
+#define COLOR_GROUP_2 QColor( 55, 126, 184 )
+#define COLOR_GROUP_3 QColor( 152, 78, 163 )
+#define COLOR_GROUP_4 QColor( 255, 127, 0 )
+#define COLOR_RESULT QColor( 77, 175, 74 )
 
 /**
  * \ingroup core
@@ -40,19 +47,22 @@ class CogoParameter
     Q_PROPERTY( QString type MEMBER type )
     Q_PROPERTY( QString name MEMBER name )
     Q_PROPERTY( QString label MEMBER label )
+    Q_PROPERTY( QColor color MEMBER color )
     Q_PROPERTY( QVariantMap config MEMBER config )
 
   public:
-    explicit CogoParameter( const QString &type = QString(), const QString &name = QString(), const QString &label = QString(), const QVariantMap &config = QVariantMap() )
+    explicit CogoParameter( const QString &type = QString(), const QString &name = QString(), const QString &label = QString(), const QColor &color = Qt::transparent, const QVariantMap &config = QVariantMap() )
       : type( type )
       , name( name )
       , label( label )
+      , color( color )
       , config( config )
     {}
 
     QString type;
     QString name;
     QString label;
+    QColor color;
     QVariantMap config;
 };
 
@@ -79,7 +89,7 @@ class CogoVisualGuide
     };
     Q_ENUM( Type )
 
-    explicit CogoVisualGuide( Type type = Point, const QVariantMap &details = QVariantMap(), const QColor &color = QColor( 255, 0, 0 ), const QColor &outlineColor = QColor( 255, 255, 255, 100 ) )
+    explicit CogoVisualGuide( Type type = Point, const QVariantMap &details = QVariantMap(), const QColor &color = COLOR_NEUTRAL, const QColor &outlineColor = QColor( 255, 255, 255, 127 ) )
       : type( type )
       , color( color )
       , outlineColor( outlineColor )

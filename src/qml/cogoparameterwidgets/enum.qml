@@ -18,17 +18,27 @@ CogoParameterWidgetBase {
     }
     columns: 1
 
-    Label {
-      Layout.fillWidth: true
-      color: Theme.secondaryTextColor
-      font: Theme.tipFont
-      text: label ? label : qsTr("Choices")
+    RowLayout {
+      Rectangle {
+        visible: parameterColor != "#00000000"
+        width: 10
+        height: 10
+        radius: 5
+        color: parameterColor
+      }
+
+      Label {
+        Layout.fillWidth: true
+        color: Theme.secondaryTextColor
+        font: Theme.tipFont
+        text: parameterLabel ? parameterLabel : qsTr("Choices")
+      }
     }
 
     QfComboBox {
       id: enumComboBox
       Layout.fillWidth: true
-      model: configuration["options"]
+      model: parameterConfiguration["options"]
 
       onCurrentValueChanged: {
         processValue();
