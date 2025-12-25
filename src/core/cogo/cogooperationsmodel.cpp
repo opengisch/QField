@@ -90,6 +90,9 @@ QVariant CogoOperationsModel::data( const QModelIndex &index, int role ) const
 
     case ParametersRole:
       return QVariant::fromValue<QList<CogoParameter>>( operation->parameters() );
+
+    default:
+      return QVariant();
   }
 
   return QVariant();

@@ -41,6 +41,10 @@ bool CogoRegistry::registerOperation( CogoOperation *operation )
 
     return true;
   }
+  else
+  {
+    delete operation;
+  }
 
   return false;
 }

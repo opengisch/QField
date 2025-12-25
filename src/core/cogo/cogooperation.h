@@ -110,7 +110,7 @@ class CogoOperation
 {
   public:
     CogoOperation() {}
-    ~CogoOperation() = default;
+    virtual ~CogoOperation() = default;
 
     virtual QString name() const { return QString(); }
 
