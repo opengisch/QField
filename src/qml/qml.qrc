@@ -83,6 +83,7 @@
         <file>cogoparameterwidgets/enum.qml</file>
         <file>cogoparameterwidgets/point.qml</file>
         <file>CogoOperations.qml</file>
+        <file>CogoOperationPreview.qml</file>
         <file>CogoOperationSettings.qml</file>
         <file>qgismobileapp.qml</file>
         <file>Legend.qml</file>

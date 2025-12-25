@@ -18,11 +18,17 @@
 #ifndef COGOOPERATION_H
 #define COGOOPERATION_H
 
+#include "qgsquickmapsettings.h"
 #include "rubberbandmodel.h"
 
+#include <QColor>
 #include <QObject>
 #include <QString>
 
+#define LABEL_DEFAULT_SIZE 14
+#define LINE_DEFAULT_SIZE 2
+#define POINT_DEFAULT_SIZE 10
+#define RESULT_SIZE_FACTOR 1.8
 
 /**
  * \ingroup core
@@ -54,6 +60,42 @@ class CogoParameter
 /**
  * \ingroup core
  */
+class CogoVisualGuide
+{
+    Q_GADGET
+
+    Q_PROPERTY( Type type MEMBER type )
+    Q_PROPERTY( QVariantMap details MEMBER details )
+    Q_PROPERTY( QColor color MEMBER color )
+    Q_PROPERTY( QColor outlineColor MEMBER outlineColor )
+
+  public:
+    enum Type
+    {
+      Point,
+      Line,
+      Circle,
+      Label,
+    };
+    Q_ENUM( Type )
+
+    explicit CogoVisualGuide( Type type = Point, const QVariantMap &details = QVariantMap(), const QColor &color = QColor( 255, 0, 0 ), const QColor &outlineColor = QColor( 255, 255, 255, 100 ) )
+      : type( type )
+      , color( color )
+      , outlineColor( outlineColor )
+      , details( details )
+    {}
+
+    Type type = Point;
+    QVariantMap details;
+    QColor color = QColor( 255, 0, 0 );
+    QColor outlineColor = QColor( 255, 255, 255, 100 );
+};
+
+
+/**
+ * \ingroup core
+ */
 class CogoOperation
 {
   public:
@@ -68,12 +110,12 @@ class CogoOperation
 
     virtual QList<CogoParameter> parameters() const { return QList<CogoParameter>(); }
 
+    virtual QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const { return QList<CogoVisualGuide>(); }
+
     virtual bool checkReadiness( const QVariantMap &parameters ) const { return false; }
 
     virtual bool execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const { return false; }
 };
-Q_DECLARE_METATYPE( CogoOperation )
-Q_DECLARE_METATYPE( CogoParameter )
 
 
 /**
@@ -89,6 +131,7 @@ class CogoOperationPointAtXYZ : public CogoOperation
     QString displayName() const override { return QObject::tr( "Point at XYZ" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_xy_white_24dp" ); }
     QList<CogoParameter> parameters() const override;
+    QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
     bool checkReadiness( const QVariantMap &parameters ) const override;
     bool execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const override;
 };
@@ -107,6 +150,7 @@ class CogoOperationPointAtDistanceAngle : public CogoOperation
     QString displayName() const override { return QObject::tr( "Point at Distance/Angle" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_angle_distance_white_24dp" ); }
     QList<CogoParameter> parameters() const override;
+    QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
     bool checkReadiness( const QVariantMap &parameters ) const override;
     bool execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const override;
 };
@@ -125,8 +169,12 @@ class CogoOperationPointAtIntersectionCircles : public CogoOperation
     QString displayName() const override { return QObject::tr( "Point at Circles' Intersection" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_intersection_circles_white_24dp" ); }
     QList<CogoParameter> parameters() const override;
+    QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
     bool checkReadiness( const QVariantMap &parameters ) const override;
     bool execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const override;
 };
+Q_DECLARE_METATYPE( CogoOperation )
+Q_DECLARE_METATYPE( CogoParameter )
+Q_DECLARE_METATYPE( CogoVisualGuide )
 
 #endif // COGOOPERATION_H

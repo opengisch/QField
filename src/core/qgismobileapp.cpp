@@ -485,6 +485,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<CogoExecutor>( "org.qfield", 1, 0, "CogoExecutor" );
   qmlRegisterType<CogoOperationsModel>( "org.qfield", 1, 0, "CogoOperationsModel" );
   qmlRegisterUncreatableType<CogoParameter>( "org.qfield", 1, 0, "CogoParameter", "" );
+  qmlRegisterUncreatableType<CogoVisualGuide>( "org.qfield", 1, 0, "CogoVisualGuide", "" );
 
   qmlRegisterType<Geofencer>( "org.qfield", 1, 0, "Geofencer" );
   qmlRegisterType<DigitizingLogger>( "org.qfield", 1, 0, "DigitizingLogger" );

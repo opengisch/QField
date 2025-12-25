@@ -1396,6 +1396,10 @@ ApplicationWindow {
       algorithm: featureListForm.algorithm
       mapSettings: mapCanvas.mapSettings
     }
+
+    CogoOperationPreview {
+      id: cogoOperationRenderer
+    }
   }
 
   Geofencer {
@@ -2721,6 +2725,7 @@ ApplicationWindow {
         screenHovering: mapCanvasMap.hovered
 
         cogoOperationSettings: informationDrawer.cogoOperationSettings
+        cogoOperationPreview: cogoOperationRenderer
 
         digitizingLogger.type: stateMachine.state === 'measure' ? '' : 'add'
 

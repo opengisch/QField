@@ -30,7 +30,7 @@ CogoParameterWidgetBase {
       Layout.fillWidth: true
       model: configuration["options"]
 
-      onCurrentIndexChanged: {
+      onCurrentValueChanged: {
         processValue();
       }
     }

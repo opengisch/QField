@@ -18,6 +18,8 @@
 #ifndef COGOEXECUTOR_H
 #define COGOEXECUTOR_H
 
+#include "cogooperation.h"
+#include "qgsquickmapsettings.h"
 #include "rubberbandmodel.h"
 
 #include <QMap>
@@ -33,9 +35,12 @@ class CogoExecutor : public QObject
 
     Q_PROPERTY( QString name READ name WRITE setName NOTIFY nameChanged )
     Q_PROPERTY( QVariantMap parameters READ parameters WRITE setParameters NOTIFY parametersChanged )
+
+    Q_PROPERTY( QList<CogoVisualGuide> visualGuides READ visualGuides NOTIFY visualGuidesChanged )
     Q_PROPERTY( bool isReady READ isReady NOTIFY isReadyChanged )
 
     Q_PROPERTY( RubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
+    Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
 
   public:
     explicit CogoExecutor( QObject *parent = nullptr );
@@ -46,7 +51,12 @@ class CogoExecutor : public QObject
     QVariantMap parameters() const { return mParameters; }
     void setParameters( const QVariantMap &parameters );
 
+    QList<CogoVisualGuide> visualGuides() const;
+
     bool isReady() const { return mIsReady; }
+
+    QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
+    void setMapSettings( QgsQuickMapSettings *mapSettings );
 
     RubberbandModel *rubberbandModel() const { return mRubberbandModel; }
     void setRubberbandModel( RubberbandModel *rubberbandModel );
@@ -56,16 +66,21 @@ class CogoExecutor : public QObject
   signals:
     void nameChanged();
     void parametersChanged();
+    void visualGuidesChanged();
     void isReadyChanged();
+    void mapSettingsChanged();
     void rubberbandModelChanged();
 
   private:
+    void generateVisualGuides();
     void checkReadiness();
 
     QString mName;
     QVariantMap mParameters;
+    QList<CogoVisualGuide> mVisualGuides;
     bool mIsReady = false;
 
+    QgsQuickMapSettings *mMapSettings = nullptr;
     RubberbandModel *mRubberbandModel = nullptr;
 };
 

@@ -15,6 +15,7 @@ QfVisibilityFadingRow {
 
   property bool cogoEnabled: false
   property var cogoOperationSettings: undefined
+  property var cogoOperationPreview: undefined
 
   property bool showConfirmButton: true //<! if the geometry type is point, it will never be shown
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
@@ -104,9 +105,15 @@ QfVisibilityFadingRow {
 
   CogoExecutor {
     id: cogoExecutor
-    name: informationDrawer.cogoOperationSettings.name
-    parameters: informationDrawer.cogoOperationSettings.parameterValues
+    name: digitizingToolbar.cogoOperationSettings.name
+    parameters: digitizingToolbar.cogoOperationSettings.parameterValues
+
+    mapSettings: digitizingToolbar.mapSettings
     rubberbandModel: digitizingToolbar.rubberbandModel
+
+    onVisualGuidesChanged: {
+      digitizingToolbar.cogoOperationPreview.visualGuides = visualGuides;
+    }
   }
 
   QfToolButton {
