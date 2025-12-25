@@ -31,7 +31,7 @@ QfOverlayContainer {
       ScrollBar.vertical: QfScrollBar {
       }
       model: cogoOperationSettings.parameters
-      height: Math.min(mainWindow.height / 2, contentHeight + 10)
+      height: Math.min(mainWindow.height * 0.5, contentHeight + 10)
       topMargin: 5
       leftMargin: 10
       rightMargin: 10
