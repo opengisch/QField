@@ -83,39 +83,6 @@ QfVisibilityFadingRow {
     cloudUserInformation: projectInfo.cloudUserInformation
   }
 
-  CogoOperations {
-    id: cogoOperations
-    enabled: digitizingToolbar.cogoEnabled
-
-    mapSettings: digitizingToolbar.mapSettings
-    cogoOperationSettings: digitizingToolbar.cogoOperationSettings
-
-    onEnabledChanged: {
-      digitizingToolbar.cogoOperationSettings.visible = enabled;
-    }
-
-    onRequestJumpToPoint: function (center, scale, handleMargins) {
-      digitizingToolbar.requestJumpToPoint(center, scale, handleMargins);
-    }
-
-    onRequestPosition: function (item) {
-      digitizingToolbar.requestPosition(item);
-    }
-  }
-
-  CogoExecutor {
-    id: cogoExecutor
-    name: digitizingToolbar.cogoOperationSettings.name
-    parameters: digitizingToolbar.cogoOperationSettings.parameterValues
-
-    mapSettings: digitizingToolbar.mapSettings
-    rubberbandModel: digitizingToolbar.rubberbandModel
-
-    onVisualGuidesChanged: {
-      digitizingToolbar.cogoOperationPreview.visualGuides = visualGuides;
-    }
-  }
-
   QfToolButton {
     id: cancelButton
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
@@ -152,6 +119,39 @@ QfVisibilityFadingRow {
     onClicked: {
       dashBoard.shouldReturnHome = false;
       confirm();
+    }
+  }
+
+  CogoOperations {
+    id: cogoOperations
+    enabled: digitizingToolbar.cogoEnabled
+
+    mapSettings: digitizingToolbar.mapSettings
+    cogoOperationSettings: digitizingToolbar.cogoOperationSettings
+
+    onEnabledChanged: {
+      digitizingToolbar.cogoOperationSettings.visible = enabled;
+    }
+
+    onRequestJumpToPoint: function (center, scale, handleMargins) {
+      digitizingToolbar.requestJumpToPoint(center, scale, handleMargins);
+    }
+
+    onRequestPosition: function (item) {
+      digitizingToolbar.requestPosition(item);
+    }
+
+    CogoExecutor {
+      id: cogoExecutor
+      name: digitizingToolbar.cogoOperationSettings.name
+      parameters: digitizingToolbar.cogoOperationSettings.parameterValues
+
+      mapSettings: digitizingToolbar.mapSettings
+      rubberbandModel: digitizingToolbar.rubberbandModel
+
+      onVisualGuidesChanged: {
+        digitizingToolbar.cogoOperationPreview.visualGuides = visualGuides;
+      }
     }
   }
 
