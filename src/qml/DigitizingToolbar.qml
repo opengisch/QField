@@ -50,20 +50,8 @@ QfVisibilityFadingRow {
     target: rubberbandModel
 
     function onVertexCountChanged() {
-      var extraVertexNeed = coordinateLocator && coordinateLocator.positionLocked && positioningSettings.averagedPositioning && positioningSettings.averagedPositioningMinimumCount > 1 ? 1 : 0;
-
-      // set geometry valid
-      if (Number(rubberbandModel ? rubberbandModel.geometryType : 0) === 0) {
-        geometryValid = false;
-      } else if (Number(rubberbandModel.geometryType) === 1) {
-        // Line: at least 2 points
-        geometryValid = rubberbandModel.vertexCount > 1 + extraVertexNeed;
-      } else if (Number(rubberbandModel.geometryType) === 2) {
-        // Polygon: at least 3 points
-        geometryValid = rubberbandModel.vertexCount > 2 + extraVertexNeed;
-      } else {
-        geometryValid = false;
-      }
+      // check whether geometry is valid and can be confirmed
+      checkGeometryValidity();
 
       // emit the signal of digitizingToolbar
       vertexCountChanged();
@@ -104,7 +92,6 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: confirmButton
-    enabled: !cogoEnabled || cogoExecutor.isReady
     iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
     visible: {
       if (!showConfirmButton) {
@@ -131,6 +118,7 @@ QfVisibilityFadingRow {
 
     onEnabledChanged: {
       digitizingToolbar.cogoOperationSettings.visible = enabled;
+      checkGeometryValidity();
     }
 
     onRequestJumpToPoint: function (center, scale, handleMargins) {
@@ -161,7 +149,7 @@ QfVisibilityFadingRow {
     repeat: true
 
     onTriggered: {
-      if (!rubberbandModel || rubberbandModel.vertexCount == 0) {
+      if (!rubberbandModel || rubberbandModel.vertexCount === 0) {
         stop();
       }
       removeVertex();
@@ -333,6 +321,23 @@ QfVisibilityFadingRow {
       }
     }
     return true;
+  }
+
+  function checkGeometryValidity() {
+    var extraVertexNeed = cogoEnabled || (coordinateLocator && coordinateLocator.positionLocked && positioningSettings.averagedPositioning && positioningSettings.averagedPositioningMinimumCount > 1) ? 1 : 0;
+
+    // set geometry valid
+    if (Number(rubberbandModel ? rubberbandModel.geometryType : 0) === 0) {
+      geometryValid = false;
+    } else if (Number(rubberbandModel.geometryType) === 1) {
+      // Line: at least 2 points
+      geometryValid = rubberbandModel.vertexCount > 1 + extraVertexNeed;
+    } else if (Number(rubberbandModel.geometryType) === 2) {
+      // Polygon: at least 3 points
+      geometryValid = rubberbandModel.vertexCount > 2 + extraVertexNeed;
+    } else {
+      geometryValid = false;
+    }
   }
 
   function triggerAddVertex() {
