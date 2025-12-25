@@ -98,8 +98,8 @@ CogoParameterWidgetBase {
 
   function requestedPositionReceived(position) {
     if (!isNaN(position.x)) {
-      xField.text = position.x;
-      yField.text = position.y;
+      xField.text = position.x.toFixed(3);
+      yField.text = position.y.toFixed(3);
       processValue();
     } else {
       xField.text = "";
