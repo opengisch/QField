@@ -149,13 +149,13 @@ bool CogoOperationPointAtDistanceAngle::checkReadiness( const QVariantMap &param
   }
 
   bool ok;
-  double value = parameters[QStringLiteral( "distance" )].toDouble( &ok );
+  ( void ) parameters[QStringLiteral( "distance" )].toDouble( &ok );
   if ( !ok )
   {
     return false;
   }
 
-  value = parameters[QStringLiteral( "angle" )].toDouble( &ok );
+  ( void ) parameters[QStringLiteral( "angle" )].toDouble( &ok );
   if ( !ok )
   {
     return false;
@@ -302,13 +302,13 @@ bool CogoOperationPointAtIntersectionCircles::checkReadiness( const QVariantMap 
   }
 
   bool ok;
-  double value = parameters[QStringLiteral( "distance1" )].toDouble( &ok );
+  ( void ) parameters[QStringLiteral( "distance1" )].toDouble( &ok );
   if ( !ok )
   {
     return false;
   }
 
-  value = parameters[QStringLiteral( "distance2" )].toDouble( &ok );
+  ( void ) parameters[QStringLiteral( "distance2" )].toDouble( &ok );
   if ( !ok )
   {
     return false;

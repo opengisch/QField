@@ -104,7 +104,7 @@ void CogoExecutor::generateVisualGuides()
     return;
   }
 
-  if ( CogoOperation *operation = CogoRegistry::instance()->operation( mName ) )
+  if ( const CogoOperation *operation = CogoRegistry::instance()->operation( mName ) )
   {
     mVisualGuides = operation->visualGuides( mParameters, mMapSettings );
   }
@@ -119,7 +119,7 @@ void CogoExecutor::generateVisualGuides()
 void CogoExecutor::checkReadiness()
 {
   bool isReady = false;
-  if ( CogoOperation *operation = CogoRegistry::instance()->operation( mName ) )
+  if ( const CogoOperation *operation = CogoRegistry::instance()->operation( mName ) )
   {
     isReady = operation->checkReadiness( mParameters );
   }
@@ -138,7 +138,7 @@ bool CogoExecutor::execute()
     return false;
   }
 
-  if ( CogoOperation *operation = CogoRegistry::instance()->operation( mName ) )
+  if ( const CogoOperation *operation = CogoRegistry::instance()->operation( mName ) )
   {
     return operation->execute( mParameters, mRubberbandModel );
   }

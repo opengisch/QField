@@ -91,9 +91,9 @@ class CogoVisualGuide
 
     explicit CogoVisualGuide( Type type = Point, const QVariantMap &details = QVariantMap(), const QColor &color = COLOR_NEUTRAL, const QColor &outlineColor = QColor( 255, 255, 255, 127 ) )
       : type( type )
+      , details( details )
       , color( color )
       , outlineColor( outlineColor )
-      , details( details )
     {}
 
     Type type = Point;
