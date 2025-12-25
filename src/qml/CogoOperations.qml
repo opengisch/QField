@@ -42,12 +42,14 @@ Item {
   visible: enabled
 
   onEnabledChanged: {
-    if (enabled && cogoOperationSettings.name === "") {
-      const lastUsed = settings.value("/QField/CogoOperationLastUsed", "point_at_xyz");
-      const operationData = cogoOperationsModel.get(lastUsed);
-      cogoOperationSettings.name = operationData.Name;
-      cogoOperationSettings.parameters = operationData.Parameters;
-      cogoOperationSettings.title = operationData.DisplayName;
+    if (enabled) {
+      if (cogoOperationSettings.name === "") {
+        const lastUsed = settings.value("/QField/CogoOperationLastUsed", "point_at_xyz");
+        const operationData = cogoOperationsModel.get(lastUsed);
+        cogoOperationSettings.name = operationData.Name;
+        cogoOperationSettings.parameters = operationData.Parameters;
+        cogoOperationSettings.title = operationData.DisplayName;
+      }
     }
   }
 

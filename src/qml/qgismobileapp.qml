@@ -868,11 +868,18 @@ ApplicationWindow {
       }
     }
 
+    /** COGO operation visual guides **/
+    CogoOperationPreview {
+      id: cogoOperationPreview
+      visible: digitizingToolbar.cogoEnabled
+    }
+
     /** A rubberband for ditizing **/
     Rubberband {
       id: digitizingRubberband
 
       mapSettings: mapCanvas.mapSettings
+      showVertices: digitizingToolbar.cogoEnabled
 
       model: RubberbandModel {
         frozen: false
@@ -1395,11 +1402,6 @@ ApplicationWindow {
       id: processingAlgorithmPreview
       algorithm: featureListForm.algorithm
       mapSettings: mapCanvas.mapSettings
-    }
-
-    CogoOperationPreview {
-      id: cogoOperationPreview
-      visible: digitizingToolbar.cogoEnabled
     }
   }
 
