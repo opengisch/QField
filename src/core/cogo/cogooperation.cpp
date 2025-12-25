@@ -279,7 +279,7 @@ QList<CogoVisualGuide> CogoOperationPointAtIntersectionCircles::visualGuides( co
 
 bool CogoOperationPointAtIntersectionCircles::checkReadiness( const QVariantMap &parameters ) const
 {
-  if ( !parameters.contains( QStringLiteral( "point1" ) ) || !parameters.contains( QStringLiteral( "distance1" ) ) || !parameters.contains( QStringLiteral( "point2" ) ) || !parameters.contains( QStringLiteral( "distance2" ) ) || !parameters.contains( QStringLiteral( "candidate" ) ) )
+  if ( !parameters.contains( QStringLiteral( "point1" ) ) || !parameters.contains( QStringLiteral( "distance1" ) ) || !parameters.contains( QStringLiteral( "point2" ) ) || !parameters.contains( QStringLiteral( "distance2" ) ) )
   {
     return false;
   }
