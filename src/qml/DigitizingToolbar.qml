@@ -32,7 +32,7 @@ QfVisibilityFadingRow {
   property bool geometryValid: false
 
   signal requestJumpToPoint(var center, real scale, bool handleMargins)
-  signal requestPosition(var item)
+  signal requestPosition(var item, bool fromCoordinateLocator)
 
   spacing: 4
 
@@ -137,8 +137,8 @@ QfVisibilityFadingRow {
       digitizingToolbar.requestJumpToPoint(center, scale, handleMargins);
     }
 
-    onRequestPosition: function (item) {
-      digitizingToolbar.requestPosition(item);
+    onRequestPosition: function (item, fromCoordinateLocator) {
+      digitizingToolbar.requestPosition(item, fromCoordinateLocator);
     }
 
     CogoExecutor {

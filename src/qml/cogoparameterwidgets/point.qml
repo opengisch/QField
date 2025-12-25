@@ -16,7 +16,7 @@ CogoParameterWidgetBase {
       left: parent.left
       right: parent.right
     }
-    columns: 3
+    columns: 4
 
     RowLayout {
       Rectangle {
@@ -37,7 +37,7 @@ CogoParameterWidgetBase {
 
     Label {
       Layout.fillWidth: true
-      Layout.columnSpan: 2
+      Layout.columnSpan: 3
       color: Theme.secondaryTextColor
       font: Theme.tipFont
       text: qsTr("Y")
@@ -64,13 +64,24 @@ CogoParameterWidgetBase {
     }
 
     QfToolButton {
+      iconSource: Theme.getThemeVectorIcon("ic_coordinate_locator_white_24dp")
+      iconColor: Theme.mainTextColor
+      bgcolor: "transparent"
+      round: true
+
+      onClicked: {
+        requestPosition(pointParameter, true);
+      }
+    }
+
+    QfToolButton {
       iconSource: Theme.getThemeVectorIcon("ic_location_valid_white_24dp")
       iconColor: Theme.positionColor
       bgcolor: "transparent"
       round: true
 
       onClicked: {
-        requestPosition(pointParameter);
+        requestPosition(pointParameter, false);
       }
     }
   }
@@ -86,7 +97,7 @@ CogoParameterWidgetBase {
   }
 
   function requestedPositionReceived(position) {
-    if (position.isValid) {
+    if (!isNaN(position.x)) {
       xField.text = position.x;
       yField.text = position.y;
       processValue();

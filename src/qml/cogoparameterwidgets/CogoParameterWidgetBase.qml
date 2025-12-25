@@ -10,5 +10,5 @@ Item {
   /**
    * This signal is emitted when a parameter requests a position from the internal/external GNSS.
    */
-  signal requestPosition(var item)
+  signal requestPosition(var item, bool fromCoordinateLocator)
 }

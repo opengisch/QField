@@ -974,7 +974,7 @@ ApplicationWindow {
       objectName: "coordinateLocator"
       anchors.fill: parent
       anchors.bottomMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0 : 0
-      visible: (stateMachine.state === "digitize" || stateMachine.state === 'measure') && !digitizingToolbar.cogoEnabled
+      visible: (stateMachine.state === "digitize" || stateMachine.state === 'measure')
       highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.activeLayer
@@ -2872,8 +2872,12 @@ ApplicationWindow {
           mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
         }
 
-        onRequestPosition: function (item) {
-          item.requestedPositionReceived(positionSource.projectedPosition);
+        onRequestPosition: function (item, fromCoordinateLocator) {
+          if (fromCoordinateLocator) {
+            item.requestedPositionReceived(coordinateLocator.currentCoordinate);
+          } else {
+            item.requestedPositionReceived(positionSource.projectedPosition);
+          }
         }
       }
 

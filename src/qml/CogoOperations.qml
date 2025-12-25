@@ -16,7 +16,7 @@ Item {
   property var cogoOperationSettings: undefined
 
   signal requestJumpToPoint(var center, real scale, bool handleMargins)
-  signal requestPosition(var item)
+  signal requestPosition(var item, bool fromCoordinateLocator)
 
   // returns true if handled
   function canvasClicked(point, type) {
@@ -100,6 +100,14 @@ Item {
           displayToast(DisplayName);
         }
       }
+    }
+  }
+
+  Connections {
+    target: cogoOperationSettings
+
+    function onRequestPosition(item, fromCoordinateLocator) {
+      cogoOperations.requestPosition(item, fromCoordinateLocator);
     }
   }
 }

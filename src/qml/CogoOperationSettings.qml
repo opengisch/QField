@@ -12,7 +12,7 @@ QfOverlayContainer {
   property var parameterValues: ({})
 
   signal requestJumpToPoint(var center, real scale, bool handleMargins)
-  signal requestPosition(var item)
+  signal requestPosition(var item, bool fromCoordinateLocator)
 
   width: parent.width
   height: childrenRect.height
@@ -64,8 +64,8 @@ QfOverlayContainer {
             cogoOperationSettings.parameterValues = pv;
           }
 
-          function onRequestPosition(item) {
-            cogoOperationSettings.requestPosition(item);
+          function onRequestPosition(item, fromCoordinateLocator) {
+            cogoOperationSettings.requestPosition(item, fromCoordinateLocator);
           }
         }
       }
