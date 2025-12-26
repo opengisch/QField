@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" fill="#ffffff" version="1.1" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
- <path d="m208-120q-37 0-62.5-25.5t-25.5-62.5v-548q0-29 27-40.5t47 8.5l90 90-54 54 28 28 54-54 104 104-54 54 28 28 54-54 104 104-54 54 28 28 54-54 104 104-54 54 28 28 54-54 80 80q20 20 8.5 47t-40.5 27zm32-120h332l-332-332z"/>
- <g fill="none" stroke="#fff">
-  <path d="m600-840h200v680h-200z" stroke-width="80"/>
-  <g stroke-width="40">
-   <path d="m760-700h-80"/>
-   <path d="m760-580h-80"/>
-   <path d="m760-460h-80"/>
-   <path d="m760-340h-80"/>
-  </g>
+<svg width="24px" height="24px" version="1.1" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
+ <circle cx="480" cy="-720" r="80" fill="none" stroke="#fff" stroke-dashoffset="3" stroke-width="80"/>
+ <g fill="#fff">
+  <path d="m440-920v120h80v-120z"/>
+  <path d="m377.53-599.7c19.142 18.81 43.94 29.135 72.502 33.815l-219.8 471.26-70.066 55.594-2.4355-89.41z"/>
+  <path d="m582.93-600c-20.987 18.268-45.63 28.493-72.502 33.815l219.8 471.26 70.066 55.594 2.4355-89.41z"/>
  </g>
 </svg>
