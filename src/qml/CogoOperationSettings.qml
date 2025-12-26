@@ -11,6 +11,9 @@ QfOverlayContainer {
   property var parameters: []
   property var parameterValues: ({})
 
+  property var positionInformations: ({})
+  property GnssPositionInformation positionInformation: PositioningUtils.createEmptyGnssPositionInformation()
+
   signal requestJumpToPoint(var center, real scale, bool handleMargins)
   signal requestPosition(var item, bool fromCoordinateLocator)
 
@@ -70,5 +73,31 @@ QfOverlayContainer {
         }
       }
     }
+  }
+
+  onPositionInformationsChanged: {
+    let pis = [];
+    let canAverage = true;
+    for (const parameter of parameters) {
+      if (parameter.type === "point") {
+        if (positionInformations[parameter.name] !== undefined) {
+          pis.push(positionInformations[parameter.name]);
+        } else {
+          canAverage = false;
+          break;
+        }
+      }
+    }
+    if (canAverage && pis.length > 0) {
+      cogoOperationSettings.positionInformation = PositioningUtils.averagedPositionInformation(pis);
+    } else {
+      cogoOperationSettings.positionInformation = PositioningUtils.createEmptyGnssPositionInformation();
+    }
+  }
+
+  function requestedPositionReceived(name, position, positionInformation) {
+    let pis = cogoOperationSettings.positionInformations;
+    pis[name] = positionInformation;
+    cogoOperationSettings.positionInformations = pis;
   }
 }

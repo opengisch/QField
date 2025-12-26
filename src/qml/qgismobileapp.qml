@@ -872,6 +872,7 @@ ApplicationWindow {
     CogoOperationPreview {
       id: cogoOperationPreview
       visible: digitizingToolbar.cogoEnabled
+      visualGuides: digitizingToolbar.cogoExecutor.visualGuides
     }
 
     /** A rubberband for ditizing **/
@@ -885,28 +886,33 @@ ApplicationWindow {
         frozen: false
         currentCoordinate: digitizingToolbar.cogoEnabled ? GeometryUtils.emptyPoint() : coordinateLocator.currentCoordinate
         measureValue: {
-          if (coordinateLocator.positionLocked) {
-            switch (positioningSettings.digitizingMeasureType) {
-            case Tracker.Timestamp:
-              return coordinateLocator.positionInformation.utcDateTime.getTime();
-            case Tracker.GroundSpeed:
-              return coordinateLocator.positionInformation.speed;
-            case Tracker.Bearing:
-              return coordinateLocator.positionInformation.direction;
-            case Tracker.HorizontalAccuracy:
-              return coordinateLocator.positionInformation.hacc;
-            case Tracker.VerticalAccuracy:
-              return coordinateLocator.positionInformation.vacc;
-            case Tracker.PDOP:
-              return coordinateLocator.positionInformation.pdop;
-            case Tracker.HDOP:
-              return coordinateLocator.positionInformation.hdop;
-            case Tracker.VDOP:
-              return coordinateLocator.positionInformation.vdop;
-            }
+          let pi;
+          if (digitizingToolbar.cogoEnabled) {
+            pi = digitizingToolbar.cogoOperationSettings.positionInformation;
+          } else if (coordinateLocator.positionLocked) {
+            pi = coordinateLocator.positionInformation;
           } else {
             return Number.NaN;
           }
+          switch (positioningSettings.digitizingMeasureType) {
+          case Tracker.Timestamp:
+            return coordinateLocator.positionInformation.utcDateTime.getTime();
+          case Tracker.GroundSpeed:
+            return coordinateLocator.positionInformation.speed;
+          case Tracker.Bearing:
+            return coordinateLocator.positionInformation.direction;
+          case Tracker.HorizontalAccuracy:
+            return coordinateLocator.positionInformation.hacc;
+          case Tracker.VerticalAccuracy:
+            return coordinateLocator.positionInformation.vacc;
+          case Tracker.PDOP:
+            return coordinateLocator.positionInformation.pdop;
+          case Tracker.HDOP:
+            return coordinateLocator.positionInformation.hdop;
+          case Tracker.VDOP:
+            return coordinateLocator.positionInformation.vdop;
+          }
+          return Number.NaN;
         }
         vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.activeLayer
         crs: mapCanvas.mapSettings.destinationCrs
@@ -2728,7 +2734,6 @@ ApplicationWindow {
         screenHovering: mapCanvasMap.hovered
 
         cogoOperationSettings: informationDrawer.cogoOperationSettings
-        cogoOperationPreview: cogoOperationPreview
 
         digitizingLogger.type: stateMachine.state === 'measure' ? '' : 'add'
 
@@ -2874,9 +2879,9 @@ ApplicationWindow {
 
         onRequestPosition: function (item, fromCoordinateLocator) {
           if (fromCoordinateLocator) {
-            item.requestedPositionReceived(coordinateLocator.currentCoordinate);
+            item.requestedPositionReceived(coordinateLocator.currentCoordinate, undefined);
           } else {
-            item.requestedPositionReceived(positionSource.projectedPosition);
+            item.requestedPositionReceived(positionSource.projectedPosition, positionSource.positionInformation);
           }
         }
       }

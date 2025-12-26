@@ -15,7 +15,7 @@ QfVisibilityFadingRow {
 
   property bool cogoEnabled: false
   property var cogoOperationSettings: undefined
-  property var cogoOperationPreview: undefined
+  property alias cogoExecutor: cogoExecutor
 
   property bool showConfirmButton: true //<! if the geometry type is point, it will never be shown
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
@@ -136,10 +136,6 @@ QfVisibilityFadingRow {
 
       mapSettings: digitizingToolbar.mapSettings
       rubberbandModel: digitizingToolbar.rubberbandModel
-
-      onVisualGuidesChanged: {
-        digitizingToolbar.cogoOperationPreview.visualGuides = visualGuides;
-      }
     }
   }
 
@@ -260,6 +256,7 @@ QfVisibilityFadingRow {
           if (success) {
             // Reset the parameter values
             cogoOperationSettings.parameterValues = {};
+            cogoOperationSettings.positionInformations = {};
             let params = cogoOperationSettings.parameters;
             cogoOperationSettings.parameters = params;
             // Recenter to last added vertex

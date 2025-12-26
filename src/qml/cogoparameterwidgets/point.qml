@@ -8,6 +8,8 @@ import org.qfield
 CogoParameterWidgetBase {
   id: pointParameter
 
+  property var positionInformation: undefined
+
   width: parent.width
   height: childrenRect.height
 
@@ -96,15 +98,18 @@ CogoParameterWidgetBase {
     }
   }
 
-  function requestedPositionReceived(position) {
+  function requestedPositionReceived(position, positionInformation) {
     if (!isNaN(position.x)) {
+      pointParameter.positionInformation = positionInformation;
       xField.text = position.x.toFixed(3);
       yField.text = position.y.toFixed(3);
       processValue();
     } else {
+      pointParameter.positionInformation = undefined;
       xField.text = "";
       yField.text = "";
       processValue();
     }
+    cogoOperationSettings.requestedPositionReceived(parameterName, position, positionInformation);
   }
 }
