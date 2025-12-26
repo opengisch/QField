@@ -138,7 +138,7 @@ class CogoOperationPointAtXYZ : public CogoOperation
     ~CogoOperationPointAtXYZ() = default;
 
     QString name() const override { return QStringLiteral( "point_at_xyz" ); }
-    QString displayName() const override { return QObject::tr( "Point at XYZ" ); }
+    QString displayName() const override { return QObject::tr( "XY" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_xy_white_24dp" ); }
     QList<CogoParameter> parameters() const override;
     QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
@@ -157,7 +157,7 @@ class CogoOperationPointAtDistanceAngle : public CogoOperation
     ~CogoOperationPointAtDistanceAngle() = default;
 
     QString name() const override { return QStringLiteral( "point_at_distance_angle" ); }
-    QString displayName() const override { return QObject::tr( "Point at Distance/Angle" ); }
+    QString displayName() const override { return QObject::tr( "Distance/Angle from Point" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_angle_distance_white_24dp" ); }
     QList<CogoParameter> parameters() const override;
     QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
@@ -176,7 +176,7 @@ class CogoOperationPointAtIntersectionCircles : public CogoOperation
     ~CogoOperationPointAtIntersectionCircles() = default;
 
     QString name() const override { return QStringLiteral( "point_at_intersection_circles" ); }
-    QString displayName() const override { return QObject::tr( "Point at Circles' Intersection" ); }
+    QString displayName() const override { return QObject::tr( "Circles Intersection" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_intersection_circles_white_24dp" ); }
     QList<CogoParameter> parameters() const override;
     QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
