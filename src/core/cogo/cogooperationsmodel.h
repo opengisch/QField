@@ -18,11 +18,10 @@
 #ifndef COGOOPERATIONSMODEL_H
 #define COGOOPERATIONSMODEL_H
 
-#include "cogooperation.h"
-
 #include <QAbstractListModel>
 
 /**
+ * \brief A model holding the list of COGO operations available in the COGO registry.
  * \ingroup core
  */
 class CogoOperationsModel : public QAbstractListModel
@@ -39,11 +38,24 @@ class CogoOperationsModel : public QAbstractListModel
     };
     Q_ENUM( OperationRoles )
 
+    /**
+     * The COGO operations model constructor.
+     */
     explicit CogoOperationsModel( QObject *parent = nullptr );
 
+    /**
+     * Builds the model against the COGO operations available in the COGO registry.
+     */
     void buildModel();
 
+    /**
+     * Returns a COGO operation data map for a given \a row.
+     */
     Q_INVOKABLE QVariantMap get( int row ) const;
+
+    /**
+     * Returns a COGO operation data map matching the given \a name.
+     */
     Q_INVOKABLE QVariantMap get( const QString &name ) const;
 
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;

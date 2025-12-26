@@ -38,16 +38,37 @@
 #define COLOR_RESULT QColor( 77, 175, 74 )
 
 /**
+ * \brief A COGO operation parameter
  * \ingroup core
  */
 class CogoParameter
 {
     Q_GADGET
 
+    /**
+     * The COGO parameter type ("point", "distance", "angle, "enum", etc.).
+     */
     Q_PROPERTY( QString type MEMBER type )
+
+    /**
+     * The COGO parameter name.
+     */
     Q_PROPERTY( QString name MEMBER name )
+
+    /**
+     * The COGO parameter label.
+     * \note if none is provided, a default label will be used instead.
+     */
     Q_PROPERTY( QString label MEMBER label )
+
+    /**
+     * The COGO parameter color.
+     */
     Q_PROPERTY( QColor color MEMBER color )
+
+    /**
+     * The COGO parameter's extra configuration details.
+     */
     Q_PROPERTY( QVariantMap config MEMBER config )
 
   public:
@@ -68,15 +89,31 @@ class CogoParameter
 
 
 /**
+ * \brief A COGO visual guide.
  * \ingroup core
  */
 class CogoVisualGuide
 {
     Q_GADGET
 
+    /**
+     * The COGO visual guide type (point, line, circle, label, etc.)
+     */
     Q_PROPERTY( Type type MEMBER type )
+
+    /**
+     * The COGO visual guide details.
+     */
     Q_PROPERTY( QVariantMap details MEMBER details )
+
+    /**
+     * The COGO visual guide color.
+     */
     Q_PROPERTY( QColor color MEMBER color )
+
+    /**
+     * The COGO visual guide outline color.
+     */
     Q_PROPERTY( QColor outlineColor MEMBER outlineColor )
 
   public:
@@ -104,31 +141,61 @@ class CogoVisualGuide
 
 
 /**
+ * \brief A COGO operation.
  * \ingroup core
  */
 class CogoOperation
 {
   public:
+    /**
+     * The COGO operation constructor.
+     */
     CogoOperation() {}
     virtual ~CogoOperation() = default;
 
+    /**
+     * Returns the name string identifier.
+     */
     virtual QString name() const { return QString(); }
 
+    /**
+     * Returns a translatable display name.
+     */
     virtual QString displayName() const { return QString(); }
 
+    /**
+     * Returns the icon name.
+     */
     virtual QString icon() const { return QString(); }
 
+    /**
+     * Returns the list of available parameters to configure the operation.
+     */
     virtual QList<CogoParameter> parameters() const { return QList<CogoParameter>(); }
 
+    /**
+     * Returns a list of visual guides based on provided parameters.
+     * \param parameters the parameters used to generate the visual guides
+     * \param mapSettings the map settings object used to georeference the visual guides
+     */
     virtual QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const { return QList<CogoVisualGuide>(); }
 
+    /**
+     * Returns TRUE is the provided \a parameters allow for the operation to be executed.
+     */
     virtual bool checkReadiness( const QVariantMap &parameters ) const { return false; }
 
+    /**
+     * Executes the operation and add generated vertex or vertices into the rubberband model.
+     * \param parameters the parameters used to execute the operation
+     * \param rubberbandModel the rubberband model within which one or more vertices will be added
+     */
     virtual bool execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const { return false; }
 };
 
 
 /**
+ * \brief A COGO operation to generate a point at a given XY location.
  * \ingroup core
  */
 class CogoOperationPointAtXYZ : public CogoOperation
@@ -148,6 +215,7 @@ class CogoOperationPointAtXYZ : public CogoOperation
 
 
 /**
+ * \brief A COGO operation to generate a point at a given distance and angle from a provided point.
  * \ingroup core
  */
 class CogoOperationPointAtDistanceAngle : public CogoOperation
@@ -167,6 +235,7 @@ class CogoOperationPointAtDistanceAngle : public CogoOperation
 
 
 /**
+ * \brief A COGO operation to generate a point at the intersection of two defined circles.
  * \ingroup core
  */
 class CogoOperationPointAtIntersectionCircles : public CogoOperation
