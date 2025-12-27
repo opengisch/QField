@@ -896,21 +896,21 @@ ApplicationWindow {
           }
           switch (positioningSettings.digitizingMeasureType) {
           case Tracker.Timestamp:
-            return coordinateLocator.positionInformation.utcDateTime.getTime();
+            return pi.utcDateTime.getTime();
           case Tracker.GroundSpeed:
-            return coordinateLocator.positionInformation.speed;
+            return pi.speed;
           case Tracker.Bearing:
-            return coordinateLocator.positionInformation.direction;
+            return pi.direction;
           case Tracker.HorizontalAccuracy:
-            return coordinateLocator.positionInformation.hacc;
+            return pi.hacc;
           case Tracker.VerticalAccuracy:
-            return coordinateLocator.positionInformation.vacc;
+            return pi.vacc;
           case Tracker.PDOP:
-            return coordinateLocator.positionInformation.pdop;
+            return pi.pdop;
           case Tracker.HDOP:
-            return coordinateLocator.positionInformation.hdop;
+            return pi.hdop;
           case Tracker.VDOP:
-            return coordinateLocator.positionInformation.vdop;
+            return pi.vdop;
           }
           return Number.NaN;
         }

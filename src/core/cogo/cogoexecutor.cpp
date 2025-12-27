@@ -119,8 +119,11 @@ void CogoExecutor::getParameters()
     }
   }
 
-  mParameters = parameters;
-  parametersChanged();
+  if ( mParameters != parameters )
+  {
+    mParameters = parameters;
+    parametersChanged();
+  }
 }
 
 void CogoExecutor::generateVisualGuides()

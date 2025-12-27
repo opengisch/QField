@@ -6,7 +6,7 @@ import org.qgis
 import org.qfield
 
 CogoParameterWidgetBase {
-  id: angleParameter
+  id: enumParameter
 
   width: parent.width
   height: childrenRect.height

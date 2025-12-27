@@ -1,5 +1,5 @@
 /***************************************************************************
-                              cogoregistry.cpp
+                              cogooperation.cpp
                               -------------------
               begin                : 2025.12.21
               copyright            : (C) 2025 by Mathieu Pellerin
@@ -205,11 +205,11 @@ bool CogoOperationPointAtDistanceAngle::execute( RubberbandModel *rubberbandMode
 QList<CogoParameter> CogoOperationPointAtIntersectionCircles::parameters( Qgis::WkbType wkbType ) const
 {
   QList<CogoParameter> parameters;
-  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point1" ), QStringLiteral( "Circle #1" ), COLOR_GROUP_1 )
-             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance1" ), QStringLiteral( "Circle #1: Radius" ), COLOR_GROUP_1 )
-             << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point2" ), QStringLiteral( "Circle #2" ), COLOR_GROUP_2 )
-             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance2" ), QStringLiteral( "Circle #2: Radius" ), COLOR_GROUP_2 )
-             << CogoParameter( QStringLiteral( "enum" ), QStringLiteral( "candidate" ), QStringLiteral( "Candidate" ), Qt::transparent, { { QStringLiteral( "options" ), QStringList() << QStringLiteral( "A" ) << QStringLiteral( "B" ) } } );
+  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point1" ), QObject::tr( "Circle #1" ), COLOR_GROUP_1 )
+             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance1" ), QObject::tr( "Circle #1: Radius" ), COLOR_GROUP_1 )
+             << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point2" ), QObject::tr( "Circle #2" ), COLOR_GROUP_2 )
+             << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance2" ), QObject::tr( "Circle #2: Radius" ), COLOR_GROUP_2 )
+             << CogoParameter( QStringLiteral( "enum" ), QStringLiteral( "candidate" ), QObject::tr( "Candidate" ), Qt::transparent, { { QStringLiteral( "options" ), QStringList() << QStringLiteral( "A" ) << QStringLiteral( "B" ) } } );
   return parameters;
 }
 

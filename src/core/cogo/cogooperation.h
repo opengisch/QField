@@ -1,5 +1,5 @@
 /***************************************************************************
-                              cogoregistry.h
+                              cogooperation.h
                               -------------------
               begin                : 2025.12.21
               copyright            : (C) 2025 by Mathieu Pellerin
@@ -86,15 +86,12 @@ class CogoParameter
     QColor color;
     QVariantMap configuration;
 
-    bool operator==( CogoParameter &other ) const
+    bool operator==( const CogoParameter &other ) const
     {
       return type == other.type && name == other.name && label == other.label && color == other.color && configuration == other.configuration;
     }
 
-    bool operator!=( CogoParameter &other ) const
-    {
-      return !( *this == other );
-    }
+    bool operator!=( const CogoParameter &other ) const { return !operator==( other ); }
 };
 
 
