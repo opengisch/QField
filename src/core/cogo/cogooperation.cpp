@@ -25,7 +25,7 @@
 QList<CogoParameter> CogoOperationPointAtXYZ::parameters( Qgis::WkbType wkbType ) const
 {
   QList<CogoParameter> parameters;
-  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ) );
+  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ), QString(), Qt::transparent, { { QStringLiteral( "hasZ" ), QgsWkbTypes::hasZ( wkbType ) } } );
   return parameters;
 }
 
@@ -85,7 +85,7 @@ bool CogoOperationPointAtXYZ::execute( RubberbandModel *rubberbandModel, const Q
 QList<CogoParameter> CogoOperationPointAtDistanceAngle::parameters( Qgis::WkbType wkbType ) const
 {
   QList<CogoParameter> parameters;
-  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ) )
+  parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ), QString(), Qt::transparent, { { QStringLiteral( "hasZ" ), QgsWkbTypes::hasZ( wkbType ) } } )
              << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance" ) )
              << CogoParameter( QStringLiteral( "angle" ), QStringLiteral( "angle" ) );
   if ( QgsWkbTypes::hasZ( wkbType ) )

@@ -1494,6 +1494,8 @@ ApplicationWindow {
     navigation: navigation
     positionSource: positionSource
     positioningSettings: positioningSettings
+
+    cogoOperationSettings.mapSettings: mapCanvas.mapSettings
   }
 
   /**************************************************

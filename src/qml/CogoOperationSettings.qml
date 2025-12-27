@@ -14,6 +14,9 @@ QfOverlayContainer {
   property var positionInformations: ({})
   property GnssPositionInformation positionInformation: PositioningUtils.createEmptyGnssPositionInformation()
 
+  /// type:QgsQuickMapSettings
+  property MapSettings mapSettings
+
   signal requestJumpToPoint(var center, real scale, bool handleMargins)
   signal requestPosition(var item, bool fromCoordinateLocator)
 
@@ -52,6 +55,7 @@ QfOverlayContainer {
           property string parameterLabel: modelData !== undefined ? modelData.label : ""
           property color parameterColor: modelData !== undefined ? modelData.color : "#00000000"
           property var parameterConfiguration: modelData !== undefined ? modelData.configuration : []
+          property var destinationCrs: mapSettings.destinationCrs
 
           y: 2
           width: parent.width
