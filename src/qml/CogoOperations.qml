@@ -47,7 +47,6 @@ Item {
         const lastUsed = settings.value("/QField/CogoOperationLastUsed", "point_at_xyz");
         const operationData = cogoOperationsModel.get(lastUsed);
         cogoOperationSettings.name = operationData.Name;
-        cogoOperationSettings.parameters = operationData.Parameters;
         cogoOperationSettings.title = operationData.DisplayName;
       }
     }
@@ -94,10 +93,7 @@ Item {
         onClicked: {
           settings.setValue("/QField/CogoOperationLastUsed", Name);
           cogoOperationSettings.name = Name;
-          cogoOperationSettings.parameters = Parameters;
           cogoOperationSettings.title = DisplayName;
-          cogoOperationSettings.parameterValues = {};
-          cogoOperationSettings.positionInformations = {};
           displayToast(DisplayName);
         }
       }

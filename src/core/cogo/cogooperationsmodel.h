@@ -34,7 +34,6 @@ class CogoOperationsModel : public QAbstractListModel
       NameRole = Qt::UserRole + 1,
       DisplayNameRole,
       IconRole,
-      ParametersRole,
     };
     Q_ENUM( OperationRoles )
 

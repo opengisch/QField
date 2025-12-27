@@ -40,9 +40,14 @@ class CogoExecutor : public QObject
     Q_PROPERTY( QString name READ name WRITE setName NOTIFY nameChanged )
 
     /**
+     * The list of parameters of the COGO operation to be executed.
+     */
+    Q_PROPERTY( QList<CogoParameter> parameters READ parameters NOTIFY parametersChanged )
+
+    /**
      * The map of parameter values to be used when executing the COGO operation.
      */
-    Q_PROPERTY( QVariantMap parameters READ parameters WRITE setParameters NOTIFY parametersChanged )
+    Q_PROPERTY( QVariantMap parameterValues READ parameterValues WRITE setParameterValues NOTIFY parameterValuesChanged )
 
     /**
      * The visual guides returned by the COGO operation paired with the parameters.
@@ -73,9 +78,12 @@ class CogoExecutor : public QObject
     void setName( const QString &name );
 
     //! \copydoc CogoExecutor::parameters
-    QVariantMap parameters() const { return mParameters; }
-    //! \copydoc CogoExecutor::parameters
-    void setParameters( const QVariantMap &parameters );
+    QList<CogoParameter> parameters() const { return mParameters; }
+
+    //! \copydoc CogoExecutor::parameterValues
+    QVariantMap parameterValues() const { return mParameterValues; }
+    //! \copydoc CogoExecutor::parameterValues
+    void setParameterValues( const QVariantMap &parameterValues );
 
     //! \copydoc CogoExecutor::visualGuides
     QList<CogoVisualGuide> visualGuides() const;
@@ -103,6 +111,8 @@ class CogoExecutor : public QObject
     void nameChanged();
     //! \copydoc CogoExecutor::parameters
     void parametersChanged();
+    //! \copydoc CogoExecutor::parameterValuess
+    void parameterValuesChanged();
     //! \copydoc CogoExecutor::visualGuides
     void visualGuidesChanged();
     //! \copydoc CogoExecutor::isReady
@@ -113,11 +123,14 @@ class CogoExecutor : public QObject
     void rubberbandModelChanged();
 
   private:
+    void getParameters();
     void generateVisualGuides();
     void checkReadiness();
 
     QString mName;
-    QVariantMap mParameters;
+    QList<CogoParameter> mParameters;
+
+    QVariantMap mParameterValues;
     QList<CogoVisualGuide> mVisualGuides;
     bool mIsReady = false;
 

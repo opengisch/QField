@@ -51,7 +51,7 @@ QfOverlayContainer {
           property string parameterName: modelData !== undefined ? modelData.name : ""
           property string parameterLabel: modelData !== undefined ? modelData.label : ""
           property color parameterColor: modelData !== undefined ? modelData.color : "#00000000"
-          property var parameterConfiguration: modelData !== undefined ? modelData.config : []
+          property var parameterConfiguration: modelData !== undefined ? modelData.configuration : []
 
           y: 2
           width: parent.width

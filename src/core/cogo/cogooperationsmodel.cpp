@@ -88,9 +88,6 @@ QVariant CogoOperationsModel::data( const QModelIndex &index, int role ) const
     case IconRole:
       return operation->icon();
 
-    case ParametersRole:
-      return QVariant::fromValue<QList<CogoParameter>>( operation->parameters() );
-
     default:
       return QVariant();
   }
@@ -104,6 +101,5 @@ QHash<int, QByteArray> CogoOperationsModel::roleNames() const
     { NameRole, "Name" },
     { DisplayNameRole, "DisplayName" },
     { IconRole, "Icon" },
-    { ParametersRole, "Parameters" },
   };
 }

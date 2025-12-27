@@ -69,22 +69,32 @@ class CogoParameter
     /**
      * The COGO parameter's extra configuration details.
      */
-    Q_PROPERTY( QVariantMap config MEMBER config )
+    Q_PROPERTY( QVariantMap configuration MEMBER configuration )
 
   public:
-    explicit CogoParameter( const QString &type = QString(), const QString &name = QString(), const QString &label = QString(), const QColor &color = Qt::transparent, const QVariantMap &config = QVariantMap() )
+    explicit CogoParameter( const QString &type = QString(), const QString &name = QString(), const QString &label = QString(), const QColor &color = Qt::transparent, const QVariantMap &configuration = QVariantMap() )
       : type( type )
       , name( name )
       , label( label )
       , color( color )
-      , config( config )
+      , configuration( configuration )
     {}
 
     QString type;
     QString name;
     QString label;
     QColor color;
-    QVariantMap config;
+    QVariantMap configuration;
+
+    bool operator==( CogoParameter &other ) const
+    {
+      return type == other.type && name == other.name && label == other.label && color == other.color && configuration == other.configuration;
+    }
+
+    bool operator!=( CogoParameter &other ) const
+    {
+      return !( *this == other );
+    }
 };
 
 
@@ -190,10 +200,11 @@ class CogoOperation
 
     /**
      * Executes the operation and add generated vertex or vertices into the rubberband model.
-     * \param parameters the parameters used to execute the operation
      * \param rubberbandModel the rubberband model within which one or more vertices will be added
+     * \param parameters the parameters used to execute the operation
+     * \param wkbType An optional WKB type to reflect ability of the geometry being digitized
      */
-    virtual bool execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const { return false; }
+    virtual bool execute( RubberbandModel *rubberbandModel, const QVariantMap &parameters, Qgis::WkbType wkbType = Qgis::WkbType::Unknown ) const { return false; }
 };
 
 
@@ -213,7 +224,7 @@ class CogoOperationPointAtXYZ : public CogoOperation
     QList<CogoParameter> parameters( Qgis::WkbType wkbType ) const override;
     QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
     bool checkReadiness( const QVariantMap &parameters, Qgis::WkbType wkbType = Qgis::WkbType::Unknown ) const override;
-    bool execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const override;
+    bool execute( RubberbandModel *rubberbandModel, const QVariantMap &parameters, Qgis::WkbType wkbType ) const override;
 };
 
 
@@ -233,7 +244,7 @@ class CogoOperationPointAtDistanceAngle : public CogoOperation
     QList<CogoParameter> parameters( Qgis::WkbType wkbType ) const override;
     QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
     bool checkReadiness( const QVariantMap &parameters, Qgis::WkbType wkbType = Qgis::WkbType::Unknown ) const override;
-    bool execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const override;
+    bool execute( RubberbandModel *rubberbandModel, const QVariantMap &parameters, Qgis::WkbType wkbType ) const override;
 };
 
 
@@ -253,7 +264,7 @@ class CogoOperationPointAtIntersectionCircles : public CogoOperation
     QList<CogoParameter> parameters( Qgis::WkbType wkbType ) const override;
     QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
     bool checkReadiness( const QVariantMap &parameters, Qgis::WkbType wkbType = Qgis::WkbType::Unknown ) const override;
-    bool execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const override;
+    bool execute( RubberbandModel *rubberbandModel, const QVariantMap &parameters, Qgis::WkbType wkbType ) const override;
 };
 Q_DECLARE_METATYPE( CogoOperation )
 Q_DECLARE_METATYPE( CogoParameter )

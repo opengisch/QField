@@ -69,9 +69,9 @@ bool CogoOperationPointAtXYZ::checkReadiness( const QVariantMap &parameters, Qgi
   return true;
 }
 
-bool CogoOperationPointAtXYZ::execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const
+bool CogoOperationPointAtXYZ::execute( RubberbandModel *rubberbandModel, const QVariantMap &parameters, Qgis::WkbType wkbType ) const
 {
-  if ( !rubberbandModel || !checkReadiness( parameters ) )
+  if ( !rubberbandModel || !checkReadiness( parameters, wkbType ) )
   {
     return false;
   }
@@ -88,6 +88,10 @@ QList<CogoParameter> CogoOperationPointAtDistanceAngle::parameters( Qgis::WkbTyp
   parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ) )
              << CogoParameter( QStringLiteral( "distance" ), QStringLiteral( "distance" ) )
              << CogoParameter( QStringLiteral( "angle" ), QStringLiteral( "angle" ) );
+  if ( QgsWkbTypes::hasZ( wkbType ) )
+  {
+    parameters << CogoParameter( QStringLiteral( "elevation" ), QStringLiteral( "elevation" ) );
+  }
   return parameters;
 }
 
@@ -160,13 +164,21 @@ bool CogoOperationPointAtDistanceAngle::checkReadiness( const QVariantMap &param
   {
     return false;
   }
+  if ( QgsWkbTypes::hasZ( wkbType ) )
+  {
+    ( void ) parameters[QStringLiteral( "elevation" )].toDouble( &ok );
+    if ( !ok )
+    {
+      return false;
+    }
+  }
 
   return true;
 }
 
-bool CogoOperationPointAtDistanceAngle::execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const
+bool CogoOperationPointAtDistanceAngle::execute( RubberbandModel *rubberbandModel, const QVariantMap &parameters, Qgis::WkbType wkbType ) const
 {
-  if ( !rubberbandModel || !checkReadiness( parameters ) )
+  if ( !rubberbandModel || !checkReadiness( parameters, wkbType ) )
   {
     return false;
   }
@@ -178,8 +190,14 @@ bool CogoOperationPointAtDistanceAngle::execute( const QVariantMap &parameters, 
 
   const double x = point.x() + ( distance * std::cos( -angleRadian ) );
   const double y = point.y() + ( distance * std::sin( -angleRadian ) );
+  double z = std::numeric_limits<double>::quiet_NaN();
+  if ( QgsWkbTypes::hasZ( wkbType ) && !std::isnan( point.z() ) )
+  {
+    const double elevation = parameters[QStringLiteral( "elevation" )].toDouble();
+    z = point.z() + elevation;
+  }
 
-  rubberbandModel->addVertexFromPoint( QgsPoint( x, y ) );
+  rubberbandModel->addVertexFromPoint( QgsPoint( x, y, z ) );
 
   return true;
 }
@@ -317,9 +335,9 @@ bool CogoOperationPointAtIntersectionCircles::checkReadiness( const QVariantMap 
   return true;
 }
 
-bool CogoOperationPointAtIntersectionCircles::execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const
+bool CogoOperationPointAtIntersectionCircles::execute( RubberbandModel *rubberbandModel, const QVariantMap &parameters, Qgis::WkbType wkbType ) const
 {
-  if ( !rubberbandModel || !checkReadiness( parameters ) )
+  if ( !rubberbandModel || !checkReadiness( parameters, wkbType ) )
   {
     return false;
   }
