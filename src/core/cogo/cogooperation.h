@@ -170,8 +170,9 @@ class CogoOperation
 
     /**
      * Returns the list of available parameters to configure the operation.
+     * \param wkbType An optional WKB type to reflect ability of the geometry being digitized
      */
-    virtual QList<CogoParameter> parameters() const { return QList<CogoParameter>(); }
+    virtual QList<CogoParameter> parameters( Qgis::WkbType wkbType = Qgis::WkbType::Unknown ) const { return QList<CogoParameter>(); }
 
     /**
      * Returns a list of visual guides based on provided parameters.
@@ -181,9 +182,11 @@ class CogoOperation
     virtual QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const { return QList<CogoVisualGuide>(); }
 
     /**
-     * Returns TRUE is the provided \a parameters allow for the operation to be executed.
+     * Returns TRUE is the provided parameters allow for the operation to be executed.
+     * \param parameters the parameters to be validated for readiness
+     * \param wkbType An optional WKB type to reflect ability of the geometry being digitized
      */
-    virtual bool checkReadiness( const QVariantMap &parameters ) const { return false; }
+    virtual bool checkReadiness( const QVariantMap &parameters, Qgis::WkbType wkbType = Qgis::WkbType::Unknown ) const { return false; }
 
     /**
      * Executes the operation and add generated vertex or vertices into the rubberband model.
@@ -207,9 +210,9 @@ class CogoOperationPointAtXYZ : public CogoOperation
     QString name() const override { return QStringLiteral( "point_at_xyz" ); }
     QString displayName() const override { return QObject::tr( "XY" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_xy_white_24dp" ); }
-    QList<CogoParameter> parameters() const override;
+    QList<CogoParameter> parameters( Qgis::WkbType wkbType ) const override;
     QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
-    bool checkReadiness( const QVariantMap &parameters ) const override;
+    bool checkReadiness( const QVariantMap &parameters, Qgis::WkbType wkbType = Qgis::WkbType::Unknown ) const override;
     bool execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const override;
 };
 
@@ -227,9 +230,9 @@ class CogoOperationPointAtDistanceAngle : public CogoOperation
     QString name() const override { return QStringLiteral( "point_at_distance_angle" ); }
     QString displayName() const override { return QObject::tr( "Distance/Angle from Point" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_angle_distance_white_24dp" ); }
-    QList<CogoParameter> parameters() const override;
+    QList<CogoParameter> parameters( Qgis::WkbType wkbType ) const override;
     QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
-    bool checkReadiness( const QVariantMap &parameters ) const override;
+    bool checkReadiness( const QVariantMap &parameters, Qgis::WkbType wkbType = Qgis::WkbType::Unknown ) const override;
     bool execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const override;
 };
 
@@ -247,9 +250,9 @@ class CogoOperationPointAtIntersectionCircles : public CogoOperation
     QString name() const override { return QStringLiteral( "point_at_intersection_circles" ); }
     QString displayName() const override { return QObject::tr( "Circles Intersection" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_intersection_circles_white_24dp" ); }
-    QList<CogoParameter> parameters() const override;
+    QList<CogoParameter> parameters( Qgis::WkbType wkbType ) const override;
     QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
-    bool checkReadiness( const QVariantMap &parameters ) const override;
+    bool checkReadiness( const QVariantMap &parameters, Qgis::WkbType wkbType = Qgis::WkbType::Unknown ) const override;
     bool execute( const QVariantMap &parameters, RubberbandModel *rubberbandModel ) const override;
 };
 Q_DECLARE_METATYPE( CogoOperation )

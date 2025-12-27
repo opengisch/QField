@@ -22,7 +22,7 @@
 #include <qgsgeometryutils.h>
 #include <qgspoint.h>
 
-QList<CogoParameter> CogoOperationPointAtXYZ::parameters() const
+QList<CogoParameter> CogoOperationPointAtXYZ::parameters( Qgis::WkbType wkbType ) const
 {
   QList<CogoParameter> parameters;
   parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ) );
@@ -48,7 +48,7 @@ QList<CogoVisualGuide> CogoOperationPointAtXYZ::visualGuides( const QVariantMap 
   return guides;
 }
 
-bool CogoOperationPointAtXYZ::checkReadiness( const QVariantMap &parameters ) const
+bool CogoOperationPointAtXYZ::checkReadiness( const QVariantMap &parameters, Qgis::WkbType wkbType ) const
 {
   if ( !parameters.contains( QStringLiteral( "point" ) ) )
   {
@@ -82,7 +82,7 @@ bool CogoOperationPointAtXYZ::execute( const QVariantMap &parameters, Rubberband
   return true;
 }
 
-QList<CogoParameter> CogoOperationPointAtDistanceAngle::parameters() const
+QList<CogoParameter> CogoOperationPointAtDistanceAngle::parameters( Qgis::WkbType wkbType ) const
 {
   QList<CogoParameter> parameters;
   parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point" ) )
@@ -130,7 +130,7 @@ QList<CogoVisualGuide> CogoOperationPointAtDistanceAngle::visualGuides( const QV
   return guides;
 }
 
-bool CogoOperationPointAtDistanceAngle::checkReadiness( const QVariantMap &parameters ) const
+bool CogoOperationPointAtDistanceAngle::checkReadiness( const QVariantMap &parameters, Qgis::WkbType wkbType ) const
 {
   if ( !parameters.contains( QStringLiteral( "point" ) ) || !parameters.contains( QStringLiteral( "distance" ) ) || !parameters.contains( QStringLiteral( "angle" ) ) )
   {
@@ -184,7 +184,7 @@ bool CogoOperationPointAtDistanceAngle::execute( const QVariantMap &parameters, 
   return true;
 }
 
-QList<CogoParameter> CogoOperationPointAtIntersectionCircles::parameters() const
+QList<CogoParameter> CogoOperationPointAtIntersectionCircles::parameters( Qgis::WkbType wkbType ) const
 {
   QList<CogoParameter> parameters;
   parameters << CogoParameter( QStringLiteral( "point" ), QStringLiteral( "point1" ), QStringLiteral( "Circle #1" ), COLOR_GROUP_1 )
@@ -277,7 +277,7 @@ QList<CogoVisualGuide> CogoOperationPointAtIntersectionCircles::visualGuides( co
   return guides;
 }
 
-bool CogoOperationPointAtIntersectionCircles::checkReadiness( const QVariantMap &parameters ) const
+bool CogoOperationPointAtIntersectionCircles::checkReadiness( const QVariantMap &parameters, Qgis::WkbType wkbType ) const
 {
   if ( !parameters.contains( QStringLiteral( "point1" ) ) || !parameters.contains( QStringLiteral( "distance1" ) ) || !parameters.contains( QStringLiteral( "point2" ) ) || !parameters.contains( QStringLiteral( "distance2" ) ) )
   {
