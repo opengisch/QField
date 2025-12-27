@@ -31,7 +31,7 @@ CogoParameterWidgetBase {
         Layout.fillWidth: true
         color: Theme.secondaryTextColor
         font: Theme.tipFont
-        text: parameterLabel ? parameterLabel : qsTr("Distance")
+        text: (parameterLabel ? parameterLabel : qsTr("Distance")) + ' [' + UnitTypes.toAbbreviatedString(destinationCrs.mapUnits) + ']'
       }
     }
 

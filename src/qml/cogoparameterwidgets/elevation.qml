@@ -31,7 +31,7 @@ CogoParameterWidgetBase {
         Layout.fillWidth: true
         color: Theme.secondaryTextColor
         font: Theme.tipFont
-        text: parameterLabel ? parameterLabel : qsTr("Elevation")
+        text: (parameterLabel ? parameterLabel : qsTr("Elevation")) + (destinationCrs.isGeographic ? '' : ' [' + UnitTypes.toAbbreviatedString(destinationCrs.mapUnits) + ']')
       }
     }
 

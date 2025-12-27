@@ -38,14 +38,14 @@ CogoParameterWidgetBase {
         text: {
           let content = (parameterLabel ? parameterLabel : qsTr("Point")) + ": ";
           if (mapSettings.destinationCrs.isGeographic) {
-            content += qsTr("Latitude") + ' ' + qsTr("Longitude");
+            content += qsTr("latitude") + ' ' + qsTr("longitude");
             if (!!parameterConfiguration["hasZ"]) {
-              content += ' [' + qsTr("Elevation") + ']';
+              content += ' [' + qsTr("elevation") + ']';
             }
           } else {
-            content += qsTr("Easting (X)") + ' ' + qsTr("Northing (Y)");
+            content += qsTr("easting (X)") + ' ' + qsTr("northing (Y)");
             if (!!parameterConfiguration["hasZ"]) {
-              content += ' [' + qsTr("Elevation (Z)") + ']';
+              content += ' [' + qsTr("elevation (Z)") + ']';
             }
           }
           return content;
@@ -104,7 +104,7 @@ CogoParameterWidgetBase {
   function requestedPositionReceived(position, positionInformation) {
     if (!isNaN(position.x)) {
       const isGeographic = destinationCrs.isGeographic;
-      const precision = isGeographic ? 5 : 3;
+      const precision = isGeographic ? 7 : 3;
       let content = isGeographic ? position.y.toFixed(precision) + ' ' + position.x.toFixed(precision) : position.x.toFixed(precision) + ' ' + position.y.toFixed(precision);
       if (!!parameterConfiguration["hasZ"]) {
         if (!isNaN(position.z)) {
