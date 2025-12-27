@@ -28,10 +28,16 @@ CogoParameterWidgetBase {
       }
 
       Label {
+        color: Theme.mainTextColor
+        font: Theme.tipFont
+        text: parameterLabel ? parameterLabel : qsTr("Elevation")
+      }
+
+      Label {
         Layout.fillWidth: true
         color: Theme.secondaryTextColor
         font: Theme.tipFont
-        text: (parameterLabel ? parameterLabel : qsTr("Elevation")) + (destinationCrs.isGeographic ? '' : ' [' + UnitTypes.toAbbreviatedString(destinationCrs.mapUnits) + ']')
+        text: destinationCrs.isGeographic ? '' : '[' + UnitTypes.toAbbreviatedString(destinationCrs.mapUnits) + ']'
       }
     }
 

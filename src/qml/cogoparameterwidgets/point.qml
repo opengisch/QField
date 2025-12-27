@@ -32,20 +32,25 @@ CogoParameterWidgetBase {
       }
 
       Label {
-        Layout.fillWidth: true
+        color: Theme.mainTextColor
+        font: Theme.tipFont
+        text: parameterLabel ? parameterLabel : qsTr("Point")
+      }
+
+      Label {
         color: Theme.secondaryTextColor
         font: Theme.tipFont
         text: {
-          let content = (parameterLabel ? parameterLabel : qsTr("Point")) + ": ";
+          let content = '';
           if (mapSettings.destinationCrs.isGeographic) {
             content += qsTr("latitude") + ' ' + qsTr("longitude");
             if (!!parameterConfiguration["hasZ"]) {
-              content += ' [' + qsTr("elevation") + ']';
+              content += ' ' + qsTr("elevation");
             }
           } else {
-            content += qsTr("easting (X)") + ' ' + qsTr("northing (Y)");
+            content += qsTr("easting [X]") + ' ' + qsTr("northing [Y]");
             if (!!parameterConfiguration["hasZ"]) {
-              content += ' [' + qsTr("elevation (Z)") + ']';
+              content += ' ' + qsTr("elevation [Z]");
             }
           }
           return content;

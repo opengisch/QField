@@ -28,10 +28,16 @@ CogoParameterWidgetBase {
       }
 
       Label {
+        color: Theme.mainTextColor
+        font: Theme.tipFont
+        text: parameterLabel ? parameterLabel : qsTr("Angle")
+      }
+
+      Label {
         Layout.fillWidth: true
         color: Theme.secondaryTextColor
         font: Theme.tipFont
-        text: (parameterLabel ? parameterLabel : qsTr("Angle")) + ' [' + qsTr('deg') + ']'
+        text: '[' + qsTr('deg') + ']'
       }
     }
 
