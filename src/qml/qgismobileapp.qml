@@ -2728,6 +2728,7 @@ ApplicationWindow {
         id: digitizingToolbar
 
         property bool digitizingAllowed: dashBoard.activeLayer && !dashBoard.activeLayer.readOnly && !LayerUtils.isFeatureAdditionLocked(dashBoard.activeLayer) && (projectInfo.editRights || projectInfo.insertRights)
+        property string previousStateMachineState: ''
 
         stateVisible: !screenLocker.enabled && (!positioningSettings.geofencingPreventDigitizingDuringAlert || !geofencer.isAlerting) && ((stateMachine.state === "digitize" && digitizingAllowed && !geometryEditorsToolbar.stateVisible && !moveFeaturesToolbar.stateVisible && !rotateFeaturesToolbar.stateVisible) || stateMachine.state === 'measure' || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
         rubberbandModel: currentRubberband ? currentRubberband.model : null
@@ -2749,17 +2750,6 @@ ApplicationWindow {
             id: digitizingGeometry
             rubberbandModel: digitizingRubberband.model
             vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.activeLayer
-          }
-        }
-
-        property string previousStateMachineState: ''
-        onGeometryRequestedChanged: {
-          if (geometryRequested) {
-            digitizingRubberband.model.reset();
-            previousStateMachineState = stateMachine.state;
-            stateMachine.state = "digitize";
-          } else {
-            stateMachine.state = previousStateMachineState;
           }
         }
 
@@ -2875,6 +2865,16 @@ ApplicationWindow {
           coordinateLocator.sourceLocation = undefined;
         }
 
+        onGeometryRequestedChanged: {
+          if (geometryRequested) {
+            digitizingRubberband.model.reset();
+            previousStateMachineState = stateMachine.state;
+            stateMachine.state = "digitize";
+          } else {
+            stateMachine.state = previousStateMachineState;
+          }
+        }
+
         onRequestJumpToPoint: function (center, scale, handleMargins) {
           mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
         }
@@ -2883,7 +2883,15 @@ ApplicationWindow {
           if (fromCoordinateLocator) {
             item.requestedPositionReceived(coordinateLocator.currentCoordinate, undefined);
           } else {
-            item.requestedPositionReceived(positionSource.projectedPosition, positionSource.positionInformation);
+            if (!positionSource.active) {
+              displayToast(qsTr("Enable positioning service to get points at your location"));
+              item.requestedPositionReceived(GeometryUtils.emptyPoint(), undefined);
+            } else if (!positionSource.positionInformation.latitudeValid) {
+              displayToast(qsTr("Positioning service has not yet received a valid location"));
+              item.requestedPositionReceived(GeometryUtils.emptyPoint(), undefined);
+            } else {
+              item.requestedPositionReceived(positionSource.projectedPosition, positionSource.positionInformation);
+            }
           }
         }
       }
