@@ -57,7 +57,6 @@ class CogoParameter
 
     /**
      * The COGO parameter label.
-     * \note if none is provided, a default label will be used instead.
      */
     Q_PROPERTY( QString label MEMBER label )
 

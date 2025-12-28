@@ -34,7 +34,7 @@ CogoParameterWidgetBase {
       Label {
         color: Theme.mainTextColor
         font: Theme.tipFont
-        text: parameterLabel ? parameterLabel : qsTr("Point")
+        text: parameterLabel
       }
 
       Label {
